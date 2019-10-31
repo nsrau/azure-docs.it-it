@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e542ad59f6fd64b52aef9438ed0f646e9e36fc4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d3166c1f97a81c12b75dd400f591fd92a705cadf
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209632"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73178029"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
 Questo articolo offre istruzioni dettagliate su come usare il servizio Importazione/Esportazione di Azure per esportare in tutta sicurezza grandi quantità di dati da Archiviazione BLOB di Azure. Il servizio richiede la spedizione di unità vuote al data center di Azure. Il servizio esporta i dati dall'account di archiviazione alle unità e quindi rispedisce le unità.
@@ -25,7 +25,7 @@ Prima di creare un processo di esportazione per trasferire dati da Archiviazione
 - Avere una sottoscrizione di Azure attiva che possa essere usata per il servizio Importazione/Esportazione.
 - Avere almeno un account di archiviazione di Azure. Vedere l'elenco di [account di archiviazione e tipi di archiviazione supportati per il servizio Importazione/Esportazione](storage-import-export-requirements.md). Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-quickstart-create-account.md).
 - Avere un numero adeguato di dischi dei [tipi supportati](storage-import-export-requirements.md#supported-disks).
-- Avere un account FedEx o DHL. Se si desidera usare un operatore diverso da FedEx o DHL, contattare il team di finestra operazioni sui dati di Azure all'indirizzo `adbops@microsoft.com`. 
+- Avere un account FedEx o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare Azure Data Box team operativo all'`adbops@microsoft.com`. 
     - L'account deve essere valido, deve avere un saldo e deve avere le funzionalità di spedizione di ritorno.
     - Generare un numero di tracciabilità per il processo di esportazione.
     - Ogni processo deve avere un numero di tracciabilità separato. Più processi con lo stesso numero di tracciabilità non sono supportati. 
@@ -52,7 +52,7 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
     - Immettere un nome descrittivo per il processo di esportazione. Usare il nome scelto per tenere traccia dello stato dei processi. 
         - Il nome può contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura.
         - Il nome deve iniziare con una lettera e non può contenere spazi. 
-    - Selezionare una sottoscrizione.
+    - Seleziona una sottoscrizione.
     - Immettere o selezionare un gruppo di risorse.
 
         ![Nozioni di base](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
@@ -82,8 +82,8 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
 
 4. In **Informazioni sul mittente della spedizione**:
 
-    - Selezionare il vettore nell'elenco a discesa. Se si desidera usare un operatore diverso da FedEx o DHL, scegliere un'opzione esistente dall'elenco a discesa. Finestra operazioni dei dati di contatto Azure team a `adbops@microsoft.com` con le informazioni riguardanti il corriere si intende usare.
-    - Immettere un numero di account di vettore valido creato con il vettore. Microsoft Usa questo account per spedire le unità al cliente una volta completato il processo di esportazione. 
+    - Selezionare il vettore nell'elenco a discesa. Se si vuole usare un vettore diverso da FedEx/DHL, scegliere un'opzione esistente nell'elenco a discesa. Contattare Azure Data Box team operativo all'`adbops@microsoft.com` con le informazioni relative al vettore che si intende usare.
+    - Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per inviare le unità al termine del processo di esportazione. 
     - Specificare un nome di contatto completo e valido, insieme a numero di telefono, indirizzo di posta elettronica, indirizzo, città, CAP, stato/provincia e paese/area.
 
         > [!TIP] 
@@ -105,7 +105,7 @@ In caso di dubbi sul numero di unità necessarie, passare a [Controllare il nume
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## <a name="step-3-update-the-job-with-tracking-information"></a>Passaggio 3: Aggiornare il processo con informazioni di verifica
+## <a name="step-3-update-the-job-with-tracking-information"></a>Passaggio 3: Aggiornare il processo con informazioni di tracciabilità della spedizione
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
@@ -127,8 +127,8 @@ L'esportazione è stata completata. A questo punto, è possibile eliminare il pr
 
 Questo passaggio *facoltativo* aiuta a determinare il numero di unità necessarie per il processo di esportazione. Eseguire questo passaggio in un sistema Windows con una [versione supportata del sistema operativo](storage-import-export-requirements.md#supported-operating-systems).
 
-1. [Scaricare WAImportExport versione 1](https://aka.ms/waiev1) nel sistema Windows. 
-2. Decomprimere la cartella predefinita `waimportexportv1`. Ad esempio: `C:\WaImportExportV1`.
+1. [Scaricare WAImportExport versione 1](https://www.microsoft.com/download/details.aspx?id=42659) nel sistema Windows. 
+2. Decomprimere la cartella predefinita `waimportexportv1`. Ad esempio `C:\WaImportExportV1`.
 3. Aprire una finestra di PowerShell o della riga di comando con privilegi amministrativi. Per passare alla directory della cartella decompressa, eseguire il comando seguente:
     
     `cd C:\WaImportExportV1`
@@ -139,7 +139,7 @@ Questo passaggio *facoltativo* aiuta a determinare il numero di unità necessari
 
     I parametri vengono descritti nella tabella seguente:
     
-    |Parametro della riga di comando|Descrizione|  
+    |Parametro della riga di comando|Description|  
     |--------------------------|-----------------|  
     |**/logdir:**|facoltativo. Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificato, come directory dei log viene usata la directory corrente.|  
     |**/sn:**|Richiesto. Il nome dell'account di archiviazione per il processo di esportazione.|  
@@ -193,7 +193,7 @@ Number of drives needed:        3
 
 La tabella seguente mostra alcuni esempi di percorsi BLOB validi:
    
-   | Selector | Percorso BLOB | Descrizione |
+   | Selettore | Percorso BLOB | Description |
    | --- | --- | --- |
    | Starts With |/ |Esporta tutti i BLOB nell'account di archiviazione |
    | Starts With |/$root/ |Esporta tutti i BLOB nel contenitore radice |

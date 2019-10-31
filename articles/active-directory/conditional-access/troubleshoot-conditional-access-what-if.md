@@ -11,20 +11,23 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d463bc889385f8f157ebb9892acc7a4a8b2a2e
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 661afc08c76c6cde61b02a29a55b4a8bec932e21
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278532"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175785"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Risoluzione dei problemi di accesso condizionale mediante lo strumento What If
 
 Lo [strumento What If](what-if-tool.md) nell'accesso condizionale è potente quando si tenta di comprendere il motivo per cui un criterio è stato o non è stato applicato a un utente in una circostanza specifica o se un criterio verrebbe applicato in uno stato noto.
 
-Lo strumento What If si trova nel **portale di Azure** > **Azure Active Directory** > **What If**di**accesso** > condizionale.
+Lo strumento What If si trova nel **portale di Azure** > **Azure Active Directory** ** >  > di** **accesso condizionale** .
 
 ![Strumento di What If dell'accesso condizionale in stato predefinito](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
+
+> [!NOTE]
+> Lo strumento di What If attualmente non valuta i criteri in modalità di sola segnalazione.
 
 ## <a name="gathering-information"></a>Raccolta di informazioni
 
@@ -34,7 +37,7 @@ Le informazioni aggiuntive seguenti sono facoltative, ma consentono di restringe
 
 * App o azioni cloud
 * Indirizzo IP 
-* Country
+* Paese
 * Piattaforma del dispositivo.
 * App client (anteprima)
 * Stato del dispositivo (anteprima) 
@@ -75,4 +78,4 @@ Questo test potrebbe essere espanso per incorporare altri punti dati per limitar
 * [Che cos'è l'accesso condizionale?](overview.md)
 * [Che cos'è Azure Active Directory Identity Protection?](../identity-protection/overview-v2.md)
 * [Informazioni sulle identità dei dispositivi](../devices/overview.md)
-* [Funzionamento: di Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [Funzionamento di Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)

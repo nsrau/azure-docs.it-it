@@ -10,12 +10,12 @@ ms.date: 10/28/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c8f4250d2df7703ad2960c2d68cd015cb6ec2bc
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 24efd9d67e5bcc083ce1a02dcf0850a39189afe8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052882"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173100"
 ---
 # <a name="cloud-authentication-staged-rollout-public-preview"></a>Autenticazione cloud: implementazione temporanea (anteprima pubblica)
 

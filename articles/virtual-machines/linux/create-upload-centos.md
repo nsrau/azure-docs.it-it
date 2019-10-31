@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: cfbd687e59a9a852fe1bf01386dac221f040d0f4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6c3bb16e249d84f1da94b6b827bbaf6f8e9df1a1
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083634"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171254"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparare una macchina virtuale basata su CentOS per Azure
 
@@ -81,7 +81,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
 
-7. Assicurarsi che il servizio di rete venga eseguito all'avvio attivando il seguente comando:
+7. Assicurarsi che il servizio di rete venga eseguito all'avvio eseguendo il comando seguente:
 
     ```bash
     sudo chkconfig network on
@@ -171,7 +171,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
     sudo yum install microsoft-hyper-v
     ```
 
-    In alternativa, seguire le istruzioni per l'installazione manuale disponibili nella [pagina di download di LIS](https://go.microsoft.com/fwlink/?linkid=403033) per installare RPM nella VM.
+    In alternativa, seguire le istruzioni per l'installazione manuale disponibili nella [pagina di download di LIS](https://www.microsoft.com/download/details.aspx?id=51612) per installare RPM nella VM.
 
 12. Installare l'agente Linux di Azure e le dipendenze. Avviare e abilitare il servizio waagent:
 
@@ -350,12 +350,12 @@ La preparazione di una macchina virtuale CentOS 7 per Azure è molto simile a Ce
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-10. Se si compila l'immagine da **VMware, VirtualBox o KVM**, assicurarsi che i driver Hyper-V siano inclusi in initramfs:
+10. Se si compila l'immagine da **VMware, VirtualBox o KVM**, verificare che i driver Hyper-V siano inclusi in initramfs:
 
     Modificare `/etc/dracut.conf`e aggiungere il contenuto:
 
     ```console
-    add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+    add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
     ```
 
     Ricompilare l’initramfs:

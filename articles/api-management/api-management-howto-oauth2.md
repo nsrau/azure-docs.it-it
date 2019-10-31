@@ -10,18 +10,21 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: e6b5c8c2f734a12fe246a82ce1aa1dc53893ab64
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 99a49aa4627dc23d5f7531ac961d63e3e75ccff9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072383"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176625"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Come autorizzare gli account per sviluppatori utilizzando OAuth 2.0 in Gestione API di Azure
 
 Molte API supportano [OAuth 2.0](https://oauth.net/2/) per proteggere l'API e assicurare che solo gli utenti validi siano autorizzati all'accesso e che possano accedere solo alle risorse a cui hanno diritto. Per usare la console per sviluppatori interattiva di Gestione API di Azure con queste API, il servizio permette di configurare l'istanza del servizio per l'uso delle API abilitate per OAuth 2.0.
+
+> [!IMPORTANT]
+> L'autorizzazione OAuth 2,0 non è ancora disponibile nella console interattiva del nuovo portale per sviluppatori.
 
 ## <a name="prerequisites"> </a>Prerequisiti
 
@@ -54,7 +57,7 @@ Questa guida illustra come configurare un'istanza del servizio Gestione API per 
 
     Selezionare i tipi desiderati in **Tipi di concessione di autorizzazione**. **Authorization code** è specificato per impostazione predefinita.
 
-    Immettere il valore relativo a **Authorization endpoint URL**. Per Azure Active Directory, questo URL sarà simile all'URL seguente, dove `<tenant_id>` viene sostituito con l'ID del tenant di Azure ad.
+    Immettere il valore relativo a **Authorization endpoint URL**. Ad Azure Active Directory, questo URL sarà simile all'URL seguente, in cui `<tenant_id>` viene sostituito con l'ID del tenant di Azure AD.
 
     `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
@@ -92,11 +95,11 @@ Questa guida illustra come configurare un'istanza del servizio Gestione API per 
 
     ![Impostazioni OAuth 2.0](./media/api-management-howto-oauth2/oauth-07.png)
 
-## <a name="step3"></a>Test dell'autorizzazione utente OAuth 2.0 nel Portale per sviluppatori
+## <a name="step3"> </a>Portale per sviluppatori Legacy: testare l'autorizzazione utente OAuth 2,0
 
-Dopo aver configurato il server autorizzazione OAuth 2.0 e l'API per l'uso di tale server, è possibile testarlo andando al portale per sviluppatori e chiamando un'API.  Fare clic su **Portale per sviluppatori** nel menu in alto dalla pagina **Panoramica** dell'istanza di Gestione API di Azure.
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-![Portale per sviluppatori][api-management-developer-portal-menu]
+Dopo aver configurato il server autorizzazione OAuth 2.0 e l'API per l'uso di tale server, è possibile testarlo andando al portale per sviluppatori e chiamando un'API. Fare clic su **portale per sviluppatori (legacy)** nel menu in alto nella pagina **Panoramica** dell'istanza di gestione API di Azure.
 
 Fare clic su **API** nel menu superiore e scegliere **API Echo**.
 
@@ -128,7 +131,6 @@ Per altre informazioni sull'uso di OAuth 2.0 e di Gestione API, vedere il video 
 
 [api-management-oauth2-signin]: ./media/api-management-howto-oauth2/api-management-oauth2-signin.png
 [api-management-request-header-token]: ./media/api-management-howto-oauth2/api-management-request-header-token.png
-[api-management-developer-portal-menu]: ./media/api-management-howto-oauth2/api-management-developer-portal-menu.png
 [api-management-open-console]: ./media/api-management-howto-oauth2/api-management-open-console.png
 [api-management-apis-echo-api]: ./media/api-management-howto-oauth2/api-management-apis-echo-api.png
 

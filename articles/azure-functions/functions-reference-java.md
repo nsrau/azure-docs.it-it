@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: glenga
-ms.openlocfilehash: fa811c6bd89bf1c8ce9e0b9b4a7cebe9397aaf7f
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 97c721c504c460856796e296fefc33bf01f002f8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062127"
+ms.locfileid: "73176444"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 
@@ -33,7 +33,7 @@ Per semplificare la creazione di funzioni Java, sono disponibili strumenti e arc
 
 ### <a name="maven-based-tooling"></a>Strumenti basati su Maven
 
-Negli ambienti di sviluppo seguenti sono disponibili strumenti che consentono di creare progetti di funzioni Java: 
+Negli ambienti di sviluppo seguenti sono disponibili strumenti di funzioni di Azure che consentono di creare progetti di funzioni Java: 
 
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)
 + [Eclipse](functions-create-maven-eclipse.md)

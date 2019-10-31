@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 0823b4b7e19bec9d8efc83dbb3996076425cb4f1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 4d970e61fc2628843ef847526dcdb4e44bf9796f
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756891"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176925"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Utilizzare database, contenitori ed elementi in Azure Cosmos DB
 
@@ -82,10 +82,10 @@ Un contenitore di Azure Cosmos dispone di un set di proprietà definite dal sist
 
 | Proprietà definita dal sistema | Generato dal sistema o configurabile dall'utente | Finalità | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Generato dal sistema | Identificatore univoco di contenitore | SÌ | No | No | No | No |
-|\_etag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | SÌ | No | No | No | No |
-|\_ts | Generato dal sistema | Ultimo timestamp aggiornato del contenitore | SÌ | No | No | No | No |
-|\_self | Generato dal sistema | URI indirizzabile del contenitore | SÌ | No | No | No | No |
+|ID \_ | Generato dal sistema | Identificatore univoco di contenitore | SÌ | No | No | No | No |
+|\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | SÌ | No | No | No | No |
+|\_TS | Generato dal sistema | Ultimo timestamp aggiornato del contenitore | SÌ | No | No | No | No |
+|\_autonomo | Generato dal sistema | URI indirizzabile del contenitore | SÌ | No | No | No | No |
 |id | Configurabile dall'utente | Nome univoco definito dall'utente del contenitore | SÌ | SÌ | SÌ | SÌ | SÌ |
 |indexingPolicy | Configurabile dall'utente | Consente di modificare il percorso dell'indice, il tipo di indice e la modalità di indice | SÌ | No | No | No | SÌ |
 |timeToLive | Configurabile dall'utente | Consente di eliminare automaticamente gli elementi da un contenitore dopo un determinato periodo di tempo. Per informazioni dettagliate, vedere [durata (TTL](time-to-live.md)). | SÌ | No | No | No | SÌ |
@@ -118,11 +118,11 @@ Ogni elemento di Azure Cosmos presenta le seguenti proprietà definite dal siste
 
 | Proprietà definita dal sistema | Generato dal sistema o configurabile dall'utente| Finalità | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Generato dal sistema | Identificatore univoco dell'elemento | SÌ | No | No | No | No |
-|\_etag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | SÌ | No | No | No | No |
-|\_ts | Generato dal sistema | Timestamp dell'ultimo aggiornamento dell'elemento | SÌ | No | No | No | No |
-|\_self | Generato dal sistema | URI indirizzabile dell'elemento | SÌ | No | No | No | No |
-|id | È possibile usare il | Nome univoco definito dall'utente in una partizione logica. Se l'utente non specifica l'ID, il sistema ne genera automaticamente uno. | SÌ | SÌ | SÌ | SÌ | SÌ |
+|ID \_ | Generato dal sistema | Identificatore univoco dell'elemento | SÌ | No | No | No | No |
+|\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | SÌ | No | No | No | No |
+|\_TS | Generato dal sistema | Timestamp dell'ultimo aggiornamento dell'elemento | SÌ | No | No | No | No |
+|\_autonomo | Generato dal sistema | URI indirizzabile dell'elemento | SÌ | No | No | No | No |
+|id | È possibile usare il | Nome univoco definito dall'utente in una partizione logica. | SÌ | SÌ | SÌ | SÌ | SÌ |
 |Proprietà definite dall'utente arbitrarie | Route definite dall'utente | Proprietà definite dall'utente rappresentate nella rappresentazione nativa dell'API (inclusi JSON, BSON e CQL) | SÌ | SÌ | SÌ | SÌ | SÌ |
 
 > [!NOTE]

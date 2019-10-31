@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c5975b57b6f960badf747e33deb238adf260199
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: ede458e7d4c1cb1a8d7e3f2e2c9df54d5925d6d8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967204"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175979"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Scegliere il protocollo federativo appropriato per l'applicazione multi-tenant
 
@@ -30,12 +30,12 @@ La tabella seguente confronta
 * SAML (Security Assertion Markup Language)
 * Web Services Federation (WSFed)
 
-| Capacità| OAuth/OIDC| SAML/WSFed |
+| Funzionalità| OAuth/OIDC| SAML/WSFed |
 | - |-|-|
 | Single Sign-on basato sul Web| √| √ |
 | Single Sign-out basato sul Web| √| √ |
-| Single Sign-on basato su dispositivi mobili| √| √* |
-| Single Sign-out basato su dispositivi mobili| √| √* |
+| Single Sign-on basato su dispositivi mobili| √| √ |
+| Single Sign-out basato su dispositivi mobili| √| √ |
 | Criteri di accesso condizionale per le applicazioni per dispositivi mobili| √| X |
 | Esperienza multi-factor authentication per applicazioni per dispositivi mobili| √| X |
 | Microsoft Graph di accesso| √| X |

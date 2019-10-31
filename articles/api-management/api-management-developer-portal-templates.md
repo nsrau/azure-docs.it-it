@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: a8b250c45716146c505a803046b18bf5d05cf116
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9657414c56296ee710f17663bf0bbdd3a4d67ac8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073778"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176806"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli
 
@@ -26,15 +26,17 @@ Per personalizzare il portale per sviluppatori in Gestione API di Azure ci sono 
 
 * [Modificare i contenuti di pagine statiche e gli elementi di layout di pagina][modify-content-layout]
 * [Aggiornare gli stili usati per gli elementi della pagina nel portale per sviluppatori][customize-styles]
-* [Modificare i modelli usati per le pagine generate dal portale][portal-templates] (descritto in questa guida)
+* [Modificare i modelli usati per le pagine generate dal portale][portal-templates] (descritte in questa guida)
 
 I modelli vengono usati per personalizzare il contenuto delle pagine del portale per sviluppatori generate dal sistema, ad esempio la documentazione delle API, i prodotti, l'autenticazione utente e così via. La sintassi [DotLiquid](http://dotliquidmarkup.org/), insieme a un set fornito di risorse stringa localizzate, icone e controlli di pagina, offre grande flessibilità nella configurazione del contenuto delle pagine nel modo opportuno.
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="developer-portal-templates-overview"></a>Panoramica sui modelli del portale per sviluppatori
 
-La modifica dei modelli viene eseguita dal **portale per sviluppatori** quando vi si accede come amministratore. Per accedervi, aprire prima il Portale di Azure e fare clic su **Portale per sviluppatori** nella barra degli strumenti del servizio dell'istanza di Gestione API.
+La modifica dei modelli viene eseguita dal **portale per sviluppatori** quando vi si accede come amministratore. Per iniziare, aprire il portale di Azure e fare clic su **portale per sviluppatori** dalla barra degli strumenti del servizio dell'istanza di gestione API.
 
 Per accedere ai modelli del portale per sviluppatori, fare clic sull'icona di personalizzazione a sinistra per visualizzare il menu di personalizzazione e quindi fare clic su **Templates**.
 
@@ -161,7 +163,7 @@ Per annullare la modifiche alla versione pubblicata precedente di un modello, fa
 
 Fare clic su **Yes** per confermare.
 
-![Confirm][api-management-revert-template-confirm]
+![Conferma][api-management-revert-template-confirm]
 
 Al termine dell'operazione di annullamento, la versione pubblicata precedente del modello sarà disponibile nel portale per sviluppatori.
 
@@ -174,7 +176,7 @@ Per ripristinare la versione predefinita di un singolo modello, fare clic sull'i
 
 Fare clic su **Yes** per confermare.
 
-![Confirm][api-management-reset-template-confirm]
+![Conferma][api-management-reset-template-confirm]
 
 Per ripristinare le versioni predefinite di tutti i modelli, fare clic su **Restore default templates** nell'elenco dei modelli.
 

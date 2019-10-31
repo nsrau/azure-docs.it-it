@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: b634f871670d252aadaf2d2a672c4d5f43a6e5d9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073327"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176505"
 ---
 # <a name="azure-api-management-template-resources"></a>Risorse del modello Gestione API di Azure
 Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli del portale per sviluppatori.  
@@ -26,6 +26,8 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 -   [Risorse di tipo stringa](#strings)  
   
 -   [Risorse di tipo glifo](#glyphs)  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
@@ -49,23 +51,23 @@ Sono supportate le opzioni di localizzazione seguenti:
 | Impostazioni locali    | Linguaggio               |
 |-----------|------------------------|
 | "en"      | Inglese              |
-| CS      | "Čeština"              |
+| CS      | Čeština              |
 | de      | Deutsch              |
 | es      | Spagnolo              |
 | fr      | Français             |
 | Hu      | Magyar               |
 | è      | Italiano             |
-| "ja-JP"   | "日本語"                |
-| Ko      | "한국어"                |
+| "ja-JP"   | 日本語                |
+| Ko      | 한국어                |
 | nl      | Nederlands           |
 | pl      | Polski               |
 | "PT-BR"   | "Português (Brasil)"   |
 | "PT-PT"   | "Português (Portogallo)" |
-| ru      | "Русский"              |
+| ru      | Русский              |
 | SV      | Svenska              |
 | TR      | Türkçe               |
-| "zh-Hans" | "中文(简体)"           |
-| "zh-Hant" | "中文(繁體)"           |
+| "zh-Hans" | "中文 (简体)"           |
+| "zh-Hant" | "中文 (繁體)"           |
 
  Fare riferimento alle tabelle seguenti per le risorse di tipo stringa da usare nei modelli del portale per sviluppatori. Usare il nome della tabella come prefisso per le risorse stringa in tale tabella.  
   
@@ -111,13 +113,13 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|Name|Text|  
+|name|Testo|  
 |----------|----------|  
 |PageTitleApis|API|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|NOME|Text|  
+|name|Testo|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Application preview (Anteprima dell'applicazione)|  
 |WebApplicationsRequirementsHeader|Requisiti|  
@@ -126,31 +128,31 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Name|Text|  
+|name|Testo|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Are you sure that you want to remove application? (Rimuovere l'applicazione?)|  
-|WebDevelopersAppNotPublished|Non pubblicato|  
-|WebDevelopersAppNotSubmitted|Non inviato|  
-|WebDevelopersAppTableCategoryHeader|Category|  
-|WebDevelopersAppTableNameHeader|NOME|  
-|WebDevelopersAppTableStateHeader|Stato|  
-|WebDevelopersEditLink|Edit|  
-|WebDevelopersRegisterAppLink|Registra applicazione|  
-|WebDevelopersRemoveLink|Remove|  
+|WebDevelopersAppNotPublished|Not published (Non pubblicata)|  
+|WebDevelopersAppNotSubmitted|Not submitted (Non inviata)|  
+|WebDevelopersAppTableCategoryHeader|Categoria|  
+|WebDevelopersAppTableNameHeader|name|  
+|WebDevelopersAppTableStateHeader|Statale|  
+|WebDevelopersEditLink|Modifica|  
+|WebDevelopersRegisterAppLink|Registrare l'applicazione|  
+|WebDevelopersRemoveLink|Rimuovi|  
 |WebDevelopersSubmitLink|Invia|  
 |WebDevelopersYourApplicationsHeader|Applicazioni|  
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|Name|Text|  
+|name|Testo|  
 |----------|----------|  
-|WebApplicationsHeader|Applicazioni|  
+|WebApplicationsHeader|applicazioni|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|Name|Text|  
+|name|Testo|  
 |----------|----------|  
-|NoItemsToDisplay|No results found. (Nessun risultato trovato.)|  
+|NoItemsToDisplay|Nessun risultato trovato.|  
 |GeneralExceptionMessage|Something is not right. (Si è verificato un problema.) It could be a temporary glitch or a bug. (Potrebbe trattarsi di un problema temporaneo o di un bug.) Please, try again. (Riprovare.)|  
 |GeneralJsonExceptionMessage|Something is not right. (Si è verificato un problema.) It could be a temporary glitch or a bug. (Potrebbe trattarsi di un problema temporaneo o di un bug.) Please, reload the page and try again. (Ricaricare la pagina e riprovare.)|  
 |ConfirmationMessageUnsavedChanges|There are some unsaved changes. (Sono presenti modifiche non salvate.) Are you sure you want to cancel and discard the changes? (Annullare e rimuovere le modifiche?)|  
@@ -159,16 +161,16 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|Name|Text|  
+|name|Testo|  
 |----------|----------|  
 |ButtonLabelCancel|Annulla|  
 |ButtonLabelSave|Salva|  
 |GeneralExceptionMessage|Something is not right. (Si è verificato un problema.) It could be a temporary glitch or a bug. (Potrebbe trattarsi di un problema temporaneo o di un bug.) Please, try again. (Riprovare.)|  
 |NoItemsToDisplay|There are no items to display. (Nessun elemento da visualizzare.)|  
-|PagerButtonLabelFirst|First (Primo)|  
+|PagerButtonLabelFirst|Iniziali|  
 |PagerButtonLabelLast|Last (Ultimo)|  
-|PagerButtonLabelNext|Avanti|  
-|PagerButtonLabelPrevious|Prev (Precedente)|  
+|PagerButtonLabelNext|Successivi|  
+|PagerButtonLabelPrevious|Precedente|  
 |PagerLabelPageNOfM|Pagina {0} di {1}|  
 |PasswordTooShort|The Password is too short (La password è troppo breve)|  
 |EmailAsPassword|Do not use your email as your password (La password non può contenere l'indirizzo di posta elettronica)|  
@@ -183,7 +185,7 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="Documentation"></a> Documentazione  
   
-|Name|Text|  
+|name|Testo|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Intestazione "{0}" non valida|  
 |WebDocumentationInvalidRequestErrorMessage|Invalid Request URL (URL della richiesta non valido)|  
@@ -209,7 +211,7 @@ Sono supportate le opzioni di localizzazione seguenti:
 |OAuth2TokenEndpointName|Token endpoint (Endpoint di token)|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_Description|<p\>The client initiates the flow by directing the resource owner's user-agent to the authorization endpoint. (Il client avvia il flusso indirizzando l'agente utente del proprietario delle risorse all'endpoint di autorizzazione.)  The client includes its client identifier, requested scope, local state, and a redirection URI to which the authorization server will send the user-agent back once access is granted (or denied). (Il client include il proprio identificatore client, l'ambito richiesto, lo stato locale e un URI di reindirizzamento a cui il server di autorizzazione invia l'agente utente una volta concesso o negato l'accesso.)     </p\>     <p\>The authorization server authenticates the resource owner (via the user-agent) and establishes whether the resource owner grants or denies the client's access request. (Il server di autorizzazione autentica il proprietario delle risorse tramite l'agente utente e stabilisce se il proprietario concede o nega la richiesta di accesso del client.)     </p\>     <p\>Assuming the resource owner grants access, the authorization server redirects the user-agent back to the client using the redirection URI provided earlier (in the request or during         client registration). (Supponendo che il proprietario delle risorse conceda l'accesso, il server di autorizzazione reindirizza l'agente utente al client mediante l'URI fornito in precedenza, nella richiesta o durante la registrazione del client.)  The redirection URI includes an authorization code and any local state provided by the client earlier. (L'URI di reindirizzamento include un codice di autorizzazione e qualsiasi stato locale fornito in precedenza dal client.)     </p\>|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_ErrorDescription|<p\>If the user denies the access request of if the request is invalid, the client will be informed using the following parameters added on to the redirect: </p\> (Se l'utente rifiuta la richiesta di accesso o se la richiesta non è valida, il client verrà informato mediante l'aggiunta dei seguenti parametri al reindirizzamento:)|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_Name|Richiesta di autorizzazione|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_Name|Authorization request (Richiesta di autorizzazione)|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_RequestDescription|<p\>The client app must send the user to the authorization endpoint in order to initiate the OAuth process. (Per avviare il processo OAuth, l'applicazione client deve inviare l'utente all'endpoint di autorizzazione.)          At the authorization endpoint, the user authenticates and then grants or denies access to the app. (L'utente esegue l'autenticazione nell'endpoint di autorizzazione e quindi concede o nega l'accesso all'app.)     </p\>|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_ResponseDescription|<p\> Assuming the resource owner grants access, authorization server     redirects the user-agent back to the client using the   redirection URI provided earlier (in the request or during client registration). (Supponendo che il proprietario delle risorse conceda l'accesso, il server di autorizzazione reindirizza l'agente utente al client usando l'URI fornito in precedenza, nella richiesta o durante la registrazione del client).  The redirection URI includes an authorization code and any local state provided by the client earlier. (L'URI di reindirizzamento include un codice di autorizzazione e qualsiasi stato locale fornito in precedenza dal client.) </p\>|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_Description|<p\>The client requests an access token from the authorization server''s token endpoint by including the authorization code received in the previous step. (Il client richiede un token di accesso all'endpoind di token del server di autorizzazione, includendo il codice di autorizzazione ricevuto nel passaggio precedente.)  When making the request, the client authenticates with the authorization server. (Al momento della richiesta, il client esegue l'autenticazione nel server di autorizzazione.)  The client includes the redirection URI used to obtain the authorization code for verification. (Il client include l'URI di reindirizzamento usato per ottenere il codice di autorizzazione per la verifica.) </p\> <p\>The authorization server authenticates the client, validates the     authorization code, and ensures that the redirection URI received matches the URI used to redirect the client in step (C). (Il server di autorizzazione autentica il client, convalida il codice di autorizzazione e assicura che l'URI di reindirizzamento ricevuto corrisponde all'URI usato per reindirizzare il client nel passaggio (C).)  If valid, the authorization server responds back with an access token and, optionally, a refresh token. (Se è valido, il server di autorizzazione risponde con un token di accesso e, facoltativamente, un token di aggiornamento.) </p\>|  
@@ -323,15 +325,15 @@ Sono supportate le opzioni di localizzazione seguenti:
 |SectionHeadingRequestBody|Corpo della richiesta|  
 |SectionHeadingRequestParameters|Parametri della richiesta|  
 |SectionHeadingRequestUrl|URL richiesta|  
-|SectionHeadingResponse|Risposta|  
+|SectionHeadingResponse|Response|  
 |SectionHeadingRequestHeaders|Intestazioni della richiesta|  
 |FormLabelSubtextOptional|facoltativo|  
 |SectionHeadingCodeSamples|Esempi di codice|  
-|TextblockOpenidConnectHeaderDescription|ID token OpenID Connect ottenuto da <i\>{0}< /i\>. Tipi di concessione supportati: <i\>{1}</i\>.|  
+|TextblockOpenidConnectHeaderDescription|Token ID OpenID Connect ottenuto da < i\>{0}</i\>. Tipi di concessione supportati: <i\>{1}</i\>.|  
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Name|Text|  
+|name|Testo|  
 |----------|----------|  
 |LinkLabelBack|Indietro|  
 |LinkLabelHomePage|home page|  
@@ -349,7 +351,7 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|Name|Text|  
+|name|Testo|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problemi|  
 |WebIssuesNoActiveSubscriptions|Non si dispone di sottoscrizioni attive. You need to subscribe for a product to report an issue. (È necessario disporre della sottoscrizione al prodotto per segnalare un problema.)|  
@@ -360,7 +362,7 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Name|Text|  
+|name|Testo|  
 |----------|----------|  
 |LinkLabelHomePage|home page|  
 |LinkLabelSendUsEmail|Inviare un messaggio di posta elettronica|  
@@ -375,18 +377,18 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|NOME|Text|  
+|name|Testo|  
 |----------|----------|  
 |WebProductsAgreement|Con la sottoscrizione al Prodotto {0}, accetto il `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Condizioni per l'utilizzo|  
-|WebProductsSubscribeButton|Sottoscrivi|  
+|WebProductsSubscribeButton|Abbonati|  
 |WebProductsUsageLimitsHeader|Limiti di utilizzo|  
 |WebProductsYouAreNotSubscribed|You are subscribed to this product. (È presente una sottoscrizione al prodotto.)|  
 |WebProductsYouRequestedSubscription|You requested subscription to this product. (È stata richiesta una sottoscrizione al prodotto.)|  
 |ErrorYouNeedToAgreeWithLegalTerms|You must agree to the Terms of Use before you can proceed. (È necessario accettare le Condizioni per l'utilizzo prima di continuare.)|  
 |ButtonLabelAddSubscription|Aggiungi sottoscrizione|  
 |LinkLabelChangeSubscriptionName|change (modifica)|  
-|ButtonLabelConfirm|Confirm|  
+|ButtonLabelConfirm|Conferma|  
 |TextblockMultipleSubscriptionsCount|Sono presenti {0} sottoscrizioni al prodotto:|  
 |TextblockSingleSubscriptionsCount|È presente {0} sottoscrizione al prodotto:|  
 |TextblockSingleApisCount|Questo prodotto contiene {0} API:|  
@@ -397,13 +399,13 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|NOME|Text|  
+|name|Testo|  
 |----------|----------|  
 |PageTitleProducts|Prodotti|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Name|Text|  
+|name|Testo|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|Sign in is disabled by the administrators at the moment. (L'accesso è al momento disabilitato dagli amministratori.)|  
 |TextboxExternalIdentitiesSigninInvitation|Alternatively, sign in with (In alternativa, accedere con)|  
@@ -411,7 +413,7 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|Name|Text|  
+|name|Testo|  
 |----------|----------|  
 |PrincipalNotFound|Principal is not found or signature is invalid (Entità non trovata o firma non valida)|  
 |ErrorSsoAuthenticationFailed|SSO authentication failed (Autenticazione SSO non riuscita)|  
@@ -430,7 +432,7 @@ Sono supportate le opzioni di localizzazione seguenti:
 |WebAuthenticationEmailHasBeenRevertedNotice|You email already exist. (Indirizzo di posta elettronica già esistente.) Request has been reverted (La richiesta è stata ripristinata)|  
 |ValidationErrorEmailAlreadyExists|Email already exist. (Indirizzo di posta elettronica già esistente)|  
 |ValidationErrorEmailInvalid|Invalid e-mail address (Indirizzo di posta elettronica non valido)|  
-|TextboxLabelEmail|Email|  
+|TextboxLabelEmail|Indirizzo di posta elettronica|  
 |ValidationErrorEmailRequired|L'indirizzo di posta elettronica è obbligatorio.|  
 |WebAuthenticationErrorNoticeHeader|Errore|  
 |WebAuthenticationFieldLengthErrorMessage|{0} deve avere una lunghezza massima di {1}|  
@@ -473,9 +475,9 @@ Sono supportate le opzioni di localizzazione seguenti:
 |WebAuthenticationUserAlreadyRegisteredNoticeHeader|User already registered (Utente già registrato)|  
 |WebAuthenticationUserAlreadyRegisteredNoticeTitle|Already registered (Già registrato)|  
 |ButtonLabelChangePassword|Cambia password|  
-|ButtonLabelChangeAccountInfo|Modifica informazioni sull'account|  
-|ButtonLabelCloseAccount|Chiudi account|  
-|WebAuthenticationInvalidCaptchaErrorMessage|Text entered doesn't match text on the picture. (Il testo immesso non corrisponde al testo dell'immagine.) Riprova più tardi.|  
+|ButtonLabelChangeAccountInfo|Change account information(Modifica informazioni sull'account)|  
+|ButtonLabelCloseAccount|Close account (Chiudi account)|  
+|WebAuthenticationInvalidCaptchaErrorMessage|Text entered doesn't match text on the picture. (Il testo immesso non corrisponde al testo dell'immagine.) Riprovare in seguito.|  
 |ValidationErrorCredentialsInvalid|Email or password is invalid. (Indirizzo email o password non validi.) Correggere gli errori e riprovare.|  
 |WebAuthenticationRequestIsNotValid|Richiesta non valida.|  
 |WebAuthenticationUserIsNotConfirm|Please confirm your registration before attempting to sign in. (Confermare la registrazione prima di tentare l'accesso.)|  
@@ -490,10 +492,10 @@ Sono supportate le opzioni di localizzazione seguenti:
 |WebAuthenticationLoginUsingYourProvider|Accedere usando il proprio account {0}|  
 |WebAuthenticationUserLimitNotice|This service has reached the maximum number of allowed users. (È stato raggiunto il numero massimo di utenti consentiti dal servizio.) Please `<a href="mailto:{0}"\>contact the administrator</a\>` to upgrade their service and re-enable user registration. (`<a href="mailto:{0}"\>contact the administrator</a\>` per aggiornare il servizio e riabilitare la registrazione dell'utente.)|  
 |WebAuthenticationUserLimitNoticeHeader|User registration disabled (Registrazione utente disabilitata)|  
-|WebAuthenticationUserLimitNoticeTitle|Registrazione utenti disabilitata|  
+|WebAuthenticationUserLimitNoticeTitle|User registration disabled (Registrazione utente disabilitata)|  
 |WebAuthenticationUserRegistrationDisabledNotice|Registration of users has been disabled by the administrator. (La registrazione degli utenti è stata disabilitata dall'amministratore.) Please login with external identity provider. (Accedere con un provider di identità esterno.)|  
-|WebAuthenticationUserRegistrationDisabledNoticeHeader|Registrazione utenti disabilitata|  
-|WebAuthenticationUserRegistrationDisabledNoticeTitle|Registrazione utenti disabilitata|  
+|WebAuthenticationUserRegistrationDisabledNoticeHeader|User registration disabled (Registrazione utente disabilitata)|  
+|WebAuthenticationUserRegistrationDisabledNoticeTitle|User registration disabled (Registrazione utente disabilitata)|  
 |WebAuthenticationSignupPendingConfirmationNotice|Before we can complete the creation of your account we need to verify your e-mail address. (Prima di completare la creazione dell'account è necessario verificare l'indirizzo di posta elettronica.) Un messaggio di posta elettronica è stato inviato a {0}. Please follow the instructions inside the e-mail to activate your account. (Seguire le istruzioni contenute nel messaggio per attivare l'account.) If the e-mail doesn't arrive within the next few minutes, please check your junk email folder. (Se non si riceve il messaggio entro pochi minuti, controllare la cartella della posta indesiderata.)|  
 |WebAuthenticationSignupPendingConfirmationAccountFoundNotice|È stato trovato un account non confermato per l'indirizzo di posta elettronica {0}. To complete the creation of your account we need to verify your e-mail address. (Per completare la creazione dell'account è necessario verificare l'indirizzo di posta elettronica.) Un messaggio di posta elettronica è stato inviato a {0}. Please follow the instructions inside the e-mail to activate your account. (Seguire le istruzioni contenute nel messaggio per attivare l'account.) If the e-mail doesn't arrive within the next few minutes, please check your junk email folder (Se non si riceve il messaggio entro pochi minuti, controllare la cartella della posta indesiderata)|  
 |WebAuthenticationSignupConfirmationAlmostDone|Almost Done (La procedura è quasi completata)|  
@@ -507,7 +509,7 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|NOME|Text|  
+|name|Testo|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Password dimenticata?|  
 |WebAuthenticationIfAdministrator|If you are an Administrator you must sign in `<a href="{0}"\>here</a\>`. (Gli amministratori devono accedere da `<a href="{0}"\>here</a\>`.)|  
@@ -515,67 +517,67 @@ Sono supportate le opzioni di localizzazione seguenti:
 |WebAuthenticationRemember|Remember me on this computer (Memorizza utente su questo computer)|  
 |WebAuthenticationSigininWithPassword|Sign in with your username and password (Immettere il proprio nome utente e la password)|  
 |WebAuthenticationSigninTitle|Accesso|  
-|WebAuthenticationSignUpNow|Effettua l'iscrizione ora|  
+|WebAuthenticationSignUpNow|Iscriviti ora|  
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|NOME|Text|  
+|name|Testo|  
 |----------|----------|  
-|PageTitleSignup|Iscrizione|  
-|WebAuthenticationAlreadyAMember|Already a member? (Si è già membri?)|  
+|PageTitleSignup|Iscriviti|  
+|WebAuthenticationAlreadyAMember|Offerte riservate ai membri|  
 |WebAuthenticationCreateNewAccount|Create a new API Management account (Creare un nuovo account di Gestione API)|  
 |WebAuthenticationSigninNow|Sign in now (Accedere ora)|  
-|ButtonLabelSignup|Iscrizione|  
+|ButtonLabelSignup|Iscriviti|  
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|NOME|Text|  
+|name|Testo|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Are you sure that you want to cancel this subscription? (Annullare la sottoscrizione?)|  
 |SubscriptionRenewConfirmation|Are you sure that you want to renew this subscription? (Rinnovare la sottoscrizione?)|  
-|WebDevelopersManageSubscriptions|Gestisci sottoscrizioni|  
+|WebDevelopersManageSubscriptions|Gestire le sottoscrizioni|  
 |WebDevelopersPrimaryKey|Chiave primaria|  
 |WebDevelopersRegenerateLink|Regenerate (Rigenera)|  
 |WebDevelopersSecondaryKey|Secondary key (Chiave secondaria)|  
 |ButtonLabelShowKey|Mostra|  
-|ButtonLabelRenewSubscription|Rinnovo|  
+|ButtonLabelRenewSubscription|Renew|  
 |WebDevelopersSubscriptionRequested|Richiesta in data {0}|  
-|WebDevelopersSubscriptionRequestedState|Richiesta|  
-|WebDevelopersSubscriptionTableNameHeader|Name|  
-|WebDevelopersSubscriptionTableStateHeader|Stato|  
+|WebDevelopersSubscriptionRequestedState|Requested (Richiesta)|  
+|WebDevelopersSubscriptionTableNameHeader|name|  
+|WebDevelopersSubscriptionTableStateHeader|Statale|  
 |WebDevelopersUsageStatisticsLink|Analytics reports (Report di analisi)|  
 |WebDevelopersYourSubscriptions|Your subscriptions (Sottoscrizioni)|  
 |SubscriptionPropertyLabelRequestedDate|Requested on (Richiesta il)|  
 |SubscriptionPropertyLabelStartedDate|Started on (Avviata il)|  
 |PageTitleRenameSubscription|Rename subscription (Rinomina sottoscrizione)|  
-|SubscriptionPropertyLabelName|Nome sottoscrizione|  
+|SubscriptionPropertyLabelName|Nome della sottoscrizione|  
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|NOME|Text|  
+|name|Testo|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Looking to close your account? (Chiudere l'account?)|  
 |PageTitleDeveloperProfile|Profilo|  
 |ButtonLabelHideKey|Nascondi|  
-|ButtonLabelRegenerateKey|Rigenera|  
+|ButtonLabelRegenerateKey|Regenerate (Rigenera)|  
 |InformationMessageKeyWasRegenerated|Are you sure that you want to regenerate this key? (Rigenerare la chiave?)|  
 |ButtonLabelShowKey|Mostra|  
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Name|Text|  
+|name|Testo|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Update profile (Aggiorna profilo)|  
 |PageTitleUpdateProfile|Update account information (Aggiorna informazioni sull'account)|  
   
 ###  <a name="UserProfile"></a> UserProfile  
   
-|Name|Text|  
+|name|Testo|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Change account information(Modifica informazioni sull'account)|  
 |ButtonLabelChangePassword|Cambia password|  
 |ButtonLabelCloseAccount|Close account (Chiudi account)|  
-|TextboxLabelEmail|Email|  
+|TextboxLabelEmail|Indirizzo di posta elettronica|  
 |TextboxLabelEmailFirstName|Nome|  
 |TextboxLabelEmailLastName|Cognome|  
 |TextboxLabelNotificationsSenderEmail|Notifications sender email (Indirizzo di posta elettronica del mittente delle notifiche)|  
@@ -602,4 +604,4 @@ Sono supportate le opzioni di localizzazione seguenti:
  Per l'elenco completo dei glifi, vedere [Glyphicons da Bootstrap](https://getbootstrap.com/components/#glyphicons).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](api-management-developer-portal-templates.md).
+Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](api-management-developer-portal-templates.md).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a30e466e78c3a71764b36bf8337aaeae8981f7
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 6b8402279b5c2717b1f73a28f2efc02ade5e479c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980488"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175774"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
 
@@ -35,7 +35,7 @@ Quando si crea un nuovo criterio, non sono presenti utenti, gruppi, app o contro
 
 Affinché il criterio funzioni, è necessario configurare quanto segue:
 
-| Dettagli           | Come                                  | Motivo |
+| Cosa           | Come                                  | Motivo |
 | :--            | :--                                  | :-- |
 | **App cloud** |Selezionare una o più app.  | L'obiettivo di un criterio di accesso condizionale è consentire di controllare il modo in cui gli utenti autorizzati possono accedere alle app cloud.|
 | **Utenti e gruppi** | Selezionare almeno un utente o un gruppo autorizzato ad accedere alle app cloud selezionate. | Un criterio di accesso condizionale senza utenti e gruppi assegnati non viene mai attivato. |
@@ -53,7 +53,7 @@ Tutti i criteri vengono applicati in due fasi:
 
 - Nella **seconda** fase viene chiesto di soddisfare i requisiti non rispettati. Se uno dei criteri blocca l'accesso, l'utente viene bloccato e non viene richiesto di soddisfare altri controlli dei criteri. Se nessuno dei criteri blocca l'utente, viene richiesto di soddisfare gli altri controlli dei criteri nell'ordine seguente:
 
-   ![Ordine](./media/best-practices/06.png)
+   ![Ordina](./media/best-practices/06.png)
     
    I provider di autenticazione a più fattori esterni e le condizioni per l'utilizzo sono prossimi.
 
@@ -89,7 +89,7 @@ Per ogni accesso, Azure Active Directory valuta tutti i criteri e verifica che t
 
 Sì, è possibile usare Exchange ActiveSync in un criterio di accesso condizionale.
 
-Alcune app cloud come SharePoint Online ed Exchange Online supportano anche i protocolli di autenticazione legacy. Quando un'app client può usare un protocollo di autenticazione legacy per accedere a un'app cloud, Azure AD non è in grado di applicare criteri di accesso condizionale a questo tentativo di accesso. Per impedire a un'app client di ignorare l'applicazione di criteri, è necessario controllare se è possibile abilitare solo l'autenticazione moderna nelle app cloud interessate.
+Alcune app cloud come SharePoint Online ed Exchange Online supportano anche i protocolli di autenticazione legacy. Quando un'app client può usare un protocollo di autenticazione legacy per accedere a un'app Cloud, Azure AD non può applicare un criterio di accesso condizionale al tentativo di accesso. Per impedire a un'app client di ignorare l'applicazione di criteri, è necessario controllare se è possibile abilitare solo l'autenticazione moderna nelle app cloud interessate.
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Come configurare l'accesso condizionale con le app di Office 365?
 
@@ -97,7 +97,7 @@ Poiché le app di Office 365 sono interconnesse, è consigliabile assegnare le a
 
 Le applicazioni interconnesse comuni includono Microsoft Flow, Microsoft Planner, Microsoft teams, Office 365 Exchange Online, Office 365 SharePoint Online e Office 365 Yammer.
 
-È importante per i criteri che richiedono interazioni utente, ad esempio l'autenticazione a più fattori, quando l'accesso viene controllato all'inizio di una sessione o di un'attività. In caso contrario, gli utenti non saranno in grado di completare alcune attività all'interno di un'app. Se, ad esempio, è richiesta l'autenticazione a più fattori sui dispositivi non gestiti per accedere a SharePoint ma non alla posta elettronica, gli utenti che lavorano nella posta elettronica non saranno in grado di allineare i file di SharePoint a un messaggio. Altre informazioni sono disponibili nell'articolo informazioni sulle dipendenze del [servizio in Azure Active Directory l'accesso condizionale](service-dependencies.md).
+È importante per i criteri che richiedono interazioni utente, ad esempio l'autenticazione a più fattori, quando l'accesso viene controllato all'inizio di una sessione o di un'attività. In caso contrario, gli utenti non saranno in grado di completare alcune attività all'interno di un'app. Se, ad esempio, è richiesta l'autenticazione a più fattori sui dispositivi non gestiti per accedere a SharePoint ma non alla posta elettronica, gli utenti che lavorano nella posta elettronica non saranno in grado di allineare i file di SharePoint a un messaggio. Altre informazioni sono disponibili nell'articolo informazioni sulle [dipendenze del servizio in Azure Active Directory l'accesso condizionale](service-dependencies.md).
 
 ## <a name="what-you-should-avoid-doing"></a>Azioni da evitare
 

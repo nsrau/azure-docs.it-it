@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 6116ece6035b326440108c1f2b2effd1b6bb9258
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1def431bd24019c5f7d15cf7ac0e7550b85d17c4
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072554"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176715"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
 
@@ -25,7 +25,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
+- Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 - Importare e pubblicare un'istanza di Gestione API di Azure. Per altre informazioni, vedere [Importare e pubblicare un'API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
@@ -33,7 +33,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizzare gli account per sviluppatori usando Azure AD
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
-2. Select ![freccia](./media/api-management-howto-aad/arrow.png).
+2. Seleziona ![freccia](./media/api-management-howto-aad/arrow.png).
 3. Nella casella di ricerca digitare **api**.
 4. Selezionare **Servizi Gestione API**.
 5. Selezionare l'istanza del servizio Gestione API in esecuzione.
@@ -84,7 +84,7 @@ Dopo aver salvato le modifiche, gli utenti nell'istanza di Azure AD specificata 
 Dopo aver abilitato l'accesso per gli utenti in un'istanza di Azure AD, è possibile aggiungere gruppi di Azure AD in Gestione API. Si potrà così gestire più facilmente l'associazione degli sviluppatori del gruppo ai prodotti desiderati.
 
  > [!IMPORTANT]
- > Per aggiungere un gruppo di Azure AD esterno, è necessario innanzitutto configurare l'istanza di Azure AD nella scheda **identità** seguendo la procedura descritta nella sezione precedente. Inoltre, è necessario concedere all'applicazione l'accesso Azure ad API Graph con `Directory.Read.All` l'autorizzazione. 
+ > Per aggiungere un gruppo di Azure AD esterno, è necessario innanzitutto configurare l'istanza di Azure AD nella scheda **identità** seguendo la procedura descritta nella sezione precedente. Inoltre, è necessario concedere all'applicazione l'accesso a Azure AD API Graph con `Directory.Read.All` autorizzazione. 
 
 I gruppi esterni di Azure AD vengono aggiunti dalla scheda **Gruppi** dell'istanza di Gestione API.
 
@@ -94,11 +94,21 @@ I gruppi esterni di Azure AD vengono aggiunti dalla scheda **Gruppi** dell'istan
 3. Selezionare il gruppo che si vuole aggiungere.
 4. Scegliere il pulsante **Seleziona**.
 
-Dopo aver aggiunto un gruppo di Azure AD esterno, è possibile esaminarne e configurarne le proprietà. Nella scheda **Gruppi** selezionare il nome del gruppo. Da qui è possibile modificare le informazioni del gruppo nelle caselle **Nome** e **Descrizione**.
+Dopo aver aggiunto un gruppo di Azure AD esterno, è possibile esaminarne e configurarne le proprietà. Selezionare il nome del gruppo nella scheda **gruppi** . Da qui è possibile modificare le informazioni relative al **nome** e alla **Descrizione** per il gruppo.
  
 Ora gli utenti dell'istanza di Azure AD configurata possono accedere al portale per sviluppatori. Possono visualizzare e sottoscrivere qualsiasi gruppo per cui hanno visibilità.
 
-## <a name="a-idlog_in_to_dev_portalsign-in-to-the-developer-portal-by-using-an-azure-ad-account"></a><a id="log_in_to_dev_portal"/>Accedere al portale per sviluppatori con un account Azure AD
+## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a>portale per sviluppatori <a id="log_in_to_dev_portal"/>-aggiungere l'autenticazione dell'account Azure AD
+
+Per abilitare l'accesso con AAD nel portale per sviluppatori, è necessario aggiungere il widget dei **pulsanti OAuth** al modulo di accesso.
+
+![Widget pulsanti AAD](./media/api-management-howto-aad/portal-oauth-widget.png)
+
+Sebbene venga creato automaticamente un nuovo account ogni volta che un nuovo utente accede con AAD, è possibile aggiungere lo stesso widget nel modulo di iscrizione.
+
+## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>Portale per sviluppatori Legacy-come accedere con Azure AD
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 Per accedere al portale per sviluppatori con un account Azure AD configurato nelle sezioni precedenti:
 

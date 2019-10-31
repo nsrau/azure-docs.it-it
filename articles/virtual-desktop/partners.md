@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/30/2019
 ms.author: helohr
-ms.openlocfilehash: f4eeecccb3815ebfef9cdf79ac14f3dd3bd5e77a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b62351f1d99ef54d2416a2427264aea225afc5a8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300206"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171619"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrazioni di partner desktop virtuali Windows
 
@@ -71,6 +71,16 @@ deviceTRUST è un provider di servizi a valore aggiunto per desktop virtuale Win
 deviceTRUST estende il valore di desktop virtuale di Windows con la tecnologia di sicurezza contestuale. deviceTRUST consente l'accesso condizionale per un accesso al desktop virtuale Windows sicuro, l'accesso condizionale alle applicazioni all'interno di un desktop virtuale Windows e l'applicazione di criteri condizionali per desktop virtuali Windows senza alcuna infrastruttura aggiuntiva. L'uso di deviceTRUST consente un'area di lavoro flessibile e mobile che soddisfa tutti i requisiti di sicurezza, conformità e normativi. 
 
 - [Accedere al sito Web del partner](https://devicetrust.com/wvd).
+
+## <a name="ivanti"></a>Ivanti
+
+![Logo di ivanti](./media/partners/ivanti.png)
+
+Ivanti User Workspace Manager è un servizio di Windows Virtual Desktop aggiunto che semplifica la distribuzione e la gestione dei desktop separando i dati utente dal desktop per una portabilità senza problemi. Con ivanti, gli utenti possono distribuire progetti complessi, ad esempio la migrazione a Windows 10, l'adozione di Office 365 o lo spostamento rapido dei servizi nel cloud. 
+
+Quando viene usato con il desktop virtuale di Windows, ivanti User Workspace Manager fornisce una semplice gestione contestuale dell'esperienza desktop utente, eliminando lunghi tempi di accesso e sradicando gli incubi di criteri di gruppo. Ivanti User Workspace Manager: i modelli predefiniti semplificano l'installazione per gli utenti tramite agenti e la console esistente. Il gestore dell'area di lavoro utenti di ivanti offre desktop reattivi e sicuri che gli utenti amano, risparmiando denaro sui server, gestendo più efficacemente gli utenti e riducendo i rischi per la sicurezza degli endpoint. 
+
+- [Accedere al sito Web del partner](https://www.ivanti.com/products/user-workspace-manager).
 
 ## <a name="lakeside-software"></a>Software Lakeside
 
@@ -133,6 +143,26 @@ Disponibile come SaaS o come uno stack Web nel cloud privato, la piattaforma Pri
 
 - [Vai al sito Web del partner](https://www.printerlogic.com).
 
+## <a name="numecent"></a>Numecent
+
+![Logo di Numecent](./media/partners/numecent.png)
+
+Numecent è un provider di servizi a valore aggiunto per desktop virtuale di Windows che riduce significativamente i costi operativi totali grazie al caricamento e alla migrazione rapidi di app di Windows complesse o incompatibili negli ambienti desktop virtuali di Windows. Numecent consente inoltre di ridurre al minimo la quantità di configurazione che gli utenti devono eseguire, riduce gli aggiornamenti dell'applicazione e semplifica i processi complessi. Poiché Numecent Cloudpaging supporta più applicazioni senza problemi rispetto a qualsiasi altro strumento per la distribuzione di applicazioni, riduce il tempo e i carichi di lavoro IT negli ambienti con diversi set di applicazioni. 
+
+Se usato con desktop virtuale di Windows, Cloudpaging riduce ulteriormente i costi completando il ciclo di vita delle risorse software dalla distribuzione all'aggiornamento, alla misurazione e alla rimozione di applicazioni. Cloudpaging semplifica la gestione delle immagini eseguendo il provisioning dinamico delle app in base alle esigenze in tempo reale per le distribuzioni di desktop virtuali Windows. Cloudpaging consente di eseguire le applicazioni senza l'intervento dell'amministratore o l'intervento tramite gli aggiornamenti periodici di Windows 10. Cloudpaging consente inoltre di ridurre il costo delle licenze per le applicazioni costose, consentendo una distribuzione e un utilizzo più efficienti di queste applicazioni. 
+
+- [Accedere al sito Web del partner](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
+
+## <a name="rdpsoft"></a>RDPSoft
+
+![Logo di RDPSoft](./media/partners/rdpsoft.png)
+
+RDPSoft è un partner desktop virtuale di Windows che offre soluzioni di monitoraggio, gestione e creazione di report avanzate e convenienti. Le offerte di Desktop remoto Commander consentono ai professionisti IT di ottenere informazioni dettagliate sull'integrità, sulle prestazioni, sulle attività degli utenti, sulle licenze e sulla sicurezza delle distribuzioni di desktop virtuali Windows. 
+ 
+Le soluzioni Desktop remoto Commander di RDPSoft migliorano l'amministrazione di desktop virtuali Windows. Le funzionalità di gestione Premium semplificano la delega delle attività di gestione di desktop virtuali Windows per supportare il personale del supporto tecnico fornendo assistenza remota, la sessione utente e la gestione dei processi. Allo stesso tempo, la suite Desktop remoto Commander raccoglie metriche avanzate sulle prestazioni e il carico per ogni utente, le attività e il controllo degli utenti, la qualità della connessione desktop virtuale Windows (latenza e larghezza di banda), la gestione delle licenze e la sicurezza in un'istruzione SQL di Azure centrale istanza di database per la revisione. Con RDPSoft, la creazione di report cronologici avanzati e dashboard completi sono semplicemente un semplice clic.
+
+- [Vai al sito Web del partner](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
+
 ## <a name="thinprint"></a>ThinPrint
 
 ![Logo di ThinPrint](./media/partners/thinprint.png)
@@ -143,6 +173,16 @@ La soluzione ezeep di ThinPrint estende il valore del desktop virtuale di Window
 
 - [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas).
 - [Vai al sito Web del partner](https://www.ezeep.com/wvd-printing).
+
+## <a name="tricerat"></a>TriCerat
+
+![Logo triCerat](./media/partners/tricerat.png)
+
+TriCerat offre una soluzione di gestione della stampa superiore per desktop virtuale Windows e altre piattaforme desktop. Il software triCerat offre funzionalità affidabili che offrono un'esperienza migliore per gli utenti e gli amministratori. Gli amministratori ottengono le efficienze grazie alla gestione completa dei driver, alla distribuzione semplificata delle code di stampa e alla gestione coerente tra piattaforme ibride. L'esperienza utente migliora con i tempi di accesso più brevi, le code di stampa intelligenti basate su utente, dispositivo e percorso di rete e le opzioni self-service per la selezione rapida delle stampanti. 
+
+Con triCerat, la stampa è facile in Windows Virtual Desktop e versioni successive. Il software triCerat consente agli amministratori di connettere facilmente le stampanti locali al cloud, estendendo la gestione della stampa aziendale da ambienti tradizionali a nuove aree di lavoro moderne.
+
+- [Accedere al sito Web del partner](https://www.tricerat.com/solutions/wvd-microsoft/).
 
 ## <a name="workspot"></a>Workspot
 

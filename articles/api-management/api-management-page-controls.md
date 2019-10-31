@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: b720d64f5b0a5f66375083b7854658aa754db150
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ff608cac9786ebc0d3908ce4d88fb501e621be6c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70072292"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176610"
 ---
 # <a name="azure-api-management-page-controls"></a>Controlli pagina in Gestione API di Azure
 Gestione API di Azure mette a disposizione i seguenti controlli per l'uso nei modelli del portale per sviluppatori.  
@@ -28,9 +28,11 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
 ```  
   
- I valori per i parametri vengono passati come parte del modello di dati per il modello. Nella maggior parte dei casi, basta incollare ciascun controllo nell'esempio fornito e funzionerà correttamente. Per ulteriori informazioni sui valori di parametro, è possibile vedere la sezione sul modello dei dati per ciascun modello in cui potrebbe essere usato un controllo.  
-  
- Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+I valori per i parametri vengono passati come parte del modello di dati per il modello. Nella maggior parte dei casi, basta incollare ciascun controllo nell'esempio fornito e funzionerà correttamente. Per ulteriori informazioni sui valori di parametro, è possibile vedere la sezione sul modello dei dati per ciascun modello in cui potrebbe essere usato un controllo.  
+
+Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
@@ -60,7 +62,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
   
 |Parametro|Description|  
 |---------------|-----------------|  
-|appId|L'ID dell'applicazione.|  
+|appId|ID dell'applicazione.|  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `app-actions` nei seguenti modelli del portale per sviluppatori:  
@@ -204,7 +206,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
   
 |Parametro|Description|  
 |---------------|-----------------|  
-|subscriptionId|L'ID della sottoscrizione da annullare.|  
+|subscriptionId|ID della sottoscrizione da annullare.|  
 |cancelUrl|L'URL di annullamento della sottoscrizione.|  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  

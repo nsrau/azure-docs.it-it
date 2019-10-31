@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: e361ba4c7275a783b9211def5047a5a755f5a8b8
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: d0d87b42232a19d6bcd3c225fb4a4f8f8b459350
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882007"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177804"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -131,14 +131,14 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |AppEtwTraceDeletionAgeInDays |Int, valore predefinito: 3 | Dinamica |Il numero di giorni dopo il quale i file ETL meno recenti contenenti tracce ETW di applicazioni vengono eliminati. |
 |ApplicationLogsFormatVersion |Int, valore predefinito: 0 | Dinamica |Versione per il formato dei log applicazioni. I valori supportati sono 0 e 1. La versione 1 include più campi dal record di eventi ETW rispetto alla versione 0. |
 |AuditHttpRequests |Bool, valore predefinito: false | Dinamica | Attivare o disattivare il controllo HTTP. Lo scopo del controllo è vedere le attività eseguite nel cluster. inclusione dell'utente che ha avviato la richiesta. Si noti che si tratta di un tentativo di registrazione migliore. potrebbe verificarsi una perdita di traccia. Le richieste HTTP con autenticazione "utente" non vengono registrate. |
-|CaptureHttpTelemetry|Bool, valore predefinito: false | Dinamica | Attivare o disattivare la telemetria HTTP. Lo scopo dei dati di telemetria è Service Fabric essere in grado di acquisire i dati di telemetria per pianificare il lavoro futuro e identificare le aree problematiche. La telemetria non registra dati personali o il corpo della richiesta. La telemetria acquisisce tutte le richieste HTTP se non diversamente configurato. |
+|CaptureHttpTelemetry|Bool, valore predefinito: true | Dinamica | Attivare o disattivare la telemetria HTTP. Lo scopo dei dati di telemetria è Service Fabric essere in grado di acquisire i dati di telemetria per pianificare il lavoro futuro e identificare le aree problematiche. La telemetria non registra dati personali o il corpo della richiesta. La telemetria acquisisce tutte le richieste HTTP se non diversamente configurato. |
 |ClusterId |Stringa | Dinamica |L'ID univoco del cluster. Viene generato quando viene creato il cluster. |
 |ConsumerInstances |Stringa | Dinamica |L'elenco delle istanze di consumer DCA. |
 |DiskFullSafetySpaceInMB |Int, valore predefinito: 1024 | Dinamica |Spazio su disco rimanente in MB per la protezione dall'uso di DCA. |
 |EnableCircularTraceSession |Bool, valore predefinito: false | Statica |Il flag indica se devono essere usate le sessioni di traccia circolari. |
 |EnablePlatformEventsFileSink |Bool, valore predefinito: false | Statica |Abilita/Disabilita gli eventi della piattaforma scritti su disco |
 |EnableTelemetry |Bool, valore predefinito: true | Dinamica |Parametro per abilitare o disabilitare la telemetria. |
-|FailuresOnlyHttpTelemetry | Bool, valore predefinito: true | Dinamica | Se è abilitata l'acquisizione della telemetria HTTP; Acquisisci solo le richieste non riuscite. Questo consente di ridurre il numero di eventi generati per la telemetria. |
+|FailuresOnlyHttpTelemetry | Bool, valore predefinito: false | Dinamica | Se è abilitata l'acquisizione della telemetria HTTP; Acquisisci solo le richieste non riuscite. Questo consente di ridurre il numero di eventi generati per la telemetria. |
 |HttpTelemetryCapturePercentage | int, valore predefinito: 50 | Dinamica | Se è abilitata l'acquisizione della telemetria HTTP; Acquisisci solo una percentuale casuale di richieste. Questo consente di ridurre il numero di eventi generati per la telemetria. |
 |MaxDiskQuotaInMB |Int, valore predefinito: 65536 | Dinamica |Quota del disco in MB per i file di log di Windows Fabric. |
 |ProducerInstances |Stringa | Dinamica |L'elenco delle istanze di producer DCA. |

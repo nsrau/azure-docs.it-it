@@ -1,5 +1,5 @@
 ---
-title: Aggiungere un'organizzazione connessa in Azure AD gestione diritti (anteprima)-Azure Active Directory
+title: Aggiungere un'organizzazione connessa in Azure AD gestione dei diritti-Azure Active Directory
 description: Informazioni su come consentire agli utenti esterni all'organizzazione di richiedere pacchetti di accesso per poter collaborare ai progetti.
 services: active-directory
 documentationCenter: ''
@@ -16,14 +16,14 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d45db1f62b370a2692ed932572e16c247b8903
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9a8e5dc43170af8f33ad266edfa02ac5b41ca67a
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952485"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174148"
 ---
-# <a name="add-a-connected-organization-in-azure-ad-entitlement-management-preview"></a>Aggiungere un'organizzazione connessa in Azure AD gestione dei diritti (anteprima)
+# <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Aggiungere un'organizzazione connessa in Azure AD gestione dei diritti
 
 Azure AD la gestione dei diritti consente di collaborare con utenti esterni all'organizzazione. Se si collabora spesso con gli utenti in una directory o un dominio di Azure AD esterno, è possibile aggiungerli come organizzazione connessa. Questo articolo descrive come aggiungere un'organizzazione connessa in modo che sia possibile consentire agli utenti esterni all'organizzazione di richiedere risorse nella directory.
 
@@ -39,11 +39,9 @@ Si supponga, ad esempio, di lavorare presso la Woodgrove Bank e di voler collabo
 
 Il modo in cui gli utenti della directory Azure AD o del dominio si autenticano dipende dal tipo di autenticazione. I tipi di autenticazione per le organizzazioni connesse sono i seguenti:
 
-| Tipo di autenticazione | Status |
-| --- | --- |
-| Azure AD | Supportato |
-| [Federazione diretta](../b2b/direct-federation.md) | Preview |
-| [Un codice di](../b2b/one-time-passcode.md) accesso monouso (dominio) | Preview |
+- Azure AD
+- [Federazione diretta](../b2b/direct-federation.md)
+- [Un codice di](../b2b/one-time-passcode.md) accesso monouso (dominio)
 
 ## <a name="add-a-connected-organization"></a>Aggiungere un'organizzazione connessa
 

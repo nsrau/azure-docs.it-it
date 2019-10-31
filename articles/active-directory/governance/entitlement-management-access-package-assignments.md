@@ -1,6 +1,6 @@
 ---
-title: Visualizzare, aggiungere e rimuovere assegnazioni per un pacchetto di accesso in Azure AD Management diritti (anteprima)-Azure Active Directory
-description: Informazioni su come visualizzare, aggiungere e rimuovere assegnazioni per un pacchetto di accesso in Azure Active Directory gestione dei diritti (anteprima).
+title: Visualizzare, aggiungere e rimuovere assegnazioni per un pacchetto di accesso in Azure AD gestione dei diritti Azure Active Directory
+description: Informazioni su come visualizzare, aggiungere e rimuovere assegnazioni per un pacchetto di accesso in Azure Active Directory gestione dei diritti.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a20ff526ba00f5b6521198122972071360bb58d6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3f06da43e758c24da65664b34dd83f876a00e3a0
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934468"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174902"
 ---
-# <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Visualizzare, aggiungere e rimuovere assegnazioni per un pacchetto di accesso in Azure AD gestione dei diritti (anteprima)
-
-> [!IMPORTANT]
-> Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Visualizzare, aggiungere e rimuovere assegnazioni per un pacchetto di accesso in Azure AD gestione dei diritti
 
 In Azure AD gestione dei diritti, è possibile visualizzare gli utenti a cui è stato assegnato l'accesso ai pacchetti, i relativi criteri e lo stato. Se un pacchetto di accesso dispone di un criterio appropriato, è anche possibile assegnare direttamente un utente a un pacchetto di accesso. Questo articolo descrive come visualizzare, aggiungere e rimuovere le assegnazioni per i pacchetti di accesso.
 

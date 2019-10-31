@@ -11,21 +11,21 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: de7858be4ac4e392b4fb92cacf55882378ba9813
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 13a59a9b536a25897d7c545b6fb466c1192cb545
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568986"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177706"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Agente di sincronizzazione dei dati per la sincronizzazione dati SQL Azure
 
-Sincronizzare i dati con i database SQL Server locali installando e configurando l'agente di sincronizzazione dei dati per la sincronizzazione dati SQL di Azure. Per altre informazioni sulla sincronizzazione dei dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL](sql-database-sync-data.md).
+Sincronizzare i dati con i database SQL Server locali installando e configurando l'agente di sincronizzazione dati per sincronizzazione dati SQL di Azure. Per altre informazioni sui sincronizzazione dati SQL, vedere [sincronizzare i dati tra più database cloud e locali con sincronizzazione dati SQL](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> Al momento, la sincronizzazione dati SQL di Azure **non** supporta Istanza gestita di database SQL di Azure.
+> Al momento la sincronizzazione dati SQL di Azure **non** supporta Istanza gestita di database SQL di Azure.
 
-## <a name="download-and-install"></a>Scarica e installa
+## <a name="download-and-install"></a>Download e installazione
 
 Per scaricare l'agente di sincronizzazione dei dati, visitare [SQL Azure Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693).
 
@@ -115,7 +115,7 @@ L'agente client non funziona, anche dopo che è stata annullata la disinstallazi
 - **Risoluzione**. È possibile provare queste due soluzioni:
 
     -   Usare services.msc per immettere di nuovo le credenziali per l'agente client.
-    -   Disinstallare questo agente client e installarne uno nuovo. Scaricare e installare l'agente client più recente dall'[Area download](https://go.microsoft.com/fwlink/?linkid=221479).
+    -   Disinstallare questo agente client e installarne uno nuovo. Scaricare e installare l'agente client più recente dall'[Area download](https://www.microsoft.com/download/details.aspx?id=27693).
 
 ### <a name="agent-list"></a> Il database non è presente nell'elenco dell'agente
 
@@ -138,7 +138,7 @@ Molti scenari potrebbero causare questo errore.
 
 ### <a name="agent-start"></a> L'agente client non viene avviato (errore 1069)
 
-Si scopre che l'agente è in esecuzione in un computer che ospita SQL Server. Quando si prova ad avviare l'agente manualmente, viene visualizzata una finestra di dialogo con il messaggio "Errore 1069: Il servizio non è stato avviato a causa di un errore in fase di accesso."
+Si scopre che l'agente è in esecuzione in un computer che ospita SQL Server. Quando si prova ad avviare l'agente manualmente, viene visualizzata una finestra di dialogo con il messaggio "Errore 1069: Il servizio non è stato avviato a causa di un errore in fase di accesso".
 
 ![Finestra di dialogo dell'errore 1069 di sincronizzazione dei dati](media/sql-database-troubleshoot-data-sync/sync-error-1069.png)
 
@@ -273,7 +273,7 @@ SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key generate
 SqlDataSyncAgentCommand.exe -action registerdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
 ```
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>esempi
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -databaseName testdb -authentication sql -username <user name> -password <password> -encryption true
@@ -298,7 +298,7 @@ SqlDataSyncAgentCommand.exe -action unregisterdatabase -servername [on-premisesd
 SqlDataSyncAgentCommand.exe -action "unregisterdatabase" -serverName localhost -databaseName testdb
 ```
 
-### <a name="update-credentials"></a>Aggiorna credenziali
+### <a name="update-credentials"></a>Aggiornare le credenziali
 
 #### <a name="usage"></a>Utilizzo
 
@@ -306,7 +306,7 @@ SqlDataSyncAgentCommand.exe -action "unregisterdatabase" -serverName localhost -
 SqlDataSyncAgentCommand.exe -action updatecredential -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
 ```
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>esempi
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -databaseName testdb -authentication sql -username <user name> -password <password> -encryption true
@@ -320,7 +320,7 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere gli articoli segu
 
 -   Panoramica: [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md)
 -   Configurare la sincronizzazione dati
-    - Nel portale - [Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale](sql-database-get-started-sql-data-sync.md)
+    - Nel portale: [Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale](sql-database-get-started-sql-data-sync.md)
     - Con PowerShell
         -  [Usare PowerShell per sincronizzare più database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Usare PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)

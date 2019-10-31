@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 040874f0ba5e2766aab8aa399bcae65a6676fa53
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: bcf19956d998ace88efbd4e1c9d787f1baeef642
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951133"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177380"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Come usare Analytics per analizzare i dati del dispositivo
 
@@ -39,7 +39,7 @@ L'interfaccia utente di Analytics è costituita da tre componenti principali:
 
 È necessario iniziare scegliendo un **gruppo di dispositivi**e i dati di telemetria che si desidera analizzare. Al termine, selezionare **analizza** per iniziare a visualizzare i dati.
 
-- **Gruppo di dispositivi:** Un [gruppo](howto-use-device-groups-pnp.md) di dispositivi è un gruppo di dispositivi definito dall'utente. Ad esempio, tutti i frigoriferi in Oakland o tutte le turbine eoliche della versione 2,0.
+- **Gruppo di dispositivi:** Un [gruppo](tutorial-use-device-groups-pnp.md) di dispositivi è un gruppo di dispositivi definito dall'utente. Ad esempio, tutti i frigoriferi in Oakland o tutte le turbine eoliche della versione 2,0.
 
 - **Telemetria:** Selezionare i dati di telemetria che si vuole analizzare ed esplorare. È possibile selezionare più telemetrie da analizzare insieme. Il metodo di aggregazione predefinito è impostato su Average per Numerical e Count per il tipo di dati String rispettivamente. I metodi di aggregazione supportati per i tipi di dati numerici sono Average, Maximum, Minimum, Count e, Sum.  I metodi di aggregazione supportati per il tipo di dati String sono Count.
 

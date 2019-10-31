@@ -1,6 +1,6 @@
 ---
-title: Modificare le impostazioni di richiesta e approvazione per un pacchetto di accesso in Azure AD gestione diritti (anteprima)-Azure Active Directory
-description: Informazioni su come modificare le impostazioni di richiesta e approvazione per un pacchetto di accesso in Azure Active Directory gestione dei diritti (anteprima).
+title: Modificare le impostazioni di richiesta e approvazione per un pacchetto di accesso in Azure AD gestione dei diritti-Azure Active Directory
+description: Informazioni su come modificare le impostazioni di richiesta e approvazione per un pacchetto di accesso in Azure Active Directory gestione dei diritti.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b060a17d9e7f795b6aad7df0e3e6349bbbd81b3
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 649a4a50766d26f73584dae4481652c8007b2e9e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392501"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174670"
 ---
-# <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Modificare le impostazioni di richiesta e approvazione per un pacchetto di accesso in Azure AD gestione dei diritti (anteprima)
-
-> [!IMPORTANT]
-> Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificare le impostazioni di richiesta e approvazione per un pacchetto di accesso in Azure AD gestione dei diritti
 
 Per accedere a gestione pacchetti, è possibile modificare gli utenti che possono richiedere un pacchetto di accesso in qualsiasi momento modificando il criterio o aggiungendo un nuovo criterio. È anche possibile modificare le impostazioni di approvazione.
 

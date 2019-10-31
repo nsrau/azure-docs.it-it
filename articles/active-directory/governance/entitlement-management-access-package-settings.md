@@ -1,6 +1,6 @@
 ---
-title: Condividi il collegamento per richiedere un pacchetto di accesso in Azure AD gestione diritti (anteprima)-Azure Active Directory
-description: Informazioni su come condividere il collegamento per richiedere un pacchetto di accesso in Azure Active Directory gestione dei diritti (anteprima).
+title: Condividi il collegamento per richiedere un pacchetto di accesso in Azure AD gestione dei diritti-Azure Active Directory
+description: Informazioni su come condividere il collegamento per richiedere un pacchetto di accesso in Azure Active Directory gestione dei diritti.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91b98df1f93991d4781283bc38b02dc20d11268d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 94d32bf26def6832f51b4e09c697bca885162dc2
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392332"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174410"
 ---
-# <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management-preview"></a>Condividi il collegamento per richiedere un pacchetto di accesso in Azure AD gestione dei diritti (anteprima)
-
-> [!IMPORTANT]
-> Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Condividi il collegamento per richiedere un pacchetto di accesso in Azure AD gestione dei diritti
 
 La maggior parte degli utenti nella directory può accedere al portale di accesso personale e visualizzare automaticamente un elenco di pacchetti di accesso che possono richiedere. Tuttavia, per gli utenti di partner commerciali esterni che non si trovano ancora nella directory, è necessario inviare loro un collegamento che possono usare per richiedere un pacchetto di accesso. 
 

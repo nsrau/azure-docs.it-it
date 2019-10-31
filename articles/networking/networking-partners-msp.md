@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: e53b139f2820fe48f72121e3b216fda6b0a138ed
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: a65a36734af235312f3b8edd3d18ba5b3e0645c6
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/30/2019
-ms.locfileid: "73101590"
+ms.locfileid: "73177047"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Informazioni sui partner MSP di rete di Azure
 
@@ -40,7 +40,7 @@ Usare i collegamenti in questa sezione per altre informazioni sui servizi di ret
 
 [Equinix](https://www.equinix.com/)
 
-[Intercloud](https://intercloud.com/partners/get-to-azure-via-expressroute/)
+[Intercloud](https://intercloud.com/partners/microsoft-azure/)
 
 [IIJ](https://www.iij.ad.jp/biz/cloudex/)
 

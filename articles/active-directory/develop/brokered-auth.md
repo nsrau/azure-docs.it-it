@@ -17,12 +17,12 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb1ed81c03e7c5ba30b813897dac5796c550ed23
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 4a535cbefc3520cbf0c0fc14fbcfd0dd9ebd92ac
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679828"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175648"
 ---
 # <a name="brokered-auth-in-android"></a>Autenticazione negoziata in Android
 
@@ -64,7 +64,7 @@ Se per un dispositivo non è già installata un'app broker, MSAL indica all'uten
 
 Quando un broker viene installato in un dispositivo, tutte le richieste di token interattive successive (chiamate a `acquireToken()`) vengono gestite dal Broker anziché localmente da MSAL. Qualsiasi stato SSO disponibile in precedenza per MSAL non è disponibile per il broker. Di conseguenza, l'utente dovrà ripetere l'autenticazione oppure selezionare un account dall'elenco esistente di account noti al dispositivo.
 
-L'installazione di un broker non richiede l'accesso dell'utente. Solo se l'utente deve risolvere un `MsalUiRequiredException`, la richiesta successiva verrà inviata al broker. `MsalUiRequiredException` viene generata per diversi motivi e deve essere risolta in modo interattivo. Di seguito sono riportati alcuni motivi comuni:
+L'installazione di un broker non richiede l'accesso dell'utente. Solo quando l'utente deve risolvere un `MsalUiRequiredException` la richiesta successiva verrà inviata al broker. `MsalUiRequiredException` viene generata per diversi motivi e deve essere risolta in modo interattivo. Di seguito sono riportati alcuni motivi comuni:
 
 - L'utente ha modificato la password associata al proprio account.
 - L'account dell'utente non soddisfa più i criteri di accesso condizionale.

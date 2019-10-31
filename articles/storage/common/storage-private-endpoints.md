@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: b94d376ee107f9acd45dff5b96fc43722f2fe208
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 00de95f3b3e6eddd1f45be830202ba3ec8772bfd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965456"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176159"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Uso di endpoint privati per archiviazione di Azure (anteprima)
 
@@ -48,7 +48,7 @@ Quando si crea l'endpoint privato, è necessario specificare l'account di archiv
 > [!TIP]
 > Creare un endpoint privato separato per l'istanza secondaria del servizio di archiviazione per migliorare le prestazioni di lettura sugli account RA-GRS.
 
-Per la disponibilità in lettura in un [account di archiviazione con ridondanza geografica e accesso in lettura](storage-redundancy-grs.md#read-access-geo-redundant-storage), sono necessari endpoint privati distinti per le istanze primarie e secondarie del servizio. Non è necessario creare un endpoint privato per l'istanza secondaria per il failover. L'endpoint privato si connette automaticamente alla nuova istanza primaria dopo il failover.
+Per la disponibilità in lettura in un [account di archiviazione con ridondanza geografica e accesso in lettura](storage-redundancy-grs.md#read-access-geo-redundant-storage), sono necessari endpoint privati distinti per le istanze primarie e secondarie del servizio. Non è necessario creare un endpoint privato per l'istanza secondaria per il **failover**. L'endpoint privato si connette automaticamente alla nuova istanza primaria dopo il failover. git 
 
 #### <a name="resources"></a>resources
 
@@ -91,14 +91,14 @@ Questo approccio consente di accedere all'account di archiviazione usando la ste
 
 I nomi di zona DNS consigliati per gli endpoint privati per i servizi di archiviazione sono:
 
-| Servizio di archiviazione       | Nome zona                          |
-| :-------------------- | :--------------------------------- |
-| Servizio BLOB          | privatelink.blob.core.windows.net  |
-| File System Data Lake | privatelink.dfe.core.windows.net   |
-| Servizio file          | privatelink.file.core.windows.net  |
-| Servizio di accodamento         | privatelink.queue.core.windows.net |
-| Servizio tabelle         | privatelink.table.core.windows.net |
-| Siti web statici       | privatelink.web.core.windows.net   |
+| Servizio di archiviazione        | Nome zona                            |
+| :--------------------- | :----------------------------------- |
+| Servizio BLOB           | `privatelink.blob.core.windows.net`  |
+| Archiviazione Data Lake di seconda generazione | `privatelink.dfs.core.windows.net`   |
+| Servizio file           | `privatelink.file.core.windows.net`  |
+| Servizio di accodamento          | `privatelink.queue.core.windows.net` |
+| Servizio tabelle          | `privatelink.table.core.windows.net` |
+| Siti web statici        | `privatelink.web.core.windows.net`   |
 
 ## <a name="pricing"></a>Prezzi
 
@@ -119,6 +119,6 @@ I client in reti virtuali con endpoint privati esistenti devono affrontare vinco
 
 Questo vincolo è il risultato delle modifiche DNS apportate quando l'account a2 crea un endpoint privato.
 
-### <a name="network-security-group-rules-on-subnets-with-private-endpoints"></a>Regole del gruppo di sicurezza di rete nelle subnet con endpoint privati
+### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regole del gruppo di sicurezza di rete per le subnet con endpoint privati
 
-Al momento non è possibile configurare le regole del [gruppo di sicurezza di rete](../../virtual-network/security-overview.md) (NSG) per le subnet con endpoint privati. Una soluzione alternativa limitata a questo problema consiste nell'implementare le regole di accesso per gli endpoint privati nelle subnet di origine, sebbene questo approccio potrebbe richiedere un sovraccarico di gestione superiore.
+Attualmente, non è possibile configurare regole del [gruppo di sicurezza di rete](../../virtual-network/security-overview.md) (NSG) per le subnet con endpoint privati. Una soluzione alternativa limitata a questo problema consiste nell'implementare le regole di accesso per gli endpoint privati nelle subnet di origine, sebbene questo approccio potrebbe richiedere un sovraccarico di gestione superiore.

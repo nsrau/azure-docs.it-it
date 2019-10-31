@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: dad37af030c456f9ba2cd814fa92a7811dce6aa1
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 96956e1ad935933572b1f2d31b70ef64f8b92501
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130318"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175850"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Pianificare e preparare la distribuzione del cluster autonomo di Service Fabric
 
@@ -65,7 +65,7 @@ Di seguito sono indicate le specifiche per ogni computer da aggiungere al cluste
 * Un minimo di 40 GB di spazio disponibile su disco
 * CPU 4 core o superiore
 * Connessione a una o più reti protette per tutti i computer
-* Sistema operativo Windows Server installato (versioni valide: 2012 R2, 2016, 1709 o 1803. Service Fabric versione 6.4.654.9590 e successive supporta anche server 2019 e 1809.
+* Sistema operativo Windows Server installato (versioni valide: 2012 R2, 2016, 1709 o 1803). Service Fabric versione 6.4.654.9590 e successive supporta anche server 2019 e 1809.
 * [.NET Framework 4.5.1 o versione successiva](https://www.microsoft.com/download/details.aspx?id=40773), installazione completa
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * Il [servizio RemoteRegistry](https://technet.microsoft.com/library/cc754820) deve essere eseguito in tutti i computer.
@@ -102,15 +102,14 @@ Quando un amministratore di cluster configura un cluster autonomo di Service Fab
    * Runtime di Service Fabric non installato 
    * Servizio Windows Firewall (mpssvc) abilitato
    * Servizio Registro di sistema remoto (remoteregistry) abilitato
-   * Condivisione file (SMB) abilitata
    * Porte aperte necessarie in base alle porte di configurazione del cluster
-   * Porte aperte necessarie per il servizio Registro di sistema remoto e Windows SMB: 135, 137, 138, 139 e 445
+   * Aprire le porte necessarie per il servizio Registro di sistema remoto: 135, 137, 138 e 139
    * Connettività di rete reciproca
 3. Nessuna delle macchine ai nodi del cluster deve essere un controller di dominio.
 4. Se il cluster da distribuire è protetto, convalidare che i prerequisiti di sicurezza necessari siano corretti e che siano stati configurati correttamente in base alla configurazione.
 5. Se i computer del cluster non sono accessibili da Internet, impostare quanto segue nella configurazione del cluster:
-   * Disabilitare la telemetria: in *properties* impostare *"enableTelemetry": false*
-   * Disabilitare il download automatico della versione di Service Fabric e le notifiche relative all'approssimarsi del termine del supporto per la versione corrente del cluster: in *properties* impostare *"fabricClusterAutoupgradeEnabled": false*
+   * Disabilitare la telemetria: in *Properties* impostare *"enableTelemetry": false*
+   * Disabilitare la versione di Fabric automatica che Scarica & notifiche che la versione corrente del cluster è prossima alla fine del supporto: in *Properties* impostare *"fabricClusterAutoupgradeEnabled": false*
    * In alternativa, se l'accesso a Internet dalla rete è limitato ai domini consentiti, i domini seguenti sono necessari per l'aggiornamento automatico: go.microsoft.com download.microsoft.com
 
 6. Impostare le esclusioni antivirus di Service Fabric appropriate:

@@ -1,6 +1,6 @@
 ---
-title: Richiedere l'accesso a un pacchetto di accesso in Azure AD gestione dei diritti (anteprima)-Azure Active Directory
-description: Informazioni su come usare il portale di accesso personale per richiedere l'accesso a un pacchetto di accesso in Azure Active Directory gestione dei diritti (anteprima).
+title: Richiedere l'accesso a un pacchetto di accesso in Azure AD gestione dei diritti-Azure Active Directory
+description: Informazioni su come usare il portale di accesso personale per richiedere l'accesso a un pacchetto di accesso in Azure Active Directory gestione dei diritti.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e57a216efee39df0ad22712b281073a68600e0df
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: ddc0a3788075701fb4633895e7b22fff2c15f60b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990771"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173694"
 ---
-# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Richiedere l'accesso a un pacchetto di accesso in Azure AD gestione dei diritti (anteprima)
-
-> [!IMPORTANT]
-> Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Richiedere l'accesso a un pacchetto di accesso in Azure AD gestione dei diritti
 
 Con Azure AD gestione dei diritti, un pacchetto di accesso consente di impostare una sola volta le risorse e i criteri che gestiscono automaticamente l'accesso per tutta la durata del pacchetto di accesso. 
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba53049d580f3f90499dc0471b9ac981f4a374f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.openlocfilehash: 00e5e4a9751a03fe961fe02fec28f41b49e5ba43
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562164"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175168"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Informazioni sulle workstation sicure gestite da Azure
 
@@ -85,7 +85,7 @@ Essenziale per una workstation protetta è una soluzione di supply chain in cui 
 ## <a name="device-roles-and-profiles"></a>Profili e ruoli del dispositivo
 
 Questa guida fa riferimento a diversi profili e ruoli di sicurezza che consentono di creare soluzioni più sicure per utenti, sviluppatori e personale IT. Questi profili bilanciano l'usabilità e i rischi per gli utenti comuni che possono trarre vantaggio da una workstation migliorata o sicura. Le configurazioni delle impostazioni disponibili sono basate sugli standard accettati dal settore. Questa guida illustra come finalizzare Windows 10 e ridurre i rischi associati alla compromissione del dispositivo o dell'utente. Questa operazione viene eseguita usando i criteri e la tecnologia per gestire le funzionalità di sicurezza e i rischi.
-![Livelli di workstation sicuri](./media/concept-azure-managed-workstation/seccon-levels.png)
+![livelli di workstation protetti](./media/concept-azure-managed-workstation/seccon-levels.png)
 
 * **Bassa sicurezza** : una workstation standard gestita rappresenta un valido punto di partenza per la maggior parte delle attività domestiche e piccole imprese. Questi dispositivi sono registrati in Azure AD e gestiti con Intune. Questo profilo consente agli utenti di eseguire qualsiasi applicazione ed esplorare qualsiasi sito Web. È necessario abilitare una soluzione antimalware come [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) .
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/03/2019
+ms.date: 09/27/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74c6787068cf8ba1e86cbf43955d0ac995aa8de1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e4a091abff02e544f97f5621b56836cf6ba6e237
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702102"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175968"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Esperienze per gli utenti finali per le applicazioni in Azure Active Directory
 
@@ -34,7 +34,9 @@ I metodi che è possibile scegliere per la distribuzione nell'organizzazione son
 
 Il pannello di accesso disponibile all'indirizzo https://myapps.microsoft.com è un portale basato sul Web che consente agli utenti finali con account aziendale in Azure Active Directory di visualizzare e avviare applicazioni basate sul cloud per le quali l'amministratore di Azure AD ha concesso i diritti di accesso. Se si è un utente finale con [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), è anche possibile usare le funzionalità di gestione di gruppi in modalità self-service tramite il riquadro di accesso.
 
-![Schermata mostra il portale del Pannello di accesso AD Azure](media/what-is-single-sign-on/azure-ad-access-panel.png)
+![Screenshot che mostra il portale del pannello di accesso Azure AD](media/what-is-single-sign-on/azure-ad-access-panel.png)
+
+Per impostazione predefinita, tutte le applicazioni sono elencate insieme in un'unica pagina. Tuttavia, è possibile usare le aree di lavoro per raggruppare le applicazioni correlate e presentarle in una scheda separata, rendendole più facili da trovare. Ad esempio, è possibile utilizzare le aree di lavoro per creare raggruppamenti logici di applicazioni per ruoli, attività, progetti e così via specifici. Per informazioni, vedere [come usare le aree di lavoro app personali per personalizzare i pannelli di accesso utente (anteprima)](access-panel-workspaces.md). 
 
 Il riquadro di accesso non fa parte del portale di Azure e non richiede agli utenti di avere una sottoscrizione per Azure o Office 365.
 
@@ -42,9 +44,9 @@ Per altre informazioni sul riquadro di accesso di Azure AD, vedere [Introduzione
 
 ## <a name="office-365-application-launcher"></a>Applicazione di avvio di Office 365
 
-Per le organizzazioni che hanno distribuito Office 365, le applicazioni assegnate agli utenti tramite Azure AD vengono visualizzate anche nel portale di Office 365 all'indirizzo [ https://portal.office.com/myapps ](https://portal.office.com/myapps). Questo rende facile e comodo per gli utenti all’interno di un'organizzazione avviare le proprie applicazioni senza dover utilizzare un secondo portale ed è la soluzione di avvio delle applicazioni consigliata per le organizzazioni che utilizzano Office 365.
+Per le organizzazioni che hanno distribuito Office 365, le applicazioni assegnate agli utenti tramite Azure AD verranno visualizzate anche nel portale di Office 365 all' [https://portal.office.com/myapps](https://portal.office.com/myapps). Questo rende facile e comodo per gli utenti all’interno di un'organizzazione avviare le proprie applicazioni senza dover utilizzare un secondo portale ed è la soluzione di avvio delle applicazioni consigliata per le organizzazioni che utilizzano Office 365.
 
-![Schermata mostra il portale di Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
+![Screenshot che mostra il portale di Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
 Per ulteriori informazioni sull'avvio di applicazioni di Office 365, vedere [Visualizzazione dell'applicazione nell’applicazione di avvio di Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
@@ -52,13 +54,13 @@ Per ulteriori informazioni sull'avvio di applicazioni di Office 365, vedere [Vis
 
 La maggior parte delle applicazioni federate che supportano OpenID Connect, WS-Federation o SAML 2.0 supportano anche la possibilità per gli utenti di avviare l'applicazione e quindi ottenere l’accesso tramite Azure AD con il reindirizzamento automatico oppure facendo clic su un collegamento per accedere. Questo è noto come accesso avviato dal provider di servizi e la maggior parte delle applicazioni federate nella raccolta di applicazioni di Azure AD lo supporta (vedere la documentazione collegata dalla configurazione guidata di configurazione di Single Sign-On dell'app nel portale di Azure per i dettagli).
 
-![Esempio di una pagina di accesso app per dispositivi mobili](./media/end-user-experiences/workdaymobile.png)
+![Esempio di una pagina di accesso dell'app per dispositivi mobili](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>Collegamenti diretti Single Sign-On
 
 Azure AD supporta anche collegamenti diretti Single Sign-On alle singole applicazioni che supportano Single Sign-On basato su password, Single Sign-On collegato e qualunque forma di Single Sign-On federato.
 
-Questi collegamenti sono URL realizzati appositamente che inviano un utente attraverso la procedura di accesso di Azure AD per un'applicazione specifica senza richiedere che la avvii dal pannello di accesso di Azure AD o Office 365. Questi **URL di accesso utente** è reperibile nella sezione proprietà delle applicazioni aziendali disponibili. Nel portale di Azure, selezionare **Azure Active Directory** > **applicazioni aziendali**. Selezionare l'applicazione e quindi selezionare **proprietà**.
+Questi collegamenti sono URL realizzati appositamente che inviano un utente attraverso la procedura di accesso di Azure AD per un'applicazione specifica senza richiedere che la avvii dal pannello di accesso di Azure AD o Office 365. Questi **URL di accesso utente** si trovano nelle proprietà delle applicazioni aziendali disponibili. Nella portale di Azure selezionare **Azure Active Directory** > **applicazioni aziendali**. Selezionare l'applicazione, quindi selezionare **Proprietà**.
 
 ![Esempio di URL di accesso utente nelle proprietà di Twitter](media/end-user-experiences/direct-sign-on-link.png)
 

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ab7c3699abdd5c094b1b14cd53f76023fa8c1ac
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 641f71f6111930b54d0a2bd548f16d3cb0c07189
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309611"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175268"
 ---
 # <a name="web-app-that-signs-in-users---app-registration"></a>App Web che esegue l'accesso degli utenti-registrazione dell'app
 
@@ -69,20 +69,29 @@ Se si passa a questo collegamento, è possibile creare bootstrap per la creazion
    - Nella sezione URI di reindirizzamento (facoltativo) selezionare **Web** nella casella combinata e immettere gli URI di reindirizzamento seguenti: `https://localhost:44326/`.
 1. Selezionare **Registra** per creare l'applicazione.
 1. Selezionare il menu **Autenticazione** e quindi aggiungere le informazioni seguenti:
-   - Nella sezione **Impostazioni** | avanzate di **concessione implicita** , controllare i **token ID** perché questo esempio richiede che il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md) sia abilitato per l'accesso dell'utente.
+   - Nella sezione **Impostazioni avanzate** | la **concessione implicita** , controllare i **token ID** perché questo esempio richiede che il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md) sia abilitato per l'accesso dell'utente.
 1. Selezionare **Salva**.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
 4. Quando viene visualizzata la **pagina registra un'applicazione** , immettere un nome descrittivo per l'applicazione, ad esempio "Java-webapp", selezionare "account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)" e selezionare "app Web". /API ' come *tipo di applicazione*.
 1. Fare clic su **registra** per registrare l'applicazione.
-1. Nel menu a sinistra fare clic su **autenticazione**e in *URI di reindirizzamento*Selezionare "Web". Sarà necessario immettere due diversi URI di reindirizzamento: uno per la pagina di accesso e uno per la pagina utenti Graph. Per entrambi, è necessario usare lo stesso host e lo stesso numero di porta, seguito da "/msal4jsample/Secure/AAD" per la pagina di accesso e "msal4jsample/Graph/Users" per la pagina utenti.
- Per impostazione predefinita, l'esempio USA: 
+1. Nel menu a sinistra fare clic su **autenticazione**e in *URI di reindirizzamento*Selezionare "Web". Sarà necessario immettere due diversi URI di reindirizzamento: uno per la pagina di accesso e uno per la pagina Graph. Per entrambi, è necessario usare lo stesso host e lo stesso numero di porta, seguito da "/msal4jsample/Secure/AAD" per la pagina di accesso e da "msal4jsample/Graph/me" per la pagina informazioni utente.
+ Per impostazione predefinita, l'esempio USA:
 
-    - `http://localhost:8080/msal4jsample/secure/aad` (Indici per tabelle con ottimizzazione per la memoria). 
-    - `http://localhost:8080/msal4jsample/graph/users`
+    - `http://localhost:8080/msal4jsample/secure/aad`.
+    - `http://localhost:8080/msal4jsample/graph/me`
 
-Fare clic su **Salva**.
+    Nella sezione **Impostazioni avanzate** impostare **URL disconnessione** su `http://localhost:8080/msal4jsample/sign_out`.
+
+     Fare clic su **Salva**.
+
+1. Selezionare i **certificati & segreti** dal menu e nella sezione **segreti client** fare clic su **nuovo segreto client**:
+
+    - Digitare una descrizione della chiave
+    - Selezionare una durata **della chiave in 1 anno**.
+    - Il valore della chiave viene visualizzato quando si seleziona **Aggiungi**.
+    - Copiare il valore della chiave per un momento successivo. Il valore della chiave non verrà visualizzato di nuovo, né recuperabile con altri metodi, quindi è possibile registrarlo non appena è visibile dal portale di Azure.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -93,9 +102,15 @@ Fare clic su **Salva**.
 1. Selezionare **Registra** per creare l'applicazione.
 1. Nella pagina **Panoramica**  dell'app trovare il valore del campo **ID applicazione (client)** e prenderne nota. Sarà necessario per configurare il file di configurazione di Visual Studio per questo progetto.
 1. Dalla pagina Panoramica dell'app selezionare la sezione **autenticazione** .
-   - Nella sezione **Impostazioni avanzate** impostare **Disconnetti URL** su`http://localhost:5000/logout`
-1. Selezionare **Salva**.
+   - Nella sezione **Impostazioni avanzate** impostare **disconnetti URL** su `http://localhost:5000/logout`
 
+  Selezionare **Salva**.
+1. Nel menu a sinistra scegliere **Certificati e segreti** e fare clic su **Nuovo segreto client** nella sezione **Segreti client**:
+
+      - Digitare una descrizione della chiave
+      - Selezionare **Tra 1 anno** per la durata della chiave.
+      - Quando si fa clic su **Aggiungi**, verrà visualizzato il valore della chiave.
+      - Copiare il valore della chiave. Sarà necessario più avanti.
 ---
 
 ## <a name="register-an-app-using-powershell"></a>Registrare un'app con PowerShell
@@ -106,7 +121,7 @@ Fare clic su **Salva**.
 > - MyOrg (solo account in questa directory organizzativa)
 > - AnyOrg (account in qualsiasi directory dell'organizzazione).
 >
-> Se si vuole creare un'applicazione che esegua l'accesso agli utenti con gli account Microsoft personali (ad esempio Skype, XBox, Outlook.com), è possibile creare prima un'applicazione multi-tenant (tipi di account supportati = account in qualsiasi directory organizzativa) e quindi modificare `signInAudience` proprietà nel manifesto dell'applicazione dal portale di Azure. Questa procedura è illustrata in dettaglio nel passaggio [1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) dell'esercitazione ASP.NET Core (e può essere generalizzata in app Web in qualsiasi linguaggio).
+> Se si vuole creare un'applicazione che esegua l'accesso agli utenti con gli account Microsoft personali (ad esempio Skype, XBox, Outlook.com), è possibile creare prima un'applicazione multi-tenant (tipi di account supportati = account in qualsiasi directory organizzativa) e quindi modificare Proprietà `signInAudience` nel manifesto dell'applicazione dall'portale di Azure. Questa procedura è illustrata in dettaglio nel passaggio [1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) dell'esercitazione ASP.NET Core (e può essere generalizzata in app Web in qualsiasi linguaggio).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

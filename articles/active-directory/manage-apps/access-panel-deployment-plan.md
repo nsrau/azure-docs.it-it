@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 09/27/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41cc8114061ff7d23951baa3e6215d4332dff0ed
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 99c52f65bdec2b164cca86a6346d8865d210cf38
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258511"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176054"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Pianificare una distribuzione del pannello di accesso Azure Active Directory
 
@@ -45,15 +45,15 @@ Consente inoltre agli amministratori di gestire:
 
 Il pannello di accesso Azure AD offre vantaggi per le aziende nei modi seguenti:
 
-**Offre un'esperienza utente intuitiva**: Il pannello di accesso offre un'unica piattaforma per tutte le applicazioni connesse ad Azure Single Sign-On (SSO). Si dispone di un portale unificato per trovare le impostazioni esistenti e le nuove funzionalità, ad esempio la gestione dei gruppi e la reimpostazione della password self-service, man mano che vengono aggiunti. L'esperienza intuitiva consente agli utenti di tornare a lavorare più rapidamente ed essere più produttivi, riducendo al tempo stesso la loro frustrazione.
+**Offre un'esperienza utente intuitiva**: il pannello di accesso offre un'unica piattaforma per tutte le applicazioni connesse ad Azure Single Sign-on (SSO). Si dispone di un portale unificato per trovare le impostazioni esistenti e le nuove funzionalità, ad esempio la gestione dei gruppi e la reimpostazione della password self-service, man mano che vengono aggiunti. L'esperienza intuitiva consente agli utenti di tornare a lavorare più rapidamente ed essere più produttivi, riducendo al tempo stesso la loro frustrazione.
 
-**Aumenta la produttività**: SSO è abilitato per tutte le applicazioni utente nel pannello di accesso. L'abilitazione dell'accesso SSO tra applicazioni aziendali e Office 365 crea un'esperienza di accesso superiore riducendo o eliminando ulteriori richieste di accesso. Il pannello di accesso usa l'appartenenza dinamica e self-service e migliora la sicurezza complessiva del sistema di gestione delle identità. Questa operazione viene eseguita garantendo che gli utenti giusti gestiscano l'accesso alle applicazioni. Il pannello di accesso funge da pagina di destinazione coerente per individuare rapidamente le risorse e continuare le attività di lavoro.
+**Aumenta la produttività**: per tutte le applicazioni utente nel pannello di accesso è abilitato SSO. L'abilitazione dell'accesso SSO tra applicazioni aziendali e Office 365 crea un'esperienza di accesso superiore riducendo o eliminando ulteriori richieste di accesso. Il pannello di accesso usa l'appartenenza dinamica e self-service e migliora la sicurezza complessiva del sistema di gestione delle identità. Questa operazione viene eseguita garantendo che gli utenti giusti gestiscano l'accesso alle applicazioni. Il pannello di accesso funge da pagina di destinazione coerente per individuare rapidamente le risorse e continuare le attività di lavoro.
 
-**Gestisce i costi**: L'abilitazione del pannello di accesso con Azure AD può essere utile per la dimissione delle infrastrutture locali. Riduce i costi di supporto fornendo un portale coerente per trovare tutte le app, richiedere l'accesso alle risorse e gestire gli account.
+**Gestione dei costi**: l'abilitazione del pannello di accesso con Azure ad può essere utile per la dimissione delle infrastrutture locali. Riduce i costi di supporto fornendo un portale coerente per trovare tutte le app, richiedere l'accesso alle risorse e gestire gli account.
 
-**Aumenta la flessibilità e la sicurezza**: Il pannello di accesso consente di accedere alla sicurezza e alla flessibilità fornite da una piattaforma cloud. Gli amministratori possono facilmente modificare le impostazioni per le applicazioni e le risorse e possono soddisfare i nuovi requisiti di sicurezza senza influire sugli utenti.
+**Aumenta la flessibilità e la sicurezza**: il pannello di accesso consente di accedere alla sicurezza e alla flessibilità offerte da una piattaforma cloud. Gli amministratori possono facilmente modificare le impostazioni per le applicazioni e le risorse e possono soddisfare i nuovi requisiti di sicurezza senza influire sugli utenti.
 
-**Consente di monitorare e controllare l'utilizzo affidabili**: Il controllo e il rilevamento dell'utilizzo per tutte le funzionalità utente consentono di capire quando gli utenti usano le risorse e garantiscono la valutazione della sicurezza.
+**Consente di monitorare e controllare l'utilizzo affidabili**: il controllo e il rilevamento dell'utilizzo per tutte le funzionalità utente consentono di capire quando gli utenti usano le risorse e garantiscono la valutazione della sicurezza.
 
 ### <a name="licensing-considerations"></a>Considerazioni sulle licenze
 
@@ -81,14 +81,14 @@ Prima di iniziare questo progetto, completare i prerequisiti seguenti:
 
 La tabella seguente descrive i casi d'uso principali per una distribuzione del pannello di accesso:
 
-| Area| Descrizione |
+| Area| Description |
 | - | - |
 | Accesso| Il portale del pannello di accesso è accessibile dai dispositivi personali e aziendali all'interno della rete aziendale. |
 |Accesso | Il portale del pannello di accesso è accessibile dai dispositivi aziendali all'esterno della rete aziendale. |
 | Controllo| I dati di utilizzo vengono scaricati nei sistemi aziendali almeno ogni 29 giorni. |
 | Governance| Il ciclo di vita delle assegnazioni degli utenti a gruppi e applicazioni connesse Azure AD viene definito e monitorato. |
-| Security| L'accesso alle risorse viene controllato tramite le assegnazioni di utenti e gruppi. Solo gli utenti autorizzati possono gestire l'accesso alle risorse. |
-| Prestazioni| Le sequenze temporali di propagazione dell'assegnazione di accesso vengono documentate e monitorate |
+| Sicurezza| L'accesso alle risorse viene controllato tramite le assegnazioni di utenti e gruppi. Solo gli utenti autorizzati possono gestire l'accesso alle risorse. |
+| Performance| Le sequenze temporali di propagazione dell'assegnazione di accesso vengono documentate e monitorate |
 | Esperienza utente| Gli utenti sono a conoscenza delle funzionalità del pannello di accesso e del modo in cui usarle.|
 | Esperienza utente| Gli utenti possono gestire l'accesso alle applicazioni e ai gruppi.|
 | Esperienza utente| Gli utenti possono gestire i propri account. |
@@ -105,7 +105,7 @@ La funzionalità del pannello di accesso può essere abilitata gradualmente. Si 
    * Integrazione con Microsoft Office 365
 
 1. Individuazione self-service delle app
-   * Reimpostazione password self-service
+   * Reimpostazione della password self-service
    * Impostazioni Multi-Factor Authentication
    * Gestione dei dispositivi
    * Condizioni per l'utilizzo
@@ -127,11 +127,11 @@ La tabella seguente elenca diverse configurazioni importanti del pannello di acc
 | Determinare i gruppi pilota| Identificare il gruppo di sicurezza Azure AD da usare e assicurarsi che tutti i membri pilota facciano parte del gruppo. |
 | Determinare il gruppo o i gruppi da abilitare per la produzione.| Identificare i gruppi di sicurezza Azure AD o i gruppi di Active Directory sincronizzati con Azure AD, da usare. Assicurarsi che tutti i membri pilota facciano parte del gruppo. |
 | Consenti agli utenti di usare SSO per determinati tipi di applicazioni| SSO federato, OAuth, SSO con password, proxy applicazione |
-| Consenti agli utenti di usare la reimpostazione della password self-service | Yes |
-| Consenti agli utenti di usare Multi-Factor Authentication| Yes |
+| Consenti agli utenti di usare la reimpostazione della password self-service | SÌ |
+| Consenti agli utenti di usare Multi-Factor Authentication| SÌ |
 | Consenti agli utenti di usare la gestione dei gruppi in modalità self-service per determinati tipi di gruppi| Gruppi di sicurezza, gruppi di Office 365 |
-| Consenti agli utenti di usare la gestione self-service delle app| Yes |
-| Consenti agli utenti di usare le verifiche di accesso| Yes |
+| Consenti agli utenti di usare la gestione self-service delle app| SÌ |
+| Consenti agli utenti di usare le verifiche di accesso| SÌ |
 
 ### <a name="plan-consent-strategy"></a>Strategia di consenso del piano
 
@@ -181,7 +181,7 @@ Azure AD supporta tre diversi modi per abilitare [Single Sign-on nelle applicazi
     * Abilita la creazione di report aggiuntivi in Azure AD quando vengono avviate le applicazioni. 
     * Include l'uso di applicazione Azure proxy e la modalità di Single Sign-On collegata.
 
-Informazioni su come configurare la modalità SSO di un'applicazione: [Accesso Single Sign-on alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Informazioni su come configurare la modalità SSO di un'applicazione qui: [Single Sign-on per le applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 Per un'esperienza ottimale con la pagina App personali, iniziare con l'integrazione delle applicazioni cloud disponibili per SSO federato. L'accesso Single Sign-on federato consente agli utenti di disporre di un'esperienza con un clic coerente nell'app che avvia le superfici e tende a essere più affidabile nel controllo della configurazione.
 
@@ -201,7 +201,7 @@ Se è necessario integrare applicazioni SSO basate su password, è necessario de
 
 * [Download e configurazione basati sull'utente per Chrome, Firefox, Microsoft Edge o IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-Altre informazioni: [Come configurare la Single Sign-on delle password](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
+Altre informazioni: [come configurare la Single Sign-on delle password](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
 
 Anche gli utenti che non usano applicazioni SSO basate su password traggono vantaggio dall'estensione. Questi vantaggi includono la possibilità di avviare qualsiasi app dalla relativa barra di ricerca, trovare l'accesso alle applicazioni utilizzate di recente e avere un collegamento alla pagina App personali.
 
@@ -211,11 +211,11 @@ Ecco cosa vedrà l'utente quando si avvia un'applicazione SSO basata su password
 
 #### <a name="plan-for-mobile-access"></a>Pianificare l'accesso mobile
 
-Un browser protetto con i criteri di Intune (Microsoft Edge o Intune Managed Browser) è necessario per gli utenti mobili che avviano applicazioni SSO basate su password. Un browser protetto da criteri consente di trasferire la password salvata per l'applicazione. Microsoft Edge o Managed browser fornisce un set di funzionalità di protezione dei dati Web. È anche possibile usare Microsoft Edge per gli scenari aziendali nei dispositivi iOS e Android. Microsoft Edge supporta gli stessi scenari di gestione del Intune Managed Browser e migliora l'esperienza utente. Altre informazioni: [Gestire l'accesso Web usando un browser protetto da criteri Microsoft Intune](https://docs.microsoft.com/intune/app-configuration-managed-browser).
+Un browser protetto con i criteri di Intune (Microsoft Edge o Intune Managed Browser) è necessario per gli utenti mobili che avviano applicazioni SSO basate su password. Un browser protetto da criteri consente di trasferire la password salvata per l'applicazione. Microsoft Edge o Managed browser fornisce un set di funzionalità di protezione dei dati Web. È anche possibile usare Microsoft Edge per gli scenari aziendali nei dispositivi iOS e Android. Microsoft Edge supporta gli stessi scenari di gestione del Intune Managed Browser e migliora l'esperienza utente. Altre informazioni: [gestire l'accesso Web usando un browser protetto da criteri Microsoft Intune](https://docs.microsoft.com/intune/app-configuration-managed-browser).
 
 ## <a name="plan-your-my-apps-deployment"></a>Pianificare la distribuzione delle app personali
 
-La base del pannello di accesso è l'avvio dell'applicazione App personali, a cui gli [https://myapps.microsoft.com](https://myapps.microsoft.com/)utenti accedono in. Le pagine My Apps forniscono agli utenti un'unica posizione per iniziare il lavoro e ottenere le applicazioni necessarie. Qui, gli utenti trovano un elenco di tutte le applicazioni a cui hanno accesso Single Sign-On. 
+La base del pannello di accesso è l'avvio dell'applicazione App personali, a cui gli utenti accedono in [https://myapps.microsoft.com](https://myapps.microsoft.com/). Le pagine My Apps forniscono agli utenti un'unica posizione per iniziare il lavoro e ottenere le applicazioni necessarie. Qui, gli utenti trovano un elenco di tutte le applicazioni a cui hanno accesso Single Sign-On. 
 
 ![Screenshot del pannello app](media/access-panel-deployment-plan/ap-dp-app-launcher.png)
 
@@ -226,6 +226,10 @@ Pianificare l'ordine in cui si aggiungono le applicazioni all'utilità di avvio 
 #### <a name="add-applications-to-the-my-apps-panel"></a>Aggiungere applicazioni al pannello app personali
 
 È possibile aggiungere qualsiasi applicazione Azure AD abilitata per l'accesso SSO all'utilità di avvio app personali. Altre applicazioni vengono aggiunte utilizzando l'opzione collegata SSO. È possibile configurare un riquadro dell'applicazione che si collega all'URL dell'applicazione Web esistente. SSO collegato consente di iniziare a indirizzare gli utenti al portale app personali senza eseguire la migrazione di tutte le applicazioni a Azure AD SSO. È possibile spostarsi gradualmente in Azure AD applicazioni configurate con SSO senza compromettere l'esperienza degli utenti.
+
+#### <a name="use-my-apps-workspaces-preview"></a>Usare le aree di lavoro app personali (anteprima)
+
+Per impostazione predefinita, tutte le applicazioni sono elencate insieme in un'unica pagina. Tuttavia, è possibile usare le aree di lavoro per raggruppare le applicazioni correlate e presentarle in una scheda separata, rendendole più facili da trovare. Ad esempio, è possibile utilizzare le aree di lavoro per creare raggruppamenti logici di applicazioni per ruoli, attività, progetti e così via specifici. Per informazioni, vedere [come usare le aree di lavoro app personali per personalizzare i pannelli di accesso utente (anteprima)](access-panel-workspaces.md). 
 
 #### <a name="plan-whether-to-use-my-apps-or-an-existing-portal"></a>Pianificare se usare app personali o un portale esistente
 
@@ -282,7 +286,7 @@ Se durante il test o la distribuzione si vuole aggiungere i gruppi ma non consen
 
 Per le applicazioni Office 365, gli utenti ricevono una copia di Office in base alle licenze assegnate. Un prerequisito per l'accesso alle applicazioni di Office è costituito dagli utenti a cui vengono assegnate le licenze corrette legate alle applicazioni di Office. Quando si assegna una licenza a un utente, vengono visualizzate automaticamente le applicazioni associate alla licenza nella pagina App personali e nell'utilità di avvio delle app di Office 365.
 
-Se si vuole nascondere un set di applicazioni di Office dagli utenti, è disponibile un'opzione che consente di nascondere le app dal portale delle app personali, pur continuando ad accedere dal portale di Office 365. Trovare queste impostazioni nella parte relativa alle impostazioni utente dell'applicazione. Altre informazioni: [Nascondere un'applicazione dall'esperienza dell'utente in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
+Se si vuole nascondere un set di applicazioni di Office dagli utenti, è disponibile un'opzione che consente di nascondere le app dal portale delle app personali, pur continuando ad accedere dal portale di Office 365. Trovare queste impostazioni nella parte relativa alle impostazioni utente dell'applicazione. Altre informazioni: [nascondere un'applicazione dall'esperienza dell'utente in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
 
 ![Screenshot della configurazione di come nascondere le applicazioni](media/access-panel-deployment-plan/ap-dp-o365-portal.png)
 
@@ -292,7 +296,7 @@ L'accesso alle applicazioni self-service consente agli utenti di individuare aut
 
 È possibile delegare l'approvazione delle richieste di accesso alle applicazioni ai responsabili approvazione aziendali. Il responsabile approvazione aziendale può impostare le password di accesso all'app dalla pagina App personali del responsabile approvazione business.
 
-Altre informazioni: [Come usare l'accesso alle applicazioni self-service](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).
+Altre informazioni: [come usare l'accesso alle applicazioni self-service](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).
 
 ![Screenshot della configurazione della gestione di applicazioni self-service](media/access-panel-deployment-plan/ap-dp-salesforce.png)
 
@@ -334,11 +338,11 @@ I test seguenti devono essere eseguiti con i dispositivi di proprietà dell'azie
 
 | Utenti tipo| Ruoli| Ruolo Azure AD  |
 | - | -| -|
-| Amministratore helpdesk| Supporto di livello 1| Nessuna |
+| Amministratore helpdesk| Supporto di livello 1| Nessuno |
 | Amministratore identità| Configurare ed eseguire il debug quando i problemi hanno effetto Azure AD| Amministratore globale |
-| Amministratore applicazione| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| Nessuna |
+| Amministratore applicazione| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| Nessuno |
 | Amministratori dell'infrastruttura| Proprietario del rollover del certificato| Amministratore globale |
-| Proprietario/stakeholder aziendale| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| Nessuna |
+| Proprietario/stakeholder aziendale| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| Nessuno |
 
 È possibile usare [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) per gestire i ruoli per fornire controllo, controllo e verifica di accesso aggiuntivi per gli utenti con autorizzazioni di directory.
 

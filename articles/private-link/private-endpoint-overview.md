@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 32814b7478fac9530cc74fba605a096881229102
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: a3c25553e7abbe39c00407e8000880dc99056bcd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/30/2019
-ms.locfileid: "73101339"
+ms.locfileid: "73172990"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -122,8 +122,6 @@ La tabella seguente include un elenco di limitazioni note quando si usano gli en
 |Limitazione |Description |Mitigazione  |
 |---------|---------|---------|
 |Le regole del gruppo di sicurezza di rete (NSG) e le route definite dall'utente non si applicano all'endpoint privato    |NSG non è supportato in endpoint privati. Mentre le subnet contenenti l'endpoint privato possono avere NSG associate, le regole non saranno valide per il traffico elaborato dall'endpoint privato. Per distribuire endpoint privati in una subnet, è necessario che l' [applicazione di criteri di rete sia disabilitata](disable-private-endpoint-network-policy.md) . NSG viene ancora applicato ad altri carichi di lavoro ospitati nella stessa subnet. Le route in qualsiasi subnet client utilizzeranno un prefisso/32. la modifica del comportamento di routing predefinito richiede un UDR simile  | Controllare il traffico usando le regole NSG per il traffico in uscita nei client di origine. Distribuire le singole route con prefisso/32 per eseguire l'override delle route di endpoint privato        |
-|Non è possibile creare endpoint privati nelle subnet abilitate per l'endpoint di servizio o i carichi di lavoro specializzati    |Non è possibile distribuire gli endpoint privati nelle subnet abilitate per gli endpoint di servizio o le subnet delegate a carichi di lavoro specializzati|  Creare una subnet separata per distribuire gli endpoint privati.        |
-|è possibile eseguire il mapping dell'endpoint privato solo a un servizio di collegamento privato (di proprietà del cliente) nella stessa area    |   La connessione a un servizio di collegamento privato (propria) da un'area diversa non è supportata       |  Durante la fase di anteprima, è necessario distribuire il servizio di collegamento privato nella stessa area.        |
 |  La rete virtuale con peering con endpoint privati non è supportata   |   Quando ci si connette a endpoint privati in una rete virtuale con peering senza altri carichi di lavoro non è supportato       | Distribuire una singola VM nella rete virtuale con peering per abilitare la connettività |
 |Carichi di lavoro specializzati non possono accedere agli endpoint privati    |   I servizi seguenti distribuiti nella rete virtuale non possono accedere a una risorsa di collegamento privato tramite endpoint privati:<br>Piano di servizio app</br>Istanza di contenitore di Azure</br>Azure NetApp Files</br>HSM dedicato di Azure<br>       |   Nessuna attenuazione durante l'anteprima.       |
 

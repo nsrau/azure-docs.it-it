@@ -11,17 +11,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 10/29/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5e498dcb39f62fc870bc7efa989b91caeac0dedc
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
-ms.translationtype: MT
+ms.openlocfilehash: a073a476043fc6570a42cc142e01f2c6f98c7741
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819710"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175914"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Come usare le cartelle di lavoro di monitoraggio di Azure per i report Azure Active Directory
+
+> [!IMPORTANT]
+> Per ottimizzare le query sottostanti in questa cartella di lavoro, fare clic su "modifica", fare clic sull'icona impostazioni e selezionare l'area di lavoro in cui si desidera eseguire tali query. Per impostazione predefinita, le cartelle di lavoro selezionano tutte le aree di lavoro in cui si esegue il routing dei log Azure AD. 
 
 Si desidera:
 
@@ -31,7 +34,17 @@ Si desidera:
 
 - Sai chi sta usando le autenticazioni legacy per accedere al tuo ambiente? [Bloccando l'autenticazione legacy](../conditional-access/block-legacy-authentication.md), è possibile migliorare la protezione del tenant.
 
-Per rispondere a queste domande, Active Directory fornisce cartelle di lavoro per il monitoraggio. Le [cartelle di lavoro di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinano testo, query di analisi, metriche e parametri in report interattivi avanzati. 
+- È necessario comprendere l'effetto dei criteri di accesso condizionale nel tenant?
+
+- La possibilità di esaminare le query del log di accesso, la cartella di lavoro indica il numero di utenti a cui è stato concesso o negato l'accesso, nonché il numero di utenti che hanno ignorato i criteri di accesso condizionale durante l'accesso alle risorse?
+
+- Si è interessati a sviluppare una conoscenza più approfondita di: i dettagli della cartella di lavoro per ogni condizione in modo che l'effetto di un criterio possa essere contestuale per condizione, tra cui la piattaforma del dispositivo, lo stato del dispositivo, l'app client, il rischio di accesso, la posizione e l'applicazione?
+
+- Ottenere informazioni più approfondite sulle query del log di accesso, la cartella di lavoro indica il numero di utenti a cui è stato concesso o negato l'accesso, nonché il numero di utenti che hanno ignorato i criteri di accesso condizionale durante l'accesso alle risorse.
+
+- Per rispondere a queste domande, Active Directory fornisce cartelle di lavoro per il monitoraggio. Le [cartelle di lavoro di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinano testo, query di analisi, metriche e parametri in report interattivi avanzati.
+
+
 
 Questo articolo:
 
@@ -57,7 +70,7 @@ Per utilizzare le cartelle di lavoro di monitoraggio, è necessario:
     - Amministratore globale
 
 ## <a name="roles"></a>Ruoli
-Per gestire le cartelle di lavoro di, è necessario disporre di uno dei ruoli seguenti, nonché accedere all'area di lavoro [log Analytics sottostante](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) :
+Per gestire le cartelle di lavoro di, è necessario disporre di uno dei ruoli seguenti, nonché accedere all'area di lavoro [log Analytics sottostante](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) :
 -   Amministratore globale
 -   Amministrazione della protezione
 -   Ruolo con autorizzazioni di lettura per la sicurezza
@@ -170,7 +183,43 @@ Per gli accessi disabilitati, si ottiene una suddivisione in base allo stato di 
 ![Stato di accesso condizionale](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
+## <a name="conditional-access-insights"></a>Informazioni dettagliate su accesso condizionale
 
+### <a name="overview"></a>Panoramica
+
+Le cartelle di lavoro contengono query di log di accesso che consentono agli amministratori IT di monitorare l'effetto dei criteri di accesso condizionale nel tenant. Si ha la possibilità di segnalare il numero di utenti a cui è stato concesso o negato l'accesso. La cartella di lavoro contiene informazioni dettagliate sul numero di utenti che hanno ignorato i criteri di accesso condizionale in base agli attributi degli utenti al momento dell'accesso. Contiene i dettagli per ogni condizione, in modo che l'effetto di un criterio possa essere contestuale per condizione, tra cui la piattaforma del dispositivo, lo stato del dispositivo, l'app client, il rischio di accesso, la posizione e l'applicazione.
+
+### <a name="instructions"></a>Istruzioni 
+Per accedere alla cartella di lavoro per informazioni dettagliate sull'accesso condizionale, selezionare la cartella di lavoro delle **informazioni dettagliate** sull'accesso condizionale nella sezione accesso condizionale. Questa cartella di lavoro Mostra l'effetto previsto di ogni criterio di accesso condizionale nel tenant. Selezionare uno o più criteri di accesso condizionale dall'elenco a discesa e limitare l'ambito della cartella di lavoro applicando i filtri seguenti: 
+
+- **Intervallo di tempo**
+
+- **Utente**
+
+- **App**
+
+- **Visualizzazione dati**
+
+![Stato di accesso condizionale](./media/howto-use-azure-monitor-workbooks/access-insights.png)
+
+
+Il riepilogo dell'effetto Mostra il numero di utenti o accessi per i quali i criteri selezionati hanno un determinato risultato. Total è il numero di utenti o accessi per i quali i criteri selezionati sono stati valutati nell'intervallo di tempo selezionato. Fare clic su un riquadro per filtrare i dati nella cartella di lavoro in base al tipo di risultato. 
+
+![Stato di accesso condizionale](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
+
+Questa cartella di lavoro mostra anche l'effetto dei criteri selezionati suddivisi in base a ognuna delle sei condizioni: 
+- **Stato del dispositivo**
+- **Piattaforma del dispositivo**
+- **App client**
+- **Rischio di accesso**
+- **Località**
+- **Applicazioni**
+
+![Stato di accesso condizionale](./media/howto-use-azure-monitor-workbooks/device-platform.png)
+
+È anche possibile esaminare gli accessi singoli, filtrati in base ai parametri selezionati nella cartella di lavoro. Cercare singoli utenti, ordinati in base alla frequenza di accesso e visualizzare gli eventi di accesso corrispondenti. 
+
+![Stato di accesso condizionale](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
 
 
@@ -211,7 +260,7 @@ Per ogni tendenza si ottiene una suddivisione in base all'app e al protocollo.
 
 ## <a name="sign-ins-failure-analysis"></a>Analisi degli errori di accesso
 
-Utilizzare la cartella di lavoro analisi degli errori di **accesso** per risolvere gli errori con i seguenti elementi:
+Usare la cartella di lavoro analisi degli errori di **accesso** per risolvere gli errori con:
 
 - Accessi
 - Criteri di accesso condizionale

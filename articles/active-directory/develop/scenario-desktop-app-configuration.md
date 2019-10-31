@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0926e6800dbcd81d2e542e27afe3afb1240cff22
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 6baf7d21748b5b524745f26302e70612dab29a8d
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268424"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175429"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>App desktop che chiama API Web-configurazione del codice
 
@@ -28,13 +28,22 @@ Ora che è stata creata l'applicazione, si apprenderà come configurare il codic
 
 ## <a name="msal-libraries"></a>Librerie MSAL
 
-L'unica libreria MSAL che supporta le applicazioni desktop su più piattaforme oggi è MSAL.NET.
+Le librerie Microsoft che supportano le applicazioni desktop sono:
 
-MSAL per iOS e macOS supporta le applicazioni desktop in esecuzione solo in macOS. 
+  Libreria MSAL | Description
+  ------------ | ----------
+  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supporta la creazione di un'applicazione desktop in più piattaforme: Linux, Windows e MacOS
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Supporta la creazione di un'applicazione desktop in più piattaforme. Sviluppo in corso-anteprima pubblica
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Supporta la creazione di un'applicazione desktop in più piattaforme. Sviluppo in corso-anteprima pubblica
+  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Supporta le applicazioni desktop in esecuzione solo in macOS
 
-## <a name="public-client-application-with-msalnet"></a>Applicazione client pubblica con MSAL.NET
+## <a name="public-client-application"></a>Applicazione client pubblica
 
-Dal punto di vista del codice, le applicazioni desktop sono applicazioni client pubbliche ed è per questo motivo che è possibile creare e `IPublicClientApplication`modificare MSAL.NET. Anche in questo caso, è leggermente diverso se si usa l'autenticazione interattiva.
+Dal punto di vista del codice, le applicazioni desktop sono applicazioni client pubbliche. La configurazione sarà leggermente diversa a seconda che si usi o meno l'autenticazione interattiva.
+
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+
+È necessario compilare e modificare la `IPublicClientApplication`di MSAL.NET.
 
 ![IPublicClientApplication](media/scenarios/public-client-application.png)
 
@@ -47,7 +56,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-Se si intende usare l'autenticazione interattiva o il flusso del codice del dispositivo, come illustrato in precedenza, si `.WithRedirectUri` vuole usare il modificatore:
+Se si intende usare l'autenticazione interattiva o il flusso del codice del dispositivo, come illustrato in precedenza, si vuole usare il modificatore `.WithRedirectUri`:
 
 ```CSharp
 IPublicClientApplication app;
@@ -98,16 +107,16 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-### <a name="learn-more"></a>Altre informazioni
+### <a name="learn-more"></a>Altre informazioni.
 
 Per altre informazioni su come configurare un'applicazione desktop MSAL.NET:
 
-- Per l'elenco di tutti i modificatori disponibili `PublicClientApplicationBuilder`in, vedere la documentazione di riferimento [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
+- Per l'elenco di tutti i modificatori disponibili in `PublicClientApplicationBuilder`, vedere la documentazione di riferimento [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
 - Per la descrizione di tutte le opzioni esposte in `PublicClientApplicationOptions` vedere [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions), nella documentazione di riferimento
 
-## <a name="complete-example-with-configuration-options"></a>Esempio completo con le opzioni di configurazione
+### <a name="complete-example-with-configuration-options"></a>Esempio completo con le opzioni di configurazione
 
-Si supponga di disporre di un'applicazione console .NET Core `appsettings.json` con il seguente file di configurazione:
+Si supponga di disporre di un'applicazione console .NET Core con il seguente `appsettings.json` file di configurazione:
 
 ```JSon
 {
@@ -175,9 +184,32 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
            .Build();
 ```
 
-prima della chiamata al `.Build()` metodo, è possibile eseguire l'override della configurazione con le chiamate ai `.WithXXX` metodi, come illustrato in precedenza.
+prima della chiamata al metodo `.Build()`, è possibile eseguire l'override della configurazione con chiamate a metodi `.WithXXX`, come illustrato in precedenza.
 
-## <a name="public-client-application-with-msal-for-ios-and-macos"></a>Applicazione client pubblica con MSAL per iOS e macOS
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Di seguito è illustrata la classe usata in MSAL Java dev Samples per configurare gli esempi: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
+
+```Java
+PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
+        .authority(TestData.AUTHORITY_COMMON)
+        .build();
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+```Python
+config = json.load(open(sys.argv[1]))
+
+app = msal.PublicClientApplication(
+    config["client_id"], authority=config["authority"],
+    # token_cache=...  # Default cache is in memory only.
+                       # You can learn how to use SerializableTokenCache from
+                       # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
+    )
+```
+
+# <a name="macostabmacos"></a>[MacOS](#tab/macOS)
 
 Il codice seguente crea un'istanza di un'applicazione client pubblica, gli utenti che accedono all'Microsoft Azure cloud pubblico, un account aziendale o dell'Istituto di istruzione o un account Microsoft personale.
 
@@ -187,12 +219,12 @@ Objective-C:
 
 ```objc
 NSError *msalError = nil;
-    
+
 MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];    
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&msalError];
 ```
 
-Swift
+Swift:
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>")
 if let application = try? MSALPublicClientApplication(configuration: config){ /* Use application */}
@@ -210,25 +242,26 @@ MSALAADAuthority *aadAuthority =
                                                    audienceType:MSALAzureADMultipleOrgsAudience
                                                       rawTenant:nil
                                                           error:nil];
-                                                          
+
 MSALPublicClientApplicationConfig *config =
                 [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"
                                                                 redirectUri:@"<your-redirect-uri-here>"
                                                                   authority:aadAuthority];
-                                                                  
+
 NSError *applicationError = nil;
 MSALPublicClientApplication *application =
                 [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
 ```
 
-Swift
+Swift:
 
 ```swift
 let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance, audienceType: .azureADMultipleOrgsAudience, rawTenant: nil)
-        
+
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>", redirectUri: "<your-redirect-uri-here>", authority: authority)
 if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
 ```
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

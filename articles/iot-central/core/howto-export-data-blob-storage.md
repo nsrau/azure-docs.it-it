@@ -8,12 +8,12 @@ ms.date: 09/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: efa44df378e88b870654111295c10bec06539adb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b6a437af33e3e85b8dc07de223b6e1fd7ce6cb03
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950522"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176242"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Esportare i dati in Archiviazione BLOB di Azure
 
@@ -132,7 +132,7 @@ L'esempio seguente mostra un record in un file AVRO decodificato:
 Quando si attiva l'esportazione continua dei dati per la prima volta, viene esportato un singolo snapshot con tutti i dispositivi. Ogni dispositivo include:
 - `id` del dispositivo in IoT Central
 - `name` ID del dispositivo
-- `deviceId` dal [Servizio di provisioning di dispositivi](https://aka.ms/iotcentraldocsdps)
+- `deviceId` dal [Servizio di provisioning di dispositivi](/azure/iot-central/core/howto-connect-nodejs)
 - Informazioni sul modello di dispositivo
 - Valori delle proprietà
 - Valori delle impostazioni

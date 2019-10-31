@@ -63,7 +63,7 @@ Altre risorse necessarie, ad esempio un account di archiviazione di Azure, vengo
 
 L'estensione Functions consente di creare un progetto di app per le funzioni, insieme alla prima funzione. Nei passaggi seguenti viene illustrato come creare una funzione attivata tramite HTTP in un nuovo progetto di funzioni. Il [trigger http](functions-bindings-http-webhook.md) è il modello di trigger di funzione più semplice da illustrare.
 
-1. Da **Azure: Selezionare l'icona **** Crea funzione:**
+1. Da **Azure: Selezionare** l'icona **Crea funzione:**
 
     ![Crea una funzione](./media/functions-develop-vs-code/create-function.png)
 

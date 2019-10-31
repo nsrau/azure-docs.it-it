@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aa0480e95fa072b6fa87aea8debd3dafc8ebcab
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 519993be873e7864dab4de4f66919c56aebfc379
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73042071"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171858"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Procedura: abilitare la reimpostazione della password dalla schermata di accesso di Windows
 
@@ -24,29 +24,10 @@ Per i computer che eseguono Windows 7, 8, 8,1 e 10 è possibile consentire agli 
 
 ![Esempi di schermate di accesso di Windows 7 e 10 con collegamento SSPR visualizzato](./media/howto-sspr-windows/windows-reset-password.png)
 
-## <a name="general-prerequisites"></a>Prerequisiti generali
-
-- Un amministratore deve abilitare Azure AD la reimpostazione della password self-service dall'portale di Azure.
-- **Prima di usare questa funzionalità, gli utenti devono registrarsi per SSPR**
-- Requisiti del proxy di rete
-   - Dispositivi Windows 10 
-       - Porta 443 per `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com`
-       - I dispositivi Windows 10 supportano solo la configurazione del proxy a livello di computer
-   - Dispositivi Windows 7, 8 e 8,1
-       - Porta 443 `passwordreset.microsoftonline.com`
-
 ## <a name="general-limitations"></a>Limitazioni generali
 
 - La reimpostazione della password non è attualmente supportata da un Desktop remoto o da sessioni avanzate di Hyper-V.
 - Questa funzionalità non funziona per le reti con autenticazione di rete 802.1x distribuita e l'opzione "Esegui immediatamente prima dell'accesso utente". Per le reti con autenticazione di rete 802.1x distribuita, è consigliabile usare l'autenticazione di computer per abilitare questa funzionalità.
-
-## <a name="windows-10-password-reset"></a>Reimpostazione della password di Windows 10
-
-### <a name="windows-10-specific-prerequisites"></a>Prerequisiti specifici di Windows 10
-
-- Eseguire almeno Windows 10, versione aprile 2018 aggiornamento (v1803) e i dispositivi devono essere:
-    - Aggiunta ad Azure AD
-    - Aggiunta a Azure AD ibrido
 - Per usare la nuova password e aggiornare le credenziali memorizzate nella cache, è necessario che i computer Azure AD ibrido Uniti abbiano la connettività di rete a un controller di dominio.
 - Se si utilizza un'immagine, prima di eseguire Sysprep assicurarsi che la cache Web venga cancellata per l'amministratore predefinito prima di eseguire il passaggio CopyProfile. Per altre informazioni su questo passaggio, vedere l'articolo relativo al supporto [delle prestazioni scarse quando si usa un profilo utente predefinito personalizzato](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Le impostazioni seguenti sono note per interferire con la possibilità di usare e reimpostare le password nei dispositivi Windows 10
@@ -60,7 +41,21 @@ Per i computer che eseguono Windows 7, 8, 8,1 e 10 è possibile consentire agli 
 - La combinazione delle tre impostazioni specifiche seguenti può causare un funzionamento non corretto di questa funzionalità.
     - Accesso interattivo: non richiedere CTRL + ALT + CANC = disabilitato
     - DisableLockScreenAppNotifications = 1 o abilitato
-    - IsContentDeliveryPolicyEnforced = 1 o true 
+    - IsContentDeliveryPolicyEnforced = 1 o true
+
+## <a name="windows-10-password-reset"></a>Reimpostazione della password di Windows 10
+
+### <a name="windows-10-prerequisites"></a>Prerequisiti di Windows 10
+
+- Un amministratore deve abilitare Azure AD la reimpostazione della password self-service dall'portale di Azure.
+- **Prima di usare questa funzionalità, gli utenti devono registrarsi per SSPR**
+- Requisiti del proxy di rete
+   - Dispositivi Windows 10 
+       - Porta 443 per `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com`
+       - I dispositivi Windows 10 supportano solo la configurazione del proxy a livello di computer
+- Eseguire almeno Windows 10, versione aprile 2018 aggiornamento (v1803) e i dispositivi devono essere:
+    - Aggiunta ad Azure AD
+    - Aggiunta a Azure AD ibrido
 
 ### <a name="enable-for-windows-10-using-intune"></a>Abilitare per Windows 10 con Intune
 
@@ -94,7 +89,6 @@ Distribuire la modifica della configurazione per abilitare la reimpostazione del
    - `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
       - `"AllowPasswordReset"=dword:00000001`
 
-
 #### <a name="troubleshooting-windows-10-password-reset"></a>Risoluzione dei problemi relativi alla reimpostazione della password di Windows 10
 
 Il log di controllo di Azure AD includerà informazioni sull'indirizzo IP e sul tipo di client in cui si è verificata la reimpostazione della password.
@@ -105,8 +99,13 @@ Quando gli utenti reimpostano la password dalla schermata di accesso di un dispo
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Reimpostazione della password di Windows 7, 8 e 8,1
 
-### <a name="windows-7-8-and-81-specific-prerequisites"></a>Prerequisiti specifici di Windows 7, 8 e 8,1
+### <a name="windows-7-8-and-81-prerequisites"></a>Prerequisiti di Windows 7, 8 e 8,1
 
+- Un amministratore deve abilitare Azure AD la reimpostazione della password self-service dall'portale di Azure.
+- **Prima di usare questa funzionalità, gli utenti devono registrarsi per SSPR**
+- Requisiti del proxy di rete
+   - Dispositivi Windows 7, 8 e 8,1
+       - Porta 443 `passwordreset.microsoftonline.com`
 - Sistema operativo Windows 7 con patch o Windows 8.1.
 - Protocollo TLS 1.2 abilitato seguendo le indicazioni riportate in [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) (Impostazioni del Registro di sistema di Transport Layer Security - TLS).
 - Se nel computer è abilitato più di un provider di credenziali di terze parti, gli utenti visualizzeranno più di un profilo utente nella schermata di accesso.
@@ -151,7 +150,7 @@ A questo punto, dopo aver configurato la reimpostazione della password per i dis
 
 Quando gli utenti tentano di eseguire l'accesso, ora visualizzano un collegamento **Reimposta password** o **password dimenticata** che apre l'esperienza di reimpostazione della password self-service nella schermata di accesso. Questa funzionalità consente agli utenti di reimpostare la password senza dover usare un altro dispositivo per accedere a un Web browser.
 
-Gli utenti troveranno indicazioni per l'uso di questa funzionalità in [Reimpostare la password per un account aziendale o dell'istituto di istruzione](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
+Gli utenti troveranno indicazioni per l'uso di questa funzionalità in [Reimpostare la password per un account aziendale o dell'istituto di istruzione](../user-help/active-directory-passwords-update-your-own-password.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

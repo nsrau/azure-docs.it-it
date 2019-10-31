@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/12/2019
 ms.author: lahugh
-ms.openlocfilehash: 995dfeaf26180b74f135ed2b74fa40faf3a12c08
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: cb087b261780ba88bd26bea3e14fc875e5c63566
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958796"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177145"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variabili di ambiente di runtime Azure Batch
 
@@ -28,7 +28,7 @@ Per ulteriori informazioni sull'utilizzo delle variabili di ambiente con batch, 
 
 Queste variabili di ambiente sono visibili solo nel contesto dell'**utente dell'attività**, ovvero l'account utente nel nodo in cui viene eseguita un'attività. *Non* verranno visualizzate se ci si [connette in modalità remota](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) a un nodo di calcolo tramite Remote Desktop Protocol (RDP) o Secure Shell (SSH) e si elencano le variabili di ambiente. L'account utente usato per la connessione remota non corrisponde infatti all'account usato dall'attività.
 
-Per ottenere il valore corrente di una variabile di ambiente, `cmd.exe` avviare in un nodo di calcolo di `/bin/sh` Windows o in un nodo Linux:
+Per ottenere il valore corrente di una variabile di ambiente, avviare `cmd.exe` in un nodo di calcolo di Windows o in un `/bin/sh` in un nodo Linux:
 
 `cmd /c set <ENV_VARIABLE_NAME>`
 
@@ -44,11 +44,11 @@ Le righe di comando eseguite dalle attività sui nodi di calcolo non vengono ese
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 
-| Nome variabile                     | Descrizione                                                              | Disponibilità | Esempio |
+| Nome variabile                     | Description                                                              | Disponibilità | Esempio |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Nome dell'account Batch a cui appartiene l'attività.                  | Tutte le attività.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | URL dell'account Batch. | Tutte le attività. | `https://myaccount.westus.batch.azure.com` |
-| AZ_BATCH_APP_PACKAGE            | Prefisso di tutte le variabili di ambiente del pacchetto dell'app. Ad esempio, se l'applicazione "Foo" versione "1" viene installata in un pool, la variabile di ambiente è AZ_BATCH_APP_PACKAGE_FOO_1. AZ_BATCH_APP_PACKAGE_FOO_1 punta al percorso in cui è stato scaricato il pacchetto (cartella). Quando si usa la versione predefinita del pacchetto dell'app, usare la variabile di ambiente AZ_BATCH_APP_PACKAGE senza i numeri di versione. | Qualsiasi attività è cui è associato un pacchetto dell'app. Disponibile anche per tutte le attività se il nodo stesso dispone di pacchetti dell'applicazione. | AZ_BATCH_APP_PACKAGE_FOO_1 |
+| AZ_BATCH_APP_PACKAGE            | Prefisso di tutte le variabili di ambiente del pacchetto dell'app. Se, ad esempio, l'applicazione "FOO" versione "1" viene installata in un pool, la variabile di ambiente è AZ_BATCH_APP_PACKAGE_FOO_1. AZ_BATCH_APP_PACKAGE_FOO_1 punta al percorso in cui è stato scaricato il pacchetto (cartella). Quando si usa la versione predefinita del pacchetto dell'app, usare la variabile di ambiente AZ_BATCH_APP_PACKAGE senza i numeri di versione. | Qualsiasi attività è cui è associato un pacchetto dell'app. Disponibile anche per tutte le attività se il nodo stesso dispone di pacchetti dell'applicazione. | AZ_BATCH_APP_PACKAGE_FOO_1 |
 | AZ_BATCH_AUTHENTICATION_TOKEN   | Token di autenticazione che concede l'accesso a un set limitato di operazioni del servizio Batch. Questa variabile di ambiente è presente solo se la definizione [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) è impostata quando l'[attività viene aggiunta](/rest/api/batchservice/task/add#request-body). Il valore del token viene usato nelle API Batch come credenziale per creare un client Batch, ad esempio nell'[API .NET BatchClient.Open()](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Tutte le attività. | Token di accesso OAuth2 |
 | AZ_BATCH_CERTIFICATES_DIR       | Una directory nella [directory di lavoro delle attività][files_dirs] in cui vengono archiviati i certificati per i nodi di calcolo Linux. Questa variabile di ambiente non si applica ai nodi di calcolo di Windows.                                                  | Tutte le attività.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | Elenco di nodi allocati a un'attività a [istanze diverse][multi_instance] nel formato `nodeIP,nodeIP`. | Principale multi-istanza e sottoattività. | `10.0.0.4,10.0.0.5` |
@@ -60,7 +60,7 @@ Le righe di comando eseguite dalle attività sui nodi di calcolo non vengono ese
 | AZ_BATCH_NODE_ID                | ID del nodo a cui è assegnata l'attività. | Tutte le attività. | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | Se `true`, il nodo corrente è un nodo dedicato. Se `false`, è un [nodo con priorità bassa](batch-low-pri-vms.md). | Tutte le attività. | `true` |
 | AZ_BATCH_NODE_LIST              | Elenco di nodi allocati a un'attività a [istanze diverse][multi_instance] nel formato `nodeIP;nodeIP`. | Principale multi-istanza e sottoattività. | `10.0.0.4;10.0.0.5` |
-| AZ_BATCH_NODE_MOUNTS_DIR        | Percorso completo del livello di nodo file system percorso di [montaggio](virtual-file-mount.md) in cui risiedono tutte le directory di montaggio. Le condivisioni file di Windows usano una lettera di unità, quindi, per Windows, l'unità di montaggio fa parte di dispositivi e unità.  |  Tutte le attività, incluse le attività di avvio, hanno accesso all'utente, dato che l'utente è a conoscenza delle autorizzazioni di montaggio per la directory montata. | In Ubuntu, ad esempio, il percorso è:`/mnt/batch/tasks/fsmounts` |
+| AZ_BATCH_NODE_MOUNTS_DIR        | Percorso completo del livello di nodo file system percorso di [montaggio](virtual-file-mount.md) in cui risiedono tutte le directory di montaggio. Le condivisioni file di Windows usano una lettera di unità, quindi, per Windows, l'unità di montaggio fa parte di dispositivi e unità.  |  Tutte le attività, incluse le attività di avvio, hanno accesso all'utente, dato che l'utente è a conoscenza delle autorizzazioni di montaggio per la directory montata. | In Ubuntu, ad esempio, il percorso è: `/mnt/batch/tasks/fsmounts` |
 | AZ_BATCH_NODE_ROOT_DIR          | Percorso completo della radice di tutte le [directory batch][files_dirs] nel nodo. | Tutte le attività. | C:\user\tasks |
 | AZ_BATCH_NODE_SHARED_DIR        | Percorso completo della [directory condivisa][files_dirs] nel nodo. Tutte le attività eseguite su un nodo dispongono di accesso in lettura/scrittura per questa directory. Le attività eseguite su altri nodi non dispongono dell'accesso remoto per questa directory (non è una directory di rete "condivisa"). | Tutte le attività. | C:\user\tasks\shared |
 | AZ_BATCH_NODE_STARTUP_DIR       | Percorso completo della directory dell' [attività di avvio][files_dirs] nel nodo. | Tutte le attività. | C:\user\tasks\startup |

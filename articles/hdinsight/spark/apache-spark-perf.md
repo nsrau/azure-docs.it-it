@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/01/2019
-ms.openlocfilehash: aa5329c6321866fd26e393b581702a392f510108
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 0d8890eeba7fcb53517d6ee653c8dd09866805ef
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936835"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177375"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Ottimizzare i processi di Apache Spark in HDInsight
 
@@ -57,12 +57,12 @@ Il formato migliore per le prestazioni è Parquet con *compressione Snappy*, ovv
 
 Quando si crea un nuovo cluster Spark, è possibile selezionare archiviazione BLOB di Azure o Azure Data Lake Storage come risorsa di archiviazione predefinita del cluster. Entrambe le opzioni offrono il vantaggio di un'archiviazione a lungo termine per i cluster temporanei, in modo che i dati non vengano eliminati automaticamente quando si elimina il cluster. È possibile ricreare un cluster temporaneo e accedere comunque ai dati.
 
-| Tipo di store | File system | Velocità | Temporaneo | Casi d'uso |
+| Tipo di store | File system | speed | Temporaneo | Casi d'uso |
 | --- | --- | --- | --- | --- |
-| Archivio BLOB di Azure | **wasb:** //url/ | **Standard** | Yes | Cluster temporaneo |
-| Archiviazione BLOB di Azure (sicurezza) | **wasbs:** //URL/ | **Standard** | Yes | Cluster temporaneo |
-| Azure Data Lake Storage generazione 2| **ABFS:** //URL/ | **Più rapido** | Yes | Cluster temporaneo |
-| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Più rapido** | Yes | Cluster temporaneo |
+| Archiviazione BLOB di Azure | **wasb:** //url/ | **Standard** | SÌ | Cluster temporaneo |
+| Archiviazione BLOB di Azure (sicurezza) | **wasbs:** //URL/ | **Standard** | SÌ | Cluster temporaneo |
+| Azure Data Lake Storage generazione 2| **ABFS:** //URL/ | **Più rapido** | SÌ | Cluster temporaneo |
+| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Più rapido** | SÌ | Cluster temporaneo |
 | Hadoop Distributed File System locale | **hdfs:** //url/ | **Il più rapido** | No | Cluster interattivo 24/7 |
 
 ## <a name="use-the-cache"></a>Usare la cache
@@ -74,7 +74,7 @@ Spark offre meccanismi di memorizzazione nella cache nativi che possono essere u
     * Non funziona con il partizionamento, che può cambiare nelle future versioni di Spark.
 
 * Memorizzazione nella cache a livello di archiviazione (consigliata)
-    * Può essere implementata usando [Alluxio](https://www.alluxio.org/).
+    * Può essere implementata usando [Alluxio](https://www.alluxio.io/).
     * Usa una memorizzazione nella cache di unità SSD e interna alla memoria.
 
 * Hadoop Distributed File System locale (opzione consigliata)
@@ -149,7 +149,7 @@ df1.join(broadcast(df2), Seq("PK")).
 sql("SELECT col1, col2 FROM V_JOIN")
 ```
 
-Se si usano tabelle con bucket, si ha un terzo tipo di join, il join `Merge`. Un set di dati correttamente pre-partizionato e preordinato ignorerà la fase costosa di ordinamento da un join `SortMerge`.
+Se si usano tabelle con bucket, si ha un terzo tipo di join, il `Merge` join. Un set di dati correttamente pre-partizionato e preordinato ignorerà la fase costosa di ordinamento da un join `SortMerge`.
 
 L'ordine dei join è importante, in particolare nelle query più complesse. Iniziare con i join più selettivi. Laddove possibile, spostare anche i join che aumentano il numero di righe dopo le aggregazioni.
 

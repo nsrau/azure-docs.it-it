@@ -1,6 +1,6 @@
 ---
-title: Richiedere il processo e le notifiche tramite posta elettronica in Azure AD gestione dei diritti (anteprima)-Azure Active Directory
-description: Informazioni sul processo di richiesta per un pacchetto di accesso e quando le notifiche di posta elettronica vengono inviate in Azure Active Directory gestione dei diritti (anteprima).
+title: Richiedere il processo e le notifiche tramite posta elettronica in Azure AD gestione dei diritti-Azure Active Directory
+description: Informazioni sul processo di richiesta per un pacchetto di accesso e quando le notifiche di posta elettronica vengono inviate in Azure Active Directory gestione dei diritti.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb5f322d8bc974274f7f2da7811b124499224635
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
-ms.translationtype: MT
+ms.openlocfilehash: 6a1ce3b2cb72a7b57e556e09264cb5bd421eda0f
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678138"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173751"
 ---
-# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Richiedere il processo e le notifiche tramite posta elettronica in Azure AD gestione dei diritti (anteprima)
-
-> [!IMPORTANT]
-> Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Richiedere il processo e le notifiche tramite posta elettronica in Azure AD gestione dei diritti
 
 Quando un utente invia una richiesta a un pacchetto di accesso, viene avviato un processo per recapitare la richiesta. Azure AD la gestione dei diritti consente inoltre di inviare notifiche tramite posta elettronica ai responsabili approvazione e ai richiedenti quando si verificano eventi chiave durante il processo.
 
@@ -40,15 +35,15 @@ Un utente che deve accedere a un pacchetto di accesso può inviare una richiesta
 
 ![Diagramma del processo di approvazione](./media/entitlement-management-process/request-process.png)
 
-| Stato | Descrizione |
+| Statale | Description |
 | --- | --- |
 | Inviato | L'utente invia una richiesta. |
 | In attesa di approvazione | Se il criterio per un pacchetto di accesso richiede l'approvazione, una richiesta passa a approvazione in sospeso. |
 | Scaduto | Se nessun approvatore approva una richiesta entro il timeout della richiesta di approvazione, la richiesta scade. Per riprovare, l'utente dovrà inviare di nuovo la richiesta. |
-| Negata | Il responsabile approvazione nega una richiesta. |
-| Approvata | Il responsabile approvazione approva una richiesta. |
-| Distribuzione | All'utente **non** è stato assegnato l'accesso a tutte le risorse nel pacchetto di accesso. Se si tratta di un utente esterno, è possibile che l'utente non abbia ancora eseguito l'accesso alla directory delle risorse e abbia accettato la richiesta di consenso. |
-| Recapitati | All'utente è stato assegnato l'accesso a tutte le risorse nel pacchetto di accesso. |
+| Negato | Il responsabile approvazione nega una richiesta. |
+| Approved | Il responsabile approvazione approva una richiesta. |
+| Recapito | All'utente **non** è stato assegnato l'accesso a tutte le risorse nel pacchetto di accesso. Se si tratta di un utente esterno, è possibile che l'utente non abbia ancora eseguito l'accesso alla directory delle risorse e abbia accettato la richiesta di consenso. |
+| Recapitato | All'utente è stato assegnato l'accesso a tutte le risorse nel pacchetto di accesso. |
 | Accesso esteso | Se nel criterio sono consentite le estensioni, l'utente ha esteso l'assegnazione. |
 | Accesso scaduto | L'accesso dell'utente al pacchetto di accesso è scaduto. Per ottenere nuovamente l'accesso, l'utente dovrà inviare una richiesta. |
 
@@ -62,8 +57,8 @@ Nella tabella seguente vengono fornite informazioni più dettagliate su ognuna d
 
 | # | Oggetto del messaggio di posta elettronica | Quando viene inviato | Inviato a |
 | --- | --- | --- | --- |
-| 1 | Azione richiesta: Verifica la richiesta di accesso da *[richiedente]* a *[pacchetto di accesso]* di *[DATE]* | Quando un richiedente invia una richiesta di un pacchetto di accesso | Tutti i responsabili approvazione |
-| 2 | Azione richiesta: Verifica la richiesta di accesso da *[richiedente]* a *[pacchetto di accesso]* di *[DATE]* | X giorni prima del timeout della richiesta di approvazione | Tutti i responsabili approvazione |
+| 1 | Azione richiesta: esaminare la richiesta di accesso da *[richiedente]* a *[pacchetto di accesso]* di *[DATE]* | Quando un richiedente invia una richiesta di un pacchetto di accesso | Tutti i responsabili approvazione |
+| 2 | Azione richiesta: esaminare la richiesta di accesso da *[richiedente]* a *[pacchetto di accesso]* di *[DATE]* | X giorni prima del timeout della richiesta di approvazione | Tutti i responsabili approvazione |
 | 3 | Notifica di stato: la richiesta di accesso *[richiedente]* a *[Access Package]* è scaduta | Quando i responsabili approvazione non approvano o negano una richiesta di accesso entro la durata della richiesta | Richiedente |
 | 4 | Notifica di stato: la richiesta di accesso *[richiedente]* a *[pacchetto di accesso]* è stata completata | Quando il primo responsabile approvazione approva o nega una richiesta di accesso | Tutti i responsabili approvazione |
 | 5 | Accesso negato a *[pacchetto di accesso]* | Quando un richiedente ha negato l'accesso al pacchetto di accesso | Richiedente |

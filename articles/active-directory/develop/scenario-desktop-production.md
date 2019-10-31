@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a353b4577f8cfa9ba279ad2793e1a7ab8b27e55
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 5331f01c5dc6acf01f567dbe4c332853bf7aa47e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268329"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175560"
 ---
 # <a name="desktop-app-that-calls-web-apis---move-to-production"></a>App desktop che chiama le API Web-passa all'ambiente di produzione
 
@@ -37,14 +37,14 @@ Nei diversi flussi si è appreso come gestire gli errori per i flussi Silent (co
 > [!NOTE]
 > Ottenere il consenso per diverse risorse funziona per la piattaforma di identità Microsoft, ma non per Azure Active Directory (Azure AD) B2C. Azure AD B2C supporta solo il consenso dell'amministratore, non il consenso dell'utente.
 
-L'endpoint della piattaforma Microsoft Identity (v 2.0) non consente di ottenere un token per più risorse contemporaneamente. Pertanto, il `scopes` parametro può contenere solo ambiti per una singola risorsa. È possibile verificare che l'utente preacconsente a diverse risorse tramite il `extraScopesToConsent` parametro.
+L'endpoint della piattaforma Microsoft Identity (v 2.0) non consente di ottenere un token per più risorse contemporaneamente. Il parametro `scopes` può pertanto contenere solo ambiti per una singola risorsa. È possibile verificare che l'utente preacconsente a diverse risorse tramite il parametro `extraScopesToConsent`.
 
 Ad esempio, se si dispone di due risorse, che hanno due ambiti ciascuno:
 
-- `https://mytenant.onmicrosoft.com/customerapi`-con due ambiti `customer.read` e`customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi`-con due ambiti `vendor.read` e`vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi`-con due ambiti `customer.read` e `customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi`-con due ambiti `vendor.read` e `vendor.write`
 
-Usare il `.WithAdditionalPromptToConsent` modificatore con il `extraScopesToConsent` parametro.
+È necessario usare il modificatore di `.WithAdditionalPromptToConsent` con il parametro `extraScopesToConsent`.
 
 Ad esempio:
 
@@ -76,24 +76,24 @@ Objective-C:
 ```objc
 NSArray *scopesForCustomerApi = @[@"https://mytenant.onmicrosoft.com/customerapi/customer.read",
                                 @"https://mytenant.onmicrosoft.com/customerapi/customer.write"];
-    
+
 NSArray *scopesForVendorApi = @[@"https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
                               @"https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
-    
+
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopesForCustomerApi webviewParameters:[MSALWebviewParameters new]];
 interactiveParams.extraScopesToConsent = scopesForVendorApi;
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) { /* handle result */ }];
 ```
 
-Swift
+Swift:
 
 ```swift
 let scopesForCustomerApi = ["https://mytenant.onmicrosoft.com/customerapi/customer.read",
                             "https://mytenant.onmicrosoft.com/customerapi/customer.write"]
-        
+
 let scopesForVendorApi = ["https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
                           "https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
-        
+
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopesForCustomerApi, webviewParameters: MSALWebviewParameters())
 interactiveParameters.extraScopesToConsent = scopesForVendorApi
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
@@ -101,7 +101,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 Questa chiamata otterrà un token di accesso per la prima API Web.
 
-Quando è necessario chiamare la seconda API Web, è possibile chiamare `AcquireTokenSilent` l'API:
+Quando è necessario chiamare la seconda API Web, è possibile chiamare `AcquireTokenSilent` API:
 
 ```CSharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

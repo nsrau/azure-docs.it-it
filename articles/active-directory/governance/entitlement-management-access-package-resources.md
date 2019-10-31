@@ -1,6 +1,6 @@
 ---
-title: Modificare i ruoli delle risorse per un pacchetto di accesso in Azure AD gestione dei diritti (anteprima)-Azure Active Directory
-description: Informazioni su come modificare i ruoli delle risorse per un pacchetto di accesso esistente in Azure Active Directory gestione dei diritti (anteprima).
+title: Modificare i ruoli delle risorse per un pacchetto di accesso in Azure AD gestione dei diritti-Azure Active Directory
+description: Informazioni su come modificare i ruoli delle risorse per un pacchetto di accesso esistente in Azure Active Directory gestione dei diritti.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b719546ec598f2e99061597e99a3d4e875b12cf
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429814"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174653"
 ---
-# <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Modificare i ruoli delle risorse per un pacchetto di accesso in Azure AD gestione dei diritti (anteprima)
-
-> [!IMPORTANT]
-> Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificare i ruoli delle risorse per un pacchetto di accesso in Azure AD gestione dei diritti
 
 Come gestione pacchetti di accesso, è possibile modificare le risorse in un pacchetto di accesso in qualsiasi momento senza preoccuparsi di effettuare il provisioning dell'accesso dell'utente alle nuove risorse o di rimuovere l'accesso dalle risorse precedenti. Questo articolo descrive come modificare i ruoli delle risorse per un pacchetto di accesso esistente.
 

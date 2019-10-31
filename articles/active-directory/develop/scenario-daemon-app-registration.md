@@ -16,12 +16,12 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fddd95564e3683aaee067f0442573c41e93376dd
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 8d0d88f72cca45280bd76ac7bb9d7a6e0a1d37fb
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264385"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175458"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>App daemon che chiama le API Web-registrazione app
 
@@ -36,7 +36,7 @@ Dato che le applicazioni daemon hanno senso solo nei tenant Azure AD, quando si 
 
 ## <a name="authentication---no-reply-uri-needed"></a>Autenticazione-nessun URI di risposta necessario
 
-Nel caso in cui l'applicazione client riservata usi **solo** il flusso di credenziali client, non è necessario registrare l'URL di risposta. Non è necessario per la configurazione o la costruzione dell'applicazione. Il flusso di credenziali client non lo usa.
+Nel caso in cui l'applicazione client riservata usi **solo** il flusso di credenziali client, non è necessario registrare l'URI di risposta. Non è necessario per la configurazione o la costruzione dell'applicazione. Il flusso di credenziali client non lo usa.
 
 ## <a name="api-permissions---app-permissions-and-admin-consent"></a>Autorizzazioni per le API: autorizzazioni per le app e consenso dell'amministratore
 
@@ -45,7 +45,7 @@ Un'applicazione daemon può richiedere solo le autorizzazioni dell'applicazione 
 ![Autorizzazioni dell'app e consenso dell'amministratore](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
 > [!NOTE]
-> L'API Web che si vuole chiamare deve definire le **autorizzazioni dell'applicazione (ruoli app)** , non le autorizzazioni delegate. Per informazioni dettagliate su come esporre un'API di questo tipo [, vedere API Web protetta: Registrazione dell'app: quando l'API Web viene chiamata da un'app daemon](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-app-registration#if-your-web-api-is-called-by-a-daemon-app)
+> L'API Web che si vuole chiamare deve definire le **autorizzazioni dell'applicazione (ruoli app)** , non le autorizzazioni delegate. Per informazioni dettagliate su come esporre un'API di questo tipo, vedere [API Web protetta: registrazione dell'app-quando l'API Web viene chiamata da un'app daemon](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app)
 
 Per le applicazioni daemon è necessario che l'amministratore del tenant preacconsente all'applicazione che chiama l'API Web. Questo consenso viene fornito nella stessa pagina di **autorizzazione dell'API** , da un amministratore del tenant che seleziona **concedi il consenso dell'amministratore per *l'organizzazione***
 
