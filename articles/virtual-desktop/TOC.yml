@@ -68,6 +68,8 @@
       href: environment-setup.md
     - name: Raccomandazioni relative alla larghezza di banda per le sessioni remote
       href: bandwidth-recommendations.md
+    - name: Determinare la latenza della connessione utente
+      href: connection-latency.md
     - name: Accesso delegato in Desktop virtuale Windows
       href: delegated-access-virtual-desktop.md
     - name: Metodo di bilanciamento del carico per i pool di host

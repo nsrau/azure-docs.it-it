@@ -232,6 +232,8 @@
           href: backup-azure-restore-windows-server.md
         - name: Ripristinare lo stato del sistema Windows Server
           href: backup-azure-restore-system-state.md
+        - name: Gestire il backup dei file e delle cartelle di Windows Server
+          href: backup-azure-manage-mars.md
     - name: Insieme di credenziali dei servizi di ripristino
       items:
         - name: Panoramica degli insiemi di credenziali di Servizi di ripristino

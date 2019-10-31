@@ -50,6 +50,8 @@
           href: howto-conditional-access-policy-admin-mfa.md
         - name: Richiedere l'autenticazione a più fattori per la gestione di Azure
           href: howto-conditional-access-policy-azure-management.md
+        - name: Richiedere l'autenticazione a più fattori per tutti gli utenti
+          href: howto-conditional-access-policy-all-users-mfa.md
         - name: Bloccare l'autenticazione legacy
           href: howto-conditional-access-policy-block-legacy.md
         - name: Accesso condizionale basato sul rischio

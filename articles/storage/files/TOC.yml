@@ -27,6 +27,8 @@
       href: storage-files-planning.md
     - name: Pianificazione per la distribuzione di Sincronizzazione file di Azure
       href: storage-sync-files-planning.md
+    - name: Considerazioni sulla rete per l'accesso diretto
+      href: storage-files-networking-overview.md
     - name: Informazioni sul cloud a livelli
       href: storage-sync-cloud-tiering.md
     - name: Informazioni sugli account di archiviazione
@@ -101,6 +103,8 @@
           href: storage-sync-files-deployment-guide.md
         - name: Configurare le impostazioni del proxy e del firewall di Sincronizzazione file
           href: storage-sync-files-firewall-and-proxy.md
+        - name: Istanza del cluster di failover di SQL Server con condivisioni file Premium
+          href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Eseguire il montaggio
       items:
         - name: Usare File di Azure con Windows
@@ -109,6 +113,14 @@
           href: storage-how-to-use-files-linux.md
         - name: Usare File di Azure con macOS
           href: storage-how-to-use-files-mac.md
+    - name: Rete
+      items:
+        - name: Configurare la VPN da sito a sito
+          href: storage-files-configure-s2s-vpn.md
+        - name: Configurare la VPN da punto a sito in Windows
+          href: storage-files-configure-p2s-vpn-windows.md
+        - name: Configurare la VPN da punto a sito in Linux
+          href: storage-files-configure-p2s-vpn-linux.md
     - name: Gestisci
       items:
         - name: Registrare un server con Sincronizzazione file di Azure
@@ -169,6 +181,8 @@
           href: storage-troubleshooting-files-performance.md
         - name: Risolvere i problemi di Sincronizzazione file di Azure
           href: storage-sync-files-troubleshoot.md
+        - name: Risolvere i problemi relativi all'eliminazione di File di Azure
+          href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
 - name: riferimento
   items:
     - name: Azure PowerShell

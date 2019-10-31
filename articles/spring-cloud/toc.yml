@@ -38,6 +38,8 @@
       href: spring-cloud-quotas.md
     - name: Informazioni sulle metriche in Azure Spring Cloud
       href: spring-cloud-concept-metrics.md
+    - name: Pianificare il ripristino di emergenza
+      href: disaster-recovery.md
 - name: Guide alle procedure
   items:
     - name: 'Come avviare, arrestare ed eliminare un''applicazione Azure Spring Cloud'

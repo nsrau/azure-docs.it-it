@@ -43,6 +43,8 @@
       items:
         - name: Funzionamento di Multi-Factor Authentication
           href: concept-mfa-howitworks.md
+        - name: Abilitare MFA
+          href: concept-mfa-get-started.md
         - name: Concedere licenze agli utenti
           href: concept-mfa-licensing.md
         - name: Gestire un provider di autenticazione
@@ -135,6 +137,10 @@
           href: howto-authentication-passwordless-deployment.md
         - name: Chiavi di sicurezza senza password
           href: howto-authentication-passwordless-security-key.md
+        - name: "Accesso senza password in Windows\_10"
+          href: howto-authentication-passwordless-security-key-windows.md
+        - name: Accesso senza password in locale
+          href: howto-authentication-passwordless-security-key-on-premises.md
         - name: Accesso tramite telefono senza password
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello for Business

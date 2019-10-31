@@ -7,12 +7,12 @@ ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: be910246666f9974eedb5315a970c6c4ba8878ef
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 03c01036648f7e625201676e062266abff8a787f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298043"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163794"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Panoramica del progetto di esempio di definizione della base di Microsoft Cloud Adoption Framework per Azure
 
