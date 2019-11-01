@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.openlocfilehash: aa3e3b63bdfda7aa6d875055dee4c69b9840db25
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 10/31/2019
 ms.locfileid: "72167357"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Cosa sono Apache Hive e HiveQL in Azure HDInsight
@@ -26,9 +26,9 @@ HDInsight offre diversi tipi di cluster ottimizzati per carichi di lavoro specif
 
 * __Interactive Query__: un cluster Hadoop che offre la funzionalità [Low Latency Analytical Processing (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) per migliorare i tempi di risposta per le query interattive. Per altre informazioni, vedere il documento su come [iniziare a usare Interactive Query in HDInsight](../interactive-query/apache-interactive-query-get-started.md).
 
-* __Hadoop__: un cluster Hadoop ottimizzato per carichi di lavoro di elaborazione batch. Per altre informazioni, vedere il documento su come [iniziare a usare Apache Hadoop in HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* __Hadoop__: un cluster Hadoop che è ottimizzato per carichi di lavoro di elaborazione batch. Per altre informazioni, vedere il documento su come [iniziare a usare Apache Hadoop in HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* __Spark__: Apache Spark ha una funzionalità integrata per l'interazione con Hive. Per altre informazioni, vedere il documento su come [iniziare a usare Apache Spark in HDInsight](../spark/apache-spark-jupyter-spark-sql.md).
+* __Spark__: Apache Spark ha una funzionalità integrata per l'utilizzo di Hive. Per altre informazioni, vedere il documento su come [iniziare a usare Apache Spark in HDInsight](../spark/apache-spark-jupyter-spark-sql.md).
 
 * __HBase__: HiveQL può essere usato per eseguire query sui dati archiviati in Apache HBase. Per altre informazioni, vedere il documento su come [iniziare a usare Apache HBase in HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md).
 
@@ -42,7 +42,7 @@ Consultare la tabella seguente per informazioni sui vari modi in cui è possibil
 | [HDInsight Tools per Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
 | [Vista di Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Qualsiasi versione (basata su browser) |
 | [Client Beeline](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux, Unix, Mac OS X o Windows |
-| [API REST](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X o Windows |
+| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X o Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
 ## <a name="hiveql-language-reference"></a>Informazioni di riferimento sul linguaggio HiveQL
@@ -81,7 +81,7 @@ Con Hive è possibile creare due tipi di tabelle:
     * I dati sono temporanei.
     * Si desidera che Hive gestisca il ciclo di vita della tabella e dei dati.
 
-* __Esterna__: i dati vengono archiviati all'esterno del data warehouse. I dati possono essere archiviati in tutte le risorse di archiviazione accessibili dal cluster.
+* __Interna__: i dati vengono archiviati all'esterno del data warehouse. I dati possono essere archiviati in tutte le risorse di archiviazione accessibili dal cluster.
 
     Usare le tabelle esterne quando si applica una delle condizioni seguenti:
 
@@ -133,13 +133,13 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 Nell'esempio precedente, le istruzioni HiveQL eseguono le azioni seguenti:
 
-* `DROP TABLE`: se la tabella esiste già, la elimina.
+* `DROP TABLE`: se la tabella esiste già, eliminarla.
 
 * `CREATE EXTERNAL TABLE`: crea una nuova tabella **esterna** in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nel percorso e nel formato originale.
 
-* `ROW FORMAT`: Indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
+* `ROW FORMAT`: indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
 
-* `STORED AS TEXTFILE LOCATION`: Indica a hive dove sono archiviati i dati (la directory `example/data`) e che sono archiviati come testo. I dati possono essere contenuti in un file o distribuiti tra più file all'interno della directory.
+* `STORED AS TEXTFILE LOCATION`: indica a hive dove sono archiviati i dati (la directory `example/data`) e che sono archiviati come testo. I dati possono essere contenuti in un file o distribuiti tra più file all'interno della directory.
 
 * `SELECT`: seleziona un conteggio di tutte le righe in cui la colonna **t4** contiene il valore **[ERROR]** . L'istruzione restituisce un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
 
@@ -169,9 +169,9 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 Le istruzioni eseguono queste azioni:
 
-* `CREATE TABLE IF NOT EXISTS`: se la tabella non esiste, la crea. Poiché non viene usata la parola chiave **External** , questa istruzione crea una tabella interna. La tabella viene archiviata nel data warehouse di Hive e gestita completamente da Hive.
+* `CREATE TABLE IF NOT EXISTS`: se la tabella non esiste, crearla. Poiché non viene usata la parola chiave **External** , questa istruzione crea una tabella interna. La tabella viene archiviata nel data warehouse di Hive e gestita completamente da Hive.
 
-* `STORED AS ORC`: archivia i dati nel formato ORC (Optimized Row Columnar). ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
+* `STORED AS ORC`: archivia i dati nel formato ORC, Optimized Row Columnar. ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
 
 * `INSERT OVERWRITE ... SELECT`: seleziona dalla tabella**log4jLogs** le righe contenenti **[ERROR]** , quindi inserisce i dati nella tabella **errorLogs**.
 
