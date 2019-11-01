@@ -1,23 +1,24 @@
 ---
-title: Errori e avvisi comuni
-titleSuffix: Azure Cognitive Search
-description: Questo articolo fornisce informazioni e soluzioni per gli errori e gli avvisi comuni che possono verificarsi durante l'arricchimento di intelligenza artificiale in Azure ricerca cognitiva.
-manager: nitinme
+title: Errori e avvisi comuni-ricerca di Azure
+description: Questo articolo fornisce informazioni e soluzioni per gli errori e gli avvisi comuni che possono verificarsi durante l'arricchimento di intelligenza artificiale in ricerca di Azure.
+services: search
+manager: heidist
 author: amotley
-ms.author: abmotley
-ms.service: cognitive-search
+ms.service: search
+ms.workload: search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 08d15f20f69c0c42d8b4dd4bac72e7d9f367a957
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 09/18/2019
+ms.author: abmotley
+ms.openlocfilehash: 6455ac9dbe0933f6d46d1137e0a19dcc388d8c80
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787985"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73243047"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Errori e avvisi comuni della pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva
+# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Errori e avvisi comuni della pipeline di arricchimento di intelligenza artificiale in ricerca di Azure
 
-Questo articolo fornisce informazioni e soluzioni per gli errori e gli avvisi comuni che possono verificarsi durante l'arricchimento di intelligenza artificiale in Azure ricerca cognitiva.
+Questo articolo fornisce informazioni e soluzioni per gli errori e gli avvisi comuni che possono verificarsi durante l'arricchimento di intelligenza artificiale in ricerca di Azure.
 
 ## <a name="errors"></a>Errors
 L'indicizzazione viene arrestata quando il numero di errori supera [' maxFailedItems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
@@ -131,6 +132,10 @@ Il documento è stato letto ed elaborato, ma a causa di una mancata corrisponden
 | Una notazione incompatibile per i punti geografici è stata usata nel documento di origine. | I valori letterali stringa del punto WKT non sono supportati. Usare invece i valori letterali del punto GeoJSON |
 
 In tutti questi casi, fare riferimento ai [tipi di dati supportati (ricerca di Azure)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) e al [mapping dei tipi di dati per gli indicizzatori in ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) per assicurarsi di compilare correttamente lo schema dell'indice e di aver configurato i mapping appropriati dei campi dell' [indicizzatore](search-indexer-field-mappings.md). Il messaggio di errore includerà i dettagli che consentono di tenere traccia dell'origine della mancata corrispondenza.
+
+### <a name="could-not-process-document-within-indexer-max-run-time"></a>Non è stato possibile elaborare il documento entro il tempo di esecuzione massimo dell'indicizzatore
+
+Questo errore si verifica quando l'indicizzatore non è in grado di completare l'elaborazione di un singolo documento dall'origine dati entro il tempo di esecuzione consentito. Il [tempo di esecuzione massimo](search-limits-quotas-capacity.md#indexer-limits) è più breve quando si utilizzano skillsets. Quando si verifica questo errore, se maxFailedItems è impostato su un valore diverso da 0, l'indicizzatore ignora il documento nelle esecuzioni future in modo che l'indicizzazione possa avanzare. Se non è possibile permettersi di ignorare un documento o se questo errore viene visualizzato in modo coerente, provare a suddividere i documenti in documenti più piccoli, in modo da poter eseguire lo stato di avanzamento parziale all'interno di una singola esecuzione dell'indicizzatore.
 
 ##  <a name="warnings"></a>Avvisi
 Gli avvisi non interrompono l'indicizzazione, ma indicano condizioni che potrebbero causare risultati imprevisti. Il fatto di intervenire o meno dipende dai dati e dallo scenario.

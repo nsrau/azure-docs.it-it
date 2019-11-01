@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 02852b325a22f274b4aa6e793b03c733c38bb9aa
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 8e6a1c3472c6b20b27cf181edbeeb96ab71eb58d
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984129"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242487"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Linee guida per la pianificazione della rete per Azure NetApp Files
 
@@ -52,13 +52,13 @@ Nella tabella seguente vengono descritte le topologie di rete supportate da Azur
 
 |    Topologie    |    È supportato    |     Soluzione alternativa    |
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
-|    Connettività al volume in un VNet locale    |    Sì    |         |
-|    Connettività al volume in un VNet con peering (stessa area)    |    Sì    |         |
-|    Connettività al volume in una VNet con peering (tra aree o peering globale)    |    No    |    Nessuna    |
-|    Connettività a un volume sul gateway ExpressRoute    |    Yes    |         |
-|    Connettività da locale a volume in una VNet spoke tramite gateway ExpressRoute e peering VNet con transito gateway    |    Yes    |        |
-|    Connettività da locale a volume in una VNet spoke tramite gateway VPN    |    Sì    |         |
-|    Connettività da locale a volume in una VNet spoke sul gateway VPN e il peering VNet con transito gateway    |    Sì    |         |
+|    Connettività al volume in un VNet locale    |    SÌ    |         |
+|    Connettività al volume in un VNet con peering (stessa area)    |    SÌ    |         |
+|    Connettività al volume in una VNet con peering (tra aree o peering globale)    |    No    |    Nessuno    |
+|    Connettività a un volume sul gateway ExpressRoute    |    SÌ    |         |
+|    Connettività da locale a volume in una VNet spoke tramite gateway ExpressRoute e peering VNet con transito gateway    |    SÌ    |        |
+|    Connettività da locale a volume in una VNet spoke tramite gateway VPN    |    SÌ    |         |
+|    Connettività da locale a volume in una VNet spoke sul gateway VPN e il peering VNet con transito gateway    |    SÌ    |         |
 
 
 ## <a name="virtual-network-for-azure-netapp-files-volumes"></a>Rete virtuale per volumi Azure NetApp Files
@@ -95,11 +95,11 @@ Il diagramma seguente illustra un ambiente nativo di Azure:
 
 Uno scenario di base consiste nel creare o connettersi a un volume Azure NetApp Files da una macchina virtuale (VM) nella stessa VNet. Per VNet 2 nel diagramma precedente, il volume 1 viene creato in una subnet delegata e può essere montato sulla macchina virtuale 1 nella subnet predefinita.
 
-### <a name="vnet-peering"></a>Peering di rete virtuale
+### <a name="vnet-peering"></a>Peering reti virtuali
 
 Se si dispone di reti virtuali aggiuntive nella stessa area che necessitano dell'accesso alle risorse dell'altro, reti virtuali può essere connesso usando il [peering VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) per abilitare la connettività sicura tramite l'infrastruttura di Azure. 
 
-Prendere in considerazione VNet 2 e VNet 3 nel diagramma precedente. Se la VM 2 deve connettersi alla macchina virtuale 3 o al volume 2 oppure se la macchina virtuale 3 deve connettersi alla VM 2 o al volume 1, è necessario abilitare il peering VNet tra VNet 2 e VNet 3. 
+Prendere in considerazione VNet 2 e VNet 3 nel diagramma precedente. Se la macchina virtuale 1 deve connettersi alla VM 2 o al volume 2 oppure se la VM 2 deve connettersi alla VM 1 o al volume 1, è necessario abilitare il peering VNet tra VNet 2 e VNet 3. 
 
 Si consideri inoltre uno scenario in cui VNet 1 è associato a VNet 2 e VNet 2 è peered con VNet 3 nella stessa area. Le risorse di VNet 1 possono connettersi alle risorse in VNet 2 ma non possono connettersi alle risorse in VNet 3, a meno che non sia stato specificato il peering di VNet 1 e VNet 3. 
 

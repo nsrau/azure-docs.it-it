@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cbb4668ae87404771513ca5825482efe9206308d
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: d0cb5becd8375c393031892efb0b6c54786eeb8f
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025014"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242236"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -73,7 +73,7 @@ Se si usa un indirizzo IP pubblico come endpoint, le informazioni sull'indirizzo
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>Il nome IP o DNS cambia per tutta la durata del gateway applicazione?
 
-L'indirizzo VIP può cambiare se si arresta e si avvia il gateway applicazione. Tuttavia, il nome DNS associato al gateway applicazione non cambia per tutta la durata del gateway. Poiché il nome DNS non cambia, è necessario usare un alias CNAME e puntare all'indirizzo DNS del gateway applicazione.
+Nello SKU del gateway applicazione V1, l'indirizzo VIP può cambiare se si arresta e si avvia il gateway applicazione. Tuttavia, il nome DNS associato al gateway applicazione non cambia per tutta la durata del gateway. Poiché il nome DNS non cambia, è necessario usare un alias CNAME e puntare all'indirizzo DNS del gateway applicazione. Nello SKU del gateway applicazione V2, è possibile impostare l'indirizzo IP come statico, in modo che il nome IP e DNS non cambieranno nel corso della durata del gateway applicazione. 
 
 ### <a name="does-application-gateway-support-static-ip"></a>Il gateway applicazione supporta l'IP statico?
 
@@ -322,7 +322,7 @@ Per altre informazioni, vedere [OWASP Top-10 vulnerabilità](https://www.owasp.o
 
 ### <a name="does-waf-support-ddos-protection"></a>WAF supporta la protezione DDoS?
 
-Sì. È possibile abilitare la protezione DDoS nella rete virtuale in cui è distribuito il gateway applicazione. Questa impostazione garantisce che il servizio protezione DDoS di Azure protegga anche l'indirizzo IP virtuale (VIP) del gateway applicazione.
+Sì. Puoi abilitare la protezione DDoS sulla rete virtuale in cui è distribuito il gateway applicazione. Questa impostazione assicura che il servizio Protezione DDoS di Azure protegga anche l'IP virtuale del gateway applicazione.
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Sono disponibili linee guida per la migrazione dallo SKU V1 allo SKU V2?
 

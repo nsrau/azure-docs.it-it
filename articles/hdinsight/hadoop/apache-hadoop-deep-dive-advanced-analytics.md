@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: dde4b4efc62ec444cbbd662a70e7507a1b8f70e7
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 436825c6e5df2be524dc06ccdaf82f0156714679
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066988"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241662"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Approfondimento - Analisi avanzata
 
@@ -45,10 +45,10 @@ Insieme alla selezione degli algoritmi più adatti, è necessario considerare se
 
 | Categoria algoritmo| Uso | Tipo di apprendimento | Algoritmi |
 | --- | --- | --- | -- |
-| classificazione | Classificare oggetti o persone in gruppi | Supervisionato | Alberi delle decisioni, regressione logistica, reti neurali |
+| Classificazione | Classificare oggetti o persone in gruppi | Supervisionato | Alberi delle decisioni, regressione logistica, reti neurali |
 | Clustering | Dividere un set di esempi in gruppi omogenei | Non supervisionato | Clustering K-Means |
 | Rilevamento schemi | Identificare associazioni frequenti nei dati | Non supervisionato | Regole di associazione |
-| Regressione | Prevedere risultati numerici | Supervisionato | Regressione lineare, reti neurali |
+| regressione | Prevedere risultati numerici | Supervisionato | Regressione lineare, reti neurali |
 | Rinforzo | Determinare il comportamento ottimale dei robot | Rinforzo | Simulazioni Monte Carlo, DeepMind |
 
 ## <a name="machine-learning-on-hdinsight"></a>Machine Learning in HDInsight
@@ -78,7 +78,7 @@ Nell'ambito di HDInsight è possibile creare un cluster HDInsight con [ML Servic
 
 ### <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning e Apache Hive
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) offre strumenti per modellare l'analisi predittiva e un servizio completamente gestito che può essere usato per distribuire i modelli predittivi come servizi Web pronti all'uso. Grazie agli strumenti per la creazione di soluzioni di analisi predittiva complete nel cloud, Azure Machine Learning consente di creare, testare, usare e gestire modelli predittivi in modo rapido. È possibile selezionare gli algoritmi da una libreria di grandi dimensioni, usare un ambiente basato sul Web per creare modelli e distribuire con facilità il modello come servizio Web.
+[Azure Machine Learning Studio (classico)](https://studio.azureml.net/) offre strumenti per modellare l'analisi predittiva e un servizio completamente gestito che è possibile usare per distribuire i modelli predittivi come servizi Web pronti all'uso. Grazie agli strumenti per la creazione di soluzioni di analisi predittiva complete nel cloud, Azure Machine Learning consente di creare, testare, usare e gestire modelli predittivi in modo rapido. È possibile selezionare gli algoritmi da una libreria di grandi dimensioni, usare un ambiente basato sul Web per creare modelli e distribuire con facilità il modello come servizio Web.
 
 ### <a name="apache-spark-and-deep-learning"></a>Apache Spark e Deep Learning
 
@@ -127,8 +127,8 @@ Apache Hive e Azure Machine Learning
 Apache Spark e MLLib
 
 * [Apprendimento automatico con Apache Spark in HDInsight](../../machine-learning/team-data-science-process/spark-overview.md)
-* [Apache Spark con apprendimento automatico: usare Apache Spark in HDInsight per analizzare la temperatura di un edificio con dati HVAC](../spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark con apprendimento automatico: usare Apache Spark in HDInsight per prevedere i risultati di controllo degli alimenti](../spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con Machine Learning: usare Apache Spark in HDInsight per l'analisi della temperatura di compilazione usando i dati HVAC](../spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark con Machine Learning: usare Apache Spark in HDInsight per stimare i risultati dell'ispezione degli alimenti](../spark/apache-spark-machine-learning-mllib-ipython.md)
 
 Apprendimento avanzato, Cognitive Toolkit e altri strumenti
 

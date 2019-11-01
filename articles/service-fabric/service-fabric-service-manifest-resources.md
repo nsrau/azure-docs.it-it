@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: a795e01d37504dad360dc094b6b2aea2955b6a4a
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: bb3fd77df60be68408fceea683ee4b8b74d77427
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170447"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242927"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
 ## <a name="overview"></a>Panoramica
@@ -30,6 +30,8 @@ Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Serv
 
 > [!WARNING] 
 > Le porte statiche di progettazione non devono sovrapporsi all'intervallo di porte dell'applicazione specificato in ClusterManifest. Se si specifica una porta statica, assegnarla al di fuori dell'intervallo di porte dell'applicazione. in caso contrario, verrà generato un conflitto tra porte. Con la versione 6.5 CU2 verrà emesso un **avviso di integrità** quando si rileva un conflitto di questo tipo, ma si lascia che la distribuzione continui a essere sincronizzata con il comportamento 6,5 fornito. Tuttavia, potrebbe impedire la distribuzione dell'applicazione dalle versioni principali successive.
+>
+> Con la versione 7,0 verrà emesso un **avviso di integrità** quando si rileva che l'utilizzo dell'intervallo di porte dell'applicazione va oltre HostingConfig:: ApplicationPortExhaustThresholdPercentage (valore predefinito 80%).
 >
 
 ```xml
@@ -196,15 +198,15 @@ In Parameters aggiungere quanto riportato di seguito:
   </Parameters>
 ```
 
-Durante la distribuzione dell'applicazione è possibile trasmettere questi valori come ApplicationParameters.  Esempio:
+Durante la distribuzione dell'applicazione è possibile trasmettere questi valori come ApplicationParameters.  ad esempio:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Nota: se i valori specificati per ApplicationParameters sono vuoti, si torna al valore predefinito presente in ServiceManifest per l'EndPointName corrispondente.
+Nota: se i valori forniti per ApplicationParameters sono vuoti, si torna al valore predefinito fornito in ServiceManifest per l'EndPointName corrispondente.
 
-Esempio:
+ad esempio:
 
 Se in ServiceManifest è stato specificato
 
@@ -218,4 +220,4 @@ Se in ServiceManifest è stato specificato
 
 e i valori Port1 e Protocol1 per i parametri di Aplication sono null o vuoti. La porta è comunque stabilita da ServiceFabric. E il protocollo sarà tcp.
 
-Si supponga di specificare un valore errato. Ad esempio per la porta è stato specificato un valore stringa "Foo" anziché di tipo int.  Il comando New-ServiceFabricApplication avrà esito negativo con l'errore seguente: The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid (Il parametro di override con nome "ServiceEndpoint1" attributo "Port1" nella sezione "ResourceOverrides" non è valido). Il valore specificato è "Foo", mentre era richiesto "int".
+Si supponga di specificare un valore errato. Come per la porta è stato specificato un valore stringa "foo" invece di int.  Il comando New-ServiceFabricApplication ha esito negativo e restituisce un errore: il parametro di override denominato ' ServiceEndpoint1' dell'attributo ' PORT1' nella sezione ' ResourceOverrides ' non è valido. Il valore specificato è "Foo", mentre era richiesto "int".

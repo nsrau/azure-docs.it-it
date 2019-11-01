@@ -1,21 +1,19 @@
 ---
 title: Creare dashboard personalizzati in Azure Application Insights | Microsoft Docs
 description: Esercitazione per la creazione di dashboard personalizzati per gli indicatori KPI con Azure Application Insights.
-keywords: ''
-services: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: tutorial
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: tutorial
-manager: carmonm
-ms.openlocfilehash: fa91933c2243cd1a2737f93f796314330b6cf5a0
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 47d8eaff5f154e198c277ec2b63a2d09e66f7180
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67541468"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900498"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creare dashboard personalizzati per gli indicatori KPI con Azure Application Insights
 
@@ -62,7 +60,7 @@ Un dashboard contenente testo statico non è molto interessante. È consigliabil
 1. Selezionare la risorsa **Application Insights** nella schermata iniziale.
 2. Nel riquadro **Panoramica** fare clic sull'icona a forma di puntina ![icona a forma di puntina](media/tutorial-app-dashboards/pushpin.png) per aggiungere il riquadro all'ultimo dashboard visualizzato.  
  
-3. In alto a destra verrà visualizzata una notifica che indica che il riquadro è stato aggiunto al dashboard. Fare clic sul testo della notifica per tornare nel dashboard o usare il relativo riquadro.
+3. In alto a destra verrà visualizzata una notifica che indica che il riquadro è stato aggiunto al dashboard. Fare clic sul testo della notifica per tornare nel dashboard o usare il relativo riquadro **.**
 4. Il riquadro è ora aggiunto al dashboard. Selezionare **Modifica** per cambiarne la posizione. Fare clic e trascinarlo e quindi fare clic su **Fine personalizzazione**. Il dashboard contiene ora un riquadro con alcune informazioni utili.
 
     ![Dashboard con il riquadro Panoramica sequenza temporale](media/tutorial-app-dashboards/4dashboard-edit.png)
@@ -78,7 +76,7 @@ Il pannello **Metriche** consente di rappresentare graficamente una metrica racc
 
 4. Selezionare **Aggiungi al dashboard** a destra. La visualizzazione verrà aggiunta all'ultimo dashboard usato.
 
-3.  In alto a destra verrà visualizzata una notifica che indica che il riquadro è stato aggiunto al dashboard. Fare clic sul testo della notifica per tornare nel dashboard o usare il relativo pannello.
+3.  In alto a destra verrà visualizzata una notifica che indica che il riquadro è stato aggiunto al dashboard. Fare clic sul testo della notifica per tornare nel dashboard o usare il relativo pannello **.**
 
 4. Il riquadro è ora aggiunto al dashboard. Selezionare **Modifica** per cambiarne la posizione. Fare clic e trascinarlo e quindi fare clic su **Fine personalizzazione**.
 

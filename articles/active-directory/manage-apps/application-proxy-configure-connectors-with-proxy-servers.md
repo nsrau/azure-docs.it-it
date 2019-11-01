@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e4b073a63b5b6bec565aed67bcaec7ed014261b
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: d305f3354e7b1af6d43f31f0dd5fe9f54ef3e66f
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807863"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242271"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Usare server proxy locali esistenti
 
@@ -97,7 +97,7 @@ A tale scopo modificare il file C:\Programmi\Microsoft AAD App Proxy Connector\A
 
 Configurare quindi il servizio Connector Updater in modo che usi il proxy, apportando una modifica simile al file C:\Programmi\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
 
-### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Passaggio 2: Configurare il proxy per consentire il passaggio del traffico proveniente dal connettore e dai servizi correlati
+### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Passaggio 2: configurare il proxy per consentire il passaggio del traffico proveniente dal connettore e dai servizi correlati
 
 Esistono quattro aspetti da considerare per il proxy in uscita:
 
@@ -114,9 +114,9 @@ Consentire l'accesso agli URL seguenti:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicazione tra il connettore e il servizio cloud proxy di applicazione |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure usa questi URL per verificare i certificati |
-| login.windows.net<br>login.microsoftonline.com | Il connettore usa questi URL durante il processo di registrazione. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com<br>* . microsoftonline-p.com<br>*. msauth.net<br>* . msauthimages.NET<br>*. msecnd.net<br>* . msftauth.NET<br>*. msftauthimages.net<br>* . phonefactor.NET<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | Il connettore usa questi URL durante il processo di registrazione. |
 
-Se il firewall o proxy consente di configurare DNS elenco dei tipi consentiti, è possibile consentire le connessioni a \*. msappproxy.net e \*. servicebus.windows.net. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
+Se il firewall o il proxy consente di configurare gli elenchi di Consenti DNS, è possibile consentire le connessioni a \*. msappproxy.net e \*. servicebus.windows.net. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
 
 Se non è possibile consentire la connettività in base al nome di dominio completo ed è necessario specificare invece intervalli IP, usare queste opzioni:
 
@@ -161,7 +161,7 @@ Per iniziare la risoluzione dei problemi, procedere come segue:
 1. Avviare il servizio connettore del proxy applicazione di Azure AD.
 1. Arrestare l'acquisizione di rete.
 
-   ![Schermata mostra il pulsante di acquisizione di rete Stop](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
+   ![Screenshot che mostra il pulsante Arresta acquisizione rete](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
 
 ### <a name="check-if-the-connector-traffic-bypasses-outbound-proxies"></a>Controllare se il traffico del connettore ignora i proxy in uscita
 
@@ -185,5 +185,5 @@ Se vengono visualizzati altri codici di risposta, ad esempio 407 o 502, signific
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-connectors.md)
+* [Comprendere i connettori del proxy applicazione Azure AD](application-proxy-connectors.md)
 * In caso di problemi di connettività del connettore, porre una domanda nel [forum di Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) o creare un ticket per il team di supporto Microsoft.

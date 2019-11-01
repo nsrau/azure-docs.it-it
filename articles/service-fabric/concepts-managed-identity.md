@@ -7,16 +7,16 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: edce98e6babb676ee72f1d254b929e557332dd75
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e2f05ba28109a9b3c88d80eb218bf94014f0f082
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333130"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73243021"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Identità gestita per Service Fabric applicazione (anteprima)
 
-Una difficoltà comune durante la creazione di applicazioni cloud è rappresentata dalla gestione delle credenziali presenti nel codice per l'autenticazione ai servizi cloud. Mantenere sicure le credenziali è un'attività importante, perché non vengono mai visualizzate nelle workstation degli sviluppatori e non vengono archiviate nel controllo del codice sorgente. La funzionalità di identità gestita per le risorse di Azure in Azure Active Directory (Azure AD) risolve questo problema. La funzionalità fornisce servizi di Azure con un'identità gestita automaticamente in Azure AD. È possibile usare l'identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire le credenziali nel codice.
+Una difficoltà comune durante la creazione di applicazioni cloud è rappresentata dalla gestione delle credenziali presenti nel codice per l'autenticazione ai servizi cloud. Mantenere sicure le credenziali è un'attività importante, perché non vengono mai visualizzate nelle workstation degli sviluppatori e non vengono archiviate nel controllo del codice sorgente. La funzionalità di identità gestita per le risorse di Azure in Azure Active Directory (Azure AD) risolve questo problema. La funzionalità offre ai servizi di Azure un'identità gestita automaticamente in Azure AD. È possibile usare l'identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire le credenziali nel codice.
 
 La funzionalità di identità gestita per le risorse di Azure è gratuita con Azure AD per le sottoscrizioni di Azure. Non sono previsti costi aggiuntivi.
 
@@ -62,7 +62,7 @@ L'elenco degli scenari supportati per la versione di anteprima è il seguente:
 
 Gli scenari seguenti non sono supportati o non sono consigliati. Si noti che queste azioni potrebbero non essere bloccate, ma possono causare interruzioni nelle applicazioni:
 
-   - Rimuovere o modificare le identità assegnate a un'applicazione; Se è necessario apportare modifiche, inviare distribuzioni separate prima di aggiungere una nuova assegnazione di identità e quindi rimuovere una assegnata in precedenza. La rimozione di un'identità da un'applicazione esistente può avere effetti indesiderati, inclusa l'uscita dell'applicazione in uno stato non aggiornabile. Se la rimozione di un'identità è necessaria, è possibile eliminare l'applicazione in modo sicuro. Si noti che questa operazione eliminerà l'identità assegnata dal sistema (se così definita) associata all'applicazione e rimuoverà tutte le associazioni con le identità assegnate dall'utente assegnate all'applicazione.
+   - Rimuovere o modificare le identità assegnate a un'applicazione; Se è necessario apportare modifiche, inviare distribuzioni separate prima di aggiungere una nuova assegnazione di identità e quindi rimuovere una assegnata in precedenza. La rimozione di un'identità da un'applicazione esistente può avere effetti indesiderati, inclusa l'uscita dall'applicazione in uno stato non aggiornabile. Se la rimozione di un'identità è necessaria, è possibile eliminare l'applicazione in modo sicuro. Si noti che questa operazione eliminerà l'identità assegnata dal sistema (se così definita) associata all'applicazione e rimuoverà tutte le associazioni con le identità assegnate dall'utente assegnate all'applicazione.
 
    - Il supporto SF per le identità gestite non è integrato al momento nel [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md); l'integrazione verrà eseguita entro la fine del periodo di anteprima per la funzionalità Gestione identità gestita.
 
@@ -78,3 +78,4 @@ Gli scenari seguenti non sono supportati o non sono consigliati. Si noti che que
 * [Distribuire un'applicazione Service Fabric di Azure con un'identità gestita assegnata dall'utente](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Sfruttare l'identità gestita di un'applicazione Service Fabric dal codice del servizio](./how-to-managed-identity-service-fabric-app-code.md)
 * [Concedere a un'applicazione Service Fabric di Azure l'accesso ad altre risorse di Azure](./how-to-grant-access-other-resources.md)
+* [Dichiarazione e utilizzo dei segreti dell'applicazione come KeyVaultReferences](./service-fabric-keyvault-references.md) 
