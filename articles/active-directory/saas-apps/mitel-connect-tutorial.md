@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 204f540b-09f1-452b-a52f-78143710ef76
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: e03870322df94a4c9587a3395c70925d2d2e838d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 30a4dcbd15d8a47d99b3a61879a7e61938d3b133
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588213"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160545"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Esercitazione: Integrazione di Azure Active Directory con Mitel MiCloud Connect
 
@@ -77,7 +78,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure Ad con MiCloud Conne
 
 1. **[Configurare MiCloud Connect per l'accesso SSO con Azure AD](#configure-micloud-connect-for-sso-with-azure-ad)** : per abilitare gli utenti per l'uso di questa funzionalità e configurare le impostazioni di SSO sul lato applicazione.
 2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+3. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 4. **[Creare un utente di test di Mitel MiCloud Connect](#create-a-mitel-micloud-connect-test-user)** : per avere una controparte di Britta Simon in MiCloud Connect collegata alla relativa rappresentazione in Azure AD.
 5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -146,7 +147,7 @@ Per configurare MiCloud Connect con l'accesso SSO per Azure AD, è consigliabile
 
 12. Fare clic su **Save** (Salva) nella finestra di dialogo **Connect Single Sign-On Settings** del portale dell'account Mitel.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
@@ -169,7 +170,7 @@ Ad esempio: BrittaSimon@contoso.com.
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

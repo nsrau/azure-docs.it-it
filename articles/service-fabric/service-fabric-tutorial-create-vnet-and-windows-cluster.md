@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 12e886c107249c338dc27aefcd2e1a32eba13d3e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 28571584fbd82b245e85e2ebe5b1d282ab5ae979
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598884"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177978"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Esercitazione: Distribuire un cluster di Service Fabric che esegue Windows in una rete virtuale di Azure
 
@@ -112,7 +112,6 @@ Le regole per il traffico in ingresso seguenti vengono abilitate nella risorsa *
 
 * Endpoint di connessione client (TCP): 19000
 * Endpoint del gateway HTTP (HTTP/TCP): 19080
-* SMB: 445
 * Comunicazione tra nodi: 1025, 1026, 1027
 * Intervallo di porte temporaneo: da 49152 a 65534 (sono necessarie almeno 256 porte).
 * Porte utilizzabili per l'applicazione: 80 e 443

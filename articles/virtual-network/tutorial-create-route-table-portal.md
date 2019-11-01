@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 153c692a8fb0fa538ec49c6eafa11815dd794b5d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7e7a01b7fdc1a508fa19397900f8fd4f52d49c53
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681532"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73164012"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Esercitazione: Instradare il traffico di rete con una tabella di route usando il portale di Azure
 
@@ -55,12 +55,12 @@ Accedere al [portale di Azure](https://portal.azure.com).
     | Impostazione | Valore |
     | ------- | ----- |
     | NOME | Immettere *myRouteTablePublic*. |
-    | Sottoscrizione | Selezionare la propria sottoscrizione. |
-    | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare *OK*. |
-    | Località | Lasciare il valore **Stati Uniti orientali** predefinito.
+    | Subscription | Selezionare la propria sottoscrizione. |
+    | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare *OK*. |
+    | Location | Lasciare il valore **Stati Uniti orientali** predefinito.
     | Propagazione route BGP | Lasciare il valore predefinito, **Abilitata**. |
 
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
 ## <a name="create-a-route"></a>Creare una route
 
@@ -68,7 +68,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Selezionare **myRouteTablePublic** quando viene visualizzato nei risultati della ricerca.
 
-1. Nella pagina **myRouteTablePublic**, in **Impostazioni** selezionare **Route** > **+ Aggiungi**.
+1. Nella pagina **myRouteTablePublic**, in **Impostazioni** selezionare **Route** >  **+ Aggiungi**.
 
     ![Aggiungere la route](./media/tutorial-create-route-table-portal/add-route.png)
 
@@ -97,9 +97,9 @@ Prima di poter associare una tabella di route a una subnet, è necessario creare
     | ------- | ----- |
     | NOME | Immettere *myVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.0.0.0/16*. |
-    | Sottoscrizione | Selezionare la propria sottoscrizione. |
-    | Gruppo di risorse | Selezionare ***Seleziona esistente*** > **myResourceGroup**. |
-    | Località | Lasciare il valore **Stati Uniti orientali** predefinito. |
+    | Subscription | Selezionare la propria sottoscrizione. |
+    | Resource group | Selezionare ***Seleziona esistente*** > **myResourceGroup**. |
+    | Location | Lasciare il valore **Stati Uniti orientali** predefinito. |
     | Subnet - Nome | Immettere *Pubblica*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.0.0.0/24*. |
 
@@ -111,7 +111,7 @@ Prima di poter associare una tabella di route a una subnet, è necessario creare
 
 1. Selezionare **myVirtualNetwork** quando viene visualizzato nei risultati della ricerca.
 
-1. In **myVirtualNetwork**, in **Impostazioni** selezionare **Subnet** > **+ Subnet**.
+1. In **myVirtualNetwork**, in **Impostazioni** selezionare **Subnet** >  **+ Subnet**.
 
     ![Aggiungi subnet](./media/tutorial-create-route-table-portal/add-subnet.png)
 
@@ -154,8 +154,8 @@ Le appliance virtuali di rete sono macchine virtuali con funzioni di rete come l
     | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
-    | Sottoscrizione | Selezionare la propria sottoscrizione. |
-    | Gruppo di risorse | Selezionare **myResourceGroup**. |
+    | Subscription | Selezionare la propria sottoscrizione. |
+    | Resource group | Selezionare **myResourceGroup**. |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome macchina virtuale | Immettere *myVmNva*. |
     | Region | Selezionare **Stati Uniti orientali**. |
@@ -182,7 +182,7 @@ Le appliance virtuali di rete sono macchine virtuali con funzioni di rete come l
     | Impostazione | Valore |
     | ------- | ----- |
     | Rete virtuale | Lasciare l'impostazione predefinita **myVirtualNetwork**. |
-    | Subnet | Selezionare **DMZ (10.0.2.0/24)**. |
+    | Subnet | Selezionare **DMZ (10.0.2.0/24)** . |
     | IP pubblico | Selezionare **Nessuno**. Non è necessario un indirizzo IP pubblico. La macchina virtuale, infatti, non si connetterà a Internet.|
 
 1. Lasciare i valori predefiniti di tutte le altre impostazioni e selezionare **Avanti: Gestione**.
@@ -194,7 +194,7 @@ Le appliance virtuali di rete sono macchine virtuali con funzioni di rete come l
     | Impostazione | Valore |
     | ------- | ----- |
     | NOME | Immettere *mynvastorageaccount*. |
-    | Tipo di account | Lasciare l'impostazione predefinita **Archiviazione (utilizzo generico v1)**. |
+    | Tipo di account | Lasciare l'impostazione predefinita **Archiviazione (utilizzo generico v1)** . |
     | Prestazioni | Lasciare l'impostazione predefinita **Standard**. |
     | Replica | Lasciare l'impostazione predefinita **Archiviazione con ridondanza locale**.
 
@@ -236,7 +236,7 @@ Completare i passaggi da 1 a 12 di [Creare un'appliance virtuale di rete](#creat
 | INFORMAZIONI DI BASE |  |
 | Nome macchina virtuale | Immettere *myVmPublic*. |
 | RETE | |
-| Subnet | Selezionare **Pubblica (10.0.0.0/24)**. |
+| Subnet | Selezionare **Pubblica (10.0.0.0/24)** . |
 | Indirizzo IP pubblico | Accettare il valore predefinito. |
 | Porte in ingresso pubbliche | Selezionare **Consenti porte selezionate**. |
 | Selezionare le porte in ingresso | Selezionare **HTTP** e **RDP**. |
@@ -246,7 +246,7 @@ Completare i passaggi da 1 a 12 di [Creare un'appliance virtuale di rete](#creat
 | INFORMAZIONI DI BASE |  |
 | Nome macchina virtuale | Immettere *myVmPrivate*. |
 | RETE | |
-| Subnet | Selezionare **Privata (10.0.1.0/24)**. |
+| Subnet | Selezionare **Privata (10.0.1.0/24)** . |
 | Indirizzo IP pubblico | Accettare il valore predefinito. |
 | Porte in ingresso pubbliche | Selezionare **Consenti porte selezionate**. |
 | Selezionare le porte in ingresso | Selezionare **HTTP** e **RDP**. |
@@ -290,7 +290,7 @@ In un passaggio successivo viene usato lo strumento di tracciamento delle route 
 1. Immettere questo comando:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
     In questa esercitazione si usa il tracciamento delle route per testare il routing. Per gli ambienti di produzione, non è consigliabile consentire il protocollo ICMP tramite Windows Firewall.
@@ -311,7 +311,7 @@ Si è [attivato l'inoltro IP](#turn-on-ip-forwarding) per interfaccia di rete de
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
     ```
 
-1. Riavviare la macchina virtuale *myVmNva*. Nella barra delle applicazioni selezionare **Pulsante Start** > **Pulsante di alimentazione**, **Altro (pianificato)** > **Continua**.
+1. Riavviare la macchina virtuale *myVmNva*. Nella barra delle applicazioni selezionare **Pulsante Start** > **Pulsante di alimentazione**, **Altro (pianificato)**  > **Continua**.
 
     Con questa operazione verrà anche disconnessa la sessione desktop remoto.
 
@@ -325,7 +325,7 @@ Si è [attivato l'inoltro IP](#turn-on-ip-forwarding) per interfaccia di rete de
 1. Abilitare il protocollo ICMP tramite Windows Firewall immettendo il comando seguente:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
 ## <a name="test-the-routing-of-network-traffic"></a>Testare il routing del traffico di rete

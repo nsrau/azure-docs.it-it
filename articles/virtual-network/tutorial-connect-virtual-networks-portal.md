@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: bf7b9b288a32d9f6cc2c9e0d7dba4b074c4bf878
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: cbf19d941e63429b6a5edcc6745d04834cf18621
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515723"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73164062"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Esercitazione: Connettere reti virtuali con il peering reti virtuali usando il portale di Azure
 
@@ -54,7 +54,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
     |Gruppo di risorse| Selezionare **Crea nuovo** e immettere *myResourceGroup*.|
     |Region| Selezionare **Stati Uniti orientali**.|
     |NOME|myVirtualNetwork1|
-    ![Configurare le impostazioni di base della rete virtuale] (
+   
 4. Nella pagina **Indirizzi IP** immettere 10.0.0.0/16 nel campo **Spazio indirizzi**. Fare clic sul pulsante **Aggiungi subnet** e immettere Subnet1 per **Nome subnet** e 10.0.0.0/24 per **Intervallo di indirizzi subnet**.
    
 5. Ripetere i passaggi da 1 a 3, con le modifiche seguenti.
@@ -147,7 +147,7 @@ La creazione delle macchine virtuali può richiedere alcuni minuti. Non proceder
 6. In un passaggio successivo verrà usato il ping per comunicare con la macchina virtuale *myVm2* dalla macchina virtuale *myVm1*. Il ping usa il protocollo ICMP (Internet Control Message Protocol), che viene rifiutato tramite Windows Firewall per impostazione predefinita. Nella macchina virtuale *myVm1* abilitare il protocollo ICMP attraverso Windows Firewall, in modo che sia possibile effettuare il ping della macchina virtuale da *myVm2* in un passaggio successivo tramite PowerShell:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
     
     Anche se in questa esercitazione viene usato il ping per la comunicazione tra le macchine virtuali, non è consigliabile consentire il protocollo ICMP tramite Windows Firewall per le distribuzioni di produzione.
