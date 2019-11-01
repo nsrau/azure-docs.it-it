@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 90fb3fe732889f3ba3965210cd8a681a0487f78e
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: d84a20a554308e1705c304a18062a4a1d762a72b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515032"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901439"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Guida introduttiva: Abilitare SSH e RDP su un flusso del dispositivo dell'hub IoT con un'applicazione proxy C# (anteprima)
 
@@ -53,6 +53,8 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
   * Stati Uniti centrali
   * Stati Uniti centrali EUAP
+  * Asia sud-orientale
+  * Europa settentrionale
 
 * Le due applicazioni di esempio eseguite in questo argomento sono scritte in C#. È necessario .NET Core SDK 2.1.0 o versione successiva nel computer di sviluppo.
 

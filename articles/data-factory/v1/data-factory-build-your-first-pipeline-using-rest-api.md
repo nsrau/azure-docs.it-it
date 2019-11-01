@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: 5fe554371e54c6f67ae714084f110319b43fe54c
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: da62b07b03aea94749f1d0a332d52790a06635ce
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140428"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162541"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Esercitazione: Creare la prima data factory di Azure usando l'API REST di Data Factory
 > [!div class="op_single_selector"]
@@ -168,10 +168,10 @@ La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel fram
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| type |La proprietà type è impostata su AzureBlob perché i dati si trovano nell'archiviazione BLOB di Azure. |
+| Tipo |La proprietà type è impostata su AzureBlob perché i dati si trovano nell'archiviazione BLOB di Azure. |
 | linkedServiceName |Fa riferimento all'oggetto StorageLinkedService creato in precedenza. |
 | fileName |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In tal caso viene elaborato solo il file input.log. |
-| type |I file di log sono in formato testo, quindi viene usato TextFormat. |
+| Tipo |I file di log sono in formato testo, quindi viene usato TextFormat. |
 | columnDelimiter |Le colonne nei file di log sono delimitate da virgola (,). |
 | frequency/interval |La frequenza è impostata su Month e l'intervallo è 1, ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
 | external |Questa proprietà è impostata su true se i dati di input non vengono generati dal servizio Data factory. |
@@ -299,7 +299,7 @@ In questo passaggio viene creata un'istanza di Azure Data Factory denominata **F
     Verificare che il nome della data factory specificato qui (ADFCopyTutorialDF) corrisponda al nome specificato in **datafactory.json**.
 
     ```powershell
-    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@datafactory.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
     ```
 2. Eseguire il comando usando **Invoke-Command**.
 

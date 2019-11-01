@@ -1,21 +1,19 @@
 ---
 title: Monitorare un'app Web ASP.NET con Azure Application Insights | Microsoft Docs
 description: Fornisce istruzioni per configurare rapidamente un'app Web ASP.NET per il monitoraggio con Application Insights
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: quickstart
-manager: carmonm
-ms.openlocfilehash: 1edb83fcbe03fd113c59986bdbb6afcf2a0970bb
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 1aab9009c2c33522abdeae6ca865a35b9fc104e4
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916132"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900481"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniziare a monitorare l'applicazione Web ASP.NET
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 856e2859c778c9f23bc093c2283571a1440ef701
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: b98917e6f3c0ff6570251751a9958b202908ee3e
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68598778"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933921"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Esercitazione: Monitorare i contenitori di Windows in Service Fabric usando i log di Monitoraggio di Azure
 
@@ -186,7 +186,7 @@ Apportare le modifiche seguenti nel file *template.json*:
     },
     ```
 
-[Qui](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) è disponibile un modello di esempio (usato nella prima parte dell'esercitazione) che include tutte queste modifiche che può essere usato se necessario come riferimento. Queste modifiche determinano l'aggiunta di un'area di lavoro Log Analytics al gruppo di risorse. L'area di lavoro viene quindi configurata per raccogliere gli eventi della piattaforma Service Fabric dalle tabelle di archiviazione configurate con l'agente di [Diagnostica di Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md). È stato aggiunto anche l'agente Log Analytics (Microsoft Monitoring Agent) a ogni nodo nel cluster come estensione macchina virtuale. Questo significa che ridimensionando il cluster, l'agente viene automaticamente configurato in ogni computer e collegato alla stessa area di lavoro.
+[Qui](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/d2ffa318581fc23ac7f1b0ab2b52db1a0d7b4ba7/5-VM-Windows-OMS-UnSecure/sfclusteroms.json) è disponibile un modello di esempio (usato nella prima parte dell'esercitazione) che include tutte queste modifiche che può essere usato se necessario come riferimento. Queste modifiche determinano l'aggiunta di un'area di lavoro Log Analytics al gruppo di risorse. L'area di lavoro viene quindi configurata per raccogliere gli eventi della piattaforma Service Fabric dalle tabelle di archiviazione configurate con l'agente di [Diagnostica di Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md). È stato aggiunto anche l'agente Log Analytics (Microsoft Monitoring Agent) a ogni nodo nel cluster come estensione macchina virtuale. Questo significa che ridimensionando il cluster, l'agente viene automaticamente configurato in ogni computer e collegato alla stessa area di lavoro.
 
 Distribuire il modello con le nuove modifiche per aggiornare il cluster attuale. Al termine, le risorse di Log Analytics saranno visibili nel gruppo di risorse. Quando il cluster è pronto, distribuirvi l'applicazione nei contenitori. Nel passaggio successivo si imposterà il monitoraggio dei contenitori.
 
@@ -242,7 +242,7 @@ Questa esercitazione illustra come:
 
 Il monitoraggio dell'applicazione in contenitori è ora impostato ed è quindi possibile eseguire le operazioni seguenti:
 
-* Configurare i log di Monitoraggio di Azure per un cluster Linux seguendo una procedura simile a quella appena illustrata. Fare riferimento a [questo modello](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) per apportare le modifiche al modello di Resource Manager.
+* Configurare i log di Monitoraggio di Azure per un cluster Linux seguendo una procedura simile a quella appena illustrata. Fare riferimento a [questo modello](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) per apportare le modifiche al modello di Resource Manager.
 * Configurare i log di Monitoraggio di Azure per impostare gli [avvisi automatizzati](../log-analytics/log-analytics-alerts.md) per semplificare il rilevamento e la diagnostica.
 * Esplorare l'elenco di [contatori delle prestazioni consigliati](service-fabric-diagnostics-event-generation-perf.md) in Service Fabric per configurare i cluster.
 * Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../log-analytics/log-analytics-log-searches.md) incluse nei log di Monitoraggio di Azure.

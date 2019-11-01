@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 7187bc7a42971a86b31d663f0a3754a061a2421a
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: b0a23486d81ac6b48bf7bb256e3583973a338002
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515046"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900909"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in C tramite i flussi dispositivo dell'hub IoT (anteprima)
 
@@ -56,9 +56,10 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 L'anteprima dei flussi del dispositivo è attualmente supportata solo per gli hub IoT creati nelle aree seguenti:
 
-* Stati Uniti centrali
-
-* Stati Uniti centrali EUAP
+  * Stati Uniti centrali
+  * Stati Uniti centrali EUAP
+  * Europa settentrionale
+  * Asia sud-orientale
 
 ## <a name="prepare-the-development-environment"></a>Preparare l'ambiente di sviluppo
 

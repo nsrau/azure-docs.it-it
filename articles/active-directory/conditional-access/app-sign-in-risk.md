@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 928900c526ec0e77f84c621f630ac5894cdb2d23
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 619f1ea3bae001d25eb520f43da33ca94a3160c8
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125666"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880346"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Guida introduttiva: Bloccare l'accesso quando viene rilevato un rischio per la sessione con l'accesso condizionale di Azure Active Directory  
 
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Per completare lo scenario in questa esercitazione, sono necessari gli elementi seguenti:
 
 - **Accesso a un'edizione di Azure AD Premium P2**: sebbene l'accesso condizionale sia una funzionalità di Azure AD Premium P1, è necessaria un'edizione P2 poiché lo scenario di questa guida introduttiva richiede Identity Protection.
-- **Identity Protection**: lo scenario in questa guida introduttiva richiede l'abilitazione di Identity Protection. Per scoprire come abilitare Identity Protection, vedere [Abilitazione di Azure Active Directory Identity Protection](../identity-protection/enable.md).
+- **Identity Protection**: lo scenario in questa guida introduttiva richiede l'abilitazione di Identity Protection. Per scoprire come abilitare Identity Protection, vedere [Abilitazione di Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
 - **Tor Browser**: [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) è progettato per salvaguardare la privacy online. Identity Protection rileva un accesso da un Tor Browser come accesso da indirizzi IP anonimi, con un livello di rischio medio. Per altre informazioni, vedere [Rilevamenti dei rischi in Azure Active Directory](../reports-monitoring/concept-risk-events.md).  
 - **Account di test denominato Alain Charon**: se non si conosce la procedura per creare un account di test, vedere [Aggiungere gli utenti basati su cloud](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 

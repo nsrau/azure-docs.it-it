@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: a2d13833b60076caa371a7fa8a696ab5964a28e3
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 7f62e437d80f023972327d98b4add193eb7b8dd6
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376073"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044408"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure
 
@@ -169,7 +169,7 @@ In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti
   * Se la finestra di manutenzione viene superata in Windows, il motivo è in genere dovuto all'aggiornamento di un service pack la cui installazione impiega molto tempo.
 
   > [!NOTE]
-  > Informazioni non cruciali per un'attività Per evitare che gli aggiornamenti vengano applicati al di fuori di una finestra di manutenzione in Ubuntu, riconfigurare il pacchetto Unattended-Upgrade per disabilitare gli aggiornamenti automatici. Per informazioni sulla configurazione del pacchetto, vedere l'[argomento Aggiornamenti automatici nella Guida a Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+  > Per evitare che gli aggiornamenti vengano applicati al di fuori di una finestra di manutenzione in Ubuntu, riconfigurare il pacchetto Unattended-Upgrade per disabilitare gli aggiornamenti automatici. Per informazioni sulla configurazione del pacchetto, vedere l'[argomento Aggiornamenti automatici nella Guida a Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 * **Opzioni di riavvio**: questa impostazione determina le modalità di gestione dei riavvii. Le opzioni disponibili sono:
   * Riavvia se necessario (opzione predefinita)

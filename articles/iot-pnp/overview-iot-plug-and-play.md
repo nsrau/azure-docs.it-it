@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 27063702729d8a61ab8919c2685fcfc6f743ce09
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: fd1479a224255f74f4d47cfd90576a5afd25010f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859000"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935404"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>Informazioni su Plug and Play IoT (anteprima)
 
@@ -26,7 +26,7 @@ Plug and Play IoT (anteprima) consente agli sviluppatori di soluzioni di integra
 
 È possibile riutilizzare le interfacce tra i vari modelli di funzionalità di dispositivo per semplificare la collaborazione e velocizzare lo sviluppo.
 
-Per semplificare l'interazione tra Plug and Play IoT e [Gemelli digitali di Azure](../digital-twins/about-digital-twins.md), per la definizione dello schema di Plug and Play IoT si usa [DTDL (Digital Twin Definition Language)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL), ovvero il linguaggio di definizione di Gemelli digitali. Plug and Play IoT e il linguaggio DTDL sono aperti alla community e Microsoft è lieta di ricevere i contributi di clienti, partner e dell'intero settore. Entrambi sono basati su standard W3C aperti, ad esempio JSON-LD e RDF, che facilitano l'adozione nei diversi servizi e strumenti. Non sono inoltre previsti costi aggiuntivi per l'uso di Plug and Play IoT e DTDL. La tariffe standard per [Hub IoT di Azure](../iot-hub/about-iot-hub.md), [Azure IoT Central](../iot-central/overview-iot-central.md) e altri servizi di Azure rimangono invariate.
+Per semplificare l'interazione tra Plug and Play IoT e [Gemelli digitali di Azure](../digital-twins/about-digital-twins.md), per la definizione dello schema di Plug and Play IoT si usa [DTDL (Digital Twin Definition Language)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL), ovvero il linguaggio di definizione di Gemelli digitali. Plug and Play IoT e il linguaggio DTDL sono aperti alla community e Microsoft è lieta di ricevere i contributi di clienti, partner e dell'intero settore. Entrambi sono basati su standard W3C aperti, ad esempio JSON-LD e RDF, che facilitano l'adozione nei diversi servizi e strumenti. Non sono inoltre previsti costi aggiuntivi per l'uso di Plug and Play IoT e DTDL. La tariffe standard per [Hub IoT di Azure](../iot-hub/about-iot-hub.md), [Azure IoT Central](../iot-central/core/overview-iot-central.md) e altri servizi di Azure rimangono invariate.
 
 Le soluzioni basate su hub IoT o IoT Central possono trarre vantaggio da Plug and Play IoT.
 
@@ -48,7 +48,7 @@ Plug and Play IoT è utile per due tipi di sviluppatori:
 
 Gli sviluppatori di soluzioni possono sviluppare una soluzione IoT ospitata nel cloud che usa dispositivi Plug and Play IoT. È possibile usare i servizi di Azure seguenti:
 
-- [IoT Central](../iot-central/overview-iot-central.md): una soluzione SaaS (Software-as-a-Service) IoT completamente gestita per semplificare la creazione di prodotti che si connettono ai mondi fisico e digitale.
+- [IoT Central](../iot-central/core/overview-iot-central.md): una soluzione SaaS (Software-as-a-Service) IoT completamente gestita per semplificare la creazione di prodotti che si connettono ai mondi fisico e digitale.
 - [IoT Hub](../iot-hub/about-iot-hub.md): un servizio cloud gestito che funge da hub dei messaggi per le comunicazioni sicure e bidirezionali tra l'applicazione IoT e i dispositivi.
 
 I dispositivi Plug and Play IoT sono disponibili nel catalogo dei dispositivi Azure Certified per IoT. Ogni dispositivo Plug and Play IoT presente nel catalogo è stato convalidato e include un modello di funzionalità di dispositivo. Visualizzare il modello di funzionalità di dispositivo per informazioni sulla funzionalità del dispositivo o usarlo per simulare il dispositivo in Azure IoT Central.

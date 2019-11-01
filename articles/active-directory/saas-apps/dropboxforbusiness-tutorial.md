@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 63502412-758b-4b46-a580-0e8e130791a1
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 591d8d28be5fc9322de8cf4886dc5924f53b1deb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 615c10357e099b547008b128ca5f5a773ff1aa14
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67103773"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158316"
 ---
 # <a name="tutorial-integrate-dropbox-for-business-with-azure-active-directory"></a>Esercitazione: Integrare Dropbox for Business con Azure Active Directory
 
@@ -65,7 +66,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Dropbox for B
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Dropbox for Business](#configure-dropbox-for-business-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Dropbox for Business](#create-dropbox-for-business-test-user)** : per avere una controparte di Britta Simon in Dropbox for Business collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
@@ -106,7 +107,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Per automatizzare la configurazione all'interno di Dropbox for Business, è necessario installare l'**estensione del browser per l'accesso sicuro alle app personali** facendo clic su **Installa estensione**.
 
-    ![Estensione My Apps](common/install-myappssecure-extension.png)
+    ![Estensione per App personali](common/install-myappssecure-extension.png)
 
 2. Dopo aver aggiunto l'estensione al browser, fare clic su **Setup Dropbox for Business** (Configura Dropbox for Business) per passare direttamente all'applicazione Dropbox for Business. Da qui, fornire le credenziali di amministratore per accedere a Dropbox for Business. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 8.
 
@@ -114,33 +115,33 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 3. Per configurare manualmente Dropbox for Business, aprire una nuova finestra del Web browser, passare al tenant di Dropbox for Business e accedere al proprio tenant di Dropbox for business. Seguire quindi questa procedura:
 
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/ic769509.png "Configurare l'accesso Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/ic769509.png "Configura accesso Single Sign-On")
 
 4. Fare clic su **Icona utente** e selezionare la scheda **Impostazioni**.
 
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure1.png "Configurare l'accesso Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure1.png "Configura accesso Single Sign-On")
 
 5. Nel riquadro di spostamento a sinistra fare clic su **Console di amministrazione**.
 
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure2.png "Configurare l'accesso Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure2.png "Configura accesso Single Sign-On")
 
 6. In **Console di amministrazione** fare clic su **Impostazioni** nel riquadro di spostamento a sinistra.
 
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure3.png "Configurare l'accesso Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure3.png "Configura accesso Single Sign-On")
 
 7. Selezionare l’opzione **Single sign-on** sotto la sezione **Autenticazione**.
 
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure4.png "Configurare l'accesso Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure4.png "Configura accesso Single Sign-On")
 
 8. Nella sezione **Single sign-on**seguire questa procedura:  
 
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure5.png "Configurare l'accesso Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure5.png "Configura accesso Single Sign-On")
 
     a. Selezionare **Required** (Obbligatorio) come opzione nell'elenco a discesa **Single sign-on**.
 
     b. Fare clic su **Aggiungi URL di accesso** e quindi nella casella di testo **URL di accesso del provider di identità** incollare il valore di **URL di accesso** copiato dal portale di Azure e selezionare **Fine**.
 
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure6.png "Configurare l'accesso Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure6.png "Configura accesso Single Sign-On")
 
     c. Fare clic su **Carica certificato**e quindi andare al **file di certificato oBase64** scaricato dal portale di Azure.
 
@@ -148,7 +149,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     e. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
@@ -158,7 +159,7 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
    1. Nel campo **Nome** immettere `Britta Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `BrittaSimon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

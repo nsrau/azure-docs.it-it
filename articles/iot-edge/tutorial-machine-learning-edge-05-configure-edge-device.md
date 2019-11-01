@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a2096004a7b389f627c528a8dfb4768ac001f390
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: b9f9fe78db2d8bcf50a076fdfc3eba7b1f347201
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155617"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965400"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Esercitazione: Configurare un dispositivo IoT Edge
 
@@ -97,7 +97,7 @@ Per archiviare i certificati in sicurezza e renderli accessibili da più disposi
 
 Per connettere un dispositivo Azure IoT Edge a un hub IoT, creare prima di tutto un'identità per il dispositivo nell'hub. La stringa di connessione dell'identità del dispositivo nel cloud verrà usata per configurare il runtime nel dispositivo IoT Edge. Dopo aver configurato il dispositivo e averlo connesso all'hub, sarà possibile distribuire moduli e inviare messaggi. È anche possibile cambiare la configurazione del dispositivo IoT Edge fisico modificando la configurazione dell'identità del dispositivo corrispondente nell'hub IoT.
 
-Per questa esercitazione, la nuova identità del dispositivo viene creata con Visual Studio Code. È anche possibile completare questi passaggi tramite il [portale di Azure](how-to-register-device-portal.md) o l'[interfaccia della riga di comando di Azure](how-to-register-device-cli.md).
+Per questa esercitazione, la nuova identità del dispositivo viene creata con Visual Studio Code. È anche possibile completare questi passaggi tramite il [portale di Azure](how-to-register-device.md#register-in-the-azure-portal) o l'[interfaccia della riga di comando di Azure](how-to-register-device.md#register-with-the-azure-cli).
 
 1. Nel computer di sviluppo aprire Visual Studio Code.
 

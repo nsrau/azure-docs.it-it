@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2019
 ms.author: mlottner
-ms.openlocfilehash: 7cdf9f61c88d93f0cbf0b80576aa30dff5ce9cab
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 67361c402bdbc82d5df01709dc962b59671cb2aa
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551587"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991406"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Guida introduttiva: Eseguire l'onboarding del servizio Centro sicurezza di Azure per IoT nell'hub IoT
 
@@ -43,14 +43,8 @@ Questo articolo illustra come abilitare il servizio Centro sicurezza di Azure pe
 Per abilitare la sicurezza nell'hub IoT: 
 
 1. Aprire l'**hub IoT** nel portale di Azure. 
-1. Nel menu **Sicurezza** fare clic su **Secure your IoT solution** (Proteggere la soluzione IoT).
-1. Lasciare l'opzione predefinita **Enable** (Abilita) selezionata. 
-1. Selezionare l'area di lavoro Log Analytics.
-1. Specificare i dettagli dell'area di lavoro Log Analytics. 
-   - Scegliere di abilitare la **raccolta degli eventi gemelli** lasciando l'opzione **twin collection** **attivata**.
-   - Scegliere di archiviare gli **eventi non elaborati** oltre ai tipi di informazioni predefiniti dell'archiviazione selezionando **Store raw device security events** (Archivia eventi di sicurezza non elaborati del dispositivo) in Log Analytics. Lasciare l'opzione **raw event** **attivata**. 
-    
-1. Fare clic su **Save**. 
+1. Nel menu **Sicurezza** fare clic su **Secure your IoT solution** (Proteggere la soluzione IoT).    
+
 
 Congratulazioni! È stata completata l'abilitazione del Centro sicurezza di Azure per IoT nell'hub IoT. 
 

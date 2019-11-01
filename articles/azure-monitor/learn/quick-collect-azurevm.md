@@ -1,25 +1,19 @@
 ---
 title: Raccogliere dati da una macchina virtuale di Azure con Monitoraggio di Azure | Microsoft Docs
 description: Informazioni su come abilitare l'estensione VM dell'agente di Log Analytics e la raccolta di dati dalle VM di Azure con Log Analytics.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: quickstart
-ms.date: 08/19/2019
+author: mgoedtel
 ms.author: magoedte
+ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: f400fb7f177301e2b8c21cde9be334635025b4b3
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 84b076cf92c57f3cd912a6c4b401a5ef81f8557b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677712"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900564"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Raccogliere dati da una macchina virtuale di Azure con Monitoraggio di Azure
 

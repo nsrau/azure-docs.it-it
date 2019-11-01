@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 85905f97500848be0e17da7d8a65209878713fc2
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: c994b77105fe94eef418c0befc4c135ec09ada14
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516553"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900925"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in C# tramite i flussi dispositivo dell'hub IoT (anteprima)
 
@@ -33,6 +33,8 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 * L'anteprima dei flussi del dispositivo è attualmente supportata solo per gli hub IoT creati nelle aree seguenti:
   * Stati Uniti centrali
   * Stati Uniti centrali EUAP
+  * Europa settentrionale
+  * Asia sud-orientale
 
 * Le due applicazioni di esempio eseguite in questo argomento sono scritte in C#. È necessario .NET Core SDK 2.1.0 o versione successiva nel computer di sviluppo.
   * Scaricare [.NET Core SDK per più piattaforme da .NET](https://www.microsoft.com/net/download/all).

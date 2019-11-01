@@ -10,12 +10,12 @@ ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a52b9ee26aac20d95356db6a280c5feb40023fed
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 8e0e028be6b4a507ba97f9126c791ee77c764c70
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942799"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880503"
 ---
 # <a name="what-is-azure-active-directory"></a>Informazioni su Azure Active Directory
 
@@ -52,7 +52,7 @@ Per migliorare l'implementazione di Azure AD, è anche possibile aggiungere funz
 
 - **Azure Active Directory Premium P1.** Oltre alle funzionalità del livello Gratuito, il livello P1 consente agli utenti degli ambienti ibridi di accedere alle risorse locali e nel cloud. Supporta anche funzionalità di amministrazione avanzate, tra cui gruppi dinamici, gestione dei gruppi self-service, Microsoft Identity Manager (famiglia di programmi per la gestione delle identità e dell'accesso in locale) e funzionalità di writeback cloud, che consentono la reimpostazione della password self-service per gli utenti locali.
 
-- **Azure Active Directory Premium P2.** Oltre alle funzionalità dei livelli Gratuito e P1, il livello P2 offre anche [Azure Active Directory Identity Protection](../identity-protection/enable.md) per fornire alle app e ai dati aziendali cruciali l'accesso condizionale basato sul rischio e [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) per consentire l'individuazione, la limitazione e il monitoraggio degli amministratori e del rispettivo accesso alle risorse e per fornire l'accesso JIT quando necessario.
+- **Azure Active Directory Premium P2.** Oltre alle funzionalità dei livelli Gratuito e P1, il livello P2 offre anche [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) per fornire alle app e ai dati aziendali cruciali l'accesso condizionale basato sul rischio e [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) per consentire l'individuazione, la limitazione e il monitoraggio degli amministratori e del rispettivo accesso alle risorse e per fornire l'accesso JIT quando necessario.
 
 - **Licenze per le funzionalità "Con pagamento in base al consumo".** È anche possibile ottenere licenze per le funzionalità aggiuntive, ad esempio Azure Active Directory Business-to-Customer (B2C). B2C consente di fornire soluzioni di gestione delle identità e dell'accesso per le app rivolte ai clienti. Per altre informazioni, vedere la [documentazione di Azure Active Directory B2C](../../active-directory-b2c/index.yml).
 

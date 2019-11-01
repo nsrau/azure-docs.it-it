@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 12e433a146d8dd8a6fb7e1d7c40acc72e023047b
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 8e3c525230c3de530a93bd61a9227e9a4d7ed10b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736198"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933422"
 ---
 # <a name="use-cli-to-add-an-azure-sql-database-single-database-into-a-failover-group"></a>Usare l'interfaccia della riga di comando per aggiungere un database singolo di database SQL di Azure a un gruppo di failover
 
@@ -50,6 +50,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crea un server di database SQL che ospita database singoli e pool elastici. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Crea le regole del firewall di un server. | 
+| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Crea un database. | 
 | [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Crea un gruppo di failover. | 
 | [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Elenca i gruppi di failover in un server. |
 | [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Imposta il server primario del gruppo di failover eseguendo il failover di tutti i database dal server primario corrente. | 

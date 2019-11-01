@@ -1,22 +1,20 @@
 ---
 title: Guida introduttiva per Azure Application Insights | Microsoft Docs
 description: Fornisce istruzioni per configurare rapidamente un'app per dispositivi mobili per il monitoraggio con Application Insights e App Center
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
-ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
-ms.topic: quickstart
-manager: carmonm
-ms.openlocfilehash: 2c198ce8af17912d3174269b6cced96b5c1ac8bd
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: fe514e7a05701901759ab5453e1c1d02870da91d
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243244"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900544"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Avviare l'analisi dell'app per dispositivi mobili con App Center e Application Insights
 

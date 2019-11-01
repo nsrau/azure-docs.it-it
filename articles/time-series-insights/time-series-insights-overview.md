@@ -3,20 +3,19 @@ title: Panoramica Informazioni su Azure Time Series Insights | Microsoft Docs
 description: Introduzione ad Azure Time Series Insights, un nuovo servizio per le soluzioni IoT e di analisi dei dati delle serie temporali
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: overview
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 62a4b08eae1b21536b6dfb47c3d9d3470e59ef0b
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 15674d995036d11e1b4ec0ceda5aa4bbf4952906
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298919"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990018"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Informazioni su Azure Time Series Insights
 

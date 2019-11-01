@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0c397ca630dffb7671f84919c1e86cbcef645572
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8264030593a1e44b2a50d9f95dce925136eb4d26
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873622"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965995"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Guida introduttiva: Distribuire il primo modulo IoT Edge in un dispositivo Windows virtuale
 
@@ -137,7 +137,7 @@ I passaggi di questa sezione vengono eseguiti tutti nel dispositivo IoT Edge, qu
 
 Usare PowerShell per scaricare e installare il runtime IoT Edge. Usare la stringa di connessione del dispositivo recuperata dall'hub IoT per configurare il dispositivo.
 
-1. Se non è già stato fatto, seguire i passaggi descritti in [Registrare un nuovo dispositivo Azure IoT Edge](how-to-register-device-portal.md) per registrare il dispositivo e recuperare la stringa di connessione. 
+1. Se non è già stato fatto, seguire i passaggi descritti in [Registrare un nuovo dispositivo Azure IoT Edge](how-to-register-device.md) per registrare il dispositivo e recuperare la stringa di connessione.
 
 2. Eseguire PowerShell come amministratore.
 

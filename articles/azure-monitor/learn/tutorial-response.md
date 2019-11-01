@@ -1,25 +1,19 @@
 ---
 title: Rispondere a eventi con avvisi di Log Analytics di Azure | Microsoft Docs
 description: Questa esercitazione consente di comprendere l'invio di avvisi con Log Analytics per identificare informazioni importanti nell'area di lavoro e per segnalare problemi all'utente in modo proattivo o richiamare le azioni per tentare di correggerli.
-services: log-analytics
-documentationcenter: log-analytics
-author: MGoedtel
-manager: carmonm
-editor: ''
-ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: tutorial
-ms.date: 10/05/2018
+author: MGoedtel
 ms.author: magoedte
+ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 6521688e595230951e0753fd67c2bf9b02e0a6ec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a30b7569c14aaccb40b357cc5acb82b0e32d2895
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102147"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894651"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Rispondere agli eventi con gli avvisi di Monitoraggio di Azure
 Gli avvisi in Monitoraggio di Azure possono identificare informazioni importanti nel repository di Log Analytics. Vengono creati da regole di avviso che eseguono automaticamente ricerche nei log a intervalli regolari e, se i risultati della ricerca corrispondono a determinati criteri, viene creato un record di avviso che può essere configurato per eseguire una risposta automatica.  Questa esercitazione è la continuazione dell'esercitazione [Creare e condividere i dashboard dei dati di Log Analytics](tutorial-logs-dashboards.md).   
@@ -50,7 +44,7 @@ Nell'esempio seguente viene creata una regola di avviso Unità di misura della m
    c. Nella sezione "Attiva l'avviso in base a" selezionare **Violazioni consecutive**, quindi nell'elenco a discesa selezionare **Maggiore di** e immettere il valore 3.  
    d. Nella sezione Valutazione in base a modificare il valore di **Periodo** in **30** minuti. La regola verrà eseguita ogni cinque minuti e restituirà i record creati negli ultimi 30 minuti a partire dall'ora corrente.  Se si imposta il periodo di tempo su una finestra più ampia, si tiene conto del potenziale di latenza dei dati e si garantisce che la query restituisca dati per evitare un falso negativo in cui l'avviso non viene mai visualizzato.  
 6. Fare clic su **Fine** per completare la regola di avviso.<br><br> ![Configurazione del segnale di avviso](./media/tutorial-response/alert-signal-logic-02.png)<br> 
-7. Nel secondo passaggio occorre specificare un nome per l'avviso nel campo **Nome regola di avviso**, ad esempio **Percentuale CPU maggiore del 90%**.  In **Descrizione** specificare i dettagli dell'avviso e selezionare **Critico (gravità 0)** come valore di **Gravità** nelle opzioni disponibili.<br><br> ![Configurazione dei dettagli dell'avviso](./media/tutorial-response/alert-signal-logic-04.png)<br>
+7. Nel secondo passaggio occorre specificare un nome per l'avviso nel campo **Nome regola di avviso**, ad esempio **Percentuale CPU maggiore del 90%** .  In **Descrizione** specificare i dettagli dell'avviso e selezionare **Critico (gravità 0)** come valore di **Gravità** nelle opzioni disponibili.<br><br> ![Configurazione dei dettagli dell'avviso](./media/tutorial-response/alert-signal-logic-04.png)<br>
 8. Per attivare immediatamente la regola di avviso alla creazione, accettare il valore predefinito di **Abilita regola alla creazione**.
 9. Per il terzo e ultimo passaggio occorre specificare un **gruppo di azioni**, che assicura che vengano eseguite le stesse azioni ogni volta che viene attivato un avviso e che può essere usato per ogni regola definita.  Configurare un nuovo gruppo di azioni con le informazioni seguenti:  
    a. Selezionare **Nuovo gruppo di azioni** per visualizzare il riquadro **Aggiungi gruppo di azioni**.  
