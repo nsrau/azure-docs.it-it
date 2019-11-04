@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 0fdc58ba54c63ba7dd6b74f56aa91e9c2b3c0936
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 370b5005f27fbfe6ee8fc96d6dd7e467a581ec67
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562828"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464604"
 ---
 # <a name="create-a-custom-voice"></a>Creare una voce personalizzata
 
@@ -28,7 +28,7 @@ Controllare le lingue supportate per la funzionalità Voice personalizzata: [lin
 
 ## <a name="upload-your-datasets"></a>Caricare i set di dati
 
-Quando si è pronti per caricare i dati, passare al [portale vocale personalizzato](https://aka.ms/custom-voice-portal). Creare o selezionare un progetto Voice personalizzato. Il progetto deve condividere la lingua/le impostazioni locali corrette e le proprietà di genere come i dati che si intende usare per la formazione vocale. Selezionare `en-GB` , ad esempio, se le registrazioni audio disponibili vengono eseguite in inglese con un accento del Regno Unito.
+Quando si è pronti per caricare i dati, passare al [portale vocale personalizzato](https://aka.ms/custom-voice-portal). Creare o selezionare un progetto Voice personalizzato. Il progetto deve condividere la lingua/le impostazioni locali corrette e le proprietà di genere come i dati che si intende usare per la formazione vocale. Ad esempio, selezionare `en-GB` se le registrazioni audio disponibili vengono eseguite in inglese con un accento del Regno Unito.
 
 Passare alla scheda **dati** e fare clic su **Carica dati**. Nella procedura guidata selezionare il tipo di dati corretto che corrisponde a quello preparato.
 
@@ -44,13 +44,13 @@ I set di impostazioni vengono convalidati automaticamente quando si preme il pul
 
 Nella tabella seguente sono indicati gli stati di elaborazione per i set di dati importati:
 
-| Stato | Significato |
+| Statale | Significato |
 | ----- | ------- |
-| Elaborazione in corso | Il set di dati è stato ricevuto ed è in corso l'elaborazione. |
-| Riuscita | Il set di dati è stato convalidato e può ora essere usato per compilare un modello vocale. |
+| Elaborazione | Il set di dati è stato ricevuto ed è in corso l'elaborazione. |
+| Succeeded | Il set di dati è stato convalidato e può ora essere usato per compilare un modello vocale. |
 | Failed | Errore del set di dati durante l'elaborazione a causa di diversi motivi, ad esempio errori di file, problemi relativi ai dati o problemi di rete. |
 
-Al termine della convalida, è possibile visualizzare il numero totale di espressioni corrispondenti per ognuno dei set di impostazioni nella colonna enunciazioni  . Se il tipo di dati selezionato richiede una segmentazione audio lunga, questa colonna riflette solo le espressioni che sono state segmentate in base alle trascrizioni o tramite il servizio di trascrizione vocale. È possibile scaricare ulteriormente il set di dati convalidato per visualizzare i risultati dettagliati degli enunciati importati correttamente e le relative trascrizioni di mapping. Suggerimento: la segmentazione dell'audio lungo può richiedere più di un'ora per completare l'elaborazione dei dati.
+Al termine della convalida, è possibile visualizzare il numero totale di espressioni corrispondenti per ognuno dei set di impostazioni nella colonna **enunciazioni** . Se il tipo di dati selezionato richiede una segmentazione audio lunga, questa colonna riflette solo le espressioni che sono state segmentate in base alle trascrizioni o tramite il servizio di trascrizione vocale. È possibile scaricare ulteriormente il set di dati convalidato per visualizzare i risultati dettagliati degli enunciati importati correttamente e le relative trascrizioni di mapping. Suggerimento: la segmentazione dell'audio lungo può richiedere più di un'ora per completare l'elaborazione dei dati.
 
 Per i set di risultati en-US e zh-CN è possibile scaricare ulteriormente un report per verificare i punteggi di pronuncia e il livello di disturbo per ciascuna delle registrazioni. Gli intervalli del punteggio di pronuncia sono compresi tra 0 e 100. Un punteggio della pronuncia inferiore a 70 generalmente indica un errore di riconoscimento vocale o una mancata corrispondenza dello script. Un forte accento può ridurre il punteggio della pronuncia e influire sulla voce digitale generata.
 
@@ -68,7 +68,7 @@ Dopo che il set di dati è stato convalidato, è possibile usarlo per compilare 
 
 3.  Immettere quindi un **nome** e una **Descrizione** che consentano di identificare questo modello.
 
-    Scegliere un nome con attenzione. Il nome immesso in questo campo è il nome usato per specificare la voce nella richiesta di sintesi vocale come parte dell'input SSML. Sono consentiti solo lettere, numeri e alcuni caratteri di punteggiatura, \_ad esempio-, e (','). Usare nomi diversi per modelli vocali diversi.
+    Scegliere un nome con attenzione. Il nome immesso in questo campo è il nome usato per specificare la voce nella richiesta di sintesi vocale come parte dell'input SSML. Sono consentiti solo lettere, numeri e alcuni caratteri di punteggiatura, ad esempio-, \_e (','). Usare nomi diversi per modelli vocali diversi.
 
     Il campo **Descrizione** generalmente viene usato per registrare i nomi dei set di dati usati per creare il modello.
 
@@ -78,18 +78,18 @@ Dopo che il set di dati è stato convalidato, è possibile usarlo per compilare 
     > I nomi audio duplicati verranno rimossi dal training. Verificare che i set di dati selezionati non contengano gli stessi nomi audio in più file con estensione zip.
 
     > [!TIP]
-    > Per i risultati di qualità è necessario usare i set di dati dello stesso altoparlante. Quando i set di impostazioni inviati per il training contengono un numero totale inferiore a 6.000 di espressioni distinte, sarà necessario eseguire il training del modello vocale tramite la tecnica di sintesi parametrica statistica. Nel caso in cui i dati di training superino un numero totale di 6.000 espressioni distinte, sarà possibile avviare un processo di training con la tecnica di sintesi della concatenazione. In genere, la tecnologia di concatenazione può produrre risultati vocali più naturali e di maggiore fedeltà. [Contattare il team Voice personalizzato](mailto:speechsupport@microsoft.com) se si desidera eseguire il training di un modello con la più recente tecnologia TTS neurale che può produrre una voce digitale equivalente alle [voci neurali](language-support.md#neural-voices)disponibili pubblicamente.
+    > Per i risultati di qualità è necessario usare i set di dati dello stesso altoparlante. Quando i set di impostazioni inviati per il training contengono un numero totale inferiore a 6.000 di espressioni distinte, sarà necessario eseguire il training del modello vocale tramite la tecnica di sintesi parametrica statistica. Nel caso in cui i dati di training superino un numero totale di 6.000 espressioni distinte, sarà possibile avviare un processo di training con la tecnica di sintesi della concatenazione. In genere, la tecnologia di concatenazione può produrre risultati vocali più naturali e di maggiore fedeltà. [Contattare il team Voice personalizzato](https://go.microsoft.com/fwlink/?linkid=2108737) se si desidera eseguire il training di un modello con la più recente tecnologia TTS neurale che può produrre una voce digitale equivalente alle [voci neurali](language-support.md#neural-voices)disponibili pubblicamente.
 
 5.  Fare clic su **Train** per iniziare a creare il modello vocale.
 
-Nella tabella training viene visualizzata una nuova voce che corrisponde al modello appena creato. La tabella Visualizza anche lo stato: Elaborazione, riuscita, non riuscita.
+Nella tabella training viene visualizzata una nuova voce che corrisponde al modello appena creato. La tabella Visualizza anche lo stato: elaborazione, operazione riuscita, non riuscita.
 
 Lo stato illustrato riflette il processo di conversione del set di dati in un modello vocale, come illustrato di seguito.
 
-| Stato | Significato |
+| Statale | Significato |
 | ----- | ------- |
-| Elaborazione in corso | È in corso la creazione del modello vocale. |
-| Riuscita | Il modello vocale è stato creato e può essere distribuito. |
+| Elaborazione | È in corso la creazione del modello vocale. |
+| Succeeded | Il modello vocale è stato creato e può essere distribuito. |
 | Failed | Non è stato possibile eseguire il training del modello vocale a causa di diversi motivi, ad esempio problemi relativi ai dati o problemi di rete. |
 
 Il tempo necessario per il training varia a seconda del volume dei dati audio elaborati. In genere, i tempi vanno da 30 minuti per alcune centinaia di espressioni a 40 ore per 20.000 espressioni. Una volta completato il training del modello, è possibile iniziare a testarlo.
@@ -99,6 +99,8 @@ Il tempo necessario per il training varia a seconda del volume dei dati audio el
 
 > [!NOTE]
 > Il numero massimo di modelli vocali di cui è possibile eseguire il training per ogni sottoscrizione è 10 modelli per gli utenti della sottoscrizione gratuita (F0) e 100 per gli utenti con sottoscrizione standard (S0).
+
+Se si utilizza la funzionalità di training per la voce neurale, è possibile scegliere di eseguire il training di un modello ottimizzato per scenari di streaming in tempo reale o di un modello neurale HD ottimizzato per la [sintesi audio](long-audio-api.md)asincrona.  
 
 ## <a name="test-your-voice-model"></a>Testare il modello vocale
 
@@ -117,7 +119,7 @@ Dopo aver creato correttamente il carattere voce, è possibile testarlo prima di
 
 5.  Fare clic su **Create**(Crea).
 
-Dopo aver inviato la richiesta di test, si tornerà alla pagina test. La tabella ora include una voce che corrisponde alla nuova richiesta e alla colonna di stato. La sintesi vocale può richiedere alcuni minuti. Quando nella colonna stato viene indicato Succeeded, è possibile riprodurre l'audio oppure scaricare l'input di testo (un file con estensione txt) e l'output audio (un file con estensione wav) ed effettuare un provino per la qualità.
+Dopo aver inviato la richiesta di test, si tornerà alla pagina test. La tabella ora include una voce che corrisponde alla nuova richiesta e alla colonna di stato. La sintesi vocale può richiedere alcuni minuti. Quando nella colonna stato viene indicato **succeeded**, è possibile riprodurre l'audio oppure scaricare l'input di testo (un file con estensione txt) e l'output audio (un file con estensione wav) ed effettuare un provino per la qualità.
 
 È anche possibile trovare i risultati del test nella pagina dei dettagli di ogni modello selezionato per il test. Passare alla scheda **Training** , quindi fare clic sul nome del modello per accedere alla pagina dei dettagli del modello.
 
@@ -143,5 +145,6 @@ Dal punto di vista funzionale, l'endpoint personalizzato è identico all'endpoin
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida Registrare gli esempi di Voice](record-custom-voice-samples.md)
+* [Guida: registrare gli esempi di voce](record-custom-voice-samples.md)
 * [Riferimento da testo a Speech API](rest-text-to-speech.md)
+* [API Long audio](long-audio-api.md)

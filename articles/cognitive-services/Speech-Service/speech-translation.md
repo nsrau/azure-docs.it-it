@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: cfcefd0b18831163324519b61dbea305f90f44bc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 17ad32cba18915bf7f83163cd876686d42323750
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552656"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468754"
 ---
 # <a name="what-is-speech-translation"></a>Che cos'è la traduzione vocale?
 
@@ -31,21 +31,21 @@ Di seguito sono riportate le funzionalità disponibili tramite l'SDK vocale e le
 
 | Caso d'uso | SDK | REST |
 |----------|-----|------|
-| Traduzione vocale con risultati di riconoscimento. | Yes | No |
-| Traduzione vocale. | Yes | No |
-| Risultati del riconoscimento provvisorio e della traduzione. | Sì | No |
+| Traduzione vocale con risultati di riconoscimento. | SÌ | No |
+| Traduzione vocale. | SÌ | No |
+| Risultati del riconoscimento provvisorio e della traduzione. | SÌ | No |
 
 ## <a name="get-started-with-speech-translation"></a>Introduzione alla traduzione vocale
 
 Sono disponibili guide introduttive progettate per l'esecuzione di codice in meno di 10 minuti. Questa tabella include un elenco di guide introduttive per la traduzione vocale organizzate in base alla lingua.
 
-| Avvio rapido | Piattaforma | Informazioni di riferimento per l'API |
+| Avvio rapido | Piattaforma | Informazioni di riferimento sulle API |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-translate-speech-dotnetcore-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [Java](quickstart-translate-speech-java-jre.md) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
+| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#.NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
+| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>Codice di esempio
 
@@ -59,13 +59,13 @@ Se le applicazioni, gli strumenti o i prodotti usano la [API traduzione vocale](
 
 * [Eseguire la migrazione dalla API Traduzione vocale ai servizi di riconoscimento vocale](how-to-migrate-from-translator-speech-api.md)
 
-## <a name="reference-docs"></a>Documentazione di riferimento
+## <a name="reference-docs"></a>Documenti di riferimento
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
-* [API REST: Riconoscimento vocale](rest-speech-to-text.md)
-* [API REST: Sintesi vocale](rest-text-to-speech.md)
-* [API REST: Trascrizione e personalizzazione batch](https://westus.cris.ai/swagger/ui/index)
+* [API REST: sintesi vocale](rest-speech-to-text.md)
+* [API REST: sintesi vocale](rest-text-to-speech.md)
+* [API REST: trascrizione e personalizzazione di batch](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

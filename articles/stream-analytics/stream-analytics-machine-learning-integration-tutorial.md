@@ -9,15 +9,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: ab510f7ee2f95a2c3373c0514c31554598451b27
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: b078c92d02c55080cb84c386b7bbdabf3e1f85bf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173322"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467886"
 ---
-# <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-preview"></a>Eseguire l'analisi dei sentimenti con analisi di flusso e Azure Machine Learning Studio di Azure (anteprima)
-Questo articolo descrive come configurare rapidamente un semplice processo di analisi di flusso di Azure che integra Azure Machine Learning Studio. Verrà usato un modello di Machine Learning per l'analisi del sentiment proveniente dalla raccolta Cortana Intelligence per analizzare il flusso di dati di testo e determinare il punteggio del sentiment in tempo reale. Cortana Intelligence Suite consente di eseguire questa operazione senza doversi preoccupare delle complessità della creazione di un modello di analisi del sentiment.
+# <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic-preview"></a>Eseguire l'analisi dei sentimenti con analisi di flusso di Azure e Azure Machine Learning Studio (versione classica) (anteprima)
+Questo articolo descrive come configurare rapidamente un semplice processo di analisi di flusso di Azure che integra Azure Machine Learning Studio (classico). Verrà usato un modello di Machine Learning per l'analisi del sentiment proveniente dalla raccolta Cortana Intelligence per analizzare il flusso di dati di testo e determinare il punteggio del sentiment in tempo reale. Cortana Intelligence Suite consente di eseguire questa operazione senza doversi preoccupare delle complessità della creazione di un modello di analisi del sentiment.
 
 È possibile applicare le informazioni apprese in questo articolo a scenari come i seguenti:
 
@@ -45,7 +45,7 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 In generale, per completare le attività illustrate in questo articolo, è necessario eseguire le operazioni seguenti:
 
 1. Creare un account di archiviazione di Azure e un contenitore di archiviazione BLOB, quindi caricare un file di input in formato CSV nel contenitore.
-3. Aggiungere un modello di analisi dei sentimenti dal Cortana Intelligence Gallery all'area di lavoro Azure Machine Learning Studio e distribuire questo modello come servizio Web nell'area di lavoro Machine Learning.
+3. Aggiungere un modello di analisi dei sentimenti dal Cortana Intelligence Gallery all'area di lavoro di Azure Machine Learning Studio (classica) e distribuire questo modello come servizio Web nell'area di lavoro Machine Learning.
 5. Creare un processo di Analisi di flusso che chiami questo servizio Web come funzione per determinare il sentiment per l'input di testo.
 6. Avviare il processo di Analisi di flusso e controllare l'output.
 
@@ -70,7 +70,7 @@ Per questo passaggio, è possibile usare qualsiasi file CSV, ad esempio quello d
 
 6. Nel pannello **Contenitori** selezionare il nuovo contenitore, in modo da aprire il pannello per tale contenitore.
 
-7. Fare clic su **Upload**.
+7. Fare clic su **Carica**.
 
     ![Pulsante 'Carica' per un contenitore](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
@@ -145,7 +145,7 @@ Il processo ottiene l'input dal file CSV caricato in precedenza nell'archivio BL
 
    ![Impostazioni per l'input del nuovo processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**
 
 ### <a name="configure-the-job-output"></a>Configurare l'output del processo
 Il processo invia i risultati allo stesso archivio BLOB da cui ottiene l'input. 
@@ -156,7 +156,7 @@ Il processo invia i risultati allo stesso archivio BLOB da cui ottiene l'input.
 
 3. Completare il pannello **Archivio BLOB** con questi valori:
 
-   |Campo  |Valore  |
+   |Campo  |Value  |
    |---------|---------|
    |**Alias di output** | Usare il nome `datamloutput` e specificare l'opzione **Selezionare l'archiviazione BLOB dalle sottoscrizioni correnti**.       |
    |**Account di archiviazione**  |  Selezionare l'account di archiviazione creato in precedenza.  |
@@ -165,7 +165,7 @@ Il processo invia i risultati allo stesso archivio BLOB da cui ottiene l'input.
 
    ![Impostazioni per l'input del nuovo processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-output.png) 
 
-4. Fare clic su **Save**.   
+4. Fare clic su **Salva**   
 
 
 ### <a name="add-the-machine-learning-function"></a>Aggiungere la funzione di Machine Learning 
@@ -183,11 +183,11 @@ In questa sezione dell'esercitazione si definisce una funzione nel processo di A
    |---------|---------|
    | **Alias di funzione** | Usare il nome `sentiment` e selezionare l'opzione **Specificare le impostazioni della funzione di Azure Machine Learning manualmente** che consente di immettere l'URL e la chiave.      |
    | **URL**| Incollare l'URL del servizio Web.|
-   |**Key** | Incollare la chiave API. |
+   |**Chiave** | Incollare la chiave API. |
   
    ![Impostazioni per aggiungere la funzione Machine Learning al processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**
 
 ### <a name="create-a-query-to-transform-the-data"></a>Creare una query per trasformare i dati
 

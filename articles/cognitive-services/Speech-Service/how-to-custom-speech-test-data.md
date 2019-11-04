@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b18e1b755b4e1339bf00380d8228fc28e355d3e1
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 577a76b628e40b7651345698a46cba255b16a828
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802508"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464553"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per Riconoscimento vocale personalizzato
 
@@ -27,9 +27,9 @@ In questa tabella sono elencati i tipi di dati accettati, quando è necessario u
 
 | Tipo di dati | Usato per il test | Quantità | Usato per il training | Quantità |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Sì<br>Usato per l'ispezione visiva | 5 + file audio | No | N/a |
-| [Trascrizioni audio + con etichetta umana](#audio--human-labeled-transcript-data-for-testingtraining) | Sì<br>Utilizzato per valutare l'accuratezza | 0,5-5 ore di audio | Yes | da 1 a 1.000 ore di audio |
-| [Testo correlato](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB di testo correlato |
+| [Audio](#audio-data-for-testing) | SÌ<br>Usato per l'ispezione visiva | 5 + file audio | No | n/a |
+| [Trascrizioni audio + con etichetta umana](#audio--human-labeled-transcript-data-for-testingtraining) | SÌ<br>Utilizzato per valutare l'accuratezza | 0,5-5 ore di audio | SÌ | da 1 a 1.000 ore di audio |
+| [Testo correlato](#related-text-data-for-training) | No | n/a | SÌ | 1-200 MB di testo correlato |
 
 I file devono essere raggruppati per tipo in un set di dati e caricati come file zip. Ogni set di dati può contenere solo un singolo tipo di dati.
 
@@ -52,7 +52,7 @@ I dati audio sono ottimali per il test dell'accuratezza del modello di sintesi v
 
 Usare questa tabella per assicurarsi che i file audio siano formattati correttamente per l'uso con Riconoscimento vocale personalizzato:
 
-| Proprietà | Valore |
+| Proprietà | Value |
 |----------|-------|
 | Formato file | RIFF (WAV) |
 | Frequenza di campionamento | 8\.000 Hz o 16.000 Hz |
@@ -64,7 +64,7 @@ Usare questa tabella per assicurarsi che i file audio siano formattati correttam
 
 Se l'audio non soddisfa queste proprietà o se si vuole verificarlo, è consigliabile scaricare [Sox](http://sox.sourceforge.net) per controllare o convertire l'audio. Di seguito sono riportati alcuni esempi di come è possibile eseguire ognuna di queste attività tramite la riga di comando:
 
-| Attività | Descrizione | Comando Sox |
+| Attività | Description | Comando Sox |
 |----------|-------------|-------------|
 | Controlla formato audio | Usare questo comando per controllare il formato del file audio. | `sox --i <filename>` |
 | Converti formato audio | Usare questo comando per convertire il file audio in un canale singolo, a 16 bit, a 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
@@ -73,7 +73,7 @@ Se l'audio non soddisfa queste proprietà o se si vuole verificarlo, è consigli
 
 Per misurare l'accuratezza dell'accuratezza del riconoscimento vocale di Microsoft durante l'elaborazione dei file audio, è necessario fornire le trascrizioni con etichetta umana (Word-by-Word) per il confronto. Sebbene la trascrizione con etichetta umana sia spesso dispendiosa in termini di tempo, è necessario valutare l'accuratezza e per eseguire il training del modello per i casi d'uso. Tenere presente che i miglioramenti apportati al riconoscimento saranno validi solo per i dati forniti. Per questo motivo, è importante che vengano caricate solo le trascrizioni di alta qualità.  
 
-| Proprietà | Valore |
+| Proprietà | Value |
 |----------|-------|
 | Formato file | RIFF (WAV) |
 | Frequenza di campionamento | 8\.000 Hz o 16.000 Hz |
@@ -85,7 +85,7 @@ Per misurare l'accuratezza dell'accuratezza del riconoscimento vocale di Microso
 
 Per risolvere problemi come l'eliminazione o la sostituzione di parole, per migliorare il riconoscimento è necessaria una quantità significativa di dati. In genere, è consigliabile fornire trascrizioni Word per parola per circa 10 o 1.000 ore di audio. Le trascrizioni di tutti i file WAV devono essere contenute in un unico file di testo normale. Ogni riga del file delle trascrizioni deve contenere il nome di uno dei file audio ed essere seguita dalla trascrizione corrispondente. Il nome del file deve essere separato dalla trascrizione mediante un carattere di tabulazione (\t).
 
-  Ad esempio:
+  ad esempio:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -94,7 +94,7 @@ Per risolvere problemi come l'eliminazione o la sostituzione di parole, per migl
 > [!NOTE]
 > La trascrizione deve presentare la codifica UTF-8 BOM (byte order mark).
 
-Alle trascrizioni viene applicata la normalizzazione del testo in modo che possano essere elaborate dal sistema. Tuttavia, esistono alcune importanti normalizzazioni da effettuare _prima_ di caricare i dati nel servizio di riconoscimento vocale personalizzato. Per il linguaggio appropriato da usare quando si preparano le trascrizioni, vedere [come creare una trascrizione con etichetta umana](how-to-custom-speech-human-labeled-transcriptions.md)
+Alle trascrizioni viene applicata la normalizzazione del testo in modo che possano essere elaborate dal sistema. Tuttavia, esistono alcune normalizzazioni importanti che devono essere eseguite dall'utente _prima_ di caricare i dati in speech studio. Per il linguaggio appropriato da usare quando si preparano le trascrizioni, vedere [come creare una trascrizione con etichetta umana](how-to-custom-speech-human-labeled-transcriptions.md)
 
 Dopo aver raccolto i file audio e le trascrizioni corrispondenti, è necessario imballarli come un unico file zip prima di caricarli nel [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech). Si tratta di un set di dati di esempio con tre file audio e un file di trascrizione con etichetta umana:
 
@@ -150,7 +150,7 @@ La pronuncia personalizzata è disponibile in inglese (en-US) e tedesco (de-DE).
 
 | Linguaggio | Impostazioni locali | Caratteri |
 |----------|--------|------------|
-| Inglese | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Italiano | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 | Tedesco | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 
 Usare questa tabella per assicurarsi che il file di dati correlato per le pronunce sia formattato correttamente. I file di pronuncia sono di piccole dimensioni e non devono superare alcune KB.

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb4fa92d8b3c174cdf9b3695f8564cc11c1ad291
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f6bce05b99c14fb464cd1a17587d9cf254909d87
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851754"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473382"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory
 
@@ -29,7 +29,9 @@ Se la sottoscrizione scade, non sarà più possibile accedere alle altre risorse
 Tutti gli utenti dispongono di una singola *Home* directory per l'autenticazione. Tuttavia, gli utenti possono anche essere guest in altre directory. È possibile visualizzare sia la home directory che la directory guest per ogni utente in Azure AD.
 
 > [!Important]
-> Quando si associa una sottoscrizione a una directory diversa, gli utenti che dispongono di ruoli assegnati tramite il controllo degli accessi in [base al ruolo (RBAC)](../../role-based-access-control/role-assignments-portal.md) perderanno l'accesso. Anche gli amministratori della sottoscrizione classica (amministratore del servizio e coamministratori) perderanno l'accesso.
+> Quando si associa una sottoscrizione a una directory diversa, gli utenti che dispongono di ruoli assegnati tramite il [controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/role-assignments-portal.md) perderanno l'accesso. Anche gli amministratori della sottoscrizione classica (amministratore del servizio e coamministratori) perderanno l'accesso. 
+>
+> Anche le assegnazioni dei criteri vengono rimosse da una sottoscrizione quando la sottoscrizione è associata a una directory diversa.
 > 
 > Inoltre, se si trasferisce il cluster di Azure Kubernetes Service (AKS) a una sottoscrizione diversa o se si trasferisce la sottoscrizione proprietaria del cluster a un nuovo tenant, il cluster perderà la funzionalità a causa delle assegnazioni di ruolo perse e dei diritti delle entità servizio. Per altre informazioni su AKS, vedere [servizio Azure Kubernetes (AKS)](https://docs.microsoft.com/azure/aks/).
 
@@ -70,7 +72,7 @@ Prima di poter associare o aggiungere la sottoscrizione, è necessario eseguire 
 
     ![Pagina Switcher directory con informazioni di esempio](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-La modifica della directory della sottoscrizione è un'operazione a livello di servizio, pertanto non influisce sulla proprietà della fatturazione della sottoscrizione. L'amministratore dell'account può comunque modificare l'amministratore del servizio dal [Centro account](https://account.azure.com/subscriptions). Per eliminare la directory originale, è necessario trasferire la proprietà della fatturazione della sottoscrizione a un nuovo amministratore dell'account. Per altre informazioni sul trasferimento della proprietà della fatturazione, vedere [Trasferire la proprietà di una sottoscrizione di Azure a un altro account](../../billing/billing-subscription-transfer.md).
+La modifica della directory della sottoscrizione è un'operazione a livello di servizio, pertanto non influisce sulla proprietà della fatturazione della sottoscrizione. L'amministratore dell'account può comunque modificare l'amministratore del servizio dal [Centro account](https://account.azure.com/subscriptions). Per eliminare la directory originale, è necessario trasferire la proprietà di fatturazione della sottoscrizione a un nuovo amministratore account. Per altre informazioni sul trasferimento della proprietà della fatturazione, vedere [trasferire la proprietà di una sottoscrizione di Azure a un altro account](../../billing/billing-subscription-transfer.md).
 
 ## <a name="post-association-steps"></a>Passaggi successivi all'associazione
 Dopo aver associato una sottoscrizione a una directory diversa, potrebbe essere necessario eseguire ulteriori passaggi per riprendere le operazioni.

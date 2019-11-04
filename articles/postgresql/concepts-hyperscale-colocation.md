@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 533958221898b620500b7363f3710f75f155934a
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 4a5ebf810771efe49ee40e272d1fa4683140eda1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998056"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482750"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Condivisione della tabella nel database di Azure per PostgreSQL: iperscalabilità (CITUS)
 
@@ -20,7 +20,7 @@ La condivisione percorso consente di archiviare insieme le informazioni correlat
 
 ## <a name="data-colocation-for-hash-distributed-tables"></a>Condivisione percorso dati per le tabelle con distribuzione hash
 
-Nell'anteprima di database di Azure per PostgreSQL – iperscalabilità (CITUS), una riga viene archiviata in una partizione se l'hash del valore nella colonna di distribuzione rientra nell'intervallo di hash della partizione. Le partizioni con lo stesso intervallo di hash vengono sempre posizionate nello stesso nodo. Le righe con valori di colonna di distribuzione uguali si trovano sempre nello stesso nodo tra le tabelle.
+In database di Azure per PostgreSQL – iperscalabilità (CITUS), una riga viene archiviata in una partizione se l'hash del valore nella colonna di distribuzione rientra nell'intervallo di hash della partizione. Le partizioni con lo stesso intervallo di hash vengono sempre posizionate nello stesso nodo. Le righe con valori di colonna di distribuzione uguali si trovano sempre nello stesso nodo tra le tabelle.
 
 ![Partizioni](media/concepts-hyperscale-colocation/colocation-shards.png)
 
@@ -68,7 +68,7 @@ Fino a quando il [working set](https://en.wikipedia.org/wiki/Working_set) per qu
 
 Le query a server singolo iniziano a rallentare man mano che il numero di tenant e i dati archiviati per ogni tenant aumentano. Il working set smette di adattarsi alla memoria e la CPU diventa un collo di bottiglia.
 
-In questo caso, è possibile partizionare i dati in molti nodi usando iperscale (CITUS). La prima e più importante scelta da fare quando si decide di partizionare è la colonna di distribuzione. Iniziamo con una scelta ingenua di usare `event_id` per la tabella eventi e `page_id` per la `page` tabella:
+In questo caso, è possibile partizionare i dati in molti nodi usando iperscale (CITUS). La prima e più importante scelta da fare quando si decide di partizionare è la colonna di distribuzione. Iniziamo con una scelta ingenua di usare `event_id` per la tabella eventi e `page_id` per la tabella `page`:
 
 ```sql
 -- naively use event_id and page_id as distribution columns
@@ -109,7 +109,7 @@ I dati sono dispersi, quindi le query possono essere eseguite in parallelo. È v
 
 ### <a name="distribute-tables-by-tenant"></a>Distribuire le tabelle in base al tenant
 
-In iperscala (CITUS), le righe con lo stesso valore della colonna di distribuzione sono sempre presenti nello stesso nodo. A partire da, è possibile creare le tabelle `tenant_id` con come colonna di distribuzione.
+In iperscala (CITUS), le righe con lo stesso valore della colonna di distribuzione sono sempre presenti nello stesso nodo. A partire da, è possibile creare le tabelle con `tenant_id` come colonna di distribuzione.
 
 ```sql
 -- co-locate tables by using a common distribution column

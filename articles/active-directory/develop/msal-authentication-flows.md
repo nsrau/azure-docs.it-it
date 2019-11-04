@@ -18,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65c68e4f24dd95696cc53b92dd7e2b59d940b6c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 55d618a24b957fedb6fc2af3e75b7a7d2bd23d96
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175730"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473815"
 ---
 # <a name="authentication-flows"></a>Flussi di autenticazione
 
@@ -203,7 +203,7 @@ Ciò significa che si verifica una delle condizioni seguenti:
 - È stato fornito un modo per consentire agli utenti di concedere il consenso all'applicazione (vedere [richiedere il consenso dell'utente singolo](v2-permissions-and-consent.md#requesting-individual-user-consent)).
 - È stato fornito un modo per consentire all'amministratore del tenant di acconsentire per l'applicazione (vedere il [consenso dell'amministratore](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)).
 
-Il flusso IWA è abilitato per le app .NET desktop, .NET Core e Windows Universal Platform. In .NET Core è disponibile solo l'overload che accetta il nome utente. La piattaforma .NET Core non può richiedere il nome utente al sistema operativo.
+Il flusso IWA è abilitato per le app .NET desktop, .NET Core e Windows Universal Platform. In .NET Core è necessario fornire il nome utente a IWA, perché .NET Core non è in grado di ottenere i nomi utente dal sistema operativo.
   
 Per ulteriori informazioni sul consenso, vedere [autorizzazioni e consenso per la versione 2.0](v2-permissions-and-consent.md).
 

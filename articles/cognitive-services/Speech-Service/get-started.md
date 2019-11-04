@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: eb4478a435fbfc899055a60e13b318be771652f7
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 46ada91060aa095b7c041ff75abb6256f3d05853
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527656"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464688"
 ---
 # <a name="try-speech-services-for-free"></a>Provare gratuitamente i servizi di riconoscimento vocale
 
@@ -123,5 +123,5 @@ Le chiavi create per un'area sono valide solo in quell'area. Se si prova a usarl
 Completare una delle guide introduttive di 10 minuti o vedere gli esempi di SDK:
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)
+> [Guida introduttiva: Riconoscimento vocale in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
 > [Esempi di Speech SDK](speech-sdk.md#get-the-samples)

@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1184d210f5b7ea25b9f73cbd70b5f960402126a1
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 3fca872d639ab5c2d4053656cdd3e68a59fdc1e6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803528"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473967"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenziali del certificato per l'autenticazione dell'applicazione
 
@@ -133,5 +133,8 @@ Nella registrazione dell'app di Azure per l'applicazione client:
    La proprietà `keyCredentials` è multivalore, quindi è possibile caricare più certificati per una gestione delle chiavi più avanzata.
    
 ## <a name="code-sample"></a>Esempio di codice
+
+> [!NOTE]
+> È necessario calcolare l'intestazione X5T usando l'hash del certificato e convertirlo in una stringa Base64. C# Il risultato sarà simile a quello di: `System.Convert.ToBase64String(cert.GetCertHash());`
 
 Nell'esempio di codice su [Authenticating to Azure AD in daemon apps with certificates](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) (Autenticazione in Azure AD nelle app daemon con certificati) viene illustrato come un'applicazione usa le proprie credenziali per l'autenticazione. Illustra anche come è possibile [creare un certificato autofirmato](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) usando il comando `New-SelfSignedCertificate` di PowerShell. È possibile anche sfruttare e usare gli [script di creazione di app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) per creare i certificati, calcolare l'identificazione personale e così via.

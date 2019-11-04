@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 9a66e4ecf2230caad233a4eff12c0fadc95409d5
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 45b45c6c9afd43b711fc548f470ce0f0acd04a0a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803811"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464290"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk-on-ios"></a>Uso dell'input audio compresso di codec con Speech SDK in iOS
 
@@ -46,7 +46,7 @@ Per eseguire questa operazione, applicare le impostazioni seguenti nel progetto 
 
 1. Copiare il `GStreamerWrapper.framework` appena compilato e il Framework di cognitive Services Speech SDK, che è possibile scaricare da [qui](https://aka.ms/csspeech/iosbinary), alla directory contenente il progetto di esempio.
 1. Modificare i percorsi dei Framework nelle *impostazioni del progetto*.
-    1. Nella scheda **Generale** sotto l'intestazione **Embedded Binaries** (File binari incorporati) aggiungere la libreria SDK come framework: **Aggiungi file binari incorporati** > **Aggiungi altro...** > passare alla directory scelta e selezionare entrambi i Framework.
+    1. Nella scheda **generale** , sotto l'intestazione dei **file binari incorporati** , aggiungere la libreria SDK come Framework: **aggiungi file binari incorporati** > **Aggiungi altro...** > passare alla directory scelta e selezionare entrambi i Framework.
     1. Andare alla scheda **Impostazioni di compilazione** e attivare le impostazioni **Tutte**.
 1. Aggiungere la directory `$(SRCROOT)/..` ai *Percorsi di ricerca Framework* sotto l'intestazione **Percorsi di ricerca**.
 
@@ -63,5 +63,5 @@ Il frammento di codice successivo Mostra come i dati audio compressi possono ess
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
-- [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)
+- [Accedere alla versione di prova del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
+* [Vedere come riconoscere il riconoscimento vocale in Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)
