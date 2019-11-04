@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9c21ff5c4c94eecc7bb1a6643e46166df80edf4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: acdcbef74d95fbbc4cfb49176d1f98621e746ff6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648327"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474351"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)
 
@@ -31,7 +31,7 @@ Anziché visualizzare la richiesta di una password dopo l'immissione di un nome 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Autenticazione a più fattori di Azure, con notifiche push consentite come metodo di verifica 
+- Multi-Factor Authentication di Azure, con notifiche push consentite come metodo di verifica 
 - Accertarsi che sia installata la versione più recente di Microsoft Authenticator nei dispositivi che eseguono iOS 8.0 o versione successiva oppure Android 6.0 o versione successiva.
 
 > [!NOTE]
@@ -46,7 +46,7 @@ Le funzionalità di registrazione per i metodi di autenticazione con password si
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Abilitare i metodi di autenticazione per l'accesso tramite telefono senza password
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
-1. Passare a **Azure Active Directory** > metodi > di autenticazione**criteri metodo di autenticazione (anteprima)**
+1. Passare a **Azure ad sicurezza** > **metodi di autenticazione** > **criteri metodo di autenticazione (anteprima)**
 1. In **accesso con telefono senza password**scegliere le opzioni seguenti
    1. **Abilita** -Sì o no
    1. **Destinazione** -tutti gli utenti o utenti selezionati
@@ -78,7 +78,7 @@ Dopo aver digitato il nome utente sul Web e aver selezionato **Avanti**, gli ute
 
 È possibile che un utente abbia creato a un certo punto credenziali di accesso con telefono senza password nell'app Microsoft Authenticator corrente o in un dispositivo precedente. Quando un amministratore abilita i criteri del metodo di autenticazione per l'accesso tramite telefono senza password, qualsiasi utente con una credenziale registrata, inizierà a provare il nuovo prompt di accesso, indipendentemente dal fatto che sia stato abilitato o meno per l'uso del criterio. Se l'utente non è autorizzato a usare le credenziali per criterio, verrà visualizzato un errore dopo aver completato il flusso di autenticazione. 
 
-L'amministratore può scegliere di consentire all'utente di usare l'accesso tramite telefono senza password oppure l'utente deve rimuovere il metodo. Se l'utente non dispone più del dispositivo registrato, può accedervi [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) e rimuoverlo. Se usano ancora l'autenticatore per l'autenticazione a più fattori, possono scegliere di **disabilitare l'accesso tramite telefono** dall'interno del Microsoft Authenticator.  
+L'amministratore può scegliere di consentire all'utente di usare l'accesso tramite telefono senza password oppure l'utente deve rimuovere il metodo. Se l'utente non dispone più del dispositivo registrato, può passare a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) e rimuoverlo. Se usano ancora l'autenticatore per l'autenticazione a più fattori, possono scegliere di **disabilitare l'accesso tramite telefono** dall'interno del Microsoft Authenticator.  
 
 ### <a name="ad-fs-integration"></a>Integrazione di AD FS
 

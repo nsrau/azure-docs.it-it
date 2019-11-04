@@ -1,6 +1,6 @@
 ---
 title: Gestire i dati da Azure AI Gallery
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: È possibile esportare ed eliminare i dati utente interni al prodotto da Azure AI Gallery usando l'interfaccia o l'API catalogo di AI Gallery. Questo articolo illustra i passaggi da eseguire.
 services: machine-learning
 ms.service: machine-learning
@@ -11,16 +11,16 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 44ff2a5b723c086604acf39e9f975deb53759ae1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0b0bd4b01056769d38179597e477ecb164fa9ab
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60752046"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493544"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visualizzare ed eliminare i dati utente interni al prodotto da Azure AI Gallery
 
-È possibile visualizzare ed eliminare i dati utente interni al prodotto da Azure AI Gallery usando l'interfaccia o l'API catalogo di AI Gallery. Questo articolo spiega come procedere.
+È possibile visualizzare ed eliminare i dati utente interni al prodotto da Azure AI Gallery usando l'interfaccia o l'API catalogo di AI Gallery. Questo articolo descrive come esportare o eliminare i dati.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -59,7 +59,7 @@ Per ottenere un token di accesso, è necessario esaminare l'intestazione `DataLa
 2.  Fare clic sull'immagine del profilo nell'angolo superiore destro e quindi sul nome dell'account per caricare la pagina del profilo.
 3.  Aprire il riquadro Strumenti di sviluppo del browser premendo F12, selezionare la scheda Rete e aggiornare la pagina. 
 4. Filtrare le richieste sulla stringa *catalog* digitando nella casella di testo Filtro.
-5.  Nelle richieste all'URL `https://catalog.cortanaanalytics.com/entities` trovare una richiesta GET e selezionare la scheda *Intestazioni*. Scorrere verso il basso fino alla sezione *Intestazioni della richiesta*.
+5.  In richieste all'URL `https://catalog.cortanaanalytics.com/entities`trovare una richiesta GET e selezionare la scheda *intestazioni* . scorrere verso il basso fino alla sezione *intestazioni richiesta* .
 6.  Sotto l'intestazione `DataLabAccessToken` c'è il token alfanumerico. Per garantire la sicurezza dei dati, non condividere questo token.
 
 ### <a name="view-user-information"></a>Visualizzare le informazioni utente
@@ -84,7 +84,7 @@ Per visualizzare le entità pubblicate, visitare l'URL seguente, sostituendo `[A
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
 
-Ad esempio:
+ad esempio:
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 636c397001a3130c60fc2bf498339ad058aca374
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: f8b963c456e4d4318c6b28cd33c18ebd615487de
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959403"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464526"
 ---
 # <a name="get-started-with-custom-voice"></a>Introduzione a Voce personalizzata
 
@@ -37,6 +37,13 @@ Il diagramma seguente illustra i passaggi per creare un modello Voice personaliz
 
 4.  [Distribuire il modello](how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint) : creare un endpoint personalizzato per il modello vocale da testo a riconoscimento vocale e usarlo per la sintesi vocale in prodotti, strumenti e applicazioni.
 
+## <a name="custom-neural-voices"></a>Voci neurali personalizzate
+
+La funzionalità di personalizzazione della voce neurale è attualmente disponibile in anteprima pubblica, limitata ai clienti selezionati. Compilare questo [modulo dell'applicazione](https://go.microsoft.com/fwlink/?linkid=2108737) per iniziare.
+
+> [!NOTE]
+> Nell'ambito dell'impegno di Microsoft nella progettazione di intelligenza artificiale, il nostro scopo è quello di proteggere i diritti di singoli utenti e società, oltre a promuovere interazioni transparenti con i computer umani. Per questo motivo, la voce neurale personalizzata non è disponibile a livello generale per tutti i clienti. Il licenziatario potrà accedere alla tecnologia solo dopo che le applicazioni sono state riesaminate e si è impegnato a utilizzarlo in linea con i principi etici. Altre informazioni sul processo di controllo delle [applicazioni](https://aka.ms/custom-neural-gating-overview).
+
 ## <a name="set-up-your-azure-account"></a>Configurare l'account Azure
 
 Per poter usare il portale Riconoscimento vocale personalizzato per creare un modello personalizzato, è necessaria una sottoscrizione di servizi vocali. Seguire queste istruzioni per creare una sottoscrizione di servizi vocali in Azure. Se non si dispone di un account Azure, è possibile iscriversi per un nuovo account.  
@@ -55,10 +62,10 @@ Dopo aver creato un account Azure e una sottoscrizione di servizi vocali, sarà 
 
 Contenuto come dati, modelli, test ed endpoint sono organizzati in **progetti** nel portale vocale personalizzato. Ogni progetto è specifico per un paese/lingua e il sesso della voce che si vuole creare. Ad esempio, è possibile creare un progetto per una voce femminile per i bot della chat del Call Center che usano la lingua inglese nella Stati Uniti (en-US).
 
-Per creare il primo progetto, selezionare la scheda **voce vocale/voce personalizzata** , quindi fare clic su **nuovo progetto**. Seguire le istruzioni fornite dalla procedura guidata per creare il progetto. Dopo aver creato un progetto, vengono visualizzate quattro schede: **Dati**, **Training**, **test**e **distribuzione**. Usare i collegamenti forniti nei [passaggi successivi](#next-steps) per informazioni su come usare ogni scheda.
+Per creare il primo progetto, selezionare la scheda **voce vocale/voce personalizzata** , quindi fare clic su **nuovo progetto**. Seguire le istruzioni fornite dalla procedura guidata per creare il progetto. Dopo aver creato un progetto, vengono visualizzate quattro schede: **dati**, **Training**, **testing**e **distribuzione**. Usare i collegamenti forniti nei [passaggi successivi](#next-steps) per informazioni su come usare ogni scheda.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Preparare i dati vocali personalizzati](how-to-custom-voice-prepare-data.md)
 - [Creare una voce personalizzata](how-to-custom-voice-create-voice.md)
-- [Guide: Registrare gli esempi di voce @ no__t-0
+- [Guida: registrare gli esempi di voce](record-custom-voice-samples.md)

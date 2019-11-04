@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f86c34dcc1276b8677e3e60514661a6d0b974005
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e0b54ca89511063e1a76753793846deaf8e8b9b4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787557"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466782"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Come aggiungere un'abilità personalizzata a una pipeline di arricchimento ricerca cognitiva di Azure
 
@@ -154,8 +154,10 @@ Quando si crea un enricher API Web, è possibile descrivere intestazioni HTTP e 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-+ [Power Skills: un repository di competenze personalizzate](https://aka.ms/powerskills)
-+ [Esempio: creazione di un'abilità personalizzata per la ricerca cognitiva](cognitive-search-create-custom-skill-example.md)
+Questo articolo ha trattato i requisiti di interfaccia necessari per l'integrazione di un'abilità personalizzata in un skillt. Fare clic sui collegamenti seguenti per ulteriori informazioni sulle competenze personalizzate e sulla composizione di competenze.
+
++ [Power Skills: un repository di competenze personalizzate](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Esempio: creazione di un'abilità personalizzata per l'arricchimento di intelligenza artificiale](cognitive-search-create-custom-skill-example.md)
 + [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
 + [Creare un insieme di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

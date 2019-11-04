@@ -1,7 +1,7 @@
 ---
-title: Creare un servizio di riconoscimento vocale di riattivazione personalizzato
+title: Creare una parola chiave personalizzata-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Il dispositivo è sempre in ascolto di una parola (o frase) di attivazione. Quando l'utente pronuncia la parola di attivazione, il dispositivo invia tutto l'audio successivo al cloud fino a quando l'utente non smette di parlare. Modificare la parola di attivazione è un modo efficace per differenziare il dispositivo e accrescere la personalizzazione.
+description: Il dispositivo è sempre in ascolto di una parola chiave (o frase). Quando l'utente dice la parola chiave, il dispositivo invia tutti i file audio successivi al cloud, fino a quando l'utente non smette di parlare. Personalizzare la parola chiave è un modo efficace per distinguere il dispositivo e rafforzare la personalizzazione.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,62 +10,60 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 2bc1a6cbbf1e0d790326849a41b0788e332daa31
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf9afb66163532b4095e0d30b1167010320abbf8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553109"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490926"
 ---
-# <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Creare una parola di attivazione personalizzata usando il servizio Voce
+# <a name="create-a-custom-keyword-by-using-the-speech-service"></a>Creare una parola chiave personalizzata usando il servizio di riconoscimento vocale
 
-Il dispositivo è sempre in ascolto di una parola (o frase) di attivazione. Ad esempio, "Ehi Cortana" è una parola di attivazione per l'assistente Cortana. Quando l'utente pronuncia la parola di attivazione, il dispositivo invia tutto l'audio successivo al cloud fino a quando l'utente non smette di parlare. Modificare la parola di attivazione è un modo efficace per differenziare il dispositivo e accrescere la personalizzazione.
+Il dispositivo è sempre in ascolto di una parola chiave (o frase). Ad esempio, "Hey Cortana" è una parola chiave per Cortana Assistant. Quando l'utente dice la parola chiave, il dispositivo invia tutti i file audio successivi al cloud, fino a quando l'utente non smette di parlare. Personalizzare la parola chiave è un modo efficace per distinguere il dispositivo e rafforzare la personalizzazione.
 
-In questo articolo viene illustrato come creare una parola di attivazione personalizzata per il dispositivo.
+Questo articolo illustra come creare una parola chiave personalizzata per il dispositivo.
 
-## <a name="choose-an-effective-wake-word"></a>Scegliere una parola di attivazione efficace
+## <a name="choose-an-effective-keyword"></a>Scegliere una parola chiave valida
 
-Quando si sceglie una parola di attivazione, tenere presente le linee guida seguenti:
+Quando si sceglie una parola chiave, tenere presenti le linee guida seguenti:
 
-* La parola di attivazione deve essere una parola o una frase in lingua italiana. Per pronunciarla, non devono servire più di due secondi.
+* La parola chiave deve essere una parola inglese o una frase. Per pronunciarla, non devono servire più di due secondi.
 
-* Le parole composte da 4-7 sillabe sono ottimali. "Ehi, computer", ad esempio, è una parola di attivazione appropriata. "Ehi" è una parola inappropriata.
+* Le parole composte da 4-7 sillabe sono ottimali. Ad esempio, "Hey, computer" è una parola chiave corretta. "Ehi" è una parola inappropriata.
 
-* Le parole di attivazione devono seguire le comuni regole di pronuncia italiana.
+* Le parole chiave devono seguire le regole comuni di pronuncia della lingua inglese.
 
-* Una parola particolare o addirittura inventata che segue le normali regole di pronuncia italiana potrebbe ridurre i falsi positivi. Ad esempio, "computerama" potrebbe essere una parola di attivazione valida.
+* Una parola particolare o addirittura inventata che segue le normali regole di pronuncia italiana potrebbe ridurre i falsi positivi. Ad esempio, "computerama" potrebbe essere una parola chiave corretta.
 
 * Non scegliere una parola comune. Ad esempio, "mangiare" e "andare" sono parole che le persone ripetono spesso parlando normalmente e potrebbero essere falsi trigger per il dispositivo.
 
-* Evitare di usare una parola di attivazione che potrebbe essere pronunciata in modi diversi. Gli utenti dovranno conoscere la pronuncia "corretta" per fare in modo che il dispositivo risponda. Ad esempio, "509" può essere pronunciato "cinquecentonove", "cinque zero nove" o "cinquecento nove". "U.F.O." può essere pronunciato "U-F-O" oppure "ufo". "Ancora" può essere pronunciata "àncora" o "ancóra".
+* Evitare di usare una parola chiave che potrebbe avere pronunce alternative. Gli utenti dovranno conoscere la pronuncia "corretta" per fare in modo che il dispositivo risponda. Ad esempio, "509" può essere pronunciato "cinquecentonove", "cinque zero nove" o "cinquecento nove". "U.F.O." può essere pronunciato "U-F-O" oppure "ufo". "Ancora" può essere pronunciata "àncora" o "ancóra".
 
-* Non usare caratteri speciali, simboli o cifre. Ad esempio, "Vai€" e "20 + gatti" non sono parole di attivazione adatte, mentre "vai euro" o "venti più gatti" possono andare bene. È comunque possibile usare i simboli nella personalizzazione e usare il marketing e la documentazione per ribadire la pronuncia corretta.
+* Non usare caratteri speciali, simboli o cifre. Ad esempio, "go #" e "20 + Cats" non sono parole chiave valide. mentre "vai euro" o "venti più gatti" possono andare bene. È comunque possibile usare i simboli nella personalizzazione e usare il marketing e la documentazione per ribadire la pronuncia corretta.
 
 > [!NOTE]
-> Se si sceglie un marchio come parola di attivazione, assicurarsi di essere il proprietario di tale marchio o di avere l'autorizzazione del proprietario del marchio per usare tale parola. Microsoft non è responsabile di eventuali problemi legali che potrebbero emergere dalla scelta della parola di attivazione.
+> Se si sceglie una parola con marchio come parola chiave, assicurarsi di essere proprietari del marchio o di avere l'autorizzazione del proprietario del marchio a usare la parola. Microsoft non è responsabile di eventuali problemi legali che potrebbero derivare dalla scelta della parola chiave.
 
-## <a name="create-your-wake-word"></a>Creare la parola di attivazione
+## <a name="create-your-keyword"></a>Crea la parola chiave
 
-Prima di poter usare una parola di riattivazione personalizzata con il dispositivo, sarà necessario creare una parola di riattivazione con il servizio di generazione di Word di riattivazione personalizzata Microsoft. Dopo aver fornito una parola di riattivazione, il servizio produce un file che viene distribuito al kit di sviluppo per abilitare la parola di riattivazione nel dispositivo.
+Prima di poter usare una parola chiave personalizzata con il dispositivo, è necessario creare una parola chiave con il servizio di generazione di parole chiave personalizzato di Microsoft. Dopo aver fornito una parola chiave, il servizio produce un file che viene distribuito al kit di sviluppo per abilitare la parola chiave nel dispositivo.
 
-1. Passare al [portale del servizio riconoscimento vocale personalizzato](https://aka.ms/sdsdk-speechportal) e **accedere** oppure, se non si ha una sottoscrizione vocale, scegliere [**Crea una sottoscrizione**](https://go.microsoft.com/fwlink/?linkid=2086754)
+1. Passare a [speech studio](https://aka.ms/sdsdk-speechportal) e **accedere** oppure, se non si dispone ancora di una sottoscrizione vocale, scegliere [**Crea una sottoscrizione**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
-    ![Portale del servizio Riconoscimento vocale personalizzato](media/speech-devices-sdk/wake-word-4.png)
+1. Nella pagina della [parola chiave Custom](https://aka.ms/sdsdk-wakewordportal) Digitare la parola chiave scelta e fare clic su **Aggiungi parola chiave**. Sono disponibili alcune [linee guida](#choose-an-effective-keyword) che consentono di scegliere una parola chiave efficace. Il supporto è attualmente limitato al linguaggio en-US.
 
-1. Nella pagina di riattivazione [personalizzata](https://aka.ms/sdsdk-wakewordportal) Digitare la parola di riattivazione desiderata e fare clic su **Aggiungi parola**di riattivazione. Sono disponibili alcune [linee guida](#choose-an-effective-wake-word) che consentono di scegliere una parola chiave efficace. Attualmente è supportato solo il linguaggio en-US.
+    ![Immettere la parola chiave](media/speech-devices-sdk/custom-kws-portal-enter-keyword.png)
 
-    ![Immettere la parola di attivazione](media/speech-devices-sdk/wake-word-5.png)
+1. Il portale creerà ora le pronunce candidate per la parola chiave. Ascoltare ogni candidato facendo clic sui pulsanti di riproduzione e rimuovere i controlli accanto a tutte le pronunce non corrette. Una volta selezionate solo le pronunce valide, selezionare **Submit (Invia** ) per iniziare a generare la parola chiave. Se si desidera modificare la parola chiave, rimuovere prima di tutto quella esistente facendo clic sul pulsante Elimina visualizzato sul lato destro della riga al passaggio del mouse.
 
-1. Verranno create tre pronunce alternative della parola di riattivazione. È possibile scegliere tutte le pronunce desiderate. Quindi selezionare **Submit (Invia** ) per generare la parola di riattivazione. Per modificare la parola di riattivazione, rimuovere prima di tutto quella esistente, quando si passa il mouse sulla riga di pronuncia, viene visualizzata l'icona di eliminazione.
+    ![Esaminare la parola chiave](media/speech-devices-sdk/custom-kws-portal-review-keyword.png)
 
-    ![Esaminare la parola di riattivazione](media/speech-devices-sdk/wake-word-6.png)
+1. La generazione del modello potrebbe richiedere fino a un minuto. Verrà quindi richiesto di scaricare il file.
 
-1. La generazione del modello potrebbe richiedere fino a un minuto. Verrà richiesto di scaricare il file.
+    ![Scaricare la parola chiave](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
 
-    ![Scaricare la parola di riattivazione](media/speech-devices-sdk/wake-word-7.png)
-
-1. Salvare il file ZIP nel computer. Questo file sarà necessario per distribuire la parola di riattivazione personalizzata al kit di sviluppo.
+1. Salvare il file ZIP nel computer. Questo file sarà necessario per distribuire la parola chiave personalizzata al kit di sviluppo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Testare la Guida introduttiva all'SDK della parola di riattivazione personalizzata con [dispositivi vocali](https://aka.ms/sdsdk-quickstart).
+Testare la parola chiave personalizzata con la [Guida introduttiva all'SDK dei dispositivi vocali](https://aka.ms/sdsdk-quickstart).

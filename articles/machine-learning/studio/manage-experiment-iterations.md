@@ -1,7 +1,7 @@
 ---
 title: Gestire le iterazioni delle sperimentazioni
-titleSuffix: Azure Machine Learning Studio
-description: Come gestire iterazioni dell'esperimento in Azure Machine Learning Studio. È possibile esaminare le esecuzioni precedenti dei propri esperimenti in qualsiasi momento per verificare, rivedere e infine confermare o ridefinire i presupposti precedenti.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Come gestire le iterazioni dell'esperimento in Azure Machine Learning Studio (classico). È possibile esaminare le esecuzioni precedenti dei propri esperimenti in qualsiasi momento per verificare, rivedere e infine confermare o ridefinire i presupposti precedenti.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,22 +10,22 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 34a72f2e7b6be90654c0f053d5b8978b0283d56c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2c1f31db93d2caecc5576de18eb15e01cc94461
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60860246"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492853"
 ---
-# <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Gestire iterazioni dell'esperimento in Azure Machine Learning Studio
+# <a name="manage-experiment-iterations-in-azure-machine-learning-studio-classic"></a>Gestire le iterazioni dell'esperimento in Azure Machine Learning Studio (versione classica)
 Lo sviluppo di un modello di analisi predittive è un processo iterativo: man mano che si modificano le varie funzioni e i parametri dell'esperimento, i risultati convergono fino a quando l'utente non è soddisfatto del modello sottoposto a training. Per questo processo è fondamentale tenere traccia delle varie iterazioni dei parametri e delle configurazioni dell'esperimento.
 
 
 
-È possibile esaminare le esecuzioni precedenti dei propri esperimenti in qualsiasi momento per verificare, rivedere e infine confermare o ridefinire i presupposti precedenti. Quando si esegue un esperimento, Machine Learning Studio mantiene una cronologia dell'esecuzione, che include il set di dati, il modulo e le connessioni e i parametri di porta. Questa cronologia acquisisce anche i risultati, le informazioni di runtime come l'ora di inizio e di fine, i messaggi di log e lo stato dell'esecuzione. È possibile riesaminare tali esecuzioni in qualsiasi momento per rivedere la cronologia dell'esperimento e i risultati intermedi. È anche possibile usare un'esecuzione precedente dell'esperimento per avviare una nuova fase di richiesta e individuazione di informazioni nel percorso desiderato per la creazione di soluzioni di modellazione semplici, complesse o di insieme.
+È possibile esaminare le esecuzioni precedenti dei propri esperimenti in qualsiasi momento per verificare, rivedere e infine confermare o ridefinire i presupposti precedenti. Quando si esegue un esperimento, Machine Learning Studio (classico) mantiene una cronologia dell'esecuzione, inclusi i parametri e le connessioni di set di dati, moduli e porte. Questa cronologia acquisisce anche i risultati, le informazioni di runtime come l'ora di inizio e di fine, i messaggi di log e lo stato dell'esecuzione. È possibile riesaminare tali esecuzioni in qualsiasi momento per rivedere la cronologia dell'esperimento e i risultati intermedi. È anche possibile usare un'esecuzione precedente dell'esperimento per avviare una nuova fase di richiesta e individuazione di informazioni nel percorso desiderato per la creazione di soluzioni di modellazione semplici, complesse o di insieme.
 
 > [!NOTE]
-> Quando si visualizza un'esecuzione precedente di un esperimento, tale versione dell'esperimento è bloccata e non può essere modificata. È tuttavia possibile salvarne una copia facendo clic su **SAVE AS** e specificando un nuovo nome per la copia. La nuova copia verrà visualizzata in Machine Learning Studio e sarà quindi possibile modificarla ed eseguirla. Questa copia dell'esperimento è disponibile nell'elenco **EXPERIMENTS** insieme a tutti gli altri esperimenti.
+> Quando si visualizza un'esecuzione precedente di un esperimento, tale versione dell'esperimento è bloccata e non può essere modificata. È tuttavia possibile salvarne una copia facendo clic su **SAVE AS** e specificando un nuovo nome per la copia. Machine Learning Studio (versione classica) apre la nuova copia, che è quindi possibile modificare ed eseguire. Questa copia dell'esperimento è disponibile nell'elenco **EXPERIMENTS** insieme a tutti gli altri esperimenti.
 > 
 > 
 
@@ -37,7 +37,7 @@ Si supponga ad esempio di creare un esperimento e di eseguirne tre versioni, all
 ## <a name="viewing-the-run-history"></a>Visualizzazione della cronologia delle esecuzioni
 È possibile visualizzare tutte le esecuzioni precedenti di un esperimento facendo clic su **View Run History** in un esperimento aperto.
 
-Si supponga ad esempio di creare un esperimento con il modulo [Linear Regression][linear-regression] (Regressione lineare) e di voler osservare l'effetto della modifica del valore di **Learning rate** (Velocità di apprendimento) sui risultati dell'esperimento. Eseguire l'esperimento più volte con valori diversi per questo parametro, come indicato di seguito:
+Si supponga, ad esempio, di creare un esperimento con il modulo di [regressione lineare][linear-regression] e di voler osservare l'effetto della modifica del valore della **velocità di apprendimento** sui risultati dell'esperimento. Eseguire l'esperimento più volte con valori diversi per questo parametro, come indicato di seguito:
 
 | Valore di Learning rate | Ora di inizio dell'esecuzione |
 | --- | --- |
@@ -57,12 +57,12 @@ Fare clic su una di queste esecuzioni per visualizzare uno snapshot dell'esperim
 > 
 > 
 
-Nell'elenco degli esperimenti nella scheda **EXPERIMENTS** in Machine Learning Studio viene visualizzata sempre la versione più recente di un esperimento. Se si apre un'esecuzione precedente dell'esperimento (usando **Prior Run** (Esecuzione precedente) o **VIEW RUN HISTORY** (VISUALIZZA CRONOLOGIA DI ESECUZIONE)), è possibile tornare alla versione bozza facendo clic su **VIEW RUN HISTORY** (VISUALIZZA CRONOLOGIA DI ESECUZIONE) e selezionando l'iterazione il cui **STATE** (STATO) è **Editable** (Modificabile).
+L'elenco degli esperimenti nella scheda **esperimenti** in Machine Learning Studio (classico) Visualizza sempre la versione più recente di un esperimento. Se si apre un'esecuzione precedente dell'esperimento (usando **Prior Run** (Esecuzione precedente) o **VIEW RUN HISTORY** (VISUALIZZA CRONOLOGIA DI ESECUZIONE)), è possibile tornare alla versione bozza facendo clic su **VIEW RUN HISTORY** (VISUALIZZA CRONOLOGIA DI ESECUZIONE) e selezionando l'iterazione il cui **STATE** (STATO) è **Editable** (Modificabile).
 
 ## <a name="iterating-on-a-previous-run"></a>Iterazione dell'esecuzione precedente
 Se si fa clic su **Prior Run** (Esecuzione precedente) o **VIEW RUN HISTORY** (VISUALIZZA CRONOLOGIA DI ESECUZIONE) e si apre un'esecuzione precedente, è possibile visualizzare un esperimento completato in modalità di sola lettura.
 
-Se si desidera avviare un'iterazione dell'esperimento nella modalità usata per configurare un'esecuzione precedente, è possibile aprire l'esecuzione e fare clic su **SAVE AS**. In questo modo verrà creato un nuovo esperimento con un nuovo titolo, una cronologia delle esecuzioni vuota e tutti i componenti e i valori dei parametri dell'esecuzione precedente. Questo nuovo esperimento è elencato nella scheda **EXPERIMENTS** nella home page di Machine Learning Studio ed è possibile modificarlo ed eseguirlo avviando una nuova cronologia delle esecuzioni per questa iterazione dell'esperimento. 
+Se si desidera avviare un'iterazione dell'esperimento nella modalità usata per configurare un'esecuzione precedente, è possibile aprire l'esecuzione e fare clic su **SAVE AS**. In questo modo verrà creato un nuovo esperimento con un nuovo titolo, una cronologia delle esecuzioni vuota e tutti i componenti e i valori dei parametri dell'esecuzione precedente. Questo nuovo esperimento è elencato nella scheda **esperimenti** della Home Page Machine Learning Studio (versione classica) ed è possibile modificarlo ed eseguirlo, avviando una nuova cronologia di esecuzione per questa iterazione dell'esperimento. 
 
 Si supponga ad esempio di disporre della cronologia delle esecuzioni dell'esperimento illustrata nella sezione precedente e di voler osservare cosa accade quando si imposta il parametro **Learning rate** (Velocità di apprendimento) su 0,4 e si provano valori diversi per il parametro **Number of training epochs** (Numero di periodo di training).
 

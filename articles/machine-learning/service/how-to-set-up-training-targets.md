@@ -3,26 +3,27 @@ title: Creare e usare destinazioni di calcolo per il training del modello
 titleSuffix: Azure Machine Learning
 description: Configurare gli ambienti di training (destinazioni di calcolo) per il training del modello di Machine Learning. Passare da un ambiente di training a un altro è facile. Iniziare a eseguire il training in locale. Se è necessario aumentare le risorse, passare a una destinazione di calcolo basata sul cloud.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: sdgilley
+ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 46a212719846eddc7d21f3aeb0815dfbf4119e15
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3237272c7bdab5a798e84117147254a3471f5c6d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935358"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489583"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurare e usare le destinazioni di calcolo per il training del modello 
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Con Azure Machine Learning, è possibile eseguire il training del modello in un'ampia gamma di risorse o ambienti, chiamati collettivamente come [__destinazioni di calcolo__](concept-azure-machine-learning-architecture.md#compute-targets). Una destinazione di calcolo può essere un computer locale o una risorsa cloud, come un ambiente di calcolo di Machine Learning, Azure HDInsight o una macchina virtuale remota.  È possibile anche creare destinazioni di calcolo per la distribuzione del modello, come descritto in ["Dove e come distribuire i modelli"](how-to-deploy-and-where.md).
 
-È possibile creare e gestire una destinazione di calcolo usando il Azure Machine Learning SDK, portale di Azure, la pagina di destinazione dell'area di lavoro (anteprima), l'interfaccia della riga di comando di Azure o l'estensione Azure Machine Learning VS Code. Se si dispone di destinazioni di calcolo create tramite un altro servizio, ad esempio un cluster HDInsight, è possibile usarle collegandosi all'area di lavoro Azure Machine Learning.
+È possibile creare e gestire una destinazione di calcolo usando il Azure Machine Learning SDK, Azure Machine Learning Studio, l'interfaccia della riga di comando di Azure o l'estensione Azure Machine Learning VS Code. Se si dispone di destinazioni di calcolo create tramite un altro servizio, ad esempio un cluster HDInsight, è possibile usarle collegandosi all'area di lavoro Azure Machine Learning.
  
 Questo articolo illustra come usare diverse destinazioni di calcolo per il training del modello.  I passaggi per tutte le destinazioni di calcolo seguono lo stesso flusso di lavoro:
 1. __Creare__ una destinazione di calcolo se non ne esiste già una.
@@ -132,7 +133,7 @@ Un ambiente di calcolo di Machine Learning permanente può essere usato nuovamen
    Durante la creazione di un ambiente di calcolo di Machine Learning è anche possibile configurare diverse proprietà avanzate. Le proprietà consentono di creare un cluster permanente di dimensione fissa o all'interno di una Rete virtuale di Azure esistente nella sottoscrizione.  Per informazioni dettagliate, consultare [AmlCompute class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) (Classe AmlCompute).
     
-   Oppure è possibile creare e collegare una risorsa dell'ambiente di calcolo di Machine Learning permanente [nel portale di Azure](#portal-create).
+   In alternativa, è possibile creare e aggiungere una risorsa di calcolo Azure Machine Learning persistente in [Azure Machine Learning Studio](#portal-create).
 
 1. **Configure**: creare una configurazione di esecuzione per la destinazione di calcolo permanente.
 
@@ -179,7 +180,7 @@ Per questo scenario usare Data Science Virtual Machine (DSVM) come macchina virt
    compute.wait_for_completion(show_output=True)
    ```
 
-   Oppure è possibile collegare la Data Science VM all'area di lavoro [usando il portale di Azure](#portal-reuse).
+   In alternativa, è possibile aggiungere il DSVM all'area di lavoro [usando Azure Machine Learning Studio](#portal-reuse).
 
 1. **Configure**: creare una configurazione di esecuzione per la destinazione di calcolo DSVM. Docker e conda vengono usati per creare e configurare l'ambiente di training nella Data Science Virtual Machine.
 
@@ -220,7 +221,7 @@ Azure HDInsight è una piattaforma comune per l'analisi dei Big Data. La piattaf
    hdi_compute.wait_for_completion(show_output=True)
    ```
 
-   Oppure è possibile collegare il cluster HDInsight all'area di lavoro [usando il portale di Azure](#portal-reuse).
+   In alternativa, è possibile aggiungere il cluster HDInsight all'area di lavoro [usando Azure Machine Learning Studio](#portal-reuse).
 
 1. **Configure**: creare una configurazione di esecuzione per la destinazione di calcolo HDI. 
 
@@ -270,9 +271,9 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-in-azure-portal"></a>Configurare in portale di Azure
+## <a name="set-up-in-azure-machine-learning-studio"></a>Configurare in Azure Machine Learning Studio
 
-È possibile accedere alle destinazioni di calcolo associate all'area di lavoro nel portale di Azure.  Nel portale è possibile:
+È possibile accedere alle destinazioni di calcolo associate all'area di lavoro in Azure Machine Learning Studio.  È possibile usare Studio per:
 
 * [Visualizzare le destinazioni di calcolo](#portal-view) collegate all'area di lavoro
 * [Creare una destinazione di calcolo](#portal-create) nell'area di lavoro
@@ -291,7 +292,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 Per visualizzare le destinazioni di calcolo dell'area di lavoro, usare la procedura seguente:
 
-1. Andare nel [portale di Azure](https://portal.azure.com) e aprire l'area di lavoro. È anche possibile accedere a questi stessi passaggi nella [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com), anche se le immagini seguenti mostrano la portale di Azure.
+1. Passare a [Azure Machine Learning Studio](https://ml.azure.com).
  
 1. In __Applicazioni__ selezionare __Ambiente di calcolo__.
 
@@ -310,7 +311,7 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 1. Selezionare l'**ambiente di calcolo di Machine Learning** come tipo di ambiente di calcolo da usare per il __training__. 
 
     >[!NOTE]
-    >Ambiente di calcolo di Machine Learning è l'unica risorsa di calcolo gestito che è possibile creare nel portale di Azure.  Tutte le altre risorse di calcolo si possono collegare dopo averle create.
+    >Azure Machine Learning calcolo è l'unica risorsa di calcolo gestita che è possibile creare in Azure Machine Learning Studio.  Tutte le altre risorse di calcolo si possono collegare dopo averle create.
 
 1. Compilare il modulo. Specificare i valori per le proprietà necessarie, in particolare la **famiglia di macchine virtuali**e il **numero massimo di nodi** da usare per creare rapidamente l'ambiente di calcolo.  
 
@@ -336,7 +337,7 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 1. Selezionare il tipo di calcolo da associare per __Training__:
 
     > [!IMPORTANT]
-    > Non tutti i tipi di calcolo possono essere creati usando il portale di Azure. I tipi di calcolo che possono essere allegati per il training sono:
+    > Non tutti i tipi di calcolo possono essere collegati da Azure Machine Learning Studio. I tipi di calcolo che possono essere allegati per il training sono:
     >
     > * Macchina virtuale remota
     > * Azure Databricks (per l'uso nelle pipeline di machine learning)
@@ -446,6 +447,8 @@ Il file di configurazione di esecuzione è YAML formattato, con le sezioni segue
  * Dettagli di configurazione specifici del framework selezionato.
  * Informazioni di riferimento sui dati e archivio dati.
  * Dettagli di configurazione specifici per ambiente di calcolo di Machine Learning per la creazione di un nuovo cluster.
+
+Vedere il [file JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) di esempio per uno schema runconfig completo.
 
 ### <a name="create-an-experiment"></a>Creare un esperimento
 

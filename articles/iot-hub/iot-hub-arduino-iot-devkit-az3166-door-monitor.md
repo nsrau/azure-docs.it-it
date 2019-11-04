@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: a620b592a33f9de11de53d623d257f203da2157b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cbf3f906b511d9d76319f57f5508a2c584213cb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61370366"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484062"
 ---
 # <a name="door-monitor"></a>Monitoraggio della porta          
 
@@ -56,7 +56,7 @@ Per effettuare il provisioning dei servizi di Azure, usare il pulsante **Distrib
 
 Fare clic sul pulsante **Distribuisci in Azure** sotto. 
 
-[![Distribuzione in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2FSendGridDeploy%2Fazuredeploy.json)
+[![Distribuisci in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2FSendGridDeploy%2Fazuredeploy.json)
 
 Se non è già stato eseguito l'accesso all'account Azure, accedere ora. 
 
@@ -72,7 +72,7 @@ Completare il modulo di iscrizione:
 
    * **Password**: il servizio richiede una password, che non verrà usata per tutti gli elementi di questo progetto.
 
-   * **Messaggio di posta elettronica**: il servizio SendGrid invierà la verifica a questo indirizzo di posta elettronica.
+   * **Posta elettronica**: il servizio SendGrid invierà la verifica a questo indirizzo di posta elettronica.
 
 Selezionare l'opzione **Aggiungi al dashboard** per trovare più facilmente questa applicazione in futuro, quindi fare clic su **Acquista** per inviare il modulo di accesso.
  
@@ -98,7 +98,7 @@ La procedura seguente effettuerà il provisioning di altri servizi correlati ad 
 
 Fare clic sul pulsante **Distribuisci in Azure** sotto. 
 
-[![Distribuzione in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2Fazuredeploy.json)
+[![Distribuisci in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2Fazuredeploy.json)
 
 Viene visualizzato il modulo di iscrizione.
 
@@ -108,7 +108,7 @@ Compilare i campi nel modulo di iscrizione.
 
    * **Gruppo di risorse**: creare un gruppo di risorse per ospitare il servizio SendGrid o usarne uno esistente. Vedere [Uso di Gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/manage-resource-groups-portal.md).
 
-   * **Nome hub IoT**: il nome dell'hub IoT. Scegliere un nome univoco, diverso da quello di altri servizi già presenti.
+   * **Nome hub IoT**: nome dell'hub IoT. Scegliere un nome univoco, diverso da quello di altri servizi già presenti.
 
    * **Iot Hub Sku** (SKU per hub IoT): F1 (solo uno per ogni sottoscrizione) è gratuito. Per altre informazioni sui prezzi, vedere la [pagina Prezzi](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -162,7 +162,7 @@ Caricare ora il codice per il dispositivo.
 
 #### <a name="macos"></a>macOS
 
-1. Attivare la modalità di configurazione per DevKit: Tenere premuto il pulsante A, quindi premere e rilasciare il pulsante di reimpostazione. Verrà visualizzata la schermata 'Configuration'.
+1. Impostare il DevKit in modalità di configurazione: tenere premuto il pulsante A e quindi premere e rilasciare il pulsante di reimpostazione. Verrà visualizzata la schermata 'Configuration'.
 
 2. Fare clic su `Cmd+P` per eseguire `task device-upload`.
 
@@ -177,7 +177,7 @@ VS Code inizia a verificare e caricare lo sketch Arduino nel DevKit.
 Il DevKit viene riavviato e inizia a eseguire il codice.
 
 > [!NOTE]
-> In alcuni casi, è possibile che venga visualizzato il messaggio "Errore: AZ3166: Pacchetto sconosciuto". Questo errore si verifica quando l'indice del pacchetto della scheda non è aggiornato correttamente. Per risolvere questo errore, vedere la [sezione sullo sviluppo delle domande frequenti di IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+> È possibile che a volte venga visualizzato il messaggio "Error: AZ3166: Unknown package". Questo errore si verifica quando l'indice del pacchetto della scheda non è aggiornato correttamente. Per risolvere questo errore, vedere la [sezione sullo sviluppo delle domande frequenti di IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Verificare il progetto
 
@@ -185,9 +185,9 @@ Il programma viene prima di tutto inizializzato quando il DevKit è in presenza 
 
 Dopo l'inizializzazione, il messaggio `Door closed` viene visualizzato sullo schermo. Quando si verifica una variazione nel campo magnetico, lo stato passa a `Door opened`. Ogni volta che lo stato della porta cambia, si riceve una notifica tramite posta elettronica. La ricezione di questi messaggi di posta elettronica potrebbe richiedere fino a cinque minuti.
 
-![Magneti vicino al sensore: Door closed](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "Magneti vicino al sensore: Door closed")
+![Magneti vicini al sensore: sportello chiuso](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "Magneti vicini al sensore: sportello chiuso")
 
-![Magnete allontanato dal sensore: Door Opened](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "Magnete allontanato dal sensore: Door Opened")
+![Magnete allontanato dal sensore: sportello aperto](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "Magnete allontanato dal sensore: sportello aperto")
 
 ## <a name="problems-and-feedback"></a>Problemi e commenti
 
@@ -201,4 +201,4 @@ In caso di problemi, vedere le [domande frequenti di IoT DevKit](https://microso
 È stato illustrato come connettere un dispositivo DevKit all'acceleratore di soluzioni di monitoraggio remoto di Azure IoT ed è stato usato il servizio SendGrid per inviare un messaggio di posta elettronica. Ecco i passaggi successivi suggeriti:
 
 * [Panoramica dell'acceleratore di soluzioni di monitoraggio remoto di Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit) (Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central)
+* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](/azure/iot-central/core/howto-connect-devkit) (Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central)

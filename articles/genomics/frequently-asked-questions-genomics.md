@@ -1,7 +1,7 @@
 ---
 title: Domande frequenti-domande frequenti
 titleSuffix: Microsoft Genomics
-description: Risposte alle domande comuni poste ai clienti su Genomica di Microsoft.
+description: Risposte alle domande più comuni relative all'uso del servizio genomica di Microsoft, incluse informazioni tecniche, contratto di servizio e fatturazione.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,20 +9,20 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: 80a656ee687b71fcaf09a02d70d0a5a4300186bc
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 4a2b66f95467e7f6cb99f632548351f827e259c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249238"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476425"
 ---
-# <a name="microsoft-genomics-common-questions"></a>Genomica di Microsoft: Domande frequenti
+# <a name="microsoft-genomics-common-questions"></a>Genomica di Microsoft: Domande comuni
 
 Questo articolo elenca le domande più importanti degli utenti su Genomica di Microsoft. Per altre informazioni sul servizio Genomica di Microsoft, vedere [Informazioni su Genomica di Microsoft](overview-what-is-genomics.md). Per altre informazioni sulla risoluzione dei problemi, vedere [Guida per la risoluzione dei problemi](troubleshooting-guide-genomics.md). 
 
 
 ## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Ricerca per categorie eseguire flussi di lavoro GATK4 su genomica di Microsoft?
-Nel file config. txt del servizio genomica di Microsoft specificare process_name per `gatk4`. Si noti che verranno addebitate tariffe di fatturazione regolari.
+Nel file config. txt del servizio genomica di Microsoft specificare il process_name da `gatk4`. Si noti che verranno addebitate tariffe di fatturazione regolari.
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Qual è il contratto di servizio per Genomica di Microsoft?
@@ -61,7 +61,7 @@ La chiave dell'account di archiviazione viene utilizzata per creare token di acc
 
 Sono supportati questi riferimenti:
 
- |Riferimenti              | Valore di `-pa/--process-args` |
+ |Riferimento              | Valore di `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      
@@ -85,6 +85,6 @@ msgen riconosce i file di configurazione nel formato seguente:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Usare le risorse seguenti per iniziare a usare Genomica di Microsoft:
-- Iniziare eseguendo il primo flusso di lavoro tramite il servizio Genomica di Microsoft. [Eseguire un flusso di lavoro tramite il servizio genomica di Microsoft](quickstart-run-genomics-workflow-portal.md)
+- Iniziare eseguendo il primo flusso di lavoro tramite il servizio Genomica di Microsoft. [Eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft](quickstart-run-genomics-workflow-portal.md)
 - Inviare i dati per l'elaborazione tramite il servizio Genomica di Microsoft: [File di FASTQ abbinati](quickstart-input-pair-FASTQ.md) | [File di Monitoraggio attività di business](quickstart-input-BAM.md) | [Più file di FASTQ o Monitoraggio attività di business](quickstart-input-multiple.md) 
 

@@ -14,12 +14,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 91f0c059d22fb921aeb0c65f7d4eba95debd530d
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 75632d4fcdbf27f70b1b84f08f7295212dbac6a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097740"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471085"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurare un'app Java Windows per il servizio app Azure
 
@@ -53,7 +53,7 @@ Per ulteriori informazioni, vedere la pagina relativa ai [log di flusso in cloud
 
 ### <a name="app-logging"></a>Registrazione dell'app
 
-Abilitare la [registrazione dell'applicazione](troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enable-application-logging-windows) tramite il portale di Azure o l'[interfaccia della riga di comando di Azure](/cli/azure/webapp/log#az-webapp-log-config) per configurare il servizio app per scrivere l'output della console standard dell'applicazione e i flussi di errori della console standard nel file system locale o in Archiviazione BLOB di Azure. La registrazione nell'istanza del file system del servizio app locale viene disabilitata 12 ore dopo la configurazione. Se è necessario un periodo di conservazione più lungo, configurare l'applicazione per scrivere l'output in un contenitore di archiviazione BLOB. I log delle app Java e Tomcat sono reperibili nella directory */LogFiles/Application/*
+Abilitare la [registrazione dell'applicazione](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) tramite il portale di Azure o l'[interfaccia della riga di comando di Azure](/cli/azure/webapp/log#az-webapp-log-config) per configurare il servizio app per scrivere l'output della console standard dell'applicazione e i flussi di errori della console standard nel file system locale o in Archiviazione BLOB di Azure. La registrazione nell'istanza del file system del servizio app locale viene disabilitata 12 ore dopo la configurazione. Se è necessario un periodo di conservazione più lungo, configurare l'applicazione per scrivere l'output in un contenitore di archiviazione BLOB. I log delle app Java e Tomcat sono reperibili nella directory */LogFiles/Application/*
 
 Se l'applicazione usa [Logback](https://logback.qos.ch/) o [Log4j](https://logging.apache.org/log4j) per la traccia, è possibile inoltrare queste tracce per la revisione ad Azure Application Insights usando le istruzioni di configurazione del framework di registrazione illustrate in [Esplorare i log di traccia Java in Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
@@ -62,15 +62,15 @@ Se l'applicazione usa [Logback](https://logback.qos.ch/) o [Log4j](https://loggi
 
 Il servizio app Azure supporta l'ottimizzazione e la personalizzazione predefinite tramite l'portale di Azure e l'interfaccia della riga di comando. Vedere gli articoli seguenti per la configurazione di app Web non specifiche per Java:
 
-- [Configurare le impostazioni dell'app](configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
-- [Configurare un nome di dominio](app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Abilitare SSL](app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Aggiungere una rete CDN](../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configurare le impostazioni dell'app](configure-common.md#configure-app-settings)
+- [Configurare un nome di dominio](app-service-web-tutorial-custom-domain.md)
+- [Configurare associazioni SSL](configure-ssl-bindings.md)
+- [Aggiungere una rete CDN](../cdn/cdn-add-to-web-app.md)
 - [Configurare il sito Kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
 ### <a name="set-java-runtime-options"></a>Impostare le opzioni di runtime Java
 
-Per impostare la memoria allocata o altre opzioni di runtime JVM, creare un' `JAVA_OPTS` [impostazione dell'app](configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) denominata con le opzioni. Il servizio app passa questa impostazione come variabile di ambiente al runtime Java all'avvio.
+Per impostare la memoria allocata o altre opzioni di runtime JVM, creare un' [impostazione dell'app](configure-common.md#configure-app-settings) denominata `JAVA_OPTS` con le opzioni. Il servizio app passa questa impostazione come variabile di ambiente al runtime Java all'avvio.
 
 Nel portale di Azure, sotto **Impostazioni applicazione** per l'app Web creare una nuova impostazione dell'app denominata `JAVA_OPTS` che includa le impostazioni aggiuntive, ad esempio `-Xms512m -Xmx1204m`.
 
@@ -87,9 +87,9 @@ Per configurare l'impostazione dell'app dal plug-in Maven, aggiungere i tag sett
 
 Gli sviluppatori che eseguono una singola applicazione con uno slot di distribuzione nel piano di servizio app possono usare le opzioni seguenti:
 
-- Istanze B1 e S1:`-Xms1024m -Xmx1024m`
-- Istanze B2 e S2:`-Xms3072m -Xmx3072m`
-- Istanze B3 e S3:`-Xms6144m -Xmx6144m`
+- Istanze B1 e S1: `-Xms1024m -Xmx1024m`
+- Istanze B2 e S2: `-Xms3072m -Xmx3072m`
+- Istanze B3 e S3: `-Xms6144m -Xmx6144m`
 
 Quando si ottimizzano le impostazioni heap delle applicazioni, esaminare i dettagli del piano di servizio app e tenere in considerazione le esigenze di più applicazioni e slot di distribuzione per trovare l'allocazione ottimale della memoria.
 
@@ -135,17 +135,17 @@ Le applicazioni Java in esecuzione nel servizio app hanno lo stesso set di proce
 
 ### <a name="authenticate-users-easy-auth"></a>Autenticare gli utenti (Easy auth)
 
-Configurare l'autenticazione delle app nel portale di Azure con l'opzione di **autenticazione e autorizzazione** . che consente di abilitare l'autenticazione usando Azure Active Directory o gli account di accesso ai social network, ad esempio Facebook, Google o GitHub. La configurazione nel portale di Azure funziona solo quando si configura un singolo provider di autenticazione. Per altre informazioni, vedere [Configurare un'applicazione dei servizi app per usare l'account di accesso di Azure Active Directory](configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) e gli articoli correlati per gli altri provider di identità. Se è necessario abilitare più provider di accesso, seguire le istruzioni dell'articolo [Personalizzare l'autenticazione nel servizio app](app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+Configurare l'autenticazione delle app nel portale di Azure con l'opzione di **autenticazione e autorizzazione** . che consente di abilitare l'autenticazione usando Azure Active Directory o gli account di accesso ai social network, ad esempio Facebook, Google o GitHub. La configurazione nel portale di Azure funziona solo quando si configura un singolo provider di autenticazione. Per altre informazioni, vedere [Configurare un'applicazione dei servizi app per usare l'account di accesso di Azure Active Directory](configure-authentication-provider-aad.md) e gli articoli correlati per gli altri provider di identità. Se è necessario abilitare più provider di accesso, seguire le istruzioni dell'articolo [Personalizzare l'autenticazione nel servizio app](app-service-authentication-how-to.md).
 
 #### <a name="tomcat-and-wildfly"></a>Tomcat e Wildfly
 
-L'applicazione Tomcat o Wildfly può accedere alle attestazioni dell'utente direttamente dalla servlet eseguendo il cast dell'oggetto Principal a un oggetto map. L'oggetto map eseguirà il mapping di ogni tipo di attestazione a una raccolta di attestazioni per quel tipo. Nel codice riportato di seguito `request` , è un'istanza `HttpServletRequest`di.
+L'applicazione Tomcat o Wildfly può accedere alle attestazioni dell'utente direttamente dalla servlet eseguendo il cast dell'oggetto Principal a un oggetto map. L'oggetto map eseguirà il mapping di ogni tipo di attestazione a una raccolta di attestazioni per quel tipo. Nel codice riportato di seguito `request` è un'istanza di `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
 ```
 
-A questo punto è possibile `Map` esaminare l'oggetto per qualsiasi attestazione specifica. Il frammento di codice seguente, ad esempio, scorre tutti i tipi di attestazione e stampa il contenuto di ogni raccolta.
+A questo punto è possibile esaminare l'oggetto `Map` per qualsiasi attestazione specifica. Il frammento di codice seguente, ad esempio, scorre tutti i tipi di attestazione e stampa il contenuto di ogni raccolta.
 
 ```java
 for (Object key : map.keySet()) {
@@ -159,7 +159,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-Per disconnettersi gli utenti, usare `/.auth/ext/logout` il percorso. Per eseguire altre azioni, vedere la documentazione sull' [utilizzo dell'autenticazione e dell'autorizzazione del servizio app](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). È disponibile anche la documentazione ufficiale sull' [interfaccia HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) di Tomcat e sui relativi metodi. Anche i seguenti metodi servlet vengono idratati in base alla configurazione del servizio app:
+Per disconnettersi gli utenti, usare il percorso `/.auth/ext/logout`. Per eseguire altre azioni, vedere la documentazione sull' [utilizzo dell'autenticazione e dell'autorizzazione del servizio app](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). È disponibile anche la documentazione ufficiale sull' [interfaccia HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) di Tomcat e sui relativi metodi. Anche i seguenti metodi servlet vengono idratati in base alla configurazione del servizio app:
 
 ```java
 public boolean isSecure()
@@ -169,11 +169,11 @@ public String getScheme()
 public int getServerPort()
 ```
 
-Per disabilitare questa funzionalità, creare un'impostazione dell'applicazione `WEBSITE_AUTH_SKIP_PRINCIPAL` denominata con un valore `1`di. Per disabilitare tutti i filtri servlet aggiunti dal servizio app, creare un'impostazione `WEBSITE_SKIP_FILTERS` denominata con un `1`valore.
+Per disabilitare questa funzionalità, creare un'impostazione dell'applicazione denominata `WEBSITE_AUTH_SKIP_PRINCIPAL` con un valore di `1`. Per disabilitare tutti i filtri servlet aggiunti dal servizio app, creare un'impostazione denominata `WEBSITE_SKIP_FILTERS` con un valore di `1`.
 
 ### <a name="configure-tlsssl"></a>Configurare TLS/SSL
 
-Seguire le istruzioni illustrate in [Associare un certificato SSL personalizzato esistente](app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) per caricare un certificato SSL esistente e associarlo al nome di dominio dell'applicazione. Per impostazione predefinita, l'applicazione consentirà ancora le connessioni HTTP. Seguire i passaggi specifici dell'esercitazione per applicare SSL e TLS.
+Per caricare un certificato SSL esistente e associarlo al nome di dominio dell'applicazione, seguire le istruzioni riportate nella pagina [proteggere un nome DNS personalizzato con binding SSL nel servizio app Azure](configure-ssl-bindings.md) . Per impostazione predefinita, l'applicazione consentirà ancora le connessioni HTTP. Seguire i passaggi specifici dell'esercitazione per applicare SSL e TLS.
 
 ### <a name="use-keyvault-references"></a>Usare i riferimenti all'insieme di credenziali delle credenziali
 
@@ -181,7 +181,7 @@ Seguire le istruzioni illustrate in [Associare un certificato SSL personalizzato
 
 Per prima cosa, seguire le istruzioni per [concedere all'app l'accesso a Key Vault](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) e [creare un riferimento a un insieme di credenziali delle credenziali al segreto in un'impostazione dell'applicazione](app-service-key-vault-references.md#reference-syntax). È possibile verificare che il riferimento venga risolto nel segreto stampando la variabile di ambiente durante l'accesso remoto al terminale del servizio app.
 
-Per inserire questi segreti nel file di configurazione di Spring o Tomcat, usare la sintassi di inserimento`${MY_ENV_VAR}`delle variabili di ambiente (). Per i file di configurazione della primavera, vedere la documentazione sulle [configurazioni esternalizzate](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
+Per inserire questi segreti nel file di configurazione di Spring o Tomcat, usare la sintassi di inserimento delle variabili di ambiente (`${MY_ENV_VAR}`). Per i file di configurazione della primavera, vedere la documentazione sulle [configurazioni esternalizzate](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
 
 ## <a name="configure-apm-platforms"></a>Configurare le piattaforme APM
@@ -224,7 +224,7 @@ Queste istruzioni si applicano a tutte le connessioni di database. È necessario
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Scaricare](https://dev.mysql.com/downloads/connector/j/) (selezionare "Indipendente dalla piattaforma") |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Scaricare](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 
-Per configurare Tomcat per l'uso di Java Database Connectivity (JDBC) o Java Persistence API (app), è `CATALINA_OPTS` innanzitutto necessario personalizzare la variabile di ambiente letta da Tomcat all'avvio. Impostare questi valori tramite un'impostazione app nel [plug-in Maven del servizio app](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
+Per configurare Tomcat per l'uso di Java Database Connectivity (JDBC) o Java Persistence API (app), è innanzitutto necessario personalizzare la variabile di ambiente `CATALINA_OPTS` letta da Tomcat all'avvio. Impostare questi valori tramite un'impostazione app nel [plug-in Maven del servizio app](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
 ```xml
 <appSettings>
@@ -235,7 +235,7 @@ Per configurare Tomcat per l'uso di Java Database Connectivity (JDBC) o Java Per
 </appSettings>
 ```
 
-In alternativa, impostare le variabili di ambiente nella pagina**Impostazioni applicazione** di **configurazione** > nel portale di Azure.
+In alternativa, impostare le variabili di ambiente nella pagina **configurazione** > **impostazioni applicazione** della portale di Azure.
 
 Determinare quindi se l'origine dati deve essere disponibile per un'applicazione o per tutte le applicazioni in esecuzione nel servlet Tomcat.
 
@@ -243,7 +243,7 @@ Determinare quindi se l'origine dati deve essere disponibile per un'applicazione
 
 1. Creare un file *context. XML* nel file *meta-inf/* directory del progetto. Creare il *meta-inf/* directory se non esiste.
 
-2. In *context. XML*aggiungere un `Context` elemento per collegare l'origine dati a un indirizzo JNDI. Sostituire il segnaposto `driverClassName` con il nome della classe del driver indicato nella tabella precedente.
+2. In *context. XML*aggiungere un elemento `Context` per collegare l'origine dati a un indirizzo JNDI. Sostituire il segnaposto `driverClassName` con il nome della classe del driver indicato nella tabella precedente.
 
     ```xml
     <Context>
@@ -269,7 +269,7 @@ Determinare quindi se l'origine dati deve essere disponibile per un'applicazione
 
 #### <a name="finalize-configuration"></a>Completare la configurazione
 
-Infine, i file jar del driver vengono posizionati nel classpath di Tomcat e il servizio app viene riavviato. Assicurarsi che i file del driver JDBC siano disponibili per il classloader di Tomcat inserendoli nella directory */Home/Tomcat/lib* Creare questa directory se non esiste già. Per caricare questi file nell'istanza del servizio app, seguire questa procedura:
+Infine, i file jar del driver vengono posizionati nel classpath di Tomcat e il servizio app viene riavviato. Assicurarsi che i file del driver JDBC siano disponibili per il classloader di Tomcat inserendoli nella directory */Home/Tomcat/lib* (Creare questa directory se non esiste già.) Per caricare i file nell'istanza del servizio app, seguire questa procedura:
 
 1. Nel [cloud Shell](https://shell.azure.com)installare l'estensione WEBAPP:
 
@@ -285,16 +285,16 @@ Infine, i file jar del driver vengono posizionati nel classpath di Tomcat e il s
 
 3. Connettersi alla porta di tunneling locale con il client SFTP e caricare i file nella cartella */Home/Tomcat/lib* .
 
-In alternativa, è possibile usare un client FTP per caricare il driver JDBC. Seguire queste [istruzioni per ottenere le credenziali FTP](deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+In alternativa, è possibile usare un client FTP per caricare il driver JDBC. Seguire queste [istruzioni per ottenere le credenziali FTP](deploy-configure-credentials.md).
 
 ## <a name="configuring-tomcat"></a>Configurazione di Tomcat
 
-Per modificare Tomcat `server.xml` o altri file di configurazione, prendere nota della versione principale di Tomcat nel portale.
+Per modificare la `server.xml` di Tomcat o altri file di configurazione, prendere nota della versione principale di Tomcat nel portale.
 
-1. Trovare la home directory di Tomcat per la versione eseguendo il `env` comando. Cercare la variabile di ambiente che inizia con `AZURE_TOMCAT`e corrisponde alla versione principale. Ad esempio, `AZURE_TOMCAT85_HOME` punta alla directory Tomcat per Tomcat 8,5.
-1. Dopo aver identificato la home directory di Tomcat per la versione in uso, copiare la directory `D:\home`di configurazione in. Se `AZURE_TOMCAT85_HOME` , ad esempio, il valore di `D:\Program Files (x86)\apache-tomcat-8.5.37`è, il nuovo percorso della directory copiata sarà `D:\home\apache-tomcat-8.5.37`.
+1. Trovare la home directory di Tomcat per la versione in uso eseguendo il comando `env`. Cercare la variabile di ambiente che inizia con `AZURE_TOMCAT`e corrisponda alla versione principale. Ad esempio, `AZURE_TOMCAT85_HOME` punta alla directory Tomcat per Tomcat 8,5.
+1. Dopo aver identificato la home directory di Tomcat per la versione, copiare la directory di configurazione in `D:\home`. Se ad esempio `AZURE_TOMCAT85_HOME` il valore `D:\Program Files (x86)\apache-tomcat-8.5.37`, il nuovo percorso della directory copiata verrà `D:\home\apache-tomcat-8.5.37`.
 
-Riavviare infine il servizio app. Le distribuzioni devono essere `D:\home\site\wwwroot\webapps` inserite come prima.
+Riavviare infine il servizio app. Le distribuzioni devono passare a `D:\home\site\wwwroot\webapps` come prima.
 
 ## <a name="java-runtime-statement-of-support"></a>Istruzione di supporto del runtime Java
 

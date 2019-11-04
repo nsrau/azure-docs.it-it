@@ -1,7 +1,7 @@
 ---
 title: Riferimento al modulo feature hashing
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo feature hashing nel servizio Azure Machine Learning per trasforma i dati di testo.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo feature hashing nel Azure Machine Learning per trasforma i dati di testo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: bbcab6e94783583c7e13ae482d68fd013ba4c91d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 48960eae4941bb744a937639e1308e1b5f6aaf9f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170886"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497839"
 ---
 # <a name="feature-hashing-module-reference"></a>Riferimento al modulo feature hashing
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo incluso in Azure Machine Learning Designer (anteprima).
 
 Usare il modulo feature hashing per trasformare un flusso di testo in inglese in un set di funzionalità Integer. È quindi possibile passare questo set di funzionalità con hash a un algoritmo di machine learning per eseguire il training di un modello di analisi del testo.
 
@@ -30,7 +30,7 @@ L'hashing delle funzionalità funziona convertendo i token univoci in numeri int
 
 Si prenda, ad esempio, un set di frasi semplici come queste, seguite da un punteggio di valutazione. Si supponga di voler utilizzare questo testo per compilare un modello.
 
-|Testo utente|Valutazione|
+|Testo utente|Sentiment|
 |--------------|---------------|
 |Ho amato questo libro|3|
 |Ho odiato questo libro|1|
@@ -53,7 +53,7 @@ Internamente, il modulo feature hashing crea un dizionario di n-grammi. Ad esemp
 |libro|3|
 |I|3|
 |Documentazione|1|
-|era|1|
+|è stato|1|
 
 Dopo la compilazione del dizionario, il modulo feature hashing converte i termini del dizionario in valori hash. Viene quindi calcolato se una funzionalità è stata utilizzata in ogni caso. Per ogni riga di dati di testo, il modulo restituisce un set di colonne, una colonna per ogni funzionalità con hash.
 
@@ -73,7 +73,7 @@ Gli output numerici consentono anche di usare metodi di apprendimento automatico
 
 ## <a name="configure-the-feature-hashing-module"></a>Configurare il modulo feature hashing
 
-1.  Aggiungere il modulo feature hashing all'esperimento in un'interfaccia visiva.
+1.  Aggiungere il modulo feature hashing alla pipeline nella finestra di progettazione.
 
 1. Connettere il set di dati che contiene il testo che si desidera analizzare.
 
@@ -94,7 +94,7 @@ Gli output numerici consentono anche di usare metodi di apprendimento automatico
 
     Ad esempio, se si immette 3, unigrammi, bigrammi e trigrammi verranno creati.
 
-1. Eseguire l'esperimento.
+1. Eseguire la pipeline.
 
 ## <a name="results"></a>Risultati
 
@@ -127,8 +127,8 @@ Le seguenti procedure consigliate consentono di sfruttare al meglio il modulo fe
     * Rimozione di segni di punteggiatura e caratteri speciali
     * Stemming  
 
-Il set ottimale di metodi di pre-elaborazione da applicare a qualsiasi soluzione dipende dal dominio, dal vocabolario e dalle esigenze aziendali. Sperimentare i dati per vedere quali metodi di elaborazione del testo sono più efficaci.
+Il set ottimale di metodi di pre-elaborazione da applicare a qualsiasi soluzione dipende dal dominio, dal vocabolario e dalle esigenze aziendali. pipeline con i dati per vedere quali metodi di elaborazione del testo sono più efficaci.
 
 ## <a name="next-steps"></a>Passaggi successivi
             
-Vedere il [set di moduli disponibili](module-reference.md) per il servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning 

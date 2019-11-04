@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 1c9cdfa54494cd6d77edcd13110a79e5265e5032
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 675d1889fc74474a1d732cb5d4e9f46c638ce200
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817843"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467917"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Creare un account di archiviazione di Azure Data Lake Storage Gen2
 
@@ -78,7 +78,7 @@ Per creare un account di archiviazione per utilizzo generico v2 nel portale di A
 4. Immettere quindi un nome per l'account di archiviazione. Il nome scelto deve essere univoco in Azure. Deve avere inoltre una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole.
 5. Scegliere un paese.
 6. Verificare che **archiviazione V2 (utilizzo generico v2)** venga visualizzato come selezionato nell'elenco a discesa **tipo di account** .
-7. Facoltativamente, modificare i valori in ognuno di questi campi: **prestazioni**, **replica**, **livello di accesso**. Per altre informazioni su queste opzioni, vedere [Introduzione ad archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#introducing-the-azure-storage-services).
+7. Facoltativamente, modificare i valori in ognuno di questi campi: **prestazioni**, **replica**, **livello di accesso**. Per altre informazioni su queste opzioni, vedere [Introduzione ad archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#azure-storage-services).
 8. Scegliere la scheda **Avanzate** .
 10. Nella sezione **Data Lake Storage Gen2** impostare **Spazio dei nomi gerarchico** su **Abilitato**.
 11. Fare clic su **Rivedi e crea** per creare l'account di archiviazione.

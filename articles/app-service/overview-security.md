@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b6f122abff1ac75bb1cb836f3389c96dfcdf60e0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 07dbbb956dcf6f1204bef2af3a28a0af3eeb5226
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074108"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470091"
 ---
 # <a name="security-in-azure-app-service"></a>Sicurezza in Servizio app di Azure
 
@@ -40,16 +40,20 @@ Nelle sezioni seguenti viene illustrato come rafforzare la protezione dell'app d
 
 ## <a name="https-and-certificates"></a>HTTPS e certificati
 
-Servizio app di Azure consente di proteggere le app con [HTTPS](https://wikipedia.org/wiki/HTTPS). Al momento della creazione, il nome di dominio predefinito dell'app (\<nome_app >.azurewebsites.net) è già accessibile tramite HTTPS. Se si [configura un dominio personalizzato per l'app](app-service-web-tutorial-custom-domain.md), è opportuno anche [proteggerlo con un certificato personalizzato](app-service-web-tutorial-custom-ssl.md) in modo che i browser client possano eseguire connessioni HTTPS protette al dominio personalizzato. È possibile eseguire questa operazione in due modi:
+Servizio app di Azure consente di proteggere le app con [HTTPS](https://wikipedia.org/wiki/HTTPS). Al momento della creazione, il nome di dominio predefinito dell'app (\<nome_app >.azurewebsites.net) è già accessibile tramite HTTPS. Se si [configura un dominio personalizzato per l'app](app-service-web-tutorial-custom-domain.md), è necessario [proteggerlo anche con un certificato SSL](configure-ssl-bindings.md) in modo che i browser client possano creare connessioni HTTPS protette al dominio personalizzato. Il servizio app supporta diversi tipi di certificati:
 
-- **Certificato del servizio app**:-creare un certificato direttamente in Azure. Il certificato è protetto in [Azure Key Vault](/azure/key-vault/)e può essere importato nell'app del servizio app. Per altre informazioni, vedere [Acquistare e configurare un certificato SSL per il servizio app di Azure](web-sites-purchase-ssl-web-site.md).
-- **Certificato di terze parti**: caricare un certificato SSL personalizzato acquistato da un'autorità di certificazione attendibile e associarlo all'app del servizio app. Servizio app di Azure supporta sia i certificati per singoli domini che i certificati con caratteri jolly. Supporta inoltre i certificati autofirmati a scopo di test. Per altre informazioni, vedere [Associare un certificato SSL personalizzato esistente a Servizio app di Azure](app-service-web-tutorial-custom-ssl.md).
+- Servizio app gratuito certificato gestito
+- Certificato del servizio app
+- Certificato di terze parti
+- Certificato importato da Azure Key Vault
+
+Per ulteriori informazioni, vedere la pagina relativa all' [aggiunta di un certificato SSL nel servizio app Azure](configure-ssl-certificate.md).
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>Protocolli non sicuri (HTTP, TLS 1.0, FTP)
 
-Per proteggere l'app da tutte le connessioni non crittografate (HTTP), Servizio app di Azure fornisce una configurazione che consente di applicare HTTPS con un solo clic. Le richieste non sicure vengono rifiutate prima ancora che raggiungano il codice dell'applicazione. Per altre informazioni, vedere [Applicare HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https).
+Per proteggere l'app da tutte le connessioni non crittografate (HTTP), Servizio app di Azure fornisce una configurazione che consente di applicare HTTPS con un solo clic. Le richieste non sicure vengono rifiutate prima ancora che raggiungano il codice dell'applicazione. Per altre informazioni, vedere [Applicare HTTPS](configure-ssl-bindings.md#enforce-https).
 
-[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 non è più considerato sicuro dagli standard del settore, come [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Servizio app di Azure consente di disabilitare i protocolli non aggiornati [applicando TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions).
+[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 non è più considerato sicuro dagli standard del settore, come [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Servizio app di Azure consente di disabilitare i protocolli non aggiornati [applicando TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions).
 
 Il servizio app supporta FTP e FTPS per la distribuzione dei file. Se possibile, però, è opportuno usare FTPS invece di FTP. Quando uno o entrambi questi protocolli non sono in uso, è necessario [disabilitarli](deploy-ftp.md#enforce-ftps).
 
@@ -57,7 +61,7 @@ Il servizio app supporta FTP e FTPS per la distribuzione dei file. Se possibile,
 
 Per impostazione predefinita, l'app del servizio app accetta le richieste da tutti gli indirizzi IP da Internet, ma è possibile limitare tale accesso a un sottoinsieme ristretto di indirizzi IP. Il servizio app in Windows consente di definire un elenco di indirizzi IP che possono accedere all'app. Questo elenco può includere singoli indirizzi IP o un intervallo di indirizzi IP definito da una subnet mask. Per altre informazioni, vedere [Restrizioni IP statico del Servizio app di Azure](app-service-ip-restrictions.md).
 
-Per il servizio app in Windows è inoltre possibile limitare gli indirizzi IP dinamicamente tramite la configurazione del file _web.config_. Per altre informazioni, vedere [dynamicIpSecurity di sicurezza \<IP dinamico >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Per il servizio app in Windows, è anche possibile limitare dinamicamente gli indirizzi IP configurando il _file Web. config_. Per ulteriori informazioni, vedere [Dynamic IP Security \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Autenticazione e autorizzazione dei client
 

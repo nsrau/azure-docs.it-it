@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c5fb79fc3aa3297068f93b631d11e967c9345f4c
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 531f6d86d57be550d0a1147e131d93ae6e298406
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71717157"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474771"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Proteggere un'API di gestione API di Azure con Azure AD B2C
 
@@ -35,11 +35,25 @@ Prima di continuare con i passaggi descritti in questo articolo, è necessario d
 
 Quando si protegge un'API in gestione API di Azure con Azure AD B2C, sono necessari diversi valori per i [criteri in ingresso](../api-management/api-management-howto-policies.md) creati in gestione API. Prima di tutto, registrare l'ID applicazione di un'applicazione creata in precedenza nel tenant del Azure AD B2C. Se si usa l'applicazione creata nei prerequisiti, usare l'ID applicazione per *webbapp1*.
 
-1. Passare al tenant di Azure AD B2C nel [portale di Azure](https://portal.azure.com).
-1. In **Gestisci**selezionare **applicazioni**.
-1. Registrare il valore nell' **ID applicazione** per *app Web 1* o un'altra applicazione creata in precedenza.
+Per ottenere l'ID applicazione, è possibile usare l'esperienza corrente delle **applicazioni** o la nuova esperienza Unified **registrazioni app (Preview)** . [Scopri di più sull'esperienza di anteprima](http://aka.ms/b2cappregintro).
 
-  ![Posizione dell'ID applicazione di un'applicazione B2C nel portale di Azure](media/secure-apim-with-b2c-token/portal-02-app-id.png)
+#### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
+1. In **Gestisci**selezionare **applicazioni**.
+1. Registrare il valore nella colonna **ID applicazione** per *app Web 1* o un'altra applicazione creata in precedenza.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
+1. Selezionare **registrazioni app (anteprima)** , quindi selezionare la scheda **applicazioni di proprietà** .
+1. Registrare il valore nella colonna **ID applicazione (client)** per *app Web 1* o un'altra applicazione creata in precedenza.
+
+* * *
 
 ## <a name="get-token-issuer-endpoint"></a>Ottenere l'endpoint dell'emittente del token
 
@@ -53,13 +67,13 @@ Ottenere quindi l'URL di configurazione noto per uno dei flussi utente di Azure 
     ![Collegamento ipertestuale URI noto nella pagina Esegui ora della portale di Azure](media/secure-apim-with-b2c-token/portal-01-policy-link.png)
 
 1. Selezionare il collegamento ipertestuale per passare alla pagina di configurazione nota di OpenID Connect.
-1. Nella pagina visualizzata nel browser registrare il valore `issuer`, ad esempio:
+1. Nella pagina visualizzata nel browser registrare il valore di `issuer`, ad esempio:
 
     `https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
 
     Questo valore viene usato nella sezione successiva quando si configura l'API in gestione API di Azure.
 
-A questo punto dovrebbero essere registrati due URL da usare nella sezione successiva: l'URL dell'endpoint di configurazione noto di OpenID Connect e l'URI dell'autorità emittente. Esempio:
+A questo punto dovrebbero essere registrati due URL da usare nella sezione successiva: l'URL dell'endpoint di configurazione noto di OpenID Connect e l'URI dell'autorità emittente. ad esempio:
 
 ```
 https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1
@@ -74,8 +88,8 @@ A questo punto è possibile aggiungere i criteri in ingresso in gestione API di 
 1. Selezionare **API**.
 1. Selezionare l'API che si vuole proteggere con Azure AD B2C.
 1. Selezionare la scheda **Progettazione**.
-1. In **elaborazione in ingresso**selezionare **\< @ no__t-3 @ no__t-4** per aprire l'editor del codice dei criteri.
-1. Inserire il seguente tag `<validate-jwt>` nel criterio `<inbound>`.
+1. In **elaborazione in ingresso**selezionare **\</\>** per aprire l'editor del codice dei criteri.
+1. Inserire il seguente `<validate-jwt>` tag all'interno dei criteri di `<inbound>`.
 
     1. Aggiornare il valore `url` nell'elemento `<openid-config>` con l'URL di configurazione noto del criterio.
     1. Aggiornare l'elemento `<audience>` con l'ID applicazione dell'applicazione creata in precedenza nel tenant B2C (ad esempio, *app Web 1*).
@@ -109,7 +123,7 @@ Per chiamare l'API, è necessario un token di accesso emesso da Azure AD B2C e u
 
 ### <a name="get-an-access-token"></a>Ottenere un token di accesso
 
-Per prima cosa è necessario un token emesso da Azure AD B2C da usare nell'intestazione `Authorization` del post. È possibile ottenerne uno usando la funzionalità **Esegui ora** del flusso dell'utente di iscrizione/accesso che è stato creato come uno dei prerequisiti.
+Per prima cosa, è necessario un token emesso da Azure AD B2C da usare nell'intestazione `Authorization` di post. È possibile ottenerne uno usando la funzionalità **Esegui ora** del flusso dell'utente di iscrizione/accesso che è stato creato come uno dei prerequisiti.
 
 1. Passare al tenant di Azure AD B2C nel [portale di Azure](https://portal.azure.com).
 1. In **criteri**selezionare **flussi utente (criteri)** .
@@ -131,8 +145,8 @@ Un'applicazione client (in questo caso, poster) che chiama un'API pubblicata dev
 
 1. Passare all'istanza del servizio gestione API di Azure nel [portale di Azure](https://portal.azure.com).
 1. Selezionare **Sottoscrizioni**.
-1. Selezionare i puntini di sospensione per **Product: Illimitato @ no__t-0, quindi selezionare **Mostra/Nascondi chiavi**.
-1. Registrare la **chiave primaria** per il prodotto. Usare questa chiave per l'intestazione `Ocp-Apim-Subscription-Key` nella richiesta HTTP in postazione.
+1. Selezionare i puntini di sospensione per **Product: Unlimited**, quindi selezionare **Mostra/Nascondi chiavi**.
+1. Registrare la **chiave primaria** per il prodotto. Questa chiave viene usata per l'intestazione `Ocp-Apim-Subscription-Key` nella richiesta HTTP in post.
 
 ![Pagina chiave sottoscrizione con le chiavi Mostra/Nascondi selezionate in portale di Azure](media/secure-apim-with-b2c-token/portal-04-api-subscription-key.png)
 
@@ -140,7 +154,7 @@ Un'applicazione client (in questo caso, poster) che chiama un'API pubblicata dev
 
 Con il token di accesso e la chiave di sottoscrizione gestione API registrati, è ora possibile verificare se l'accesso sicuro all'API è stato configurato correttamente.
 
-1. Creare una nuova richiesta `GET` in [postazione](https://www.getpostman.com/). Per l'URL della richiesta, specificare l'endpoint dell'elenco dei relatori dell'API pubblicata come uno dei prerequisiti. Esempio:
+1. Creare una nuova richiesta di `GET` in [post](https://www.getpostman.com/). Per l'URL della richiesta, specificare l'endpoint dell'elenco dei relatori dell'API pubblicata come uno dei prerequisiti. ad esempio:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 
@@ -184,13 +198,13 @@ Con il token di accesso e la chiave di sottoscrizione gestione API registrati, �
 
 ### <a name="test-an-insecure-api-call"></a>Testare una chiamata API non sicura
 
-Ora che è stata effettuata una richiesta con esito positivo, testare il caso di errore per assicurarsi che le chiamate all'API con un token *non valido* vengano rifiutate come previsto. Un modo per eseguire il test consiste nell'aggiungere o modificare alcuni caratteri nel valore del token, quindi eseguire la stessa richiesta `GET` come prima.
+Ora che è stata effettuata una richiesta con esito positivo, testare il caso di errore per assicurarsi che le chiamate all'API con un token *non valido* vengano rifiutate come previsto. Un modo per eseguire il test consiste nell'aggiungere o modificare alcuni caratteri nel valore del token, quindi eseguire la stessa richiesta di `GET` come prima.
 
 1. Aggiungere diversi caratteri al valore del token per simulare un token non valido. Ad esempio, aggiungere "non valido" al valore del token:
 
     ![Sezione intestazioni dell'interfaccia utente del post che mostra aggiunta non valida al token](media/secure-apim-with-b2c-token/postman-02-invalid-token.png)
 
-1. Selezionare il pulsante **Send (Invia** ) per eseguire la richiesta. Con un token non valido, il risultato previsto è un codice di stato non autorizzato `401`:
+1. Selezionare il pulsante **Send (Invia** ) per eseguire la richiesta. Con un token non valido, il risultato previsto è un `401` codice di stato non autorizzato:
 
     ```JSON
     {
@@ -199,7 +213,7 @@ Ora che è stata effettuata una richiesta con esito positivo, testare il caso di
     }
     ```
 
-Se viene visualizzato il codice di stato `401`, si è verificato che solo i chiamanti con un token di accesso valido rilasciato da Azure AD B2C possono eseguire richieste con esito positivo all'API di gestione API di Azure.
+Se viene visualizzato il codice di stato `401`, si è verificato che solo i chiamanti con un token di accesso valido emesso da Azure AD B2C possono eseguire richieste con esito positivo all'API di gestione API di Azure.
 
 ## <a name="support-multiple-applications-and-issuers"></a>Supportare più applicazioni e autorità emittenti
 
@@ -225,7 +239,7 @@ Analogamente, per supportare più autorità di certificazione, aggiungere gli UR
 
 ## <a name="migrate-to-b2clogincom"></a>Eseguire la migrazione a b2clogin.com
 
-Se si dispone di un'API Gestione API che convalida i token emessi dall'endpoint legacy `login.microsoftonline.com`, è necessario eseguire la migrazione dell'API e delle applicazioni che la chiamano per usare i token emessi da [b2clogin.com](b2clogin.md).
+Se si dispone di un'API Gestione API che convalida i token emessi dall'endpoint `login.microsoftonline.com` legacy, è necessario eseguire la migrazione dell'API e delle applicazioni che la chiamano per usare i token emessi da [b2clogin.com](b2clogin.md).
 
 È possibile seguire questo processo generale per eseguire una migrazione di gestione temporanea:
 

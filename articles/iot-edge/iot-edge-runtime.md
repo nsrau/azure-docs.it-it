@@ -1,40 +1,40 @@
 ---
 title: Informazioni su come il runtime gestisce i dispositivi - Azure IoT Edge | Microsoft Docs
-description: Informazioni su come i moduli, la sicurezza, le comunicazioni e la creazione di report per i dispositivi vengono gestiti dal runtime di Azure IoT Edge
+description: Informazioni sul modo in cui il runtime di IoT Edge gestisce i moduli, la sicurezza, la comunicazione e la creazione di report nei dispositivi
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/06/2019
+ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 49abd9e5ecee8637d830604028463650071c0198
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 94e33c855327e70f486746bcd781491823324dec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163154"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490425"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura
 
 Il runtime di IoT Edge è una raccolta di programmi che trasformano un dispositivo in un dispositivo IoT Edge. Collettivamente, i componenti di runtime IoT Edge consentono IoT Edge ai dispositivi di ricevere il codice per l'esecuzione al perimetro e di comunicare i risultati. 
 
-Nei dispositivi IoT Edge, il runtime di IoT Edge esegue le funzioni seguenti:
+Il runtime di IoT Edge è responsabile delle funzioni seguenti nei dispositivi IoT Edge:
 
 * Installare e aggiornare i carichi di lavoro nel dispositivo.
 * Mantenere gli standard di sicurezza di Azure IoT Edge sul dispositivo.
 * Verificare che i [moduli IOT Edge](iot-edge-modules.md) siano sempre in esecuzione.
 * Segnalare l'integrità dei moduli al cloud per il monitoraggio remoto.
-* Semplificare la comunicazione tra dispositivi foglia downstream e dispositivi IoT Edge.
-* Semplificare la comunicazione tra i moduli nel dispositivo IoT Edge.
-* Semplifica la comunicazione tra il dispositivo IoT Edge e il cloud.
+* Gestire la comunicazione tra dispositivi downstream e dispositivi IoT Edge.
+* Gestire la comunicazione tra i moduli nel dispositivo IoT Edge.
+* Gestire la comunicazione tra il dispositivo IoT Edge e il cloud.
 
 ![Il runtime comunica informazioni dettagliate e l'integrità del modulo all'hub IoT](./media/iot-edge-runtime/Pipeline.png)
 
 Le responsabilità del runtime di IoT Edge rientrano in due categorie: comunicazione e gestione dei moduli. Questi due ruoli vengono eseguiti da due componenti che fanno parte del runtime di IoT Edge. L' *hub IOT Edge* è responsabile della comunicazione, mentre l' *agente di IOT Edge* distribuisce e monitora i moduli. 
 
-Sia l'hub di IoT Edge che l'agente di IoT Edge sono moduli, proprio come gli altri moduli in esecuzione su un dispositivo IoT Edge. 
+Sia l'hub di IoT Edge che l'agente di IoT Edge sono moduli, proprio come gli altri moduli in esecuzione su un dispositivo IoT Edge. Sono talvolta definiti *moduli di runtime*. 
 
 ## <a name="iot-edge-hub"></a>Hub di IoT Edge
 
@@ -45,7 +45,7 @@ L'hub di IoT Edge è uno dei due moduli che costituiscono il runtime di Azure Io
 
 L'hub di IoT Edge non è una versione completa dell'hub IoT in esecuzione in locale. Esistono alcune operazioni che l'hub di IoT Edge delega automaticamente all'hub IoT. Ad esempio, l'hub di IoT Edge inoltra le richieste di autenticazione all'hub IoT quando un dispositivo prova a connettersi per la prima volta. Dopo aver stabilito la prima connessione, le informazioni di sicurezza vengono memorizzate nella cache locale dall'hub di IoT Edge. Le connessioni successive da tale dispositivo vengono consentite senza dover eseguire l'autenticazione nel cloud. 
 
-Per ridurre la larghezza di banda usata dalla soluzione IoT Edge, l'hub di IoT Edge ottimizza il numero di connessioni effettivamente eseguite nel cloud. L'hub di IoT Edge accetta le connessioni logiche dai client quali moduli o dispositivi foglia e le combina per avere un'unica connessione fisica nel cloud. I dettagli di questo processo sono trasparenti per il resto della soluzione. Ai client sembra di avere ognuno la propria la connessione al cloud ma in realtà usano tutti la stessa connessione. 
+Per ridurre la larghezza di banda usata dalla soluzione IoT Edge, l'hub di IoT Edge ottimizza il numero di connessioni effettivamente eseguite nel cloud. IoT Edge Hub accetta connessioni logiche da client quali moduli o dispositivi downstream e li combina per una singola connessione fisica al cloud. I dettagli di questo processo sono trasparenti per il resto della soluzione. Ai client sembra di avere ognuno la propria la connessione al cloud ma in realtà usano tutti la stessa connessione. 
 
 ![L'hub di IoT Edge è un gateway tra dispositivi fisici e l'hub IoT](./media/iot-edge-runtime/Gateway.png)
 
@@ -73,13 +73,13 @@ Per ricevere un messaggio, registrare un callback che elabori i messaggi in arri
 
 Per altre informazioni sulla classe ModuleClient e sui relativi metodi di comunicazione, vedere le informazioni di riferimento sulle API per il [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)linguaggio SDK preferito:, [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)o [node. js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
-Lo sviluppatore di soluzioni è responsabile della definizione delle regole che determinano il modo in cui l'hub di IoT Edge passa i messaggi tra i moduli. Le regole di routing sono definite nel cloud e propagate all'hub di IoT Edge nel dispositivo gemello. La stessa sintassi per le route dell'hub IoT viene usata per definire le route tra i moduli di Azure IoT Edge. Per ulteriori informazioni, vedere informazioni [su come distribuire moduli e definire route in IOT Edge](module-composition.md).   
+Lo sviluppatore di soluzioni è responsabile della definizione delle regole che determinano il modo in cui l'hub di IoT Edge passa i messaggi tra i moduli. Le regole di routing sono definite nel cloud ed è stato eseguito il push all'hub IoT Edge nel gemello del modulo. La stessa sintassi per le route dell'hub IoT viene usata per definire le route tra i moduli di Azure IoT Edge. Per ulteriori informazioni, vedere informazioni [su come distribuire moduli e definire route in IOT Edge](module-composition.md).   
 
 ![Le route tra i moduli passano attraverso l'hub di IoT Edge](./media/iot-edge-runtime/module-endpoints-with-routes.png)
 
 ## <a name="iot-edge-agent"></a>Agente di IoT Edge
 
-L'agente di IoT Edge è l'altro modulo che costituisce il runtime di Azure IoT Edge. È responsabile della creazione di istanze per i moduli, ne garantisce la continua esecuzione e segnala lo stato dei moduli all'hub IoT. Analogamente a qualsiasi altro modulo, l'agente di IoT Edge usa il proprio modulo gemello per archiviare questi dati di configurazione. 
+L'agente di IoT Edge è l'altro modulo che costituisce il runtime di Azure IoT Edge. È responsabile della creazione di istanze per i moduli, ne garantisce la continua esecuzione e segnala lo stato dei moduli all'hub IoT. I dati di configurazione vengono scritti come proprietà del modulo gemello di IoT Edge Agent. 
 
 Il [daemon di sicurezza di IoT Edge](iot-edge-security-manager.md) avvia l'agente di IoT Edge all'avvio del dispositivo. L'agente recupera il modulo gemello dall'hub IoT e controlla il manifesto della distribuzione. Il manifesto della distribuzione è un file JSON che dichiara i moduli da avviare. 
 

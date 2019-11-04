@@ -1,24 +1,24 @@
 ---
 title: 'Rimuovi righe duplicate: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Remove duplicate rows nel servizio Azure Machine Learning per rimuovere potenziali duplicati da un set di dati.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Remove duplicate rows in Azure Machine Learning per rimuovere potenziali duplicati da un set di dati.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 8b3f73c56d85eecd50633085eca0e632abaa6b4c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: a0faba895c5717d061bacee2ce724c20464f8150
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693674"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497690"
 ---
 # <a name="remove-duplicate-rows-module"></a>Rimuovi modulo righe duplicate
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per rimuovere potenziali duplicati da un set di dati.
 
@@ -78,4 +78,4 @@ Quando si esegue il modulo, viene creato un set di dati candidato e viene restit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

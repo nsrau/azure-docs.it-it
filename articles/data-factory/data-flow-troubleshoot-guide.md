@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/08/2019
 ms.author: makromer
-ms.openlocfilehash: 5cf4773ac781ae51a60ef7d987c3dc324c125d95
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 53c38af2208be6bb7cdb794ad0403456613f2df6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387720"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486173"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Risolvere i problemi di Azure Data Factory flussi di dati
 
@@ -67,6 +67,14 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i f
 - **Causa**: nel database di destinazione è già presente un nome di tabella con lo stesso nome definito nell'origine o nel set di dati
 
 - **Soluzione**: modificare il nome della tabella che si sta tentando di creare
+
+### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-string-or-binary-data-would-be-truncated"></a>Messaggio di errore: DF-SYS-01: com. Microsoft. SqlServer. JDBC. SQLServerException: i dati di tipo String o binary verrebbero troncati. 
+
+- **Sintomi**: durante la scrittura di dati in un sink SQL, il flusso di dati non riesce nell'esecuzione della pipeline con possibile errore di troncamento.
+
+- **Causa**: un campo del flusso di dati mappato a una colonna nel database SQL non è sufficientemente ampio per archiviare il valore, causando la generazione di questo errore da parte del driver SQL
+
+- **Soluzione**: è possibile ridurre la lunghezza dei dati per le colonne stringa usando ```left()``` in una colonna derivata o implementare il [modello "riga di errore".](how-to-data-flow-error-rows.md)
 
 ## <a name="general-troubleshooting-guidance"></a>Indicazioni generali per la risoluzione dei problemi
 

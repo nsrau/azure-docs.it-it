@@ -1,24 +1,24 @@
 ---
 title: 'Foresta delle decisioni a due classi: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Two-Class Decision Forest nel servizio Azure Machine Learning per creare un modello di machine learning basato sull'algoritmo delle foreste delle decisioni.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Two-Class Decision Forest in Azure Machine Learning per creare un modello di machine learning basato sull'algoritmo delle foreste delle decisioni.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 243f1774069f048d0e8a1ce11e3ac42e4e73f58b
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: ebe9a0368f2111fa6787b7fa4f4432d7ad4106c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693611"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485949"
 ---
 # <a name="two-class-decision-forest-module"></a>Modulo della foresta delle decisioni a due classi
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per creare un modello di machine learning basato sull'algoritmo delle foreste delle decisioni.  
 
@@ -101,7 +101,6 @@ Al termine del training:
 
 + Per usare il modello per l'assegnazione dei punteggi, aggiungere il modulo **Score Model** a una pipeline.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

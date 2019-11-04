@@ -3,15 +3,15 @@ title: Comprendere il funzionamento degli effetti
 description: Le definizioni di criteri di Azure hanno diversi effetti che determinano la modalità di gestione e di segnalazione della conformità.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/17/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 4f657cd8c804a597220a7e74d1fce0401c4cd9ae
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: c448ab889ad263f4f8b6c9a59048551ca761d69a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176329"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464044"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -25,6 +25,7 @@ Questi effetti sono attualmente supportati in una definizione dei criteri:
 - [Negare](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabilitato](#disabled)
+- [EnforceOPAConstraint](#enforceopaconstraint) (anteprima)
 - [EnforceRegoPolicy](#enforceregopolicy) (anteprima)
 - [Modificare](#modify)
 
@@ -39,7 +40,7 @@ Le richieste di creazione o aggiornamento di una risorsa tramite Azure Resource 
 
 Dopo che il provider di risorse restituisce un codice di riuscita, vengono valutati **AuditIfNotExists** e **DeployIfNotExists** per determinare se è necessaria un'ulteriore registrazione della conformità o un'altra azione.
 
-Attualmente non è presente alcun ordine di valutazione per l'effetto **EnforceRegoPolicy** .
+Attualmente non è previsto alcun ordine di valutazione per gli effetti **EnforceOPAConstraint** o **EnforceRegoPolicy** .
 
 ## <a name="disabled"></a>Disabled
 
@@ -431,12 +432,68 @@ Esempio: valuta i database SQL Server per determinare se transparentDataEncrypti
 }
 ```
 
-## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
-Questo effetto viene usato con una *modalità* di definizione dei criteri di `Microsoft.ContainerService.Data`. Viene usato per passare le regole di controllo dell'ammissione definite con [rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) per [aprire l'agente criteri](https://www.openpolicyagent.org/) (OPA) nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md).
+Questo effetto viene usato con una *modalità* di definizione dei criteri di `Microsoft.Kubernetes.Data`. Viene usato per passare le regole di controllo dell'ammissione di Gatekeeper V3 definite con il [Framework di vincolo OPA](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) per [aprire l'agente criteri](https://www.openpolicyagent.org/) (OPA) in cluster Kubernetes autogestiti in Azure.
 
 > [!NOTE]
-> [Criteri di Azure per Kubernetes](rego-for-aks.md) è in anteprima pubblica e supporta solo le definizioni di criteri predefinite.
+> [Criteri di Azure per il motore AKS](aks-engine.md) è in versione di anteprima pubblica e supporta solo le definizioni predefinite dei criteri.
+
+### <a name="enforceopaconstraint-evaluation"></a>Valutazione EnforceOPAConstraint
+
+Il controller di ammissione dell'agente criteri aperto valuta tutte le nuove richieste nel cluster in tempo reale.
+Ogni 5 minuti, viene completata un'analisi completa del cluster e i risultati vengono segnalati ai criteri di Azure.
+
+### <a name="enforceopaconstraint-properties"></a>Proprietà di EnforceOPAConstraint
+
+La proprietà **Details** dell'effetto EnforceOPAConstraint include le sottoproprietà che descrivono la regola di controllo dell'ammissione Gatekeeper V3.
+
+- **constraintTemplate** [obbligatorio]
+  - Il modello di vincolo CustomResourceDefinition (CRD) che definisce nuovi vincoli. Il modello definisce la logica Rego, lo schema del vincolo e i parametri del vincolo passati tramite **valori** da criteri di Azure.
+- **vincolo** [obbligatorio]
+  - Implementazione di CRD del modello di vincolo. USA i parametri passati tramite **valori** come `{{ .Values.<valuename> }}`. Nell'esempio seguente viene `{{ .Values.cpuLimit }}` e `{{ .Values.memoryLimit }}`.
+- **valori** [facoltativo]
+  - Definisce tutti i parametri e i valori da passare al vincolo. Ogni valore deve esistere nel modello di vincolo CRD.
+
+### <a name="enforceregopolicy-example"></a>Esempio di EnforceRegoPolicy
+
+Esempio: regola di controllo dell'ammissione di Gatekeeper V3 per impostare i limiti delle risorse di memoria e CPU del contenitore nel motore AKS.
+
+```json
+"if": {
+    "allOf": [
+        {
+            "field": "type",
+            "in": [
+                "Microsoft.ContainerService/managedClusters",
+                "AKS Engine"
+            ]
+        },
+        {
+            "field": "location",
+            "equals": "westus2"
+        }
+    ]
+},
+"then": {
+    "effect": "enforceOPAConstraint",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/constraint.yaml",
+        "values": {
+            "cpuLimit": "[parameters('cpuLimit')]",
+            "memoryLimit": "[parameters('memoryLimit')]"
+        }
+    }
+}
+```
+
+## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+
+Questo effetto viene usato con una *modalità* di definizione dei criteri di `Microsoft.ContainerService.Data`. Viene usato per passare le regole di controllo dell'ammissione di Gatekeeper V2 definite con [rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) per [aprire l'agente criteri](https://www.openpolicyagent.org/) (OPA) nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Criteri di Azure per AKS](rego-for-aks.md) è in anteprima limitata e supporta solo le definizioni di criteri predefinite
 
 ### <a name="enforceregopolicy-evaluation"></a>Valutazione EnforceRegoPolicy
 
@@ -445,7 +502,7 @@ Ogni 5 minuti, viene completata un'analisi completa del cluster e i risultati ve
 
 ### <a name="enforceregopolicy-properties"></a>Proprietà di EnforceRegoPolicy
 
-La proprietà **Details** dell'effetto EnforceRegoPolicy include le sottoproprietà che descrivono la regola di controllo dell'ammissione di rego.
+La proprietà **Details** dell'effetto EnforceRegoPolicy include le sottoproprietà che descrivono la regola di controllo dell'ammissione Gatekeeper V2.
 
 - **policyId** [obbligatorio]
   - Un nome univoco passato come parametro alla regola di controllo dell'ammissione rego.
@@ -456,7 +513,7 @@ La proprietà **Details** dell'effetto EnforceRegoPolicy include le sottoproprie
 
 ### <a name="enforceregopolicy-example"></a>Esempio di EnforceRegoPolicy
 
-Esempio: regola di controllo dell'ammissione di rego per consentire solo le immagini del contenitore specificate in AKS.
+Esempio: regola di controllo dell'ammissione di Gatekeeper V2 per consentire solo le immagini del contenitore specificate in AKS.
 
 ```json
 "if": {

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: a6c3b8485a3243d7c89ab409a2fb83b1b045c9ba
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 778836661ff15c334823f95fef42acadb3e8b649
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121988"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470137"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Risolvere i problemi relativi al dominio e al certificato SSL in Servizio app di Azure
 
@@ -70,14 +70,14 @@ Rimuovere l'associazione SSL per il certificato dalle app, quindi provare a elim
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>Non è possibile acquistare un certificato del servizio app 
 
 #### <a name="symptom"></a>Sintomo
-Non è possibile acquistare un [certificato del servizio app di Azure](./web-sites-purchase-ssl-web-site.md) dal portale di Azure.
+Non è possibile acquistare un [certificato del servizio app di Azure](./configure-ssl-certificate.md#import-an-app-service-certificate) dal portale di Azure.
 
 #### <a name="cause-and-solution"></a>Causa e soluzione
 Questo problema può verificarsi per uno dei motivi seguenti:
 
 - Il piano di servizio app è Gratuito o Condiviso. Questi livelli di prezzo non supportano SSL. 
 
-    **Soluzione**: Aggiornare il piano di servizio app per l'app su Standard.
+    **Soluzione**: aggiornare il piano di servizio app per l'app allo standard.
 
 - La sottoscrizione non dispone di una carta di credito valida.
 
@@ -85,7 +85,7 @@ Questo problema può verificarsi per uno dei motivi seguenti:
 
 - L'offerta di sottoscrizione non consente di acquistare un certificato di servizio app, ad esempio Microsoft Student.  
 
-    **Soluzione**: Aggiornare la sottoscrizione. 
+    **Soluzione**: aggiornare la sottoscrizione. 
 
 - La sottoscrizione ha raggiunto il limite di acquisti consentiti.
 
@@ -96,7 +96,7 @@ Questo problema può verificarsi per uno dei motivi seguenti:
 
     1. Accedere al [portale di Azure](https://portal.azure.com).
     2. Passare a **Certificati del servizio app** e selezionare il certificato.
-    3. Selezionare **Configurazione certificato** > **passaggio 2: Verificare** > **Verifica del dominio**. Questo passaggio invia una notifica di posta elettronica al provider del certificato di Azure per risolvere il problema.
+    3. Selezionare **Configurazione del certificato** > **Passaggio 2: Verifica** > **Verifica del dominio**. Questo passaggio invia una notifica di posta elettronica al provider del certificato di Azure per risolvere il problema.
 
 ## <a name="custom-domain-problems"></a>Problemi del dominio personalizzato
 
@@ -167,7 +167,7 @@ Il dominio non è più visibile nel portale di Azure.
 Il dominio potrebbe essere stato eliminato per sbaglio dal proprietario della sottoscrizione.
 
 #### <a name="solution"></a>Soluzione
-Se il dominio è stato eliminato da meno di sette giorni, il processo di eliminazione non sarà ancora stato avviato. In questo caso, è possibile acquistare nuovamente lo stesso dominio nel portale di Azure nella stessa sottoscrizione. Assicurarsi di digitare il nome di dominio esatto nella casella di ricerca. Non verrà applicato alcun nuovo addebito per questo dominio. Se il dominio è stato eliminato più di sette giorni fa, contattare il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per informazioni sul ripristino del dominio.
+Se il dominio è stato eliminato da meno di sette giorni, il processo di eliminazione non sarà ancora stato avviato. In questo caso, è possibile acquistare nuovamente lo stesso dominio nel portale di Azure nella stessa sottoscrizione. Assicurarsi di digitare il nome di dominio esatto nella casella di ricerca. Non verrà addebitato di nuovo il costo per questo dominio. Se il dominio è stato eliminato più di sette giorni fa, contattare il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per informazioni sul ripristino del dominio.
 
 ## <a name="domain-problems"></a>Problemi di dominio
 
@@ -197,8 +197,8 @@ Il servizio app sincronizza automaticamente il certificato entro 48 ore. Quando 
 È possibile forzare una sincronizzazione del certificato:
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Passare a **Certificati del servizio app** e selezionare il certificato.
-2. Selezionare **Reimposta chiavi e sincronizza**, quindi selezionare **Sincronizza**. La sincronizzazione richiede tempo. 
-3. Una volta completata la sincronizzazione, verrà visualizzata la notifica seguente: "Tutte le risorse sono state aggiornate con il certificato più recente".
+2. Selezionare **rekey e sincronizza**, quindi selezionare **Sincronizza**. Il completamento della sincronizzazione richiede del tempo. 
+3. Al termine della sincronizzazione, viene visualizzata la notifica seguente: "Aggiornate correttamente tutte le risorse con l'ultimo certificato".
 
 ### <a name="domain-verification-is-not-working"></a>La verifica del dominio non funziona 
 
@@ -244,10 +244,10 @@ Questo problema si verifica per uno dei motivi seguenti:
     **Soluzione**: [assegnare il ruolo Proprietario](../role-based-access-control/role-assignments-portal.md) al proprio account. In alternativa, contattare l'amministratore della sottoscrizione per ottenere l'autorizzazione ad acquistare un dominio.
 - È stato raggiunto il limite di acquisto dei domini nella sottoscrizione. Il limite corrente è 20.
 
-    **Soluzione**: per richiedere un aumento del limite, contattare il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+    **Soluzione**: per richiedere un aumento del limite, contattare il [supporto di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Il tipo di sottoscrizione di Azure non supporta l'acquisto di un dominio del servizio app.
 
-    **Soluzione**: aggiornare la sottoscrizione di Azure ad altri tipi di sottoscrizione, ad esempio Pagamento in base al consumo.
+    **Soluzione**: aggiornare la sottoscrizione di Azure ad altri tipi di sottoscrizione, ad esempio Pagamento in base a consumo.
 
 ### <a name="you-cant-add-a-host-name-to-an-app"></a>Non è possibile aggiungere un nome host a un'app 
 
@@ -272,11 +272,11 @@ Questo problema si verifica per uno dei motivi seguenti:
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 
 **È necessario configurare il dominio personalizzato per il sito Web una volta acquistato?**
 
-Quando si acquista un dominio dalla portale di Azure, l'applicazione del servizio app viene configurata automaticamente per l'utilizzo del dominio personalizzato. Non è necessario eseguire altri passaggi. Per ulteriori informazioni, vedere [app Azure assistenza self-service: Aggiungere un nome](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) di dominio personalizzato in channel9.
+Quando si acquista un dominio dalla portale di Azure, l'applicazione del servizio app viene configurata automaticamente per l'utilizzo del dominio personalizzato. Non è necessario eseguire altri passaggi. Per altre informazioni, vedere [app Azure assistenza self-service: aggiungere un nome di dominio personalizzato](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) in channel9.
 
 **È possibile usare un dominio acquistato nella portale di Azure per puntare invece a una macchina virtuale di Azure?**
 
@@ -286,7 +286,7 @@ Sì, è possibile puntare il dominio a una macchina virtuale. Per altre informaz
 
 I domini del servizio app usano GoDaddy per la registrazione del dominio e DNS di Azure per ospitare i domini. 
 
-**Il rinnovo automatico è abilitato ma è ancora stata ricevuta una notifica di rinnovo per il dominio tramite posta elettronica. Cosa devo fare?**
+**Il rinnovo automatico è abilitato ma è ancora stata ricevuta una notifica di rinnovo per il dominio tramite posta elettronica. Cosa dovrei fare?**
 
 Se è abilitato il rinnovo automatico, non è necessario eseguire alcuna azione. Il messaggio di posta elettronica di avviso viene fornito per informare che il dominio è prossimo alla scadenza e per eseguire il rinnovo manualmente se il rinnovo automatico non è abilitato.
 

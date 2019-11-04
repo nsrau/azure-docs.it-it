@@ -1,21 +1,21 @@
 ---
-title: Terminologia di anteprima della condivisione dati di Azure
-description: Informazioni sui termini comuni usati per descrivere le risorse usate nell'anteprima della condivisione dati di Azure (provider di dati, consumer di dati, condivisione dati, sottoscrizione di condivisione, snapshot, invito, destinatario).
+title: Terminologia di Condivisione dati di Azure
+description: Informazioni sui termini comuni usati per descrivere le risorse usate nella condivisione dati di Azure (provider di dati, consumer di dati, condivisione dati, sottoscrizione di condivisione, snapshot, invito, destinatario).
+ms.service: data-share
 author: joannapea
 ms.author: joanpo
-ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: dd3235b7d87d8e02f44a440741b90f675263d147
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166283"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468548"
 ---
-# <a name="azure-data-share-preview-concepts"></a>Concetti di anteprima della condivisione di dati di Azure 
+# <a name="azure-data-share-concepts"></a>Concetti relativi alla condivisione di dati di Azure 
 
-L'anteprima della condivisione dati di Azure introduce una nuova terminologia relativa alla condivisione dei dati. Questo articolo illustra alcuni termini usati di frequente che potrebbero essere usati in tutto il servizio. 
+La condivisione di dati di Azure introduce una nuova terminologia relativa alla condivisione dei dati. Questo articolo illustra alcuni termini usati di frequente che potrebbero essere usati in tutto il servizio. 
 
 ## <a name="data-provider"></a>Provider di dati
 
@@ -47,7 +47,7 @@ Un provider di dati può abilitare un'impostazione snapshot per una condivisione
 
 Se un provider di dati Abilita questa impostazione, è possibile selezionare un intervallo di ricorrenza. L'intervallo di ricorrenza può essere ogni ora o ogni giorno. 
 
-Un consumer di dati ha la possibilità di acconsentire esplicitamente a questa pianificazione dello snapshot per ricevere aggiornamenti incrementali, che includono tutti i dati che sono stati modificati dopo la prima generazione di un nuovo snapshot. 
+Un consumer di dati ha la possibilità di acconsentire esplicitamente a questa pianificazione dello snapshot per ricevere aggiornamenti incrementali, che include tutti i dati che sono stati modificati dopo la prima generazione di un nuovo snapshot. 
 
 ## <a name="invitation"></a>Invito
 
@@ -64,4 +64,3 @@ Un destinatario è un utente che riceve un invito a una condivisione di dati. In
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come iniziare a condividere i dati, procedere con l'esercitazione sulla [condivisione dei dati](share-your-data.md).
-

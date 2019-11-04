@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 17dd4862a02a736237257c50802135fb62883d77
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: c51af15d2334e873c8c7c399322fbd1279de3784
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200607"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468203"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application-preview-features"></a>Gestire utenti e ruoli nell'applicazione IoT Central (funzionalità di anteprima)
 
@@ -263,4 +263,4 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come gestire utenti e ruoli nell'applicazione IoT Central di Azure, il passaggio successivo suggerito consiste nell'apprendere come [gestire la fattura](/howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+Ora che si è appreso come gestire utenti e ruoli nell'applicazione IoT Central di Azure, il passaggio successivo suggerito consiste nell'apprendere come [gestire la fattura](howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).

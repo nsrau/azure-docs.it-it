@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab1caeb59cf7fc0a6baef5ba0001e734a75fccd2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 25d1aec836f66ae2ebc007e920cf6ef8a4450919
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72758234"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473341"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Pianificare una distribuzione automatica del provisioning utenti
 
@@ -63,7 +63,7 @@ Questo articolo usa i termini seguenti:
 
 * Sistema di destinazione: il repository degli utenti a cui il Azure AD effettua il provisioning. Il sistema di destinazione è in genere un'applicazione SaaS, ad esempio ServiceNow, zscaler e slack. Il sistema di destinazione può anche essere un sistema locale, ad esempio AD.
 
-* [Sistema per la gestione delle identità tra domini (SCIM)](http://www.simplecloud.info/)) -Uno standard aperto che consente di automatizzare il provisioning degli utenti. SCIM comunica i dati dell'identità utente tra i provider di identità, ad esempio Microsoft, e i provider di servizi come Salesforce o altre app SaaS che richiedono informazioni sull'identità utente.
+* [System for Cross-Domain Identity Management (SCIM)](https://aka.ms/scimoverview) : uno standard aperto che consente di automatizzare il provisioning degli utenti. SCIM comunica i dati dell'identità utente tra i provider di identità, ad esempio Microsoft, e i provider di servizi come Salesforce o altre app SaaS che richiedono informazioni sull'identità utente.
 
 ### <a name="training-resources"></a>Risorse di formazione
 
@@ -281,6 +281,8 @@ Dopo un [ciclo iniziale](https://docs.microsoft.com/azure/active-directory/manag
 * Il processo di provisioning viene messo in quarantena a causa di una percentuale elevata di errori e rimane in quarantena per più di quattro settimane quando verrà disabilitato automaticamente.
 
 Per esaminare questi eventi e tutte le altre attività eseguite dal servizio di provisioning, fare riferimento a Azure AD [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context).
+
+Per comprendere il tempo di esecuzione dei cicli di provisioning e il monitoraggio dello stato del processo di provisioning, è possibile [controllare lo stato del provisioning dell'utente](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
 
 ### <a name="gain-insights-from-reports"></a>Ottieni informazioni dettagliate dai report
 

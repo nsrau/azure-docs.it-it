@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 88a5e5fa1267e834a04c46ed38868cf74acd9bb0
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 7d4546a6d2de01575825154ab30a909b76b3fc89
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171935"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474482"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Modalità di sincronizzazione di oggetti e credenziali in un Azure AD Domain Services dominio gestito
 
-Gli oggetti e le credenziali in un dominio gestito di Azure Active Directory Domain Services (AD DS) possono essere creati localmente all'interno del dominio o sincronizzati da un tenant di Azure Active Directory (AD). Quando si distribuisce per la prima volta Azure AD DS, viene configurata e avviata una sincronizzazione automatica unidirezionale per replicare gli oggetti da Azure AD. Questa sincronizzazione unidirezionale continua a essere eseguita in background per Mantenete aggiornato il dominio gestito di Azure AD DS con eventuali modifiche da Azure AD.
+Gli oggetti e le credenziali in un dominio gestito di Azure Active Directory Domain Services (AD DS) possono essere creati localmente all'interno del dominio o sincronizzati da un tenant di Azure Active Directory (Azure AD). Quando si distribuisce per la prima volta Azure AD DS, viene configurata e avviata una sincronizzazione automatica unidirezionale per replicare gli oggetti da Azure AD. Questa sincronizzazione unidirezionale continua a essere eseguita in background per Mantenete aggiornato il dominio gestito di Azure AD DS con eventuali modifiche da Azure AD. Non viene eseguita alcuna sincronizzazione da Azure AD DS a Azure AD.
 
 In un ambiente ibrido, gli oggetti e le credenziali di un dominio di servizi di dominio Active Directory locale possono essere sincronizzati con Azure AD usando Azure AD Connect. Una volta che gli oggetti sono stati sincronizzati correttamente con Azure AD, la sincronizzazione automatica in background rende disponibili tali oggetti e credenziali per le applicazioni che usano il dominio gestito Azure AD DS.
 
@@ -38,7 +38,7 @@ Il processo di sincronizzazione è unidirezionale/unidirezionale per progettazio
 
 La tabella seguente elenca alcuni attributi comuni e il modo in cui vengono sincronizzati con Azure AD DS.
 
-| Attributo in Azure AD DS | Source | Note |
+| Attributo in Azure AD DS | Source (Sorgente) | Note |
 |:--- |:--- |:--- |
 | UPN | Attributo *UPN* dell'utente in Azure ad tenant | L'attributo UPN del tenant Azure AD viene sincronizzato così com'è per Azure AD DS. Il modo più affidabile per accedere a un dominio gestito di Azure AD DS consiste nell'usare l'UPN. |
 | SAMAccountName | Attributo *mailNickname* dell'utente in Azure ad tenant o generato automaticamente | L'attributo *sAMAccountName* viene originato dall'attributo *mailNickname* nel tenant Azure ad. Se più account utente hanno lo stesso attributo *mailNickname* , il *sAMAccountName* viene generato automaticamente. Se il *mailNickname* o il prefisso *UPN* dell'utente è più lungo di 20 caratteri, *sAMAccountName* viene generato automaticamente per soddisfare il limite di 20 caratteri per gli attributi *sAMAccountName* . |
@@ -47,7 +47,9 @@ La tabella seguente elenca alcuni attributi comuni e il modo in cui vengono sinc
 | Cronologia SID per utenti e gruppi | SID utente/gruppo primario locale | L'attributo *sIDHistory* per utenti e gruppi in Azure AD DS è impostato in modo da corrispondere al SID di gruppo o utente primario corrispondente in un ambiente di servizi di dominio Active Directory locale. Questa funzionalità consente di eseguire in modo Lift-and-Shift le applicazioni locali per Azure AD DS più semplice, perché non è necessario rieseguire l'ACL delle risorse. |
 
 > [!TIP]
-> **Accedere al dominio gestito usando il formato UPN** L'attributo *sAMAccountName* , ad esempio `CONTOSO\driley`, può essere generato automaticamente per alcuni account utente in un dominio gestito Azure AD DS. Il *sAMAccountName* generato automaticamente dagli utenti può variare dal prefisso UPN, quindi non è sempre un modo affidabile per accedere. Ad esempio, se più utenti hanno lo stesso attributo *mailNickname* o se gli utenti hanno prefissi UPN eccessivamente lunghi, il *sAMAccountName* per questi utenti potrebbe essere generato automaticamente. Usare il formato UPN, ad esempio `driley@contoso.com`, per accedere in modo affidabile a un dominio gestito di Azure AD DS.
+> **Accedere al dominio gestito usando il formato UPN** L'attributo *sAMAccountName* , ad esempio `CONTOSO\driley`, può essere generato automaticamente per alcuni account utente in un dominio gestito Azure AD DS. Il *sAMAccountName* generato automaticamente dagli utenti può variare dal prefisso UPN, quindi non è sempre un modo affidabile per accedere.
+>
+> Ad esempio, se più utenti hanno lo stesso attributo *mailNickname* o se gli utenti hanno prefissi UPN eccessivamente lunghi, il *sAMAccountName* per questi utenti potrebbe essere generato automaticamente. Usare il formato UPN, ad esempio `driley@contoso.com`, per accedere in modo affidabile a un dominio gestito di Azure AD DS.
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Mapping degli attributi per gli account utente
 
@@ -73,7 +75,7 @@ Nella tabella seguente viene illustrato il modo in cui gli attributi specifici p
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
 | postalCode |postalCode |
 | preferredLanguage |preferredLanguage |
-| stato |st |
+| state |st |
 | streetAddress |streetAddress |
 | surname |sn |
 | telephoneNumber |telephoneNumber |
@@ -112,13 +114,13 @@ Come descritto in precedenza, non viene eseguita alcuna sincronizzazione tra Azu
 
 ## <a name="what-isnt-synchronized-to-azure-ad-ds"></a>Cosa non viene sincronizzato con Azure AD DS
 
-Gli oggetti o gli attributi seguenti non vengono sincronizzati con Azure AD o Azure AD DS:
+Gli oggetti o gli attributi seguenti non vengono sincronizzati da un ambiente Active Directory Domain Services locale per Azure AD o Azure AD DS:
 
 * **Attributi esclusi:** È possibile scegliere di escludere determinati attributi dalla sincronizzazione per Azure AD da un ambiente Active Directory Domain Services locale usando Azure AD Connect. Questi attributi esclusi non sono quindi disponibili in Azure AD DS.
 * **Criteri di gruppo:** I criteri di gruppo configurati in un ambiente di servizi di dominio Active Directory locale non vengono sincronizzati con Azure AD DS.
 * **Cartella SYSVOL:** Il contenuto della cartella *SYSVOL* in un ambiente di servizi di dominio Active Directory locale non è sincronizzato con Azure AD DS.
 * **Oggetti computer:** Gli oggetti computer per i computer aggiunti a un ambiente Servizi di dominio Active Directory locale non vengono sincronizzati con Azure AD DS. Questi computer non hanno una relazione di trust con il dominio gestito di Azure AD DS e appartengono solo all'ambiente Servizi di dominio Active Directory locale. In Azure AD DS vengono visualizzati solo gli oggetti computer per i computer che hanno aggiunto al dominio gestito in modo esplicito.
-* **Attributi SidHistory per utenti e gruppi:** L'utente primario e i SID del gruppo primario da un ambiente di servizi di dominio Active Directory locale vengono sincronizzati con Azure AD DS. Tuttavia, gli attributi *sIDHistory* esistenti per utenti e gruppi non vengono sincronizzati dall'ambiente Servizi di dominio Active Directory locale a Azure AD DS.
+* **Attributi sIDHistory per utenti e gruppi:** L'utente primario e i SID del gruppo primario da un ambiente di servizi di dominio Active Directory locale vengono sincronizzati con Azure AD DS. Tuttavia, gli attributi *sIDHistory* esistenti per utenti e gruppi non vengono sincronizzati dall'ambiente Servizi di dominio Active Directory locale a Azure AD DS.
 * **Strutture di unità organizzative (OU):** Le unità organizzative definite in un ambiente di servizi di dominio Active Directory locale non vengono sincronizzate con Azure AD DS. Sono disponibili due unità organizzative predefinite in Azure AD DS, una per gli utenti e una per i computer. Il dominio gestito di Azure AD DS dispone di una struttura di unità organizzativa flat. È possibile scegliere di [creare un'unità organizzativa personalizzata nel dominio gestito](create-ou.md).
 
 ## <a name="password-hash-synchronization-and-security-considerations"></a>Considerazioni sulla sicurezza e la sincronizzazione dell'hash delle password

@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6f81bc2ccf11cbcc3621dc1149879864c88cf0cf
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 489f4a527a5afaf1bab5e2065137a5011d45baa6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980510"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474446"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Casi d'uso comuni e scenari per Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (Azure AD DS) fornisce servizi di dominio gestiti, ad esempio aggiunta a un dominio, criteri di gruppo, LDAP e autenticazione Kerberos/NTLM. Azure Active Directory Domain Services si integra con il tenant di Azure AD esistente, consentendo così agli utenti di eseguire l'accesso usando le proprie credenziali già configurate. Questi servizi di dominio vengono usati senza la necessità di distribuire, gestire e applicare patch ai controller di dominio nel cloud, che fornisce un lift-and-Shift più agevole delle risorse locali in Azure.
+Azure Active Directory Domain Services (Azure AD DS) fornisce servizi di dominio gestiti, ad esempio aggiunta a un dominio, criteri di gruppo, LDAP (Lightweight Directory Access Protocol) e autenticazione Kerberos/NTLM. Azure Active Directory Domain Services si integra con il tenant di Azure AD esistente, consentendo così agli utenti di eseguire l'accesso usando le proprie credenziali già configurate. Questi servizi di dominio vengono usati senza la necessità di distribuire, gestire e applicare patch ai controller di dominio nel cloud, che fornisce un lift-and-Shift più agevole delle risorse locali in Azure.
 
 In questo articolo vengono illustrati alcuni scenari aziendali comuni in cui Azure AD DS fornisce valore e soddisfa tali esigenze.
 
@@ -28,11 +28,11 @@ In questo articolo vengono illustrati alcuni scenari aziendali comuni in cui Azu
 
 Per consentire l'uso di un singolo set di credenziali di Active Directory, le macchine virtuali (VM) di Azure possono essere unite a un dominio gestito di Azure AD DS. Questo approccio consente di ridurre i problemi di gestione delle credenziali, ad esempio la gestione degli account amministratore locale in ogni VM o la separazione di account e password tra ambienti.
 
-Le macchine virtuali che fanno parte di un dominio gestito Azure AD DS possono essere gestite e protette anche usando Criteri di gruppo. Le linee di base di sicurezza richieste possono essere applicate alle macchine virtuali per bloccarle in base alle linee guida di sicurezza aziendali. Ad esempio, è possibile usare le funzionalità di gestione di criteri di gruppo per limitare i tipi di applicazioni che possono essere avviate nella macchina virtuale.
+Le macchine virtuali che fanno parte di un dominio gestito di Azure AD DS possono anche essere gestite e protette tramite criteri di gruppo. Le linee di base di sicurezza richieste possono essere applicate alle macchine virtuali per bloccarle in base alle linee guida di sicurezza aziendali. Ad esempio, è possibile usare le funzionalità di gestione di criteri di gruppo per limitare i tipi di applicazioni che possono essere avviate nella macchina virtuale.
 
 ![Gestione ottimizzata delle macchine virtuali di Azure](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
 
-Esaminiamo uno scenario di esempio comune. Poiché i server e altre infrastrutture raggiungono la fine del ciclo di vita, Contoso desidera spostare le applicazioni attualmente ospitate in locale nel cloud. Il rispettivo standard IT impone che i server che ospitano applicazioni aziendali debbano essere aggiunti a un dominio e gestiti tramite criteri di gruppo. L'amministratore IT di Contoso preferisce aggiungere a un dominio le VM distribuite in Azure per semplificare l'amministrazione perché gli utenti possono quindi accedere con le proprie credenziali aziendali. Quando si aggiunge un dominio, le macchine virtuali possono anche essere configurate per essere conformi alle linee di base di sicurezza obbligatorie usando Criteri di gruppo. Contoso preferisce non distribuire, monitorare e gestire i propri controller di dominio in Azure.
+Esaminiamo uno scenario di esempio comune. Poiché i server e altre infrastrutture raggiungono la fine del ciclo di vita, Contoso desidera spostare le applicazioni attualmente ospitate in locale nel cloud. Il rispettivo standard IT impone che i server che ospitano applicazioni aziendali debbano essere aggiunti a un dominio e gestiti tramite criteri di gruppo. L'amministratore IT di Contoso preferisce aggiungere a un dominio le VM distribuite in Azure per semplificare l'amministrazione perché gli utenti possono quindi accedere con le proprie credenziali aziendali. Quando si aggiunge un dominio, le macchine virtuali possono anche essere configurate per essere conformi alle linee di base di sicurezza obbligatorie usando oggetti Criteri di gruppo (GPO). Contoso preferisce non distribuire, monitorare e gestire i propri controller di dominio in Azure.
 
 Azure AD DS rappresenta un'ottima soluzione per questo caso d'uso. Un dominio gestito di Azure AD DS consente l'aggiunta di un dominio alle VM, l'utilizzo di un singolo set di credenziali e l'applicazione di criteri di gruppo. In quanto dominio gestito, non è necessario configurare e gestire manualmente i controller di dominio.
 
@@ -63,7 +63,7 @@ Le considerazioni sulla distribuzione seguenti si applicano al caso d'uso di ese
 
 ## <a name="lift-and-shift-on-premises-applications-that-use-ldap-read-to-access-the-directory"></a>Applicazioni locali Lift-and-Shift che usano LDAP Read per accedere alla directory
 
-Come lo scenario di esempio precedente, si supponga che Contoso disponga di un'applicazione line-of-business (LOB) locale sviluppata quasi un decennio fa. Questa applicazione è compatibile con le directory ed è stata progettata per utilizzare LDAP (Lightweight Directory Access Protocol) per leggere informazioni/attributi sugli utenti di servizi di dominio Active Directory. L'applicazione non modifica gli attributi o altrimenti scrive nella directory.
+Come lo scenario di esempio precedente, si supponga che Contoso disponga di un'applicazione line-of-business (LOB) locale sviluppata quasi un decennio fa. Questa applicazione è compatibile con le directory ed è stata progettata per utilizzare LDAP per leggere informazioni/attributi sugli utenti di servizi di dominio Active Directory. L'applicazione non modifica gli attributi o altrimenti scrive nella directory.
 
 Contoso vuole eseguire la migrazione di questa applicazione in Azure e ritirare l'hardware locale obsoleto che ospita attualmente questa applicazione. Non è possibile riscrivere l'applicazione per usare le API di directory moderne, ad esempio le Azure AD basate su REST API Graph. Si desidera un'opzione Lift-and-Shift in cui è possibile eseguire la migrazione dell'applicazione per l'esecuzione nel cloud, senza modificare il codice o riscrivere l'applicazione.
 
@@ -99,7 +99,7 @@ Le considerazioni sulla distribuzione seguenti si applicano al caso d'uso di ese
 
 ## <a name="domain-joined-hdinsight-clusters-preview"></a>Cluster HDInsight aggiunti al dominio (anteprima)
 
-È possibile configurare un cluster Azure HDInsight aggiunto a un dominio gestito di Azure AD DS con Apache Ranger abilitato. Questa funzionalità è attualmente in anteprima. È possibile creare e applicare criteri hive tramite Apache Ranger e consentire agli utenti, ad esempio i data scientist, di connettersi a hive usando strumenti basati su ODBC come Excel o Tableau. Continuiamo a lavorare per aggiungere altri carichi di lavoro, ad esempio HBase, Spark e Storm, a HDInsight aggiunto al dominio.
+È possibile configurare un cluster Azure HDInsight aggiunto a un dominio gestito di Azure AD DS con Apache Ranger abilitato. È possibile creare e applicare criteri hive tramite Apache Ranger e consentire agli utenti, ad esempio i data scientist, di connettersi a hive usando strumenti basati su ODBC come Excel o Tableau. Continuiamo a lavorare per aggiungere altri carichi di lavoro, ad esempio HBase, Spark e Storm, a HDInsight aggiunto al dominio.
 
 Per altre informazioni su questo scenario di distribuzione, vedere [come configurare cluster HDInsight aggiunti al dominio][hdinsight]
 

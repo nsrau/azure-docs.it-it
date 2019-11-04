@@ -1,23 +1,23 @@
 ---
 title: 'Regressione lineare: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo di regressione lineare nel servizio Azure Machine Learning per creare un modello di regressione lineare da usare in una pipeline.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo di regressione lineare in Azure Machine Learning per creare un modello di regressione lineare da usare in una pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 9c1dc34743d3fe65d50559d1b75aab1a0530d24c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 688bf923c07d9417b002b7cab6e3c0a0c8d20dae
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693703"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497743"
 ---
 # <a name="linear-regression-module"></a>Modulo di regressione lineare
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per creare un modello di regressione lineare da usare in una pipeline.  La regressione lineare tenta di stabilire una relazione lineare tra una o più variabili indipendenti e un risultato numerico o una variabile dipendente. 
 
@@ -63,7 +63,7 @@ Questo modulo supporta due metodi per adattare un modello di regressione, con di
 
 ## <a name="bkmk_OrdinaryLeastSquares"></a>Creare un modello di regressione usando i quadrati minimi normali
 
-1. Aggiungere il modulo **modello di regressione lineare** alla pipeline nell'interfaccia.
+1. Aggiungere il modulo **modello di regressione lineare** alla pipeline nella finestra di progettazione.
 
     È possibile trovare questo modulo nella categoria **Machine Learning** . Espandere **Initialize Model**, espandere **regressione**, quindi trascinare il modulo **Linear regressione Model** nella pipeline.
 
@@ -97,7 +97,7 @@ Al termine del training:
 
 ## <a name="bkmk_GradientDescent"></a>Creare un modello di regressione usando la discesa sfumatura online
 
-1. Aggiungere il modulo **modello di regressione lineare** alla pipeline nell'interfaccia.
+1. Aggiungere il modulo **modello di regressione lineare** alla pipeline nella finestra di progettazione.
 
     È possibile trovare questo modulo nella categoria **Machine Learning** . Espandere **Inizializza modello**, espandere **regressione**e trascinare il modulo **modello di regressione lineare** nella pipeline
 
@@ -143,4 +143,4 @@ Al termine del training:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

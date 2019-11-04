@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7504d14d522a440572aa25491270c0afc73325a9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 2d80ac949dea3c9d6c3d28d2a343c4ed7bad8983
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554396"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474348"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud
 
@@ -220,6 +220,7 @@ Per pianificare la strategia di criteri di accesso condizionale, che determina q
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale.
 1. Passare ad **Azure Active Directory** , **Accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
+   ![creare un criterio di accesso condizionale per abilitare l'autenticazione a più fattori per portale di Azure utenti del gruppo pilota](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Immettere un nome significativo per i criteri.
 1. In **Utenti e gruppi**:
    * Nella scheda **Includere** selezionare il pulsante di opzione **Tutti gli utenti**
@@ -237,8 +238,6 @@ Per pianificare la strategia di criteri di accesso condizionale, che determina q
 1. Ignorare la sezione **Sessione**.
 1. Impostare l'interruttore **Abilita criterio** su **Sì**.
 1. Fare clic su **Create**(Crea).
-
-![Creare un criterio di accesso condizionale per abilitare l'autenticazione a più fattori per portale di Azure utenti nel gruppo pilota](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 
 ## <a name="plan-integration-with-on-premises-systems"></a>Pianificare l'integrazione con i sistemi locali
 

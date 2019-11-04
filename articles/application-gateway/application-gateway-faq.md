@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d0cb5becd8375c393031892efb0b6c54786eeb8f
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 63c3f2080a74142f3f9a68852092cbc527c4483b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242236"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470067"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -327,6 +327,19 @@ Sì. Puoi abilitare la protezione DDoS sulla rete virtuale in cui è distribuito
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Sono disponibili linee guida per la migrazione dallo SKU V1 allo SKU V2?
 
 Sì. Per informazioni dettagliate, vedere [eseguire la migrazione di applicazione Azure gateway e del Web Application Firewall da V1 a V2](migrate-v1-v2.md).
+
+## <a name="configuration---ingress-controller-for-aks"></a>Configurazione-controller in ingresso per AKS
+
+### <a name="what-is-an-ingress-controller"></a>Che cos'è un controller di ingresso?
+
+Kubernetes consente la creazione di `deployment` e `service` risorsa per esporre un gruppo di Pod internamente nel cluster. Per esporre lo stesso servizio esternamente, viene definita una risorsa [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) che fornisce il bilanciamento del carico, la terminazione SSL e l'hosting virtuale basato sul nome.
+Per soddisfare questa `Ingress` risorsa, è necessario un controller di ingresso che rimane in ascolto delle modifiche apportate alle risorse `Ingress` e configura i criteri del servizio di bilanciamento del carico.
+
+Il controller di ingresso del gateway applicazione consente di usare [applicazione Azure gateway](https://azure.microsoft.com/services/application-gateway/) come ingresso per un [servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/) , noto anche come cluster AKS.
+
+### <a name="can-a-single-ingress-controller-instance-manage-multiple-application-gateways"></a>Una singola istanza del controller di ingresso può gestire più gateway applicazione?
+
+Attualmente, un'istanza del controller di ingresso può essere associata a un solo gateway applicazione.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostica e registrazione
 

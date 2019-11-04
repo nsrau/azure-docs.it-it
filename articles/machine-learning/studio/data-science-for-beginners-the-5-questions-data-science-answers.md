@@ -1,6 +1,6 @@
 ---
 title: Analisi scientifica dei dati per principianti
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: La serie di Data Science per principianti illustra i concetti di base in 5 brevi video, partendo con "The 5 Questions Data Science Answers" (Le 5 domande a cui Data Science può rispondere). Da Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: d89a701f1d4528e1f3dff08daf31873891778f07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1163d2faab48893fae992240feb0c56ef99324fe
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751395"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493099"
 ---
-# <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Data science per principianti, video 1: 5 domande a cui può rispondere la data science
+# <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Analisi scientifica dei dati per principianti, video 1: Le 5 domande a cui risponde l'analisi scientifica dei dati
 La serie *Data Science for Beginners* (Analisi scientifica dei dati per principianti) offre in cinque brevi video una rapida introduzione all'analisi scientifica dei dati offerta da un esperto in materia. Questi video sono basilari, ma utili per chi è interessato a eseguire l'analisi scientifica dei dati oppure lavora con addetti a questa operazione.
 
 Il primo video contiene le tipologie di domande a cui l'analisi scientifica dei dati può rispondere. Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
@@ -30,13 +30,13 @@ Il primo video contiene le tipologie di domande a cui l'analisi scientifica dei 
 ## <a name="other-videos-in-this-series"></a>Altri video della serie
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in circa 25 minuti. Estrarre tutti i cinque video:
 
-* Video 1: 5 domande a cui può rispondere la data science
-* Video 2: [I dati sono pronti per la data science?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
+* Video 1: 5 domande a cui può rispondere l'analisi scientifica dei dati
+* Video 2: [Verifica della preparazione dei dati per l'analisi scientifica dei dati](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
 * Video 3: [Porre una domanda a cui è possibile rispondere con i dati](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min e 17 sec)*
 * Video 4: [Prevedere una risposta con un modello semplice](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min e 42 sec)*
-* Video 5: [Copiare il lavoro di altre persone per operazioni di data science](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
+* Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
 
-## <a name="transcript-the-5-questions-data-science-answers"></a>Trascrizione: 5 domande a cui può rispondere la data science
+## <a name="transcript-the-5-questions-data-science-answers"></a>Trascrizione: Le 5 domande a cui risponde l'analisi scientifica dei dati
 Salve! Benvenuti alla serie di video *Analisi scientifica dei dati per principianti*.
 
 Il concetto di analisi scientifica dei dati per principianti può intimidire, per questo motivo i concetti di base verranno illustrati senza ricorrere a equazioni o al gergo informatico di programmazione.
@@ -66,7 +66,7 @@ Questa famiglia di algoritmi viene detta classificazione a due classi.
 
 È utile per qualsiasi domanda che può avere solo due risposte possibili.
 
-Ad esempio:
+ad esempio:
 
 * Sarà possibile percorrere le prossime 1.000 miglia con questi pneumatici: Sì o No?
 * Cosa porta più clienti: un coupon da $ 5 o uno sconto del 25%?
@@ -135,5 +135,5 @@ Gli algoritmi di apprendimento per rinforzo raccolgono i dati durante i processi
 Ecco, queste sono le 5 domande a cui l'analisi scientifica dei dati per principianti può rispondere.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Effettuare il primo esperimento di analisi scientifica dei dati con Machine Learning Studio](create-experiment.md)
+* [Provare un primo esperimento di data science con Machine Learning Studio (classico)](create-experiment.md)
 * [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

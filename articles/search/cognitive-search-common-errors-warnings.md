@@ -1,24 +1,23 @@
 ---
-title: Errori e avvisi comuni-ricerca di Azure
-description: Questo articolo fornisce informazioni e soluzioni per gli errori e gli avvisi comuni che possono verificarsi durante l'arricchimento di intelligenza artificiale in ricerca di Azure.
-services: search
-manager: heidist
+title: Errori e avvisi comuni
+titleSuffix: Azure Cognitive Search
+description: Questo articolo fornisce informazioni e soluzioni per gli errori e gli avvisi comuni che possono verificarsi durante l'arricchimento di intelligenza artificiale in Azure ricerca cognitiva.
+manager: nitinme
 author: amotley
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 09/18/2019
 ms.author: abmotley
-ms.openlocfilehash: 6455ac9dbe0933f6d46d1137e0a19dcc388d8c80
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 540e72a4472fce626822f0b22bfac11a23aea205
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243047"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466763"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Errori e avvisi comuni della pipeline di arricchimento di intelligenza artificiale in ricerca di Azure
+# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Errori e avvisi comuni della pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva
 
-Questo articolo fornisce informazioni e soluzioni per gli errori e gli avvisi comuni che possono verificarsi durante l'arricchimento di intelligenza artificiale in ricerca di Azure.
+Questo articolo fornisce informazioni e soluzioni per gli errori e gli avvisi comuni che possono verificarsi durante l'arricchimento di intelligenza artificiale in Azure ricerca cognitiva.
 
 ## <a name="errors"></a>Errors
 L'indicizzazione viene arrestata quando il numero di errori supera [' maxFailedItems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
@@ -118,6 +117,7 @@ Il documento è stato letto ed elaborato, ma l'indicizzatore non è stato in gra
 | Problemi di connessione all'indice di destinazione (persistente dopo i tentativi) perché il servizio è sottoposto ad altro carico, ad esempio l'esecuzione di query o l'indicizzazione. | Impossibile stabilire la connessione a Update index. Il servizio di ricerca è sottoposto a un carico elevato. | [Ridimensionare il servizio di ricerca](search-capacity-planning.md)
 | È in corso la correzione del servizio di ricerca per l'aggiornamento del servizio o durante la riconfigurazione della topologia. | Impossibile stabilire la connessione a Update index. Il servizio di ricerca è attualmente inattivo o il servizio di ricerca è in fase di transizione. | Configurare il servizio con almeno 3 repliche per la disponibilità del 99,9% per ogni [contratto](https://azure.microsoft.com/support/legal/sla/search/v1_0/) di servizio
 | Errore nella risorsa di calcolo/rete sottostante (rare) | Impossibile stabilire la connessione a Update index. Si è verificato un errore sconosciuto. | Configurare gli indicizzatori per [l'esecuzione in base a una pianificazione](search-howto-schedule-indexers.md) per riprendersi da uno stato di errore.
+| Una richiesta di indicizzazione effettuata all'indice di destinazione non è stata riconosciuta entro un periodo di timeout a causa di problemi di rete. | Non è stato possibile stabilire la connessione all'indice di ricerca in modo tempestivo. | Configurare gli indicizzatori per [l'esecuzione in base a una pianificazione](search-howto-schedule-indexers.md) per riprendersi da uno stato di errore. Inoltre, provare a ridurre le dimensioni del [batch](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) dell'indicizzatore se questa condizione di errore viene mantenute.
 
 ### <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>Impossibile indicizzare il documento perché i dati dell'indicizzatore da indicizzare non sono validi
 
@@ -131,7 +131,7 @@ Il documento è stato letto ed elaborato, ma a causa di una mancata corrisponden
 | Un tipo sconosciuto è stato individuato nel documento di origine. | Impossibile indicizzare il tipo sconosciuto '_Unknown_' |
 | Una notazione incompatibile per i punti geografici è stata usata nel documento di origine. | I valori letterali stringa del punto WKT non sono supportati. Usare invece i valori letterali del punto GeoJSON |
 
-In tutti questi casi, fare riferimento ai [tipi di dati supportati (ricerca di Azure)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) e al [mapping dei tipi di dati per gli indicizzatori in ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) per assicurarsi di compilare correttamente lo schema dell'indice e di aver configurato i mapping appropriati dei campi dell' [indicizzatore](search-indexer-field-mappings.md). Il messaggio di errore includerà i dettagli che consentono di tenere traccia dell'origine della mancata corrispondenza.
+In tutti questi casi, fare riferimento ai [tipi di dati supportati](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) e al mapping dei tipi di [dati per gli indicizzatori](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) per assicurarsi di compilare correttamente lo schema dell'indice e di aver configurato i mapping appropriati dei [campi dell'indicizzatore](search-indexer-field-mappings.md). Il messaggio di errore includerà i dettagli che consentono di tenere traccia dell'origine della mancata corrispondenza.
 
 ### <a name="could-not-process-document-within-indexer-max-run-time"></a>Non è stato possibile elaborare il documento entro il tempo di esecuzione massimo dell'indicizzatore
 
@@ -225,3 +225,8 @@ La possibilità di riprendere un processo di indicizzazione non completata si ba
 È possibile eseguire l'override di questo comportamento, abilitando lo stato incrementale ed eliminando questo avviso utilizzando la proprietà di configurazione `assumeOrderByHighWatermarkColumn`.
 
 [Ulteriori informazioni su Cosmos DB l'avanzamento incrementale e le query personalizzate.](https://go.microsoft.com/fwlink/?linkid=2099593)
+
+### <a name="could-not-map-output-field-x-to-search-index"></a>Impossibile eseguire il mapping del campo di output ' X ' all'indice di ricerca
+I mapping dei campi di output che fanno riferimento a dati inesistenti/null produrranno avvisi per ogni documento e restituiscono un campo di indice vuoto. Per aggirare questo problema, controllare i percorsi di origine del mapping dei campi di output per individuare possibili errori di digitazione o impostare un valore predefinito usando l' [abilità condizionale](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
+
+L'indicizzatore è stato in grado di eseguire una competenza nel grado di competenze, ma la risposta dalla richiesta dell'API Web indicava la presenza di avvisi durante l'esecuzione. Esaminare gli avvisi per comprendere in che modo i dati sono interessati e se è necessaria un'azione.

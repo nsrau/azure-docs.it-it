@@ -9,24 +9,24 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/15/2019
 ms.author: diberry
-ms.openlocfilehash: bad3bdc2b4508c082ca50647d5de5e7265c763a1
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 4ca3a27a63f84eccb66b24d5046e2ae7d751387d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639189"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487546"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Migliorare l'accuratezza della stima con i criteri
 I criteri sono progettati per migliorare l'accuratezza quando vi sono più espressioni molto simili.  Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>I criteri risolvono il problema dell'attendibilità ridotta della finalità
-Si consideri un'app di risorse umane che genera report nel grafico aziendale su un dipendente. Dato un nome e una relazione dipendente, LUIS restituisce i dipendenti coinvolti. Si consideri un dipendente, Tom, con un manager di nome Alice e un team di sottoposti di nome Michael, Rebecca e Carl.
+Si consideri un'app di risorse umane che genera report nel grafico aziendale su un dipendente. Dato un nome e una relazione dipendente, LUIS restituisce i dipendenti coinvolti. Si consideri un dipendente, Tom, con un manager di nome Alice, e un team di sottoposti che si chiamano Michael, Rebecca e Carl.
 
 ![Immagine del grafico aziendale](./media/luis-concept-patterns/org-chart.png)
 
-|Espressioni|Finalità stimata|Punteggio finalità|
+|Espressioni|Finalità stimata|Punteggio di finalità|
 |--|--|--|
 |Chi è il sottoposto di Tom?|GetOrgChart|.30|
 |Come si chiama il sottoposto di Tom?|GetOrgChart|.30|
@@ -67,15 +67,15 @@ La sintassi del modello supporta la sintassi seguente:
 
 |Funzione|Sintassi|Livello di annidamento|Esempio|
 |--|--|--|--|
-|entità| {}-parentesi graffe|2|Dove è il formato {nome-entità}?|
+|Entità| parentesi graffe {}|2|Dove è il formato {nome-entità}?|
 |facoltativo|[]-parentesi quadre<BR><BR>È previsto un limite di 3 per i livelli di nidificazione di qualsiasi combinazione di facoltativo e raggruppamento |2|Il punto interrogativo è facoltativo [?]|
-|raggruppamento|()-parentesi|2|is (a \| b)|
-|oppure| \|-barra verticale (pipe)<br><br>È previsto un limite di 2 sulle barre verticali (o) in un gruppo |-|Dove è form ({form-name-Short} &#x7c; {form-name-Long} &#x7c; {form-Number})| 
+|Raggruppamento|()-parentesi|2|is (a \| b)|
+|Oppure| \|-barra verticale (pipe)<br><br>È previsto un limite di 2 sulle barre verticali (o) in un gruppo |-|Dove è form ({form-name-Short} &#x7c; {form-name-Long} &#x7c; {form-Number})| 
 |inizio e/o fine dell'espressione|^-punto di inserimento|-|^ iniziare il enunciato<br>l'espressione è stata eseguita ^<br>^ corrispondenza letterale Strict dell'intero enunciato con {Number} entità ^|
 
 ## <a name="nesting-syntax-in-patterns"></a>Annidamento della sintassi nei modelli
 
-La sintassi facoltativa, con parentesi quadre, può essere annidata in due livelli. Ad esempio: `[[this]is] a new form`. Questo esempio consente le espressioni seguenti: 
+La sintassi **facoltativa** , con parentesi quadre, può essere annidata in due livelli. Ad esempio: `[[this]is] a new form`. Questo esempio consente le espressioni seguenti: 
 
 |Esempio di espressione facoltativa annidata|Spiegazione|
 |--|--|
@@ -97,18 +97,18 @@ Se Entity1 è un percorso con ruoli quali Origin (Seattle) e Destination (Cairo)
 
 Una combinazione di **raggruppamento** con sintassi **facoltativa** ha un limite di 3 livelli di annidamento.
 
-|Allowed|Esempio|
+|Consentito|Esempio|
 |--|--|
-|Sì|([(test1 &#x7c; test2)] &#x7c; test3)|
+|SÌ|([(test1 &#x7c; test2)] &#x7c; test3)|
 |No|([([test1] &#x7c; test2)] &#x7c; test3)|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Limiti di annidamento per i gruppi con sintassi or-Ing
 
 Una combinazione di **raggruppamento** con la sintassi **or-ing** ha un limite di 2 barre verticali.
 
-|Allowed|Esempio|
+|Consentito|Esempio|
 |--|--|
-|Sì|(test1 &#x7c; test2 &#x7c; (test3 &#x7c; test4))|
+|SÌ|(test1 &#x7c; test2 &#x7c; (test3 &#x7c; test4))|
 |No|(test1 &#x7c; test2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Sintassi per aggiungere un'entità a un modello di criteri
@@ -155,12 +155,12 @@ Si consideri il criterio "[find] email about {subject} [from {person}]".
 
 Nelle espressioni seguenti le entità **subject** e **person** vengono estratte in modo corretto e non corretto:
 
-|Espressione|Entità|Estrazione corretta|
+|Espressione|Persona giuridica|Estrazione corretta|
 |--|--|:--:|
 |email about dogs from Chris|subject=dogs<br>person=Chris|✔|
 |email about the man from La Mancha|subject=the man<br>person=La Mancha|X|
 
-Nella tabella precedente, l'oggetto deve essere `the man from La Mancha` (titolo del libro), ma poiché l'oggetto include la parola `from`facoltativa, il titolo viene stimato in modo errato. 
+Nella tabella precedente, l'oggetto deve essere `the man from La Mancha` (titolo di un libro), ma poiché l'oggetto include la parola facoltativa `from`, il titolo viene stimato in modo errato. 
 
 Per risolvere questa eccezione nel criterio, aggiungere `the man from la mancha` come corrispondenza dell'elenco esplicito per l'entità {subject} usando l'[API di creazione per l'elenco esplicito](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
@@ -169,10 +169,10 @@ Contrassegnare il testo facoltativo nell'espressione usando la sintassi tra pare
 
 |Criteri con testo facoltativo|Significato|
 |--|--|
-|`[find] email about {subject} [from {person}]`|`find`e `from {person}` sono facoltativi|
+|`[find] email about {subject} [from {person}]`|`find` e `from {person}` sono facoltativi|
 |' Posso aiutarmi [?]|Il segno di punteggiatura è facoltativo|
 
-I segni di punteggiatura `!`( `.``?`,,) devono essere ignorati ed è necessario ignorarli usando la sintassi tra parentesi quadre nei modelli. 
+I segni di punteggiatura (`?`, `!`, `.`) devono essere ignorati ed è necessario ignorarli usando la sintassi tra parentesi quadre nei modelli. 
 
 ## <a name="pattern-only-apps"></a>App solo modello
 È possibile compilare un'app con Intent senza espressioni di esempio, purché esista un modello per ogni finalità. Per un'app solo modello, il modello non deve contenere entità apprese dal computer perché queste richiedono espressioni di esempio. 

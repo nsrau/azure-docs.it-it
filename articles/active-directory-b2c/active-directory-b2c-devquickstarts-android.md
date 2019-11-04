@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 29f1fc2a6fd23ef3a770f58fd78d5067672136dd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 28b1c3622ca449b0ce539937369fe43bd1d508ee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326298"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468985"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Accedere mediante un'applicazione Android in Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Se non si ha familiarità con OAuth2 o OpenID, gran parte di questo esempio risu
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Ottenere una directory di Azure AD B2C
 
-Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant. Una directory è un contenitore per utenti, app, gruppi e così via. Se non ne è già disponibile una, prima di continuare [creare una directory B2C](tutorial-create-tenant.md) .
+Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant. Una directory è un contenitore per utenti, app, gruppi e così via. Se non ne è già disponibile una, [creare una directory B2C](tutorial-create-tenant.md) prima di continuare.
 
 ## <a name="create-an-application"></a>Creare un'applicazione
 
@@ -38,7 +38,9 @@ Registrare quindi un'applicazione nel tenant del Azure AD B2C. Questo fornisce A
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Registrare l' **ID applicazione** per l'uso in un passaggio successivo. Successivamente, selezionare l'applicazione nell'elenco e registrare l' **URI di reindirizzamento personalizzato**, anche per l'uso in un passaggio successivo. Ad esempio `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+Registrare l' **ID dell'applicazione (client)** per l'uso in un passaggio successivo.
+
+Registrare anche l'URI di reindirizzamento personalizzato per l'uso in un passaggio successivo. Ad esempio `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## <a name="create-your-user-flows"></a>Creare i flussi utente
 

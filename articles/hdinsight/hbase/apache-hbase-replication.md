@@ -1,5 +1,5 @@
 ---
-title: Configurare la replica di cluster HBase nelle reti virtuali di Azure - Azure HDInsight
+title: Replica di cluster HBase nelle reti virtuali-Azure HDInsight
 description: Informazioni su come configurare la replica HBase da una versione di HDInsight a un'altra, per bilanciamento del carico, disponibilità elevata, aggiornamenti e migrazione senza tempo di inattività e ripristino di emergenza.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 34b9993482d1036570805af7caba29361b231426
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 18c7a06e656cbd5c16151381a76ec7725eb2785e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077188"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468421"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurare la replica di cluster Apache HBase nelle reti virtuali di Azure
 
@@ -68,15 +68,15 @@ Alcuni valori hardcoded nel modello:
 
 | Proprietà | Value |
 |----------|-------|
-| Location | Stati Uniti occidentali |
-| Nome rete virtuale | &lt;ClusterNamePrevix>-vnet1 |
+| Località | Stati Uniti occidentali |
+| Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet1 |
 | Prefisso dello spazio degli indirizzi | 10.1.0.0/16 |
 | Nome della subnet | subnet 1 |
 | Prefisso della subnet | 10.1.0.0/24 |
 | Nome della subnet (gateway) | GatewaySubnet (non può essere modificato) |
 | Prefisso della subnet (gateway) | 10.1.255.0/27 |
 | Nome del gateway | vnet1gw |
-| Tipo di gateway | VPN |
+| Tipo gateway | VPN |
 | Tipo di gateway VPN | RouteBased |
 | SKU del gateway | Basic |
 | IP del gateway | vnet1gwip |
@@ -85,15 +85,15 @@ Alcuni valori hardcoded nel modello:
 
 | Proprietà | Value |
 |----------|-------|
-| Location | East US |
-| Nome rete virtuale | &lt;ClusterNamePrevix>-vnet2 |
+| Località | Stati Uniti Orientali |
+| Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet2 |
 | Prefisso dello spazio degli indirizzi | 10.2.0.0/16 |
 | Nome della subnet | subnet 1 |
 | Prefisso della subnet | 10.2.0.0/24 |
 | Nome della subnet (gateway) | GatewaySubnet (non può essere modificato) |
 | Prefisso della subnet (gateway) | 10.2.255.0/27 |
 | Nome del gateway | vnet2gw |
-| Tipo di gateway | VPN |
+| Tipo gateway | VPN |
 | Tipo di gateway VPN | RouteBased |
 | SKU del gateway | Basic |
 | IP del gateway | vnet1gwip |
@@ -260,11 +260,11 @@ sudo service bind9 status
 Creare un cluster [Apache HBase](https://hbase.apache.org/) in ognuna delle due reti virtuali con la configurazione seguente:
 
 - **Nome gruppo di risorse**: usare lo stesso nome di gruppo di risorse creato per le reti virtuali.
-- **Tipo di cluster**: hbase
+- **Tipo di cluster**: HBase
 - **Versione**: HBase 1.1.2 (HDI 3.6)
-- **Posizione**: Usare la stessa posizione della rete virtuale.  Per impostazione predefinita, vnet1 è *Stati Uniti occidentali* e vnet2 è *Stati Uniti orientali*.
+- **Località**: usare la stessa località della rete virtuale.  Per impostazione predefinita, vnet1 è *Stati Uniti occidentali* e vnet2 è *Stati Uniti orientali*.
 - **Archiviazione**: creare un nuovo account di archiviazione per il cluster.
-- **Rete virtuale** (da Impostazioni avanzate nel portale): Selezionare vnet1 creata nella procedura precedente.
+- **Rete virtuale** (da Impostazioni avanzate sul portale): selezionare la vnet1 creata nella procedura precedente.
 - **Subnet**: il nome predefinito usato nel modello è **subnet1**.
 
 Per verificare che l'ambiente sia configurato correttamente, provare a effettuare il ping dell'FQDN del nodo head tra i due cluster.
@@ -273,9 +273,9 @@ Per verificare che l'ambiente sia configurato correttamente, provare a effettuar
 
 Quando si esegue la replica di un cluster, è necessario specificare le tabelle da replicare. In questa sezione, alcuni dati verranno caricati nel cluster di origine. Nella sezione successiva viene abilitata la replica tra i due cluster.
 
-Per creare una tabella **Contatti** e inserire alcuni dati nella tabella, seguire le istruzioni in [Esercitazione su Apache HBase: Introduzione ad Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md).
+Per creare una tabella **Contatti** e inserire alcuni dati nella tabella, seguire le istruzioni in [Esercitazione su Apache HBase: Iniziare a usare un esempio di Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
-## <a name="enable-replication"></a>Abilita replica
+## <a name="enable-replication"></a>Abilitare la replica
 
 La procedura seguente illustra come chiamare lo script di azione script dal portale di Azure. Per informazioni su come eseguire un'azione script tramite Azure PowerShell e l'interfaccia della riga di comando classica di Azure, vedere [Personalizzare i cluster HdInsight usando l'azione script](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -288,7 +288,7 @@ La procedura seguente illustra come chiamare lo script di azione script dal port
 5. Selezionare o immettere le seguenti informazioni:
 
    1. **Nome**: immettere **Abilitazione replica**.
-   2. **URL script Bash**: Immettere **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
+   2. **URL dello script Bash**: Immettere **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
    3. **Head**: assicurarsi che questa opzione sia selezionata. Deselezionare gli altri tipi di nodo.
    4. **Parametri**: i parametri di esempio seguenti abilitano la replica per tutte le tabelle esistenti e quindi copiano tutti i dati dal cluster di origine al cluster di destinazione:
 
@@ -297,11 +297,11 @@ La procedura seguente illustra come chiamare lo script di azione script dal port
       > [!NOTE]
       > Usare il nome host invece di FQDN per il nome DNS del cluster di origine e di destinazione.
 
-6. Selezionare **Create**. L'esecuzione dello script può richiedere tempo, in particolare se si usa l'argomento **-copydata**.
+6. Selezionare **Create** (Crea). L'esecuzione dello script può richiedere tempo, in particolare se si usa l'argomento **-copydata**.
 
 Argomenti obbligatori:
 
-|Name|DESCRIZIONE|
+|name|Description|
 |----|-----------|
 |-s, --src-cluster | Specifica il nome DNS del cluster HBase di origine. Ad esempio: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, - dst-cluster | Specifica il nome DNS del cluster HBase di destinazione (replica). Ad esempio: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -310,7 +310,7 @@ Argomenti obbligatori:
 
 Argomenti facoltativi:
 
-|NOME|DESCRIZIONE|
+|name|Description|
 |----|-----------|
 |-su, --src-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di origine. Il valore predefinito è **admin**. |
 |-du, --dst-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di destinazione. Il valore predefinito è **admin**. |
@@ -386,7 +386,7 @@ La sezione `print_usage()` dello [script](https://raw.githubusercontent.com/Azur
 - **Disabilitare la replica in tutte le tabelle**:
 
         -m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all
-  oppure
+  Oppure
 
         --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 

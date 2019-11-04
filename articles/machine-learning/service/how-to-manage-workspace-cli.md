@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 08/30/2019
-ms.openlocfilehash: 75487906e4323ea12a47d75164617212bd3e65d9
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8606ac2578c45062182517b5e67d669a09b8e5c0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002641"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489713"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come creare un'area di lavoro Azure Machine Learning usando l'interfaccia della riga di comando di Azure. L'interfaccia della riga di comando di Azure fornisce comandi per la gestione delle risorse di Azure L'estensione Machine Learning nell'interfaccia della riga di comando fornisce comandi per l'uso di risorse Azure Machine Learning.
 
@@ -39,7 +40,7 @@ Sono disponibili diversi modi per eseguire l'autenticazione alla sottoscrizione 
 az login
 ```
 
-Se l'interfaccia della riga di comando può aprire il browser predefinito, eseguirà questa operazione e caricherà una pagina di accesso. In caso contrario, è necessario aprire un browser e seguire le istruzioni nella riga di comando. Le istruzioni prevedono [https://aka.ms/devicelogin](https://aka.ms/devicelogin) l'esplorazione e l'immissione di un codice di autorizzazione.
+Se l'interfaccia della riga di comando può aprire il browser predefinito, eseguirà questa operazione e caricherà una pagina di accesso. In caso contrario, è necessario aprire un browser e seguire le istruzioni nella riga di comando. Le istruzioni prevedono l'esplorazione [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e l'immissione di un codice di autorizzazione.
 
 Per altri metodi di autenticazione, vedere [accedere con l'interfaccia](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)della riga di comando di Azure.
 
@@ -58,7 +59,7 @@ L'area di lavoro Azure Machine Learning si basa sui servizi o sulle entità di A
 > [!IMPORTANT]
 > Se non si specifica un servizio di Azure esistente, ne verrà creato uno automaticamente durante la creazione dell'area di lavoro. È sempre necessario specificare un gruppo di risorse.
 
-| Service | Parametro per specificare un'istanza esistente |
+| Servizio | Parametro per specificare un'istanza esistente |
 | ---- | ---- |
 | **Gruppo di risorse di Azure** | `-g <resource-group-name>`
 | **Account di archiviazione di Azure** | `--storage-account <service-id>` |
@@ -133,7 +134,7 @@ Per creare un'area di lavoro che usa risorse esistenti, è necessario fornire l'
 > [!IMPORTANT]
 > Non è necessario specificare tutte le risorse esistenti. È possibile specificare uno o più. Ad esempio, è possibile specificare un account di archiviazione esistente e l'area di lavoro creerà le altre risorse.
 
-+ **Account di archiviazione di Azure**:`az storage account show --name <storage-account-name> --query "id"`
++ **Account di archiviazione di Azure**: `az storage account show --name <storage-account-name> --query "id"`
 
     La risposta da questo comando è simile al testo seguente ed è l'ID dell'account di archiviazione:
 
@@ -163,7 +164,7 @@ Per creare un'area di lavoro che usa risorse esistenti, è necessario fornire l'
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Container Registry di Azure**:`az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Container Registry di Azure**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     La risposta da questo comando è simile al testo seguente ed è l'ID per il registro contenitori:
 
@@ -172,7 +173,7 @@ Per creare un'area di lavoro che usa risorse esistenti, è necessario fornire l'
     > [!IMPORTANT]
     > Il registro contenitori deve avere l' [account amministratore](/azure/container-registry/container-registry-authentication#admin-account) abilitato prima di poterlo usare con un'area di lavoro Azure Machine Learning.
 
-Quando si hanno gli ID per le risorse che si vuole usare con l'area di lavoro, usare il comando di base `az workspace create -w <workspace-name> -g <resource-group-name>` e aggiungere i parametri e gli ID per le risorse esistenti. Ad esempio, il comando seguente crea un'area di lavoro che usa un registro contenitori esistente:
+Quando si hanno gli ID per le risorse che si vuole usare con l'area di lavoro, usare il comando `az workspace create -w <workspace-name> -g <resource-group-name>` di base e aggiungere i parametri e gli ID per le risorse esistenti. Ad esempio, il comando seguente crea un'area di lavoro che usa un registro contenitori esistente:
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name> --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
@@ -201,7 +202,7 @@ L'output di questo comando è simile al codice JSON seguente:
 }
 ```
 
-## <a name="list-workspaces"></a>Elenca aree di lavoro
+## <a name="list-workspaces"></a>Elencare le aree di lavoro
 
 Per elencare tutte le aree di lavoro per la sottoscrizione di Azure, usare il comando seguente:
 

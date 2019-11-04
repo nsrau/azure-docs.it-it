@@ -8,19 +8,19 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: gwallace
-ms.openlocfilehash: 9e7b7526f13fa6b9ae648c4ddb4004a627d85154
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: cc5b142558a21d1364254e555f3cf8f64bba0e58
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359743"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469025"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurazione di SSL per un'applicazione in Azure
 
-La crittografia SSL (Secure Socket Layer) è il metodo più diffuso per proteggere i dati inviati tramite Internet. In questa attività comune viene illustrato come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione.
+La codifica SSL (Secure Socket Layer) è il metodo usato con maggiore frequenza per proteggere i dati inviati su Internet. Questa attività comune descrive come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL per proteggere l'applicazione.
 
 > [!NOTE]
-> Le procedure in questa attività si applicano a Servizi cloud di Azure. Per Servizi app, vedere [questo articolo](../app-service/app-service-web-tutorial-custom-ssl.md).
+> Le procedure in questa attività si applicano a Servizi cloud di Azure. Per Servizi app, vedere [questo articolo](../app-service/configure-ssl-bindings.md).
 >
 
 In questa attività viene usata una distribuzione di produzione. Alla fine di questo argomento vengono fornite informazioni sull'uso di una distribuzione di gestione temporanea.
@@ -43,7 +43,7 @@ A questo punto, è necessario includere le informazioni sul certificato nei file
 
 <a name="modify"> </a>
 
-## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Passaggio 2: Modificare la definizione del servizio e i file di configurazione
+## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Passaggio 2: Modificare i file di definizione e configurazione del servizio
 L'applicazione deve essere configurata per utilizzare il certificato ed è necessario aggiungere un endpoint HTTPS. Di conseguenza, è necessario aggiornare i file di definizione e configurazione del servizio.
 
 1. Nell'ambiente di sviluppo aprire il file di definizione del servizio (CSDEF), aggiungere una sezione **Certificates** all'interno della sezione **WebRole** e includere le informazioni seguenti relative al certificato (e ai certificati intermedi):
@@ -76,7 +76,7 @@ L'applicazione deve essere configurata per utilizzare il certificato ed è neces
 
    Le autorizzazioni (attributo`permissionLevel`) possono essere impostate su uno dei seguenti valori:
 
-   | Valore di autorizzazione | Descrizione |
+   | Valore di autorizzazione | Description |
    | --- | --- |
    | limitedOrElevated |**(Predefinito)** Tutti i processi di ruolo possono accedere alla chiave privata. |
    | elevated |Solo i processi con autorizzazioni elevate possono accedere alla chiave privata. |
@@ -132,12 +132,12 @@ Questo esempio usa **sha1** come algoritmo di identificazione personale. Specifi
 
 Ora che i file di definizione e configurazione del servizio sono stati aggiornati, creare il pacchetto della distribuzione per il caricamento in Azure. Se si usa **cspack**, non usare il flag **/generateConfigurationFile**, poiché questo sovrascriverebbe le informazioni del certificato appena inserite.
 
-## <a name="step-3-upload-a-certificate"></a>Passaggio 3: Carica un certificato
+## <a name="step-3-upload-a-certificate"></a>Passaggio 3: Caricare un certificato
 Connettersi al portale di Azure e...
 
 1. Nella sezione **Tutte le risorse** del portale selezionare il servizio cloud.
 
-    ![Pubblica il servizio cloud](media/cloud-services-configure-ssl-certificate-portal/browse.png)
+    ![Pubblicare il servizio cloud](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
 2. Fare clic su **Certificati**.
 
@@ -149,7 +149,7 @@ Connettersi al portale di Azure e...
 
 4. Specificare il **file** e la **password**, quindi fare clic su **Carica** nella parte inferiore dell'area di immissione di dati.
 
-## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Passaggio 4: Connettersi all'istanza del ruolo tramite HTTPS
+## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Passaggio 4: Connettersi all'istanza del ruolo usando HTTPS
 Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a questa usando HTTPS.
 
 1. Fare clic sull'**URL del sito** per aprire il Web browser.

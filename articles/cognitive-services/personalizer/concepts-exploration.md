@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: cfecea6a64301d86aa657420dc300c26d4ed6f1e
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 0b69c1fb070431ad61858322dce461f6496c35d7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663388"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490825"
 ---
 # <a name="exploration-and-exploitation"></a>Esplorazione e sfruttamento
 
@@ -25,22 +25,15 @@ Quando Personalizza esperienze riceve una chiamata a Classifica, restituisce un 
 * Usa lo sfruttamento per individuare il comportamento utente più probabile in base al modello di Machine Learning corrente.
 * Usa l'esplorazione, che non individua l'azione con la probabilità più elevata nella classifica.
 
-<!--
-Returning the most probable action is called *exploit* behavior. Returning a different action is called *exploration*.
--->
 Personalizza esperienze usa attualmente un algoritmo denominato *epsilon greedy* per l'esplorazione. 
 
 ## <a name="choosing-an-exploration-setting"></a>Scelta di un'impostazione di esplorazione
 
-Per configurare la percentuale di traffico da usare per l'esplorazione, nel portale di Azure è disponibile la pagina **Impostazioni** relativa a Personalizza esperienze. Questa impostazione determina la percentuale di chiamate a Classifica che eseguono l'esplorazione. 
+Configurare la percentuale di traffico da usare per l'esplorazione nella pagina di **configurazione** del portale di Azure per la personalizzazione. Questa impostazione determina la percentuale di chiamate a Classifica che eseguono l'esplorazione. 
 
 Personalizza esperienze determina se eseguire l'esplorazione o lo sfruttamento usando questa probabilità per ogni chiamata a Classifica. Questo comportamento è diverso rispetto a quanto accade in un framework A/B che blocca una gestione su ID utente specifici.
 
 ## <a name="best-practices-for-choosing-an-exploration-setting"></a>Procedure consigliate per la scelta di un'impostazione di esplorazione
-
-<!--
-@edjez - you say what not to do, but make no recommendations of what **to** do. 
--->
 
 La scelta di un'impostazione di esplorazione è una decisione aziendale che riguarda la proporzione di interazioni degli utenti da usare per l'esplorazione al fine di migliorare il modello. 
 

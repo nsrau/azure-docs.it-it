@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 2a61a2ba74ccdaa69b26cae65dd4f74a7b837ccf
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 96c346db74c1e6c43c3501b657621d09e019309c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72927455"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469211"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x  
 
@@ -71,6 +71,9 @@ I file di esempio *host.json* seguenti hanno tutte le possibili opzioni specific
             }
         }
     },
+    "managedDependency": {
+        "enabled": true
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -78,10 +81,7 @@ I file di esempio *host.json* seguenti hanno tutte le possibili opzioni specific
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ],
-    "managedDependency": {
-        "enabled": true
-    }
+    "watchDirectories": [ "Shared", "Test" ]
 }
 ```
 
@@ -247,6 +247,18 @@ Questa impostazione è un elemento figlio di [logging](#logging). Controlla la r
 |---------|---------|---------| 
 |isEnabled|false|Abilita o disabilita la registrazione nella console.| 
 
+## <a name="manageddependency"></a>managedDependency
+
+La dipendenza gestita è una funzionalità attualmente supportata solo con le funzioni basate su PowerShell. Consente la gestione automatica delle dipendenze da parte del servizio. Quando la proprietà `enabled` è impostata su `true`, il file di `requirements.psd1` viene elaborato. Le dipendenze vengono aggiornate quando vengono rilasciate versioni secondarie. Per altre informazioni, vedere [dipendenza gestita](functions-reference-powershell.md#dependency-management) nell'articolo di PowerShell.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
+}
+```
+
 ## <a name="queues"></a>queues
 
 Le impostazioni di configurazione sono reperibili in [Trigger e associazioni di Archiviazione code](functions-bindings-storage-queue.md#host-json).  
@@ -294,18 +306,6 @@ Un set di [directory codice condivise](functions-reference-csharp.md#watched-dir
 ```json
 {
     "watchDirectories": [ "Shared" ]
-}
-```
-
-## <a name="manageddependency"></a>managedDependency
-
-La dipendenza gestita è una funzionalità di anteprima attualmente supportata solo con le funzioni basate su PowerShell. Consente la gestione automatica delle dipendenze da parte del servizio. Quando la proprietà Enabled è impostata su true, il file [requirements. psd1](functions-reference-powershell.md#dependency-management) verrà elaborato. Le dipendenze verranno aggiornate quando vengono rilasciate versioni secondarie.
-
-```json
-{
-    "managedDependency": {
-        "enabled": true
-    }
 }
 ```
 

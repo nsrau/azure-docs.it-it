@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: b962fc32cdcde0509cfa60d105022bb208633ae3
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e9ad7c52af20762633c710b39a64fbebf0cf6213
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639298"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487738"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Test in batch con 1000 espressioni nel portale di LUIS
 
-I test in batch convalidano il modello con training [attivo](luis-concept-version.md#active-version) per misurare l'accuratezza delle previsioni. Un test batch consente di visualizzare l'accuratezza di ogni finalità ed entità nel modello sottoposto a training corrente, visualizzando i risultati con un grafico. Esaminare i risultati dei test in batch per intraprendere le azioni appropriate per migliorare l'accuratezza, ad esempio aggiungendo altre espressioni di esempio a una finalità se l'app spesso non riesce a identificare la finalità corretta.
+Il test batch convalida la versione con Training attivo per misurare l'accuratezza della stima. Un test batch consente di visualizzare l'accuratezza di ogni finalità ed entità nella versione attiva, visualizzando i risultati con un grafico. Esaminare i risultati dei test di batch per eseguire le azioni appropriate per migliorare l'accuratezza, ad esempio l'aggiunta di altre espressioni di esempio a uno scopo se l'app non riesce a identificare la finalità corretta o a etichettare entità all'interno dell'espressione.
 
 ## <a name="group-data-for-batch-test"></a>Raggruppare i dati per il test in batch
 

@@ -1,7 +1,7 @@
 ---
-title: Intent-LUIS
+title: Intent ed entità-LUIS
 titleSuffix: Azure Cognitive Services
-description: Un singolo scopo rappresenta un'attività o un'azione che l'utente desidera eseguire. È un obiettivo espresso in un'espressione dell'utente. Definire un set di finalità che corrisponde alle azioni che gli utenti desiderano eseguire nell'applicazione.
+description: Una singola finalità rappresenta un'attività o un'azione che l'utente desidera eseguire. È un obiettivo espresso in un'espressione dell'utente. Definire un set di finalità che corrisponde alle azioni che gli utenti desiderano eseguire nell'applicazione.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: bb7fa9d930f4c1ab3c241048804060e17fe5a8e4
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 3d2895fa8d45ad594963d3f26cbe04fd968f5fcc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619912"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487527"
 ---
-# <a name="concepts-about-intents-in-your-luis-app"></a>Concetti relativi alle finalità nell'app LUIS
+# <a name="intents-in-your-luis-app"></a>Intent nell'app LUIS
 
 Una finalità rappresenta un'attività o un'azione che l'utente desidera eseguire. È un obiettivo espresso in un'[espressione](luis-concept-utterance.md) dell'utente.
 
@@ -26,60 +26,50 @@ Definire un set di finalità che corrisponde alle azioni che gli utenti desidera
 
 Finalità dell'app di viaggi   |   Espressioni di esempio   | 
 ------|------|
- BookFlight (PrenotaVolo)     |   "Prenotami un volo per Rio la settimana prossima" <br/> "Fammi volare a Rio il 24" <br/> "Ho bisogno di un biglietto aereo per Rio de Janeiro per domenica prossima"    |
+ PrenotaVolo     |   "Prenotami un volo per Rio la settimana prossima" <br/> "Fammi volare a Rio il 24" <br/> "Ho bisogno di un biglietto aereo per Rio de Janeiro per domenica prossima"    |
  Saluti     |   "Ciao" <br/>"Salve" <br/>"Buongiorno"  |
  Meteo | "Com'è il tempo a Boston?" <br/> "Mostrami le previsioni per il weekend" |
- Nessuna         | "Dammi una ricetta di biscotti"<br>"Ha vinto la Roma?" |
+ Nessuno         | "Dammi una ricetta di biscotti"<br>"Ha vinto la Roma?" |
 
-Tutte le applicazioni hanno lo scopo predefinito, ovvero "[None](#none-intent-is-fallback-for-app)", ovvero lo scopo del fallback. 
+Tutte le applicazioni hanno lo scopo predefinito, ovvero "[None](#none-intent)", ovvero lo scopo del fallback. 
 
 ## <a name="prebuilt-domains-provide-intents"></a>I domini predefiniti forniscono finalità
-Oltre alle finalità definite, è possibile usare finalità predefinite da uno dei domini predefiniti. Per ulteriori informazioni, vedere [Usare domini predefiniti nelle app LUIS](luis-how-to-use-prebuilt-domains.md) per imparare a personalizzare le finalità da un dominio predefinito per l'uso nell'app.
+Oltre agli Intent definiti, è possibile usare gli Intent predefiniti da uno dei [domini predefiniti](luis-how-to-use-prebuilt-domains.md). 
 
 ## <a name="return-all-intents-scores"></a>Restituire i punteggi di tutte le finalità
-Assegnare un'espressione a una singola finalità. Quando LUIS riceve un'espressione nell'endpoint, restituisce la finalità principale per quella espressione. Per ottenere punteggi per tutte le finalità dell'espressione, è possibile fornire un `verbose=true` flag nella stringa query della [chiamata endpoint](https://aka.ms/v1-endpoint-api-docs) all'API. 
+Assegnare un'espressione a una singola finalità. Quando LUIS riceve un enunciato sull'endpoint, per impostazione predefinita restituisce l'intento superiore per tale espressione. 
+
+Se si desiderano i punteggi per tutti gli Intent per l'espressione, è possibile specificare un flag sulla stringa di query dell'API di stima. 
+
+|Versione dell'API di stima|Flag|
+|--|--|
+|V2|`verbose=true`|
+|V3|`show-all-intents=true`|
 
 ## <a name="intent-compared-to-entity"></a>Finalità ed entità a confronto
-La finalità rappresenta l'azione che il chatbot deve eseguire per l'utente ed è basata sull'intera espressione. L'entità rappresenta parole o frasi contenute all'interno dell'espressione. Un'espressione può disporre di una sola finalità punteggio più alto, ma può avere molte entità. 
+Lo scopo rappresenta l'azione che il bot deve eseguire per l'utente e si basa sull'intera espressione. Un'espressione può disporre di una sola finalità punteggio più alto, ma può avere molte entità. 
 
 <a name="how-do-intents-relate-to-entities"></a>
 
-Creare una finalità quando l' _intenzione_ dell'utente attiverà un'azione nell'applicazione client, ad esempio una chiamata alla funzione checkweather (). Creare un'entità per rappresentare i parametri necessari per eseguire l'azione. 
+Creare una finalità quando l' _intenzione_ dell'utente attiverà un'azione nell'applicazione client, ad esempio una chiamata alla funzione checkweather (). Quindi creare entità per rappresentare i parametri necessari per eseguire l'azione. 
 
-|Finalità di esempio   | Entità | Entità in espressioni di esempio   | 
+|Finalità   | Persona giuridica | Espressione di esempio   | 
 |------------------|------------------------------|------------------------------|
 | Meteo | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | Com'è il tempo a `Seattle` `tomorrow`? |
 | Meteo | { "type": "date_range", "entity": "this weekend" } | Mostrami le previsioni per `this weekend` | 
 ||||
 
-## <a name="custom-intents"></a>Finalità personalizzate
-
-[Espressioni](luis-concept-utterance.md) con finalità simili corrispondono a una singola finalità. Le espressioni nella finalità possono usare qualsiasi [entità](luis-concept-entity-types.md) nell'app poiché le entità non sono specifiche delle finalità. 
-
 ## <a name="prebuilt-domain-intents"></a>Finalità di domini predefiniti
 
-I [domini predefiniti](luis-how-to-use-prebuilt-domains.md) presentano finalità con espressioni.  
+I [domini predefiniti](luis-how-to-use-prebuilt-domains.md) forniscono gli Intent con espressioni. 
 
 ## <a name="none-intent"></a>Finalità None
 
-Lo scopo di **nessuno** è importante per ogni app e non deve avere nessuna espressione.
+La finalità **None** (Nessuna) viene creata ma lasciata vuota di proposito. La finalità **None** è obbligatoria e non può essere eliminata o rinominata. Inserire le espressioni che si trovano all'esterno del dominio.
 
-### <a name="none-intent-is-fallback-for-app"></a>La finalità None (Nessuna) è la finalità di fallback per l'app
-La finalità **None** (Nessuna) è una finalità catch-all o fallback. Consente di insegnare a LUIS espressioni che non sono importanti nel dominio dell'app (area di interesse). Il 10-20 percento del totale delle espressioni della finalità **None** (Nessuna) deve trovarsi nell'applicazione. Non lasciare quindi vuota la finalità None (Nessuna). 
+Lo scopo di **nessuno** è l'intento di fallback, importante in ogni app, e deve avere il 10% delle espressioni totali. Consente di insegnare a LUIS espressioni che non sono importanti nel dominio dell'app (area di interesse). Se non si aggiungono espressioni per la finalità **None** (Nessuna), LUIS forza un'espressione che si trova all'esterno del dominio in una delle finalità del dominio. Questo distorcerà i punteggi di stima perché a LUIS verrà insegnata la finalità errata dell'espressione. 
 
-### <a name="none-intent-helps-conversation-direction"></a>La finalità None (Nessuna) favorisce la direzione della conversazione
-Quando un'espressione viene stimata come finalità None (Nessuna) e restituita al chatbot con quella stima, il bot può porre ulteriori domande o fornire un menu per indirizzare l'utente a scelte valide nel chatbot. 
-
-### <a name="no-utterances-in-none-intent-skews-predictions"></a>Nessuna espressione nella finalità None (Nessuna) distorce le stime
-Se non si aggiungono espressioni per la finalità **None** (Nessuna), LUIS forza un'espressione che si trova all'esterno del dominio in una delle finalità del dominio. Questo distorcerà i punteggi di stima perché a LUIS verrà insegnata la finalità errata dell'espressione. 
-
-### <a name="add-utterances-to-the-none-intent"></a>Aggiungere espressioni alla finalità None (Nessuna)
-La finalità **None** (Nessuna) viene creata ma lasciata vuota di proposito. Inserire le espressioni che si trovano all'esterno del dominio. Una buona espressione per la finalità **None** si trova completamente all'esterno dell'app e del settore servito dall'app. Ad esempio, un'app di viaggi non dovrebbe usare espressioni per **None** (Nessuna) correlate ai viaggi, ad esempio prenotazioni, fatturazione, cibo, ospitalità, carico, intrattenimento in volo. 
-
-Quale tipo di espressioni viene lasciato per la finalità None (Nessuna)? Iniziare con qualcosa di specifico a cui il bot non dovrebbe rispondere, ad esempio "Quale dinosauro ha i denti blu?" Si tratta di una domanda molto specifica ben distante da un'app di viaggi. 
-
-### <a name="none-is-a-required-intent"></a>None è una finalità obbligatoria
-La finalità **None** è obbligatoria e non può essere eliminata o rinominata.
+Quando un enunciato viene stimato come intento per nessuno, l'applicazione client può porre altre domande o fornire un menu per indirizzare l'utente a scelte valide. 
 
 ## <a name="negative-intentions"></a>Intenzioni negative 
 Per determinare intenzioni negative e positive, ad esempio "**Voglio** un'auto" e "**Non** voglio un'auto", è possibile creare due finalità (una positiva e una negativa) e aggiungere espressioni appropriate per ognuna. In alternativa, è possibile creare una singola finalità e contrassegnare i due diversi termini positivi e negativi come entità.  
@@ -108,9 +98,7 @@ Se le finalità sono troppo simili, LUIS le distinguerà con maggiore difficolt�
 Ulteriori informazioni sulla combinazione di app LUIS e QnA Maker con il [modello dispatcher](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps). 
 
 ### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Richiedere la guida per le app con un numero significativo di finalità
-Se ridurre il numero delle finalità o dividere le finalità in più app non comporta alcun miglioramento, contattare l'assistenza. Se la sottoscrizione di Azure include servizi di assistenza, contattare [il team di supporto di Azure](https://azure.microsoft.com/support/options/). 
-
-
+Se ridurre il numero delle finalità o dividere le finalità in più app non comporta alcun miglioramento, contattare l'assistenza. Se la sottoscrizione di Azure include servizi di supporto tecnico, contattare [il supporto tecnico Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

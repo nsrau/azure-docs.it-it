@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a9ab828daa009f7204abb1c64291d937a1f0dba2
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1f134ac360b6c5bd04c0e141da52b6dad950e208
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784942"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466824"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Esempio: creare una competenza personalizzata usando il API Ricerca entità Bing
 
@@ -313,7 +313,7 @@ namespace SampleSkills
 
 Assicurarsi di immettere un valore di *chiave* personalizzato nella `key` costante in base alla chiave ottenuta al momento dell'iscrizione all'API ricerca entità Bing.
 
-Questo esempio include tutto il codice necessario in un singolo file per praticità. È possibile trovare una versione leggermente più strutturata della stessa capacità, oltre ad altri esempi di competenze personalizzate nel [repository Power Skills](https://aka.ms/entity-search-power-skill).
+Questo esempio include tutto il codice necessario in un singolo file per praticità. È possibile trovare una versione leggermente più strutturata della stessa abilità nel [repository Power Skills](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
 
 Naturalmente, è possibile rinominare il file da `Function1.cs` `BingEntitySearch.cs`.
 
@@ -476,10 +476,10 @@ Qui viene conteggiata la competenza incorporata per il [riconoscimento delle ent
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Congratulazioni. Il primo arricchimento personalizzato è stato creato. Ora è possibile seguire lo stesso schema per aggiungere funzionalità personalizzate. 
+Congratulazioni. Sono state create le prime competenze personalizzate. Ora è possibile seguire lo stesso schema per aggiungere funzionalità personalizzate. Per ulteriori informazioni, fare clic sui collegamenti seguenti.
 
-+ [Power Skills: un repository di competenze personalizzate](https://aka.ms/powerskills)
-+ [Aggiungere una competenza personalizzata a una pipeline di ricerca cognitiva](cognitive-search-custom-skill-interface.md)
++ [Power Skills: un repository di competenze personalizzate](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Aggiungere un'abilità personalizzata a una pipeline di arricchimento di intelligenza artificiale](cognitive-search-custom-skill-interface.md)
 + [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
 + [Creare un insieme di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

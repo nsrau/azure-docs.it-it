@@ -1,6 +1,6 @@
 ---
 title: Componente aggiuntivo di Excel per servizi Web
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Come usare i servizi Web di Azure Machine Learning direttamente in Excel senza scrivere codice.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 9e801e0d7a26cd4d6c43118959aee1dec7216b1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18e7e2c2c57bd44cb974e5de668045d6322bc4ce
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60750251"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492981"
 ---
-# <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Componente aggiuntivo Excel per i servizi Web di Azure Machine Learning Studio
+# <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Componente aggiuntivo di Excel per i servizi Web di Azure Machine Learning Studio (classico)
 Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun codice.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Procedura per usare un servizio Web esistente nella cartella di lavoro
@@ -37,13 +37,13 @@ Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun c
    
     ![Sezione Stima](./media/excel-add-in-for-web-services/image1.png)
 
-Distribuire un servizio Web o usarne uno esistente. Per altre informazioni sulla distribuzione di un servizio Web, vedere [Esercitazione 3: Distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md).
+Distribuire un servizio Web o usarne uno esistente. Per altre informazioni sulla distribuzione di un servizio Web, vedere [esercitazione 3: distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md).
 
 Ottenere la chiave API per il servizio Web. La posizione in cui viene eseguita l'operazione varia a seconda che sia stato pubblicato un servizio Web classico o un nuovo servizio Web di Machine Learning.
 
 **Usare un servizio Web classico** 
 
-1. In Machine Learning Studio fare clic sulla sezione **SERVIZI WEB** sulla sinistra e quindi selezionare il servizio Web da usare.
+1. In Machine Learning Studio (classico), fare clic sulla sezione **servizi Web** nel riquadro sinistro, quindi selezionare il servizio Web.
    
     ![Selezione di un servizio Web in Studio](./media/excel-add-in-for-web-services/image4.png)
 2. Copiare la chiave dell'API per il servizio Web.
@@ -65,7 +65,7 @@ Ottenere la chiave API per il servizio Web. La posizione in cui viene eseguita l
 
 ## <a name="steps-to-add-a-new-web-service"></a>Procedura per aggiungere un nuovo servizio Web
 
-1. Distribuire un servizio Web o usarne uno esistente. Per altre informazioni sulla distribuzione di un servizio Web, vedere [Esercitazione 3: Distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md).
+1. Distribuire un servizio Web o usarne uno esistente. Per altre informazioni sulla distribuzione di un servizio Web, vedere [esercitazione 3: distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md).
 2. Fare clic su **Consume**(Uso).
 3. Cercare la sezione **Basic consumption info** (Informazioni di base sull'uso). Copiare e salvare il valore di **Primary Key** (Chiave primaria) e l'URL **Request-Response** (Richiesta-risposta).
 4. In Excel passare alla sezione **Servizi Web** (se si è nella sezione **Stima**, fare clic sulla freccia indietro per tornare all'elenco dei servizi Web).

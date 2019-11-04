@@ -3,22 +3,24 @@ title: Destinazioni di calcolo remote per Machine Learning automatizzato
 titleSuffix: Azure Machine Learning
 description: Informazioni su come creare modelli usando Machine Learning automatizzato in una destinazione di calcolo remota Azure Machine Learning con Azure Machine Learning
 services: machine-learning
-author: nacharya1
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 7/12/2019
-ms.openlocfilehash: 9eab21fe6b5269229de186a7553e11a147c1033e
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: 4276a713e62f96cc5340fc7be0e8391939d32342
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034996"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497326"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Eseguire il training di modelli di apprendimento automatico nel cloud
+
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In Azure Machine Learning è possibile eseguire il training di un modello su diversi tipi di risorse di calcolo gestite. La destinazione di calcolo può essere un computer locale o una risorsa nel cloud.
 
@@ -38,9 +40,9 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Crea risorsa
 
-Creare la destinazione AmlCompute nell'area di lavoro`ws`() se non esiste già.
+Creare la destinazione AmlCompute nell'area di lavoro (`ws`) se non esiste già.
 
-**Tempo stimato**: La creazione della destinazione AmlCompute richiede circa 5 minuti.
+**Tempo stimato**: la creazione della destinazione AmlCompute richiede circa 5 minuti.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -68,9 +70,9 @@ Le restrizioni relative ai nomi di cluster includono:
 
 ## <a name="access-data-using-tabulardataset-function"></a>Accedere ai dati tramite la funzione TabularDataset
 
-Definito X e y come `TabularDataset`s, che vengono passati a Machine Learning automatiche in AutoMLConfig. `from_delimited_files`per impostazione predefinita, `infer_column_types` imposta su true, che dedurrà automaticamente il tipo di colonne. 
+Definito X e y come `TabularDataset`s, che vengono passati a ML automatico in AutoMLConfig. per impostazione predefinita, `from_delimited_files` imposta la `infer_column_types` su true, che dedurrà automaticamente il tipo di colonna. 
 
-Se si desidera impostare manualmente i tipi di colonna, è possibile impostare l' `set_column_types` argomento per impostare manualmente il tipo di ogni colonna. Nell'esempio di codice seguente, i dati provengono dal pacchetto sklearn.
+Se si desidera impostare manualmente i tipi di colonna, è possibile impostare l'argomento `set_column_types` per impostare manualmente il tipo di ogni colonna. Nell'esempio di codice seguente, i dati provengono dal pacchetto sklearn.
 
 ```python
 # Create a project_folder if it doesn't exist
@@ -101,7 +103,7 @@ y = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/y_train.csv'))
 
 ## <a name="create-run-configuration"></a>Crea configurazione di esecuzione
 
-Per rendere disponibili le dipendenze per lo script get_Data. py, `RunConfiguration` definire un oggetto `CondaDependencies`con definito. Utilizzare questo oggetto per il `run_configuration` parametro in `AutoMLConfig`.
+Per rendere disponibili le dipendenze per lo script get_Data. py, definire un oggetto `RunConfiguration` con `CondaDependencies`definito. Utilizzare questo oggetto per il parametro `run_configuration` in `AutoMLConfig`.
 
 ```python
 from azureml.core.runconfig import RunConfiguration
@@ -235,7 +237,7 @@ remote_run.get_portal_url()
 
 Le stesse informazioni sono disponibili nell'area di lavoro.  Per altre informazioni su questi risultati, vedere informazioni sui [risultati automatici di Machine Learning](how-to-understand-automated-ml.md).
 
-### <a name="view-logs"></a>Visualizza i log
+### <a name="view-logs"></a>Visualizzare i log
 
 I log si trovano nel percorso `/tmp/azureml_run/{iterationid}/azureml-logs` della DSVM.
 
@@ -243,12 +245,12 @@ I log si trovano nel percorso `/tmp/azureml_run/{iterationid}/azureml-logs` dell
 
 Il recupero dei dati di spiegazione dei modelli consente di visualizzare informazioni dettagliate sui modelli per rendere più trasparente il processo in esecuzione nel back-end. In questo esempio si eseguono le spiegazioni del modello solo per il modello migliore. L'esecuzione delle spiegazioni per tutti i modelli della pipeline richiede una notevole quantità di tempo. Le informazioni di spiegazione del modello includono:
 
-* shap_values: Informazioni di spiegazione generate da Shap lib.
-* expected_values: il valore previsto del modello applicato al set di dati X_train.
-* overall_summary: I valori dell'importanza della funzionalità a livello di modello sono ordinati in ordine decrescente.
-* overall_imp: I nomi delle funzionalità sono ordinati nello stesso ordine di overall_summary.
-* per_class_summary: i valori di importanza delle caratteristiche a livello di classe disposti in ordine decrescente. Disponibile solo per il case di classificazione.
-* per_class_imp: i nomi delle caratteristiche disposti nello stesso ordine usato in per_class_summary. Disponibile solo per il case di classificazione.
+* shap_values: informazioni sulla spiegazione generate da Shap lib.
+* expected_values: valore previsto del modello applicato al set di dati X_train.
+* overall_summary: i valori dell'importanza della funzionalità a livello di modello sono ordinati in ordine decrescente.
+* overall_imp: i nomi delle funzionalità sono ordinati nello stesso ordine di overall_summary.
+* per_class_summary: i valori dell'importanza della funzionalità a livello di classe sono ordinati in ordine decrescente. Disponibile solo per il case di classificazione.
+* per_class_imp: i nomi delle funzionalità sono ordinati nello stesso ordine di per_class_summary. Disponibile solo per il case di classificazione.
 
 Usare il codice seguente per selezionare la pipeline migliore dalle iterazioni. Il metodo `get_output` restituisce l'esecuzione migliore e il modello più adatto per l'ultima chiamata alla funzione di fit.
 
@@ -278,7 +280,7 @@ La stampa delle variabili di riepilogo della spiegazione `best_run` ha come risu
 
 ![Output della console di spiegabilità del modello](./media/how-to-auto-train-remote/expl-print.png)
 
-È anche possibile visualizzare l'importanza della funzionalità tramite l'interfaccia utente del widget, l'interfaccia utente Web in portale di Azure o la [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com). 
+È anche possibile visualizzare l'importanza della funzionalità tramite l'interfaccia utente del widget o nell'area di lavoro in [Azure Machine Learning Studio](https://ml.azure.com). 
 
 ![Interfaccia utente di spiegabilità del modello](./media/how-to-auto-train-remote/model-exp.png)
 

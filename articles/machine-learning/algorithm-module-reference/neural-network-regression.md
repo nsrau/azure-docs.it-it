@@ -1,20 +1,20 @@
 ---
 title: 'Regressione della rete neurale: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo di regressione della rete neurale nel servizio Azure Machine Learning per creare un modello di regressione usando un algoritmo di rete neurale personalizzabile.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo di regressione della rete neurale in Azure Machine Learning per creare un modello di regressione usando un algoritmo di rete neurale personalizzabile.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 54518d21db0c9b14cbb7b4fc4316d1db2b871573
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: d5cc0f06e9fb95894df30af1322d47337f51e314
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692743"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466000"
 ---
 # <a name="neural-network-regression-module"></a>Modulo di regressione della rete neurale
 
@@ -24,7 +24,7 @@ ms.locfileid: "72692743"
   
 ## <a name="module-overview"></a>Panoramica del modulo  
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per creare un modello di regressione usando un algoritmo di rete neurale personalizzabile.
   
@@ -51,8 +51,8 @@ Usare questo modulo per creare un modello di regressione usando un algoritmo di 
     Questa opzione è consigliata se si ha già una certa familiarità con le reti neurali. Usare il linguaggio NET # per definire l'architettura di rete.  
 
 ##  <a name="bkmk_DefaultArchitecture"></a>Creare un modello di rete neurale usando l'architettura predefinita
-  
-1.  Aggiungere il modulo di **regressione della rete neurale** alla pipeline nell'interfaccia. È possibile trovare questo modulo in **Machine Learning**, **Initialize**, nella categoria **regressione** . 
+
+1.  Aggiungere il modulo di **regressione della rete neurale** alla pipeline nella finestra di progettazione. È possibile trovare questo modulo in **Machine Learning**, **Initialize**, nella categoria **regressione** . 
   
 2. Indicare come si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .  
   
@@ -98,4 +98,4 @@ Al termine del training:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

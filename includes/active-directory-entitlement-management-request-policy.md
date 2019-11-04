@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 78a0dafeedc9aac4db69903b9f1193574cbd39c7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6f2b5eb96eeb1c4b7d07219d5fe54a8a0ca9e28a
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934674"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73412981"
 ---
 ## <a name="for-users-in-your-directory"></a>Per gli utenti nella directory
 
@@ -105,19 +105,19 @@ Seguire questa procedura per specificare le impostazioni di approvazione per gli
 
 1. Per richiedere l'approvazione per le richieste degli utenti selezionati, impostare l'interruttore **Richiedi approvazione** su **Sì**. Per approvare automaticamente le richieste, impostare l'interruttore su **No**.
 
-    ![Access Package-requests-impostazioni di approvazione](./media/active-directory-entitlement-management-request-policy/approval.png)
-
 1. Per richiedere agli utenti di fornire una giustificazione per richiedere il pacchetto di accesso, impostare l'opzione **Richiedi giustificazione** del richiedente su **Sì**.
 
-1. Determinare se la richiesta richiede un'approvazione a una o più fasi. Impostare il **numero di fasi** su 1 per **una** sola fase.
+    ![Access Package-requests-impostazioni di approvazione](./media/active-directory-entitlement-management-request-policy/approval.png)
+
+### <a name="single-stage-approval"></a>Approvazione a fase singola
 
 1. Per responsabili approvazione, selezionare **responsabile come responsabile approvazione** o **scegliere responsabili approvazione specifici**.
 
-    Il Manager è determinato dall'attributo **Manager** nel profilo dell'utente di Azure ad. Per altre informazioni, vedere [aggiungere o aggiornare le informazioni sul profilo di un utente usando Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
-
-    ![Attributo Azure Active Directory User Profile-Manager](./media/active-directory-entitlement-management-request-policy/profile-manager.png)
+    ![Accedere ai pacchetti-richieste-impostazioni di una singola fase](./media/active-directory-entitlement-management-request-policy/approval-single-stage.png)
 
 1. Se è stato selezionato responsabile come responsabile approvazione, fare clic su **Aggiungi fallback** per selezionare uno o più utenti o gruppi nella directory come responsabile approvazione del fallback nel caso in cui la gestione dei diritti non sia in grado di trovare il responsabile.
+
+    Il Manager è determinato dall'attributo **Manager** nel profilo dell'utente di Azure ad. Per altre informazioni, vedere [aggiungere o aggiornare le informazioni sul profilo di un utente usando Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
 1. Se è stata selezionata l'opzione Scegli responsabili approvazione specifici, fare clic su **Aggiungi responsabili approvazione** per selezionare uno o più utenti o gruppi nella directory da approvatori.
 
@@ -125,9 +125,34 @@ Seguire questa procedura per specificare le impostazioni di approvazione per gli
 
     Se una richiesta non viene approvata entro questo periodo di tempo, verrà negata automaticamente. L'utente dovrà inviare un'altra richiesta per il pacchetto di accesso.
 
-1. Per richiedere agli utenti di fornire una giustificazione per richiedere il pacchetto di accesso, impostare **Richiedi giustificazione** su **Sì**.
+1. Per richiedere agli utenti di fornire una giustificazione per richiedere il pacchetto di accesso, impostare **Richiedi giustificazione del responsabile approvazione** su **Sì**.
 
     Una giustificazione è visibile ad altri responsabili approvazione e al richiedente.
+
+### <a name="alternate-approvers"></a>Responsabili approvazione alternativi
+
+Oltre a specificare i responsabili approvazione primari che possono approvare le richieste, è possibile specificare responsabili approvazione alternativi. Ciò consentirà di garantire che le richieste vengano approvate o negate prima della scadenza (timeout).
+
+Specificando i responsabili approvazione alternativi, nel caso in cui i responsabili approvazione primari non siano in grado di approvare o rifiutare la richiesta, la richiesta in sospeso viene trasmessa al responsabile approvazione alternativo, in base alla pianificazione di invio specificata durante la configurazione dei criteri. Ricevono un messaggio di posta elettronica per approvare o negare la richiesta in sospeso.
+
+Dopo l'invio della richiesta ai responsabili approvazione alternativi, i responsabili approvazione primari possono comunque approvare o rifiutare la richiesta. Per approvare o negare la richiesta in sospeso, gli approvatori alternativi utilizzano lo stesso sito di accesso personale, ovvero i responsabili approvazione primari.
+
+È possibile elencare gli utenti o i gruppi di persone come responsabili approvazione primari e responsabili approvazione alternativi. Assicurarsi di elencare set di persone diversi come responsabili approvazione primari e responsabili approvazione alternativi.
+Se, ad esempio, sono stati elencati Alice e Bob come responsabile approvazione principale, elencare Carol e Dave come responsabile approvazione alternativa. Usare la procedura seguente per aggiungere responsabili approvazione alternativi a un pacchetto di accesso:
+
+1. Fare clic su **Mostra impostazioni richieste avanzate**.
+
+    ![Accedi ai criteri di pacchetto-Mostra impostazioni avanzate delle richieste](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
+
+1. Impostare **se non viene eseguita alcuna azione, procedere con l'invio a responsabili approvazione alternativi?** impostare su **Sì**.
+
+1. Fare clic su **Aggiungi responsabili approvazione alternativi** e selezionare gli approvatori alternativi dall'elenco.
+
+    ![Accedere ai criteri dei pacchetti-aggiungere responsabili approvazione alternativi](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+
+1. In **futuro per i responsabili approvazione alternativi dopo** il numero di giorni, inserire il numero di giorni per cui i responsabili approvazione devono approvare o rifiutare una richiesta. Se nessun responsabile approvazione ha approvato o negato la richiesta prima della durata della richiesta, la richiesta scade (timeout) e l'utente dovrà inviare un'altra richiesta per il pacchetto di accesso. 
+
+    Le richieste possono essere inviate solo a responsabili approvazione alternativi al giorno dopo che la durata della richiesta raggiunge la metà della durata. In questo esempio, la durata della richiesta è di 14 giorni. Ciò significa che la durata della richiesta raggiunge la metà della vita del giorno 7. Quindi, la richiesta può essere trasmessa non prima del giorno 8. Non è inoltre possibile inviare le richieste al responsabile approvazione alternativo nell'ultimo giorno della durata della richiesta. Nell'esempio, l'ultima richiesta che è possibile trasmettere è il giorno 13.
 
 ## <a name="enable-requests"></a>Abilita richieste
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 10/22/2019
 author: rboucher
 ms.author: robb
-ms.openlocfilehash: 0031a0c96ecadbb3c7d3a479384bee92ba4d102c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 09d1a25b83f405b45bbefd39766c82565ea86925
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161977"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476673"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Servizi, schemi e categorie supportati per i log delle risorse di Azure
 
@@ -59,6 +59,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 | Database di Azure per PostgreSQL | [Log di database di Azure per PostgreSQL](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | Esplora dati di Azure | [Log di Azure Esplora dati](../../data-explorer/using-diagnostic-logs.md) |
 | Servizi cognitivi | [Registrazione per servizi cognitivi di Azure](../../cognitive-services/diagnostic-logging.md) |
+| Registro Container | [Registrazione per Container Registry di Azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Rete per la distribuzione di contenuti | [Log di Azure per la rete CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Registrazione di Azure Cosmos DB](../../cosmos-db/logging.md) |
 | Data Factory | [Monitorare le data factory con Monitoraggio di Azure](../../data-factory/monitor-using-azure-monitor.md) |
@@ -114,8 +115,8 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |Microsoft.ClassicNetwork/networksecuritygroups|Evento del flusso di regole del gruppo di sicurezza di rete|Evento del flusso di regole del gruppo di sicurezza di rete|
 |Microsoft.CognitiveServices/accounts|Audit|Log di controllo|
 |Microsoft.CognitiveServices/accounts|RequestResponse|Log richieste e risposte|
-|Microsoft.ContainerRegistry/registries|ContainerRegistryRepositoryEvents|Log RepositoryEvent|
-|Microsoft.ContainerRegistry/registries|ContainerRegistryLoginEvents|Eventi di accesso|
+|Microsoft.ContainerRegistry/registries|ContainerRegistryRepositoryEvents|Log RepositoryEvent (anteprima)|
+|Microsoft.ContainerRegistry/registries|ContainerRegistryLoginEvents|Eventi di accesso (anteprima)|
 |Microsoft.ContainerService/managedClusters|kube-apiserver|Server API Kubernetes|
 |Microsoft.ContainerService/managedClusters|kube-controller-manager|Strumento di gestione del controller Kubernetes|
 |Microsoft.ContainerService/managedClusters|kube-scheduler|Utilità di pianificazione Kubernetes|

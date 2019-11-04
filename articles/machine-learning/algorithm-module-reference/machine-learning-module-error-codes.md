@@ -1,6 +1,6 @@
 ---
 title: Risolvere gli errori del modulo
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Risolvere i problemi relativi alle eccezioni del modulo in Azure Machine Learning Studio usando codici di errore
 services: machine-learning
 ms.service: machine-learning
@@ -8,25 +8,25 @@ ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: a1a6817c08223b360c08804e0595f12f2947ea5f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: b07b1fc14ac7ac72a30f75a098b4aab35f2de713
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693081"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497731"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Eccezioni e codici di errore per l'algoritmo & riferimento al modulo
 
-Informazioni sui messaggi di errore e i codici di eccezione che possono verificarsi usando i moduli in Azure Machine Learning Studio. 
+Informazioni sui messaggi di errore e i codici di eccezione che possono verificarsi usando i moduli in Azure Machine Learning Designer (anteprima). 
 
-Per risolvere il problema, cercare l'errore in questo articolo per leggere le cause più comuni. Esistono due modi per ottenere il testo completo di un messaggio di errore in studio:  
+Per risolvere il problema, cercare l'errore in questo articolo per leggere le cause più comuni. Esistono due modi per ottenere il testo completo di un messaggio di errore nella finestra di progettazione:  
  
 - Fare clic sul collegamento, **visualizzare il log di output**nel riquadro destro e scorrere fino alla fine. Il messaggio di errore dettagliato viene visualizzato nelle ultime due righe della finestra.  
   
 - Selezionare il modulo in cui si è verificato l'errore, quindi fare clic sulla X rossa. Viene visualizzato solo il testo dell'errore pertinente.  
   
-Se il testo del messaggio di errore non è utile, inviare le informazioni sul contesto e eventuali aggiunte o modifiche desiderate. È possibile inviare commenti e suggerimenti sull'argomento di errore oppure visitare il [Forum di Azure Machine Learning Studio](https://aka.ms/aml-forum-studio) e pubblicare una domanda.  
+Se il testo del messaggio di errore non è utile, inviare le informazioni sul contesto e eventuali aggiunte o modifiche desiderate inviando commenti e suggerimenti.
 
 
 ## <a name="error-0001"></a>Errore 0001  
@@ -163,9 +163,9 @@ Se il testo del messaggio di errore non è utile, inviare le informazioni sul co
 ## <a name="error-0009"></a>Errore 0009  
  Si verifica un'eccezione quando il nome dell'account di archiviazione di Azure o il nome del contenitore non è specificato correttamente.  
   
-Questo errore si verifica in Azure Machine Learning Studio quando si specificano i parametri per un account di archiviazione di Azure, ma non è possibile risolvere il nome o la password. Per diversi motivi è possibile che si verifichino errori di password o nomi di account:
+Questo errore si verifica nella finestra di progettazione Azure Machine Learning quando si specificano i parametri per un account di archiviazione di Azure, ma non è possibile risolvere il nome o la password. Per diversi motivi è possibile che si verifichino errori di password o nomi di account:
  
- + Il tipo dell'account non è corretto. Alcuni nuovi tipi di account non sono supportati per l'utilizzo con Machine Learning Studio. Per informazioni dettagliate, vedere [importare dati](import-data.md) .
+ + Il tipo dell'account non è corretto. Alcuni nuovi tipi di account non sono supportati per l'utilizzo con Machine Learning Designer. Per informazioni dettagliate, vedere [importare dati](import-data.md) .
  + Il nome dell'account specificato non è corretto
  + L'account non esiste più
  + La password per l'account di archiviazione è errata o è stata modificata
@@ -806,7 +806,7 @@ Un altro motivo per cui è possibile ottenere questo errore se si tenta di utili
 |Messaggi di eccezione|  
 |------------------------|  
 |Impossibile creare una colonna con tipi di elemento misti.|  
-|Impossibile creare una colonna con ID "{0}" di tipi di elemento misti: \ n\tType di dati [{1}, {0}] è {2} \n\tType di dati [{3}, {0}] è {4}.|  
+|Impossibile creare una colonna con ID "{0}" di tipi di elemento misti: \ n\tType di dati [{1}, {0}] è {2}\n\tType di dati [{3}, {0}] è {4}.|  
   
 
 ## <a name="error-0046"></a>Errore 0046  
@@ -1063,7 +1063,7 @@ Un altro motivo per cui è possibile ottenere questo errore se si tenta di utili
   
 **Resolution:**
 
-1. In Azure Machine Learning Studio, right-click the module that has the error, and select **View Log**.
+1. In Azure Machine Learning designer, right-click the module that has the error, and select **View Log**.
 2. Examine the standard error log of the module, which contains the stack trace.
     + Lines beginning with [ModuleOutput] indicate output from R.
     + Messages from R marked as **warnings** typically do not cause the pipeline to fail.
@@ -1176,7 +1176,7 @@ Vedere gli articoli seguenti per informazioni sull'esecuzione di query hive per 
 |Messaggi di eccezione|  
 |------------------------|  
 |Lo script hive non è corretto.|  
-|@No__t_0 script hive non è corretto.|  
+|{0} script hive non è corretto.|  
   
 
 ## <a name="error-0069"></a>Errore 0069  

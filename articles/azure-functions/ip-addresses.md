@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: glenga
-ms.openlocfilehash: 83e5a15d8a7f9c01f6a180ebceb715600b8a39db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8b6a342dd32d430f7a40a1e0a0a17a482a0816d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61035862"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469047"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Indirizzi IP in Funzioni di Azure
 
@@ -92,7 +92,7 @@ L'indirizzo IP in ingresso **potrebbe** cambiare in caso di:
 
 - Eliminazione di un'app per le funzioni e successiva ricreazione in un gruppo di risorse diverso.
 - Eliminazione dell'ultima app per le funzioni in una combinazione di gruppo di risorse e area e successiva ricreazione.
-- Eliminazione di un binding SSL, ad esempio durante il [rinnovo del certificato](../app-service/app-service-web-tutorial-custom-ssl.md#renew-certificates).
+- Eliminazione di un binding SSL, ad esempio durante il [rinnovo del certificato](../app-service/configure-ssl-certificate.md#renew-certificate).
 
 Quando l'app per le funzioni viene eseguita in un [piano a consumo](functions-scale.md#consumption-plan), l'indirizzo IP in ingresso potrebbe cambiare anche quando non sono state eseguite azioni come quelle elencate.
 

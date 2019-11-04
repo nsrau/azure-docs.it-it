@@ -3,15 +3,15 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Descrizione di come la definizione dei criteri delle risorse viene usata da Criteri di Azure per stabilire le convenzioni per le risorse all'interno dell'organizzazione grazie alla definizione di quando i criteri vengono applicati e dell'azione da eseguire.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: fe0f16fd4c07eac92ab3c1ae2c6f78b0bd1595eb
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: d415075bda4ff58d4a3a633fe820f22d8a157459
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053490"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464038"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -81,12 +81,17 @@ Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** s
 
 `indexed` deve essere usato durante la creazione di criteri che applicano tag o percorsi. Sebbene non sia necessario, evita che le risorse che non supportano tag e percorsi vengano visualizzate come non conformi nei risultati sulla conformità. L'eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che applicano percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroups`. Per un esempio, vedere [Applicare tag di gruppi di risorse](../samples/enforce-tag-rg.md). Per un elenco di risorse che supportano i tag, vedere [supporto dei tag per le risorse di Azure](../../../azure-resource-manager/tag-support.md).
 
-### <a name="resource-provider-modes"></a>Modalità del provider di risorse
+### <a name="a-nameresource-provider-modes-resource-provider-modes-preview"></a>modalità del provider di risorse <a name="resource-provider-modes" />(anteprima)
 
-L'unica modalità del provider di risorse supportata attualmente è `Microsoft.ContainerService.Data` per la gestione delle regole del controller di ammissione nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md).
+Le modalità del provider di risorse seguenti sono attualmente supportate durante l'anteprima:
+
+- `Microsoft.ContainerService.Data` per la gestione delle regole del controller di ammissione nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md). I criteri che usano questa modalità del provider di risorse **devono** usare l'effetto [EnforceRegoPolicy](./effects.md#enforceregopolicy) .
+- `Microsoft.Kubernetes.Data` per la gestione di cluster Kubernetes del motore AKS autogestiti in Azure.
+  I criteri che usano questa modalità del provider di risorse **devono** usare l'effetto [EnforceOPAConstraint](./effects.md#enforceopaconstraint) .
+- `Microsoft.KeyVault.Data` per la gestione di insiemi di credenziali e certificati in [Azure Key Vault](../../../key-vault/key-vault-overview.md).
 
 > [!NOTE]
-> [Criteri di Azure per Kubernetes](rego-for-aks.md) è in anteprima pubblica e supporta solo le definizioni di criteri predefinite.
+> Le modalità del provider di risorse supportano solo le definizioni dei criteri predefinite e non supportano le iniziative in fase di anteprima.
 
 ## <a name="parameters"></a>parameters
 
@@ -134,7 +139,7 @@ Ad esempio, è possibile definire una definizione di criteri per limitare i perc
 
 ### <a name="using-a-parameter-value"></a>Usare un valore di parametro
 
-Nella regola dei criteri fare riferimento ai parametri con la sintassi della funzione del valore di distribuzione `parameters` seguente:
+Nella regola dei criteri è necessario fare riferimento ai parametri con la sintassi della funzione `parameters` seguente:
 
 ```json
 {
@@ -272,7 +277,7 @@ Sono supportati i seguenti campi:
 - `tags['''<tagName>''']`
   - Questa sintassi tra parentesi quadre supporta nomi di tag contenenti apostrofi eseguendo l'escape con esso in caratteri di escape con apostrofi doppi.
   - Dove **'\<tagName\>'** è il nome del tag per il quale convalidare la condizione.
-  - Esempio: `tags['''My.Apostrophe.Tag''']` dove **'\<tagName\>'** è il nome del tag.
+  - Esempio: `tags['''My.Apostrophe.Tag''']` in cui **' My. Apostrof. Tag '** è il nome del tag.
 - alias delle proprietà; per un elenco, vedere [alias](#aliases).
 
 > [!NOTE]
@@ -282,7 +287,7 @@ Sono supportati i seguenti campi:
 
 È possibile passare a un campo di tag un valore di parametro. Passare un parametro a un campo di tag aumenta la flessibilità della definizione dei criteri durante l'assegnazione dei criteri.
 
-Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di tag per il tag che ha come nome il valore del parametro **tagName**. Se il tag non esiste, viene usato l'effetto **Append** per aggiungere il tag usando il valore del tag con lo stesso nome impostato sul gruppo di risorse padre delle risorse controllate tramite la funzione di ricerca `resourcegroup()`.
+Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di tag per il tag che ha come nome il valore del parametro **tagName**. Se il tag non esiste, l'effetto di **modifica** viene usato per aggiungere il tag usando il valore dello stesso set di tag denominato nel gruppo di risorse padre delle risorse controllate tramite la funzione di ricerca `resourcegroup()`.
 
 ```json
 {
@@ -291,11 +296,17 @@ Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di 
         "exists": "false"
     },
     "then": {
-        "effect": "append",
-        "details": [{
-            "field": "[concat('tags[', parameters('tagName'), ']')]",
-            "value": "[resourcegroup().tags[parameters('tagName')]]"
-        }]
+        "effect": "modify",
+        "details": {
+            "operations": [{
+                "operation": "add",
+                "field": "[concat('tags[', parameters('tagName'), ']')]",
+                "value": "[resourcegroup().tags[parameters('tagName')]]"
+            }],
+            "roleDefinitionIds": [
+                "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+            ]
+        }
     }
 }
 ```
@@ -390,42 +401,15 @@ Con la regola dei criteri modificata, `if()` controlla la lunghezza del **nome**
 
 Criteri di Azure supporta i seguenti tipi di effetto:
 
-- **Deny**: genera un evento nel log attività e nega la richiesta
-- **Audit**: genera un evento di avviso nel log attività, ma non nega la richiesta
 - **Append**: aggiunge il set di campi definiti alla richiesta
-- **AuditIfNotExists**: abilita il controllo se una risorsa non esiste
-- **DeployIfNotExists**: distribuisce una risorsa se non esiste già
+- **Audit**: genera un evento di avviso nel log attività, ma non nega la richiesta
+- **AuditIfNotExists**: genera un evento di avviso nel log attività se una risorsa correlata non esiste
+- **Deny**: genera un evento nel log attività e nega la richiesta
+- **DeployIfNotExists**: distribuisce una risorsa correlata se non esiste già
 - **Disabled**: non valuta le risorse per garantire la conformità alla regola dei criteri
-- **EnforceRegoPolicy**: configura il controller di ammissione dell'agente criteri aperto nel servizio Azure Kubernetes (anteprima)
+- **EnforceOPAConstraint** (anteprima): configura il controller di ammissione di agenti criteri aperti con gatekeeper V3 per i cluster Kubernetes autogestiti in Azure (anteprima)
+- **EnforceRegoPolicy** (anteprima): configura il controller di ammissione di agenti criteri aperti con gatekeeper V2 nel servizio Azure Kubernetes
 - **Modifica**: aggiunge, aggiorna o rimuove i tag definiti da una risorsa
-
-In caso di **aggiunta**, è necessario specificare questi dettagli:
-
-```json
-"effect": "append",
-"details": [{
-    "field": "field name",
-    "value": "value of the field"
-}]
-```
-
-Il valore può essere una stringa o un oggetto formato JSON.
-
-**AuditIfNotExists** e **DeployIfNotExists** valutano l'esistenza di una risorsa correlata e applicano una regola. Se la risorsa non corrisponde alla regola, l'effetto viene implementato. È possibile ad esempio richiedere che venga distribuito un Network Watcher per tutte le reti virtuali. Per altre informazioni, vedere l'esempio [Audit if extension doesn't exist](../samples/audit-ext-not-exist.md) (Controllare se l'estensione non esiste).
-
-L'effetto **DeployIfNotExists** richiede la proprietà **roleDefinitionId** nella parte dei **dettagli** della regola dei criteri. Per altre informazioni, vedere [Correzione: configurare la definizione dei criteri](../how-to/remediate-resources.md#configure-policy-definition).
-
-```json
-"details": {
-    ...
-    "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
-        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
-    ]
-}
-```
-
-In modo analogo, la **modifica** richiede la proprietà **roleDefinitionId** nella parte relativa ai **Dettagli** della regola dei criteri per l' [attività di correzione](../how-to/remediate-resources.md). Per **modificare** è necessaria anche una matrice di **operazioni** per definire le azioni da intraprendere sui tag delle risorse.
 
 Per informazioni complete su ogni effetto, ordine di valutazione, proprietà ed esempi, vedere [informazioni sugli effetti dei criteri di Azure](effects.md).
 

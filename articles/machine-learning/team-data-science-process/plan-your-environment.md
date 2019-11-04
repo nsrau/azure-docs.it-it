@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d8eed4f2425cdbfec7d3addad11ddaba57e5370e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46d0e8aa1fa934f778e950f0187a853ba46772d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704492"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495031"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata
 
@@ -30,8 +30,6 @@ Rispondere a domande chiave nelle aree seguenti per identificare lo scenario:
 * Caratteristiche dei dati
 * Qualità del set di dati
 * Strumenti e linguaggi preferiti
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="logistic-questions-data-locations-and-movement"></a>Logistica: percorsi dei dati e spostamento
 
@@ -56,7 +54,7 @@ I dati sono locali o nel cloud? Le posizioni possibili includono:
 
 Dove devono trovarsi i dati per l'elaborazione o la modellazione? 
 
-* Archivio BLOB di Azure
+* Archiviazione BLOB di Azure
 * Database SQL Azure
 * Macchine virtuali SQL Server in Azure
 * Tabelle Hive o HDInsight (Hadoop in Azure)
@@ -68,7 +66,7 @@ Dove devono trovarsi i dati per l'elaborazione o la modellazione?
 Per le procedure e le risorse disponibili per inserire o caricare i dati in vari ambienti di elaborazione e di archiviazione, vedere:
 
 * [Caricare i dati in ambienti di archiviazione per l'analisi](ingest-data.md)
-* [Importare dati di training in Azure Machine Learning Studio da varie origini dati](../studio/import-data.md)
+* [Importare i dati di training in Azure Machine Learning Studio (classico) da varie origini dati](../studio/import-data.md)
 
 ### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>I dati devono essere spostati a intervalli regolari o modificati durante la migrazione?
 
@@ -81,7 +79,7 @@ Per altre informazioni, vedere [Spostare i dati da SQL Server locale a SQL Azure
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>Che quantità di dati è necessario spostare in Azure?
 
-I set di dati estremamente grandi potrebbero superare la capacità di archiviazione di determinati ambienti. Per un esempio, vedere la discussione sui limiti di dimensione per Machine Learning Studio nella sezione successiva. In questi casi è possibile usare un campione dei dati durante l'analisi. Per informazioni dettagliate su come sottocampionare un set di dati in vari ambienti di Azure, vedere [Sample data in the Team Data Science Process](sample-data.md)(Campionare i dati nel Processo di analisi scientifica dei dati per i team).
+I set di dati estremamente grandi potrebbero superare la capacità di archiviazione di determinati ambienti. Per un esempio, vedere la discussione relativa ai limiti delle dimensioni per Machine Learning Studio (classico) nella sezione successiva. In questi casi è possibile usare un campione dei dati durante l'analisi. Per informazioni dettagliate su come sottocampionare un set di dati in vari ambienti di Azure, vedere [Sample data in the Team Data Science Process](sample-data.md)(Campionare i dati nel Processo di analisi scientifica dei dati per i team).
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Domande sulle caratteristiche dei dati: tipo, formato e dimensione
 
@@ -105,10 +103,10 @@ Queste domande sono fondamentali per la pianificazione degli ambienti di archivi
 ### <a name="how-large-is-your-data"></a>Quali sono le dimensioni dei dati?
 
 * Piccole: meno di 2 GB
-* Medie: comprese tra 2 GB e 10 GB
+* Medie: compresi tra 2 GB e 10 GB
 * Grandi: più di 10 GB
 
-Si consideri ad esempio l'ambiente di Azure Machine Learning Studio:
+Prendere l'ambiente Azure Machine Learning Studio (classico), ad esempio:
 
 * Per un elenco dei formati e dei tipi di dati supportati da Azure Machine Learning Studio, vedere la sezione [Tipi di dati e formati di dati supportati](../studio/import-data.md#supported-data-formats-and-data-types) .
 * Per informazioni sulle limitazioni di altri servizi Azure usati nel processo di analisi, vedere [Sottoscrizione ad Azure e limiti, quote e vincoli del servizio](../../azure-subscription-service-limits.md).

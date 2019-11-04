@@ -13,18 +13,18 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 26f9bac42ef98f1063194340a5aa20aef6fe316e
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: fa3cd84978119a5858e63712b4d22c2ea89ea528
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972942"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470910"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurare un'app Java Linux per il servizio app Azure
 
 Il Servizio app di Azure in Linux consente agli sviluppatori Java di compilare, distribuire e ridimensionare rapidamente le applicazioni Web in pacchetto Tomcat o Java Standard Edition (SE) in un servizio basato su Linux completamente gestito. Distribuire le applicazioni con i plug-in Maven dalla riga di comando o in editor come IntelliJ, Eclipse o Visual Studio Code.
 
-Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Java che usano un contenitore Linux incorporato nel servizio app. Se non si è mai usato app Azure servizio, seguire prima l'[esercitazione introduttiva su Java](quickstart-java.md) e [Java con PostgreSQL](tutorial-java-enterprise-postgresql-app.md).
+Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Java che usano un contenitore Linux incorporato nel servizio app. Se non si è mai usato app Azure servizio, seguire prima l'esercitazione [introduttiva](quickstart-java.md) su Java e [Java con PostgreSQL](tutorial-java-enterprise-postgresql-app.md) .
 
 ## <a name="deploying-your-app"></a>Distribuzione dell'app
 
@@ -110,7 +110,7 @@ Il servizio app Azure per Linux supporta l'ottimizzazione e la personalizzazione
 
 - [Configurare le impostazioni dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
 - [Configurare un nome di dominio](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Abilitare SSL](../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configurare associazioni SSL](../configure-ssl-bindings.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Aggiungere una rete CDN](../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Configurare il sito Kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
@@ -175,7 +175,7 @@ In alternativa, è possibile configurare l'impostazione dell'app usando il plug-
 
 ### <a name="adjust-startup-timeout"></a>Regola Timeout avvio
 
-Se l'applicazione Java è particolarmente grande, è necessario aumentare il limite di tempo di avvio. A tale scopo, creare un'impostazione dell'applicazione, `WEBSITES_CONTAINER_START_TIME_LIMIT` e impostarla sul numero di secondi di attesa del servizio app prima del timeout. Il valore massimo è `1800` secondi.
+Se l'applicazione Java è particolarmente grande, è necessario aumentare il limite di tempo di avvio. A tale scopo, creare un'impostazione dell'applicazione `WEBSITES_CONTAINER_START_TIME_LIMIT` e impostarla sul numero di secondi di attesa del servizio app prima del timeout. Il valore massimo è `1800` secondi.
 
 ### <a name="pre-compile-jsp-files"></a>Pre-compila file JSP
 
@@ -191,7 +191,7 @@ Configurare l'autenticazione delle app nel portale di Azure con l'opzione di **a
 
 #### <a name="tomcat-and-wildfly"></a>Tomcat e Wildfly
 
-L'applicazione Tomcat o Wildfly può accedere alle attestazioni dell'utente direttamente dalla servlet eseguendo il cast dell'oggetto Principal a un oggetto map. L'oggetto map eseguirà il mapping di ogni tipo di attestazione a una raccolta di attestazioni per quel tipo. Nel codice riportato di seguito, `request` è un'istanza di `HttpServletRequest`.
+L'applicazione Tomcat o Wildfly può accedere alle attestazioni dell'utente direttamente dalla servlet eseguendo il cast dell'oggetto Principal a un oggetto map. L'oggetto map eseguirà il mapping di ogni tipo di attestazione a una raccolta di attestazioni per quel tipo. Nel codice riportato di seguito `request` è un'istanza di `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
@@ -229,7 +229,7 @@ Gli sviluppatori Spring Boot possono usare l'[utilità di avvio Spring Boot per 
 
 ### <a name="configure-tlsssl"></a>Configurare TLS/SSL
 
-Seguire le istruzioni illustrate in [Associare un certificato SSL personalizzato esistente](../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) per caricare un certificato SSL esistente e associarlo al nome di dominio dell'applicazione. Per impostazione predefinita, l'applicazione consentirà ancora le connessioni HTTP. Seguire i passaggi specifici dell'esercitazione per applicare SSL e TLS.
+Per caricare un certificato SSL esistente e associarlo al nome di dominio dell'applicazione, seguire le istruzioni riportate nella pagina [proteggere un nome DNS personalizzato con binding SSL nel servizio app Azure](../configure-ssl-bindings.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) . Per impostazione predefinita, l'applicazione consentirà ancora le connessioni HTTP. Seguire i passaggi specifici dell'esercitazione per applicare SSL e TLS.
 
 ### <a name="use-keyvault-references"></a>Usare i riferimenti all'insieme di credenziali delle credenziali
 
@@ -285,8 +285,8 @@ Il servizio app Linux instrada le richieste in ingresso alla porta 80, in modo c
 - [SparkJava](http://sparkjava.com/documentation#embedded-web-server)
 - [Micronaut](https://docs.micronaut.io/latest/guide/index.html#runningSpecificPort)
 - [Esegui Framework](https://www.playframework.com/documentation/2.6.x/ConfiguringHttps#Configuring-HTTPS)
-- [Vertx](https://vertx.io/docs/vertx-core/java/#_start_the_server_listening)
-- [Quarkus](https://quarkus.io/guides/application-configuration-guide)
+- [VertX](https://vertx.io/docs/vertx-core/java/#_start_the_server_listening)
+- [Quark](https://quarkus.io/guides/application-configuration-guide)
 
 ## <a name="data-sources"></a>Origini dati
 
@@ -311,7 +311,7 @@ Per configurare Tomcat per l'uso di Java Database Connectivity (JDBC) o Java Per
 </appSettings>
 ```
 
-In alternativa, impostare le variabili di ambiente nella pagina **configurazione** > **impostazioni applicazione** nel portale di Azure.
+In alternativa, impostare le variabili di ambiente nella pagina **configurazione** > **impostazioni applicazione** della portale di Azure.
 
 Determinare quindi se l'origine dati deve essere disponibile per un'applicazione o per tutte le applicazioni in esecuzione nel servlet Tomcat.
 
@@ -384,7 +384,7 @@ Determinare quindi se l'origine dati deve essere disponibile per un'applicazione
 
 Infine, inserire i file jar del driver nel classpath di Tomcat e riavviare il servizio app.
 
-1. Assicurarsi che i file del driver JDBC siano disponibili per il classloader di Tomcat inserendoli nella directory */Home/Tomcat/lib* Creare questa directory se non esiste già. Per caricare questi file nell'istanza del servizio app, seguire questa procedura:
+1. Assicurarsi che i file del driver JDBC siano disponibili per il classloader di Tomcat inserendoli nella directory */Home/Tomcat/lib* (Creare questa directory se non esiste già.) Per caricare i file nell'istanza del servizio app, seguire questa procedura:
 
     1. Nel [cloud Shell](https://shell.azure.com)installare l'estensione WEBAPP:
 
@@ -471,7 +471,7 @@ Per installare i moduli e le relative dipendenze nel classpath WildFly tramite l
 - Un [descrittore di modulo XML](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). Questo file XML definisce il nome, gli attributi e le dipendenze del modulo. Questo [file module.xml di esempio](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) definisce un modulo Postgres, la relativa dipendenza JDBC del file JAR e altre dipendenze del modulo richieste.
 - Le dipendenze del file con estensione JAR necessarie per il modulo.
 - Uno script con i comandi dell'interfaccia della riga di comando di JBoss per configurare il nuovo modulo. Questo file conterrà i comandi che si indica all'interfaccia della riga di comando di JBoss di eseguire per configurare il server per usare la dipendenza. Per la documentazione sui comandi per aggiungere moduli, origini dati e provider di messaggistica, fare riferimento a [questo documento](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
-- Uno script Bash di avvio per chiamare l'interfaccia della riga di comando di JBoss ed eseguire lo script del passaggio precedente. Questo file viene eseguito quando l'istanza del Servizio app di Azure viene riavviata o quando viene effettuato il provisioning di nuove istanze durante un'operazione di scale-out. Questo script di avvio è usato per eseguire qualsiasi altra configurazione per l'applicazione man mano che i comandi di JBoss vengono passati all'interfaccia della riga di comando di JBoss. Questo file può essere come minimo un singolo comando per passare lo script di comandi della CLI di JBoss all'interfaccia della riga di comando di JBoss:
+- Uno script Bash di avvio per chiamare l'interfaccia della riga di comando di JBoss ed eseguire lo script del passaggio precedente. Questo file verrà eseguito quando l'istanza del servizio app viene riavviata o quando viene effettuato il provisioning di nuove istanze durante un'operazione di scalabilità orizzontale. Questo script di avvio è il punto in cui è possibile eseguire qualsiasi altra configurazione per l'applicazione, perché i comandi JBoss vengono passati all'interfaccia della riga di comando di JBoss. Questo file può essere come minimo un singolo comando per passare lo script di comandi della CLI di JBoss all'interfaccia della riga di comando di JBoss:
 
 ```bash
 /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli
@@ -480,7 +480,7 @@ Per installare i moduli e le relative dipendenze nel classpath WildFly tramite l
 Dopo aver creato i file e il contenuto per il modulo, attenersi alla procedura seguente per aggiungere il modulo al server applicazioni WildFly.
 
 1. Usare FTP per caricare i file in un percorso dell'istanza del servizio app nella directory */Home* , ad esempio */Home/site/Deployments/Tools*. Per altre informazioni, vedere [distribuire l'app nel servizio app Azure tramite FTP/S](../deploy-ftp.md).
-2. Nella pagina **configurazione** > **impostazioni generali** del portale di Azure, impostare il campo **script di avvio** sul percorso dello script della shell di avvio, ad esempio */Home/site/Deployments/Tools/Startup.sh*.
+2. Nella pagina **configurazione** > **impostazioni generali** della portale di Azure impostare il campo script di **avvio** sul percorso dello script della shell di avvio, ad esempio */Home/site/Deployments/Tools/Startup.sh*.
 3. Riavviare l'istanza del servizio app premendo il pulsante **Riavvia** nella sezione **Panoramica** del portale o usando l'interfaccia della riga di comando di Azure.
 
 ### <a name="configure-data-sources"></a>Configurare le origini dati
@@ -489,7 +489,7 @@ Per configurare WildFly/JBoss per accedere a un'origine dati, usare il processo 
 
 Questa sezione presuppone che sia già presente un'app, un'istanza del servizio app e un'istanza del servizio di database di Azure. Le istruzioni riportate di seguito fanno riferimento al nome del servizio app, al relativo gruppo di risorse e alle informazioni di connessione al database. È possibile trovare queste informazioni nella portale di Azure.
 
-Se si preferisce eseguire l'intero processo dall'inizio usando un'app di esempio, vedere [Tutorial: Compilare un'app Web Java EE e Postgres in Azure @ no__t-0.
+Se si preferisce eseguire l'intero processo dall'inizio usando un'app di esempio, vedere [esercitazione: creare un'app Web Java EE e Postgres in Azure](tutorial-java-enterprise-postgresql-app.md).
 
 I passaggi seguenti illustrano i requisiti per la connessione del servizio app e del database esistenti.
 
@@ -559,7 +559,7 @@ I passaggi seguenti illustrano i requisiti per la connessione del servizio app e
 
 5. Usare FTP per caricare il file JDBC. jar, il file XML del modulo, lo script dell'interfaccia della riga di comando di JBoss e lo script di avvio nell'istanza del servizio app. Inserire i file nel percorso specificato nei passaggi precedenti, ad esempio */Home*. Per altre informazioni su FTP, vedere [distribuire l'app nel servizio app Azure tramite FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
 
-6. Usare l'interfaccia della riga di comando di Azure per aggiungere impostazioni al servizio app che contengono le informazioni di connessione al database. Sostituire `<resource group>` e `<webapp name>` con i valori usati dal servizio app. Sostituire `<database server name>`, `<database name>`, `<admin name>` e `<admin password>` con le informazioni di connessione al database. È possibile ottenere il servizio app e le informazioni sul database dal portale di Azure.
+6. Usare l'interfaccia della riga di comando di Azure per aggiungere impostazioni al servizio app che contengono le informazioni di connessione al database. Sostituire `<resource group>` e `<webapp name>` con i valori usati dal servizio app. Sostituire `<database server name>`, `<database name>`, `<admin name>`e `<admin password>` con le informazioni di connessione al database. È possibile ottenere il servizio app e le informazioni sul database dal portale di Azure.
 
     **PostgreSQL**
 
@@ -573,7 +573,7 @@ I passaggi seguenti illustrano i requisiti per la connessione del servizio app e
             DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
     ```
 
-    **MySQL:**
+    **MySQL**
 
     ```bash
     az webapp config appsettings set \
@@ -710,7 +710,7 @@ Per usare Tomcat con Redis, è necessario configurare l'app per l'uso di un'impl
 
 7. Passare alla sezione **Impostazioni avanzate** dell'istanza di redis e impostare **Consenti accesso solo tramite SSL** su **No**. Ciò consente all'istanza del servizio app di comunicare con la cache Redis tramite l'infrastruttura di Azure.
 
-8. Aggiornare la configurazione `azure-webapp-maven-plugin` nel file *POM. XML* dell'app per fare riferimento alle informazioni sull'account Redis. Questo file usa le variabili di ambiente impostate in precedenza per evitare che le informazioni dell'account siano presenti nei file di origine.
+8. Aggiornare la configurazione del `azure-webapp-maven-plugin` nel file *POM. XML* dell'app per fare riferimento alle informazioni dell'account Redis. Questo file usa le variabili di ambiente impostate in precedenza per evitare che le informazioni dell'account siano presenti nei file di origine.
 
     Se necessario, sostituire `1.7.0` con la versione corrente del [plug-in Maven per il servizio app di Azure](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 

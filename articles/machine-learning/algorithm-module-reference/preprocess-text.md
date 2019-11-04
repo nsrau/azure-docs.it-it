@@ -1,7 +1,7 @@
 ---
 title: 'Testo pre-elaborazione: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo di testo pre-elaborazione nel servizio Azure Machine Learning per pulire e semplificare il testo.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo di testo pre-elaborazione in Azure Machine Learning per pulire e semplificare il testo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 2213d26e6d3b2b6a7aca9d65e74a4499ff0da6c1
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9bf81b4e4c305c864592c32a8737d1a5eeb18651
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692695"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497670"
 ---
 # <a name="preprocess-text"></a>Preprocess Text
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare il modulo di **testo pre-elaborazione** per pulire e semplificare il testo. Supporta le seguenti operazioni comuni di elaborazione del testo:
 
@@ -33,7 +33,7 @@ Il modulo di **testo pre-elaborazione** supporta attualmente solo l'inglese.
 
 ## <a name="configure-text-preprocessing"></a>Configurare la pre-elaborazione del testo  
 
-1.  Aggiungere il modulo di **testo di pre-elaborazione** all'esperimento nel servizio Azure Machine Learning. È possibile trovare questo modulo in **analisi del testo**.
+1.  Aggiungere il modulo di **testo pre-elaborazione** alla pipeline in Azure Machine Learning. È possibile trovare questo modulo in **analisi del testo**.
 
 1. Connettere un set di dati con almeno una colonna contenente testo.
 
@@ -47,7 +47,7 @@ Il modulo di **testo pre-elaborazione** supporta attualmente solo l'inglese.
 
 1. **Lemmatizzazione**: selezionare questa opzione se si desidera che le parole siano rappresentate nel formato canonico. Questa opzione è utile per ridurre il numero di occorrenze univoche di token di testo altrimenti simili.
 
-    Il processo lemmatizzazione è altamente dipendente dal linguaggio.
+    Il processo lemmatizzazione dipende dalla lingua.
 
 1. **Rileva frasi**: selezionare questa opzione se si vuole che il modulo inserisca un contrassegno limite frase durante l'esecuzione dell'analisi.
 
@@ -83,8 +83,8 @@ Il modulo di **testo pre-elaborazione** supporta attualmente solo l'inglese.
 
     Ad esempio, la stringa `MS---WORD` viene suddivisa in tre token, `MS`, `-` e `WORD`.
 
-1. Eseguire l'esperimento.
+1. Eseguire la pipeline.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

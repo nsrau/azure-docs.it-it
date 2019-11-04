@@ -1,7 +1,7 @@
 ---
 title: 'Creare un modello Python: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modello di creazione modello Python nel servizio Azure Machine Learning per creare un modulo di modellazione o elaborazione dati personalizzato.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modello di creazione modello Python in Azure Machine Learning per creare un modulo di modellazione o elaborazione dati personalizzato.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 2a035644dc0d3d533aa052217c89968a5692230b
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 33e15055958ac99f2aa9eb160f9e5cf3c5b0cd41
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693897"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493804"
 ---
 # <a name="create-python-model"></a>Creare il modello Python
 
 Questo articolo descrive come usare il modulo **Crea modello Python** per creare un modello non sottoposto a training da uno script Python. 
 
-È possibile basare il modello su qualsiasi discente incluso in un pacchetto python nell'ambiente Azure Machine Learning. 
+È possibile basare il modello su qualsiasi strumento di apprendimento incluso in un pacchetto python nell'ambiente Azure Machine Learning Designer. 
 
 Dopo aver creato il modello, è possibile utilizzare [Train Model](train-model.md) per eseguire il training del modello su un set di dati, come qualsiasi altro discente in Azure Machine Learning. Il modello sottoposto a training può essere passato al [modello di Punteggio](score-model.md) per utilizzare il modello per eseguire stime. Il modello con Training può quindi essere salvato e il flusso di lavoro di assegnazione dei punteggi può essere pubblicato come servizio Web.
 

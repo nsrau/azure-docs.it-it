@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 4f5163ba448e4cc7e18b0e794a44003ce5ab1dce
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 858ca114ca4c4b469ce4a5dd5275c9ac9874feb5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516772"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465005"
 ---
 # <a name="speech-services-for-telephony-data"></a>Servizi Voce per i dati di telefonia
 
@@ -38,7 +38,7 @@ Al di là dell'aspetto funzionale, l'obiettivo principale dei servizi Voce, se a
 
 * L'analisi post-chiamata, cioè l'elaborazione batch delle registrazioni delle chiamate
 * L'elaborazione analitica in tempo reale del segnale audio per estrarre varie informazioni dettagliate mentre la chiamata è in corso (in cui la valutazione è un caso d'uso importante)
-* Gli assistenti virtuali, o bot, che favoriscono il dialogo tra cliente e bot nel tentativo di risolvere il problema del cliente senza la partecipazione dell'operatore oppure applicano i protocolli di intelligenza artificiale per assistere l'operatore.
+* Assistenti vocali (bot), guidando il dialogo tra il cliente e il bot nel tentativo di risolvere il problema del cliente senza alcuna partecipazione dell'agente o l'applicazione di protocolli di intelligenza artificiale per supportare l'agente.
 
 L'immagine sotto ![Architettura delle trascrizioni del call center](media/scenarios/call-center-transcription-architecture.png) mostra un tipico diagramma architettonico dell'implementazione di uno scenario batch
 

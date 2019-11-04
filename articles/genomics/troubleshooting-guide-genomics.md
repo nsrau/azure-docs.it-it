@@ -1,7 +1,7 @@
 ---
 title: Guida per la risoluzione dei problemi
 titleSuffix: Microsoft Genomics
-description: Informazioni sulle strategie di risoluzione dei problemi per l'uso di genomica di Microsoft.
+description: Informazioni sulle strategie di risoluzione dei problemi per l'utilizzo di genomica di Microsoft, inclusi i messaggi di errore e come risolverli.
 keywords: risoluzione dei problemi, errore, debug
 services: genomics
 author: ruchir
@@ -11,14 +11,14 @@ ms.service: genomics
 ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
-ms.openlocfilehash: ce8af4d444e642a8f67f43f8cf403ce9b2cb08ab
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: f6ef56e4188a7541036db096e4ab35a1b95fc141
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248521"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486010"
 ---
-# <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
+# <a name="troubleshooting-guide"></a>Guida alla risoluzione dei problemi
 
 Questo articolo presenta alcuni suggerimenti per la risoluzione di alcuni dei problemi comuni che possono verificarsi quando si usa il servizio Genomica di Microsoft, MSGEN.
 
@@ -30,7 +30,7 @@ Per individuare i messaggi di errore associati al flusso di lavoro, è possibile
 1. Usare la riga di comando e digitare `msgen status`
 2. Esaminare il contenuto di standardoutput.txt.
 
-### <a name="1-using-the-command-line-msgen-status"></a>1. Eseguire `msgen status` dalla riga di comando
+### <a name="1-using-the-command-line-msgen-status"></a>1. uso della riga di comando `msgen status`
 
 ```bash
 msgen status -u URL -k KEY -w ID 
@@ -82,7 +82,7 @@ Per un flusso di lavoro con ID 1001 e un file config.txt presente nello stesso p
 msgen status -w 1001 -f "config.txt"
 ```
 
-### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2.  Esaminare il contenuto di standardoutput.txt 
+### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. esaminare il contenuto di StandardOutput. txt 
 Individuare il contenitore di output per il flusso di lavoro in questione. MSGEN crea una cartella `[workflowfilename].logs.zip` dopo ogni esecuzione del flusso di lavoro. Decomprimere la cartella per visualizzarne il contenuto:
 
 * outputFileList.txt - Elenco dei file di output generati durante il flusso di lavoro
@@ -93,16 +93,16 @@ Individuare il contenitore di output per il flusso di lavoro in questione. MSGEN
 Per risolvere il problema, esaminare il contenuto di standardoutput.txt e prendere nota di eventuali messaggi di errore visualizzati.
 
 
-## <a name="step-2-try-recommended-steps-for-common-errors"></a>Passaggio 2: Provare la procedura consigliata per errori comuni
+## <a name="step-2-try-recommended-steps-for-common-errors"></a>Passaggio 2: Provare le procedure consigliate per gli errori comuni
 
 Questa sezione descrive brevemente gli errori comuni restituiti dal servizio Genomica di Microsoft (msgen) e le strategie che è possibile adottare per risolverli. 
 
 Il servizio Genomica di Microsoft (msgen) può generare i due tipi di errori seguenti:
 
-1. Errori interni del servizio: Errori interni al servizio, che potrebbero non essere risolti mediante la correzione di parametri o file di input. In alcuni casi, per risolvere questi errori può essere sufficiente inviare nuovamente il flusso di lavoro.
-2. Errori di input: Errori che possono essere risolti utilizzando gli argomenti corretti o correggendo i formati di file.
+1. Errori interni del servizio: gli errori che sono interni al servizio e non possono essere risolti tramite la correzione di parametri o file di input. In alcuni casi, per risolvere questi errori può essere sufficiente inviare nuovamente il flusso di lavoro.
+2. Errori di input: gli errori che possono essere risolti usando gli argomenti corretti o correggendo formati di file.
 
-### <a name="1-internal-service-errors"></a>1. Errori interni del servizio
+### <a name="1-internal-service-errors"></a>1. errori interni del servizio
 
 Un errore interno del servizio non può essere corretto dall'utente. È possibile provare a inviare nuovamente il flusso di lavoro, ma se il problema persiste, contattare il supporto tecnico di Genomica di Microsoft.
 
@@ -110,13 +110,13 @@ Un errore interno del servizio non può essere corretto dall'utente. È possibil
 |------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | An internal error occurred. Try resubmitting the workflow. If you see this error again, contact Microsoft Genomics support for assistance. (Si è verificato un errore interno. Provare a inviare nuovamente il flusso di lavoro. Se l'errore persiste, contattare il supporto tecnico di Genomica di Microsoft per ottenere assistenza.) | Inviare nuovamente il flusso di lavoro. Se il problema persiste, contattare il supporto tecnico di Genomica di Microsoft per ottenere assistenza creando un [ticket](file-support-ticket-genomics.md ) di supporto. |
 
-### <a name="2-input-errors"></a>2. Errori di input
+### <a name="2-input-errors"></a>2. errori di input
 
 Questi errori possono essere corretti dall'utente. A seconda del tipo di file e del codice di errore, il servizio Genomica di Microsoft restituisce codici di errore distinti. Seguire le procedure consigliate per la risoluzione dei problemi elencate di seguito.
 
 | Tipo di file | Codice di errore | Messaggio di errore                                                                           | Passaggi consigliati per la risoluzione dei problemi                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Any          | 701        | Read [readId] has [numberOfBases] bases, but the limit is [maxReadLength] (La lettura [idLettura] ha [numeroBasi] basi, ma il limite è [lunghezzaMaxLettura])           | Il motivo più comune di questo errore è dato dal danneggiamento dei file che ha determinato la concatenazione di due operazioni di lettura. Controllare i file di input. |
+| Qualsiasi          | 701        | Read [readId] has [numberOfBases] bases, but the limit is [maxReadLength] (La lettura [idLettura] ha [numeroBasi] basi, ma il limite è [lunghezzaMaxLettura])           | Il motivo più comune di questo errore è dato dal danneggiamento dei file che ha determinato la concatenazione di due operazioni di lettura. Controllare i file di input. |
 | BAM          | 200        |   Unable to read file '[yourFileName]'. (Non è possibile leggere il file '[nomeFile]'.)                                                                                       | Controllare il formato del file BAM. Inviare nuovamente il flusso di lavoro con un file nel formato corretto.                                                                           |
 | BAM          | 201        |  Unable to read BAM file [File_name]. (Non è possibile leggere il file BAM [nome_File].)                                                                                      |Controllare il formato del file BAM.  Inviare il flusso di lavoro con un file nel formato corretto.                                                                            |
 | BAM          | 202        | Unable to read BAM file [File_name]. (Non è possibile leggere il file BAM [nome_File].) File too small and missing header. (Il file ha dimensioni troppo piccole o l'intestazione è mancante.)                                                                                        | Controllare il formato del file BAM.  Inviare il flusso di lavoro con un file nel formato corretto.                                                                            |
@@ -137,7 +137,7 @@ Questi errori possono essere corretti dall'utente. A seconda del tipo di file e 
 | FASTQ        | 308        |  FASTQ read error. Reads of both ends responded differently. Did you choose the correct FASTQ files? (Errore di lettura FASTQ. Le letture di entrambe le estremità hanno risposto in modo diverso. Sono stati scelti i file FASTQ corretti?)                                                                                       | Correggere il formato del file FASTQ e inviare nuovamente il flusso di lavoro.                                                                         |
 |        |       |                                                                                        |                                                                           |
 
-## <a name="step-3-contact-microsoft-genomics-support"></a>Passaggio 3: Contattare il supporto di genomica di Microsoft
+## <a name="step-3-contact-microsoft-genomics-support"></a>Passaggio 3: Contattare il supporto di Genomica di Microsoft
 
 Se i problemi dei processi persistono o se si hanno altre domande, contattare il supporto di Genomica di Microsoft dal portale di Azure. Per altre informazioni su come inviare una richiesta di supporto, vedere [qui](file-support-ticket-genomics.md).
 

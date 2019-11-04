@@ -1,24 +1,24 @@
 ---
 title: 'Rete neurale multiclasse: informazioni di riferimento sui moduli'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo di rete neurale multiclasse nel servizio Azure Machine Learning per creare un modello di rete neurale che può essere usato per stimare una destinazione con più valori.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo di rete neurale multiclasse in Azure Machine Learning per creare un modello di rete neurale che può essere usato per stimare una destinazione con più valori.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 3322f2be3c5c6f819adbc9d83ee9eb6b6577f707
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: b49ff44e898a78d865278df087aca75e4f8e50ca
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692718"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466044"
 ---
 # <a name="multiclass-neural-network-module"></a>Modulo di rete neurale multiclasse
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per creare un modello di rete neurale che può essere usato per stimare una destinazione con più valori. 
 
@@ -40,7 +40,7 @@ Per calcolare l'output della rete per un input specifico, viene calcolato un val
 
 ## <a name="configure-multiclass-neural-network"></a>Configurare la rete neurale multiclasse
 
-1. Aggiungere il modulo di **rete neurale multiclasse** alla pipeline nell'interfaccia. È possibile trovare questo modulo in **Machine Learning**, **Initialize**, nella categoria **classificazione** .
+1. Aggiungere il modulo di **rete neurale multiclasse** alla pipeline nella finestra di progettazione. È possibile trovare questo modulo in **Machine Learning**, **Initialize**, nella categoria **classificazione** .
 
 2. **Crea modalità trainer**: usare questa opzione per specificare come si desidera eseguire il training del modello:
 
@@ -93,4 +93,4 @@ Al termine del training:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

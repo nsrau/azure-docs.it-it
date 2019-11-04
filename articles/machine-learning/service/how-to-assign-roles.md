@@ -11,14 +11,15 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 22ce9ea44dde6da4d1194463fe266ed00c5a3f96
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 0ceb21d6f77fd9694f7cd564c2e89735cf2a774d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067714"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497429"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire l'accesso a un'area di lavoro Azure Machine Learning
+[!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Questo articolo illustra come gestire l'accesso a un'area di lavoro Azure Machine Learning. Il [controllo degli accessi in base al ruolo (RBAC)](/azure/role-based-access-control/overview) viene usato per gestire l'accesso alle risorse di Azure. Agli utenti nella Azure Active Directory vengono assegnati ruoli specifici che consentono di accedere alle risorse. Azure fornisce ruoli predefiniti e la possibilità di creare ruoli personalizzati.
 
@@ -26,7 +27,7 @@ Questo articolo illustra come gestire l'accesso a un'area di lavoro Azure Machin
 
 Un'area di lavoro Azure Machine Learning è una risorsa di Azure. Analogamente ad altre risorse di Azure, quando viene creata una nuova area di lavoro Azure Machine Learning, viene fornita con tre ruoli predefiniti. È possibile aggiungere utenti all'area di lavoro e assegnarli a uno di questi ruoli predefiniti.
 
-| Role | Livello di accesso |
+| Ruolo | Livello di accesso |
 | --- | --- |
 | **Lettore** | Azioni di sola lettura nell'area di lavoro. I lettori possono elencare e visualizzare gli asset in un'area di lavoro, ma non possono creare o aggiornare tali asset. |
 | **Collaboratore** | Consente di visualizzare, creare, modificare o eliminare risorse, ove applicabile, in un'area di lavoro. I collaboratori possono ad esempio creare un esperimento, creare o alleghire un cluster di calcolo, inviare un'esecuzione e distribuire un servizio Web. |
@@ -42,8 +43,8 @@ Per altre informazioni sui ruoli predefiniti specifici, vedere [ruoli predefinit
 Se si è proprietari di un'area di lavoro, è possibile aggiungere e rimuovere ruoli per l'area di lavoro. È anche possibile assegnare ruoli agli utenti. Usare i collegamenti seguenti per scoprire come gestire l'accesso:
 - [Interfaccia utente di portale di Azure](/azure/role-based-access-control/role-assignments-portal)
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
-- [Interfaccia della riga di comando di Azure](/azure/role-based-access-control/role-assignments-cli)
-- [API REST](/azure/role-based-access-control/role-assignments-rest)
+- [interfaccia della riga di comando di Azure](/azure/role-based-access-control/role-assignments-cli)
+- [REST API](/azure/role-based-access-control/role-assignments-rest)
 - [Modelli di Gestione risorse di Azure](/azure/role-based-access-control/role-assignments-template)
 
 Se è stata installata l' [interfaccia](reference-azure-machine-learning-cli.md)della riga di comando di Azure Machine Learning, è anche possibile usare un comando dell'interfaccia della riga di comando per assegnare ruoli agli utenti.
@@ -52,13 +53,13 @@ Se è stata installata l' [interfaccia](reference-azure-machine-learning-cli.md)
 az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
 ```
 
-Il `user` campo è l'indirizzo di posta elettronica di un utente esistente nell'istanza di Azure Active Directory in cui risiede la sottoscrizione padre dell'area di lavoro. Di seguito è riportato un esempio di come usare questo comando:
+Il campo `user` è l'indirizzo di posta elettronica di un utente esistente nell'istanza di Azure Active Directory in cui risiede la sottoscrizione padre dell'area di lavoro. Di seguito è riportato un esempio di come usare questo comando:
 
 ```azurecli-interactive 
 az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
 ```
 
-## <a name="create-custom-role"></a>Crea ruolo personalizzato
+## <a name="create-custom-role"></a>Creare un ruolo personalizzato
 
 Se i ruoli predefiniti non sono sufficienti, è possibile creare ruoli personalizzati. I ruoli personalizzati potrebbero avere autorizzazioni di risorse di lettura, scrittura, eliminazione e calcolo in tale area di lavoro. È possibile rendere il ruolo disponibile a livello di area di lavoro specifico, a livello di gruppo di risorse specifico o a un livello di sottoscrizione specifico.
 
@@ -86,7 +87,7 @@ Per creare un ruolo personalizzato, creare prima di tutto un file JSON di defini
 }
 ```
 
-È possibile modificare il `AssignableScopes` campo per impostare l'ambito di questo ruolo personalizzato a livello di sottoscrizione, a livello di gruppo di risorse o a livello di area di lavoro specifico.
+È possibile modificare il campo `AssignableScopes` per impostare l'ambito di questo ruolo personalizzato a livello di sottoscrizione, a livello di gruppo di risorse o a livello di area di lavoro specifico.
 
 Questo ruolo personalizzato può eseguire tutte le operazioni nell'area di lavoro, ad eccezione delle azioni seguenti:
 
@@ -101,7 +102,7 @@ Per distribuire questo ruolo personalizzato, usare il comando dell'interfaccia d
 az role definition create --role-definition data_scientist_role.json
 ```
 
-Dopo la distribuzione, questo ruolo diventa disponibile nell'area di lavoro specificata. A questo punto è possibile aggiungere e assegnare questo ruolo nella portale di Azure. In alternativa, è possibile assegnare questo ruolo a un utente usando il `az ml workspace share` comando dell'interfaccia della riga di comando:
+Dopo la distribuzione, questo ruolo diventa disponibile nell'area di lavoro specificata. A questo punto è possibile aggiungere e assegnare questo ruolo nella portale di Azure. In alternativa, è possibile assegnare questo ruolo a un utente usando il `az ml workspace share` comando CLI:
 
 ```azurecli-interactive
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com

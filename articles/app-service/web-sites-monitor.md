@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: b9e910f24503f6bbf86e8ed8cdcb6f422d2490d9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1cfab9b065fd4e28a9ce11ac85682a298011200b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073987"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470131"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorare le app in Servizio app di Azure
 [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) offre funzionalità di monitoraggio predefinite per app Web, sistemi back-end mobili e app per le API nel [portale di Azure](https://portal.azure.com).
@@ -38,7 +38,7 @@ Se l'app è ospitata in un piano *Basic*, *Standard* o *Premium*, i limiti relat
 
 Le quote per le app ospitate nel piano Gratuito o Condiviso sono:
 
-| Gestione quote | DESCRIZIONE |
+| Quota | Description |
 | --- | --- |
 | **Tempo CPU (breve)** | Quantità di CPU consentita per l'app in un intervallo di 5 minuti. Questa quota viene reimpostata automaticamente ogni cinque minuti. |
 | **Tempo CPU (giorno)** | Quantità totale di CPU consentita per l'app in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC). |
@@ -68,9 +68,9 @@ Le metriche forniscono informazioni sull'app o sul comportamento del piano di se
 
 Le metriche disponibili per un'app sono:
 
-| Metrica | DESCRIZIONE |
+| Metrica | Description |
 | --- | --- |
-| **Tempo medio di risposta** | Tempo medio impiegato dall'app per gestire le richieste, espresso in millisecondi. |
+| **Tempo medio di risposta** | Tempo medio impiegato dall'app per gestire le richieste, in secondi. |
 | **Working set della memoria medio** | Quantità media di memoria usata dall'app, espressa in megabyte (MiB). |
 | **Connessioni** | Numero di socket associati esistenti nella sandbox (w3wp.exe e i processi figlio).  Un socket associato viene creato chiamando le API bind()/connect() e permane finché non viene chiuso con CloseHandle()/closesocket(). |
 | **Tempo CPU** | Quantità di CPU utilizzata dall'app, espressa in secondi. Per altre informazioni su questa metrica, vedere [Tempo CPU e percentuale CPU](#cpu-time-vs-cpu-percentage). |
@@ -110,7 +110,7 @@ Le metriche disponibili per un piano di servizio app sono:
 > Le metriche del piano di servizio app sono disponibili solo per i piani dei livelli *Basic*, *Standard* e *Premium*.
 > 
 
-| Metrica | DESCRIZIONE |
+| Metrica | Description |
 | --- | --- |
 | **Percentuale di CPU** | CPU media usata tra tutte le istanze del piano. |
 | **Percentuale memoria** | Memoria media usata tra tutte le istanze del piano. |
@@ -124,9 +124,9 @@ Le metriche disponibili per un piano di servizio app sono:
 
 Le metriche che riflettono l'utilizzo della CPU sono due:
 
-**Tempo CPU**: è utile per le app ospitate nei piani Gratuito o Condiviso, dal momento che una delle relative quote è definita in minuti di CPU usati dall'app.
+**Tempo CPU**: utile per le app ospitate in piani gratuiti o condivisi, perché una delle rispettive quote è definita in minuti CPU usati dall'app.
 
-**Percentuale CPU**: è utile per le app ospitate nei piani Basic, Standard e Premium, dal momento che è possibile aumentarne il numero di istanze. Percentuale CPU è un ottimo indicatore dell'uso complessivo in tutte le istanze.
+**Percentuale CPU**: utile per le app ospitate nei piani Basic, standard e Premium, perché possono essere scalate orizzontalmente. La percentuale di CPU è una indicazione corretta dell'utilizzo complessivo in tutte le istanze.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Granularità delle metriche e criteri di conservazione
 Le metriche per un'app e un piano di servizio app vengono registrate e aggregate dal servizio con le granularità e i criteri di conservazione seguenti:

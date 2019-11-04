@@ -1,24 +1,24 @@
 ---
 title: 'Foresta delle decisioni multiclasse: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo multiCLASS Decision Forest nel servizio Azure Machine Learning per creare un modello di machine learning basato sull'algoritmo della *foresta delle decisioni* .
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo multiCLASS Decision Forest in Azure Machine Learning per creare un modello di machine learning basato sull'algoritmo della *foresta delle decisioni* .
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 80d8fc886ec62cf6abea7620f0c5763b619b5de4
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 85459fe586ccbb5adb1e86b153ec63252c0cce2d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692773"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466015"
 ---
 # <a name="multiclass-decision-forest-module"></a>Modulo della foresta delle decisioni multiclasse
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per creare un modello di machine learning basato sull'algoritmo della *foresta delle decisioni* . Una foresta delle decisioni è un modello di ensemble che consente di compilare rapidamente una serie di alberi delle decisioni, imparando dai dati con tag.
 
@@ -39,9 +39,7 @@ Il classificatore della foresta delle decisioni in Azure Machine Learning è cos
 
 ## <a name="how-to-configure-multiclass-decision-forest"></a>Come configurare una foresta delle decisioni multiclasse
 
-
-
-1. Aggiungere il modulo **multiCLASS Decision Forest** alla pipeline nell'interfaccia. È possibile trovare questo modulo in **Machine Learning**, **inizializzare il modello**e la **classificazione**.
+1. Aggiungere il modulo **multiCLASS Decision Forest** alla pipeline nella finestra di progettazione. È possibile trovare questo modulo in **Machine Learning**, **inizializzare il modello**e la **classificazione**.
 
 2. Fare doppio clic sul modulo per aprire il riquadro **Proprietà** .
 
@@ -88,4 +86,4 @@ Al termine del training:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

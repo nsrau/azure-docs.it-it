@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b0fab51e002ecb431bf68f58984290889296b2a9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 4f5344259767aaad9ed58ded1da86ae7ee3c03e7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097553"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470102"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -25,10 +25,15 @@ Azure offre diagnostica integrata per facilitare il debug di un'[app del servizi
 
 L'articolo illustra anche l'uso del [portale di Azure](https://portal.azure.com) e dell'interfaccia della riga di comando di Azure per elaborare i log di diagnostica. Per informazioni sull'elaborazione dei log di diagnostica in Visual Studio vedere [Risoluzione dei problemi di Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
-|Type|Piattaforma|Location|DESCRIZIONE|
+> [!NOTE]
+> Oltre alle istruzioni per la registrazione in questo articolo, sono disponibili nuove funzionalità di registrazione integrate con il monitoraggio di Azure. Questa funzionalità è reperibile nella pagina [log e nella pagina impostazioni di diagnostica (anteprima)](https://aka.ms/appsvcblog-azmon). 
+>
+>
+
+|Type|Piattaforma|Località|Description|
 |-|-|-|-|
-| Registrazione applicazioni | Windows, Linux | File system del servizio app e/o BLOB di archiviazione di Azure | Registra i messaggi generati dal codice dell'applicazione. I messaggi possono essere generati dal framework Web scelto oppure dal codice dell'applicazione usando direttamente il modello di registrazione standard della lingua. A ogni messaggio viene assegnata una delle categorie seguenti: **Critical**, **Error**, **warning**, **info**, **debug**e **Trace**. È possibile selezionare il livello di dettaglio desiderato per la registrazione impostando il livello di gravità quando si Abilita la registrazione dell'applicazione.|
-| Registrazione server Web| Windows | file system del servizio app o BLOB di archiviazione di Azure| Dati della richiesta HTTP non elaborati nel [formato di file di log esteso W3C](/windows/desktop/Http/w3c-logging). Ogni messaggio di log include dati quali il metodo HTTP, l'URI della risorsa, l'indirizzo IP del client, la porta client, l'agente utente, il codice di risposta e così via. |
+| Registrazione di applicazioni | Windows, Linux | File system del servizio app e/o BLOB di archiviazione di Azure | Registra i messaggi generati dal codice dell'applicazione. I messaggi possono essere generati dal framework Web scelto oppure dal codice dell'applicazione usando direttamente il modello di registrazione standard della lingua. A ogni messaggio viene assegnata una delle seguenti categorie: **Critical**, **Error**, **warning**, **info**, **debug**e **Trace**. È possibile selezionare il livello di dettaglio desiderato per la registrazione impostando il livello di gravità quando si Abilita la registrazione dell'applicazione.|
+| Registrazione del server Web| Windows | file system del servizio app o BLOB di archiviazione di Azure| Dati della richiesta HTTP non elaborati nel [formato di file di log esteso W3C](/windows/desktop/Http/w3c-logging). Ogni messaggio di log include dati quali il metodo HTTP, l'URI della risorsa, l'indirizzo IP del client, la porta client, l'agente utente, il codice di risposta e così via. |
 | Registrazione dettagliata degli errori | Windows | file system del servizio app | Copie delle pagine di errore *htm* che verrebbero inviate al browser client. Per motivi di sicurezza, le pagine di errore dettagliate non devono essere inviate ai client in produzione, ma il servizio app può salvare la pagina di errore ogni volta che si verifica un errore dell'applicazione con codice HTTP 400 o versione successiva. La pagina può contenere informazioni che consentono di determinare il motivo per cui il server restituisce il codice di errore. |
 | Traccia delle richieste non riuscite | Windows | file system del servizio app | Informazioni dettagliate sulla traccia delle richieste non riuscite, inclusa una traccia dei componenti IIS usati per elaborare la richiesta e il tempo impiegato in ogni componente. È utile per migliorare le prestazioni del sito o isolare uno specifico errore HTTP. Viene generata una cartella per ogni richiesta non riuscita, che contiene il file di log XML e il foglio di stile XSL per visualizzare il file di log con. |
 | Registrazione della distribuzione | Windows, Linux | file system del servizio app | Registra quando si pubblica il contenuto in un'app. La registrazione della distribuzione viene eseguita automaticamente e non sono disponibili impostazioni configurabili per la registrazione della distribuzione. Consente di determinare il motivo per cui una distribuzione non è riuscita. Se ad esempio si usa uno [script di distribuzione personalizzato](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script), è possibile usare la registrazione della distribuzione per determinare il motivo per cui lo script non riesce. |
@@ -45,12 +50,12 @@ Per abilitare la registrazione delle applicazioni per le app di Windows nell' [p
 
 Selezionare **on** per **registrazione applicazioni (file System)** o **registrazione applicazione (BLOB)** o entrambi. 
 
-L'opzione **filesystem** è a scopo di debug temporaneo e si disattiva in 12 ore. L'opzione **BLOB** è per la registrazione a lungo termine e necessita di un contenitore di archiviazione BLOB in cui scrivere i log.  L'opzione **BLOB** include anche informazioni aggiuntive nei messaggi di log, ad esempio l'ID dell'istanza della macchina virtuale di origine del messaggio di`InstanceId`log (), l'`Tid`ID del thread () e un timestamp[`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)più granulare ().
+L'opzione **filesystem** è a scopo di debug temporaneo e si disattiva in 12 ore. L'opzione **BLOB** è per la registrazione a lungo termine e necessita di un contenitore di archiviazione BLOB in cui scrivere i log.  L'opzione **BLOB** include anche informazioni aggiuntive nei messaggi di log, ad esempio l'ID dell'istanza della macchina virtuale di origine del messaggio del log (`InstanceId`), l'ID del thread (`Tid`) e un timestamp più granulare ([`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)).
 
 > [!NOTE]
 > Attualmente solo i log applicazioni .NET possono essere scritti nell'archiviazione BLOB. Java, PHP, node. js, i log applicazioni Python possono essere archiviati solo nel servizio app file system (senza modifiche al codice per scrivere i log in una risorsa di archiviazione esterna).
 >
-> Inoltre, se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la rispettiva configurazione di registrazione in modo da usare le chiavi di accesso aggiornate. A tale scopo, effettuare le seguenti operazioni:
+> Inoltre, se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la rispettiva configurazione di registrazione in modo da usare le chiavi di accesso aggiornate. A tale scopo, effettuare l'operazione seguente:
 >
 > 1. Nella scheda **Configura** impostare la funzionalità di registrazione corrispondente su **Off**. Salvare l’impostazione.
 > 2. Abilitare di nuovo la registrazione al BLOB dell'account di archiviazione. Salvare l’impostazione.
@@ -61,7 +66,7 @@ Consente di selezionare il **livello**o il livello dei dettagli da registrare. L
 
 | Level | Categorie incluse |
 |-|-|
-|**Disabilitato** | Nessuna |
+|**Disabilitato** | Nessuno |
 |**Error (Errore) (Error (Errore)e)** | Errore, Errore critico |
 |**Warning** | Avviso, Errore, Errore critico|
 |**Informazioni** | Informazioni, Avviso, Errore, Errore critico|
@@ -107,9 +112,9 @@ Entrambi i tipi di log vengono archiviati nel servizio app file system. Vengono 
 
 ## <a name="add-log-messages-in-code"></a>Aggiungere messaggi di log nel codice
 
-Nel codice dell'applicazione si usano le normali funzionalità di registrazione per inviare messaggi di log ai log dell'applicazione. Ad esempio:
+Nel codice dell'applicazione si usano le normali funzionalità di registrazione per inviare messaggi di log ai log dell'applicazione. ad esempio:
 
-- Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) per registrare le informazioni nel log di diagnostica applicazioni. Esempio:
+- Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) per registrare le informazioni nel log di diagnostica applicazioni. ad esempio:
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -137,12 +142,12 @@ Per eseguire lo streaming dei log in tempo reale in [cloud Shell](../cloud-shell
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-Per filtrare eventi specifici, ad esempio gli errori, utilizzare il parametro **-Filter** . Ad esempio:
+Per filtrare eventi specifici, ad esempio gli errori, utilizzare il parametro **-Filter** . ad esempio:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **--Path** . Ad esempio:
+Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **--Path** . ad esempio:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http
@@ -158,19 +163,19 @@ Se si configura l'opzione BLOB di archiviazione di Azure per un tipo di log, è 
 
 Per i log archiviati nel servizio app file system, il modo più semplice consiste nel scaricare il file ZIP nel browser all'indirizzo:
 
-- App Linux/contenitore:`https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
-- App di Windows:`https://<app-name>.scm.azurewebsites.net/api/dump`
+- App Linux/contenitore: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
+- App di Windows: `https://<app-name>.scm.azurewebsites.net/api/dump`
 
 Per le app Linux/contenitore, il file ZIP contiene i log di output della console per l'host Docker e il contenitore docker. Per un'app con scalabilità orizzontale, il file ZIP contiene un set di log per ogni istanza. Nel file system del servizio app, questi file di log sono il contenuto della directory */Home/LogFiles* .
 
 Per le app di Windows, il file ZIP contiene il contenuto della directory *D:\Home\LogFiles* nel servizio app file System. Presenta la struttura seguente:
 
-| Tipo di log | Directory | Descrizione |
+| Tipo di log | Directory | Description |
 |-|-|-|
 | **Log applicazioni** |*/LogFiles/Application/* | Contiene uno o più file di testo. Il formato dei messaggi di log dipende dal provider di registrazione usato. |
 | **Tracce richieste non riuscite** | */LogFiles/W3SVC#########/* | Contiene i file XML e un file XSL. È possibile visualizzare i file XML formattati nel browser. |
 | **Log degli errori dettagliati** | */LogFiles/DetailedErrors/* | Contiene i file di errore HTM. È possibile visualizzare i file HTM nel browser.<br/>Un altro modo per visualizzare le tracce delle richieste non riuscite consiste nel passare alla pagina dell'app nel portale. Dal menu a sinistra selezionare **diagnostica e Risolvi i problemi**, quindi cercare i **log di traccia delle richieste non riuscite**, quindi fare clic sull'icona per esplorare e visualizzare la traccia desiderata. |
-| **Log del server Web** | */LogFiles/http/RawLogs/* | Contiene file di testo formattati utilizzando il [formato di file di log esteso W3C](/windows/desktop/Http/w3c-logging). Queste informazioni possono essere lette usando un editor di testo o un'utilità come [log parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>Il servizio app non supporta `s-computername`i `s-ip`campi, `cs-version` o. |
+| **Log del server Web** | */LogFiles/http/RawLogs/* | Contiene file di testo formattati utilizzando il [formato di file di log esteso W3C](/windows/desktop/Http/w3c-logging). Queste informazioni possono essere lette usando un editor di testo o un'utilità come [log parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>Il servizio app non supporta i campi `s-computername`, `s-ip`o `cs-version`. |
 | **Log di distribuzione** | */LogFiles/git/* e */Deployments/* | Contengono i log generati dai processi di distribuzione interni e i log per le distribuzioni git. |
 
 ## <a name="nextsteps"></a> Passaggi successivi

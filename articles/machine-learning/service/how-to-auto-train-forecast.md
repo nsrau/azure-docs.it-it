@@ -9,15 +9,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 06/20/2019
-ms.openlocfilehash: 3cec6ee9368b1d9d1f2c9a627108aaf41c6da3c3
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.date: 11/04/2019
+ms.openlocfilehash: d9a879e92f78275f2366ccfc008068afbe208e5a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819861"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497385"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione delle serie temporali
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come eseguire il training di un modello di regressione delle previsioni di serie temporali usando Machine Learning automatizzato in Azure Machine Learning. La configurazione di un modello di previsione è simile alla configurazione di un modello di regressione standard usando Machine Learning automatizzato, ma sono disponibili alcune opzioni di configurazione e passaggi di pre-elaborazione per l'uso di dati di serie temporali. Gli esempi seguenti illustrano come:
 
@@ -50,7 +51,7 @@ I modelli di apprendimento avanzato hanno tre capbailities intrinseci:
 1. Supportano più input e output
 1. Possono estrarre automaticamente i modelli nei dati di input che si estendono su lunghe sequenze
 
-Dato che i dati più grandi, i modelli di apprendimento avanzato, ad esempio ForecasTCN di Microsoft, possono migliorare i punteggi del modello risultante. 
+Dato che i dati più grandi, i modelli di apprendimento avanzato, ad esempio ForecastTCN di Microsoft, possono migliorare i punteggi del modello risultante. 
 
 Gli Learner Time Series nativi sono forniti anche come parte del Machine Learning automatico. Il profeta funziona meglio con le serie temporali con effetti stagionali forti e diverse stagioni di dati cronologici. Il profeta è accurato & rapido, affidabile per outlier, dati mancanti e modifiche radicali nella serie temporale. 
 
@@ -119,6 +120,7 @@ L'oggetto `AutoMLConfig` definisce le impostazioni e i dati necessari per un'att
 |`max_horizon`|Definisce l'orizzonte di previsione massimo desiderato in unità di frequenza di serie temporali. Le unità sono basate sull'intervallo di tempo dei dati di training, ad esempio ogni mese, settimanalmente che il Forecaster deve prevedere.|✓|
 |`target_lags`|Numero di righe in base ai valori di destinazione in base alla frequenza dei dati. Rappresentata come un elenco o un singolo Integer. È necessario utilizzare lag quando la relazione tra le variabili indipendenti e la variabile dipendente non corrisponde per impostazione predefinita o correlata. Ad esempio, quando si tenta di prevedere la richiesta di un prodotto, la richiesta in ogni mese può dipendere dal prezzo di prodotti specifici 3 mesi prima. In questo esempio, è possibile che si desideri ritardare la destinazione (richiesta) negativamente di 3 mesi, in modo che il modello sia in grado di eseguire il training sulla relazione corretta.||
 |`target_rolling_window_size`|*n* periodi cronologici da usare per generare valori previsti, < = dimensioni del set di training. Se omesso, *n* è la dimensione massima del set di training. Specificare questo parametro quando si desidera considerare solo una certa quantità di cronologia durante il training del modello.||
+|`enable_dnn`|Abilitare DNN di previsione.||
 
 Per ulteriori informazioni, vedere la [documentazione di riferimento](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) .
 
@@ -150,7 +152,8 @@ import logging
 
 automl_config = AutoMLConfig(task='forecasting',
                              primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
+                             experiment_timeout_minutes=15,
+                             enable_early_stopping=True,
                              training_data=train_data,
                              label_column_name=label,
                              n_cross_validations=5,
@@ -170,6 +173,17 @@ Vedere il [notebook della domanda di energia](https://github.com/Azure/MachineLe
 * convalida incrociata di origine in sequenza
 * ritardi configurabili
 * funzionalità di aggregazione della finestra in sequenza
+
+### <a name="configure-a-dnn-enable-forecasting-experiment"></a>Configurare un esperimento di abilitazione della previsione di DNN
+
+> [!NOTE]
+> Il supporto di DNN per la previsione nel Machine Learning automatico è in anteprima.
+
+Per sfruttare DNN per la previsione, è necessario impostare il parametro `enable_dnn` in AutoMLConfig su true. 
+
+Per usare DNN, è consigliabile usare un cluster di calcolo AML con SKU GPU e almeno 2 nodi come destinazione di calcolo. Per ulteriori informazioni, vedere la [documentazione di calcolo di AML](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute) . Per altre informazioni sulle dimensioni delle VM che includono GPU, vedere [dimensioni delle macchine virtuali ottimizzate per GPU](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-gpu) .
+
+Per consentire un tempo sufficiente per il completamento del training DNN, è consigliabile impostare il timeout dell'esperimento su almeno un paio di ore.
 
 ### <a name="view-feature-engineering-summary"></a>Visualizza riepilogo Progettazione funzionalità
 

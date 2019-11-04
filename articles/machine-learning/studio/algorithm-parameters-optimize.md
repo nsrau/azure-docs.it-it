@@ -1,7 +1,7 @@
 ---
 title: Ottimizzare gli algoritmi
-titleSuffix: Azure Machine Learning Studio
-description: Spiega come scegliere il set di parametri ottimale per un algoritmo in Azure Machine Learning Studio.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Viene illustrato come scegliere il set di parametri ottimale per un algoritmo in Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,34 +10,34 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 6dc9476f603d5664b7ea23489042b69f86647cf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74775550054fc3b4fdbed5cc006d14a913c369c5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60752193"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493491"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning Studio
+# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning Studio (versione classica)
 
-In questo argomento viene descritto come scegliere il set di iperparametri corretto per un algoritmo in Azure Machine Learning Studio. Per la maggior parte degli algoritmi di Machine Learning è necessario impostare i parametri. Quando si esegue il training di un modello, è necessario specificare valori per questi parametri. L'efficacia del modello di cui è stato eseguito il training dipende dai parametri scelti per il modello. Il processo per trovare il set ottimale di parametri è noto come *selezione del modello*.
+In questo argomento viene descritto come scegliere il set di iperparametri corretti per un algoritmo in Azure Machine Learning Studio (classico). Per la maggior parte degli algoritmi di Machine Learning è necessario impostare i parametri. Quando si esegue il training di un modello, è necessario specificare valori per questi parametri. L'efficacia del modello di cui è stato eseguito il training dipende dai parametri scelti per il modello. Il processo per trovare il set ottimale di parametri è noto come *selezione del modello*.
 
 
 
-Ci sono vari modi per selezionare un modello. In Machine Learning, la convalida incrociata è uno dei metodi più diffusi per la selezione del modello ed è il meccanismo di selezione del modello predefinito in Azure Machine Learning Studio. Poiché Azure Machine Learning Studio supporta R e Python, è sempre possibile implementare i relativi meccanismi di selezione del modello tramite R o Python.
+Ci sono vari modi per selezionare un modello. In Machine Learning la convalida incrociata è uno dei metodi più diffusi per la selezione del modello ed è il meccanismo di selezione del modello predefinito nella versione classica di Azure Machine Learning Studio. Poiché la versione classica di Azure Machine Learning Studio supporta sia R che Python, è sempre possibile implementare i propri meccanismi di selezione del modello usando R o Python.
 
 Il processo per trovare il migliore set di parametri è costituito da quattro passaggi:
 
-1. **Definire lo spazio del parametro**: decidere prima i valori esatti dei parametri da prendere in considerazione per l'algoritmo.
+1. **Definire lo spazio del parametro**: prima decidere i valori esatti dei parametri che si vogliono prendere in considerazione per l'algoritmo.
 2. **Definire le impostazioni di convalida incrociata**: decidere come scegliere le riduzioni di convalida incrociata per il set di dati.
 3. **Definire la metrica**: decidere quale metrica usare per determinare il migliore set di parametri, ad esempio, l'accuratezza, l'errore quadratico medio, la precisione, il richiamo, o il punteggio f.
 4. **Eseguire il training, valutare e confrontare**: per ogni combinazione univoca dei valori dei parametri, la convalida incrociata viene eseguita e basata sulla metrica di errore definita dall'utente. Dopo valutazione e confronto, è possibile scegliere il modello con le prestazioni migliori.
 
-Le figure seguenti illustrano come raggiungere l'obiettivo in Azure Machine Learning Studio.
+Nell'immagine seguente viene illustrato il modo in cui questa operazione può essere eseguita nella versione classica di Azure Machine Learning Studio.
 
 ![Trovare il miglior set di parametri](./media/algorithm-parameters-optimize/fig1.png)
 
 ## <a name="define-the-parameter-space"></a>Definire lo spazio dei parametri
-Il set di parametri può essere definito nella fase di inizializzazione del modello. Il riquadro dei parametri di tutti gli algoritmi di Machine Learning presenta due modalità di training: *parametro singolo* e *intervallo di parametri*. Scegliere la modalità intervallo di parametri. Nella modalità intervallo di parametri è possibile immettere più valori per ogni parametro. Nella casella di testo è possibile immettere valori delimitati da virgole.
+Il set di parametri può essere definito nella fase di inizializzazione del modello. Il pannello dei parametri di tutti gli algoritmi di Machine Learning presenta due modalità di training: *parametro singolo* e *intervallo di parametri*. Scegliere la modalità intervallo di parametri. Nella modalità intervallo di parametri è possibile immettere più valori per ogni parametro. Nella casella di testo è possibile immettere valori delimitati da virgole.
 
 ![Albero delle decisioni a due classi con innalzamento, parametro singolo](./media/algorithm-parameters-optimize/fig2.png)
 
@@ -46,17 +46,17 @@ Il set di parametri può essere definito nella fase di inizializzazione del mode
 ![Albero delle decisioni a due classi con innalzamento, intervallo di parametri](./media/algorithm-parameters-optimize/fig3.png)
 
 ## <a name="define-cross-validation-folds"></a>Definire le riduzioni di convalida incrociata
-Il modulo [Partition and Sample][partition-and-sample] (Partizionamento e campionamento) può essere usato per assegnare riduzioni ai dati in modo casuale. Nella configurazione di esempio seguente del modulo, vengono definite cinque riduzioni e viene assegnato in modo casuale un numero di riduzione alle istanze dell'esempio.
+Il modulo [Partition and Sample][partition-and-sample] può essere usato per assegnare in modo casuale le riduzioni ai dati. Nella configurazione di esempio seguente del modulo, vengono definite cinque riduzioni e viene assegnato in modo casuale un numero di riduzione alle istanze dell'esempio.
 
 ![Partition and sample (Partizione ed esempio)](./media/algorithm-parameters-optimize/fig4.png)
 
 ## <a name="define-the-metric"></a>Definire la metrica
-Il modulo [Tune Model Hyperparameters][tune-model-hyperparameters] fornisce supporto per scegliere in modo empirico il miglior set di parametri per un algoritmo e un set di dati specifici. Oltre ad altre informazioni sul training del modello, il riquadro **Properties** (Proprietà) di questo modulo include la metrica per determinare il miglior set di parametri. E ha due elenchi a discesa rispettivamente per gli algoritmi di classificazione e di regressione. Se l'algoritmo in esame è un algoritmo di classificazione, la metrica di regressione viene ignorata e viceversa. In questo esempio specifico la metrica è **Accuracy** (Accuratezza).   
+Il modulo [Tune Model iperparametri][tune-model-hyperparameters] fornisce il supporto per scegliere in modo empirico il miglior set di parametri per un determinato algoritmo e set di dati. Oltre ad altre informazioni sul training del modello, il riquadro **Properties** (Proprietà) di questo modulo include la metrica per determinare il miglior set di parametri. E ha due elenchi a discesa rispettivamente per gli algoritmi di classificazione e di regressione. Se l'algoritmo in esame è un algoritmo di classificazione, la metrica di regressione viene ignorata e viceversa. In questo esempio specifico la metrica è **Accuracy** (Accuratezza).   
 
 ![Organizzare i parametri](./media/algorithm-parameters-optimize/fig5.png)
 
 ## <a name="train-evaluate-and-compare"></a>Eseguire il training, valutare e confrontare
-Lo stesso modulo [Tune Model Hyperparameters][tune-model-hyperparameters] esegue il training di tutti i modelli corrispondenti al set di parametri, valuta diverse metriche e crea il miglior modello in base alla metrica scelta. Tale modulo dispone di due input obbligatori:
+Lo stesso modulo di [iperparametri di ottimizzazione del modello][tune-model-hyperparameters] esegue il training di tutti i modelli che corrispondono al set di parametri, valuta le varie metriche e quindi crea il modello con il training più appropriato in base alla metrica scelta. Tale modulo dispone di due input obbligatori:
 
 * Allievo non formato
 * Set di dati

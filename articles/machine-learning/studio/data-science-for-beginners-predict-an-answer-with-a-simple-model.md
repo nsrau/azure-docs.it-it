@@ -1,6 +1,6 @@
 ---
 title: Prevedere risposte con modelli di regressione
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Per sapere come creare un modello di regressione semplice per prevedere un prezzo, è disponibile il quarto video di Analisi scientifica dei dati per principianti. Include una regressione lineare con i dati di destinazione.
 services: machine-learning
 ms.service: machine-learning
@@ -10,15 +10,15 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 9165e51d07cf97756408c7f73720931abe067bb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 028422dd710f7e8d9021c6435250a05c73c76c42
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751580"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493123"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prevedere una risposta con un modello semplice
-## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Data science per principianti
+## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Analisi scientifica dei dati per principianti
 È possibile scoprire come creare un modello di regressione semplice per prevedere il prezzo di un diamante guardando il quarto video della serie Analisi scientifica dei dati per principianti. Verrà rappresentato un modello di regressione con i dati di destinazione.
 
 Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
@@ -31,11 +31,11 @@ Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'ele
 ## <a name="other-videos-in-this-series"></a>Altri video della serie
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
 
-* Video 1: [5 domande a cui può rispondere la data science](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
-* Video 2: [I dati sono pronti per la data science?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
+* Video 1: [5 domande a cui può rispondere l'analisi scientifica dei dati](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
+* Video 2: [Verifica della preparazione dei dati per l'analisi scientifica dei dati](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
 * Video 3: [Porre una domanda a cui è possibile rispondere con i dati](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min e 17 sec)*
 * Video 4: Prevedere una risposta con un modello semplice
-* Video 5: [Copiare il lavoro di altre persone per operazioni di data science](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
+* Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
 
 ## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Trascrizione: Prevedere una risposta con un modello semplice
 Benvenuti al quarto video della serie "Analisi scientifica dei dati per principianti". In questa occasione verrà creato un modello semplice e realizzata una previsione.
@@ -59,7 +59,7 @@ In questo modo è stata creato un piccolo set di dati, ovvero una tabella. Si no
 * E, come illustrato, la quantità dei dati è **sufficiente** per rispondere alla domanda
 
 ## <a name="ask-a-sharp-question"></a>Porre una domanda ben strutturata
-A questo punto è possibile porre la domanda in modo ben strutturato: "Quale sarà il costo per l'acquisto di un diamante da 1,35 carati?"
+La domanda verrà adesso posta in modo ben strutturato: "Quale sarà il costo di acquisto di un diamante da 1,35 carati?"
 
 Nell'elenco non c'è un diamante da 1,35 carati, quindi sarà necessario usare gli altri dati per ottenere una risposta a questa domanda.
 
@@ -90,18 +90,18 @@ Il fatto che non tutti i punti si trovino esattamente sulla linea va bene. Gli e
 Dal momento che si cerca di rispondere alla domanda *Quanto costa?* , è possibile parlare di *regressione*. E visto che viene usata una linea dritta, si tratta di una *regressione lineare*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Usare il modello per trovare la risposta
-A questo punto è disponibile un modello ed è possibile porre la domanda: Quanto costerà un diamante da 1,35 carati?
+Una volta pronto il modello, è possibile porgli la domanda: Quando costerà un diamante da 1,35 carati?
 
-Per rispondere a questa domanda, occorre partire da 1,35 carati e disegnare una linea verticale. Esattamente nel punto in cui incrocia la linea del modello, verrà tracciata una linea orizzontale verso l'asse dei dollari. Va a colpire proprio i 10.000 dollari. Boom! Ed ecco la risposta: Un diamante da 1,35 carati costa circa $ 10.000.
+Per rispondere a questa domanda, occorre partire da 1,35 carati e disegnare una linea verticale. Esattamente nel punto in cui incrocia la linea del modello, verrà tracciata una linea orizzontale verso l'asse dei dollari. Va a colpire proprio i 10.000 dollari. Boom! Quella è la risposta: un diamante da 1,35 carati costa circa $ 10.000.
 
 ![Individuare la risposta a partire dal modello](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Creare un intervallo di confidenza
-È naturale chiedersi quanto precisa sia questa previsione. È utile sapere se il diamante da 1,35 carati sarà più vicino ai $ 10.000 oppure se costerà molto più o molto meno. Per capirlo, sarà sufficiente disegnare un inviluppo attorno alla linea di regressione che include la maggior parte dei punti. Questo inviluppo è il cosiddetto *intervallo di confidenza*: Si è abbastanza sicuri che i prezzi rientrino in questo inviluppo, poiché è stato così per la maggior parte degli stessi prezzi in precedenza. È possibile disegnare altre due linee orizzontali da cui la linea 1,35 carati incrocia la parte superiore e inferiore di quell'inviluppo.
+È naturale chiedersi quanto precisa sia questa previsione. È utile sapere se il diamante da 1,35 carati sarà più vicino ai $ 10.000 oppure se costerà molto più o molto meno. Per capirlo, sarà sufficiente disegnare un inviluppo attorno alla linea di regressione che include la maggior parte dei punti. Questo inviluppo viene detto *intervallo di confidenza*: si è abbastanza sicuri che i prezzi rientrino in questo inviluppo, poiché è stato così per la maggior parte degli stessi prezzi in precedenza. È possibile disegnare altre due linee orizzontali da cui la linea 1,35 carati incrocia la parte superiore e inferiore di quell'inviluppo.
 
 ![Intervallo di confidenza](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
-A proposito dell'intervallo di confidenza:  È possibile affermare con sicurezza che il prezzo di un diamante da 1,35 carati è di circa $ 10.000, ma potrebbe scendere fino a $ 8.000 e salire fino a $ 12.000.
+A proposito dell'intervallo di confidenza è possibile affermare con sicurezza che il prezzo di un diamante da 1,35 carati costa circa $ 10.000, ma potrebbe scendere fino a $ 8.000 e salire fino a $ 12.000.
 
 ## <a name="were-done-with-no-math-or-computers"></a>Ecco fatto, senza matematica, né computer
 Abbiamo svolto un lavoro scientifico semplicemente disegnando:
@@ -124,8 +124,8 @@ E se al posto di una semplice manciata diamanti, si trattasse di duemila o due m
 
 Oggi l'argomento del video è stata la creazione di una regressione lineare e la realizzazione di una previsione usando i dati.
 
-Anche gli altri video della serie "Analisi scientifica dei dati per principianti" di Microsoft Azure Machine Learning Studio meritano di essere visti.
+Assicurarsi di consultare gli altri video in "analisi scientifica dei dati per principianti" da Microsoft Azure Machine Learning Studio (classico).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Effettuare il primo esperimento di analisi scientifica dei dati con Machine Learning Studio](create-experiment.md)
+* [Provare un primo esperimento di data science con Machine Learning Studio (classico)](create-experiment.md)
 * [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

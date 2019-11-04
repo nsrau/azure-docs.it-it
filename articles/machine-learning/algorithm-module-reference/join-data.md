@@ -1,7 +1,7 @@
 ---
 title: 'Join Data: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo join join data nel servizio Azure Machine Learning per unire i set di dati.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo join join data in Azure Machine Learning per unire i set di dati.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: ec9de6975931219ae45543833421234c4d71e6af
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 587490284b2886764c137a01e0eb4b3c9c755d41
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693086"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495094"
 ---
 # <a name="join-data"></a>Unire dati
 
-Questo articolo descrive come usare il modulo **join data** nell'interfaccia visiva del servizio Azure Machine Learning per unire due set di dati usando un'operazione di join di tipo database.  
+Questo articolo descrive come usare il modulo **join data** in Azure Machine Learning Designer (Preview) per unire due set di dati usando un'operazione di join di tipo database.  
 
 ## <a name="how-to-configure-join-data"></a>Come configurare i dati di join
 
@@ -68,4 +68,4 @@ Per eseguire un join su due set di impostazioni, questi devono essere correlati 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

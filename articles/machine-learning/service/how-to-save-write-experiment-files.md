@@ -11,15 +11,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 77f816400709262fab8cb9bd351bdcde73377e09
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: 41b2602e57d295cfd7e475f4b3aa5657bd4e24d7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034304"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489596"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dove salvare e scrivere file per esperimenti di Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In questo articolo viene illustrato dove salvare i file di input e dove scrivere i file di output dagli esperimenti per evitare errori di limite di archiviazione e latenza dell'esperimento.
 
@@ -53,9 +54,9 @@ Per correggere l'errore, archiviare i file dell'esperimento in un archivio dati.
 Descrizione&nbsp;esperimento|Soluzione limite di archiviazione
 ---|---
 Meno di 2000 file & non possono usare un archivio dati| Sostituisci limite dimensioni snapshot con <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Questa operazione può richiedere alcuni minuti a seconda del numero e delle dimensioni dei file.
-Deve usare una directory di script specifica| Creare un `.amlignore` file per escludere i file dallo snapshot dell'esperimento che non fanno parte del codice sorgente. Aggiungere i nomi `.amlignore` file al file e posizionarlo nella stessa directory dello script di training. Il `.amlignore` file utilizza la stessa [sintassi e](https://git-scm.com/docs/gitignore) gli stessi modelli `.gitignore` di un file.
+Deve usare una directory di script specifica| Creare un file di `.amlignore` per escludere i file dallo snapshot dell'esperimento che non fanno parte del codice sorgente. Aggiungere i nomi file al file di `.amlignore` e posizionarlo nella stessa directory dello script di training. Il file di `.amlignore` utilizza la stessa [sintassi e](https://git-scm.com/docs/gitignore) gli stessi modelli di un file di `.gitignore`.
 Pipeline|Usare una sottodirectory diversa per ogni passaggio
-Jupyter Notebook| Creare un `.amlignore` file o spostare il notebook in una nuova sottodirectory vuota, quindi eseguire di nuovo il codice.
+Jupyter Notebook| Creare un file di `.amlignore` o spostare il notebook in una nuova sottodirectory vuota, quindi eseguire di nuovo il codice.
 
 ## <a name="where-to-write-files"></a>Posizione in cui scrivere i file
 
@@ -63,14 +64,14 @@ A causa dell'isolamento degli esperimenti di training, le modifiche apportate ai
 
 Quando si scrivono le modifiche, è consigliabile scrivere file in un archivio dati Azure Machine Learning. Vedere [accedere ai dati dagli archivi dati](how-to-access-data.md).
 
-Se non è necessario un archivio dati, scrivere i file `./outputs` nella cartella e/o. `./logs`
+Se non è necessario un archivio dati, scrivere i file nella cartella `./outputs` e/o `./logs`.
 
 >[!Important]
-> Due cartelle, *output* e *log*, ricevono un trattamento speciale per Azure Machine Learning. Durante il training, quando si scrivono file`./outputs` in`./logs` cartelle e, i file vengono caricati automaticamente nella cronologia di esecuzione, in modo da potervi accedere al termine dell'esecuzione.
+> Due cartelle, *output* e *log*, ricevono un trattamento speciale per Azure Machine Learning. Durante il training, quando si scrivono file in`./outputs` e`./logs` cartelle, i file vengono caricati automaticamente nella cronologia di esecuzione, in modo da potervi accedere al termine dell'esecuzione.
 
-* `./outputs` **Per l'output, ad esempio i messaggi di stato o i risultati** di assegnazione dei punteggi, scrivere i file nella cartella, in modo che siano salvati in modo permanente come artefatti nella cronologia di esecuzione. Tenere presente il numero e le dimensioni dei file scritti in questa cartella, in quanto la latenza può verificarsi quando il contenuto viene caricato nella cronologia di esecuzione. Se la latenza rappresenta un problema, è consigliabile scrivere file in un archivio dati.
+* **Per l'output, ad esempio i messaggi di stato o i risultati** di assegnazione dei punteggi, scrivere i file nella cartella `./outputs`, in modo che siano salvati in modo permanente come artefatti nella cronologia di esecuzione. Tenere presente il numero e le dimensioni dei file scritti in questa cartella, in quanto la latenza può verificarsi quando il contenuto viene caricato nella cronologia di esecuzione. Se la latenza rappresenta un problema, è consigliabile scrivere file in un archivio dati.
 
-* **Per salvare il file scritto come log nella cronologia di esecuzione,** scrivere `./logs` i file nella cartella. Poiché i log vengono caricati in tempo reale, questo metodo è adatto per lo streaming di aggiornamenti dinamici da un'esecuzione remota.
+* **Per salvare il file scritto come log nella cronologia di esecuzione,** scrivere i file nella cartella `./logs`. Poiché i log vengono caricati in tempo reale, questo metodo è adatto per lo streaming di aggiornamenti dinamici da un'esecuzione remota.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

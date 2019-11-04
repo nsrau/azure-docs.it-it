@@ -6,21 +6,21 @@ manager: nitinme
 author: lisaleib
 ms.author: v-lilei
 ms.service: cognitive-search
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cfa85e61059e27cd39a9701a835a725e16e5bc0a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: HT
+ms.openlocfilehash: 9ba11b69a51a5bc563764a7e75189bed67cb2ac6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789967"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484999"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Visualizzare un archivio conoscenze con Storage Explorer
 
 > [!Note]
-> La funzionalità dell'archivio conoscenze è in anteprima e non deve essere usata in ambienti di produzione. È inclusa nell'[API REST di Ricerca cognitiva di Azure versione 2019-05-06-Preview](search-api-preview.md). Non è attualmente disponibile alcun supporto di .NET SDK.
+> La funzionalità dell'archivio conoscenze è in anteprima e non deve essere usata in ambienti di produzione. Il portale e l' [API REST di ricerca versione 2019-05-06-Preview](search-api-preview.md) forniscono questa funzionalità. Non è attualmente disponibile alcun supporto di .NET SDK.
 >
-Questo articolo illustra come connettere ed esplorare un archivio conoscenze usando Storage Explorer nel portale di Azure. Per creare l'esempio di archivio conoscenze usato in questa procedura dettagliata, vedere [Creare un archivio conoscenze nel portale di Azure](knowledge-store-create-portal.md).
+In questo articolo si apprenderà ad esempio come connettersi ed esplorare un archivio informazioni usando Storage Explorer nel portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -30,7 +30,7 @@ Questo articolo illustra come connettere ed esplorare un archivio conoscenze usa
 
 ## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>Visualizzare, modificare ed eseguire query su un archivio conoscenze in Storage Explorer
 
-1. Nella portale di Azure aprire l'account di archiviazione usato per creare l'archivio conoscenze.
+1. Nella portale di Azure [aprire l'account di archiviazione](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) utilizzato per creare l'archivio informazioni.
 
 1. Nel riquadro di spostamento sinistro dell'account di archiviazione fare clic su **Storage Explorer**.
 
@@ -58,12 +58,8 @@ Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come connettere questo archivio conoscenze a Power BI, vedere l'articolo seguente.
+Connettere questo archivio informazioni a Power BI per un'analisi più approfondita o procedere con il codice, usando l'API REST e l'impostore per creare un archivio informazioni diverso.
 
 > [!div class="nextstepaction"]
-> [Stabilire la connessione con Power BI](knowledge-store-connect-power-bi.md)
-
-Per informazioni su come creare un archivio conoscenze usando le API REST e Postman, vedere l'articolo seguente.  
-
-> [!div class="nextstepaction"]
-> [Creare un archivio conoscenze in REST](knowledge-store-howto.md)
+> [Connettersi con Power BI](knowledge-store-connect-power-bi.md)
+> [creare un archivio informazioni in Rest](knowledge-store-howto.md)

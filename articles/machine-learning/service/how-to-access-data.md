@@ -9,16 +9,17 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 08/2/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 07c23d3b93c85e3409814ab0eb635a51344e2ab2
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eac10c8c680caf834bbe4be18ca22a5af936c7a0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929258"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497402"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Accedere ai dati nei servizi di archiviazione di Azure
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come accedere facilmente ai dati nei servizi di archiviazione di Azure tramite Azure Machine Learning archivi dati. Gli archivi dati vengono usati per archiviare le informazioni di connessione, ad esempio l'ID sottoscrizione e l'autorizzazione del token. L'uso di archivi dati consente di accedere alla risorsa di archiviazione senza dover codificare le informazioni di connessione in modo rigido negli script. È possibile creare archivi dati da queste [soluzioni di archiviazione di Azure](#matrix). Per le soluzioni di archiviazione non supportate, per risparmiare i costi in uscita durante gli esperimenti di Machine Learning, è consigliabile spostare i dati nelle soluzioni di archiviazione di Azure supportate. [Informazioni su come spostare i dati](#move). 
 
@@ -35,7 +36,7 @@ In questa procedura vengono illustrati esempi delle attività seguenti:
 
 - Un account di archiviazione di Azure con un [contenitore BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) o una [condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
-- [SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)o accesso alla [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com/).
+- [SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)o accesso a [Azure Machine Learning Studio](https://ml.azure.com/).
 
 - Un'area di lavoro di Azure Machine Learning. 
     - [Creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md) o utilizzarne una esistente usando Python SDK.
@@ -51,13 +52,13 @@ In questa procedura vengono illustrati esempi delle attività seguenti:
 
 ## <a name="create-and-register-datastores"></a>Creare e registrare archivi dati
 
-Quando si registra una soluzione di archiviazione di Azure come archivio dati, l'archivio dati viene creato automaticamente in un'area di lavoro specifica. È possibile creare e registrare archivi dati in un'area di lavoro usando Python SDK o la pagina di destinazione dell'area di lavoro.
+Quando si registra una soluzione di archiviazione di Azure come archivio dati, l'archivio dati viene creato automaticamente in un'area di lavoro specifica. È possibile creare e registrare archivi dati in un'area di lavoro usando Python SDK o Azure Machine Learning Studio.
 
 ### <a name="using-the-python-sdk"></a>Uso di Python SDK
 
 Tutti i metodi Register si trovano nella classe [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) e hanno il formato register_azure_ *.
 
-Le informazioni necessarie per popolare il metodo Register () sono reperibili tramite il [portale di Azure](https://ms.portal.azure.com). Selezionare **account di archiviazione** nel riquadro sinistro e scegliere l'account di archiviazione che si vuole registrare. Nella pagina **Panoramica** sono disponibili informazioni quali, il nome dell'account e il contenitore o il nome della condivisione file. Per informazioni di autenticazione, ad esempio chiave account o token di firma di accesso condiviso, passare a **chiavi account** nel riquadro **Impostazioni** a sinistra. 
+Le informazioni necessarie per popolare il metodo Register () sono reperibili tramite [Azure Machine Learning Studio](https://ml.azure.com). Selezionare **account di archiviazione** nel riquadro sinistro e scegliere l'account di archiviazione che si vuole registrare. Nella pagina **Panoramica** sono disponibili informazioni quali, il nome dell'account e il contenitore o il nome della condivisione file. Per informazioni di autenticazione, ad esempio chiave account o token di firma di accesso condiviso, passare a **chiavi account** nel riquadro **Impostazioni** a sinistra. 
 
 Gli esempi seguenti illustrano come registrare un contenitore BLOB di Azure o una condivisione file di Azure come archivio dati.
 
@@ -92,16 +93,16 @@ Gli esempi seguenti illustrano come registrare un contenitore BLOB di Azure o un
 
 Si consiglia il contenitore BLOB di Azure. Per i BLOB sono disponibili sia l'archiviazione standard che Premium. Sebbene sia più costoso, è consigliabile disporre di archiviazione Premium a causa di velocità effettiva più veloci che possono migliorare la velocità delle esecuzioni di training, in particolare se si esegue il training su un set di dati di grandi dimensioni. Per informazioni sui costi dell'account di archiviazione, vedere il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) .
 
-### <a name="using-the-workspace-landing-page"></a>Uso della pagina di destinazione dell'area di lavoro 
+### <a name="using-azure-machine-learning-studio"></a>Uso di Azure Machine Learning Studio 
 
-Creare un nuovo archivio dati in pochi passaggi nella pagina di destinazione dell'area di lavoro.
+Creare un nuovo archivio dati in pochi passaggi in Azure Machine Learning Studio.
 
-1. Effettuare l'accesso alla [pagina di destinazione dell'area di lavoro](https://ml.azure.com/).
+1. Accedere a [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Selezionare **archivi dati** nel riquadro sinistro in **Gestisci**.
 1. Selezionare **+ nuovo archivio dati**.
 1. Completare il nuovo modulo datastore. Il modulo viene aggiornato in modo intelligente in base alle selezioni del tipo di archiviazione di Azure e del tipo di autenticazione.
   
-Le informazioni necessarie per popolare il modulo possono essere trovate tramite la [portale di Azure](https://ms.portal.azure.com). Selezionare **account di archiviazione** nel riquadro sinistro e scegliere l'account di archiviazione che si vuole registrare. Nella pagina **Panoramica** sono disponibili informazioni quali, il nome dell'account e il contenitore o il nome della condivisione file. Per gli elementi di autenticazione, ad esempio la chiave dell'account o il token di firma di accesso condiviso, passare a **chiavi dell'account** nel riquadro **Impostazioni** a sinistra.
+Le informazioni necessarie per popolare il modulo possono essere trovate tramite [Azure Machine Learning Studio](https://ml.azure.com). Selezionare **account di archiviazione** nel riquadro sinistro e scegliere l'account di archiviazione che si vuole registrare. Nella pagina **Panoramica** sono disponibili informazioni quali, il nome dell'account e il contenitore o il nome della condivisione file. Per gli elementi di autenticazione, ad esempio la chiave dell'account o il token di firma di accesso condiviso, passare a **chiavi dell'account** nel riquadro **Impostazioni** a sinistra.
 
 Nell'esempio seguente viene illustrato l'aspetto del modulo per la creazione di un archivio dati BLOB di Azure. 
     
@@ -281,10 +282,10 @@ Per le situazioni in cui l'SDK non fornisce l'accesso agli archivi dati, è poss
 <a name="move"></a>
 ## <a name="move-data-to-supported-azure-storage-solutions"></a>Spostare i dati in soluzioni di archiviazione di Azure supportate
 
-Il servizio Azure Machine Learning supporta l'accesso ai dati da BLOB di Azure, file di Azure, Azure Data Lake generazione 1, Azure Data Lake generazione 2, Azure SQL, Azure PostgreSQL. Per l'archiviazione non supportata, per risparmiare i costi di uscita dei dati durante gli esperimenti di Machine Learning, è consigliabile spostare i dati nelle soluzioni di archiviazione di Azure supportate usando Azure Data Factory. Azure Data Factory offre un trasferimento dei dati efficiente e resiliente con più di 80 connettori predefiniti, tra cui servizi dati di Azure, origini dati locali, Amazon S3 e spostamento verso il suo interno e Google BigQuery, senza costi aggiuntivi. [Seguire la guida dettagliata per spostare i dati usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
+Azure Machine Learning supporta l'accesso ai dati da BLOB di Azure, file di Azure, Azure Data Lake generazione 1, Azure Data Lake generazione 2, Azure SQL, Azure PostgreSQL. Per l'archiviazione non supportata, per risparmiare i costi di uscita dei dati durante gli esperimenti di Machine Learning, è consigliabile spostare i dati nelle soluzioni di archiviazione di Azure supportate usando Azure Data Factory. Azure Data Factory offre un trasferimento dei dati efficiente e resiliente con più di 80 connettori predefiniti, tra cui servizi dati di Azure, origini dati locali, Amazon S3 e spostamento verso il suo interno e Google BigQuery, senza costi aggiuntivi. [Seguire la guida dettagliata per spostare i dati usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Eseguire il training di un modello](how-to-train-ml-models.md)
+* [Eseguire il training di un modello](how-to-train-ml-models.md).
 
-* [Distribuire un modello](how-to-deploy-and-where.md)
+* [Distribuire un modello](how-to-deploy-and-where.md).

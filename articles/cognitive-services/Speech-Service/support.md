@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 26d66868ab4c003dbd962e0c94009bc38bb36345
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f8793975d920e24924fca7c2ae366f70972e6ab7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558828"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468626"
 ---
 # <a name="support-and-help-options"></a>Opzioni di supporto tecnico e assistenza
 
@@ -37,7 +37,7 @@ Le novità su Servizi cognitivi sono raccolte nel[blog sui Servizi cognitivi](ht
 
 Le [Note sulla versione](https://aka.ms/csspeech/whatsnew) vengono aggiornate non appena è disponibile una nuova versione. Le note contengono informazioni su nuove funzionalità, miglioramenti e correzioni di bug.
 
-## <a name="search"></a>Cerca
+## <a name="search"></a>Ricerca
 
 È possibile trovare la risposta necessaria nella documentazione, negli esempi o nelle risposte alle domande poste in [Stack Overflow](https://www.stackoverflow.com).
 
@@ -55,7 +55,7 @@ Dove *{Your Search Terms}* corrisponde alle parole chiave di ricerca.
 
 I clienti di Azure possono creare e gestire le richieste di supporto nel portale di Azure.
 
-* [Portale di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portale di Azure per il governo degli Stati Uniti](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Pubblicare una domanda in Stack Overflow
@@ -71,7 +71,7 @@ Se non si trova una risposta al problema tramite la ricerca, inviare una nuova d
 |Traduzione vocale |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Finalità voce |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |Speech SDK generale |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-| Assistenti virtuali per la prima voce (anteprima) | [[Microsoft-cognitive + Virtual-Assistant + botframework (]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
+|Assistenti vocali | [[Microsoft-cognitive + Virtual-Assistant + botframework (]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
 
 > [!TIP]
 > I post di Stack Overflow seguenti contengono suggerimenti su come porre domande e su come aggiungere codice sorgente. Se ci si attiene a queste linee guida, aumenta la probabilità che i membri della community valutino le domande e rispondano rapidamente:  

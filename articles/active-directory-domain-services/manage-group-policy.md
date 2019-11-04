@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6fe959a661f23673bb5d3e6df630ef4ee25128f7
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 894396686a54ed3a685366fcf3e933fa8f03bee8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958555"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474521"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Amministrare Criteri di gruppo in un dominio gestito Azure AD Domain Services
 
 Le impostazioni per gli oggetti utente e computer in Azure Active Directory Domain Services (Azure AD DS) vengono spesso gestite utilizzando oggetti Criteri di gruppo (GPO). Azure AD DS include oggetti Criteri di gruppo predefiniti per i contenitori *utenti aaddc Computers* e *computer aaddc Computers* . È possibile personalizzare questi oggetti Criteri di gruppo predefiniti per configurare Criteri di gruppo in base alle esigenze dell'ambiente in uso. I membri del gruppo *Azure ad DC Administrators* dispongono di criteri di gruppo privilegi di amministrazione nel dominio di Azure AD DS e possono inoltre creare oggetti Criteri di gruppo e unità organizzative (OU) personalizzati. Per altre informazioni sulle Criteri di gruppo e sul suo funzionamento, vedere Panoramica di [criteri di gruppo][group-policy-overview].
+
+In un ambiente ibrido, i criteri di gruppo configurati in un ambiente di servizi di dominio Active Directory locale non vengono sincronizzati con Azure AD DS. Per definire le impostazioni di configurazione per utenti o computer in Azure AD DS, modificare uno degli oggetti Criteri di gruppo predefiniti o creare un oggetto Criteri di gruppo personalizzato.
 
 Questo articolo illustra come installare gli strumenti di gestione di Criteri di gruppo, quindi modificare gli oggetti Criteri di gruppo predefiniti e creare oggetti Criteri di gruppo personalizzati.
 

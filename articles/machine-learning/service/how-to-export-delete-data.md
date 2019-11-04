@@ -1,24 +1,25 @@
 ---
 title: Esportare o eliminare i dati dell'area di lavoro
 titleSuffix: Azure Machine Learning
-description: Informazioni su come esportare o eliminare l'area di lavoro con il portale di Azure, l'interfaccia della riga di comando, l'SDK e le API REST autenticate.
+description: Informazioni su come esportare o eliminare l'area di lavoro con Azure Machine Learning Studio, l'interfaccia della riga di comando, l'SDK e le API REST autenticate.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: ph-com
-ms.author: pahusban
+author: lobrien
+ms.author: laobri
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18e2ab18dac214e73eaf6ad7dfcb9dbbab0b5cf5
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: d653d1cd719ac59bf6c98bee588c41858052bc61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002832"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489880"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Esportare o eliminare i dati dell'area di lavoro nel servizio Machine Learning 
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In Azure Machine Learning è possibile esportare o eliminare i dati dell'area di lavoro con l'API REST autenticata. Questo articolo descrive come esportare o eliminare i dati.
 
@@ -27,7 +28,7 @@ In Azure Machine Learning è possibile esportare o eliminare i dati dell'area di
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="control-your-workspace-data"></a>Controllare i dati dell'area di lavoro
-I dati del prodotto archiviati da Azure Machine Learning sono disponibili per l'esportazione e l'eliminazione tramite l'portale di Azure, l'interfaccia della riga di comando, l'SDK e le API REST autenticate. I dati di telemetria sono accessibili tramite il portale Privacy di Azure. 
+I dati del prodotto archiviati da Azure Machine Learning sono disponibili per l'esportazione e l'eliminazione tramite Azure Machine Learning Studio, l'interfaccia della riga di comando, l'SDK e le API REST autenticate. I dati di telemetria sono accessibili tramite il portale Privacy di Azure. 
 
 In Azure Machine Learning i dati personali sono costituiti dalle informazioni utente dei documenti della cronologia di esecuzione e dai record dei dati di telemetria di alcune interazioni dell'utente con il servizio.
 
@@ -232,28 +233,27 @@ Le origini dati possono essere ottenute con:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
 
-## <a name="delete-visual-interface-assets"></a>Elimina asset dell'interfaccia visiva
+## <a name="delete-assets-in-the-designer"></a>Elimina asset nella finestra di progettazione
 
-Nell'interfaccia visiva in cui è stato creato l'esperimento, eliminare i singoli asset:
+Nella finestra di progettazione in cui è stato creato l'esperimento, eliminare i singoli asset:
 
-1. A sinistra selezionare il tipo di asset che si vuole eliminare.
+1. Vai a finestra di progettazione
 
     ![Eliminare gli asset](media/how-to-export-delete-data.md/delete-experiment.png)
 
-1. Nell'elenco selezionare le singole risorse da eliminare.
+1. Nell'elenco selezionare la bozza della singola pipeline da eliminare.
 
 1. Nella parte inferiore selezionare **Elimina**.
 
-## <a name="export-visual-interface-data"></a>Esporta dati dell'interfaccia visiva
+## <a name="unregister-data-in-the-designer"></a>Annullare la registrazione dei dati nella finestra di progettazione
 
-Nell'interfaccia visiva in cui è stato creato l'esperimento, esportare i dati aggiunti:
+Nella finestra di progettazione in cui è stato creato l'esperimento, esportare i dati aggiunti:
 
-1. A sinistra selezionare **dati**.
+1. A sinistra selezionare set di **Impostazioni**.
 
-1. Nella parte superiore selezionare i **set** di dati personali o gli **esempi** per individuare i dati che si desidera esportare.
 
-    ![Scarica dati](media/how-to-export-delete-data.md/download-data.png)
 
-1. Nell'elenco selezionare i singoli set di impostazioni da esportare.
+    ![Scarica dati](media/how-to-export-delete-data.md/unregister-dataset.png)
 
-1. In basso selezionare **Scarica**.
+1. Nell'elenco selezionare il singolo set di dati e fare clic su Annulla registrazione.
+

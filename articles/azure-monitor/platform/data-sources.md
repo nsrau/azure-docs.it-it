@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/23/2019
-ms.openlocfilehash: 7c03c0c649876143eaa75c98fa0c9001f2b24fbd
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b93bf4f67c2581b7cac476b83fc130bf344cfa83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932392"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476732"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Origini dei dati di monitoraggio per monitoraggio di Azure
 Monitoraggio di Azure è basato su una [piattaforma di dati di monitoraggio comune](data-platform.md) che include [log](data-platform-logs.md) e [metriche](data-platform-metrics.md). La raccolta dei dati in questa piattaforma consente di analizzare i dati di più risorse insieme usando un set comune di strumenti in monitoraggio di Azure. I dati di monitoraggio possono anche essere inviati ad altre posizioni per supportare determinati scenari e alcune risorse possono scrivere in altre posizioni prima di poter essere raccolti in log o metriche.
@@ -173,14 +173,14 @@ Il [monitoraggio delle soluzioni](../insights/solutions.md) e delle [informazion
 | Log di Monitoraggio di Azure | Il monitoraggio delle soluzioni raccoglie i dati nei log di monitoraggio di Azure in cui possono essere analizzati usando il linguaggio di query o le [visualizzazioni](view-designer.md) che sono in genere incluse nella soluzione. | [Dettagli sulla raccolta dei dati per il monitoraggio delle soluzioni in Azure](../insights/solutions-inventory.md) |
 
 
-### <a name="azure-monitor-for-containers"></a>Monitoraggio di Azure per i contenitori
+### <a name="azure-monitor-for-containers"></a>Monitoraggio di Azure per contenitori
 [Monitoraggio di Azure per i contenitori](../insights/container-insights-overview.md) offre un'esperienza di monitoraggio personalizzata per il [servizio Azure Kubernetes (AKS)](/azure/aks/). Raccoglie dati aggiuntivi sulle risorse descritte nella tabella seguente.
 
 | Destinazione | Description | Riferimento |
 |:---|:---|:---|
 | Log di Monitoraggio di Azure | Archivia i dati di monitoraggio per AKS, inclusi inventario, log ed eventi. I dati delle metriche vengono inoltre archiviati nei log per sfruttare le funzionalità di analisi nel portale. | [Conoscere le prestazioni del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori](../insights/container-insights-analyze.md) |
 | Metriche di monitoraggio di Azure | I dati delle metriche vengono archiviati nel database delle metriche per guidare la visualizzazione e gli avvisi. | [Visualizzare le metriche del contenitore in Esplora metriche](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
-| Servizio Azure Kubernetes | Per un'esperienza quasi in tempo reale, monitoraggio di Azure per i contenitori presenta i dati direttamente dal servizio Azure Kubernetes nel portale di Azure. | [Come visualizzare i log dei contenitori in tempo reale con Monitoraggio di Azure per contenitori (anteprima)](../insights/container-insights-live-logs.md) |
+| Servizio Azure Kubernetes | Consente di accedere direttamente ai log del contenitore del servizio Azure Kubernetes (AKS/stderr), agli eventi e alle metriche Pod nel portale. | [Come visualizzare i log Kubernetes, gli eventi e le metriche pod in tempo reale](../insights/container-insights-livedata-overview.md) |
 
 ### <a name="azure-monitor-for-vms"></a>Monitoraggio di Azure per le macchine virtuali
 [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md) offre un'esperienza personalizzata per il monitoraggio delle macchine virtuali. Una descrizione dei dati raccolti da Monitoraggio di Azure per le macchine virtuali è inclusa nella sezione del [sistema operativo (Guest)](#operating-system-guest) precedente.

@@ -18,12 +18,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87660c6ef8266d3ebfbad1b7a8a7cb98b936e9c6
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 2c838c6fe256e2960842c5b40f58f8a5d5b1fdf3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803368"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473782"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedura: Aggiungere ruoli dell'app in un'applicazione e riceverli nel token
 
@@ -43,9 +43,9 @@ Questi ruoli applicazione sono definiti nel [portale di Azure](https://portal.az
 1. Nella barra superiore selezionare l'account e quindi **Cambia directory**.
 1. Quando si apre il riquadro **Directory e sottoscrizione**, dall'elenco **Preferiti** o **Tutte le directory**, scegliere il tenant di Active Directory in cui si vuole registrare l'applicazione.
 1. Selezionare **Tutti i servizi** nella barra di spostamento a sinistra e scegliere **Azure Active Directory**.
-1. Nel riquadro **Azure Active Directory** selezionare **Registrazioni app** per visualizzare un elenco di tutte le applicazioni.
+1. Nel riquadro **Azure Active Directory** selezionare **registrazioni app (legacy)** per visualizzare un elenco di tutte le applicazioni.
 
-     Se l'applicazione desiderata non viene visualizzata, usare i filtri disponibili nella parte superiore dell'elenco **Registrazioni app** per limitare l'elenco o scorrerlo verso il basso fino a trovare l'applicazione.
+     Se non viene visualizzata l'applicazione che si vuole visualizzare qui, usare i vari filtri nella parte superiore dell'elenco **registrazioni app (legacy)** per limitare l'elenco o scorrere verso il basso l'elenco per individuare l'applicazione.
 
 1. Selezionare l'applicazione in cui si vuole definire i ruoli dell'app.
 1. Nel pannello dell'applicazione selezionare **Manifesto**.

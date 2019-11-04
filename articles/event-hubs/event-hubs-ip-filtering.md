@@ -11,20 +11,20 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f96c25dbb85ed92141636487f10d861a8c5e5f28
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821667"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468430"
 ---
-# <a name="use-firewall-rules"></a>Usare le regole del firewall
+# <a name="use-firewall-rules"></a>Uso delle regole del firewall
 
 Per gli scenari in cui Hub eventi di Azure deve essere accessibile solo da determinati siti noti, le regole del firewall consentono di configurare regole per accettare il traffico proveniente da indirizzi IPv4 specifici, ad esempio quelli di un gateway NAT aziendale.
 
-## <a name="when-to-use"></a>Quando usare le autorizzazioni
+## <a name="when-to-use"></a>Quando usare questa opzione
 
-Se si desidera configurare lo spazio dei nomi in Hub eventi in modo che riceva il traffico solo da un intervallo specificato di indirizzi IP e rifiutare tutto il resto, è possibile usare una *regola del firewall* per bloccare gli endpoint di Hub eventi da altri indirizzi IP. Ad esempio, se si usa Hub eventi con [Azure ExpressRoute][express-route], è possibile creare un *regola del firewall* per limitare il traffico dagli indirizzi IP dell'infrastruttura locale.
+Se si desidera configurare lo spazio dei nomi in Hub eventi in modo che riceva il traffico solo da un intervallo specificato di indirizzi IP e rifiutare tutto il resto, è possibile usare una *regola del firewall* per bloccare gli endpoint di Hub eventi da altri indirizzi IP. Ad esempio, se si usa hub eventi con [Azure Express Route][express-route], è possibile creare una *regola del firewall* per limitare il traffico dagli indirizzi IP dell'infrastruttura locale.
 
 ## <a name="how-filter-rules-are-applied"></a>Come vengono applicate le regole di filtro
 
@@ -51,7 +51,6 @@ Le regole del filtro IP vengono applicate in ordine e la prima regola corrispond
 > - Integrazione con Griglia di eventi di Azure
 > - Route dell'hub IoT di Azure
 > - Azure IoT Device Explorer
-> - Esplora dati di Azure
 >
 > I servizi Microsoft seguenti devono essere in una rete virtuale
 > - App Web di Azure
@@ -149,7 +148,7 @@ Per distribuire il modello, seguire le istruzioni per [Azure Resource Manager][l
 
 Per limitare l'accesso ad Hub eventi dalle reti virtuali di Azure, vedere il collegamento seguente:
 
-- [Usare gli endpoint servizio di rete virtuale con Hub eventi di Azure][lnk-vnet]
+- [Endpoint del servizio rete virtuale per hub eventi][lnk-vnet]
 
 <!-- Links -->
 

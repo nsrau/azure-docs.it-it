@@ -10,14 +10,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 07/12/2019
-ms.openlocfilehash: 80508a31db8d86569c52df98697ceb62520059d2
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: a47ce44a325720fb1b6df919a0a324a4d3319d86
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002761"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489897"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>Abilitare la registrazione in Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Il SDK Python di Azure Machine Learning consente di abilitare la registrazione usando sia il pacchetto di registrazione di Python predefinito, che la funzionalità specifica di SDK sia per la registrazione locale che per la registrazione all'area di lavoro nel portale. I log di forniscono agli sviluppatori informazioni in tempo reale sullo stato dell'applicazione e possono facilitare la diagnosi di errori o avvisi. Questo articolo illustra diverse modalità di abilitazione della registrazione nelle aree seguenti:
 
@@ -117,7 +118,7 @@ logs = service.get_logs()
 service.update(enable_app_insights=True)
 ```
 
-Vedere le [procedure](how-to-enable-app-insights.md) per altre informazioni su come usare Application Insights nel portale di Azure.
+Per ulteriori informazioni sull'utilizzo di Application Insights in Azure Machine Learning Studio, vedere la [procedura](how-to-enable-app-insights.md) .
 
 ## <a name="python-native-logging-settings"></a>Impostazioni native della registrazione di Python
 

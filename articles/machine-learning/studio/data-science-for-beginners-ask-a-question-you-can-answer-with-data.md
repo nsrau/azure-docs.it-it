@@ -1,6 +1,6 @@
 ---
 title: Porre una domanda a cui i dati possano rispondere
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Informazioni su come formulare una domanda mirata sull'analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Include un confronto delle domande di classificazione e regressione.
 services: machine-learning
 ms.service: machine-learning
@@ -9,15 +9,15 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: 7343692e8484e50a02963b4528889a35cc1fcaa6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f0064d30c96a143dd2e53637a681e4a7ee0bc30
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239067"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493173"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Porre una domanda a cui è possibile rispondere con i dati
-## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Data science per principianti
+## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Analisi scientifica dei dati per principianti
 Informazioni su come formulare un problema come domanda sull'analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Questo video include un confronto di domande per gli algoritmi di classificazione e regressione.
 
 Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
@@ -30,25 +30,25 @@ Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'ele
 ## <a name="other-videos-in-this-series"></a>Altri video della serie
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
 
-* Video 1: [5 domande a cui può rispondere la data science](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
-* Video 2: [I dati sono pronti per la data science?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
+* Video 1: [5 domande a cui può rispondere l'analisi scientifica dei dati](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
+* Video 2: [Verifica della preparazione dei dati per l'analisi scientifica dei dati](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
 * Video 3: Porre una domanda a cui è possibile rispondere con i dati
 * Video 4: [Prevedere una risposta con un modello semplice](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min e 42 sec)*
-* Video 5: [Copiare il lavoro di altre persone per operazioni di data science](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
+* Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
 
 ## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Trascrizione: Porre una domanda a cui è possibile rispondere con i dati
 Questo è il terzo video della serie "Analisi scientifica dei dati per principianti".  
 
 In questo video vengono forniti suggerimenti per formulare una domanda a cui è possibile rispondere con i dati.
 
-Per sfruttare meglio le informazioni fornite da questo video, è consigliabile guardare prima due video precedenti di questa serie: "5 domande a cui può rispondere la data science" e "I dati sono pronti per la data science?"
+È possibile sfruttare al meglio questo video guardando prima i due video precedenti di questa serie: "Le 5 domande a cui l'analisi scientifica dei dati può rispondere" e "Sono pronti i dati per l'analisi scientifica?"
 
 ## <a name="ask-a-sharp-question"></a>Porre una domanda ben strutturata
 È stato spiegato come l'analisi scientifica dei dati sia il processo d'uso di nomi, detti anche categorie o etichette, e di numeri per prevedere una risposta a una domanda. Non può però essere una domanda qualsiasi, deve essere una *domanda ben strutturata*
 
 A una domanda vaga non è necessario rispondere con un nome o un numero, mentre lo è per una domanda ben strutturata.
 
-Si immagini di trovare una lampada magica con un genio che risponde puntualmente a qualsiasi domanda. Ma è un genio dispettoso, che verrà effettuato un tentativo per garantire il loro risposta vaga e confusa è possibile usare senza problemi. Si vuole aggiungerle verso il basso con una domanda così solida che non è possibile aiutare ma indicano ciò che si desidera conoscere.
+Si immagini di trovare una lampada magica con un genio che risponde puntualmente a qualsiasi domanda. Ma si tratta di un genio maligno, che tenta di rendere la risposta più vaga e confusa che può ottenere. Si vuole aggiungerli con una domanda così ermetica che non possono aiutare ma che indicano cosa si vuole sapere.
 
 Se si pone una domanda vaga, come "Cosa accadrà al mio titolo azionario?", il genio potrebbe rispondere "Cambierà il prezzo". È una risposta vera, ma non è molto utile.
 
@@ -88,8 +88,8 @@ La cosa più importante, tuttavia, è porre una domanda ben strutturata, quella 
 
 Sono stati trattati alcuni principi di base per porre una domanda a cui è possibile rispondere con i dati.
 
-Anche gli altri video della serie "Analisi scientifica dei dati per principianti" di Microsoft Azure Machine Learning Studio meritano di essere visti.
+Assicurarsi di consultare gli altri video in "analisi scientifica dei dati per principianti" da Microsoft Azure Machine Learning Studio (classico).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Effettuare il primo esperimento di analisi scientifica dei dati con Machine Learning Studio](create-experiment.md)
+* [Provare un primo esperimento di data science con Machine Learning Studio (classico)](create-experiment.md)
 * [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

@@ -6,19 +6,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
-ms.author: marthalc
-author: marthalc
+ms.reviewer: laobri
+ms.author: copeters
+author: lostmygithubaccount
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 25017e6ea0be5d4320832298cdadbec7ec5a05cc
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 845d271c60762177ea88912f2100f3b47aedde46
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929374"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489987"
 ---
 # <a name="collect-data-for-models-in-production"></a>Raccogliere i dati per i modelli nell'ambiente di produzione
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
 > Questo SDK verrà ritirato a breve. Questo SDK è ancora appropriato per gli sviluppatori che monitorano la tendenza dei dati nei modelli, ma la maggior parte degli sviluppatori deve usare il monitoraggio semplificato [dei dati con Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
@@ -115,7 +116,7 @@ Per abilitarla, è necessario:
 
 Se si dispone già di un servizio con le dipendenze installate nel **file di ambiente** e nel **file di assegnazione dei punteggi**, abilitare la raccolta di dati nel modo seguente:
 
-1. Passare a [portale di Azure](https://portal.azure.com).
+1. Passare a [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Aprire l'area di lavoro.
 
@@ -133,10 +134,10 @@ Se si dispone già di un servizio con le dipendenze installate nel **file di amb
 
 
 ## <a name="disable-data-collection"></a>Disabilitare la raccolta dei dati
-È possibile arrestare la raccolta dei dati in qualsiasi momento. Per disabilitare la raccolta dei dati, usare il codice Python o il portale di Azure.
+È possibile arrestare la raccolta dei dati in qualsiasi momento. Usare il codice Python o Azure Machine Learning Studio per disabilitare la raccolta dei dati.
 
-+ Opzione 1: disabilitazione nel portale di Azure: 
-  1. Accedere al [portale di Azure](https://portal.azure.com).
++ Opzione 1: disabilitare in Azure Machine Learning Studio: 
+  1. Accedere a [Azure Machine Learning Studio](https://ml.azure.com).
 
   1. Aprire l'area di lavoro.
 
@@ -150,7 +151,7 @@ Se si dispone già di un servizio con le dipendenze installate nel **file di amb
 
   1. Selezionare **Aggiorna** per applicare la modifica.
 
-  È anche possibile accedere a queste impostazioni nella [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com).
+  È anche possibile accedere a queste impostazioni nell'area di lavoro in [Azure Machine Learning Studio](https://ml.azure.com).
 
 + Opzione 2: uso di Python per disabilitare la raccolta dei dati:
 
@@ -160,10 +161,10 @@ Se si dispone già di un servizio con le dipendenze installate nel **file di amb
   ```
 
 ## <a name="validate-your-data-and-analyze-it"></a>Convalidare i dati e analizzarli
-È possibile scegliere qualsiasi strumento per analizzare i dati raccolti nel BLOB di Azure. 
+È possibile scegliere qualsiasi strumento per analizzare i dati raccolti nel BLOB di Azure.
 
 Per accedere rapidamente ai dati dal BLOB:
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere a [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Aprire l'area di lavoro.
 1. Fare clic su **Archiviazione**.
