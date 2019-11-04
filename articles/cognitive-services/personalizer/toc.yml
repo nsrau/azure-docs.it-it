@@ -65,7 +65,7 @@
   items:
     - name: Creare e configurare Personalizza esperienze
       href: how-to-settings.md
-      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model'
+      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
     - name: Analizzare
       items:
         - name: Valutazione offline
