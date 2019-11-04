@@ -31,6 +31,8 @@
       href: location-condition.md
     - name: Controlli
       href: controls.md
+    - name: Modalità solo report
+      href: concept-conditional-access-report-only.md
     - name: Dipendenze dei servizi
       href: service-dependencies.md
     - name: Strumento What If
@@ -76,6 +78,8 @@
       href: untrusted-networks.md
     - name: Richiedere le condizioni per l'utilizzo
       href: terms-of-use.md
+    - name: Configurare la modalità solo report
+      href: howto-conditional-access-report-only.md
     - name: Controlli della frequenza degli accessi e della persistenza del browser
       href: howto-conditional-access-session-lifetime.md
     - name: Eseguire la migrazione di criteri classici

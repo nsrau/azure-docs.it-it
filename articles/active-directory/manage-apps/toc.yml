@@ -131,10 +131,14 @@
           items:
             - name: Configurare il consenso utente
               href: configure-user-consent.md
+            - name: Configurare il flusso di lavoro di consenso dell'amministratore (anteprima)
+              href: configure-admin-consent-workflow.md
             - name: Metodi per l'assegnazione di utenti e gruppi a un'app
               href: methods-for-assigning-users-and-groups.md
             - name: Assegnare un utente a un'app
               href: assign-user-or-group-access-portal.md
+            - name: Creare aree di lavoro in App personali (anteprima)
+              href: access-panel-workspaces.md
             - name: Usare l'accesso alle app self-service
               href: access-panel-manage-self-service-access.md
             - name: Metodi per la rimozione dell'accesso di un utente a un'app
@@ -155,6 +159,8 @@
               href: migration-resources.md
             - name: Eseguire la migrazione di un'app AD FS in Azure
               href: migrate-adfs-apps-to-azure.md
+            - name: Usare il report attività delle applicazioni AD FS (anteprima)
+              href: migrate-adfs-application-activity.md
         - name: Risolvere problemi
           items:
             - name: Risolvere i problemi relativi all'aggiunta di app

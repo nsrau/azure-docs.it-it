@@ -32,7 +32,7 @@
     - name: 8 - Aggiungere più versioni
       href: api-management-get-started-publish-versions.md
     - name: 9 - Personalizzare il portale per sviluppatori
-      href: api-management-customize-styles.md
+      href: api-management-howto-developer-portal-customize.md
 - name: Esempi
   items:
     - name: Criteri
@@ -123,15 +123,11 @@
           href: api-management-howto-manage-protocols-ciphers.md
     - name: Personalizzare l'esperienza di sviluppo
       items:
-        - name: Accedere e personalizzare il nuovo portale per sviluppatori
+        - name: Informazioni sul portale per sviluppatori
           href: api-management-howto-developer-portal.md
-        - name: Modificare il contenuto e il layout di una pagina
-          href: api-management-modify-content-layout.md
-        - name: Personalizzare le pagine di sistema usando i modelli
-          href: api-management-developer-portal-templates.md
-        - name: Autenticazione con Azure AD
+        - name: Eseguire l'autenticazione con Azure AD
           href: api-management-howto-aad.md
-        - name: Autenticazione con Azure AD B2C
+        - name: Eseguire l'autenticazione con Azure AD B2C
           href: api-management-howto-aad-b2c.md
         - name: Autenticazione delegata
           href: api-management-howto-setup-delegation.md
@@ -139,6 +135,34 @@
           href: api-management-howto-configure-notifications.md
         - name: Abilitare il supporto OAuth nella console
           href: api-management-howto-oauth2.md
+        - name: Portale legacy - personalizzare il portale
+          href: api-management-customize-styles.md
+        - name: Portale legacy - modificare pagine e layout
+          href: api-management-modify-content-layout.md
+        - name: Portale legacy - personalizzare i modelli
+          href: api-management-developer-portal-templates.md
+    - name: Modelli del portale legacy
+      items:
+        - name: Informazioni di riferimento sul modello di dati
+          href: api-management-template-data-model-reference.md
+        - name: Controlli di pagina
+          href: api-management-page-controls.md
+        - name: Modelli
+          href: api-management-developer-portal-templates-reference.md
+        - name: API
+          href: api-management-api-templates.md
+        - name: Prodotti
+          href: api-management-product-templates.md
+        - name: APPLICAZIONI
+          href: api-management-application-templates.md
+        - name: Problemi
+          href: api-management-issue-templates.md
+        - name: Profilo utente
+          href: api-management-user-profile-templates.md
+        - name: Pagine
+          href: api-management-page-templates.md
+        - name: Risorse del modello
+          href: api-management-template-resources.md
     - name: Definire criteri
       items:
         - name: Impostare o modificare criteri
@@ -167,28 +191,6 @@
           href: api-management-cross-domain-policies.md
         - name: Criteri di trasformazione
           href: api-management-transformation-policies.md
-    - name: Informazioni di riferimento sul modello
-      items:
-        - name: Modelli
-          href: api-management-developer-portal-templates-reference.md
-        - name: API
-          href: api-management-api-templates.md
-        - name: Prodotti
-          href: api-management-product-templates.md
-        - name: APPLICAZIONI
-          href: api-management-application-templates.md
-        - name: Problemi
-          href: api-management-issue-templates.md
-        - name: Profilo utente
-          href: api-management-user-profile-templates.md
-        - name: Pagine
-          href: api-management-page-templates.md
-        - name: Risorse del modello
-          href: api-management-template-resources.md
-    - name: Informazioni di riferimento sul modello di dati
-      href: api-management-template-data-model-reference.md
-    - name: Controlli di pagina
-      href: api-management-page-controls.md
     - name: Gestire l'ambiente di produzione
       items:
         - name: Gestire i gruppi

@@ -116,3 +116,13 @@
       href: my-apps-portal-end-user-access-reviews.md
     - name: Risolvere i problemi
       href: my-apps-portal-end-user-troubleshoot.md
+- name: Guida del portale App personali (anteprima)
+  items:
+    - name: Panoramica
+      href: my-applications-portal-overview.md
+    - name: Accedere e usare il portale App personali
+      href: my-applications-portal-access.md
+    - name: Accedere e usare le aree di lavoro
+      href: my-applications-portal-workspaces.md
+    - name: Modificare o revocare le autorizzazioni per le app
+      href: my-applications-portal-permissions-saved-accounts.md

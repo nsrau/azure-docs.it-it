@@ -41,6 +41,10 @@
           href: ./hdinsight-streaming-at-scale-overview.md
         - name: Architettura di Apache Hadoop in Azure HDInsight
           href: ./hdinsight-hadoop-architecture.md
+        - name: Dimensioni di VM supportate da HDInsight
+          href: ./hdinsight-supported-node-configuration.md
+        - name: Selezionare le dimensioni di VM appropriate
+          href: ./hdinsight-selecting-vm-size.md
         - name: Pianificazione della capacità dei cluster
           href: ./hdinsight-capacity-planning.md
         - name: Disponibilità e affidabilità
