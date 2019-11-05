@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: raynew
-ms.openlocfilehash: a07e83c805fc422c861f6c644a59da0b42bb8072
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: e235116ab77159a0e2e9c66ad09cdb86ce6da1e9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71007721"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466940"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Procedure consigliate per la creazione di valutazioni
 
@@ -41,13 +41,19 @@ Ad esempio, se si dispone di una macchina virtuale locale con quattro core con u
 
 ## <a name="best-practices-for-creating-assessments"></a>Procedure consigliate per la creazione di valutazioni
 
-Il Azure Migrate appliance continua a profilare l'ambiente locale e invia i metadati e i dati sulle prestazioni in Azure. Seguire queste procedure consigliate per la creazione di valutazioni:
+Il Azure Migrate appliance continua a profilare l'ambiente locale e invia i metadati e i dati sulle prestazioni in Azure. Seguire queste procedure consigliate per le valutazioni dei server individuati usando un'appliance:
 
-- **Crea valutazioni così come sono**: È possibile creare valutazioni così come sono immediatamente dopo la visualizzazione dei computer nel portale di Azure Migrate.
-- **Creare una valutazione basata sulle prestazioni**: Dopo aver configurato l'individuazione, è consigliabile attendere almeno un giorno prima di eseguire una valutazione basata sulle prestazioni:
+- **Crea valutazioni così come sono**: è possibile creare valutazioni così come sono immediatamente dopo la visualizzazione dei computer nel portale di Azure migrate.
+- **Creare una valutazione basata sulle prestazioni**: dopo aver configurato l'individuazione, è consigliabile attendere almeno un giorno prima di eseguire una valutazione basata sulle prestazioni:
     - La raccolta dei dati sulle prestazioni richiede tempo. L'attesa di almeno un giorno garantisce che siano presenti sufficienti punti dati sulle prestazioni prima di eseguire la valutazione.
     - Quando si eseguono valutazioni basate sulle prestazioni, assicurarsi di profilare l'ambiente per la durata della valutazione. Se, ad esempio, si crea una valutazione con una durata delle prestazioni impostata su una settimana, è necessario attendere almeno una settimana dopo l'avvio dell'individuazione, per tutti i punti dati da raccogliere. In caso contrario, la valutazione non otterrà una classificazione a cinque stelle.
-- **Ricalcola valutazioni**: Poiché le valutazioni sono snapshot temporizzati, non vengono aggiornate automaticamente con i dati più recenti. Per aggiornare una valutazione con i dati più recenti, è necessario ricalcolarla.
+- **Ricalcola valutazioni**: poiché le valutazioni sono snapshot temporizzati, non vengono aggiornate automaticamente con i dati più recenti. Per aggiornare una valutazione con i dati più recenti, è necessario ricalcolarla.
+
+Seguire queste procedure consigliate per le valutazioni dei server importati in Azure Migrate tramite. File CSV:
+
+- **Crea valutazioni così come sono**: è possibile creare valutazioni così come sono immediatamente dopo la visualizzazione dei computer nel portale di Azure migrate.
+- **Creazione di una valutazione basata sulle prestazioni**: consente di ottenere una stima dei costi migliore, soprattutto se si ha un provisioning eccessivo della capacità del server in locale. Tuttavia, l'accuratezza della valutazione basata sulle prestazioni dipende dai dati sulle prestazioni specificati dall'utente per i server. 
+- **Ricalcola valutazioni**: poiché le valutazioni sono snapshot temporizzati, non vengono aggiornate automaticamente con i dati più recenti. Per aggiornare una valutazione con i dati importati più recenti, è necessario ricalcolarli.
 
 ## <a name="best-practices-for-confidence-ratings"></a>Procedure consigliate per le classificazioni di confidenza
 
@@ -77,7 +83,7 @@ Se si aggiungono o rimuovono computer da un gruppo dopo aver creato una valutazi
 
 ### <a name="outdated-assessments"></a>Valutazioni obsolete
 
-Se sono presenti modifiche locali alle macchine virtuali che si trovano in un gruppo valutato, la valutazione viene contrassegnata come obsoleta. Per riflettere le modifiche, eseguire nuovamente la valutazione.
+Se sono presenti modifiche locali alle macchine virtuali che si trovano in un gruppo valutato, la valutazione viene contrassegnata come **obsoleta**. Per riflettere le modifiche, eseguire nuovamente la valutazione.
 
 ### <a name="low-confidence-rating"></a>Classificazione con attendibilità bassa
 

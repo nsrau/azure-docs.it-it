@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.openlocfilehash: 146aaa8b1b69c29e22f39d48883f604098b8e348
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 1d684957939c5cb83aae05962c1694f7a8d8da23
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718391"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498240"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gestire i cluster HDInsight mediante l'API REST Apache Ambari
 
@@ -39,7 +39,7 @@ Informazioni sull'uso dell'API REST Apache Ambari per gestire e monitorare i clu
 
  Il Uniform Resource Identifier di base (URI) per l'API REST Ambari in HDInsight è `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, dove `CLUSTERNAME` è il nome del cluster.  I nomi dei cluster negli URI fanno **distinzione tra maiuscole e**minuscole.  Mentre il nome del cluster nella parte relativa al nome di dominio completo (FQDN) dell'URI (`CLUSTERNAME.azurehdinsight.net`) non fa distinzione tra maiuscole e minuscole, altre occorrenze nell'URI fanno distinzione tra maiuscole e minuscole.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 La connessione ad Ambari su HDInsight richiede HTTPS. Usare il nome dell'account amministratore (il valore predefinito è **admin**) e la password forniti durante la creazione del cluster.
 
@@ -50,7 +50,7 @@ Per i cluster Enterprise Security Package, anziché `admin`, usare un nome utent
 ### <a name="setup-preserve-credentials"></a>Impostazione (Mantieni credenziali)
 Mantenere le credenziali per evitare di immetterle nuovamente per ciascun esempio.  Il nome del cluster verrà mantenuto in un passaggio separato.
 
-**A. Bash @ no__t-0  
+**A. bash**  
 Modificare lo script seguente sostituendo `PASSWORD` con la password effettiva.  Immettere quindi il comando.
 
 ```bash
@@ -308,7 +308,7 @@ Questo esempio restituisce un documento JSON che contiene la configurazione corr
    * Sostituire `livy2-conf` con il componente desiderato.
    * Sostituire `INITIAL` con il valore effettivo recuperato per `tag` da [Get All Configurations](#get-all-configurations).
 
-     **A. Bash @ no__t-0  
+     **A. bash**  
      ```bash
      curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" \
      | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
@@ -365,7 +365,7 @@ Questo esempio restituisce un documento JSON che contiene la configurazione corr
 
     Al termine delle modifiche, salvare il file.
 
-3. Inviare `newconfig.json`.  
+3. Invia `newconfig.json`.  
    Usare i comandi seguenti per inviare la configurazione aggiornata ad Ambari.
 
     ```bash
@@ -453,7 +453,7 @@ A questo punto, se si osserva l'interfaccia utente di Ambari Web, il servizio Sp
     ```
 
     > [!IMPORTANT]  
-    > Il valore `href` restituito dall'URI usa l'indirizzo IP interno del nodo del cluster. Per usarlo dall'esterno del cluster, sostituire la parte `10.0.0.18:8080` con il nome di dominio completo (FQDN) del cluster.  
+    > Il valore `href` restituito dall'URI usa l'indirizzo IP interno del nodo del cluster. Per usarlo dall'esterno del cluster, sostituire il `10.0.0.18:8080` parte con il nome di dominio completo del cluster.  
 
 4. Verificare la richiesta.  
     Modificare il comando seguente sostituendo `29` con il valore effettivo per `id` restituito dal passaggio precedente.  Il comando seguente recupera lo stato della richiesta:

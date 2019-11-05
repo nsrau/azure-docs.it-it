@@ -1,5 +1,5 @@
 ---
-title: Test batch-LUIS
+title: Test in batch - LUIS
 titleSuffix: Azure Cognitive Services
 description: Eseguire il test in batch dell'app Language Understanding (LUIS) per trovare le espressioni con finalità ed entità errate.
 services: cognitive-services
@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: bf8b2551390fa36736f678c756093a55d6ceb0c2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a99b2e7097f2abf36f184368b3b4fdaba8f2730b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932882"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467416"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test in batch con un set di espressioni di esempio
 
  Il test in batch è un test completo sul modello già sottoposto a training per misurarne le prestazioni in LUIS. I set di dati usati per il test in batch non devono includere espressioni di esempio nella finalità o espressioni ricevute dall'endpoint di runtime di stima. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="batch-testing"></a>
 

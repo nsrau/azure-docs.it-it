@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 0964dac6b4f381e2ec52bd9ec078741d0ee85712
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: dd100e2390cdd2731df498379e376bde4cf2b87d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802191"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498701"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Matrice di supporto per la valutazione e la migrazione di Hyper-V
 
@@ -35,26 +35,7 @@ Nella tabella sono riepilogati gli scenari supportati per le macchine virtuali H
 --- | ---
 Autorizzazioni di Azure | Per creare un progetto di Azure Migrate, è necessario disporre delle autorizzazioni Collaboratore o proprietario nella sottoscrizione.
 VM Hyper-V | Valutazione di un massimo di 35.000 macchine virtuali Hyper-V in un singolo progetto. È possibile avere più progetti in una sottoscrizione di Azure. Un progetto può includere sia macchine virtuali VMware che macchine virtuali Hyper-V, fino ai limiti di valutazione.
-Area geografica | È possibile creare progetti Azure Migrate in diverse aree geografiche. Sebbene sia possibile creare progetti in aree geografiche specifiche, è possibile valutare o migrare i computer per altri percorsi di destinazione. L'area geografica del progetto viene usata solo per archiviare i metadati individuati.
-
-  **Area geografica** | **Posizione di archiviazione dei metadati**
-  --- | ---
-  Azure per enti pubblici | US Gov Virginia
-  Asia Pacifico | Asia orientale o Asia sud-orientale
-  Australia | Australia orientale o Australia sudorientale
-  Brasile | Brasile meridionale
-  Canada | Canada centrale o Canada orientale
-  Europa | Europa settentrionale o Europa occidentale
-  Francia | Francia centrale
-  India | India centrale o India meridionale
-  Giappone |  Giappone orientale o Giappone occidentale
-  Corea | Corea centrale o Corea del sud
-  Regno Unito | Regno Unito meridionale o Regno Unito occidentale
-  Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
-
-
- > [!NOTE]
- > Il supporto per Azure per enti pubblici è attualmente disponibile solo per la [versione precedente](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) di Azure migrate.
+Area geografica | [Esaminare](migrate-support-matrix.md#supported-geographies) le aree geografiche supportate.
 
 
 ## <a name="assessment-hyper-v-host-requirements"></a>Valutazione-requisiti dell'host Hyper-V
@@ -62,7 +43,7 @@ Area geografica | È possibile creare progetti Azure Migrate in diverse aree geo
 | **Supporto**                | **Dettagli**               
 | :-------------------       | :------------------- |
 | **Distribuzione host**       | L'host Hyper-V può essere autonomo o distribuito in un cluster. |
-| **autorizzazioni**           | Sono necessarie autorizzazioni di amministratore per l'host Hyper-V. <br/> In alternativa, se non si desidera assegnare autorizzazioni di amministratore, creare un account utente locale o di dominio e aggiungere l'utente a questi gruppi: utenti di gestione remota, amministratori di Hyper-V e performance monitor. |
+| **Autorizzazioni**           | Sono necessarie autorizzazioni di amministratore per l'host Hyper-V. <br/> In alternativa, se non si desidera assegnare autorizzazioni di amministratore, creare un account utente locale o di dominio e aggiungere l'utente a questi gruppi: utenti di gestione remota, amministratori di Hyper-V e performance monitor. |
 | **Sistema operativo host** | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2.<br/> Non è possibile valutare le macchine virtuali presenti negli host Hyper-V che eseguono Windows Server 2012. |
 | **Comunicazione remota di PowerShell**   | Deve essere abilitato in ogni host. |
 | **Replica Hyper-V**       | Se si usa la replica Hyper-V (o sono presenti più macchine virtuali con gli stessi identificatori di VM) e si individuano le VM originali e replicate usando Azure Migrate, la valutazione generata da Azure Migrate potrebbe non essere accurata. |
@@ -104,7 +85,7 @@ Per valutare le VM, il dispositivo Azure Migrate necessita della connettività I
 **URL** | **Dettagli**  
 --- | ---
 *.portal.azure.com | Spostamento all'portale di Azure
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Accedi alla tua sottoscrizione di Azure
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Accedere alla sottoscrizione di Azure.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Creazione di applicazioni Azure Active Directory per le comunicazioni da dispositivo a servizio.
 management.azure.com | Creazione di applicazioni Azure Active Directory per le comunicazioni da dispositivo a servizio.
 dc.services.visualstudio.com | Registrazione e monitoraggio
@@ -131,7 +112,7 @@ Nella tabella seguente sono riepilogati i requisiti di porta per la valutazione.
 | **Supporto**                | **Dettagli**               
 | :-------------------       | :------------------- |
 | **Distribuzione host**       | L'host Hyper-V può essere autonomo o distribuito in un cluster. |
-| **autorizzazioni**           | Sono necessarie autorizzazioni di amministratore per l'host Hyper-V. |
+| **Autorizzazioni**           | Sono necessarie autorizzazioni di amministratore per l'host Hyper-V. |
 | **Sistema operativo host** | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2. |
 
 ## <a name="migration-hyper-v-vm-requirements"></a>Migrazione: requisiti della macchina virtuale Hyper-V
@@ -139,9 +120,9 @@ Nella tabella seguente sono riepilogati i requisiti di porta per la valutazione.
 | **Supporto**                  | **Dettagli**               
 | :----------------------------- | :------------------- |
 | **Sistema operativo** | Tutti i sistemi operativi [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) supportati da Azure. |
-| **autorizzazioni**           | Sono necessarie autorizzazioni di amministratore per ogni macchina virtuale Hyper-V che si desidera valutare. |
+| **Autorizzazioni**           | Sono necessarie autorizzazioni di amministratore per ogni macchina virtuale Hyper-V che si desidera valutare. |
 | **Integration Services**       | Per acquisire le informazioni sul sistema operativo, è necessario che [Hyper-V Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) sia in esecuzione in macchine virtuali valutate. |
-| **Modifiche necessarie per Azure** | Alcune macchine virtuali potrebbero richiedere alcune modifiche per la corretta esecuzione in Azure. Azure Migrate apporta automaticamente queste modifiche per i sistemi operativi seguenti:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> Per altri sistemi operativi, è necessario apportare modifiche manualmente prima della migrazione. Gli articoli pertinenti contengono istruzioni su come eseguire questa operazione. |
+| **Modifiche necessarie per Azure** | Alcune macchine virtuali potrebbero richiedere modifiche in modo che possano essere eseguite in Azure. Azure Migrate apporta automaticamente queste modifiche per i sistemi operativi seguenti:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> Per altri sistemi operativi, è necessario apportare modifiche manualmente prima della migrazione. Gli articoli pertinenti contengono istruzioni su come eseguire questa operazione. |
 | **Avvio di Linux**                 | Se/boot si trova in una partizione dedicata, deve risiedere nel disco del sistema operativo e non essere distribuito tra più dischi.<br/> Se/boot fa parte della partizione radice (/), la partizione '/' deve trovarsi nel disco del sistema operativo e non si estende su altri dischi. |
 | **Avvio UEFI**                  | La macchina virtuale di cui è stata eseguita la migrazione in Azure verrà automaticamente convertita in una macchina virtuale di avvio BIOS. Nella macchina virtuale deve essere in esecuzione solo Windows Server 2012 e versioni successive. Il disco del sistema operativo deve avere fino a cinque partizioni o meno e la dimensione del disco del sistema operativo deve essere inferiore a 300 GB.
   |

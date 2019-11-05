@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: efc61f7dc8e9d2caa53c4cbd7d932af9e1a206d1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fdb558267d823657f6a735d8b96efde33cdb8383
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793532"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466524"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gestire il servizio ricerca cognitiva di Azure con PowerShell
 > [!div class="op_single_selector"]
-> * [di Microsoft Azure](search-manage.md)
+> * [Portale](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
@@ -40,7 +40,7 @@ Sebbene non esistano comandi di PowerShell dedicati per la gestione dei contenut
 
 Altre attività non supportate tramite PowerShell o altre API (solo portale) includono:
 + [Alleghi una risorsa di servizi cognitivi per l'](cognitive-search-attach-cognitive-services.md) [indicizzazione arricchita con intelligenza artificiale](cognitive-search-concept-intro.md). Un servizio cognitivo è associato a un skillt, non a una sottoscrizione o un servizio.
-+ [Soluzioni di monitoraggio dei componenti aggiuntivi per il](search-monitor-usage.md#add-on-monitoring-solutions) monitoraggio di ricerca di Azure.
++ [Soluzioni di monitoraggio dei componenti aggiuntivi per il](search-monitor-usage.md#add-on-monitoring-solutions) monitoraggio di Azure ricerca cognitiva.
 
 <a name="check-versions-and-load"></a>
 
@@ -197,7 +197,7 @@ Tags
 
 [**New-AzSearchAdminKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) viene usato per eseguire il rollover delle [chiavi API](search-security-api-keys.md)di amministrazione. Vengono create due chiavi amministratore con ogni servizio per l'accesso autenticato. Le chiavi sono obbligatorie per ogni richiesta. Entrambe le chiavi di amministrazione sono equivalenti dal punto di vista funzionale, concedendo l'accesso in scrittura completo a un servizio di ricerca con la possibilità di recuperare informazioni oppure di creare ed eliminare qualsiasi oggetto. Esistono due chiavi in modo che sia possibile utilizzarne una mentre si sostituisce l'altra. 
 
-È possibile rigenerarne solo una alla volta, specificata come chiave `primary` o `secondary`. Per il servizio senza interruzioni, ricordarsi di aggiornare tutto il codice client per l'uso di una chiave secondaria durante il rollover della chiave primaria. Evitare di modificare le chiavi mentre le operazioni sono in corso.
+È possibile rigenerare solo una alla volta, specificata come chiave `primary` o `secondary`. Per il servizio senza interruzioni, ricordarsi di aggiornare tutto il codice client per l'uso di una chiave secondaria durante il rollover della chiave primaria. Evitare di modificare le chiavi mentre le operazioni sono in corso.
 
 Come si può immaginare, se si rigenerano le chiavi senza aggiornare il codice client, le richieste che usano la chiave precedente avranno esito negativo. La rigenerazione di tutte le nuove chiavi non blocca definitivamente il servizio ed è comunque possibile accedere al servizio tramite il portale. Dopo la rigenerazione delle chiavi primarie e secondarie, è possibile aggiornare il codice client per l'uso delle nuove chiavi e le operazioni riprenderanno di conseguenza.
 

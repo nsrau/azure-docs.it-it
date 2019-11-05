@@ -9,17 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 5939886f68a877c4cfad752fe93c4f0eca8f80cf
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 227efcdbcb7d8e776dd77b38c5d1dedd54d71b6b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258517"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500300"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Creare una nuova app LUIS nel portale LUIS
 Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel portale [LUIS](https://www.luis.ai) o tramite le [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) di creazione di LUIS.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="using-the-luis-portal"></a>Usare il portale LUIS
 
@@ -45,7 +47,7 @@ Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel 
 
 ## <a name="create-new-app-in-luis"></a>Creare la nuova appa in LUIS
 
-1. Nella pagina **App personali**, seleziona **Crea una nuova applicazione**.
+1. Nella pagina **app personali** selezionare **+ Crea**.
 
     ![Elenco di app di Language Understanding](./media/luis-create-new-app/apps-list.png)
 
@@ -62,7 +64,7 @@ Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel 
 ## <a name="import-an-app-from-file"></a>Importa un'app da un file
 
 1. Nella pagina **App personali**, seleziona **Importa una nuova applicazione**.
-1. Nella finestra di dialogo popup, selezionare un file JSON dell'app valido, quindi **.**
+1. Nella finestra di dialogo popup selezionare un file JSON app valido e quindi fare clic su **fine**.
 
 ### <a name="import-errors"></a>Errori di importazione
 
@@ -84,7 +86,7 @@ Possibili errori:
 
     Se si è interessati all'esportazione di un modello sottoposto a training ma non ancora pubblicato da usare con il contenitore LUIS, passare alla pagina **versioni** ed esportare da questa posizione. 
 
-## <a name="delete-app"></a>Elimina app
+## <a name="delete-app"></a>Eliminare l'applicazione
 
 1. Nella pagina **App personali** seleziona i tre punti di sospensione (...) alla fine della riga dell'applicazione.
 1. Seleziona **Elimina** dal menu.

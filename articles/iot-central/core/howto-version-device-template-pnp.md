@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 79a04725c8289baa3008b229d5dc608357cde881
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 77137bcc708ee403571c4ca9fc0ee0333c068437
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72949599"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990330"
 ---
 # <a name="create-a-new-device-template-version-preview-features"></a>Creare una nuova versione del modello di dispositivo (funzionalità di anteprima)
 
@@ -32,7 +32,7 @@ Azure IoT Central consente lo sviluppo rapido di applicazioni IoT. È possibile 
 1. Selezionare il modello di dispositivo che si desidera personalizzare.
 1. Scegliere la scheda **Personalizza** .
 1. Tutte le funzionalità definite nel modello di funzionalità del dispositivo verranno elencate qui. Tutti i campi che è possibile modificare possono essere salvati e usati nell'applicazione, senza dover eseguire la versione del modello di dispositivo. Se sono presenti campi di cui si vuole modificare la modalità di sola lettura, è necessario eseguire la versione del modello di dispositivo per modificarli. Selezionare un campo che si desidera modificare e immettere i nuovi valori.
-1. Fare clic su **Salva** Ora questi valori eseguiranno l'override di qualsiasi elemento salvato inizialmente nel modello di dispositivo e verrà usato nell'applicazione.
+1. Fare clic su **Save**. Ora questi valori eseguiranno l'override di qualsiasi elemento salvato inizialmente nel modello di dispositivo e verrà usato nell'applicazione.
 
 ## <a name="versioning-a-device-template"></a>Controllo delle versioni di un modello di dispositivo
 
@@ -45,7 +45,7 @@ Per la versione di un modello di dispositivo:
 1. Passare alla pagina **modelli di dispositivo** .
 1. Selezionare il modello di dispositivo che si sta provando a eseguire la versione.
 1. Fare clic sul pulsante **Version (versione** ) nella parte superiore della pagina e assegnare al modello un nuovo nome. È stato suggerito un nuovo nome che può essere modificato.
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Create**.
 1. A questo punto il modello di dispositivo è in modalità bozza. Si noterà che le interfacce sono ancora bloccate ed è necessario eseguire il controllo delle versioni singolarmente per la modifica. 
 
 ### <a name="versioning-an-interface"></a>Controllo delle versioni di un'interfaccia
@@ -58,7 +58,7 @@ Per la versione di un'interfaccia:
 1. Selezionare il modello di dispositivo in modalità bozza.
 1. Selezionare l'interfaccia in modalità pubblicata che si desidera modificare.
 1. Fare clic sul pulsante **Version (versione** ) nella parte superiore della pagina Interface (interfaccia). 
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Create**.
 1. Ora l'interfaccia è in modalità bozza. Sarà possibile aggiungere o modificare le funzionalità dell'interfaccia senza suddividere le personalizzazioni e le visualizzazioni esistenti. 
 
 > [!NOTE]
@@ -84,4 +84,4 @@ Per la versione di un'interfaccia:
 Ora che si conosce la procedura per usare le versioni dei modelli di dispositivo nell'applicazione Azure IoT Central, il prossimo passaggio suggerito è:
 
 > [!div class="nextstepaction"]
-> [Come creare regole dei dati di telemetria](howto-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Come creare regole dei dati di telemetria](tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

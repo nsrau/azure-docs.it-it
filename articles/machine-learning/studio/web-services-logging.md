@@ -1,8 +1,7 @@
 ---
-title: Registrazione per i servizi Web - Azure Machine Learning Studio | Microsoft Docs
-description: Informazioni su come abilitare la registrazione per i servizi Web di Machine Learning Studio. La registrazione fornisce informazioni aggiuntive per risolvere i problemi relativi alle API.
+title: Registrazione del servizio Web-Azure Machine Learning Studio (versione classica) | Microsoft Docs
+description: Informazioni su come abilitare la registrazione per i servizi Web di Machine Learning Studio (classico). La registrazione fornisce informazioni aggiuntive per risolvere i problemi relativi alle API.
 services: machine-learning
-documentationcenter: ''
 author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
@@ -10,26 +9,23 @@ editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.subservice: studio
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 90ee036275e13b209d9f6c37aba6d16ed564cf5d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60345636"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466951"
 ---
-# <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Abilitare la registrazione per i servizi Web di Azure Machine Learning Studio
-Questo documento include informazioni sulla capacità di registrazione dei servizi Web di Machine Learning Studio. La registrazione offre informazioni aggiuntive per la risoluzione dei problemi delle API di Machine Learning Studio, non soltanto un semplice codice di errore e un messaggio.  
+# <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Abilitare la registrazione per i servizi Web di Azure Machine Learning Studio (classico)
+In questo documento vengono fornite informazioni sulla funzionalità di registrazione dei servizi Web di Machine Learning Studio (classico). La registrazione fornisce informazioni aggiuntive, oltre a un numero di errore e un messaggio, che consentono di risolvere i problemi relativi alle chiamate alle API Machine Learning Studio (classiche).  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Come abilitare la registrazione per un servizio Web
 
-La registrazione viene abilitata nel portale dei [servizi Web di Azure Machine Learning Studio](https://services.azureml.net). 
+È possibile abilitare la registrazione dal portale dei [servizi Web Azure Machine Learning Studio (classico)](https://services.azureml.net) . 
 
-1. Accedere al portale dei servizi Web di Azure Machine Learning Studio all'indirizzo [https://services.azureml.net](https://services.azureml.net). Per un servizio Web classico, è possibile anche accedere al portale facendo clic su **New Web Services Experience** (Nuovi servizi Web) nella pagina dei servizi Web di Machine Learning Studio in Machine Learning Studio.
+1. Accedere al portale dei servizi Web di Azure Machine Learning Studio (classico) all' [https://services.azureml.net](https://services.azureml.net). Per un servizio Web classico, è anche possibile raggiungere il portale facendo clic su **nuova esperienza servizi Web** nella pagina dei servizi Web Machine Learning Studio (classica) nella versione classica di Machine Learning Studio.
 
    ![Collegamento New Web Services Experience](./media/web-services-logging/new-web-services-experience-link.png)
 
@@ -61,7 +57,7 @@ La registrazione viene abilitata nel portale dei [servizi Web di Azure Machine L
 
 > [!TIP]
 >
-> Per un servizio Web classico, anche il dashboard dei servizi Web in Machine Learning Studio ha un'opzione per abilitare la registrazione. Tuttavia, poiché la registrazione ora è gestita tramite il portale dei servizi Web, è necessario abilitarla tramite il portale come descritto in questo articolo. Se la registrazione è già stata abilitata in Studio, nel portale dei servizi Web disabilitare la registrazione e abilitarla di nuovo.
+> Per un servizio Web classico, il dashboard dei servizi Web nella versione classica di Machine Learning Studio dispone anche di un'opzione per abilitare la registrazione. Tuttavia, poiché la registrazione ora è gestita tramite il portale dei servizi Web, è necessario abilitarla tramite il portale come descritto in questo articolo. Se è già stata abilitata la registrazione in studio (versione classica), nel portale dei servizi Web disabilitare la registrazione e abilitarla di nuovo.
 
 
 ## <a name="the-effects-of-enabling-logging"></a>Effetti dell'abilitazione della registrazione

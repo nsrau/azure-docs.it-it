@@ -11,14 +11,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4872ba8a707192cd61ec371fa982a076d410e918
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: c0d696e3fc060a2779eba7d7e895397ea3245383
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996567"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489281"
 ---
 # <a name="use-secrets-in-training-runs"></a>Usare i segreti nelle esecuzioni di training
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In questo articolo si apprenderà come usare i segreti nelle esecuzioni di training in modo sicuro. Ad esempio, per connettersi a un database esterno per eseguire query sui dati di training, è necessario passare nome utente e password al contesto di esecuzione remota. Il codice di questi valori negli script di training in testo non crittografato non è sicuro perché esporrà il segreto. 
 

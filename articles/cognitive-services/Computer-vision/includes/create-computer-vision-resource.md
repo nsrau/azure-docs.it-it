@@ -6,33 +6,28 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
+ms.date: 10/07/2019
 ms.author: dapine
-ms.openlocfilehash: cbf11c13bfb5c90739ea67fab92df08796a88e50
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2cb2cfbdfbac5d496f109d85977b41a050766ab0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717275"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499086"
 ---
-## <a name="create-an-computer-vision-resource"></a>Creare una risorsa di visione artificiale
+## <a name="create-an-computer-vision-resource"></a>Creare una risorsa Visione artificiale
 
-1. Accedere al [portale di Azure](https://portal.azure.com)
-1. Fare clic su [Create **visione artificiale** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) risorsa
-1. Immettere tutte le impostazioni necessarie:
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Fare clic su [crea **visione artificiale** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) risorsa.
+1. Immettere tutte le impostazioni obbligatorie:
 
     |Impostazione|Valore|
     |--|--|
-    |NOME|Nome desiderato (2-64 caratteri)|
+    |Name|Nome desiderato (2-64 caratteri)|
     |Sottoscrizione|Selezionare la sottoscrizione appropriata|
-    |Location|Selezionare qualsiasi località nelle vicinanze e disponibile|
-    |Piano tariffario|`F0` -il livello di prezzo minimo|
-    |Gruppo di risorse|Selezionare un gruppo di risorse disponibili|
+    |Percorso|Selezionare una località vicina e disponibile|
+    |Piano tariffario|`F0`-piano tariffario minimo|
+    |Gruppo di risorse|Selezionare un gruppo di risorse disponibile|
 
-1. Fare clic su **Create** e attendere che la risorsa da creare. Dopo averlo creato, passare alla pagina di risorse
-1. Raccolta configurata `endpoint` e una chiave API:
-
-    |Scheda risorse nel portale|Impostazione|Valore|
-    |--|--|--|
-    |**Panoramica**|Endpoint|Copiare l'endpoint. È simile a `https://computer-vision.cognitiveservices.azure.com/`|
-    |**Chiavi**|API key|Copiare 1 delle due chiavi. È una stringa di caratteri alfanumerici 32 senza spazi o trattini, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+1. Fare clic su **Crea** e attendere la creazione della risorsa. Dopo averla creata, passare alla pagina delle risorse.
+1. Raccogliere `{ENDPOINT_URI}` e `{API_KEY}`configurati. per informazioni dettagliate, vedere [raccolta dei parametri obbligatori](../computer-vision-how-to-install-containers.md#gathering-required-parameters) .

@@ -6,17 +6,21 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 08/14/2019
-ms.openlocfilehash: bda64dd555f1970b70878d827f6be1dab3f1e2d5
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: d3779a2d48db82bfccdc0f047119a36ef56c3bdf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555424"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73477421"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure per i contenitori
 
 Queste domande frequenti Microsoft sono un elenco di domande comuni su Monitoraggio di Azure per i container. Per altre domande sulla soluzione, visitare il [forum di discussione](https://feedback.azure.com/forums/34192--general-feedback) e inviare le proprie domande. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
+
+## <a name="can-i-view-metrics-collected-in-grafana"></a>È possibile visualizzare le metriche raccolte in Grafana?
+
+Il monitoraggio di Azure per i contenitori supporta la visualizzazione delle metriche archiviate nell'area di lavoro Log Analytics nei dashboard di Grafana. È disponibile un modello che è possibile scaricare dal [repository dashboard](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) di Grafana per iniziare e fare riferimento a per informazioni su come eseguire query sui dati aggiuntivi dai cluster monitorati per visualizzare in Grafana dashboard personalizzati. 
 
 ## <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>È possibile monitorare il cluster del motore AKS con monitoraggio di Azure per i contenitori?
 
@@ -72,20 +76,15 @@ Per informazioni dettagliate sul problema, vedere il [collegamento di GitHub](ht
 
 ## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Ricerca per categorie risolvere gli errori Azure AD quando si abilitano I log Live? 
 
-È possibile che venga visualizzato l'errore seguente: **l'URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l'applicazione:' < ID applicazione \>'** . La soluzione per risolverla è disponibile nell'articolo come visualizzare i log dei contenitori in [tempo reale con monitoraggio di Azure per i contenitori](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
+È possibile che venga visualizzato l'errore seguente: **l'URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l'applicazione:' < ID applicazione\>'** . La soluzione per risolverla è disponibile nell'articolo [come visualizzare i dati del contenitore in tempo reale con monitoraggio di Azure per i contenitori](container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
 
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Perché non è possibile aggiornare il cluster dopo l'onboarding?
 
 Se dopo l'abilitazione di monitoraggio di Azure per i contenitori per un cluster AKS si elimina l'area di lavoro Log Analytics cui il cluster stava inviando i dati, quando si tenta di aggiornare il cluster l'operazione avrà esito negativo. Per risolvere il problema, sarà necessario disabilitare il monitoraggio e quindi riabilitarlo facendo riferimento a un'area di lavoro valida diversa nella sottoscrizione. Quando si tenta di eseguire di nuovo l'aggiornamento del cluster, il processo dovrebbe essere elaborato e completato correttamente.  
 
 ## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Quali porte e domini è necessario aprire/inserire nell'elenco elementi consentiti per l'agente?
-- *. ods.opinsights.azure.com 443
-- *. oms.opinsights.azure.com 443
-- *. blob.core.windows.net 443
-- dc.services.visualstudio.com 443
-- *. microsoftonline.com 443
-- *. monitoring.azure.com 443
-- login.microsoftonline.com 443
+
+Vedere i [requisiti del firewall di rete](container-insights-onboard.md#network-firewall-requirements) per le informazioni di configurazione del proxy e del firewall necessarie per l'agente in contenitori con Azure, Azure US Government e Azure China cloud.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 1721f10f8950577080a89ba58a3eb4dd3a25c188
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: c4a312654fb54660a229c334071d33a5d6bc172f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249178"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496370"
 ---
 # <a name="view-service-fabric-health-reports"></a>Come visualizzare i report sull'integrità di Service Fabric
 Azure Service Fabric introduce un [modello di integrità](service-fabric-health-introduction.md) con entità di integrità per le quali i componenti di sistema e i watchdog possono creare report sulle condizioni locali sottoposte a monitoraggio. L' [archivio integrità](service-fabric-health-introduction.md#health-store) aggrega tutti i dati di integrità per determinare se le entità sono integre.
@@ -32,7 +32,7 @@ Service Fabric offre diversi modi per ottenere l'integrità aggregata delle enti
 * Query di integrità (tramite PowerShell, API o REST)
 * Query generali che restituiscono un elenco di entità per le quali l'integrità costituisce una proprietà (tramite PowerShell, API o REST)
 
-Per illustrare queste opzioni, si userà un cluster locale con cinque nodi e l'[applicazione fabric:/WordCount](https://aka.ms/servicefabric-wordcountapp). L'applicazione **fabric:/WordCount** contiene due servizi predefiniti, un servizio con stato di tipo `WordCountServiceType` e un servizio senza stato di tipo `WordCountWebServiceType`. L'oggetto `ApplicationManifest.xml` è stato modificato per richiedere sette repliche di destinazione per il servizio con stato e una partizione. Poiché ci sono solo cinque nodi nel cluster, i componenti di sistema segnalano un avviso nella partizione del servizio perché è al di sotto del numero previsto.
+Per illustrare queste opzioni, si userà un cluster locale con cinque nodi e l'[applicazione fabric:/WordCount](https://github.com/Azure-Samples/service-fabric-wordcount/raw/master/WordCountV1.sfpkg). L'applicazione **fabric:/WordCount** contiene due servizi predefiniti, un servizio con stato di tipo `WordCountServiceType` e un servizio senza stato di tipo `WordCountWebServiceType`. L'oggetto `ApplicationManifest.xml` è stato modificato per richiedere sette repliche di destinazione per il servizio con stato e una partizione. Poiché ci sono solo cinque nodi nel cluster, i componenti di sistema segnalano un avviso nella partizione del servizio perché è al di sotto del numero previsto.
 
 ```xml
 <Service Name="WordCountService">
@@ -1030,19 +1030,19 @@ Se le query generali restituiscono uno stato di integrità sconosciuto per un'en
 
 Di seguito sono elencate le query che contengono **HealthState** per le entità:
 
-* Elenco dei nodi: restituisce i nodi elencati nel cluster (con paging).
+* Elenco dei nodi: restituisce i nodi elencati nel cluster (di paging).
   * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
   * PowerShell: Get-ServiceFabricNode
-* Elenco delle applicazioni: restituisce l'elenco di applicazioni nel cluster (con paging).
+* Elenco delle applicazioni: restituisce l'elenco di applicazioni nel cluster (di paging).
   * API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
   * PowerShell: Get-ServiceFabricApplication
-* Elenco dei servizi: restituisce l'elenco dei servizi in un'applicazione (con paging).
+* Elenco dei servizi: restituisce l'elenco dei servizi in un'applicazione (di paging).
   * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
   * PowerShell: Get-ServiceFabricService
-* Elenco delle partizioni: restituisce l'elenco delle partizioni in un servizio (con paging).
+* Elenco delle partizioni: restituisce l'elenco delle partizioni in un servizio (di paging).
   * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell: Get-ServiceFabricPartition
-* Elenco delle repliche: restituisce l'elenco delle repliche in una partizione (con paging).
+* Elenco delle repliche: restituisce l'elenco delle repliche in una partizione (di paging).
   * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
   * PowerShell: Get-ServiceFabricReplica
 * Elenco delle applicazioni distribuite: restituisce l'elenco delle applicazioni distribuite in un nodo.
@@ -1053,7 +1053,7 @@ Di seguito sono elencate le query che contengono **HealthState** per le entità:
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Alcune query restituiscono risultati di paging. La restituzione di queste query è un elenco derivato [da\<PagedList T >](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Se questi risultati non corrispondono a un messaggio, viene restituita solo una pagina e un ContinuationToken che tiene traccia del punto in cui l'enumerazione è stata arrestata. Continuare a chiamare la stessa query e passare il token di continuazione dalla query precedente per ottenere i risultati successivi.
+> Alcune query restituiscono risultati di paging. La restituzione di queste query è un elenco derivato da [PagedList\<t >](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Se questi risultati non corrispondono a un messaggio, viene restituita solo una pagina e un ContinuationToken che tiene traccia del punto in cui l'enumerazione è stata arrestata. Continuare a chiamare la stessa query e passare il token di continuazione dalla query precedente per ottenere i risultati successivi.
 
 ### <a name="examples"></a>Esempi
 Il codice seguente permette di ottenere le applicazioni non integre nel cluster:

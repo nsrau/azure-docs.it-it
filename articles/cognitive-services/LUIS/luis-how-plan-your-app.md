@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: dc648b30dc1236080be06044f510557ae0ce9476
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: b5e5df111b81cb60b6d194be190421bdb5ce2683
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638303"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467707"
 ---
-# <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Pianificare l'app LUIS con dominio soggetto, finalità ed entità
+# <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Pianificare lo schema dell'app LUIS con dominio soggetto ed estrazione dei dati
 
-Per pianificare l'app, identificare il dominio dell'area del soggetto. Sono inclusi possibili Intent ed entità rilevanti per l'applicazione.  
+Uno schema di app LUIS contiene Intent ed entità rilevanti per il dominio dell'oggetto. Gli Intent classificano le espressioni utente e le entità estraggono i dati dalle espressioni utente. 
 
 ## <a name="identify-your-domain"></a>Identificare il dominio
 
@@ -32,10 +32,16 @@ Un'app LUIS è incentrata su un argomento specifico del dominio.  Ad esempio, si
 
 ## <a name="identify-your-intents"></a>Identificare le finalità
 
-Pensare alle [finalità](luis-concept-intent.md) che sono importanti per l'attività dell'applicazione. Si consideri l'esempio di un'app di viaggi con funzioni per la prenotazione di un volo e il controllo delle previsioni meteo relative alla destinazione dell'utente. Per queste azioni è possibile definire le finalità "BookFlight" e "GetWeather". In un'app più complessa con più funzioni, si avranno più finalità e sarà necessario definirle con attenzione in modo che non siano troppo specifiche. Ad esempio, "BookFlight" e "BookHotel" potrebbero essere finalità separate, ma "BookInternationalFlight" e "BookDomesticFlight" potrebbero essere troppo simili.
+Pensare alle [finalità](luis-concept-intent.md) che sono importanti per l'attività dell'applicazione. 
+
+Si consideri l'esempio di un'app di viaggi con funzioni per la prenotazione di un volo e il controllo delle previsioni meteo relative alla destinazione dell'utente. È possibile definire il `BookFlight` e `GetWeather` Intent per queste azioni. 
+
+In un'app più complessa con più funzioni, sono presenti più Intent ed è necessario definirli con cautela, in modo che gli Intent non siano troppo specifici. È ad esempio possibile che `BookFlight` e `BookHotel` debbano essere ritenute separate, ma `BookInternationalFlight` e `BookDomesticFlight` potrebbero essere troppo simili.
 
 > [!NOTE]
-> È consigliabile limitare il numero delle finalità solo a quelle necessarie per eseguire le funzioni dell'app. Se si definiscono troppe finalità, per LUIS sarà più difficile classificare correttamente le espressioni. Se invece se ne definiscono troppo poche, potrebbero risultare così generali da sovrapporsi.
+> È consigliabile limitare il numero delle finalità solo a quelle necessarie per eseguire le funzioni dell'app. Se si definiscono troppe finalità, per LUIS sarà più difficile classificare correttamente le espressioni. Se si definisce un numero troppo basso di elementi, potrebbe essere così generale che si sovrappongono.
+
+Se non è necessario identificare l'intenzione complessiva dell'utente, aggiungere tutte le espressioni utente di esempio alla finalità None. Se l'app aumenta in modo da richiedere più Intent, è possibile crearli in un secondo momento. 
 
 ## <a name="create-example-utterances-for-each-intent"></a>Creare espressioni di esempio per ogni finalità
 
@@ -51,7 +57,4 @@ Quando si determinano le entità da usare nell'app, tenere presente che esistono
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver effettuato il training e la pubblicazione dell'app e aver ottenuto le espressioni di endpoint per l'app, occorre pianificare l'implementazione di miglioramenti della previsione mediante [apprendimento attivo](luis-how-to-review-endpoint-utterances.md), [elenchi di frasi](luis-concept-feature.md) e [criteri](luis-concept-patterns.md). 
-
-
-* Vedere [Creare la prima app Language Understanding Intelligent Service (LUIS)](luis-get-started-create-app.md) per la procedura dettagliata per creare un'app LUIS.
+Informazioni sul ciclo di [sviluppo](luis-concept-app-iteration.md)tipico.  

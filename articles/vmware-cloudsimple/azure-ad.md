@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8e8ea11da0339103375009709be8795cdede2448
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 1a5871a052998e9dd32d698c5a89f57064cc7d6b
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972919"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72987573"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Usare Azure AD come provider di identità per vCenter nel cloud privato CloudSimple
 
@@ -47,7 +47,7 @@ Prima di iniziare, sarà necessario accedere alla sottoscrizione di Azure con i 
 > Se si dispone già di Azure AD, è possibile ignorare questa sezione.
 
 1. Configurare Azure AD sulla sottoscrizione come descritto in [Azure ad documentazione](../active-directory/fundamentals/get-started-azure-ad.md).
-2. Abilitare Azure Active Directory Premium sulla sottoscrizione come descritto in iscriversi a [Azure Active Directory Premium](../active-directory/fundamentals/active-directory-get-started-premium.md).
+2. Abilitare Azure Active Directory Premium sulla sottoscrizione come descritto in [iscriversi a Azure Active Directory Premium](../active-directory/fundamentals/active-directory-get-started-premium.md).
 3. Configurare un nome di dominio personalizzato e verificare il nome di dominio personalizzato come descritto in [aggiungere un nome di dominio personalizzato a Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
     1. Configurare un record DNS nel registrar con le informazioni fornite in Azure.
     2. Impostare il nome di dominio personalizzato come dominio primario.
@@ -80,22 +80,29 @@ Facoltativamente, è possibile configurare altre funzionalità di Azure AD.  Que
 
 ## <a name="set-up-an-identity-source-on-your-private-cloud-vcenter"></a>Configurare un'origine di identità nel cloud privato vCenter
 
-1. Escalation dei [privilegi](escalate-private-cloud-privileges.md) per il cloud privato vCenter.
+1. [Escalation dei privilegi](escalate-private-cloud-privileges.md) per il cloud privato vCenter.
 2. Raccogliere i parametri di configurazione necessari per la configurazione dell'origine identità.
 
     | **Opzione** | **Descrizione** |
     |------------|-----------------|
     | **Nome** | Nome dell'origine di identità. |
-    | **DN di base per gli utenti** | Nome distinto di base per gli utenti.  Per Azure AD, usare: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`Esempio: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`.|
+    | **DN di base per gli utenti** | Nome distinto di base per gli utenti.  Per Azure AD, usare: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` esempio: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`.|
     | **Nome di dominio** | FDQN del dominio, ad esempio example.com. Non specificare un indirizzo IP in questa casella di testo. |
     | **Alias di dominio** | *(facoltativo)* Nome NetBIOS del dominio. Se si usano le autenticazioni SSPI, aggiungere il nome NetBIOS del dominio Active Directory come alias dell'origine di identità. |
-    | **DN di base per i gruppi** | Nome distinto di base per i gruppi. Per Azure AD, usare: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`Esempio`OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
-    | **URL server primario** | Server LDAP del controller di dominio primario per il dominio.<br><br>Usare il formato `ldaps://hostname:port`. La porta è in genere 636 per le connessioni LDAPs. <br><br>Quando si usa `ldaps://` nell'URL LDAP primario o secondario, è necessario un certificato che stabilisce l'attendibilità per l'endpoint LDAPS del server Active Directory. |
+    | **DN di base per i gruppi** | Nome distinto di base per i gruppi. Per Azure AD, usare: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` esempio: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
+    | **URL server primario** | Server LDAP del controller di dominio primario per il dominio.<br><br>Usare il formato `ldaps://hostname:port`. La porta è in genere 636 per le connessioni LDAPs. <br><br>Quando si usa `ldaps://` nell'URL LDAP primario o secondario, è necessario un certificato che stabilisce l'attendibilità per l'endpoint LDAPs del server Active Directory. |
     | **URL server secondario** | Indirizzo di un server LDAP del controller di dominio secondario usato per il failover. |
-    | **Scegliere il certificato** | Se si vuole usare LDAPS con il server Active Directory LDAP o con l'origine identità del server OpenLDAP, dopo aver digitato `ldaps://` nella casella di testo URL viene visualizzato un pulsante Scegli certificato. Un URL secondario non è obbligatorio. |
+    | **Scegliere il certificato** | Se si vuole usare LDAPs con il server Active Directory LDAP o con l'origine identità del server OpenLDAP, viene visualizzato un pulsante Scegli certificato dopo aver digitato `ldaps://` nella casella di testo URL. Un URL secondario non è obbligatorio. |
     | **Nome utente** | ID di un utente nel dominio che dispone almeno dell'accesso in sola lettura al DN di base per utenti e gruppi. |
     | **Password** | Password dell'utente specificato dal nome utente. |
 
 3. Accedere al cloud privato vCenter dopo l'escalation dei privilegi.
 4. Seguire le istruzioni in [aggiungere un'origine di identità in vCenter](set-vcenter-identity.md#add-an-identity-source-on-vcenter) usando i valori del passaggio precedente per configurare Azure Active Directory come origine di identità.
 5. Aggiungere utenti/gruppi da Azure AD ai gruppi vCenter come descritto nell'argomento relativo all' [aggiunta di membri a un gruppo vCenter Single Sign-on](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)in VMware.
+
+> [!CAUTION]
+> I nuovi utenti devono essere aggiunti solo a *cloud-Owner-Group*, *cloud-Global-cluster-admin-* Group, *cloud-Global-Storage-admin-Group*, *cloud-Global-Network-Admin-Group* o, *cloud-Global-VM-admin-Group*.  Gli utenti aggiunti al gruppo *Administrators* verranno rimossi automaticamente.  Solo gli account di servizio devono essere aggiunti al gruppo *Administrators* .
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Informazioni sul modello di autorizzazione del cloud privato](learn-private-cloud-permissions.md)

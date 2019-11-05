@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 47258f27f44b6a21c5da72e4631591e695024400
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: bd65fcf6ebff931fbb408ca8337a37d355221dfe
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053268"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480262"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -62,7 +62,7 @@ L'analisi supporta la valutazione delle risorse in una sottoscrizione o in un gr
   POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
   ```
 
-- Gruppo di risorse
+- Resource group
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
@@ -89,10 +89,10 @@ La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in
 
 | Stato della risorsa | Effetto | Valutazione dei criteri | Stato di conformità |
 | --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Vero | Non conforme |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Conformità |
-| Novità | Audit, AuditIfNotExist\* | Vero | Non conforme |
-| Novità | Audit, AuditIfNotExist\* | Falso | Conformità |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non conforme |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Conforme |
+| Nuovo | Audit, AuditIfNotExist\* | True | Non conforme |
+| Nuovo | Audit, AuditIfNotExist\* | False | Conforme |
 
 \* Gli effetti Append, DeployIfNotExist e AuditIfNotExist richiedono che l'istruzione IF sia TRUE.
 Richiedono inoltre che la condizione di esistenza sia FALSE per lo stato non conforme. Se è TRUE, la condizione IF attiva la valutazione della condizione di esistenza per le risorse correlate.
@@ -131,9 +131,16 @@ Dal momento che un criterio o un'iniziativa può essere assegnata a diversi ambi
 L'elenco delle risorse nella scheda **Conformità risorsa** mostra lo stato di valutazione delle risorse esistenti per l'assegnazione corrente. Il valore predefinito della scheda è **Non conforme**, ma è possibile applicare un filtro.
 Gli eventi (Append, Audit, Deny, Deploy) attivati dalla richiesta di creazione di una risorsa sono visualizzati nella scheda **Eventi**.
 
+> [!NOTE]
+> Per i criteri del motore AKS, la risorsa mostrata è il gruppo di risorse.
+
 ![Esempio di eventi di conformità dei criteri di Azure](../media/getting-compliance-data/compliance-events.png)
 
-Fare clic con il pulsante destro del mouse sulla riga dell'evento per cui si vogliono raccogliere maggiori dettagli e selezionare **Mostra log attività**. La pagina del log attività viene aperta e pre-filtrata con la ricerca contenente i dettagli per l'assegnazione e gli eventi. Il log attività offre un contesto aggiuntivo e altre informazioni su tali eventi.
+Per le risorse in [modalità provider di risorse](../concepts/definition-structure.md#resource-provider-modes) , nella scheda **conformità risorse** Selezionare la risorsa o fare clic con il pulsante destro del mouse sulla riga e selezionare **Visualizza dettagli conformità** consente di aprire i dettagli di conformità dei componenti. Questa pagina include anche le schede per visualizzare i criteri assegnati a questa risorsa, eventi, eventi del componente e cronologia delle modifiche.
+
+![Esempio di dettagli di conformità del componente Criteri di Azure](../media/getting-compliance-data/compliance-components.png)
+
+Tornare alla pagina conformità risorse, fare clic con il pulsante destro del mouse sulla riga dell'evento per cui si vogliono ottenere altri dettagli e selezionare **Mostra log attività**. La pagina del log attività viene aperta e pre-filtrata con la ricerca contenente i dettagli per l'assegnazione e gli eventi. Il log attività offre un contesto aggiuntivo e altre informazioni su tali eventi.
 
 ![Esempio di log attività di conformità dei criteri di Azure](../media/getting-compliance-data/compliance-activitylog.png)
 
@@ -240,7 +247,7 @@ Per brevità, la risposta di esempio seguente è stata tagliata in una singola r
 }
 ```
 
-### <a name="view-events"></a>Visualizza eventi
+### <a name="view-events"></a>Visualizzare eventi
 
 Quando si crea o si aggiorna una risorsa, viene generato un risultato di valutazione dei criteri. I risultati sono chiamati _eventi criteri_. Usare l'Uri seguente per visualizzare gli eventi criteri recenti associati alla sottoscrizione.
 

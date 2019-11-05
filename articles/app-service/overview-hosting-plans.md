@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3118be297caabbd4b829344e42361fa6b7602aad
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 78440185b4a26bccc8ffb0258416a19aa929af6b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066739"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470246"
 ---
 # <a name="azure-app-service-plan-overview"></a>Panoramica del piano di servizio app di Azure
 
@@ -35,9 +35,9 @@ Quando si crea un piano di servizio app in una determinata area (ad esempio, Eur
 
 Il _piano tariffario_ di un piano di servizio app determina le funzionalità del servizio app disponibili e il costo del piano. Esistono alcune categorie di piani tariffari:
 
-- **Calcolo condiviso**: i due piani di base **Gratuito** e **Condiviso** eseguono un'app nella stessa macchina virtuale di Azure delle altre app del servizio app, incluse quelle di altri clienti. Questi piani allocano quote di CPU a ogni app eseguita nelle risorse condivise e non è possibile aumentare il numero di istanze delle risorse.
-- **Calcolo dedicato**: i piani **Basic**, **Standard**, **Premium** e **PremiumV2** eseguono le app in macchine virtuali di Azure dedicate. Solo le app nello stesso piano di servizio app condividono le stesse risorse di calcolo. È possibile aumentare il numero di istanze delle VM in misura direttamente proporzionale al livello del piano.
-- **Isolato**: Questo livello esegue macchine virtuali di Azure dedicate in reti virtuali di Azure dedicate. Fornisce l'isolamento di rete oltre all'isolamento di calcolo per le app. Offre funzionalità ottimali per aumentare il numero di istanze.
+- **Calcolo condiviso**: i due piani di base **Gratuito** e **Condiviso** eseguono un'app nella stessa VM di Azure delle altre app del servizio app, incluse le app di altri clienti. Questi piani allocano quote di CPU a ogni app eseguita nelle risorse condivise e non è possibile aumentare il numero di istanze delle risorse.
+- **Calcolo dedicato**: i piani **Basic**, **Standard**, **Premium** e **PremiumV2** eseguono le app in VM di Azure dedicate. Solo le app nello stesso piano di servizio app condividono le stesse risorse di calcolo. È possibile aumentare il numero di istanze delle VM in misura direttamente proporzionale al livello del piano.
+- **Isolated**: questo livello esegue macchine virtuali di Azure dedicate in reti virtuali di Azure dedicate. Fornisce l'isolamento di rete oltre all'isolamento di calcolo per le app. Offre funzionalità ottimali per aumentare il numero di istanze.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -54,19 +54,19 @@ Ogni piano fornisce anche un subset specifico di funzionalità del servizio app.
 > - Medium (due core CPU, 7 GiB di memoria) 
 > - Large (quattro core CPU, 14 GiB di memoria)  
 >
-> Per informazioni sui prezzi di [PremiumV2](https://azure.microsoft.com/pricing/details/app-service/), vedere **Prezzi del servizio app**.
+> Per informazioni sui prezzi di **PremiumV2**, vedere [Prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/).
 >
 > Per un'introduzione al nuovo piano tariffario **PremiumV2**, vedere [Configurare il livello PremiumV2](app-service-configure-premium-tier.md).
 
 ## <a name="how-does-my-app-run-and-scale"></a>Come viene eseguita e ridimensionata l'app?
 
-Nei piani **Gratuito** e **Condiviso** un'app riceve minuti di CPU in un'istanza di VM condivisa e non è possibile aumentare il numero di istanze. Negli altri piani un'app viene eseguita e ridimensionata come segue.
+Nei livelli **gratuito** e **condiviso** un'app riceve minuti di CPU in un'istanza di macchina virtuale condivisa e non è possibile eseguire il ridimensionamento. In altri livelli, un'app viene eseguita e ridimensionata come indicato di seguito.
 
 Quando si crea un'app nel servizio app, questa viene inserita in un piano di servizio app e viene eseguita in tutte le istanze di VM configurate nel piano di servizio app. Se più app sono nello stesso piano di servizio app, condividono tutte le stesse istanze di VM. Se si hanno più slot di distribuzione per un'app, anche tutti gli slot di distribuzione vengono eseguiti nelle stesse istanze di VM. Se si abilitano i log di diagnostica, si effettuano backup o si eseguono processi Web, anche questi usano i cicli CPU e la memoria in tali istanze di VM.
 
 Il piano di servizio app è quindi l'unità di scala delle app del servizio app. Se il piano è configurato per eseguire cinque istanze di VM, tutte le app nel piano vengono eseguite in tutte le cinque istanze. Se il piano è configurato per la scalabilità automatica, vengono aumentate contemporaneamente le istanze di tutte le app nel piano in base alle impostazioni di scalabilità automatica.
 
-Per informazioni sull'aumento del numero di istanze di un'app, vedere [Aumentare/Ridurre il numero di istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Per informazioni sull'aumento del numero di istanze di un'app, vedere [Ridimensionare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
 <a name="cost"></a>
 
@@ -95,7 +95,7 @@ L'uso delle funzionalità del servizio app disponibili (configurazione di domini
 
 È possibile passare a un piano di servizio app superiore o inferiore in qualsiasi momento. È semplice come cambiare il piano tariffario. È possibile scegliere prima un piano tariffario inferiore e passare a uno superiore in seguito, quando sono necessarie altre funzionalità del servizio app.
 
-È ad esempio possibile avviare il test dell'app Web in un piano di servizio app **Gratuito** senza pagare nulla. Quando si vuole aggiungere il [nome DNS personalizzato](app-service-web-tutorial-custom-domain.md) all'app Web, è sufficiente passare al piano superiore **Condiviso**. Quando poi si vuole aggiungere un [certificato SSL personalizzato](app-service-web-tutorial-custom-ssl.md), passare al piano superiore **Basic**. Quando sono necessari [ambienti di staging](deploy-staging-slots.md), passare al piano superiore **Standard**. Quando sono necessari più core, memoria o risorse di archiviazione, passare a dimensioni delle VM superiori nello stesso piano.
+È ad esempio possibile avviare il test dell'app Web in un piano di servizio app **Gratuito** senza pagare nulla. Quando si vuole aggiungere il [nome DNS personalizzato](app-service-web-tutorial-custom-domain.md) all'app Web, è sufficiente passare al piano superiore **Condiviso**. In seguito, quando si vuole [creare un'associazione SSL](configure-ssl-bindings.md), ridimensionare il piano fino al livello **Basic** . Quando sono necessari [ambienti di staging](deploy-staging-slots.md), passare al piano superiore **Standard**. Quando sono necessari più core, memoria o risorse di archiviazione, passare a dimensioni delle VM superiori nello stesso piano.
 
 Lo stesso meccanismo funziona in ordine inverso. Quando le funzionalità di un piano superiore non sono più necessarie, è possibile passare a un piano inferiore per risparmiare.
 

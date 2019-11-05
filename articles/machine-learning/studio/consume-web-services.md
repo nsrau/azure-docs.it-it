@@ -1,7 +1,7 @@
 ---
 title: Usare un servizio Web
-titleSuffix: Azure Machine Learning Studio
-description: Dopo la distribuzione di un servizio di apprendimento automatico da Azure Machine Learning Studio è possibile usare il servizio Web RESTFul come servizio di richiesta-risposta o come un servizio di esecuzione batch.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Una volta distribuito un servizio di Machine Learning dalla Azure Machine Learning Studio (classica), il servizio Web RESTful può essere utilizzato come servizio di richiesta-risposta in tempo reale o come servizio di esecuzione batch.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,20 +10,20 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: a537227a7003391122e10f7f39233040cef49db3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5f73e9814adeb44c2838a1fd3bd9c9fd34d4de5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751298"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493306"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Come usare un servizio Web di Azure Machine Learning Studio
+# <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Come utilizzare un servizio Web di Azure Machine Learning Studio (classico)
 
-Dopo aver distribuito un modello predittivo di Azure Machine Learning Studio come servizio Web, è possibile usare un'API REST per inviare dati a questo e ottenere stime. È possibile inviare i dati in tempo reale o in modalità batch.
+Una volta distribuito un modello predittivo di Azure Machine Learning Studio (classico) come servizio Web, è possibile usare un'API REST per inviare dati e ottenere stime. È possibile inviare i dati in tempo reale o in modalità batch.
 
-Per informazioni su come creare e distribuire un servizio Web di Machine Learning tramite Machine Learning Studio:
+Per ulteriori informazioni su come creare e distribuire un servizio Web di Machine Learning tramite Machine Learning Studio (classico), vedere:
 
-* Per un'esercitazione su come creare un esperimento in Machine Learning Studio, vedere l'articolo su come [creare il primo esperimento](create-experiment.md).
+* Per un'esercitazione su come creare un esperimento in Machine Learning Studio (classico), vedere [creare il primo esperimento](create-experiment.md).
 * Per dettagli su come distribuire un servizio Web, vedere [Distribuire un servizio Web di Azure Machine Learning](publish-a-machine-learning-web-service.md).
 * Per altre informazioni su Machine Learning in generale, accedere alla [Documentazione su Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -32,14 +32,14 @@ Per informazioni su come creare e distribuire un servizio Web di Machine Learnin
 ## <a name="overview"></a>Panoramica
 Con il servizio Web di Azure Machine Learning, un'applicazione esterna comunica con un modello di valutazione del flusso di lavoro di Machine Learning in tempo reale. Una chiamata al servizio Web di Machine Learning restituisce i risultati della stima a un'applicazione esterna. Per effettuare una chiamata al servizio Web di Machine Learning, passare una chiave API creata quando si distribuisce una stima. Il servizio Web di Machine Learning è basato su REST, una scelta di architettura diffusa per progetti di programmazione Web.
 
-Azure Machine Learning Studio dispone di due tipi di servizi:
+La versione TImpossibile classica di Azure Machine Learning Studio dispone di due tipi di servizi:
 
-* Servizio di richiesta-risposta (RRS). Un servizio a latenza bassa e altamente scalabile che offre un'interfaccia ai modelli senza stato creati e distribuiti da Machine Learning Studio.
+* Servizio di richiesta-risposta (RRS): servizio a bassa latenza e scalabilità elevata che fornisce un'interfaccia per i modelli senza stato creati e distribuiti dal Machine Learning Studio (classico).
 * Servizio esecuzione batch (BES). Un servizio asincrono che valuta un batch di record di dati.
 
 Per altre informazioni sui servizi Web di Machine Learning, vedere [Distribuire un servizio Web di Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
-## <a name="get-an-azure-machine-learning-studio-authorization-key"></a>Ottenere una chiave di autorizzazione di Azure Machine Learning Studio
+## <a name="get-an-authorization-key"></a>Ottenere una chiave di autorizzazione
 Quando si distribuisce l'esperimento, vengono generate le chiavi API per il servizio Web, recuperabili da diverse posizioni.
 
 ### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Dal portale dei servizi Web di Microsoft Azure Machine Learning
@@ -61,16 +61,16 @@ Per recuperare la chiave API per un nuovo servizio Web Machine Learning di tipo 
 5. Copiare e salvare la **Chiave primaria**.
 
 ### <a name="classic-web-service"></a>Servizio Web classico
- La chiave di un servizio Web di tipo classico può essere recuperata anche da Machine Learning Studio.
+ È anche possibile recuperare una chiave per un servizio Web classico dalla Machine Learning Studio (classica).
 
-#### <a name="machine-learning-studio"></a>Machine Learning Studio
-1. In Machine Learning Studio fare clic su **WEB SERVICES** (Servizi Web) a sinistra.
+#### <a name="machine-learning-studio-classic"></a>Machine Learning Studio (versione classica)
+1. In Machine Learning Studio (versione classica) fare clic su **servizi Web** a sinistra.
 2. Fare clic su un servizio Web. La **chiave API** si trova nella scheda **DASHBOARD**.
 
 ## <a id="connect"></a>Connettersi a un servizio Web di Machine Learning
 È possibile connettersi a un servizio Web di Machine Learning usando qualsiasi linguaggio di programmazione che supporta la risposta e la richiesta HTTP. È possibile visualizzare gli esempi in C#, Python e R da una pagina della guida del servizio Web di Machine Learning.
 
-**Guida alle API di Machine Learning** Una Guida per l'API di Machine Learning viene creata quando si distribuisce un servizio Web. Vedere [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md) (Esercitazione 3: Distribuire un modello di rischio di credito).
+**Guida alle API di Machine Learning** Una Guida per l'API di Machine Learning viene creata quando si distribuisce un servizio Web. Vedere [esercitazione 3: distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md).
 La Guida per l'API di Machine Learning contiene i dettagli su un servizio Web di stima.
 
 1. Fare clic sul servizio Web in uso.
@@ -103,7 +103,7 @@ Per connettersi a un servizio Web di Machine Learning, è necessario installare 
 **Per eseguire l'esempio di codice**
 
 1. Pubblicare l'esperimento "Sample 1: Download dataset from UCI: Adult 2 class dataset", che fa parte della raccolta di esempi di Machine Learning.
-2. Assegnare ad apiKey la chiave di un servizio Web. Vedere **Ottenere una chiave di autorizzazione di Azure Machine Learning Studio** più indietro.
+2. Assegnare ad apiKey la chiave di un servizio Web. Vedere **ottenere una chiave di autorizzazione** sopra.
 3. Assegnare l'URI del servizio con l'URI della richiesta.
 
 **Di seguito è riportato l'aspetto di una richiesta completa.**
@@ -199,7 +199,7 @@ Per connettersi a un servizio Web di Machine Learning, usare la libreria **urlli
 **Per eseguire l'esempio di codice**
 
 1. Distribuire l'esperimento "Sample 1: Download dataset from UCI: Adult 2 class dataset", che fa parte della raccolta di esempi di Machine Learning.
-2. Assegnare ad apiKey la chiave di un servizio Web. Vedere la sezione **Ottenere una chiave di autorizzazione di Azure Machine Learning** all'inizio di questo articolo.
+2. Assegnare ad apiKey la chiave di un servizio Web. Vedere la sezione **ottenere una chiave di autorizzazione** all'inizio di questo articolo.
 3. Assegnare l'URI del servizio con l'URI della richiesta.
 
 **Di seguito è riportato l'aspetto di una richiesta completa.**

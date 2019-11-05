@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 76b4f721135c6e34eebdc20268a76e84d86b0637
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575675"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494534"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemi noti del cluster Apache Spark in HDInsight
 
@@ -32,7 +32,7 @@ Seguire questa procedura per risolvere il problema:
 
         yarn application –list
 
-    I nomi di processo predefiniti sono Livy se i processi sono stati avviati con una sessione interattiva di Livy senza nomi espliciti specificati. Per la sessione di Livio avviata da [Jupyter notebook](https://jupyter.org/), il nome del `remotesparkmagics_*`processo inizia con.
+    I nomi di processo predefiniti sono Livy se i processi sono stati avviati con una sessione interattiva di Livy senza nomi espliciti specificati. Per la sessione di Livio avviata da [Jupyter notebook](https://jupyter.org/), il nome del processo inizia con `remotesparkmagics_*`.
 
 3. Eseguire il comando seguente per terminare questi processi.
 
@@ -91,7 +91,7 @@ Dopo aver effettuato la connessione al cluster usando SSH, è possibile copiare 
 
 Per evitare questo errore in futuro, è necessario seguire alcune procedure consigliate:
 
-* È importante mantenere ridotte le dimensioni del notebook. L'output dei processi Spark inviato a Jupyter viene salvato in modo permanente nel notebook.  Si tratta di una procedura consigliata con Jupyter in generale per `.collect()` evitare l'esecuzione su RDD o frame di frame di grandi dimensioni. Se invece si vuole visualizzare il contenuto di un RDD, `.take()` provare `.sample()` a eseguire o in modo che l'output non sia troppo grande.
+* È importante mantenere ridotte le dimensioni del notebook. L'output dei processi Spark inviato a Jupyter viene salvato in modo permanente nel notebook.  È una procedura consigliata con Jupyter in generale per evitare l'esecuzione di `.collect()` su RDD o frame di frame di grandi dimensioni. Se invece si desidera visualizzare il contenuto di un RDD, provare a eseguire `.take()` o `.sample()` in modo che l'output non sia troppo grande.
 * Quando si salva un notebook, cancellare anche tutte le celle di output per ridurre le dimensioni.
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>L'avvio iniziale del notebook richiede più tempo del previsto
@@ -117,13 +117,13 @@ Quando il cluster Spark esaurisce le risorse, si verifica il timeout dei kernel 
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
+* [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
 
-* [Apache Spark con BI: Eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](apache-spark-use-bi-tools.md)
-* [Apache Spark con Machine Learning: usare Spark in HDInsight per analizzare la temperatura di un edificio con dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark con apprendimento automatico: usare Spark in HDInsight per stimare i risultati di controllo degli alimenti](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](apache-spark-use-bi-tools.md)
+* [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per prevedere i risultati di un controllo alimentare](apache-spark-machine-learning-mllib-ipython.md)
 * [Analisi dei log del sito Web con Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creare ed eseguire applicazioni
@@ -135,7 +135,7 @@ Quando il cluster Spark esaurisce le risorse, si verifica il timeout dei kernel 
 
 * [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](apache-spark-intellij-tool-plugin.md)
 * [Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Apache Spark in remoto](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Usare i notebook di Apache Zeppelin con un cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
+* [Usare i notebook di Apache Zeppelin con cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernel disponibili per notebook di Jupyter nel cluster Apache Spark per HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Usare pacchetti esterni con i notebook Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](apache-spark-jupyter-notebook-install-locally.md)

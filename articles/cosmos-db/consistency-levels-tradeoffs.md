@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9178b8007d707af2df150102b2d344a44106a9ca
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: f241f243860635db443b732f94d12956bbe0f9d8
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755180"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990626"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromessi tra coerenza, disponibilità e prestazioni 
 
@@ -54,14 +54,18 @@ La tabella seguente definisce la relazione tra il modello di coerenza e la durab
 |---------|---------|---------|---------|---------|
 |1|Master singolo o multimaster|Qualsiasi livello di coerenza|< 240 minuti|<1 settimana|
 |>1|Master singolo|Sessione, Prefisso coerente, Finale|< 15 minuti|< 15 minuti|
-|>1|Master singolo|Decadimento ristretto|*K*  & *t*|< 15 minuti|
-|>1|Master singolo|Strong|0|< 15 minuti|
+|>1|Master singolo|Obsolescenza associata|*K* & *t*|< 15 minuti|
+|>1|Master singolo|Assoluta|0|< 15 minuti|
 |>1|Multimaster|Sessione, Prefisso coerente, Finale|< 15 minuti|0|
-|>1|Multimaster|Decadimento ristretto|*K*  & *t*|0|
+|>1|Multimaster|Obsolescenza associata|*K* & *t*|0|
 
 *K* = numero di versioni *"k"* , ovvero aggiornamenti, di un elemento.
 
 *T* = intervallo di tempo *"t"* dall'ultimo aggiornamento.
+
+## <a name="strong-consistency-and-multi-master"></a>Coerenza assoluta e multimaster
+
+Gli account Cosmos configurati per il multimaster non possono essere configurati per la coerenza assoluta, perché non è possibile che un sistema distribuito fornisca un RPO di zero e un RTO pari a zero. Inoltre, non ci sono vantaggi della latenza di scrittura per l'uso della coerenza assoluta con il multimaster perché qualsiasi scrittura in qualsiasi area deve essere replicata e impegnata in tutte le aree configurate all'interno dell'account. In questo modo si ottiene la stessa latenza di scrittura di un singolo account master.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

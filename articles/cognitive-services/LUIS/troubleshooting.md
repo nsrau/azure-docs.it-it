@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 8adc052e732fdc54bd3b51873fdcf13a55f1f490
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 6a17993d7bc4ff54b3d55fa5b5bb141463896e32
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71971975"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488694"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -50,7 +50,7 @@ Sì, è consigliabile eseguire il training della finalità **None** con più esp
 Vedere l'esercitazione [API Controllo ortografico Bing V7](luis-tutorial-bing-spellcheck.md). LUIS applica limite imposti dall'API Controllo ortografico Bing V7.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>Come è possibile modificare a livello di codice l'app LUIS?
-Per modificare l'app LUIS a livello di codice, usare l'[API di creazione](https://go.microsoft.com/fwlink/?linkid=2092087). Vedere [Chiamare l'API di creazione LUIS](./luis-quickstart-node-add-utterance.md) e [Compilare un'app LUIS a livello di codice con Node.js](./luis-tutorial-node-import-utterances-csv.md) per esempi su come chiamare l'API di creazione. L'API di creazione richiede l'uso di una [chiave di creazione](luis-concept-keys.md#authoring-key) e non di una chiave di endpoint. La creazione a livello di codice consente fino a 1.000.000 di chiamate al mese e cinque transazioni al secondo. Per altre informazioni sulle chiavi usate con LUIS, vedere [Gestire le chiavi](./luis-concept-keys.md).
+Per modificare l'app LUIS a livello di codice, usare l'[API di creazione](https://go.microsoft.com/fwlink/?linkid=2092087). Vedere [Chiamare l'API di creazione LUIS](./luis-quickstart-node-add-utterance.md) e [Compilare un'app LUIS a livello di codice con Node.js](./luis-tutorial-node-import-utterances-csv.md) per esempi su come chiamare l'API di creazione. L'API di creazione richiede l'uso di una [chiave di creazione](luis-concept-keys.md#azure-resources-for-luis) e non di una chiave di endpoint. La creazione a livello di codice consente fino a 1.000.000 di chiamate al mese e cinque transazioni al secondo. Per altre informazioni sulle chiavi usate con LUIS, vedere [Gestire le chiavi](./luis-concept-keys.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Dove si trova la funzionalità Criterio che offre l'associazione di espressioni regolari?
 La **funzionalità Criterio** precedente è attualmente deprecata ed è sostituita da **[Modelli](luis-concept-patterns.md)** .
@@ -70,7 +70,7 @@ Per trasferire un'app LUIS in un'altra sottoscrizione di Azure, esportare l'app 
 
 ### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Un'entità predefinita è contrassegnata con un enunciato di esempio invece che con l'entità personalizzata. Ricerca per categorie risolvere questo problema? 
 
-Vedere [risoluzione dei problemi relativi alle entità predefinite](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+Nel portale LUIS è possibile etichettare il testo per l'entità esatta a cui si è interessati per l'estrazione. Se il portale LUIS non Visualizza la stima dell'entità corretta, potrebbe essere necessario aggiungere più espressioni ed etichettare l'entità all'interno del testo o aggiungere un descrittore (ad esempio una funzionalità). 
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Si è tentato di importare un'app o un file di versione, ma si è verificato un errore? 
 
@@ -220,7 +220,7 @@ Per altre informazioni, vedere correggere il codice di stato HTTP [403](#i-recei
 
 Per altre informazioni, vedere correggere il codice di stato HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) e [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) .
 
-### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>È stata creata una chiave di creazione, ma non viene visualizzata nel portale LUIS. Cosa è successo?
+### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>È stata creata una chiave di creazione, ma non viene visualizzata nel portale LUIS. Che cosa è successo?
 
 Le chiavi di creazione sono disponibili nel portale LUIS dopo [la migrazione all'esperienza di creazione della chiave](luis-migration-authoring.md).  
 
@@ -264,7 +264,7 @@ La chiave di creazione/avvio consente solo 1000 query di endpoint al mese. Crear
 
 ## <a name="bots"></a>Bot
 
-### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Il bot LUIS non funziona. Cosa devo fare?
+### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Il bot LUIS non funziona. che cosa occorre fare?
 
 La prima cosa da fare è determinare se il problema è correlato a LUIS o avviene al difuori del middleware LUIS. 
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 80e1052cb7acbdcec2dcb94f1667cae3c554d18e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 54c9d79c62052daeee76de5dffb1099dc7d75180
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932929"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467712"
 ---
 # <a name="create-entities-without-utterances"></a>Creare entità senza espressioni
 
@@ -25,6 +25,8 @@ L'entità rappresenta una parola o una frase all'interno dell'espressione che si
 È possibile aggiungere, modificare o eliminare entità nell'app LUIS tramite l'**elenco di entità** nella pagina **Entities** (Entità). LUIS offre due tipi principali di entità: le [entità predefinite](luis-reference-prebuilt-entities.md) e le [entità personalizzate](luis-concept-entity-types.md#types-of-entities).
 
 Una volta creata un'entità appresa dal computer, è necessario contrassegnare l'entità in tutte le espressioni di esempio di tutti gli Intent in cui si trova.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="add-prebuilt-entity"></a>
 
@@ -64,7 +66,7 @@ Un'entità di espressione regolare viene usata per estrarre dati dall'espression
 
 1. Nella finestra di dialogo popup immettere `Human resources form name` nella casella **Entity name** (Nome entità), selezionare **Regular expression** (Espressione regolare) nell'elenco **Entity type** (Tipo di entità), immettere l'espressione regolare `hrf-[0-9]{6}` e quindi selezionare **Done** (Fine). 
 
-    Questa espressione regolare corrisponde ai caratteri `hrf-`letterali, quindi 6 cifre per rappresentare un numero di modulo per un modulo di risorse umane.
+    Questa espressione regolare corrisponde ai caratteri letterali `hrf-`, quindi 6 cifre per rappresentare un numero di modulo per un modulo di risorse umane.
 
 <a name="add-composite-entities"></a>
 
@@ -114,7 +116,7 @@ Nell'espressione `Where is Request relocation from employee new to the company o
 
 Un ruolo è un sottotipo denominato basato sul contesto. È disponibile in tutte le entità, incluse le entità predefinite e non apprese dal computer. 
 
-La sintassi per un ruolo è **`{Entityname:Rolename}`** la posizione in cui il nome dell'entità è seguito da due punti, quindi il nome del ruolo. Ad esempio `Move {personName} from {Location:Origin} to {Location:Destination}`.
+La sintassi per un ruolo è **`{Entityname:Rolename}`** in cui il nome dell'entità è seguito da due punti, quindi il nome del ruolo. Ad esempio, `Move {personName} from {Location:Origin} to {Location:Destination}`.
 
 1. Nella sezione **Build** (Compila) selezionare **Entities** (Entità) nel pannello a sinistra.
 

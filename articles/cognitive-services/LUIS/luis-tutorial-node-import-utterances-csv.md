@@ -11,22 +11,24 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 1bee26dc57fd844703e2c9c97b38b9a433227fbf
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: ef5f6967b7ad9500672d00d93dd8acaca99e5948
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387947"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499470"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Compilare un'app LUIS a livello di codice con Node.js
 
 LUIS fornisce un'API a livello di codice che esegue le stesse operazioni del sito Web [LUIS](luis-reference-regions.md). In questo modo è possibile risparmiare tempo quando si dispone di dati preesistenti e sarebbe più veloce creare un'app LUIS a livello di codice anziché immettere manualmente le informazioni. 
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Accedere al sito Web [LUIS](luis-reference-regions.md) e individuare la [chiave di creazione](luis-concept-keys.md#authoring-key) in Impostazioni account. Questa chiave viene usata per chiamare l'API di creazione.
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-* Questo articolo inizia con un volume CSV per i file di log di una società ipotetica di richieste utente. Il download è disponibile [qui](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
+* Questo articolo inizia con un volume CSV per i file di log di una società ipotetica di richieste utente. Scaricarla [qui](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Installare la versione più recente di Node.js con NPM. Scaricarla [qui](https://nodejs.org/en/download/).
 * **[Consigliato]** Visual Studio Code per IntelliSense e debug. Scaricarlo [qui](https://code.visualstudio.com/) gratuitamente.
 

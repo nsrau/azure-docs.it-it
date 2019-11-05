@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: eb5e2c2e2eeb0f29eb74b3727ecf14d70d2381f6
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 1311328dde6fc70202ce3c6271b33f79d52102cc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176678"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472219"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Panoramica del portale per sviluppatori di gestione API di Azure
 
@@ -25,7 +25,10 @@ Il portale per sviluppatori è un sito Web completamente personalizzabile e comp
 
 Questo articolo descrive le differenze tra le versioni Self-Hosted e quelle gestite del portale per sviluppatori in gestione API. Viene inoltre illustrata l'architettura e vengono fornite le risposte alle domande più frequenti.
 
-> [!IMPORTANT]
+> [!WARNING]
+> Il nuovo portale per sviluppatori è attualmente in fase di implementazione nei servizi gestione API.
+> Se il servizio è stato appena creato o è un servizio di livello Developer, è necessario avere già la versione più recente. In caso contrario, è possibile che si verifichino problemi, ad esempio con la funzionalità di pubblicazione. L'implementazione della funzionalità viene completata il lunedì 11 novembre 2019.
+>
 > [Informazioni su come eseguire la migrazione dalla versione di anteprima alla versione disponibile a livello generale](#preview-to-ga) del portale per sviluppatori.
 
 ![Portale per sviluppatori di Gestione API](media/api-management-howto-developer-portal/cover.png)

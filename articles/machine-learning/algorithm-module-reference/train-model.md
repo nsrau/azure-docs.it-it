@@ -1,24 +1,24 @@
 ---
 title: 'Train Model: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo **Train Model** nel servizio Azure Machine Learning per eseguire il training di un modello di classificazione o di regressione.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo **Train Model** in Azure Machine Learning per eseguire il training di un modello di classificazione o di regressione.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: f9717c39388c85ced889744722899b78a5df8453
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 28cc2e1f8782f1ffd37e3a20fcc68264b481e42e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693681"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490377"
 ---
 # <a name="train-model-module"></a>Modulo Train Model
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per eseguire il training di un modello di classificazione o di regressione. Il training viene eseguito dopo aver definito un modello e avere impostato i relativi parametri e richiede i dati con tag. È inoltre possibile utilizzare **Train Model** per ripetere il training di un modello esistente con nuovi dati. 
 
@@ -77,4 +77,4 @@ Dopo il training del modello:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

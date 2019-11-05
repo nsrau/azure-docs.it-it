@@ -9,12 +9,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: 92a1fda85e5ee49f12a13123e8a296492fd9eb4b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: fa8b02cf5ee6f24bcc77aae057f41842da721981
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598178"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521143"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnostica per la risoluzione dei problemi delle prestazioni di scalabilità SQL
 
@@ -29,7 +29,7 @@ Ogni livello di servizio del database SQL di Azure ha limiti di velocità di gen
 
 I tipi di attesa seguenti (in [sys. dm _os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) descrivono i motivi per cui la frequenza dei log può essere limitata alla replica di calcolo primaria:
 
-|Tipo di attesa    |Description                         |
+|Tipo di attesa    |Descrizione                         |
 |-------------          |------------------------------------|
 |RBIO_RG_STORAGE        | Si verifica quando la velocità di generazione del log del nodo di calcolo primario di un database iperscala viene limitata a causa del consumo di log ritardato nei server di paging.         |
 |RBIO_RG_DESTAGE        | Si verifica quando viene limitata una velocità di generazione del log del nodo di calcolo di un database iperscalare a causa del consumo di log ritardato da parte dell'archiviazione dei log a lungo termine.         |
@@ -58,7 +58,7 @@ Diversi DMV ed eventi estesi contengono colonne e campi che specificano il numer
     - scan_stopped
     - query_store_begin_persist_runtime_stat
     - query-store_execution_runtime_info
-- ActualPageServerReads/ActualPageServerReadAheads vengono aggiunti al piano di query XML per i piani effettivi. ad esempio:
+- ActualPageServerReads/ActualPageServerReadAheads vengono aggiunti al piano di query XML per i piani effettivi. Ad esempio:
 
 `<RunTimeCountersPerThread Thread="8" ActualRows="90466461" ActualRowsRead="90466461" Batches="0" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row" ActualElapsedms="133645" ActualCPUms="85105" ActualScans="1" ActualLogicalReads="6032256" ActualPhysicalReads="0" ActualPageServerReads="0" ActualReadAheads="6027814" ActualPageServerReadAheads="5687297" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobPageServerReads="0" ActualLobReadAheads="0" ActualLobPageServerReadAheads="0" />`
 
@@ -101,7 +101,7 @@ Un rapporto tra le letture eseguite su RBPEX e le letture aggregate eseguite su 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- Per i limiti delle risorse di vCore per un singolo database iperscalabile, vedere [limiti del livello di servizio vCore](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute)
+- Per i limiti delle risorse di vCore per un singolo database iperscalabile, vedere [limiti del livello di servizio vCore](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5)
 - Per ottimizzare le prestazioni del database SQL di Azure, vedere [prestazioni delle query nel database SQL di Azure](sql-database-performance-guidance.md)
 - Per ottimizzare le prestazioni con Query Store, vedere [monitoraggio delle prestazioni con query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/)
 - Per gli script di monitoraggio DMV, vedere [monitoraggio delle prestazioni del database SQL di Azure tramite le viste a gestione dinamica](sql-database-monitoring-with-dmvs.md)

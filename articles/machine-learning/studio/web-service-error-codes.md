@@ -1,9 +1,8 @@
 ---
-title: Codici di errore dell'API REST - Azure Machine Learning Studio | Microsoft Docs
+title: Codici di errore dell'API REST-Azure Machine Learning Studio (versione classica) | Microsoft Docs
 description: Questi codici errore possono essere restituiti da un'operazione in un servizio Web di Azure Machine Learning.
 keywords: ''
 services: machine-learning
-documentationcenter: ''
 author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
@@ -11,21 +10,18 @@ editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
 ms.subservice: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 8e91d0cd68997dee9bb00cceeaa6b697f6644ee5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15e73740f5d932d0fa4cfb9a56c9fe7b155555cc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736565"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468168"
 ---
-# <a name="azure-machine-learning-studio-rest-api-error-codes"></a>Codici di errore dell'API REST di Azure Machine Learning Studio
+# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Codici di errore dell'API REST di Azure Machine Learning Studio (classica)
  
-I codici errore seguenti possono essere restituiti da un'operazione in un servizio Web di Azure Machine Learning Studio.
+I codici di errore seguenti possono essere restituiti da un'operazione in un servizio Web Azure Machine Learning Studio (classico).
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument (codice di stato HTTP 400)
  
@@ -69,7 +65,7 @@ Questa classe di errori indica che un argomento specificato nel codice non è va
 | MissingWebServicePackage | Non sono stati specificati pacchetti del servizio Web. Specificare un pacchetto del servizio Web valido e riprovare. |
 | MissingWorkspaceId | Non sono stati specificati ID dell'area di lavoro. Specificare un ID dell'area di lavoro valido e riprovare. |
 | ModelConfigurationInvalid | La configurazione del modello nel pacchetto di modelli non è valida. Assicurarsi che la configurazione del modello includa la definizione degli endpoint di output, l'endpoint dell'errore standard e l'endpoint di output standard e riprovare. |
-| ModelPackageIdInvalid | L'ID del pacchetto di modelli non è valido. Verificare che l'ID del pacchetto di modelli sia corretto e riprovare. |
+| ModelPackageIdInvalid | ID pacchetto del modello non valido. Verificare che l'ID del pacchetto di modelli sia corretto e riprovare. |
 | RequestBodyInvalid | Non è stato specificato il corpo della richiesta o si è verificato un errore durante la deserializzazione del corpo della richiesta. |
 | RequestIsEmpty | Non sono state specificate richieste. Specificare una richiesta valida e riprovare. |
 | UnexpectedParameter | Sono stati specificati parametri imprevisti. Verificare che l'ortografia di tutti i nomi di parametro sia corretta e che vengano passati solo i parametri previsti, quindi riprovare. |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 090242cde79f6c31b0f70e1a75240778dca89fa7
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 1c9562f413fa0ed52d61d0b38df358f1a2cd03f9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828572"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498682"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Infrastruttura di sicurezza: sicurezza della comunicazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -92,7 +92,7 @@ ms.locfileid: "71828572"
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passaggi** | <p>Le applicazioni che usano SSL, TLS o DTLS devono eseguire una verifica completa dei certificati X.509 delle entità a cui si connettono. Ciò include la verifica dei certificati in relazione a:</p><ul><li>Dominio di directory</li><li>Date di validità (date sia di inizio che di scadenza)</li><li>Stato di revoca</li><li>Utilizzo (ad esempio, autenticazione server per i server o autenticazione client per i client)</li><li>Catena di certificati. I certificati devono essere concatenati a un'autorità di certificazione radice (CA) considerata attendibile dalla piattaforma o configurata in modo esplicito dall'amministratore</li><li>La lunghezza della chiave pubblica del certificato deve essere superiore a 2048 bit</li><li>L'algoritmo di hash deve essere SHA256 o versione superiore |
+| **Passaggi** | <p>Le applicazioni che usano SSL, TLS o DTLS devono eseguire una verifica completa dei certificati X.509 delle entità a cui si connettono. Ciò include la verifica dei certificati in relazione a:</p><ul><li>Nome di dominio</li><li>Date di validità (date sia di inizio che di scadenza)</li><li>Stato di revoca</li><li>Utilizzo (ad esempio, autenticazione server per i server o autenticazione client per i client)</li><li>Catena di certificati. I certificati devono essere concatenati a un'autorità di certificazione radice (CA) considerata attendibile dalla piattaforma o configurata in modo esplicito dall'amministratore</li><li>La lunghezza della chiave pubblica del certificato deve essere superiore a 2048 bit</li><li>L'algoritmo di hash deve essere SHA256 o versione superiore |
 
 ## <a id="ssl-appservice"></a>Configurare il certificato SSL per un dominio personalizzato nel servizio app di Azure
 
@@ -102,7 +102,7 @@ ms.locfileid: "71828572"
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | Tipo di ambiente: Azure |
-| **Riferimenti**              | [Abilitare HTTPS per un'app in Azure App Service](../../app-service/app-service-web-tutorial-custom-ssl.md) |
+| **Riferimenti**              | [Abilitare HTTPS per un'app in Azure App Service](../../app-service/configure-ssl-bindings.md) |
 | **Passaggi** | Per impostazione predefinita, Azure abilita già HTTPS per ogni app con un certificato con caratteri jolly per il dominio *.azurewebsites.net. Come tutti i domini con caratteri jolly, tuttavia, non è sicuro quanto un dominio personalizzato con un proprio certificato ([riferimento](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)). È consigliabile abilitare SSL per il dominio personalizzato tramite il quale si accederà all'app distribuita.|
 
 ## <a id="appservice-https"></a>Forzare tutto il traffico verso il servizio app di Azure su una connessione HTTPS
@@ -113,7 +113,7 @@ ms.locfileid: "71828572"
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | Tipo di ambiente: Azure |
-| **Riferimenti**              | [Imporre HTTPS nel servizio app di Azure](../../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
+| **Riferimenti**              | [Imporre HTTPS nel servizio app di Azure](../../app-service/configure-ssl-bindings.md#enforce-https) |
 | **Passaggi** | <p>Nonostante Azure abiliti già HTTPS per i servizi app di Azure con un certificato con caratteri jolly per il dominio *.azurewebsites.net, non impone HTTPS. I visitatori possono comunque accedere all'app usando HTTP e questo potrebbe compromettere la sicurezza dell'app. È quindi necessario imporre HTTPS in modo esplicito. Le applicazioni ASP.NET MVC dovranno usare il [filtro RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) che forza il nuovo invio di una richiesta HTTP non protetta su HTTPS.</p><p>In alternativa, per imporre HTTPS è possibile usare il modulo URL Rewrite incluso con Servizio app di Azure. Il modulo URL Rewrite consente agli sviluppatori di definire le regole applicate alle richieste in ingresso prima che queste vengano passate all'applicazione. Le regole di URL Rewrite sono definite in un file web.config archiviato nella radice dell'applicazione.</p>|
 
 ### <a name="example"></a>Esempio
@@ -147,7 +147,7 @@ Il funzionamento di questa regola prevede la restituzione di un codice di stato 
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [Foglio informativo di OWASP su HTTP Strict Transport Security](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Passaggi** | <p>HTTP Strict Transport Security (HSTS) è un miglioramento della sicurezza con consenso esplicito che viene specificato da un'applicazione Web usando una speciale intestazione della risposta. Quando un browser supportato riceve questa intestazione, impedisce l'invio tramite HTTP di qualsiasi comunicazione al dominio specificato e invia tutte le comunicazioni tramite HTTPS. Impedisce anche i messaggi di richiesta con click-through HTTPS nei browser.</p><p>Per implementare HSTS, è necessario configurare l'intestazione della risposta seguente per un sito Web a livello globale, nel codice o nella configurazione. Strict-Transport-Security: max-age=300; includeSubDomains. HSTS gestisce le minacce seguenti.</p><ul><li>L'utente imposta come segnalibro o digita manualmente https://example.com ed è soggetto a un attacco man-in-the-middle: HSTS reindirizza automaticamente le richieste HTTP a HTTPS per il dominio di destinazione</li><li>Un'applicazione Web che dovrebbe essere esclusivamente HTTPS inavvertitamente contiene collegamenti HTTP o fornisce contenuti tramite HTTP: HSTS reindirizza automaticamente le richieste HTTP a HTTPS per il dominio di destinazione</li><li>Un utente malintenzionato tenta con un attacco man-in-the-middle di intercettare il traffico da un utente vittima con un certificato non valido sperando che l'utente accetti tale certificato: HSTS non consente a un utente di eseguire l'override del messaggio di certificato non valido</li></ul>|
+| **Passaggi** | <p>HTTP Strict Transport Security (HSTS) è un miglioramento della sicurezza con consenso esplicito che viene specificato da un'applicazione Web usando una speciale intestazione della risposta. Quando un browser supportato riceve questa intestazione, impedisce l'invio tramite HTTP di qualsiasi comunicazione al dominio specificato e invia tutte le comunicazioni tramite HTTPS. Impedisce anche i messaggi di richiesta con click-through HTTPS nei browser.</p><p>Per implementare HSTS, è necessario configurare l'intestazione della risposta seguente per un sito Web a livello globale, nel codice o nella configurazione. Strict-Transport-Security: max-age = 300; includeSubDomains HSTS risolve le minacce seguenti:</p><ul><li>L'utente imposta come segnalibro o digita manualmente https://example.com ed è soggetto a un attacco man-in-the-middle: HSTS reindirizza automaticamente le richieste HTTP a HTTPS per il dominio di destinazione</li><li>Un'applicazione Web che dovrebbe essere esclusivamente HTTPS inavvertitamente contiene collegamenti HTTP o fornisce contenuti tramite HTTP: HSTS reindirizza automaticamente le richieste HTTP a HTTPS per il dominio di destinazione</li><li>Un utente malintenzionato tenta con un attacco man-in-the-middle di intercettare il traffico da un utente vittima con un certificato non valido sperando che l'utente accetti tale certificato: HSTS non consente a un utente di eseguire l'override del messaggio di certificato non valido</li></ul>|
 
 ## <a id="sqlserver-validation"></a>Verificare la crittografia della connessione e la convalida dei certificati di SQL Server
 

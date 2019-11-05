@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/19/2019
-ms.openlocfilehash: a864ec8c9bbdf90f04c98c8d9656c863fb32b653
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/25/2019
+ms.openlocfilehash: 60596a8e157ebe1d6423c89e69f1c01b2f130310
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162479"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496918"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning"></a>Usare un modello esistente con Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Informazioni su come usare un modello di apprendimento automatico esistente con Azure Machine Learning.
 
@@ -35,9 +36,9 @@ Se si dispone di un modello di apprendimento automatico di cui è stato eseguito
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro](how-to-manage-workspace.md).
 
     > [!TIP]
-    > Gli esempi di Python in questo articolo presuppongono che la variabile sia impostata sull' `ws` area di lavoro Azure Machine Learning.
+    > Gli esempi di Python in questo articolo presuppongono che la variabile `ws` sia impostata sull'area di lavoro Azure Machine Learning.
     >
-    > Gli esempi dell'interfaccia della riga di `myworkspace` comando `myresourcegroup`usano un segnaposto di e. Sostituirli con il nome dell'area di lavoro e il gruppo di risorse che lo contiene.
+    > Gli esempi dell'interfaccia della riga di comando usano un segnaposto di `myworkspace` e `myresourcegroup`. Sostituirli con il nome dell'area di lavoro e il gruppo di risorse che lo contiene.
 
 * [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
@@ -46,11 +47,11 @@ Se si dispone di un modello di apprendimento automatico di cui è stato eseguito
 * Un modello con training. Il modello deve essere salvato in modo permanente in uno o più file nell'ambiente di sviluppo.
 
     > [!NOTE]
-    > Per dimostrare la registrazione di un modello sottoposto a training all'esterno Azure Machine Learning, i frammenti di codice di esempio in questo articolo usano i modelli creati dal progetto di [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis)analisi del sentimento Twitter di Paolo Ripamonti:.
+    > Per dimostrare la registrazione di un modello sottoposto a training all'esterno Azure Machine Learning, i frammenti di codice di esempio in questo articolo usano i modelli creati dal progetto di analisi del sentimento Twitter di Paolo Ripamonti: [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
 
 ## <a name="register-the-models"></a>Registrare il modello o i modelli
 
-La registrazione di un modello consente di archiviare, eseguire la versione e tenere traccia dei metadati relativi ai modelli nell'area di lavoro. Negli esempi Python e CLI `models` seguenti la directory contiene i `model.h5`file, `model.w2v`, `encoder.pkl`e `tokenizer.pkl` . Questo esempio carica i file contenuti nella `models` directory come nuova registrazione del modello denominata: `sentiment`
+La registrazione di un modello consente di archiviare, eseguire la versione e tenere traccia dei metadati relativi ai modelli nell'area di lavoro. Negli esempi Python e CLI seguenti la directory `models` contiene i file `model.h5`, `model.w2v`, `encoder.pkl`e `tokenizer.pkl`. Questo esempio carica i file contenuti nella directory `models` come nuova registrazione del modello denominata `sentiment`:
 
 ```python
 from azureml.core.model import Model
@@ -121,7 +122,7 @@ L'interfaccia della riga di comando carica la configurazione dell'inferenza da u
 }
 ```
 
-Con l'interfaccia della riga di comando, l'ambiente conda `myenv.yml` è definito nel file a cui fa riferimento la configurazione di inferenza. Il seguente YAML è il contenuto di questo file:
+Con l'interfaccia della riga di comando, l'ambiente conda è definito nel file `myenv.yml` a cui fa riferimento la configurazione di inferenza. Il seguente YAML è il contenuto di questo file:
 
 ```yaml
 name: inference_environment
@@ -139,12 +140,12 @@ Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribu
 
 ### <a name="entry-script"></a>Script di immissione
 
-Lo script di immissione dispone solo di due funzioni `init()` obbligatorie `run(data)`, e. Queste funzioni vengono usate per inizializzare il servizio all'avvio ed eseguire il modello usando i dati della richiesta passati da un client. Il resto dello script gestisce il caricamento e l'esecuzione del modello o dei modelli.
+Lo script di immissione include solo due funzioni obbligatorie, `init()` e `run(data)`. Queste funzioni vengono usate per inizializzare il servizio all'avvio ed eseguire il modello usando i dati della richiesta passati da un client. Il resto dello script gestisce il caricamento e l'esecuzione del modello o dei modelli.
 
 > [!IMPORTANT]
 > Non è disponibile uno script di immissione generico che funziona per tutti i modelli. È sempre specifico del modello usato. Deve comprendere come caricare il modello, il formato dei dati previsto dal modello e come assegnare un punteggio ai dati utilizzando il modello.
 
-Il codice Python seguente è uno script di immissione di`score.py`esempio ():
+Il codice Python seguente è uno script di immissione di esempio (`score.py`):
 
 ```python
 import os
@@ -251,7 +252,7 @@ La distribuzione in una destinazione di calcolo diversa, ad esempio il servizio 
 
 ## <a name="deploy-the-model"></a>Distribuire il modello
 
-Nell'esempio seguente vengono caricate informazioni sul modello registrato `sentiment`denominato, quindi viene distribuito come servizio denominato. `sentiment` Durante la distribuzione, la configurazione dell'inferenza e la configurazione della distribuzione vengono usate per creare e configurare l'ambiente del servizio:
+Nell'esempio seguente vengono caricate informazioni sul modello registrato denominato `sentiment`, quindi viene distribuito come servizio denominato `sentiment`. Durante la distribuzione, la configurazione dell'inferenza e la configurazione della distribuzione vengono usate per creare e configurare l'ambiente del servizio:
 
 ```python
 from azureml.core.model import Model
@@ -266,7 +267,7 @@ print("scoring URI: " + service.scoring_uri)
 
 Per ulteriori informazioni, vedere il riferimento a [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-) .
 
-Per distribuire il modello dall'interfaccia della riga di comando, usare il comando seguente. Questo comando distribuisce la versione 1 del modello registrato (`sentiment:1`) usando la configurazione di inferenza e distribuzione archiviata `deploymentConfig.json` `inferenceConfig.json` nei file e:
+Per distribuire il modello dall'interfaccia della riga di comando, usare il comando seguente. Questo comando distribuisce la versione 1 del modello registrato (`sentiment:1`) utilizzando la configurazione di inferenza e distribuzione archiviata nei file `inferenceConfig.json` e `deploymentConfig.json`:
 
 ```azurecli
 az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json

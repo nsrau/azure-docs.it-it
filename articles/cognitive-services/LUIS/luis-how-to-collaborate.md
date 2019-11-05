@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 004da6c84e6226c4de3114d32cde826cd167e1ab
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 15c7c6664b0c17d02f1f4e9120c9509fda21e0f4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844830"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467539"
 ---
 # <a name="add-contributors-to-your-app"></a>Aggiungere collaboratori all'app
 
 Un proprietario dell'app può aggiungere collaboratori alle app. I collaboratori possono modificare il modello, eseguire il training e pubblicare l'app. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 [!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
 
@@ -30,7 +32,7 @@ La procedura seguente è relativa a tutti gli utenti di cui è stata **eseguita 
 
 È stata eseguita la migrazione se l'esperienza di creazione LUIS è associata a una risorsa di creazione nella pagina **> Gestisci le risorse di Azure** nel portale Luis.
 
-1. Nella portale di Azure trovare la risorsa di creazione di Language Understanding (LUIS). Il tipo `LUIS.Authoring`è.
+1. Nella portale di Azure trovare la risorsa di creazione di Language Understanding (LUIS). Il tipo è `LUIS.Authoring`.
 1. Nella pagina controllo di **accesso (IAM)** della risorsa selezionare **+ Aggiungi** e quindi selezionare **Aggiungi assegnazione ruolo**.
 
     ![In portale di Azure aggiungere assegnazione di ruolo alla risorsa di creazione.](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)
@@ -55,7 +57,7 @@ Un'app ha un unico autore, il proprietario, ma può avere molti collaboratori. P
 
 1. Selezionare **Aggiungi collaboratore** nella barra degli strumenti.
 
-    [![Aggiungere un collaboratore](./media/luis-how-to-collaborate/add-collaborator.png "Aggiungere un collaboratore")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
+    [![Aggiungi collaboratore](./media/luis-how-to-collaborate/add-collaborator.png "Aggiungere un collaboratore")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
 
 1. Immettere l'indirizzo di posta elettronica che il collaboratore userà per accedere al portale di LUIS.
 

@@ -1,7 +1,7 @@
 ---
 title: Informazioni di riferimento sul modulo di testo per estrarre le funzionalità di N-Gram
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Extract N-Gram nel servizio Azure Machine Learning per trasforma i dati di testo.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Extract N-Gram nell'Azure Machine Learning per trasforma i dati di testo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 0803627b8d2e9fb3db2c7c96d7dd74e9b275f5d8
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 71c1afd294b880f68849b283ea1a4b058d744801
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170993"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497852"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Informazioni di riferimento sul modulo di testo per estrarre le funzionalità di N-Gram
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning. Usare il modulo Extract N-Gram features from text per *trasforma* i dati di testo non strutturati. 
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima). Usare il modulo Extract N-Gram features from text per *trasforma* i dati di testo non strutturati. 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Configurazione delle funzionalità di estrazione di N-Gram dal modulo di testo
 
@@ -32,7 +32,7 @@ Il modulo supporta i seguenti scenari per l'uso di un dizionario n-Gram:
 
 ### <a name="create-a-new-n-gram-dictionary"></a>Crea un nuovo dizionario n-Gram
 
-1.  Aggiungere le funzionalità Estrai N-Gram dal modulo testo all'esperimento e connettere il set di dati che contiene il testo che si desidera elaborare.
+1.  Aggiungere le funzionalità Estrai N-Gram dal modulo testo alla pipeline e connettere il set di dati che contiene il testo che si desidera elaborare.
 
 1.  Utilizzare la **colonna di testo** per scegliere una colonna di tipo stringa contenente il testo da estrarre. Poiché i risultati sono dettagliati, è possibile elaborare una sola colonna alla volta.
 
@@ -44,15 +44,15 @@ Il modulo supporta i seguenti scenari per l'uso di un dizionario n-Gram:
 
 1. La **funzione di ponderazione** specifica come compilare il vettore della funzionalità del documento e come estrarre il vocabolario dai documenti.
 
-    * **Peso binario**: Assegna un valore di presenza binario ai n-grammi estratti. Il valore per ogni n-grammo è 1 quando esiste nel documento e 0 in caso contrario.
+    * **Peso binario**: assegna un valore di presenza binario ai n-grammi estratti. Il valore per ogni n-grammo è 1 quando esiste nel documento e 0 in caso contrario.
 
-    * **Peso TF**: Assegna un punteggio di frequenza del termine (TF) ai n grammi estratti. Il valore per ogni n-grammo è la frequenza di occorrenza nel documento.
+    * **Tf Weight**: assegna un punteggio di frequenza del termine (TF) ai n-grammi estratti. Il valore per ogni n-grammo è la frequenza di occorrenza nel documento.
 
-    * **Peso IDF**: Assegna un punteggio IDF (inverso Document Frequency) ai n-grammi estratti. Il valore per ogni n-grammo è il log della dimensione del Corpus diviso per la relativa frequenza di occorrenza nell'intero corpus.
+    * **IDF Weight**: assegna un punteggio IDF (inverso Document Frequency) ai n-grammi estratti. Il valore per ogni n-grammo è il log della dimensione del Corpus diviso per la relativa frequenza di occorrenza nell'intero corpus.
     
       `IDF = log of corpus_size / document_frequency`
  
-    *  **Peso TF-IDF**: Assegna un punteggio di frequenza del termine/frequenza inversa del documento (TF/IDF) ai n-grammi estratti. Il valore per ogni n-grammo è il Punteggio di TF moltiplicato per il Punteggio IDF.
+    *  **Tf-IDF Weight**: assegna un punteggio di frequenza/inversione di frequenza del documento (TF/IDF) ai n-grammi estratti. Il valore per ogni n-grammo è il Punteggio di TF moltiplicato per il Punteggio IDF.
 
 1. Impostare la **lunghezza minima della parola** sul numero minimo di lettere che possono essere usate in una *singola parola* in un n-grammo.
 
@@ -73,11 +73,11 @@ Il modulo supporta i seguenti scenari per l'uso di un dizionario n-Gram:
 
 1. Selezionare l'opzione **normalizza i vettori di funzionalità n-Gram** per normalizzare i vettori di funzionalità. Se questa opzione è abilitata, ogni vettore di funzionalità n-Gram viene diviso per la norma L2.
 
-1. Eseguire l'esperimento.
+1. Eseguire la pipeline.
 
 ### <a name="use-an-existing-n-gram-dictionary"></a>Usa un dizionario n-Gram esistente
 
-1.  Aggiungere le funzionalità Estrai N-Gram dal modulo testo all'esperimento e connettere il set di dati con il testo che si vuole elaborare alla porta del **set di dati** .
+1.  Aggiungere le funzionalità Estrai N-Gram dal modulo testo alla pipeline e connettere il set di dati che contiene il testo che si desidera elaborare sulla porta del **set di dati** .
 
 1.  Utilizzare la **colonna di testo** per selezionare la colonna di testo contenente il testo che si desidera trasforma. Per impostazione predefinita, il modulo Seleziona tutte le colonne di tipo **String**. Per ottenere risultati ottimali, elaborare una singola colonna alla volta.
 
@@ -92,7 +92,7 @@ Il modulo supporta i seguenti scenari per l'uso di un dizionario n-Gram:
 
 1.  Per tutte le altre opzioni, vedere le descrizioni delle proprietà nella [sezione precedente](#create-a-new-n-gram-dictionary).
 
-1.  Eseguire l'esperimento.
+1.  Eseguire la pipeline.
 
 ### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Assegnare un punteggio o pubblicare un modello che usa n-grammi
 
@@ -102,7 +102,7 @@ Il modulo supporta i seguenti scenari per l'uso di un dizionario n-Gram:
 
 1.  Nel flusso di lavoro di assegnazione dei punteggi modificare il modulo Extract N-Gram features from text e impostare il parametro della **modalità vocabolario** su **ReadOnly**. Lasciare invariati gli altri.
 
-1.  Per pubblicare l'esperimento, salvare il **vocabolario dei risultati** come un set di dati.
+1.  Per pubblicare la pipeline, salvare il **vocabolario dei risultati** come un set di dati.
 
 1.  Connettere il set di dati salvato al modulo Extract N-Gram features from text nel grafico di assegnazione dei punteggi.
 
@@ -110,22 +110,22 @@ Il modulo supporta i seguenti scenari per l'uso di un dizionario n-Gram:
 
 Il modulo Extract N-Gram features from text consente di creare due tipi di output: 
 
-* **Set di dati risultato**: Questo output è un riepilogo del testo analizzato combinato con i n-grammi estratti. Le colonne non selezionate nell'opzione **colonna di testo** vengono passate all'output. Per ogni colonna di testo analizzata, il modulo genera le colonne seguenti:
+* **Set di dati dei risultati**: questo output è un riepilogo del testo analizzato combinato con i n-grammi estratti. Le colonne non selezionate nell'opzione **colonna di testo** vengono passate all'output. Per ogni colonna di testo analizzata, il modulo genera le colonne seguenti:
 
-  * **Matrice di occorrenze n-Gram**: Il modulo genera una colonna per ogni n-grammo trovato nel corpus totale e aggiunge un punteggio in ogni colonna per indicare lo spessore dell'n-grammo per la riga. 
+  * **Matrice di occorrenze n-Gram**: il modulo genera una colonna per ogni n-grammo trovato nel corpus totale e aggiunge un punteggio in ogni colonna per indicare lo spessore dell'n-grammo per la riga. 
 
-* **Vocabolario risultati**: Il vocabolario contiene il dizionario di n-grammi effettivo, insieme al termine punteggi di frequenza generati come parte dell'analisi. È possibile salvare il set di dati per il riutilizzo con un diverso set di input o per un aggiornamento successivo. È anche possibile riutilizzare il vocabolario per la modellazione e l'assegnazione dei punteggi.
+* **Vocabolario dei risultati**: il vocabolario contiene il dizionario di n-grammi effettivo, insieme al termine punteggi di frequenza generati come parte dell'analisi. È possibile salvare il set di dati per il riutilizzo con un diverso set di input o per un aggiornamento successivo. È anche possibile riutilizzare il vocabolario per la modellazione e l'assegnazione dei punteggi.
 
 ### <a name="result-vocabulary"></a>Vocabolario risultati
 
 Il vocabolario contiene il dizionario n-Gram con i punteggi di frequenza dei termini generati come parte dell'analisi. I punteggi DF e IDF vengono generati indipendentemente dalle altre opzioni.
 
-+ **ID**: Identificatore generato per ogni n-grammo univoco.
-+ **NGram**: N-gramma. Spazi o altri separatori di parola vengono sostituiti dal carattere di sottolineatura.
-+ **DF**: Il termine Punteggio di frequenza per l'n-grammo nel corpus originale.
++ **ID**: identificatore generato per ogni n-grammo univoco.
++ **NGram**: n-gramma. Spazi o altri separatori di parola vengono sostituiti dal carattere di sottolineatura.
++ **DF**: il termine Punteggio di frequenza per l'n-grammo nel corpus originale.
 + **IDF**: Punteggio di frequenza del documento inverso per l'n-grammo nel corpus originale.
 
-È possibile aggiornare manualmente il set di dati, ma è possibile che si verifichino errori. Esempio:
+È possibile aggiornare manualmente il set di dati, ma è possibile che si verifichino errori. Ad esempio:
 
 * Viene generato un errore se il modulo trova righe duplicate con la stessa chiave nel vocabolario di input. Assicurarsi che nessuna delle due righe nel vocabolario abbia la stessa parola.
 * Lo schema di input dei set di dati del vocabolario deve corrispondere esattamente, inclusi i nomi di colonna e i tipi di colonna. 
@@ -137,4 +137,4 @@ Il vocabolario contiene il dizionario n-Gram con i punteggi di frequenza dei ter
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per il servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning.

@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: acda549ffc03679de43b4e5956e65ccada766c15
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 957b12ad00f53a5aed7ff2a1ecd4afd21e58eb93
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819959"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467427"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>Uso delle chiavi di creazione e di risorsa di runtime
 
 Le risorse di creazione e di runtime forniscono l'autenticazione per l'app LUIS e l'endpoint di stima.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
@@ -58,11 +60,11 @@ Quando si è pronti per pubblicare l'endpoint di stima, creare e assegnare chiav
 
     ![Creare la risorsa di comprensione della lingua](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
-    |name|Finalità|
+    |Name|Scopo|
     |--|--|
     |Nome risorsa| Nome personalizzato scelto, usato come parte dell'URL per le query dell'endpoint di creazione e di stima.|
     |Nome della sottoscrizione| sottoscrizione che verrà fatturata per la risorsa.|
-    |Gruppo di risorse| Nome del gruppo di risorse personalizzato scelto o creato. I gruppi di risorse consentono di raggruppare le risorse di Azure per l'accesso e la gestione nella stessa area.|
+    |Resource group| Nome del gruppo di risorse personalizzato scelto o creato. I gruppi di risorse consentono di raggruppare le risorse di Azure per l'accesso e la gestione nella stessa area.|
     |Posizione di creazione|Area associata al modello.|
     |Piano tariffario per la creazione|Il piano tariffario determina il numero massimo di transazioni al secondo e al mese.|
     |Percorso runtime|Area associata al runtime dell'endpoint di stima pubblicato.|
@@ -134,7 +136,7 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
 
     Questa API POST richiede le impostazioni seguenti:
 
-    |Intestazione|Value|
+    |Intestazione|Valore|
     |--|--|
     |`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.| 
     |`Ocp-Apim-Subscription-Key`|Chiave di creazione.|
@@ -145,7 +147,7 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
 
     Questa API POST richiede le impostazioni seguenti:
 
-    |Type|Impostazione|Value|
+    |Tipo|Impostazione|Valore|
     |--|--|--|
     |Intestazione|`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
     |Intestazione|`Ocp-Apim-Subscription-Key`|Chiave di creazione.|

@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f66508a4794b8009523cc2820efe0156b4a9e2f6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c504e2f574970142942945de5a0a9fb409bb166b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756856"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498304"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durata (TTL) in Azure Cosmos DB 
 
 Con **time to Live** o TTL, Azure Cosmos DB consente di eliminare automaticamente gli elementi da un contenitore dopo un determinato periodo di tempo. Per impostazione predefinita, è possibile impostare la durata a livello di contenitore ed eseguire l'override del valore per singolo elemento. Dopo aver impostato la durata a livello di contenitore o di elemento, Azure Cosmos DB rimuove automaticamente questi elementi dopo il periodo di tempo specificato, a partire dall'ora dell'ultima modifica. Il valore TTL viene configurato in secondi. Quando si configura la durata (TTL), il sistema eliminerà automaticamente gli elementi scaduti in base al valore TTL, senza che sia necessaria un'operazione di eliminazione rilasciata in modo esplicito dall'applicazione client.
 
-L'eliminazione degli elementi scaduti è un'attività in background che utilizza le [unità richiesta](request-units.md)rimaste, ovvero le unità richiesta che non sono state utilizzate dalle richieste dell'utente. Le scadenze possono essere posticipate se il contenitore è sottoposto a un carico elevato e non è stata lasciata alcuna unità richiesta per le attività di manutenzione.
+L'eliminazione degli elementi scaduti è un'attività in background che utilizza le [unità richiesta](request-units.md)rimaste, ovvero le unità richiesta che non sono state utilizzate dalle richieste dell'utente. Anche dopo la scadenza della durata (TTL), se il contenitore viene sottoposta a overload con le richieste e se non è disponibile un numero sufficiente di UR, l'eliminazione dei dati viene posticipata. I dati vengono eliminati quando sono disponibili ur sufficienti per eseguire l'operazione di eliminazione. Anche se l'eliminazione dei dati viene posticipata, i dati non vengono restituiti da alcuna query (da alcuna API) dopo la scadenza della durata (TTL).
 
 ## <a name="time-to-live-for-containers-and-items"></a>Durata (TTL) per contenitori ed elementi
 
@@ -48,7 +48,7 @@ Il valore di durata (TTL) viene impostato in secondi e viene interpretato come u
 
 L'eliminazione di elementi in base alla durata (TTL) è gratuita. Non vengono applicati costi aggiuntivi (ossia non vengono utilizzate UR aggiuntive) quando un elemento viene eliminato in seguito alla scadenza della durata.
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 Questa sezione illustra alcuni esempi con valori di durata (TTL) diversi assegnati a contenitori ed elementi:
 

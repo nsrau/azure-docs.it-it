@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: f51f5a8583a73219ffb419c76fcd009d102f6ffb
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0e3e4226eaaa0505eea96d8b3aca820f2327349e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932904"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467625"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Usare gli elenchi di frasi in segnali boost dell'elenco di parole
 
@@ -25,6 +25,10 @@ ms.locfileid: "68932904"
 Un [elenco di frasi](luis-concept-feature.md) comprende un gruppo di valori (parole o frasi) che appartengono alla stessa classe e devono essere trattati in modo analogo (ad esempio i nomi di città o prodotti). Ciò che LUIS apprende in merito a uno di essi viene applicato automaticamente anche agli altri. Questo elenco non corrisponde a un' [entità di elenco](reference-entity-list.md) (corrispondenze esatte del testo) di parole corrispondenti.
 
 Viene integrato un elenco di frasi al vocabolario del dominio dell'applicazione come secondo segnale di LUIS in merito a tali parole.
+
+Esaminare i [concetti relativi alle funzionalità](luis-concept-feature.md) per comprendere quando e perché usare un elenco di frasi. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="add-phrase-list"></a>Aggiungere un elenco di frasi
 

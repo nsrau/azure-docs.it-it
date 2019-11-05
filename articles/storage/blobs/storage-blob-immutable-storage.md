@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 633c5944f7d813b78f7a0c9b71266d4012fd72cf
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 0c7e178d520084dbf963c4c7ebaf9b8873a36938
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673392"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521062"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage-immutably"></a>Archiviare dati critici per l'azienda in archiviazione BLOB di Azure immutabilmente 
 
@@ -26,25 +26,25 @@ L'archiviazione non modificabile aiuta l'organizzazione sanitaria, le istituzion
 
 Le applicazioni tipiche includono:
 
-- **Conformità alle normative**: l'archiviazione non modificabile per l'Archiviazione BLOB di Azure aiuta le organizzazioni a soddisfare i requisiti di SEC 17a-4(f), CFTC 1.31(d), FINRA e altre normative. Un white paper tecnico di Cohasset associa informazioni dettagliate su come gli indirizzi di archiviazione non modificabili questi requisiti normativi sono scaricabili tramite il [Microsoft Service Trust Portal](https://aka.ms/AzureWormStorage). Il [Centro protezione di Azure](https://www.microsoft.com/trustcenter/compliance/compliance-overview) contiene informazioni dettagliate sulle certificazioni di conformità.
+- **Conformità alle normative**: l'archiviazione non modificabile per Archiviazione BLOB di Azure aiuta le organizzazioni a soddisfare i requisiti di SEC 17a-4(f), CFTC 1.31(d), FINRA e altre normative. Un white paper tecnico di Cohasset associa informazioni dettagliate su come gli indirizzi di archiviazione non modificabili questi requisiti normativi sono scaricabili tramite il [Microsoft Service Trust Portal](https://aka.ms/AzureWormStorage). Il [Centro protezione di Azure](https://www.microsoft.com/trustcenter/compliance/compliance-overview) contiene informazioni dettagliate sulle certificazioni di conformità.
 
-- **Conservazione sicura dei documenti**: L'archiviazione non modificabile per l'archiviazione BLOB di Azure garantisce che i dati non possano essere modificati o eliminati da alcun utente, inclusi gli utenti con privilegi amministrativi dell'account.
+- **Conservazione dei documenti sicura**: l'archiviazione non modificabile per l'archiviazione BLOB di Azure garantisce che i dati non possano essere modificati o eliminati da alcun utente, inclusi gli utenti con privilegi amministrativi dell'account.
 
-- **Blocco a fini giudiziari**: L'archiviazione non modificabile per l'archiviazione BLOB di Azure consente agli utenti di archiviare informazioni riservate cruciali per la controversia o l'uso aziendale in uno stato di prova di manomissione per la durata desiderata fino a quando non viene rimossa l'attesa. Questa funzionalità non è limitata solo ai casi d'uso legali, ma può anche essere considerata come un blocco basato su eventi o un blocco aziendale, in cui è necessario proteggere i dati in base ai trigger di evento o ai criteri aziendali.
+- **Note legali**: l'archiviazione non modificabile per l'archiviazione BLOB di Azure consente agli utenti di archiviare informazioni riservate cruciali per la controversia o l'uso aziendale in uno stato di prova di manomissione per la durata desiderata fino alla rimozione della sospensione. Questa funzionalità non è limitata solo ai casi d'uso legali, ma può anche essere considerata come un blocco basato su eventi o un blocco aziendale, in cui è necessario proteggere i dati in base ai trigger di evento o ai criteri aziendali.
 
 L'archiviazione non modificabile supporta gli elementi seguenti:
 
-- **[Supporto dei criteri di conservazione basati sul tempo](#time-based-retention)** : Gli utenti possono impostare criteri per archiviare i dati per un intervallo specificato. Quando viene impostato un criterio di conservazione basato sul tempo, è possibile creare e leggere i BLOB, ma non modificarli o eliminarli. Una volta scaduto il periodo di conservazione, i BLOB possono essere eliminati, ma non sovrascritti.
+- **[Supporto dei criteri di conservazione basati sul tempo](#time-based-retention)** : gli utenti possono impostare criteri per archiviare i dati per un intervallo specificato. Quando viene impostato un criterio di conservazione basato sul tempo, è possibile creare e leggere i BLOB, ma non modificarli o eliminarli. Una volta scaduto il periodo di conservazione, i BLOB possono essere eliminati, ma non sovrascritti.
 
-- **[Supporto dei criteri di mantenimento legale](#legal-holds)** : Se l'intervallo di conservazione non è noto, gli utenti possono impostare le esenzioni legali per archiviare i dati immutabilmente fino a quando non viene cancellata la tenuta legale.  Quando viene impostato un criterio di tenuta legale, è possibile creare e leggere i BLOB, ma non modificarli o eliminarli. Ogni tenuta legale è associata a un tag alfanumerico definito dall'utente, ad esempio un ID del case, un nome di evento e così via, usato come stringa di identificazione. 
+- **[Supporto](#legal-holds)** per i criteri di conservazione legale: se l'intervallo di conservazione non è noto, gli utenti possono impostare le concessioni legali per archiviare i dati immutabilmente fino a quando non viene cancellata la tenuta.  Quando viene impostato un criterio di tenuta legale, è possibile creare e leggere i BLOB, ma non modificarli o eliminarli. Ogni tenuta legale è associata a un tag alfanumerico definito dall'utente, ad esempio un ID del case, un nome di evento e così via, usato come stringa di identificazione. 
 
-- **Supporto per tutti i livelli di BLOB**: i criteri WORM sono indipendenti dal livello di Archiviazione BLOB di Azure e si applicano a tutti i livelli (ad accesso frequente, ad accesso sporadico e archivio). Gli utenti possono trasferire i dati nel livello con i costi ottimali per i carichi di lavoro, mantenendo al tempo stesso la non modificabilità dei dati.
+- **Supporto per tutti i livelli BLOB**: i criteri WORM sono indipendenti dal livello di Archiviazione BLOB di Azure e si applicano a tutti i livelli (ad accesso frequente, ad accesso sporadico e archivio). Gli utenti possono trasferire i dati nel livello con i costi ottimali per i carichi di lavoro, mantenendo al tempo stesso la non modificabilità dei dati.
 
 - **Configurazione a livello di contenitore**: gli utenti possono configurare criteri di conservazione basati sul tempo e tag di blocco a fini giudiziari a livello di contenitore. Grazie alle semplici impostazioni a livello di contenitore, gli utenti possono creare e bloccare i criteri di conservazione basati sul tempo, estendere gli intervalli di conservazione, impostare e deselezionare le esenzioni legali e altro ancora. Questi criteri si applicano a tutti i BLOB nel contenitore, nuovi ed esistenti.
 
-- **Supporto per la registrazione di controllo**: Ogni contenitore include un log di controllo dei criteri. Mostra fino a sette comandi di conservazione basati sul tempo per i criteri di conservazione basati sul tempo bloccati e contiene l'ID utente, il tipo di comando, i timestamp e l'intervallo di conservazione. Per i blocchi a fini giudiziari, il log contiene l'ID utente, il tipo di comando, i timestamp e i tag di blocco a fini giudiziari. Questo log viene mantenuto per la durata del criterio, in conformità con le linee guida per le normative SEC 17a-4 (f). Il [log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md) Mostra un log più completo di tutte le attività del piano di controllo; Quando si abilitano i [log di diagnostica di Azure](../../azure-monitor/platform/resource-logs-overview.md) , le operazioni del piano dati vengono mantenute. È responsabilità dell'utente archiviare questi log in modo permanente, come potrebbe essere richiesto per scopi legali o di altro tipo.
+- **Supporto**per la registrazione di controllo: ogni contenitore include un log di controllo dei criteri. Mostra fino a sette comandi di conservazione basati sul tempo per i criteri di conservazione basati sul tempo bloccati e contiene l'ID utente, il tipo di comando, i timestamp e l'intervallo di conservazione. Per i blocchi a fini giudiziari, il log contiene l'ID utente, il tipo di comando, i timestamp e i tag di blocco a fini giudiziari. Questo log viene mantenuto per la durata del criterio, in conformità con le linee guida per le normative SEC 17a-4 (f). Il [log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md) Mostra un log più completo di tutte le attività del piano di controllo; Quando si abilitano i [log di diagnostica di Azure](../../azure-monitor/platform/resource-logs-overview.md) , le operazioni del piano dati vengono mantenute. È responsabilità dell'utente archiviare questi log in modo permanente, come potrebbe essere richiesto per scopi legali o di altro tipo.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 L'archiviazione non modificabile per Archiviazione BLOB di Azure supporta due tipi di criteri non modificabili o WORM: conservazione basata sul tempo e blocchi a fini giudiziari. Quando si applica un criterio di conservazione basato sul tempo o un periodo di attesa legale a un contenitore, tutti i BLOB esistenti vengono spostati in uno stato non modificabile di un WORM in meno di 30 secondi. Anche tutti i nuovi BLOB caricati in tale contenitore verranno spostati nello stato non modificabile. Una volta che tutti i BLOB sono stati spostati nello stato non modificabile, i criteri non modificabili vengono confermati e non sono consentite tutte le operazioni di sovrascrittura o eliminazione per oggetti esistenti e nuovi nel contenitore non modificabile.
 
@@ -60,7 +60,7 @@ Quando vengono applicati criteri di conservazione basati sul tempo a un contenit
 Per i nuovi BLOB, il periodo di conservazione effettivo è uguale all'intervallo di conservazione specificato dall'utente. Poiché gli utenti possono estendere l'intervallo di conservazione, l'archiviazione non modificabile usa il valore più recente dell'intervallo di conservazione specificato dall'utente per calcolare il periodo di conservazione effettivo.
 
 > [!TIP]
-> **Esempio:** Un utente crea criteri di conservazione basati sul tempo con un intervallo di conservazione di cinque anni.
+> **Esempio:** Un utente crea un criterio di conservazione basato sul tempo con un intervallo di conservazione di cinque anni.
 >
 > Il BLOB esistente in tale contenitore, _testblob1_, è stato creato un anno fa. Il periodo di conservazione effettivo per _testblob1_ è di quattro anni.
 >
@@ -93,7 +93,7 @@ La tabella seguente illustra i tipi di operazioni BLOB che vengono disabilitate 
 - Per un contenitore, il numero massimo di modifiche per estendere un intervallo di conservazione per i criteri non modificabili basati sul tempo bloccato è 5.
 - Per un contenitore, vengono conservati al massimo 7 log di controllo dei criteri di conservazione basati sul tempo per un criterio bloccato.
 
-### <a name="legal-hold"></a>Blocco a fini giudiziari
+### <a name="legal-hold"></a>Tenuta legale
 - Per un account di archiviazione, il numero massimo di contenitori con un'impostazione di blocco a fini giudiziari è 1.000.
 - Per un contenitore, il numero massimo di tag di blocco a fini giudiziari è 10.
 - La lunghezza minima di un tag di tenuta legale è di 3 caratteri alfanumerici. La lunghezza massima è di 23 caratteri alfanumerici.
@@ -108,7 +108,7 @@ L'archiviazione non modificabile è disponibile solo per gli account di archivia
 
 Le versioni più recenti del [portale di Azure](https://portal.azure.com), dell' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)della riga di comando di Azure e [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) supportano l'archiviazione non modificabile per l'archiviazione BLOB di Azure. Viene inoltre fornito il [supporto della libreria client](#client-libraries) .
 
-### <a name="azure-portal"></a>Portale di Azure
+### <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 1. Creare un nuovo contenitore o selezionare un contenitore esistente per archiviare i BLOB che devono essere mantenuti nello stato non modificabile.
  Il contenitore deve essere in un account di archiviazione per utilizzo generico v2 o BLOB.
@@ -144,11 +144,11 @@ Le versioni più recenti del [portale di Azure](https://portal.azure.com), dell'
 
 9. Per cancellare una tenuta legale, è sufficiente rimuovere il tag dell'identificatore di esenzione legale applicato.
 
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+### <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 La funzionalità è inclusa nei gruppi di comandi seguenti: `az storage container immutability-policy` e `az storage container legal-hold`. Eseguire `-h` per visualizzare i comandi.
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Il modulo AZ. Storage supporta l'archiviazione non modificabile.  Per abilitare la funzionalità, seguire questa procedura:
 
@@ -157,6 +157,8 @@ Il modulo AZ. Storage supporta l'archiviazione non modificabile.  Per abilitare 
 3. Installare Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
 
 La sezione [Codice PowerShell di esempio](#sample-powershell-code) più avanti in questo articolo illustra l'utilizzo della funzionalità.
+
+---
 
 ## <a name="client-libraries"></a>Librerie client
 
@@ -167,7 +169,7 @@ Le librerie client seguenti supportano l'archiviazione non modificabile per Arch
 - [Libreria client Python versione 2.0.0 versione finale candidata 2 e versioni successive](https://pypi.org/project/azure-mgmt-storage/2.0.0rc2/)
 - [Libreria client Java](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/storage/resource-manager/Microsoft.Storage/preview/2018-03-01-preview)
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>domande frequenti
 
 **È possibile fornire la documentazione della conformità del WORM?**
 
@@ -219,7 +221,7 @@ Sì. L' [eliminazione temporanea per l'archiviazione BLOB di Azure](storage-blob
 
 **Dove è disponibile la funzionalità?**
 
-L'archiviazione non modificabile è disponibile nelle aree pubbliche di Azure, in Cina e per gli enti pubblici. Se l'archiviazione non modificabile non è disponibile nella propria area, contattare il supporto azurestoragefeedback@microsoft.comtecnico e il messaggio di posta elettronica.
+L'archiviazione non modificabile è disponibile nelle aree pubbliche di Azure, in Cina e per gli enti pubblici. Se l'archiviazione non modificabile non è disponibile nella propria area, contattare il supporto tecnico e la posta elettronica azurestoragefeedback@microsoft.com.
 
 ## <a name="sample-powershell-code"></a>Codice PowerShell di esempio
 

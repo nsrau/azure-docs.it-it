@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/16/2019
 ms.author: diberry
-ms.openlocfilehash: bd1e665114fff4d5b7b0b2dca267207bdeebab56
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 383cade6e8bb5f66aa240564912056ec345a1ee6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949553"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500209"
 ---
 # <a name="language-and-region-support-for-luis"></a>Supporto di lingua e area geografica per LUIS
 
@@ -30,7 +30,7 @@ Se occorre un'applicazione client LUIS multilingue come una chatbot, sono dispon
 
 LUIS riconosce espressioni nelle lingue seguenti:
 
-| Linguaggio |Impostazioni locali  |  Dominio predefinito | Entità predefinita | Raccomandazioni elenco frasi | \**[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Valutazione e<br>parole chiave)|
+| Lingua |Impostazioni locali  |  Dominio predefinito | Entità predefinita | Raccomandazioni elenco frasi | **[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Valutazione e<br>parole chiave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglese americano |`en-US` | ✔ | ✔  |✔|✔|
 | *[Cinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -47,15 +47,9 @@ LUIS riconosce espressioni nelle lingue seguenti:
 | Spagnolo (Messico)|`es-MX` |-|  -   |✔|✔|
 | Turco | `tr-TR` |✔|-|-|Solo sentiment|
 
-
 Le lingue supportate variano per [entità predefinite](luis-reference-prebuilt-entities.md) e [domini predefiniti](luis-reference-prebuilt-domains.md).
 
-### <a name="chinese-support-notes"></a>*Note sul supporto cinese
-
- - Nella cultura `zh-cn`, LUIS prevede il set di caratteri semplificato cinese al posto del set di caratteri tradizionale.
- - I nomi di finalità, entità, funzioni ed espressioni regolari possono essere in caratteri cinesi o romani.
- - Per informazioni sui domini predefiniti supportati nelle impostazioni cultura `zh-cn`, vedere il [riferimento ai domini predefiniti](luis-reference-prebuilt-domains.md) .
-<!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
+[!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
 
 ### <a name="japanese-support-notes"></a>*Note sul supporto giapponese
 
@@ -63,8 +57,7 @@ Le lingue supportate variano per [entità predefinite](luis-reference-prebuilt-e
      - でございます non è uguale a です.
      - です non è uguale a だ.
 
-### <a name="text-analytics-support-notes"></a>\*\*Note di supporto sull'analisi del testo
-L'analisi del testo include l'entità predefinita keyPhrase e l'analisi del sentiment. Solo il portoghese è supportato per le impostazioni cultura secondarie: `pt-PT` e `pt-BR`. Tutte le altre lingue sono supportate a livello di impostazioni di cultura primarie. Altre informazioni sulle [lingue supportate](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) per Analisi del testo.
+[!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
 
 ### <a name="speech-api-supported-languages"></a>Lingue supportate per Speech API
 Vedere [Lingue supportate](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) dal servizio Voce per le lingue della modalità di dettatura vocale.
@@ -83,7 +76,7 @@ Le lingue ibride combinano parole di due culture come l'inglese e il cinese. Que
 ## <a name="tokenization"></a>Tokenizzazione
 Per eseguire l'apprendimento automatico, LUIS suddivide un’espressione in [token](luis-glossary.md#token) basati sulla cultura.
 
-|Linguaggio|  ogni spazio o carattere speciale | livello di caratteri|parole composte|[entità in formato token restituita](luis-concept-data-extraction.md#tokenized-entity-returned)
+|Lingua|  ogni spazio o carattere speciale | livello di caratteri|parole composte|[entità in formato token restituita](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
 |Cinese||✔||✔|
 |Olandese|||✔|✔|

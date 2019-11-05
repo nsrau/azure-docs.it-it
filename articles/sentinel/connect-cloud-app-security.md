@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 10/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6e71028855344d083dedf3493682e1e27685de48
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 95e38cee8f6995e09dbbb2194cd5a9d0ebc301c1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240113"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498660"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Connettere i dati da Microsoft Cloud App Security 
 
@@ -30,18 +30,22 @@ ms.locfileid: "71240113"
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Utente con autorizzazioni di amministratore globale o amministratore della sicurezza
+- Per eseguire lo streaming di log Cloud Discovery in Sentinel di Azure, [abilitare Azure Sentinel come Siem in Microsoft cloud app Security](aka.ms. https://aka.ms/AzureSentinelMCAS).
 
+> [!IMPORTANT]
+> L'inserimento dei log di Cloud Discovery è attualmente disponibile in anteprima pubblica.
+> Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+ 
 ## <a name="connect-to-cloud-app-security"></a>Connetti a Cloud App Security
 
 Se si dispone già di Cloud App Security, assicurarsi che sia [abilitato sulla rete](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security).
 Se Cloud App Security viene distribuita e si inseriscono i dati, i dati dell'avviso possono essere facilmente trasmessi in Sentinel di Azure.
 
 
-1. In Sentinel di Azure selezionare **connettori dati** , quindi fare clic sul riquadro **cloud app Security** .
+1. In Sentinel di Azure selezionare **connettori dati**, fare clic sul riquadro **cloud app Security** e selezionare **Apri pagina connettore**.
 
-1. Selezionare i log di cui si vuole eseguire lo streaming in Sentinel di Azure. è possibile scegliere gli **avvisi**. 
-
-1. È possibile scegliere se si desidera che gli avvisi Microsoft Cloud App Security generino automaticamente eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti** selezionare **Abilita** per abilitare la regola analitica predefinita che crea automaticamente gli eventi imprevisti dagli avvisi generati nel servizio di sicurezza connesso. È quindi possibile modificare questa regola in **Analytics** e quindi **le regole attive**.
+1. Selezionare i log di cui si vuole eseguire lo streaming in Sentinel di Azure. è possibile scegliere **avvisi** e **log cloud Discovery** (anteprima). 
 
 1. Fare clic su **Connetti**.
 
@@ -53,4 +57,4 @@ Se Cloud App Security viene distribuita e si inseriscono i dati, i dati dell'avv
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere Microsoft Cloud App Security ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats.md).

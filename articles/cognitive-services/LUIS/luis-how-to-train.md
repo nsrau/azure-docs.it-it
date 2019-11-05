@@ -9,25 +9,24 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: b3841c9d60cf275e423024fc66c15582f95c0a10
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 259ea23c05f0c0a138ad54b6efd11aad2061cf7a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932764"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500226"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Eseguire il training della versione attiva dell'app LUIS 
 
 Il training è il processo di apprendimento per l'app Language Understanding (LUIS) al fine di migliorare la comprensione del linguaggio naturale. Eseguire il training dell'app LUIS dopo gli aggiornamenti al modello, ad esempio aggiunta, modifica, aggiunta di etichette o eliminazione di entità, finalità o espressioni. 
 
-<!--
-When you train a LUIS app by example, LUIS generalizes from the examples you have labeled, and it learns to recognize the relevant intents and entities. This teaches LUIS to improve classification accuracy in the future. -->
-
 Il training e il [test](luis-concept-test.md) di un'app costituiscono un processo iterativo. Dopo aver eseguito il training dell'app LUIS, testarla con espressioni di esempio per verificare se le finalità e le entità vengono riconosciute correttamente. Se così non fosse, aggiornare l'app LUIS ed eseguire nuovamente il training e il test. 
 
 Il training viene applicato alla versione attiva nel portale LUIS. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="how-to-train-interactively"></a>Come eseguire il training in modo interattivo
 
@@ -50,7 +49,24 @@ La data e l'ora di training sono GMT + 2.
 
 ## <a name="train-with-all-data"></a>Eseguire il training con tutti i dati
 
-Il training usa una piccola percentuale di campionamento negativo. Per usare tutti i dati invece del campionamento negativo ridotto, usare l'[API delle impostazioni della versione](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con `UseAllTrainingData` impostato su true per disattivare questa funzionalità. 
+Il training usa una piccola percentuale di campionamento negativo. 
+
+Se si desidera utilizzare tutti i dati anziché il piccolo campionamento negativo, utilizzare l' [API](#version-settings-api-use-of-usealltrainingdata).
+
+<!--
+
+ or the [LUIS portal setting](#luis-portal-setting-to-use-all-training-data)
+
+### LUIS portal setting to use all training data
+
+!!!IGNITE
+
+
+-->
+
+### <a name="version-settings-api-use-of-usealltrainingdata"></a>Impostazioni della versione utilizzo dell'API di UseAllTrainingData
+
+usare l' [API impostazioni versione](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con la `UseAllTrainingData` impostata su true per disattivare questa funzionalità. 
 
 ## <a name="unnecessary-training"></a>Training non necessario
 

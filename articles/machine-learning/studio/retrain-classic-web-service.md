@@ -1,7 +1,7 @@
 ---
 title: Ripetere il training e distribuire un servizio Web classico
-titleSuffix: Azure Machine Learning Studio
-description: Informazioni su come ripetere il training di un modello e aggiornare un servizio Web classico per usare il modello appena sottoposto a training in Azure Machine Learning Studio.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Informazioni su come ripetere il training di un modello e aggiornare un servizio Web classico per usare il modello appena sottoposto a training in Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 477e099bb759e09402a245b693d95f3b3980699e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234062"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480197"
 ---
-# <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Ripetere il training e distribuire un servizio Web classico di Studio
+# <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Ripetere il training e distribuire un servizio Web classico in studio (classico)
 
-La ripetizione del training dei modelli di Machine Learning è un modo per garantire che rimangano accurati e si basino sui dati più rilevanti disponibili. Questo articolo illustrerà come ripetere il training di un servizio Web classico di Studio. Per una guida su come ripetere il training di un nuovo servizio Web di Studio, [vedere questo articolo delle procedure](retrain-machine-learning-model.md).
+La ripetizione del training dei modelli di Machine Learning è un modo per garantire che rimangano accurati e si basino sui dati più rilevanti disponibili. In questo articolo viene illustrato come ripetere il training di un servizio Web classico di studio (classico). Per una guida su come ripetere il training di un nuovo servizio Web di studio (classico), [vedere questo articolo sulle procedure.](retrain-machine-learning-model.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,7 +44,7 @@ Esistono due modi per aggiungere un nuovo endpoint a un servizio Web:
 
 ### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Usare il portale dei servizi Web di Azure per aggiungere un endpoint
 
-1. In Machine Learning Studio fare clic su Web Services (Servizi Web) nella colonna di spostamento a sinistra.
+1. In Machine Learning Studio (classico), nella colonna di spostamento a sinistra fare clic su servizi Web.
 1. Nella parte inferiore del dashboard dei servizi Web, fare clic su **Manage endpoints preview** (Gestisci anteprima endpoint).
 1. Fare clic su **Aggiungi**.
 1. Immettere un nome e una descrizione per il nuovo endpoint. Selezionare il livello di registrazione e indicare se i dati di esempio sono abilitati. Per altre informazioni sulla registrazione, vedere [Abilitare la registrazione per i servizi Web di Machine Learning](web-services-logging.md).
@@ -53,7 +53,7 @@ Esistono due modi per aggiungere un nuovo endpoint a un servizio Web:
 
 ### <a name="retrieve-patch-url"></a>Recuperare l'URL PATCH
 
-### <a name="option-1-programmatically"></a>Opzione 1: A livello di codice
+### <a name="option-1-programmatically"></a>Opzione 1: a livello di codice
 
 Per ottenere l'URL PATCH corretto a livello di codice, seguire questa procedura:
 
@@ -64,7 +64,7 @@ Per ottenere l'URL PATCH corretto a livello di codice, seguire questa procedura:
 1. Incollare l'URL in un browser per passare a una pagina contenente i collegamenti della guida per il servizio Web.
 1. Fare clic sul collegamento **Aggiorna risorsa** per aprire la pagina della guida per l'applicazione di patch.
 
-### <a name="option-2-use-the-azure-machine-learning-web-services-portal"></a>Opzione 2: usare il portale dei servizi Web di Azure Machine Learning
+### <a name="option-2-use-the-azure-machine-learning-web-services-portal"></a>Opzione 2: usare il portale dei servizi Web Azure Machine Learning
 
 Seguire questa procedura per ottenere l'URL PATCH corretto tramite il portale Web:
 
@@ -76,7 +76,7 @@ Seguire questa procedura per ottenere l'URL PATCH corretto tramite il portale We
 1. Sotto all'URL **patch** fare clic su **API Help** (Guida API) per aprire la pagina della Guida relativa all'applicazione di patch.
 
 > [!NOTE]
-> Se l'endpoint è stato aggiunto al servizio Web di training invece che al servizio Web predittivo, quando si fa clic sul collegamento **Aggiorna risorsa** si riceve un messaggio di errore che indica che la funzionalità non è supportata o non è disponibile in questo contesto. Questo servizio Web non dispone di alcuna risorsa aggiornabile. Ci scusiamo per l'inconveniente e stiamo lavorando per migliorare questo flusso di lavoro.
+> Se l'endpoint è stato aggiunto al servizio Web di training invece che al servizio Web predittivo, si riceverà l'errore seguente quando si fa clic sul collegamento **Aggiorna risorsa** : "si è verificato un errore, ma questa funzionalità non è supportata o non è disponibile in questo contesto. Questo servizio Web non dispone di alcuna risorsa aggiornabile. Ci scusiamo per l'inconveniente e stiamo lavorando per migliorare questo flusso di lavoro.
 >
 
 La pagina della guida di PATCH contiene l'URL PATCH da usare e fornisce il codice di esempio che è possibile usare per chiamarlo.

@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/26/2019
-ms.openlocfilehash: 5fccf1ffc76c824c81f8b8b826f90bf8314ff1e3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f23ef5506027a5de9f4189a11636d323679707f3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883352"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488485"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossario dei termini relativi al database SQL di Azure
 
-|Contesto|Termine|Altre informazioni|
+|Context|Termine|Altre informazioni|
 |:---|:---|:---|
 |Nome del servizio di Azure|Database SQL di Azure o database SQL|[Servizio database SQL di Azure](sql-database-technical-overview.md)|
-|Livello di calcolo|Senza server (anteprima)|[Livello di calcolo senza server](sql-database-serverless.md)
+|Livello di calcolo|Senza server |[Livello di calcolo senza server](sql-database-serverless.md)
 ||Sottoposto a provisioning|[Livello di calcolo senza server](sql-database-serverless.md)
 |Opzioni di distribuzione |Database singolo|[Database singoli](sql-database-single-database.md)|
 ||Pool elastico|[Pool elastico](sql-database-elastic-pool.md)|

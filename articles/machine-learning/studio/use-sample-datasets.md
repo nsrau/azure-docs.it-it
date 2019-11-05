@@ -1,7 +1,7 @@
 ---
 title: Usare i set di dati di esempio
-titleSuffix: Azure Machine Learning Studio
-description: Descrizione dei set di dati usati nei modelli di esempio inclusi in Machine Learning Studio. È possibile usare questi set di dati di esempio per gli esperimenti.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Descrizioni dei set di impostazioni utilizzati nei modelli di esempio inclusi in Machine Learning Studio (classico). È possibile usare questi set di dati di esempio per gli esperimenti.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,21 +10,21 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: f86ae4977621927a09d9b83287a00dfa3bc17196
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c44fd4fcc6672d81332d79d1f5cc6845868a09d5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736616"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466974"
 ---
-# <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Usare i set di dati di esempio in Azure Machine Learning Studio
+# <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Usare i set di impostazioni di esempio in Azure Machine Learning Studio (versione classica)
 [top]: #machine-learning-sample-datasets
 
-Quando si crea una nuova area di lavoro in Azure Machine Learning Studio, un numero di set di dati di esempio e gli esperimenti è inclusi per impostazione predefinita. Molti di questi set di dati di esempio vengono usati dai modelli di esempio in [Raccolta di intelligenza artificiale per Azure](https://gallery.azure.ai/). Altri sono inclusi come esempi di diversi tipi di dati usati in genere per l'apprendimento automatico.
+Quando si crea una nuova area di lavoro in Azure Machine Learning Studio (versione classica), per impostazione predefinita vengono inclusi diversi set di impostazioni e esperimenti di esempio. Molti di questi set di dati di esempio vengono usati dai modelli di esempio in [Raccolta di intelligenza artificiale per Azure](https://gallery.azure.ai/). Altri sono inclusi come esempi di diversi tipi di dati usati in genere per l'apprendimento automatico.
 
-Alcuni di questi set di dati sono disponibili nell'archivio BLOB di Azure. La tabella seguente include un collegamento diretto per questi set di dati. È possibile usare questi set di dati negli esperimenti tramite il modulo [Import Data][import-data] (Importazione dati).
+Alcuni di questi set di dati sono disponibili nell'archivio BLOB di Azure. La tabella seguente include un collegamento diretto per questi set di dati. È possibile usare questi set di dati negli esperimenti usando il modulo [Import Data][import-data] .
 
-La parte rimanente di questi set di dati di esempio è disponibile nell'area di lavoro presente in **Saved Datasets** (Set di dati salvati). In particolare, è possibile trovarli nella tavolozza dei moduli a sinistra dell'area di disegno dell'esperimento in Machine Learning Studio.
+La parte rimanente di questi set di dati di esempio è disponibile nell'area di lavoro presente in **Saved Datasets** (Set di dati salvati). È possibile trovarlo nella tavolozza dei moduli a sinistra dell'area di disegno dell'esperimento in Machine Learning Studio (classico).
 Per usare uno qualsiasi di questi set di dati in un esperimento personalizzato, trascinarlo all'area di disegno dell'esperimento.
 
 ## <a name="datasets"></a>Set di dati
@@ -89,7 +89,7 @@ Il codice per la conversione dell'immagine è disponibile nella pagina descritti
 <tr>
   <td>Blood donation data</td>
   <td>
-Sottoinsieme di dati dal database di donatori di sangue del Blood Transfusion Service Center di Hsin-Chu City, Taiwan.
+Subset di dati dal database di donatori di sangue del Blood Transfusion Service Center di Hsin-Chu City, Taiwan.
 <p></p>
 I dati relativi al donatore includono i mesi trascorsi dopo l'ultima donazione, la frequenza o il numero totale di donazioni, il tempo trascorso dopo l'ultima donazione e la quantità di sangue donata.
 <p></p>
@@ -167,14 +167,14 @@ Raccolta di profili energetici simulati, basati su 12 forme di edifici diverse. 
 <tr>
   <td>Flight Delays Data</td>
   <td>
-Dati relativi alle prestazioni nel tempo dei voli passeggeri ottenuti dalla raccolta dati TranStats del Dipartimento dei trasporti degli Stati Uniti (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).
+Dati relativi alle prestazioni in fase di volo passeggero ricavati dalla raccolta di dati TranStats del Ministero del trasporto statunitense (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">on-time</a>).
 <p></p>
-Il set di dati copre il periodo aprile-ottobre 2013. Prima del caricamento in Azure Machine Learning Studio, il set di dati è stato elaborato come segue:
+Il set di dati copre il periodo aprile-ottobre 2013. Prima di caricare nella versione classica di Azure Machine Learning Studio, il set di dati è stato elaborato come segue:
 <ul>
   <li>Il set di dati è stato filtrato in modo da coprire solo i 70 aeroporti più trafficati degli Stati Uniti continentali</li>
   <li>I voli cancellati sono stati etichettati in modo da indicare un ritardo superiore a 15 minuti</li>
   <li>I voli deviati sono stati esclusi</li>
-  <li>Aggiungere le colonne seguenti nell'ordine: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Canceled</li>
+  <li>Sono state selezionate le colonne seguenti: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Canceled</li>
 </ul>
 </td>
 </tr>
@@ -215,7 +215,7 @@ Il set di dati classifica le persone, descritte da un set di attributi, come ris
 <tr>
   <td>IMDB Movie Titles</td>
   <td>
-Il set di dati contiene informazioni sui film che sono stati valutati nei tweet di Twitter: ID del film nel catalogo IMDB, titolo del film, genere e anno di produzione. Il set di dati contiene 17.000 film. Il set di dati è stato introdotto nel documento di S. Dooms, T. De Pessemier e L. Martens. "MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
+Il set di dati contiene informazioni sui film che sono stati valutati nei tweet di Twitter: ID del film nel database IMDB, nome, genere e anno di produzione del film. Il set di dati contiene 17.000 film. Il set di dati è stato introdotto nel documento di S. Dooms, T. De Pessemier e L. Martens. "MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
   </td>
 </tr>
 
@@ -232,7 +232,7 @@ Si tratta probabilmente del database più conosciuto disponibile nella letteratu
 <tr>
   <td>Movie Tweets</td>
   <td>
-Il set di dati è una versione estesa di quello relativo ai tweet sui film. Il set di dati contiene 170.000 valutazioni di film, estratti da tweet ben strutturati pubblicati su Twitter. Ogni istanza rappresenta un tweet ed è una tupla: ID utente, ID del film nel database IMDB, valutazione, timestamp, numero di Preferiti per questo tweet e numero di retweet. Il set di dati è stato messo a disposizione da A. Said, S. Dooms, B. Loni e D. Tikk per Recommender Systems Challenge 2014.
+Il set di dati è una versione estesa di quello relativo ai tweet sui film. Il set di dati contiene 170.000 valutazioni di film, estratti da tweet ben strutturati pubblicati su Twitter. Ogni istanza rappresenta un tweet ed è una tupla: ID utente, ID film IMDB, classificazione, timestamp, numero di preferiti per questo tweet e numero di Retweet del tweet. Il set di dati è stato messo a disposizione da A. Said, S. Dooms, B. Loni e D. Tikk per Recommender Systems Challenge 2014.
   </td>
 </tr>
 
@@ -265,7 +265,7 @@ Set di metadati relativi ai clienti, inclusi dati demografici e preferenze.
 <p></p>
 <b>Utilizzo:</b> usare questo set di dati, con altri due set di dati relativi ai ristoranti, per il training e il test di un sistema di raccomandazione. 
 <p></p>
-<b>Ricerca correlata:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+<b>Ricerca correlata:</b> Bache, K. e Licht, M. (2013). UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -276,7 +276,7 @@ Set di metadati relativi ai ristoranti e alle rispettive caratteristiche, ad ese
 <p></p>
 <b>Utilizzo:</b> usare questo set di dati, con altri due set di dati relativi ai ristoranti, per il training e il test di un sistema di raccomandazione. 
 <p></p>
-<b>Ricerca correlata:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+<b>Ricerca correlata:</b> Bache, K. e Licht, M. (2013). UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -287,7 +287,7 @@ Include le valutazioni assegnate dagli utenti ai ristoranti in una scala da 0 a 
 <p></p>
 <b>Utilizzo:</b> usare questo set di dati, con altri due set di dati relativi ai ristoranti, per il training e il test di un sistema di raccomandazione. 
 <p></p>
-<b>Ricerca correlata:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+<b>Ricerca correlata:</b> Bache, K. e Licht, M. (2013). UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -315,9 +315,9 @@ Lo scopo della simulazione consiste nel migliorare la precisione dei telescopi g
 <p></p>
 I dati sono stati pre-elaborati in modo da creare un cluster allungato il cui asse longitudinale è orientato verso il centro della fotocamera. Le caratteristiche di questa ellissi, spesso definite parametri Hillas, si trovano tra i parametri dell'immagine che possono essere usati per la discriminazione.
 <p></p>
-<b>Utilizzo:</b> prevedere se l'immagine di una pioggia rappresenta un segnale o rumore di fondo.
+<b>Utilizzo:</b> prevedere se l'immagine di una pioggia rappresenta un segnale o radiazioni di fondo.
 <p></p>
-<b>Note:</b> la semplice precisione della classificazione non è significativa per questi dati, poiché la classificazione di un evento in background come segnale è ritenuta peggiore della classificazione di un evento di segnale come evento in background. Per un confronto dei diversi classificatori, è consigliabile usare il grafico ROC. La probabilità di accettazione di un evento in background come un segnale deve essere inferiore a una delle soglie seguenti: 0.01, 0.02, 0.05, 0.1 o 0.2.
+<b>Note:</b> la semplice precisione della classificazione non è significativa per questi dati, poiché la classificazione di un evento di fondo come segnale è ritenuta peggiore della classificazione di un evento di segnale come evento di fondo. Per un confronto dei diversi classificatori, è consigliabile usare il grafico ROC. La probabilità di accettazione di un evento di fondo come un segnale deve essere inferiore a una delle soglie seguenti: 0,01, 0,02, 0,05, 0,1 o 0,2.
 <p></p>
 Si noti anche che il numero di eventi di fondo (h per piogge adroniche) è sottostimato, mentre nelle misurazioni reali la classe h o noise rappresenta la maggior parte degli eventi. 
 <p></p>
@@ -329,12 +329,12 @@ Si noti anche che il numero di eventi di fondo (h per piogge adroniche) è sotto
   <td>
 Le osservazioni meteo sono su base oraria e al suolo e vengono fornite dalla NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">dati uniti dal mese di aprile al mese di ottobre 2013</a>).
 <p></p>
-I dati relativi al meteo riguardano le osservazioni effettuate dalle stazioni meteo degli aeroporti nel periodo aprile-ottobre 2013. Prima del caricamento in Azure Machine Learning Studio, il set di dati è stato elaborato come segue:
+I dati relativi al meteo riguardano le osservazioni effettuate dalle stazioni meteo degli aeroporti nel periodo aprile-ottobre 2013. Prima di caricare nella versione classica di Azure Machine Learning Studio, il set di dati è stato elaborato come segue:
 <ul>
   <li>Gli ID delle stazioni meteo sono stati mappati agli ID degli aeroporti corrispondenti</li>
   <li>Le stazioni meteo non associate ai 70 aeroporti più trafficati sono state escluse</li>
   <li>La colonna Date è stata suddivisa in colonne Year, Month e Day distinte</li>
-  <li>Aggiungere le colonne seguenti nell'ordine: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
+  <li>Sono state selezionate le seguenti colonne: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
 </ul>
   </td>
 </tr>
@@ -344,7 +344,7 @@ I dati relativi al meteo riguardano le osservazioni effettuate dalle stazioni me
   <td>
 I dati sono tratti da articoli di Wikipedia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>) su ognuna delle società incluse nell'indice S&P 500 e sono archiviati come dati XML.
 <p></p>
-Prima del caricamento in Azure Machine Learning Studio, il set di dati è stato elaborato come segue:
+Prima di caricare nella versione classica di Azure Machine Learning Studio, il set di dati è stato elaborato come segue:
 <ul>
   <li>Estrazione del contenuto di testo per ogni specifica società</li>
   <li>Rimozione della formattazione wiki</li>
@@ -399,7 +399,7 @@ Assegnazioni degli argomenti per gli articoli del set di dati relativo alle noti
   <td>
 Questi dati provengono dalla competizione KDD Cup 2010 Student performance evaluation (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). Il set di dati usato è il training set Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Set di dati di competizione dalla KDD Cup 2010 dedicata al data mining in ambito didattico. È disponibile in <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
-Il set di dati è stato scaricato e memorizzato Archiviazione BLOB di Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) e contiene i file di log provenienti dal sistema relativo alle lezioni private per gli studenti. Le funzionalità fornite includono: ID del problema e breve descrizione, ID dello studente, timestamp e numero di tentativi effettuati dallo studente prima di risolvere il problema nel modo corretto. Il set di dati originale contiene 8,9 milioni di record e questo set di dati è stato ridotto alle prime 100.000 righe. Nel set di dati sono presenti 23 colonne separate da tabulazioni, di vari tipi: numerico, categorico e timestamp.
+Il set di dati è stato scaricato e memorizzato nell'archivio BLOB di Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) e contiene i file di log di un sistema di tutoring degli studenti. Le funzionalità fornite includono: ID del problema e breve descrizione, ID dello studente, timestamp e numero di tentativi effettuati dallo studente prima di risolvere il problema nel modo corretto. Il set di dati originale contiene 8,9 milioni di record e questo set di dati è stato ridotto alle prime 100.000 righe. Nel set di dati sono presenti 23 colonne separate da tabulazioni, di vari tipi: numerico, categorico e timestamp.
   </td>
 </tr>
 
@@ -408,7 +408,7 @@ Il set di dati è stato scaricato e memorizzato Archiviazione BLOB di Azure (<a 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Kickstart esperimenti con esempi](sample-experiments.md)
+> [Avvia gli esperimenti con esempi](sample-experiments.md)
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

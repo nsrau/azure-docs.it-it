@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 2fc22a8f2a9e1e9410f2e6a9738c50a296a6287f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 62fb5552d86a802c3ba0213d99be2f91f21025e2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180719"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472135"
 ---
 # <a name="access-and-customize-developer-portal"></a>Accedere e personalizzare il portale per sviluppatori
 
@@ -35,6 +35,10 @@ In questa esercitazione si apprenderà come:
 Per ulteriori informazioni, vedere il portale per sviluppatori nel [portale per sviluppatori di gestione API di Azure](api-management-howto-developer-portal.md).
 
 ![Portale per sviluppatori di gestione API-modalità di amministrazione](media/api-management-howto-developer-portal-customize/cover.png)
+
+> [!WARNING]
+> Il portale per sviluppatori è attualmente in fase di implementazione nei servizi gestione API.
+> Se il servizio è stato appena creato o è un servizio di livello Developer, è necessario avere già la versione più recente. In caso contrario, è possibile che si verifichino problemi, ad esempio con la funzionalità di pubblicazione. L'implementazione della funzionalità viene completata il lunedì 11 novembre 2019. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -80,9 +84,9 @@ La Guida di stile è un pannello creato con le finestre di progettazione. Consen
 
 Per modificare una variante, fare clic su di essa e selezionare l'icona a matita visualizzata sopra. Dopo aver apportato le modifiche nella finestra popup, chiuderla.
 
-### <a name="save-button"></a>Pulsante Salva
+### <a name="save-button"></a>Pulsante per il salvataggio
 
-![Pulsante Salva](media/api-management-howto-developer-portal-customize/save-button.png)
+![Pulsante per il salvataggio](media/api-management-howto-developer-portal-customize/save-button.png)
 
 Ogni volta che si apportano modifiche nel portale, è necessario salvarle manualmente premendo il pulsante **Salva** nel menu in basso. Quando si salvano le modifiche, il contenuto modificato viene caricato automaticamente nel servizio gestione API.
 

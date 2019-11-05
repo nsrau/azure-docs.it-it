@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d314cc55096f681d1bcf66d33c4c30a4060751e9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 9d2986acc47087c267193eee43136e030abcc422
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972662"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990310"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurare le origini di identità vCenter da usare Active Directory
 
@@ -30,11 +30,15 @@ VMware vCenter supporta diverse origini di identità per l'autenticazione degli 
 
 Questa guida illustra le attività per la configurazione di Active Directory controller di dominio e di dominio in esecuzione in locale o come macchine virtuali nelle sottoscrizioni.  Se si vuole usare Azure AD come origine di identità, vedere [usare Azure ad come provider di identità per vCenter in CloudSimple cloud privato](azure-ad.md) per istruzioni dettagliate sulla configurazione dell'origine di identità.
 
-Prima [di aggiungere un'origine di identità](#add-an-identity-source-on-vcenter), inoltrare temporaneamente [i privilegi di vCenter](escalate-private-cloud-privileges.md).
+Prima [di aggiungere un'origine di identità](#add-an-identity-source-on-vcenter), [inoltrare temporaneamente i privilegi di vCenter](escalate-private-cloud-privileges.md).
+
+> [!CAUTION]
+> I nuovi utenti devono essere aggiunti solo a *cloud-Owner-Group*, *cloud-Global-cluster-admin-* Group, *cloud-Global-Storage-admin-Group*, *cloud-Global-Network-Admin-Group* o, *cloud-Global-VM-admin-Group*.  Gli utenti aggiunti al gruppo *Administrators* verranno rimossi automaticamente.  Solo gli account di servizio devono essere aggiunti al gruppo *Administrators* .  
+
 
 ## <a name="identity-source-options"></a>Opzioni origine identità
 
-* [Aggiungere Active Directory locali come origine dell'identità Single Sign-on](#add-on-premises-active-directory-as-a-single-sign-on-identity-source)
+* [Aggiungere Active Directory locali come origine Single Sign-On identità](#add-on-premises-active-directory-as-a-single-sign-on-identity-source)
 * [Configurare nuovi Active Directory in un cloud privato](#set-up-new-active-directory-on-a-private-cloud)
 * [Configurare Active Directory in Azure](#set-up-active-directory-on-azure)
 
@@ -54,9 +58,9 @@ Usare le informazioni nella tabella seguente durante la configurazione del domin
 | **Nome di dominio** | FDQN del dominio, ad esempio example.com. Non specificare un indirizzo IP in questa casella di testo. |
 | **Alias di dominio** | Nome NetBIOS del dominio. Se si usano le autenticazioni SSPI, aggiungere il nome NetBIOS del dominio Active Directory come alias dell'origine di identità. |
 | **DN di base per i gruppi** | Nome distinto di base per i gruppi. |
-| **URL server primario** | Server LDAP del controller di dominio primario per il dominio.<br><br>Usare il formato `ldap://hostname:port` o `ldaps://hostname:port`. La porta è in genere 389 per le connessioni LDAP e 636 per le connessioni LDAPs. Per Active Directory distribuzioni di controller multidominio, la porta è in genere 3268 per LDAP e 3269 per LDAPs.<br><br>Quando si usa `ldaps://` nell'URL LDAP primario o secondario, è necessario un certificato che stabilisce l'attendibilità per l'endpoint LDAPS del server Active Directory. |
+| **URL server primario** | Server LDAP del controller di dominio primario per il dominio.<br><br>Usare il formato `ldap://hostname:port` o `ldaps://hostname:port`. La porta è in genere 389 per le connessioni LDAP e 636 per le connessioni LDAPs. Per Active Directory distribuzioni di controller multidominio, la porta è in genere 3268 per LDAP e 3269 per LDAPs.<br><br>Quando si usa `ldaps://` nell'URL LDAP primario o secondario, è necessario un certificato che stabilisce l'attendibilità per l'endpoint LDAPs del server Active Directory. |
 | **URL server secondario** | Indirizzo di un server LDAP del controller di dominio secondario usato per il failover. |
-| **Scegliere il certificato** | Se si vuole usare LDAPS con il server Active Directory LDAP o con l'origine identità del server OpenLDAP, dopo aver digitato `ldaps://` nella casella di testo URL viene visualizzato un pulsante Scegli certificato. Un URL secondario non è obbligatorio. |
+| **Scegliere il certificato** | Se si vuole usare LDAPs con il server Active Directory LDAP o con l'origine identità del server OpenLDAP, viene visualizzato un pulsante Scegli certificato dopo aver digitato `ldaps://` nella casella di testo URL. Un URL secondario non è obbligatorio. |
 | **Nome utente** | ID di un utente nel dominio che dispone almeno dell'accesso in sola lettura al DN di base per utenti e gruppi. |
 | **Password** | Password dell'utente specificato dal nome utente. |
 
@@ -102,7 +106,7 @@ Dopo aver stabilito la connessione di rete, seguire la procedura descritta in [a
 
 ## <a name="add-an-identity-source-on-vcenter"></a>Aggiungere un'origine di identità in vCenter
 
-1. Escalation dei [privilegi](escalate-private-cloud-privileges.md) sul cloud privato.
+1. [Escalation dei privilegi](escalate-private-cloud-privileges.md) sul cloud privato.
 
 2. Accedere a vCenter per il cloud privato.
 
@@ -112,9 +116,9 @@ Dopo aver stabilito la connessione di rete, seguire la procedura descritta in [a
 
 4. Selezionare **Single Sign-On > Configuration**.
 
-    ![Single Sign-On](media/OnPremAD02.png)
+    ![Single Sign On](media/OnPremAD02.png)
 
-5. Aprire la scheda **origini identità** e fare **+** clic su per aggiungere una nuova origine identità.
+5. Aprire la scheda **origini identità** e fare clic su **+** per aggiungere una nuova origine identità.
 
     ![Origini identità](media/OnPremAD03.png)
 

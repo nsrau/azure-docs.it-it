@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: a0fe65428a3329d4843ec913e934fb7a91b13759
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 2cec24e5ea50360531e247b37369802f3ef4e336
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000227"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990304"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitazioni correnti per i pool di nodi di Windows Server e i carichi di lavoro delle applicazioni in Azure Kubernetes Service (AKS)
 
@@ -89,6 +89,10 @@ Azure Dev Spaces è attualmente disponibile solo per i pool di nodi basati su Li
 ## <a name="can-my-windows-server-containers-use-gmsa"></a>I contenitori di Windows Server possono usare gMSA?
 
 Il supporto per gli account del servizio gestito del gruppo (gMSA) non è attualmente disponibile in AKS.
+
+## <a name="can-i-use-azure-monitor-for-containers-with-windows-nodes-and-containers"></a>È possibile usare monitoraggio di Azure per i contenitori con i nodi e i contenitori di Windows?
+
+Sì, è possibile, tuttavia monitoraggio di Azure non raccoglie i log (stdout) dai contenitori di Windows. È comunque possibile connettersi al flusso live dei log stdout da un contenitore di Windows.
 
 ## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>Cosa accade se è necessaria una funzionalità non supportata?
 

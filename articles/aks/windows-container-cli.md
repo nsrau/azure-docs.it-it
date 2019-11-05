@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: ff4367194f06a8a6895c9c16252b01c3b94995d3
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 497dab37f178a9ae7d0ab6cd647a10bac44539f8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241249"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472507"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Anteprima: creare un contenitore di Windows Server in un cluster Azure Kubernetes Service (AKS) usando l'interfaccia della riga di comando di Azure
 
@@ -79,7 +79,6 @@ az provider register --namespace Microsoft.ContainerService
 
 Quando si creano e si gestiscono cluster AKS che supportano più pool di nodi, si applicano le limitazioni seguenti:
 
-* Sono disponibili più pool di nodi per i cluster creati dopo aver registrato correttamente il *WindowsPreview*. Se si registra la funzionalità *MultiAgentpoolPreview* per la sottoscrizione, sono disponibili anche più pool di nodi. Non è possibile aggiungere o gestire pool di nodi con un cluster AKS esistente creato prima che questa funzionalità sia stata registrata correttamente.
 * Non è possibile eliminare il primo pool di nodi.
 
 Quando questa funzionalità è in anteprima, si applicano le seguenti limitazioni aggiuntive:
@@ -141,7 +140,8 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
+    --load-balancer-sku standard \
     --network-plugin azure
 ```
 

@@ -4,14 +4,14 @@ description: Offre una panoramica dei calcoli delle valutazioni nel servizio Azu
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/06/2019
-ms.author: raynew
-ms.openlocfilehash: 4511c42514a5399d41029b61297bd4c1b0b63d9a
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.date: 10/15/2019
+ms.author: hamusa
+ms.openlocfilehash: d72e5a6dea8b411b6214e7749b8993f9f5a6e7a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827538"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466912"
 ---
 # <a name="assessment-calculations-in-azure-migrate"></a>Calcoli di valutazione in Azure Migrate
 
@@ -23,7 +23,7 @@ Server assessment è uno strumento di Azure Migrate che consente di valutare i s
 
 **Proprietà** | **Dettagli**
 --- | ---
-**Posizione di destinazione** | Specifica la località di Azure in cui si vuole eseguire la migrazione.<br/><br/>Server Assessment supporta attualmente le aree di destinazione seguenti: Australia orientale, Australia sudorientale, Brasile meridionale, Canada centrale, Canada orientale, India centrale, Stati Uniti centrali, Cina orientale, Cina settentrionale, Asia orientale, Stati Uniti orientali, East Uniti, Germania centrale, Germania nord-orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Nord Stati Uniti centrali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Regno Unito occidentale, US Gov Arizona, US Gov Texas, US Gov Virginia, Stati Uniti centro-occidentali, Europa occidentale, India occidentale, Stati Uniti occidentali e Uniti occidentali.
+**Posizione di destinazione** | Specifica la località di Azure in cui si vuole eseguire la migrazione.<br/><br/>Server Assessment supporta attualmente le aree di destinazione: Australia orientale, Australia sudorientale, Brasile meridionale, Canada centrale, Canada orientale, India centrale, Stati Uniti centrali, Cina orientale, Cina settentrionale, Asia orientale, Stati Uniti orientali, East Uniti, Germania centrale, Germania nord-orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Regno Unito occidentale, US Gov Arizona, US Gov Texas, US Gov Virginia, Stati Uniti centro-occidentali, Europa occidentale, India occidentale, Stati Uniti occidentali e Uniti occidentali.
 **Tipo di archiviazione** | Specifica il tipo di dischi che si vuole usare per l'archiviazione in Azure. <br/><br/> Per il dimensionamento locale è possibile specificare il tipo di disco di archiviazione di destinazione come gestito da Premium, gestito da SDD Standard o gestito da HDD Standard. Per il dimensionamento basato sulle prestazioni, è possibile specificare il tipo di disco di archiviazione di destinazione come automatico, gestito da Premium, gestito da HDD Standard o gestito da SDD Standard. Quando si specifica il tipo di archiviazione come automatico, l'indicazione relativa al disco si basa sui dati sulle prestazioni dei dischi: le operazioni di input/output al secondo (IOPS) e la velocità effettiva. <br/><br/>Se si specifica il tipo di archiviazione come Premium o standard, la valutazione indicherà uno SKU del disco all'interno del tipo di archiviazione selezionato. Se si vuole ottenere un contratto di Service per macchine virtuali a istanza singola del 99,9%, è possibile specificare il tipo di archiviazione come dischi gestiti Premium. che garantisce che tutti i dischi nella valutazione vengano raccomandati come Managed Disks Premium. Si noti che Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione.
 **Istanze riservate (RIs)** | Questa proprietà consente di specificare [istanze riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure. Le stime dei costi nella valutazione quindi prendono in considerazione gli sconti per il RI. I servizi di installazione remota sono attualmente supportati solo per le offerte con pagamento in base al consumo in Azure Migrate.
 **Criteri di ridimensionamento** | Imposta i criteri da usare per la *corretta dimensione* delle macchine virtuali per Azure. È possibile optare per il dimensionamento in *base alle prestazioni* o per le dimensioni delle macchine virtuali *in locale* senza considerare la cronologia delle prestazioni.
@@ -39,15 +39,15 @@ Server assessment è uno strumento di Azure Migrate che consente di valutare i s
 
 ## <a name="how-are-assessments-calculated"></a>Come vengono calcolate le valutazioni?
 
-Una valutazione in Azure Migrate server assessment viene calcolata usando i metadati raccolti sui server locali. Il calcolo della valutazione viene gestito in tre fasi. Per ogni server, il calcolo della valutazione inizia con un'analisi di idoneità di Azure, seguita dal ridimensionamento e infine dalla stima dei costi mensili. Un server si sposta in una fase successiva solo se passa quello precedente. Se ad esempio un server non supera il controllo di idoneità di Azure, viene contrassegnato come non idoneo per Azure e il ridimensionamento e i costi non vengono eseguiti per tale server.
+Una valutazione in Azure Migrate server assessment viene calcolata usando i metadati raccolti sui server locali. Se l'origine di individuazione è un'importazione utilizzando un oggetto. File CSV, la valutazione viene calcolata utilizzando i metadati forniti dall'utente sui server. Il calcolo della valutazione viene gestito in tre fasi. Per ogni server, il calcolo della valutazione inizia con un'analisi di idoneità di Azure, seguita dal ridimensionamento e infine dalla stima dei costi mensili. Un server si sposta in una fase successiva solo se passa quello precedente. Se ad esempio un server non supera il controllo di idoneità di Azure, viene contrassegnato come non idoneo per Azure e il ridimensionamento e i costi non vengono eseguiti per tale server.
 
 ## <a name="azure-suitability-analysis"></a>Analisi di idoneità di Azure
 
 Non tutti i computer sono idonei per l'esecuzione in Azure. Server Assessment valuta ogni computer locale per la relativa idoneità per la migrazione di Azure. Assegna anche ogni computer valutato a una delle categorie di idoneità seguenti:
-- **Idonea per Azure**: Il computer può essere migrato così com'è in Azure senza alcuna modifica. Verrà avviato in Azure con il supporto completo di Azure.
-- **Pronto per Azure in**modo condizionale: Il computer potrebbe essere avviato in Azure, ma potrebbe non avere il supporto completo di Azure. Ad esempio, un computer in cui è in esecuzione una versione precedente di Windows Server non è supportato in Azure. È necessario prestare attenzione prima di eseguire la migrazione di questi computer in Azure e seguire le indicazioni di correzione suggerite nella valutazione per risolvere i problemi di conformità.
-- **Non idonea per Azure**: Il computer non viene avviato in Azure. Ad esempio, se un computer locale ha un disco con più di 64 terabyte (TB) collegato, non può essere ospitato in Azure. È necessario seguire le indicazioni di correzione suggerite nella valutazione per risolvere il problema di conformità prima di eseguire la migrazione della macchina virtuale in Azure. Il calcolo della dimensione e dei costi non viene eseguito per i computer contrassegnati come non idonei per Azure.
-- **Idoneità sconosciuta**: Azure Migrate non è stato in grado di determinare la conformità del computer a causa di metadati insufficienti raccolti dall'ambiente locale.
+- **Pronto per Azure**: il computer può essere migrato così com'è in Azure senza alcuna modifica. Verrà avviato in Azure con il supporto completo di Azure.
+- Idoneo **per Azure in modo condizionale**: il computer potrebbe iniziare in Azure, ma potrebbe non avere il supporto completo di Azure. Ad esempio, un computer in cui è in esecuzione una versione precedente di Windows Server non è supportato in Azure. È necessario prestare attenzione prima di eseguire la migrazione di questi computer in Azure e seguire le indicazioni di correzione suggerite nella valutazione per risolvere i problemi di conformità.
+- **Non pronto per Azure**: la macchina virtuale non viene avviata in Azure. Ad esempio, se un computer locale ha un disco con più di 64 terabyte (TB) collegato, non può essere ospitato in Azure. È necessario seguire le indicazioni di correzione suggerite nella valutazione per risolvere il problema di conformità prima di eseguire la migrazione della macchina virtuale in Azure. Il calcolo della dimensione e dei costi non viene eseguito per i computer contrassegnati come non idonei per Azure.
+- **Conformità sconosciuta**: Azure migrate non è stato in grado di determinare la conformità del computer a causa di metadati insufficienti raccolti dall'ambiente locale.
 
 Server Assessment esamina le proprietà del computer e il sistema operativo guest per determinare la conformità di Azure del computer locale.
 
@@ -59,8 +59,8 @@ Server Assessment esamina le seguenti proprietà della macchina virtuale locale 
 --- | --- | ---
 **Tipo di avvio** | Azure supporta le VM con un tipo di avvio BIOS e non UEFI. | Pronto in modo condizionale se il tipo di avvio è UEFI.
 **Core** | Il numero di core nei computer deve essere uguale o inferiore al numero massimo di core (128) supportati per una macchina virtuale di Azure.<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto i core utilizzati. Se nelle impostazioni di valutazione è specificato un fattore di comfort, il numero di core utilizzati viene moltiplicato per questo fattore.<br/><br/> Se non è presente alcuna cronologia delle prestazioni, Azure Migrate usa i core allocati senza applicare il fattore di comfort. | Idoneo se è minore o uguale ai limiti.
-**Memoria** | Le dimensioni della memoria del computer devono essere uguali o inferiori alla memoria massima (3892 gigabyte [GB] in Azure M Series Standard_M128m&nbsp;<sup>2</sup>) consentite per una macchina virtuale di Azure. [Altre informazioni](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto la memoria utilizzata. Se è specificato un fattore di comfort, la memoria utilizzata viene moltiplicata per questo fattore.<br/><br/> Se non è presente alcuna cronologia, viene usata la memoria allocata senza applicare il fattore di comfort.<br/><br/> | Idoneo se rientra nei limiti.
-**Disco di archiviazione** | La dimensione allocata di un disco deve essere 32 TB o inferiore. Anche se Azure supporta dischi da 64 TB con Ultra SSD dischi, Azure Migrate: Server Assessment verifica attualmente la presenza di 32 TB come limite delle dimensioni del disco, perché non supporta ancora Ultra SSD. <br/><br/> Il numero di dischi collegati al computer deve essere 65 o inferiore, incluso il disco del sistema operativo. | Idoneo se rientra nei limiti.
+**Memoria** | Le dimensioni della memoria del computer devono essere uguali o inferiori alla memoria massima (3892 gigabyte [GB] nella serie M di Azure Standard_M128m&nbsp;<sup>2</sup>) consentite per una macchina virtuale di Azure. [Altre informazioni](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto la memoria utilizzata. Se è specificato un fattore di comfort, la memoria utilizzata viene moltiplicata per questo fattore.<br/><br/> Se non è presente alcuna cronologia, viene usata la memoria allocata senza applicare il fattore di comfort.<br/><br/> | Idoneo se rientra nei limiti.
+**Disco di archiviazione** | La dimensione allocata di un disco deve essere 32 TB o inferiore. Anche se Azure supporta dischi da 64 TB con Ultra SSD dischi, Azure Migrate: la valutazione del server verifica attualmente la presenza di 32 TB come limiti delle dimensioni del disco, poiché non supporta ancora Ultra SSD. <br/><br/> Il numero di dischi collegati al computer deve essere 65 o inferiore, incluso il disco del sistema operativo. | Idoneo se rientra nei limiti.
 **Rete** | Un computer deve avere 32 o un minor numero di interfacce di rete (NIC) collegati. | Idoneo se rientra nei limiti.
 
 ### <a name="guest-operating-system"></a>Sistema operativo guest
@@ -73,11 +73,11 @@ La logica seguente viene usata da server assessment per identificare la conformi
 
 **Sistema operativo** | **Dettagli** | **Stato di idoneità per Azure**
 --- | --- | ---
-Windows Server 2016 e tutti i Service Pack | Azure offre supporto completo. | Idonea per Azure
-Windows Server 2012 R2 e tutti i Service Pack | Azure offre supporto completo. | Idonea per Azure
-Windows Server 2012 e tutti i Service Pack | Azure offre supporto completo. | Idonea per Azure
-Windows Server 2008 R2 con tutti i Service Pack | Azure offre supporto completo.| Idonea per Azure
-Windows Server 2008 (32 bit e 64 bit) | Azure offre supporto completo. | Idonea per Azure
+Windows Server 2016 e tutti i Service Pack | Azure offre supporto completo. | Idoneo per Azure
+Windows Server 2012 R2 e tutti i Service Pack | Azure offre supporto completo. | Idoneo per Azure
+Windows Server 2012 e tutti i Service Pack | Azure offre supporto completo. | Idoneo per Azure
+Windows Server 2008 R2 con tutti i Service Pack | Azure offre supporto completo.| Idoneo per Azure
+Windows Server 2008 (32 bit e 64 bit) | Azure offre supporto completo. | Idoneo per Azure
 Windows Server 2003, 2003 R2 | Questi sistemi operativi hanno superato la data di fine del supporto e necessitano di un [contratto di supporto personalizzato (CSA)](https://aka.ms/WSosstatement) per il supporto in Azure. | Pronto per Azure in modo condizionale. Provare ad aggiornare il sistema operativo prima di eseguire la migrazione ad Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Questi sistemi operativi hanno superato la data di fine del supporto. Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto del sistema operativo. | Pronto per Azure in modo condizionale. Si consiglia di aggiornare il sistema operativo prima di eseguire la migrazione ad Azure.
 Client Windows 7, 8 e 10 | Azure offre supporto solo con [la sottoscrizione di Visual Studio.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Idoneo per Azure con condizioni
@@ -92,7 +92,7 @@ Sistemi operativi a 32 bit | Il computer potrebbe essere avviato in Azure, ma Az
 
 Dopo che un computer è stato contrassegnato come pronto per Azure, la valutazione del server apporta consigli sul dimensionamento, che implicano l'identificazione della VM di Azure e dello SKU del disco appropriati per la macchina virtuale locale. Queste raccomandazioni variano a seconda delle proprietà di valutazione specificate.
 
-- Se la valutazione usa il dimensionamento in *base alle prestazioni*, Azure migrate considera la cronologia delle prestazioni del computer per identificare le dimensioni della VM e il tipo di disco in Azure. Questo metodo è particolarmente utile se la macchina virtuale locale è stata eccessivamente allocata, ma l'utilizzo è basso e si vuole ridimensionare la macchina virtuale in Azure per ridurre i costi. Questo metodo consente di ottimizzare le dimensioni durante la migrazione.
+- Se la valutazione usa il *dimensionamento in base alle prestazioni*, Azure migrate considera la cronologia delle prestazioni del computer per identificare le dimensioni della VM e il tipo di disco in Azure. Nel caso dei server con l'origine di individuazione come importazione, vengono considerati i valori di utilizzo delle prestazioni specificati dall'utente. Questo metodo è particolarmente utile se la macchina virtuale locale è stata eccessivamente allocata, ma l'utilizzo è basso e si vuole ridimensionare la macchina virtuale in Azure per ridurre i costi. Questo metodo consente di ottimizzare le dimensioni durante la migrazione.
 - Se non si vogliono considerare i dati sulle prestazioni per le dimensioni delle macchine virtuali e si vuole portare i computer locali così come sono in Azure, è possibile impostare i criteri di ridimensionamento *su come in locale*. Quindi, server Assessment ridimensiona le macchine virtuali in base alla configurazione locale senza considerare i dati di utilizzo. In questo caso, le attività di ridimensionamento dei dischi sono basate sul tipo di archiviazione specificato nelle proprietà di valutazione (HDD Standard, SDD Standard o dischi Premium).
 
 ### <a name="performance-based-sizing"></a>Dimensioni in base alle prestazioni
@@ -101,14 +101,17 @@ Per il dimensionamento basato sulle prestazioni, la valutazione del server inizi
 
 **Passaggi per la raccolta dei dati sulle prestazioni:**
 
-1. Per le macchine virtuali VMware, l'appliance Azure Migrate raccoglie un punto di esempio in tempo reale a ogni intervallo di 20 secondi. Per le VM Hyper-V, il punto di esempio in tempo reale viene raccolto a ogni intervallo di 30 secondi.
-1. Il dispositivo esegue il rollup dei punti di esempio raccolti ogni 10 minuti e invia il valore massimo per gli ultimi 10 minuti alla valutazione del server.
-1. Server Assessment archivia tutti i punti di campionamento di 10 minuti per l'ultimo mese. Quindi, a seconda delle proprietà di valutazione specificate per la *cronologia delle prestazioni* e l' *utilizzo percentile*, identifica il punto dati appropriato da usare per il dimensionamento corretto. Se ad esempio la cronologia delle prestazioni è impostata su 1 giorno e l'utilizzo percentile è il 95 ° percentile, server Assessment usa i punti di esempio di 10 minuti per l'ultimo giorno, li ordina in ordine crescente e sceglie il valore del 95 ° percentile per il corretto dimensionamento.
-1. Questo valore viene moltiplicato per il fattore di comfort per ottenere i dati di utilizzo delle prestazioni effettivi per ogni metrica (utilizzo della CPU, utilizzo della memoria, IOPS del disco (lettura e scrittura), velocità effettiva del disco (lettura e scrittura) e velocità effettiva della rete (in uscita) il dispositivo raccoglie.
+1. Per le macchine virtuali VMware, l'appliance Azure Migrate raccoglie un punto di esempio in tempo reale a ogni intervallo di 20 secondi. Per le VM Hyper-V, il punto di esempio in tempo reale viene raccolto a ogni intervallo di 30 secondi. Per i server fisici, il punto di esempio in tempo reale viene raccolto a ogni intervallo di 5 minuti. 
+2. Il dispositivo esegue il rollup dei punti di esempio raccolti ogni 10 minuti e invia il valore massimo per gli ultimi 10 minuti alla valutazione del server. 
+3. Server Assessment archivia tutti i punti di campionamento di 10 minuti per l'ultimo mese. Quindi, a seconda delle proprietà di valutazione specificate per la *cronologia delle prestazioni* e l' *utilizzo percentile*, identifica il punto dati appropriato da usare per il dimensionamento corretto. Se ad esempio la cronologia delle prestazioni è impostata su 1 giorno e l'utilizzo percentile è il 95 ° percentile, server Assessment usa i punti di esempio di 10 minuti per l'ultimo giorno, li ordina in ordine crescente e sceglie il valore del 95 ° percentile per il corretto dimensionamento. 
+4. Questo valore viene moltiplicato per il fattore di comfort per ottenere i dati di utilizzo delle prestazioni effettivi per ogni metrica (utilizzo della CPU, utilizzo della memoria, IOPS del disco (lettura e scrittura), velocità effettiva del disco (lettura e scrittura) e velocità effettiva della rete (in uscita) il dispositivo raccoglie.
 
 Una volta determinato il valore di utilizzo effettivo, le dimensioni di archiviazione, rete e calcolo vengono gestite come indicato di seguito.
 
-**Dimensioni archiviazione**: Azure Migrate tenta di eseguire il mapping di ogni disco collegato alla macchina virtuale con un disco in Azure.
+> [!NOTE]
+> Per i server aggiunti tramite l'importazione, i dati sulle prestazioni forniti dall'utente vengono utilizzati direttamente per il dimensionamento corretto.
+
+**Ridimensionamento dell'archiviazione**: Azure migrate tenta di eseguire il mapping di ogni disco collegato al computer a un disco in Azure.
 
 > [!NOTE]
 > Azure Migrate server Assessment supporta solo dischi gestiti per la valutazione.
@@ -120,12 +123,15 @@ Una volta determinato il valore di utilizzo effettivo, le dimensioni di archivia
   - Se sono presenti più dischi idonei, la valutazione del server seleziona il disco con il costo più basso.
   - Se i dati sulle prestazioni per qualsiasi disco non sono disponibili, vengono usati i dati di configurazione del disco (dimensioni del disco) per trovare un disco SSD standard in Azure.
 
-**Dimensionamento rete**: Server Assessment tenta di trovare una macchina virtuale di Azure in grado di supportare il numero di schede di rete collegate al computer locale e le prestazioni richieste da queste schede di rete.
+**Dimensionamento della rete**: server Assessment tenta di trovare una macchina virtuale di Azure in grado di supportare il numero di schede di rete collegate al computer locale e le prestazioni richieste da queste schede di rete.
 - Per ottenere le prestazioni di rete effettive della VM locale, server Assessment aggrega i dati trasmessi al secondo (MBps) dal computer (rete in uscita), in tutte le schede di rete e applica il fattore di comfort. Usa questo numero per trovare una macchina virtuale di Azure in grado di supportare le prestazioni di rete necessarie.
 - Oltre alle prestazioni di rete, valutazione server considera anche se la VM di Azure può supportare il numero di schede di rete necessario.
 - Se non sono disponibili dati sulle prestazioni di rete, valutazione server considera solo il numero di schede di rete per il dimensionamento delle macchine virtuali.
 
-**Dimensionamento calcolo**: Dopo aver calcolato i requisiti di archiviazione e di rete, valutazione server considera i requisiti di CPU e memoria per trovare una dimensione di VM adatta in Azure.
+> [!NOTE]
+> La specifica del numero di schede di rete non è attualmente supportata per i server importati
+
+**Dimensionamento del calcolo**: dopo aver calcolato i requisiti di archiviazione e di rete, valutazione server considera i requisiti di CPU e memoria per trovare una dimensione di macchina virtuale adatta in Azure.
 - Azure Migrate esamina i core e la memoria usati in modo efficace per trovare le dimensioni appropriate per la macchina virtuale in Azure.
 - Se non si trovano dimensioni adatte, il computer viene contrassegnato come non idoneo per Azure.
 - Se si trovano dimensioni adatte, Azure Migrate esegue i calcoli di archiviazione e di rete. Viene quindi applicato il percorso e le impostazioni del piano tariffario per la raccomandazione finale sulle dimensioni della macchina virtuale.
@@ -157,6 +163,9 @@ A seconda della percentuale di punti dati disponibili, la classificazione di att
    61-80% | 4 stelle
    81-100% | 5 stelle
 
+> [!NOTE]
+> Le classificazioni di attendibilità non vengono assegnate alle valutazioni dei server importati utilizzando. File CSV in Azure Migrate. 
+
 ### <a name="low-confidence-ratings"></a>Classificazione con confidenza bassa
 
 Ecco alcuni motivi per cui una valutazione potrebbe ottenere un livello di confidenza basso:
@@ -175,7 +184,7 @@ Una volta completate le indicazioni sul dimensionamento, Azure Migrate calcola i
 - **Costo di calcolo**: sulla base delle dimensioni consigliate della macchina virtuale di Azure, Azure Migrate usa l'API di fatturazione per calcolare i costi mensili della macchina virtuale.
     - Per il calcolo vengono prese in considerazione le impostazioni relative al sistema operativo, al programma Software Assurance, alle istanze riservate, al tempo di attività della macchina virtuale, alla posizione e alla valuta.
     - Aggrega il costo in tutti i computer per calcolare il costo totale di calcolo mensile.
-- **Costo di archiviazione**: Il costo di archiviazione mensile per un computer viene calcolato aggregando il costo mensile di tutti i dischi collegati al computer, come indicato di seguito:
+- **Costo di archiviazione**: il costo mensile di archiviazione per un computer viene calcolato aggregando il costo mensile di tutti i dischi collegati al computer, come indicato di seguito:
     - Server Assessment calcola i costi totali di archiviazione mensili aggregando i costi di archiviazione di tutti i computer.
     - Attualmente, il calcolo non prende in considerazione le offerte specificate nelle impostazioni di valutazione.
 

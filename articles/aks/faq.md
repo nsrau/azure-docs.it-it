@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 4d736556147797bcd007bdab1b5328deeadea712
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 2f24f5cacb8b6e115d7fe91c6ef0a7a333676ae1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827360"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472842"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -33,7 +33,7 @@ Sì, è possibile distribuire un cluster AKS in una rete virtuale esistente usan
 
 ## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>È possibile limitare gli utenti che possono accedere al server API Kubernetes?
 
-Sì, è possibile limitare l'accesso al server API Kubernetes usando gli [intervalli IP autorizzati del server API][api-server-authorized-ip-ranges], attualmente in fase di anteprima.
+Sì, è possibile limitare l'accesso al server API Kubernetes usando gli [intervalli IP autorizzati del server API][api-server-authorized-ip-ranges].
 
 ## <a name="can-i-make-the-kubernetes-api-server-accessible-only-within-my-virtual-network"></a>È possibile rendere accessibile il server API Kubernetes solo all'interno della rete virtuale?
 
@@ -41,7 +41,7 @@ Non in questo momento, ma questo è pianificato. È possibile tenere traccia del
 
 ## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>È possibile avere dimensioni diverse per le macchine virtuali in un singolo cluster?
 
-Sì, è possibile usare dimensioni diverse per le macchine virtuali nel cluster AKS creando [più pool di nodi][multi-node-pools], attualmente in fase di anteprima.
+Sì, è possibile usare dimensioni diverse per le macchine virtuali nel cluster AKS creando [più pool di nodi][multi-node-pools].
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Gli aggiornamenti della sicurezza vengono applicati ai nodi agente servizio Azure Kubernetes?
 
@@ -118,20 +118,20 @@ Il supporto di Windows Server per il pool di nodi include alcune limitazioni che
 
 In un contratto di servizio (SLA), il provider accetta di rimborsare il costo del servizio del cliente se il livello di servizio pubblicato non è soddisfatto. Poiché AKS è gratuito, non è disponibile alcun costo per il rimborso, quindi AKS non ha un contratto di servizio formale. Tuttavia, AKS cerca di mantenere la disponibilità di almeno il 99,5% per il server API Kubernetes.
 
-È importante riconoscere la distinzione tra la disponibilità del servizio AKS, che fa riferimento al tempo di esecuzione del piano di controllo Kubernetes e alla disponibilità del carico di lavoro specifico in esecuzione nelle macchine virtuali di Azure. Sebbene il piano di controllo non sia disponibile se il piano di controllo non è pronto, i carichi di lavoro del cluster in esecuzione in macchine virtuali di Azure possono comunque funzionare. Le macchine virtuali di Azure sono risorse a pagamento supportate da un contratto di contratto finanziario. Leggere [qui per altre informazioni](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/) sul contratto di contratto per le VM di Azure e su come aumentare la disponibilità con funzionalità come [zone di disponibilità][availability-zones].
+È importante riconoscere la distinzione tra la disponibilità del servizio AKS, che fa riferimento al tempo di esecuzione del piano di controllo Kubernetes e alla disponibilità del carico di lavoro specifico in esecuzione nelle macchine virtuali di Azure. Sebbene il piano di controllo non sia disponibile se il piano di controllo non è pronto, i carichi di lavoro del cluster in esecuzione in macchine virtuali di Azure possono comunque funzionare. Le macchine virtuali di Azure sono risorse a pagamento supportate da un contratto di contratto finanziario. Leggere [qui per altre informazioni](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) sul contratto di contratto per le VM di Azure e su come aumentare la disponibilità con funzionalità come [zone di disponibilità][availability-zones].
 
 ## <a name="why-cant-i-set-maxpods-below-30"></a>Perché non è possibile impostare maxPods sotto 30?
 
-In AKS è possibile impostare il `maxPods` valore durante la creazione del cluster usando l'interfaccia della riga di comando di Azure e i modelli Azure Resource Manager. Tuttavia, sia Kubenet che Azure CNI richiedono un *valore minimo* (convalidato al momento della creazione):
+In AKS è possibile impostare il valore `maxPods` quando si crea il cluster usando l'interfaccia della riga di comando di Azure e i modelli di Azure Resource Manager. Tuttavia, sia Kubenet che Azure CNI richiedono un *valore minimo* (convalidato al momento della creazione):
 
 | Rete | Minima | Massima |
 | -- | :--: | :--: |
 | Azure CNI | 30 | 250 |
 | Kubenet | 30 | 110 |
 
-Poiché AKS è un servizio gestito, i componenti aggiuntivi e i pod vengono distribuiti e gestiti come parte del cluster. In passato, gli utenti potevano definire un `maxPods` valore inferiore a quello necessario per l'esecuzione dei Pod gestiti (ad esempio, 30). AKS calcola ora il numero minimo di pod usando la formula seguente: ((maxPods o (maxPods * vm_count)) > il numero minimo di Pod del componente aggiuntivo gestito.
+Poiché AKS è un servizio gestito, i componenti aggiuntivi e i pod vengono distribuiti e gestiti come parte del cluster. In passato, gli utenti potevano definire un valore di `maxPods` inferiore al valore che i pod gestiti richiedevano di eseguire (ad esempio, 30). AKS calcola ora il numero minimo di pod usando la formula seguente: ((maxPods o (maxPods * vm_count)) > il numero minimo di Pod del componente aggiuntivo gestito.
 
-Gli utenti non possono eseguire `maxPods` l'override della convalida minima.
+Gli utenti non possono eseguire l'override della convalida `maxPods` minima.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>È possibile applicare gli sconti per le prenotazioni di Azure ai nodi dell'agente AKS?
 
@@ -139,7 +139,7 @@ I nodi dell'agente AKS vengono fatturati come macchine virtuali standard di Azur
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>È possibile spostare/migrare il cluster tra i tenant di Azure?
 
-Il `az aks update-credentials` comando può essere usato per spostare un cluster AKS tra i tenant di Azure. Seguire le istruzioni in [scegliere di aggiornare o creare un'entità servizio](https://docs.microsoft.com/azure/aks/update-credentials) e quindi [aggiornare il cluster AKS con le nuove credenziali](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-credentials).
+È possibile usare il comando `az aks update-credentials` per spostare un cluster AKS tra i tenant di Azure. Seguire le istruzioni in [scegliere di aggiornare o creare un'entità servizio](https://docs.microsoft.com/azure/aks/update-credentials) e quindi [aggiornare il cluster AKS con le nuove credenziali](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-credentials).
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>È possibile spostare/migrare il cluster tra le sottoscrizioni?
 
@@ -161,17 +161,17 @@ La maggior parte dei cluster viene eliminata in seguito alla richiesta dell'uten
 
 No, eliminare o rimuovere tutti i nodi con stato di errore o rimossi dal cluster prima di eseguire l'aggiornamento.
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>È stata eseguita un'eliminazione del cluster, ma viene visualizzato l'errore `[Errno 11001] getaddrinfo failed` 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>È stata eseguita un'eliminazione del cluster, ma è stato visualizzato l'errore `[Errno 11001] getaddrinfo failed` 
 
 In genere, ciò è dovuto al fatto che gli utenti che dispongono di uno o più gruppi di sicurezza di rete (gruppi) sono ancora in uso e associati al cluster.  Rimuoverli e ripetere l'operazione di eliminazione.
 
 ## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>Ho eseguito un aggiornamento, ma ora i pod sono in cicli di arresto anomalo e i probe di conformità hanno esito negativo?
 
-Verificare che l'entità servizio non sia scaduta.  Vedere: Credenziali dell' [entità servizio](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) e di [aggiornamento AKS](https://docs.microsoft.com/azure/aks/update-credentials).
+Verificare che l'entità servizio non sia scaduta.  Vedere: [AKS Service Principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) e [AKS Update Credentials](https://docs.microsoft.com/azure/aks/update-credentials).
 
 ## <a name="my-cluster-was-working-but-suddenly-can-not-provision-loadbalancers-mount-pvcs-etc"></a>Il mio cluster funzionava, ma improvvisamente non è in grado di eseguire il provisioning di LoadBalancers, montare PVC e così via? 
 
-Verificare che l'entità servizio non sia scaduta.  Vedere: Credenziali dell' [entità servizio](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) e di [aggiornamento AKS](https://docs.microsoft.com/azure/aks/update-credentials).
+Verificare che l'entità servizio non sia scaduta.  Vedere: [AKS Service Principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) e [AKS Update Credentials](https://docs.microsoft.com/azure/aks/update-credentials).
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>È possibile usare le API del set di scalabilità di macchine virtuali per la scalabilità manuale?
 

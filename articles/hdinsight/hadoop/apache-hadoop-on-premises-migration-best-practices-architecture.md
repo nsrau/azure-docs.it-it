@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione di cluster di Apache Hadoop locali ad Azure HDInsight-architettura
+title: 'Architettura: Apache Hadoop locali ad Azure HDInsight'
 description: Informazioni sulle procedure consigliate per l'architettura relative alla migrazione di cluster Hadoop locali ad Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4243100d74515576463a6812e31625ddc0ca1f48
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 4ef3cded9aba7bd95ecc48e1feadf6c55acd7bdc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735891"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499262"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'architettura
 
@@ -30,7 +30,7 @@ I cluster Azure HDInsight sono progettati per un tipo specifico di utilizzo dell
 |Elaborazione batch (ETL / ELT)|Hadoop, Spark|
 |Data warehousing|Hadoop, Spark, Interactive Query|
 |IoT / Streaming|Kafka, Storm, Spark|
-|Elaborazione transazionale NoSQL|hbase|
+|Elaborazione transazionale NoSQL|HBase|
 |Query interattive e più veloci con la memorizzazione nella cache in memoria|Interactive Query|
 |Data science|ML Services, Spark|
 
@@ -38,8 +38,8 @@ La tabella seguente illustra i diversi metodi che possono essere usati per crear
 
 |**Strumento**|**Basato su browser**|**Riga di comando**|**API REST**|**SDK**|
 |---|---|---|---|---|
-|[Portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md)|x||||
-|[Data factory di Azure](../hdinsight-hadoop-create-linux-clusters-adf.md)|x|X|X|X|
+|[Portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
+|[Data factory di Azure](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
 |[Interfaccia della riga di comando di Azure versione 1.0](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
@@ -75,7 +75,7 @@ I cluster di calcolo vengono creati in prossimità delle risorse dell'account di
 ## <a name="use-external-metadata-stores"></a>Usare archivi di metadati esterni
 
 
-Esistono due principali metastore che supportano i cluster HDInsight: [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). Il metastore Hive è il repository di schemi centrale che può essere usato dai motori di elaborazione dei dati, tra cui Hadoop, Spark, LLAP, Presto e Apache Pig. Il metastore Oozie archivia i dettagli sulla pianificazione e lo stato dei processi Hadoop in corso e completati.
+Sono disponibili due Metastore principali che funzionano con i cluster HDInsight: [Apache hive](https://hive.apache.org/) e [Apache oozie](https://oozie.apache.org/). Il metastore Hive è il repository di schemi centrale che può essere usato dai motori di elaborazione dei dati, tra cui Hadoop, Spark, LLAP, Presto e Apache Pig. Il metastore Oozie archivia i dettagli sulla pianificazione e lo stato dei processi Hadoop in corso e completati.
 
 
 HDInsight usa il database SQL di Azure per i metastore Hive e Oozie. Esistono due modi per configurare un metastore nei cluster HDInsight:
@@ -105,7 +105,7 @@ Di seguito sono indicate alcune procedure consigliate per il metastore Hive di H
 - Eseguire periodicamente il backup del metastore personalizzato.
 - Mantenere il metastore e il cluster HDInsight nella stessa area.
 - Monitora il Metastore per le prestazioni e la disponibilità usando gli strumenti di monitoraggio del database SQL di Azure, ad esempio portale di Azure o i log di monitoraggio di Azure.
-- Eseguire il comando **ANALYZE TABLE** all'occorrenza per generare statistiche per tabelle e colonne. Ad esempio `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- Eseguire il comando **ANALYZE TABLE** all'occorrenza per generare statistiche per tabelle e colonne. Ad esempio, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Procedure consigliate per diversi carichi di lavoro
 

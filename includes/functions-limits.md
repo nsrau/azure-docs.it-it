@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: d00af77a2d502cb534a4ab4a0db9231e5e8748b7
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ad87964216db72cfef447a18d4cd05b8a976491b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "69636432"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476965"
 ---
-| Risorsa | [Piano a consumo](../articles/azure-functions/functions-scale.md#consumption-plan) | [Piano Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Piano di servizio app](../articles/azure-functions/functions-scale.md#app-service-plan) <sup>1</sup> |
+| Risorsa | [Piano a consumo](../articles/azure-functions/functions-scale.md#consumption-plan) | [Piano Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Piano di servizio app](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
 | Scalabilità orizzontale | Basato su eventi | Basato su eventi | [Scalabilità manuale/automatica](../articles/app-service/manage-scale-up.md) | 
 | Numero massimo di istanze | 200 | 20 | 10-20 |
@@ -23,11 +23,11 @@ ms.locfileid: "69636432"
 | Lunghezza massima URL richiesta<sup>4</sup> | 8192 | 8192 | 8192 |
 | [ACU](../articles/virtual-machines/windows/acu.md) per istanza | 100 | 210-840 | 100-840 |
 | Memoria massima (GB per istanza) | 1,5 | 3,5-14 | 1,75-14 |
-| App per le funzioni per piano |100 |100 |unbounded<sup>5</sup> |
+| App per le funzioni per piano |100 |100 |non vincolato<sup>5</sup> |
 | [Piani del servizio app](../articles/app-service/overview-hosting-plans.md) | 100 per [area](https://azure.microsoft.com/global-infrastructure/regions/) |100 per gruppo di risorse |100 per gruppo di risorse |
 | Archiviazione<sup>6</sup> |1 GB |250 GB |50-1000 GB |
 | Domini personalizzati per applicazione</a> |500<sup>7</sup> |500 |500 |
-| Supporto per il dominio personalizzato [SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |connessione SNI SSL non associata inclusa | SNI SSL non vincolate e 1 IP SSL connessioni incluse |SNI SSL non vincolate e 1 IP SSL connessioni incluse | 
+| Supporto per il dominio personalizzato [SSL](../articles/app-service/configure-ssl-bindings.md) |connessione SNI SSL non associata inclusa | SNI SSL non vincolate e 1 IP SSL connessioni incluse |SNI SSL non vincolate e 1 IP SSL connessioni incluse | 
 
 <sup>1</sup> per i limiti specifici per le varie opzioni del piano di servizio app, vedere i [limiti del piano di servizio app](../articles/azure-subscription-service-limits.md#app-service-limits).  
 <sup>2</sup> per impostazione predefinita, il timeout per il runtime di funzioni 1. x in un piano di servizio app non è associato.  

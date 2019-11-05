@@ -1,7 +1,7 @@
 ---
 title: Creare un modello di analisi della valutazione
-titleSuffix: Azure Machine Learning Studio
-description: Come creare modelli di analisi del testo in Azure Machine Learning Studio usando moduli di pre-elaborazione del testo, estrazione degli n-grammi o hashing delle caratteristiche
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Come creare modelli di analisi del testo in Azure Machine Learning Studio (classico) usando moduli per la pre-elaborazione del testo, N-grammi o hashing delle funzionalità
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 08d62e7a6c9503d415fe144da57eee72ce3bfafd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d24e4f98e987cb911a8bc0ffcd1b49e1bed8b920
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60636617"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467155"
 ---
-# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Creare un modello di analisi della valutazione in Azure Machine Learning Studio
+# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Creare un modello di analisi dei sentimenti in Azure Machine Learning Studio (classico)
 
-È possibile usare Azure Machine Learning Studio per creare modelli di analisi del testo e renderli operativi. Questi modelli consentono di risolvere, ad esempio, problemi di classificazione dei documenti o analisi di valutazione.
+È possibile usare Azure Machine Learning Studio (classico) per compilare e rendere operativo i modelli di analisi del testo. Questi modelli consentono di risolvere, ad esempio, problemi di classificazione dei documenti o analisi di valutazione.
 
 In un esperimento di analisi del testo è necessario in genere:
 
@@ -29,7 +29,7 @@ In un esperimento di analisi del testo è necessario in genere:
 4. Assegnare un punteggio e convalidare il modello
 5. Distribuire il modello in produzione
 
-In questa esercitazione si apprenderanno questi passaggi eseguendo un modello di analisi di valutazione usando il set di dati di Amazon Book Reviews (vedere il documento di ricerca “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” di John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007. Questo set di dati è costituito da punteggi di recensione (1-2 o 4-5) e testo in formato libero. L'obiettivo consiste nella stima del punteggio di recensione: basso (1-2) o alto (4-5).
+In questa esercitazione vengono illustrati questi passaggi illustrati in dettaglio un modello di analisi dei sentimenti usando il set di dati di Amazon Book revisioni (vedere il documento di ricerca "Biographies, Bollywood, boom-boxs and Blenders: Domain adaptation for sentimento Classification" di John Blitzer, Mark Dredze e Fernando Pereira; Associazione di linguaggi di calcolo (ACL), 2007). Questo set di dati è costituito dai punteggi di revisione (1-2 o 4-5) e da un testo in formato libero. L'obiettivo consiste nella stima del punteggio di recensione: basso (1-2) o alto (4-5).
 
 È possibile trovare gli esperimenti trattati in questa esercitazione nella raccolta Azure AI Gallery:
 
@@ -50,7 +50,7 @@ Se si desidera usare un elenco di parole non significative personalizzato? È po
 
 Dopo aver completato la pre-elaborazione, si suddividono i dati in set di addestramento e set di test.
 
-## <a name="step-2-extract-numeric-feature-vectors-from-pre-processed-text"></a>Passaggio 2: Estrarre i vettori di caratteristiche numeriche dal testo pre-elaborato
+## <a name="step-2-extract-numeric-feature-vectors-from-pre-processed-text"></a>Passaggio 2: Estrarre vettori di caratteristiche numeriche dal testo pre-elaborato
 Per compilare un modello per i dati di testo è necessario in genere convertire il testo in formato libero in vettori di caratteristiche numeriche. In questo esempio si usa il modulo [Extract N-Gram Features from Text](https://msdn.microsoft.com/library/azure/mt762916.aspx) per trasformare i dati di testo in tale formato. Il modulo accetta una colonna di parole separate da spazi e calcola un dizionario di parole, o n-grammi di parole, che vengono visualizzate nel set di dati. Quindi conta il numero di volte in cui ogni parola, o n-gramma, compare in ogni record e crea vettori di caratteristiche da questi conteggi. In questa esercitazione impostiamo la dimensione dell'n-gramma su 2 quindi i nostri vettori di caratteristiche includono singole parole e combinazioni di due parole consecutive.
 
 ![Estrazione degli n-grammi](./media/text-analytics-module-tutorial/extract-ngrams.png)
@@ -66,7 +66,7 @@ In alternativa all'uso al modulo Extract N-Gram Features è possibile usare il m
 ## <a name="step-3-train-classification-or-regression-model"></a>Passaggio 3: Addestrare il modello di classificazione o regressione
 Il testo è stato ora trasformato in colonne di caratteristiche numeriche. Il set di dati contiene ancora le colonne di stringhe dalle fasi precedenti, perciò usiamo Select Columns in Dataset per escluderle.
 
-Usiamo poi [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) per stimare il target: punteggio di recensione alto o basso. A questo punto il problema di analisi del testo è stato trasformato in un normale problema di classificazione. È possibile usare gli strumenti disponibili in Azure Machine Learning Studio per migliorare il modello. Ad esempio è possibile sperimentare diversi classificatori per scoprire l'accuratezza dei loro risultati o usare l'ottimizzazione con iperparametri per migliorare l'accuratezza.
+Usiamo poi [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) per stimare il target: punteggio di recensione alto o basso. A questo punto il problema di analisi del testo è stato trasformato in un normale problema di classificazione. Per migliorare il modello, è possibile usare gli strumenti disponibili nella versione classica di Azure Machine Learning Studio. Ad esempio è possibile sperimentare diversi classificatori per scoprire l'accuratezza dei loro risultati o usare l'ottimizzazione con iperparametri per migliorare l'accuratezza.
 
 ![Addestramento e assegnazione dei punteggi](./media/text-analytics-module-tutorial/scoring-text.png)
 
@@ -86,6 +86,6 @@ Si inseriscono le colonne selezionate nel modulo Select Columns in Dataset prima
 
 Ora abbiamo un esperimento che può essere pubblicato come servizio Web e chiamato mediante le API di richiesta-risposta o di esecuzione in batch.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sui moduli di analisi del testo, vedere la [documentazione su MSDN](https://msdn.microsoft.com/library/azure/dn905886.aspx).
 

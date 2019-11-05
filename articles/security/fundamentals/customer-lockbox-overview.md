@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 06/20/2019
-ms.openlocfilehash: 7ca5c890b1f3161923cd808c5ecec0ccf0165d64
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.date: 11/04/2019
+ms.openlocfilehash: 7c0409d48876a0f830366381c2a46821c4aa03a0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727504"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466415"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox per Microsoft Azure
 
@@ -74,8 +74,8 @@ La procedura seguente illustra un flusso di lavoro tipico per una richiesta di C
     ![Azure Customer Lockbox-selezionare approva o nega](./media/customer-lockbox-overview/customer-lockbox-approval.png)
     
     In seguito alla selezione:
-    - **Approva**:  L'accesso viene concesso al tecnico Microsoft. L'accesso viene concesso per un periodo predefinito di otto ore.
-    - **Nega**: La richiesta di accesso con privilegi elevati da parte del tecnico Microsoft è stata rifiutata e non vengono eseguite altre azioni.
+    - **Approva**: l'accesso viene concesso al tecnico Microsoft. L'accesso viene concesso per un periodo predefinito di otto ore.
+    - **Deny**: la richiesta di accesso con privilegi elevati da parte del tecnico Microsoft è stata rifiutata e non vengono eseguite altre azioni.
 
 Ai fini del controllo, le azioni eseguite in questo flusso di lavoro vengono registrate [Customer Lockbox log delle richieste](#auditing-logs).
 
@@ -91,7 +91,7 @@ Ad esempio:
 
 ![Azure Customer Lockbox-log attività](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## <a name="supported-services-and-scenarios"></a>Scenari e servizi supportati
+## <a name="supported-services-and-scenarios-in-general-availability"></a>Servizi e scenari supportati in disponibilità generale
 
 I servizi e gli scenari seguenti sono attualmente disponibili a livello generale per Customer Lockbox.
 
@@ -108,6 +108,23 @@ Customer Lockbox è attualmente abilitata per le richieste di accesso desktop re
 #### <a name="detailed-audit-logs"></a>Log di controllo dettagliati
 
 Per gli scenari che prevedono l'accesso desktop remoto, è possibile utilizzare i registri eventi di Windows per esaminare le azioni eseguite dal tecnico Microsoft. Provare a usare il Centro sicurezza di Azure per raccogliere i log eventi e copiare i dati nell'area di lavoro per l'analisi. Per altre informazioni, vedere [raccolta dati nel centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md).
+
+## <a name="supported-services-and-scenarios-in-preview"></a>Servizi e scenari supportati in anteprima
+
+I servizi seguenti sono ora attualmente disponibili in anteprima per Customer Lockbox:
+
+- Archiviazione di Azure 
+
+- Database SQL di Azure 
+
+- Esplora dati di Azure 
+
+- Macchine virtuali (ora che copre anche l'accesso ai dump della memoria e ai dischi gestiti) 
+
+- Trasferimenti di sottoscrizioni di Azure
+
+Per abilitare Customer Lockbox per queste offerte di anteprima per l'organizzazione, iscriversi per [Customer Lockbox per l'anteprima pubblica di Azure](https://aka.ms/customerlockbox/insiderprogram).
+
 
 ## <a name="exclusions"></a>Esclusioni
 

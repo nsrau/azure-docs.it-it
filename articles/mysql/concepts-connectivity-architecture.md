@@ -1,32 +1,32 @@
 ---
-title: Architettura della connettività nel Database di Azure per MySQL
-description: Descrive l'architettura della connettività per il Database di Azure per il server MySQL.
+title: Architettura di connettività nel database di Azure per MySQL
+description: Descrive l'architettura di connettività per il database di Azure per il server MySQL.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 7a7ac843960e253b3172d1ed22fe5b59633897dc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 664d3d4333f8c34a8c5dc6648da2beccc4d7a6a2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062474"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498444"
 ---
-# <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architettura della connettività nel Database di Azure per MySQL
-Questo articolo illustra il Database di Azure per MySQL e architettura della connettività del modo in cui il traffico viene indirizzato al Database di Azure per l'istanza di MySQL dal client all'interno e all'esterno di Azure.
+# <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architettura di connettività nel database di Azure per MySQL
+Questo articolo illustra l'architettura di connettività del database di Azure per MySQL e il modo in cui il traffico viene indirizzato all'istanza di database di Azure per MySQL da client sia all'interno che all'esterno di Azure.
 
 ## <a name="connectivity-architecture"></a>Architettura della connettività
-Connessione al Database di Azure per MySQL viene stabilito tramite un gateway che è responsabile per le connessioni in ingresso di routing alla posizione fisica del server nel nostro cluster. Il diagramma seguente illustra il flusso del traffico.
+La connessione al database di Azure per MySQL viene stabilita tramite un gateway responsabile del routing delle connessioni in ingresso alla posizione fisica del server nei cluster. Il diagramma seguente illustra il flusso del traffico.
 
 ![Panoramica dell'architettura di connettività](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-Come client di connettersi al database, si ottiene una stringa di connessione che si connette al gateway. Questo gateway ha un indirizzo IP pubblico che è in ascolto sulla porta 3306. All'interno del cluster di database, il traffico viene inoltrato al Database appropriato in Azure per MySQL. Pertanto, per connettersi al server, ad esempio, da reti aziendali, è necessario aprire il firewall sul lato client per consentire il traffico in uscita sia in grado di raggiungere il gateway. Di seguito è possibile trovare un elenco completo degli indirizzi IP usati dai nostri gateway per ogni area.
+Quando il client si connette al database, ottiene una stringa di connessione che si connette al gateway. Questo gateway ha un indirizzo IP pubblico che è in ascolto sulla porta 3306. All'interno del cluster di database, il traffico viene inviato al database di Azure per MySQL appropriato. Pertanto, per connettersi al server, ad esempio dalle reti aziendali, è necessario aprire il firewall sul lato client per consentire al traffico in uscita di raggiungere i nostri Gateway. Di seguito è possibile trovare un elenco completo degli indirizzi IP usati dai gateway per area.
 
-## <a name="azure-database-for-mysql-gateway-ip-addresses"></a>Database di Azure per MySQL indirizzi IP del gateway
-La tabella seguente elenca gli indirizzi IP primari e secondari del Database di Azure per MySQL gateway per tutte le aree dati. L'indirizzo IP primario è l'indirizzo IP corrente del gateway e il secondo indirizzo IP è un indirizzo IP di failover in caso di errore del database primario. Come accennato, i clienti devono consentire in uscita verso entrambi gli indirizzi IP. Il secondo indirizzo IP è in ascolto su alcun servizio fino a quando non viene attivato dal Database di Azure per MySQL accettare connessioni.
+## <a name="azure-database-for-mysql-gateway-ip-addresses"></a>Indirizzi IP del gateway di database di Azure per MySQL
+La tabella seguente elenca gli indirizzi IP primari e secondari del database di Azure per il gateway MySQL per tutte le aree dati. L'indirizzo IP primario è l'indirizzo IP corrente del gateway e il secondo indirizzo IP è un indirizzo IP di failover in caso di errore del database primario. Come indicato in precedenza, i clienti devono consentire il traffico in uscita verso gli indirizzi IP. Il secondo indirizzo IP non è in ascolto in alcun servizio fino a quando non viene attivato da database di Azure per MySQL per accettare le connessioni.
 
-| **Nome dell'area** | **Indirizzo IP primario** | **Indirizzo IP secondario** |
+| **Nome area** | **Indirizzo IP primario** | **Indirizzo IP secondario** |
 |:----------------|:-------------|:------------------------|
 | Australia orientale | 13.75.149.87 | 40.79.161.1 |
 | Australia sud-orientale | 191.239.192.109 | 13.73.109.251 |
@@ -54,6 +54,9 @@ La tabella seguente elenca gli indirizzi IP primari e secondari del Database di 
 | Europa settentrionale | 191.235.193.75 | 40.113.93.91 |
 | Stati Uniti centro-meridionali | 23.98.162.75 | 13.66.62.124 |
 | Asia sudorientale | 23.100.117.95 | 104.43.15.0 |
+| Sudafrica settentrionale | 102.133.152.0 | |
+| Sudafrica occidentale | 102.133.24.0 | |
+| Emirati Arabi Uniti settentrionali | 65.52.248.0 | |
 | Regno Unito meridionale | 51.140.184.11 | |
 | Regno Unito occidentale | 51.141.8.11| |
 | Europa occidentale | 191.237.232.75 | 40.68.37.158 |
@@ -67,5 +70,5 @@ La tabella seguente elenca gli indirizzi IP primari e secondari del Database di 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare e gestire regole del firewall di Database di Azure per MySQL con il portale di Azure](./howto-manage-firewall-using-portal.md)
-* [Creare e gestire Database di Azure per le regole del firewall MySQL tramite la CLI di Azure](./howto-manage-firewall-using-cli.md)
+* [Creare e gestire regole del firewall di database di Azure per MySQL usando l'interfaccia della riga di comando](./howto-manage-firewall-using-cli.md)
 

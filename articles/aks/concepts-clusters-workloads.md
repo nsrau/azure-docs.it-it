@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: 3792eed170d3e3e1cdd267c0c88d2d2d6c520733
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: da84f72c1ccf85e1f3d0f003a5aca961118c0a0e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672804"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472888"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
@@ -50,7 +50,7 @@ Il master del cluster include i componenti di Kubernetes principali seguenti:
 - *kube-scheduler*: quando si creano o si ridimensionano applicazioni, l'Utilità di pianificazione determina quali nodi possono eseguire il carico di lavoro e li avvia.
 - *kube-controller-manager*: lo strumento di gestione del controller supervisiona molti controller più piccoli che eseguono azioni, ad esempio la replica di pod e la gestione delle operazioni dei nodi.
 
-servizio Azure Kubernetes fornisce un master del cluster a tenant singolo con un server API, un'Utilità di pianificazione e altri elementi dedicati. L'utente definisce il numero e la dimensioni dei nodi mentre la piattaforma Azure configura la comunicazione sicura tra il master del cluster e i nodi. L'interazione con il master del cluster si verifica mediante le API di Kubernetes, ad esempio `kubectl` o il dashboard di Kubernetes.
+AKS fornisce un master cluster a tenant singolo con un server API dedicato, un'utilità di pianificazione e così via. Si definiscono il numero e le dimensioni dei nodi e la piattaforma Azure configura la comunicazione protetta tra il master del cluster e i nodi. L'interazione con il master del cluster si verifica mediante le API di Kubernetes, ad esempio `kubectl` o il dashboard di Kubernetes.
 
 Questo Master di cluster gestiti significa che non è necessario configurare componenti come un archivio *ETCD* a disponibilità elevata, ma significa anche che non è possibile accedere direttamente al master del cluster. Gli aggiornamenti di Kubernetes sono orchestrati tramite l'interfaccia della riga di comando di Azure o il portale di Azure che aggiorna il master del cluster e quindi i nodi. Per risolvere eventuali problemi è possibile esaminare il log del master del cluster tramite i log di Monitoraggio di Azure.
 
@@ -76,7 +76,7 @@ Se è necessario usare un sistema operativo host diverso, un runtime del conteni
 
 ### <a name="resource-reservations"></a>Prenotazioni di risorse
 
-Le risorse del nodo vengono usate da AKS per rendere la funzione del nodo come parte del cluster. Questo può creare una discrepency tra le risorse totali del nodo e le risorse allocabili quando viene usato in AKS. Questo aspetto è importante da notare quando si impostano le richieste e i limiti per i pod distribuiti dall'utente.
+Le risorse del nodo vengono usate da AKS per rendere la funzione del nodo come parte del cluster. Questo può creare una discrepanza tra le risorse totali del nodo e le risorse allocabili quando viene usato in AKS. Questo aspetto è importante da notare quando si impostano le richieste e i limiti per i pod distribuiti dall'utente.
 
 Per trovare le risorse allocabili di un nodo, eseguire:
 ```kubectl
@@ -110,7 +110,7 @@ Per le procedure consigliate associate, vedere procedure consigliate [per le fun
 
 ### <a name="node-pools"></a>Pool di nodi
 
-I nodi della stessa configurazione sono raggruppati in *pool di nodi*. Un cluster Kubernetes contiene uno o più pool di nodi. Il numero e la dimensione iniziale dei nodi sono definiti quando si crea un cluster servizio Azure Kubernetes, infatti viene creato un *pool di nodi predefinito*. Questo pool di nodi predefinito in servizio Azure Kubernetes contiene le macchine virtuali sottostanti che eseguono i nodi dell'agente. Il supporto per più pool di nodi è attualmente disponibile in anteprima in AKS.
+I nodi della stessa configurazione sono raggruppati in *pool di nodi*. Un cluster Kubernetes contiene uno o più pool di nodi. Il numero e la dimensione iniziale dei nodi sono definiti quando si crea un cluster servizio Azure Kubernetes, infatti viene creato un *pool di nodi predefinito*. Questo pool di nodi predefinito in servizio Azure Kubernetes contiene le macchine virtuali sottostanti che eseguono i nodi dell'agente.
 
 > [!NOTE]
 > Per garantire il funzionamento affidabile del cluster, è consigliabile eseguire almeno 2 (due) nodi nel pool di nodi predefinito.

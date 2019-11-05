@@ -1,27 +1,28 @@
 ---
-title: Monitorare le prestazioni del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori | Microsoft Docs
+title: Monitorare le prestazioni del cluster Kubernetes con monitoraggio di Azure per i contenitori | Microsoft Docs
 description: Questo articolo descrive come è possibile visualizzare e analizzare i dati di log e prestazioni con Monitoraggio di Azure per contenitori.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 09/17/2019
-ms.openlocfilehash: a65951a90767acce5570244af8a9250845e12def
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: f1a5d0d98a442fab80744636eea05d4c2d26f919
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554236"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478989"
 ---
-# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Conoscere le prestazioni del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori
-Con monitoraggio di Azure per i contenitori, è possibile usare i grafici delle prestazioni e lo stato di integrità per monitorare il carico di lavoro dei cluster di Azure Kubernetes Service (AKS) da due prospettive. È possibile monitorare direttamente da un cluster AKS oppure è possibile monitorare tutti i cluster AKS in una sottoscrizione da monitoraggio di Azure. La visualizzazione di istanze di contenitore di Azure è anche possibile quando si monitora un cluster AKS specifico.
+# <a name="understand-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Informazioni sulle prestazioni del cluster Kubernetes con monitoraggio di Azure per i contenitori
+
+Con monitoraggio di Azure per i contenitori, è possibile usare i grafici delle prestazioni e lo stato di integrità per monitorare il carico di lavoro dei cluster Kubernetes ospitati in Azure Kubernetes Service (AKS), Azure Stack o in un altro ambiente da due prospettive. È possibile monitorare direttamente dal cluster oppure è possibile visualizzare tutti i cluster in una sottoscrizione da monitoraggio di Azure. È possibile visualizzare le istanze di contenitore di Azure anche durante il monitoraggio di un cluster AKS specifico.
 
 Questo articolo consente di comprendere le due prospettive e il modo in cui monitoraggio di Azure consente di valutare, analizzare e risolvere rapidamente i problemi rilevati.
 
 Per informazioni su come abilitare monitoraggio di Azure per i contenitori, vedere caricare il [monitoraggio di Azure per i contenitori](container-insights-onboard.md).
 
-Monitoraggio di Azure offre una visualizzazione a più cluster che mostra lo stato di integrità di tutti i cluster AKS monitorati che eseguono Linux e Windows Server 2019 distribuiti tra gruppi di risorse nelle sottoscrizioni. Mostra i cluster AKS individuati che non sono monitorati dalla soluzione. È possibile comprendere immediatamente l'integrità del cluster e, da qui, è possibile eseguire il drill-down nella pagina delle prestazioni del nodo e del controller oppure spostarsi per visualizzare i grafici delle prestazioni per il cluster. Per i cluster AKS individuati e identificati come non monitorati, è possibile abilitare il monitoraggio in qualsiasi momento. 
+Monitoraggio di Azure offre una visualizzazione a più cluster che mostra lo stato di integrità di tutti i cluster Kubernetes monitorati che eseguono Linux e Windows Server 2019 distribuiti tra gruppi di risorse nelle sottoscrizioni. Mostra i cluster individuati in tutti gli ambienti che non sono monitorati dalla soluzione. È possibile comprendere immediatamente l'integrità del cluster e, da qui, è possibile eseguire il drill-down nella pagina delle prestazioni del nodo e del controller oppure spostarsi per visualizzare i grafici delle prestazioni per il cluster. Per i cluster AKS individuati e identificati come non monitorati, è possibile abilitare il monitoraggio in qualsiasi momento. 
 
 Le principali differenze nel monitoraggio di un cluster di Windows Server con monitoraggio di Azure per i contenitori rispetto a un cluster Linux sono le seguenti:
 
@@ -37,9 +38,20 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Visualizzazione multicluster da Monitoraggio di Azure
 
-Per visualizzare lo stato di integrità di tutti i cluster AKS distribuiti, selezionare **monitoraggio** dal riquadro a sinistra nel portale di Azure. Nella sezione **Informazioni dettagliate** selezionare **Contenitori**. 
+Per visualizzare lo stato di integrità di tutti i cluster Kubernetes distribuiti, selezionare **monitoraggio** dal riquadro a sinistra nel portale di Azure. Nella sezione **Informazioni dettagliate** selezionare **Contenitori**. 
 
 ![Esempio di dashboard multicluster di Monitoraggio di Azure](./media/container-insights-analyze/azmon-containers-multiview.png)
+
+È possibile definire l'ambito dei risultati presentati nella griglia per visualizzare i cluster che sono:
+
+* Cluster **Azure** -AKS e AKS-Engine ospitati nel servizio Azure Kubernetes
+* **Azure stack (anteprima)** -cluster AKS-Engine ospitati in Azure stack
+* **Non Azure (anteprima)** : cluster Kubernetes ospitati in locale
+* **Tutto** -Visualizza tutti i cluster Kubernetes ospitati in azure, Azure stack e gli ambienti locali che vengono caricati in monitoraggio di Azure per i contenitori
+
+Per visualizzare i cluster da un ambiente specifico, selezionarlo dalla pillola **ambienti** nell'angolo superiore sinistro della pagina.
+
+![Esempio di selettore di pillola dell'ambiente](./media/container-insights-analyze/clusters-multiview-environment-pill.png)
 
 Nella scheda **cluster monitorati** viene illustrato quanto segue:
 
@@ -64,42 +76,45 @@ Lo stato di integrità calcola lo stato complessivo del cluster come il *peggior
 
 Nella tabella seguente viene fornita una suddivisione del calcolo che controlla gli Stati di integrità per un cluster monitorato nella visualizzazione multicluster.
 
-| |Status |Disponibilità |  
+| |Stato |Disponibilità |  
 |-------|-------|-----------------|  
 |**Pod utente**| | |  
-| |Integro |100% |  
+| |Healthy |100% |  
 | |Avviso |90 - 99% |  
 | |Critico |<90% |  
 | |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |  
 |**Pod di sistema**| | |  
-| |Integro |100% |
+| |Healthy |100% |
 | |Avviso |N/D |
 | |Critico |<100% |
 | |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
 |**Node** | | |
-| |Integro |>85% |
+| |Healthy |>85% |
 | |Avviso |60 - 84% |
 | |Critico |<60% |
 | |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
 
-Dall'elenco dei cluster è possibile eseguire il drill-down nella pagina del **cluster** selezionando il nome del cluster. Passare quindi alla pagina prestazioni **nodi** selezionando il rollup dei nodi nella colonna **nodi** per quel cluster specifico. In alternativa, è possibile eseguire il drill-down nella pagina prestazioni **controller** selezionando il rollup della colonna **Pod utente** o **pod di sistema** .  
+Dall'elenco dei cluster è possibile eseguire il drill-down nella pagina del **cluster** selezionando il nome del cluster. Passare quindi alla pagina prestazioni **nodi** selezionando il rollup dei nodi nella colonna **nodi** per quel cluster specifico. In alternativa, è possibile eseguire il drill-down nella pagina prestazioni **controller** selezionando il rollup della colonna **Pod utente** o **pod di sistema** .
 
-## <a name="view-performance-directly-from-an-aks-cluster"></a>Visualizzare le prestazioni direttamente da un cluster di servizio Azure Kubernetes
+## <a name="view-performance-directly-from-a-cluster"></a>Visualizzare le prestazioni direttamente da un cluster
 
-L'accesso a monitoraggio di Azure per i contenitori è disponibile direttamente da un cluster AKS selezionando **Insights** nel riquadro sinistro. Le informazioni sul cluster AKS sono organizzate in quattro prospettive:
+L'accesso a monitoraggio di Azure per i contenitori è disponibile direttamente da un cluster AKS selezionando **insights** > **cluster** dal riquadro a sinistra oppure quando è stato selezionato un cluster dalla visualizzazione a più cluster. Le informazioni sul cluster sono organizzate in quattro prospettive:
 
 - HDInsight
 - Nodi 
 - Controller 
 - Contenitori
 
-Viene visualizzata la pagina predefinita quando si seleziona **insights**  > **cluster**. I grafici delle prestazioni a quattro linee visualizzano le metriche delle prestazioni chiave del cluster. 
+>[!NOTE]
+>L'esperienza descritta nella parte restante di questo articolo è applicabile anche per la visualizzazione dello stato delle prestazioni e dell'integrità dei cluster Kubernetes ospitati in Azure Stack o in un altro ambiente se selezionato dalla vista a più cluster. 
+
+Viene visualizzata la pagina predefinita con quattro grafici delle prestazioni in linea che mostrano le metriche delle prestazioni chiave del cluster. 
 
 ![Grafici delle prestazioni di esempio nella scheda Cluster](./media/container-insights-analyze/containers-cluster-perfview.png)
 
 I grafici delle prestazioni mostrano quattro metriche delle prestazioni:
 
-- **Utilizzo CPU nodo &nbsp; %** : una prospettiva aggregata di utilizzo della CPU per l'intero cluster. Per filtrare i risultati per l'intervallo di tempo, selezionare **AVG**, **min**, **cinquantesimo**, **90**, **95**o **Max** nel selettore percentile sopra il grafico. I filtri possono essere usati singolarmente o combinati. 
+- **Utilizzo CPU nodo&nbsp;%** : una prospettiva aggregata di utilizzo della CPU per l'intero cluster. Per filtrare i risultati per l'intervallo di tempo, selezionare **AVG**, **min**, **cinquantesimo**, **90**, **95**o **Max** nel selettore percentile sopra il grafico. I filtri possono essere usati singolarmente o combinati. 
 - **Node memory utilization&nbsp;%** (% uso memoria nodo): una prospettiva aggregata dell'uso della memoria per l'intero cluster. Per filtrare i risultati per l'intervallo di tempo, selezionare **AVG**, **min**, **cinquantesimo**, **90**, **95**o **Max** nel selettore percentile sopra il grafico. I filtri possono essere usati singolarmente o combinati. 
 - **Node count** (Numero di nodi): il numero e lo stato dei nodi in Kubernetes. Gli Stati dei nodi del cluster rappresentati sono totale, pronto e non pronto. Possono essere filtrate singolarmente o combinate nel selettore sopra il grafico. 
 - **Numero di Pod attivi**: numero di Pod e stato da Kubernetes. Gli Stati dei Pod rappresentati sono totale, in sospeso, in esecuzione, sconosciuto, completato o non riuscito. Possono essere filtrate singolarmente o combinate nel selettore sopra il grafico. 
@@ -112,7 +127,7 @@ Il monitoraggio di Azure per i contenitori supporta anche [Esplora metriche](../
 
 In Esplora metriche è possibile visualizzare le metriche di utilizzo dei nodi e dei Pod aggregati da monitoraggio di Azure per i contenitori. La tabella seguente riepiloga i dettagli che consentono di comprendere come usare i grafici delle metriche per visualizzare le metriche dei contenitori.
 
-|Spazio dei nomi | Metrica | Description | 
+|Spazio dei nomi | Metrica | Descrizione | 
 |----------|--------|-------------|
 | Insights. contenitore/nodi | |
 | | cpuUsageMillicores | Misurazione aggregata dell'utilizzo della CPU nel cluster. Si tratta di un core CPU suddiviso in unità 1000 (Milli = 1000). Usato per determinare l'utilizzo dei core in un contenitore in cui molte applicazioni potrebbero usare un core.| 
@@ -136,13 +151,9 @@ In Esplora metriche è possibile visualizzare le metriche di utilizzo dei nodi e
 
 Quando si passa alle schede **nodi**, **controller**e **contenitori** , viene visualizzato automaticamente un riquadro proprietà sul lato destro della pagina. Mostra le proprietà dell'elemento selezionato, che include le etichette definite per organizzare gli oggetti Kubernetes. Quando si seleziona un nodo Linux, la sezione **capacità disco locale** Mostra anche lo spazio su disco disponibile e la percentuale usata per ogni disco presentato al nodo. Selezionare il collegamento **>>** nel riquadro per visualizzare o nascondere il riquadro.
 
-![Riquadri delle proprietà delle prospettive Kubernetes di esempio](./media/container-insights-analyze/perspectives-preview-pane-01.png)
-
-Quando si espandono gli oggetti nella gerarchia, il riquadro delle proprietà viene aggiornato in base all'oggetto selezionato. Dal riquadro è anche possibile visualizzare gli eventi Kubernetes con ricerche log predefinite selezionando il collegamento **Visualizza registri eventi Kubernetes** nella parte superiore del riquadro. Per altre informazioni su come visualizzare i dati di log di Kubernetes, vedere [eseguire ricerche nei log per analizzare i dati](container-insights-log-search.md). Quando si esaminano le risorse del cluster, è possibile visualizzare gli eventi e i log del contenitore in tempo reale. Per altre informazioni su questa funzionalità e sulla configurazione necessaria per concedere e controllare l'accesso, vedere [visualizzare i log in tempo reale con monitoraggio di Azure per i contenitori](container-insights-live-logs.md). 
+Quando si espandono gli oggetti nella gerarchia, il riquadro delle proprietà viene aggiornato in base all'oggetto selezionato. Dal riquadro è anche possibile visualizzare i log del contenitore Kubernetes (stdout/stderrr), gli eventi e le metriche Pod selezionando il collegamento **Visualizza dati in tempo reale (anteprima)** nella parte superiore del riquadro. Per ulteriori informazioni sulla configurazione necessaria per concedere e controllare l'accesso per visualizzare questi dati, vedere [configurare i dati in tempo reale (anteprima)](container-insights-livedata-setup.md). Quando si esaminano le risorse del cluster, è possibile visualizzare i dati dal contenitore in tempo reale. Per altre informazioni su questa funzionalità, vedere [come visualizzare i log Kubernetes, gli eventi e le metriche pod in tempo reale](container-insights-livedata-overview.md). Per visualizzare i dati di log di Kubernetes archiviati nell'area di lavoro in base alle ricerche log predefinite, selezionare **Visualizza log contenitori** dall'elenco **a discesa Visualizza in analisi** . Per altre informazioni su questo argomento, vedere [eseguire ricerche nei log per analizzare i dati](container-insights-log-search.md#search-logs-to-analyze-data).
 
 Usare l'opzione **+ Aggiungi filtro** nella parte superiore della pagina per filtrare i risultati per la visualizzazione in base al **servizio**, al **nodo**, **allo spazio dei nomi**o al **pool di nodi**. Dopo aver selezionato l'ambito del filtro, selezionare uno dei valori mostrati nel campo **Seleziona valore/i** . Dopo aver configurato il filtro, questo viene applicato globalmente durante la visualizzazione di qualsiasi prospettiva del cluster AKS. La formula supporta solo il segno di uguale. È possibile aggiungere altri filtri sopra il primo per limitare ulteriormente i risultati. Se ad esempio si specifica un filtro in base al **nodo**, è possibile selezionare solo il **servizio** o **lo spazio dei nomi** per il secondo filtro.
-
-![Esempio di utilizzo del filtro per limitare i risultati](./media/container-insights-analyze/add-filter-option-01.png)
 
 La specifica di un filtro in una scheda continua a essere applicata quando si seleziona un'altra scheda. Viene eliminato dopo aver selezionato il simbolo **x** accanto al filtro specificato. 
 
@@ -188,16 +199,16 @@ Queste informazioni consentono di identificare rapidamente se si dispone di un g
 
 Le informazioni presentate quando si visualizza la scheda **nodi** sono descritte nella tabella seguente.
 
-| Colonna | Description | 
+| Colonna | Descrizione | 
 |--------|-------------|
-| name | Nome dell'host. |
-| Status | Visualizzazione Kubernetes dello stato del nodo. |
-| Min &nbsp;%, media &nbsp;%, cinquantesimo &nbsp;%, 90 &nbsp;%, 95 ° &nbsp;%, Max &nbsp; %  | Percentuale media dei nodi in base al percentile durante l'intervallo di tempo selezionato. |
+| Name | Nome dell'host. |
+| Stato | Visualizzazione Kubernetes dello stato del nodo. |
+| Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95 °&nbsp;%, Max&nbsp;%  | Percentuale media dei nodi in base al percentile durante l'intervallo di tempo selezionato. |
 | Min, AVG, cinquantesimo, 90, 95, max | Valore effettivo del nodo medio basato sul percentile durante la durata selezionata. Il valore medio viene misurato in base al limite di CPU/memoria impostato per un nodo. Per i pod e i contenitori, è il valore medio segnalato dall'host. |
 | Contenitori | Numero di contenitori. |
 | Uptime | Rappresenta il tempo dall'avvio o dal riavvio di un nodo. |
 | Controller | Solo per i contenitori e i pod. Indica il controller in cui risiede. Non tutti i pod sono presenti in un controller. È quindi possibile che per alcuni sia visualizzato **N/A** per indicare che non sono disponibili. | 
-| Tendenza min &nbsp;%, media &nbsp;%, cinquantesimo &nbsp;%, 90 &nbsp;%, 95 &nbsp;%, Max &nbsp; % | Grafico a barre della tendenza che presenta il valore percentuale medio delle metriche di percentile del controller. |
+| Tendenza min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95&nbsp;%, Max&nbsp;% | Grafico a barre della tendenza che presenta il valore percentuale medio delle metriche di percentile del controller. |
 
 Nel selettore selezionare **Controller**.
 
@@ -205,7 +216,7 @@ Nel selettore selezionare **Controller**.
 
 Qui è possibile visualizzare lo stato delle prestazioni dei controller e delle istanze di contenitore i controller dei nodi virtuali o i pod dei nodi virtuali non connessi a un controller.
 
-![visualizzazione prestazioni \<Name controller >](./media/container-insights-analyze/containers-controllers-view.png)
+![visualizzazione prestazioni \<nome > controller](./media/container-insights-analyze/containers-controllers-view.png)
 
 La gerarchia di righe inizia con un controller. Quando si espande un controller, è possibile visualizzare uno o più POD. Espandendo un pod, nell'ultima riga viene mostrato il contenitore raggruppato nel pod. Da un controller espanso è possibile eseguire il drill-down sul nodo su cui è in esecuzione per visualizzare i dati sulle prestazioni filtrati per tale nodo. Le istanze di contenitore Pod non connesse a un controller sono elencate per ultime nell'elenco.
 
@@ -217,21 +228,21 @@ Selezionare il valore nella colonna **nodo** per il controller specifico.
 
 Le informazioni visualizzate quando si visualizzano i controller sono descritte nella tabella seguente.
 
-| Colonna | Description | 
+| Colonna | Descrizione | 
 |--------|-------------|
-| name | Nome del controller.|
-| Status | Stato di rollup dei contenitori al termine dell'esecuzione con lo stato, ad esempio *OK*, *terminato*, *non riuscito*, *arrestato*o *sospeso*. Se il contenitore è in esecuzione, ma lo stato non è stato visualizzato correttamente o non è stato prelevato dall'agente e non ha risposto per più di 30 minuti, lo stato è *sconosciuto*. Nella tabella seguente sono disponibili ulteriori dettagli sull'icona di stato.|
-| Min &nbsp;%, media &nbsp;%, cinquantesimo &nbsp;%, 90 &nbsp;%, 95 ° &nbsp;%, Max &nbsp; %| Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
+| Name | Nome del controller.|
+| Stato | Stato di rollup dei contenitori al termine dell'esecuzione con lo stato, ad esempio *OK*, *terminato*, *non riuscito*, *arrestato*o *sospeso*. Se il contenitore è in esecuzione, ma lo stato non è stato visualizzato correttamente o non è stato prelevato dall'agente e non ha risposto per più di 30 minuti, lo stato è *sconosciuto*. Nella tabella seguente sono disponibili ulteriori dettagli sull'icona di stato.|
+| Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95 °&nbsp;%, Max&nbsp;%| Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
 | Contenitori | Numero totale di contenitori per il controller o il pod. |
 | Riavvii | Rollup del numero di riavvii dai contenitori. |
 | Uptime | Rappresenta il tempo dall'avvio di un contenitore. |
 | Nodo | Solo per i contenitori e i pod. Indica il controller in cui risiede. | 
-| Tendenza min &nbsp;%, media &nbsp;%, cinquantesimo &nbsp;%, 90 &nbsp;%, 95 &nbsp;%, Max &nbsp; % | Grafico a barre della tendenza che presenta il valore percentile medio del controller. |
+| Tendenza min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95&nbsp;%, Max&nbsp;% | Grafico a barre della tendenza che presenta il valore percentile medio del controller. |
 
 Le icone nel campo stato indicano lo stato online dei contenitori.
  
-| Icona | Status | 
+| Icona | Stato | 
 |--------|-------------|
 | ![Icona di stato In esecuzione (Pronto)](./media/container-insights-analyze/containers-ready-icon.png) | In esecuzione (Pronto)|
 | ![Icona dello stato in attesa o sospesa](./media/container-insights-analyze/containers-waiting-icon.png) | In attesa o In pausa|
@@ -246,7 +257,7 @@ Nel selettore selezionare **Contenitori**.
 
 Qui è possibile visualizzare l'integrità delle prestazioni dei contenitori di Istanze di Azure Container e del servizio Azure Kubernetes. 
 
-![visualizzazione prestazioni \<Name > contenitori](./media/container-insights-analyze/containers-containers-view.png)
+![Nome \<> Vista prestazioni contenitori](./media/container-insights-analyze/containers-containers-view.png)
 
 Da un contenitore è possibile eseguire il drill-down in un pod o nodo per visualizzare i dati sulle prestazioni filtrati per l'oggetto. Selezionare il valore nella colonna **Pod** o **nodo** per il contenitore specifico.
 
@@ -254,21 +265,21 @@ Da un contenitore è possibile eseguire il drill-down in un pod o nodo per visua
 
 Le informazioni visualizzate quando si visualizzano i contenitori sono descritte nella tabella seguente.
 
-| Colonna | Description | 
+| Colonna | Descrizione | 
 |--------|-------------|
-| name | Nome del controller.|
-| Status | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
-| Min &nbsp;%, media &nbsp;%, cinquantesimo &nbsp;%, 90 &nbsp;%, 95 ° &nbsp;%, Max &nbsp; % | Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
+| Name | Nome del controller.|
+| Stato | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
+| Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95 °&nbsp;%, Max&nbsp;% | Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
 | Pod | Contenitore in cui è presente il pod.| 
 | Nodo |  Nodo in cui è presente il contenitore. | 
 | Riavvii | Rappresenta il tempo dall'avvio di un contenitore. |
 | Uptime | Rappresenta il tempo dall'avvio o dal riavvio di un contenitore. |
-| Tendenza min &nbsp;%, media &nbsp;%, cinquantesimo &nbsp;%, 90 &nbsp;%, 95 &nbsp;%, Max &nbsp; % | Grafico a barre della tendenza che presenta il valore percentuale medio delle metriche di percentile del contenitore. |
+| Tendenza min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95&nbsp;%, Max&nbsp;% | Grafico a barre della tendenza che presenta il valore percentuale medio delle metriche di percentile del contenitore. |
 
 Le icone nel campo stato indicano lo stato online dei Pod, come descritto nella tabella seguente.
  
-| Icona | Status |  
+| Icona | Stato |  
 |--------|-------------|  
 | ![Icona di stato In esecuzione (Pronto)](./media/container-insights-analyze/containers-ready-icon.png) | In esecuzione (Pronto)|  
 | ![Icona dello stato in attesa o sospesa](./media/container-insights-analyze/containers-waiting-icon.png) | In attesa o In pausa|  
@@ -307,4 +318,5 @@ Per accedere a queste cartelle di lavoro, selezionarle nell'elenco a discesa **V
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esaminare [creare avvisi di prestazioni con monitoraggio di Azure per i contenitori](container-insights-alerts.md) per informazioni su come creare avvisi per un utilizzo elevato della CPU e della memoria per supportare le procedure e i processi operativi DevOps.
+
 - Visualizzare gli [esempi di query di log](container-insights-log-search.md#search-logs-to-analyze-data) per visualizzare query e esempi predefiniti da valutare o personalizzare per visualizzare avvisi, visualizzare o analizzare i cluster.

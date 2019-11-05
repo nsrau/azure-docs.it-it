@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 26a751924985f94a7d7d12a382d4e6654f36ea48
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1301ee2494aa24720905b9e3e68edce04fb17e72
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793716"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466437"
 ---
 # <a name="how-to-rebuild-an-azure-cognitive-search-index"></a>Come ricompilare un indice di Azure ricerca cognitiva
 
@@ -25,7 +25,7 @@ A differenza delle ricompilazioni che prevedono che l'indice venga portato offli
 
 ## <a name="rebuild-conditions"></a>Condizioni di ricompilazione
 
-| Condizione | Description |
+| Condizione | Descrizione |
 |-----------|-------------|
 | Modificare la definizione di un campo | La modifica di un nome di campo, di un tipo di dati o di [attributi di indice](https://docs.microsoft.com/rest/api/searchservice/create-index) specifici (searchable, filterable, sortable, facetable) richiede una ricompilazione completa. |
 | Assegnare un analizzatore a un campo | Gli [analizzatori](search-analyzers.md) vengono definiti in un indice e quindi assegnati ai campi. È possibile aggiungere una nuova definizione di analizzatore a un indice in qualsiasi momento, ma è possibile *assegnare* un analizzatore solo quando il campo viene creato. Questo vale per entrambe le proprietà **analyzer** e **indexAnalyzer**. La proprietà **searchAnalyzer** è un'eccezione perché è possibile assegnare questa proprietà a un campo esistente. |
@@ -46,7 +46,7 @@ Qualsiasi altra modifica può essere eseguita senza alcun impatto sulle struttur
 
 Quando si aggiunge un nuovo campo, ai documenti indicizzati esistenti viene assegnato un valore Null per il nuovo campo. In seguito a un aggiornamento dati futuro, i valori dei dati di origine esterni sostituiscono i valori null aggiunti da Azure ricerca cognitiva. Per altre informazioni sull'aggiornamento del contenuto degli indici, vedere [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Aggiungere, aggiornare o eliminare documenti).
 
-## <a name="partial-or-incremental-indexing"></a>Indicizzazione parziale o incrementale
+## <a name="partial-indexing"></a>Indicizzazione parziale
 
 In ricerca cognitiva di Azure non è possibile controllare l'indicizzazione per ogni singolo campo, scegliendo di eliminare o ricreare campi specifici. Non esiste nemmeno un meccanismo predefinito per l'[indicizzazione dei documenti in base a criteri](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents). Se si ha l'esigenza di eseguire l'indicizzazione in base a determinati criteri occorre usare codice personalizzato.
 
@@ -93,7 +93,7 @@ Quando si carica l'indice, l'indice invertito di ogni campo viene popolato con t
 
 È possibile iniziare a eseguire query su un indice subito dopo il caricamento del primo documento. Se si conosce l'ID di un documento, l'[API REST di ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/lookup-document) restituisce il documento specifico. Per un test su più larga scala, è possibile aspettare che l'indice venga caricato completamente e quindi usare le query per verificare il contesto che ci si aspetta di vedere.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Panoramica degli indicizzatori](search-indexer-overview.md)
 + [Indicizzare set di dati di grandi dimensioni](search-howto-large-index.md)

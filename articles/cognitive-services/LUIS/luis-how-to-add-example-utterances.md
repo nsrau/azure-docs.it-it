@@ -9,20 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1e170b86f573112cc5bc8dddd6f080921ef29d2d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ed6321963422cf17c858f43593092f8ffa4a1119
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932943"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467740"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Aggiungere un'entità in espressioni di esempio 
 
 Le espressioni di esempio sono campioni di testo con domande o commenti degli utenti. Per l'apprendimento di LUIS (Language Understanding), è necessario aggiungere [espressioni di esempio](luis-concept-utterance.md) a una [finalità](luis-concept-intent.md).
 
-In genere, si aggiunge un enunciato di esempio a un preventivo, quindi si creano entità ed espressioni di etichetta nella pagina Intent. Se si desidera invece creare prima le entità, vedere [Aggiungere entità](luis-how-to-add-entities.md).
+
+In genere, si aggiunge un enunciato di esempio a un preventivo, quindi si creano entità ed espressioni di etichetta nella pagina **Intent** . Se si desidera invece creare prima le entità, vedere [Aggiungere entità](luis-how-to-add-entities.md).
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="marking-entities-in-example-utterances"></a>Contrassegnare le entità in espressioni di esempio
 
@@ -38,7 +41,7 @@ Nella procedura seguente viene creata e contrassegnata un'entità personalizzata
 Are there any SQL server jobs?
 ```
 
-1. Selezionare `SQL server` nell'espressione per etichettarla come entità semplice. Nella casella di riepilogo a discesa dell'entità che viene visualizzata, è possibile selezionare un'entità esistente o aggiungerne una nuova. Per aggiungere una nuova entità, digitarne `Job` il nome nella casella di testo e quindi selezionare **Crea nuova entità**.
+1. Selezionare `SQL server` nell'espressione per etichettarla come entità semplice. Nella casella di riepilogo a discesa dell'entità che viene visualizzata, è possibile selezionare un'entità esistente o aggiungerne una nuova. Per aggiungere una nuova entità, digitarne il nome `Job` nella casella di testo e quindi selezionare **Crea nuova entità**.
 
     ![Screenshot di immissione del nome dell'entità](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
 
@@ -57,7 +60,7 @@ Elencare le entità rappresenta un set di corrispondenze esatte del testo di par
 
 Per un elenco dei reparti aziendali è possibile avere valori normalizzati: `Accounting` e `Human Resources`. Ciascun nome normalizzato ha dei sinonimi. I sinonimi vengono indicati in inglese. Per quanto riguarda un reparto, questi sinonimi possono includere qualsiasi acronimo, numero o gergo relativo al reparto. Non è necessario conoscere tutti i valori quando si crea l'entità. È possibile aggiungerne altri dopo aver esaminato le espressioni reali degli utenti con i sinonimi.
 
-1. In un enunciato di esempio nella pagina Intent, selezionare la parola o la frase desiderata nel nuovo elenco. Quando viene visualizzato l'elenco a discesa entità, immettere il nome per la nuova entità elenco nella casella di testo superiore, quindi selezionare **Crea nuova entità**.   
+1. In un enunciato di esempio nella pagina **Intent** , selezionare la parola o la frase desiderata nel nuovo elenco. Quando viene visualizzato l'elenco a discesa entità, immettere il nome per la nuova entità elenco nella casella di testo superiore, quindi selezionare **Crea nuova entità**.   
 
 1. Nella casella popup **What type of entity do you want to create?** (Che tipo di entità vuoi creare?) denominare l'entità e selezionare **List** (Elenco) come tipo. Aggiungere i sinonimi di questo elemento elenco, quindi selezionare **Done** (Chiudi). 
 
@@ -69,7 +72,7 @@ Per un elenco dei reparti aziendali è possibile avere valori normalizzati: `Acc
 
 Le entità composite vengono create da **entità** esistenti per formare un'entità padre. 
 
-Supponendo che l' `Does John Smith work in Seattle?`espressione,, un enunciato composito può restituire informazioni sull' `John Smith`entità del nome del `Seattle` dipendente e la posizione in un'entità composita. Le entità figlio devono esistere già nell'app ed essere contrassegnate nell'espressione di esempio prima di creare l'entità composita.
+Supponendo che l'espressione, `Does John Smith work in Seattle?`, un enunciato composito può restituire informazioni sull'entità del nome del dipendente `John Smith`e il percorso `Seattle` in un'entità composita. Le entità figlio devono esistere già nell'app ed essere contrassegnate nell'espressione di esempio prima di creare l'entità composita.
 
 1. Per eseguire il wrapping delle entità figlio in un'entità composita, selezionare la **prima** entità con etichetta (a sinistra) nell'espressione per l'entità composita. Viene visualizzato un elenco a discesa che mostra le scelte per questa selezione.
 

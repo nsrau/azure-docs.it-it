@@ -1,6 +1,6 @@
 ---
-title: Che cos'è il firewall applicazione web di Azure per l'ingresso principale di Azure? (Anteprima)
-description: Informazioni su web application firewall come Azure per il servizio di ingresso principale di Azure protegge le applicazioni web da attacchi dannosi.
+title: Che cos'è Azure web application firewall per la porta anteriore di Azure? (Anteprima)
+description: Informazioni sul modo in cui Azure web application firewall per il servizio front-end di Azure protegge le applicazioni Web da attacchi dannosi.
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -10,118 +10,121 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 122e9687ee313edff34e5a4fd9a44b1026a63811
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: 624a5af59a39cb0ebf647f549f3a40ed56f78b9e
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478768"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73549240"
 ---
-# <a name="what-is-azure-web-application-firewall-for-azure-front-door"></a>Che cos'è il firewall applicazione web di Azure per l'ingresso principale di Azure?
+# <a name="what-is-azure-web-application-firewall-for-azure-front-door"></a>Che cos'è Azure web application firewall per la porta anteriore di Azure?
 
 Azure web application firewall (WAF) fornisce una protezione centralizzata per le applicazioni Web che vengono recapitate a livello globale usando Frontdoor di Azure. È progettato e gestito per difendere i servizi Web da vulnerabilità comuni e per mantenere una disponibilità elevata del servizio per gli utenti, oltre che per aiutare a soddisfare i requisiti di conformità.
 
 
-Le applicazioni Web sono sempre più destinazioni di attacchi dannosi, ad esempio un attacco denial of attacchi flood di servizio, attacchi SQL injection e attacchi di scripting intersito. Questi attacchi dannosi potrebbe causare la perdita di un'interruzione e i dati del servizio, rappresentano una minaccia notevole per i proprietari delle applicazioni web.
+Le applicazioni Web sono sempre più le destinazioni di attacchi dannosi, ad esempio attacchi di tipo Denial of Service, attacchi intrusivi nel codice SQL e attacchi di scripting tra siti. Questi attacchi dannosi possono causare interruzioni del servizio e perdita di dati, rappresentano una minaccia significativa per i proprietari di applicazioni Web.
 
-Impedire questo tipo di attacchi nel codice dell'applicazione può risultare un'operazione complessa e potrebbe richiedere una manutenzione rigorosa, l'applicazione di patch e il monitoraggio a più livelli della topologia dell'applicazione. Un Web application firewall centralizzato semplifica notevolmente la gestione della sicurezza e offre agli amministratori delle applicazioni migliori garanzie contro le minacce o le intrusioni. Inoltre, una soluzione WAF può reagire a una minaccia alla sicurezza più veloce tramite l'applicazione delle patch di una vulnerabilità nota in una posizione centrale, anziché proteggere ogni singola applicazione web.
+Impedire questo tipo di attacchi nel codice dell'applicazione può risultare un'operazione complessa e potrebbe richiedere una manutenzione rigorosa, l'applicazione di patch e il monitoraggio a più livelli della topologia dell'applicazione. Un Web application firewall centralizzato semplifica notevolmente la gestione della sicurezza e offre agli amministratori delle applicazioni migliori garanzie contro le minacce o le intrusioni. Inoltre, una soluzione WAF può rispondere a una minaccia per la sicurezza più rapidamente applicando un'applicazione di patch a una vulnerabilità nota in una posizione centrale, anziché proteggere ogni singola applicazione Web.
 
-Web Application firewall per porta d'ingresso è una soluzione globale e centralizzata. Viene distribuita in posizioni periferiche di rete di Azure in tutto il mondo e ogni richiesta in ingresso per un'applicazione web WAF abilitato recapitata da porta principale viene controllato al perimetro della rete. Ciò consente di Web Application firewall impedire gli attacchi dannosi vicino le origini di attacco, prima che possa accedere alla rete virtuale e offre protezione globale su larga scala senza sacrificare le prestazioni. Un criterio di Web Application firewall può essere collegato facilmente a qualsiasi profilo di porta d'ingresso nella sottoscrizione e nuove regole possono essere distribuite in pochi minuti, consentendo di rispondere rapidamente alle mutevoli modelli delle minacce.
+WAF per la porta anteriore è una soluzione globale e centralizzata. Viene distribuito in percorsi di rete perimetrale di Azure in tutto il mondo e ogni richiesta in ingresso per un'applicazione Web abilitata per WAF fornita da sportello anteriore viene ispezionata al perimetro della rete. Questo consente a WAF di impedire gli attacchi dannosi vicini alle origini di attacco, prima di immettere la rete virtuale e offre protezione globale su larga scala senza sacrificare le prestazioni. Un criterio WAF può essere facilmente collegato a qualsiasi profilo di porta anteriore nella sottoscrizione e le nuove regole possono essere distribuite in pochi minuti, consentendo di rispondere rapidamente ai mutevoli modelli di minaccia.
 
-![Firewall applicazione web di Azure](./media/waf-overview/web-application-firewall-overview2.png)
+![web application firewall di Azure](./media/waf-overview/web-application-firewall-overview.png)
 
-Web Application firewall di Azure può anche essere attivato con il Gateway applicazione. Per altre informazioni, vedere [firewall applicazione Web](../application-gateway/waf-overview.md).
+Azure WAF può anche essere abilitato con il gateway applicazione. Per ulteriori informazioni, vedere [Web Application Firewall](../application-gateway/waf-overview.md).
 
-## <a name="waf-policy-and-rules"></a>Regole e criteri di Web Application firewall
+## <a name="waf-policy-and-rules"></a>Regole e criteri di WAF
 
-È possibile configurare un criterio di Web Application firewall e associare i criteri a uno o più porta d'ingresso front-end per la protezione. Un criterio di Web Application firewall è costituito da due tipi di regole di sicurezza:
+È possibile configurare un criterio WAF e associare tale criterio a uno o più front-end front-end per la protezione. Un criterio WAF è costituito da due tipi di regole di sicurezza:
 
-- regole personalizzate che vengono create dal cliente.
+- regole personalizzate create dal cliente.
 
-- set di regole gestite che sono una raccolta di Azure-managed i set di regole preconfigurato.
+- set di regole gestite che sono una raccolta di regole preconfigurate gestite da Azure.
 
-Quando sono presenti entrambi, regole personalizzate vengono elaborate prima di elaborare le regole in un set di regole gestite. Una regola è costituita da una condizione di corrispondenza, una priorità e un'azione. Tipi di azione supportati sono: Consenti BLOCCHI, LOG e reindirizzamento. È possibile creare criteri completamente personalizzato che soddisfino i requisiti di protezione dell'applicazione specifico combinando le regole personalizzate e non gestito.
+Quando sono presenti entrambe, le regole personalizzate vengono elaborate prima di elaborare le regole in un set di regole gestito. Una regola è costituita da una condizione di corrispondenza, una priorità e un'azione. I tipi di azione supportati sono: ALLOW, BLOCK, LOG e redirect. È possibile creare criteri completamente personalizzati che soddisfino i requisiti di protezione dell'applicazione specifici combinando regole gestite e personalizzate.
 
-In un ordine di priorità vengono elaborate regole all'interno di un criterio in cui priorità è un integer univoco che definisce l'ordine delle regole in fase di elaborazione. Valore integer più piccolo indica una priorità più alta e quelli vengono valutati prima delle regole con un valore integer più elevato. Dopo aver assegnato una regola, l'azione corrispondente che è stata definita nella regola viene applicata alla richiesta. Dopo l'elaborazione di una corrispondenza, è possibile che le regole con priorità inferiore non vengono elaborate ulteriormente.
+Le regole all'interno di un criterio vengono elaborate in ordine di priorità in cui Priority è un intero univoco che definisce l'ordine di elaborazione delle regole. Un valore integer più piccolo indica una priorità più alta e questi vengono valutati prima delle regole con un valore integer più elevato. Quando viene trovata una corrispondenza per una regola, alla richiesta viene applicata l'azione corrispondente definita nella regola. Una volta elaborata tale corrispondenza, le regole con priorità più bassa non vengono elaborate ulteriormente.
 
-Un'applicazione web fornita da porta principale può avere un solo criterio WAF associato alla volta. Tuttavia, è possibile avere una configurazione di ingresso principale senza alcun criterio di Web Application firewall è associato. Se è presente un criterio di WAF, replicato in tutti i percorsi di edge per garantire la coerenza nei criteri di sicurezza in tutto il mondo.
+Un'applicazione Web distribuita dalla porta anteriore può avere un solo criterio WAF associato alla volta. Tuttavia, è possibile avere una configurazione di sportello anteriore senza alcun criterio WAF associato. Se è presente un criterio WAF, viene replicato in tutti i percorsi perimetrali per garantire la coerenza nei criteri di sicurezza in tutto il mondo.
 
-## <a name="waf-modes"></a>Modalità del WAF
+## <a name="waf-modes"></a>Modalità WAF
 
-Criteri di Web Application firewall possono essere configurati per l'esecuzione in due modalità seguenti:
+Il criterio WAF può essere configurato per l'esecuzione nelle due modalità seguenti:
 
-- **Modalità di rilevamento:** Quando eseguito in modalità di rilevamento, Web Application firewall non accetta tutte le altre azioni diverse da monitoraggi e registra la richiesta e la regola WAF corrispondente per i log WAF. È possibile attivare la registrazione diagnostica per la porta di ingresso (quando si usa portale, questo scopo, passare al **diagnostica** sezione nel portale di Azure).
+- **Modalità di rilevamento:** Quando viene eseguita in modalità di rilevamento, WAF non esegue altre azioni diverse dai monitoraggi e registra la richiesta e la relativa regola WAF corrispondente nei log di WAF. È possibile attivare la diagnostica della registrazione per lo sportello anteriore (quando si usa il portale, questa operazione può essere eseguita passando alla sezione relativa alla **diagnostica** nella portale di Azure).
 
-- **Modalità di prevenzione:** Quando è configurato per l'esecuzione in modalità di prevenzione, WAF accetta l'azione specificata se una richiesta corrisponde a una regola e se viene trovata una corrispondenza, non altre regole con priorità inferiore vengono valutate. Tutte le richieste corrispondenti vengono inoltre registrate nei registri del WAF.
+- **Modalità di prevenzione:** Quando è configurato per l'esecuzione in modalità di prevenzione, WAF esegue l'azione specificata se una richiesta corrisponde a una regola e se viene trovata una corrispondenza, non vengono valutate altre regole con priorità più bassa. Tutte le richieste corrispondenti vengono registrate anche nei registri WAF.
 
-## <a name="waf-actions"></a>Azioni di Web Application firewall
+## <a name="waf-actions"></a>Azioni WAF
 
-I clienti di Web Application firewall è possono scegliere di eseguire una delle azioni quando una richiesta corrisponde alle condizioni della regola:
+I clienti di WAF possono scegliere di eseguire una delle azioni quando una richiesta soddisfa le condizioni di una regola:
 
-- **Consenti:**  Richiesta passa attraverso il firewall WAF e viene inoltrata al back-end. Senza ulteriori regole con priorità inferiore possono bloccare questa richiesta.
-- **Blocco:** La richiesta è bloccata e WAF invia una risposta al client senza inoltrare le richieste al back-end.
-- **Log:**  Richiesta viene registrata nei log di Web Application firewall e WAF continua la valutazione delle regole con priorità inferiore.
-- **Il reindirizzamento:** Web Application firewall reindirizza la richiesta all'URI specificato. L'URI specificato è un'impostazione a livello di criteri. Una volta configurato, tutte le richieste che soddisfano le **reindirizzare** azione verrà inviata all'URI.
+- **Consenti:**  La richiesta passa attraverso il WAF e viene inoltrata al back-end. Nessuna regola di priorità più bassa può bloccare questa richiesta.
+- **Blocca:** La richiesta è bloccata e WAF invia una risposta al client senza inoltrare la richiesta al back-end.
+- **Log:**  La richiesta viene registrata nei log WAF e WAF continua la valutazione delle regole con priorità più bassa.
+- **Reindirizzamento:** WAF reindirizza la richiesta all'URI specificato. L'URI specificato è un'impostazione a livello di criteri. Una volta configurate, tutte le richieste che corrispondono all'azione di **Reindirizzamento** verranno inviate a tale URI.
 
-## <a name="waf-rules"></a>Regole del WAF
+## <a name="waf-rules"></a>Regole WAF
 
-Un criterio di Web Application firewall può essere costituito da due tipi di regole di sicurezza - regole personalizzate, creati dai clienti e i set di regole gestiti, set di regole gestite di Azure preconfigurata.
+Un criterio WAF può essere costituito da due tipi di regole di sicurezza: regole personalizzate, create dal cliente e RuleSet gestiti, un set di regole preconfigurato gestito da Azure.
 
 ### <a name="custom-authored-rules"></a>Regole personalizzate create
 
-È possibile configurare regole personalizzate WAF nel modo seguente:
+È possibile configurare le regole personalizzate WAF come segue:
 
-- **Indirizzi IP consentiti elenchi e blocco:** È possibile configurare regole personalizzate per controllare l'accesso alle applicazioni web in base a un elenco di indirizzi IP client o intervalli di indirizzi IP. Sono supportati i tipi di indirizzi IPv4 e IPv6. Questo elenco può essere configurato per bloccare o consentire le richieste in cui l'indirizzo IP di origine corrisponde a un indirizzo IP nell'elenco.
+- Elenco **di indirizzi IP consentiti e bloccati:** È possibile configurare regole personalizzate per controllare l'accesso alle applicazioni Web in base a un elenco di indirizzi IP o intervalli di indirizzi IP del client. Sono supportati sia i tipi di indirizzi IPv4 che IPv6. Questo elenco può essere configurato in modo da bloccare o consentire le richieste in cui l'indirizzo IP di origine corrisponde a un indirizzo IP nell'elenco. Un indirizzo IP client può essere diverso dall'indirizzo IP WAF osserva, ad esempio, quando un client accede a WAF tramite un proxy. È possibile creare [regole di restrizione IP](https://docs.microsoft.com/azure/frontdoor/waf-front-door-configure-ip-restriction) basate su indirizzi IP client (IndirizzoRemoto) o indirizzi IP visualizzati da WAF (SocketAddr). La configurazione di una regola di restrizione IP SocketAddr è attualmente supportata con PowerShell e l'interfaccia della riga di comando di Azure
 
-- **Controllo degli accessi in base geografiche:** È possibile configurare regole personalizzate per controllare l'accesso alle applicazioni web in base al codice di paese associato a un indirizzo IP del client.
+- **Controllo degli accessi in base al geografico:** È possibile configurare regole personalizzate per controllare l'accesso alle applicazioni Web in base al codice paese associato all'indirizzo IP di un client.
 
-- **Controllo degli accessi basato su parametri HTTP:** È possibile configurare regole personalizzate basate su stringa corrispondente ai parametri di richiesta HTTP/HTTPS, ad esempio le stringhe di query, args POST, richiesta URI, intestazione della richiesta e il corpo della richiesta.
+- **Controllo degli accessi in base ai parametri http:** È possibile configurare regole personalizzate in base alle stringhe corrispondenti a parametri di richiesta HTTP/HTTPS, ad esempio stringhe di query, argomenti POST, URI della richiesta, intestazione della richiesta e corpo della richiesta.
 
-- **Richiedi il controllo di accesso basato su metodo:** È possibile configurare regole personalizzate basate su metodo di richiesta HTTP della richiesta, ad esempio GET, PUT o HEAD.
+- **Controllo degli accessi in base al metodo di richiesta:** È possibile configurare regole personalizzate in base al metodo di richiesta HTTP della richiesta, ad esempio GET, PUT o HEAD.
 
-- **Vincolo delle dimensioni:** È possibile configurare regole personalizzate basate sulle lunghezze delle parti specifiche di una richiesta, ad esempio la stringa di query, Uri, o corpo della richiesta.
+- **Vincolo Size:** È possibile configurare regole personalizzate in base alle lunghezze di parti specifiche di una richiesta, ad esempio la stringa di query, l'URI o il corpo della richiesta.
 
-- **Le regole di limitazione della frequenza:** Una regola di controllo della frequenza prevede la limitazione di traffico elevato anomalo da qualsiasi indirizzo IP client. È possibile configurare una soglia per il numero di richieste web consentite da un indirizzo IP del client durante una durata di un minuto. Ciò è diverso da una regola di personalizzato basato su elenchi consentire o bloccare IP che uno consente tutti i blocchi o tutte le richieste da un indirizzo IP del client. La limitazione della frequenza può essere combinata con le condizioni di corrispondenza aggiuntive, ad esempio parametri HTTP (S) corrispondente per il controllo della frequenza granulare.
+- **Regole di limitazione della frequenza:** Una regola di controllo della velocità consiste nel limitare il traffico elevato anomalo da qualsiasi IP del client. È possibile configurare una soglia per il numero di richieste Web consentite da un indirizzo IP client durante una durata di un minuto. Si noti che le richieste aggiuntive oltre la soglia potrebbero essere in grado di superare mentre il numero di richieste viene aggiornato. La limitazione della frequenza può essere combinata con condizioni di corrispondenza aggiuntive, ad esempio parametri HTTP (S) corrispondenti per il controllo della frequenza granulare.
 
-### <a name="azure-managed-rule-sets"></a>Set di regole gestite di Azure
+### <a name="azure-managed-rule-sets"></a>Set di regole gestiti da Azure
 
-Set di regole gestite di Azure forniscono un modo semplice per distribuire la protezione rispetto a un set comune di minacce alla sicurezza. Poiché tale set di regole sono gestite da Azure, le regole vengono aggiornate in base alle esigenze per proteggersi da nuove firme di attacchi. In fase di anteprima pubblica, gestita da Azure regola Set predefiniti include le regole a fronte di categorie di minacce seguenti:
+I set di regole gestiti da Azure consentono di distribuire in modo semplice la protezione da un insieme comune di minacce per la sicurezza. Poiché tali RuleSet sono gestiti da Azure, le regole vengono aggiornate in base alle esigenze per proteggersi dalle nuove firme di attacco. In versione di anteprima pubblica, il set di regole predefinite gestito da Azure include regole per le categorie di minacce seguenti:
 
-- Scripting intersito
-- Attacchi di Java
-- Inclusione di file locale
-- Attacchi PHP injection
-- Esecuzione comandi in remoto
-- Inclusione di file remota
-- Ovvero Session fixation
+- Scripting tra siti
+- Attacchi Java
+- Inclusione file locale
+- Attacchi PHP Injection
+- Esecuzione comando remoto
+- Inclusione di file remoti
+- Fissazione della sessione
 - Protezione dagli attacchi SQL injection
 - Utenti malintenzionati di protocollo
 
-Il numero di versione del Set regola predefinita verrà incrementato quando vengono aggiunte nuove firme di attacchi al set di regole.
-Set di regole predefinito è abilitato per impostazione predefinita in modalità di rilevamento nei criteri del WAF. È possibile disabilitare o abilitare regole singole all'interno di Default Set di regole per soddisfare i requisiti dell'applicazione. È anche possibile impostare azioni specifiche (Consenti/blocco/reindirizzamento/LOG) per ogni regola. Azione predefinita consiste nel blocco. Inoltre, regole personalizzate possono essere configurate nello stesso criterio WAF se si vuole ignorare qualsiasi delle regole preconfigurate in cui la regola predefinita impostata.
-Regole personalizzate vengono sempre applicate prima la regola predefinita impostata le regole vengono valutate. Se una richiesta corrisponde a una regola personalizzata, viene applicata l'azione di regola corrispondente e la richiesta viene bloccata o passata al back-end, senza la chiamata di qualsiasi regola personalizzata ulteriormente oppure le regole in un Set regola predefinita. Inoltre, è possibile rimuovere il Set di regole predefiniti dai criteri di Web Application firewall.
+Il numero di versione del set di regole predefinito viene incrementato quando vengono aggiunte nuove firme di attacco al set di regole.
+Il set di regole predefinito è abilitato per impostazione predefinita in modalità di rilevamento nei criteri di WAF. È possibile disabilitare o abilitare singole regole nel set di regole predefinite per soddisfare i requisiti dell'applicazione. È anche possibile impostare azioni specifiche (Consenti/blocca/REINDIRIZZA/LOG) per regola. L'azione predefinita consiste nel blocco. Inoltre, è possibile configurare le regole personalizzate nello stesso criterio WAF se si desidera ignorare le regole preconfigurate nel set di regole predefinito.
+Le regole personalizzate vengono sempre applicate prima della valutazione delle regole del set di regole predefinite. Se una richiesta corrisponde a una regola personalizzata, viene applicata l'azione della regola corrispondente e la richiesta viene bloccata o passata al back-end, senza richiamare altre regole personalizzate o le regole nel set di regole predefinito. Inoltre, è possibile scegliere di rimuovere il set di regole predefinito dai criteri di WAF.
 
 
-### <a name="bot-protection-rule-preview"></a>Regola di protezione del bot (anteprima)
+### <a name="bot-protection-rule-preview"></a>Regola di protezione bot (anteprima)
 
-Un set di regole di protezione Bot gestito può essere abilitato per il firewall WAF intraprendere azioni personalizzate nelle richieste da indirizzi IP dannosi noti. Gli indirizzi IP sono originati da Microsoft Threat Intelligence feed. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) alla base di intelligence sulle minacce di Microsoft ed è usato da più servizi, tra cui Centro sicurezza di Azure.
+È possibile abilitare un set di regole di protezione bot gestito per WAF per eseguire azioni personalizzate sulle richieste da categorie di bot note.
+Sono supportate tre categorie di bot: bot cattivi, bot validi e bot sconosciuti. Nella categoria Bad Bot, una regola rileva Bot dannosi in base alla reputazione IP degli indirizzi clieny. La reputazione IP viene originata dal feed di intelligence per le minacce di Microsoft. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) Power Intelligence per le minacce di Microsoft e viene usato da più servizi, incluso il Centro sicurezza di Azure. Inoltre, le richieste che fingono di essere motori di ricerca noti vengono rilevate come dannose.
+I bot validi sono i motori seacrh convalidati. Le categorie sconosciute includono richieste sono identificate come bot, ma con intenzioni sconosciute. È possibile impostare azioni personalizzate per bloccare, consentire, registrare o reindirizzare per diverse categorie di bot.
 
-![Set di regole di protezione di BOT](./media/waf-front-door-configure-bot-protection/BotProtect2.png)
+![Set di regole di protezione bot](./media/waf-front-door-configure-bot-protection/BotProtect2.png)
 
 > [!IMPORTANT]
-> Set di regole di protezione Bot è attualmente in anteprima pubblica e viene fornito con un contratto di servizio di anteprima. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.  Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Il set di regole di protezione da bot è attualmente disponibile in anteprima pubblica e viene fornito con un contratto di servizio in anteprima. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.  Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Se è abilitata la protezione di Bot, le richieste in ingresso che corrispondono a client dannosi Bot gli indirizzi IP vengono registrate al momento dell'accesso FrontdoorWebApplicationFirewallLog. I log WAF accessibili dall'account di archiviazione, analitica hub o un log eventi. 
+Se è abilitata la protezione bot, le richieste in ingresso che corrispondono alle regole bot vengono registrate nel registro FrontdoorWebApplicationFirewallLog. È possibile accedere ai log di WAF dall'account di archiviazione, dall'hub eventi o da log Analytics. 
 
 ## <a name="configuration"></a>Configurazione
 
-Configurazione e distribuzione di tutti i tipi di regole WAF è completamente supportato tramite il portale di Azure, le API REST, modelli di Azure Resource Manager e Azure PowerShell.
+La configurazione e la distribuzione di tutti i tipi di regole WAF sono completamente supportate usando portale di Azure, le API REST, i modelli di Azure Resource Manager e Azure PowerShell.
 
 ## <a name="monitoring"></a>Monitoraggio
 
-Monitoraggio per WAF ingresso principale è integrato con monitoraggio di Azure per tenere traccia degli avvisi e monitorare facilmente le tendenze del traffico.
+Il monitoraggio di WAF alla porta anteriore è integrato con monitoraggio di Azure per tenere traccia degli avvisi e monitorare facilmente le tendenze del traffico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [configurare un criterio di Web Application firewall per porta d'ingresso usando il portale di Azure](waf-front-door-create-portal.md)
+- Informazioni su come [configurare un criterio WAF per lo sportello anteriore usando il portale di Azure](waf-front-door-create-portal.md)

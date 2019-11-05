@@ -9,20 +9,39 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3a32499a85b1cd782c808166c516be7ad9c78913
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0788df1c05d70c01d4de7f7a6ba62a476252f75a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813274"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498940"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novità di Language Understanding
 
-Informazioni sulle novità del servizio. Questi elementi possono rilasciare note, video, post di Blog e altri tipi di informazioni. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati con il servizio.  
+Informazioni sulle novità del servizio. Questi elementi includono note sulla versione, video, post di Blog e altri tipi di informazioni. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati con il servizio.  
 
 ## <a name="release-notes"></a>Note sulla versione 
+
+### <a name="november-4-2019---ignite"></a>4 novembre 2019-Ignite
+
+* Miglioramento della produttività degli sviluppatori
+    * Disponibilità generale dell' [endpoint di stima V3](luis-migration-api-v3.md). 
+    * Possibilità di importare ed esportare app con formato Lu ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)). In questo modo viene spianato il modo di un processo di integrazione continua/recapito continuo effettivo. 
+* Espansione del linguaggio
+    * [Arabo e Hindi](luis-language-support.md) in versione di anteprima pubblica.
+* Modelli di precompilazione
+    * [Domini predefiniti](luis-reference-prebuilt-domains.md) è ora disponibile a livello generale (GA)
+    * [Entità predefinite](luis-reference-prebuilt-entities.md#japanese-entity-support) giapponesi: età, valuta, numero, percentuale non supportata in V3.
+    * [Entità predefinite](luis-reference-prebuilt-entities.md#italian-entity-support) italiane: validità, valuta, dimensione, numero, risoluzione percentuale modificata dalla versione V2.
+* Miglioramento dell'esperienza utente nel [portale di Preview.Luis.ai](https://preview.luis.ai) : esperienza di assegnazione di etichette rinnovata per consentire la compilazione e il debug di modelli complessi.
+* Avanzate funzionalità di comprensione della lingua: [creazione di modelli di linguaggio sofisticati](luis-concept-entity-types.md) con minor sforzo. 
+* Definizione delle funzionalità di machine learning a livello di modello e abilitazione dei modelli da utilizzare come segnali per altri modelli, ad esempio l'utilizzo di entità come funzionalità per gli Intent e altre entità.
+* Nuovi [limiti](luis-boundaries.md) espansi-massimo per elenchi di frasi e frasi totali, nuovo modello come limite di funzionalità
+* Estrai le informazioni dal testo nel formato della struttura della gerarchia profonda, rendendo più potenti le applicazioni di conversazione.
+
+    ![immagine dell'entità Machine-Learned](./media/whats-new/deep-entity-extraction-example.png)
 
 ### <a name="september-3-2019"></a>3 settembre 2019
 

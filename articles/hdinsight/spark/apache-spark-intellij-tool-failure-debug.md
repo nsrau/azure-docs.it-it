@@ -1,5 +1,5 @@
 ---
-title: 'Errore durante il debug del processo Spark con Azure Toolkit for IntelliJ (anteprima) '
+title: Eseguire il debug del processo Spark con IntelliJ Azure Toolkit (anteprima)-HDInsight
 description: Indicazioni sull'uso degli strumenti HDInsight in Azure Toolkit for IntelliJ per eseguire il debug delle applicazioni
 keywords: eseguire debug remoto di intellij, debug remoto di intellij, ssh, intellij, hdinsight, debug di intellij, debug
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 0275cd6ff83fd5fdcc75c8b88602e8943f9504dd
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1a0a6cf5a26854539dc4bbb0ae0254bbf08dad1f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266171"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494594"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Errore durante il debug del processo Spark con Azure Toolkit for IntelliJ (anteprima)
 
@@ -24,7 +24,7 @@ Questo articolo fornisce istruzioni dettagliate su come usare gli strumenti HDIn
 
 * [Kit di sviluppo di Oracle Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Questa esercitazione usa Java versione 8.0.202.
   
-* IntelliJ IDEA. Questo articolo usa [IntelliJ IDEA Community versione 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
+* IntelliJ IDEA. Questo articolo usa [INTELLIJ idea community ver. 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
   
 * Azure Toolkit for IntelliJ. Vedere [Installazione di Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
 
@@ -72,7 +72,7 @@ Creare un'applicazione Spark scala/Java, quindi eseguire l'applicazione in un cl
 
    ![IntelliJ aggiungere una nuova configurazione](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
 
-3. Passare alla scheda **Remotely Run in Cluster** (Esecuzione remota nel cluster). Immettere le informazioni per **Nome**, **Cluster Spark**, e **Nome della classe principale**. Questi strumenti supportano il debug con **executor**. **NumExectors**, il valore predefinito è 5 e non è consigliabile impostare un valore maggiore di 3. Per ridurre il tempo di esecuzione, è possibile aggiungere **Spark. Yarn. maxAppAttempts** nelle **configurazioni dei processi** e impostare il valore su 1. Fare clic sul pulsante **OK** per salvare la configurazione.
+3. Passare alla scheda **Esegui in remoto in cluster** . Immettere le informazioni per **nome**, **cluster Spark**e **nome della classe principale**. Questi strumenti supportano il debug con **executor**. **NumExectors**, il valore predefinito è 5 e non è consigliabile impostare un valore maggiore di 3. Per ridurre il tempo di esecuzione, è possibile aggiungere **Spark. Yarn. maxAppAttempts** nelle **configurazioni dei processi** e impostare il valore su 1. Fare clic sul pulsante **OK** per salvare la configurazione.
 
    ![IntelliJ eseguire configurazioni di debug nuove](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
 
@@ -90,7 +90,7 @@ Creare un'applicazione Spark scala/Java, quindi eseguire l'applicazione in un cl
 
 Se l'invio del processo ha esito negativo, è possibile scaricare il profilo del processo non riuscito nel computer locale per eseguire ulteriori operazioni di debug.
 
-1. Aprire **Microsoft Azure Storage Explorer**, individuare l'account HDInsight del cluster per il processo non riuscito, scaricare le risorse del processo non riuscite dal percorso corrispondente: **\hdp\spark2-Events\\. Spark\\ -erroriID\<applicazione >** a una cartella locale. La finestra **attività** indicherà lo stato del download.
+1. Aprire **Microsoft Azure Storage Explorer**, individuare l'account HDInsight del cluster per il processo non riuscito, scaricare le risorse del processo non riuscite dal percorso corrispondente: **\hdp\spark2-Events\\. spark-errori\\\<ID applicazione >** a una cartella locale. La finestra **attività** indicherà lo stato del download.
 
    ![Errore di download Azure Storage Explorer](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 
@@ -116,7 +116,7 @@ Se l'invio del processo ha esito negativo, è possibile scaricare il profilo del
 
 ## <a name="seealso"></a>Passaggi successivi
 
-* [Panoramica: Debug di applicazioni Apache Spark](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Panoramica: eseguire il debug di applicazioni Apache Spark](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 
 ### <a name="demo"></a>Demo
 
@@ -125,9 +125,9 @@ Se l'invio del processo ha esito negativo, è possibile scaricare il profilo del
 
 ### <a name="scenarios"></a>Scenari
 
-* [Apache Spark con BI: Eseguire l'analisi interattiva dei dati usando Spark in HDInsight con gli strumenti di Business Intelligence](apache-spark-use-bi-tools.md)
-* [Apache Spark con apprendimento automatico: usare Spark in HDInsight per analizzare la temperatura di un edificio con dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark con apprendimento automatico: usare Spark in HDInsight per stimare i risultati di controllo degli alimenti](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con BI: eseguire un'analisi interattiva dei dati usando Spark in HDInsight con gli strumenti di Business Intelligence](apache-spark-use-bi-tools.md)
+* [Apache Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura di compilazione usando dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per prevedere i risultati di un controllo alimentare](apache-spark-machine-learning-mllib-ipython.md)
 * [Analisi dei log del sito Web con Apache Spark in HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creare ed eseguire applicazioni
@@ -140,13 +140,13 @@ Se l'invio del processo ha esito negativo, è possibile scaricare il profilo del
 * [Usare Azure Toolkit for IntelliJ per creare applicazioni Apache Spark per un cluster HDInsight](apache-spark-intellij-tool-plugin.md)
 * [Usare Azure Toolkit for IntelliJ per il debug remoto di applicazioni Apache Spark tramite VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Usare gli strumenti HDInsight per IntelliJ con Hortonworks Sandbox](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Usare gli strumenti HDInsight in Azure Toolkit for Eclipse per creare applicazioni Apache Spark](../hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Apache Spark applications (Usare gli strumenti HDInsight nel Toolkit di Azure per Eclipse per creare applicazioni Apache Spark)](../hdinsight-apache-spark-eclipse-tool-plugin.md)
 * [Usare i notebook di Apache Zeppelin con cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernel disponibili per notebook di Jupyter nel cluster Apache Spark per HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Usare pacchetti esterni con i notebook Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](apache-spark-jupyter-notebook-install-locally.md)
 
-### <a name="manage-resources"></a>Gestisci risorse
+### <a name="manage-resources"></a>Gestire risorse
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](apache-spark-job-debugging.md)

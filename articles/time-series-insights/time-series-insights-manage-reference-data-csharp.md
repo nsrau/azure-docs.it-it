@@ -3,21 +3,20 @@ title: Gestire i dati di riferimento in un ambiente Azure Time Series Insights c
 description: Questo articolo descrive come gestire i dati di riferimento per un ambiente di Azure Time Series Insights mediante la creazione di un'applicazione personalizzata scritta nel linguaggio C# (c-sharp) .NET.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: d4f206b63be38c902f93a084889e60184ce03e07
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 4eb8a22ee56203fe84df6ee1cff779e3f3bdf491
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958048"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990034"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gestire i dati di riferimento di GA per un ambiente Azure Time Series Insights usandoC#
 
@@ -36,7 +35,7 @@ Prima di compilare ed eseguire lo script di esempio, completare questa procedura
 1. Modificare il codice di esempio per sostituire le costanti di esempio, designate a **#DUMMY#** , in prossimità dell'inizio del codice.
 
 > [!NOTE]
-> Vedere il codice di esempio GA in [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+> Visualizzare il codice di esempio GA in [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Dipendenze progetto
 

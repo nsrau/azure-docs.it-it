@@ -1,5 +1,5 @@
 ---
-title: Configurare la restrizione del traffico di rete in uscita per i cluster HDInsight di Azure
+title: Configurare la restrizione del traffico di rete in uscita-Azure HDInsight
 description: Informazioni su come configurare la restrizione del traffico di rete in uscita per i cluster HDInsight di Azure.
 services: hdinsight
 ms.service: hdinsight
@@ -8,18 +8,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 56e745a4f4e4bfbe82da00b46b7a5c0a58e3785e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: df691102b565824d6cb6a86f19e6fce3822d8ba8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789802"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498133"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configurare il traffico di rete in uscita per i cluster HDInsight di Azure usando il firewall (anteprima)
 
 Questo articolo illustra la procedura per proteggere il traffico in uscita dal cluster HDInsight usando il firewall di Azure. I passaggi seguenti presuppongono che si stia configurando un firewall di Azure per un cluster esistente. Se si distribuisce un nuovo cluster e si è protetti da un firewall, creare innanzitutto il cluster HDInsight e la subnet, quindi seguire i passaggi descritti in questa guida.
 
-## <a name="background"></a>Background
+## <a name="background"></a>Contesto
 
 I cluster HDInsight di Azure vengono in genere distribuiti nella propria rete virtuale. Il cluster ha dipendenze da servizi esterni alla rete virtuale che richiedono l'accesso alla rete per funzionare correttamente.
 
@@ -46,7 +46,7 @@ Un riepilogo dei passaggi per bloccare l'uscita dal HDInsight esistente con il f
 
 Creare una raccolta di regole dell'applicazione che consenta al cluster di inviare e ricevere comunicazioni importanti.
 
-Selezionare il nuovo firewall **test-FW01** dalla portale di Azure. Fare clic su **regole** in **Impostazioni**  > **raccolta regole applicazione**  > **Aggiungi raccolta regole applicazione**.
+Selezionare il nuovo firewall **test-FW01** dalla portale di Azure. Fare clic su **regole** in **Impostazioni** > **raccolta regole applicazione** > **Aggiungi raccolta regole applicazione**.
 
 ![Title: aggiungere una raccolta di regole dell'applicazione](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
@@ -75,7 +75,7 @@ Nella schermata **Aggiungi raccolta regole applicazione** completare i passaggi 
 Creare le regole di rete per configurare correttamente il cluster HDInsight.
 
 1. Selezionare il nuovo firewall **test-FW01** dalla portale di Azure.
-1. Fare clic su **regole** in **Impostazioni**  > **raccolta regole di rete**  > **Aggiungi raccolta regole di rete**.
+1. Fare clic su **regole** in **Impostazioni** > **raccolta regole di rete** > **Aggiungi raccolta regole di rete**.
 1. Nella schermata **Aggiungi raccolta regole di rete** immettere un **nome**e una **priorità**, quindi fare clic su **Consenti** dal menu a discesa **azione** .
 1. Creare le regole seguenti nella sezione **indirizzi IP** :
 
@@ -175,7 +175,7 @@ Le istruzioni precedenti consentono di configurare il firewall di Azure per la l
 
 | **Endpoint** |
 |---|
-| Azure SQL |
+| SQL di Azure |
 | Archiviazione di Azure |
 | Azure Active Directory |
 
@@ -186,7 +186,7 @@ Le istruzioni precedenti consentono di configurare il firewall di Azure per la l
 | \*:123 | Controllo dell'orologio NTP. Il traffico viene verificato in più endpoint sulla porta 123. |
 | Indirizzi IP pubblicati [qui](hdinsight-management-ip-addresses.md) | Si tratta del servizio HDInsight |
 | Indirizzi IP privati AAD-DS per i cluster ESP |
-| \*:16800 per l'attivazione di Windows KMS |
+| \*: 16800 per l'attivazione di Windows KMS |
 | \*12000 per Log Analytics |
 
 #### <a name="fqdn-httphttps-dependencies"></a>Dipendenze HTTP/HTTPS con nome di dominio completo
