@@ -1,37 +1,43 @@
 ---
-title: Configurare un mapping del set di dati nell'anteprima della condivisione dati di Azure
-description: Informazioni su come configurare un mapping del set di dati per una condivisione ricevuta usando l'anteprima di condivisione dati di Azure.
+title: Configurare un mapping del set di dati nella condivisione dati di Azure
+description: Informazioni su come configurare un mapping del set di dati per una condivisione ricevuta usando la condivisione di dati di Azure.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 035235116240bdc6de3bc689c2430fee018b202d
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 754977788c5f6e5e574500552f670ba9083cf683
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169143"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490611"
 ---
-# <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share-preview"></a>Come configurare un mapping del set di dati per una condivisione ricevuta nell'anteprima della condivisione dati di Azure
+# <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share"></a>Come configurare un mapping del set di dati per una condivisione ricevuta in una condivisione dati di Azure
 
-Questo articolo illustra come configurare un mapping del set di dati per una condivisione ricevuta usando l'anteprima di condivisione dati di Azure. Questa operazione deve essere eseguita se è stato accettato un invito alla condivisione dati, ma si è scelto di accettare e configurare in un secondo momento. In caso contrario, è possibile che si desideri modificare solo l'account di archiviazione di destinazione per i dati ricevuti. 
+Questo articolo illustra come configurare un mapping del set di dati per una condivisione ricevuta usando la condivisione di dati di Azure. Questa operazione deve essere eseguita se è stato accettato un invito alla condivisione dati, ma si è scelto di accettare e configurare in un secondo momento. È possibile configurare un mapping del set di dati se è necessario modificare la destinazione per i dati condivisi con l'utente o se si desidera ricevere dati in un SQL Server. 
 
 ## <a name="navigate-to-a-received-data-share"></a>Passare a una condivisione di dati ricevuta
 
 Nel servizio Condivisione dati di Azure passare alla condivisione ricevuta e selezionare la scheda **Dettagli** . 
 
-![](./media/dataset-mapping.png "Mapping del set") di dati di mapping dei DataSet 
+![Mapping del set di dati](./media/dataset-mapping.png "Mapping del set di dati") 
 
-Selezionare la casella accanto al set di dati a cui si vuole assegnare una destinazione, quindi fare clic su **+ mappa per destinazione**. Potrebbe essere necessario annullare prima se è già stato configurato un account di archiviazione di destinazione e si vuole modificare il mapping a un account di archiviazione diverso. 
+Selezionare la casella accanto al set di dati a cui si vuole assegnare una destinazione. Selezionare **annullare** per annullare il mapping esistente. Selezionare **+ mappa per** scegliere un nuovo archivio di destinazione. 
 
-![Mappa a mappa di destinazione](./media/dataset-map-target.png "a destinazione") 
+![Mappa a destinazione](./media/dataset-map-target.png "Mappa a destinazione") 
 
-## <a name="select-a-new-storage-account"></a>Selezionare un nuovo account di archiviazione 
+## <a name="select-a-new-destination-store"></a>Selezionare un nuovo archivio di destinazione
 
-Selezionare un account di archiviazione in cui si vogliono inserire i dati. Si noti che tutti i dati già esistenti in qualsiasi account di archiviazione precedentemente mappato non verranno spostati automaticamente nel nuovo account di archiviazione.
+Selezionare un tipo di dati di destinazione in cui si desidera che vengano inseriti i dati. Si noti che tutti i dati già esistenti in qualsiasi account di archiviazione con mapping in precedenza non verranno spostati automaticamente nella nuova destinazione.
 
-![](./media/map-target.png "Archiviazione di destinazione") dell'account di archiviazione di destinazione 
+![Account di archiviazione di destinazione](./media/dataset-map-target-sql.png "Archiviazione di destinazione") 
+
+## <a name="select-a-file-format-sql-sources-only"></a>Selezionare un formato di file (solo origini SQL)
+
+Se i dati di origine provengano da un'origine basata su SQL, è possibile scegliere il formato in cui vengono ricevuti. 
+
+![Scegli il formato](./media/sql-file-formats.png "Formati di file SQL")
 
 ## <a name="next-steps"></a>Passaggi successivi
 

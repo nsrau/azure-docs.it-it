@@ -1,24 +1,24 @@
 ---
 title: 'Pulire i dati mancanti: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo clean Missing data nel servizio Azure Machine Learning per rimuovere, sostituire o dedurre i valori mancanti.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo clean Missing data in Azure Machine Learning per rimuovere, sostituire o dedurre i valori mancanti.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 7167d53cce2c44f754f438753acda008e53bb2b3
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: fef8cb0c29eac4b26b93abee54faa4fe1078678d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693207"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493807"
 ---
 # <a name="clean-missing-data-module"></a>Pulisci modulo dati mancanti
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per rimuovere, sostituire o dedurre i valori mancanti. 
 
@@ -133,8 +133,8 @@ Se è necessario ripetere spesso le operazioni di pulizia, è consigliabile salv
   
 2.  Aggiungere il set di dati che si desidera pulire e connettere il set di dati alla porta di input di destra.  
   
-3.  Espandere il gruppo **trasformazioni** nel riquadro a sinistra dell'interfaccia. Individuare la trasformazione salvata e trascinarla nella pipeline.  
-  
+3.  Espandere il gruppo **trasformazioni** nel riquadro a sinistra della finestra di progettazione. Individuare la trasformazione salvata e trascinarla nella pipeline.  
+
 4.  Connettere la trasformazione salvata alla porta di input sinistra di [Apply Transformation](./apply-transformation.md). 
 
     Quando si applica una trasformazione salvata, non è possibile selezionare le colonne a cui viene applicata la trasformazione. Ciò è dovuto al fatto che la trasformazione è già stata definita e viene applicata automaticamente alle colonne specificate nell'operazione originale.
@@ -145,4 +145,4 @@ Se è necessario ripetere spesso le operazioni di pulizia, è consigliabile salv
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: f260e019ffa6eb89e8a2c1e17d2bf239e74290c2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 798c368edb4a738124fce965f8990e6805fbdeba
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900118"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472604"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 
@@ -31,7 +31,7 @@ Questo articolo sulle procedure consigliate è incentrato sulle funzionalità di
 
 Quando si crea il cluster servizio Azure Kubernetes, è possibile distribuire i nodi con supporto GPU o un numero elevato di potenti CPU. Questi nodi vengono spesso usati per i carichi di lavoro di elaborazione dati di grandi dimensioni, ad esempio Machine Learning (ML) o intelligenza artificiale. Poiché questo tipo di hardware è in genere una risorsa nodo costosa da distribuire, limitare i carichi di lavoro che possono essere pianificati su questi nodi. È invece consigliabile dedicare alcuni nodi del cluster per eseguire i servizi in ingresso e impedire altri carichi di lavoro.
 
-Questo supporto per nodi diversi viene fornito usando più pool di nodi. Un cluster AKS fornisce uno o più pool di nodi. Il supporto per più pool di nodi in AKS è attualmente in versione di anteprima.
+Questo supporto per nodi diversi viene fornito usando più pool di nodi. Un cluster AKS fornisce uno o più pool di nodi.
 
 L'utilità di pianificazione di Kubernetes può usare taint e tolleranze per limitare i carichi di lavoro che possono essere eseguiti sui nodi.
 
@@ -81,16 +81,16 @@ Per altre informazioni su come usare più pool di nodi in AKS, vedere [creare e 
 
 Quando si esegue l'aggiornamento di un pool di nodi in AKS, i guasti e le tollerazioni seguono un modello set quando vengono applicati ai nuovi nodi:
 
-- **Cluster predefiniti senza supporto per la scalabilità di macchine virtuali**
+- **Cluster predefiniti che usano i set di scalabilità di macchine virtuali**
+  - Si supponga di avere un cluster a due nodi, *node1* e *node2*. Si aggiorna il pool di nodi.
+  - Vengono creati due nodi aggiuntivi, *Nodo3* e *Nodo4*, e i guasti vengono passati rispettivamente.
+  - I *node1* e *node2* originali vengono eliminati.
+
+- **Cluster senza supporto per set di scalabilità di macchine virtuali**
   - Si supponga di avere un cluster a due nodi, *node1* e *node2*. Quando si esegue l'aggiornamento, viene creato un nodo aggiuntivo (*Nodo3*).
   - Le macchie da *node1* vengono applicate a *Nodo3*, quindi *node1* viene quindi eliminato.
   - Viene creato un altro nodo nuovo (denominato *node1*, dal momento in cui è stato eliminato il *node1* precedente) e vengono applicati i Taini *node2* alla nuova *node1*. Quindi, *node2* viene eliminato.
   - In sostanza *node1* diventa *Nodo3*e *node2* diventa *node1*.
-
-- **Cluster che usano i set di scalabilità di macchine virtuali**
-  - Si supponga di avere un cluster a due nodi, *node1* e *node2*. Si aggiorna il pool di nodi.
-  - Vengono creati due nodi aggiuntivi, *Nodo3* e *Nodo4*, e i guasti vengono passati rispettivamente.
-  - I *node1* e *node2* originali vengono eliminati.
 
 Quando si ridimensiona un pool di nodi in AKS, i guasti e le tollerazioni non vengono riportate in base alla progettazione.
 
@@ -187,7 +187,7 @@ Questo articolo ha illustrato le funzionalità avanzate dell'utilità di pianifi
 
 * [Multi-tenant e isolamento del cluster][aks-best-practices-scheduler]
 * [Funzionalità dell'utilità di pianificazione di Kubernetes di base][aks-best-practices-scheduler]
-* [Authentication and authorization][aks-best-practices-identity] (Autenticazione e autorizzazione)
+* [Autenticazione e autorizzazione][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->
 [k8s-taints-tolerations]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/

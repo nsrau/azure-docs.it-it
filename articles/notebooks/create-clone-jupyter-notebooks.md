@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 13615d319af600234dcc23e04f82ce46b8f97780
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 3e0c49d1141d976558ece325baaa99fc9981275e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970078"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496712"
 ---
 # <a name="create-and-clone-projects"></a>Creare e clonare progetti
 
@@ -38,7 +38,7 @@ Le operazioni che è possibile eseguire in un dashboard variano a seconda che si
 | **Run** | Proprietario | Avvia il server di progetto e apre la cartella di progetto in Jupyter. In genere, prima si accede alla cartella del progetto e quindi si avvia un notebook da questa posizione. |
 | **Scaricare** | Chiunque | Scarica una copia del progetto selezionato come file ZIP. |
 | **Share** (Condividi) | Chiunque | Visualizza la finestra popup di condivisione mediante la quale è possibile ottenere l'URL di un progetto, condividerlo sui social media, inviare un messaggio di posta elettronica con l'URL e ottenere il codice HTML o Markdown con un badge "notebook di avvio" (vedere [Ottenere un badge di avvio](#obtain-a-launch-badge)) con l'URL. |
-| **Elimina** | Proprietario | Elimina il progetto selezionato. Questa operazione non può essere annullata. |
+| **Eliminazione** | Proprietario | Elimina il progetto selezionato. Questa operazione non può essere annullata. |
 | **Terminale** | Proprietario | Avvia il server del progetto e quindi apre una nuova finestra del browser con il terminale Bash per il server. |
 | **+ New Project** (Nuovo progetto) | Proprietario | Crea un nuovo progetto. Vedere [Creare un nuovo progetto](#create-a-new-project). |
 | **Upload GitHub Repo** (Carica repository GitHub) | Proprietario | Importa un progetto da GitHub. [Importare un progetto da GitHub](#import-a-project-from-github). |
@@ -77,11 +77,11 @@ Le seguenti parole riservate non possono essere utilizzate da soli come ID proge
 
 | | | | | | |
 | --- | --- | --- | --- | --- | --- |
-| about | account | amministrazione | api | Blog | Aula |
-| content | dashboard | esplorare | Domande frequenti | guida | html |
-| home | Importazione | library | gestione | Nuovo | Notebook |
-| Notebook | PDF | anteprima | prezzi | profile | cerca |
-| stato | supporto tecnico | test | | | |
+| info | account | Amministrazione | api | Blog | Aula |
+| content | dashboard | esplorare | Domande frequenti | help | html |
+| home | import | library | management | Nuovo | Notebook |
+| Notebook | PDF | preview | prezzi | Profilo | ricerca |
+| status | support | test | | | |
 
 Se si tenta di usare una di queste parole come ID progetto, i popup **Crea nuovo progetto** e **Impostazioni progetto** indicano che "ID libreria è un identificatore riservato".
 
@@ -93,7 +93,7 @@ Poiché un ID progetto fa anche parte dell'URL di un progetto, il software ad Bl
 
 | Campo | Descrizione |
 | --- | --- |
-| GitHub repository (Repository GitHub) | Nome del repository di origine in github.com. Ad esempio, per clonare i notebook di Jupyter per Servizi cognitivi di Azure all'indirizzo [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks), immettere "Microsoft/cognitive-services-notebooks".  |
+| Repository GitHub | Nome del repository di origine in github.com. Ad esempio, per clonare i notebook di Jupyter per Servizi cognitivi di Azure all'indirizzo [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks), immettere "Microsoft/cognitive-services-notebooks".  |
 | Clone recursively (Clona in modo ricorsivo) | I repository GitHub possono contenere più repository figlio. Impostare questa opzione se si vuole clonare il repository padre e tutti gli elementi figlio. Poiché un repository può avere molti figli, lasciare questa opzione deselezionata se non si è certi che sia necessaria. |
 | Project name (Nome progetto) | Nome descrittivo del progetto usato da Azure Notebooks per scopi di visualizzazione. |
 | ID progetto | Identificatore personalizzato che diventa parte dell'URL usato per condividere un progetto (il formato è `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Questo ID può utilizzare solo lettere, numeri e trattini, è limitato a 30 caratteri e non può essere un [ID di progetto riservato](#reserved-project-ids). Se si hanno subbi sul tipo di ID da usare, in genere si sceglie la versione in caratteri minuscoli del nome del progetto convertendo gli spazi in segni meno, ad esempio "my-notebook-project" (troncato, se necessario per rispettare i limiti di lunghezza). |
@@ -120,9 +120,9 @@ Per clonare un progetto:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Explore sample notebooks (Esplorare i notebook di esempio)](azure-notebooks-samples.md)
-- [Procedura: Configurare e gestire i progetti](configure-manage-azure-notebooks-projects.md)
-- [Procedura: Installare pacchetti da un notebook](install-packages-jupyter-notebook.md)
-- [Procedura: Eseguire una presentazione](present-jupyter-notebooks-slideshow.md)
-- [Procedura: Usare i file di dati](work-with-project-data-files.md)
-- [Procedura: Accedere alle risorse dati](access-data-resources-jupyter-notebooks.md)
-- [Procedura: Usare Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [Procedura: configurare e gestire i progetti](configure-manage-azure-notebooks-projects.md)
+- [Procedura: installare pacchetti dall'interno di un notebook](install-packages-jupyter-notebook.md)
+- [Procedura: presentare una presentazione](present-jupyter-notebooks-slideshow.md)
+- [Procedura: utilizzare file di dati](work-with-project-data-files.md)
+- [Procedura: accedere alle risorse di dati](access-data-resources-jupyter-notebooks.md)
+- [Procedura: utilizzare Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

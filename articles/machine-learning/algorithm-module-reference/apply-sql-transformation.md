@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 8eede9d1fbee7d8b70f6b6924b9767b4d3f4e0bf
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 62c61d589324fe8364fe4630b3cf2cc64e1860b1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694636"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493922"
 ---
 # <a name="apply-sql-transformation"></a>Applica trasformazione SQL
 
-Questo articolo descrive un modulo di Azure Machine Learning interfaccia visiva.
+Questo articolo descrive un modulo di Azure Machine Learning Designer (anteprima).
 
 Con il modulo Apply SQL Transformation è possibile:
   
@@ -33,7 +33,7 @@ Con il modulo Apply SQL Transformation è possibile:
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>Come configurare Apply SQL Transformation  
 
-Il modulo può richiedere fino a tre set di impostazioni come input. Quando si fa riferimento ai set di dati connessi a ogni porta di input, è necessario utilizzare i nomi `t1`, `t2` e `t3`. Il numero di tabella indica l'indice della porta di input.  
+Il modulo può richiedere fino a tre set di impostazioni come input. Quando si fa riferimento ai set di dati connessi a ogni porta di input, è necessario utilizzare i nomi `t1`, `t2`e `t3`. Il numero di tabella indica l'indice della porta di input.  
   
 Il parametro rimanente è una query SQL, che usa la sintassi SQLite. Quando si digitano più righe nella casella di testo **script SQL** , utilizzare un punto e virgola per terminare ciascuna istruzione. In caso contrario, le interruzioni di riga vengono convertite in spazi.  
 
@@ -55,9 +55,9 @@ Sebbene SQLite supporti gran parte dello standard SQL ANSI, non include molte fu
   
 - `LEFT OUTER JOIN` è implementato, ma non `RIGHT OUTER JOIN` o `FULL OUTER JOIN`.  
 
-- È possibile utilizzare le istruzioni `RENAME TABLE` e `ADD COLUMN` con il comando `ALTER TABLE`, ma non sono supportate altre clausole, tra cui `DROP COLUMN`, `ALTER COLUMN` e `ADD CONSTRAINT`.  
+- È possibile utilizzare le istruzioni `RENAME TABLE` e `ADD COLUMN` con il comando `ALTER TABLE`, ma non sono supportate altre clausole, tra cui `DROP COLUMN`, `ALTER COLUMN`e `ADD CONSTRAINT`.  
   
-- È possibile creare una vista in SQLite, ma in seguito le visualizzazioni sono di sola lettura. Non è possibile eseguire un'istruzione `DELETE`, `INSERT` o `UPDATE` in una vista. Tuttavia, è possibile creare un trigger che viene attivato in un tentativo di `DELETE`, `INSERT` o `UPDATE` in una vista ed eseguire altre operazioni nel corpo del trigger.  
+- È possibile creare una vista in SQLite, ma in seguito le visualizzazioni sono di sola lettura. Non è possibile eseguire un'istruzione `DELETE`, `INSERT`o `UPDATE` in una vista. Tuttavia, è possibile creare un trigger che viene attivato in un tentativo di `DELETE`, `INSERT`o `UPDATE` in una vista ed eseguire altre operazioni nel corpo del trigger.  
   
 
 Oltre all'elenco delle funzioni non supportate disponibili nel sito SQLite ufficiale, il wiki seguente fornisce un elenco di altre funzionalità non supportate: [SQLite-SQL](http://www2.sqlite.org/cvstrac/wiki?p=UnsupportedSql) non supportato  

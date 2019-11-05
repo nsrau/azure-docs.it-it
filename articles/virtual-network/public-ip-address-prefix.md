@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 964bc915347d11e087da0b34a8d4160d807a4158
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: f89218b066b0a22559c00c4a53316f0df9c0bb8f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965408"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488452"
 ---
 # <a name="public-ip-address-prefix"></a>Prefisso dell'indirizzo IP pubblico
 
@@ -46,9 +46,9 @@ Quando si creano risorse indirizzo IP pubblico, Azure assegna un indirizzo IP pu
 ## <a name="scenarios"></a>Scenari
 È possibile associare le risorse seguenti a un indirizzo IP pubblico statico da un prefisso:
 
-|Gruppi|Scenario|Procedure|
+|Risorsa|Scenario|Passi|
 |---|---|---|
-|Macchine virtuali| L'associazione di IP pubblici da un prefisso alle macchine virtuali in Azure riduce il sovraccarico di gestione quando si tratta di inserire nell'elenco elementi consentiti gli indirizzi IP di un firewall. È possibile consentire un intero prefisso con una singola regola del firewall. Quando si scala con macchine virtuali in Azure, è possibile associare gli indirizzi IP dallo stesso prefisso risparmiando costi, tempi e spese generali di gestione.| Per associare gli IP da un prefisso alla macchina virtuale: 1. [Creare un prefisso.](manage-public-ip-address-prefix.md) 2. [Creare un indirizzo IP dal prefisso.](manage-public-ip-address-prefix.md) 3. [Associare l'indirizzo IP all'interfaccia di rete della macchina virtuale.](virtual-network-network-interface-addresses.md#add-ip-addresses)
+|Macchine virtuali| L'associazione di IP pubblici da un prefisso alle macchine virtuali in Azure riduce il sovraccarico di gestione quando si tratta di inserire nell'elenco elementi consentiti gli indirizzi IP di un firewall. È possibile consentire un intero prefisso con una singola regola del firewall. Quando si scala con macchine virtuali in Azure, è possibile associare gli indirizzi IP dallo stesso prefisso risparmiando costi, tempi e spese generali di gestione.| Per associare gli IP da un prefisso alla macchina virtuale: 1. [Creare un prefisso.](manage-public-ip-address-prefix.md) 2. [Creare un indirizzo IP dal prefisso.](manage-public-ip-address-prefix.md) 3. [Associare l'indirizzo IP all'interfaccia di rete della macchina virtuale.](virtual-network-network-interface-addresses.md#add-ip-addresses) È anche possibile [associare gli indirizzi IP a un set di scalabilità di macchine virtuali](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
 | Bilanciamento del carico standard | L'associazione di indirizzi IP pubblici da un prefisso alla configurazione IP del front-end o la regola in uscita di un Load Balancer garantisce la semplificazione dello spazio di indirizzi IP pubblici di Azure. È possibile semplificare lo scenario preparando le connessioni in uscita in modo che siano originate da un intervallo di indirizzi IP contigui definito dal prefisso IP pubblico. | Per associare gli indirizzi IP da un prefisso a un Load Balancer: 1. [Creare un prefisso.](manage-public-ip-address-prefix.md) 2. [Creare un indirizzo IP dal prefisso.](manage-public-ip-address-prefix.md) 3. Quando si crea il Load Balancer, selezionare o aggiornare l'indirizzo IP creato nel passaggio 2 precedente come indirizzo IP front-end del Load Balancer. |
 | Firewall di Azure | È possibile usare un indirizzo IP pubblico da un prefisso per lo SNAT in uscita. Ciò significa che tutto il traffico della rete virtuale in uscita viene traslato nell'indirizzo IP pubblico [Firewall di Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Poiché questo indirizzo IP proviene da un prefisso predeterminato, è molto semplice sapere in anticipo quale sarà l'aspetto del footprint dell'IP pubblico in Azure. | 1. [creare un prefisso.](manage-public-ip-address-prefix.md) 2. [Creare un indirizzo IP dal prefisso.](manage-public-ip-address-prefix.md) 3. Quando si [distribuisce il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), assicurarsi di selezionare l'indirizzo IP allocato in precedenza dal prefisso.|
 | Gateway applicazione V2 | È possibile usare un indirizzo IP pubblico da un prefisso per la scalabilità automatica e il gateway applicazione con ridondanza della zona V2. Poiché questo indirizzo IP proviene da un prefisso predeterminato, è molto semplice sapere in anticipo quale sarà l'aspetto del footprint dell'IP pubblico in Azure. | 1. [creare un prefisso.](manage-public-ip-address-prefix.md) 2. [Creare un indirizzo IP dal prefisso.](manage-public-ip-address-prefix.md) 3. Quando si [distribuisce il gateway applicazione](../application-gateway/quick-create-portal.md#create-an-application-gateway), assicurarsi di selezionare l'indirizzo IP allocato in precedenza dal prefisso.|

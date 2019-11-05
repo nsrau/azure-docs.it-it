@@ -9,21 +9,22 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 05/30/2019
-ms.openlocfilehash: 1b62d4b2ac1bb69e2270c3202d29eb595df7aac4
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
-ms.translationtype: MT
+ms.openlocfilehash: aa1120db5451583153928bd2cbc383a46781a267
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806051"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489558"
 ---
-**Calcolare le destinazioni possono essere riutilizzate da un processo di training al successivo**. Ad esempio, dopo aver collegato una macchina virtuale remota all'area di lavoro, è possibile riutilizzarla per più processi.
+**Le destinazioni di calcolo possono essere riutilizzate da un processo di training a quello successivo**. Ad esempio, dopo aver collegato una macchina virtuale remota all'area di lavoro, è possibile riutilizzarla per più processi.
 
-|Set di training &nbsp;destinazioni| Supporto per GPU |[Machine Learning automatizzati](../articles/machine-learning/service/concept-automated-ml.md) | [Pipeline di Machine Learning](../articles/machine-learning/service/concept-ml-pipelines.md) | [Interfaccia visiva](../articles/machine-learning/service/ui-concept-visual-interface.md)
+|Training &nbsp;destinazioni| Supporto GPU |[ML automatizzato](../articles/machine-learning/service/concept-automated-ml.md) | [Pipeline ML](../articles/machine-learning/service/concept-ml-pipelines.md) | [Finestra di progettazione Azure Machine Learning](../articles/machine-learning/service/concept-designer.md)
 |----|:----:|:----:|:----:|:----:|
-|[Computer locale](../articles/machine-learning/service/how-to-set-up-training-targets.md#local)| Forse | sì | &nbsp; | &nbsp; |
-|[Ambiente di calcolo di Machine Learning](../articles/machine-learning/service/how-to-set-up-training-targets.md#amlcompute)| sì | Sì & <br/>degli iperparametri&nbsp;ottimizzazione | sì | sì |
-|[Macchina virtuale remota](../articles/machine-learning/service/how-to-set-up-training-targets.md#vm) |sì | Sì & <br/>Ottimizzazione degli iperparametri | sì | &nbsp; |
-|[Azure&nbsp;Databricks](../articles/machine-learning/service/how-to-create-your-first-pipeline.md#databricks)| &nbsp; | sì | sì | &nbsp; |
-|[Azure Data Lake Analytics.](../articles/machine-learning/service/how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | sì | &nbsp; |
-|[Azure HDInsight](../articles/machine-learning/service/how-to-set-up-training-targets.md#hdinsight)| &nbsp; | &nbsp; | sì | &nbsp; |
-|[Azure Batch](../articles/machine-learning/service/how-to-set-up-training-targets.md#azbatch)| &nbsp; | &nbsp; | sì | &nbsp; |
+|[Computer locale](../articles/machine-learning/service/how-to-set-up-training-targets.md#local)| Forse | Sì | &nbsp; | &nbsp; |
+|[Istanza di calcolo Azure Machine Learning](../articles/machine-learning/service/concept-compute-instance.md)| Sì | | Sì |  |
+|[Azure Machine Learning cluster di calcolo](../articles/machine-learning/service/how-to-set-up-training-targets.md#amlcompute)| Sì | Sì & <br/>iperparametri&nbsp;ottimizzazione | Sì | Sì |
+|[Macchina virtuale remota](../articles/machine-learning/service/how-to-set-up-training-targets.md#vm) |Sì | Sì & <br/>Ottimizzazione degli iperparametri | Sì | &nbsp; |
+|[Azure&nbsp;databricks](../articles/machine-learning/service/how-to-create-your-first-pipeline.md#databricks)| &nbsp; | Sì | Sì | &nbsp; |
+|[Azure Data Lake Analytics.](../articles/machine-learning/service/how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | Sì | &nbsp; |
+|[Azure HDInsight](../articles/machine-learning/service/how-to-set-up-training-targets.md#hdinsight)| &nbsp; | &nbsp; | Sì | &nbsp; |
+|[Azure Batch](../articles/machine-learning/service/how-to-set-up-training-targets.md#azbatch)| &nbsp; | &nbsp; | Sì | &nbsp; |

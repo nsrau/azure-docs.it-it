@@ -9,108 +9,65 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 70e58077fa40ce685324cd24b447886ec3411034
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 973a8dd56437506d907159f212164ff147ba975c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703194"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487497"
 ---
 # <a name="authoring-and-runtime-keys"></a>Chiavi di creazione e runtime
 
+Language Understanding (LUIS) dispone di due servizi e set di API: 
 
->[!NOTE]
->Prima di continuare, [eseguire la migrazione](luis-migration-authoring.md) di tutte le app che non usano la risorsa di creazione di Azure.
+* Creazione (precedentemente nota come _programmatico_)
+* Runtime di stima
 
-LUIS USA due tipi di risorse di Azure, ognuno dei quali include chiavi: 
+Sono disponibili diversi tipi di chiave, a seconda del servizio che si desidera utilizzare e del modo in cui si desidera utilizzarlo.
+
+## <a name="non-azure-resources-for-luis"></a>Risorse non di Azure per LUIS
+
+### <a name="starter-key"></a>Chiave di avvio
+
+Quando si avvia per la prima volta l'uso di LUIS, viene creata automaticamente una **chiave** di avvio. Questa risorsa fornisce:
+
+* richieste di servizio di creazione gratuite tramite il portale LUIS o le API (inclusi gli SDK)
+* 1\.000 richieste endpoint di stima gratuite al mese tramite un browser, un'API o un SDK
+
+## <a name="azure-resources-for-luis"></a>Risorse di Azure per LUIS
+
+<a name="programmatic-key" ></a>
+<a name="endpoint-key"></a>
+<a name="authoring-key"></a>
+
+LUIS consente tre tipi di risorse di Azure: 
  
-* Creazione e [modifica](#programmatic-key) per creare Intent, entità ed espressioni di etichetta, eseguire il training e pubblicare. Quando si è pronti per pubblicare l'app LUIS, è necessaria una [chiave dell'endpoint di stima per il runtime](luis-how-to-azure-subscription.md) assegnato all'app.
-* [Chiave dell'endpoint di stima per il runtime](#prediction-endpoint-runtime-key). Le applicazioni client, ad esempio un bot di chat, devono accedere all'endpoint di **stima della query** del runtime tramite questa chiave. 
-
-|Chiave|Scopo|Servizio cognitivo `kind`|Servizio cognitivo `type`|
+|Chiave|Scopo|`kind` di servizi cognitivi|`type` di servizi cognitivi|
 |--|--|--|--|
-|[Chiave di creazione](#programmatic-key)|Creazione, formazione, pubblicazione e test.|`LUIS.Authoring`|`Cognitive Services`|
-|[Chiave di runtime dell'endpoint di stima](#prediction-endpoint-runtime-key)| Query PREDICTION endpoint Runtime con un enunciato utente per determinare gli Intent ed entità.|`LUIS`|`Cognitive Services`|
+|[Chiave di creazione](#programmatic-key)|Accesso e gestione dei dati dell'applicazione con la creazione, il training, la pubblicazione e il test. Creare una chiave LUIS authoring se si prevede di creare a livello di codice le app LUIS.<br><br>Lo scopo della chiave `LUIS.Authoring` è consentire di:<br>* gestione a livello di codice di app e modelli di Language Understanding, tra cui formazione e pubblicazione<br> * controllare le autorizzazioni per la risorsa di creazione assegnando gli utenti al [ruolo Collaboratore](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
+|[Chiave di stima](#prediction-endpoint-runtime-key)| Richieste endpoint di stima query. Creare una chiave di stima LUIS prima che l'app client richieda stime oltre le richieste 1.000 fornite dalla risorsa iniziale. |`LUIS`|`Cognitive Services`|
+|[Chiave di risorsa multiservizio di servizi cognitivi](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Richieste di endpoint di stima delle query condivise con LUIS e altri servizi cognitivi supportati.|`CognitiveServices`|`Cognitive Services`|
 
-LUIS fornisce inoltre una [chiave di avvio](luis-how-to-azure-subscription.md#starter-key) con una quota dell'endpoint di stima di 1000 transazioni al mese. 
-
-Sebbene non sia necessario creare entrambe le chiavi nello stesso momento, è molto più semplice.
+Al termine del processo di creazione delle risorse, [assegnare la chiave](luis-how-to-azure-subscription.md) all'app nel portale Luis.
 
 È importante creare app LUIS in [aree](luis-reference-regions.md#publishing-regions) in cui si desidera pubblicare ed eseguire query.
 
-<a name="programmatic-key" ></a>
-
-## <a name="authoring-key"></a>Chiave di creazione
-
-Una chiave di creazione viene creata automaticamente quando si crea un account LUIS ed è gratuita. Quando si inizia con LUIS, è presente una chiave di avvio in tutte le app LUIS per ogni [area](luis-reference-regions.md)di creazione. Lo scopo della chiave di creazione è fornire l'autenticazione per gestire l'app LUIS o per testare le query degli endpoint di stima. 
-
-La creazione di chiavi di creazione nel portale di Azure consente di controllare le autorizzazioni per la risorsa di creazione assegnando gli utenti al [ruolo Collaboratore](#contributions-from-other-authors). Per aggiungere collaboratori, è necessaria l'autorizzazione a livello di sottoscrizione di Azure. 
-
-Per trovare la chiave di creazione, accedere a [LUIS](luis-reference-regions.md#luis-website) e fare clic sul nome dell'account nella barra di spostamento superiore destra per aprire **Account Settings** (Impostazioni account).
-
-![chiave di creazione](./media/luis-concept-keys/authoring-key.png)
-
-Quando si vogliono eseguire **query di runtime**, creare la [risorsa Luis](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)di Azure. 
-
 > [!CAUTION]
-> Per praticità, molti degli esempi utilizzano la [chiave di avvio](#starter-prediction-endpoint-runtime-key) perché fornisce alcune chiamate a endpoint di stima gratuite nella [quota](luis-boundaries.md#key-limits).  
+> Per praticità, molti degli esempi utilizzano la [chiave di avvio](#starter-key) perché fornisce alcune chiamate a endpoint di stima gratuite nella [quota](luis-boundaries.md#key-limits).  
 
-<a name="endpoint-key"></a>
 
-## <a name="prediction-endpoint-runtime-key"></a>Chiave di runtime dell'endpoint di stima 
-
-Quando sono necessarie **query dell'endpoint di runtime**, creare una risorsa Language Understanding (Luis), quindi assegnarla all'app Luis. 
-
-[!INCLUDE [Azure runtime resource creation for Language Understanding and Cognitive Service resources](../../../includes/cognitive-services-luis-azure-resource-instructions.md)]
-
-Al termine del processo di creazione delle risorse, [assegnare la chiave](luis-how-to-azure-subscription.md) all'app. 
-
-* La chiave Runtime (query PREDICTION endpoint) consente una quota di riscontri dell'endpoint in base al piano di utilizzo specificato durante la creazione della chiave di Runtime. Per informazioni sui prezzi, vedere [Prezzi dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h).
+### <a name="query-prediction-resources"></a>Risorse di stima query
 
 * La chiave di runtime può essere usata per tutte le app LUIS o per app LUIS specifiche. 
 * Non usare la chiave di runtime per la creazione di app LUIS. 
 
-### <a name="starter-prediction-endpoint-runtime-key"></a>Chiave runtime dell'endpoint di stima Starter
-
-La chiave dell'endpoint di stima **iniziale** è disponibile gratuitamente e include le query dell'endpoint di stima 1000. Una volta utilizzate queste query, è necessario creare una risorsa dell'endpoint di stima per Language Understanding.  
-
-Si tratta di una risorsa speciale creata automaticamente. Non viene visualizzato nell'elenco delle risorse di Azure perché è concepito come chiave iniziale temporanea. 
-
-<a name="use-endpoint-key-in-query"></a>
-
-### <a name="use-runtime-key-in-query"></a>Usare la chiave di runtime nella query
 L'endpoint di runtime LUIS accetta due stili di query, entrambi utilizzano la chiave di runtime dell'endpoint di stima, ma in posizioni diverse.
 
 L'endpoint usato per accedere al runtime usa un sottodominio univoco per l'area della risorsa, indicato con `{region}` nella tabella seguente. 
 
-
-#### <a name="v2-prediction-endpointtabv2"></a>[V2 endpoint di stima](#tab/V2)
-
-|Verbo|URL di esempio e posizione della chiave|
-|--|--|
-|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`|
-|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`|
-
-#### <a name="v3-prediction-endpointtabv3"></a>[Endpoint di stima V3](#tab/V3)
-
-|Verbo|URL di esempio e posizione della chiave|
-|--|--|
-|[GET](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a91e54c9db63d589f433)|`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?runtime-key=your-endpoint-key-here&query=turn%20on%20the%20lights`|
-|[POST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a5830f741b27cd03a061)| `https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict`| 
-
-Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
-
-* * * 
-
-**OTTENERE**: Modificare il valore della query endpoint per `runtime-key` dalla chiave di creazione (avvio) alla nuova chiave endpoint per usare il limite di quota della chiave endpoint LUIS. Se si crea e si assegna la chiave, ma non si modifica il valore della query endpoint per `runtime-key`, non si usa la quota della chiave endpoint.
-
-**POST**: Modificare il valore dell'intestazione per `Ocp-Apim-Subscription-Key`<br>Se si crea la chiave di runtime e si assegna la chiave di runtime, ma non si modifica il valore della query dell'endpoint per `Ocp-Apim-Subscription-Key`, non si usa la chiave di Runtime.
-
-L'ID app usato nell'URL precedente, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, è l'app IoT pubblica usata per la [dimostrazione interattiva](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). 
-
-## <a name="assignment-of-the-runtime-key"></a>Assegnazione della chiave di runtime
+## <a name="assignment-of-the-key"></a>Assegnazione della chiave
 
 È possibile [assegnare](luis-how-to-azure-subscription.md) la chiave di runtime nel [portale Luis](https://www.luis.ai) o tramite le API corrispondenti. 
 
@@ -127,19 +84,11 @@ Se si supera la quota transazioni al secondo (TPS), viene visualizzato un errore
 
 ## <a name="contributions-from-other-authors"></a>Contributi di altri autori
 
-
-
-La gestione dei contributi dai collaboratori dipende dallo stato corrente dell'app.
-
 **Per la creazione di app [migrate delle risorse](luis-migration-authoring.md)** : i _collaboratori_ vengono gestiti nel portale di Azure per la risorsa di creazione, usando la pagina **controllo di accesso (IAM)** . Informazioni [su come aggiungere un utente](luis-how-to-collaborate.md), usando l'indirizzo di posta elettronica del collaboratore e il ruolo _collaboratore_ . 
 
 **Per le app che non sono state ancora migrate**: tutti i _collaboratori_ vengono gestiti nel portale Luis dalla pagina **Manage-> collaboratori** .
 
-### <a name="contributor-roles-vs-entity-roles"></a>Ruoli collaboratore e ruoli entità
-
-I [ruoli dell'entità](luis-concept-roles.md) si applicano al modello di dati dell'app Luis. I ruoli collaboratore/collaboratore si applicano ai livelli di accesso alla creazione. 
-
-## <a name="moving-or-changing-ownership"></a>Trasferimento o modifica della proprietà
+## <a name="move-transfer-or-change-ownership"></a>Spostare, trasferire o modificare la proprietà
 
 Un'app è definita dalle risorse di Azure, che è determinata dalla sottoscrizione del proprietario. 
 
@@ -148,7 +97,12 @@ Un'app è definita dalle risorse di Azure, che è determinata dalla sottoscrizio
 * [Spostare l'app tra le risorse di authoring LUIS](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
 * [Spostare una risorsa in un nuovo gruppo di risorse o sottoscrizione](../../azure-resource-manager/resource-group-move-resources.md)
 * [Spostare una risorsa all'interno della stessa sottoscrizione o tra sottoscrizioni](../../azure-resource-manager/move-limitations/app-service-move-limitations.md)
-* [Trasferire la proprietà](../../billing/billing-subscription-transfer.md) della sottoscrizione 
+
+Per trasferire la [Proprietà](../../billing/billing-subscription-transfer.md) della sottoscrizione: 
+
+**Per gli utenti che hanno eseguito la migrazione delle app [migrate](luis-migration-authoring.md) per la creazione di risorse**: come proprietario della risorsa, è possibile aggiungere un `contributor`.
+
+**Per gli utenti che non hanno ancora**eseguito la migrazione: esportare l'app come file JSON. Un altro utente LUIS può importare l'app, diventando così il proprietario dell'app. La nuova app avrà un ID app diverso.  
 
 ## <a name="access-for-private-and-public-apps"></a>Accesso per le app private e pubbliche
 
@@ -171,13 +125,13 @@ Il proprietario e tutti i collaboratori possono accedere per creare l'app.
 |Modificare il modello|
 |Pubblica|
 |Rivedere le espressioni endpoint per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md)|
-|Treno|
+|Eseguire il training|
+
+<a name="prediction-endpoint-runtime-key"></a>
 
 ### <a name="prediction-endpoint-runtime-access"></a>Accesso al runtime dell'endpoint di stima
 
 L'accesso per eseguire query sull'endpoint di stima è controllato da un'impostazione nella pagina **informazioni sull'applicazione** nella sezione **Gestisci** . 
-
-![Impostazione dell'app su pubblica](./media/luis-concept-security/set-application-as-public.png)
 
 |[Endpoint privato](#runtime-security-for-private-apps)|[Endpoint pubblico](#runtime-security-for-public-apps)|
 |:--|:--|
@@ -205,9 +159,7 @@ Un'app pubblica viene pubblicata in tutte le regioni in modo che un utente con u
 
 ## <a name="transfer-of-ownership"></a>Trasferire la proprietà
 
-**Per la creazione di app [migrate di risorse](luis-migration-authoring.md)** : Il proprietario della risorsa può aggiungere un `contributor`.
-
-**Per le app di cui non è ancora stata eseguita la migrazione**: Esportare l'app come file JSON. Un altro utente LUIS può importare l'app, diventando così il proprietario dell'app. La nuova app avrà un ID app diverso.  
+LUIS non ha il concetto di trasferimento della proprietà di una risorsa. 
 
 ## <a name="securing-the-endpoint"></a>Protezione dell'endpoint 
 

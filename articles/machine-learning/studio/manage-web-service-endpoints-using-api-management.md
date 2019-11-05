@@ -1,6 +1,6 @@
 ---
 title: Gestire i servizi Web tramite gestione API
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Guida che mostra come gestire i servizi Web di AzureML con Gestione API. Gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard.
 services: machine-learning
 ms.service: machine-learning
@@ -10,26 +10,26 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 5b6ece20f67258391e31b941edfc1ec0aa5db98f
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 60f890912874cfda993ae45f84fa3d1c04503d00
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279257"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489254"
 ---
-# <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gestire i servizi Web di Azure Machine Learning Studio con Gestione API
+# <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Gestire i servizi Web di Azure Machine Learning Studio (classico) tramite gestione API
 ## <a name="overview"></a>Panoramica
-Questa guida illustra le procedure per iniziare subito a usare Gestione API per gestire i servizi Web di Azure Machine Learning Studio.
+Questa guida illustra come iniziare rapidamente a usare gestione API per gestire i servizi Web di Azure Machine Learning Studio (classico).
 
 ## <a name="what-is-azure-api-management"></a>Cos'è Gestione API di Azure?
-Gestione API di Azure è un servizio di Azure che consente di gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard. Per informazioni dettagliate su Gestione API di Azure, fare clic [qui](https://azure.microsoft.com/services/api-management/) . Per una guida introduttiva a Gestione API di Azure, fare clic [qui](/azure/api-management/import-and-publish) . L'altra guida, su cui è basata questa, tratta più argomenti, tra cui le configurazioni delle notifiche, il livello di prezzo, la gestione delle risposte, l'autenticazione utente, la creazione di prodotti, le sottoscrizioni per sviluppatori e il dashboarding dell'uso.
+Gestione API di Azure è un servizio di Azure che consente di gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard. Per altri dettagli, vedere il [sito gestione API di Azure](https://azure.microsoft.com/services/api-management/) . Per iniziare a usare gestione API di Azure, vedere [la Guida all'importazione e alla pubblicazione](/azure/api-management/import-and-publish). L'altra guida, su cui è basata questa, tratta più argomenti, tra cui le configurazioni delle notifiche, il livello di prezzo, la gestione delle risposte, l'autenticazione utente, la creazione di prodotti, le sottoscrizioni per sviluppatori e il dashboarding dell'uso.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa guida, è necessario:
 
-* Un account Azure. Se non si dispone di un account Azure, fare clic [qui](https://azure.microsoft.com/pricing/free-trial/) per informazioni dettagliate su come creare un account di prova gratuito.
-* Un account AzureML. Se non si dispone di un account AzureML, fare clic [qui](https://studio.azureml.net/) per informazioni dettagliate su come creare un account di prova gratuito.
-* L'area di lavoro, il servizio e l'api_key per un esperimento di AzureML distribuito come servizio web. Per informazioni dettagliate su come creare un esperimento di AzureML, fare clic [qui](create-experiment.md) . Per informazioni dettagliate su come distribuire un esperimento di AzureML come servizio Web, fare clic [qui](publish-a-machine-learning-web-service.md) . In alternativa, l'Appendice A contiene le istruzioni per creare e testare un semplice esperimento di AzureML e distribuirlo come servizio Web.
+* Un account Azure.
+* Un account AzureML.
+* L'area di lavoro, il servizio e l'api_key per un esperimento di AzureML distribuito come servizio web. Per informazioni dettagliate su come creare un esperimento AzureML, vedere la [Guida introduttiva di studio](create-experiment.md). Per informazioni su come distribuire un esperimento di studio (classico) come servizio Web, vedere le procedure per la [distribuzione di studio](publish-a-machine-learning-web-service.md) per informazioni dettagliate su come distribuire un esperimento AzureML come servizio Web. In alternativa, l'Appendice A contiene le istruzioni per creare e testare un semplice esperimento di AzureML e distribuirlo come servizio Web.
 
 ## <a name="create-an-api-management-instance"></a>Creare un'istanza di Gestione API
 
@@ -38,12 +38,12 @@ Per completare questa guida, è necessario:
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **+ Crea una risorsa**.
 3. Nella casella di ricerca digitare "Gestione API" e quindi selezionare la risorsa "Gestione API".
-4. Fare clic su **Create**(Crea).
+4. Fare clic su **Create**.
 5. Il valore del campo **Nome** verrà usato per creare un URL univoco (in questo esempio viene usato "demoazureml").
 6. Scegliere un valore nei campi **Sottoscrizione**, **Gruppo di risorse** e **Area** per l'istanza del servizio.
 7. Specificare un valore per **Nome organizzazione** (in questo esempio viene usato "demoazureml").
 8. Immettere un valore nel campo **Indirizzo di posta elettronica dell'amministratore**. L'indirizzo specificato verrà usato per le notifiche del sistema Gestione API.
-9. Fare clic su **Create**(Crea).
+9. Fare clic su **Create**.
 
 La creazione del nuovo potrebbe richiedere fino a 30 minuti.
 
@@ -55,7 +55,7 @@ Dopo aver creato l'istanza del servizio, l'operazione successiva consiste nel cr
 
 Per creare l'API:
 
-1. Nel portale di Azure aprire l'istanza del servizio appena creato.
+1. Nella portale di Azure aprire l'istanza del servizio creata.
 2. Nel pannello di navigazione sinistro selezionare **API**.
 
    ![api-management-menu](./media/manage-web-service-endpoints-using-api-management/api-management.png)
@@ -134,7 +134,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>Chiamare un'operazione dal portale per sviluppatori
 
-È possibile chiamare le operazioni direttamente dal portale per sviluppatori, che consente di visualizzare e testare le operazioni di un'API in tutta comodità. In questa procedura si chiamerà il metodo **RRS Execute** aggiunto all'**AzureML Demo API**. 
+È possibile chiamare le operazioni direttamente dal portale per sviluppatori, che consente di visualizzare e testare le operazioni di un'API in tutta comodità. In questo passaggio si chiamerà il metodo **RRS Execute** aggiunto all' **API demo AzureML**. 
 
 1. Fare clic su **Portale per sviluppatori**.
 
@@ -158,7 +158,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 
 5. Fare clic su **Send**.
 
-   ![invia](./media/manage-web-service-endpoints-using-api-management/send.png)
+   ![Send](./media/manage-web-service-endpoints-using-api-management/send.png)
 
 Una volta richiamata un'operazione, nel portale per sviluppatori vengono visualizzati l'**URL richiesto** restituito dal servizio back-end, lo **Stato della risposta**, le **Intestazioni della risposta** e l'eventuale **Contenuto della risposta**.
 

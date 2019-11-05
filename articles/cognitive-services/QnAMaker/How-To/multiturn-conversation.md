@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: dc99626e2341e180ba0ab191003cf3a6ba9b72e9
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 06b16af941004f6506b43fb36b4d79297b403595
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695140"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486927"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usare i prompt di completamento per creare più turni di una conversazione
 
@@ -24,7 +24,7 @@ Usare le richieste di completamento e il contesto per gestire più turni, noti c
 
 Per informazioni sul funzionamento della funzionalità multifunzione, vedere il video dimostrativo seguente:
 
-[![Multi-trasforma la conversazione in QnA Maker](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
+[![conversazione a più turni in QnA Maker](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
 
 ## <a name="what-is-a-multi-turn-conversation"></a>Che cos'è una conversazione a più turni?
 
@@ -42,12 +42,10 @@ Nell'immagine precedente, un utente ha avviato una conversazione immettendo **il
 
 Quando l'utente seleziona un'opzione (#3), viene visualizzato l'elenco successivo di opzioni di perfezionamento (#4). Questa sequenza continua (#5) fino a quando l'utente non determina la risposta finale corretta (#6).
 
-> [!NOTE]
-> Nell'immagine precedente è stata selezionata la casella di controllo **Abilita multiturni** per assicurarsi che vengano visualizzati i prompt. 
 
 ### <a name="use-multi-turn-in-a-bot"></a>Usare la funzionalità multiturne in un bot
 
-Per gestire la conversazione contestuale, modificare l'applicazione client [aggiungendo il codice al bot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-prompting). L'aggiunta del codice consente agli utenti di visualizzare i prompt.  
+Dopo la pubblicazione della KB, è possibile selezionare il pulsante **Crea bot** per distribuire il bot di QnA Maker al servizio Azure bot. I prompt verranno visualizzati nei client di chat abilitati per il bot.
 
 ## <a name="create-a-multi-turn-conversation-from-a-documents-structure"></a>Creare una conversazione a più turni dalla struttura di un documento
 
@@ -55,25 +53,25 @@ Quando si crea una Knowledge base, nella sezione **popolare la KB** viene visual
 
 ![Casella di controllo per l'abilitazione dell'estrazione a più turni](../media/conversational-context/enable-multi-turn.png)
 
-Quando si seleziona questa opzione, la conversazione a più turni può essere implicita dalla struttura del documento. Se tale struttura esiste, QnA Maker crea la richiesta di completamento che consente di abbinare le domande e le risposte come parte del processo di importazione. 
+Quando si seleziona questa opzione, QnA Maker estrae la gerarchia presente nella struttura del documento. La gerarchia viene convertita in per completare le richieste e la radice della gerarchia funge da QnA padre. In alcuni documenti la radice della gerarchia non contiene contenuto che può fungere da risposta, è possibile fornire il testo di risposta predefinito da usare come testo di risposta sostitutivo per estrarre tali gerarchie.   
 
-La struttura a più turni può essere dedotta solo da URL, file PDF o file DOCX. Per un esempio di struttura, visualizzare un'immagine di un [file PDF Manuale dell'utente di Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). A causa delle dimensioni di questo file PDF, la risorsa QnA Maker richiede un piano **tariffario di ricerca** di **B** (15 indici) o superiore. 
+La struttura a più turni può essere dedotta solo da URL, file PDF o file DOCX. Per un esempio di struttura, visualizzare un'immagine di un [file PDF Manuale dell'utente di Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). 
 
 ![! [Esempio di struttura in un manuale dell'utente] (.. /media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
-### <a name="determine-multi-turn-structure-from-format"></a>Determinare la struttura a più turni dal formato
+### <a name="building-your-own-multi-turn-document"></a>Creazione di un documento a più turni
 
-QnA Maker determina la struttura a più turni da:
+Se si sta creando un documento a più turni, tenere presenti le linee guida seguenti:
 
-* Dimensioni del carattere dell'intestazione: se si usa lo stile, il colore o un altro meccanismo per implicare la struttura nel documento, QnA Maker non estrae i prompt a più turni. 
-
-Le regole delle intestazioni includono:
+* Usare le intestazioni e le sottointestazioni per indicare la gerarchia. Ad esempio, è possibile denotare il QnA padre e H2 per indicare la QnA che deve essere eseguita come richiesta. Utilizzare dimensioni di intestazione ridotte per indicare la gerarchia successiva. Non usare lo stile, il colore o un altro meccanismo per implicare la struttura nel documento, QnA Maker non estrae i prompt a più turni. 
 
 * Non terminare un'intestazione con un punto interrogativo, `?`. 
 
-### <a name="add-file-with-multi-turn-prompts"></a>Aggiungi file con richieste a più turni
+* È possibile utilizzare il [documento di esempio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx) come esempio per creare un documento a più turni.
 
-Quando si aggiunge un documento a più turni, QnA Maker determina le richieste di completamento dalla struttura per creare il flusso di conversazione. 
+### <a name="adding-files-to-a-multi-turn-kb"></a>Aggiunta di file a un KB a più turni
+
+Quando si aggiunge un documento gerarchico, QnA Maker determina le richieste di completamento dalla struttura per creare il flusso di conversazione. 
 
 1. In QnA Maker selezionare una Knowledge Base esistente creata con **Consenti estrazione a più turni da URL, file con estensione PDF o docx.** abilitato. 
 1. Passare alla pagina **Impostazioni** , selezionare il file o l'URL da aggiungere. 
@@ -91,7 +89,7 @@ Quando si aggiunge un documento a più turni, QnA Maker determina le richieste d
 
 Ridurre le coppie di domande e risposte visualizzate solo a quelle con conversazioni contestuali. 
 
-Selezionare Visualizza **Opzioni**, quindi selezionare Mostra **contesto (anteprima)** . Nell'elenco vengono visualizzate coppie di domande e risposte che contengono richieste di completamento. 
+Selezionare Visualizza **Opzioni**, quindi selezionare Mostra **contesto**. Nell'elenco vengono visualizzate coppie di domande e risposte che contengono richieste di completamento. 
 
 ![Filtrare le coppie di domande e risposte per conversazioni contestuali](../media/conversational-context/filter-question-and-answers-by-context.png)
 
@@ -111,9 +109,9 @@ Aggiungere una richiesta di completamento a una coppia di domande e risposte esi
 
 1. Per collegare una coppia di domande e risposte esistente come prompt di completamento, selezionare la riga per la coppia domanda-risposta. Per la superficie manuale, cercare la **disconnessione** per ridurre l'elenco.
 1. Nella riga per la **disconnessione**selezionare **Aggiungi richiesta di completamento**nella colonna **risposta** .
-1. Nei campi della finestra popup della **richiesta di completamento (anteprima)** immettere i valori seguenti:
+1. Nei campi della finestra popup della **richiesta di completamento** immettere i valori seguenti:
 
-    |Campo|Value|
+    |Campo|Valore|
     |--|--|
     |Testo visualizzato|Immettere **Disattiva il dispositivo**. Si tratta di un testo personalizzato da visualizzare nel prompt di completamento.|
     |Solo contesto| Selezionare questa casella di controllo. Viene restituita una risposta solo se la domanda specifica il contesto.|
@@ -150,7 +148,7 @@ Quando si aggiunge una nuova coppia di domande e risposte alla Knowledge base, o
 1. Nella colonna **risposta** per questa domanda selezionare **Aggiungi richiesta di completamento**. 
 1. In **prompt di completamento (anteprima)** creare una nuova richiesta di completamento immettendo i valori seguenti: 
 
-    |Campo|Value|
+    |Campo|Valore|
     |--|--|
     |Testo visualizzato|*Creare un account di Windows*. Testo personalizzato da visualizzare nel prompt di completamento.|
     |Solo contesto|Selezionare questa casella di controllo. Questa risposta viene restituita solo se la domanda specifica il contesto.|
@@ -265,7 +263,7 @@ Nella sezione precedente è stata richiesta una risposta ed eventuali richieste 
 }
 ```
 
-La matrice `prompts` fornisce il testo nella proprietà `displayText` e il valore `qnaId`. È possibile visualizzare queste risposte come le opzioni visualizzate successive nel flusso di conversazione e quindi inviare di nuovo il `qnaId` selezionato a QnA Maker nella richiesta seguente. 
+La matrice `prompts` fornisce il testo nella proprietà `displayText` e il valore di `qnaId`. È possibile visualizzare queste risposte come le opzioni visualizzate successive nel flusso di conversazione e quindi inviare di nuovo il `qnaId` selezionato a QnA Maker nella richiesta seguente. 
 
 <!--
 
@@ -275,7 +273,7 @@ The `promptsToDelete` array provides the ...
 
 ## <a name="a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Richiesta JSON per restituire una risposta non iniziale e richieste di completamento
 
-Riempire l'oggetto `context` per includere il contesto precedente.
+Compilare l'oggetto `context` per includere il contesto precedente.
 
 Nella richiesta JSON seguente la domanda corrente è *usare Windows Hello per eseguire l'accesso* e la domanda precedente è costituita da *account e accesso*. 
 
@@ -295,7 +293,7 @@ Nella richiesta JSON seguente la domanda corrente è *usare Windows Hello per es
 
 ##  <a name="a-json-response-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Risposta JSON per restituire una risposta non iniziale e richieste di completamento
 
-La risposta JSON QnA Maker _GenerateAnswer_ include le richieste di completamento nella proprietà `context` del primo elemento nell'oggetto `answers`:
+La risposta JSON QnA Maker _GenerateAnswer_ include le richieste di completamento nella proprietà `context` del primo elemento dell'oggetto `answers`:
 
 ```JSON
 {
@@ -355,11 +353,8 @@ La risposta JSON QnA Maker _GenerateAnswer_ include le richieste di completament
 
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Eseguire una query sulla Knowledge base con l'ID QnA Maker
 
-Nella risposta della domanda iniziale vengono restituiti tutti i prompt di completamento e il `qnaId` associato. Ora che si dispone dell'ID, è possibile passarlo nel corpo della richiesta di completamento della richiesta. Se il corpo della richiesta contiene il `qnaId` e l'oggetto di contesto (che contiene le proprietà del QnA Maker precedente), GenerateAnswer restituirà la domanda esatta in base all'ID, anziché usare l'algoritmo di classificazione per trovare la risposta dal testo della domanda. 
+Se si compila un'applicazione personalizzata usando la funzionalità a più turni. Nella risposta della domanda iniziale vengono restituiti tutti i prompt di completamento e il `qnaId` associato. Ora che si dispone dell'ID, è possibile passarlo nel corpo della richiesta di completamento della richiesta. Se il corpo della richiesta contiene il `qnaId`e l'oggetto context, che contiene le proprietà QnA Maker precedenti, GenerateAnswer restituirà la domanda esatta in base all'ID, anziché usare l'algoritmo di classificazione per trovare la risposta in base al testo della domanda. 
 
-## <a name="display-prompts-and-send-context-in-the-client-application"></a>Visualizzare i prompt e inviare il contesto nell'applicazione client 
-
-Sono stati aggiunti messaggi di richiesta nella Knowledge base e il flusso è stato testato nel riquadro test. A questo punto è necessario usare questi prompt nell'applicazione client. Per bot Framework, le richieste non vengono visualizzate automaticamente nelle applicazioni client. È possibile visualizzare i prompt come azioni o pulsanti suggeriti come parte della risposta alla query dell'utente nelle applicazioni client includendo questo esempio di [bot Framework](https://aka.ms/qnamakermultiturnsample) nel codice. L'applicazione client deve archiviare l'ID QnA Maker corrente e la query utente e passarli nell' [oggetto di contesto dell'API GenerateAnswer](#a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts) per la query utente successiva. 
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>L'ordine di visualizzazione è supportato nell'API di aggiornamento
 
@@ -367,7 +362,7 @@ Il [testo visualizzato e l'ordine di visualizzazione](https://docs.microsoft.com
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Aggiungere o eliminare richieste a più turni con l'API di aggiornamento
 
-È possibile aggiungere o eliminare richieste a più turni usando l' [API di aggiornamento QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  I prompt vengono aggiunti nella matrice `promptsToAdd` della proprietà `context` e nella matrice `promptsToDelete`. 
+È possibile aggiungere o eliminare richieste a più turni usando l' [API di aggiornamento QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  I prompt vengono aggiunti nella matrice di `promptsToAdd` della proprietà `context` e nella matrice di `promptsToDelete`. 
 
 ## <a name="export-knowledge-base-for-version-control"></a>Esporta Knowledge base per il controllo della versione
 

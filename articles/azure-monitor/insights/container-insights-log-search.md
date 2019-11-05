@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/12/2019
-ms.openlocfilehash: c3a034776b32db57f70ddee960c1cd5fc96b170b
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: 787e9e6d0ae86568e1af74b4d67fb716841a02df
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555417"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73477095"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Come eseguire query sui log da monitoraggio di Azure per i contenitori
 
@@ -22,7 +22,7 @@ Monitoraggio di Azure per i contenitori raccoglie le metriche delle prestazioni,
 
 La tabella seguente mostra esempi di record raccolti da Monitoraggio di Azure per contenitori e i tipi di dati visualizzati nei risultati della ricerca nei log:
 
-| Tipo di dati | Tipo di dati in Ricerca log | Campi |
+| Tipo di dati | Tipo di dati in Ricerca log | Fields |
 | --- | --- | --- |
 | Prestazioni per host e contenitori | `Perf` | Computer, ObjectName, CounterName &#40;% tempo processore, MB di letture disco, MB di scritture disco MB utilizzo di memoria, byte di ricezione di rete, byte di invio di rete, utilizzo del processore in secondi, rete&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
 | Inventario contenitori | `ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
@@ -46,7 +46,7 @@ La tabella seguente mostra esempi di record raccolti da Monitoraggio di Azure pe
 
 I log di monitoraggio di Azure consentono di individuare le tendenze, diagnosticare i colli di bottiglia, prevedere o correlare i dati che consentono di determinare se la configurazione corrente del cluster funziona in modo ottimale. Sono disponibili ricerche predefinite nei log che è possibile iniziare a usare immediatamente o personalizzare per restituire le informazioni nel modo che si preferisce.
 
-È possibile eseguire un'analisi interattiva dei dati nell'area di lavoro selezionando l'opzione **View Kubernetes event logs** (Visualizza registri eventi Kubernetes) o **View container logs** (Visualizza log contenitore) nel riquadro di anteprima. La pagina **Ricerca log** viene visualizzata sulla destra della pagina attiva del portale di Azure.
+È possibile eseguire l'analisi interattiva dei dati nell'area di lavoro selezionando l'opzione **Visualizza registri eventi Kubernetes** o **Visualizza log del contenitore** nel riquadro di anteprima dall'elenco **a discesa Visualizza in Analytics** . La pagina **Ricerca log** viene visualizzata sulla destra della pagina attiva del portale di Azure.
 
 ![Analizzare i dati in Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)   
 
@@ -56,7 +56,7 @@ Il contenitore registra l'output che viene inviato all'area di lavoro sono STDOU
 
 Spesso è utile creare una query a partire da qualche esempio e quindi modificarla in base ai propri requisiti. Per creare query più avanzate, è possibile provare a usare le query di esempio seguenti:
 
-| Query | Description | 
+| Query | Descrizione | 
 |-------|-------------|
 | ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | Elencare tutte le informazioni sul ciclo di vita di un contenitore| 
 | KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | Eventi di Kubernetes|
@@ -65,37 +65,57 @@ Spesso è utile creare una query a partire da qualche esempio e quindi modificar
 | **Selezionare l'opzione di visualizzazione corrispondente al grafico a linee**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Memoria del contenitore |
 | InsightsMetrics<br> &#124;dove name = = "requests_count"<br> &#124;riepilogare Val = any (Val) by TimeGenerated = bin (TimeGenerated, 1m)<br> &#124;Ordina per TimeGenerated ASC<br> &#124;Project RequestsPerMinute = Val-Prev (Val), TimeGenerated <br> &#124;Barchart di rendering  | Richieste al minuto con metriche personalizzate |
 
-L'esempio seguente è una query di metrica Prometeo. Le metriche raccolte sono conteggi e per determinare il numero di errori che si sono verificati in un periodo di tempo specifico, è necessario sottrarre dal conteggio. Il set di dati è partizionato da *partitionKey*, ovvero per ogni set univoco di *nome, nome* *host*e *OperationType*, viene eseguita una sottoquery sul set che ordina i log in base a *TimeGenerated*, un processo che rende possibile trovare i *TimeGenerated* precedenti e il conteggio registrato per quel periodo di tempo, per determinare una frequenza.
+## <a name="query-prometheus-metrics-data"></a>Eseguire query sui dati di metrica Prometeo
+
+L'esempio seguente è una query di metrica Prometeo che mostra le letture disco al secondo per ogni disco per nodo.
 
 ```
-let data = InsightsMetrics 
-| where Namespace contains 'prometheus' 
-| where Name == 'kubelet_docker_operations' or Name == 'kubelet_docker_operations_errors'    
-| extend Tags = todynamic(Tags) 
-| extend OperationType = tostring(Tags['operation_type']), HostName = tostring(Tags.hostName) 
-| extend partitionKey = strcat(HostName, '/' , Name, '/', OperationType) 
-| partition by partitionKey ( 
-    order by TimeGenerated asc 
-    | extend PrevVal = prev(Val, 1), PrevTimeGenerated = prev(TimeGenerated, 1) 
-    | extend Rate = iif(TimeGenerated == PrevTimeGenerated, 0.0, Val - PrevVal) 
-    | where isnull(Rate) == false 
-) 
-| project TimeGenerated, Name, HostName, OperationType, Rate; 
-let operationData = data 
-| where Name == 'kubelet_docker_operations' 
-| project-rename OperationCount = Rate; 
-let errorData = data 
-| where Name == 'kubelet_docker_operations_errors' 
-| project-rename ErrorCount = Rate; 
-operationData 
-| join kind = inner ( errorData ) on TimeGenerated, HostName, OperationType 
-| project-away TimeGenerated1, Name1, HostName1, OperationType1 
-| extend SuccessPercentage = iif(OperationCount == 0, 1.0, 1 - (ErrorCount / OperationCount))
+InsightsMetrics
+| where Namespace == 'container.azm.ms/diskio'
+| where TimeGenerated > ago(1h)
+| where Name == 'reads'
+| extend Tags = todynamic(Tags)
+| extend HostName = tostring(Tags.hostName), Device = Tags.name
+| extend NodeDisk = strcat(Device, "/", HostName)
+| order by NodeDisk asc, TimeGenerated asc
+| serialize
+| extend PrevVal = iif(prev(NodeDisk) != NodeDisk, 0.0, prev(Val)), PrevTimeGenerated = iif(prev(NodeDisk) != NodeDisk, datetime(null), prev(TimeGenerated))
+| where isnotnull(PrevTimeGenerated) and PrevTimeGenerated != TimeGenerated
+| extend Rate = iif(PrevVal > Val, Val / (datetime_diff('Second', TimeGenerated, PrevTimeGenerated) * 1), iif(PrevVal == Val, 0.0, (Val - PrevVal) / (datetime_diff('Second', TimeGenerated, PrevTimeGenerated) * 1)))
+| where isnotnull(Rate)
+| project TimeGenerated, NodeDisk, Rate
+| render timechart
+
+```
+
+Per visualizzare le metriche Prometeo ricavate da monitoraggio di Azure filtrato in base allo spazio dei nomi, specificare "Prometeo". Ecco una query di esempio per visualizzare le metriche Prometheus dallo spazio dei nomi `default` kubernetes.
+
+```
+InsightsMetrics 
+| where Namespace == "prometheus"
+| extend tags=parse_json(Tags)
+| summarize count() by Name
+```
+
+I dati Prometheus possono anche essere sottoposti a query direttamente in base al nome.
+
+```
+InsightsMetrics 
+| where Namespace == "prometheus"
+| where Name contains "some_prometheus_metric"
+```
+
+### <a name="query-config-or-scraping-errors"></a>Errori di configurazione della query o di scrap
+
+Per esaminare eventuali errori di configurazione o di frammentazione, la query di esempio seguente restituisce gli eventi informativi della tabella `KubeMonAgentEvents`.
+
+```
+KubeMonAgentEvents | where Level != "Info" 
 ```
 
 L'output visualizzerà risultati simili ai seguenti:
 
-![Registrare i risultati delle query del volume di inserimento dati](./media/container-insights-log-search/log-query-example-prometheus-metrics.png)
+![Registra i risultati della query degli eventi informativi dall'agente](./media/container-insights-log-search/log-query-example-kubeagent-events.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

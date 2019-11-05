@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 10/15/2019
 ms.author: diberry
-ms.openlocfilehash: 3c3c54faa882a38fb6c55c9fc0476a569f25cb98
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 8069b3b9c9a226e29a3eae3261948ee92291726d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638322"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486636"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendere quali sono le espressioni ottimali per l'app LUIS
 
@@ -90,7 +90,7 @@ I segni diacritici sono contrassegni o segni all'interno del testo, ad esempio:
 
 Se l'app attiva la normalizzazione, i punteggi nel riquadro di **test** , i test batch e le query di endpoint cambiano per tutte le espressioni che usano segni diacritici o segni di punteggiatura.
 
-Attivare la normalizzazione dell'espressione per i segni diacritici o la `settings` punteggiatura del file dell'app Luis JSON nel parametro.
+Attivare la normalizzazione dell'espressione per i segni diacritici o la punteggiatura del file dell'app LUIS JSON nel parametro `settings`.
 
 ```JSON
 "settings": [
@@ -99,7 +99,7 @@ Attivare la normalizzazione dell'espressione per i segni diacritici o la `settin
 ] 
 ```
 
-Normalizzare la punteggiatura significa che prima che i modelli vengano sottoposti a training e prima che le query dell'endpoint vengano stimate, la punteggiatura verrà rimossa dalle espressioni. 
+Normalizzare la **punteggiatura** significa che prima che i modelli vengano sottoposti a training e prima che le query dell'endpoint vengano stimate, la punteggiatura verrà rimossa dalle espressioni. 
 
 La normalizzazione dei **segni diacritici** sostituisce i caratteri con segni diacritici in espressioni con caratteri regolari. Ad esempio: `Je parle français` diventa `Je parle francais`. 
 
@@ -114,11 +114,11 @@ Se la punteggiatura non viene normalizzata, LUIS non ignora i segni di punteggia
 
 Verificare che il modello gestisca la punteggiatura nelle [espressioni di esempio](luis-concept-utterance.md) (con e senza punteggiatura) o nei [modelli](luis-concept-patterns.md) dove risulta più semplice ignorare la punteggiatura con la sintassi speciale: `I am applying for the {Job} position[.]`
 
-Se la punteggiatura non ha un significato specifico nell'applicazione client, considerare la possibilità di [ignorare](#utterance-normalization) la punteggiatura normalizzando la punteggiatura. 
+Se la punteggiatura non ha un significato specifico nell'applicazione client, considerare la possibilità di [ignorare la punteggiatura](#utterance-normalization) normalizzando la punteggiatura. 
 
 ### <a name="ignoring-words-and-punctuation"></a>Ignorare parole e punteggiatura
 
-Se si desidera ignorare parole specifiche o segni di punteggiatura nei modelli, utilizzare un [modello](luis-concept-patterns.md#pattern-syntax) con la sintassi ignore delle parentesi quadre,. `[]` 
+Se si desidera ignorare parole specifiche o segni di punteggiatura nei modelli, utilizzare un [modello](luis-concept-patterns.md#pattern-syntax) con la sintassi _Ignore_ delle parentesi quadre, `[]`. 
 
 ## <a name="training-utterances"></a>Eseguire il training sulle espressioni
 
@@ -135,6 +135,20 @@ Dopo che il modello è stato formato e pubblicato e dopo aver ricevuto le query 
 ## <a name="best-practices"></a>Procedure consigliate
 
 Rivedere le [procedure consigliate](luis-concept-best-practices.md) e applicarle come parte del normale ciclo di creazione e modifica.
+
+## <a name="label-for-word-meaning"></a>Assegnare etichette per il significato delle parole
+
+Se la scelta o la disposizione della parola è la stessa ma il significato è diverso, non etichettarla con le entità. 
+
+Nelle espressioni seguenti, la parola `fair` è un omografo. L'ortografia è la stessa ma il significato è diverso:
+
+|Espressione|
+|--|
+|Quali sono le fiere in programma nell'area di Seattle la prossima estate?|
+|L'attuale classificazione per la recensione di Seattle è valida?|
+
+Se si desidera che un'entità di evento trovi tutti i dati dell'evento, etichettare la parola `fair` nella prima espressione, ma non nella seconda.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Consultare [Add example utterances](luis-how-to-add-example-utterances.md) (Aggiungere espressioni di esempio) per informazioni su come insegnare a un'app LUIS a capire le espressioni degli utenti.

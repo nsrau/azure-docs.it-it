@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 764a4dd31125dad20f6ef23e3628d7710dba2b85
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 7ebcf865ad23e75b2aa9070fe14fc3ee8f1397c7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880132"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481140"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 Questo articolo risponde ad alcune domande frequenti su Azure Data Factory.  
@@ -72,7 +72,7 @@ Per spostare i carichi di lavoro SSIS, è possibile creare un'istanza di Data Fa
 ### <a name="sdks"></a>SDK
 Se si è un utente avanzato e si cerca un'interfaccia a livello di codice, Data Factory offre un set completo di SDK che è possibile usare per creare, gestire o monitorare le pipeline usando l'IDE preferito. Sono supportati, tra gli altri, i linguaggi .NET, PowerShell, Python e REST.
 
-### <a name="monitoring"></a>Monitorare
+### <a name="monitoring"></a>Monitoraggio
 È possibile monitorare le istanze di Data Factory tramite PowerShell, SDK o gli strumenti di monitoraggio visivi nell'interfaccia utente del browser. È possibile monitorare e gestire flussi personalizzati basati su richiesta, basati su trigger e basati su clock in modo efficiente ed efficace. Annulla le attività esistenti, Visualizza gli errori a colpo d'occhio, Esegui il drill-down per visualizzare i messaggi di errore dettagliati ed Esegui il debug dei problemi, tutto da un unico riquadro di vetro senza cambio di contesto o spostamento tra le schermate. 
 
 ### <a name="new-features-for-ssis-in-data-factory"></a>Nuove funzionalità per SSIS in Data Factory
@@ -109,7 +109,7 @@ Una sottoscrizione di Azure può includere una o più istanze di Azure Data Fact
 ### <a name="pipelines"></a>Pipeline
 Una data factory può comprendere una o più pipeline. Una pipeline è un raggruppamento logico di attività per eseguire un'unità di lavoro, L'insieme delle attività di una pipeline esegue un'operazione. Una pipeline, ad esempio, può contenere un gruppo di attività che inseriscono dati da un BLOB di Azure e quindi eseguono una query Hive in un cluster HDInsight per partizionare i dati. Il vantaggio è che è possibile usare una pipeline per gestire le attività come set invece che singolarmente. È possibile concatenare le attività in una pipeline per usarle in modo sequenziale o indipendentemente in parallelo.
 
-### <a name="activities"></a>Attività
+### <a name="activities"></a>attività
 Le attività rappresentano un passaggio di elaborazione in una pipeline. Ad esempio, è possibile usare un'attività di copia per copiare dati da un archivio dati a un altro archivio dati. Allo stesso modo, è possibile usare un'attività Hive che esegue una query Hive su un cluster Azure HDInsight per trasformare o analizzare i dati. Data Factory supporta tre tipi di attività: attività di spostamento dei dati, attività di trasformazione dei dati e attività di controllo.
 
 ### <a name="datasets"></a>Set di dati
@@ -129,7 +129,7 @@ I trigger rappresentano unità di elaborazione che determinano quando viene avvi
 ### <a name="pipeline-runs"></a>Esecuzioni di pipeline
 Un'esecuzione di pipeline è un'istanza dell'esecuzione di una pipeline. In genere si crea un'istanza di un'esecuzione di pipeline passando gli argomenti ai parametri definiti nella pipeline. È possibile passare gli argomenti manualmente o nella definizione di trigger.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parametri
 I parametri sono coppie chiave-valore in una configurazione di sola lettura. È possibile definire i parametri in una pipeline e passare gli argomenti per i parametri definiti durante l'esecuzione da un contesto di esecuzione. Il contesto di esecuzione viene creato da un trigger o da una pipeline eseguita manualmente. Le attività all'interno della pipeline usano i valori dei parametri.
 
 Un set di dati è un parametro fortemente tipizzato e un'entità che è possibile riutilizzare o a cui fare riferimento. Un'attività può fare riferimento a set di dati e può utilizzare le proprietà definite nella definizione del set di dati.
@@ -176,7 +176,7 @@ Sì. È possibile utilizzare un output di attività in un'attività successiva c
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Come gestire correttamente i valori null in un output di attività? 
 È possibile utilizzare il costrutto `@coalesce` nelle espressioni per gestire correttamente i valori null. 
 
-## <a name="mapping-data-flows"></a>Flussi di dati di mapping
+## <a name="mapping-data-flows"></a>Mapping di flussi di dati
 
 ### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>Ho bisogno di aiuto per la risoluzione dei problemi della logica del flusso di dati. Quali informazioni è necessario fornire per ottenere assistenza?
 
@@ -191,6 +191,82 @@ Usare l'attività di copia per organizzare i dati da uno qualsiasi degli altri c
 ### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>Il runtime di integrazione self-hosted è disponibile per i flussi di dati?
 
 Il runtime di integrazione self-hosted è un costrutto di pipeline ADF che è possibile usare con l'attività di copia per acquisire o spostare dati da e verso origini dati e sink locali o basati su VM. Organizzare prima i dati con una copia, quindi il flusso di dati per la trasformazione e quindi una copia successiva se è necessario spostare di nuovo i dati trasformati nell'archivio locale.
+
+## <a name="wrangling-data-flows"></a>Litigi dei flussi di dati
+
+### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>Quali sono le aree supportate per la verifica del flusso di dati?
+
+La verifica del flusso di dati è attualmente supportata nelle data factory create nelle aree seguenti:
+
+* Australia orientale
+* Canada centrale
+* India centrale
+* Stati Uniti centrali
+* Stati Uniti orientali
+* Stati Uniti orientali 2
+* Giappone orientale
+* Europa settentrionale
+* Asia sudorientale
+* Stati Uniti centro-meridionali
+* Regno Unito meridionale
+* Stati Uniti centro-occidentali
+* Europa occidentale
+* Stati Uniti occidentali
+* Stati Uniti occidentali 2
+
+### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>Quali sono le limitazioni e i vincoli relativi alla verifica del flusso di dati?
+
+I nomi dei set di dati possono contenere solo caratteri alfanumerici. Sono supportati gli archivi dati seguenti:
+
+* Set di dati DelimitedText nell'archivio BLOB di Azure con l'autenticazione della chiave dell'account
+* Set di dati DelimitedText in Azure Data Lake Storage Gen2 usando l'autenticazione con chiave account o entità servizio
+* Set di dati DelimitedText in Azure Data Lake Storage Gen1 usando l'autenticazione basata su entità servizio
+* Il database SQL di Azure e data warehouse usando l'autenticazione SQL. Vedere tipi SQL supportati di seguito. Non è disponibile alcun supporto di gestione temporanea o di gestione temporanea per data warehouse.
+
+A questo punto, il servizio collegato Key Vault integrazione non è supportato nella disputa dei flussi di dati.
+
+### <a name="what-is-the-difference-between-mapping-and-wrangling-data-flows"></a>Qual è la differenza tra il mapping e la disputa dei flussi di dati?
+
+I flussi di dati di mapping consentono di trasformare i dati su larga scala senza richiedere alcuna codifica. È possibile progettare un processo di trasformazione dei dati nell'area di disegno del flusso di dati costruendo una serie di trasformazioni. Iniziare con un numero qualsiasi di trasformazioni di origine seguite da passaggi di trasformazione dei dati. Completare il flusso di dati con un sink per inserire i risultati in una destinazione. Il flusso di dati di mapping è ideale per il mapping e la trasformazione dei dati con schemi noti e sconosciuti nei sink e nelle origini.
+
+La controversia dei flussi di dati consente di eseguire operazioni di preparazione ed esplorazione dei dati agile usando il Power Query Editor di mashup online su larga scala tramite l'esecuzione di Spark. Con l'incremento dei data Lake, a volte è sufficiente esplorare un set di dati o creare un set di dati nel Lake. Non è possibile eseguire il mapping a una destinazione nota. La disputa dei flussi di dati viene usata per scenari di analisi meno formali e basati su modelli.
+
+### <a name="what-is-the-difference-between-power-platform-dataflows-and-wrangling-data-flows"></a>Qual è la differenza tra i flussi di dati di Power Platform e la controversia sui flussi di dati?
+
+I flussi di dati di Power Platform consentono agli utenti di importare e trasformare i dati da un'ampia gamma di origini dati nel Common Data Service e Azure Data Lake per compilare applicazioni PowerApps, Power BI report o automazione dei flussi. I flussi di dati di Power Platform usano le esperienze di preparazione dei dati Power Query stabilite, in modo analogo a Power BI ed Excel. I flussi di eventi di Power Platform consentono anche un facile riutilizzo all'interno di un'organizzazione e la gestione automatica dell'orchestrazione (ad esempio, l'aggiornamento automatico dei flussi di data che dipendono da un altro flusso di eventi quando ne viene aggiornato il precedente).
+
+Azure Data Factory (ADF) è un servizio di integrazione dei dati gestito che consente ai data Engineers e ai Data Integrator dei Data Integrator di creare flussi di lavoro di estrazione, trasformazione e caricamento (ETL) complessi e di estrazione, caricamento e trasformazione (ELT). La gestione del flusso di dati in ADF consente agli utenti di disporre di un ambiente senza server privo di codice che semplifica la preparazione dei dati nel cloud e si adatta alle dimensioni dei dati senza che sia necessaria alcuna gestione dell'infrastruttura. Usa la tecnologia di preparazione dei dati Power Query (usata anche in flussi di dati di Power Platform, Excel, Power BI) per preparare e modellare i dati. Progettato per gestire tutte le complessità e le difficoltà di ridimensionamento di Big Data integrazione, la gestione dei flussi di dati consente agli utenti di preparare rapidamente i dati su larga scala tramite l'esecuzione di Spark. Gli utenti possono creare pipeline di dati resilienti in un ambiente visivo accessibile con l'interfaccia basata su browser e consentire ad ADF di gestire le complessità dell'esecuzione di Spark. Creare pianificazioni per le pipeline e monitorare le esecuzioni del flusso di dati dal portale di monitoraggio di ADF. Gestisci con facilità i contratti di contratto di disponibilità dei dati con il monitoraggio e gli avvisi avanzati della disponibilità di ADF e sfrutta le funzionalità di integrazione e distribuzione continue predefinite per il salvataggio e la gestione dei flussi in un ambiente gestito. Definire avvisi e visualizzare i piani di esecuzione per verificare che la logica venga eseguita in modo pianificato quando si ottimizzano i flussi di dati.
+
+### <a name="supported-sql-types"></a>Tipi SQL supportati
+
+Il flusso di dati in corso supporta i tipi di dati seguenti in SQL. Si otterrà un errore di convalida per l'utilizzo di un tipo di dati che non è supportato.
+
+* short
+* double
+* real
+* float
+* char
+* nchar
+* varchar
+* nvarchar
+* numero intero
+* int
+* bit
+* boolean
+* smallint
+* tinyint
+* bigint
+* long
+* text
+* date
+* datetime
+* datetime2
+* smalldatetime
+* timestamp
+* uniqueidentifier
+* xml
+
+Altri tipi di dati saranno supportati in futuro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per istruzioni dettagliate per la creazione di una data factory, vedere le esercitazioni seguenti:

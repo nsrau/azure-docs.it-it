@@ -3,20 +3,20 @@ title: Informazioni su criteri di Azure per il servizio Azure Kubernetes
 description: Informazioni su come i criteri di Azure usano Rego e Open Policy Agent per gestire i cluster nel servizio Azure Kubernetes.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 06/24/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 6a3d1fb347819015887ffc4fd8089bbc1f3a70de
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 248f96b4385e97605986b53bd94fd83236ec8f08
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176309"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480902"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Informazioni sui criteri di Azure per il servizio Azure Kubernetes
 
 Criteri di Azure si integra con il [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md) (AKS) per applicare misure e misure di sicurezza su larga scala nei cluster in modo centralizzato e coerente.
-Estendendo l'uso di [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), un _webhook del controller di ammissione_ per l' [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), i criteri di Azure consentono di gestire e creare report sullo stato di conformità delle risorse di Azure e dei cluster AKS da un'unica posizione.
+Estendendo l'uso di [Gatekeeper](https://github.com/open-policy-agent/gatekeeper/tree/master/deprecated) V2, un _webhook del controller di ammissione_ per [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), criteri di Azure consente di gestire e segnalare lo stato di conformità delle risorse di Azure e dei cluster AKS da un'unica posizione.
 
 > [!NOTE]
 > Criteri di Azure per AKS è in anteprima limitata e supporta solo le definizioni predefinite dei criteri.
@@ -158,13 +158,13 @@ Il componente aggiuntivo archivia i criteri di Azure per le modifiche alle asseg
 > [!NOTE]
 > Anche se un _amministratore del cluster_ può disporre dell'autorizzazione per lo spazio dei nomi di criteri di _Azure_ , non è consigliabile né supportato per apportare modifiche allo spazio dei nomi. Eventuali modifiche manuali apportate andranno perse durante il ciclo di aggiornamento.
 
-Ogni 5 minuti, il componente aggiuntivo chiama per eseguire un'analisi completa del cluster. Dopo aver raccolto i dettagli dell'analisi completa e di eventuali valutazioni in tempo reale da parte del GateKeeper delle modifiche apportate al cluster, il componente aggiuntivo segnala i risultati ai criteri di Azure per l'inclusione nei [Dettagli di conformità](../how-to/get-compliance-data.md) come qualsiasi assegnazione di criteri di Azure. Durante il ciclo di controllo vengono restituiti solo i risultati per le assegnazioni di criteri attive.
+Ogni 5 minuti, il componente aggiuntivo chiama per eseguire un'analisi completa del cluster. Dopo aver raccolto i dettagli dell'analisi completa e di eventuali valutazioni in tempo reale da parte del gatekeeper delle modifiche apportate al cluster, il componente aggiuntivo segnala i risultati ai criteri di Azure per l'inclusione nei [Dettagli di conformità](../how-to/get-compliance-data.md) come qualsiasi assegnazione di criteri di Azure. Durante il ciclo di controllo vengono restituiti solo i risultati per le assegnazioni di criteri attive.
 
 ## <a name="policy-language"></a>Lingua dei criteri
 
-La struttura del linguaggio di criteri di Azure per la gestione di AKS segue quella dei criteri esistenti. L'effetto _EnforceRegoPolicy_ viene usato per gestire i cluster AKS e accetta le proprietà dei _Dettagli_ specifiche per l'uso di OPA e Gatekeeper. Per informazioni dettagliate ed esempi, vedere l'effetto [EnforceRegoPolicy](effects.md#enforceregopolicy) .
+La struttura del linguaggio di criteri di Azure per la gestione di AKS segue quella dei criteri esistenti. L'effetto _EnforceRegoPolicy_ viene usato per gestire i cluster AKS e accetta le proprietà dei _Dettagli_ specifiche per l'uso di OPA e Gatekeeper V2. Per informazioni dettagliate ed esempi, vedere l'effetto [EnforceRegoPolicy](effects.md#enforceregopolicy) .
 
-Come parte della proprietà _Details. Policy_ nella definizione dei criteri, i criteri di Azure passano l'URI di un criterio rego al componente aggiuntivo. Rego è il linguaggio supportato da OPA e GateKeeper per convalidare o mutare una richiesta al cluster Kubernetes. Grazie al supporto di uno standard esistente per la gestione Kubernetes, i criteri di Azure consentono di riutilizzare le regole esistenti e di associarle ai criteri di Azure per un'esperienza di creazione di report di conformità cloud unificata. Per ulteriori informazioni, vedere [che cos'è rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
+Come parte della proprietà _Details. Policy_ nella definizione dei criteri, i criteri di Azure passano l'URI di un criterio rego al componente aggiuntivo. Rego è il linguaggio supportato da OPA e Gatekeeper per convalidare o mutare una richiesta al cluster Kubernetes. Grazie al supporto di uno standard esistente per la gestione Kubernetes, i criteri di Azure consentono di riutilizzare le regole esistenti e di associarle ai criteri di Azure per un'esperienza di creazione di report di conformità cloud unificata. Per ulteriori informazioni, vedere [che cos'è rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 
 ## <a name="built-in-policies"></a>Criteri predefiniti
 
@@ -183,15 +183,18 @@ Per trovare i criteri predefiniti per la gestione di AKS usando il portale di Az
 
 In alternativa, usare la Guida introduttiva [assegnare un criterio al portale](../assign-policy-portal.md) per trovare e assegnare un criterio AKS. Cercare una definizione dei criteri Kubernetes invece dell'esempio ' macchine virtuali di controllo '.
 
+> [!IMPORTANT]
+> I criteri predefiniti nel servizio Category **Kubernetes** sono utilizzabili solo con AKS.
+
 ## <a name="logging"></a>Registrazione
 
 ### <a name="azure-policy-add-on-logs"></a>Log del componente aggiuntivo di criteri di Azure
 
 Come controller/contenitore Kubernetes, il componente aggiuntivo criteri di Azure mantiene i log nel cluster AKS. I log vengono esposti nella pagina **Insights** del cluster AKS. Per altre informazioni, vedere [comprendere le prestazioni del cluster AKS con monitoraggio di Azure per i contenitori](../../../azure-monitor/insights/container-insights-analyze.md).
 
-### <a name="gatekeeper-logs"></a>Log GateKeeper
+### <a name="gatekeeper-logs"></a>Log Gatekeeper
 
-Per abilitare i log di GateKeeper per le nuove richieste di risorse, seguire i passaggi in [abilitare ed esaminare i log del nodo master di Kubernetes in AKS](../../../aks/view-master-logs.md).
+Per abilitare i log di Gatekeeper per le nuove richieste di risorse, seguire i passaggi in [abilitare ed esaminare i log del nodo master di Kubernetes in AKS](../../../aks/view-master-logs.md).
 Ecco una query di esempio per visualizzare gli eventi negati sulle nuove richieste di risorse:
 
 ```kusto
@@ -200,7 +203,7 @@ Ecco una query di esempio per visualizzare gli eventi negati sulle nuove richies
 | limit 100
 ```
 
-Per visualizzare i log dei contenitori GateKeeper, seguire i passaggi descritti in [abilitare ed esaminare i log del nodo master di Kubernetes in AKS](../../../aks/view-master-logs.md) e selezionare l'opzione _Kube-apiserver_ nel riquadro **impostazioni di diagnostica** .
+Per visualizzare i log dei contenitori gatekeeper, seguire i passaggi descritti in [abilitare ed esaminare i log del nodo master di Kubernetes in AKS](../../../aks/view-master-logs.md) e selezionare l'opzione _Kube-apiserver_ nel riquadro **impostazioni di diagnostica** .
 
 ## <a name="remove-the-add-on"></a>Rimuovere il componente aggiuntivo
 
@@ -227,6 +230,29 @@ Per rimuovere il componente aggiuntivo criteri di Azure dal cluster AKS, usare l
 
   az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
   ```
+
+## <a name="diagnostic-data-collected-by-azure-policy-add-on"></a>Dati di diagnostica raccolti dal componente aggiuntivo criteri di Azure
+
+Il componente aggiuntivo criteri di Azure per Kubernetes raccoglie i dati di diagnostica del cluster limitati. Questi dati diagnostici sono dati tecnici essenziali correlati al software e alle prestazioni. Viene usato nei modi seguenti:
+
+- Mantieni aggiornato il componente aggiuntivo criteri di Azure
+- Mantieni il componente aggiuntivo di criteri di Azure protetto, affidabile, efficiente
+- Migliorare il componente aggiuntivo criteri di Azure per l'analisi aggregata dell'utilizzo del componente aggiuntivo
+
+Le informazioni raccolte dal componente aggiuntivo non sono dati personali. Sono attualmente raccolti i dettagli seguenti:
+
+- Versione dell'agente componente aggiuntivo criteri di Azure
+- Tipo di cluster
+- Area del cluster
+- Gruppo di risorse cluster
+- ID risorsa cluster
+- ID sottoscrizione cluster
+- Sistema operativo cluster (ad esempio: Linux)
+- Città del cluster (ad esempio: Seattle)
+- Stato o provincia del cluster (ad esempio: Washington)
+- Paese o regione del cluster (esempio: Stati Uniti)
+- Eccezioni/errori rilevati dal componente aggiuntivo criteri di Azure durante l'installazione dell'agente durante la valutazione dei criteri
+- Numero di criteri Gatekeeper non installati dal componente aggiuntivo criteri di Azure
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Creare cluster Apache Hadoop con un Web browser, Azure HDInsight
+title: Creare cluster di Apache Hadoop usando il Web browser, Azure HDInsight
 description: Informazioni su come creare cluster Apache Hadoop, Apache HBase, Apache Storm o Apache Spark in Linux per HDInsight usando un Web browser e la portale di Azure.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/28/2019
-ms.openlocfilehash: 687fde2e203ed471e2f0164f1f4a670de4afc74e
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 3a64ba088a24f6202b74ae84ad7fb6c011d3bcbf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71677093"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494766"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Creare cluster basati su Linux in HDInsight tramite il portale di Azure
 
@@ -28,7 +28,7 @@ Il portale di Azure è uno strumento di gestione basato sul Web per servizi e ri
 * **Una sottoscrizione di Azure**. Vedere [How to get Azure Free trial for testing Hadoop in HDInsight](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Come ottenere una versione di valutazione gratuita di Azure per testare Hadoop in HDInsight).
 * **Un Web browser moderno**. Il portale di Azure usa HTML5 e JavaScript. Potrebbe non funzionare correttamente in Web browser meno recenti.
 
-## <a name="create-clusters"></a>Creare cluster
+## <a name="create-clusters"></a>Creare i cluster
 
 Il portale di Azure espone la maggior parte delle proprietà del cluster. Con i modelli di Azure Resource Manager è possibile nascondere molti dettagli. Per altre informazioni, vedere [Creare cluster Apache Hadoop in HDInsight mediante modelli di Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
@@ -81,7 +81,7 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con i 
 
      ![HDInsight creare l'archiviazione cluster](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "Creazione di un nuovo cluster nel portale di Azure")
 
-     | Archiviazione                                      | Description |
+     | Archiviazione                                      | Descrizione |
      |----------------------------------------------|-------------|
      | **BLOB del servizio di archiviazione di Azure come risorsa di archiviazione predefinita**   | <ul><li>Per **Tipo di archiviazione primario** selezionare **Archiviazione di Azure**. Per **Metodo di selezione** scegliere **Sottoscrizioni personali** se si vuole specificare un account di archiviazione che fa parte della sottoscrizione di Azure. Selezionare quindi l'account di archiviazione. In caso contrario, selezionare **Chiave di accesso**. Specificare quindi le informazioni relative all'account di archiviazione che si vuole scegliere all'esterno della sottoscrizione di Azure.</li><li>Per **Contenitore predefinito** scegliere il nome del contenitore predefinito suggerito dal portale oppure specificarne uno personale.</li><li>Se si usa l'archiviazione BLOB di Azure come risorsa di archiviazione predefinita, è anche possibile selezionare **Account di archiviazione aggiuntivi** per specificare gli account di archiviazione aggiuntivi da associare al cluster. Per **Chiavi di archiviazione di Azure** selezionare **Aggiungi una chiave di archiviazione**. È quindi possibile specificare un account di archiviazione dalle sottoscrizioni di Azure o da altre sottoscrizioni. Specificare la chiave di accesso dell'account di archiviazione.</li><li>Se si usa l'archiviazione BLOB come risorsa di archiviazione predefinita, è anche possibile selezionare **Accesso a Data Lake Storage** per specificare Azure Data Lake Storage come risorsa di archiviazione aggiuntiva. Per altre informazioni, vedere [Guida introduttiva: impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
      | **Azure Data Lake Storage come risorsa di archiviazione predefinita** | Per **Tipo di archiviazione primario** selezionare **Azure Data Lake Storage Gen1** o **Azure Data Lake Storage Gen2** Per istruzioni, vedere l'articolo [Guida introduttiva: configurare cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) . |
@@ -134,11 +134,11 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con i 
 * [Personalizzare cluster HDInsight tramite Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 * [Personalizzare i cluster HDInsight basati su Linux tramite azioni script](hdinsight-hadoop-customize-cluster-linux.md)
 
-## <a name="delete-the-cluster"></a>Eliminare il cluster
+## <a name="delete-the-cluster"></a>Eliminazione del cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risolvere i problemi
 
 Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -168,4 +168,4 @@ Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisit
 * [Creare un'applicazione autonoma con Scala](spark/apache-spark-create-standalone-application.md)
 * [Eseguire processi in modalità remota in un cluster Apache Spark usando Apache Livy](spark/apache-spark-livy-rest-interface.md)
 * [Apache Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per prevedere i risultati di un controllo alimentare](spark/apache-spark-machine-learning-mllib-ipython.md)

@@ -1,15 +1,16 @@
 ---
 ms.topic: include
 ms.service: time-series-insights
-author: kingdomofends
-ms.author: adgera
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
 ms.date: 10/09/2019
-ms.openlocfilehash: 61842a8f410d972c21614f625f7d4f36476cb239
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 038d25a01c02799f48b8430fb6ac3facc1cd3bd6
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72259099"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990853"
 ---
 ## <a name="business-disaster-recovery"></a>BCDR (Business disaster recovery)
 
@@ -23,8 +24,8 @@ Le funzionalità aggiuntive di disponibilità elevata fornite tramite Azure (e d
 
 - **Failover**: Azure fornisce la [replica geografica e il bilanciamento del carico](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
 - Ripristino **dei dati** e **ripristino dell'archiviazione**: Azure offre [diverse opzioni per mantenere e ripristinare i dati](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
-- **Site Recovery**: Azure fornisce le funzionalità di Site Recovery tramite [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
-- **Backup di Azure**: [Backup di Azure](https://docs.microsoft.com/azure/backup/backup-architecture) supporta il backup sia in locale che nel cloud delle macchine virtuali di Azure.
+- **Azure Site Recovery**: Azure fornisce le funzionalità di Site Recovery tramite [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
+- **Backup**di Azure: [backup](https://docs.microsoft.com/azure/backup/backup-architecture) di Azure supporta il backup sia in locale che nel cloud di macchine virtuali di Azure.
 
 Assicurarsi di abilitare le funzionalità di Azure pertinenti per fornire la disponibilità elevata globale tra aree per i dispositivi e gli utenti.
 
@@ -35,8 +36,8 @@ Assicurarsi di abilitare le funzionalità di Azure pertinenti per fornire la dis
 
 Alcuni servizi di Azure e includono anche funzionalità di ripristino di emergenza aziendale predefinite:
 
-- [Ripristino di emergenza a disponibilità elevata dell'hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr)Internet, inclusa la ridondanza all'interno dell'area
-- [Criteri di hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
+- [Ripristino di emergenza a disponibilità elevata dell'hub Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), che include la ridondanza all'interno dell'area
+- [Criteri di hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
 - [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) (Ridondanza di Archiviazione di Azure)
 
 L'integrazione di Time Series Insights con gli altri servizi offre opportunità aggiuntive per il ripristino di emergenza. Ad esempio, la telemetria inviata all'hub eventi potrebbe essere salvata in modo permanente in un database di archiviazione BLOB di Azure di backup.

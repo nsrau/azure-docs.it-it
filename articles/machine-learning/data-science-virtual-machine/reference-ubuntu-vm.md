@@ -1,5 +1,5 @@
 ---
-title: 'Riferimenti: DSVM Ubuntu'
+title: 'Informazioni di riferimento: Ubuntu DSVM'
 description: Informazioni dettagliate sugli strumenti inclusi in Ubuntu Data Science Virtual Machine
 author: gvashishtha
 ms.service: machine-learning
@@ -7,14 +7,14 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 0c48b8ba28f67ac7f38d6f636728abe7c5a6bd4e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 97072f1a17f2b0adbe96afae3263dc84aff0f30f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204029"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497628"
 ---
-# <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Riferimenti: Ubuntu (Linux) Data Science Virtual Machine
+# <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Informazioni di riferimento: Ubuntu (Linux) Data Science Virtual Machine
 
 Per un elenco degli strumenti disponibili nella Data Science Virtual Machine Ubuntu, vedere di seguito. 
 
@@ -204,11 +204,11 @@ Per altre informazioni, vedere [SQL SQuirrel](http://squirrel-sql.sourceforge.ne
 
 Anche nel pacchetto driver ODBC per SQL Server sono disponibili due strumenti da riga di comando:
 
-- **bcp**: questo strumento crea copie bulk di dati tra un'istanza di Microsoft SQL Server e un file di dati in un formato specificato dall'utente. È possibile usarlo per importare un numero elevato di nuove righe nelle tabelle di SQL Server o per esportare dati delle tabelle in file di dati. Per importare dati in una tabella, è necessario usare un file in un formato creato per tale tabella. In alternativa, è necessario conoscere la struttura della tabella e i tipi di dati validi per le relative colonne.
+- **bcp**: lo strumento bcp esegue operazioni di copia bulk di dati tra un'istanza di Microsoft SQL Server e un file di dati in un formato specificato dall'utente. È possibile usarlo per importare un numero elevato di nuove righe nelle tabelle di SQL Server o per esportare dati delle tabelle in file di dati. Per importare dati in una tabella, è necessario usare un file in un formato creato per tale tabella. In alternativa, è necessario conoscere la struttura della tabella e i tipi di dati validi per le relative colonne.
 
   Per altre informazioni, vedere [Connessione a bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-- **sqlcmd**: questo strumento consente di immettere istruzioni Transact-SQL. È anche possibile immettere procedure di sistema e file di script al prompt dei comandi. Questo strumento usa ODBC per eseguire batch Transact-SQL.
+- **SQLCMD**: è possibile immettere istruzioni Transact-SQL utilizzando lo strumento sqlcmd. È anche possibile immettere procedure di sistema e file di script al prompt dei comandi. Questo strumento usa ODBC per eseguire batch Transact-SQL.
 
   Per altre informazioni, vedere [Connessione con sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
@@ -226,21 +226,21 @@ Le librerie per l'accesso al database sono disponibili in R e Python:
 
 Nella VM sono installati gli strumenti di Azure seguenti:
 
-* **Interfaccia della riga di comando di Azure**: consente di creare e gestire risorse di Azure tramite i comandi della shell. Per aprire gli strumenti di Azure, immettere **Azure help**. Per altre informazioni, vedere la [pagina di documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Azure Storage Explorer**: è uno strumento grafico che è possibile usare per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare o scaricare dati rispettivamente in o da BLOB di Azure. È possibile accedere a Esplora archivi dall'icona del collegamento sul desktop. È anche possibile aprire questo strumento da un prompt della shell digitando **StorageExplorer**. È necessario essere connessi da un client X2Go o avere configurato X11 Forwarding.
-* **Librerie di Azure**: di seguito sono elencate alcune delle librerie preinstallate.
+* Interfaccia della riga di comando di Azure: è possibile usare l'interfaccia della riga di comando in Azure per creare e gestire le risorse **di Azure tramite**i comandi della shell. Per aprire gli strumenti di Azure, immettere **Azure help**. Per altre informazioni, vedere la [pagina di documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Azure Storage Explorer**: Azure Storage Explorer è uno strumento grafico che è possibile usare per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare e scaricare i dati da e verso i BLOB di Azure. È possibile accedere a Esplora archivi dall'icona del collegamento sul desktop. È anche possibile aprire questo strumento da un prompt della shell digitando **StorageExplorer**. È necessario essere connessi da un client X2Go o avere configurato X11 Forwarding.
+* **Librerie di Azure**: di seguito sono riportate alcune delle librerie pre-installate.
   
-  * **Python**: le librerie correlate ad Azure in Python sono *azure*, *azureml*, *pydocumentdb* e *pyodbc*. Le prime tre librerie consentono di accedere ai servizi di archiviazione di Azure, Azure Machine Learning e Azure Cosmos DB, ovvero un database NoSQL in Azure. La quarta libreria, pyodbc (insieme ai driver Microsoft ODBC per SQL Server), consente l'accesso da Python a SQL Server, al database SQL di Azure e ad Azure SQL Data Warehouse tramite un'interfaccia ODBC. Immettere **pip list** per vedere elencate tutte le librerie. Assicurarsi di eseguire questo comando in Python sia nell'ambiente 2.7 che 3.5.
-  * **R**: le librerie correlate ad Azure in R sono AzureML e RODBC.
-  * **Java**: l'elenco delle librerie Java per Azure è disponibile nella directory /dsvm/sdk/AzureSDKJava della VM. Le librerie principali sono le API di archiviazione e gestione di Azure, Azure Cosmos DB e i driver JDBC per SQL Server.  
+  * **Python**: le librerie correlate ad Azure in Python sono *Azure*, *azureml*, *pydocumentdb*e *pyodbc*. Le prime tre librerie consentono di accedere ai servizi di archiviazione di Azure, Azure Machine Learning e Azure Cosmos DB, ovvero un database NoSQL in Azure. La quarta libreria, pyodbc (insieme ai driver Microsoft ODBC per SQL Server), consente l'accesso da Python a SQL Server, al database SQL di Azure e ad Azure SQL Data Warehouse tramite un'interfaccia ODBC. Immettere **pip list** per vedere elencate tutte le librerie. Assicurarsi di eseguire questo comando in Python sia nell'ambiente 2.7 che 3.5.
+  * **R**: le librerie correlate ad Azure in r sono AZUREML e RODBC.
+  * **Java**: l'elenco delle librerie Java di Azure è disponibile nella directory/dsvm/SDK/AzureSDKJava nella macchina virtuale. Le librerie principali sono le API di archiviazione e gestione di Azure, Azure Cosmos DB e i driver JDBC per SQL Server.  
 
 È possibile accedere al [portale di Azure](https://portal.azure.com) dal browser Firefox pre-installato. Nel portale di Azure si possono creare, gestire e monitorare le risorse di Azure.
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-Azure Machine Learning è un servizio cloud completamente gestito che consente di creare, distribuire e condividere soluzioni di analisi predittiva. Si possono creare esperimenti e modelli da Azure Machine Learning Studio, a cui è possibile accedere da un Web browser nella Data Science Virtual Machine, visitando il sito [Microsoft Azure Machine Learning](https://studio.azureml.net).
+Azure Machine Learning è un servizio cloud completamente gestito che consente di creare, distribuire e condividere soluzioni di analisi predittiva. È possibile compilare gli esperimenti e i modelli da Azure Machine Learning Studio (classico). a cui è possibile accedere da un Web browser nella Data Science Virtual Machine, visitando il sito [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
-Dopo aver eseguito l'accesso ad Azure Machine Learning Studio, si può accedere a un'area di sperimentazione che consente di creare un flusso logico per gli algoritmi di Machine Learning. È anche possibile accedere a un'istanza di Jupyter Notebook ospitata in Azure Machine Learning e usare direttamente gli esperimenti in Machine Learning Studio. 
+Dopo aver eseguito l'accesso alla Azure Machine Learning Studio (classica), è possibile usare un'area di disegno sperimentazione per creare un flusso logico per gli algoritmi di machine learning. È anche possibile accedere a un notebook di Jupyter ospitato in Azure Machine Learning e funziona senza interruzioni con gli esperimenti in Azure Machine Learning Studio (classico). 
 
 È possibile rendere operativi i modelli di Machine Learning creati eseguendone il wrapping in un'interfaccia del servizio Web. In questo modo i client scritti in qualsiasi linguaggio possono richiamare le stime dai modelli di Machine Learning. Per altre informazioni, vedere [Documentazione su Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -253,14 +253,14 @@ Per informazioni su come distribuire i modelli in R e Python in Azure Machine Le
 
 ## <a name="machine-learning-tools"></a>Strumenti di Machine Learning
 
-La VM include alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. Sono inclusi:
+La VM include alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. inclusi i seguenti:
 
 * **Vowpal Wabbit**: algoritmo di apprendimento rapido online.
 * **xgboost**: strumento che fornisce algoritmi di albero con boosting ottimizzati.
-* **Rattle**: strumento grafico basato su R per semplificare la modellazione e l'esplorazione dei dati.
-* **Python**: Anaconda Python integra algoritmi di Machine Learning con librerie come Scikit-learn. È possibile installare altre librerie usando il comando `pip install` .
-* **LightGBM**: framework di gradient boosting rapido, distribuito e a prestazioni elevate basato su algoritmi di tipo albero delle decisioni.
-* **R**: una libreria completa di funzioni di Machine Learning disponibili per R. Le librerie preinstallate includono lm, glm, randomForest e rpart. È possibile installare altre librerie eseguendo questo comando:
+* **Rattle**: strumento grafico basato su R per una semplice modellazione ed esplorazione dei dati.
+* **Python**: Anaconda Python integra algoritmi Machine Learning con librerie come Scikit-learn. È possibile installare altre librerie usando il comando `pip install` .
+* **LightGBM**: un framework rapido, distribuito e a prestazioni elevate di boosting a gradienti basato su algoritmi dell'albero delle decisioni.
+* **R**: è disponibile una ricca libreria di funzioni di machine learning per R. le librerie pre-installate includono LM, GLM, randomForest e rpart. È possibile installare altre librerie eseguendo questo comando:
   
         install.packages(<lib name>)
 

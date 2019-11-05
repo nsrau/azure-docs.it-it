@@ -1,40 +1,28 @@
 ---
-title: Indicazioni e requisiti per i contenitori
+title: Indicazioni e requisiti dei contenitori
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/18/2019
+ms.date: 09/20/2019
 ms.author: dapine
-ms.openlocfilehash: 47c889a428ec2916dc8cad73e30ef5ff630372a7
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 2fa97a3a18741f506e10e5e4d61da286db3f744c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129808"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481750"
 ---
 > [!NOTE]
 > I requisiti e le indicazioni sono basati sui benchmark con una singola richiesta al secondo, usando un'immagine di 8 MB di una lettera di business scansionata che contiene 29 righe e un totale di 803 caratteri.
 
-#### <a name="readtabread"></a>[Lettura](#tab/read)
-
 La tabella seguente descrive l'allocazione minima e consigliata delle risorse per ogni contenitore di lettura.
 
-| Contenitore | Minima | Consigliato |TPS<br>(Minimo, massimo)|
+| Contenitore | Minima | Consigliato |PROGRAMMI<br>(Minimo, massimo)|
 |-----------|---------|-------------|--|
-| Leggi | 1 core, 8 GB di memoria, 0,24 TPS | 8 core, 16 GB di memoria, 1,17 TPS | 0,24, 1,17 |
-
-#### <a name="recognize-texttabrecognize-text"></a>[Riconoscimento del testo](#tab/recognize-text)
-
-La tabella seguente descrive l'allocazione minima e consigliata delle risorse per ogni contenitore riconoscimento del testo.
-
-| Contenitore | Minima | Consigliato |TPS<br>(Minimo, massimo)|
-|-----------|---------|-------------|--|
-| Riconoscimento del testo | 1 core, 8 GB di memoria, 0,12 TPS | 8 core, 16 GB di memoria, 0,60 TPS | 0,12, 0,60 |
-
-***
+| Lettura | 1 core, 8 GB di memoria, 0,24 TPS | 8 core, 16 GB di memoria, 1,17 TPS | 0,24, 1,17 |
 
 * Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
 * TPS-transazioni al secondo.

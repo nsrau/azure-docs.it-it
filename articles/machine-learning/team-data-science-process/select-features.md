@@ -11,22 +11,20 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a74f2c21746deb16372174d4a769f9abb825a1cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da5da64538ceaf906388c49963c0d5115e1b5ab9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809561"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480220"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Selezione delle funzionalità nel Processo di analisi scientifica dei dati per i team (TDSP)
-Questo articolo illustra la selezione della funzione e fornisce esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning. Questi esempi sono tratti da Azure Machine Learning Studio. 
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+Questo articolo illustra la selezione della funzione e fornisce esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning. Questi esempi sono tratti da Azure Machine Learning Studio.
 
 La progettazione e la selezione delle funzionalità costituiscono una parte del processo TDSP descritto nell'articolo di [introduzione al processo di data science per i team](overview.md). La progettazione e la selezione delle funzionalità sono parti del passaggio **Sviluppare funzionalità** del processo TDSP.
 
-* **progettazione di funzionalità**: Questo processo tenta di creare altre funzioni rilevanti dalle funzioni non elaborate esistenti nei dati e di aumentare le potenzialità predittive dell'algoritmo di apprendimento.
-* **Selezione di funzionalità**: questo processo seleziona il subset principale delle caratteristiche dei dati originali nel tentativo di ridurre la dimensionalità del problema di training.
+* **Progettazione di funzionalità**: questo processo tenta di creare altre funzioni rilevanti dalle funzioni non elaborate esistenti nei dati e di aumentare le potenzialità predittive dell'algoritmo di apprendimento.
+* **Selezione di funzionalità**: questo processo seleziona il subset principale delle funzionalità dei dati originali nel tentativo di ridurre la dimensionalità del problema di training.
 
 In genere, la **progettazione di funzionalità** viene applicata prima di tutto per generare altre funzionalità e quindi viene eseguito il passaggio di **selezione delle funzionalità** per eliminare quelle irrilevanti, ridondanti o altamente correlate.
 
@@ -40,11 +38,11 @@ Anche se la selezione delle funzioni cerca di ridurre il numero di funzioni nel 
 
 Tra le altre, una categoria di metodi di selezione delle funzioni ampiamente applicata in un contesto supervisionato è chiamata "selezione di funzioni in base al filtro". Tramite la valutazione della correlazione tra ogni funzione e l'attributo di destinazione, questi metodi applicano una misura statistica per assegnare un punteggio a ogni funzione. Queste funzioni vengono quindi classificate in base al punteggio, che può essere usato per facilitare l'impostazione della soglia per mantenere o eliminare una funzione specifica. Correlazione di Pearson, informazione mutua e test del chi quadrato sono esempi di misure statistiche usate in questi metodi.
 
-In Azure Machine Learning Studio sono disponibili moduli per la selezione delle funzioni. Come illustrato nella figura seguente, questi moduli includono [Filter-Based Feature Selection][filter-based-feature-selection] e [Fisher Linear Discriminant Analysis][fisher-linear-discriminant-analysis].
+In Azure Machine Learning Studio sono disponibili moduli per la selezione delle funzioni. Come illustrato nella figura seguente, questi moduli includono la [selezione delle funzioni basata su filtri][filter-based-feature-selection] e l' [analisi discriminante lineare di Fisher][fisher-linear-discriminant-analysis].
 
 ![Moduli di selezione delle funzioni](./media/select-features/feature-Selection.png)
 
-Si consideri ad esempio l'uso del modulo [Filter-Based Feature Selection][filter-based-feature-selection] (Selezione di funzionalità in base al filtro). Per praticità, continuare a usare l'esempio di data mining di testo. Si supponga di voler compilare un modello di regressione in base a un set di 256 funzioni create con il modulo [Feature Hashing][feature-hashing] (Hash delle funzionalità) e che la variabile di risposta sia "Col1" che contiene le classificazioni delle recensioni di un libro in un intervallo da 1 a 5. Impostando "Feature scoring method" su "Pearson Correlation", "Target column" su "Col1" e "Number of desired features" su 50, il modulo [Filter-Based Feature Selection][filter-based-feature-selection] (Selezione di funzionalità in base al filtro) produrrà un set di dati contenente 50 funzionalità insieme all'attributo di destinazione "Col1". Nella figura seguente è illustrato il flusso dell'esperimento e i parametri di input:
+Si consideri, ad esempio, l'uso del modulo [Filter-based feature selection][filter-based-feature-selection] . Per praticità, continuare a usare l'esempio di data mining di testo. Si supponga di voler compilare un modello di regressione dopo aver creato un set di 256 funzionalità con il modulo [feature hashing][feature-hashing] e che la variabile di risposta sia "col1" che contiene le classificazioni di revisione del libro comprese tra 1 e 5. Impostando "Feature scoring method" su "Pearson Correlation", "Target column" su "Col1" e "Number of desired features" su 50, Quindi, la [selezione delle funzioni basata su filtro][filter-based-feature-selection] del modulo produce un set di dati contenente le funzionalità di 50 insieme all'attributo di destinazione "col1". Nella figura seguente è illustrato il flusso dell'esperimento e i parametri di input:
 
 ![Proprietà del modulo Selezione delle funzioni basata su filtro](./media/select-features/feature-Selection1.png)
 
@@ -58,9 +56,9 @@ I punteggi corrispondenti delle funzioni selezionate sono illustrati nella figur
 
 ![Punteggi del modulo Selezione delle funzioni basata su filtro](./media/select-features/feature-Selection3.png)
 
-Applicando questo modulo [Filter-Based Feature Selection][filter-based-feature-selection] (Selezione di funzionalità in base al filtro) vengono selezionate 50 delle 256 funzionalità perché presentano le funzioni maggiormente correlate con la variabile di destinazione "Col1", sulla base del metodo di assegnazione dei punteggi denominato "correlazione di Pearson".
+Applicando questo modulo di [selezione delle funzionalità basato su filtro][filter-based-feature-selection] , vengono selezionate 50 di 256 funzionalità che includono le funzionalità più correlate con la variabile di destinazione "col1", in base al metodo di assegnazione dei punteggi "correlazione di Pearson".
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 La progettazione delle funzionalità e la selezione delle funzionalità sono due funzionalità progettate e selezionate che migliorano l'efficienza del processo di training che tenta di estrarre le informazioni essenziali contenute nei dati. Migliorano anche le potenzialità di questi modelli per la classificazione accurata dei dati di input e per la stima più affidabile dei risultati di interesse. Progettazione e selezione delle funzioni possono anche combinarsi per rendere l'apprendimento più computazionalmente trattabile. Questa operazione viene eseguita tramite il miglioramento e la successiva riduzione del numero di funzioni richieste per calibrare o eseguire il training di un modello. Da un punto di vista matematico, le funzioni selezionate per eseguire il training di un modello sono costituite da un set minimo di variabili indipendenti che spiegano i modelli nei dati e quindi stimano correttamente i risultati.
 
 Non sempre è necessario eseguire la progettazione o la selezione delle funzioni. La necessità o meno di questi passaggi dipende dai dati raccolti, dall'algoritmo selezionato e dall'obiettivo dell'esperimento.

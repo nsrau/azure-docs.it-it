@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 155ca71ae30559cc79e090a8a7bbc12c896b637f
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
-ms.translationtype: MT
+ms.openlocfilehash: f8c049cc8d2b09cb37dbd444427b03c1013da65c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973006"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523111"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -85,9 +85,9 @@ Si imposta un account di archiviazione privato per la diagnostica della macchina
 
 Managed Disks supporta tre ruoli predefiniti principali:
 
-* Proprietario: È in grado di gestire tutti gli elementi, compresi gli accessi
-* Collaboratore: Può gestire tutto ad eccezione degli accessi.
-* Lettore: È in grado di visualizzare tutti gli elementi, ma non può apportare modifiche
+* Proprietario: può gestire tutto, compresi gli accessi
+* Collaboratore: può gestire tutto ad eccezione degli accessi
+* Lettore: può visualizzare tutto, ma non apportare modifiche
 
 **È possibile copiare o esportare un disco gestito in un account di archiviazione privato?**
 
@@ -145,6 +145,30 @@ Il partizionamento GPT può essere usato solo nei dischi dati e non nei dischi d
 
 Snapshot di supporto SSD Premium, SSD standard e HDD standard. Per questi tre tipi di dischi, gli snapshot sono supportati per tutte le dimensioni dei dischi (inclusi i dischi con dimensioni fino a 32 TiB). I dischi Ultra non supportano gli snapshot.
 
+### <a name="disk-reservation"></a>Prenotazione disco
+
+**Che cos'è la prenotazione dischi di Azure?**
+La prenotazione del disco è la possibilità di acquistare un anno di spazio di archiviazione su disco in anticipo, riducendo i costi totali.
+
+**Quali sono le opzioni offerte dalla prenotazione dischi di Azure?**
+Prenotazione dischi di Azure offre la possibilità di acquistare SSD Premium negli SKU specificati da P30 (1 TiB) fino a P80 (32 TiB) per un periodo di validità di un anno. Non esiste alcuna limitazione sulla quantità minima di dischi necessaria per acquistare una prenotazione su disco. Inoltre, è possibile scegliere di pagare con un singolo pagamento iniziale o pagamenti mensili. Non è stato applicato alcun costo transazionale aggiuntivo per SSD Premium Managed Disks.
+
+Le prenotazioni vengono effettuate sotto forma di dischi, non di capacità. In altre parole, quando si riserva un disco P80 (32 TiB), si ottiene un singolo disco P80, quindi non è possibile i tale prenotazione specifica in due dischi P70 (16 TiB) più piccoli. Naturalmente, è possibile riservare il numero di dischi desiderato, inclusi due dischi P70 (16 TiB) distinti.
+
+**Come verrà addebitato il costo per la prenotazione dischi di Azure?**
+- Per i clienti Enterprise Agreement (EA), l'impegno monetario di Azure verrà prima usato per l'acquisto di prenotazioni dischi di Azure. Negli scenari in cui i clienti con contratto Enterprise hanno usato tutto l'impegno monetario, è possibile che le prenotazioni dei dischi siano ancora acquistate e tali acquisti verranno fatturati per il singolo pagamento iniziale per la fatturazione successiva.
+
+- Per i clienti che acquistano tramite Azure.com, al momento dell'acquisto, la carta di credito su file verrà addebitata per il pagamento anticipato completo (o per i pagamenti mensili fissi) della prenotazione dei dischi di Azure.
+
+**Come viene applicata la prenotazione dischi di Azure?**
+La prenotazione dischi segue un modello simile alle istanze di macchina virtuale riservate (VM). La differenza consiste nel fatto che non è possibile applicare una prenotazione disco a SKU diversi, mentre un'istanza di macchina virtuale può. Per altre informazioni sulle istanze di VM, vedere [risparmiare sui costi con le istanze di VM riservate di Azure](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) . 
+
+**È possibile usare la risorsa di archiviazione dei dati acquistata tramite prenotazione dischi di Azure in più aree?**
+La prenotazione dei dischi di Azure viene acquistata per un'area e uno SKU specifici, ad esempio P30 in Stati Uniti orientali 2, e pertanto non può essere usata all'esterno di questi costrutti. È sempre possibile acquistare una prenotazione aggiuntiva di dischi di Azure per le esigenze di archiviazione su disco in altre aree o SKU.
+
+**Cosa accade quando la prenotazione di dischi di Azure scade?**
+Si riceveranno le notifiche tramite posta elettronica 30 giorni prima della scadenza e nuovamente alla data di scadenza. Al termine della prenotazione, i dischi distribuiti continueranno a essere eseguiti e verranno fatturati con le [tariffe con pagamento in base](https://azure.microsoft.com/pricing/details/managed-disks/)al consumo più recenti.
+
 ## <a name="ultra-disks"></a>Dischi ultra
 
 **Quali aree attualmente supportano i dischi ultra?**
@@ -157,7 +181,7 @@ Snapshot di supporto SSD Premium, SSD standard e HDD standard. Per questi tre ti
 - DSv3
 
 **Per cosa è necessario impostare la velocità effettiva del disco Ultra?**
-Se non si è certi di cosa impostare la velocità effettiva del disco, è consigliabile iniziare supponendo una dimensione di i/o di 16 KiB e regolare le prestazioni da tale posizione durante il monitoraggio dell'applicazione. La formula è: Velocità effettiva in MBps = # di IOPS * 16/1000.
+Se non si è certi di cosa impostare la velocità effettiva del disco, è consigliabile iniziare supponendo una dimensione di i/o di 16 KiB e regolare le prestazioni da tale posizione durante il monitoraggio dell'applicazione. La formula è: velocità effettiva in MBps = # di IOPS * 16/1000.
 
 **Il disco è stato configurato per 40000 IOPS, ma vengono visualizzati solo 12800 IOPS, perché le prestazioni del disco non vengono visualizzati?**
 Oltre alla limitazione del disco, viene applicata una limitazione di i/o a livello di macchina virtuale. Assicurarsi che le dimensioni della macchina virtuale in uso siano in grado di supportare i livelli configurati sui dischi. Per informazioni dettagliate sui limiti di i/o imposti dalla VM, vedere [dimensioni per le macchine virtuali Windows in Azure](../articles/virtual-machines/windows/sizes.md).
@@ -250,7 +274,7 @@ No, i dischi SSD Standard sono disponibili solo come dischi gestiti.
 **I dischi SSD Standard supportano "contratti di servizio per macchine virtuali a istanza singola"?**
 No, i dischi SSD Standard non supportano contratti di servizio per macchine virtuali a istanza singola. Per i contratti di servizio per macchine virtuali a istanza singola, usare dischi SSD Premium.
 
-## <a name="migrate-to-managed-disks"></a>Eseguire la migrazione al servizio Managed Disks
+## <a name="migrate-to-managed-disks"></a>Eseguire la migrazione a Managed Disks
 
 **La migrazione può avere un impatto sulle prestazioni di Managed Disks?**
 
@@ -286,7 +310,7 @@ No. È disponibile Azure Site Recovery la protezione da Azure ad Azure per le ma
 
 **È possibile eseguire la migrazione di macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
-Yes
+Sì
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e crittografia del servizio di archiviazione
 
@@ -327,13 +351,25 @@ Sì. Tutte le immagini e gli snapshot gestiti creati dopo il 9 giugno 2017 vengo
 
 **È possibile convertire macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
-Yes
+Sì
 
 **Un disco rigido virtuale esportato da un disco gestito o uno snapshot verrà crittografato?**
 
 No. Se però si esporta un disco rigido virtuale da un disco gestito o uno snapshot crittografato a un account di archiviazione crittografato, verrà crittografato. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>Dischi Premium: gestiti e non gestiti
+## <a name="premium-disks-managed-and-unmanaged"></a>Dischi Premium, gestiti e non gestiti
+
+**Quali aree supportano la funzionalità di espansione per le dimensioni dei dischi SSD Premium applicabili?**
+
+La funzionalità di espansione è attualmente supportata negli Stati Uniti centro-occidentali di Azure.
+
+**Quali aree sono le dimensioni del disco gestito 4/8/16 GiB (P1/P2/P3, E1/E2/E3) supportate in?**
+
+Queste nuove dimensioni dei dischi sono attualmente supportate negli Stati Uniti centro-occidentali di Azure.
+
+**Le dimensioni dei dischi P1/P2/P3 sono supportate per i dischi non gestiti o i BLOB di pagine?**
+
+No, è supportato solo in SSD Premium Managed Disks. 
 
 **Se una macchina virtuale usa una serie di dimensioni che supporta i dischi SSD Premium, ad esempio DSv2, è possibile collegare dischi dati sia Premium che Standard?** 
 
@@ -363,7 +399,7 @@ L'unità SSD locale è un archivio temporaneo che è incluso in una macchina vir
 
 L'uso di TRIM su dischi Azure Premium o Standard non ha alcun impatto negativo.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nuove dimensioni dei dischi: gestiti e non gestiti
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>Dimensioni dei nuovi dischi, gestiti e non gestiti
 
 **Qual è la dimensioni massima supportata per i dischi gestiti e il sistema operativo?**
 
@@ -385,7 +421,7 @@ Non è necessario aggiornare gli strumenti di Azure esistenti per creare, colleg
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Numero di versione 4.1.0: versione di giugno 2017 o successiva|
 |Interfaccia della riga di comando di Azure v1     | Numero di versione 0.10.13: versione di maggio 2017 o successiva|
-|Interfaccia della riga di comando di Azure versione 2     | Numero di versione 2.0.12: versione di luglio 2017 o successiva|
+|Interfaccia della riga di comando di Azure versione 2     | Numero di versione 2.0.12: versione di giugno 2017 o successiva|
 |AzCopy           | Numero di versione 6.1.0: versione di giugno 2017 o successiva|
 
 **Le dimensioni del disco P4 e P6 sono supportate per i dischi gestiti o i BLOB di pagine?**
@@ -410,7 +446,7 @@ La dimensione del disco massima supportata dal Backup di Azure e dal servizio Az
 
 **Quali sono le dimensioni di macchina virtuale consigliate per le dimensioni dei dischi più grandi (> 4 TiB) per i dischi SDD Standard e HDD Standard per ottenere una larghezza di banda e un numero di unità ottimizzate**
 
-Per ottenere la velocità effettiva del disco di SDD Standard e HDD Standard grandi dimensioni dei dischi (> 4 TiB) oltre 500 IOPS e 60 MiB/s, è consigliabile distribuire una nuova macchina virtuale da una delle dimensioni di macchina virtuale seguenti per ottimizzare le prestazioni: Serie B, serie DSv2, serie Dsv3, ESv3, serie FS, serie Fsv2, serie M, serie GS, serie NCv2, NCv3 serie LS e macchine virtuali della serie LS. Il montaggio di dischi di grandi dimensioni in macchine virtuali o macchine virtuali esistenti che non usano le dimensioni consigliate precedente può comportare prestazioni ridotte.
+Per ottenere la velocità effettiva del disco di SDD Standard e HDD Standard grandi dimensioni dei dischi (> 4 TiB) oltre 500 IOPS e 60 MiB/s, è consigliabile distribuire una nuova macchina virtuale da una delle dimensioni di macchina virtuale seguenti per ottimizzare le prestazioni: serie B, serie DSv2, serie Dsv3, serie ESv3 , Serie FS, serie Fsv2, serie M, serie GS, serie NCv2, serie NCv3 o VM serie LS. Il montaggio di dischi di grandi dimensioni in macchine virtuali o macchine virtuali esistenti che non usano le dimensioni consigliate precedente può comportare prestazioni ridotte.
 
 **Come è possibile aggiornare i dischi (> 4 TiB) che sono stati distribuiti durante l'anteprima di dimensioni dei dischi più grandi per ottenere i valori di IOPS più elevati & larghezza di banda in GA?**
 

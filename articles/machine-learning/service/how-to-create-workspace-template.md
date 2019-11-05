@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/16/2019
+ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 7e0897f92dd5ead939cbae9d6bf269bd22152419
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 9d966c7a4e9c56529b36eb87ecc46dbd6b5bab6a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034772"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497036"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning
 
@@ -33,7 +33,143 @@ Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Ge
 
 Il modello di Gestione risorse seguente può essere usato per creare un'area di lavoro di Azure Machine Learning e le risorse di Azure associate:
 
-[!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the name of the Azure Machine Learning workspace."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "southcentralus",
+      "allowedValues": [
+        "eastus",
+        "eastus2",
+        "southcentralus",
+        "southeastasia",
+        "westcentralus",
+        "westeurope",
+        "westus2"
+      ],
+      "metadata": {
+        "description": "Specifies the location for all resources."
+      }
+    },
+    "sku":{
+      "type": "string",
+      "defaultValue": "basic",
+        "allowedValues": [
+          "basic",
+          "enterprise"
+        ],
+        "metadata": {
+          "description": "Specifies the sku, also referred as 'edition' of the Azure Machine Learning workspace."
+        }
+    }
+  },
+  "variables": {
+    "storageAccountName": "[concat('sa',uniqueString(resourceGroup().id))]",
+    "storageAccountType": "Standard_LRS",
+    "keyVaultName": "[concat('kv',uniqueString(resourceGroup().id))]",
+    "tenantId": "[subscription().tenantId]",
+    "applicationInsightsName": "[concat('ai',uniqueString(resourceGroup().id))]",
+    "containerRegistryName": "[concat('cr',uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2018-07-01",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[variables('storageAccountType')]"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "encryption": {
+          "services": {
+            "blob": {
+              "enabled": true
+            },
+            "file": {
+              "enabled": true
+            }
+          },
+          "keySource": "Microsoft.Storage"
+        },
+        "supportsHttpsTrafficOnly": true
+      }
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "apiVersion": "2018-02-14",
+      "name": "[variables('keyVaultName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "tenantId": "[variables('tenantId')]",
+        "sku": {
+          "name": "standard",
+          "family": "A"
+        },
+        "accessPolicies": []
+      }
+    },
+    {
+      "type": "Microsoft.Insights/components",
+      "apiVersion": "2015-05-01",
+      "name": "[variables('applicationInsightsName')]",
+      "location": "[if(or(equals(parameters('location'),'eastus2'),equals(parameters('location'),'westcentralus')),'southcentralus',parameters('location'))]",
+      "kind": "web",
+      "properties": {
+        "Application_Type": "web"
+      }
+    },
+    {
+      "type": "Microsoft.ContainerRegistry/registries",
+      "apiVersion": "2017-10-01",
+      "name": "[variables('containerRegistryName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {
+        "adminUserEnabled": true
+      }
+    },
+    {
+      "type": "Microsoft.MachineLearningServices/workspaces",
+      "apiVersion": "2019-11-01",
+      "name": "[parameters('workspaceName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+        "[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",
+        "[resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))]",
+        "[resourceId('Microsoft.ContainerRegistry/registries', variables('containerRegistryName'))]"
+      ],
+      "identity": {
+        "type": "systemAssigned"
+      },
+      "sku": {
+        "tier": "[parameters('sku')]",
+        "name": "[parameters('sku')]"
+      },
+      "properties": {
+        "friendlyName": "[parameters('workspaceName')]",
+        "keyVault": "[resourceId('Microsoft.KeyVault/vaults',variables('keyVaultName'))]",
+        "applicationInsights": "[resourceId('Microsoft.Insights/components',variables('applicationInsightsName'))]",
+        "containerRegistry": "[resourceId('Microsoft.ContainerRegistry/registries',variables('containerRegistryName'))]",
+        "storageAccount": "[resourceId('Microsoft.Storage/storageAccounts/',variables('storageAccountName'))]"
+      }
+    }
+  ]
+}
+```
 
 Questo modello crea le risorse Azure seguenti:
 
@@ -41,7 +177,7 @@ Questo modello crea le risorse Azure seguenti:
 * Account di archiviazione di Azure
 * Azure Key Vault
 * Azure Application Insights
-* Registro contenitori di Azure
+* Registro Azure Container
 * Area di lavoro di Azure Machine Learning
 
 Il gruppo di risorse è il contenitore che contiene i servizi. I vari servizi sono necessari per l'area di lavoro di Azure Machine Learning.
@@ -72,14 +208,14 @@ Per altre informazioni sui modelli, vedere gli articoli indicati di seguito:
 1. Seguire i passaggi in [Distribuire risorse da un modello personalizzato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Quando si arriva alla schermata __Modifica modello__, incollare il modello da questo documento.
 1. Selezionare __Salva__ per usare il modello. Fornire le informazioni seguenti e accettare le condizioni elencate:
 
-   * Sottoscrizione: Selezionare la sottoscrizione Azure da usare per queste risorse.
-   * Gruppo di risorse: Selezionare o creare un gruppo di risorse per contenere i servizi.
-   * Nome dell'area di lavoro: Il nome da utilizzare per l'area di lavoro Azure Machine Learning che verrà creato. Il nome dell'area di lavoro deve avere una lunghezza compresa tra 3 e 33 caratteri. Può contenere solo caratteri alfanumerici e '-'.
-   * Percorso: Selezionare la posizione in cui verranno create le risorse.
+   * Sottoscrizione: selezionare la sottoscrizione di Azure da usare per queste risorse.
+   * Gruppo di risorse: selezionare o creare un gruppo di risorse che contenga i servizi.
+   * Nome area di lavoro: nome da utilizzare per l'area di lavoro Azure Machine Learning che verrà creata. Il nome dell'area di lavoro deve avere una lunghezza compresa tra 3 e 33 caratteri. Può contenere solo caratteri alfanumerici e '-'.
+   * Località: selezionare la località in cui verranno create le risorse.
 
 Per altre informazioni, vedere [Distribuire risorse da un modello personalizzato](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
-## <a name="use-azure-powershell"></a>Usare Azure PowerShell
+## <a name="use-azure-powershell"></a>Uso di Azure PowerShell
 
 In questo esempio si presuppone che sia stato salvato il modello in un file denominato `azuredeploy.json` nella directory corrente:
 
@@ -115,7 +251,7 @@ La maggior parte delle operazioni di creazione di risorse tramite i modelli è i
 
 Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
 
-*  Non distribuire il modello più di una volta per gli stessi parametri. In alternativa, eliminare le risorse esistenti prima di usare il modello per ricrearle.
+* Non distribuire il modello più di una volta per gli stessi parametri. In alternativa, eliminare le risorse esistenti prima di usare il modello per ricrearle.
   
 * Esaminare i criteri di accesso Key Vault e quindi usare questi criteri per impostare la proprietà accessPolicies del modello.
 * Controllare se la risorsa Key Vault esiste già. In caso contrario, non ricrearlo tramite il modello. Ad esempio, aggiungere un parametro che consente di disabilitare la creazione della risorsa Key Vault se esiste già.

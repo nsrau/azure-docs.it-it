@@ -1,8 +1,7 @@
 ---
-title: Importazione/Esportazione di dati nei servizi Web - Azure Machine Learning Studio | Microsoft Docs
+title: Importazione/esportazione di dati in servizi Web-Azure Machine Learning Studio (versione classica) | Microsoft Docs
 description: Informazioni su come usare i moduli Import Data ed Export Data per inviare e ricevere dati da un servizio Web.
 services: machine-learning
-documentationcenter: ''
 author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
@@ -10,28 +9,25 @@ editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
 ms.subservice: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 28d16bce6dbb5063c085e8c4393777ee9d152768
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a9259856a792dbd3c2f22ed98eef26c8e5f7b17d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60345142"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500117"
 ---
-# <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Distribuire servizi Web di Azure Machine Learning Studio che usano i moduli Import Data ed Export Data
+# <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Distribuire i servizi Web di Azure Machine Learning Studio (classico) che usano i moduli importazione dati e esportazione dati
 
 Quando si crea un esperimento predittivo, si aggiunge in genere un input e un output del servizio Web. Quando si distribuisce l'esperimento, i consumer possono inviare e ricevere dati dal servizio Web tramite gli input e gli output. Per alcune applicazioni, i dati del consumer possono essere disponibili da un feed di dati o risiedere già in un'origine dati esterna, ad esempio archiviazione BLOB di Azure. In questi casi non è necessario leggere e scrivere dati usando gli input e gli output del servizio Web . Gli utenti possono invece usare il servizio di esecuzione batch (BES) per leggere i dati dall'origine dati mediante un modulo Import Data e scrivere i risultati di assegnazione dei punteggi in una posizione dati diversa mediante un modulo Export Data.
 
 I moduli Import Data ed Export Data possono leggere e scrivere in numerose posizioni, ad esempio un URL Web tramite HTTP, una query Hive, un database SQL di Azure, l'archiviazione tabelle di Azure, l'Archiviazione BLOB di Azure, un provider di feed di dati o un database SQL locale.
 
-Questo argomento usa il campione "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Campione 5: training, test, valutazione per la classificazione binaria: set di dati su adulti) e presuppone che il set di dati sia già stato caricato in una tabella SQL di Azure denominata censusdata.
+Questo argomento usa l'esempio "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" e presuppone che il set di dati sia già stato caricato nella tabella SQL di Azure denominata censusdata.
 
 ## <a name="create-the-training-experiment"></a>Creare l'esperimento di training
-Quando si apre il campione "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Campione 5: training, test, valutazione per la classificazione binaria: set di dati su adulti), esso usa il set di dati campione Adult Census Income Binary Classification. L'esperimento nell'area di disegno sarà simile all'immagine seguente:
+Quando si apre l'esempio "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset", si usa il set di dati Adult Census Income Binary Classification di esempio. L'esperimento nell'area di disegno sarà simile all'immagine seguente:
 
 ![Configurazione iniziale dell'esperimento.](./media/web-services-that-use-import-export-modules/initial-look-of-experiment.png)
 
@@ -78,7 +74,7 @@ Configurare quindi l'esperimento predittivo da cui distribuire il servizio Web.
 9. Nel campo **Data table name**(Nome tabella dati) digitare dbo.ScoredLabels. Se non esiste, la tabella viene creata quando viene eseguito l'esperimento o viene chiamato il servizio Web.
 10. Nel campo **Comma separated list of datatable columns** (Elenco di colonne di tabella di database delimitato da virgole) digitare ScoredLabels.
 
-Quando si scrive un'applicazione che chiama il servizio Web finale, è possibile specificare una tabella di destinazione o una query di input diversa in fase di esecuzione. Per configurare questi input e output, usare la funzionalità Web Service Parameters (Parametri del servizio Web) per impostare la proprietà *Data source* (Origine dati) del modulo *Import Data* (Importa dati) e la proprietà di destinazione dei dati del modulo *Export Data* (Esporta dati).  Per altre informazioni sui parametri del servizio Web, vedere [la voce Web Service Parameters di Azure Machine Learning Studio](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) sul blog di Cortana Intelligence e Machine Learning.
+Quando si scrive un'applicazione che chiama il servizio Web finale, è possibile specificare una tabella di destinazione o una query di input diversa in fase di esecuzione. Per configurare questi input e output, usare la funzionalità Web Service Parameters (Parametri del servizio Web) per impostare la proprietà *Data source* (Origine dati) del modulo *Import Data* (Importa dati) e la proprietà di destinazione dei dati del modulo *Export Data* (Esporta dati).  Per ulteriori informazioni sui parametri del servizio Web, vedere la voce relativa ai [parametri del servizio web Azure Machine Learning Studio](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) nel Blog Cortana Intelligence e machine learning.
 
 Per configurare i parametri del servizio Web per la query di importazione e la tabella di destinazione:
 
@@ -103,7 +99,7 @@ Per eseguire la distribuzione come servizio Web classico e creare un'applicazion
 2. Al termine dell'esecuzione fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]).
 3. Nel dashboard del servizio Web individuare la chiave API. Copiarla e salvarla per usarla in un secondo momento.
 4. Nella tabella **Default Endpoint** (Endpoint predefinito) fare clic sul collegamento **Esecuzione batch** per aprire la pagina della Guida dell'API.
-5. In Visual Studio creare un'applicazione console in C#: **Nuovo** > **Progetto** > **Visual C#**  > **Desktop di Windows classico** > **App console (.NET Framework)** .
+5. In Visual Studio creare un'applicazione console C#. A tale scopo, selezionare **Nuovo** > **Progetto** > **Visual C#**  > **Desktop classico di Windows** > **Applicazione console (.NET Framework)** .
 6. Nella pagina della Guida di API individuare la sezione **Sample Code** (Codice di esempio) nella parte inferiore della pagina.
 7. Copiare e incollare il codice di esempio in C# nel file Program.cs e rimuovere tutti i riferimenti nell'archiviazione BLOB.
 8. Aggiornare il valore della variabile *apiKey* con la chiave API salvata in precedenza.
@@ -132,7 +128,7 @@ Per eseguire la distribuzione come servizio Web nuovo e creare un'applicazione p
 3. Nella pagina Deploy Experiment (Sperimentazione distribuzione) immettere un nome per il servizio Web e selezionare un piano tariffario, quindi fare clic su **Deploy**(Distribuzione).
 4. Nella pagina **Quickstart** (Avvio rapido) fare clic su **Consume** (Utilizzo).
 5. Nella sezione **Sample Code** (Codice di esempio) fare clic su **Batch**.
-6. In Visual Studio creare un'applicazione console in C#: **Nuovo** > **Progetto** > **Visual C#**  > **Desktop di Windows classico** > **App console (.NET Framework)** .
+6. In Visual Studio creare un'applicazione console C#. A tale scopo, selezionare **Nuovo** > **Progetto** > **Visual C#**  > **Desktop classico di Windows** > **Applicazione console (.NET Framework)** .
 7. Copiare e incollare il codice di esempio in C# nel file Program.cs.
 8. Aggiornare il valore della variabile *apiKey* con la **chiave primaria** presente nella sezione **Basic consumption info** (Informazioni di base sul consumo).
 9. Individuare la dichiarazione *scoreRequest* e aggiornare i valori dei parametri del servizio Web passati ai moduli *Import Data* (Importa dati) e *Export Data* (Esporta dati). In questo caso, usare la query originale, ma definire un nome per la nuova tabella.

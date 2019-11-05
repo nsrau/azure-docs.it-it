@@ -1,24 +1,24 @@
 ---
 title: 'Immettere i dati manualmente: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Enter data Manual in Azure Machine Learning Service per creare un set di dati di piccole dimensioni digitando i valori. Il set di dati può contenere più colonne.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Enter data manually in Azure Machine Learning per creare un set di dati di piccole dimensioni digitando values. Il set di dati può contenere più colonne.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: bd5fb636dbf79534e84a21a461f8912ceb6d9633
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 7c4d62c19984e1316a01213f579c059b97f709c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693152"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497925"
 ---
 # <a name="enter-data-manually-module"></a>Immettere manualmente i dati del modulo
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per creare un set di dati di piccole dimensioni digitando i valori. Il set di dati può contenere più colonne.
   
@@ -102,4 +102,4 @@ Questo modulo può essere utile in scenari come i seguenti:
      Per visualizzare il set di dati, fare clic sulla porta di output e selezionare **Visualizza**.  
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

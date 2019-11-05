@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 028f289092a0183072ab0ba0be29f9d1f79781bc
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 63a77a4f715402951ba8af70755196d52e3b742d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534315"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492387"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Impostare gli ambienti per la scienza dei dati per l'uso nel Processo di analisi scientifica dei dati per i team
 Il Processo di analisi scientifica dei dati per i team usa diversi ambienti per la scienza dei dati per l'archiviazione, l'elaborazione e l'analisi dei dati. Tra questi rientrano l'archiviazione BLOB di Azure, diversi tipi di macchine virtuali di Azure, i cluster HDInsight (Hadoop) e le aree di lavoro di Azure Machine Learning. La scelta riguardante quale ambiente usare dipende dal tipo e dalla quantità di dati da modellare e dalla destinazione di quei dati nel cloud. 
@@ -28,7 +28,7 @@ Gli articoli seguenti descrivono come configurare i diversi ambienti di data sci
 
 * [Azure storage-account](../../storage/common/storage-quickstart-create-account.md) (Account di archiviazione di Azure)
 * [HDInsight (Hadoop) cluster](customize-hadoop-cluster.md) (Cluster HDInsight (Hadoop))
-* [Area di lavoro di Azure Machine Learning Studio](../studio/create-workspace.md)
+* [Area di lavoro Azure Machine Learning Studio (classica)](../studio/create-workspace.md)
 
 La **macchina virtuale per l'analisi scientifica dei dati di Microsoft** è disponibile anche come immagine di macchina virtuale di (VM) Azure. Questa macchina virtuale è pre-installata e configurata con diversi strumenti diffusi, usati comunemente per l'analisi dei dati e l'apprendimento automatico. La macchina virtuale per l'analisi scientifica dei dati è disponibile in Windows e Linux. Per altre informazioni, vedere [Introduzione alla Data Science Virtual Machine basata su cloud per Linux e Windows](../data-science-virtual-machine/overview.md).
 

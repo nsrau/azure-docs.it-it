@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0c617cbd17d9b9620c957eec45aadd962db34831
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 5e0904cc2fd9866a9f8354eac9815945043eca5c
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194136"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72987580"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>Modello di autorizzazione del cloud privato CloudSimple di VMware vCenter
 
@@ -24,7 +24,7 @@ CloudSimple mantiene l'accesso amministrativo completo all'ambiente del cloud pr
 Quando si crea un cloud privato, viene creato un utente **CloudOwner** nel dominio Single Sign-on di vCenter, con accesso al **ruolo proprietario cloud** per gestire gli oggetti nel cloud privato. Questo utente può anche configurare origini di [identità vCenter](set-vcenter-identity.md)aggiuntive e altri utenti per il cloud privato vCenter.
 
 > [!NOTE]
-> L'utente predefinito per il cloud privato di CloudSimple cloudowner@cloudsimple.local è quando viene creato un cloud privato.
+> L'utente predefinito per il cloud privato CloudSimple è cloudowner@cloudsimple.local quando viene creato un cloud privato.
 
 ## <a name="user-groups"></a>Gruppi di utenti
 
@@ -32,7 +32,7 @@ Un gruppo denominato **cloud-Owner-Group** viene creato durante la distribuzione
 
 ### <a name="pre-created-groups"></a>Gruppi creati in precedenza
 
-| Nome gruppo | Scopo | Role |
+| Nome gruppo | Scopo | Ruolo |
 | -------- | ------- | ------ |
 | Gruppo del proprietario cloud | I membri di questo gruppo dispongono di privilegi amministrativi per il cloud privato vCenter | [Cloud-Owner-Role](#cloud-owner-role) |
 | Cloud-Global-cluster-admin-Group | I membri di questo gruppo hanno privilegi amministrativi sul cluster vCenter del cloud privato | [Cloud-cluster-admin-Role](#cloud-cluster-admin-role) |
@@ -41,6 +41,9 @@ Un gruppo denominato **cloud-Owner-Group** viene creato durante la distribuzione
 | Cloud-Global-VM-admin-Group | I membri di questo gruppo possono gestire le macchine virtuali nel cloud privato vCenter | [Cloud-VM-admin-Role](#cloud-vm-admin-role) |
 
 Per concedere a singoli utenti le autorizzazioni per la gestione del cloud privato, creare gli account utente da aggiungere ai gruppi appropriati.
+
+> [!CAUTION]
+> I nuovi utenti devono essere aggiunti solo a *cloud-Owner-Group*, *cloud-Global-cluster-admin-* Group, *cloud-Global-Storage-admin-Group*, *cloud-Global-Network-Admin-Group* o, *cloud-Global-VM-admin-Group*.  Gli utenti aggiunti al gruppo *Administrators* verranno rimossi automaticamente.  Solo gli account di servizio devono essere aggiunti al gruppo *Administrators* .
 
 ## <a name="list-of-vcenter-privileges-for-default-roles"></a>Elenco dei privilegi vCenter per i ruoli predefiniti
 
@@ -51,38 +54,38 @@ Per concedere a singoli utenti le autorizzazioni per la gestione del cloud priva
 | **Allarmi** | Conferma allarme <br> Crea allarme <br> Disabilita azione allarme <br> Modifica allarme <br> Rimuovi allarme <br> Imposta stato allarme |
 | **Autorizzazioni** | Modifica autorizzazione |
 | **Raccolta contenuto** | Aggiungi elemento di libreria <br> Crea libreria locale <br> Crea libreria sottoscritta <br> Elimina elemento libreria <br> Elimina libreria locale <br> Elimina libreria sottoscritta <br> Download dei file <br> Rimuovi elemento libreria <br> Rimuovi libreria sottoscritta <br> Importa archiviazione <br> Informazioni sulla sottoscrizione Probe <br> Lettura archiviazione <br> Elemento della libreria di sincronizzazione <br> Libreria sottoscritta Sync <br> Introspezione del tipo <br> Aggiorna impostazioni di configurazione <br> Aggiornare i file <br> Aggiorna libreria <br> Aggiorna elemento libreria <br> Aggiorna libreria locale <br> Aggiorna libreria sottoscritta <br> Visualizza impostazioni di configurazione |
-| **Operazioni di crittografia** | Aggiungi disco <br> Clone <br> Decrittografa <br> Accesso diretto <br> Crittografa <br> Crittografa nuovo <br> Gestisci KMS <br> Gestire i criteri di crittografia <br> Gestisci chiavi <br> Migrazione <br> Ricrypt <br> Registra macchina virtuale <br> Registra host |
-| **gruppo dvPort** | Create <br> Eliminare <br> Modifica <br> Operazione sui criteri <br> Operazione di ambito |
+| **Operazioni di crittografia** | Aggiungi disco <br> Clone <br> Decrypt <br> Accesso diretto <br> Crittografare il contenuto <br> Crittografa nuovo <br> Gestisci KMS <br> Gestire i criteri di crittografia <br> Gestire le chiavi <br> Migrazione <br> Ricrypt <br> Registra macchina virtuale <br> Registra host |
+| **gruppo dvPort** | Create <br> Elimina <br> Modifica <br> Operazione sui criteri <br> Operazione di ambito |
 | **Datastore** | Alloca spazio <br> Browse Datastore (Sfoglia archivio dati) <br> Configura archivio dati <br> Operazioni sui file di basso livello <br> Spostare l'archivio dati <br> Rimuovi archivio dati <br> Rimuovi file <br> Rinomina archivio dati <br> Aggiornare i file della macchina virtuale <br> Aggiornare i metadati della macchina virtuale |
-| **Agent Manager ESX** | Configurazione <br> Modifica <br> Visualizza |
+| **Agent Manager ESX** | Config <br> Modifica <br> Visualizza |
 | **Estensione** | Registra estensione <br> Annulla registrazione estensione <br> Aggiorna estensione |
-| **Provider stats esterno**| Registra <br> Annulla registrazione <br> Aggiorna |
-| **Cartella** | Creazione cartella <br> Elimina cartella <br> Sposta cartella <br> Rinomina cartella |
+| **Provider stats esterno**| Register <br> Unregister <br> Update |
+| **Cartella** | Crea cartella <br> Elimina cartella <br> Sposta cartella <br> Rinomina cartella |
 | **Globale** | Annulla attività <br> Pianificazione della capacità <br> Diagnostica <br> Metodi Disable <br> Metodi Enable <br> Tag globale <br> Integrità <br> Licenze <br> Evento log <br> Gestire attributi personalizzati <br> Proxy <br> Azione script <br> Service Manager <br> Imposta attributo personalizzato <br> Tag di sistema |
-| **Provider di aggiornamento integrità** | Registra <br> Annulla registrazione <br> Aggiorna |
+| **Provider di aggiornamento integrità** | Register <br> Unregister <br> Update |
 | **Configurazione > host** | Configurazione della partizione di archiviazione |
 | **Inventario > host** | Modificare il cluster |
 | **Codifica vSphere** | Assegnare o annullare l'assegnazione del tag vSphere <br> Crea tag vSphere <br> Crea categoria di tag vSphere <br> Elimina tag vSphere <br> Elimina categoria di tag vSphere <br> Modifica tag vSphere <br> Modifica categoria di tag vSphere <br> Modificare il campo UsedBy per Category <br> Modificare il campo UsedBy per il tag |
-| **Rete** | Assegna rete <br> Configurazione <br> Sposta rete <br> Remove |
+| **Rete** | Assegna rete <br> Configurare <br> Sposta rete <br> Rimuovere |
 | **Prestazioni** | Modificare gli intervalli |
 | **Profilo host** | Visualizza |
 | **Risorsa** | Applica suggerimento <br> Assegnare vApp al pool di risorse <br> Assegnare la macchina virtuale al pool di risorse <br> Crea pool di risorse <br> Esegui la migrazione della macchina virtuale spenta <br> Esegui la migrazione della macchina virtuale accesa <br> Modificare il pool di risorse <br> Spostare il pool di risorse <br> Query vMotion <br> Rimuovi pool di risorse <br> Rinominare il pool di risorse |
-| **Attività pianificata** | Creare attività <br> Modifica attività <br> Rimuovi attività <br> Esegui attività |
-| **Sessioni** | Utente con rappresentazione <br> Messaggio <br> Convalida sessione <br> Visualizzare e arrestare le sessioni |
+| **Attività pianificata** | Creare le attività <br> Modifica attività <br> Rimuovi attività <br> Esegui attività |
+| **Sessioni** | Rappresenta utente <br> Message <br> Convalida sessione <br> Visualizzare e arrestare le sessioni |
 | **Cluster di archivio dati** | Configurare un cluster di archivio dati |
 | **Archiviazione basata su profili** | Aggiornamento dell'archiviazione basata sul profilo <br> Visualizzazione archiviazione basata su profili |
 | **Viste di archiviazione** | Configura servizio <br> Visualizza |
 | **Attività** | Creare un'attività <br> Aggiorna attività |
-| **Servizio di trasferimento**| Gestisci <br> Monitoraggio |
-| **vApp** | Aggiungi macchina virtuale <br> Assegnare il pool di risorse <br> Assegna vApp <br> Clone <br> Create <br> Eliminare <br> Esportazione <br> Import <br> Sposta <br> Spegnimento <br> Accendere <br> Rinomina <br> Sospendi <br> Annulla registrazione <br> Visualizza ambiente OVF <br> configurazione dell'applicazione vApp <br> configurazione dell'istanza di vApp <br> configurazione di vApp managedBy <br> configurazione della risorsa vApp |
+| **Servizio di trasferimento**| Gestire <br> Monitorare |
+| **vApp** | Aggiungi macchina virtuale <br> Assegnare il pool di risorse <br> Assegna vApp <br> Clone <br> Create <br> Elimina <br> Esporta <br> Importazione <br> Spostamento <br> Spegnimento <br> Accendere <br> Rinominare <br> Sospensione <br> Unregister <br> Visualizza ambiente OVF <br> configurazione dell'applicazione vApp <br> configurazione dell'istanza di vApp <br> configurazione di vApp managedBy <br> configurazione della risorsa vApp |
 | **VRMPolicy** | VRMPolicy query <br> Aggiornare VRMPolicy |
-| **Configurazione > macchina virtuale** | Aggiungi disco esistente <br> Aggiungi nuovo disco <br> Aggiungi o Rimuovi dispositivo <br> Avanzate <br> Cambia Conteggio CPU <br> Cambia risorsa <br> Configurare managedBy <br> Rilevamento modifiche disco <br> Lease del disco <br> Visualizzare le impostazioni di connessione <br> Estendi disco virtuale <br> Dispositivo USB host <br> Memoria <br> Modificare le impostazioni del dispositivo <br> Compatibilità tolleranza di errore query <br> Eseguire query sui file di proprietà <br> Dispositivo RAW <br> Ricarica da percorso <br> Rimuovi disco <br> Rinomina <br> Reimposta informazioni Guest <br> Imposta annotazione <br> Impostazioni <br> Selezione host file <br> Imposta/Nascondi elemento padre fork <br> Sblocca macchina virtuale <br> Aggiornare la compatibilità delle macchine virtuali |
+| **Configurazione > macchina virtuale** | Aggiungi disco esistente <br> Aggiungi nuovo disco <br> Aggiungi o Rimuovi dispositivo <br> Avanzate <br> Cambia Conteggio CPU <br> Cambia risorsa <br> Configurare managedBy <br> Rilevamento modifiche disco <br> Lease del disco <br> Visualizzare le impostazioni di connessione <br> Estendi disco virtuale <br> Dispositivo USB host <br> Memoria <br> Modificare le impostazioni del dispositivo <br> Compatibilità tolleranza di errore query <br> Eseguire query sui file di proprietà <br> Dispositivo RAW <br> Ricarica da percorso <br> Rimuovi disco <br> Rinominare <br> Reimposta informazioni Guest <br> Imposta annotazione <br> Impostazioni <br> Selezione host file <br> Imposta/Nascondi elemento padre fork <br> Sblocca macchina virtuale <br> Aggiornare la compatibilità delle macchine virtuali |
 | **Macchine virtuali > operazioni Guest** | Modifica alias operazione Guest <br> Query alias operazione Guest <br> Modifiche alle operazioni Guest <br> Esecuzione del programma operativo guest <br> Query sull'operazione Guest |
-| **Interazione > macchina virtuale** | Domanda di risposta <br> Operazione di backup nella macchina virtuale <br> Configurare supporti CD <br> Configurare supporti floppy <br> Interazione tra console <br> Crea screenshot <br> Deframmenta tutti i dischi <br> Connessione del dispositivo <br> Trascinamento della selezione <br> Gestione del sistema operativo guest per l'API VIX <br> Inserire codici di analisi HID USB <br> Sospendere o sospendere <br> Eseguire operazioni di cancellazione o compattazione <br> Spegnimento <br> Accendere <br> Registrare la sessione nella macchina virtuale <br> Riproduci sessione sulla macchina virtuale <br> Reimposta <br> Riprendi tolleranza di errore <br> Sospendi <br> Sospendi tolleranza di errore <br> Failover di test <br> Riavviare il test della macchina virtuale secondaria <br> Disattiva tolleranza di errore <br> Attiva tolleranza di errore <br> Installare gli strumenti VMware |
-| **Inventario > macchina virtuale** | Crea da esistente <br> Crea nuova <br> Sposta <br> Registra <br> Remove <br> Annulla registrazione |
+| **Interazione > macchina virtuale** | Domanda di risposta <br> Operazione di backup nella macchina virtuale <br> Configurare supporti CD <br> Configurare supporti floppy <br> Interazione tra console <br> Crea screenshot <br> Deframmenta tutti i dischi <br> Connessione del dispositivo <br> Trascinamento della selezione <br> Gestione del sistema operativo guest per l'API VIX <br> Inserire codici di analisi HID USB <br> Sospendere o sospendere <br> Eseguire operazioni di cancellazione o compattazione <br> Spegnimento <br> Accendere <br> Registrare la sessione nella macchina virtuale <br> Riproduci sessione sulla macchina virtuale <br> Reimpostazione <br> Riprendi tolleranza di errore <br> Sospensione <br> Sospendi tolleranza di errore <br> Failover di test <br> Riavviare il test della macchina virtuale secondaria <br> Disattiva tolleranza di errore <br> Attiva tolleranza di errore <br> Installare gli strumenti VMware |
+| **Inventario > macchina virtuale** | Crea da esistente <br> Creare un nuovo gruppo di risorse <br> Spostamento <br> Register <br> Rimuovere <br> Unregister |
 | **Provisioning di > della macchina virtuale** | Consenti l'accesso al disco <br> Consenti accesso ai file <br> Consenti accesso in sola lettura al disco <br> Consenti il download della macchina virtuale <br> Consenti caricamento file macchina virtuale <br> Clona modello <br> Clona macchina virtuale <br> Crea modello dalla macchina virtuale <br> Personalizza <br> Distribuire il modello <br> Contrassegna come modello <br> Contrassegna come macchina virtuale <br> Modificare la specifica di personalizzazione <br> Alza di livello i dischi <br> Leggi le specifiche di personalizzazione |
 | **Configurazione del servizio > macchina virtuale** | Consenti notifiche <br> Consenti il polling delle notifiche degli eventi globali <br> Gestisci configurazioni del servizio <br> Modificare la configurazione del servizio <br> Configurazioni del servizio query <br> Lettura della configurazione del servizio |
-| **Gestione snapshot > macchina virtuale** | Crea snapshot <br> Rimuovi snapshot <br> Rinomina snapshot <br> Ripristina snapshot |
+| **Gestione snapshot > macchina virtuale** | Creare uno snapshot <br> Rimuovi snapshot <br> Rinomina snapshot <br> Ripristina snapshot |
 | **Macchina virtuale > la replica vSphere** | Configurare la replica <br> Gestire la replica <br> Monitorare la replica |
 | **vService** | Crea dipendenza <br> Elimina dipendenza <br> Riconfigurare la configurazione della dipendenza <br> Aggiorna dipendenza |
 
@@ -91,20 +94,20 @@ Per concedere a singoli utenti le autorizzazioni per la gestione del cloud priva
 | **Categoria** | **Privilegio** |
 |----------|-----------|
 | **Datastore** | Alloca spazio <br> Browse Datastore (Sfoglia archivio dati) <br> Configura archivio dati <br> Operazioni sui file di basso livello <br> Rimuovi archivio dati <br> Rinomina archivio dati <br> Aggiornare i file della macchina virtuale <br> Aggiornare i metadati della macchina virtuale |
-| **Cartella** | Creazione cartella <br> Elimina cartella <br> Sposta cartella <br> Rinomina cartella |
+| **Cartella** | Crea cartella <br> Elimina cartella <br> Sposta cartella <br> Rinomina cartella |
 | **Configurazione > host**  | Configurazione della partizione di archiviazione |
 | **Codifica vSphere** | Assegnare o annullare l'assegnazione del tag vSphere <br> Crea tag vSphere <br> Crea categoria di tag vSphere <br> Elimina tag vSphere <br> Elimina categoria di tag vSphere <br> Modifica tag vSphere <br> Modifica categoria di tag vSphere <br> Modificare il campo UsedBy per Category <br> Modificare il campo UsedBy per il tag |
 | **Rete** | Assegna rete |
 | **Risorsa** | Applica suggerimento <br> Assegnare vApp al pool di risorse <br> Assegnare la macchina virtuale al pool di risorse <br> Crea pool di risorse <br> Esegui la migrazione della macchina virtuale spenta <br> Esegui la migrazione della macchina virtuale accesa <br> Modificare il pool di risorse <br> Spostare il pool di risorse <br> Query vMotion <br> Rimuovi pool di risorse <br> Rinominare il pool di risorse |
-| **vApp** | Aggiungi macchina virtuale <br> Assegnare il pool di risorse <br> Assegna vApp <br> Clone <br> Create <br> Eliminare <br> Esportazione <br> Import <br> Sposta <br> Spegnimento <br> Accendere <br> Rinomina <br> Sospendi <br> Annulla registrazione <br> Visualizza ambiente OVF <br> configurazione dell'applicazione vApp <br> configurazione dell'istanza di vApp <br> configurazione di vApp managedBy <br> configurazione della risorsa vApp |
+| **vApp** | Aggiungi macchina virtuale <br> Assegnare il pool di risorse <br> Assegna vApp <br> Clone <br> Create <br> Elimina <br> Esporta <br> Importazione <br> Spostamento <br> Spegnimento <br> Accendere <br> Rinominare <br> Sospensione <br> Unregister <br> Visualizza ambiente OVF <br> configurazione dell'applicazione vApp <br> configurazione dell'istanza di vApp <br> configurazione di vApp managedBy <br> configurazione della risorsa vApp |
 | **VRMPolicy** | VRMPolicy query <br> Aggiornare VRMPolicy |
-| **Configurazione > macchina virtuale** | Aggiungi disco esistente <br> Aggiungi nuovo disco <br> Aggiungi o Rimuovi dispositivo <br> Avanzate <br> Cambia Conteggio CPU <br> Cambia risorsa <br> Configurare managedBy <br> Rilevamento modifiche disco <br> Lease del disco <br> Visualizzare le impostazioni di connessione <br> Estendi disco virtuale <br> Dispositivo USB host <br> Memoria <br> Modificare le impostazioni del dispositivo <br> Compatibilità tolleranza di errore query <br> Eseguire query sui file di proprietà <br> Dispositivo RAW <br> Ricarica da percorso <br> Rimuovi disco <br> Rinomina <br> Reimposta informazioni Guest <br> Imposta annotazione <br> Impostazioni <br> Selezione host file <br> Imposta/Nascondi elemento padre fork <br> Sblocca macchina virtuale <br> Aggiornare la compatibilità delle macchine virtuali |
+| **Configurazione > macchina virtuale** | Aggiungi disco esistente <br> Aggiungi nuovo disco <br> Aggiungi o Rimuovi dispositivo <br> Avanzate <br> Cambia Conteggio CPU <br> Cambia risorsa <br> Configurare managedBy <br> Rilevamento modifiche disco <br> Lease del disco <br> Visualizzare le impostazioni di connessione <br> Estendi disco virtuale <br> Dispositivo USB host <br> Memoria <br> Modificare le impostazioni del dispositivo <br> Compatibilità tolleranza di errore query <br> Eseguire query sui file di proprietà <br> Dispositivo RAW <br> Ricarica da percorso <br> Rimuovi disco <br> Rinominare <br> Reimposta informazioni Guest <br> Imposta annotazione <br> Impostazioni <br> Selezione host file <br> Imposta/Nascondi elemento padre fork <br> Sblocca macchina virtuale <br> Aggiornare la compatibilità delle macchine virtuali |
 | **Macchine virtuali > operazioni Guest** | Modifica alias operazione Guest <br> Query alias operazione Guest <br> Modifiche alle operazioni Guest <br> Esecuzione del programma operativo guest <br> Query sull'operazione Guest |
-| **Interazione > macchina virtuale** | Domanda di risposta <br> Operazione di backup nella macchina virtuale <br> Configurare supporti CD <br> Configurare supporti floppy <br> Interazione tra console <br> Crea screenshot <br> Deframmenta tutti i dischi <br> Connessione del dispositivo <br> Trascinamento della selezione <br> Gestione del sistema operativo guest per l'API VIX <br> Inserire codici di analisi HID USB <br> Sospendere o sospendere <br> Eseguire operazioni di cancellazione o compattazione <br> Spegnimento <br> Accendere <br> Registrare la sessione nella macchina virtuale <br> Riproduci sessione sulla macchina virtuale <br> Reimposta <br> Riprendi tolleranza di errore <br> Sospendi <br> Sospendi tolleranza di errore <br> Failover di test <br> Riavviare il test della macchina virtuale secondaria <br> Disattiva tolleranza di errore <br> Attiva tolleranza di errore <br> Installare gli strumenti VMware
-| **Inventario > macchina virtuale** | Crea da esistente <br> Crea nuova <br> Sposta <br> Registra <br> Remove <br> Annulla registrazione |
+| **Interazione > macchina virtuale** | Domanda di risposta <br> Operazione di backup nella macchina virtuale <br> Configurare supporti CD <br> Configurare supporti floppy <br> Interazione tra console <br> Crea screenshot <br> Deframmenta tutti i dischi <br> Connessione del dispositivo <br> Trascinamento della selezione <br> Gestione del sistema operativo guest per l'API VIX <br> Inserire codici di analisi HID USB <br> Sospendere o sospendere <br> Eseguire operazioni di cancellazione o compattazione <br> Spegnimento <br> Accendere <br> Registrare la sessione nella macchina virtuale <br> Riproduci sessione sulla macchina virtuale <br> Reimpostazione <br> Riprendi tolleranza di errore <br> Sospensione <br> Sospendi tolleranza di errore <br> Failover di test <br> Riavviare il test della macchina virtuale secondaria <br> Disattiva tolleranza di errore <br> Attiva tolleranza di errore <br> Installare gli strumenti VMware
+| **Inventario > macchina virtuale** | Crea da esistente <br> Creare un nuovo gruppo di risorse <br> Spostamento <br> Register <br> Rimuovere <br> Unregister |
 | **Provisioning di > della macchina virtuale** | Consenti l'accesso al disco <br> Consenti accesso ai file <br> Consenti accesso in sola lettura al disco <br> Consenti il download della macchina virtuale <br> Consenti caricamento file macchina virtuale <br> Clona modello <br> Clona macchina virtuale <br> Crea modello dalla macchina virtuale <br> Personalizza <br> Distribuire il modello <br> Contrassegna come modello <br> Contrassegna come macchina virtuale <br> Modificare la specifica di personalizzazione <br> Alza di livello i dischi  <br> Leggi le specifiche di personalizzazione |
 | **Configurazione del servizio > macchina virtuale** | Consenti notifiche <br> Consenti il polling delle notifiche degli eventi globali <br> Gestisci configurazioni del servizio <br> Modificare la configurazione del servizio <br> Configurazioni del servizio query <br> Lettura della configurazione del servizio
-| **Gestione snapshot > macchina virtuale** | Crea snapshot <br> Rimuovi snapshot <br> Rinomina snapshot <br> Ripristina snapshot |
+| **Gestione snapshot > macchina virtuale** | Creare uno snapshot <br> Rimuovi snapshot <br> Rinomina snapshot <br> Ripristina snapshot |
 | **Macchina virtuale > la replica vSphere** | Configurare la replica <br> Gestire la replica <br> Monitorare la replica |
 | **vService** | Crea dipendenza <br> Elimina dipendenza <br> Riconfigurare la configurazione della dipendenza <br> Aggiorna dipendenza |
 
@@ -122,8 +125,8 @@ Per concedere a singoli utenti le autorizzazioni per la gestione del cloud priva
 
 | **Categoria** | **Privilegio** |
 |----------|-----------|
-| **gruppo dvPort** | Create <br> Eliminare <br> Modifica <br> Operazione sui criteri <br> Operazione di ambito |
-| **Rete** | Assegna rete <br> Configurazione <br> Sposta rete <br> Remove |
+| **gruppo dvPort** | Create <br> Elimina <br> Modifica <br> Operazione sui criteri <br> Operazione di ambito |
+| **Rete** | Assegna rete <br> Configurare <br> Sposta rete <br> Rimuovere |
 | **Configurazione > macchina virtuale** | Modificare le impostazioni del dispositivo |
 
 ### <a name="cloud-vm-admin-role"></a>Cloud-VM-admin-Role
@@ -133,13 +136,13 @@ Per concedere a singoli utenti le autorizzazioni per la gestione del cloud priva
 | **Datastore** | Alloca spazio <br> Browse Datastore (Sfoglia archivio dati) |
 | **Rete** | Assegna rete |
 | **Risorsa** | Assegnare la macchina virtuale al pool di risorse <br> Esegui la migrazione della macchina virtuale spenta <br> Esegui la migrazione della macchina virtuale accesa
-| **vApp** | Esportazione <br> Import |
-| **Configurazione > macchina virtuale** | Aggiungi disco esistente <br> Aggiungi nuovo disco <br> Aggiungi o Rimuovi dispositivo <br> Avanzate <br> Cambia Conteggio CPU <br> Cambia risorsa <br> Configurare managedBy <br> Rilevamento modifiche disco <br> Lease del disco <br> Visualizzare le impostazioni di connessione <br> Estendi disco virtuale <br> Dispositivo USB host <br> Memoria <br> Modificare le impostazioni del dispositivo <br> Compatibilità tolleranza di errore query <br> Eseguire query sui file di proprietà <br> Dispositivo RAW <br> Ricarica da percorso <br> Rimuovi disco <br> Rinomina <br> Reimposta informazioni Guest <br> Imposta annotazione <br> Impostazioni <br> Selezione host file <br> Imposta/Nascondi elemento padre fork <br> Sblocca macchina virtuale <br> Aggiornare la compatibilità delle macchine virtuali |
+| **vApp** | Esporta <br> Importazione |
+| **Configurazione > macchina virtuale** | Aggiungi disco esistente <br> Aggiungi nuovo disco <br> Aggiungi o Rimuovi dispositivo <br> Avanzate <br> Cambia Conteggio CPU <br> Cambia risorsa <br> Configurare managedBy <br> Rilevamento modifiche disco <br> Lease del disco <br> Visualizzare le impostazioni di connessione <br> Estendi disco virtuale <br> Dispositivo USB host <br> Memoria <br> Modificare le impostazioni del dispositivo <br> Compatibilità tolleranza di errore query <br> Eseguire query sui file di proprietà <br> Dispositivo RAW <br> Ricarica da percorso <br> Rimuovi disco <br> Rinominare <br> Reimposta informazioni Guest <br> Imposta annotazione <br> Impostazioni <br> Selezione host file <br> Imposta/Nascondi elemento padre fork <br> Sblocca macchina virtuale <br> Aggiornare la compatibilità delle macchine virtuali |
 | **Macchine virtuali > operazioni Guest** | Modifica alias operazione Guest <br> Query alias operazione Guest <br> Modifiche alle operazioni Guest <br> Esecuzione del programma operativo guest <br> Query sull'operazione Guest    |
-| **Interazione > macchina virtuale** | Domanda di risposta <br> Operazione di backup nella macchina virtuale <br> Configurare supporti CD <br> Configurare supporti floppy <br> Interazione tra console <br> Crea screenshot <br> Deframmenta tutti i dischi <br> Connessione del dispositivo <br> Trascinamento della selezione <br> Gestione del sistema operativo guest per l'API VIX <br> Inserire codici di analisi HID USB <br> Sospendere o sospendere <br> Eseguire operazioni di cancellazione o compattazione <br> Spegnimento <br> Accendere <br> Registrare la sessione nella macchina virtuale <br> Riproduci sessione sulla macchina virtuale <br> Reimposta <br> Riprendi tolleranza di errore <br> Sospendi <br> Sospendi tolleranza di errore <br> Failover di test <br> Riavviare il test della macchina virtuale secondaria <br> Disattiva tolleranza di errore <br> Attiva tolleranza di errore <br> Installare gli strumenti VMware |
-| **Inventario > macchina virtuale** | Crea da esistente <br> Crea nuova <br> Sposta <br> Registra <br> Remove <br> Annulla registrazione |
+| **Interazione > macchina virtuale** | Domanda di risposta <br> Operazione di backup nella macchina virtuale <br> Configurare supporti CD <br> Configurare supporti floppy <br> Interazione tra console <br> Crea screenshot <br> Deframmenta tutti i dischi <br> Connessione del dispositivo <br> Trascinamento della selezione <br> Gestione del sistema operativo guest per l'API VIX <br> Inserire codici di analisi HID USB <br> Sospendere o sospendere <br> Eseguire operazioni di cancellazione o compattazione <br> Spegnimento <br> Accendere <br> Registrare la sessione nella macchina virtuale <br> Riproduci sessione sulla macchina virtuale <br> Reimpostazione <br> Riprendi tolleranza di errore <br> Sospensione <br> Sospendi tolleranza di errore <br> Failover di test <br> Riavviare il test della macchina virtuale secondaria <br> Disattiva tolleranza di errore <br> Attiva tolleranza di errore <br> Installare gli strumenti VMware |
+| **Inventario > macchina virtuale** | Crea da esistente <br> Creare un nuovo gruppo di risorse <br> Spostamento <br> Register <br> Rimuovere <br> Unregister |
 | **Provisioning di > della macchina virtuale** | Consenti l'accesso al disco <br> Consenti accesso ai file <br> Consenti accesso in sola lettura al disco <br> Consenti il download della macchina virtuale <br> Consenti caricamento file macchina virtuale <br> Clona modello <br> Clona macchina virtuale <br> Crea modello dalla macchina virtuale <br> Personalizza <br> Distribuire il modello <br> Contrassegna come modello <br> Contrassegna come macchina virtuale <br> Modificare la specifica di personalizzazione <br> Alza di livello i dischi <br> Leggi le specifiche di personalizzazione |
 | **Configurazione del servizio > macchina virtuale** | Consenti notifiche <br> Consenti il polling delle notifiche degli eventi globali <br> Gestisci configurazioni del servizio <br> Modificare la configurazione del servizio <br> Configurazioni del servizio query <br> Lettura della configurazione del servizio
-| **Gestione snapshot > macchina virtuale** | Crea snapshot <br> Rimuovi snapshot <br> Rinomina snapshot <br> Ripristina snapshot |
+| **Gestione snapshot > macchina virtuale** | Creare uno snapshot <br> Rimuovi snapshot <br> Rinomina snapshot <br> Ripristina snapshot |
 | **Macchina virtuale > la replica vSphere** | Configurare la replica <br> Gestire la replica <br> Monitorare la replica |
 | **vService** | Crea dipendenza <br> Elimina dipendenza <br> Riconfigurare la configurazione della dipendenza <br> Aggiorna dipendenza |

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 40a2443419fab5d0a89d704312d880e344597b8b
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
-ms.translationtype: MT
+ms.openlocfilehash: db6e47b39b7ebe35a6c0fef42af53f91e96c363f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053908"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496194"
 ---
 # <a name="hyperscale-service-tier"></a>Livello di servizio Hyperscale
 
@@ -47,7 +47,7 @@ Il livello di servizio Hyperscale elimina molti dei limiti pratici che generalme
 
 Inoltre, il tempo necessario per creare i backup dei database oppure aumentare o diminuire le prestazioni non è più associato al volume dei dati presenti nel database. È possibile eseguire il backup dei database Hyperscale praticamente istantaneamente. È anche possibile ridimensionare un database aumentando o diminuendo la capacità di decine di terabyte in pochi minuti. Questa funzionalità consente di non essere vincolati alle scelte di configurazione iniziali.
 
-Per altre informazioni sulle dimensioni di calcolo per il livello di servizio Hyperscale, vedere [Caratteristiche del livello di servizio](sql-database-service-tiers-vcore.md#service-tier-characteristics).
+Per altre informazioni sulle dimensioni di calcolo per il livello di servizio Hyperscale, vedere [Caratteristiche del livello di servizio](sql-database-service-tiers-vcore.md#service-tiers).
 
 ## <a name="who-should-consider-the-hyperscale-service-tier"></a>Destinazione d'uso del livello di servizio Hyperscale
 
@@ -72,7 +72,7 @@ Il livello di servizio Hyperscale è disponibile solo nel [modello vCore](sql-da
 
 - **Archiviazione**:
 
-  Non è necessario specificare le dimensioni massime dei dati durante la configurazione di un database Hyperscale. Nel livello Hyperscale ti vengono addebitate le risorse di archiviazione per il tuo database in base all'utilizzo effettivo. Lo spazio di archiviazione viene allocato automaticamente tra 10 GB e 100 TB, con incrementi regolati in modo dinamico tra 10 GB e 40 GB.  
+  Non è necessario specificare le dimensioni massime dei dati durante la configurazione di un database Hyperscale. Nel livello con iperscalabilità vengono addebitate le risorse di archiviazione per il database in base all'utilizzo effettivo. Lo spazio di archiviazione viene allocato automaticamente tra 10 GB e 100 TB, con incrementi regolati in modo dinamico tra 10 GB e 40 GB.  
 
 Per altre informazioni sui prezzi di Hyperscale, vedere [Prezzi di Database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -102,7 +102,7 @@ Il servizio di log accetta i record di log dalla replica di calcolo primaria, li
 
 Archiviazione di Azure contiene tutti i file di dati in un database. I server di paging mantengono aggiornati i file di dati in archiviazione di Azure. Questa archiviazione viene usata a scopo di backup e per la replica tra le aree di Azure. I backup vengono implementati usando gli snapshot di archiviazione dei file di dati. Le operazioni di ripristino che usano gli snapshot sono veloci indipendentemente dalla dimensione dei dati. I dati possono essere ripristinati in qualsiasi punto nel tempo entro il periodo di conservazione dei backup del database.
 
-## <a name="backup-and-restore"></a>Eseguire backup e ripristino
+## <a name="backup-and-restore"></a>Backup e ripristino
 
 I backup sono basati su snapshot di file e quindi sono quasi istantanei. La separazione tra archiviazione e calcolo consente di eseguire il push dell'operazione di backup/ripristino al livello di archiviazione per ridurre il carico di elaborazione della replica di calcolo primaria. Di conseguenza, il backup del database non influisca sulle prestazioni del nodo di calcolo primario. Analogamente, i ripristini vengono eseguiti ripristinando gli snapshot di file e, di conseguenza, non sono le dimensioni dell'operazione sui dati. Il ripristino è un'operazione a tempo costante ed è possibile ripristinare anche database di più terabyte in pochi minuti anziché in ore o in giorni. La creazione di nuovi database tramite il ripristino di un backup esistente sfrutta anche questa funzionalità: la creazione di copie di database a scopo di sviluppo o test, anche di database di dimensioni terabyte, è fattibile in pochi minuti.
 
@@ -167,25 +167,25 @@ Se è necessario ripristinare un database iperscalabile del database SQL di Azur
 Il livello iperscalabile del database SQL di Azure è attualmente disponibile nelle aree geografiche seguenti:
 
 - Australia orientale
-- Australia sud-orientale
+- Australia sudorientale
 - Brasile meridionale
 - Canada centrale
 - Stati Uniti centrali
 - Cina orientale 2
 - Cina settentrionale 2
 - Asia orientale
-- Stati Uniti Orientali
+- Stati Uniti orientali
 - Stati Uniti orientali 2
 - Francia centrale
 - Giappone orientale
 - Giappone occidentale
-- Corea centrale
-- Corea meridionale
+- Corea del Sud centrale
+- Corea del Sud meridionale
 - Stati Uniti centro-settentrionali
 - Europa settentrionale
 - Sudafrica settentrionale
 - Stati Uniti centro-meridionali
-- Asia sud-orientale
+- Asia sudorientale
 - Regno Unito meridionale
 - Regno Unito occidentale
 - Europa occidentale
@@ -236,7 +236,7 @@ Per richiedere la possibilità di creare database con iperscalabilità in aree n
 ## <a name="known-limitations"></a>Limitazioni note
 Queste sono le limitazioni correnti per il livello di servizio con iperscalabilità di GA.  Si sta lavorando attivamente per rimuovere il maggior numero possibile di limitazioni.
 
-| Problema | Description |
+| Problema | Descrizione |
 | :---- | :--------- |
 | Il riquadro Gestisci backup per un server logico non mostra che i database iperscalari verranno filtrati da SQL Server  | L'iperscalabilità ha un metodo separato per la gestione dei backup e, di conseguenza, le impostazioni di conservazione a lungo termine e di conservazione dei backup temporizzate non vengono applicate/non sono valide. Di conseguenza i database Hyperscale non compaiono nel riquadro Gestisci backup. |
 | Ripristino temporizzato | Quando viene eseguita la migrazione di un database nel livello di servizio iperscalabile, il ripristino fino a un punto nel tempo precedente alla migrazione non è supportato.|

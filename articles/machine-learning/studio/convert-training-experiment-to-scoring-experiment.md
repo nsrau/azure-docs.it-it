@@ -1,7 +1,7 @@
 ---
 title: Preparare il modello per la distribuzione
-titleSuffix: Azure Machine Learning Studio
-description: Come preparare il modello con training per la distribuzione come servizio Web convertendo l'esperimento di training di Machine Learning Studio in un esperimento predittivo.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Come preparare il modello sottoposto a training per la distribuzione come servizio Web convertendo l'esperimento di training Machine Learning Studio (classico) in un esperimento predittivo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -9,20 +9,20 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 2a318edada5cdc4124e221fdc8c441ab323a9289
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: caaed83417ac1eaadc407fb12dc8bb360aae45ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751971"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493271"
 ---
-# <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Come preparare il modello per la distribuzione in Azure Machine Learning Studio
+# <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>Come preparare il modello per la distribuzione in Azure Machine Learning Studio (classico)
 
-Azure Machine Learning Studio offre gli strumenti necessari per sviluppare un modello di analisi predittiva e quindi renderlo operativo distribuendolo come servizio Web di Azure.
+Azure Machine Learning Studio (classico) offre gli strumenti necessari per sviluppare un modello di analisi predittiva e quindi rendere operativorlo distribuendo il modello come servizio Web di Azure.
 
-A tale scopo, è necessario utilizzare Studio per creare un esperimento, chiamato *esperimento di training*, in cui eseguire il training del modello, assegnare un punteggio al modello e modificarlo. Quando si è soddisfatti del risultato, è possibile procedere alla distribuzione del modello convertendo l'esperimento di training in un *esperimento predittivo* configurato in modo da assegnare un punteggio ai dati utente.
+A tale scopo, si usa la versione classica di studio per creare un esperimento, denominato *esperimento di training* , in cui si esegue il training, il punteggio e la modifica del modello. Quando si è soddisfatti del risultato, è possibile procedere alla distribuzione del modello convertendo l'esperimento di training in un *esperimento predittivo* configurato in modo da assegnare un punteggio ai dati utente.
 
-È possibile vedere un esempio di questo processo in [esercitazione 1: Prevedere il rischio di credito](tutorial-part1-credit-risk.md).
+È possibile vedere un esempio di questo processo in [esercitazione 1: prevedere il rischio di credito](tutorial-part1-credit-risk.md).
 
 Questo articolo contiene informazioni approfondite su come convertire un esperimento di training in un esperimento predittivo e successivamente distribuirlo. La comprensione di questi dettagli è fondamentale per imparare a configurare il modello distribuito in modo da renderlo più efficace.
 
@@ -44,13 +44,13 @@ Il processo di conversione di un esperimento di training in un esperimento predi
 ## <a name="set-up-web-service-button"></a>Pulsante Set Up Web Service
 Dopo aver eseguito l'esperimento (fare clic su **RUN** (ESEGUI) nella parte inferiore dell'area di disegno dell'esperimento), fare clic sul pulsante **Set Up Web Service** (Configura servizio Web) scegliendo l'opzione **Predictive Web Service** (Servizio Web predittivo). **Set Up Web Service** (Configura servizio Web) esegue automaticamente i tre passaggi necessari per convertire l'esperimento di training in un esperimento predittivo:
 
-1. Salva il modello di training nella sezione dei **modelli di training** della tavolozza del modulo (a sinistra dell'area di disegno dell'esperimento). Sostituisce quindi l'algoritmo di Machine Learning e i moduli [Train Model] [ train-model] (Modello di training) con il modello di training salvato.
+1. Salva il modello di training nella sezione dei **modelli di training** della tavolozza del modulo (a sinistra dell'area di disegno dell'esperimento). Sostituisce quindi l'algoritmo di machine learning e i moduli di [training del modello][train-model] con il modello con training salvato.
 2. Analizza l'esperimento e rimuove i moduli chiaramente usati solo per il training e non più necessari.
 3. Inserisce moduli di _input_ e di _output del servizio Web_ in posizioni predefinite nell'esperimento (questi moduli accettano e restituiscono i dati utente).
 
 Ad esempio, il seguente esperimento esegue il training di un modello di albero delle decisioni incrementato a due classi utilizzando dati di classificazione di esempio:
 
-![esperimento di training](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
+![Esperimento di training](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
 
 I moduli nell'esperimento eseguono fondamentalmente quattro diverse funzioni:
 
@@ -62,11 +62,11 @@ Quando si converte l'esperimento di training in un esperimento predittivo, alcun
 
 * **Prep**: in base ai dati utente che verranno inviati per la classificazione, i moduli potrebbero non essere necessari per elaborare i dati in ingresso. Il pulsante **Set Up Web Service** (Configura servizio Web) non agisce su questi moduli, pertanto è necessario decidere come gestirli.
   
-    In questo esempio alcuni valori nel set di dati di esempio potrebbero essere mancanti, pertanto è stato aggiunto un modulo [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti) per gestirli. Il set di dati di esempio include, inoltre, colonne che non sono necessarie per il training del modello. È stato pertanto incluso un modulo [Select columns in Dataset][select-columns] (Seleziona colonne nel set di dati) per escludere le colonne aggiuntive dal flusso di dati. Se si è certi che i dati inviati per la classificazione tramite il servizio Web non presentino valori mancanti, è possibile rimuovere il modulo [Clean Missing Data][clean-missing-data]. Poiché tuttavia il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne nel set di dati) consente di definire le colonne di dati previste dal modello di training, è necessario mantenerlo.
+    In questo esempio, ad esempio, è possibile che nel set di dati di esempio siano presenti valori mancanti, quindi è stato incluso un modulo [Clean Missing data][clean-missing-data] per gestirli. Il set di dati di esempio include, inoltre, colonne che non sono necessarie per il training del modello. Quindi, è stato incluso un modulo [Select Columns in DataSet][select-columns] per escludere le colonne aggiuntive dal flusso di dati. Se si è certi che i dati che verranno inviati per il Punteggio tramite il servizio Web non avranno valori mancanti, è possibile rimuovere il modulo [Clean Missing data][clean-missing-data] . Tuttavia, poiché il modulo [Select Columns in DataSet][select-columns] consente di definire le colonne di dati previsti dal modello sottoposto a training, è necessario che il modulo rimanga.
 
 * **Train** (Training): questi moduli vengono usati per eseguire il training del modello. Quando si fa clic su **Set Up Web Service** (Configura servizio Web), questi moduli vengono sostituiti con un singolo modulo contenente il modello sottoposto a training. Il nuovo modulo viene salvato nella sezione **Trained Models** (Modelli sottoposti a training) della tavolozza dei moduli.
 
-* **Score** (Punteggio): in questo esempio il modulo [Split Data][split] (Dividi dati) viene usato per suddividere il flusso di dati in dati di test e dati di training. Poiché nell'esperimento predittivo non si esegue più il training, è possibile rimuovere [Split Data][split] (Dividi dati). In modo analogo, il secondo modulo [Score Model][score-model] (Assegna punteggio al modello) e il modulo [Evaluate Model][evaluate-model] (Valuta modello) vengono usati per confrontare i risultati dei dati di test, pertanto questi moduli non sono necessari nell'esperimento predittivo. Il modulo rimanente [Score Model][score-model] è però necessario per restituire un risultato relativo all'assegnazione del punteggio tramite il servizio Web.
+* **Punteggio** : in questo esempio il modulo [Split data][split] viene usato per dividere il flusso di dati in dati di test e dati di training. Nell'esperimento predittivo non viene più eseguito il training, quindi è possibile rimuovere [i dati divisi][split] . Analogamente, il secondo modulo [Score Model][score-model] e il modulo [Evaluate Model][evaluate-model] vengono usati per confrontare i risultati dei dati di test, quindi questi moduli non sono necessari nell'esperimento predittivo. Il modulo rimanente [Score Model][score-model] , tuttavia, è necessario per restituire un risultato del Punteggio tramite il servizio Web.
 
 Ecco come appare l'esempio dopo aver fatto clic su **Set Up Web Service**:
 
@@ -83,15 +83,15 @@ Per impostazione predefinita, ad esempio, **Set Up Web Service** (Configura serv
 
 I dati di input forniti tramite il servizio Web ora passano direttamente al modulo Score Model senza pre-elaborazione.
 
-In modo analogo, per impostazione predefinita, **Set Up Web Service** inserisce il modulo di output del servizio Web in fondo al flusso di dati. In questo esempio il servizio Web restituisce all'utente l'output del modulo [Score Model][score-model] (Assegna punteggio al modello) che include il vettore dei dati di input completo, oltre ai risultati dell'assegnazione del punteggio.
+In modo analogo, per impostazione predefinita, **Set Up Web Service** inserisce il modulo di output del servizio Web in fondo al flusso di dati. In questo esempio il servizio Web restituisce all'utente l'output del modulo [Score Model][score-model] , che include il vettore di dati di input completo, oltre ai risultati del punteggio.
 Se però si preferisce restituire un valore diverso, è possibile aggiungere moduli aggiuntivi prima del modulo **Web service output** (Output servizio Web). 
 
-Per restituire, ad esempio, solo i risultati dell'assegnazione del punteggio e non l'intero vettore dei dati di input, aggiungere un modulo [Select Columns in Dataset][select-columns] (Seleziona colonne nel set di dati) per escludere tutte le colonne ad eccezione dei risultati dell'assegnazione del punteggio. Spostare quindi il modulo **Web service output** (Output servizio Web) nell'output del modulo [Select Columns in Dataset][select-columns] (Seleziona colonne nel set di dati). L'esperimento è simile al seguente:
+Ad esempio, per restituire solo i risultati del punteggio e non l'intero vettore dei dati di input, aggiungere un modulo [Select Columns in DataSet][select-columns] per escludere tutte le colonne tranne i risultati del punteggio. Spostare quindi il modulo **Web Service output** nell'output del modulo [Select Columns in DataSet][select-columns] . L'esperimento è simile al seguente:
 
 ![Spostamento del modulo web service output](./media/convert-training-experiment-to-scoring-experiment/figure5.png)
 
 ### <a name="add-or-remove-additional-data-processing-modules"></a>Aggiungere o rimuovere i moduli di elaborazione dati aggiuntivi
-Se presenti nell'esperimento, è possibile rimuove i moduli di cui si è certi che non saranno utili per la classificazione. Ad esempio, poiché il modulo **Web service input** (Input servizio Web) è stato spostato in un punto successivo ai moduli di elaborazione dei dati, è possibile rimuovere il modulo [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti) dall'esperimento predittivo.
+Se presenti nell'esperimento, è possibile rimuove i moduli di cui si è certi che non saranno utili per la classificazione. Ad esempio, poiché il modulo di **input del servizio Web è stato** spostato in un punto successivo ai moduli di elaborazione dei dati, è possibile rimuovere il modulo [Clean Missing data][clean-missing-data] dall'esperimento predittivo.
 
 L'esperimento predittivo ora appare come illustrato di seguito:
 
@@ -101,11 +101,11 @@ L'esperimento predittivo ora appare come illustrato di seguito:
 ### <a name="add-optional-web-service-parameters"></a>Aggiungere parametri facoltativi al servizio Web
 In alcuni casi, è possibile consentire all'utente del servizio Web di modificare il comportamento dei moduli quando si accede al servizio. *I parametri del servizio Web* consentono di eseguire questa operazione.
 
-Un esempio comune è la configurazione di un modulo [Import Data][import-data] (Importa dati) per consentire all'utente del servizio Web distribuito di specificare un'origine dati diversa quando si accede al servizio Web oppure la configurazione di un modulo [Export Data][export-data] (Esporta dati) in modo che sia possibile specificare una destinazione differente.
+Un esempio comune è la configurazione di un modulo [Import Data][import-data] in modo che l'utente del servizio Web distribuito possa specificare un'origine dati diversa quando si accede al servizio Web. O la configurazione di un modulo [Export Data][export-data] in modo che sia possibile specificare una destinazione diversa.
 
 È possibile definire i parametri del servizio Web e associarli a uno o più parametri di modulo e specificare se sono obbligatori o facoltativi. Effettuando l'accesso al servizio e modificando adeguatamente le azioni del modulo, l'utente del servizio Web fornisce valori per tali parametri.
 
-Per ulteriori informazioni sui parametri del servizio Web e su come usarli, vedere [Usare i parametri del servizio Web di Azure Machine Learning][webserviceparameters].
+Per ulteriori informazioni sui parametri del servizio Web e su come utilizzarli, vedere [utilizzo di Azure Machine Learning parametri del servizio Web][webserviceparameters].
 
 [webserviceparameters]: web-service-parameters.md
 
@@ -113,7 +113,7 @@ Per ulteriori informazioni sui parametri del servizio Web e su come usarli, vede
 ## <a name="deploy-the-predictive-experiment-as-a-web-service"></a>Distribuire l'esperimento predittivo come servizio Web
 Ora che l'esperimento predittivo è stato sufficientemente preparato, è possibile distribuirlo come servizio Web di Azure. Usando il servizio Web, gli utenti possono inviare dati al modello che poi restituirà le stime.
 
-Per altre informazioni sul processo di distribuzione completo, vedere [Distribuire un servizio Web di Azure Machine Learning][deploy].
+Per ulteriori informazioni sul processo di distribuzione completo, vedere la pagina relativa alla [distribuzione di un servizio web Azure Machine Learning][deploy]
 
 [deploy]: publish-a-machine-learning-web-service.md
 

@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 07/24/2019
-ms.openlocfilehash: d0e0c5601a6cddf936604df6d5b48b8bf48e7c8d
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/25/2019
+ms.openlocfilehash: 2e088557bf61141d3ea3cbeb25d53f711a71fd97
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162439"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496869"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuire un modello di apprendimento avanzato per l'inferenza con GPU
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come usare Azure Machine Learning per distribuire un modello abilitato per GPU come servizio Web. Le informazioni contenute in questo articolo si basano sulla distribuzione di un modello in Azure Kubernetes Service (AKS). Il cluster AKS fornisce una risorsa GPU utilizzata dal modello per l'inferenza.
 
@@ -136,7 +137,7 @@ Questo file è denominato `score.py`. Per ulteriori informazioni sugli script di
 
 ## <a name="define-the-conda-environment"></a>Definire l'ambiente conda
 
-Il file dell'ambiente conda specifica le dipendenze per il servizio. Sono incluse le dipendenze richieste dal modello e dallo script di immissione. Il YAML seguente definisce l'ambiente per un modello Tensorflow. Specifica `tensorflow-gpu`che utilizzerà la GPU utilizzata in questa distribuzione:
+Il file dell'ambiente conda specifica le dipendenze per il servizio. Sono incluse le dipendenze richieste dal modello e dallo script di immissione. Il YAML seguente definisce l'ambiente per un modello Tensorflow. Specifica `tensorflow-gpu`, che utilizzerà la GPU utilizzata in questa distribuzione:
 
 ```yaml
 name: project_environment
@@ -209,7 +210,7 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> Se l' `InferenceConfig` oggetto ha `enable_gpu=True`, il `deployment_target` parametro deve fare riferimento a un cluster che fornisce una GPU. In caso contrario, la distribuzione avrà esito negativo.
+> Se l'oggetto `InferenceConfig` dispone di `enable_gpu=True`, il parametro `deployment_target` deve fare riferimento a un cluster che fornisce una GPU. In caso contrario, la distribuzione avrà esito negativo.
 
 Per ulteriori informazioni, vedere la documentazione di riferimento per il [modello](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
