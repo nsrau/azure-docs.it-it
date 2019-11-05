@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 10/11/2019
-ms.openlocfilehash: ed48a4e5bab807695000fe6cdbecf1c1b7b01e9b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5d852378812d8e69480ceb2c5dcea95f1d5f3770
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72325811"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488620"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Esercitazione: Monitorare le modifiche delle macchine virtuali tramite Griglia di eventi e App per la logica di Azure
 
@@ -101,7 +101,7 @@ Aggiungere ora un trigger di Griglia di eventi, da usare per monitorare il grupp
    | Proprietà | Obbligatoria | Value | DESCRIZIONE |
    | -------- | -------- | ----- | ----------- |
    | **Sottoscrizione** | Sì | <*event-publisher-Azure-subscription-name*> | Selezionare il nome della sottoscrizione di Azure associata all'*autore di eventi*. Per questa esercitazione selezionare il nome della sottoscrizione di Azure per la macchina virtuale. |
-   | **Tipo di risorsa** | Sì | <*event-publisher-Azure-resource-type*> | Selezionare il tipo di risorsa di Azure per l'autore di eventi. Per altre informazioni sui tipi di risorse di Azure, vedere [Provider e tipi di risorse di Azure](../azure-resource-manager/resource-manager-supported-services.md). Per questa esercitazione, selezionare il valore `Microsoft.Resources.ResourceGroups` per monitorare i gruppi di risorse di Azure. Se si vogliono monitorare solo le macchine virtuali  |
+   | **Tipo di risorsa** | Sì | <*event-publisher-Azure-resource-type*> | Selezionare il tipo di risorsa di Azure per l'autore di eventi. Per altre informazioni sui tipi di risorse di Azure, vedere [Provider e tipi di risorse di Azure](../azure-resource-manager/resource-manager-supported-services.md). Per questa esercitazione, selezionare il valore `Microsoft.Resources.ResourceGroups` per monitorare i gruppi di risorse di Azure. |
    | **Nome risorsa** |  Sì | <*event-publisher-Azure-resource-name*> | Selezionare il nome della risorsa di Azure per l'autore di eventi. Questo elenco varia in base al tipo di risorsa selezionato. Per questa esercitazione, selezionare il nome per il gruppo di risorse di Azure che include la macchina virtuale. |
    | **Elemento tipo di evento** |  No | <*event-types*> | Selezionare uno o più tipi di evento specifici per filtrare e inviare alla griglia di eventi. Ad esempio, è facoltativamente possibile aggiungere questi tipi di evento per rilevare quando le risorse vengono modificate o eliminate: <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>Per altre informazioni, vedere gli argomenti seguenti: <p><p>- [Schema di eventi di Griglia di eventi di Azure per i gruppi di risorse](../event-grid/event-schema-resource-groups.md) <br>- [Comprendere il filtro eventi](../event-grid/event-filtering.md) <br>- [Filtrare gli eventi per Griglia di eventi](../event-grid/how-to-filter-events.md) |
    | Per aggiungere proprietà facoltative, selezionare **Aggiungi nuovo parametro** e quindi le proprietà desiderate. | No | {vedere descrizioni} | * **Filtro per prefisso**: Per questa esercitazione, lasciare vuota questa proprietà. Il comportamento predefinito corrisponde a tutti i valori. È possibile tuttavia specificare una stringa di prefisso come filtro, ad esempio un percorso o un parametro relativo a una determinata risorsa. <p>* **Filtro per suffisso**: Per questa esercitazione, lasciare vuota questa proprietà. Il comportamento predefinito corrisponde a tutti i valori. È possibile tuttavia specificare una stringa di suffisso come filtro, ad esempio un'estensione se si vuole usare solo specifici tipi di file. <p>* **Nome della sottoscrizione**: per questa esercitazione, è possibile specificare un nome univoco per la sottoscrizione di eventi. |

@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 4d7c02d8cf37f155af1fd9c0d5de7fa8ec948c4b
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: d7cf46add464a089f15a5bd15a20cea7d17eed37
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703117"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488674"
 ---
 # <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>Guida introduttiva: Eseguire query sull'endpoint di previsione V2 con .NET SDK per C#
 
@@ -77,7 +77,7 @@ using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
 
 ## <a name="create-a-new-method-for-the-prediction"></a>Creare un nuovo metodo per la previsione
 
-Creare un nuovo metodo `GetPrediction` per inviare la query all'endpoint di previsione di query. Il metodo creerà e configurerà tutti gli oggetti necessari e quindi restituirà `Task` con i risultati della previsione [`LuisResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-dotnet). 
+Creare un nuovo metodo `GetPrediction` per inviare la query all'endpoint di previsione di query. Il metodo creerà e configurerà tutti gli oggetti necessari e quindi restituirà `Task` con i risultati della previsione [`LuisResult`](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-python). 
 
 ```csharp
 static async  Task<LuisResult> GetPrediction() {
@@ -130,7 +130,7 @@ String bingSpellCheckKey = null;
 var log = false;
 ```
 
-## <a name="query-prediction-endpoint"></a>Eseguire query sull'endpoint di previsione
+## <a name="query-prediction-endpoint"></a>Eseguire query sull'endpoint di stima
 
 Nel metodo `GetPrediction` aggiungere il codice seguente dopo quello precedente per impostare i parametri di query:
 

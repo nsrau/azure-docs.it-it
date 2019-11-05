@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 887bda92a1165a3dd17e9105e921a5df9e0c5534
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ed1b128fc2663cfc09c40f001bd0b14663a728e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61248165"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486012"
 ---
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>Eseguire il provisioning dei dispositivi in più hub IoT con bilanciamento del carico
 
@@ -81,5 +81,5 @@ Questa esercitazione illustra come:
 <!-- Advance to the next tutorial to learn how to 
  Replace this .md
 > [!div class="nextstepaction"]
-> [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
+> [Bind an existing custom SSL certificate to Azure Web Apps]()
 -->

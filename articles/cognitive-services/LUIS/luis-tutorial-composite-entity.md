@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: f20661a74397487e141e69681f207418db8ac386
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: adb8941fd60a955a44a04717958c5203b721639a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70388038"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498986"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Esercitazione: Raggruppare ed estrarre dati correlati
 Questa esercitazione illusta come aggiungere un'entità composita per aggregare i dati estratti di vario tipo in una singola entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.
@@ -28,6 +28,8 @@ L'entità composta è una buona soluzione per questo tipo di dati, perché i dat
 * Sono correlati tra loro. 
 * Usano vari tipi di entità.
 * Devono essere raggruppati ed elaborati dall'applicazione client come un'unità di informazioni.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **In questa esercitazione si imparerà come:**
 

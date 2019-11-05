@@ -11,18 +11,20 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: diberry
-ms.openlocfilehash: cf0ef1095946b1c8e9479b3cd47fe403baeed7d1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0a59d9783eac122f96b1671f2dba5d0d708e1d83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757119"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499387"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Esercitazione: Identificare finalità ed entità comuni
 
 In questa esercitazione, aggiungere finalità ed entità predefinite a un'app dell'esercitazione relativa alle risorse umane per ottenere rapidamente le previsioni delle finalità e l'estrazione dei dati. Non è necessario contrassegnare ogni espressione con entità predefinite perché l'entità viene rilevata automaticamente.
 
 I modelli predefiniti (domini, finalità ed entità) aiutano a compilare il modello rapidamente.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **In questa esercitazione si imparerà come:**
 

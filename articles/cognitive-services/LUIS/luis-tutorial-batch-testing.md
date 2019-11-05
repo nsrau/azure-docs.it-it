@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: a0aa4d334dc5a42da8a3a8f269f70c874c9ad54d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: ac88931d79df6c2527a2a5fd72b440baeb463115
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375522"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499050"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Esercitazione: Eseguire test in batch dei set di dati
 
@@ -31,6 +31,8 @@ Requisiti per il test in batch:
 * Tipi di entità consentiti: solo entità di Machine Learning semplici e composite. Il test in batch è utile solo per le finalità e le entità apprese in modo automatico.
 
 Quando si usa un'app diversa rispetto a quella di questa esercitazione, *non* usare le espressioni di esempio già aggiunte a una finalità. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **In questa esercitazione si imparerà come:**
 

@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 51860efdcc440d6b8a4ea57777ad31fa718657b5
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 036ecbbbd2ea562f3e809691a1b3af62578893f5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772816"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498962"
 ---
 # <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>Esercitazione: Aggiungere risultati LUIS ad Application Insights da un bot in C#
 
 Questa esercitazione aggiunge le informazioni relative a bot e Language Understanding all'archivio dei dati di telemetria di [Application Insights](https://azure.microsoft.com/services/application-insights/). Dopo aver acquisito i dati, è possibile sottoporli a query con il linguaggio Kusto o con Power BI per analizzare, aggregare e registrare le finalità e le entità delle espressioni in tempo reale. Questa analisi consente di determinare se è necessario aggiungere o modificare le finalità e le entità dell'app LUIS.
+
+[!INCLUDE [Waiting for Bot refresh](./includes/wait-bot-upgrade.md)]
 
 In questa esercitazione si apprenderà come:
 

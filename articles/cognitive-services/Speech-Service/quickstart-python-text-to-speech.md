@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a2e43b72bda65c5f1e7515888ac33b0ac806e64c
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: a66835d605b9005b8f94eb79a3c266f735f0a3b6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803252"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467207"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Avvio rapido: Eseguire la sintesi vocale con Python
 
@@ -173,6 +173,6 @@ Assicurarsi di rimuovere eventuali informazioni riservate dal codice sorgente de
 ## <a name="see-also"></a>Vedere anche
 
 * [Informazioni di riferimento sull'API Sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
-* [Uso di Python e Speech SDK per la sintesi vocale](quickstart-text-to-speech-python.md)
+* [Uso di Python e Speech SDK per la sintesi vocale](quickstarts/speech-to-text-from-microphone.md)
 * [Creazione di caratteri voce personalizzati](how-to-customize-voice-font.md)
 * [Esempi di campioni vocali per la creazione di una voce personalizzata](record-custom-voice-samples.md)
