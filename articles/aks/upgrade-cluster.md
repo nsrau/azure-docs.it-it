@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 9404888eadf94eaf86a6e8584b49595e10b34c69
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 36bd05940644b62bc3e58b642bfe6c00238383fa
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264189"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472465"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Aggiornare un cluster del servizio Azure Kubernetes
 
 Nel corso del ciclo di vita di un cluster del servizio Azure Kubernetes, è spesso necessario eseguire l'aggiornamento alla versione più recente di Kubernetes. È infatti importante applicare gli ultimi aggiornamenti della sicurezza di Kubernetes o eseguire l'aggiornamento per ottenere le funzionalità più nuove. Questo articolo illustra come aggiornare i componenti Master o un singolo pool di nodi predefinito in un cluster AKS.
 
-Per i cluster AKS che usano più pool di nodi o nodi di Windows Server (attualmente disponibili in anteprima in AKS), vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
+Per i cluster AKS che usano più pool di nodi o nodi di Windows Server (attualmente in anteprima in AKS), vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -36,9 +36,9 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> Quando si aggiorna un cluster del servizio Azure Kubernetes, le versioni secondarie di Kubernetes non possono essere ignorate. Ad esempio, gli aggiornamenti compresi tra *1.12. x* -> *1.13. x* o *1.13. x* -> *1.14.* x sono consentiti, tuttavia *1.12* -> . x*1.14. x* non lo è.
+> Quando si aggiorna un cluster del servizio Azure Kubernetes, le versioni secondarie di Kubernetes non possono essere ignorate. Ad esempio, gli aggiornamenti compresi tra *1.12. x* -> *1.13. x* o *1.13. x* -> *1.14.* x sono consentiti, tuttavia *1.12. x* -> *1.14. x* non lo è.
 >
-> Per eseguire l'aggiornamento, da *1.12. x* -> *1.14. x*, eseguire -> prima l'aggiornamento da 1.12. x*1.13. x*, quindi eseguire l'aggiornamento da *1.13. x* -> *1.14. x*.
+> Per eseguire l'aggiornamento, da *1.12. x* -> *1.14. x*, eseguire prima l'aggiornamento da *1.12. x* -> *1.13. x*, quindi eseguire l'aggiornamento da *1.13. x* -> *1,14. x*.
 
 L'output di esempio seguente mostra che il cluster può essere aggiornato alle versioni *1.13.9* e *1.13.10*:
 

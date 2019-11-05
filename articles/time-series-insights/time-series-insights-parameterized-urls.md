@@ -3,20 +3,19 @@ title: Condividere le visualizzazioni personalizzate di Azure Time Series Insigh
 description: Questo articolo descrive come sviluppare URL con parametri in Azure Time Series Insights, per poter condividere facilmente una visualizzazione di un cliente.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: e862cd604263c5125259344baf2e990ad56a3291
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: e62455a0c8412a579c0fab9d7fabd6016f47dbf3
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675840"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991120"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Condividere una visualizzazione personalizzata usando un URL con parametri
 
@@ -34,7 +33,7 @@ Il parametro `environmentId=<guid>` specifica l'ID dell'ambiente di destinazione
 
 Un parametro ID di ambiente di esempio è `?environmentId=10000000-0000-0000-0000-100000000108`.
 
-## <a name="time"></a>Durata
+## <a name="time"></a>Time
 
 È possibile specificare valori assoluti o relativi con un URL con parametri.
 
@@ -68,7 +67,7 @@ I valori accettati corrispondono al menu **ora rapido** Esplora Time Series Insi
 
 Il parametro `timeSeriesDefinitions=<collection of term objects>` specifica i termini di una visualizzazione Time Series Insights:
 
-| Parametro | Elemento URL | Description |
+| Parametro | Elemento URL | Descrizione |
 | --- | --- | --- |
 | **nome** | `\<string>` | Nome del *termine*. |
 | **splitBy** | `\<string>` | Nome della colonna *in base a cui dividere*. |
@@ -81,14 +80,14 @@ Il parametro `timeSeriesDefinitions=<collection of term objects>` specifica i te
 * Il `timeBucketUnit=<Unit>&timeBucketSize=<integer>` consente di regolare il dispositivo di scorrimento intervallo per fornire una visualizzazione più granulare o più uniforme del grafico.  
 * Il `timezoneOffset=<integer>` parametro consente di impostare il fuso orario affinché il grafico venga visualizzato in come offset per l'ora UTC.
 
-| Coppie | Description |
+| Coppie | Descrizione |
 | --- | --- |
 | `multiChartStack=false` | `true` è abilitato per impostazione predefinita, quindi passare `false` allo stack. |
 | `multiChartStack=false&multiChartSameScale=true` | È necessario abilitare l'impilamento per usare la stessa scala dell'asse Y in tutti i termini.  È `false` per impostazione predefinita, quindi il passaggio di ' true ' Abilita questa funzionalità. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unità = giorni, ore, minuti, secondi, millisecondi.  Scrivere sempre in lettere maiuscole l'unità. </br> Definire il numero di unità, passando l'intero desiderato per timeBucketSize.  Si noti che l'arco temporale è di 7 giorni.  |
 | `timezoneOffset=-<integer>` | L'intero viene sempre espresso in millisecondi. </br> Si noti che questa funzionalità è leggermente diversa rispetto a quella consentita in Esplora Time Series Insights, in cui è possibile scegliere locale (tempo del browser) o ora UTC. |
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 Per aggiungere definizioni di serie temporali a un ambiente Time Series Insights come parametro URL, aggiungere:
 
@@ -114,11 +113,11 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 
 L'URL sopra riportato descrive e compila la visualizzazione Time Series Insights Explorer:
 
-[Termini di Esplora ![Time serie Insights](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
+[Termini di ![Time Series Insights Explorer](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 
 Visualizzazione completa (incluso il grafico):
 
-[visualizzazione ![Chart](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+[visualizzazione grafico ![](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

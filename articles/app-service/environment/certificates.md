@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f40043b920fab4cb38f935618c7aaecc6bf40a87
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a8b8e7270851c71869b1a67f0f0f0ba2187f0e87
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069717"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470662"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificati e Ambiente del servizio app 
 
@@ -32,8 +32,8 @@ Se si usa un Ambiente del servizio app esterno, le app vengono raggiunte a [appn
 
 Sono disponibili due opzioni di configurazione dei certificati con l'Ambiente del servizio app con bilanciamento del carico interno.  È possibile impostare un certificato predefinito con caratteri jolly per l'Ambiente del servizio app con bilanciamento del carico interno o impostare i certificati per le singole app Web nell'Ambiente del servizio app.  Indipendentemente dalla scelta, è necessario configurare correttamente gli attributi del certificato seguenti:
 
-- **Soggetto:** questo attributo deve essere impostato su *.[nome-dominio-radice] per un certificato con caratteri jolly dell'ambiente del servizio app con bilanciamento del carico interno. Se si crea il certificato per l'app, dovrà quindi essere [appname].[your-root-domain-here]
-- **Nome alternativo del soggetto:** questo attributo deve includere *.[nome-dominio-radice] e *.scm.[nome-dominio-radice] per il certificato con caratteri jolly dell'ambiente del servizio app con bilanciamento del carico interno. Se si crea il certificato per l'app, dovrà quindi essere [appname].[your-root-domain-here] e [appname].scm.[your-root-domain-here].
+- **Soggetto**: questo attributo deve essere impostato su *.[your-root-domain-here] per un certificato con caratteri jolly dell'Ambiente del servizio app con bilanciamento del carico interno. Se si crea il certificato per l'app, dovrà quindi essere [appname].[your-root-domain-here]
+- **Nome alternativo soggetto**: questo attributo deve includere *.[your-root-domain-here] e *.scm.[your-root-domain-here] per il certificato con caratteri jolly dell'Ambiente del servizio app con bilanciamento del carico interno. Se si crea il certificato per l'app, dovrà quindi essere [appname].[your-root-domain-here] e [appname].scm.[your-root-domain-here].
 
 Come terza variante, è possibile creare un certificato Ambiente del servizio app con bilanciamento del carico interno che include tutti i nomi delle singole app nella rete SAN del certificato anziché un riferimento con caratteri jolly. Il problema con questo metodo è che è necessario conoscere in anticipo i nomi delle app che vengono inserite nell'Ambiente del servizio app o è necessario mantenere l'aggiornamento del certificato di Ambiente del servizio app con bilanciamento del carico interno.
 
@@ -64,7 +64,7 @@ Le app ospitate in un Ambiente del servizio app possono usare le funzionalità r
 - SSL basato su IP, supportato solo con un Ambiente del servizio app esterno.  Un ambiente del servizio app con bilanciamento del carico interno non supporta SSL basato su IP.
 - Certificati di Key Vault ospitato 
 
-Le istruzioni per il caricamento e la gestione di tali certificati sono disponibili nell'esercitazione SSL del servizio app https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl.  Se si stanno configurando i certificati semplicemente in modo da far corrispondere un nome di dominio personalizzato che è stato assegnato all'app Web, allora tali istruzioni sono sufficienti. Se si sta caricando il certificato per un'app Web di ambiente del servizio app con bilanciamento del carico con il nome di dominio predefinito, specificare il sito scm nella rete SAN del certificato come indicato in precedenza. 
+Le istruzioni per il caricamento e la gestione di tali certificati sono disponibili in [aggiungere un certificato SSL nel servizio app Azure](../configure-ssl-certificate.md).  Se si stanno configurando i certificati semplicemente in modo da far corrispondere un nome di dominio personalizzato che è stato assegnato all'app Web, allora tali istruzioni sono sufficienti. Se si sta caricando il certificato per un'app Web di ambiente del servizio app con bilanciamento del carico con il nome di dominio predefinito, specificare il sito scm nella rete SAN del certificato come indicato in precedenza. 
 
 ## <a name="tls-settings"></a>Impostazioni di TLS 
 

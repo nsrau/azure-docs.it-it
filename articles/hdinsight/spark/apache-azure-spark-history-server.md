@@ -1,5 +1,5 @@
 ---
-title: Server cronologia Spark esteso per il debug di applicazioni Spark-Azure HDInsight
+title: Server cronologia Spark esteso per il debug di app-Azure HDInsight
 description: Usare il Server cronologia Spark esteso per il debug e la diagnosi di applicazioni Spark - Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 9398745cb240e7b7dff45ff5d6d9cdf064239bfd
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 1320764687f3eb2f033ca70703a9bcb16ab616ea
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130364"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494728"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usare il Server cronologia Apache Spark esteso per il debug e la diagnosi di applicazioni Apache Spark
 
-Questo articolo illustra come usare il Server cronologia Apache Spark esteso per il debug e la diagnosi di applicazioni Spark completate e in esecuzione. L'estensione include una scheda dati, una scheda del grafo e una scheda diagnosi. Nella scheda **Dati** gli utenti possono controllare i dati di input e output del processo Spark. Nella scheda **Grafo** gli utenti possono controllare il flusso di dati e riprodurre il grafico del processo. Nella scheda **Diagnosi** l'utente può fare riferimento ad **Asimmetria dei dati**, **Sfasamento dell'ora** ed **Executor Usage Analysis** (Analisi utilizzo executor).
+Questo articolo illustra come usare il Server cronologia Apache Spark esteso per il debug e la diagnosi di applicazioni Spark completate e in esecuzione. L'estensione include scheda dati e scheda grafico e scheda diagnosi. Nella scheda **dati** gli utenti possono controllare i dati di input e di output del processo Spark. Nella scheda **Grafo** gli utenti possono controllare il flusso di dati e riprodurre il grafico del processo. Nella scheda **Diagnosi** l'utente può fare riferimento ad **Asimmetria dei dati**, **Sfasamento dell'ora** ed **Executor Usage Analysis** (Analisi utilizzo executor).
 
 ## <a name="get-access-to-apache-spark-history-server"></a>Ottenere l'accesso al Server cronologia Apache Spark
 
@@ -107,7 +107,7 @@ Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu de
 + Riprodurre il processo facendo sul pulsante **Playback** (Riproduci) e arrestare la riproduzione in qualsiasi momento facendo clic sul pulsante di arresto. Durante la riproduzione, le attività vengono visualizzate in colori che indicano lo stato:
 
   + Il verde indica l'esito positivo: il processo è stato completato correttamente.
-  + L'arancione indica i tentativi ripetuti: istanze di attività non riuscite, ma che non influiscono sul risultato finale del processo.L'arancione indica i tentativi ripetuti: istanze di attività non riuscite, ma che non influiscono sul risultato finale del processo. Queste attività avevano istanze duplicate o ripetute che potrebbero essere completate in un secondo momento.
+  + L'arancione indica i tentativi ripetuti: istanze di attività non riuscite, ma che non influiscono sul risultato finale del processo. Queste attività avevano istanze duplicate o ripetute che potrebbero essere completate in un secondo momento.
   + Il blu indica lo stato di esecuzione: l'attività è in esecuzione.
   + Il bianco indica un processo in attesa o ignorato: l'attività è in attesa di esecuzione o la fase è stata ignorata.
   + Il rosso indica l'esito negativo: l'attività non è stata completata.
@@ -115,7 +115,7 @@ Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu de
     ![Esempio di colore dell'applicazione Spark e del grafico del processo, in esecuzione](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
 
     La fase ignorata viene visualizzata in bianco.
-    ![Esempio di colore dell'applicazione Spark e del grafico del processo, ignorare](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+    ![esempio di colore dell'applicazione Spark e del grafico del processo, ignorare](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
 
     ![Esempio di colore dell'applicazione Spark e del grafico del processo non riuscito](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
 
@@ -200,9 +200,9 @@ Il grafico Executor Usage (Utilizzo executor) visualizza l'allocazione di execut
 
     ![sparkui diagnosi selezione grafico](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>domande frequenti
 
-### <a name="1-revert-to-community-version"></a>1. Tornare alla versione Community
+### <a name="1-revert-to-community-version"></a>1. ripristinare la versione della community
 
 Per tornare alla versione Community, procedere come segue:
 
@@ -224,7 +224,7 @@ Per tornare alla versione Community, procedere come segue:
     ![Riavvio della cronologia di Apache Ambari Spark2](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 9. Aggiornare l'interfaccia utente Web Server cronologia Spark. Verrà ripristinata la versione Community.
 
-### <a name="2-upload-history-server-event"></a>2. Caricare eventi del server cronologia
+### <a name="2-upload-history-server-event"></a>2. caricare un evento del server di cronologia
 
 Se si verificano errori del server cronologia, procedere come segue per recuperare l'evento:
 
@@ -240,7 +240,7 @@ Se si verificano errori del server cronologia, procedere come segue per recupera
 
     ![esempio di problema di file Apache Spark](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
 
-### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. Aggiornare il file JAR per lo scenario di aggiornamento rapido
+### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. aggiornare il file jar per uno scenario di hotfix
 
 Se si vuole eseguire l'aggiornamento tramite hotfix, usare lo script seguente per aggiornare spark-enhancement.jar*.
 
@@ -328,6 +328,6 @@ Se si vuole eseguire l'aggiornamento tramite hotfix, usare lo script seguente pe
 * [Gestire le risorse di un cluster Apache Spark in HDInsight](apache-spark-resource-manager.md)
 * [Configurare le impostazioni di Apache Spark](apache-spark-settings.md)
 
-## <a name="contact-us"></a>Contattaci
+## <a name="contact-us"></a>Contatti
 
 Per eventuali commenti oppure se si riscontrano problemi nell'uso di questo strumento, inviare un messaggio di posta elettronica all'indirizzo ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)).

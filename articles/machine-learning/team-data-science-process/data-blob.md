@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a91c4d9f5dcdcee436f2dbf012eb5485b7a92192
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d056226ce8ade93e63d7bca49b975a6983dc126a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60398545"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492418"
 ---
 # <a name="heading"></a>Elaborare i dati BLOB di Azure con analisi avanzate
 In questo documento vengono descritte l'esplorazione dei dati e la creazione di funzionalità da dati archiviati nell’archivio BLOB di Azure. 
@@ -131,7 +131,7 @@ Per creare funzionalità in contenitori, procedere come indicato di seguito:
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="sql-featuregen"></a>Scrittura dei dati nel BLOB di Azure e utilizzo in Azure Machine Learning
-Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile caricare i dati (campionati o completi) in un BLOB di Azure e utilizzarli in Azure Machine Learning seguendo questi passaggi: Tenere presente che le funzionalità aggiuntive possono essere create anche in Azure Machine Learning Studio. 
+Dopo aver esplorato i dati e creato le funzionalità necessarie, è possibile caricare i dati (sampled o trasformato) in un BLOB di Azure e usarli in Azure Machine Learning usando la procedura seguente: si noti che è possibile creare funzionalità aggiuntive nel computer Azure Anche Learning Studio (classico). 
 
 1. Scrivere il frame di dati in file locali
    
@@ -157,7 +157,7 @@ Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile c
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Ora è possibile leggere i dati dal BLOB usando il modulo [Import Data][import-data] di Azure Machine Learning, come illustra la schermata riportata di seguito:
+3. Ora i dati possono essere letti dal BLOB utilizzando il modulo [Import Data][import-data] di Azure Machine Learning, come illustrato nella schermata riportata di seguito:
 
 ![lettore BLOB][1]
 

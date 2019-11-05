@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: b0a0d788c9fadd13b9a37f541a81945c86b37c29
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9fa0157bd458d2de028cab8ff9c836761e99562f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559179"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481214"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST di sintesi vocale
 
@@ -37,7 +37,7 @@ Prima di usare questa API, comprendere quanto segue:
 
 ## <a name="get-a-list-of-voices"></a>Ottenere un elenco di voci
 
-L' `voices/list` endpoint consente di ottenere un elenco completo delle voci per un'area o un endpoint specifico.
+L'endpoint `voices/list` consente di ottenere un elenco completo delle voci per un'area o un endpoint specifico.
 
 ### <a name="regions-and-endpoints"></a>Aree ed endpoint
 
@@ -48,7 +48,7 @@ L' `voices/list` endpoint consente di ottenere un elenco completo delle voci per
 | Canada centrale | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Stati Uniti centrali | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Asia orientale | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Stati Uniti orientali | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Stati Uniti orientali 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Francia centrale | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | India centrale | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -57,7 +57,7 @@ L' `voices/list` endpoint consente di ottenere un elenco completo delle voci per
 | Stati Uniti centro-settentrionali | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa settentrionale | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Stati Uniti centro-meridionali | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Asia sud-orientale | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Asia sudorientale | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Regno Unito meridionale | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa occidentale | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Stati Uniti occidentali | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -69,11 +69,11 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 
 | Intestazione | Descrizione | Obbligatoria / Facoltativa |
 |--------|-------------|---------------------|
-| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatoria |
+| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatorio |
 
 ### <a name="request-body"></a>Corpo della richiesta
 
-Non è necessario un corpo `GET` per le richieste a questo endpoint.
+Per `GET` richieste a questo endpoint non è necessario un corpo.
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
@@ -138,15 +138,15 @@ Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 | Stato codice HTTP | Descrizione | Possibile motivo |
 |------------------|-------------|-----------------|
 | 200 | OK | La richiesta è stata completata. |
-| 400 | Richiesta errata | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
-| 401 | Non autorizzato | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
+| 400 | Bad Request | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
+| 401 | Non autorizzata | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
 | 429 | Troppe richieste | È stata superata la quota o la frequenza di richieste consentite per la sottoscrizione. |
 | 502 | Gateway non valido | Problema di rete o lato server. Può anche indicare intestazioni non valide. |
 
 
 ## <a name="convert-text-to-speech"></a>Conversione sintesi vocale
 
-L' `v1` endpoint consente di convertire sintesi vocale mediante [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md).
+L'endpoint `v1` consente di convertire sintesi vocale usando [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md).
 
 ### <a name="regions-and-endpoints"></a>Aree ed endpoint
 
@@ -160,10 +160,10 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 
 | Intestazione | Descrizione | Obbligatoria / Facoltativa |
 |--------|-------------|---------------------|
-| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatoria |
-| `Content-Type` | Specifica il tipo di contenuto per il testo specificato. Valore accettato: `application/ssml+xml`. | Obbligatoria |
-| `X-Microsoft-OutputFormat` | Specifica il formato di output audio. Per un elenco completo dei valori accettati, vedere [output audio](#audio-outputs). | Obbligatoria |
-| `User-Agent` | Il nome applicazione. Il valore specificato deve essere inferiore a 255 caratteri. | Obbligatoria |
+| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatorio |
+| `Content-Type` | Specifica il tipo di contenuto per il testo specificato. Valore accettato: `application/ssml+xml`. | Obbligatorio |
+| `X-Microsoft-OutputFormat` | Specifica il formato di output audio. Per un elenco completo dei valori accettati, vedere [output audio](#audio-outputs). | Obbligatorio |
+| `User-Agent` | Il nome applicazione. Il valore specificato deve essere inferiore a 255 caratteri. | Obbligatorio |
 
 ### <a name="audio-outputs"></a>Output audio
 
@@ -180,7 +180,7 @@ Questo è un elenco dei formati audio supportati che vengono inviati in ogni ric
 | `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
-> Se la voce selezionata e il formato di output hanno velocità in bit diverse, il campionamento audio viene ripetuto secondo necessità. Tuttavia, le voci di 24 kHz non `audio-16khz-16kbps-mono-siren` supportano `riff-16khz-16kbps-mono-siren` e i formati di output.
+> Se la voce selezionata e il formato di output hanno velocità in bit diverse, il campionamento audio viene ripetuto secondo necessità. Tuttavia, le voci di 24 kHz non supportano i formati di output `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren`.
 
 ### <a name="request-body"></a>Corpo della richiesta
 
@@ -210,8 +210,8 @@ Authorization: Bearer [Base64 access_token]
 
 Vedere le guide introduttive per esempi specifici della lingua:
 
-* [.NET Core,C#](quickstart-dotnet-text-to-speech.md)
-* [Python](quickstart-python-text-to-speech.md)
+* [.NET Core,C#](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
+* [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
 * [Node.js](quickstart-nodejs-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>Codici di stato HTTP
@@ -221,10 +221,10 @@ Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 | Stato codice HTTP | Descrizione | Possibile motivo |
 |------------------|-------------|-----------------|
 | 200 | OK | La richiesta ha avuto esito positivo; il corpo della risposta è un file audio. |
-| 400 | Richiesta errata | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
-| 401 | Non autorizzato | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
+| 400 | Bad Request | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
+| 401 | Non autorizzata | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
 | 413 | Entità della richiesta troppo grande | La lunghezza dell'input SSML è maggiore di 1024 caratteri. |
-| 415 | Tipo di supporto non supportato | È possibile che sia stato specificato `Content-Type` un errore. `Content-Type`deve essere impostato su `application/ssml+xml`. |
+| 415 | Tipo di supporto non supportato | È possibile che sia stato specificato il `Content-Type` errato. `Content-Type` deve essere impostato su `application/ssml+xml`. |
 | 429 | Troppe richieste | È stata superata la quota o la frequenza di richieste consentite per la sottoscrizione. |
 | 502 | Gateway non valido | Problema di rete o lato server. Può anche indicare intestazioni non valide. |
 

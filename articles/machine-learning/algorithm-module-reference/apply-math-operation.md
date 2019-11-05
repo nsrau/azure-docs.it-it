@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 49bab338f559b1b43389e12d98c75bbffbb25a85
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: a2f3665355cc2023aaf4b66c9207aaff4a3bc6db
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694766"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493940"
 ---
 # <a name="apply-math-operation"></a>Applica operazione matematica
 
-Questo articolo descrive un modulo di Azure Machine Learning interfaccia visiva.
+Questo articolo descrive un modulo di Azure Machine Learning Designer (anteprima).
 
 Usare l'operazione Apply Math per creare calcoli applicati a colonne numeriche nel set di dati di input. 
 
@@ -95,7 +95,7 @@ Se si generano i risultati utilizzando le opzioni **Append** o **ResultOnly** , 
 -   **Equals (Col2_Col1)** , che indica che è stato eseguito il test di col2 in col1.  
 -   **Equals (Col2_ $10)** , che indica che è stata confrontata la colonna 2 con la costante 10.  
 
-Anche se si usa l'opzione **InPlace** , i dati di origine non vengono eliminati o modificati. la colonna nel set di dati originale è ancora disponibile nell'interfaccia visiva. Per visualizzare i dati originali, è possibile connettere il modulo [Aggiungi colonne](add-columns.md) e aggiungerlo all'output di **Apply Math Operation**.  
+Anche se si usa l'opzione **InPlace** , i dati di origine non vengono eliminati o modificati. la colonna nel set di dati originale è ancora disponibile nella finestra di progettazione. Per visualizzare i dati originali, è possibile connettere il modulo [Aggiungi colonne](add-columns.md) e aggiungerlo all'output di **Apply Math Operation**.  
     
 ## <a name="basic-math-operations"></a>Operazioni matematiche di base 
 
@@ -208,7 +208,7 @@ Piazza i valori della colonna selezionata.
 
 ## <a name="comparison-operations"></a>Operazioni di confronto  
 
-Usare le funzioni di confronto in Azure Machine Learning interfaccia visiva ogni volta che è necessario testare due set di valori tra loro. Ad esempio, in una pipeline potrebbe essere necessario eseguire queste operazioni di confronto:  
+Utilizzare le funzioni di confronto nella finestra di progettazione Azure Machine Learning ogni volta che è necessario testare due set di valori l'uno rispetto all'altro. Ad esempio, in una pipeline potrebbe essere necessario eseguire queste operazioni di confronto:  
 
 - Valutare una colonna del modello di punteggi di probabilità rispetto a un valore soglia.
 - Determinare se due set di risultati sono uguali. Per ogni riga diversa, aggiungere un flag FALSE che può essere utilizzato per ulteriori operazioni di elaborazione o filtro.  
@@ -260,7 +260,7 @@ Operazione|Num1|Num2|Colonna risultati|Valore risultato|
 |Divisione|1|5|Divisione (Num2_Num1)|5|
 |Divisione|0|1|Divisione (Num2_Num1)|Infinity|
 
-### <a name="add"></a>Aggiungi
+### <a name="add"></a>Add
 
 Specificare le colonne di origine utilizzando il **set di colonne**e quindi aggiungere a tali valori un numero specificato nel **secondo argomento**.  
 
@@ -280,7 +280,7 @@ Specificare la colonna di valori su cui operare ( *minuendo*) scegliendo una col
 
 ##  <a name="rounding-operations"></a>Operazioni di arrotondamento 
 
-Azure Machine Learning interfaccia visiva supporta un'ampia gamma di operazioni di arrotondamento. Per molte operazioni, è necessario specificare la quantità di precisione da usare durante l'arrotondamento. È possibile utilizzare un livello di precisione statico, specificato come costante, oppure è possibile applicare un valore di precisione dinamica ottenuto da una colonna di valori.  
+Azure Machine Learning Designer supporta un'ampia gamma di operazioni di arrotondamento. Per molte operazioni, è necessario specificare la quantità di precisione da usare durante l'arrotondamento. È possibile utilizzare un livello di precisione statico, specificato come costante, oppure è possibile applicare un valore di precisione dinamica ottenuto da una colonna di valori.  
 
 - Se si usa una costante, impostare **tipo di precisione** su **costante** e quindi digitare il numero di cifre come Integer nella casella di testo **precisione costante** . Se si digita un valore diverso da Integer, il modulo non genera un errore, ma i risultati possono essere imprevisti.  
 

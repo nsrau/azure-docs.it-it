@@ -1,22 +1,22 @@
 ---
-title: Risolvere i problemi relativi a Condivisione dati di Azure (anteprima)
-description: Informazioni su come risolvere i problemi relativi agli inviti e agli errori durante la creazione o la ricezione di condivisioni dati con l'anteprima della condivisione dati di Azure.
+title: Risolvere i problemi relativi a Condivisione dati di Azure
+description: Informazioni su come risolvere i problemi relativi agli inviti e agli errori durante la creazione o la ricezione di condivisioni dati con la condivisione di dati di Azure.
 services: data-share
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.openlocfilehash: 592a2d464aed8c39dfd11734beccbd0399d75fd9
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 6ad612d56b25da9e092070198e321e7fca8ad96b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169218"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490559"
 ---
-# <a name="troubleshoot-common-issues-in-azure-data-share-preview"></a>Risolvere i problemi comuni in Condivisione dati di Azure (anteprima)
+# <a name="troubleshoot-common-issues-in-azure-data-share"></a>Risolvere i problemi comuni della condivisione dati di Azure 
 
-Questo articolo descrive come risolvere i problemi comuni relativi a Condivisione dati di Azure (anteprima). 
+Questo articolo illustra come risolvere i problemi comuni per la condivisione di dati di Azure. 
 
 ## <a name="azure-data-share-invitations"></a>Inviti a Condivisione dati di Azure 
 
@@ -41,9 +41,9 @@ Se non è ancora possibile visualizzare un invito alla condivisione dati, contat
 
 ## <a name="error-when-creating-or-receiving-a-new-data-share"></a>Errore durante la creazione o la ricezione di una nuova condivisione dati
 
-"Error: Operation returned an invalid status code 'BadRequest'" (Errore: l'operazione ha restituito un codice di stato non valido 'BadRequest)
+"Errore: l'operazione ha restituito un codice di stato non valido ' richiesta non valida '"
 
-"Error: AuthorizationFailed" (Errore: autorizzazione non riuscita)
+"Errore: AuthorizationFailed"
 
 "Error: role assignment to storage account" (Errore: assegnazione di ruolo all'account di archiviazione)
 
@@ -55,6 +55,20 @@ Se viene visualizzato uno degli errori indicati in precedenza durante la creazio
 1. Selezionare **Controllo di accesso (IAM)** .
 1. Fare clic su **Aggiungi**.
 1. Aggiungere se stessi come proprietario.
+
+## <a name="troubleshooting-sql-based-sharing"></a>Risoluzione dei problemi di condivisione basata su SQL
+
+"Errore: i set di impostazioni x non sono stati aggiunti perché non si dispone delle autorizzazioni necessarie per la condivisione".
+
+Se questo errore viene visualizzato quando si aggiunge un set di dati da un'origine basata su SQL, è possibile che non sia stato creato un utente per l'identità del servizio gestito di condivisione dati di Azure nel SQL Server.  Per risolvere il problema, eseguire lo script seguente:
+
+```sql
+    create user <share_acct_name> from external provider;     
+    exec sp_addrolemember db_owner, <share_acct_name>; 
+```      
+Si noti che il *< share_acc_name >* è il nome dell'account di condivisione dati. Se non è ancora stato creato un account di condivisione dati, è possibile tornare a questo prerequisito in un secondo momento.         
+
+Assicurarsi di aver seguito tutti i prerequisiti elencati nell'esercitazione [condividere i dati](share-your-data.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

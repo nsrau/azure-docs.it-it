@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: db3581616b369345ad654593192048e8573c6fa4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0d132a46db39308911f472941c02f8bb04a44e0d
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935202"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72988781"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossario dei termini per la Plug and Play di anteprima
 
@@ -64,7 +64,7 @@ Azure Internet Explorer è uno strumento grafico che è possibile usare per inte
 - Usare le [Proprietà](#properties)del dispositivo.
 - Chiamare i [comandi](#commands)del dispositivo.
 
-## <a name="azure-iot-hub"></a>Azure IoT Hub
+## <a name="azure-iot-hub"></a>Hub IoT Azure
 
 IoT Hub è un servizio gestito, ospitato nel cloud, che funge da hub del messaggio centrale per la comunicazione bidirezionale tra l'applicazione di IoT e i dispositivi gestiti. I [dispositivi Plug and Play](#iot-plug-and-play-device) possono connettersi a un hub Internet. Una soluzione Internet delle cose usa un hub Internet delle cose per abilitare:
 
@@ -117,7 +117,7 @@ Uno [sviluppatore di dispositivi](#device-developer) usa il [linguaggio di defin
 
 ## <a name="device-provisioning-service"></a>Servizio di provisioning di dispositivi
 
-[Azure IOT Central](#azure-iot-central) usa il servizio Device provisioning per gestire la registrazione e la connessione dei dispositivi. Per altre informazioni, vedere [connettività dei dispositivi in Azure IOT Central](../iot-central/core/concepts-connectivity-pnp.md). È anche possibile usare il servizio Device provisioning per gestire la registrazione e la connessione dei dispositivi alla soluzione Internet delle cose in base all'hub. Per altre informazioni, vedere [provisioning di dispositivi con il servizio Device provisioning in hub Azure](../iot-dps/about-iot-dps.md).
+[Azure IOT Central](#azure-iot-central) usa il servizio Device provisioning per gestire la registrazione e la connessione dei dispositivi. Per altre informazioni, vedere [connettività dei dispositivi in Azure IOT Central](../iot-central/core/overview-iot-central-get-connected-pnp.md). È anche possibile usare il servizio Device provisioning per gestire la registrazione e la connessione dei dispositivi alla soluzione Internet delle cose in base all'hub. Per altre informazioni, vedere [provisioning di dispositivi con il servizio Device provisioning in hub Azure](../iot-dps/about-iot-dps.md).
 
 ## <a name="device-registration"></a>Registrazione del dispositivo
 
@@ -171,7 +171,7 @@ Un repository di modelli archivia i modelli e le [interfacce](#interface)di [fun
 
 API per la gestione e l'interazione con i repository del modello. Ad esempio, è possibile usare l'API per aggiungere [modelli di funzionalità del dispositivo](#device-capability-model) e cercare modelli di funzionalità.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>Proprietà
 
 Le proprietà sono campi dati definiti in un' [interfaccia](#interface) che rappresentano uno stato di un gemello digitale. È possibile dichiarare le proprietà in sola lettura o in scrittura. Le proprietà di sola lettura, ad esempio il numero di serie, vengono impostate dal codice in esecuzione nel [plug and Play del dispositivo](#iot-plug-and-play-device) .  Le proprietà scrivibili, ad esempio una soglia di allarme, vengono in genere impostate dalla soluzione Internet delle cose.
 

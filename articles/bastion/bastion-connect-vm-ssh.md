@@ -1,37 +1,33 @@
 ---
-title: Connettersi a una VM Linux usando Azure Bastion | Microsoft Docs
-description: In questo articolo, informazioni su come connettersi alla macchina virtuale Linux usando Azure Bastion.
+title: Connettersi a una VM Linux con Azure Bastion | Microsoft Docs
+description: Questo articolo illustra come connettersi a una macchina virtuale Linux usando Azure Bastion.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 10/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 69548541d16db95f633400808f72aebaf59cff08
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: b88327ea0b5d2958cc1c86fa317415f2441af894
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477769"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494471"
 ---
-# <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion-preview"></a>Connettersi tramite SSH a una macchina virtuale Linux usando Azure Bastion (anteprima)
+# <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>Connettersi tramite SSH a una macchina virtuale Linux con Azure Bastion
 
-Questo articolo illustra i passaggi a in modo sicuro e senza problemi SSH per le VM Linux in una rete virtuale di Azure. Puoi connetterti a una macchina virtuale direttamente dal portale di Azure. Quando usi Azure Bastion, le macchine virtuali non richiedono un client, un agente o software aggiuntivo. Per altre informazioni su Azure Bastion, vedere la [Panoramica](bastion-overview.md).
+Questo articolo illustra come accedere in modo sicuro e trasparente alle macchine virtuali Linux in una rete virtuale di Azure. Puoi connetterti a una macchina virtuale direttamente dal portale di Azure. Quando usi Azure Bastion, le macchine virtuali non richiedono un client, un agente o software aggiuntivo. Per altre informazioni su Azure Bastion, vedere la [Panoramica](bastion-overview.md).
 
-È possibile usare Azure Bastion per connettersi a una macchina virtuale Linux tramite SSH. È possibile usare sia il nome utente/password e chiavi SSH per l'autenticazione. È possibile connettersi alla macchina virtuale con le chiavi SSH usando:
+È possibile usare Azure Bastion per connettersi a una macchina virtuale Linux tramite SSH. Per l'autenticazione, è possibile usare sia il nome utente che la password e le chiavi SSH. È possibile connettersi alla macchina virtuale con chiavi SSH usando uno dei seguenti:
 
-* Una chiave privata che si immette manualmente
-* Un file che contiene le informazioni sulla chiave private
+* Chiave privata da immettere manualmente
+* Un file che contiene le informazioni sulla chiave privata
 
-La chiave privata SSH deve essere in un formato che inizia con `"-----BEGIN RSA PRIVATE KEY-----"` e termina con `"-----END RSA PRIVATE KEY-----"`.
-
-> [!IMPORTANT]
-> L'anteprima pubblica viene messa a disposizione senza contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
+La chiave privata SSH deve avere un formato che inizia con `"-----BEGIN RSA PRIVATE KEY-----"` e termina con `"-----END RSA PRIVATE KEY-----"`.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Assicurarsi che è stato impostato in un host di Azure Bastion per la rete virtuale in cui risiede la macchina virtuale. Per altre informazioni, vedere [creare un host di Azure Bastion](bastion-create-host-portal.md). Una volta che il servizio Bastion è stato effettuato il provisioning e distribuito nella rete virtuale, è possibile usarlo per connettersi a qualsiasi macchina virtuale in questa rete virtuale. In questa versione di anteprima quando si usa Bastion per connettersi, si presuppone che si usa il protocollo RDP per connettersi a una macchina virtuale Windows e SSH per connettersi alle VM Linux.
+Assicurarsi di aver configurato un host Bastion di Azure per la rete virtuale in cui risiede la macchina virtuale. Per altre informazioni, vedere [creare un host Bastion di Azure](bastion-create-host-portal.md). Una volta eseguito il provisioning e la distribuzione del servizio Bastion nella rete virtuale, è possibile usarlo per connettersi a qualsiasi macchina virtuale in questa rete virtuale. Quando si usa Bastion per connettersi, si presuppone che si usi il protocollo RDP per connettersi a una macchina virtuale Windows e SSH per connettersi alle macchine virtuali Linux.
 
 Per stabilire una connessione, sono necessari i ruoli seguenti:
 
@@ -39,43 +35,38 @@ Per stabilire una connessione, sono necessari i ruoli seguenti:
 * Ruolo Lettore nella scheda di interfaccia di rete con l'indirizzo IP privato della macchina virtuale
 * Ruolo Lettore nella risorsa Azure Bastion
 
-## <a name="username"></a>Connessione: Usando nome utente e password
+## <a name="username"></a>Connetti: uso del nome utente e della password
 
+1.   Aprire il [portale di Azure](https://portal.azure.com). Passare alla macchina virtuale a cui si desidera connettersi, quindi fare clic su **Connetti**. Quando si usa una connessione SSH, la VM deve essere una macchina virtuale Linux.
+1. Dopo aver fatto clic su Connetti, viene visualizzata una barra laterale con tre schede: RDP, SSH e Bastion. Se è stato effettuato il provisioning di Bastion per la rete virtuale, la scheda Bastion è attiva per impostazione predefinita. Se non è stato effettuato il provisioning di Bastion per la rete virtuale, vedere [Configure Bastion](bastion-create-host-portal.md).
 
-1.  Uso [questo collegamento](https://aka.ms/BastionHost) per aprire la pagina del portale di anteprima di Azure Bastion. Passare alla macchina virtuale che si desidera connettersi, quindi fare clic su **Connect**. La macchina virtuale deve essere una macchina virtuale Linux quando si usa una connessione SSH.
-1. Dopo aver scelto di Connect, viene visualizzata una barra sul lato che contiene tre schede: RDP, SSH e Bastion. Se è stato effettuato il provisioning di Bastion per la rete virtuale, la scheda Bastion è attiva per impostazione predefinita. Se si non esegue il provisioning di Bastion per la rete virtuale, vedere [Bastion configurare](bastion-create-host-portal.md). Se non viene visualizzata **Bastion** elencate, non è stato aperto il portale di anteprima. Aprire il portale usando [questo collegamento](https://aka.ms/BastionHost).
+   ![Connessione VM](./media/bastion-connect-vm-ssh/bastion.png)
+1. Immettere il nome utente e la password per SSH nella macchina virtuale.
+1. Dopo l'immissione della chiave, fare clic sul pulsante **Connetti** .
 
-      ![Connessione macchina virtuale](./media/bastion-connect-vm-ssh/bastion.png)
+## <a name="privatekey"></a>Connetti: immettere manualmente una chiave privata
 
-1. Immettere il nome utente e la password per SSH alla macchina virtuale.
-1. Fare clic su **Connect** pulsante dopo l'immissione della chiave.
+1. Aprire il [portale di Azure](https://portal.azure.com). Passare alla macchina virtuale a cui si desidera connettersi, quindi fare clic su **Connetti**. Quando si usa una connessione SSH, la VM deve essere una macchina virtuale Linux.
+1. Dopo aver fatto clic su Connetti, viene visualizzata una barra laterale con tre schede: RDP, SSH e Bastion. Se è stato effettuato il provisioning di Bastion per la rete virtuale, la scheda Bastion è attiva per impostazione predefinita. Se non è stato effettuato il provisioning di Bastion per la rete virtuale, vedere [Configure Bastion](bastion-create-host-portal.md).
 
-## <a name="privatekey"></a>Connessione: Immettere manualmente una chiave privata
-
-1.  Uso [questo collegamento](https://aka.ms/BastionHost) per aprire la pagina del portale di anteprima di Azure Bastion. Passare alla macchina virtuale che si desidera connettersi, quindi fare clic su **Connect**. La macchina virtuale deve essere una macchina virtuale Linux quando si usa una connessione SSH.
-1. Dopo aver scelto di Connect, viene visualizzata una barra sul lato che contiene tre schede: RDP, SSH e Bastion. Se è stato effettuato il provisioning di Bastion per la rete virtuale, la scheda Bastion è attiva per impostazione predefinita. Se si non esegue il provisioning di Bastion per la rete virtuale, vedere [Bastion configurare](bastion-create-host-portal.md). Se non viene visualizzata **Bastion** elencate, non è stato aperto il portale di anteprima. Aprire il portale usando [questo collegamento](https://aka.ms/BastionHost).
-
-      ![Connessione macchina virtuale](./media/bastion-connect-vm-ssh/bastion.png)
-
+   ![Connessione VM](./media/bastion-connect-vm-ssh/bastion.png)
 1. Immettere il nome utente e selezionare **chiave privata SSH**.
-1. Immettere la chiave privata nell'area di testo **chiave privata SSH** (o incollarlo direttamente).
-1. Fare clic su **Connect** pulsante dopo l'immissione della chiave.
+1. Immettere la chiave privata nella **chiave privata SSH** dell'area di testo (o incollarla direttamente).
+1. Dopo l'immissione della chiave, fare clic sul pulsante **Connetti** .
 
-## <a name="ssh"></a>Connessione: Usando un file di chiave privata
+## <a name="ssh"></a>Connetti: uso di un file di chiave privata
 
-1.  Uso [questo collegamento](https://aka.ms/BastionHost) per aprire la pagina del portale di anteprima di Azure Bastion. Passare alla macchina virtuale che si desidera connettersi, quindi fare clic su **Connect**. La macchina virtuale deve essere una macchina virtuale Linux quando si usa una connessione SSH.
+1. Aprire il [portale di Azure](https://portal.azure.com). Passare alla macchina virtuale a cui si desidera connettersi, quindi fare clic su **Connetti**. Quando si usa una connessione SSH, la VM deve essere una macchina virtuale Linux.
 
-    ![Connessione macchina virtuale](./media/bastion-connect-vm-ssh/connect.png)
+   ![Connessione VM](./media/bastion-connect-vm-ssh/connect.png)
+1. Dopo aver fatto clic su Connetti, viene visualizzata una barra laterale con tre schede: RDP, SSH e Bastion. Se è stato effettuato il provisioning di Bastion per la rete virtuale, la scheda Bastion è attiva per impostazione predefinita. Se non è stato effettuato il provisioning di Bastion per la rete virtuale, vedere [Configure Bastion](bastion-create-host-portal.md).
 
-1. Dopo aver scelto di Connect, viene visualizzata una barra sul lato che contiene tre schede: RDP, SSH e Bastion. Se è stato effettuato il provisioning di Bastion per la rete virtuale, la scheda Bastion è attiva per impostazione predefinita. Se si non esegue il provisioning di Bastion per la rete virtuale, vedere [Bastion configurare](bastion-create-host-portal.md). Se non viene visualizzata **Bastion** elencate, non è stato aperto il portale di anteprima. Aprire il portale usando [questo collegamento](https://aka.ms/BastionHost).
-
-    ![Connessione macchina virtuale](./media/bastion-connect-vm-ssh/bastion.png)
-
-1. Immettere il nome utente e selezionare **chiave privata SSH dal File locale**.
-1. Scegliere il **esplorare** (l'icona della cartella nel file locale).
-1. Cercare il file, quindi fare clic su **aperto**.
-1. Fare clic su **Connect** per connettersi alla macchina virtuale. Quando fa clic su Connetti, SSH alla macchina virtuale verrà aprire direttamente nel portale di Azure. Questa connessione è su HTML5 usando la porta 443 nel servizio Bastion tramite l'indirizzo IP privato della macchina virtuale.
+   ![Connessione VM](./media/bastion-connect-vm-ssh/bastion.png)
+1. Immettere il nome utente e selezionare **chiave privata SSH da file locale**.
+1. Fare clic sul pulsante **Sfoglia** (l'icona della cartella nel file locale).
+1. Individuare il file, quindi fare clic su **Apri**.
+1. Fare clic su **Connetti** per connettersi alla macchina virtuale. Quando si fa clic su Connetti, la connessione SSH a questa macchina virtuale verrà aperta direttamente nella portale di Azure. Questa connessione avviene tramite HTML5 usando la porta 443 nel servizio Bastion sull'IP privato della macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Lettura di [Bastion domande frequenti](bastion-faq.md)
+Leggi le [domande frequenti sul Bastion](bastion-faq.md)

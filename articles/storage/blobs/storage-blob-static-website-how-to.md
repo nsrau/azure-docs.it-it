@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 5664bf1eaee85d2492601ef00968d9b17d857abb
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: d5b8121c7888903f3e4552a21a6ddc175ecc5176
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900491"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489097"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Ospitare un sito Web statico in archiviazione di Azure
 
@@ -22,9 +22,9 @@ Questo articolo illustra come abilitare l'hosting di siti web statici usando il 
 
 <a id="portal" />
 
-## <a name="use-the-azure-portal"></a>Usare il portale di Azure
+## <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
-Per un'esercitazione dettagliata, vedere [esercitazione: Ospitare un sito Web statico nell'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+Per un'esercitazione dettagliata, vedere [esercitazione: ospitare un sito Web statico nell'archivio BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
 Dopo aver abilitato l'hosting di siti web statici, è possibile visualizzare le pagine del sito da un browser usando l'URL pubblico del sito Web.
 
@@ -38,7 +38,7 @@ Nel riquadro visualizzato accanto alla pagina Panoramica account dell'account di
 
 <a id="cli" />
 
-## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
+## <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 È possibile abilitare l'hosting di siti web statici usando l' [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -50,7 +50,7 @@ Nel riquadro visualizzato accanto alla pagina Panoramica account dell'account di
    az account set --subscription <subscription-id>
    ```
 
-   Sostituire il `<subscription-id>` valore del segnaposto con l'ID della sottoscrizione.
+   Sostituire il valore del segnaposto `<subscription-id>` con l'ID della sottoscrizione.
 
 3. Abilita l'hosting di siti web statici.
 
@@ -60,14 +60,14 @@ Nel riquadro visualizzato accanto alla pagina Panoramica account dell'account di
 
    * Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
 
-   * Sostituire il `<error-document-name>` segnaposto con il nome del documento di errore che verrà visualizzato agli utenti quando un browser richiede una pagina nel sito che non esiste.
+   * Sostituire il segnaposto `<error-document-name>` con il nome del documento di errore che verrà visualizzato agli utenti quando un browser richiede una pagina nel sito che non esiste.
 
-   * Sostituire il `<index-document-name>` segnaposto con il nome del documento di indice. Questo documento è comunemente "index. html".
+   * Sostituire il segnaposto `<index-document-name>` con il nome del documento di indice. Questo documento è comunemente "index. html".
 
 4. Caricare gli oggetti nel contenitore *$web* da una directory di origine.
 
    > [!NOTE]
-   > Se si usa Azure cloud Shell, assicurarsi di aggiungere un `\` carattere di escape quando si fa riferimento `$web` al contenitore (ad esempio: `\$web`). Se si usa un'installazione locale dell'interfaccia della riga di comando di Azure, non sarà necessario usare il carattere di escape.
+   > Se si usa Azure Cloud Shell, assicurarsi di aggiungere un carattere di escape `\` quando si fa riferimento al contenitore `$web` (ad esempio: `\$web`). Se si usa un'installazione locale dell'interfaccia della riga di comando di Azure, non sarà necessario usare il carattere di escape.
 
    In questo esempio si presuppone che siano in esecuzione comandi da Azure Cloud Shell sessione.
 
@@ -77,10 +77,10 @@ Nel riquadro visualizzato accanto alla pagina Panoramica account dell'account di
 
    * Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
 
-   * Sostituire il `<source-path>` segnaposto con un percorso per il percorso dei file che si desidera caricare.
+   * Sostituire il segnaposto `<source-path>` con un percorso del percorso dei file che si desidera caricare.
 
    > [!NOTE]
-   > Se si usa un percorso di installazione dell'interfaccia della riga di comando di Azure, è possibile usare il percorso di qualsiasi percorso nel computer locale ( `C:\myFolder`ad esempio:.
+   > Se si usa un percorso di installazione dell'interfaccia della riga di comando di Azure, è possibile usare il percorso di qualsiasi percorso nel computer locale, ad esempio: `C:\myFolder`.
    >
    > Se si usa Azure Cloud Shell, sarà necessario fare riferimento a una condivisione file visibile al Cloud Shell. Questo percorso potrebbe corrispondere alla condivisione file della condivisione cloud o a una condivisione file esistente montata dal Cloud Shell. Per informazioni su come eseguire questa operazione, vedere [salvare i file in Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
 
@@ -98,11 +98,11 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 * Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
 
-* Sostituire il `<resource-group-name>` valore del segnaposto con il nome del gruppo di risorse.
+* Sostituire il valore del segnaposto `<resource-group-name>` con il nome del gruppo di risorse.
 
 <a id="powershell" />
 
-## <a name="use-powershell"></a>Usare PowerShell
+## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 È possibile abilitare l'hosting di siti web statici usando il modulo Azure PowerShell.
 
@@ -129,7 +129,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
    Set-AzContext $context
    ```
 
-   Sostituire il `<subscription-id>` valore del segnaposto con l'ID della sottoscrizione.
+   Sostituire il valore del segnaposto `<subscription-id>` con l'ID della sottoscrizione.
 
 5. Ottenere il contesto dell'account di archiviazione che definisce l'account di archiviazione che si vuole usare.
 
@@ -138,7 +138,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
    $ctx = $storageAccount.Context
    ```
 
-   * Sostituire il `<resource-group-name>` valore del segnaposto con il nome del gruppo di risorse.
+   * Sostituire il valore del segnaposto `<resource-group-name>` con il nome del gruppo di risorse.
 
    * Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
 
@@ -148,9 +148,9 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
    Enable-AzStorageStaticWebsite -Context $ctx -IndexDocument <index-document-name> -ErrorDocument404Path <error-document-name>
    ```
 
-   * Sostituire il `<error-document-name>` segnaposto con il nome del documento di errore che verrà visualizzato agli utenti quando un browser richiede una pagina nel sito che non esiste.
+   * Sostituire il segnaposto `<error-document-name>` con il nome del documento di errore che verrà visualizzato agli utenti quando un browser richiede una pagina nel sito che non esiste.
 
-   * Sostituire il `<index-document-name>` segnaposto con il nome del documento di indice. Questo documento è comunemente "index. html".
+   * Sostituire il segnaposto `<index-document-name>` con il nome del documento di indice. Questo documento è comunemente "index. html".
 
 7. Caricare gli oggetti nel contenitore *$web* da una directory di origine.
 
@@ -162,9 +162,9 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
     -Context $ctx
      ```
 
-   * Sostituire il `<path-to-file>` valore del segnaposto con il percorso completo del file che si desidera caricare, ad esempio:. `C:\temp\index.html`
+   * Sostituire il valore del segnaposto `<path-to-file>` con il percorso completo del file che si desidera caricare, ad esempio: `C:\temp\index.html`.
 
-   * Sostituire il `<blob-name>` valore del segnaposto con il nome che si desidera assegnare al BLOB risultante, ad esempio `index.html`:.
+   * Sostituire il valore del segnaposto `<blob-name>` con il nome che si desidera assegnare al BLOB risultante, ad esempio `index.html`.
 
 <a id="powershell-find-url" />
 
@@ -179,17 +179,19 @@ Trovare l'URL usando il comando seguente:
 Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
-* Sostituire il `<resource-group-name>` valore del segnaposto con il nome del gruppo di risorse.
+* Sostituire il valore del segnaposto `<resource-group-name>` con il nome del gruppo di risorse.
 
 * Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
 
 <a id="metrics" />
 
+---
+
 ## <a name="enable-metrics-on-static-website-pages"></a>Abilitare le metriche nelle pagine del sito Web statico
 
 Dopo aver abilitato le metriche, le statistiche sul traffico sui file nel contenitore **$Web** vengono segnalate nel dashboard delle metriche.
 
-1. Fare clic su **Impostazioni** > **metriche**di**monitoraggio** > .
+1. Fare clic su **impostazioni** > **monitoraggio** > **metrica**.
 
    I dati delle metriche vengono generati mediante l'associazione a diverse API di metrica. Il portale visualizza solo i membri delle API usati in un determinato intervallo di tempo per concentrarsi solo sui membri che restituiscono dati. Per essere certi di poter selezionare il membro API necessario, il primo passaggio consiste nell'espandere l'intervallo di tempo.
 
@@ -223,6 +225,6 @@ Dopo aver abilitato le metriche, le statistiche sul traffico sui file nel conten
 * [Usare la rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](storage-https-custom-domain-cdn.md)
 * [Configurare un nome di dominio personalizzato per l'endpoint BLOB o Web](storage-custom-domain-name.md)
 * [Funzioni di Azure](/azure/azure-functions/functions-overview)
-* [Servizio app di Azure](/azure/app-service/overview)
+* [servizio app di Azure](/azure/app-service/overview)
 * [Compilare la prima app Web serverless](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [Esercitazione: Ospitare un dominio in DNS di Azure](../../dns/dns-delegate-domain-azure-dns.md)

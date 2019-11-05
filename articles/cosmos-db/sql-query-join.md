@@ -1,27 +1,27 @@
 ---
-title: Query SQL JOIN per Azure Cosmos DB
-description: Informazioni sulla sintassi JOIN SQL per Azure Cosmos DB.
+title: Query di JOIN SQL per Azure Cosmos DB
+description: Informazioni sulla sintassi SQL di JOIN per Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 408ee11b318143b3128833a741e04dd68f3816ed
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: d78904fde53da0e800a69d2148a9c4e3acf57307
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342854"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494411"
 ---
-# <a name="joins-in-azure-cosmos-db"></a>Crea un join in Azure Cosmos DB
+# <a name="joins-in-azure-cosmos-db"></a>Join in Azure Cosmos DB
 
-In un database relazionale, i join tra le tabelle sono il corollario logico della progettazione di schemi normalizzati. Al contrario, l'API SQL utilizza un modello dati denormalizzato di elementi privi di schema, che è logico equivalente di un *self join*.
+In un database relazionale, i join tra le tabelle sono il corollario logico della progettazione di schemi normalizzati. Al contrario, l'API SQL utilizza il modello di dati denormalizzato di elementi privi di schema, che è l'equivalente logico di un *self-join*.
 
 Gli inner join generano un prodotto incrociato completo dei set che partecipano al join. Il risultato di un join a N vie è un set di tuple a N elementi, in cui ogni valore presente nella tupla è associato al set con alias che partecipa al join e l'accesso al set è possibile facendo riferimento a tale alias in altre clausole.
 
 ## <a name="syntax"></a>Sintassi
 
-Il linguaggio supporta la sintassi `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`. Questa query restituisce un set di tuple con `N` valori. Ogni tupla ha valori prodotti dall'iterazione di tutti gli alias del contenitore sui rispettivi set. 
+Il linguaggio supporta la sintassi `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`. Questa query restituisce un set di tuple con valori `N`. Ogni tupla ha valori prodotti dall'iterazione di tutti gli alias del contenitore sui rispettivi set. 
 
 Verrà ora esaminata la seguente clausola FROM: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
@@ -103,7 +103,7 @@ Verrà ora esaminata la seguente clausola FROM: `<from_source1> JOIN <from_sourc
   
 ## <a name="examples"></a>Esempi
 
-Gli esempi seguenti illustrano il funzionamento della clausola JOIN. Nell'esempio seguente, il risultato è vuoto, perché il prodotto incrociato di ogni elemento di origine e un set vuoto è vuoto:
+Gli esempi seguenti illustrano il funzionamento della clausola JOIN. Prima di eseguire questi esempi, caricare i [dati della famiglia](sql-query-getting-started.md#upload-sample-data)di esempio. Nell'esempio seguente, il risultato è vuoto, perché il prodotto incrociato di ogni elemento dall'origine e un set vuoto è vuoto:
 
 ```sql
     SELECT f.id
@@ -118,7 +118,7 @@ Il risultato è:
     }]
 ```
 
-Nell'esempio seguente, il join è un prodotto incrociato tra due oggetti JSON, l'elemento radice `id` e il `children` sottoradice. Il fatto che `children` è una matrice non è efficace nel join, poiché deve gestire con una singola radice che è il `children` matrice. Il risultato contiene solo due risultati, perché il prodotto incrociato di ogni elemento con la matrice produce esattamente un solo elemento.
+Nell'esempio seguente, il join è un prodotto incrociato tra due oggetti JSON, la radice dell'elemento `id` e il `children` sottoradice. Il fatto che `children` sia una matrice non è efficace nel join, perché tratta di una singola radice che corrisponde alla matrice di `children`. Il risultato contiene solo due risultati, perché il prodotto incrociato di ogni elemento con la matrice restituisce esattamente un solo elemento.
 
 ```sql
     SELECT f.id
@@ -163,15 +163,15 @@ I risultati sono:
     ]
 ```
 
-L'origine FROM della clausola JOIN è un iteratore. Pertanto, il flusso nell'esempio precedente è:  
+L'origine FROM della clausola JOIN è un iteratore. Il flusso nell'esempio precedente è quindi:  
 
-1. Espandere ciascun elemento figlio `c` nella matrice.
-2. Applicare un prodotto incrociato con la radice dell'elemento `f` con ogni elemento figlio `c` che il primo passaggio resi bidimensionali.
+1. Espandere ogni elemento figlio `c` nella matrice.
+2. Applicare un prodotto incrociato con la radice dell'elemento `f` con ogni elemento figlio `c` il primo passaggio è bidimensionale.
 3. Infine, proiettare l'oggetto radice `f` `id` solo la proprietà.
 
-Il primo elemento `AndersenFamily`, contiene una sola `children` elemento, in modo che il set di risultati contiene solo un singolo oggetto. La seconda voce `WakefieldFamily`, contiene due `children`, in modo che il prodotto incrociato genera due oggetti, uno per ogni `children` elemento. I campi radice in entrambi gli elementi sono uguali, proprio come ci si aspetterebbe in un prodotto incrociato.
+Il primo elemento, `AndersenFamily`, contiene un solo elemento `children`, quindi il set di risultati contiene solo un singolo oggetto. Il secondo elemento, `WakefieldFamily`, contiene due `children`, quindi il prodotto incrociato produce due oggetti, uno per ogni elemento `children`. I campi radice in entrambi gli elementi sono uguali, proprio come ci si aspetterebbe in un prodotto incrociato.
 
-La vera utilità della clausola JOIN consiste nel formare tuple dal prodotto incrociato in una forma che altrimenti sarebbe difficile proiettare. L'esempio seguente i filtri alla combinazione di una tupla che consente all'utente di scegliere una condizione soddisfatta dall'insieme delle tuple complessiva.
+L'utilità reale della clausola JOIN consiste nel formare Tuple dal prodotto incrociato in una forma altrimenti difficile da proiettare. Nell'esempio seguente viene filtrata la combinazione di una tupla che consente all'utente di scegliere una condizione soddisfatta dalle tuple complessive.
 
 ```sql
     SELECT 
@@ -206,7 +206,7 @@ I risultati sono:
     ]
 ```
 
-L'estensione seguente dell'esempio precedente esegue un join di double. È possibile visualizzare il prodotto incrociato come lo pseudo-codice seguente:
+Nell'estensione seguente dell'esempio precedente viene eseguito un doppio join. È possibile visualizzare il prodotto incrociato come lo pseudo-codice seguente:
 
 ```
     for-each(Family f in Families)
@@ -224,9 +224,9 @@ L'estensione seguente dell'esempio precedente esegue un join di double. È possi
     }
 ```
 
-`AndersenFamily` ha un figlio che ha un animale domestico, in modo che il prodotto incrociato genera una riga (1\*1\*1) da questa famiglia. `WakefieldFamily` ha due figli, solo uno dei quali ha animali domestici, ma tale elemento figlio ha però due animali. Il prodotto incrociato per questa famiglia restituisce 1\*1\*2 = 2 righe.
+`AndersenFamily` ha un figlio con un solo animale, quindi il prodotto incrociato restituisce una riga (1\*1\*1) da questa famiglia. `WakefieldFamily` dispone di due figli, solo uno dei quali ha animali domestici, ma l'elemento figlio ha due animali domestici. Il prodotto incrociato per questa famiglia restituisce 1\*1\*2 = 2 righe.
 
-Nel prossimo esempio, è connesso un filtro supplementare `pet`, che consente di escludere tutte le tuple in cui il nome dell'animale non `Shadow`. È possibile creare tuple da matrici, filtro su uno degli elementi della tupla e proiettare qualsiasi combinazione degli elementi.
+Nell'esempio seguente è presente un filtro aggiuntivo in `pet`, che esclude tutte le tuple in cui il nome dell'animale domestico non è `Shadow`. È possibile compilare tuple da matrici, filtrare in base a qualsiasi elemento della tupla e proiettare qualsiasi combinazione degli elementi.
 
 ```sql
     SELECT 
@@ -254,6 +254,6 @@ I risultati sono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione](sql-query-getting-started.md)
+- [Attività iniziali](sql-query-getting-started.md)
 - [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [Sottoquery](sql-query-subquery.md)

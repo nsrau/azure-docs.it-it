@@ -7,16 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: nacharya1
-ms.author: nilesha
-ms.date: 06/20/2019
-ms.custom: seodec18
-ms.openlocfilehash: 999f554bf4a2b9ddda83ee6398950cefb11d32aa
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+author: cartacioS
+ms.author: sacartac
+ms.date: 11/04/2019
+ms.openlocfilehash: 5c8ce6a588fd630f69d8ffc682b611baba3afdd4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929345"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497572"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -54,7 +53,9 @@ Con **Azure Machine Learning**è possibile progettare ed eseguire gli esperiment
 
 1. **Configurare la destinazione di calcolo per il training del modello**, ad esempio il [computer locale, Azure Machine Learning calcoli, le macchine virtuali remote o Azure Databricks](how-to-set-up-training-targets.md).  Informazioni sulla formazione automatica [su una risorsa remota](how-to-auto-train-remote.md).
 
-1. **Configurare i parametri automatici di Machine Learning** che determinano il numero di iterazioni su modelli diversi, le impostazioni iperparametri, la pre-elaborazione avanzata/conteggi e le metriche da esaminare quando si determina il modello migliore.  È possibile configurare le impostazioni per l'esperimento di training automatico in [portale di Azure](how-to-create-portal-experiments.md), [la pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com)o [con l'SDK](how-to-configure-auto-train.md). 
+1. **Configurare i parametri automatici di Machine Learning** che determinano il numero di iterazioni su modelli diversi, le impostazioni iperparametri, la pre-elaborazione avanzata/conteggi e le metriche da esaminare quando si determina il modello migliore.  È possibile configurare le impostazioni per l'esperimento di training automatico in [Azure Machine Learning Studio](https://ml.azure.com)o [con l'SDK](how-to-configure-auto-train.md). 
+
+    [!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 1. **Inviare l'esecuzione del training.**
 
@@ -62,7 +63,7 @@ Con **Azure Machine Learning**è possibile progettare ed eseguire gli esperiment
 
 Durante il training, Azure Machine Learning crea alcune pipeline parallele che tentano algoritmi e parametri diversi. Si arresterà quando si raggiungeranno i criteri di uscita definiti nell'esperimento.
 
-È anche possibile esaminare le informazioni sull'esecuzione registrata, che [contengono le metriche](how-to-understand-automated-ml.md) raccolte durante l'esecuzione. L'esecuzione del training produce un oggetto serializzato Python (file`.pkl`) che contiene la pre-elaborazione dei dati e del modello.
+È anche possibile esaminare le informazioni sull'esecuzione registrata, che [contengono le metriche](how-to-understand-automated-ml.md) raccolte durante l'esecuzione. L'esecuzione del training produce un oggetto serializzato Python (file `.pkl`) che contiene il modello e la pre-elaborazione dei dati.
 
 Sebbene la creazione di modelli sia automatizzata, è anche possibile [scoprire quanto siano importanti o rilevanti le funzionalità](how-to-configure-auto-train.md#explain) dei modelli generati.
 
@@ -81,7 +82,7 @@ In ogni esperimento di Machine Learning automatizzato, i dati vengono pre-elabor
 
 In ogni esperimento di Machine Learning automatizzato, i dati vengono ridimensionati o normalizzati automaticamente per consentire agli algoritmi di ottenere risultati ottimali.  Durante il training del modello, viene applicata una delle tecniche di ridimensionamento o di normalizzazione seguenti a ogni modello.
 
-|Ridimensionamento di&nbsp;&la normalizzazione&nbsp;| Description |
+|Ridimensionamento di&nbsp;&la normalizzazione &nbsp;| Descrizione |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardizzare le funzionalità rimuovendo la media e il ridimensionamento in varianza unità  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Trasforma le funzionalità ridimensionando ogni funzionalità in base al valore minimo e massimo della colonna  |
@@ -94,6 +95,8 @@ In ogni esperimento di Machine Learning automatizzato, i dati vengono ridimensio
 ### <a name="advanced-preprocessing-optional-featurization"></a>Pre-elaborazione avanzata: conteggi facoltativo
 
 Sono disponibili anche funzionalità avanzate di pre-elaborazione e conteggi, ad esempio la mancata imputazione, la codifica e le trasformazioni dei valori mancanti. [Scopri di più su cosa è incluso conteggi](how-to-create-portal-experiments.md#preprocess). Abilitare questa impostazione con:
+
++ Azure Machine Learning Studio: selezionare le **Impostazioni Visualizza conteggi** nella sezione **esecuzione configurazione** [con questi passaggi](how-to-create-portal-experiments.md).
 
 + Python SDK: specifica `"feauturization": auto' / 'off' / FeaturizationConfig` per la [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
@@ -139,7 +142,7 @@ Poiché gli algoritmi di classificazione vengono in genere valutati in base all'
 
 Inoltre, le esecuzioni automatiche di ML generano automaticamente i grafici seguenti, che consentono di comprendere la correttezza delle classificazioni del modello e di identificare i modelli potenzialmente interessati da dati sbilanciati.
 
-Grafico| Description
+Grafico| Descrizione
 ---|---
 [Matrice di confusione](how-to-understand-automated-ml.md#confusion-matrix)| Valuta le etichette classificate correttamente rispetto alle etichette effettive dei dati. 
 [Precisione-richiamo](how-to-understand-automated-ml.md#precision-recall-chart)| Valuta il rapporto tra le etichette corrette e il rapporto tra le istanze di etichette trovate dei dati 
@@ -161,7 +164,7 @@ Con Azure Machine Learning, è possibile usare il Machine Learning automatico pe
 
 Il Machine Learning automatico è disponibile anche in altre soluzioni Microsoft, ad esempio:
 
-|Integrazioni|Description|
+|Integrazioni|Descrizione|
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Selezione e training automatici dei modelli nelle app .NET con Visual Studio e Visual Studio Code con ML.NET Automatic Machine Learning (anteprima).|
 |[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Ridimensionare i processi di training di Machine Learning automatici in Spark nei cluster HDInsight in parallelo.|
@@ -175,7 +178,7 @@ Vedere gli esempi e informazioni su come creare modelli usando Machine Learning 
 + Seguire l' [esercitazione: eseguire automaticamente il training di un modello di regressione con Azure automatic machine learning](tutorial-auto-train-models.md)
 
 + Configurare le impostazioni per l'esperimento di training automatico:
-  + In portale di Azure interfaccia o nella pagina di destinazione dell'area di lavoro (anteprima) [usare questi passaggi](how-to-create-portal-experiments.md).
+  + In Azure Machine Learning Studio [usare questa procedura](how-to-create-portal-experiments.md).
   + Con Python SDK, [seguire questa procedura](how-to-configure-auto-train.md).
 
 + Per informazioni su come eseguire il training automatico usando i dati delle serie temporali, [seguire questa procedura](how-to-auto-train-forecast.md).

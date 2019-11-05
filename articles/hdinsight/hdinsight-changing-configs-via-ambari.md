@@ -1,5 +1,5 @@
 ---
-title: Ottimizzare le configurazioni cluster con Apache Ambari - Azure HDInsight
+title: Apache Ambari per ottimizzare le configurazioni del cluster-Azure HDInsight
 description: Usare l'interfaccia utente Web di Apache Ambari per configurare e ottimizzare i cluster HDInsight di Azure.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7261aad8f42168449f2c892fe8aaaa6667964654
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: e0d94a41febdba1bea6818309e05d287bef6d3a1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076953"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492513"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Usare Apache Ambari per ottimizzare le configurazioni cluster HDInsight
 
@@ -68,7 +68,7 @@ Le sezioni seguenti descrivono le opzioni di configurazione per ottimizzare le p
 
 ### <a name="set-the-hive-execution-engine"></a>Impostare il motore di esecuzione di Hive
 
-Hive offre due motori di esecuzione: [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) e [Apache TEZ](https://tez.apache.org/). Tez è più veloce di MapReduce. I cluster Linux in HDInsight usano Tez come motore di esecuzione predefinito. Per cambiare il motore di esecuzione:
+Hive fornisce due motori di esecuzione: [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) e [Apache TEZ](https://tez.apache.org/). Tez è più veloce di MapReduce. I cluster Linux in HDInsight usano Tez come motore di esecuzione predefinito. Per cambiare il motore di esecuzione:
 
 1. Nella scheda **Configs** (Configurazioni) di Hive digitare **execution engine** nella casella di filtro.
 
@@ -125,7 +125,7 @@ Una query Hive viene eseguita in una o più fasi. Se le fasi indipendenti posson
 
 1. Per abilitare l'esecuzione della query parallela, passare alla scheda **Config** (Configurazioni) di Hive e cercare la proprietà `hive.exec.parallel`. Il valore predefinito è False. Impostare il valore su true e quindi premere **INVIO** per salvare il valore.
 
-1. Per limitare il numero di processi da eseguire in parallelo, modificare la `hive.exec.parallel.thread.number` proprietà. Il valore predefinito è 8.
+1. Per limitare il numero di processi da eseguire in parallelo, modificare la proprietà `hive.exec.parallel.thread.number`. Il valore predefinito è 8.
 
     ![Visualizzazione di Apache Hive Exec Parallel](./media/hdinsight-changing-configs-via-ambari/apache-hive-exec-parallel.png)
 
@@ -175,7 +175,7 @@ I processi Hadoop presentano in genere colli di bottiglia a causa dell'I/O. La c
 
 I tipi di compressione disponibili sono:
 
-| Formato | Strumento | Algoritmo | Estensione file | Divisibile |
+| Format | Strumento | Algoritmo | Estensione file | Divisibile |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | DEFLATE | gz | No |
 | Bzip2 | Bzip2 | Bzip2 |bz2 | Sì |
@@ -268,7 +268,7 @@ Le sezioni seguenti descrivono altre ottimizzazioni relative a Hive che è possi
 
 Il tipo di join predefinito in Hive è un *join casuale*. In Hive speciali mapper leggono l'input e generano una coppia chiave/valore di join per un file intermedio. Hadoop ordina e unisce queste coppie in una fase casuale. Questa fase casuale è costosa. La scelta del join appropriato in base ai dati può migliorare considerevolmente le prestazioni.
 
-| Tipo di aggiunta | Se | Come | Settings di Hive | Commenti |
+| Tipo di join | Se | Come | Settings di Hive | Commenti |
 | -- | -- | -- | -- | -- |
 | Join casuale | <ul><li>Scelta predefinita</li><li>È sempre valido</li></ul> | <ul><li>Legge da parte di una delle tabelle</li><li>Raggruppa e ordina nella chiave di join</li><li>Invia un bucket a ogni elemento reduce</li><li>Il join viene eseguito sul lato Reduce</li></ul> | Non sono necessarie impostazioni di Hive significative | Funziona sempre |
 | Map Join | <ul><li>La memoria disponibile è sufficiente per una tabella</li></ul> | <ul><li>Legge una tabella di piccole dimensioni nella tabella hash della memoria</li><li>Passa attraverso parte del file di grandi dimensioni</li><li>Crea un join con ogni record della tabella hash</li><li>I join vengono eseguiti tramite il solo mapper</li></ul> | `hive.auto.confvert.join=true` | Molto veloce, ma limitato |
@@ -355,7 +355,7 @@ Il numero di riduttori viene calcolato in base al parametro `pig.exec.reducers.b
 
 ## <a name="apache-hbase-optimization-with-the-ambari-web-ui"></a>Ottimizzazione di Apache HBase con l'interfaccia utente Web Ambari
 
-La configurazione di [Apache HBase](https://hbase.apache.org/) viene modificata nella scheda **HBase Configs** (Configurazioni HBase). Le sezioni seguenti descrivono alcune importanti impostazioni di configurazione che influiscono sulle prestazioni di HBase.
+La configurazione di [Apache HBase](https://hbase.apache.org/) viene modificata dalla scheda **configs di HBase** . Le sezioni seguenti descrivono alcune delle importanti impostazioni di configurazione che influiscono sulle prestazioni di HBase.
 
 ### <a name="set-hbase_heapsize"></a>Impostare HBASE_HEAPSIZE
 

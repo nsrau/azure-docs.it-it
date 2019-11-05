@@ -3,26 +3,26 @@ title: Autenticazione con Mappe di Azure | Microsoft Docs
 description: Autenticazione per l'uso dei servizi di Mappe di Azure.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/11/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: a4608d0631c9a590fdde583e399883a023275c30
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
-ms.translationtype: MT
+ms.openlocfilehash: 8a6bc8b71f5f8edda76faa1a8d1b20417dfba1d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838045"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478652"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticazione con Mappe di Azure
 
-Mappe di Azure supporta due modalità di autenticazione delle richieste: con chiave condivisa e Azure Active Directory (Azure AD). Questo articolo illustra questi metodi di autenticazione per guidare il processo di implementazione.
+Azure Maps supporta due modi per autenticare le richieste: chiave condivisa e Azure Active Directory (Azure AD). Questo articolo illustra questi metodi di autenticazione per guidare il processo di implementazione.
 
 ## <a name="shared-key-authentication"></a>Autenticazione con chiave condivisa
 
-L'autenticazione con chiave condivisa passa le chiavi generate dall'account Mappe di Azure con ogni richiesta a Mappe di Azure.  Vengono generate due chiavi quando viene creato l'account di Mappe di Azure. Per ogni richiesta ai servizi di Mappe di Azure occorre aggiungere la chiave di sottoscrizione come parametro all'URL.
+L'autenticazione con chiave condivisa passa le chiavi generate dall'account Mappe di Azure con ogni richiesta a Mappe di Azure.  Vengono generate due chiavi quando viene creato l'account Azure maps. Per ogni richiesta ai servizi di Mappe di Azure occorre aggiungere la chiave di sottoscrizione come parametro all'URL.
 
 > [!Tip]
 > È consigliabile rigenerare le chiavi regolarmente. Vengono fornite due chiavi per mantenere attive le connessioni con una chiave durante la rigenerazione dell'altra. Quando si rigenerano le chiavi è necessario aggiornare tutte le applicazioni che accedono all'account per usare le nuove chiavi.
@@ -31,7 +31,7 @@ Per informazioni sulla visualizzazione delle chiavi, vedere [Visualizzare i dett
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Autenticazione con Azure Active Directory (anteprima)
 
-Mappe di Azure offre ora l'integrazione di [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) per l'autenticazione delle richieste per i servizi di Mappe di Azure. Azure AD fornisce l'autenticazione basata sull'identità, tra cui [controllo di accesso basato sui ruoli (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), per concedere l'accesso a livello di utente, a livello di gruppo e a livello di applicazione per le risorse di mappe di Azure. Le sezioni seguenti illustrano i concetti e i componenti dell'integrazione di Mappe di Azure con Azure AD.
+Mappe di Azure offre ora l'integrazione di [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) per l'autenticazione delle richieste per i servizi di Mappe di Azure. Azure AD fornisce l'autenticazione basata sull'identità, incluso il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview), per concedere l'accesso a livello di utente, a livello di gruppo e a livello di applicazione alle risorse di Azure maps. Le sezioni seguenti illustrano i concetti e i componenti dell'integrazione di Mappe di Azure con Azure AD.
 
 ## <a name="authentication-with-oauth-access-tokens"></a>Autenticazione con token di accesso OAuth
 
@@ -41,11 +41,14 @@ Mappe di Azure accetta token di accesso **OAuth 2.0** per i tenant di Azure AD a
 * Applicazioni partner che usano autorizzazioni delegate dagli utenti.
 * Identità gestite per le risorse di Azure.
 
-Mappe di Azure genera un *identificatore univoco (ID client)* per ogni account Mappe di Azure. Combinando l'ID client con parametri aggiuntivi, è possibile richiedere i token da Azure AD, specificando il valore seguente:
+Mappe di Azure genera un *identificatore univoco (ID client)* per ogni account Mappe di Azure. Quando si combina questo ID client con parametri aggiuntivi, è possibile richiedere i token da Azure AD specificando i valori nella tabella seguente, a seconda dell'ambiente di Azure.
 
-```
-https://login.microsoftonline.com
-```
+| Ambiente Azure   | Endpoint token Azure AD |
+| --------------------|-------------------------|
+| Azure Public        | https://login.microsoftonline.com |
+| Azure Government    | https://login.microsoftonline.us |
+
+
 Per altre informazioni su come configurare Azure AD e richiedere i token per Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 Per informazioni generali su come richiedere token da Azure AD, vedere [Informazioni sull'autenticazione](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
@@ -57,7 +60,7 @@ Una volta ricevuto un token da Azure AD, è possibile inviare una richiesta a Ma
 | Intestazione della richiesta    |    Valore    |
 |:------------------|:------------|
 | x-ms-client-id    | 30d7cc….9f55|
-| Authorization     | Bearer eyJ0e….HNIVN |
+| Autorizzazione     | Bearer eyJ0e….HNIVN |
 
 > [!Note]
 > `x-ms-client-id` è il GUID basato sull'account di Mappe di Azure che compare nella pagina di autenticazione di Mappe di Azure.
@@ -75,9 +78,9 @@ Per informazioni sulla visualizzazione dell'ID client, vedere [Visualizzare i de
 
 ## <a name="control-access-with-rbac"></a>Controllare l'accesso con il controllo degli accessi in base al ruolo
 
-Azure AD consente di controllare l'accesso alle risorse protette utilizzando il controllo degli accessi in base al ruolo. Dopo aver creato l'account mappe di Azure e registrare l'applicazione di mappe di Azure AD Azure all'interno del tenant di Azure AD, è possibile configurare RBAC per un utente, gruppo, applicazioni o risorse di Azure nella pagina del portale account mappe di Azure.
+Azure AD consente di controllare l'accesso alle risorse protette utilizzando il controllo degli accessi in base al ruolo. Dopo aver creato l'account Azure Maps e aver registrato l'applicazione Azure Maps Azure AD all'interno del tenant Azure AD, è possibile configurare il controllo degli accessi in base al ruolo per un utente, un gruppo, un'applicazione o una risorsa di Azure nella pagina del portale per gli account di Azure maps.
 
-Mappe di Azure supporta il controllo di accesso in lettura per i singoli utenti, gruppi, applicazioni e servizi di Azure tramite le identità gestito per le risorse di Azure AD Azure.
+Azure Maps supporta il controllo di accesso in lettura per singoli utenti, gruppi, applicazioni e servizi di Azure di Azure AD tramite identità gestite per le risorse di Azure.
 
 ![Lettore di dati per Mappe di Azure (anteprima)](./media/azure-maps-authentication/concept.png)
 

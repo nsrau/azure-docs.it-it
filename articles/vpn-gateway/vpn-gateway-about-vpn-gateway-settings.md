@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: fa08ea44722b2def684c269c3f9a0a30a4890a12
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 64a162b9d2f83b4bc703f5912116fd302fcb601c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970896"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495773"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Informazioni sulle impostazioni di configurazione del gateway VPN
 
@@ -79,9 +79,9 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 Se è disponibile un gateway VPN e si vuole usare un diverso SKU del gateway, le opzioni disponibili sono ridimensionare lo SKU del gateway oppure passare a un altro SKU. Quando si usa un altro SKU del gateway, eliminare completamente il gateway esistente e compilarne uno nuovo. La compilazione di un gateway può richiedere fino a 45 minuti. In confronto, quando si ridimensiona uno SKU del gateway, non si verificano tempi di inattività perché non è necessario eliminare e ricompilare il gateway. Se si ha la possibilità di ridimensionare lo SKU del gateway, anziché modificarlo, è opportuno preferire tale prima opzione. Esistono tuttavia alcune regole relative al ridimensionamento:
 
-1. È possibile eseguire il ridimensionamento tra gli SKU VpnGw1, VpnGw2 e VpnGw3.
+1. Fatta eccezione per lo SKU Basic, è possibile ridimensionare uno SKU del gateway VPN a un altro SKU del gateway VPN all'interno della stessa generazione (Generation1 o Generation2). Ad esempio, VpnGw1 di Generation1 può essere ridimensionato in VpnGw2 di Generation1 ma non in VpnGw2 di Generation2.
 2. Quando si usano SKU del gateway di versione precedente, è possibile eseguire il ridimensionamento tra gli SKU Basic, Standard e HighPerformance.
-3. **Non** è possibile invece eseguire il ridimensionamento dagli SKU Basic/Standard/HighPerformance ai nuovi SKU VpnGw1/VpnGw2/VpnGw3. È necessario [passare](#change) ai nuovi SKU.
+3. **Non è possibile** eseguire il ridimensionamento da SKU Basic/standard/HighPerformance a SKU VpnGw. È necessario [passare](#change) ai nuovi SKU.
 
 #### <a name="resizegwsku"></a>Per ridimensionare un gateway
 

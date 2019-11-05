@@ -3,26 +3,25 @@ title: Come configurare la conservazione nell'ambiente Azure Time Series Insight
 description: Questo articolo descrive come configurare la conservazione nell'ambiente Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: bf6788bac7003bec0ccfc171d622cd9b28bf43e0
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ff4d326af691ae27894dc94d7581ba68951f090e
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330893"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990067"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configurazione della conservazione in Time Series Insights
 
 Questo articolo descrive come configurare il **periodo di conservazione dei dati** e il **comportamento limite di archiviazione superato** in Azure Time Series Insights.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Ogni ambiente Azure Time Series Insights dispone di un'impostazione per configurare il **periodo di conservazione dei dati**. Il valore va da 1 a 400 giorni. I dati vengono eliminati in base alla capacità di archiviazione dell'ambiente o alla durata dell'assorbimento, che va da 1 a 400 giorni, a seconda della condizione che si verifica per prima.
 
@@ -41,7 +40,7 @@ Per informazioni dettagliate per comprendere meglio queste impostazioni, vedere 
 
 1. Sotto l'intestazione **Impostazioni** selezionare **Configura**.
 
-    [Impostazioni ![Selezionare, quindi configurare](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
+    [![selezionare impostazioni, quindi configura](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
 1. Selezionare il **periodo di conservazione dei dati (in giorni)** per configurare la conservazione usando la barra del dispositivo di scorrimento o digitare un numero nella casella di testo.
 
@@ -49,7 +48,7 @@ Per informazioni dettagliate per comprendere meglio queste impostazioni, vedere 
 
 1. Attivare o disattivare l'impostazione **Comportamento limite di archiviazione superato**. Selezionare il comportamento **Purge old data** (Eliminare i dati meno recenti) o **Pause ingress** (Sospendere il traffico in ingresso).
 
-    [conservazione ![Data-accetta e Salva.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
+    [conservazione dei dati ![: accetta e Salva.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
 1. Accettare la casella di controllo che indica che è stata esaminata la documentazione e si è compreso il rischio potenziale di perdita di dati. Selezionare **Salva** per configurare le modifiche.
 

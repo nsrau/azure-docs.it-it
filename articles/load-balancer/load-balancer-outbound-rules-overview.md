@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: fd43e9c71db9ae553b24e6cd774495ee8cc5b621
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: d1874d610feb041545e1675ad5b40a1b5e753b67
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242354"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497980"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regole in uscita di Load Balancer
 
@@ -86,7 +86,7 @@ Usare il parametro seguente per allocare 10.000 porte SNAT per ogni macchina vir
 
 Ogni indirizzo IP pubblico da tutti i front-end di una regola in uscita rende disponibili fino a 64.000 porte temporanee da usare come porte SNAT.  Load Balancer alloca le porte SNAT in multipli di 8. Se si specifica un valore non divisibile per 8, l'operazione di configurazione viene rifiutata.  Se si tenta di allocare più porte SNAT di quante ne siano disponibili in base al numero di indirizzi IP pubblici, l'operazione di configurazione viene rifiutata.  Se ad esempio si allocano 10.000 porte per macchina virtuale e 7 macchine virtuali in un pool back-end condividono un solo indirizzo IP pubblico, la configurazione viene rifiutata (7 x 10.000 porte SNAT > 64.000 porte SNAT).  È possibile aggiungere altri indirizzi IP al front-end della regola in uscita per abilitare questo scenario.
 
-È possibile tornare all'[allocazione automatica delle porte SNAT basata sulle dimensioni dei pool back-end](load-balancer-outbound-connections.md#preallocatedports) specificando 0 per il numero di porte. In tal caso, la prima istanza di VM 50 otterrà 1024 porte, 51-100 istanze di VM otterranno 512 e così via in base alla tabella. Avere più di un front-end con un indirizzo IP pubblico associato alla regola in uscita non aumenta il numero di porte allocate a ogni istanza di macchina virtuale.
+È possibile tornare all'[allocazione automatica delle porte SNAT basata sulle dimensioni dei pool back-end](load-balancer-outbound-connections.md#preallocatedports) specificando 0 per il numero di porte. In tal caso, la prima istanza di VM 50 otterrà 1024 porte, 51-100 istanze di VM otterranno 512 e così via in base alla tabella.
 
 ### <a name="idletimeout"></a> Controllare il timeout di inattività per i flussi in uscita
 

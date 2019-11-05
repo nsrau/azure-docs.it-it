@@ -1,7 +1,7 @@
 ---
-title: Creare un'area di lavoro di Machine Learning Studio
-titleSuffix: Azure Machine Learning Studio
-description: Per usare Azure Machine Learning Studio, deve essere presente un'area di lavoro di Machine Learning Studio. Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
+title: Creare un'area di lavoro di Machine Learning Studio (classica)
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Per usare Azure Machine Learning Studio (versione classica), è necessario disporre di un'area di lavoro di Machine Learning Studio (classica). Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,46 +10,46 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 7aeee4f24f6c7133ad978bc0c6c7fb8853bc4c35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6302ded4ab951d0490b128989a45c41c013db7ea
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62109349"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493198"
 ---
-# <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Creare e condividere un'area di lavoro di Azure Machine Learning Studio
+# <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Creare e condividere un'area di lavoro di Azure Machine Learning Studio (classica)
 
-Per usare Azure Machine Learning Studio, deve essere presente un'area di lavoro di Machine Learning Studio. Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
+Per usare Azure Machine Learning Studio (versione classica), è necessario disporre di un'area di lavoro di Machine Learning Studio (classica). Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
 
-## <a name="create-a-studio-workspace"></a>Creare un'area di lavoro di Studio
+## <a name="create-a-studio-classic-workspace"></a>Creare un'area di lavoro di studio (classica)
 
 1. Accedere al [portale di Azure](https://portal.azure.com/)
 
     > [!NOTE]
-    > Per accedere e creare un'area di lavoro di Studio è necessario il ruolo di amministratore di una sottoscrizione di Azure. 
+    > Per accedere e creare un'area di lavoro di studio (classica), è necessario essere un amministratore della sottoscrizione di Azure. 
     >
     > 
 
 2. Fare clic su **+Nuovo**
 
-3. Nella casella di ricerca, digitare **Area di lavoro di Machine Learning Studio** e selezionare l'elemento corrispondente. Selezionare quindi **Crea** nella parte inferiore della pagina.
+3. Nella casella di ricerca digitare **Machine Learning Studio area di lavoro (classica)** e selezionare l'elemento corrispondente. Selezionare quindi **Crea** nella parte inferiore della pagina.
 
 4. Immettere le informazioni sull'area di lavoro:
 
    - Il *nome dell'area di lavoro* può contenere al massimo 260 caratteri e non può terminare con uno spazio. Il nome non può includere questi caratteri: `< > * % & : \ ? + /`
    - Se si distribuiscono i servizi Web da quest'area di lavoro, vengono usati il *piano di servizio Web* che si sceglie (o si crea) e il *piano tariffario* selezionato.
 
-     ![Creare una nuova area di lavoro di Studio](./media/create-workspace/create-new-workspace.png)
+     ![Creare una nuova area di lavoro di studio (classica)](./media/create-workspace/create-new-workspace.png)
 
-5. Fare clic su **Create**(Crea).
+5. Fare clic su **Create**.
 
 > [!NOTE]
-> Machine Learning Studio si basa su un account di archiviazione di Azure specificato dall'utente per salvare i dati intermedi quando esegue il flusso di lavoro. Dopo la creazione dell'area di lavoro, se l'account di archiviazione viene eliminato o se le chiavi di accesso vengono cambiate, l'area di lavoro non funzionerà più e tutti gli esperimenti al suo interno avranno esito negativo.
+> Machine Learning Studio (classico) si basa su un account di archiviazione di Azure fornito per salvare i dati intermedi quando esegue il flusso di lavoro. Dopo la creazione dell'area di lavoro, se l'account di archiviazione viene eliminato o se le chiavi di accesso vengono cambiate, l'area di lavoro non funzionerà più e tutti gli esperimenti al suo interno avranno esito negativo.
 Se si elimina accidentalmente l'account di archiviazione, ricrearlo con lo stesso nome e nella stessa area dell'account di archiviazione eliminato e risincronizzare la chiave di accesso. Se sono state modificate le chiavi di accesso dell'account di archiviazione, sincronizzarle di nuovo nell'area di lavoro usando il portale di Azure.
 
-Dopo aver distribuito l'area di lavoro è possibile aprirla in Machine Learning Studio.
+Una volta distribuita l'area di lavoro, è possibile aprirla nella versione classica di Machine Learning Studio.
 
-1. Accedere a Machine Learning Studio all'indirizzo[https://studio.azureml.net/](https://studio.azureml.net/).
+1. Passare a Machine Learning Studio (versione classica) [https://studio.azureml.net/](https://studio.azureml.net/).
 
 2. Selezionare l'area di lavoro nell'angolo in alto a destra.
 
@@ -59,12 +59,12 @@ Dopo aver distribuito l'area di lavoro è possibile aprirla in Machine Learning 
 
     ![Aprire gli esperimenti](./media/create-workspace/my-experiments.png)
 
-Per informazioni sulla gestione dell'area di lavoro di Studio, vedere [Gestire un'area di lavoro di Azure Machine Learning Studio](manage-workspace.md).
-Se si verifica un problema durante la creazione dell'area di lavoro, vedere [Guida per la risoluzione dei problemi: Creare e connettersi a un'area di lavoro di Machine Learning Studio](troubleshooting-creating-ml-workspace.md).
+Per informazioni sulla gestione dell'area di lavoro di studio (classica), vedere [gestire un'area di lavoro di Azure Machine Learning Studio (classica)](manage-workspace.md).
+Se si verifica un problema durante la creazione dell'area di lavoro, vedere [Guida alla risoluzione dei problemi: creare e connettersi a un'area di lavoro di Machine Learning Studio (classica)](troubleshooting-creating-ml-workspace.md).
 
 
-## <a name="share-an-azure-machine-learning-studio-workspace"></a>Condividere un'area di lavoro di Azure Machine Learning Studio
-Dopo la creazione di un'area di lavoro di Machine Learning Studio, è possibile invitare utenti nell'area di lavoro per condividere l'accesso a questa e agli esperimenti, ai set di dati, ai notebook e così via al suo interno. È possibile aggiungere gli utenti in due ruoli:
+## <a name="share-an-azure-machine-learning-studio-classic-workspace"></a>Condividere un'area di lavoro di Azure Machine Learning Studio (classica)
+Una volta creata un'area di lavoro di Machine Learning Studio (classica), è possibile invitare gli utenti nell'area di lavoro per condividere l'accesso all'area di lavoro e a tutti i relativi esperimenti, set di impostazioni, notebook e così via. È possibile aggiungere utenti in uno dei due ruoli seguenti:
 
 * **Utente**: un utente dell'area di lavoro può creare, aprire, modificare ed eliminare esperimenti, dataset e così via nell'area di lavoro.
 * **Proprietario**: un proprietario può invitare e rimuovere gli utenti dell'area di lavoro in aggiunta alle operazioni consentite a un utente.
@@ -74,9 +74,9 @@ Dopo la creazione di un'area di lavoro di Machine Learning Studio, è possibile 
 > 
 > 
 
-### <a name="to-share-a-studio-workspace"></a>Per condividere un'area di lavoro di Studio
+### <a name="to-share-a-studio-classic-workspace"></a>Per condividere un'area di lavoro di studio (classica)
 
-1. Accedere a Machine Learning Studio all'indirizzo [https://studio.azureml.net/Home](https://studio.azureml.net/Home).
+1. Accedere alla versione classica di Machine Learning Studio in [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
 2. Nel pannello sinistro fare clic su **IMPOSTAZIONI**
 

@@ -1,7 +1,7 @@
 ---
 title: Creare reti neurali personalizzate con Net#
-titleSuffix: Azure Machine Learning Studio
-description: Guida alla sintassi per il linguaggio di specifica Net# delle reti neurali. Informazioni su come creare modelli di rete neurale personalizzati in Azure Machine Learning Studio.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Guida alla sintassi per il linguaggio di specifica Net# delle reti neurali. Informazioni su come creare modelli di rete neurale personalizzati in Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,21 +10,21 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: c352100392a5bf7b590b27b9448f7f37fb105fbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e7ad51622c3d3c8254755fb1ad24a047d48a58b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751659"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493360"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guida al linguaggio di specifica Net# delle reti neurali per Azure Machine Learning Studio
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guida al linguaggio di specifica NET # per la rete neurale per Azure Machine Learning Studio (versione classica)
 
 NET # è un linguaggio sviluppato da Microsoft e usato per definire architetture di reti neurali complesse, ad esempio reti neurali profonde o convoluzioni di dimensioni arbitrarie. È possibile usare strutture complesse per migliorare l'apprendimento relativo a dati quali immagini, audio e video.
 
 È possibile usare una specifica di architettura Net# nei contesti seguenti:
 
-+ Tutti i moduli di reti neurali in Microsoft Azure Machine Learning Studio: [Multiclass Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network) (Rete neurale multiclasse), [Two-Class Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network) (Rete neurale a due classi) e [Neural Network Regression](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression) (Regressione rete neurale)
-+ Funzioni per reti neurali in Microsoft ML Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet) per il linguaggio R e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) per Python.
++ Tutti i moduli di rete neurale in Microsoft Azure Machine Learning Studio (classico): [rete neurale multiclasse](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [rete neurale a due classi](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network)e [regressione di rete neurale](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
++ Funzioni di rete neurale in Microsoft ML Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)per il linguaggio R e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) per Python.
 
 
 Questo articolo descrive i concetti di base e la sintassi per lo sviluppo di una rete neurale personalizzata con Net#:
@@ -56,7 +56,7 @@ Net# supporta anche i quattro tipi seguenti di aggregazioni di connessioni avanz
 
 ## <a name="supported-customizations"></a>Personalizzazioni supportate
 
-L'architettura dei modelli di rete neurale creati in Azure Machine Learning Studio può essere ampiamente personalizzata tramite Net#. È possibile:
+L'architettura dei modelli di rete neurale creati nella versione classica di Azure Machine Learning Studio può essere ampiamente personalizzata usando NET #. È possibile:
 
 + Creare livelli nascosti e controllare il numero di nodi in ogni livello.
 + Specificare la modalità di connessione reciproca dei livelli.
@@ -108,7 +108,7 @@ output Result[2] from Hidden all;
 ```
 
 + Il prodotto delle dimensioni è il numero di nodi nel livello. In questo esempio ci sono due dimensioni [5,20]. Ciò significa che nel livello ci sono 100 nodi.
-+ I livelli possono essere dichiarati in qualsiasi ordine, con una sola eccezione: se sono stati definiti più livelli di input, l'ordine in cui vengono dichiarati deve corrispondere all'ordine delle funzionalità nei dati di input.
++ I livelli possono essere dichiarati in qualsiasi ordine, con una eccezione: se sono stati definiti più livelli di input, l'ordine in cui vengono dichiarati deve corrispondere all'ordine delle funzionalità nei dati di input.
 
 Per specificare che il numero di nodi in un livello deve essere determinato automaticamente, usare la parola chiave `auto`. La parola chiave `auto` ha effetti diversi, a seconda del livello:
 
@@ -450,11 +450,11 @@ output Digit [10] from Hid3 all;
 + La parola chiave `convolve` indica che i livelli `Conv1` e `Conv2` sono livelli convoluzionali. Tutte queste dichiarazioni di livelli sono seguite da un elenco di attributi convoluzionali.
 + La rete ha un terzo livello nascosto, `Hid3`, che è completamente connesso al secondo livello nascosto, `Conv2`.
 + Il livello di output, `Digit`, è connesso solo al terzo livello nascosto, `Hid3`. La parola chiave `all` indica che il livello di output è completamente connesso a `Hid3`.
-+ L'arietà della convoluzione è uguale a tre: la lunghezza delle tuple `InputShape`, `KernelShape`, `Stride`, e `Sharing`.
++ Il grado della convoluzione è tre: la lunghezza delle tuple `InputShape`, `KernelShape`, `Stride`e `Sharing`.
 + Il numero di pesi per kernel è `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. Oppure `26 * 50 = 1300`.
 + È possibile calcolare i nodi in ogni livello nascosto come indicato di seguito:
 
-    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5` `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5``NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
     `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
 + Il numero totale di nodi può essere calcolato usando la dimensionalità dichiarata del livello, [50, 5, 5], come indicato di seguito: `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`

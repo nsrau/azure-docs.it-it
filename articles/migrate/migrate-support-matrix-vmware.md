@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 949595b35c6d989be62dbda43a3b8ccb1608a23d
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 2a8a19dfd2cdc7a64a5ea90b96808963b19f73bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937567"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498644"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matrice di supporto per la valutazione e la migrazione di VMware
 
@@ -36,12 +36,12 @@ Nella tabella sono riepilogati gli scenari supportati per le macchine virtuali V
 --- | ---
 **Autorizzazioni di Azure** | Per creare un progetto di Azure Migrate, è necessario disporre delle autorizzazioni Collaboratore o proprietario nella sottoscrizione.
 **Limitazioni di VMware**  | Consente di valutare fino a 35.000 VM VMware in un singolo progetto. È possibile creare più progetti in una sottoscrizione di Azure. Un progetto può includere sia macchine virtuali VMware che macchine virtuali Hyper-V, fino ai limiti di valutazione.
-**Area geografica** | È possibile creare un progetto Azure Migrate in diverse aree geografiche. Sebbene sia possibile creare progetti solo in queste aree geografiche, è possibile valutare o migrare i computer per altri percorsi di destinazione. L'area geografica del progetto viene usata solo per archiviare i metadati individuati.
+**Area geografica** | [Esaminare](migrate-support-matrix.md#supported-geographies) le aree geografiche supportate.
 
 **Area geografica** | **Posizione di archiviazione dei metadati**
 --- | ---
-Azure Government | US Gov Virginia
-Asia Pacifico | Asia orientale o Asia sud-orientale
+Azure Government | Governo degli Stati Uniti - Virginia
+Asia/Pacifico | Asia orientale o Asia sud-orientale
 Australia | Australia orientale o Australia sudorientale
 Brasile | Brasile meridionale
 Canada | Canada centrale o Canada orientale
@@ -49,7 +49,7 @@ Europa | Europa settentrionale o Europa occidentale
 Francia | Francia centrale
 India | India centrale o India meridionale
 Giappone |  Giappone orientale o Giappone occidentale
-Corea | Corea centrale o Corea del sud
+Corea del Sud | Corea centrale o Corea del sud
 Regno Unito | Regno Unito meridionale o Regno Unito occidentale
 Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
 
@@ -57,6 +57,17 @@ Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
  > [!NOTE]
  > Il supporto per Azure per enti pubblici è attualmente disponibile solo per la [versione precedente](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) di Azure migrate.
 
+
+## <a name="application-discovery"></a>Individuazione di applicazioni
+
+Azure Migrate: la valutazione del server può individuare app, ruoli e funzionalità. L'individuazione dell'inventario delle app consente di identificare e pianificare un percorso di migrazione personalizzato per i carichi di lavoro locali. Azure Migrate: la valutazione del server fornisce l'individuazione senza agente, usando le credenziali Guest del computer, accedendo in remoto ai computer usando le chiamate WMI e SSH.
+
+**Supporto** | **Dettagli**
+--- | ---
+Computer supportati | Macchine virtuali VMware locali
+Sistema operativo del computer | Tutte le versioni di Windows e Linux
+Credenziali | Attualmente supporta l'utilizzo di una credenziale per tutti i server Windows e una credenziale per tutti i server Linux. Si crea un account utente Guest per macchine virtuali Windows e un account utente normale/normale (accesso non sudo) per tutte le macchine virtuali Linux.
+Limiti del computer per l'individuazione delle app | 10000 per Appliance. 35000 per progetto
 
 ## <a name="assessment-vcenter-server-requirements"></a>Valutazione-requisiti di server vCenter
 
@@ -107,8 +118,24 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 
 **Dispositivo** | **Connection**
 --- | ---
-Appliance | Connessioni in ingresso sulla porta TCP 3389 per consentire le connessioni Desktop remoto al dispositivo.<br/><br/> Connessioni in ingresso sulla porta 44368 per accedere in remoto all'app di gestione Appliance usando l'URL:```https://<appliance-ip-or-name>:44368``` <br/><br/>Connessioni in uscita sulla porta 443, 5671 e 5672 per inviare i metadati di individuazione e prestazioni a Azure Migrate.
+Appliance | Connessioni in ingresso sulla porta TCP 3389 per consentire le connessioni Desktop remoto al dispositivo.<br/><br/> Connessioni in ingresso sulla porta 44368 per accedere in remoto all'app di gestione Appliance usando l'URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Connessioni in uscita sulla porta 443, 5671 e 5672 per inviare i metadati di individuazione e prestazioni a Azure Migrate.
 Server vCenter | Connessioni in ingresso sulla porta TCP 443 per consentire all'appliance di raccogliere i metadati di configurazione e prestazioni per le valutazioni. <br/><br/> Per impostazione predefinita, l'appliance si connette a vCenter sulla porta 443. Se il server vCenter è in ascolto su una porta diversa, è possibile modificare la porta quando si configura l'individuazione.
+
+## <a name="assessment-dependency-visualization"></a>Valutazione-visualizzazione delle dipendenze
+
+La visualizzazione delle dipendenze consente di visualizzare le dipendenze tra i computer che si desidera valutare e migrare. In genere si usa il mapping delle dipendenze quando si desidera valutare i computer con livelli di confidenza più elevati. Per le macchine virtuali VMware, la visualizzazione delle dipendenze è supportata come segue:
+
+- **Visualizzazione delle dipendenze senza agente**: questa opzione è attualmente in anteprima. Non richiede l'installazione di agenti nei computer.
+    - L'operazione viene eseguita acquisendo i dati di connessione TCP da computer per i quali è abilitata. Dopo l'avvio dell'individuazione delle dipendenze, l'appliance raccoglie i dati dai computer a un intervallo di polling di cinque minuti.
+    - Vengono raccolti i dati seguenti:
+        - Connessioni TCP
+        - Nomi dei processi con connessioni attive
+        - Nomi delle applicazioni installate che eseguono i processi precedenti
+        - No. delle connessioni rilevate a ogni intervallo di polling
+- **Visualizzazione delle dipendenze basate su agente**: per usare la visualizzazione di dipendenza basata su agenti, è necessario scaricare e installare gli agenti seguenti in ogni computer locale che si vuole analizzare.
+    - Microsoft Monitoring Agent (MMA) deve essere installato in ogni computer. [Altre](how-to-create-group-machine-dependencies.md#install-the-mma) informazioni su come installare l'agente MMA.
+    - È necessario installare Dependency Agent in ogni computer. [Altre](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) informazioni su come installare Dependency Agent.
+    - Se vi sono computer senza accesso a Internet, è necessario scaricare e installare il gateway di Log Analytics.
 
 ## <a name="migration---limitations"></a>Migrazione: limitazioni
 È possibile selezionare fino a 10 macchine virtuali contemporaneamente per la replica. Se si desidera eseguire la migrazione di più computer, eseguire la replica in gruppi di 10. Per la migrazione senza agenti VMware, è possibile eseguire contemporaneamente fino a 100 repliche.
@@ -224,13 +251,13 @@ I requisiti per l' [appliance di replica](migrate-replication-appliance.md) usat
 
 **Componente** | **Requisito**
 --- | ---
- | **Impostazioni VMware** (Appliance VM VMware)
+ | **Impostazioni VMware** (appliance VM VMware)
 PowerCLI | Se l'appliance di replica è in esecuzione in una VM VMware, è necessario installare la [versione 6,0 di PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) .
 Tipo di scheda di interfaccia di rete | VMXNET3 (se il dispositivo è una macchina virtuale VMware)
  | **Impostazioni hardware**
 Core CPU | 8
 RAM | 16 GB
-Numero di dischi | Tre Il disco del sistema operativo, il disco della cache del server di elaborazione e l'unità di conservazione.
+Numero di dischi | Tre: il disco del sistema operativo, il disco della cache del server di elaborazione e l'unità di conservazione.
 Spazio libero su disco (cache) | 600 GB
 Spazio libero su disco (disco di conservazione) | 600 GB
 **Impostazioni software** |
@@ -255,14 +282,14 @@ L'appliance di replica deve accedere a questi URL.
 **URL** | **Dettagli**
 --- | ---
 \*.backup.windowsazure.com | Usato per il coordinamento e il trasferimento dei dati di replica
-\*.store.core.windows.net | Usato per il coordinamento e il trasferimento dei dati replicati
+\*.store.core.windows.net | Usato per il coordinamento e il trasferimento dei dati di replica
 \*.blob.core.windows.net | Usato per accedere all'account di archiviazione in cui sono archiviati i dati replicati
 \*.hypervrecoverymanager.windowsazure.com | Usato per il coordinamento e le operazioni di gestione della replica
 https:\//management.azure.com | Usato per il coordinamento e le operazioni di gestione della replica
 *.services.visualstudio.com | Utilizzato per scopi di telemetria (Facoltativo)
 time.nist.gov | Usati per controllare la sincronizzazione tra ora di sistema e ora globale.
 time.windows.com | Usati per controllare la sincronizzazione tra ora di sistema e ora globale.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.Live.com <br/> https:\//Graph.Windows.NET <br/> https:\//login.windows.net <br/> https:\//www.Live.com <br/> https:\//www.microsoft.com  | L'installazione di OVF richiede l'accesso a questi URL. Vengono usati per la gestione di identità e controllo di accesso da Azure Active Directory
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | L'installazione di OVF richiede l'accesso a questi URL. Vengono usati per la gestione di identità e controllo di accesso da Azure Active Directory
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Per completare il download di MySQL
 
 
@@ -329,7 +356,7 @@ dc.services.visualstudio.com | Caricare i log delle app usati per il monitoraggi
 
 **Dispositivo** | **Connection**
 --- | ---
-Macchine virtuali | Il servizio Mobility in esecuzione nelle VM comunica con l'appliance di replica locale (server di configurazione) sulla porta HTTPS 443 in ingresso, per la gestione della replica.<br/><br/> Le macchine virtuali inviano i dati della replica al server di elaborazione (in esecuzione sul computer del server di configurazione) sulla porta HTTPS 9443 in ingresso. La porta può essere modificata.
+VM | Il servizio Mobility in esecuzione nelle VM comunica con l'appliance di replica locale (server di configurazione) sulla porta HTTPS 443 in ingresso, per la gestione della replica.<br/><br/> Le macchine virtuali inviano i dati della replica al server di elaborazione (in esecuzione sul computer del server di configurazione) sulla porta HTTPS 9443 in ingresso. La porta può essere modificata.
 Appliance di replica | L'appliance di replica orchestra la replica con Azure tramite la porta HTTPS 443 in uscita.
 Server di elaborazione | Il server di elaborazione riceve i dati di replica, li ottimizza e li crittografa e li invia ad archiviazione di Azure tramite la porta 443 in uscita.<br/> Per impostazione predefinita, il server di elaborazione viene eseguito nell'appliance di replica.
 
@@ -349,8 +376,8 @@ Schede di rete | Sono supportate più schede. |
 VHD condiviso | Non supportati. | Il controllo ha esito negativo se non supportato.
 Disco FC | Non supportati. | Il controllo ha esito negativo se non supportato.
 BitLocker | Non supportati. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker.
-Nome VM | Da 1 a 63 caratteri.<br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
-Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/> -Prima della migrazione Abilita RDP nella macchina virtuale locale. Assicurarsi che siano aggiunte regole TCP e UDP per il profilo **Pubblico** e che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall** -> **app e funzionalità consentite** per le reti di **dominio e private** . Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md) |
+Nome della VM. | Da 1 a 63 caratteri.<br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
+Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/> -Prima della migrazione Abilita RDP nella macchina virtuale locale. Assicurarsi che siano aggiunte regole TCP e UDP per il profilo **Pubblico** e che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall** -> **le app e le funzionalità consentite** per le reti di **dominio e private** . Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md). |
 Connetti dopo la migrazione-Linux | Per connettersi alle macchine virtuali di Azure dopo la migrazione tramite SSH:<br/> Prima della migrazione, nel computer locale controllare che il servizio Secure Shell sia impostato su avvio e che le regole del firewall consentano una connessione SSH.<br/> Dopo il failover, nella macchina virtuale di Azure, consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e per la subnet di Azure a cui è connessa. Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale. |  
 
 

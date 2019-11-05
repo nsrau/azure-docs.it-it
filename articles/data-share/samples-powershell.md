@@ -1,19 +1,17 @@
 ---
 title: Esempi di Azure PowerShell per la condivisione di dati di Azure
-description: Informazioni su Azure PowerShell script di esempio che consentono di creare e gestire le condivisioni dati nell'anteprima della condivisione dati di Azure.
+description: Informazioni su Azure PowerShell script di esempio che consentono di creare e gestire le condivisioni dati nella condivisione dati di Azure.
 ms.service: data-share
-ms.workload: data-services
-ms.topic: conceptual
-ms.devlang: powershell
 author: joannapea
 ms.author: joanpo
-ms.date: 07/6/2019
-ms.openlocfilehash: a694ced2697cba8cc50e3c7b5b14f712527e1cd9
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.topic: conceptual
+ms.date: 07/06/2019
+ms.openlocfilehash: c2593c4c03f48624b8b9e3b9d72a3558f5f581be
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166323"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499289"
 ---
 # <a name="azure-powershell-samples-for-azure-data-share"></a>Esempi di Azure PowerShell per la condivisione di dati di Azure
 
@@ -32,3 +30,9 @@ La tabella seguente include collegamenti a script di esempio Azure PowerShell pe
 |[Visualizzare i dettagli di una condivisione di dati](scripts/powershell/view-share-details-powershell.md)| Questo script di PowerShell di esempio elenca e recupera i dettagli delle condivisioni dati. |
 |[Monitorare l'utilizzo dei dati condivisi](scripts/powershell/monitor-usage-powershell.md)| Questo script di PowerShell di esempio consente di monitorare l'utilizzo dei dati condivisi inviati. |
 |[Creare e visualizzare i trigger snapshot](scripts/powershell/create-view-trigger-powershell.md)| Questo script di PowerShell di esempio crea trigger snapshot di una condivisione.
+
+
+
+
+
+

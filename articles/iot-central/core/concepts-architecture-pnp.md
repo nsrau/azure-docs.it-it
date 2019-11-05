@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a9d74d94e139427027f68b2c26675447ae6da18c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3dacea5c1d77bfead85e42ae312bfafbe70d8ca1
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954877"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990389"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Architettura del IoT Central di Azure (funzionalità di anteprima)
 
@@ -32,7 +32,7 @@ I dispositivi scambiano dati con l'applicazione Azure IoT Central. Un dispositiv
 
 In Azure IoT Central i dati che un dispositivo può scambiare con l'applicazione sono specificati in un modello di dispositivo. Per altre informazioni sui modelli di dispositivo, vedere [Gestione dei metadati](#metadata-management).
 
-Per altre informazioni sul modo in cui i dispositivi si connettono all'applicazione Azure IoT Central, vedere [Connettività dei dispositivi](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+Per altre informazioni sul modo in cui i dispositivi si connettono all'applicazione Azure IoT Central, vedere [Connettività dei dispositivi](overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## <a name="cloud-gateway"></a>Gateway cloud
 
@@ -44,7 +44,7 @@ Azure IoT Central usa l'hub IoT come gateway del cloud che permette la connettiv
 
 Per altre informazioni sull'hub IoT, vedere [Documentazione sull'hub IoT](https://docs.microsoft.com/azure/iot-hub/).
 
-Per altre informazioni sulla connettività dei dispositivi in Azure IoT Central, vedere [Connettività dei dispositivi](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+Per altre informazioni sulla connettività dei dispositivi in Azure IoT Central, vedere [Connettività dei dispositivi](overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## <a name="data-stores"></a>Archivi dati
 
@@ -110,4 +110,4 @@ Un operatore può creare dashboard di applicazione personalizzati. È possibile 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che sono state apprese le informazioni sull'architettura di Azure IoT Central, il passaggio successivo suggerito consiste nell'ottenere informazioni sulla [connettività dei dispositivi](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in Azure IOT Central.
+Ora che sono state apprese le informazioni sull'architettura di Azure IoT Central, il passaggio successivo suggerito consiste nell'ottenere informazioni sulla [connettività dei dispositivi](overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in Azure IOT Central.

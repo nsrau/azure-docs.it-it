@@ -1,7 +1,7 @@
 ---
 title: Creare endpoint del servizio Web
-titleSuffix: Azure Machine Learning Studio
-description: Creare endpoint del servizio Web in Azure Machine Learning Studio. Ogni endpoint nel servizio Web viene indirizzato, limitato e gestito in modo indipendente.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Creazione di endpoint del servizio Web in Azure Machine Learning Studio (versione classica). Ogni endpoint nel servizio Web viene indirizzato, limitato e gestito in modo indipendente.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: ac434a696f6e77e5ce61b430232166e7727eda38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d98df3e2dcc8112df9d56033bece069607380d9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751179"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493230"
 ---
-# <a name="create-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Creare endpoint per servizi Web di Azure Machine Learning Studio distribuiti
+# <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Creare endpoint per i servizi Web di Azure Machine Learning Studio distribuiti (classico)
 
 > [!NOTE]
 > Questo argomento descrive le tecniche applicabili a un servizio Web di Machine Learning **classico**.
@@ -32,14 +32,14 @@ Ogni endpoint nel servizio Web viene indirizzato, limitato e gestito in modo ind
 > [!NOTE]
 > Se sono stati aggiunti altri endpoint al servizio Web, non è possibile eliminare l'endpoint predefinito.
 
-1. In Machine Learning Studio fare clic su Web Services (Servizi Web) nella colonna di spostamento a sinistra.
+1. In Machine Learning Studio (classico), nella colonna di spostamento a sinistra fare clic su servizi Web.
 2. Nella parte inferiore del dashboard dei servizi Web, fare clic su **Gestisci endpoint**. Nel portale dei servizi Web di Azure Machine Learning viene aperta la pagina dedicata agli endpoint del servizio Web.
 3. Fare clic su **Nuovo**.
 4. Immettere un nome e una descrizione per il nuovo endpoint. I nomi degli endpoint devono contenere al massimo 24 caratteri alfanumerici (con lettere minuscole). Selezionare il livello di registrazione e indicare se i dati di esempio sono abilitati. Per altre informazioni sulla registrazione, vedere [Abilitare la registrazione per i servizi Web di Machine Learning](web-services-logging.md).
 
 ## <a id="scaling"></a> Ridimensionare un servizio Web tramite l'aggiunta di altri endpoint
 
-Per impostazione predefinita, ogni servizio Web pubblicato è configurato per supportare 20 richieste simultanee fino a 200 richieste simultanee. Azure Machine Learning Studio ottimizza automaticamente questa impostazione per offrire le prestazioni migliori per il servizio Web, ignorando il valore del portale.
+Per impostazione predefinita, ogni servizio Web pubblicato è configurato per supportare 20 richieste simultanee fino a 200 richieste simultanee. La versione classica di Azure Machine Learning Studio ottimizza automaticamente l'impostazione per fornire le prestazioni migliori per il servizio Web e il valore del portale viene ignorato.
 
 Se si prevede di chiamare l'API con un carico superiore a 200 chiamate simultanee, il numero massimo supportato, è consigliabile creare più endpoint nello stesso servizio Web. È quindi possibile distribuire casualmente il carico tra tutti gli endpoint.
 

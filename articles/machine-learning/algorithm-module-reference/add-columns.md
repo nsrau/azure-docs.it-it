@@ -1,24 +1,24 @@
 ---
 title: 'Aggiungi colonne: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Add columns nel servizio Azure Machine Learning per concatenare due set di impostazioni.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Aggiungi colonne in Azure Machine Learning per concatenare due set di impostazioni.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: cbb1249b529fde1368bfaff0c6c251c93fa6c309
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 55981279cb1902424d1a0f77af097dc379d7222f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693849"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493962"
 ---
 # <a name="add-columns-module"></a>Modulo Aggiungi colonne
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per concatenare due set di impostazioni. Per creare un singolo set di dati, è possibile combinare tutte le colonne dei due set di dati specificati come input. Se è necessario concatenare più di due set di impostazioni, utilizzare diverse istanze di **Aggiungi colonne**.
 
@@ -46,4 +46,4 @@ Se sono presenti due colonne con lo stesso nome nei set di dati di input, viene 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

@@ -16,16 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: eca3a969d56d9b016afbf2d104aaf951cdbf6360
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: edba2a18e3b086a132f0bba7622df5df389671c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372414"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489194"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel"></a>Cercare le minacce con in Sentinel di Azure
-
-
+# <a name="hunt-for-threats-with-azure-sentinel"></a>Cercare le minacce con Azure Sentinel
 
 Se sei un investigatore che vuole essere proattivo per la ricerca di minacce per la sicurezza, Azure Sentinel Cerca potenti strumenti di ricerca e query per cercare le minacce alla sicurezza nelle origini dati dell'organizzazione. Tuttavia, i sistemi e le appliance di sicurezza generano montagne di dati che possono risultare difficili da analizzare e filtrare in eventi significativi. Per aiutare gli analisti della sicurezza a cercare in modo proattivo nuove anomalie che non sono state rilevate dalle app per la sicurezza, le query di ricerca predefinite di Azure Sentinel consentono di porre le domande appropriate per individuare i problemi nei dati già presenti nella rete. 
 
@@ -48,7 +46,7 @@ Con Azure Sentinel Hunting è possibile sfruttare le funzionalità seguenti:
 ## <a name="get-started-hunting"></a>Inizia a cercare
 
 1. Nel portale di Azure Sentinel fare clic su **Hunting**.
-  @no__t 0Azure Sentinel inizia a cercare @ no__t-1
+  ![Azure Sentinel inizia a cercare](media/tutorial-hunting/hunting-start.png)
 
 2. Quando si apre la pagina di **ricerca** , tutte le query di ricerca vengono visualizzate in un'unica tabella. La tabella elenca tutte le query scritte dal team Microsoft degli analisti di sicurezza, nonché qualsiasi query aggiuntiva creata o modificata. Ogni query fornisce una descrizione di ciò che cerca e del tipo di dati in cui viene eseguito. Questi modelli sono raggruppati in base alle varie tattiche, ovvero le icone a destra categorizzano il tipo di minaccia, ad esempio l'accesso iniziale, la persistenza e la exfiltration. È possibile filtrare i modelli di query di caccia usando uno dei campi. È possibile salvare qualsiasi query nei Preferiti. Salvando una query nei Preferiti, la query viene eseguita automaticamente ogni volta che si accede alla pagina di **ricerca** . È possibile creare una query di ricerca personalizzata o clonare e personalizzare un modello di query di ricerca esistente. 
  
@@ -126,7 +124,7 @@ Creare una nuova query di ricerca:
 1. Fare clic su **nuova query** e selezionare **Salva**.
 2. Compilare tutti i campi vuoti e selezionare **Salva**.
 
-   ![Nuova query](./media/tutorial-hunting/new-query.png)
+   ![Nuova Query](./media/tutorial-hunting/new-query.png)
 
 Clonare e modificare una query di ricerca esistente:
 

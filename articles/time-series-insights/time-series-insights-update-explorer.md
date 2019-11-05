@@ -1,21 +1,21 @@
 ---
 title: Visualizzazione dei dati nello strumento di esplorazione di Anteprima di Azure Time Series Insights | Microsoft Docs
 description: Questo articolo descrive le funzionalità e le opzioni disponibili nell'app Web dello strumento di esplorazione di Anteprima di Azure Time Series Insights.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: a1707740d673ea49a4b4494f5d2e6a5753982090
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 3f6c03ace13b9b6cb1bda004799502e1f382051d
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553404"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989964"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Visualizzare i dati nella versione di anteprima dello strumento di esplorazione
 
@@ -35,7 +35,7 @@ Per iniziare a usare Esplora Azure Time Series Insights Preview, è necessario:
 
 Lo strumento di esplorazione di Anteprima di Azure Time Series Insights è costituito dagli elementi seguenti:
 
-[visualizzazione ![The Explorer](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
+[![la visualizzazione di esplorazione](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
 
 - <a href="#environment-drop-down-list">Pannello ambiente</a>: Visualizza gli ambienti di Azure Time Series Insights.
 - <a href="#navigation-menu">Menu di navigazione</a>: utilizzarlo per spostarsi tra le pagine **analizza** e **modello** .
@@ -51,13 +51,13 @@ Nell'elenco a discesa ambiente vengono visualizzati tutti gli ambienti Time Seri
 
 1. Selezionare la freccia a discesa accanto all'ambiente visualizzato.
 
-   [Pannello di controllo ![The](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
+   [![il pannello di controllo](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
 
 1. Quindi selezionare l'ambiente desiderato.
 
 ## <a name="navigation-menu"></a>Menu di navigazione
 
-  [menu di spostamento ![The](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
+  [![il menu di navigazione](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
 
 Usare il menu di navigazione per scegliere tra due visualizzazioni:
 
@@ -72,7 +72,7 @@ Nell'albero gerarchia vengono visualizzati gli elementi dati selezionati che inc
 
 È possibile utilizzare il pannello di ricerca del modello per eseguire facilmente ricerche e spostarsi nella gerarchia dei modelli Time Series per individuare le istanze di serie temporali specifiche che si desidera visualizzare nel grafico. Dopo aver selezionato le istanze, queste vengono aggiunte sia al grafico corrente sia all'area dati.
 
-  [Pannello di ricerca del modello ![The](media/v2-update-explorer/explorer-four.png)](media/v2-update-explorer/explorer-four.png#lightbox)
+  [![il pannello di ricerca del modello](media/v2-update-explorer/explorer-four.png)](media/v2-update-explorer/explorer-four.png#lightbox)
 
 ### <a name="model-authoring"></a>Creazione di modelli
 
@@ -88,11 +88,11 @@ Per altre informazioni sul Modello serie temporale, vedere [Modelli serie tempor
 
 Il pozzetto Visualizza i campi dell'istanza e altri metadati associati alle istanze di Time Series Insights selezionate. Selezionando le caselle di controllo sul lato destro, è possibile nascondere o visualizzare istanze specifiche del grafico corrente. È anche possibile rimuovere elementi di dati specifici dall'area dati correnti selezionando il controllo rosso **Delete** (Cestino) sul lato sinistro dell'elemento.
 
-  [![The anteprima](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
+  [![l'anteprima](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
 
 Per riconfigurare il layout della pagina **analizza** grafico, selezionare l'icona con i puntini di sospensione nell'angolo in alto a destra:
 
-  [opzioni di layout ![Telemetry](media/v2-update-explorer/explorer-six.png)](media/v2-update-explorer/explorer-six.png#lightbox)
+  [opzioni di layout ![telemetria](media/v2-update-explorer/explorer-six.png)](media/v2-update-explorer/explorer-six.png#lightbox)
 
 > [!NOTE]
 > Se viene visualizzato il messaggio seguente, l'istanza non contiene dati durante l'intervallo di tempo selezionato. Per risolvere il problema, aumentare l'intervallo di tempo o verificare che l'istanza stia eseguendo il push dei dati.
@@ -103,7 +103,7 @@ Per riconfigurare il layout della pagina **analizza** grafico, selezionare l'ico
 
 Con il grafico è possibile visualizzare le istanze di Time Series Insights come righe. È possibile comprimere il pannello ambiente, il modello di dati e il pannello di controllo intervallo di tempo selezionando i controlli Web per rendere il grafico più grande.
 
-  [Panoramica del grafico ![Preview](media/v2-update-explorer/explorer-eight.png)](media/v2-update-explorer/explorer-eight.png#lightbox)
+  [Panoramica del grafico di anteprima ![](media/v2-update-explorer/explorer-eight.png)](media/v2-update-explorer/explorer-eight.png#lightbox)
 
 - **Intervallo di date selezionato**: controlla gli elementi dati disponibili per la visualizzazione.
 
@@ -121,15 +121,15 @@ Con il grafico è possibile visualizzare le istanze di Time Series Insights come
 
 Per eseguire il drill-down di una sezione di dati specifica, fare clic su un punto dati nel grafico corrente, quindi trascinare l'area selezionata nell'endpoint desiderato. Fare clic con il pulsante destro del mouse sull'area grigia selezionata e selezionare **Zoom**, come illustrato nella figura seguente:
 
-  [zoom grafico ![Preview](media/v2-update-explorer/explorer-nine.png)](media/v2-update-explorer/explorer-nine.png#lightbox)
+  [zoom del grafico ![anteprima](media/v2-update-explorer/explorer-nine.png)](media/v2-update-explorer/explorer-nine.png#lightbox)
 
 Dopo aver eseguito l'azione di **Zoom** , viene visualizzato il set di dati selezionato. Consente di selezionare il controllo del formato dell'asse y per scorrere le tre rappresentazioni dell'asse y dei dati Time Series Insights.
 
-  [asse y grafico ![Preview](media/v2-update-explorer/explorer-ten.png)](media/v2-update-explorer/explorer-ten.png#lightbox)
+  [![l'asse y del grafico di anteprima](media/v2-update-explorer/explorer-ten.png)](media/v2-update-explorer/explorer-ten.png#lightbox)
 
 Qui è possibile vedere un esempio di assi Y condivisi:
 
-  [![Preview assi Y condivisi](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
+  [![anteprima assi Y condivisi](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
 
 ## <a name="time-editor-panel"></a>Pannello Editor temporale
 
@@ -151,7 +151,7 @@ Quando si usa Anteprima di Time Series Insights, prima di tutto si seleziona un 
 
 1. **Intervallo di date da e verso il controllo Web**: con questo controllo Web è possibile selezionare facilmente gli intervalli di data e ora desiderati. È anche possibile usare il controllo per passare da una fascia oraria a un'altra. Dopo avere apportato le modifiche da applicare all'area di lavoro corrente, selezionare **Salva**.
 
-   [![To e dal pannello di selezione](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
+   [![da e verso il pannello di selezione](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
 
 ## <a name="navigation-panel"></a>Pannello di navigazione
 
@@ -159,15 +159,15 @@ Il pannello di navigazione Time Series Insights anteprima viene visualizzato nel
 
 ### <a name="current-session-share-link-control"></a>Controllo collegamento della condivisione sessione corrente
 
-  [icona ![Share](media/v2-update-explorer/explorer-fifteen.png)](media/v2-update-explorer/explorer-fifteen.png#lightbox)
+  [icona di condivisione ![](media/v2-update-explorer/explorer-fifteen.png)](media/v2-update-explorer/explorer-fifteen.png#lightbox)
 
 Selezionare l'icona nuova **condivisione** per condividere un collegamento URL con il team.
 
-  [![Share l'URL dell'istanza](media/v2-update-explorer/url-share.png)](media/v2-update-explorer/url-share.png#lightbox)
+  [![condividere l'URL dell'istanza](media/v2-update-explorer/url-share.png)](media/v2-update-explorer/url-share.png#lightbox)
 
 ### <a name="tenant-section"></a>Sezione tenant
 
-  [selezione ![Tenant](media/v2-update-explorer/explorer-sixteen.png)](media/v2-update-explorer/explorer-sixteen.png#lightbox)
+  [selezione del tenant ![](media/v2-update-explorer/explorer-sixteen.png)](media/v2-update-explorer/explorer-sixteen.png#lightbox)
 
 * Visualizza le informazioni correnti sull'account di accesso Time Series Insights.
 * Usarlo per passare tra i temi Time Series Insights disponibili.
@@ -177,7 +177,7 @@ Selezionare l'icona nuova **condivisione** per condividere un collegamento URL c
 
 Per selezionare un nuovo tema, selezionare l'icona del profilo nell'angolo in alto a destra. Selezionare quindi **Cambia tema**.
 
-  [selezione ![Theme](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
+  [Selezione tema ![](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
 
 > [!TIP]
 > La selezione della lingua è disponibile anche selezionando l'icona del profilo.
@@ -187,7 +187,7 @@ Anteprima di Azure Time Series Insights supporta due temi:
 * **Tema chiaro**: il tema predefinito illustrato in questo documento.
 * **Tema scuro**: esegue il rendering di Esplora risorse come illustrato di seguito:
 
-  [![Selected tema scuro](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
+  [![tema scuro selezionato](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
 
 ## <a name="s1s2-environment-controls"></a>Controlli dell'ambiente S1/S2
 
@@ -197,7 +197,7 @@ Questa sezione si applica solo agli ambienti S1/S2 esistenti che provano a usare
 
 Al posto della gerarchia, viene visualizzato il pannello Time Series Insights termini, in cui si definiscono le query nell'ambiente in uso. Usarlo per filtrare i dati in base a un predicato.
 
-  [pannello query ![Where](media/v2-update-explorer/explorer-eighteen.png)](media/v2-update-explorer/explorer-eighteen.png#lightbox)
+  [![dove pannello query](media/v2-update-explorer/explorer-eighteen.png)](media/v2-update-explorer/explorer-eighteen.png#lightbox)
 
 Il pannello dell'editor delle condizioni di Anteprima di Time Series Insights accetta i parametri seguenti:
 
@@ -208,23 +208,23 @@ Il pannello dell'editor delle condizioni di Anteprima di Time Series Insights ac
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | Tutti gli operandi devono essere dello stesso tipo o essere una costante NULL. |
-| `HAS` | Stringa | Sul lato destro sono consentiti solo valori letterali stringa costanti. Non sono consentite stringhe vuote e NULL. |
+| `HAS` | String | Sul lato destro sono consentiti solo valori letterali stringa costanti. Non sono consentite stringhe vuote e NULL. |
 
 Per ulteriori informazioni sulle operazioni di query e sui tipi di dati supportati, vedere l'articolo relativo all' [espressione Time Series (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx).
 
 ### <a name="examples-of-where-clauses"></a>Esempi di clausole WHERE
 
-  [esempi di clausole ![Where](media/v2-update-explorer/explorer-nineteen.png)](media/v2-update-explorer/explorer-nineteen.png#lightbox)
+  [esempi di clausole WHERE ![](media/v2-update-explorer/explorer-nineteen.png)](media/v2-update-explorer/explorer-nineteen.png#lightbox)
 
 **Measure**: elenco a discesa che consente di visualizzare tutte le colonne numeriche (**Double**) che è possibile utilizzare come elementi per il grafico corrente.
 
 **Split by**: questo elenco a discesa consente di visualizzare tutte le colonne categoriche (stringhe) disponibili nel modello in cui è possibile raggruppare i dati. È possibile aggiungere fino a cinque termini per visualizzare sullo stesso asse x. Immettere i parametri desiderati e quindi selezionare **Aggiungi** per aggiungere un nuovo termine.
 
-  [![Queried e una vista filtrata](media/v2-update-explorer/explorer-twenty.png)](media/v2-update-explorer/explorer-twenty.png#lightbox)
+  [![sottoposto a query e filtrato una vista](media/v2-update-explorer/explorer-twenty.png)](media/v2-update-explorer/explorer-twenty.png#lightbox)
 
 È possibile mostrare e nascondere gli elementi nel pannello del grafico selezionando l'icona visibile, come illustrato nella figura seguente. Per rimuovere completamente le query, selezionare la **X**rossa.
 
-  [visualizzazione ![Queried e filtrata due](media/v2-update-explorer/explorer-twenty-one.png)](media/v2-update-explorer/explorer-twenty-one.png#lightbox)
+  [![sottoposto a query e filtrato-visualizzazione due](media/v2-update-explorer/explorer-twenty-one.png)](media/v2-update-explorer/explorer-twenty-one.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,25 +1,25 @@
 ---
 title: Casi d'uso di Anteprima di Azure Time Series Insights | Microsoft Docs
 description: Informazioni sui casi d'uso di Anteprima di Azure Time Series Insights.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 437f93e35040a93fb0c3098d6ec53883c3f856a7
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: b2c1aec7f5b653824ab999da2706549e54d47e3a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553251"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492058"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Casi d'uso di Anteprima di Azure Time Series Insights
 
-Questo articolo riepiloga diversi casi d'uso comuni per la Azure Time Series Insights Preview. I consigli forniti in questo articolo costituiscono un punto di partenza per sviluppare applicazioni e soluzioni con Time Series Insights.
+Questo articolo riepiloga diversi casi d'uso comuni per Azure Time Series Insights Preview. I consigli forniti in questo articolo costituiscono un punto di partenza per sviluppare applicazioni e soluzioni con Time Series Insights.
 
 In particolare, questo articolo risponde alle domande seguenti:
 
@@ -36,31 +36,31 @@ Azure Time Series Insights è un'offerta di piattaforma distribuita come servizi
 
 ## <a name="data-exploration-and-visual-anomaly-detection"></a>Esplorazione dei dati e rilevamento di anomalie degli oggetti visivi
 
-Esplora e analizza immediatamente miliardi di eventi per rilevare anomalie e individuare tendenze nascoste nei tuoi dati. Time Series Insights offre prestazioni near real-time per i tuoi carichi di lavoro di analisi di IoT e DevOps.
+Esplorare e analizzare immediatamente miliardi di eventi per rilevare anomalie e individuare tendenze nascoste nei dati. Time Series Insights offre prestazioni near real-time per i carichi di lavoro di analisi di IoT e DevOps.
 
-[Esplora ![Data](media/v2-update-use-cases/data-explorer.png)](media/v2-update-use-cases/data-explorer.png#lightbox)
+[Esplora dati ![](media/v2-update-use-cases/data-explorer.png)](media/v2-update-use-cases/data-explorer.png#lightbox)
 
 La maggior parte dei clienti accetta che la quantità minima di tempo necessaria per ottenere informazioni è una delle funzionalità principali di Time Series Insights:
 
 * Time Series Insights non richiede di preparare i dati in anticipo. 
-* Essendo molto veloce, connette gli utenti a miliardi di eventi nell'hub IoT di Azure o in Hub eventi di Azure in pochi minuti. 
+* Funziona rapidamente per connettersi a miliardi di eventi nell'hub Azure Internet o nelle istanze di hub eventi di Azure in pochi minuti. 
 * Dopo aver stabilito la connessione, è possibile visualizzare e analizzare immediatamente miliardi di eventi per rilevare anomalie e individuare tendenze nascoste nei dati.
 
-Time Series Insights è intuitivo e semplice da usare. È possibile interagire con i dati senza scrivere nemmeno una riga di codice. Anche se Time Series Insights fornisce un linguaggio di query granulare basato su testo per utenti avanzati che hanno familiarità con SQL, non sono necessarie altre informazioni. Offre anche funzionalità di esplorazione tramite selezione e clic per gli utenti non esperti.
+Time Series Insights è intuitivo e semplice da usare. È possibile interagire con i dati senza scrivere nemmeno una riga di codice. Non c'è neanche un nuovo linguaggio da apprendere, sebbene Time Series Insights fornisca un linguaggio di query granulare basato su testo per utenti avanzati che hanno familiarità con SQL. Offre anche funzionalità di esplorazione tramite selezione e clic per gli utenti non esperti.
 
-I clienti possono sfruttare la velocità per diagnosticare rapidamente i problemi relativi agli asset. Possono eseguire l'analisi del DevOps per ottenere la causa radice di un bug in una soluzione Internet delle cose. Consentono inoltre di identificare le aree da contrassegnare per un'analisi più approfondita come parte delle iniziative data science.  
+I clienti possono sfruttare la velocità per diagnosticare rapidamente i problemi relativi agli asset. Possono eseguire l'analisi del DevOps per ottenere la causa radice di un bug in una soluzione Internet delle cose. Consentono inoltre di identificare le aree da contrassegnare per un'analisi più approfondita come parte delle iniziative data science. 
 
 Esistono tre modi principali per interagire con i dati archiviati in Time Series Insights:
 
-- Il primo e il più semplice per iniziare consiste nell'usare lo strumento di esplorazione di Anteprima di Time Series Insights. È possibile usarlo per visualizzare rapidamente tutti i dati IoT in un'unica posizione. Fornisce strumenti, ad esempio la mappa termica, che consentono di individuare le anomalie nei dati. Fornisce anche una visualizzazione in prospettiva. Usarla per confrontare fino a quattro visualizzazioni da uno o più ambienti Time Series Insights in un singolo dashboard. Il dashboard offre una visualizzazione dei dati della serie temporale in tutte le posizioni. Per altre informazioni, vedere lo [strumento di esplorazione di Anteprima di Time Series Insights](./time-series-insights-update-explorer.md). Per pianificare l'ambiente Time Series Insights, vedere [Pianificazione di Time Series Insights](./time-series-insights-update-plan.md).
+- Il primo e il più semplice per iniziare consiste nell'usare lo strumento di esplorazione di Anteprima di Time Series Insights. È possibile usarlo per visualizzare rapidamente tutti i dati IoT in un'unica posizione. Fornisce strumenti come la mappa termica che consentono di individuare le anomalie nei dati. Fornisce anche una visualizzazione in prospettiva. Usarla per confrontare fino a quattro visualizzazioni da uno o più ambienti Time Series Insights in un singolo dashboard. Il dashboard offre una visualizzazione dei dati della serie temporale in tutte le posizioni. Per altre informazioni, vedere lo [strumento di esplorazione di Anteprima di Time Series Insights](./time-series-insights-update-explorer.md). Per pianificare l'ambiente Time Series Insights, vedere [Pianificazione di Time Series Insights](./time-series-insights-update-plan.md).
 
-- Il secondo modo per iniziare è usare JavaScript SDK per incorporare rapidamente diagrammi e grafici avanzati nell'applicazione Web. Con poche righe di codice, è possibile creare query avanzate. Usarle per popolare grafici a linee, grafici a torta, grafici a barre, mappe termiche, griglie dati e altro ancora. Tutti questi elementi sono predefiniti se si usa l'SDK. L'SDK astrae anche le API di query di Time Series Insights. È possibile usarle per creare predicati simili a SQL per eseguire query sui dati da visualizzare in un dashboard. Per le soluzioni ibride a livello di presentazione, Time Series Insights offre URL con parametri. Forniscono punti di connessione ottimali con lo strumento di esplorazione di Anteprima di Time Series Insights per un'analisi dettagliata dei dati.
+- Il secondo modo per iniziare consiste nell'usare JavaScript SDK per incorporare rapidamente grafici e grafici avanzati nell'applicazione Web. Con poche righe di codice, è possibile creare query avanzate. Utilizzarli per popolare grafici a linee, grafici a torta, grafici a barre, mappe termiche, griglie di dati e altro ancora. Tutti questi elementi sono predefiniti se si usa l'SDK. L'SDK astrae anche le API di query di Time Series Insights. È possibile usarle per creare predicati simili a SQL per eseguire query sui dati da visualizzare in un dashboard. Per le soluzioni ibride a livello di presentazione, Time Series Insights offre URL con parametri. Forniscono punti di connessione ottimali con lo strumento di esplorazione di Anteprima di Time Series Insights per un'analisi dettagliata dei dati.
 
     * Per ulteriori informazioni su JavaScript SDK, vedere la [libreria client Time Series Insights JS](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) e la documentazione del [client di Time Series Insights](https://github.com/Microsoft/tsiclient) .
 
     * Per altre informazioni su come condividere gli URL e la nuova interfaccia utente, vedere [visualizzare i dati in esplora Azure Time Series Insights Preview](time-series-insights-update-explorer.md).
 
-- Il terzo modo per iniziare consiste nell'usare le API avanzate per eseguire query sui dati archiviati in Time Series Insights. Time Series Insights dispone di operatori temporali, ad esempio `from`, `to`, `first` e `last`. Dispone di aggregazioni e trasformazioni, ad esempio `average`, `min`, `max`, `split by`, `order by` e `DateHistogram`. Dispone inoltre di operatori di filtro, ad esempio `has`, `in`, `and`, `or`, `greater than` e `REGEX`. Tutti questi operatori consentono alle applicazioni downstream di trovare rapidamente tendenze e modelli interessanti nei dati. Usarli per popolare le visualizzazioni personalizzate e poter individuare le anomalie.
+- Il terzo modo per iniziare consiste nell'usare le API avanzate per eseguire query sui dati archiviati in Time Series Insights. Time Series Insights dispone di operatori temporali, ad esempio `from`, `to`, `first`e `last`. Dispone di aggregazioni e trasformazioni, ad esempio `average`, `min`, `max`, `split by`, `order by`e `DateHistogram`. Dispone inoltre di operatori di filtro, ad esempio `has`, `in`, `and`, `or`, `greater than`e `REGEX`. Tutti questi operatori consentono alle applicazioni downstream di trovare rapidamente tendenze e modelli interessanti nei dati. Usarli per popolare le visualizzazioni Homegrown per individuare le anomalie.
 
 ## <a name="operational-analysis-and-driving-process-efficiency"></a>Analisi operativa e miglioramento dell'efficienza dei processi
 
@@ -68,9 +68,9 @@ Usare Time Series Insights per monitorare l'integrità, l'utilizzo e le prestazi
 
 [![Panoramica](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
 
-Lo streaming e l'elaborazione continua dei dati provenienti dai processi operativi possono trasformare con successo qualsiasi azienda se combinati con la soluzione o la tecnologia più adatta. Spesso queste soluzioni sono una combinazione di più sistemi. Consentono l'esplorazione e l'analisi dei dati che cambiano continuamente, in particolare nell'area di autenticazione IoT, e condividono un modello comune.
+Lo streaming e l'elaborazione continua dei dati provenienti dai processi operativi possono trasformare con successo qualsiasi azienda se combinati con la soluzione o la tecnologia più adatta. Spesso queste soluzioni sono una combinazione di più sistemi. Consentono l'esplorazione e l'analisi dei dati che cambiano costantemente, specialmente nell'area di autenticazione e condividono uno schema comune.
 
-Questi modelli hanno spesso inizio con piattaforme abilitate per IoT, che inseriscono miliardi di eventi da dispositivi e sensori con diverse impostazioni locali. Questi sistemi elaborano e analizzano i dati di streaming per ottenere informazioni e azioni in tempo reale. I dati vengono in genere archiviati in risorse di archiviazione offline sicura e ad accesso frequente per l'analisi in tempo quasi reale e in batch.
+Questi modelli hanno spesso inizio con piattaforme abilitate per IoT, che inseriscono miliardi di eventi da dispositivi e sensori con diverse impostazioni locali. Questi sistemi elaborano e analizzano i dati di streaming per ottenere informazioni e azioni in tempo reale. I dati vengono in genere archiviati in archivio caldo e freddo per l'analisi in tempo quasi reale e batch.
 
 I dati raccolti vengono sottoposti a una serie di processi per pulirli e contestualizzarli per gli scenari di analisi e query downstream. Azure offre servizi avanzati che possono essere applicati a scenari IoT come la produzione e la manutenzione di asset. Questi servizi includono Time Series Insights, Hub IoT, Hub eventi, Analisi di flusso di Azure, Funzioni di Azure, App per la logica di Azure, Azure Databricks, Azure Machine Learning e Power BI.
 
@@ -82,11 +82,11 @@ L'architettura della soluzione può essere ottenuta nel modo seguente:
 
 Time Series Insights offre l'esplorazione dei dati quasi in tempo reale e informazioni dettagliate basate sugli asset sui dati cronologici. A seconda delle esigenze aziendali, si possono eseguire processi MapReduce e Hive sui dati archiviati in Time Series Insights connettendo Time Series Insights ad Azure HDInsight. I dati archiviati in Time Series Insights sono disponibili per Power BI e altre applicazioni dei clienti tramite le API di query della superficie pubblica di Time Series Insights. Questi dati sono utilizzabili per scenari avanzati di intelligence operativa e di business intelligence.
 
-## <a name="advanced-analytics"></a>Advanced Analytics
+## <a name="advanced-analytics"></a>Analisi avanzata
 
 Ottenere l'integrazione con servizi di analisi avanzati come Machine Learning e Azure Databricks. Time Series Insights inserisce dati non elaborati da milioni di dispositivi. Aggiunge dati contestuali che possono essere utilizzati senza problemi da un gruppo di servizi di analisi di Azure.
 
-[![Analytics](media/v2-update-use-cases/advanced-analytics.png)](media/v2-update-use-cases/advanced-analytics.png#lightbox)
+[Analisi ![](media/v2-update-use-cases/advanced-analytics.png)](media/v2-update-use-cases/advanced-analytics.png#lightbox)
 
 L'analisi avanzata e l'apprendimento automatico utilizzano ed elaborano grandi volumi di dati. Questi dati vengono usati per prendere decisioni basate sui dati ed eseguire analisi predittive. Nei casi d'uso delle soluzioni IoT, gli algoritmi di analisi avanzata apprendono dai dati raccolti da milioni di dispositivi. Questi dispositivi trasmettono i dati più volte al secondo. I dati raccolti dai dispositivi IoT non sono elaborati. Non includono informazioni contestuali, ad esempio la posizione del dispositivo e l'unità di misura del sensore che effettua la lettura. Di conseguenza, i dati non elaborati sono difficili da utilizzare direttamente per l'analisi avanzata.
 
@@ -96,7 +96,7 @@ Time Series Insights colma il divario tra i dati IoT e l'analisi avanzata in due
 
     Time Series Insights può essere usato come origine di dati reali per tutti i dati in un'organizzazione. Crea un repository centrale che può essere utilizzato dai carichi di lavoro di analisi downstream. Poiché Time Series Insights è un servizio di archiviazione in tempo quasi reale, i modelli di analisi avanzata possono apprendere continuamente dai dati di telemetria IoT in ingresso. Di conseguenza, i modelli possono eseguire stime più accurate.
 
-- In secondo luogo, l'output dei modelli di machine learning e delle stime può essere inserito Time Series Insights per visualizzare e archiviare i risultati. Questa procedura consente alle organizzazioni di ottimizzare e modificare i propri modelli. Time Series Insights rende più semplice visualizzare lo streaming di dati di telemetria sullo stesso piano degli output dei modelli con training. In questo modo, consente ai team di data science di individuare le anomalie e identificare gli schemi.  
+- In secondo luogo, l'output dei modelli di machine learning e di stima può essere inserito Time Series Insights per visualizzare e archiviare i risultati. Questa procedura consente alle organizzazioni di ottimizzare e modificare i propri modelli. Time Series Insights rende più semplice visualizzare lo streaming di dati di telemetria sullo stesso piano degli output dei modelli con training. In questo modo, consente ai team di data science di individuare le anomalie e identificare gli schemi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

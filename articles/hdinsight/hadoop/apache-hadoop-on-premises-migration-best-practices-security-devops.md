@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione di cluster di Apache Hadoop locali ad Azure HDInsight-sicurezza
+title: 'Sicurezza: eseguire la migrazione di Apache Hadoop locali ad Azure HDInsight'
 description: Informazioni sulle procedure consigliate per DevOps e sicurezza relative alla migrazione di cluster Hadoop locali in Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: c1523ccb3952bce904deac375d11de692ac235ef
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 1cebe425e323eefda6e26b0f32ddeda0118a70d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736147"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494971"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali in Azure HDInsight - Procedure consigliate per DevOps e sicurezza
 
@@ -23,7 +23,7 @@ Questo articolo include consigli per la sicurezza e DevOps in sistemi Azure HDIn
 
 Il pacchetto Enterprise Security Package (ESP) supporta l'autenticazione basata su Active Directory, il supporto multiutente e il controllo degli accessi in base al ruolo. Con l'opzione ESP scelta, il cluster HDInsight viene aggiunto al dominio di Active Directory e l'amministratore dell'azienda può configurare il controllo degli accessi in base al ruolo per la sicurezza di Apache Hive usando Apache Ranger. L'amministratore può anche controllare l'accesso ai dati da parte dei dipendenti e qualsiasi modifica apportata ai criteri di controllo di accesso.
 
-Le funzionalità ESP sono disponibili per i tipi di cluster seguenti: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka e Interactive Query (Hive LLAP). 
+Le funzionalità ESP sono disponibili nei seguenti tipi di cluster: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka e Interactive Query (Hive LLAP). 
 
 Usare la procedura seguente per distribuire il cluster HDInsight aggiunto al dominio:
 
@@ -43,14 +43,14 @@ Usare la procedura seguente per distribuire il cluster HDInsight aggiunto al dom
 
 
 - Distribuire il cluster ESP HDInsight impostando i parametri seguenti:
-    - **Nome di dominio**: nome di dominio associato ad Azure Active Directory Domain Services.
-    - **Nome utente di dominio**: account del servizio nel dominio gestito dal controller di dominio di Azure Active Directory Domain Services creato nella sezione precedente, ad esempio: `hdiadmin@contoso.onmicrosoft.com`. Questo utente del dominio diventerà l'amministratore del cluster HDInsight.
-    - **Password del dominio**: password dell'account del servizio.
-    - **Unità organizzativa**: nome distinto dell'unità organizzativa (OU) che si desidera usare con il cluster HDInsight, ad esempio: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Se questa unità organizzativa non esiste, il cluster HDInsight prova a crearne una usando i privilegi dell'account del servizio.
+    - **Nome di dominio**: nome di dominio associato ad Azure AD DS.
+    - **Nome utente del dominio**: account del servizio nel dominio gestito dal controller di dominio di Azure AD DS creato nella sezione precedente, ad esempio `hdiadmin@contoso.onmicrosoft.com`. Questo utente del dominio diventerà l'amministratore del cluster HDInsight.
+    - **Password del dominio**: la password dell'account di servizio.
+    - **Unità organizzativa**: nome distinto dell'unità organizzativa (UO) da usare con il cluster HDInsight, ad esempio `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Se questa unità organizzativa non esiste, il cluster HDInsight prova a crearne una usando i privilegi dell'account del servizio.
     - **URL LDAPS**: ad esempio `ldaps://contoso.onmicrosoft.com:636`.
-    - **Gruppo utenti di accesso**: gruppi di sicurezza i cui utenti si vogliono sincronizzare con il cluster, ad esempio: `HiveUsers`. Per specificare più gruppi utenti, separarli con punti e virgola (;). Il gruppo o i gruppi devono essere presenti nella directory prima che venga creato il cluster.
+    - **Gruppo utenti di accesso**: gruppi di sicurezza di cui si desidera sincronizzare gli utenti con il cluster, ad esempio `HiveUsers`. Per specificare più gruppi utenti, separarli con punti e virgola (;). Il gruppo o i gruppi devono essere presenti nella directory prima che venga creato il cluster.
 
-Per altre informazioni, vedere i seguenti articoli:
+Per altre informazioni, vedere gli articoli seguenti:
 
 - [Introduzione alla sicurezza Apache Hadoop con i cluster HDInsight aggiunti al dominio](../domain-joined/hdinsight-security-overview.md)
 
@@ -81,7 +81,7 @@ Per altre informazioni, vedere i seguenti articoli:
     - Crittografia lato server trasparente con chiavi gestite da Microsoft o dal cliente.
     - Crittografia di dati in transito usando la crittografia lato client, https e TLS.
 
-Per altre informazioni, vedere i seguenti articoli:
+Per altre informazioni, vedere gli articoli seguenti:
 
 - [Panoramica di Reti virtuali di Azure](../../virtual-network/virtual-networks-overview.md)
 - [Panoramica dei gruppi di sicurezza di rete di Azure](../../virtual-network/security-overview.md)
@@ -108,13 +108,13 @@ Eseguire sempre l'aggiornamento alla versione più recente di HDInsight per usuf
 1. Importare i dati temporanei di cui è stata eseguita una copia di backup.
 1. Avviare processi/continuare l'elaborazione con il nuovo cluster.
 
-Per altre informazioni, vedere l'articolo: [Eseguire l'aggiornamento del cluster HDInsight a una versione più recente](../hdinsight-upgrade-cluster.md).
+Per altre informazioni, vedere l'articolo relativo all' [aggiornamento del cluster HDInsight a una nuova versione](../hdinsight-upgrade-cluster.md).
 
 ## <a name="patch-cluster-operating-systems"></a>Applicare patch ai sistemi operativi del cluster
 
 In qualità di servizio Hadoop gestito, HDInsight si occupa dell'applicazione di patch al sistema operativo delle macchine virtuali usate dai cluster HDInsight.
 
-Per altre informazioni, vedere l'articolo: [Applicazione di patch del sistema operativo per HDInsight](../hdinsight-os-patching.md).
+Per ulteriori informazioni, vedere l'articolo relativo all'applicazione [di patch del sistema operativo per HDInsight](../hdinsight-os-patching.md).
 
 ## <a name="post-migration"></a>Dopo la migrazione
 

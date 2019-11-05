@@ -10,12 +10,12 @@ ms.subservice: load-data
 ms.date: 07/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c90deefba75cd8bbeda126c9da8a05e1069831d4
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c248a2e3e6724388fa6402a70ac3bcb51f0f9ef3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597462"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492258"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Progettazione di un strategia di caricamento dei dati di PolyBase per Azure SQL Data Warehouse
 
@@ -58,25 +58,25 @@ PolyBase carica i dati da file di testo delimitati con codifica UTF-8 e UTF-16. 
 |          int          |                             int                              |
 |        bigint         |                            bigint                            |
 |        boolean        |                             bit                              |
-|        Double         |                            float                             |
+|        double         |                            float                             |
 |         float         |                             real                             |
-|        Double         |                            money                             |
-|        Double         |                          smallmoney                          |
-|        string         |                            nchar                             |
-|        string         |                           nvarchar                           |
-|        string         |                             char                             |
-|        string         |                           varchar                            |
+|        double         |                            money                             |
+|        double         |                          smallmoney                          |
+|        stringa         |                            nchar                             |
+|        stringa         |                           nvarchar                           |
+|        stringa         |                             char                             |
+|        stringa         |                           varchar                            |
 |        binary         |                            binary                            |
 |        binary         |                          varbinary                           |
 |       timestamp       |                             date                             |
 |       timestamp       |                        smalldatetime                         |
 |       timestamp       |                          datetime2                           |
-|       timestamp       |                           Datetime                           |
+|       timestamp       |                           datetime                           |
 |       timestamp       |                             time                             |
 |       date            |                             date                             |
-|        decimal        |                            decimal                           |
+|        Decimal        |                            Decimal                           |
 
-## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Trasferire i dati in Archiviazione BLOB di Azure o in Azure Data Lake Store
+## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Inserire i dati nell'archivio BLOB di Azure o Azure Data Lake Store
 
 Per trasferire i dati in Archiviazione di Azure, è possibile spostarli nell'[archivio BLOB di Azure](../storage/blobs/storage-blobs-introduction.md) o in [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md). In entrambe le posizioni, i dati devono essere archiviati in file di testo. PolyBase può eseguire il caricamento da entrambe le posizioni.
 
@@ -87,7 +87,7 @@ Strumenti e servizi che è possibile usare per spostare i dati in Archiviazione 
 - [Azure Data Factory (ADF)](../data-factory/introduction.md) include un gateway che è possibile installare nel server locale. È quindi possibile creare una pipeline per spostare i dati dal server locale ad Archiviazione di Azure. Per l'uso di Data Factory con SQL Data Warehouse, vedere [Caricare dati in Azure SQL Data Warehouse tramite Azure Data Factory](/azure/data-factory/load-azure-sql-data-warehouse).
 
 
-## <a name="3-prepare-the-data-for-loading"></a>3. Preparare i dati per il caricamento
+## <a name="3-prepare-the-data-for-loading"></a>3. preparare i dati per il caricamento
 
 Potrebbe essere necessario preparare e pulire i dati nell'account di archiviazione prima di caricarli in SQL Data Warehouse. La preparazione dei dati può essere eseguita nella posizione di origine dei dati, mentre si esportano i dati in file di testo o quando i dati raggiungono Archiviazione di Azure.  È più facile lavorare con i dati il prima possibile nel processo.  
 
@@ -112,7 +112,7 @@ Per formattare i file di testo:
 - Separare i campi nel file di testo con un carattere di terminazione.  Assicurarsi di usare un carattere o una sequenza di caratteri non inclusi nei dati di origine. Usare il carattere di terminazione specificato con [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql).
 
 
-## <a name="4-load-the-data-into-sql-data-warehouse-staging-tables-using-polybase"></a>4. Caricare i dati in tabelle di staging di SQL Data Warehouse usando PolyBase
+## <a name="4-load-the-data-into-sql-data-warehouse-staging-tables-using-polybase"></a>4. caricare i dati nelle tabelle di staging SQL Data Warehouse usando la polibase
 
 È consigliabile caricare i dati in una tabella di staging. Le tabelle di staging consentono di gestire gli errori senza interferire con le tabelle di produzione. Una tabella di staging offre anche l'opportunità di usare l'elaborazione MPP di SQL Data Warehouse per eseguire trasformazioni di dati prima di inserirli nelle tabelle di produzione.
 
@@ -123,21 +123,21 @@ Per caricare i dati con PolyBase, è possibile usare una di queste opzioni di ca
 - [PolyBase con T-SQL](load-data-from-azure-blob-storage-using-polybase.md): ideale quando i dati sono nell'archivio BLOB di Azure o in Azure Data Lake Store. Questa opzione offre il massimo controllo sul processo di caricamento, ma richiede anche di definire oggetti dati esterni. Gli altri metodi definiscono questi oggetti dietro le quinte, man mano che si esegue il mapping di tabelle di origine e tabelle di destinazione.  Per orchestrare i caricamenti con T-SQL, è possibile usare Azure Data Factory, SSIS o funzioni di Azure. 
 - [PolyBase con SSIS](/sql/integration-services/load-data-to-sql-data-warehouse): ideale quando i dati di origine sono in SQL Server, in locale o nel cloud. SSIS definisce i mapping delle tabelle di origine e di destinazione, oltre a orchestrare il caricamento. Se sono già disponibili pacchetti SSIS, è possibile modificarli per utilizzare la nuova destinazione di data warehouse. 
 - [PolyBase con Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) è un altro strumento di orchestrazione,  che definisce una pipeline e pianifica i processi. 
-- La [polibase con Azure](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) databricks trasferisce i dati da una tabella SQL data warehouse a un frame di dati databricks e/o scrive i dati da un dataframe di databricks in una tabella SQL data warehouse usando la polibase.
+- La [polibase con Azure Databricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) trasferisce i dati da una tabella di SQL data warehouse a un dataframe di databricks e/o scrive i dati da un dataframe di databricks in una tabella SQL data warehouse usando la polibase.
 
 ### <a name="non-polybase-loading-options"></a>Opzioni di caricamento non PolyBase
 
 Se i dati non sono compatibili con PolyBase, è possibile usare [bcp](/sql/tools/bcp-utility) o l'[API SQLBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp carica direttamente i dati in SQL Data Warehouse senza dover passare attraverso l'archivio BLOB di Azure ed è destinato esclusivamente a piccoli caricamenti. Si noti che le prestazioni di caricamento di queste opzioni sono notevolmente inferiori rispetto a PolyBase. 
 
 
-## <a name="5-transform-the-data"></a>5. Trasformare i dati
+## <a name="5-transform-the-data"></a>5. trasformare i dati
 
 Mentre i dati sono nella tabella di staging, eseguire le trasformazioni richieste dal carico di lavoro, quindi spostare i dati in una tabella di produzione.
 
 
-## <a name="6-insert-the-data-into-production-tables"></a>6. Inserire i dati in tabelle di produzione
+## <a name="6-insert-the-data-into-production-tables"></a>6. Inserire i dati nelle tabelle di produzione
 
-L'istruzione INSERT INTO... SELECT sposta i dati dalla tabella di staging alla tabella permanente. 
+INSERT INTO... L'istruzione SELECT consente di spostare i dati dalla tabella di staging alla tabella permanente. 
 
 Quando si progetta un processo ETL, provare a eseguire il processo su un campione di test di piccole dimensioni. Provare a estrarre 1000 righe dalla tabella in un file, spostarlo in Azure e quindi provare a caricarlo in una tabella di staging. 
 

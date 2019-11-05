@@ -10,14 +10,15 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 11b16f91d600c20b48fbdc5887a4a0a4b538e916
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: MT
+ms.openlocfilehash: a1ab8f881aaee9e29519e99a5cd2a0e6fdbc9846
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330648"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489418"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Creazione di un modello di apprendimento avanzato TensorFlow su larga scala con Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come eseguire gli script di training di [TensorFlow](https://www.tensorflow.org/overview) su larga scala usando la classe [TensorFlow estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) di Azure Machine Learning. Questo esempio esegue il training e la registrazione di un modello TensorFlow per classificare le cifre scritte a mano usando una rete neurale profonda (DNN).
 
@@ -29,7 +30,7 @@ Scopri di più sull'apprendimento avanzato [rispetto a Machine Learning](concept
 
 Eseguire questo codice in uno degli ambienti seguenti:
 
- - Azure Machine Learning macchina virtuale Notebook-nessun download o installazione necessaria
+ - Azure Machine Learning istanza di calcolo: nessun download o installazione necessaria
 
      - Completare l' [esercitazione: configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md) per creare un server notebook dedicato precaricato con l'SDK e il repository di esempio.
     - Nella cartella Samples Deep learning nel server notebook trovare un notebook completato e espanso passando a questa directory: **How-to-use-azureml > ml-frameworks > tensorflow > deployment > Train-iperparameter-Tune-deploy-with-tensorflow** cartella. 
@@ -185,7 +186,7 @@ Dopo aver eseguito il training del modello, è possibile registrarlo nell'area d
 model = run.register_model(model_name='tf-dnn-mnist', model_path='outputs/model')
 ```
 
-È inoltre possibile scaricare una copia locale del modello utilizzando l'oggetto Esegui. Nello script di training `mnist-tf.py`, un oggetto TensorFlow Saver Salva in modo permanente il modello in una cartella locale (locale nella destinazione di calcolo). È possibile usare l'oggetto Run per scaricare una copia.
+È inoltre possibile scaricare una copia locale del modello utilizzando l'oggetto Esegui. Nello script di training `mnist-tf.py`un oggetto TensorFlow Saver Salva in modo permanente il modello in una cartella locale (locale nella destinazione di calcolo). È possibile usare l'oggetto Run per scaricare una copia.
 
 ```Python
 # Create a model folder in the current directory
@@ -200,7 +201,7 @@ for f in run.get_file_names():
 
 ## <a name="distributed-training"></a>Training distribuito
 
-Lo strumento di stima [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) supporta inoltre il training distribuito nei cluster CPU e GPU. È possibile eseguire facilmente processi TensorFlow distribuiti e Azure Machine Learning gestirà l'orchestrazione.
+Il [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) Estimator supporta anche il training distribuito nei cluster CPU e GPU. È possibile eseguire facilmente processi TensorFlow distribuiti e Azure Machine Learning gestirà l'orchestrazione.
 
 Azure Machine Learning supporta due modalità di training distribuito in TensorFlow:
 
@@ -257,7 +258,7 @@ run = exp.submit(tf_est)
 
 #### <a name="define-cluster-specifications-in-tf_config"></a>Definire le specifiche del cluster in ' TF_CONFIG '
 
-Sono necessari anche gli indirizzi di rete e le porte del cluster per il [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec), quindi Azure Machine Learning imposta la variabile di ambiente `TF_CONFIG`.
+Sono necessari anche gli indirizzi di rete e le porte del cluster per la [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec), quindi Azure Machine Learning imposta la variabile di ambiente `TF_CONFIG`.
 
 La variabile di ambiente `TF_CONFIG` è una stringa JSON. Di seguito è riportato un esempio della variabile per un server dei parametri:
 
@@ -272,9 +273,9 @@ TF_CONFIG='{
 }'
 ```
 
-Per l'API di alto livello [`tf.estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator) di TensorFlow, TensorFlow analizza la variabile `TF_CONFIG` e compila le specifiche del cluster.
+Per l'API [`tf.estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator) di alto livello di TensorFlow, TensorFlow analizza la variabile `TF_CONFIG` e compila la specifica del cluster per l'utente.
 
-Per le API di base di livello inferiore di TensorFlow per il training, analizzare la variabile `TF_CONFIG` e creare il `tf.train.ClusterSpec` nel codice di training.
+Per le API di base di livello inferiore di TensorFlow per il training, analizzare la variabile `TF_CONFIG` e compilare il `tf.train.ClusterSpec` nel codice di training.
 
 ```Python
 import os, json

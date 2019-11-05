@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: magattus
-ms.openlocfilehash: 8704d715a20b94dc170f232b07a0acd54bb1e6f1
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e2827a11f4ec2a5c0467c3699cd9990aaf7ae97a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996817"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495488"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Informazioni sulla fatturazione per la rete CDN di Azure
 
@@ -68,7 +68,7 @@ Per altre informazioni sulla fatturazione di Archiviazione di Azure, vedere [Inf
 
 Quando si usa una *consegna tramite servizio ospitato*, è necessario includere anche le spese seguenti:
 
-- Tempo delle risorse di calcolo di Azure: istanze di calcolo che fungono da origine.
+- Tempo di calcolo di Azure: istanze di calcolo che fungono da origine.
 
 - Trasferimento di calcolo di Azure: trasferimenti di dati dalle istanze di calcolo per riempire le cache della rete CDN di Azure.
 
@@ -85,7 +85,7 @@ Ogni volta che un POP della rete CDN deve riempire la cache, presenta una richie
 
 - Il numero di nodi che devono caricare l'oggetto: ogni volta che un nodo carica un oggetto dall'origine, viene generata una transazione fatturabile. Di conseguenza, contenuti più globali (accesso da più nodi) si traducono in più transazioni fatturabili.
 
-- Influenza (TTL): un TTL maggiore per l'oggetto indica che questo deve essere recuperato dall'origine con una frequenza minore. Esso indica anche che i client, come ad esempio i browser, possono memorizzare nella cache l'oggetto per un tempo più lungo, riducendo le transazioni nella rete CDN.
+- Influenza TTL: un TTL maggiore per l'oggetto indica che questo deve essere recuperato dall'origine con una frequenza minore. Esso indica anche che i client, come ad esempio i browser, possono memorizzare nella cache l'oggetto per un tempo più lungo, riducendo le transazioni nella rete CDN.
 
 ## <a name="which-origin-services-are-eligible-for-free-data-transfer-with-azure-cdn-from-microsoft"></a>Quali servizi di origine sono idonei per il trasferimento dati gratuito con la rete CDN di Azure di Microsoft? 
 Se si usa uno dei servizi di Azure seguenti come origine della rete CDN, non verrà addebitato il trasferimento dei dati dall'origine ai pop della rete CDN. 
@@ -94,9 +94,9 @@ Se si usa uno dei servizi di Azure seguenti come origine della rete CDN, non ver
 - Servizi multimediali di Azure
 - Macchine virtuali di Azure
 - Rete virtuale
-- Load Balancer
-- Gateway applicazione
-- Servizio DNS di Azure
+- Bilanciamento del carico
+- gateway applicazione
+- DNS di Azure
 - ExpressRoute
 - Gateway VPN
 - Gestione traffico
@@ -113,7 +113,7 @@ Se si usa uno dei servizi di Azure seguenti come origine della rete CDN, non ver
 - HDInsight
 - Azure Cosmos DB
 - Archivio Azure Data Lake
-- Servizio Azure Machine Learning 
+- Azure Machine Learning 
 - Database SQL di Azure
 - Cache Redis di Azure
 

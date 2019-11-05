@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/08/2019
-ms.openlocfilehash: dfaa39b33839406ffdf484299cb520aebf011c7d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 10/25/2019
+ms.openlocfilehash: 45d76328f4a5de4a5cf26b0a126825c1b0a906c7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299691"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496947"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Informazioni su come usare Azure Machine Learning per distribuire un modello come servizio Web in Azure Kubernetes Service (AKS). Il servizio Azure Kubernetes è ideale per distribuzioni di produzione su vasta scala. Usare il servizio Azure Kubernetes se sono necessarie una o più delle funzionalità seguenti:
 
@@ -30,8 +31,8 @@ Informazioni su come usare Azure Machine Learning per distribuire un modello com
 
 Quando si esegue la distribuzione nel servizio Azure Kubernetes, viene distribuito in un cluster AKS __connesso all'area di lavoro__. Esistono due modi per connettere un cluster AKS all'area di lavoro:
 
-* Creare il cluster AKS usando il Azure Machine Learning SDK, l'interfaccia della riga di comando di Machine Learning, la [portale di Azure](https://portal.azure.com) o la [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com). Questo processo connette automaticamente il cluster all'area di lavoro.
-* Alleghi un cluster AKS esistente all'area di lavoro Azure Machine Learning. È possibile collegare un cluster usando il Azure Machine Learning SDK, l'interfaccia della riga di comando Machine Learning o il portale di Azure.
+* Creare il cluster AKS usando il Azure Machine Learning SDK, l'interfaccia della riga di comando di Machine Learning o [Azure Machine Learning Studio](https://ml.azure.com). Questo processo connette automaticamente il cluster all'area di lavoro.
+* Alleghi un cluster AKS esistente all'area di lavoro Azure Machine Learning. È possibile collegare un cluster usando il Azure Machine Learning SDK, l'interfaccia della riga di comando di Machine Learning o Azure Machine Learning Studio.
 
 > [!IMPORTANT]
 > Il processo di creazione o allegato è un'attività una sola volta. Quando un cluster AKS è connesso all'area di lavoro, è possibile usarlo per le distribuzioni. È possibile scollegare o eliminare il cluster AKS se non è più necessario. Una volta Detatched o eliminato, non sarà più possibile eseguire la distribuzione nel cluster.
@@ -91,9 +92,9 @@ aks_target.wait_for_completion(show_output = True)
 ```
 
 > [!IMPORTANT]
-> Per [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), se si scelgono valori personalizzati per `agent_count` e `vm_size` e `cluster_purpose` non è `DEV_TEST`, è necessario assicurarsi che `agent_count` moltiplicato per `vm_size` sia maggiore o uguale a 12 CPU virtuali. Se ad esempio si usa un `vm_size` di "Standard_D3_v2", che ha 4 CPU virtuali, è necessario selezionare un `agent_count` di 3 o superiore.
+> Per [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), se si scelgono valori personalizzati per `agent_count` e `vm_size`e `cluster_purpose` non è `DEV_TEST`, è necessario assicurarsi che `agent_count` moltiplicato per `vm_size` sia maggiore o uguale a 12 CPU virtuali. Se ad esempio si usa un `vm_size` di "Standard_D3_v2", che ha 4 CPU virtuali, è necessario selezionare un `agent_count` di 3 o superiore.
 >
-> Il Azure Machine Learning SDK non fornisce il supporto per il ridimensionamento di un cluster AKS. Per ridimensionare i nodi del cluster, usare l'interfaccia utente per il cluster AKS nell'portale di Azure. È possibile modificare solo il numero di nodi, non le dimensioni della macchina virtuale del cluster.
+> Il Azure Machine Learning SDK non fornisce il supporto per il ridimensionamento di un cluster AKS. Per ridimensionare i nodi del cluster, usare l'interfaccia utente per il cluster AKS in Azure Machine Learning Studio. È possibile modificare solo il numero di nodi, non le dimensioni della macchina virtuale del cluster.
 
 Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in questo esempio, vedere i documenti di riferimento seguenti:
 
@@ -227,11 +228,74 @@ Per informazioni sull'uso di VS Code, vedere [Deploy to AKS by the vs code Exten
 > [!IMPORTANT] 
 > Per la distribuzione tramite VS Code è necessario che il cluster AKS venga creato o collegato all'area di lavoro in anticipo.
 
+## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Distribuire modelli in AKS usando l'implementazione controllata (anteprima)
+Analizzare e innalzare di livello le versioni del modello in modo controllato usando gli endpoint. Distribuire fino a 6 versioni dietro un singolo endpoint e configurare la percentuale di assegnazione di punteggi al traffico per ogni versione distribuita. È possibile abilitare App Insights per visualizzare le metriche operative degli endpoint e delle versioni distribuite.
+
+### <a name="create-an-endpoint"></a>Creare un endpoint
+Quando si è pronti per distribuire i modelli, creare un endpoint di assegnazione dei punteggi e distribuire la prima versione. Il passaggio seguente mostra come distribuire e creare l'endpoint usando l'SDK. La prima distribuzione verrà definita come la versione predefinita, il che significa che il percentile di traffico non specificato in tutte le versioni passerà alla versione predefinita.  
+
+```python
+import azureml.core,
+from azureml.core.webservice import AksEndpoint
+from azureml.core.compute import AksCompute
+from azureml.core.compute import ComputeTarget
+# select a created compute
+compute = ComputeTarget(ws, 'myaks')
+namespace_name= endpointnamespace 
+# define the endpoint and version name
+endpoint_name = "mynewendpoint",
+version_name= "versiona",
+# create the deployment config and define the scoring traffic percentile for the first deployment
+endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
+                                                              enable_app_insights = true, 
+                                                              tags = {'sckitlearn':'demo'},
+                                                              decription = testing versions,
+                                                              version_name = version_name,
+                                                              traffic_percentile = 20)
+ # deploy the model and endpoint
+ endpoint = Model.deploy(ws, endpoint_name, [model], inference_config, endpoint_deployment_config, compute)
+ ```
+
+### <a name="update-and-add-versions-to-an-endpoint"></a>Aggiornare e aggiungere versioni a un endpoint
+
+Aggiungere un'altra versione all'endpoint e configurare il punteggio del traffico di assegnazione dei punteggi per la versione. Esistono due tipi di versioni, un controllo e una versione di trattamento. Per confrontare con una sola versione di un controllo, è possibile eseguire più versioni di trattamento. 
+
+ ```python
+from azureml.core.webservice import AksEndpoint
+
+# add another model deployment to the same endpoint as above
+version_name_add = "versionb" 
+endpoint.create_version(version_name = version_name_add, 
+                        inference_config=inference_config,
+                        models=[model], 
+                        tags = {'modelVersion':'b'}, 
+                        description = "my second version", 
+                        traffic_percentile = 10)
+```
+
+Aggiornare le versioni esistenti o eliminarle in un endpoint. È possibile modificare il tipo predefinito, il tipo di controllo e il percentile del traffico della versione. 
+ 
+ ```python
+from azureml.core.webservice import AksEndpoint
+
+# update the version's scoring traffic percentage and if it is a default or control type 
+endpoint.update_version(version_name=endpoint.versions["versionb"].name, 
+                        description="my second version update", 
+                        traffic_percentile=40,
+                        is_default=True,
+                        is_control_version_type=True)
+
+# delete a version in an endpoint 
+endpoint.delete_version(version_name="versionb")
+
+```
+
+
 ## <a name="web-service-authentication"></a>Autenticazione del servizio Web
 
 Quando si esegue la distribuzione nel servizio Azure Kubernetes, l'autenticazione __basata su chiavi__ è abilitata per impostazione predefinita. È anche possibile abilitare l'autenticazione __basata su token__ . Per l'autenticazione basata su token è necessario che i client usino un account Azure Active Directory per richiedere un token di autenticazione, usato per eseguire richieste al servizio distribuito.
 
-Per __disabilitare__ l'autenticazione, impostare il parametro `auth_enabled=False` quando si crea la configurazione di distribuzione. Nell'esempio seguente viene disabilitata l'autenticazione tramite l'SDK:
+Per __disabilitare__ l'autenticazione, impostare il parametro `auth_enabled=False` durante la creazione della configurazione di distribuzione. Nell'esempio seguente viene disabilitata l'autenticazione tramite l'SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
@@ -249,7 +313,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se è necessario rigenerare una chiave, utilizzare [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
+> Se è necessario rigenerare una chiave, usare [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
 ### <a name="authentication-with-tokens"></a>Autenticazione con token
 

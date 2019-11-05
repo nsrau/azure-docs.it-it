@@ -13,21 +13,21 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cabefcc53106a53459975fc26513dc59ae7d3372
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 841271c474ba8e24bc352bcae1fa037cf382a8ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073218"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470575"
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app #
 
 Ambiente del servizio app di Azure è una distribuzione di Servizio app di Azure in una subnet nella rete virtuale di Azure. È costituita da:
 
 - **Front-end**: i front-end rappresentano il punto in cui HTTP/HTTPS termina in un ambiente del servizio app (ASE).
-- **Ruoli di lavoro**: i ruoli di lavoro sono le risorse che ospitano le app.
-- **Database**: il database contiene le informazioni che definiscono l'ambiente.
-- **Archiviazione**: Le risorse di archiviazione vengono usate per ospitare le app pubblicate dai clienti.
+- **Ruoli di lavoro**: risorse che ospitano le app.
+- **Database**: contiene le informazioni che definiscono l'ambiente.
+- **Archiviazione**: usata per ospitare le app pubblicate dal cliente.
 
 > [!NOTE]
 > Esistono due versioni dell'ambiente del servizio app: ASEv1 e ASEv2. In ASEv1 è necessario gestire le risorse prima di poterle usare. Per informazioni su come configurare e gestire ASEv1, vedere [configurare un ambiente del servizio app V1][ConfigureASEv1]. Il resto di questo articolo è incentrato su ASEv2.
@@ -77,7 +77,7 @@ Per creare un'app in un ambiente del servizio app:
     > Le app di Linux e Windows non possono essere presenti nello stesso piano di servizio app, ma possono essere presenti nello stesso ambiente del servizio app. 
     >
 
-2. Selezionare **Create**.
+2. Selezionare **Crea**.
 
 ## <a name="how-scale-works"></a>Come funziona il ridimensionamento ##
 
@@ -179,7 +179,7 @@ Per eliminare un ambiente del servizio app:
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

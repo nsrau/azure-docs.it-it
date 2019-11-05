@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: ccddd13ddd8c10daba84f959b1cc1f8a4a80deb1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 71e4b62ddcb3f144b49b99e6ba95a47971d3f4bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345562"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476948"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo, l'elenco verrà espanso e aggiornato per coprire più servizi.
@@ -47,7 +47,7 @@ Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze n
 * [Gateway applicazione](#application-gateway-limits)
 * [Automazione](#automation-limits)
 * [Cache Redis di Azure](#azure-cache-for-redis-limits)
-* [Servizi cloud di Azure](#azure-cloud-services-limits)
+* [servizi cloud di Azure](#azure-cloud-services-limits)
 * [Servizi cognitivi di Azure](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Database di Azure per MySQL](#azure-database-for-mysql)
@@ -56,7 +56,7 @@ Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze n
 * [Firewall di Azure](#azure-firewall-limits)
 * [Funzioni di Azure](#functions-limits)
 * [Servizio Azure Kubernetes](#azure-kubernetes-service-limits)
-* [Servizio Azure Machine Learning](#azure-machine-learning-service-limits)
+* [Azure Machine Learning](#azure-machine-learning-limits)
 * [Mappe di Azure](#azure-maps-limits)
 * [Monitoraggio di Azure](#azure-monitor-limits)
 * [Criteri di Azure](#azure-policy-limits)
@@ -78,12 +78,13 @@ Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze n
 * [Gestione identità](#identity-manager-limits)
 * [Hub IoT](#iot-hub-limits)
 * [Servizio Device Provisioning in hub IoT](#iot-hub-device-provisioning-service-limits)
-* [Insieme di credenziali di chiave](#key-vault-limits)
+* [Insieme di credenziali delle chiavi](#key-vault-limits)
 * [Servizi multimediali](#media-services-limits)
 * [Servizi mobili](#mobile-services-limits)
-* [Autenticazione a più fattori](#multi-factor-authentication-limits)
+* [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Rete](#networking-limits)
   * [Gateway applicazione](#application-gateway-limits)
+  * [Bastion di Azure](#azure-bastion-limits)
   * [DNS di Azure](#azure-dns-limits)
   * [Servizio Frontdoor di Azure](#azure-front-door-service-limits)
   * [Firewall di Azure](#azure-firewall-limits)
@@ -95,7 +96,7 @@ Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze n
   * [Gestione traffico](#traffic-manager-limits)
   * [Rete virtuale](#networking-limits)
   * [Rete WAN virtuale](#virtual-wan-limits)
-* [Hub di notifica di Azure](#notification-hubs-limits)
+* [Hub di notifica](#notification-hubs-limits)
 * [Gruppo di risorse](#resource-group-limits)
 * [Controllo degli accessi in base al ruolo](#role-based-access-control-limits)
 * [Utilità di pianificazione](#scheduler-limits)
@@ -105,7 +106,7 @@ Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze n
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
 * [Archiviazione](#storage-limits)
 * [Sistema StorSimple](#storsimple-system-limits)
-* [Analisi dei flussi](#stream-analytics-limits)
+* [Analisi di flusso](#stream-analytics-limits)
 * [Sottoscrizione](#subscription-limits)
 * [Macchine virtuali](#virtual-machines-limits)
 * [Set di scalabilità di macchine virtuali](#virtual-machine-scale-sets-limits)
@@ -154,7 +155,7 @@ La tabella seguente illustra le funzionalità e i limiti dei [livelli di servizi
 ### <a name="azure-kubernetes-service-limits"></a>Limiti del servizio Azure Kubernetes
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
-### <a name="azure-machine-learning-service-limits"></a>Limiti del servizio Azure Machine Learning
+### <a name="azure-machine-learning-limits"></a>Limiti di Azure Machine Learning
 I valori più recenti per Azure Machine Learning quote di calcolo sono disponibili nella [pagina Azure Machine Learning quota](../articles/machine-learning/service/how-to-manage-quotas.md)
 
 ### <a name="networking-limits"></a>Limiti relativi alla rete
@@ -179,6 +180,9 @@ Se non diversamente specificato, la tabella è valida per gli SKU v1, v2, Standa
 
 #### <a name="traffic-manager-limits"></a>Limiti relativi a Gestione traffico
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
+
+#### <a name="azure-bastion-limits"></a>Limiti di Azure Bastion
+[!INCLUDE [Azure Bastion limits](../includes/bastion-limits.md)]
 
 #### <a name="azure-dns-limits"></a>Limiti di DNS di Azure
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]

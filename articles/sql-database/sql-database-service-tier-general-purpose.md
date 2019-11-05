@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
-ms.openlocfilehash: 1c6bb557c11cf32449b440b0007e1cef929a026f
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: b4c0f88a1a21b0734c1652d19f74dc662d0a7ce1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259404"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496213"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Livello di servizio di utilizzo generico - Database SQL di Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "70259404"
 
 Il database SQL di Azure si basa sull'architettura del motore di database di SQL Server che viene rettificata per l'ambiente cloud al fine di garantire la disponibilità del 99,99% anche in caso di errori dell'infrastruttura. Vengono usati tre livelli di servizio nel database SQL di Azure, ognuno con diversi modelli di architettura. Questi livelli di servizio sono:
 
-- Utilizzo generico
+- Scopo generico
 - Business Critical
 - Hyperscale
 
@@ -48,7 +48,7 @@ Il livello di servizio per utilizzo generico è un livello di servizio predefini
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Trovare le caratteristiche delle risorse (numero di core, i/o, memoria) del livello per utilizzo generico/standard in [istanza gestita](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), database singolo nel modello [Vcore](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) o [modello DTU](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)o pool elastico nel modello [vCore](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) e [DTU](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits).
+- Trovare le caratteristiche delle risorse (numero di core, i/o, memoria) del livello per utilizzo generico/standard in [istanza gestita](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), database singolo nel modello [Vcore](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) o [modello DTU](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)o pool elastico nel modello [vCore](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose---provisioned-compute---gen4) e [DTU](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits).
 - Informazioni sui livelli [Business Critical](sql-database-service-tier-business-critical.md) e [Hyperscale](sql-database-service-tier-hyperscale.md).
 - Informazioni su [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Per altre opzioni relative a disponibilità elevata e ripristino di emergenza, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 642fcc9ac2513329e9223f59a33d51ac5005e1fd
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 5ba2255cfe0d5c4220ec2215ac837649af1ba896
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802169"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521168"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio
 
@@ -79,7 +79,7 @@ La modifica del livello di accesso dell'account si applica a tutti gli oggetti _
 
 L'organizzazione a livello di BLOB consente di modificare il livello dei dati a livello di oggetto con una sola operazione, [Imposta livello BLOB](/rest/api/storageservices/set-blob-tier). È possibile modificare facilmente il livello di accesso di un BLOB tra frequente, sporadico o archivio, in base alle variazioni dei modelli di utilizzo, senza dover spostare i dati da un account a un altro. Tutte le modifiche ai livelli vengono applicate immediatamente. La riattivazione di un BLOB dall'archivio, tuttavia, può richiedere diverse ore.
 
-L'ora dell'ultima modifica a livello di BLOB viene esposta tramite la proprietà BLOB **Access Tier Change Time** (Ora modifica livello di accesso). Se un BLOB si trova nel livello archivio, non può essere sovrascritto, quindi il caricamento dello stesso BLOB non è consentito in questo scenario. Quando si sovrascrive un BLOB in un livello ad accesso frequente o sporadico, il nuovo BLOB eredita il livello del BLOB che è stato sovrascritto.
+L'ora dell'ultima modifica a livello di BLOB viene esposta tramite la proprietà BLOB **Access Tier Change Time** (Ora modifica livello di accesso). Se un BLOB si trova nel livello archivio, non può essere sovrascritto, quindi il caricamento dello stesso BLOB non è consentito in questo scenario. Quando si sovrascrive un BLOB nel livello ad accesso frequente o sporadico, il BLOB appena creato eredita il livello del BLOB che è stato sovrascritto, a meno che il nuovo livello di accesso al BLOB non venga impostato in modo esplicito al momento della creazione.
 
 > [!NOTE]
 > Il livello di archiviazione archivio e l'organizzazione a livello di BLOB supportano solo BLOB in blocchi. Attualmente non è possibile modificare il livello di un BLOB in blocchi con snapshot.
@@ -115,8 +115,8 @@ La tabella seguente illustra un confronto tra l'archiviazione BLOB in blocchi di
 
 |                                           | **Prestazioni Premium**   | **Livello critico** | **Livello ad accesso sporadico**       | **Livello archivio**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
-| **Disponibilità**                          | 99.9%                     | 99.9%        | 99%                 | Non in linea           |
-| **Disponibilità** <br> **(letture RA-GRS)**  | N/D                       | 99,99%       | 99.9%               | Non in linea           |
+| **Disponibilità**                          | 99,9%                     | 99,9%        | 99%                 | Offline           |
+| **Disponibilità** <br> **(letture RA-GRS)**  | N/D                       | 99,99%       | 99,9%               | Offline           |
 | **Costi di utilizzo**                         | Costi di archiviazione più elevati, costi di accesso e transazione inferiori | Costi di archiviazione più elevati e costi di accesso e transazione più bassi | Costi di archiviazione più bassi e costi di accesso e transazione più elevati | Costi di archiviazione minimi e costi di accesso e transazione più alti |
 | **Dimensioni minime oggetti**                   | N/D                       | N/D          | N/D                 | N/D               |
 | **Durata archiviazione minima**              | N/D                       | N/D          | 30 giorni<sup>1</sup> | 180 giorni
@@ -144,7 +144,7 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 1. In impostazioni fare clic su **configurazione** per visualizzare e modificare la configurazione dell'account.
 
-1. Selezionare il livello di accesso appropriato per le proprie esigenze: Impostare il **livello di accesso** su **ad accesso sporadico** oppure **ad accesso frequente**.
+1. Selezionare il livello di accesso appropriato per le proprie esigenze: impostare il **livello di accesso** susporadico **o frequente** .
 
 1. Nella parte superiore, fare clic su **Salva** .
 
@@ -164,17 +164,17 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 Tutti gli account di archiviazione usano un modello di determinazione dei prezzi per l'archiviazione BLOB in blocchi in base al livello di ogni BLOB. Tenere presenti le considerazioni seguenti sulla fatturazione:
 
-- **Costi della risorsa di archiviazione**: Oltre alla quantità di dati archiviati, il costo di archiviazione dei dati varia a seconda del livello di accesso. Il costo per gigabyte diminuisce passando a un livello ad accesso più sporadico.
-- **Costi per l'accesso ai dati**: gli addebiti per l'accesso ai dati aumentano passando a un livello ad accesso più sporadico. Per i dati nel livello di accesso ad accesso sporadico e archivio, viene addebitato un costo di accesso ai dati per Gigabyte per le letture.
-- **Costi di transazione**: È previsto un addebito per ogni transazione per tutti i livelli che aumenta man mano che il livello diventa più interessante.
-- **Costi del trasferimento dati con replica geografica**: si applicano solo agli account con replica geografica, incluse l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica e accesso in lettura. Il trasferimento dati con la replica geografica comporta un addebito per gigabyte.
-- **Costi di trasferimento dati in uscita**: i trasferimenti dati in uscita (dati che vengono trasferiti al di fuori di un'area di Azure) vengono fatturati in base all'utilizzo della larghezza di banda per singolo gigabyte, come per gli account di archiviazione per utilizzo generico.
-- **Modifica del livello di accesso**: La modifica del livello di accesso dell'account comporterà l'addebito delle modifiche al livello per i BLOB derivati dal _livello di accesso_ archiviati nell'account che non dispongono di un set di livelli esplicito. Per informazioni sulla modifica del livello di accesso per un singolo BLOB, vedere [fatturazione a livelli a livello di BLOB](#blob-level-tiering-billing).
+- **Costi di archiviazione**: oltre alla quantità di dati archiviati, il costo di archiviazione dei dati varia a seconda del livello di accesso. Il costo per gigabyte diminuisce passando a un livello ad accesso più sporadico.
+- **Costi di accesso ai dati**: i costi di accesso ai dati aumentano passando a un livello ad accesso più sporadico. Per i dati nel livello di accesso ad accesso sporadico e archivio, viene addebitato un costo di accesso ai dati per Gigabyte per le letture.
+- **Costi delle transazioni**: è previsto un addebito per transazione per tutti i livelli che aumenta man mano che il livello diventa più interessante.
+- **Costi di trasferimento dati con la replica geografica**: si applicano solo agli account per cui è configurata la replica geografica, incluse l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica e accesso in lettura. Il trasferimento dati con la replica geografica comporta un addebito per gigabyte.
+- **Costi di trasferimento dati in uscita**: i trasferimenti dati in uscita (dati che vengono trasferiti al di fuori di un'area di Azure) vengono fatturati in base all'utilizzo di larghezza di banda per singolo gigabyte, come per gli account di archiviazione di uso generico.
+- **Modifica del livello di accesso**: la modifica del livello di accesso dell'account comporterà un addebito per la modifica del livello per i BLOB derivati dal _livello di accesso_ archiviati nell'account che non hanno un set di livelli esplicito. Per informazioni sulla modifica del livello di accesso per un singolo BLOB, vedere [fatturazione a livelli a livello di BLOB](#blob-level-tiering-billing).
 
 > [!NOTE]
 > Per altre informazioni sui prezzi per i BLOB in blocchi, vedere la pagina [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/) . Per altre informazioni sugli addebiti per i trasferimenti dati in uscita, vedere la pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>domande frequenti
 
 **È consigliabile usare account di archiviazione BLOB o per utilizzo generico v2 se si vogliono suddividere in livelli i dati?**
 
@@ -192,7 +192,7 @@ Sì, è possibile modificare il livello di account predefinito impostando l'attr
 
 **È possibile impostare il livello di accesso all'account predefinito su archivio?**
 
-No. Solo i livelli di accesso frequente e ad accesso sporadico possono essere impostati come livello di accesso dell'account predefinito. L'archivio può essere impostato solo a livello di oggetto.
+No. Solo i livelli di accesso frequente e ad accesso sporadico possono essere impostati come livello di accesso dell'account predefinito. L'archivio può essere impostato solo a livello di oggetto. Al caricamento di BLOB, è possibile specificare il livello di accesso desiderato, ad accesso frequente, ad accesso sporadico o archivio, indipendentemente dal livello di account predefinito. Questa funzionalità consente di scrivere dati direttamente nel livello Archivio per realizzare risparmi sui costi dal momento in cui si creano i dati nell'archivio BLOB.
 
 **In quali aree sono disponibili i livelli di accesso ad accesso frequente, ad accesso sporadico e archivio?**
 

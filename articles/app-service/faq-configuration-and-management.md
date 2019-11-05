@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 68d0f693d0cc7d8db8e6f697ff8907400a7aca50
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 111ee6cda46677b3b0fc39f5a84268e6ac192da9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121321"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470540"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -43,12 +43,12 @@ Per informazioni su come acquistare e configurare un dominio personalizzato per 
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Come si carica e si configura un certificato SSL esistente per un'app Web?
 
-Per informazioni su come caricare e configurare un certificato SSL personalizzato esistente, vedere [Associare un certificato SSL personalizzato esistente a un'app Web di Azure](app-service-web-tutorial-custom-ssl.md#upload).
+Per informazioni su come caricare e configurare un certificato SSL personalizzato esistente, vedere [aggiungere un certificato SSL all'app del servizio app](configure-ssl-certificate.md).
 
 
 ## <a name="how-do-i-purchase-and-configure-a-new-ssl-certificate-in-azure-for-my-web-app"></a>Come si acquista e si configura un nuovo certificato SSL certificate in Azure per un'app Web?
 
-Per informazioni su come acquistare e configurare un certificato SSL per l'app Web del servizio app, vedere [Aggiungere un certificato SSL all'app del servizio app](web-sites-purchase-ssl-web-site.md).
+Per informazioni su come acquistare e configurare un certificato SSL per l'app Web del servizio app, vedere [Aggiungere un certificato SSL all'app del servizio app](configure-ssl-certificate.md).
 
 
 ## <a name="how-do-i-move-application-insights-resources"></a>Come si spostano le risorse di Application Insights?
@@ -139,7 +139,7 @@ Per esaminare i log dei processi Web:
 6. Selezionare il pulsante **Attiva/Disattiva Output**.
 7. Selezionare il collegamento di download.
 
-## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Si sta tentando di utilizzare Connessioni ibride con SQL Server. Per quale motivo viene visualizzato il messaggio "System.OverflowException: Overflow di un'operazione aritmetica"?
+## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Si sta tentando di utilizzare Connessioni ibride con SQL Server. Perché viene visualizzato il messaggio "System.OverflowException: Overflow di un'operazione aritmetica"?
 
 Se si utilizza Connessioni ibride per accedere a SQL Server, un aggiornamento di Microsoft .NET del 10 maggio 2016 potrebbe causare problemi nelle connessioni. È possibile che venga visualizzato questo messaggio:
 
@@ -153,7 +153,7 @@ L'eccezione è stata causata da un problema con Gestione connessione ibrida che 
 
 ## <a name="how-do-i-add-a-url-rewrite-rule"></a>Ricerca per categorie aggiungere una regola di riscrittura URL?
 
-Per aggiungere una regola di riscrittura URL, creare un file Web. config con le voci di configurazione pertinenti nella cartella **wwwroot** . Per ulteriori informazioni, vedere [app Azure Services: Informazioni sulla riscrittura](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/)dell'URL.
+Per aggiungere una regola di riscrittura URL, creare un file Web. config con le voci di configurazione pertinenti nella cartella **wwwroot** . Per ulteriori informazioni, vedere [app Azure Services: Understanding URL Rewrite](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Come si controlla il traffico in ingresso nel servizio app?
 

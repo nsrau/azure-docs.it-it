@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: 20da8abff943e71deb5d5ec8b7bd6411c176e2e3
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6f04ccf216edb4e6a654c83c6220451bfccfe6ac
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244559"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488569"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 
@@ -34,7 +34,7 @@ Azure Data Lake Storage output di analisi di flusso non è attualmente disponibi
 
 La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per configurare l'output di Data Lake Storage generazione 1.   
 
-| Nome proprietà | DESCRIZIONE |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | Alias di output | Nome descrittivo usato nelle query per indirizzare l'output della query a Data Lake Store. |
 | Sottoscrizione | Sottoscrizione che contiene l'account Azure Data Lake Storage. |
@@ -43,9 +43,9 @@ La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per
 | Formato data | facoltativo. Se nel percorso di prefisso viene usato il token di data, è possibile selezionare il formato della data in cui sono organizzati i file. Esempio: AAAA/MM/GG |
 |Formato ora | facoltativo. Se nel percorso di prefisso viene usato il token dell'ora, specificare il formato dell'ora in cui sono organizzati i file. Al momento, l'unico valore supportato è HH. |
 | Formato di serializzazione eventi | Formato di serializzazione per i dati di output. Sono supportati i formati JSON, CSV e Avro.|
-| Codifica | Se si usa il formato CSV o JSON, è necessario specificare una codifica. Al momento, UTF-8 è l'unico formato di codifica supportato.|
+| Codifica | Se si usa il formato CSV o JSON, è necessario specificare una codifica. Al momento UTF-8 è l'unico formato di codifica supportato.|
 | Delimitatore | Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale.|
-| Formato | Applicabile solo per la serializzazione JSON. **Delimitato da righe** specifica che l'output viene formattato in base a ogni oggetto JSON separato da una nuova riga. **Array** specifica che l'output viene formattato come una matrice di oggetti JSON. Questa matrice viene chiusa solo quando il processo viene arrestato o Analisi di flusso di Azure passa all'intervallo di tempo successivo. In generale, è preferibile usare JSON delimitati da righe, perché non richiede alcuna gestione speciale mentre è ancora in corso la scrittura del file di output.|
+| Format | Applicabile solo per la serializzazione JSON. **Delimitato da righe** specifica che l'output viene formattato in base a ogni oggetto JSON separato da una nuova riga. **Array** specifica che l'output viene formattato come una matrice di oggetti JSON. Questa matrice viene chiusa solo quando il processo viene arrestato o Analisi di flusso di Azure passa all'intervallo di tempo successivo. In generale, è preferibile usare JSON delimitati da righe, perché non richiede alcuna gestione speciale mentre è ancora in corso la scrittura del file di output.|
 | Modalità di autenticazione | È possibile autorizzare l'accesso all'account di Data Lake Storage usando l' [identità gestita](stream-analytics-managed-identities-adls.md) o il token utente. Quando si concede l'accesso, è possibile revocare l'accesso modificando la password dell'account utente, eliminando l'output Data Lake Storage per questo processo o eliminando il processo di analisi di flusso. |
 
 ## <a name="sql-database"></a>Database SQL
@@ -56,11 +56,11 @@ La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per
 
 La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un output del database SQL.
 
-| Nome proprietà | DESCRIZIONE |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | Alias di output |Nome descrittivo usato nelle query per indirizzare l'output delle query a questo database. |
 | Database | Nome del database in cui si sta inviando l'output. |
-| Nome del server | Nome del server di database SQL. Per Istanza gestita di database SQL di Azure, è necessario specificare la porta 3342. Ad esempio, *sampleserver. public. database. Windows. NET, 3342* |
+| Nome server | Nome del server di database SQL. Per Istanza gestita di database SQL di Azure, è necessario specificare la porta 3342. Ad esempio, *sampleserver. public. database. Windows. NET, 3342* |
 | Nome utente | Nome utente con accesso in scrittura al database. Analisi di flusso supporta solo l'autenticazione SQL. |
 | Password | Password per la connessione al database. |
 | Tabella | Nome della tabella in cui viene scritto l'output. Il nome della tabella fa distinzione tra maiuscole e minuscole. Lo schema di questa tabella deve corrispondere esattamente al numero di campi e ai relativi tipi generati dall'output del processo. |
@@ -69,27 +69,27 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 
 ## <a name="blob-storage-and-azure-data-lake-gen2"></a>Archiviazione BLOB e Azure Data Lake Gen2
 
-L'uscita per Azure Data Lake Gen2 viene offerta come funzionalità di anteprima in aree limitate in tutto il mondo. Per richiedere l'accesso all'anteprima, è possibile fornire dettagli aggiuntivi nel [modulo di richiesta](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).
+Data Lake Storage Gen2 usa Archiviazione di Azure come base per la compilazione di Enterprise Data Lake (EDL) in Azure. Progettato dall'inizio al servizio di più petabyte di informazioni, supportando al contempo centinaia di Gigabit di velocità effettiva, Data Lake Storage Gen2 consente di gestire con facilità grandi quantità di dati. Una parte fondamentale del Data Lake Storage Gen2 è l'aggiunta di uno spazio dei nomi gerarchico all'archiviazione BLOB.
 
 Archiviazione BLOB di Azure offre una soluzione conveniente e scalabile per l'archiviazione di grandi quantità di dati non strutturati nel cloud. Per un'introduzione all'archiviazione BLOB e al relativo utilizzo, vedere [caricare, scaricare ed elencare BLOB con il portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per la creazione di un output del BLOB.
+La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per la creazione di un BLOB o di ADLS Gen2 output.
 
-| Nome proprietà       | DESCRIZIONE                                                                      |
+| Nome proprietà       | Descrizione                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------|
 | Alias di output        | Nome descrittivo usato nelle query per indirizzare l'output delle query a questa archiviazione BLOB. |
 | Account di archiviazione     | Nome dell'account di archiviazione in cui si sta inviando l'output.               |
 | Chiave dell'account di archiviazione | Chiave privata associata all'account di archiviazione.                              |
 | Contenitore di archiviazione   | Raggruppamento logico per i BLOB archiviati nel servizio BLOB di Azure. Quando si carica un oggetto BLOB nel servizio BLOB, è necessario specificare un contenitore per il BLOB. |
-| Modello percorso | facoltativo. Modello di percorso del file usato per scrivere i BLOB nel contenitore specificato. <br /><br /> Nel modello di percorso è possibile scegliere di usare una o più istanze delle variabili di data e ora per specificare la frequenza di scrittura dei BLOB: <br /> {date}, {time} <br /><br />È possibile usare un partizionamento BLOB personalizzato per specificare un nome personalizzato {field} dai dati di evento ai BLOB di partizione. Il nome del campo è un valore alfanumerico e può includere spazi, trattini e caratteri di sottolineatura. Le restrizioni sui campi personalizzati includono le seguenti: <ul><li>Il nome dei campi non distingue tra maiuscole e minuscole Il servizio, ad esempio, non può distinguere tra la colonna "ID" e la colonna "ID".</li><li>I campi annidati non sono consentiti. Usare invece un alias nella query del processo per "appiattire" il campo.</li><li>Non è possibile usare le espressioni come nome di campo.</li></ul> <br />Questa funzionalità consente di usare anche configurazioni dell'identificatore di formato data/ora personalizzate nel percorso. I formati di data e ora personalizzati devono essere specificati uno alla volta, racchiusi tra la parola chiave {datetime:\<identificatore >}. Gli input consentiti per \<specifier > sono aaaa, MM, M, GG, d, HH, H, mm, m, SS o s. La parola chiave {DateTime: \<specifier >} può essere usata più volte nel percorso per creare configurazioni di data/ora personalizzate. <br /><br />Esempi: <ul><li>Esempio 1: cluster1/logs/{date}/{time}</li><li>Esempio 2: cluster1/logs/{date}</li><li>Esempio 3: cluster1/{client_id}/{date}/{time}</li><li>Esempio 4: cluster1/{datetime:ss}/{myField} in cui la query è: SELECT data.myField AS myField FROM Input;</li><li>Esempio 5: cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br />Il timestamp della struttura di cartelle creata segue l'ora UTC e non l'ora locale.<br /><br />La denominazione dei file usa la convenzione seguente: <br /><br />{Schema prefisso percorso}/schemaHashcode_Guid_Number.extension<br /><br />File di output di esempio:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />Per altre informazioni su questa funzionalità, vedere [partizionamento di output BLOB personalizzato di analisi di flusso di Azure](stream-analytics-custom-path-patterns-blob-storage-output.md). |
+| Modello di percorso | facoltativo. Modello di percorso del file usato per scrivere i BLOB nel contenitore specificato. <br /><br /> Nel modello di percorso è possibile scegliere di usare una o più istanze delle variabili di data e ora per specificare la frequenza di scrittura dei BLOB: <br /> {date}, {time} <br /><br />È possibile usare un partizionamento BLOB personalizzato per specificare un nome personalizzato {field} dai dati di evento ai BLOB di partizione. Il nome del campo è un valore alfanumerico e può includere spazi, trattini e caratteri di sottolineatura. Le restrizioni sui campi personalizzati includono le seguenti: <ul><li>Il nome dei campi non distingue tra maiuscole e minuscole Il servizio, ad esempio, non può distinguere tra la colonna "ID" e la colonna "ID".</li><li>I campi annidati non sono consentiti. Usare invece un alias nella query del processo per "appiattire" il campo.</li><li>Non è possibile usare le espressioni come nome di campo.</li></ul> <br />Questa funzionalità consente di usare anche configurazioni dell'identificatore di formato data/ora personalizzate nel percorso. I formati di data e ora personalizzati devono essere specificati uno alla volta, racchiusi tra la parola chiave {datetime:\<identificatore >}. Gli input consentiti per \<specifier > sono aaaa, MM, M, GG, d, HH, H, mm, m, SS o s. La parola chiave {DateTime: \<specifier >} può essere usata più volte nel percorso per creare configurazioni di data/ora personalizzate. <br /><br />Esempi: <ul><li>Esempio 1: cluster1/logs/{date}/{time}</li><li>Esempio 2: cluster1/logs/{date}</li><li>Esempio 3: cluster1/{client_id}/{date}/{time}</li><li>Esempio 4: CLUSTER1/{DateTime: SS}/{myField} in cui si trova la query: selezionare Data. campo come campo da input;</li><li>Esempio 5: cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br />Il timestamp della struttura di cartelle creata segue l'ora UTC e non l'ora locale.<br /><br />La denominazione dei file usa la convenzione seguente: <br /><br />{Schema prefisso percorso}/schemaHashcode_Guid_Number.extension<br /><br />File di output di esempio:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />Per altre informazioni su questa funzionalità, vedere [partizionamento di output BLOB personalizzato di analisi di flusso di Azure](stream-analytics-custom-path-patterns-blob-storage-output.md). |
 | Formato data | facoltativo. Se nel percorso di prefisso viene usato il token di data, è possibile selezionare il formato della data in cui sono organizzati i file. Esempio: AAAA/MM/GG |
 | Formato ora | facoltativo. Se nel percorso di prefisso viene usato il token dell'ora, specificare il formato dell'ora in cui sono organizzati i file. Al momento, l'unico valore supportato è HH. |
 | Formato di serializzazione eventi | Formato di serializzazione per i dati di output. Sono supportati JSON, CSV, avro e parquet. |
 |Numero minimo di righe (solo parquet)|Numero minimo di righe per batch. Per parquet, ogni batch creerà un nuovo file. Il valore predefinito corrente è 2.000 righe e il valore massimo consentito è 10.000 righe.|
 |Tempo massimo (solo parquet)|Tempo massimo di attesa per batch. Al termine di questo periodo, il batch verrà scritto nell'output anche se non viene soddisfatto il requisito di righe minime. Il valore predefinito corrente è 1 minuto e il valore massimo consentito è 2 ore. Se l'output del BLOB ha la frequenza del modello di percorso, il tempo di attesa non può essere superiore all'intervallo di tempo della partizione.|
-| Codifica    | Se si usa il formato CSV o JSON, è necessario specificare una codifica. Al momento, UTF-8 è l'unico formato di codifica supportato. |
+| Codifica    | Se si usa il formato CSV o JSON, è necessario specificare una codifica. Al momento UTF-8 è l'unico formato di codifica supportato. |
 | Delimitatore   | Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
-| Formato      | Applicabile solo per la serializzazione JSON. **Delimitato da righe** specifica che l'output viene formattato in base a ogni oggetto JSON separato da una nuova riga. **Array** specifica che l'output viene formattato come una matrice di oggetti JSON. Questa matrice viene chiusa solo quando il processo viene arrestato o Analisi di flusso di Azure passa all'intervallo di tempo successivo. In generale, è preferibile usare JSON delimitati da righe, perché non richiede alcuna gestione speciale mentre è ancora in corso la scrittura del file di output. |
+| Format      | Applicabile solo per la serializzazione JSON. **Delimitato da righe** specifica che l'output viene formattato in base a ogni oggetto JSON separato da una nuova riga. **Array** specifica che l'output viene formattato come una matrice di oggetti JSON. Questa matrice viene chiusa solo quando il processo viene arrestato o Analisi di flusso di Azure passa all'intervallo di tempo successivo. In generale, è preferibile usare JSON delimitati da righe, perché non richiede alcuna gestione speciale mentre è ancora in corso la scrittura del file di output. |
 
 Quando si usa l'archiviazione BLOB come output, viene creato un nuovo file nel BLOB nei casi seguenti:
 
@@ -108,18 +108,18 @@ Il servizio [Hub eventi di Azure](https://azure.microsoft.com/services/event-hub
 
 Sono necessari alcuni parametri per configurare i flussi di dati dagli hub eventi come output.
 
-| Nome proprietà | DESCRIZIONE |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | Alias di output | Nome descrittivo usato nelle query per indirizzare l'output delle query a questo hub eventi. |
 | Spazio dei nomi dell'hub eventi | Contenitore per un set di entità di messaggistica. Quando è stato creato un nuovo hub eventi, è stato creato anche uno spazio dei nomi dell'hub eventi. |
 | Nome hub eventi | Nome dell'output dell'hub eventi. |
-| Nome criteri hub eventi | Criteri di accesso condiviso, che è possibile creare nella scheda **Configura** dell'hub eventi. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. |
+| Nome criteri hub eventi | Criteri di accesso condiviso, che è possibile creare nella scheda **Configura** dell'hub eventi. Ogni criterio di accesso condiviso ha un nome, le autorizzazioni impostate e le chiavi di accesso. |
 | Chiave criteri hub eventi | Chiave di accesso condiviso usata per autenticare l'accesso allo spazio dei nomi dell'hub eventi. |
 | Colonna chiave di partizione | facoltativo. Colonna contenente la chiave di partizione per l'output dell'hub eventi. |
 | Formato di serializzazione eventi | Formato di serializzazione per i dati di output. Sono supportati i formati JSON, CSV e Avro. |
 | Codifica | Al momento UTF-8 è l'unico formato di codifica supportato per i formati CSV e JSON. |
-| Delimitatore | Applicabile solo per la serializzazione CSV. Analisi di flusso supporta vari delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
-| Formato | Applicabile solo per la serializzazione JSON. **Delimitato da righe** specifica che l'output viene formattato in base a ogni oggetto JSON separato da una nuova riga. **Array** specifica che l'output viene formattato come una matrice di oggetti JSON.  |
+| Delimitatore | Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
+| Format | Applicabile solo per la serializzazione JSON. **Delimitato da righe** specifica che l'output viene formattato in base a ogni oggetto JSON separato da una nuova riga. **Array** specifica che l'output viene formattato come una matrice di oggetti JSON.  |
 | Colonne delle proprietà | facoltativo. Colonne delimitate da virgole che devono essere associate come proprietà utente del messaggio in uscita anziché del payload. Ulteriori informazioni su questa funzionalità sono contenute nella sezione [proprietà dei metadati personalizzati per l'output](#custom-metadata-properties-for-output). |
 
 ## <a name="power-bi"></a>Power BI
@@ -130,13 +130,13 @@ Power BI output di analisi di flusso non è attualmente disponibile nelle aree A
 
 La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per configurare l'output del Power BI.
 
-| Nome proprietà | DESCRIZIONE |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | Alias di output |Fornire un nome descrittivo usato nelle query per indirizzare l'output delle query a questo output Power BI. |
 | Area di lavoro del gruppo |Per abilitare la condivisione dei dati con altri utenti Power BI, è possibile selezionare i gruppi nell'account Power BI o scegliere **area di lavoro personale** se non si vuole scrivere in un gruppo. L'aggiornamento di un gruppo esistente richiede il rinnovo dell'autenticazione di Power BI. |
-| Nome set di dati |Specificare il nome del set di dati che si desidera venga utilizzato dall'output del Power BI. |
+| Nome del set di dati |Specificare il nome del set di dati che si desidera venga utilizzato dall'output del Power BI. |
 | Nome tabella |Immettere un nome per la tabella nel set di dati dell'output di Power BI. L'output di Power BI da processi di Analisi di flusso può avere al momento solo una tabella in un set di dati. |
-| Autorizza connessione | È necessario autorizzare con Power BI per configurare le impostazioni di output. Quando si concede a questo output l'accesso al dashboard di Power BI, è possibile revocare l'accesso modificando la password dell'account utente, eliminando l'output del processo o eliminando il processo di analisi di flusso. | 
+| Autorizza la connessione | È necessario autorizzare con Power BI per configurare le impostazioni di output. Quando si concede a questo output l'accesso al dashboard di Power BI, è possibile revocare l'accesso modificando la password dell'account utente, eliminando l'output del processo o eliminando il processo di analisi di flusso. | 
 
 Per una procedura dettagliata sulla configurazione di un Power BI output e un dashboard, vedere l'esercitazione [analisi di flusso e Power BI di Azure](stream-analytics-power-bi-dashboard.md) .
 
@@ -157,8 +157,8 @@ Questa tabella illustra le conversioni dei tipi di dati dai [tipi di dati di ana
 Dall'analisi di flusso | A Power BI
 -----|-----
 bigint | Int64
-nvarchar(max) | string
-Datetime | DateTime
+nvarchar(max) | String
+datetime | DateTime
 float | Double
 Matrice di record | Tipo stringa, valore costante "IRecord" o "IArray"
 
@@ -168,20 +168,20 @@ L'analisi di flusso deduce lo schema del modello di dati in base al primo set di
 Evitare la query `SELECT *` per impedire l'aggiornamento dinamico dello schema tra le righe. Oltre alle potenziali implicazioni in termini di prestazioni, è possibile che si verifichino incertezze sul tempo impiegato per i risultati. Selezionare i campi esatti che devono essere visualizzati nel dashboard Power BI. È anche necessario che i valori dei dati siano conformi al tipo di dati scelto.
 
 
-Precedente/corrente | Int64 | string | DateTime | Double
+Precedente/corrente | Int64 | String | DateTime | Double
 -----------------|-------|--------|----------|-------
-Int64 | Int64 | string | string | Double
-Double | Double | string | string | Double
-string | String | String | String | string 
-DateTime | string | string |  DateTime | String
+Int64 | Int64 | String | String | Double
+Double | Double | String | String | Double
+String | String | String | String | String 
+DateTime | String | String |  DateTime | String
 
-## <a name="table-storage"></a>Archivio tabelle
+## <a name="table-storage"></a>Archiviazione tabelle
 
 [archiviazione tabelle di Azure](../storage/common/storage-introduction.md) offre un archivio a disponibilità elevata e altamente scalabile, per consentire la scalabilità automatica di un'applicazione in base alle richieste degli utenti. L'archivio tabelle è l'archivio di chiavi/attributi NoSQL di Microsoft, che è possibile usare per i dati strutturati con meno vincoli sullo schema. Archivio tabelle di Azure consente di archiviare i dati per il salvataggio permanente e il recupero efficiente.
 
 Nella tabella seguente sono elencati i nomi delle proprietà e le relative descrizioni per la creazione di un output di tabella.
 
-| Nome proprietà | DESCRIZIONE |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | Alias di output |Nome descrittivo usato nelle query per indirizzare l'output delle query a questa archiviazione tabelle. |
 | Account di archiviazione |Nome dell'account di archiviazione in cui si sta inviando l'output. |
@@ -189,7 +189,7 @@ Nella tabella seguente sono elencati i nomi delle proprietà e le relative descr
 | Nome tabella |Nome della tabella. La tabella viene creata se non esiste. |
 | Chiave di partizione |Nome della colonna di output contenente la chiave di partizione. La chiave di partizione è un identificatore univoco per la partizione all'interno di una tabella che costituisce la prima parte della chiave primaria di un'entità. Si tratta di un valore stringa che può avere dimensioni massime di 1 KB. |
 | Chiave di riga |Nome della colonna di output contenente la chiave di riga. La chiave di riga è un identificatore univoco per un'entità all'interno di una partizione. Costituisce la seconda parte della chiave primaria di un'entità. La chiave di riga è un valore stringa che può avere dimensioni massime di 1 KB. |
-| Dimensioni batch |Numero di record per un'operazione batch. Il valore predefinito (100) è sufficiente per la maggior parte dei processi. Per ulteriori informazioni sulla modifica di questa impostazione, vedere la [specifica dell'operazione batch della tabella](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) . |
+| Dimensioni dei batch |Numero di record per un'operazione batch. Il valore predefinito (100) è sufficiente per la maggior parte dei processi. Per ulteriori informazioni sulla modifica di questa impostazione, vedere la [specifica dell'operazione batch della tabella](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) . |
 
 ## <a name="service-bus-queues"></a>Code del bus di servizio
 
@@ -197,17 +197,17 @@ Le [code del bus di servizio](../service-bus-messaging/service-bus-queues-topics
 
 Nella tabella seguente sono elencati i nomi delle proprietà e le relative descrizioni per la creazione di un output della coda.
 
-| Nome proprietà | DESCRIZIONE |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | Alias di output |Nome descrittivo usato nelle query per indirizzare l'output della query a questa coda del bus di servizio. |
 | Spazio dei nomi del bus di servizio |Contenitore per un set di entità di messaggistica. |
-| Nome coda |Nome della coda del bus di servizio. |
-| Nome criteri coda |Quando si crea una coda, è anche possibile creare criteri di accesso condiviso nella scheda **Configura** della coda. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. |
+| Nome della coda |Nome della coda del bus di servizio. |
+| Nome criteri coda |Quando si crea una coda, è anche possibile creare criteri di accesso condiviso nella scheda **Configura** della coda. Ogni criterio di accesso condiviso ha un nome, le autorizzazioni impostate e le chiavi di accesso. |
 | Chiave criteri coda |Chiave di accesso condiviso usata per autenticare l'accesso allo spazio dei nomi del bus di servizio di Azure. |
 | Formato di serializzazione eventi |Formato di serializzazione per i dati di output. Sono supportati i formati JSON, CSV e Avro. |
 | Codifica |Al momento UTF-8 è l'unico formato di codifica supportato per i formati CSV e JSON. |
-| Delimitatore |Applicabile solo per la serializzazione CSV. Analisi di flusso supporta vari delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
-| Formato |Applicabile solo per il tipo JSON. **Delimitato da righe** specifica che l'output viene formattato in base a ogni oggetto JSON separato da una nuova riga. **Array** specifica che l'output viene formattato come una matrice di oggetti JSON. |
+| Delimitatore |Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
+| Format |Applicabile solo per il tipo JSON. **Delimitato da righe** specifica che l'output viene formattato in base a ogni oggetto JSON separato da una nuova riga. **Array** specifica che l'output viene formattato come una matrice di oggetti JSON. |
 | Colonne delle proprietà | facoltativo. Colonne delimitate da virgole che devono essere associate come proprietà utente del messaggio in uscita anziché del payload. Ulteriori informazioni su questa funzionalità sono contenute nella sezione [proprietà dei metadati personalizzati per l'output](#custom-metadata-properties-for-output). |
 | Colonne delle proprietà di sistema | facoltativo. Coppie chiave-valore delle proprietà di sistema e nomi di colonna corrispondenti che devono essere allegati al messaggio in uscita anziché al payload. Altre informazioni su questa funzionalità sono contenute nella sezione [proprietà di sistema per gli output della coda e dell'argomento del bus di servizio](#system-properties-for-service-bus-queue-and-topic-outputs)  |
 
@@ -218,16 +218,16 @@ Le code del bus di servizio forniscono un metodo di comunicazione uno-a-uno dal 
 
 La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per la creazione dell'output di un argomento del bus di servizio.
 
-| Nome proprietà | DESCRIZIONE |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | Alias di output |Nome descrittivo usato nelle query per indirizzare l'output delle query a questo argomento del bus di servizio. |
 | Spazio dei nomi del bus di servizio |Contenitore per un set di entità di messaggistica. Quando si crea un nuovo hub eventi, viene anche creato uno spazio dei nomi del bus di servizio. |
 | Nome argomento |Gli argomenti sono entità di messaggistica, simili agli Hub eventi e alle code. Sono progettati per raccogliere flussi di eventi da dispositivi e servizi. Quando viene creato un argomento, viene assegnato anche un nome specifico. I messaggi inviati a un argomento non sono disponibili a meno che non venga creata una sottoscrizione, quindi assicurarsi che esistano una o più sottoscrizioni nell'argomento. |
-| Nome criteri argomento |Quando si crea un argomento del bus di servizio, è anche possibile creare criteri di accesso condiviso nella scheda **Configura** dell'argomento. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. |
+| Nome criteri argomento |Quando si crea un argomento del bus di servizio, è anche possibile creare criteri di accesso condiviso nella scheda **Configura** dell'argomento. Ogni criterio di accesso condiviso ha un nome, le autorizzazioni impostate e le chiavi di accesso. |
 | Chiave criteri argomento |Chiave di accesso condiviso usata per autenticare l'accesso allo spazio dei nomi del bus di servizio di Azure. |
 | Formato di serializzazione eventi |Formato di serializzazione per i dati di output. Sono supportati i formati JSON, CSV e Avro. |
-| Codifica |Se si usa il formato CSV o JSON, è necessario specificare una codifica. Al momento, UTF-8 è l'unico formato di codifica supportato. |
-| Delimitatore |Applicabile solo per la serializzazione CSV. Analisi di flusso supporta vari delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
+| Codifica |Se si usa il formato CSV o JSON, è necessario specificare una codifica. Al momento UTF-8 è l'unico formato di codifica supportato. |
+| Delimitatore |Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
 | Colonne delle proprietà | facoltativo. Colonne delimitate da virgole che devono essere associate come proprietà utente del messaggio in uscita anziché del payload. Ulteriori informazioni su questa funzionalità sono contenute nella sezione [proprietà dei metadati personalizzati per l'output](#custom-metadata-properties-for-output). |
 | Colonne delle proprietà di sistema | facoltativo. Coppie chiave-valore delle proprietà di sistema e nomi di colonna corrispondenti che devono essere allegati al messaggio in uscita anziché al payload. Altre informazioni su questa funzionalità sono contenute nella sezione [proprietà di sistema per gli output della coda e dell'argomento del bus di servizio](#system-properties-for-service-bus-queue-and-topic-outputs) |
 
@@ -244,16 +244,16 @@ Azure Cosmos DB output di analisi di flusso non è attualmente disponibile nelle
 
 Nella tabella seguente sono descritte le proprietà per la creazione di un output di Azure Cosmos DB.
 
-| Nome proprietà | DESCRIZIONE |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | Alias di output | Alias per fare riferimento a questo output nella query di Analisi di flusso di Azure. |
 | Sink | Azure Cosmos DB. |
 | Opzione di importazione | Scegliere **selezionare Cosmos DB dalla sottoscrizione** o **specificare Cosmos DB impostazioni manualmente**.
-| ID account | Nome o URI endpoint dell'account Azure Cosmos DB. |
-| Chiave dell'account | Chiave di accesso condiviso per l'account Azure Cosmos DB. |
+| Account ID | Nome o URI endpoint dell'account Azure Cosmos DB. |
+| Chiave account | Chiave di accesso condiviso per l'account Azure Cosmos DB. |
 | Database | Nome del database Azure Cosmos DB. |
-| Nome contenitore | Nome del contenitore da usare, che deve esistere in Cosmos DB. Esempio:  <br /><ul><li> _Contenitore_: Deve esistere un contenitore denominato "contenitore".</li>|
-| ID documento |facoltativo. Nome del campo negli eventi di output usato per specificare la chiave primaria su cui si basano le operazioni di inserimento o aggiornamento.
+| Nome del contenitore | Nome del contenitore da usare, che deve esistere in Cosmos DB. Esempio:  <br /><ul><li> Contenitore di _contenuti_: è necessario che esista un contenitore denominato "contenitore".</li>|
+| Document ID |facoltativo. Nome del campo negli eventi di output usato per specificare la chiave primaria su cui si basano le operazioni di inserimento o aggiornamento.
 
 ## <a name="azure-functions"></a>Funzioni di Azure
 Funzioni di Azure è un servizio di calcolo senza server che è possibile usare per eseguire il codice su richiesta senza dover effettuare esplicitamente il provisioning o la gestione dell'infrastruttura. Consente di implementare il codice attivato da eventi che si verificano in Azure o nei servizi partner. Questa funzionalità di funzioni di Azure per rispondere ai trigger rende l'output naturale per analisi di flusso di Azure. Questo adattatore di output consente agli utenti di connettere analisi di flusso a funzioni di Azure ed eseguire uno script o un frammento di codice in risposta a diversi eventi.
@@ -262,7 +262,7 @@ L'output di funzioni di Azure da analisi di flusso non è attualmente disponibil
 
 Analisi di flusso di Azure richiama Funzioni di Azure tramite trigger HTTP. L'adattatore di output di funzioni di Azure è disponibile con le proprietà configurabili seguenti:
 
-| Nome proprietà | DESCRIZIONE |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | App per le funzioni |Nome dell'app funzioni di Azure. |
 | Funzione |Nome della funzione nell'app funzioni di Azure. |
@@ -321,18 +321,18 @@ Nella tabella seguente viene riepilogato il supporto della partizione e il numer
 
 | Tipo di output | Supporto del partizionamento | Chiave di partizione  | Numero di writer di output |
 | --- | --- | --- | --- |
-| Archivio Azure Data Lake | Yes | Usare i token {date} e {Time} nel modello di prefisso del percorso. Scegliere il formato della data, ad esempio AAAA/MM/GG, GG/MM/AAAA o MM-gg-aaaa. HH viene usato per il formato dell'ora. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
+| Archivio Azure Data Lake | Sì | Usare i token {date} e {Time} nel modello di prefisso del percorso. Scegliere il formato della data, ad esempio AAAA/MM/GG, GG/MM/AAAA o MM-gg-aaaa. HH viene usato per il formato dell'ora. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
 | Database SQL di Azure | Sì, deve essere abilitato. | In base alla clausola PARTITION BY nella query. | Quando l'opzione eredita partizionamento è abilitata, segue il partizionamento dell'input per le [query completamente eseguibili](stream-analytics-scale-jobs.md). Per altre informazioni su come ottenere prestazioni migliori per la velocità effettiva di scrittura quando si caricano dati nel database SQL di Azure, vedere l' [output di analisi di flusso di Azure nel database SQL di Azure](stream-analytics-sql-output-perf.md). |
 | Archivio BLOB di Azure | Sì | Usare i token {date} e {time} dei campi evento nel modello di percorso. Scegliere il formato della data, ad esempio AAAA/MM/GG, GG/MM/AAAA o MM-gg-aaaa. HH viene usato per il formato dell'ora. L'output del BLOB può essere partizionato in base a un singolo attributo dell'evento personalizzato {fieldname} o {datetime:\<specifier>}. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
-| Hub eventi di Azure | Yes | Sì | Varia a seconda dell'allineamento della partizione.<br /> Quando la chiave di partizione per l'output di hub eventi è allineata con il passaggio di query upstream (precedente), il numero di writer corrisponde al numero di partizioni nell'output dell'hub eventi. Ogni writer usa la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) per inviare eventi alla partizione specifica. <br /> Quando la chiave di partizione per l'output di hub eventi non è allineata con il passaggio di query upstream (precedente), il numero di writer corrisponde al numero di partizioni nel passaggio precedente. Ogni writer usa la [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) in **EventHubClient** per inviare eventi a tutte le partizioni di output. |
-| Power BI | No | Nessuna | Non applicabile. |
+| Hub eventi di Azure | Sì | Sì | Varia a seconda dell'allineamento della partizione.<br /> Quando la chiave di partizione per l'output di hub eventi è allineata con il passaggio di query upstream (precedente), il numero di writer corrisponde al numero di partizioni nell'output dell'hub eventi. Ogni writer usa la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) per inviare eventi alla partizione specifica. <br /> Quando la chiave di partizione per l'output di hub eventi non è allineata con il passaggio di query upstream (precedente), il numero di writer corrisponde al numero di partizioni nel passaggio precedente. Ogni writer usa la [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) in **EventHubClient** per inviare eventi a tutte le partizioni di output. |
+| Power BI | No | Nessuna | Non applicabile |
 | Archiviazione tabelle di Azure | Sì | Qualsiasi colonna di output.  | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
-| Argomento del bus di servizio di Azure | Yes | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore integer univoco per ogni partizione.| Corrisponde al numero di partizioni nell'argomento di output.  |
-| Coda del bus di servizio di Azure | Yes | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore integer univoco per ogni partizione.| Corrisponde al numero di partizioni nella coda di output. |
+| Argomento del bus di servizio di Azure | Sì | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore integer univoco per ogni partizione.| Corrisponde al numero di partizioni nell'argomento di output.  |
+| Coda del bus di servizio di Azure | Sì | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore integer univoco per ogni partizione.| Corrisponde al numero di partizioni nella coda di output. |
 | Azure Cosmos DB | Sì | In base alla clausola PARTITION BY nella query. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
-| Funzioni di Azure | Yes | In base alla clausola PARTITION BY nella query. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
+| Funzioni di Azure | Sì | In base alla clausola PARTITION BY nella query. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
 
-Il numero di writer di output può essere controllato anche usando la clausola `INTO <partition count>` (see [into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) nella query, che può essere utile per ottenere una topologia di lavoro desiderata. Se l'adattatore di output non è partizionato, la mancanza di dati in una partizione di input causerà un ritardo fino alla quantità di tempo di arrivo in ritardo. In questi casi, l'output viene unito a un singolo writer, che potrebbe causare colli di bottiglia nella pipeline. Per altre informazioni sui criteri di arrivo in ritardo, vedere [considerazioni sull'ordine degli eventi di analisi di flusso di Azure](stream-analytics-out-of-order-and-late-events.md).
+Il numero di writer di output può essere controllato anche usando la clausola `INTO <partition count>` (see [into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) nella query, che può essere utile per ottenere una topologia di processo desiderata. Se l'adattatore di output non è partizionato, la mancanza di dati in una partizione di input causerà un ritardo fino alla quantità di tempo di arrivo in ritardo. In questi casi, l'output viene unito a un singolo writer, che potrebbe causare colli di bottiglia nella pipeline. Per altre informazioni sui criteri di arrivo in ritardo, vedere [considerazioni sull'ordine degli eventi di analisi di flusso di Azure](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Dimensione del batch di output
 Analisi di flusso di Azure usa batch di dimensioni variabili per elaborare gli eventi e scrivere negli output. In genere, il motore di analisi di flusso non scrive un messaggio alla volta e usa i batch per migliorare l'efficienza. Quando la frequenza degli eventi in ingresso e in uscita è elevata, analisi di flusso usa batch più grandi. Quando la frequenza in uscita è bassa, usa batch di dimensioni minori per mantenere bassa la latenza.
@@ -355,7 +355,7 @@ Nella tabella seguente vengono illustrate alcune considerazioni relative all'inv
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
 > 
-> [Avvio rapido: Creare un processo di Analisi di flusso tramite il portale di Azure](stream-analytics-quick-create-portal.md)
+> [Guida introduttiva: Creare un processo di Analisi di flusso di Azure tramite il portale di Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

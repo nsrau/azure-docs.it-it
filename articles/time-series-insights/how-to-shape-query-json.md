@@ -2,19 +2,19 @@
 title: Procedure consigliate per definire la struttura del codice JSON nelle query di Azure Time Series Insights | Microsoft Docs
 description: Informazioni su come migliorare l'efficienza delle query di Azure Time Series Insights.
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
+ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
 ms.date: 10/09/2019
-ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 4916397d05ad9d5fcae7624bf558eb7dc5be940f
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 09090354012d2cd3ba050ff9c94593947f27b006
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274411"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990272"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Formato JSON per ottimizzare le prestazioni delle query 
 
@@ -36,6 +36,9 @@ Si pensi al modo in cui si inviano gli eventi a Time Series Insights. In partico
    - 600 proprietà (colonne) per ambienti S1.
    - 800 proprietà (colonne) per ambienti S2.
 
+> [!TIP]
+> Esaminare i [limiti e la pianificazione](time-series-insights-update-plan.md) in Azure Time Series Insights anteprima.
+
 Le linee guida seguenti consentono di ottenere le migliori prestazioni possibili per le query:
 
 1. Non usare proprietà dinamiche, ad esempio un ID tag, come nome di proprietà. Questo utilizzo contribuisce a raggiungere il limite massimo di proprietà.
@@ -51,14 +54,14 @@ Nei due esempi seguenti viene illustrato come inviare eventi per evidenziare le 
 
 Gli esempi sono basati su uno scenario in cui più dispositivi inviano misure o segnali. Le misurazioni o i segnali possono essere la velocità del flusso, la pressione del petrolio, la temperatura e l'umidità del motore. Nel primo esempio sono presenti poche misure in tutti i dispositivi. Il secondo esempio ha molti dispositivi e ogni dispositivo invia molte misurazioni univoche.
 
-## <a name="scenario-one-only-a-few-measurements-exist"></a>Scenario uno: Esistono solo alcune misurazioni
+## <a name="scenario-one-only-a-few-measurements-exist"></a>Scenario uno: esistono solo alcune misurazioni
 
 > [!TIP]
 > Si consiglia di inviare ogni misura o segnale come proprietà o colonna separata.
 
 Nell'esempio seguente è presente un singolo messaggio dell'hub dell'area di Azure in cui la matrice esterna contiene una sezione condivisa dei valori delle dimensioni comuni. La matrice esterna usa dati di riferimento per incrementare l'efficienza del messaggio. I dati di riferimento contengono metadati del dispositivo che non cambiano con ogni evento, ma fornisce proprietà utili per l'analisi dei dati. L'invio in batch dei valori delle dimensioni comuni e l'utilizzo dei dati di riferimento vengono salvati sui byte inviati in rete, il che rende più efficiente il messaggio.
 
-Si consideri il payload JSON seguente inviato all'ambiente Time Series Insights GA usando un [oggetto messaggio del dispositivo](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) Internet, che viene serializzato in JSON quando viene inviato al cloud di Azure:
+Si consideri il payload JSON seguente inviato all'ambiente Time Series Insights GA usando un [oggetto messaggio del dispositivo](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) Internet che viene serializzato in JSON quando viene inviato al cloud di Azure:
 
 
 ```JSON
@@ -95,7 +98,7 @@ Si consideri il payload JSON seguente inviato all'ambiente Time Series Insights 
    | deviceId | messageId | deviceLocation |
    | --- | --- | --- |
    | FXXX | LINE\_DATA | EU |
-   | FYYY | LINE\_DATA | US |
+   | FYYY | LINE\_DATA | Stati Uniti |
 
 * Time Series Insights tabella eventi, dopo l'appiattimento:
 
@@ -103,7 +106,7 @@ Si consideri il payload JSON seguente inviato all'ambiente Time Series Insights 
    | --- | --- | --- | --- | --- | --- |
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
-   | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
+   | FYYY | LINE\_DATA | Stati Uniti | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
 > [!NOTE]
 > - La colonna **deviceId** viene usata come intestazione di colonna per i diversi dispositivi nell'insieme. Impostando il valore di **DeviceID** , il nome della proprietà limita i dispositivi totali a 595 (per gli ambienti S1) o 795 (per gli ambienti S2) con le altre cinque colonne.
@@ -112,7 +115,7 @@ Si consideri il payload JSON seguente inviato all'ambiente Time Series Insights 
 > - Vengono utilizzati due livelli di annidamento, ovvero la quantità massima di nidificazione supportata da Time Series Insights. È essenziale evitare matrici annidate profondamente.
 > - Le misure vengono inviate come proprietà separate all'interno dello stesso oggetto perché sono presenti poche misure. In questo caso le colonne **series.Flow Rate psi** e **series.Engine Oil Pressure ft3/s** sono colonne univoche.
 
-## <a name="scenario-two-several-measures-exist"></a>Scenario due: Esistono diverse misure
+## <a name="scenario-two-several-measures-exist"></a>Scenario due: esistono diverse misure
 
 > [!TIP]
 > È consigliabile inviare misure come tuple "tipo," "unità" e "valore".
@@ -166,8 +169,8 @@ Payload JSON di esempio:
    | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | Velocità del flusso | ft3/s |
    | FXXX | oilPressure | LINE\_DATA | EU | Pressione dell'olio del motore | psi |
-   | FYYY | pumpRate | LINE\_DATA | US | Velocità del flusso | ft3/s |
-   | FYYY | oilPressure | LINE\_DATA | US | Pressione dell'olio del motore | psi |
+   | FYYY | pumpRate | LINE\_DATA | Stati Uniti | Velocità del flusso | ft3/s |
+   | FYYY | oilPressure | LINE\_DATA | Stati Uniti | Pressione dell'olio del motore | psi |
 
 * Time Series Insights tabella eventi, dopo l'appiattimento:
 
@@ -177,8 +180,8 @@ Payload JSON di esempio:
    | FXXX | oilPressure | LINE\_DATA | EU | Pressione dell'olio del motore | psi | 2018-01-17T01:17:00Z | 34.7 |
    | FXXX | pumpRate | LINE\_DATA | EU | Velocità del flusso | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
    | FXXX | oilPressure | LINE\_DATA | EU | Pressione dell'olio del motore | psi | 2018-01-17T01:17:00Z | 49.2 |
-   | FYYY | pumpRate | LINE\_DATA | US | Velocità del flusso | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
-   | FYYY | oilPressure | LINE\_DATA | US | Pressione dell'olio del motore | psi | 2018-01-17T01:18:00Z | 22.2 |
+   | FYYY | pumpRate | LINE\_DATA | Stati Uniti | Velocità del flusso | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
+   | FYYY | oilPressure | LINE\_DATA | Stati Uniti | Pressione dell'olio del motore | psi | 2018-01-17T01:18:00Z | 22.2 |
 
 > [!NOTE]
 > - Le colonne **DeviceID** e **Series. TagId** vengono utilizzate come intestazioni di colonna per i vari dispositivi e tag in una flotta. L'uso di ogni attributo come rispettivo attributo limita la query a 594 (per gli ambienti S1) o 794 (per gli ambienti S2) il totale dei dispositivi con le altre sei colonne.
@@ -195,7 +198,7 @@ Per una proprietà con un numero elevato di valori possibili, è preferibile inv
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sull'invio [di messaggi del dispositivo dell'hub Internet al cloud](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+- Altre informazioni sull'invio [di messaggi del dispositivo dell'hub Internet al cloud](../iot-hub/iot-hub-devguide-messages-construct.md).
 
 - Per altre informazioni sulla sintassi di query per l'API REST di accesso ai dati Time Series Insights, vedere [Azure Time Series Insights sintassi di query](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) .
 

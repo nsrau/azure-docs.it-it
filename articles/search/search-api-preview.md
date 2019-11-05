@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a4daaac6abababcedb5d6dd7eb2122ef29846ef4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: dff6473fd01fc2d41c5bb100eefd583afe4175b0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792540"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496472"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>API REST del servizio ricerca cognitiva di Azure-versione 2019-05-06-Preview
 
@@ -24,6 +24,8 @@ Questo articolo descrive la versione `api-version=2019-05-06-Preview` dell'API R
 
 
 ## <a name="new-in-2019-05-06-preview"></a>Novità in 2019-05-06-Preview
+
+[* * L'indicizzazione incrementale](cognitive-search-incremental-indexing-conceptual.md) è una nuova modalità per l'indicizzazione che consente di aggiungere lo stato e la memorizzazione nella cache, consentendo di riutilizzare l'output esistente quando le definizioni di dati, indicizzatori e competenze sono invariate. Questa funzionalità si applica solo agli arricchimenti tramite un competenze cognitive.
 
 [**Archivio informazioni**](knowledge-store-concept-intro.md) è una nuova destinazione di una pipeline di arricchimento basata su intelligenza artificiale. Oltre a un indice, è ora possibile salvare in modo permanente le strutture di dati popolate create durante l'indicizzazione in archiviazione di Azure. Si controllano le strutture fisiche dei dati tramite gli elementi in un elemento Skills, tra cui la modalità di data shaping, i dati archiviati nell'archiviazione tabelle o nell'archiviazione BLOB e se sono presenti più viste.
 

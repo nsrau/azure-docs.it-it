@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: afa6c5e40918906eb9fe0e40ed633715e3f2741d
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 5a65ee27d5175887b7bf0d9146afa025e665657c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844806"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488410"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limiti per il modello LUIS e le chiavi
 LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-boundaries), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è rappresentata dalla [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint). 
@@ -29,17 +29,18 @@ Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [dispat
 |Area|Limite|
 |--|:--|
 | [Nome app][luis-get-started-create-app] | *Numero max predefinito di caratteri |
-| Applicazioni| 500 applicazioni per ogni risorsa di creazione di Azure |
+| Applications| 500 applicazioni per ogni risorsa di creazione di Azure |
 | [Test batch][batch-testing]| 10 set di dati, 1000 espressioni per ogni set di dati|
 | Elenco esplicito | 50 per applicazione|
 | Entità esterne | Nessun limite |
-| [Intent][intents]|500 per ogni applicazione: 499 finalità personalizzate e la finalità _None_ obbligatoria.<br>Applicazione [basata su invio](https://aka.ms/dispatch-tool) con 500 origini di spedizione corrispondenti.|
+| [Intent][intents]|500 per applicazione: 499 Intent personalizzati e la finalità obbligatoria _None_ .<br>Applicazione [basata su invio](https://aka.ms/dispatch-tool) con 500 origini di spedizione corrispondenti.|
 | [Elenca entità](./luis-concept-entity-types.md) | Padre: 50, figlio: 20.000 elementi. Il nome canonico è il *numero max predefinito di caratteri. I sinonimi non hanno restrizioni di lunghezza. |
-| [Entità e ruoli appresi dal computer](./luis-concept-entity-types.md):<br> composito<br>semplice<br>ruolo entità|Limite di 100 entità padre o di 330 entità, a seconda del limite che viene raggiunto per primo dall'utente. Un ruolo viene conteggiato come entità ai fini di questo limite. Un esempio è costituito da un oggetto composito con un'entità semplice con due ruoli: 1 composti + 1 Simple + 2 Roles = 4 delle entità 330.|
+| [Entità e ruoli appresi dal computer](./luis-concept-entity-types.md):<br> composito<br>semplice<br>ruolo entità|Limite di 100 entità padre o di 330 entità, a seconda del limite che viene raggiunto per primo dall'utente. Un ruolo viene conteggiato come entità ai fini di questo limite. Un esempio è costituito da un composito con un'entità semplice, che ha 2 ruoli: 1 composito + 1 Simple + 2 Roles = 4 delle entità 330.|
+|Modello come funzionalità| Numero massimo di modelli che possono essere usati come descrittori (funzionalità) per un modello specifico come 10 modelli. Il numero massimo di elenchi di frasi utilizzato come descrittore (funzionalità) per un modello specifico è costituito da dieci elenchi di frasi.|
 | [Anteprima-entità elenco dinamico](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 elenchi di ~ 1K per richiesta dell'endpoint di stima di query|
 | [Criteri](luis-concept-patterns.md)|500 criteri per ogni applicazione.<br>Il criterio può contenere al massimo 400 caratteri.<br>3 entità pattern.any per criterio<br>Il criterio può contenere al massimo 2 testi facoltativi annidati|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per applicazione, 3 entità pattern.any per criterio |
-| [Elenco frasi][phrase-list]|10 elenchi di frase, 5.000 elementi per ogni elenco|
+| [Elenco frasi][phrase-list]|500 elenchi di frasi. L'espressione non interscambiabile è costituita da un massimo di 5.000 frasi. L'espressione di frasi intercambiabili ha un numero massimo di 50.000 di frasi. Numero massimo di frasi totali per ogni applicazione di 500.000 frasi.|
 | [Entità predefinite](./luis-prebuilt-entities.md) | nessun limite|
 | [Entità di espressione regolare](./luis-concept-entity-types.md)|20 entità<br>È consentito un numero massimo di 500 caratteri. per ogni criterio di entità di espressione regolare|
 | [Ruoli](luis-concept-roles.md)|300 ruoli per ogni applicazione. 10 per entità|
@@ -52,16 +53,31 @@ Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [dispat
 
 <a name="intent-and-entity-naming"></a>
 
+## <a name="name-uniqueness"></a>Univocità del nome
+
+Utilizzare le seguenti regole di univocità dei nomi.
+
+Gli elementi seguenti devono essere univoci all'interno di un'app LUIS:
+
+* Nome versione
+* intento
+* Entità
+* ruoli
+
+Gli elementi seguenti devono essere univoci all'interno dell'ambito applicato:
+
+* elenco frasi 
+
 ## <a name="object-naming"></a>Denominazione degli oggetti
 
 Non usare i caratteri seguenti nei nomi seguenti.
 
-|Object|Escludi caratteri|
+|Oggetto|Escludi caratteri|
 |--|--|
 |Finalità, entità e nomi di ruoli|`:`<br>`$`|
 |Nome versione|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
-## <a name="key-usage"></a>Uso chiave
+## <a name="key-usage"></a>Uso della chiave
 
 Language Understanding ha chiavi separate, un tipo per la creazione e un tipo per l'esecuzione di query sull'endpoint di stima. Per altre informazioni sulle differenze tra i tipi di chiave, vedere [Chiavi di creazione e di endpoint per query di stima in LUIS](luis-concept-keys.md).
 
@@ -86,7 +102,7 @@ Le chiavi delle risorse hanno limiti diversi per la creazione e l'endpoint. La c
 
 ## <a name="keyboard-controls"></a>Controlli tastiera
 
-|Input da tastiera | Descrizione | 
+|Input tastiera | Descrizione | 
 |--|--|
 |Controllo + E|passa dai token alle entità nell'elenco delle espressioni|
 

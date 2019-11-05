@@ -1,24 +1,24 @@
 ---
 title: 'Converti in CSV: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Convert to CSV nel servizio Azure Machine Learning per convertire un set di dati in un formato CSV che può essere scaricato, esportato o condiviso con moduli di script R o Python.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Convert to CSV in Azure Machine Learning per convertire un set di dati in un formato CSV che può essere scaricato, esportato o condiviso con moduli di script R o Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 37c1653b31049dc0142cf8c0c6f6d405338b1d1f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 999f78ab08e1a2c9dd6b28d853e49fbb559fab83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693186"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493857"
 ---
 # <a name="convert-to-csv-module"></a>Converti in modulo CSV
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per convertire un set di dati in un formato CSV che può essere scaricato, esportato o condiviso con moduli di script R o Python.
 
@@ -26,7 +26,7 @@ Usare questo modulo per convertire un set di dati in un formato CSV che può ess
 
 Il formato CSV, che sta per "valori delimitati da virgole", è un formato di file usato da molti strumenti di apprendimento automatico esterni. CSV è un formato di interscambio comune quando si utilizzano linguaggi open source, ad esempio R o Python.
 
-Anche se si esegue la maggior parte del lavoro in Azure Machine Learning, in alcuni casi potrebbe risultare utile convertire il set di dati in un volume condiviso cluster da usare in strumenti esterni. ad esempio:
+Anche se si esegue la maggior parte del lavoro in Azure Machine Learning, in alcuni casi potrebbe risultare utile convertire il set di dati in un volume condiviso cluster da usare in strumenti esterni. Ad esempio:
 
 + Scaricare il file CSV per aprirlo con Excel oppure importarlo in un database relazionale.  
 + Salvare il file CSV nell'archiviazione cloud e connettersi a esso da Power BI per creare le visualizzazioni.  
@@ -36,7 +36,8 @@ Quando si converte un set di dati in formato CSV, il file viene salvato nell'are
 
 ## <a name="how-to-configure-convert-to-csv"></a>Come configurare Convert to CSV
 
-1.  Aggiungere il modulo [Convert to CSV](./convert-to-csv.md) alla pipeline. È possibile trovare questo modulo nel gruppo **conversioni formato dati** nell'interfaccia. 
+
+1.  Aggiungere il modulo [Convert to CSV](./convert-to-csv.md) alla pipeline. È possibile trovare questo modulo nel gruppo **conversioni formato dati** nella finestra di progettazione. 
 
 2. Connetterlo a qualsiasi modulo che restituisce un set di dati.   
   
@@ -56,4 +57,4 @@ Fare doppio clic sull'output di [Convert to CSV](./convert-to-csv.md)e seleziona
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

@@ -11,16 +11,16 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 52eeedf4651cee012569034ae635a4736b3f3335
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ba2288fa4add6df6b7861b5f8a99bcd3ee8b4c12
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135530"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472195"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurare un nome di dominio personalizzato
 
-Quando si crea un'istanza del servizio gestione API di Azure, Azure lo assegna a un sottodominio di azure-api.net (ad `apim-service-name.azure-api.net`esempio,). Tuttavia, è possibile esporre gli endpoint di gestione API usando il nome di dominio personalizzato, ad esempio **contoso.com**. Questa esercitazione illustra come eseguire il mapping di un nome DNS personalizzato esistente agli endpoint esposti da un'istanza di gestione API.
+Quando si crea un'istanza del servizio gestione API di Azure, Azure lo assegna a un sottodominio di azure-api.net, ad esempio `apim-service-name.azure-api.net`. Tuttavia, è possibile esporre gli endpoint di gestione API usando il nome di dominio personalizzato, ad esempio **contoso.com**. Questa esercitazione illustra come eseguire il mapping di un nome DNS personalizzato esistente agli endpoint esposti da un'istanza di gestione API.
 
 > [!WARNING]
 > I clienti che vogliono usare l'associazione del certificato per migliorare la sicurezza delle applicazioni devono usare un nome di dominio personalizzato e il certificato che gestiscono, non il certificato predefinito. I clienti che usano invece il certificato predefinito dipenderanno in modo sostanziale dalle proprietà di un certificato che non controllano, adottando così una procedura non consigliata.
@@ -45,7 +45,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
     Sono disponibili diversi endpoint a cui è possibile assegnare un nome di dominio personalizzato. Attualmente sono disponibili gli endpoint seguenti:
 
-    - **Gateway** (il valore predefinito `<apim-service-name>.azure-api.net`è:),
+    - **Gateway** (il valore predefinito è: `<apim-service-name>.azure-api.net`),
     - **Portale** (il valore predefinito è: `<apim-service-name>.portal.azure-api.net`),
     - **Gestione** (il valore predefinito è: `<apim-service-name>.management.azure-api.net`),
     - **SCM** (il valore predefinito è: `<apim-service-name>.scm.azure-api.net`).
@@ -59,11 +59,11 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 1. Selezionare l'endpoint che si vuole aggiornare.
 1. Nella finestra di destra fare clic su **Personalizzato**.
 
-    - In **Nome di dominio personalizzato** specificare il nome che si vuole usare. Ad esempio `api.contoso.com`.
+    - In **Nome di dominio personalizzato** specificare il nome che si vuole usare. Ad esempio, `api.contoso.com`.
     - Nel **certificato**selezionare un certificato da Key Vault. È anche possibile caricare un valido. File PFX e fornire la relativa **password**, se il certificato è protetto con una password.
 
     > [!NOTE]
-    > I nomi di dominio con caratteri `*.contoso.com` jolly, ad esempio, sono supportati in tutti i livelli eccetto il livello di consumo.
+    > I nomi di dominio con caratteri jolly, ad esempio `*.contoso.com` sono supportati in tutti i livelli eccetto il livello di consumo.
 
     > [!TIP]
     > Si consiglia di usare Azure Key Vault per gestire i certificati e impostarli per la rotazione.
@@ -88,7 +88,7 @@ Quando si configura DNS per il nome di dominio personalizzato, sono disponibili 
 -   Configurare un record A che punti all'indirizzo IP del gateway di gestione API.
 
 > [!NOTE]
-> Anche se l'indirizzo IP dell'istanza di gestione API è statico, può cambiare in alcuni scenari. Per questo motivo è consigliabile usare CNAME durante la configurazione di un dominio personalizzato. Prendere in considerazione questo aspetto quando si sceglie il metodo di configurazione DNS. Per altre informazioni, vedere le [domande frequenti sull'API Mananagement](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
+> Anche se l'indirizzo IP dell'istanza di gestione API è statico, può cambiare in alcuni scenari. Per questo motivo è consigliabile usare CNAME durante la configurazione di un dominio personalizzato. Prendere in considerazione questo aspetto quando si sceglie il metodo di configurazione DNS. Per altre informazioni, vedere le [domande frequenti su gestione API](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

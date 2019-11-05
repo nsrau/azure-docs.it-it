@@ -11,32 +11,32 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: 98d257c28ab5ff2cf902c0b8205ac8918ccf4d45
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ab291ab60a5e72b5c61552bc54c10e303c1df1a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567009"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492492"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Scegliere tra i modelli di acquisto vCore e DTU
 
 Il database SQL di Azure ti permette di acquistare con facilità un motore di database di piattaforma distribuita come servizio (PaaS) completamente gestito che soddisfa le tue esigenze in termini di prestazioni e costi. A seconda del modello di distribuzione scelto per il database SQL di Azure, è possibile selezionare il modello di acquisto che funziona correttamente:
 
-- [Modello di acquisto basato su Virtual Core (vCore)](sql-database-service-tiers-vcore.md) (scelta consigliata). Questo modello di acquisto consente di scegliere tra un livello di calcolo di cui è stato effettuato il provisioning e un livello di calcolo senza server (anteprima). Con il livello di calcolo di cui è stato effettuato il provisioning, si sceglie la quantità esatta di risorse di calcolo di cui è sempre stato effettuato il provisioning per il carico di lavoro. Con il livello di calcolo senza server è possibile specificare la scalabilità automatica delle risorse di calcolo in un intervallo di calcolo configurabile. Con questo livello di calcolo, è anche possibile sospendere e riprendere automaticamente il database in base all'attività del carico di lavoro. Il prezzo unitario di vCore per unità di tempo è inferiore al livello di calcolo di cui è stato effettuato il provisioning rispetto al livello di calcolo senza server.
+- [Modello di acquisto basato su Virtual Core (vCore)](sql-database-service-tiers-vcore.md) (scelta consigliata). Questo modello di acquisto consente di scegliere tra un livello di calcolo di cui è stato effettuato il provisioning e un livello di calcolo senza server. Con il livello di calcolo di cui è stato effettuato il provisioning, si sceglie la quantità esatta di risorse di calcolo di cui è sempre stato effettuato il provisioning per il carico di lavoro. Con il livello di calcolo senza server è possibile specificare la scalabilità automatica delle risorse di calcolo in un intervallo di calcolo configurabile. Con questo livello di calcolo, è anche possibile sospendere e riprendere automaticamente il database in base all'attività del carico di lavoro. Il prezzo unitario di vCore per unità di tempo è inferiore al livello di calcolo di cui è stato effettuato il provisioning rispetto al livello di calcolo senza server.
 - [Modello di acquisto basato su unità di transazione di database (DTU)](sql-database-service-tiers-dtu.md). Questo modello di acquisto fornisce pacchetti di calcolo e archiviazione in bundle bilanciati per carichi di lavoro comuni.
 
 Sono disponibili modelli di acquisto diversi per i diversi modelli di distribuzione del database SQL di Azure:
 
 - Le opzioni di distribuzione [database singolo](sql-database-single-databases-manage.md) e [pool elastico](sql-database-elastic-pool.md) nel [database SQL di Azure](sql-database-technical-overview.md) offrono sia il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) sia il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 - L'opzione di distribuzione [istanza gestita](sql-database-managed-instance.md) nel database SQL di Azure offre solo il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
-- Il [livello di servizio](sql-database-service-tier-hyperscale.md) iperscalabile è disponibile per i singoli database che usano il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
+- Il [livello di servizio iperscalabile](sql-database-service-tier-hyperscale.md) è disponibile per i singoli database che usano il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 
 La tabella e il grafico seguenti confrontano e contrastano i modelli di acquisto basati su vCore e DTU:
 
 |**Modello di acquisto**|**Descrizione**|**Ideale per**|
 |---|---|---|
 |Modello basato su DTU|Questo modello è basato su una misura in bundle di risorse di calcolo, archiviazione e I/O. Le dimensioni di calcolo sono espresse in DTU per database singoli e in unità di transazione di database elastico (edtu) per i pool elastici. Per ulteriori informazioni su DTU e edtu, vedere informazioni su [DTU e edtu](sql-database-purchase-models.md#dtu-based-purchasing-model).|Ideale per i clienti che desiderano opzioni semplici e preconfigurate per le risorse.|
-|Modello basato su vCore|Questo modello consente di scegliere in modo indipendente le risorse di calcolo e archiviazione. Il modello di acquisto basato su vCore offre inoltre la possibilità di usare il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) per ottenere un risparmio sui costi.|Ideale per i clienti che danno valore alla trasparenza, al controllo e alla flessibilità.|
+|Modello basato su vCore|Questo modello consente di scegliere in modo indipendente le risorse di calcolo e archiviazione. Il modello di acquisto basato su vCore offre inoltre la possibilità di usare [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) per un risparmio in termini di costi.|Ideale per i clienti che danno valore alla trasparenza, al controllo e alla flessibilità.|
 ||||  
 
 ![confronto tra modelli di prezzi](./media/sql-database-service-tiers/pricing-model.png)
@@ -53,7 +53,7 @@ Il costo dell'archiviazione di backup è lo stesso per il livello di servizio bu
 
 ### <a name="serverless-compute-costs"></a>Costi di calcolo senza server
 
-Per una descrizione del modo in cui viene definita la capacità di calcolo e i costi vengono calcolati per il livello di calcolo senza server, vedere [database SQL senza server (anteprima)](sql-database-serverless.md).
+Per una descrizione del modo in cui viene definita la capacità di calcolo e i costi vengono calcolati per il livello di calcolo senza server, vedere [database SQL senza server](sql-database-serverless.md).
 
 ## <a name="storage-costs"></a>Costi di archiviazione
 
@@ -67,7 +67,7 @@ Per altre informazioni sui prezzi delle risorse di archiviazione, vedere la pagi
 
 Un core virtuale (vCore) rappresenta una CPU logica e offre la possibilità di scegliere tra generazioni di hardware e le caratteristiche fisiche dell'hardware, ad esempio il numero di core, la memoria e le dimensioni di archiviazione. Il modello di acquisto basato su vCore offre flessibilità, controllo, trasparenza del consumo di risorse individuali e un modo semplice per tradurre i requisiti del carico di lavoro locale nel cloud. Questo modello consente di scegliere risorse di calcolo, memoria e archiviazione in base alle esigenze del carico di lavoro.
 
-Nel modello di acquisto basato su vCore è possibile scegliere tra i livelli di servizio per [utilizzo generico](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e [business critical](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) per [database singoli](sql-database-single-database-scale.md), [pool elastici](sql-database-elastic-pool.md)e [istanze gestite](sql-database-managed-instance.md). Per i database singoli, è anche possibile scegliere il [livello di servizio](sql-database-service-tier-hyperscale.md)di iperscalabilità.
+Nel modello di acquisto basato su vCore è possibile scegliere tra i livelli di servizio per [utilizzo generico](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e [business critical](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) per [database singoli](sql-database-single-database-scale.md), [pool elastici](sql-database-elastic-pool.md)e [istanze gestite](sql-database-managed-instance.md). Per i database singoli, è anche possibile scegliere il [livello di servizio di iperscalabilità](sql-database-service-tier-hyperscale.md).
 
 Il modello di acquisto basato su vCore consente di scegliere in modo indipendente le risorse di calcolo e di archiviazione, soddisfare le prestazioni locali e ottimizzare il prezzo. Nel modello di acquisto basato su vCore si paga:
 
@@ -77,7 +77,7 @@ Il modello di acquisto basato su vCore consente di scegliere in modo indipendent
 
 > [!IMPORTANT]
 > Le risorse di calcolo, l'I/O e l'archiviazione di dati e log vengono addebitate in base al database o al pool elastico. L'archiviazione di backup viene addebitata per ogni database. Per altre informazioni sui costi delle istanze gestite, vedere le [istanze gestite](sql-database-managed-instance.md).
-> **Limitazioni di area:** per l'elenco aggiornato delle aree supportate, vedere i [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Per creare un'istanza gestita in un'area che attualmente non è supportata, [inviare una richiesta di supporto tramite il portale di Azure](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
+> **Limitazioni dell'area:** Per l'elenco corrente delle aree supportate, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Per creare un'istanza gestita in un'area che attualmente non è supportata, [inviare una richiesta di supporto tramite il portale di Azure](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 
 Se il database singolo o il pool elastico consuma più di 300 DTU, la conversione nel modello di acquisto basato su vCore potrebbe ridurre i costi. È possibile eseguire la conversione usando l'API scelta o usando il portale di Azure, senza tempi di inattività. Tuttavia, la conversione non è necessaria e non viene eseguita automaticamente. Se il modello di acquisto basato su DTU soddisfa i requisiti aziendali e di prestazioni, è consigliabile continuare a usarlo.
 

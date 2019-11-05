@@ -7,24 +7,24 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: a3c25553e7abbe39c00407e8000880dc99056bcd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ccc3da6f2dd49775ff4d4486fcd2af9f08a396d6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172990"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475917"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
-Endpoint privato di Azure è un'interfaccia di rete che si connette privatamente e in modo sicuro a un servizio basato sul collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della VNet, in modo da portare il servizio in VNet. Il servizio potrebbe essere un servizio di Azure, ad esempio archiviazione di Azure, SQL e così via, oppure il [servizio di collegamento privato](private-link-service-overview.md).
+Endpoint privato di Azure è un'interfaccia di rete che si connette privatamente e in modo sicuro a un servizio basato sul collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della VNet, in modo da portare il servizio in VNet. Il servizio potrebbe essere un servizio di Azure, ad esempio archiviazione di Azure, Azure Cosmos DB, SQL e così via, oppure il [servizio di collegamento privato](private-link-service-overview.md).
   
 ## <a name="private-endpoint-properties"></a>Proprietà endpoint privato 
  Un endpoint privato specifica le proprietà seguenti: 
 
 
-|Proprietà  |Description |
+|Proprietà  |Descrizione |
 |---------|---------|
-|name    |    Nome univoco all'interno del gruppo di risorse.      |
+|Name    |    Nome univoco all'interno del gruppo di risorse.      |
 |Subnet    |  Subnet per la distribuzione e l'allocazione di indirizzi IP privati da una rete virtuale. Per i requisiti della subnet, vedere la sezione limitazioni di questo articolo.         |
 |Risorsa collegamento privato    |   La risorsa di collegamento privato per la connessione usando l'ID risorsa o l'alias, dall'elenco dei tipi disponibili. Verrà generato un identificatore di rete univoco per tutto il traffico inviato a questa risorsa.       |
 |Sottorisorsa di destinazione   |      Sottorisorsa da connettere. Ogni tipo di risorsa di collegamento privato ha opzioni diverse da selezionare in base alla preferenza.    |
@@ -57,7 +57,7 @@ Una risorsa di collegamento privato è la destinazione di un endpoint privato sp
 |**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
 |**Archiviazione di Azure**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Tabella (tabella, table_secondary)<BR> Coda (coda, queue_secondary)<BR> File (file, file_secondary)<BR> Web (Web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)       |
- 
+|**Azure Cosmos DB** | Microsoft. AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, tabella|
  
 ## <a name="network-security-of-private-endpoints"></a>Sicurezza di rete degli endpoint privati 
 Quando si usano endpoint privati per i servizi di Azure, il traffico viene protetto a una risorsa di collegamento privato specifica. La piattaforma esegue un controllo di accesso per convalidare le connessioni di rete che raggiungono solo la risorsa di collegamento privato specificata. Per accedere ad altre risorse all'interno dello stesso servizio di Azure, sono necessari endpoint privati aggiuntivi. 
@@ -107,9 +107,12 @@ Per i servizi di Azure, usare i nomi di zona consigliati come descritto nella ta
 |Account di archiviazione (Microsoft. storage/storageAccounts)   |    File (file, file_secondary)      |    privatelink.file.core.windows.net      |
 |Account di archiviazione (Microsoft. storage/storageAccounts)     |  Web (Web, web_secondary)        |    privatelink.web.core.windows.net      |
 |Data Lake file System Gen2 (Microsoft. storage/storageAccounts)  |  Data Lake file System Gen2 (DFS, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
-||||
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|SQL |privatelink.documents.azure.com|
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|MongoDB |privatelink.mongo.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Gremlin |privatelink.gremlin.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Tabella|privatelink.table.cosmos.azure.com|
  
-
 Azure creerà un record DNS di nome canonico (CNAME) nel DNS pubblico per reindirizzare la risoluzione ai nomi di dominio suggeriti. Sarà possibile sostituire la risoluzione con l'indirizzo IP privato degli endpoint privati. 
  
 Le applicazioni non devono modificare l'URL di connessione. Quando si tenta di risolvere usando un DNS pubblico, il server DNS verrà risolto negli endpoint privati. Il processo non ha alcun effetto sulle applicazioni. 
@@ -119,11 +122,11 @@ Le applicazioni non devono modificare l'URL di connessione. Quando si tenta di r
 La tabella seguente include un elenco di limitazioni note quando si usano gli endpoint privati: 
 
 
-|Limitazione |Description |Mitigazione  |
+|Limitazione |Descrizione |Mitigazione  |
 |---------|---------|---------|
 |Le regole del gruppo di sicurezza di rete (NSG) e le route definite dall'utente non si applicano all'endpoint privato    |NSG non è supportato in endpoint privati. Mentre le subnet contenenti l'endpoint privato possono avere NSG associate, le regole non saranno valide per il traffico elaborato dall'endpoint privato. Per distribuire endpoint privati in una subnet, è necessario che l' [applicazione di criteri di rete sia disabilitata](disable-private-endpoint-network-policy.md) . NSG viene ancora applicato ad altri carichi di lavoro ospitati nella stessa subnet. Le route in qualsiasi subnet client utilizzeranno un prefisso/32. la modifica del comportamento di routing predefinito richiede un UDR simile  | Controllare il traffico usando le regole NSG per il traffico in uscita nei client di origine. Distribuire le singole route con prefisso/32 per eseguire l'override delle route di endpoint privato        |
 |  La rete virtuale con peering con endpoint privati non è supportata   |   Quando ci si connette a endpoint privati in una rete virtuale con peering senza altri carichi di lavoro non è supportato       | Distribuire una singola VM nella rete virtuale con peering per abilitare la connettività |
-|Carichi di lavoro specializzati non possono accedere agli endpoint privati    |   I servizi seguenti distribuiti nella rete virtuale non possono accedere a una risorsa di collegamento privato tramite endpoint privati:<br>Piano di servizio app</br>Istanza di contenitore di Azure</br>Azure NetApp Files</br>HSM dedicato di Azure<br>       |   Nessuna attenuazione durante l'anteprima.       |
+|Carichi di lavoro specializzati non possono accedere agli endpoint privati    |   I servizi seguenti distribuiti nella rete virtuale non possono accedere a una risorsa di collegamento privato tramite endpoint privati:<br>Piano di servizio app</br>Istanza di contenitore di Azure</br>Azure NetApp Files</br>Modulo di protezione hardware dedicato di Azure<br>       |   Nessuna attenuazione durante l'anteprima.       |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -131,4 +134,5 @@ La tabella seguente include un elenco di limitazioni note quando si usano gli en
 - [Creare un endpoint privato per il server di database SQL con PowerShell ](create-private-endpoint-powershell.md)
 - [Creare un endpoint privato per il server di database SQL con l'interfaccia della riga di comando ](create-private-endpoint-cli.md)
 - [Creare un endpoint privato per l'account di archiviazione con il portale ](create-private-endpoint-storage-portal.md)
+- [Creare un endpoint privato per l'account Azure Cosmos usando il portale](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Creare un servizio Collegamento privato con Azure PowerShell](create-private-link-service-powershell.md)

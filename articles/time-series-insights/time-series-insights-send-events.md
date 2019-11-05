@@ -3,21 +3,20 @@ title: Inviare eventi a un ambiente di Azure Time Series Insights | Microsoft Do
 description: Informazioni su come configurare un hub eventi e su come eseguire un'applicazione di esempio per eseguire il push degli eventi che è possibile visualizzare in Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: accf3adea08e713a7a2f06bb175c759ae66a72c0
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 2878a77918fdd1c1cd298ae536bcdd3bec065e91
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274579"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991135"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Inviare eventi a un ambiente Time Series Insights usando un hub eventi
 
@@ -30,14 +29,14 @@ Questo articolo illustra come creare e configurare un hub eventi in hub eventi d
 1. Selezionare l'hub eventi.
 1. Quando si crea un hub eventi, si sta creando uno spazio dei nomi dell'hub eventi. Se non è ancora stato creato un hub eventi nello spazio dei nomi, nel menu, in **entità**, creare un hub eventi.  
 
-    [@no__t 1List di hub eventi](media/send-events/1-event-hub-namespace.png)](media/send-events/1-event-hub-namespace.png#lightbox)
+    [![elenco di hub eventi](media/send-events/1-event-hub-namespace.png)](media/send-events/1-event-hub-namespace.png#lightbox)
 
 1. Dopo aver creato un hub eventi, selezionarlo nell'elenco degli hub eventi.
 1. Nel menu in **entità**selezionare **Hub eventi**.
 1. Selezionare il nome dell'hub eventi per configurarlo.
 1. In **Panoramica**selezionare **gruppi di consumer**e quindi selezionare **gruppo di consumer**.
 
-    [@no__t 1Create un gruppo di consumer](media/send-events/2-consumer-group.png)](media/send-events/2-consumer-group.png#lightbox)
+    [![creare un gruppo di consumer](media/send-events/2-consumer-group.png)](media/send-events/2-consumer-group.png#lightbox)
 
 1. Assicurarsi di creare un gruppo di consumer usato esclusivamente dall'origine evento Time Series Insights.
 
@@ -46,11 +45,11 @@ Questo articolo illustra come creare e configurare un hub eventi in hub eventi d
 
 1. Nel menu, in **Impostazioni**, selezionare **criteri di accesso condiviso**, quindi selezionare **Aggiungi**.
 
-    [criteri di accesso condiviso ![Selezionare e quindi selezionare il pulsante Aggiungi](media/send-events/3-shared-access-policy.png)](media/send-events/3-shared-access-policy.png#lightbox)
+    [![selezionare criteri di accesso condiviso e quindi selezionare il pulsante Aggiungi](media/send-events/3-shared-access-policy.png)](media/send-events/3-shared-access-policy.png#lightbox)
 
 1. Nel riquadro **Aggiungi nuovi criteri di accesso condiviso** creare un accesso condiviso denominato **MySendPolicy** Usare questi criteri di accesso condiviso per inviare gli eventi negli C# esempi più avanti in questo articolo.
 
-    [![In casella Nome criterio, immettere MySendPolicy](media/send-events/4-shared-access-policy-confirm.png)](media/send-events/4-shared-access-policy-confirm.png#lightbox)
+    [![nella casella Nome criterio immettere MySendPolicy](media/send-events/4-shared-access-policy-confirm.png)](media/send-events/4-shared-access-policy-confirm.png#lightbox)
 
 1. In **Claim (attestazione**) selezionare la casella di controllo **Send (Invia** ).
 
@@ -72,24 +71,24 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
 1. Passare a **criteri di accesso condiviso** > **MySendPolicy**. Copiare il valore per **stringa di connessione-chiave primaria**.
 
-    [![Copy il valore per la stringa di connessione della chiave primaria](media/send-events/5-sample-code-connection-string.png)](media/send-events/5-sample-code-connection-string.png#lightbox)
+    [![copiare il valore per la stringa di connessione della chiave primaria](media/send-events/5-sample-code-connection-string.png)](media/send-events/5-sample-code-connection-string.png#lightbox)
 
 1. Passare a https://tsiclientsample.azurewebsites.net/windFarmGen.html. L'URL esegue i dispositivi windmill simulati.
 1. Nella casella **stringa di connessione dell'hub eventi** della pagina Web incollare la stringa di connessione copiata nel campo di [input Windmill](#push-events-to-windmills-sample).
   
-    [![Paste la stringa di connessione della chiave primaria nella casella stringa di connessione dell'hub eventi](media/send-events/6-wind-mill-sim.png)](media/send-events/6-wind-mill-sim.png#lightbox)
+    [![incollare la stringa di connessione della chiave primaria nella casella stringa di connessione dell'hub eventi](media/send-events/6-wind-mill-sim.png)](media/send-events/6-wind-mill-sim.png#lightbox)
 
 1. Selezionare **Click to start** (Fare clic per avviare). Il simulatore genera istanza JSON che è possibile usare direttamente.
 
 1. Tornare all'hub eventi nel portale di Azure. Nella pagina **Overview (panoramica** ) vengono visualizzati i nuovi eventi ricevuti dall'hub eventi.
 
-    [pagina di panoramica dell'hub eventi ![An che mostra le metriche per l'hub eventi](media/send-events/7-telemetry.png)](media/send-events/7-telemetry.png#lightbox)
+    [![una pagina Panoramica di hub eventi che mostra le metriche per l'hub eventi](media/send-events/7-telemetry.png)](media/send-events/7-telemetry.png#lightbox)
 
 ## <a name="supported-json-shapes"></a>Forme JSON supportate
 
 ### <a name="example-one"></a>Esempio uno
 
-* **Input**: Un oggetto JSON semplice.
+* **Input**: un semplice oggetto JSON.
 
     ```JSON
     {
@@ -98,7 +97,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
     }
     ```
 
-* **Output**: Un evento.
+* **Output**: un evento.
 
     |id|timestamp|
     |--------|---------------|
@@ -106,7 +105,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
 ### <a name="example-two"></a>Esempio due
 
-* **Input**: Una matrice JSON con due oggetti JSON. Ogni oggetto JSON viene convertito in un evento.
+* **Input**: matrice JSON con due oggetti JSON. Ogni oggetto JSON viene convertito in un evento.
 
     ```JSON
     [
@@ -121,7 +120,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
     ]
     ```
 
-* **Output**: Due eventi.
+* **Output**: due eventi.
 
     |id|timestamp|
     |--------|---------------|
@@ -130,7 +129,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
 ### <a name="example-three"></a>Esempio tre
 
-* **Input**: Oggetto JSON con una matrice JSON annidata che contiene due oggetti JSON.
+* **Input**: oggetto JSON con una matrice JSON annidata che contiene due oggetti JSON.
 
     ```JSON
     {
@@ -148,7 +147,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
     }
     ```
 
-* **Output**: Due eventi. La proprietà **location** viene copiata in ogni evento.
+* **Output**: due eventi. La proprietà **location** viene copiata in ogni evento.
 
     |location|events.id|events.timestamp|
     |--------|---------------|----------------------|
@@ -157,7 +156,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
 ### <a name="example-four"></a>Esempio quattro
 
-* **Input**: Oggetto JSON con una matrice JSON annidata che contiene due oggetti JSON. Questo input dimostra che le proprietà globali possono essere rappresentate dall'oggetto JSON complesso.
+* **Input**: oggetto JSON con una matrice JSON annidata che contiene due oggetti JSON. Questo input dimostra che le proprietà globali possono essere rappresentate dall'oggetto JSON complesso.
 
     ```JSON
     {
@@ -189,7 +188,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
     }
     ```
 
-* **Output**: Due eventi.
+* **Output**: due eventi.
 
     |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
     |---|---|---|---|---|---|---|---|

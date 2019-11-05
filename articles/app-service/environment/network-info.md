@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9b7c63639eea7176af36593983b08ad0c5213613
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ee7e3cb200a20b52a307dba31682a534e9f7b455
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073226"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470650"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -26,8 +26,8 @@ ms.locfileid: "70073226"
 
  Azure [ambiente del servizio app][Intro] è una distribuzione di app Azure servizio in una subnet nella rete virtuale di Azure (VNet). È possibile distribuire un ambiente del servizio app in due modi:
 
-- **Ambiente del servizio app di Azure esterno**: espone le app ospitate dall'ambiente del servizio app su un indirizzo IP accessibile da Internet. Per altre informazioni, vedere [creare un][MakeExternalASE]ambiente del servizio app esterno.
-- **Ambiente del servizio app di Azure con bilanciamento del carico interno**: espone le app ospitate dall'ambiente del servizio app su un indirizzo IP all'interno della VNet. L'endpoint interno è un servizio di bilanciamento del carico interno (ILB, Internal Load Balancer) ed è per questo motivo che si usa la definizione "ambiente del servizio app con bilanciamento del carico interno". Per altre informazioni, vedere [creare e usare un][MakeILBASE]ambiente del servizio app ILB.
+- **Ambiente del servizio app esterno**: espone le app ospitate dall'ambiente del servizio app su un indirizzo IP accessibile da Internet. Per altre informazioni, vedere [creare un][MakeExternalASE]ambiente del servizio app esterno.
+- **Ambiente del servizio app con bilanciamento del carico interno**: espone le app ospitate dall'ambiente del servizio app su un indirizzo IP all'interno della VNet. L'endpoint interno è un servizio di bilanciamento del carico interno (ILB, Internal Load Balancer) ed è per questo motivo che si usa la definizione "ambiente del servizio app con bilanciamento del carico interno". Per altre informazioni, vedere [creare e usare un][MakeILBASE]ambiente del servizio app ILB.
 
 Tutti gli ambienti, external e ILB, dispongono di un indirizzo VIP pubblico usato per il traffico di gestione in ingresso e come indirizzo da quando si effettuano chiamate dall'ambiente del servizio app a Internet. Le chiamate da un ambiente del servizio app che passano a Internet lasciano il VNet tramite l'indirizzo VIP assegnato per l'ambiente del servizio app. L'indirizzo IP pubblico di questo indirizzo VIP è l'indirizzo IP di origine per tutte le chiamate dall'ambiente del servizio app indirizzate a Internet. Se le app nell'ambiente del servizio app effettuano chiamate a risorse nella rete virtuale o tramite una VPN, l'IP di origine sarà uno degli indirizzi IP nella subnet usata dall'ambiente del servizio app. Dato che l'ambiente del servizio app è all'interno della rete virtuale, consente anche di accedere alle risorse all'interno della rete virtuale senza ulteriori configurazioni. Se la rete virtuale è connessa alla rete locale, le app nell'ambiente del servizio app hanno accesso anche alle relative risorse senza un'ulteriore configurazione.
 
@@ -59,11 +59,11 @@ Quando si aumenta o si riduce il numero di istanze, vengono aggiunti nuovi ruoli
 
 Per il funzionamento dell'ambiente del servizio app, l'ambiente del servizio app richiede che siano aperte le porte seguenti:
 
-| Utilizzo | Da | A |
+| Uso | Da | To |
 |-----|------|----|
-| Gestione | Indirizzi di gestione del servizio app | Subnet dell'ambiente del servizio app: 454, 455 |
-|  Comunicazione interna dell'ambiente del servizio app | Subnet dell'ambiente del servizio app: Tutte le porte | Subnet dell'ambiente del servizio app: Tutte le porte
-|  Consenti bilanciamento del carico di Azure in ingresso | Azure Load Balancer | Subnet dell'ambiente del servizio app: 16001
+| gestione | Indirizzi di gestione del servizio app | Subnet dell'ambiente del servizio app: 454, 455 |
+|  Comunicazione interna dell'ambiente del servizio app | Subnet dell'ambiente del servizio app: tutte le porte | Subnet dell'ambiente del servizio app: tutte le porte
+|  Consenti bilanciamento del carico di Azure in ingresso | Servizio di bilanciamento del carico di Azure | Subnet ASE: 16001
 
 Sono disponibili altre due porte che possono essere visualizzate come aperte in un'analisi di porta, 7654 e 1221. Rispondono con un indirizzo IP e nient'altro. Se lo si desidera, è possibile bloccarle. 
 
@@ -75,7 +75,7 @@ Per le comunicazioni tra Azure Load Balancer e la subnet dell'ambiente del servi
 
 Le altre porte di cui è necessario preoccuparsi sono le porte dell'applicazione:
 
-| Utilizzo | Porte |
+| Uso | Porte |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -95,7 +95,7 @@ L'ambiente del servizio app comunica con indirizzi Internet accessibili sulle po
 | DNS | 53 |
 | NTP | 123 |
 | 8CRL, aggiornamenti di Windows, dipendenze di Linux, servizi di Azure | 80/443 |
-| Azure SQL | 1433 | 
+| SQL di Azure | 1433 | 
 | Monitoraggio | 12000 |
 
 Le dipendenze in uscita sono elencate nel documento in cui viene descritto il [blocco del traffico in uscita ambiente del servizio app](./firewall-integration.md). L'ambiente del servizio app smette di funzionare se perde l'accesso alle relative dipendenze. Se questa condizione si prolunga nel tempo, l'ambiente del servizio app viene sospeso. 
@@ -131,8 +131,8 @@ Se l'ambiente del servizio app ILB è il nome di dominio *contoso.appserviceenvi
 Un ambiente del servizio app ha alcuni indirizzi IP di cui tenere conto. Sono:
 
 - **Indirizzo IP in ingresso pubblico**: usato per il traffico di app in un ambiente del servizio app esterno e per il traffico di gestione sia per un ambiente del servizio app esterno che con bilanciamento del carico interno.
-- **Indirizzo IP in uscita pubblico**: usato come indirizzo IP di origine per le connessioni in uscita dall'ambiente del servizio app che lasciano la rete virtuale e non vengono indirizzate su una VPN.
-- **Indirizzo IP del servizio ILB**: L'indirizzo IP ILB esiste solo in un ambiente del servizio app ILB.
+- **IP pubblico in uscita**: usato come indirizzo IP di origine per le connessioni in uscita dall'ambiente del servizio app che lasciano la rete virtuale e non vengono indirizzate su una VPN.
+- **Indirizzo IP ILB**: l'indirizzo IP ILB esiste solo in un ambiente del servizio app ILB.
 - **Indirizzi SSL basati su IP assegnati alle app**: possibili solo con un ambiente del servizio app esterno e quando è configurato SSL basato su IP.
 
 Tutti questi indirizzi IP sono visibili nella portale di Azure dall'interfaccia utente dell'ambiente del servizio app. Con un ambiente del servizio app con bilanciamento del carico interno viene elencato l'indirizzo IP per il servizio di bilanciamento del carico interno.
@@ -144,7 +144,7 @@ Tutti questi indirizzi IP sono visibili nella portale di Azure dall'interfaccia 
 
 ### <a name="app-assigned-ip-addresses"></a>Indirizzi IP assegnati alle app ###
 
-Con un ambiente del servizio app esterno è possibile assegnare gli indirizzi IP alle singole app. Ciò non è possibile con un ambiente del servizio app con bilanciamento del carico interno. Per altre informazioni su come configurare l'app in modo che abbia un indirizzo IP proprio, vedere [Associare un certificato SSL personalizzato esistente a Servizio app di Azure](../app-service-web-tutorial-custom-ssl.md).
+Con un ambiente del servizio app esterno è possibile assegnare gli indirizzi IP alle singole app. Ciò non è possibile con un ambiente del servizio app con bilanciamento del carico interno. Per altre informazioni su come configurare l'app in modo che disponga di un proprio indirizzo IP, vedere [proteggere un nome DNS personalizzato con un'associazione SSL nel servizio app Azure](../configure-ssl-bindings.md).
 
 Quando a un'app viene assegnato un indirizzo SSL basato su IP proprio, l'ambiente del servizio app riserva due porta da mappare a tale indirizzo IP. Una porta è destinata al traffico HTTP e l'altra al traffico HTTPS. Tali porte sono elencate nell'interfaccia utente dell'ambiente del servizio app nella sezione degli indirizzi IP. Il traffico deve essere in grado di raggiungere tali porte dall'indirizzo VIP o le app saranno inaccessibili. Questo requisito è importante da ricordare quando si configurano gruppi di sicurezza di rete (NSG).
 
@@ -172,7 +172,7 @@ Per il funzionamento di un ambiente del servizio app, è necessario che le voci 
 
 Non è necessario aggiungere la porta DNS perché il traffico verso DNS non è influenzato dalle regole NSG. Queste porte non includono le porte richieste dalle app per un uso corretto. Le porte di accesso alle app normali sono:
 
-| Utilizzo | Porte |
+| Uso | Porte |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -183,7 +183,7 @@ Tenendo conto dei requisiti in ingresso e in uscita, i gruppi di sicurezza di re
 
 ![Regole di sicurezza in ingresso][4]
 
-Una regola predefinita consente agli indirizzi IP di comunicare con la subnet dell'ambiente del servizio app nella rete virtuale. Un'altra regola predefinita consente al bilanciamento del carico, noto anche come VIP pubblico, di comunicare con l'ambiente del servizio app. Per visualizzare le regole predefinite selezionare **Regole predefinite** accanto all'icona **Aggiungi**. Se si inserisce una regola nega tutto il resto prima delle regole predefinite, si impedisce il traffico tra l'indirizzo VIP e l'ambiente del servizio app. Per impedire il traffico proveniente da all'interno della rete virtuale, aggiungere una regola personalizzata per consentire connessioni in entrata. Usare un'origine uguale ad AzureLoadBalancer con una destinazione **qualsiasi** e un intervallo di porte di **\*** . Dato che la regola del gruppo di sicurezza di rete viene applicata solo alla subnet dell'ambiente del servizio app, non è necessario impostare una destinazione specifica.
+Una regola predefinita consente agli indirizzi IP di comunicare con la subnet dell'ambiente del servizio app nella rete virtuale. Un'altra regola predefinita consente al bilanciamento del carico, noto anche come VIP pubblico, di comunicare con l'ambiente del servizio app. Per visualizzare le regole predefinite selezionare **Regole predefinite** accanto all'icona **Aggiungi**. Se si inserisce una regola nega tutto il resto prima delle regole predefinite, si impedisce il traffico tra l'indirizzo VIP e l'ambiente del servizio app. Per impedire il traffico proveniente da all'interno della rete virtuale, aggiungere una regola personalizzata per consentire connessioni in entrata. Usare un'origine uguale ad AzureLoadBalancer con una destinazione **qualsiasi** e un intervallo di porte di **\*\** . Dato che la regola del gruppo di sicurezza di rete viene applicata solo alla subnet dell'ambiente del servizio app, non è necessario impostare una destinazione specifica.
 
 Se è stato assegnato un indirizzo IP all'app, accertarsi di mantenere le porte aperte. Per visualizzare le porte selezionare **Ambiente del servizio app** > **Indirizzi IP**.  
 
@@ -216,15 +216,15 @@ Per creare le stesse route manualmente, seguire questa procedura:
 
     ![Gruppi di sicurezza di rete e route][7]
 
-## <a name="service-endpoints"></a>Endpoint di servizio ##
+## <a name="service-endpoints"></a>Endpoint servizio ##
 
-Gli endpoint servizio consentono di limitare l'accesso ai servizi multi-tenant a un set di reti e subnet virtuali di Azure. Per altre informazioni sugli endpoint di servizio, vedere la documentazione relativa agli [endpoint del servizio rete virtuale][serviceendpoints] . 
+Gli endpoint servizio consentono di limitare l'accesso ai servizi multi-tenant a un set di reti e subnet virtuali di Azure. Per altre informazioni sugli endpoint servizio, vedere la pagina [Endpoint servizio di rete virtuale][serviceendpoints]. 
 
 Quando si abilitano gli endpoint del servizio su una risorsa, alcune route sono create con una priorità maggiore rispetto a tutte le altre route. Se si usano gli endpoint di servizio in qualsiasi servizio di Azure, con un ambiente del servizio app con tunneling forzato, il traffico verso tali servizi non verrà forzato tramite tunneling. 
 
 Quando gli endpoint servizio sono abilitati in una subnet con un'istanza di SQL di Azure, tutte le istanze di SQL di Azure verso cui si esegue la connessione da tale subnet devono avere gli endpoint servizio abilitati. Se si desidera accedere a più istanze di SQL di Azure dalla stessa subnet, non è possibile abilitare gli endpoint servizio in un'istanza di SQL di Azure e non in un'altra. Nessun altro servizio di Azure si comporta come Azure SQL rispetto agli endpoint di servizio. Quando si abilitano gli endpoint servizio con Archiviazione di Azure, si blocca l'accesso a tale risorsa dalla propria subnet ma è comunque possibile accedere ad altri account di archiviazione di Azure, anche se non hanno gli endpoint servizio abilitati.  
 
-![Endpoint di servizio][8]
+![Endpoint servizio][8]
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
@@ -251,7 +251,7 @@ Quando gli endpoint servizio sono abilitati in una subnet con un'istanza di SQL 
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ss-cert.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

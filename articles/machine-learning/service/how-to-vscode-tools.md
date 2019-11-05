@@ -10,31 +10,31 @@ ms.author: jimgries
 author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: a93c71a97cdb1f6296919a248cf7ef545f7b307f
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: df23c41629dfe86058f0f2fb6602e85fd5a6d494
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269245"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489299"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Introduzione ad Azure Machine Learning per Visual Studio Code
 
 Questo articolo illustra come usare la **Azure Machine Learning per Visual Studio Code** estensione per eseguire il training e distribuire modelli di machine learning.
 
-Il [servizio Azure Machine Learning](overview-what-is-azure-ml.md) semplifica la creazione, il training e la distribuzione dei modelli di machine learning.
+Il [Azure Machine Learning](overview-what-is-azure-ml.md) semplifica la creazione, il training e la distribuzione dei modelli di machine learning.
 + Per il training, fornisce il supporto per l'esecuzione di esperimenti in locale o in remoto. Per ogni esperimento è possibile registrare metriche personalizzate di più esecuzioni per ottimizzare gli iperparametri
-+ È anche possibile usare il servizio Azure Machine Learning per distribuire facilmente modelli di apprendimento automatico per le esigenze di test e produzione.
++ È anche possibile usare la Azure Machine Learning per distribuire facilmente modelli di apprendimento automatico per le esigenze di test e produzione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-+ Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova la [versione gratuita o a pagamento del Azure Machine Learning](https://aka.ms/AMLFree).
++ Se non si dispone di una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova la [versione gratuita o a pagamento del Azure Machine Learning](https://aka.ms/AMLFree).
 
 + Installare [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), un editor di codice leggero che viene eseguito in Windows, Mac e Linux.
 
 + [Installare Python 3,5 o versione successiva](https://www.anaconda.com/download/).
 
 
-## <a name="install-the-extension"></a>Installa l'estensione
+## <a name="install-the-extension"></a>Installare l'estensione
 
 Quando si installa l'estensione Azure Machine Learning, vengono installate automaticamente due altre estensioni. Si tratta dell' [estensione dell'account Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) e dell' [estensione Microsoft Python](https://marketplace.visualstudio.com/items?itemName=ms-Python.Python). Per altre informazioni sull'uso dell'estensione Python per la modifica, l'esecuzione e il debug del codice Python, vedere l'esercitazione relativa a [Python Hello-World](https://code.visualstudio.com/docs/Python/Python-tutorial).
 
@@ -58,7 +58,7 @@ Per installare l'estensione Azure Machine Learning:
 > È anche possibile scaricare il programma di installazione dell'estensione direttamente da [Azure Machine Learning per Visual Studio Code Extension (anteprima)](https://aka.ms/vscodetoolsforai).
 
 ## <a name="quickstart-with-azure-machine-learning"></a>Guida introduttiva con Azure Machine Learning
-Sono disponibili diversi modi per eseguire gli script di training utilizzando il servizio Azure Machine Learning. Se si è appena iniziato, si analizzerà prima di tutto come inviare rapidamente uno script di training per l'esecuzione in Azure.
+Esistono diversi modi per eseguire gli script di training usando Azure Machine Learning. Se si è appena iniziato, si analizzerà prima di tutto come inviare rapidamente uno script di training per l'esecuzione in Azure.
 
 Se si ha già familiarità con i concetti di Azure Machine Learning e si desiderano altre informazioni su come gestirli e usarli con l'estensione, vedere [Azure Machine Learning approfondita con vs code](./how-to-vscode-tools.md#azure-machine-learning-in-depth-with-vs-code) di seguito.
 
@@ -75,11 +75,11 @@ Di seguito sono riportati i requisiti iniziali. È possibile usare uno script di
 
 1. Aprire **Train.py** ed eseguirlo aprendo il debugger e premendo il pulsante Esegui (o semplicemente premendo F5).
 
-   [![Esegui Training MNIST](./media/vscode-tools-for-ai/run-mnist.gif)](./media/vscode-tools-for-ai/run-mnist.gif#lightbox)
+   [![eseguire il training MNIST](./media/vscode-tools-for-ai/run-mnist.gif)](./media/vscode-tools-for-ai/run-mnist.gif#lightbox)
 
 Se tutti gli elementi sono installati correttamente, lo script verrà eseguito e creerà un modello TensorFlow nella cartella Outputs.
 
-[![Mostra modello TensorFlow](./media/vscode-tools-for-ai/show-tensorflow-model.gif)](./media/vscode-tools-for-ai/show-tensorflow-model.gif#lightbox)
+[![Mostra il modello TensorFlow](./media/vscode-tools-for-ai/show-tensorflow-model.gif)](./media/vscode-tools-for-ai/show-tensorflow-model.gif#lightbox)
 
 Ora che si è certi che lo script viene eseguito correttamente, è possibile eseguirlo in Azure.
 
@@ -137,9 +137,9 @@ Per modificare il progetto in modo che Azure possa essere tenuto a conoscenza di
     ...
     ```
 ### <a name="run-the-script-in-azure"></a>Eseguire lo script in Azure
-La procedura è terminata. Ora è sufficiente usare l'estensione per eseguire lo script nel cloud. Si noti che il video seguente illustra la libertà di comprimere la quantità di tempo necessaria per creare una nuova area di lavoro e calcolo di Azure ML, oltre al tempo necessario per eseguire lo script di training.
+L'operazione è terminata. Ora è sufficiente usare l'estensione per eseguire lo script nel cloud. Si noti che il video seguente illustra la libertà di comprimere la quantità di tempo necessaria per creare una nuova area di lavoro e calcolo di Azure ML, oltre al tempo necessario per eseguire lo script di training.
 
-   [![Avviare un esperimento di Azure ML](./media/vscode-tools-for-ai/start-golden-path.gif)](./media/vscode-tools-for-ai/start-golden-path.gif#lightbox)
+   [![avviare un esperimento di Azure ML](./media/vscode-tools-for-ai/start-golden-path.gif)](./media/vscode-tools-for-ai/start-golden-path.gif#lightbox)
 
 Dopo aver fatto clic sul pulsante Esegui esperimento, rispondere ai prompt come indicato di seguito:
 
@@ -153,12 +153,12 @@ Dopo aver fatto clic sul pulsante Esegui esperimento, rispondere ai prompt come 
 1. Esaminare i nomi predefiniti e le specifiche per l'esecuzione dell'esperimento e fare clic sul collegamento **Invia esperimento** nel file JSON. Il file JSON non verrà salvato perché è sufficiente per rivedere o modificare le impostazioni dell'esperimento prima dell'invio.
 1. È possibile riposare e rilassarsi mentre l'estensione consente di impostare tutti gli elementi e di eseguire lo script.
 
-    [![Training nel cloud](./media/vscode-tools-for-ai/run-golden-path.gif)](./media/vscode-tools-for-ai/run-golden-path.gif#lightbox)
+    [![Train nel cloud](./media/vscode-tools-for-ai/run-golden-path.gif)](./media/vscode-tools-for-ai/run-golden-path.gif#lightbox)
 
-In pochi secondi si riceverà una notifica che indica che l'esperimento è stato inviato ad Azure e che è possibile visualizzarne lo stato di avanzamento nell'portale di Azure facendo clic sul collegamento **Visualizza esecuzione esperimento** nella notifica vs code o all'interno di vs code selezionando l'aggiornamento nella scheda Azure.
+In pochi secondi si riceverà una notifica che indica che l'esperimento è stato inviato ad Azure e che è possibile visualizzarne lo stato di avanzamento in Azure Machine Learning Studio facendo clic sul collegamento **Visualizza esecuzione esperimento** nella notifica vs code o all'interno vs code da Premere il pulsante Aggiorna nella scheda Azure.
 
-Al momento, la visualizzazione delle metriche di esecuzione è supportata solo nella portale di Azure. Il collegamento **Visualizza esecuzione esperimento** indicato in precedenza consente di passare all'esecuzione in cui verranno visualizzate le metriche registrate.
-[![Esecuzione dell'esperimento nel portale](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG)](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG#lightbox)
+Al momento, la visualizzazione delle metriche di esecuzione è supportata solo in studio. Il collegamento **Visualizza esecuzione esperimento** indicato in precedenza consente di passare all'esecuzione in cui verranno visualizzate le metriche registrate.
+[![eseguire l'esperimento nel portale](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG)](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG#lightbox)
 
 ## <a name="azure-machine-learning-in-depth-with-vs-code"></a>Azure Machine Learning approfondita con VS Code
 
@@ -166,11 +166,11 @@ Nella procedura dettagliata precedente è stato inviato un esperimento seguendo 
 
 Prima di iniziare a eseguire il training e distribuire modelli di Machine Learning in Visual Studio Code, è necessario creare un' [area di lavoro Azure Machine Learning](concept-workspace.md) nel cloud. Questa area di lavoro conterrà i modelli e le risorse.
 
-### <a name="create-a-workspace"></a>Crea un'area di lavoro
+### <a name="create-a-workspace"></a>Creare un'area di lavoro
 
 1. Nella barra attività Visual Studio Code selezionare l'icona Azure. Verrà visualizzata la barra laterale di Azure Machine Learning.
 
-    [![Creare un'area di lavoro](./media/vscode-tools-for-ai/create-workspace.gif)](./media/vscode-tools-for-ai/create-workspace.gif#lightbox)
+    [![creare un'area di lavoro](./media/vscode-tools-for-ai/create-workspace.gif)](./media/vscode-tools-for-ai/create-workspace.gif#lightbox)
 
 
 1. Fare clic con il pulsante destro sulla sottoscrizione di Azure e selezionare **Creare area di lavoro**. Per impostazione predefinita, viene generato un nome che contiene la data e l'ora di creazione. Modificare il nome in **TeamWorkspace** e premere INVIO.
@@ -192,7 +192,7 @@ Prima di iniziare a eseguire il training e distribuire modelli di Machine Learni
 
 1. In un'area di lavoro è possibile fare clic con il pulsante destro del mouse su un esperimento per impostarlo come esperimento **attivo** . L'esperimento **attivo** collega l'esperimento nel cloud alla cartella attualmente aperta in Visual Studio Code. Questa cartella deve contenere gli script di Python locali. Impostando un esperimento attivo, le metriche chiave per tutte le esecuzioni di training vengono archiviate all'interno dell'esperimento, indipendentemente dalla posizione in cui vengono eseguite.
 
-    [![Creare un esperimento](./media/vscode-tools-for-ai/create-experiment.gif)](./media/vscode-tools-for-ai/create-experiment.gif#lightbox)
+    [![creare un esperimento](./media/vscode-tools-for-ai/create-experiment.gif)](./media/vscode-tools-for-ai/create-experiment.gif#lightbox)
 
 
 ### <a name="create-and-manage-compute-targets"></a>Creare e gestire destinazioni di calcolo
@@ -219,11 +219,11 @@ Per creare una destinazione di calcolo:
 
 1. Dopo aver immesso il nome, il calcolo verrà creato usando i parametri predefiniti. Per modificare i parametri, fare clic con il pulsante destro del mouse sul nuovo calcolo e scegliere **Modifica calcolo**.
 
-1. Nel file JSON visualizzato, apportare le modifiche desiderate, quindi fare clic sul CodeLens "Salva e continua" (usando la tastiera è possibile premere **CTRL + MAIUSC + p** per richiamare il riquadro comandi ed **eseguire Azure ml: Comando Salva e** continua)
+1. Nel file JSON visualizzato, apportare le modifiche desiderate, quindi fare clic sul CodeLens "Salva e continua" (usando la tastiera è possibile premere **CTRL + MAIUSC + p** per richiamare il riquadro comandi ed eseguire il comando **Azure ml: Salva e continua** )
 
 Ecco un esempio di come creare e modificare un Azure Machine Learning Compute (AMLCompute):
 
-[![Creare un calcolo AML in Visual Studio Code](./media/vscode-tools-for-ai/create-remote-compute.gif)](./media/vscode-tools-for-ai/create-remote-compute.gif#lightbox)
+[![creare un calcolo di AML in Visual Studio Code](./media/vscode-tools-for-ai/create-remote-compute.gif)](./media/vscode-tools-for-ai/create-remote-compute.gif#lightbox)
 
 #### <a name="the-run-configuration-file"></a>Il file di configurazione di esecuzione
 
@@ -231,7 +231,7 @@ Per eseguire un esperimento di Azure Machine Learning su un calcolo, il calcolo 
 
 Di seguito è riportato un esempio di come creare una configurazione di esecuzione per AmlCompute, creata in precedenza.
 
-[![Creare una configurazione di esecuzione per un calcolo](./media/vscode-tools-for-ai/create-runconfig.gif)](./media/vscode-tools-for-ai/create-runconfig.gif#lightbox)
+[![creare una configurazione di esecuzione per un calcolo](./media/vscode-tools-for-ai/create-runconfig.gif)](./media/vscode-tools-for-ai/create-runconfig.gif#lightbox)
 
 Per eseguire esperimenti di Azure ML nel computer locale, è ancora necessario un file di configurazione di esecuzione. Quando si crea una configurazione di esecuzione locale, l'ambiente Python utilizzato utilizzerà per impostazione predefinita il percorso dell'interprete impostato all'interno VS Code.
 
@@ -239,10 +239,10 @@ Per eseguire esperimenti di Azure ML nel computer locale, è ancora necessario u
 
 Usando l'estensione Azure ML per VS Code sono disponibili diversi modi per eseguire uno script di training in un esperimento.
 
-1. Fare clic con il pulsante destro del mouse **sullo script di training e scegliere Azure ml: Esegui come esperimento in Azure**
+1. Fare clic con il pulsante destro del mouse sullo script di training e scegliere **Azure ml: Esegui come esperimento in Azure**
 1. Fare clic sull'icona Esegui la barra degli strumenti dell'esperimento.
 1. Fare clic con il pulsante destro del mouse su un nodo esecuzione configurazione.
-1. Usare il riquadro comandi vs code per eseguire **Azure ml: Esegui esperimento**
+1. Usare il riquadro comandi VS Code per eseguire **Azure ml: Esegui esperimento**
 
 Per eseguire un esperimento di Azure Machine Learning:
 
@@ -254,13 +254,13 @@ Per eseguire un esperimento di Azure Machine Learning:
 
 1. Selezionare **Run Experiment** (Esegui esperimento).
 
-1. Scegliere il nome del file Python che si vuole eseguire per eseguire il training del modello e premere INVIO per inviare l'esecuzione. Nota: Il file scelto deve trovarsi nella cartella attualmente aperta in VS Code.
+1. Scegliere il nome del file Python che si vuole eseguire per eseguire il training del modello e premere INVIO per inviare l'esecuzione. Nota: il file scelto deve trovarsi nella cartella attualmente aperta in VS Code.
 
-1. Dopo l'invio dell'esecuzione, verrà visualizzato un **nodo Run** sotto l'esperimento scelto. Utilizzare questo nodo per monitorare lo stato delle esecuzioni. Nota: Potrebbe essere necessario aggiornare periodicamente la finestra per visualizzare lo stato più recente.
+1. Dopo l'invio dell'esecuzione, verrà visualizzato un **nodo Run** sotto l'esperimento scelto. Utilizzare questo nodo per monitorare lo stato delle esecuzioni. Nota: potrebbe essere necessario aggiornare periodicamente la finestra per visualizzare lo stato più recente.
 
 Ecco un esempio di come eseguire un esperimento nel calcolo creato in precedenza:
 
-[![Eseguire un esperimento localmente](./media/vscode-tools-for-ai/run-experiment.gif)](./media/vscode-tools-for-ai/run-experiment.gif#lightbox)
+[![eseguire un esperimento localmente](./media/vscode-tools-for-ai/run-experiment.gif)](./media/vscode-tools-for-ai/run-experiment.gif#lightbox)
 
 ### <a name="deploy-and-manage-models"></a>Distribuire e gestire i modelli
 In Azure Machine Learning, è possibile distribuire e gestire i modelli di machine learning nel cloud e nei dispositivi perimetrali.
@@ -322,15 +322,15 @@ Il servizio Web è ora distribuito.
 
 Di seguito è riportato un esempio di come distribuire un servizio Web:
 
-[![Distribuire un servizio Web](./media/vscode-tools-for-ai/create-image.gif)](./media/vscode-tools-for-ai/create-image.gif#lightbox)
+[![distribuire un servizio Web](./media/vscode-tools-for-ai/create-image.gif)](./media/vscode-tools-for-ai/create-image.gif#lightbox)
 
 ### <a name="experiment-with-additional-features"></a>Sperimentare funzionalità aggiuntive
 
 È possibile utilizzare il riquadro comandi per accedere a numerose funzionalità di Azure Machine Learning Visual Studio Code. Per richiamare il riquadro comandi, digitare CTRL + MAIUSC + P. Da qui è possibile cercare altre funzionalità di Azure ML dell'estensione.
 
-[![Tasti di scelta rapida per Azure Machine Learning per Visual Studio Code](./media/vscode-tools-for-ai/commands.gif)](./media/vscode-tools-for-ai/commands.gif#lightbox)
+[tasti di scelta rapida ![per Azure Machine Learning per Visual Studio Code](./media/vscode-tools-for-ai/commands.gif)](./media/vscode-tools-for-ai/commands.gif#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per una procedura dettagliata su come eseguire il training con Azure machine learning all'esterno di [Visual Studio Code, vedere Esercitazione: Eseguire il training di modelli con Azure Machine Learning](tutorial-train-models-with-aml.md).
+* Per una procedura dettagliata su come eseguire il training con Azure Machine Learning all'esterno di Visual Studio Code, vedere [esercitazione: eseguire il training dei modelli con Azure Machine Learning](tutorial-train-models-with-aml.md).
 * Per una procedura dettagliata su come modificare, eseguire ed eseguire il debug di codice localmente, vedere l'esercitazione relativa a [Python Hello-World](https://code.visualstudio.com/docs/Python/Python-tutorial).

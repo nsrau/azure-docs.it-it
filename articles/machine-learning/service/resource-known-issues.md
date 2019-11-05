@@ -9,35 +9,34 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/09/2019
-ms.custom: seodec18
-ms.openlocfilehash: 5edf4a4f53e6b4255970f86dd942795ad2e4cbe2
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: 7c52adfb919586fc590ef60215592a5b5c1c1cb3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025402"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476077"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi Azure Machine Learning
 
 Questo articolo consente di individuare e correggere gli errori o gli errori riscontrati quando si usa Azure Machine Learning.
 
-## <a name="upcoming-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>Imminente aggiornamento di SR-IOV a computer NCv3 in AmlCompute
+## <a name="outage-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>Interruzione: aggiornamento SR-IOV a computer NCv3 in AmlCompute
 
-Il servizio di calcolo di Azure aggiornerà gli SKU di NCv3 a partire dal primo novembre per supportare tutte le implementazioni e le versioni MPI e i verbi RDMA per le macchine virtuali con InfiniBand. Questa operazione richiederà un breve tempo di inattività. [per altre informazioni sull'aggiornamento di SR-IOV, vedere](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
+Il servizio di calcolo di Azure aggiornerà gli SKU di NCv3 a partire dall'inizio del 2019 novembre per supportare tutte le implementazioni e le versioni MPI e i verbi RDMA per le macchine virtuali con InfiniBand. Questa operazione richiederà un breve tempo di inattività. [per altre informazioni sull'aggiornamento di SR-IOV, vedere](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
 
 In qualità di cliente dell'offerta di calcolo gestita di Azure Machine Learning (AmlCompute), non è necessario apportare alcuna modifica in questo momento. In base alla [pianificazione dell'aggiornamento](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) , è necessario pianificare una breve pausa nel training. Il servizio si assume la responsabilità di aggiornare le immagini di macchina virtuale nei nodi del cluster e aumentare automaticamente il cluster. Una volta completato l'aggiornamento, è possibile utilizzare tutti gli altri discibutions MPI, ad esempio OpenMPi con Pytorch, oltre a ottenere una larghezza di banda InfiniBand superiore, latenze più basse e prestazioni delle applicazioni distribuite migliori.
 
-## <a name="visual-interface-issues"></a>Problemi relativi all'interfaccia visiva
+## <a name="azure-machine-learning-designer-issues"></a>Problemi di Azure Machine Learning Designer
 
-Interfaccia visiva per i problemi del servizio Machine Learning.
+Problemi noti relativi alla finestra di progettazione.
 
 ### <a name="long-compute-preparation-time"></a>Tempo di preparazione del calcolo lungo
 
 La creazione di un nuovo calcolo o di un'evocazione per l'uscita richiede tempo, può essere di pochi minuti o addirittura più lungo. Il team sta lavorando per l'ottimizzazione.
 
 
-### <a name="cannot-run-an-experiment-only-contains-dataset"></a>Non è possibile eseguire un esperimento contiene solo il set di dati 
+### <a name="cannot-run-an-experiment-only-contains-a-dataset"></a>Non è possibile eseguire un esperimento contiene solo un set di dati 
 
 Potrebbe essere necessario eseguire un esperimento contenente solo il set di dati per visualizzare il set di dati. Tuttavia, non è consentita l'esecuzione di un esperimento che contiene solo il set di dati. Questo problema è stato risolto attivamente.
  
@@ -144,11 +143,12 @@ Se questi passaggi non risolvono il problema, provare a riavviare il cluster.
 
 ### <a name="failtosendfeather"></a>FailToSendFeather
 
-Se viene visualizzato un errore di `FailToSendFeather` durante la lettura dei dati in Azure Databricks cluster, fare riferimento alle soluzioni seguenti:
+Se viene visualizzato un errore `FailToSendFeather` durante la lettura dei dati in Azure Databricks cluster, fare riferimento alle soluzioni seguenti:
 
-* Aggiornare `azureml-sdk[automl]` pacchetto alla versione più recente.
+* Aggiornare il pacchetto `azureml-sdk[automl]` alla versione più recente.
 * Aggiungere `azure-dataprep` versione 1.1.8 o successiva.
 * Aggiungere `pyarrow` versione 0,11 o successiva.
+
 
 ## <a name="datasets"></a>Set di dati
 
@@ -158,11 +158,11 @@ Si tratta di problemi noti per Azure Machine Learning set di impostazioni.
 
 ## <a name="azure-portal"></a>Portale di Azure
 
-Se si passa direttamente a visualizzare l'area di lavoro a un collegamento di condivisione da SDK o dal portale, non sarà possibile visualizzare la pagina Panoramica normale con le informazioni sulla sottoscrizione nell'estensione. Inoltre non sarà possibile passare in un'altra area di lavoro. Se si desidera visualizzare un'altra area di lavoro, la soluzione alternativa consiste nel passare direttamente al [portale di Azure](https://portal.azure.com) e cercare il nome dell'area di lavoro.
+Se si passa direttamente a visualizzare l'area di lavoro a un collegamento di condivisione da SDK o dal portale, non sarà possibile visualizzare la pagina Panoramica normale con le informazioni sulla sottoscrizione nell'estensione. Inoltre non sarà possibile passare in un'altra area di lavoro. Se è necessario visualizzare un'altra area di lavoro, la soluzione alternativa consiste nell'accedere direttamente a [Azure Machine Learning Studio](https://ml.azure.com) e cercare il nome dell'area di lavoro.
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
 
-In alcuni casi può essere utile fornire le informazioni di diagnostica quando si richiede supporto. Per visualizzare alcuni log, visitare [portale di Azure](https://portal.azure.com) e passare all'area di lavoro e selezionare **area di lavoro > esperimento > Esegui log >** .  È anche possibile trovare queste informazioni nella sezione **esperimenti** della pagina di [destinazione dell'area di lavoro (anteprima)](https://ml.azure.com).
+In alcuni casi può essere utile fornire le informazioni di diagnostica quando si richiede supporto. Per visualizzare alcuni log, visita [Azure Machine Learning Studio](https://ml.azure.com) e vai all'area di lavoro e seleziona **area di lavoro > esperimento > Esegui log >** .  
 
 > [!NOTE]
 > Azure Machine Learning registra le informazioni da diverse origini durante il training, ad esempio AutoML o il contenitore Docker che esegue il processo di training. Molti di questi log non sono documentati. Se si verificano problemi e si contatta il supporto tecnico Microsoft, potrebbero essere in grado di utilizzare questi log durante la risoluzione dei problemi.
@@ -233,14 +233,14 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-Se non sono più disponibili il certificato SSL e la chiave privata oppure si usa un certificato generato da Azure Machine Learning, è possibile recuperare i file prima di scollegare il cluster connettendosi al cluster usando `kubectl` e recuperando il segreto `azuremlfessl`.
+Se non sono più disponibili il certificato SSL e la chiave privata oppure si usa un certificato generato da Azure Machine Learning, è possibile recuperare i file prima di scollegare il cluster connettendosi al cluster con `kubectl` e recuperando il segreto `azuremlfessl`.
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes archivia i segreti nel formato con codifica base 64. Prima di fornire le `attach_config.enable_ssl`, è necessario decodificare in base 64 i componenti di `cert.pem` e `key.pem` dei segreti. 
+>Kubernetes archivia i segreti nel formato con codifica base 64. Prima di fornire le `attach_config.enable_ssl`, è 64 necessario decodificare i componenti `cert.pem` e `key.pem` dei segreti. 
 
 ## <a name="recommendations-for-error-fix"></a>Suggerimenti per la correzione degli errori
 In base all'osservazione generale, di seguito sono riportate le raccomandazioni di Azure ML per correggere alcuni degli errori comuni in Azure ML.

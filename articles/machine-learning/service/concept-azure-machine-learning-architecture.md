@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/12/2019
+ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 706f76c00022c5f5661ea261a5bb35eedc13d5ba
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: MT
+ms.openlocfilehash: ba6d81596cd8a690f5c17e1ca55b91c5ff27b916
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756039"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497521"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funzionamento di Azure Machine Learning: architettura e concetti
 
@@ -28,13 +28,13 @@ Informazioni sull'architettura, i concetti e il flusso di lavoro per Azure Machi
 Il flusso di lavoro del modello di Machine Learning segue generalmente questa sequenza:
 
 1. **Treno**
-    + Sviluppare script di training di Machine Learning in **Python** o con l'interfaccia visiva.
+    + Sviluppare script di training di Machine Learning in **Python** o con la finestra di progettazione visiva.
     + Creare e configurare una **destinazione di calcolo**.
     + **Inviare gli script** alla destinazione di calcolo configurata per l'esecuzione in tale ambiente. Durante il training, gli script possono leggere o scrivere nell'**archivio dati**. I record di esecuzione inoltre vengono salvati come **esecuzioni** nell'**area di lavoro** e raggruppati negli **esperimenti**.
 
 1. **Pacchetto** : dopo che è stata rilevata un'esecuzione soddisfacente, registrare il modello permanente nel **Registro di sistema del modello**.
 
-1. **Convalidare**  - **eseguire una query sull'esperimento per le** metriche registrate dalle esecuzioni correnti e passate. Se le metriche non indicano un risultato desiderato, tornare al passaggio 1 ed eseguire l'iterazione sugli script.
+1. **Convalidare** - **eseguire una query sull'esperimento per le** metriche registrate dalle esecuzioni correnti e passate. Se le metriche non indicano un risultato desiderato, tornare al passaggio 1 ed eseguire l'iterazione sugli script.
 
 1. **Distribuisci** : sviluppa uno script di assegnazione dei punteggi che usa il modello e **distribuisce il modello** come **servizio Web** in Azure o in un **dispositivo IOT Edge**.
 
@@ -45,23 +45,26 @@ Il flusso di lavoro del modello di Machine Learning segue generalmente questa se
 Usare questi strumenti per Azure Machine Learning:
 
 +  Interagire con il servizio in qualsiasi ambiente Python con [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++ Interagisci con il servizio in qualsiasi ambiente R con l' [SDK Azure Machine Learning per r](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Automatizzare le attività di Machine Learning con l'interfaccia della riga di comando [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
 + Scrivere codice in Visual Studio Code con [Azure Machine Learning estensione vs code](how-to-vscode-tools.md)
-+ Usare l' [interfaccia visiva (anteprima) per Azure Machine Learning](ui-concept-visual-interface.md) per eseguire i passaggi del flusso di lavoro senza scrivere codice.
++ Utilizzare [Azure Machine Learning Designer (anteprima)](concept-designer.md) per eseguire i passaggi del flusso di lavoro senza scrivere codice.
+
 
 > [!NOTE]
 > Sebbene in questo articolo vengano definiti i termini e i concetti utilizzati da Azure Machine Learning, non vengono definiti i termini e i concetti per la piattaforma Azure. Per altre informazioni sulla terminologia della piattaforma Azure, vedere il [glossario di Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## <a name="glossary"></a>Glossario
 + <a href="#activities">Attività</a>
++ <a href="#compute-instance">Istanza di calcolo</a>
 + <a href="#compute-targets">Destinazioni di calcolo</a>
 + <a href="#datasets-and-datastores">DataSet & archivi dati</a>
-+ <a href="#deployment">Distribuzione</a>
++ <a href="#endpoints">Endpoint</a>
 + <a href="#environments">Ambienti</a>
 + [Estimatori](#estimators)
 + <a href="#experiments">Sperimentazioni</a>
 + <a href="#github-tracking-and-integration">Rilevamento git</a>
-+ <a href="#iot-module-deployments">Moduli delle cose</a>
++ <a href="#iot-module-endpoints">Moduli delle cose</a>
 + <a href="#logging">registrazione</a>
 + <a href="#ml-pipelines">Pipeline ML</a>
 + <a href="#models">Modelli</a>
@@ -69,10 +72,10 @@ Usare questi strumenti per Azure Machine Learning:
 + <a href="#run-configurations">Configurazione di esecuzione</a>
 + <a href="#snapshots">Snapshot</a>
 + <a href="#training-scripts">Script di training</a>
-+ <a href="#web-service-deployments">Servizi Web</a>
++ <a href="#web-service-endpoint">Servizi Web</a>
 + <a href="#workspaces">Area</a>
 
-### <a name="activities"></a>Attività
+### <a name="activities"></a>attività
 
 Un'attività rappresenta un'operazione a esecuzione prolungata. Le operazioni seguenti sono esempi di attività:
 
@@ -81,9 +84,19 @@ Un'attività rappresenta un'operazione a esecuzione prolungata. Le operazioni se
 
 Le attività possono fornire notifiche tramite l'SDK o l'interfaccia utente Web in modo da poter facilmente monitorare l'avanzamento di queste operazioni.
 
+### <a name="compute-instance"></a>Istanza di calcolo
+
+> [!NOTE]
+> Le istanze di calcolo sono disponibili solo per le aree di lavoro con un'area **Stati Uniti centro-settentrionali** o **Regno Unito meridionale**.
+>Se l'area di lavoro si trova in un'altra area, è possibile continuare a creare e usare una [macchina virtuale del notebook](concept-compute-instance.md#notebookvm) . 
+
+Un' **istanza di calcolo Azure Machine Learning** (in precedenza VM notebook) è una workstation basata sul cloud completamente gestita che include più strumenti e ambienti installati per Machine Learning. Le istanze di calcolo possono essere usate come destinazione di calcolo per il training e l'inferenza dei processi. Per le attività di grandi dimensioni, [Azure Machine Learning cluster di calcolo](how-to-set-up-training-targets.md#amlcompute) con funzionalità di scalabilità a più nodi rappresenta una scelta migliore per la destinazione di calcolo.
+
+Altre informazioni sulle [istanze di calcolo](concept-compute-instance.md).
+
 ### <a name="compute-targets"></a>Destinazioni di calcolo
 
-Una [destinazione di calcolo](concept-compute-target.md) consente di specificare la risorsa di calcolo in cui si esegue lo script di training o si ospita la distribuzione del servizio. Questo percorso può essere il computer locale o una risorsa di calcolo basata sul cloud. Le destinazioni di calcolo facilitano la modifica dell'ambiente di calcolo senza modificare il codice.
+Una [destinazione di calcolo](concept-compute-target.md) consente di specificare la risorsa di calcolo in cui si esegue lo script di training o si ospita la distribuzione del servizio. Questo percorso può essere il computer locale o una risorsa di calcolo basata sul cloud.
 
 Altre informazioni sulle [destinazioni di calcolo disponibili per il training e la distribuzione](concept-compute-target.md).
 
@@ -97,23 +110,23 @@ Per altre informazioni, vedere [creare e registrare Azure Machine Learning set](
 
 Un **archivio dati** è un'astrazione di archiviazione in un account di archiviazione di Azure. L'archivio dati può usare un contenitore BLOB o una condivisione file di Azure come risorsa di archiviazione back-end. Ogni area di lavoro presenta un archivio dati predefinito, ma è possibile registrare altri archivi dati. Usare l'API di Python SDK o l'interfaccia della riga di comando di Azure Machine Learning per archiviare e recuperare i file dall'archivio dati.
 
-### <a name="deployment"></a>Distribuzione
+### <a name="endpoints"></a>Endpoint
 
-Una distribuzione è una creazione di istanze del modello in un servizio Web che può essere ospitato nel cloud o un modulo per le distribuzioni di dispositivi integrati.
+Un endpoint è una creazione di un'istanza del modello in un servizio Web che può essere ospitato nel cloud o un modulo per le distribuzioni di dispositivi integrati.
 
-#### <a name="web-service-deployments"></a>Distribuzioni di servizi Web
+#### <a name="web-service-endpoint"></a>Endpoint servizio Web
 
-Un servizio Web distribuito può usare le Istanze di Azure Container, il servizio Azure Kubernetes o le FPGA. Il servizio viene creato dal modello, dallo script e dai file associati. Questi vengono incapsulati in un'immagine, che fornisce l'ambiente di runtime per il servizio Web. L'immagine presenta un endpoint HTTP con bilanciamento del carico che riceve le richieste di punteggio inviate al servizio Web.
+Quando si distribuisce un modello come servizio Web, l'endpoint può essere distribuito in istanze di contenitore di Azure, servizio Azure Kubernetes o FPGA. Il servizio viene creato dal modello, dallo script e dai file associati. Questi vengono inseriti in un'immagine del contenitore di base che contiene l'ambiente di esecuzione per il modello. L'immagine presenta un endpoint HTTP con bilanciamento del carico che riceve le richieste di punteggio inviate al servizio Web.
 
-Azure aiuta a monitorare la distribuzione del servizio Web raccogliendo i dati di telemetria di Application Insights o, se questa funzionalità è stata abilitata, i dati di telemetria del modello. I dati di telemetria sono accessibili solo per l'utente e archiviati in Application Insights e nelle istanze dell'account di archiviazione.
+Azure consente di monitorare il servizio Web raccogliendo Application Insights telemetria o i dati di telemetria del modello, se si è scelto di abilitare questa funzionalità. I dati di telemetria sono accessibili solo per l'utente e archiviati in Application Insights e nelle istanze dell'account di archiviazione.
 
 Se è stata abilitata la scalabilità automatica, la distribuzione verrà ridimensionata automaticamente da Azure.
 
-Per un esempio di distribuzione di un modello come servizio Web, vedere [Distribuire un modello di classificazione delle immagini in Istanze di Azure Container](tutorial-deploy-models-with-aml.md).
+Per un esempio di distribuzione di un modello come servizio Web, vedere [distribuire un modello di classificazione delle immagini in istanze di contenitore di Azure](tutorial-deploy-models-with-aml.md).
 
-#### <a name="iot-module-deployments"></a>Distribuzioni del modulo Internet
+#### <a name="iot-module-endpoints"></a>Endpoint del modulo Internet delle cose
 
-Un modulo IoT distribuito è un contenitore Docker che include il modello, lo script/associazione associato e qualsiasi altra dipendenza. Questi moduli vengono distribuiti usando Azure IoT Edge nei dispositivi perimetrali.
+Un endpoint del modulo Internet distribuito è un contenitore Docker che include il modello, l'applicazione o lo script associato ed eventuali dipendenze aggiuntive. Questi moduli vengono distribuiti usando Azure IoT Edge nei dispositivi perimetrali.
 
 Se il monitoraggio è abilitato, Azure raccoglie i dati di telemetria dal modello all'interno del modulo Azure IoT Edge. I dati di telemetria sono accessibili solo per l'utente e archiviati nell'istanza dell'account di archiviazione.
 
@@ -188,7 +201,6 @@ Non è possibile eliminare un modello registrato utilizzato da una distribuzione
 
 Per un esempio di registrazione di un modello, vedere [Eseguire il training di un modello di classificazione delle immagini con Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-
 ### <a name="runs"></a>Esecuzioni
 
 Un'esecuzione è una singola esecuzione di uno script di training. Azure Machine Learning registra tutte le esecuzioni e archivia le informazioni seguenti:
@@ -223,7 +235,6 @@ Per un esempio, vedere [esercitazione: eseguire il training di un modello di cla
 ### <a name="workspaces"></a>Aree di lavoro
 
 [L'area di lavoro](concept-workspace.md) è la risorsa di primo livello per Azure Machine Learning. Fornisce una posizione centralizzata per lavorare con tutti gli artefatti creati quando si usa Azure Machine Learning. È possibile condividere un'area di lavoro con altri utenti. Per una descrizione dettagliata delle aree di lavoro, vedere [che cos'è un'area di lavoro Azure Machine Learning?](concept-workspace.md).
-
 
 ### <a name="next-steps"></a>Passaggi successivi
 
