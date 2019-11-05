@@ -172,8 +172,8 @@ Per altre risorse tecniche e requisiti di sintassi specifici quando si usano le 
 | **Classico** | **Gestione risorse** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
-| [API REST](https://msdn.microsoft.com/library/jj154113) |[API REST](/rest/api/network/virtualnetworkgateways) |
-| Non supportate | [Interfaccia della riga di comando di Azure](/cli/azure/network/vnet-gateway)|
+| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
+| Supporto non disponibile | [interfaccia della riga di comando di Azure](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

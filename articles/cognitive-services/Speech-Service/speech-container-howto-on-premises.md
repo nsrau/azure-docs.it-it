@@ -25,7 +25,7 @@ Un'opzione per gestire i contenitori di riconoscimento vocale in locale consiste
 
 I prerequisiti seguenti prima di usare i contenitori di riconoscimento vocale in locale:
 
-|Obbligatorio|Scopo|
+|Obbligatoria|Finalità|
 |--|--|
 | Account Azure | Se non si ha una sottoscrizione di Azure, creare un [account gratuito][free-azure-account] prima di iniziare. |
 | Accesso Container Registry | Per consentire a Kubernetes di eseguire il pull delle immagini Docker nel cluster, sarà necessario accedere al registro contenitori. |
@@ -37,7 +37,7 @@ I prerequisiti seguenti prima di usare i contenitori di riconoscimento vocale in
 
 Vedere i dettagli del [computer host del contenitore di servizi vocali][speech-container-host-computer] come riferimento. Questo *grafico Helm* calcola automaticamente i requisiti di CPU e memoria in base al numero di decodificazioni (richieste simultanee) specificate dall'utente. Inoltre, si adatta a seconda che le ottimizzazioni per l'input audio/testo siano configurate come `enabled`. Per impostazione predefinita, il grafico Helm, due richieste simultanee e la disabilitazione dell'ottimizzazione.
 
-| Service | CPU/contenitore | Memoria/contenitore |
+| Servizio | CPU/contenitore | Memoria/contenitore |
 |--|--|--|
 | **Riconoscimento vocale** | un decodificatore richiede almeno 1.150 millicore. Se la `optimizedForAudioFile` è abilitata, sono necessari 1.950 millicore. (impostazione predefinita: due decodificatori) | Obbligatorio: 2 GB<br>Limitato: 4 GB |
 | **Sintesi vocale** | una richiesta simultanea richiede un minimo di 500 millicore. Se la `optimizeForTurboMode` è abilitata, sono necessari 1.000 millicore. (impostazione predefinita: due richieste simultanee) | Obbligatorio: 1 GB<br> Limitato: 2 GB |

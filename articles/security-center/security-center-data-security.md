@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: 3c63283a1a13e2deb178a53dfc5045d371d6a28a
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 9dfed5ec14460c3c6213d528f59b86eda15aa1a7
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996930"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520889"
 ---
 # <a name="azure-security-center-data-security"></a>Sicurezza dei dati nel Centro sicurezza di Azure
 Per consentire ai clienti di impedire, rilevare e rispondere alle minacce, il Centro sicurezza di Azure raccoglie ed elabora dati correlati alla sicurezza, tra cui informazioni di configurazione, metadati, log eventi, file di dump di arresto anomalo del sistema e altro. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio.
@@ -29,29 +29,29 @@ Questo articolo illustra come i dati vengono gestiti e protetti nel Centro sicur
 Il Centro sicurezza di Azure analizza i dati provenienti dalle origini seguenti per offrire visibilità sullo stato della sicurezza, identificare le vulnerabilità e suggerire le mitigazioni e rilevare minacce attive:
 
 - Servizi di Azure: usa le informazioni sulla configurazione dei servizi di Azure distribuiti comunicando con il provider di risorse del servizio.
-- Traffico di rete: usa i metadati del traffico di rete campionati provenienti dall'infrastruttura di Microsoft, ad esempio l'IP/porta di origine/destinazione, le dimensioni del pacchetto e il protocollo di rete.
-- Soluzioni partner: usa gli avvisi di sicurezza provenienti dalle soluzioni partner integrate, ad esempio firewall e soluzioni antimalware.
-- Macchine virtuali e server: usa informazioni sulla configurazione e informazioni sugli eventi di sicurezza, ad esempio log di controllo e registri eventi di Windows, log di IIS, messaggi syslog e file di dump di arresto anomalo del sistema provenienti dalle macchine virtuali. Quando viene creato un avviso, il Centro sicurezza di Azure può anche generare uno snapshot del disco della VM interessato ed estrarre gli elementi del computer relativi all'avviso dal disco della VM, ad esempio un file del Registro di sistema, a scopo di analisi.
+- Traffico di rete: usa i metadati del traffico di rete campionati dall'infrastruttura di Microsoft, ad esempio l'IP/porta di origine/destinazione, le dimensioni del pacchetto e il protocollo di rete.
+- Soluzioni partner: usa gli avvisi di sicurezza dalle soluzioni partner integrate, ad esempio firewall e soluzioni antimalware.
+- Macchine virtuali e server: usa informazioni sulla configurazione e sugli eventi di sicurezza, ad esempio log di controllo e log eventi di Windows, log di IIS, messaggi syslog e file di dump di arresto anomalo del sistema dalle macchine virtuali. Quando viene creato un avviso, il Centro sicurezza di Azure può anche generare uno snapshot del disco della VM interessato ed estrarre gli elementi del computer relativi all'avviso dal disco della VM, ad esempio un file del Registro di sistema, a scopo di analisi.
 
 
 ## <a name="data-protection"></a>Protezione dei dati
-**Separazione dei dati**: i dati vengono mantenuti separati logicamente in ogni componente del servizio. Tutti i dati vengono contrassegnati in base all'organizzazione. Tale contrassegno persiste per tutto il ciclo di vita dei dati e viene applicato a ogni livello del servizio.
+**Separazione dei dati:** i dati vengono mantenuti separati logicamente in ogni componente del servizio. Tutti i dati vengono contrassegnati in base all'organizzazione. Tale contrassegno persiste per tutto il ciclo di vita dei dati e viene applicato a ogni livello del servizio.
 
-**Accesso ai dati**: per offrire consigli sulla sicurezza e individuare le potenziali minacce, il personale Microsoft può accedere alle informazioni raccolte o analizzate dai servizi di Azure, inclusi file di dump di arresto anomalo del sistema, eventi di creazione di un processo, snapshot del disco della macchina virtuale e artefatti, che potrebbero accidentalmente contenere dati del cliente o dati personali provenienti dalle macchine virtuali. Microsoft rispetta le [condizioni di Microsoft Online Services e l'Informativa sulla privacy](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), in cui è specificato che Microsoft non userà i dati del cliente o ne ricaverà informazioni per scopi pubblicitari o commerciali simili. Microsoft userà i dati dei clienti solo se necessari per fornire i servizi di Azure, incluse le finalità compatibili con la fornitura di tali servizi. L'utente conserva tutti i diritti sui dati dei clienti.
+**Accesso ai dati**: per offrire raccomandazioni sulla sicurezza e analizzare le potenziali minacce alla sicurezza, il personale Microsoft può accedere alle informazioni raccolte o analizzate dai servizi di Azure, inclusi i file di dump di arresto anomalo del sistema, eventi di creazione di un processo, snapshot ed elementi del disco della VM, che potrebbero accidentalmente includere dati della società o dati personali provenienti dalle macchine virtuali. Microsoft rispetta le [condizioni di Microsoft Online Services e l'Informativa sulla privacy](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), in cui è specificato che Microsoft non userà i dati del cliente o ne ricaverà informazioni per scopi pubblicitari o commerciali simili. Microsoft userà i dati dei clienti solo se necessari per fornire i servizi di Azure, incluse le finalità compatibili con la fornitura di tali servizi. L'utente conserva tutti i diritti sui dati dei clienti.
 
-**Uso dei dati**: Microsoft usa modelli e intelligence per le minacce trovati in più tenant per migliorare le funzionalità di prevenzione e rilevamento, in base alle garanzie relative alla privacy descritte nell'[informativa sulla privacy](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
+**Uso dei dati**: Microsoft usa modelli e intelligence per le minacce trovati in più tenant per migliorare le funzionalità di prevenzione e rilevamento, in base alle garanzie relative alla privacy descritte nell'[Informativa sulla privacy](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 
-## <a name="data-location"></a>Posizione dei dati
+## <a name="data-location"></a>Ubicazione dei dati
 
 **Aree di lavoro**: per le seguenti aree geografiche è specificata un'area di lavoro e i dati raccolti dalle macchine virtuali di Azure, inclusi i dump di arresto anomalo del sistema e alcuni tipi di dati di avviso, vengono archiviati nell'area di lavoro più vicina.
 
 | Area geografica VM                              | Area geografica area di lavoro |
 |-------------------------------------|---------------|
-| Stati Uniti, Brasile, Sudafrica | Stati Uniti |
+| United States, Brazil, South Africa | Stati Uniti |
 | Canada                              | Canada        |
-| Europa (escluso Regno Unito)   | Europa        |
+| Europe (Excluding United Kingdom)   | Europa        |
 | Regno Unito                      | Regno Unito |
-| Asia (escluso India, Giappone, Corea, Cina)   | Asia Pacifico  |
+| Asia (Excluding India, Japan, Korea, China)   | Asia Pacifico  |
 | Corea                              | Asia Pacifico  |
 | India                               | India         |
 | Giappone                               | Giappone         |
@@ -63,7 +63,7 @@ Gli snapshot del disco della VM vengono archiviati nello stesso account di archi
 
 Per le macchine virtuali e i server in esecuzione in altri ambienti, ad esempio in locale, è possibile specificare l'area di lavoro e l'area in cui vengono archiviati i dati raccolti.
 
-**Archiviazione nel Centro sicurezza di Azure**: le informazioni sugli avvisi di sicurezza, inclusi gli avvisi dei partner, vengono archiviate a livello regionale in base alla posizione della risorsa di Azure correlata, mentre le informazioni sullo stato di integrità della sicurezza e i consigli vengono archiviati a livello centrale negli Stati Uniti o in Europa in base alla posizione del cliente.
+**Archiviazione in Centro sicurezza di Azure**: le informazioni sugli avvisi di sicurezza, inclusi gli avvisi dei partner, vengono archiviate a livello regionale in base alla posizione della risorsa di Azure correlata, mentre le informazioni sullo stato di integrità della sicurezza e le raccomandazioni vengono archiviate a livello centrale negli Stati Uniti o in Europa in base alla posizione del cliente.
 Il Centro sicurezza di Azure raccoglie copie temporanee dei file di dump di arresto anomalo del sistema e le analizza per cercare le prove di tentativi di exploit e compromissioni riuscite. Il Centro sicurezza di Azure esegue questa analisi nella stessa area geografica dell'area di lavoro ed elimina le copie temporanee al termine dell'analisi.
 
 Gli elementi del computer vengono archiviati centralmente nella stessa area della VM.
@@ -80,14 +80,14 @@ Se si usa la versione gratuita del Centro sicurezza di Azure, è anche possibile
 
 I clienti possono utilizzare i dati relativi al Centro sicurezza da flussi dei dati diversi, come illustrato sotto:
 
-* **Attività di Azure**: tutti gli avvisi di sicurezza, le richieste [just-in-Time del](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) Centro sicurezza approvate e tutti gli avvisi generati dai [controlli applicazione adattivi](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
-* **Log di monitoraggio di Azure**: tutti gli avvisi di sicurezza.
+* **Azure Activity**: all security alerts, approved Security Center [Just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) requests, and all alerts generated by [adaptive application controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Azure Monitor logs**: all security alerts.
 
 
 > [!NOTE]
 > I consigli sulla sicurezza possono essere utilizzati anche tramite l'API REST. Per altre informazioni, vedere [Security Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx) (Informazioni di riferimento sull'API REST del provider di risorse).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 Questo documento ha illustrato come i dati vengono gestiti e protetti nel Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza di Azure, vedere:
 
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md) : informazioni sulla pianificazione e considerazioni di progettazione per l'adozione del Centro sicurezza di Azure.

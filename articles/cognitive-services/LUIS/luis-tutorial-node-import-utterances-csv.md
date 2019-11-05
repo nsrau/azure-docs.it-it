@@ -146,7 +146,7 @@ Eseguire lo script da un terminale/riga di comando con Node.js.
 > node index.js
 ```
 
-oppure
+Oppure
 
 ```console
 > npm start

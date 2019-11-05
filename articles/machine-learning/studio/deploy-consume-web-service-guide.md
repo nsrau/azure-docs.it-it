@@ -1,7 +1,7 @@
 ---
 title: Distribuzione e utilizzo
 titleSuffix: Azure Machine Learning Studio (classic)
-description: È possibile usare Azure Machine Learning Studio (classico) per distribuire i flussi di lavoro e i modelli di machine learning come servizi Web. Questi servizi Web possono quindi essere usati per chiamare i modelli di Machine Learning dalle applicazioni tramite Internet allo scopo di eseguire stime in tempo reale o in modalità batch.
+description: You can use Azure Machine Learning Studio (classic) to deploy machine learning workflows and models as web services. Questi servizi Web possono quindi essere usati per chiamare i modelli di Machine Learning dalle applicazioni tramite Internet allo scopo di eseguire stime in tempo reale o in modalità batch.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -17,23 +17,23 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
 ms.locfileid: "73493008"
 ---
-# <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Servizi Web di Azure Machine Learning Studio (classico): distribuzione e utilizzo
+# <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (classic) Web Services: Deployment and consumption
 
-È possibile usare Azure Machine Learning Studio (classico) per distribuire i flussi di lavoro e i modelli di machine learning come servizi Web. Questi servizi Web possono quindi essere usati per chiamare i modelli di Machine Learning dalle applicazioni tramite Internet allo scopo di eseguire stime in tempo reale o in modalità batch. Essendo RESTFul, i servizi Web possono essere chiamati da diversi linguaggi di programmazione e piattaforme, come .NET e Java, nonché applicazioni, come Excel.
+You can use Azure Machine Learning Studio (classic) to deploy machine learning workflows and models as web services. Questi servizi Web possono quindi essere usati per chiamare i modelli di Machine Learning dalle applicazioni tramite Internet allo scopo di eseguire stime in tempo reale o in modalità batch. Essendo RESTFul, i servizi Web possono essere chiamati da diversi linguaggi di programmazione e piattaforme, come .NET e Java, nonché applicazioni, come Excel.
 
 Le sezioni successive forniscono collegamenti a procedure dettagliate, codice e documentazione per aiutarvi a iniziare.
 
 ## <a name="deploy-a-web-service"></a>Distribuire un servizio Web
 
-### <a name="with-azure-machine-learning-studio-classic"></a>Con Azure Machine Learning Studio (versione classica)
+### <a name="with-azure-machine-learning-studio-classic"></a>With Azure Machine Learning Studio (classic)
 
-Il portale di studio (classico) e il portale dei servizi Web Microsoft Azure Machine Learning consentono di distribuire e gestire un servizio Web senza scrivere codice.
+The Studio (classic) portal and the Microsoft Azure Machine Learning Web Services portal help you deploy and manage a web service without writing code.
 
 I collegamenti seguenti offrono informazioni generali su come distribuire un nuovo servizio Web:
 
 * Per una panoramica di come distribuire un nuovo servizio Web basato su Azure Resource Manager, vedere [Distribuire un nuovo servizio Web](publish-a-machine-learning-web-service.md).
 * Per una procedura dettagliata su come distribuire un servizio Web, vedere [Distribuire un servizio Web di Azure Machine Learning](publish-a-machine-learning-web-service.md).
-* Per una procedura dettagliata completa su come creare e distribuire un servizio Web, iniziare con l' [esercitazione 1: prevedere il rischio di credito](tutorial-part1-credit-risk.md).
+* For a full walkthrough about how to create and deploy a web service, start with [Tutorial 1: Predict credit risk](tutorial-part1-credit-risk.md).
 * Per esempi specifici di distribuzione di un servizio Web, vedere:
 
   * [Esercitazione 3: distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md)
@@ -66,7 +66,7 @@ Con l'esecuzione dell'applicazione viene creato un modello JSON di servizio Web.
 
 Aggiungere le informazioni al modello JSON come figli del nodo *Properties* allo stesso livello del nodo *MachineLearningWorkspace*.
 
-Ad esempio:
+Ecco un esempio:
 
     "StorageAccount": {
             "name": "YourStorageAccountName",
