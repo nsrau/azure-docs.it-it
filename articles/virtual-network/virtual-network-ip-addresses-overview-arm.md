@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: a0c86f9ad134e9b640d33d1a391c5387af9f9afd
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 40797c1b46bc88ecdaab6e28ef64f05a73e3ba8d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965673"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495914"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione in Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "72965673"
 È anche possibile creare un intervallo contiguo di indirizzi IP pubblici statici tramite un prefisso IP pubblico. [Informazioni sui prefissi IP pubblici.](public-ip-address-prefix.md)
 
 > [!NOTE]
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Questo articolo illustra l'uso del modello di distribuzione Resource Manager che Microsoft consiglia di usare invece del [modello di distribuzione classica](virtual-network-ip-addresses-overview-classic.md) per le distribuzioni più recenti.
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Questo articolo illustra il modello di distribuzione Resource Manager che Microsoft consiglia di usare per le distribuzioni più recenti in sostituzione del [modello di distribuzione classica](virtual-network-ip-addresses-overview-classic.md).
 > 
 
 Se si ha familiarità con il modello di distribuzione classica, verificare le [differenze tra gli indirizzi IP nella versione classica e in Resource Manager](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
@@ -105,7 +105,7 @@ Gli indirizzi IP pubblici statici sono comunemente usati negli scenari seguenti:
 >
 
 ### <a name="dns-hostname-resolution"></a>Risoluzione del nome host DNS
-È possibile specificare un'etichetta del nome di dominio DNS per una risorsa IP pubblica, che crea un mapping per *etichettanomedominio*.*località*.cloudapp.azure.com per l'indirizzo IP pubblico nei server DNS gestiti di Azure. Se si crea una risorsa IP pubblica con **contoso** come *etichettanomedominio* nella *località* di Azure **Stati Uniti occidentali**, ad esempio, il nome di dominio completo (FQDN) **contoso.westus.cloudapp.azure.com** viene risolto nell'indirizzo IP pubblico della risorsa.
+È possibile specificare un'etichetta del nome di dominio DNS per una risorsa IP pubblica, che crea un mapping per *etichettanomedominio*.*località*.cloudapp.azure.com per l'indirizzo IP pubblico nei server DNS gestiti di Azure. Se si crea una risorsa IP pubblica con **contoso** come *etichettanomedominio* nella **località** di Azure *Stati Uniti occidentali*, ad esempio, il nome di dominio completo (FQDN) **contoso.westus.cloudapp.azure.com** viene risolto nell'indirizzo IP pubblico della risorsa.
 
 > [!IMPORTANT]
 > Ogni etichetta di nome di dominio creata deve essere univoca nella relativa posizione di Azure.  
@@ -133,11 +133,11 @@ Un [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2
 ### <a name="at-a-glance"></a>Riepilogo
 La tabella seguente illustra la proprietà specifica tramite la quale un indirizzo IP pubblico può essere associato a una risorsa di livello superiore e i metodi di allocazione possibili (dinamici o statici) utilizzabili.
 
-| Risorse di livello superiore | Associazione di indirizzi IP | Dinamica | Statica |
+| Risorse di livello superiore | Associazione di indirizzi IP | Dinamico | Static |
 | --- | --- | --- | --- |
-| Macchine virtuali |interfaccia di rete |SÌ |SÌ |
-| Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |SÌ |SÌ |
-| gateway VPN |Configurazione IP del gateway |SÌ |No |
+| Macchina virtuale |Interfaccia di rete |Sì |Sì |
+| Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Sì |Sì |
+| gateway VPN |Configurazione IP del gateway |Sì |No |
 | gateway applicazione |Configurazione front-end |Sì (solo V1) |Sì (solo V2) |
 
 ## <a name="private-ip-addresses"></a>Indirizzi IP privati
@@ -151,7 +151,7 @@ Nel modello di distribuzione Azure Resource Manager un indirizzo IP privato è a
 
 ### <a name="allocation-method"></a>Metodo di allocazione
 
-Un indirizzo IP privato viene allocato dall'intervallo di indirizzi della subnet della rete virtuale in cui è distribuita una risorsa. Azure riserva i primi quattro indirizzi dell'intervallo di indirizzi di ogni subnet, che non possono quindi essere assegnati alle risorse. Se l'intervallo di indirizzi della subnet è 10.0.0.0/16, ad esempio, gli indirizzi 10.0.0.0-10.0.0.3 non possono essere assegnati alle risorse. Gli indirizzi IP dell'intervallo di indirizzi della subnet possono essere assegnati a una sola risorsa alla volta. 
+Un indirizzo IP privato viene allocato dall'intervallo di indirizzi della subnet della rete virtuale in cui è distribuita una risorsa. Azure riserva i primi quattro indirizzi dell'intervallo di indirizzi di ogni subnet, che non possono quindi essere assegnati alle risorse. Ad esempio, se l'intervallo di indirizzi della subnet è 10.0.0.0/16, gli indirizzi 10.0.0.0-10.0.0.3 e 10.0.255.255 non possono essere assegnati alle risorse. Gli indirizzi IP dell'intervallo di indirizzi della subnet possono essere assegnati a una sola risorsa alla volta. 
 
 Un indirizzo IP privato può essere allocato con due metodi.
 
@@ -177,13 +177,13 @@ Le macchine virtuali configurate con server DNS gestiti di Azure possono risolve
 ### <a name="at-a-glance"></a>Riepilogo
 La tabella seguente illustra la proprietà specifica tramite la quale un indirizzo IP privato può essere associato a una risorsa di livello superiore e i metodi di allocazione possibili (dinamici o statici) utilizzabili.
 
-| Risorse di livello superiore | Associazione di indirizzi IP | Dinamica | Statica |
+| Risorse di livello superiore | Associazione di indirizzi IP | Dinamico | Static |
 | --- | --- | --- | --- |
-| Macchine virtuali |interfaccia di rete |SÌ |SÌ |
-| Load Balancer |Configurazione front-end |SÌ |SÌ |
-| gateway applicazione |Configurazione front-end |SÌ |SÌ |
+| Macchina virtuale |Interfaccia di rete |Sì |Sì |
+| Bilanciamento del carico |Configurazione front-end |Sì |Sì |
+| gateway applicazione |Configurazione front-end |Sì |Sì |
 
-## <a name="limits"></a>limiti
+## <a name="limits"></a>Limiti
 I limiti imposti agli indirizzi IP sono indicati nel set completo di [limiti della rete](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. I limiti sono classificati per area e per sottoscrizione. È possibile [contattare il supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare i limiti predefiniti fino ai massimi consentiti in base alle esigenze aziendali.
 
 ## <a name="pricing"></a>Prezzi

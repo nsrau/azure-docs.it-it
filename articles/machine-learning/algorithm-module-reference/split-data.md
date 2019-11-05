@@ -1,24 +1,24 @@
 ---
 title: 'Split Data: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Split data nel servizio Azure Machine Learning per dividere un set di dati in due set distinti.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Split data in Azure Machine Learning per dividere un set di dati in due set distinti.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 3fa6b61b1b1761756339d6a7f05c74eb4a968777
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 0f6ba3c608c90d8634309a1843dc803b98be3d6d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692660"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492641"
 ---
 # <a name="split-data-module"></a>Modulo Split data
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Utilizzare questo modulo per dividere un set di dati in due set distinti.
 
@@ -30,7 +30,7 @@ Questo modulo è particolarmente utile quando è necessario separare i dati in s
 > Prima di scegliere la modalità di suddivisione, leggere tutte le opzioni per determinare il tipo di suddivisione necessario.
 > Se si modifica la modalità di suddivisione, tutte le altre opzioni potrebbero essere reimpostate.
 
-1. Aggiungere il modulo **Split data** alla pipeline nell'interfaccia. È possibile trovare questo modulo in **trasformazione dati**, nella categoria **esempio e divisione** .
+1. Aggiungere il modulo **Split data** alla pipeline nella finestra di progettazione. È possibile trovare questo modulo in **trasformazione dati**, nella categoria **esempio e divisione** .
 
 2. **Modalità di suddivisione**: scegliere una delle modalità seguenti, a seconda del tipo di dati disponibili e di come si desidera suddividerla. Ogni modalità di suddivisione ha opzioni diverse. Per istruzioni dettagliate ed esempi, fare clic sugli argomenti seguenti. 
 
@@ -45,7 +45,8 @@ Questo modulo è particolarmente utile quando è necessario separare i dati in s
     - **Suddivisione espressione relativa**: usare questa opzione quando si vuole applicare una condizione a una colonna numerica. Il numero può essere un campo di data/ora, una colonna contenente importi di età o dollaro o addirittura una percentuale. È ad esempio possibile dividere il set di dati in base al costo degli elementi, raggruppare le persone in base all'intervallo di età o separare i dati in base a una data di calendario.
 
 ### <a name="split-rows"></a>Suddividere le righe
-1.  Aggiungere il modulo [Split data](./split-data.md) alla pipeline nell'interfaccia e connettere il set di dati che si desidera suddividere.
+
+1.  Aggiungere il modulo [Split data](./split-data.md) alla pipeline nella finestra di progettazione e connettere il set di dati che si desidera suddividere.
   
 2.  Per la **modalità di suddivisione**, scegliere **Dividi righe**. 
 
@@ -99,7 +100,7 @@ Questo modulo è particolarmente utile quando è necessario separare i dati in s
 
     - Usare il carattere e commerciale (&) per l'operazione AND e usare il carattere barra verticale (|) per l'operazione OR.
 
-    - Sono supportati gli operatori seguenti: `<`, `>`, `<=`, `>=`, `==` `!=`
+    - Sono supportati gli operatori seguenti: `<`, `>`, `<=`, `>=`, `==``!=`
 
     - Non è possibile raggruppare le operazioni usando `(` e `)`.
 
@@ -114,4 +115,4 @@ Questo modulo è particolarmente utile quando è necessario separare i dati in s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

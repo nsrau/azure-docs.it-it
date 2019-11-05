@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: af5b2a8c6894846ec529763f80c78bc50debabe6
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: e7f4d58ceab78aea7031d2c706504bdcb99434c6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965515"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520646"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -262,7 +262,7 @@ Ogni account di archiviazione supporta fino a 100 regole di rete IP.
 
 Per garantire l'accesso all'account di archiviazione dalle reti locali con una regola di rete IP è necessario identificare gli indirizzi IP esposti a Internet usati dalla rete. Per assistenza contattare l'amministratore di rete.
 
-Se si usa [ExpressRoute](/azure/expressroute/expressroute-introduction) dall'ambiente locale, per il peering pubblico o per il peering Microsoft, sarà necessario identificare gli indirizzi IP NAT usati. Per il peering pubblico, ogni circuito ExpressRoute usa per impostazione predefinita due indirizzi IP NAT applicati al traffico del servizio di Azure quando il traffico entra nel backbone della rete di Microsoft Azure. Per il peering Microsoft, gli indirizzi IP NAT usati vengono forniti dal cliente o dal provider del servizio. Per consentire l'accesso alle risorse del servizio è necessario autorizzare questi indirizzi IP pubblici nell'impostazione del firewall IP per le risorse. Per trovare gli indirizzi IP del circuito ExpressRoute per il peering pubblico, [aprire un ticket di supporto in ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure. Vedere altre informazioni su [NAT per il peering pubblico e il peering Microsoft ExpressRoute.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
+Se si usa [ExpressRoute](/azure/expressroute/expressroute-introduction) dall'ambiente locale, per il peering pubblico o per il peering Microsoft, sarà necessario identificare gli indirizzi IP NAT usati. Per il peering pubblico, ogni circuito ExpressRoute usa per impostazione predefinita due indirizzi IP NAT applicati al traffico del servizio di Azure quando il traffico entra nel backbone della rete di Microsoft Azure. Per il peering Microsoft, gli indirizzi IP NAT usati sono forniti dal cliente o forniti dal provider di servizi. Per consentire l'accesso alle risorse del servizio è necessario autorizzare questi indirizzi IP pubblici nell'impostazione del firewall IP per le risorse. Per trovare gli indirizzi IP del circuito ExpressRoute per il peering pubblico, [aprire un ticket di supporto in ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure. Vedere altre informazioni su [NAT per il peering pubblico e il peering Microsoft ExpressRoute.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
 
 ### <a name="managing-ip-network-rules"></a>Gestione delle regole di rete IP
 
@@ -362,36 +362,37 @@ Le regole di rete consentono di creare un ambiente sicuro per le connessioni tra
 
 ### <a name="trusted-microsoft-services"></a>Servizi Microsoft attendibili
 
-Alcuni servizi Microsoft operano da reti che non possono essere incluse nelle regole di rete. È possibile consentire a un sottoinsieme di tali servizi Microsoft attendibili di accedere all'account di archiviazione, mantenendo al tempo stesso le regole di rete per altre app. Questi servizi possono quindi usare l'autenticazione avanzata per connettersi in modo sicuro all'account di archiviazione. Vengono abilitati due tipi di accesso attendibile per i servizi Microsoft.
+Alcuni servizi Microsoft operano da reti che non possono essere incluse nelle regole di rete. È possibile concedere a un sottoinsieme di tali servizi Microsoft attendibili l'accesso all'account di archiviazione, mantenendo al tempo stesso le regole di rete per altre app. Questi servizi attendibili possono quindi usare l'autenticazione avanzata per connettersi in modo sicuro all'account di archiviazione. Vengono abilitati due tipi di accesso attendibile per i servizi Microsoft.
 
-- È possibile concedere l'accesso alle risorse di alcuni servizi per le operazioni di selezione, ad esempio la scrittura di log o per il backup.
-- È possibile concedere l'accesso a una particolare istanza di alcuni servizi [assegnando un ruolo RBAC](storage-auth-aad.md#assign-rbac-roles-for-access-rights) all'istanza della risorsa.
+- Le risorse di alcuni servizi, **se registrate nella sottoscrizione**, possono accedere agli account **di archiviazione nella stessa sottoscrizione** solo per operazioni di selezione, ad esempio per la scrittura di log o per il backup.
+- Alle istanze della risorsa di alcuni servizi può essere concesso l'accesso esplicito all'account di archiviazione [**assegnando un ruolo RBAC**](storage-auth-aad.md#assign-rbac-roles-for-access-rights) all'istanza della risorsa.
 
 
-Quando si Abilita l'eccezione **Consenti servizi Microsoft attendibili...** , ai servizi seguenti, quando registrati nella sottoscrizione, viene concesso l'accesso all'account di archiviazione per le operazioni di selezione come descritto:
+Quando si Abilita l'eccezione **Consenti servizi Microsoft attendibili...** , per questi servizi (se registrati nella sottoscrizione) viene concesso l'accesso all'account di archiviazione per le operazioni SELECT, come descritto di seguito:
 
-| Servizio                  | Nome provider di risorse     | Finalità                            |
+| Service                  | Nome provider di risorse     | Scopo                            |
 |:------------------------ |:-------------------------- |:---------------------------------- |
 | Backup di Azure             | Microsoft.RecoveryServices | Eseguire il backup e il ripristino di dischi non gestiti nelle macchine virtuali IAAS (non obbligatorio per i dischi gestiti). [Altre informazioni](/azure/backup/backup-introduction-to-azure-backup). |
 | Azure Data Box           | Microsoft.DataBox          | Consente l'importazione di dati in Azure usando Data Box. [Altre informazioni](/azure/databox/data-box-overview). |
 | Azure DevTest Labs       | Microsoft.DevTestLab       | Creazione di immagini personalizzate e installazione di artefatti. [Altre informazioni](/azure/devtest-lab/devtest-lab-overview). |
 | Griglia di eventi di Azure         | Microsoft.EventGrid        | Abilitare la pubblicazione di eventi di archiviazione BLOB e consentire a Griglia di eventi la pubblicazione nelle code di archiviazione. Informazioni sugli [eventi di archiviazione BLOB](/azure/event-grid/event-sources) e sulla [pubblicazione nelle code](/azure/event-grid/event-handlers). |
 | Hub eventi di Azure         | Microsoft.EventHub         | Archiviare dati con Acquisizione di Hub eventi. [Altre informazioni](/azure/event-hubs/event-hubs-capture-overview). |
-| Sincronizzazione file di Azure          | Microsoft.StorageSync      | Consente di trasformare il file server locale in una cache per le condivisioni file di Azure. Consentire la sincronizzazione multisito, il ripristino di emergenza rapido e il backup sul cloud. [Ulteriori informazioni](../files/storage-sync-files-planning.md) |
+| Sincronizzazione file di Azure          | Microsoft.StorageSync      | Consente di trasformare il file server locale in una cache per le condivisioni file di Azure. Consentire la sincronizzazione multisito, il ripristino di emergenza rapido e il backup sul cloud. [Altre informazioni](../files/storage-sync-files-planning.md) |
 | HDInsight di Azure          | Microsoft.HDInsight        | Eseguire il provisioning del contenuto iniziale del file system predefinito per un nuovo cluster HDInsight. [Altre informazioni](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/). |
-| Servizio Azure Machine Learning | Microsoft.MachineLearningServices | Le aree di lavoro autorizzate Azure Machine Learning scrivono l'output dell'esperimento, i modelli e i log nell'archivio BLOB. [Altre informazioni](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Azure Machine Learning | Microsoft.MachineLearningServices | Le aree di lavoro autorizzate Azure Machine Learning scrivono l'output dell'esperimento, i modelli e i log nell'archivio BLOB. [Altre informazioni](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace).   
 | Monitoraggio di Azure            | Microsoft.Insights         | Eseguire la scrittura dei dati di monitoraggio in un account di archiviazione protetto [Altre informazioni](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
 | Rete di Azure         | Microsoft.Network          | Archiviare e analizzare i log di traffico di rete. [Altre informazioni](/azure/network-watcher/network-watcher-packet-capture-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Abilitare la replica per il ripristino di emergenza di macchine virtuali IaaS di Azure quando si usano gli account di archiviazione della cache, di origine o di destinazione abilitati per il firewall.  [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-L'eccezione **Consenti servizi Microsoft attendibili...** consente a specifiche istanze di questi servizi di accedere all'account di archiviazione, se all' [identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per l'istanza viene assegnato un ruolo RBAC.
+L'eccezione **Consenti servizi Microsoft attendibili...** consente a una particolare istanza dei servizi riportati di seguito di accedere all'account di archiviazione, se si assegna in modo esplicito un ruolo RBAC all' [identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per l'istanza di risorsa.
 
-| Servizio                  | Nome provider di risorse          | Finalità                            |
-| :----------------------- | :------------------------------ | :--------------------------------- |
-| Data factory di Azure       | Microsoft.DataFactory/factories | Consente l'accesso agli account di archiviazione tramite il runtime di ADF. |
-| App per la logica di Azure         | Microsoft.Logic/workflows       | Consente alle app per la logica di accedere agli account di archiviazione. |
-| SQL Data Warehouse di Azure | Microsoft.Sql                   | Consente l'importazione e l'esportazione di dati da istanze specifiche del database SQL tramite la polibase. [Altre informazioni](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Analisi di flusso di Azure   | Microsoft.StreamAnalytics       | Consente la scrittura di dati da un processo di streaming nell'archivio BLOB. Questa funzionalità è attualmente in anteprima. [Altre informazioni](../../stream-analytics/blob-output-managed-identity.md). |
+| Service                        | Nome provider di risorse          | Scopo                            |
+| :----------------------------- | :------------------------------ | :--------------------------------- |
+| Data factory di Azure             | Microsoft.DataFactory/factories | Consente l'accesso agli account di archiviazione tramite il runtime di ADF. |
+| App per la logica di Azure               | Microsoft.Logic/workflows       | Consente alle app per la logica di accedere agli account di archiviazione. |
+| Servizio Azure Machine Learning | Microsoft.MachineLearningServices | Le aree di lavoro autorizzate Azure Machine Learning scrivono l'output dell'esperimento, i modelli e i log nell'archivio BLOB. [Altre informazioni](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Azure SQL Data Warehouse       | Microsoft.Sql                   | Consente l'importazione e l'esportazione di dati da istanze specifiche del database SQL tramite la polibase. [Altre informazioni](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
+| Analisi di flusso di Azure         | Microsoft.StreamAnalytics       | Consente la scrittura di dati da un processo di streaming nell'archivio BLOB. Questa funzionalità è attualmente in anteprima. [Altre informazioni](../../stream-analytics/blob-output-managed-identity.md). |
 
 
 ### <a name="storage-analytics-data-access"></a>Accesso ai dati di Analisi archiviazione

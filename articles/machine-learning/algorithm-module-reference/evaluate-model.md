@@ -1,7 +1,7 @@
 ---
 title: 'Modello di valutazione: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Evaluate Model nel servizio Azure Machine Learning per misurare l'accuratezza di un modello sottoposto a training.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Evaluate Model in Azure Machine Learning per misurare l'accuratezza di un modello sottoposto a training.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 0ad4ceedf9c1d65339c9e4aabebc0a47475ed568
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ddc6a35d5959a2d1f85c151a6f229223db9ba566
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693811"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497911"
 ---
 # <a name="evaluate-model-module"></a>Modulo Evaluate Model
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Utilizzare questo modulo per misurare l'accuratezza di un modello sottoposto a training. Si fornisce un set di dati contenente i punteggi generati da un modello e il modulo **Evaluate Model** calcola un set di metriche di valutazione standard del settore.
   
@@ -66,10 +66,10 @@ Questa funzionalità è utile perché è possibile confrontare facilmente i risu
 
 ## <a name="results"></a>Risultati
 
-Dopo aver eseguito **Evaluate Model**, fare clic con il pulsante destro del mouse sul modulo e selezionare **Risultati valutazione** per visualizzare i risultati. Puoi:
+Dopo aver eseguito **Evaluate Model**, fare clic con il pulsante destro del mouse sul modulo e selezionare **Risultati valutazione** per visualizzare i risultati. È possibile:
 
 + Salvare i risultati come set di dati, per semplificare l'analisi con altri strumenti
-+ Generare una visualizzazione nell'interfaccia
++ Generare una visualizzazione nella finestra di progettazione
 
 Se si connettono i set di dati a entrambi gli input di **Evaluate Model**, i risultati conterranno le metriche per entrambi i set di dati o per entrambi i modelli.
 Il modello o i dati collegati alla porta sinistra vengono presentati per primi nel report, seguiti dalle metriche per il set di dati o dal modello collegato sulla porta destra.  
@@ -126,4 +126,4 @@ Le metriche restituite per i modelli di regressione sono in genere progettate pe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

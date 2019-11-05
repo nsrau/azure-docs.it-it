@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 7ae3eb74b0d0c3f0bd6124362608e14555179697
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 7e341cf8a4ff2a18e44e36d73ad5dbc642582802
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710158"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496292"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti sull'istanza gestita di database SQL
 
@@ -58,7 +58,7 @@ L'istanza gestita deve avere un nome che termina con *database.Windows.NET*. Per
 
 La replica transazionale può essere utilizzata se tutte le tabelle del database includono chiavi primarie.
 
-Non `COPY_ONLY` è possibile ripristinare i backup nativi eseguiti dall'istanza gestita per SQL Server perché l'istanza gestita ha una versione del database superiore rispetto a SQL Server.
+Non è possibile ripristinare i backup nativi di `COPY_ONLY` eseguiti dall'istanza gestita per SQL Server perché l'istanza gestita ha una versione del database superiore rispetto a SQL Server.
 
 ## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>Come è possibile eseguire la migrazione del database dell'istanza a un singolo database SQL di Azure?
 
@@ -134,8 +134,8 @@ Case study sull'istanza gestita:
 - [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
 - [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
 - [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)  
-Per comprendere meglio i vantaggi, i costi e i rischi associati alla distribuzione dell'istanza gestita di database SQL di Azure, è disponibile anche uno studio di Forrester: [Effetti economici totali di mi](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
+-   [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure) 
+Per comprendere meglio i vantaggi, i costi e i rischi associati alla distribuzione dell'istanza gestita di database SQL di Azure, è disponibile anche uno studio di Forrester: [Total Economic Impact of mi](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 
 ## <a name="can-i-do-dns-refresh"></a>È possibile eseguire l'aggiornamento DNS? 
@@ -179,7 +179,7 @@ Il caricamento dei dati è spesso più lento nell'istanza gestita rispetto a SQL
 Sì, non è necessario decrittografare il database per poterlo ripristinare in un'istanza gestita. Per poter leggere i dati dal file di backup crittografato, è necessario fornire un certificato o una chiave utilizzata come protezione con chiave di crittografia nel sistema di origine all'istanza gestita. È possibile procedere in due modi:
 
 - *Caricare il certificato-Protector nell'istanza gestita*. Questa operazione può essere eseguita solo tramite PowerShell. Lo [script di esempio](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) descrive l'intero processo.
-- *Caricare la protezione con chiave asimmetrica per Azure Key Vault (AKV) e l'istanza gestita del punto*. Questo approccio è simile al caso di utilizzo di Transparent Data Encryption (BYOK) che usa anche l'integrazione AKV per archiviare la chiave di crittografia. Se non si vuole usare la chiave come protezione con chiave di crittografia e si vuole solo rendere disponibile la chiave per l'istanza gestita per ripristinare i database crittografati, seguire le istruzioni per la [configurazione di BYOK](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption-in-the-azure-portal)Transparent Data Encryption e non selezionare la casella di controllo imposta *la chiave selezionata protezione*Transparent Data Encryption.
+- *Caricare la protezione con chiave asimmetrica per Azure Key Vault (AKV) e l'istanza gestita del punto*. Questo approccio è simile al caso di utilizzo di Transparent Data Encryption (BYOK) che usa anche l'integrazione AKV per archiviare la chiave di crittografia. Se non si vuole usare la chiave come protezione con chiave di crittografia e si vuole solo rendere disponibile la chiave per l'istanza gestita per ripristinare i database crittografati, seguire le istruzioni per la [configurazione di BYOK](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption)Transparent Data Encryption e non selezionare la casella di controllo imposta *la chiave selezionata protezione*Transparent Data Encryption.
 
 Dopo aver reso disponibile la protezione della crittografia per l'istanza gestita, è possibile procedere con la procedura di ripristino del database standard.
 

@@ -8,29 +8,31 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: hrasheed
-ms.openlocfilehash: f178d07666eda3552c18f581a926305e76ecb697
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6cb3e91bed4f16cf1e30c535b5ed667fc690dd53
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450140"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499284"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Eseguire processi Apache Sqoop tramite Azure PowerShell per Apache Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Informazioni su come usare Azure PowerShell per eseguire processi Apache Sqoop in HDInsight di Azure per importare ed esportare dati tra un cluster HDInsight e un database SQL di Azure o database di SQL Server. In questo esempio consente di esportare i dati da `/tutorials/usesqoop/data/sample.log` dall'account di archiviazione predefinito, quindi le importazioni per una tabella denominata `log4jlogs` in un database di SQL Server. Questo articolo è una continuazione del [usare Apache Sqoop con Hadoop in HDInsight](./hdinsight-use-sqoop.md).
+Informazioni su come usare Azure PowerShell per eseguire i processi Apache Sqoop in Azure HDInsight per importare ed esportare dati tra un cluster HDInsight e un database SQL di Azure o un database SQL Server. Questo esempio Esporta i dati da `/tutorials/usesqoop/data/sample.log` dall'account di archiviazione predefinito e quindi li importa in una tabella denominata `log4jlogs` in un database SQL Server. Questo articolo è una continuazione dell' [uso di Apache Sqoop con Hadoop in HDInsight](./hdinsight-use-sqoop.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Per eseguire le procedure descritte nell'articolo sono necessari gli elementi seguenti:
 
-* Una workstation con Azure PowerShell [modulo di AZ](https://docs.microsoft.com/powershell/azure/overview) installato.
+* Una workstation con Azure PowerShell [AZ Module](https://docs.microsoft.com/powershell/azure/overview) installato.
 
-* Completamento della [configurare l'ambiente di testing](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) dalla [usare Apache Sqoop con Hadoop in HDInsight](./hdinsight-use-sqoop.md).
+* Il completamento della [configurazione dell'ambiente di test](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) da [usare Apache Sqoop con Hadoop in HDInsight](./hdinsight-use-sqoop.md).
 
 
 ## <a name="run-apache-sqoop-by-using-powershell"></a>Eseguire Apache Sqoop tramite PowerShell
-Lo script di PowerShell seguente pre-elabora il file di origine e poi lo Esporta in un database SQL di Azure alla tabella `log4jlogs`. Sostituire `CLUSTERNAME`, `CLUSTERPASSWORD`, e `SQLPASSWORD` con i valori usati dal prerequisito.
+Lo script di PowerShell seguente pre-elabora il file di origine e quindi lo esporta in un database SQL di Azure per la tabella `log4jlogs`. Sostituire `CLUSTERNAME`, `CLUSTERPASSWORD`e `SQLPASSWORD` con i valori usati dal prerequisito.
 
 ```powershell 
 <#------ BEGIN USER INPUT ------#>
@@ -179,7 +181,7 @@ HDInsight basato su Linux prevede le limitazioni seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, vedere:
 
-* [Usare Apache Oozie con HDInsight](../hdinsight-use-oozie-linux-mac.md): Usare l'azione Sqoop in un flusso di lavoro Oozie.
-* [Caricare dati in HDInsight](../hdinsight-upload-data.md): trovare altri metodi per il caricamento di dati in HDInsight o nell'archiviazione BLOB di Azure.
+* [Usare Apache oozie con HDInsight](../hdinsight-use-oozie-linux-mac.md): usare l'azione Sqoop in un flusso di lavoro oozie.
+* [Caricare i dati in HDInsight](../hdinsight-upload-data.md): trovare altri metodi per caricare i dati in HDInsight o in Archiviazione BLOB di Azure.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

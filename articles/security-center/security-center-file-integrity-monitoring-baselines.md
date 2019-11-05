@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
-ms.openlocfilehash: 116f295365084e7570ed9afc493d9179ea2dfb5a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 0e7ef558ec75622b804aef96781b549f1a833e21
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202148"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73518871"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Confrontare le linee di base usando il monitoraggio dell'integrità dei file
 
@@ -36,7 +36,7 @@ Infatti, molti standard di conformità normativi, come PCI-DSS & ISO 17799, rich
 
 Le impostazioni predefinite hive del registro di sistema FIM rappresentano un modo pratico per monitorare le modifiche ricorsive all'interno di aree di sicurezza comuni.  Ad esempio, un antagonista può configurare uno script da eseguire nel contesto LOCAL_SYSTEM configurando un'esecuzione all'avvio o all'arresto.  Per monitorare le modifiche di questo tipo, abilitare il controllo predefinito.  
 
-![Registro di sistema](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
+![Registro](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
 
 >[!NOTE]
 > I controlli ricorsivi si applicano solo agli hive di sicurezza consigliati e non ai percorsi del registro di sistema personalizzati.  
@@ -46,21 +46,21 @@ Le impostazioni predefinite hive del registro di sistema FIM rappresentano un mo
 Le basi di riferimento FIM iniziano con l'identificazione delle caratteristiche di uno stato valido noto per il sistema operativo e l'applicazione di supporto.  Per questo esempio, si concentreranno le configurazioni dei criteri password per Windows Server 2008 e versioni successive.
 
 
-|Nome criteri                 | Impostazione del registro di sistema|
+|Nome criterio                 | Impostazione del registro di sistema|
 |---------------------------------------|-------------|
-|Controller di dominio: Rifiuta modifiche della password dell'account computer| MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RefusePasswordChange|
-|Membro del dominio: Crittografare o firmare digitalmente i dati del canale sicuro (always)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireSignOrSeal|
-|Membro del dominio: Crittografare digitalmente i dati del canale sicuro (quando possibile)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SealSecureChannel|
-|Membro del dominio: Firma digitale dei dati del canale sicuro (quando possibile)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SignSecureChannel|
-|Membro del dominio: Disabilitare le modifiche della password dell'account computer|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DisablePasswordChange|
-|Membro del dominio: Validità massima password account computer|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\MaximumPasswordAge|
-|Membro del dominio: Richiedi chiave di sessione forte (Windows 2000 o versione successiva)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireStrongKey|
-|Sicurezza di rete: Limita NTLM:  Autenticazione NTLM in questo dominio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RestrictNTLMInDomain|
-|Sicurezza di rete: Limita NTLM: Aggiungi eccezioni server in questo dominio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DCAllowedNTLMServers|
-|Sicurezza di rete: Limita NTLM: Controlla autenticazione NTLM in questo dominio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\AuditNTLMInDomain|
+|Controller di dominio: rifiuta modifiche della password dell'account computer| MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RefusePasswordChange|
+|Membro di dominio: crittografare digitalmente o firmare i dati del canale sicuro (always)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireSignOrSeal|
+|Membro di dominio: crittografare digitalmente i dati del canale sicuro (quando possibile)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SealSecureChannel|
+|Membro di dominio: firma digitale dei dati del canale sicuro (quando possibile)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SignSecureChannel|
+|Membro di dominio: disabilitare le modifiche della password dell'account computer|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DisablePasswordChange|
+|Membro di dominio: validità massima password account computer|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\MaximumPasswordAge|
+|Membro di dominio: Richiedi chiave di sessione Strong (Windows 2000 o versione successiva)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireStrongKey|
+|Sicurezza di rete: limitazione di NTLM: autenticazione NTLM nel dominio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RestrictNTLMInDomain|
+|Sicurezza di rete: limitazione di NTLM: aggiungere eccezioni del server in questo dominio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DCAllowedNTLMServers|
+|Sicurezza di rete: limitazione di NTLM: controlla l'autenticazione NTLM nel dominio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\AuditNTLMInDomain|
 
 > [!NOTE]
-> Per altre informazioni sulle impostazioni del registro di sistema supportate da diverse versioni del sistema operativo, vedere il foglio di calcolo di riferimento per le [impostazioni criteri di gruppo](https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250).
+> Per altre informazioni sulle impostazioni del registro di sistema supportate da diverse versioni del sistema operativo, vedere il foglio di calcolo di riferimento per le [impostazioni criteri di gruppo](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
 *Per configurare FIM per il monitoraggio delle linee di base del registro di sistema:*
 

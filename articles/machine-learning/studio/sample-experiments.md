@@ -1,7 +1,7 @@
 ---
-title: Kickstart esperimenti da esempi
-titleSuffix: Azure Machine Learning Studio
-description: Informazioni su come usare gli esperimenti di esempio di Machine Learning per creare nuovi esperimenti con Azure AI Gallery e Azure Machine Learning Studio.
+title: Kickstart gli esperimenti dagli esempi
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Informazioni su come usare gli esperimenti di esempio di machine learning per creare nuovi esperimenti con Azure AI Gallery e Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: f88323069ed23f4a038ffa4a030b1c4d4541ec42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 547cd7c97ddf7aa08ef94f6aeea82e16119c7135
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61460390"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496771"
 ---
-# <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Creare esperimenti di Azure Machine Learning Studio da esempi funzionanti in Azure AI Gallery
+# <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Creare esperimenti di Azure Machine Learning Studio (classico) dagli esempi funzionanti in Azure AI Gallery
 
 Informazioni su come iniziare a usare gli esperimenti di esempio dalla [raccolta di intelligenza artificiale di Azure](https://gallery.azure.ai/) invece di creare esperimenti di Machine Learning completamente nuovi. È possibile usare gli esempi per compilare la propria soluzione di Machine Learning.
 
-Nella raccolta sono disponibili esperimenti di esempio del team di Microsoft Azure Machine Learning Studio, oltre a esempi condivisi dalla community di Machine Learning. È anche possibile porre domande o inviare commenti sugli esperimenti disponibili.
+Nella raccolta sono disponibili esperimenti di esempio del team di Microsoft Azure Machine Learning Studio (classico), oltre ad esempi condivisi dalla community di Machine Learning. È anche possibile porre domande o inviare commenti sugli esperimenti disponibili.
 
 Per informazioni su come usare la raccolta, guardare il video di 3 minuti [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) della serie [Analisi scientifica dei dati per principianti](data-science-for-beginners-the-5-questions-data-science-answers.md).
 
@@ -39,7 +39,7 @@ Per esplorare tutti gli esperimenti:
 1. Fare clic su **Browse all** (Esplora tutto) nella parte superiore della pagina.
 2. In **Refine by** (Affina per) a sinistra nella sezione **Categories** (Categorie) selezionare **Experiment** (Esperimento) per visualizzare tutti gli esperimenti nella raccolta.
 3. È possibile trovare esperimenti che soddisfano i requisiti in due modi diversi:
-   * **Selezionare i filtri a sinistra.** Per esaminare ad esempio gli esperimenti che fanno uso di un algoritmo di rilevamento delle anomalie basato su PCA: in **Categories** (Categorie) fare clic su **Experiment** (Esperimento). In **Algorithms Used** (Algoritmi usati) fare clic su click **Show all** (Mostra tutto) e nella finestra di dialogo scegliere **PCA-Based Anomaly Detection** (Rilevamento anomalie basato su PCA). Potrebbe essere necessario scorrere per visualizzare l'opzione.<br></br>
+   * **Selezionare i filtri a sinistra.** Per esaminare ad esempio gli esperimenti che fanno uso di un algoritmo di rilevamento delle anomalie basato su PCA, in **Categories** (Categorie) fare clic su **Experiment** (Esperimento). In **Algorithms Used** (Algoritmi usati) fare clic su click **Show all** (Mostra tutto) e nella finestra di dialogo scegliere **PCA-Based Anomaly Detection** (Rilevamento anomalie basato su PCA). Potrebbe essere necessario scorrere per visualizzare l'opzione.<br></br>
      ![Selezione dei filtri](./media/sample-experiments/choose-an-algorithm.png)
    * **Usare la casella di ricerca.** Ad esempio, per trovare esperimenti Microsoft sul riconoscimento di cifre che usano un algoritmo di macchine a vettori di supporto a due classi, immettere "digit recognition" nella casella di ricerca. Selezionare quindi i filtri **Experiment** (Esperimento), **Microsoft content only** (Solo contenuto Microsoft) e **Two-Class Support Vector Machine** (Macchina a vettori di supporto a due classi):<br></br>
      ![Usare la casella di ricerca](./media/sample-experiments/search-for-experiments.png)
@@ -48,18 +48,13 @@ Per esplorare tutti gli esperimenti:
 
     ![Esperimento di esempio](./media/sample-experiments/example-experiment.png)
 
-    > [!NOTE]
-    > Quando si apre un esperimento in Machine Learning Studio per la prima volta, è possibile provarlo gratuitamente o acquistare una sottoscrizione di Azure. [Confronto tra la versione di valutazione gratuita e il servizio a pagamento di Machine Learning Studio](https://azure.microsoft.com/pricing/details/machine-learning/)
-    >
-    >
-
 ## <a name="create-a-new-experiment-using-an-example-as-a-template"></a>Creare un nuovo esperimento usando un esempio come modello
-È anche possibile creare un nuovo esperimento in Machine Learning Studio usando come modello un esempio della raccolta.
+È anche possibile creare un nuovo esperimento nella versione classica di Machine Learning Studio usando un esempio di raccolta come modello.
 
 1. Accedere a [Studio](https://studio.azureml.net) con le credenziali dell'account Microsoft e quindi fare clic su **Nuovo** per creare un esperimento.
 2. Esplorare il contenuto e fare clic per selezionare un esempio.
 
-Nell'area di lavoro di Machine Learning Studio verrà creato un nuovo esperimento usando l'esperimento di esempio come modello.
+Viene creato un nuovo esperimento nell'area di lavoro di Machine Learning Studio (classica) usando l'esperimento di esempio come modello.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Importare dati da diverse origini](import-data.md)

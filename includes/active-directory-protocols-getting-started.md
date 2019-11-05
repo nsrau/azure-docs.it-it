@@ -13,25 +13,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: priyamo
-ms.openlocfilehash: b6dd4cd55755ae2c92afd327ad72ffe6966b9a07
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 7772b3ee5d0e27c09e83f7d118eb9f67f17e0d07
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180320"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523108"
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>Registrare l'applicazione nel tenant di Active Directory
-Prima di tutto è necessario registrare l'applicazione nel tenant di Azure Active Directory (Azure AD). Verrà fornito un ID per l'applicazione, abilitandola per ricevere token.
+Per prima cosa, registrare l'applicazione con il tenant di Azure Active Directory (Azure AD). Verrà fornito un ID per l'applicazione, abilitandola per ricevere token.
 
-* Accedere al [portale di Azure](https://portal.azure.com).
-* Scegliere il tenant di Azure AD facendo clic sull'account nell'angolo superiore destro della pagina. Fare clic sul menu di spostamento **Cambia Directory** e selezionare il tenant appropriato. 
-  * Ignorare questo passaggio se è presente un solo tenant di Azure AD nell'account o se è già stato selezionato il tenant di Azure AD appropriato.
-* Nel riquadro di spostamento a sinistra fare clic su **Azure Active Directory**.
-* Fare clic su **registrazioni per l'App** e fare clic su **registrazione nuova**.
-* Seguire le istruzioni e creare una nuova applicazione. Non è rilevante se si tratta di un'applicazione web o un'applicazione client pubblica (per dispositivi mobili e desktop) per questa esercitazione, ma se si vuole esempi specifici per le applicazioni web o client pubblico, consultare il [guide introduttive](../articles/active-directory/develop/v1-overview.md).
-  * **Nome** è il nome dell'applicazione e descrive l'applicazione agli utenti finali.
-  * In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
-  * Fornire il **URI di reindirizzamento**. Per le applicazioni Web, questo è l'URL di base dell'app in cui gli utenti possono accedere.  Ad esempio: `http://localhost:12345`. Per ottenere un client pubblico (per dispositivi mobili e desktop), Azure AD lo usa per restituire le risposte dei token. Immettere un valore specifico per l'applicazione.  Ad esempio: `http://MyFirstAADApp`.
-    <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->  
-* Dopo aver completato la registrazione, AAD assegnerà all'applicazione un identificatore client univoco (i **ID applicazione**). Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla pagina dell'applicazione.
-* Per individuare l'applicazione nel portale di Azure, fare clic su **Registrazioni per l'app**, quindi fare clic su **Visualizza tutte le applicazioni**.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+   
+1. Scegliere il tenant di Azure AD selezionando l'account nell'angolo in alto a destra della pagina, quindi selezionando la finestra di dialogo **passa alla directory** e quindi selezionando il tenant appropriato. 
+   - Ignorare questo passaggio se si dispone di un solo tenant Azure AD nell'account o se è già stato selezionato il tenant di Azure AD appropriato.
+   
+1. Nella portale di Azure cercare e selezionare **Azure Active Directory**.
+   
+1. Nel menu a sinistra **Azure Active Directory** selezionare registrazioni per l' **app**e quindi selezionare **nuova registrazione**.
+   
+1. Seguire le istruzioni e creare una nuova applicazione. Per questa esercitazione non è importante se si tratta di un'applicazione Web o di un'applicazione client pubblica (Mobile & desktop), ma se si desiderano esempi specifici per le applicazioni Web o le applicazioni client pubbliche, consultare le [guide introduttive](../articles/active-directory/develop/v1-overview.md).
+   
+   - **Nome** è il nome dell'applicazione e descrive l'applicazione agli utenti finali.
+   - In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
+   - Specificare l' **URI di reindirizzamento**. Per le applicazioni Web, questo è l'URL di base dell'app in cui gli utenti possono accedere.  Ad esempio, `http://localhost:12345`. Per il client pubblico (Mobile & desktop), Azure AD lo usa per restituire le risposte dei token. Immettere un valore specifico per l'applicazione.  Ad esempio, `http://MyFirstAADApp`.
+   <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->  
+   
+1. Una volta completata la registrazione, Azure AD assegnerà all'applicazione un identificatore client univoco ( **ID applicazione**). Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla pagina dell'applicazione.
+   
+1. Per trovare l'applicazione nel portale di Azure, selezionare **registrazioni app**, quindi selezionare **Visualizza tutte le applicazioni**.

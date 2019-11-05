@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: edd415c330656d4cecc42a39d27598a88a1a8d2c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
-ms.translationtype: MT
+ms.openlocfilehash: f9b161bbb692c1336083640250b93f9d87f1e0d9
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202086"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520794"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizzare i criteri di protezione delle informazioni SQL in Centro sicurezza di Azure (Anteprima)
  
@@ -52,7 +52,7 @@ Per personalizzare i criteri di protezione delle informazioni del tenant di Azur
 2. Nella schermata **Configura l'etichetta di riservatezza**  è possibile creare o modificare il nome dell'etichetta e la descrizione. È anche possibile specificare se l'etichetta è abilitata o disabilitata attivando o disattivando il comando **Abilitata**. Infine, è possibile aggiungere o rimuovere i tipi di informazioni associati all'etichetta. Tutti i dati rilevati che corrispondono al tipo di informazioni includerà automaticamente l'etichetta di riservatezza associata tra i consigli per la classificazione.
 3. Fare clic su **OK**.
  
-   ![Configura l'etichetta di riservatezza](./media/security-center-info-protection-policy/config-sensitivity-label.png)
+   ![Configurare l'etichetta di riservatezza](./media/security-center-info-protection-policy/config-sensitivity-label.png)
  
 4. Le etichette sono elencate in ordine crescente di riservatezza. Per modificare la classificazione di due etichette, trascinare le etichette in una posizione diversa della tabella oppure usare i pulsanti **Sposta su** e **Sposta giù** per modificare l'ordine. 
  
@@ -83,8 +83,5 @@ In questo articolo è stata illustrata la definizione di un criterio di Informat
 
 Per altre informazioni sui criteri di sicurezza e la protezione dei dati nel Centro sicurezza di Azure, vedere gli articoli seguenti:
  
-- [Panoramica dei criteri di sicurezza](security-center-policies-overview.md): una panoramica dei criteri di sicurezza del Centro sicurezza.
-- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
-- [Sicurezza dei dati nel Centro sicurezza di Azure](security-center-data-security.md): informazioni su come il Centro sicurezza gestisce e protegge i dati
-
-
+- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure
+- [Sicurezza dei dati nel Centro sicurezza di Azure](security-center-data-security.md): informazioni sulla gestione e la protezione dei dati nel Centro sicurezza

@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione di cluster di Apache Hadoop locali ad Azure HDInsight-infrastruttura
+title: 'Infrastruttura: Apache Hadoop locali ad Azure HDInsight'
 description: Informazioni sulle procedure consigliate per l'infrastruttura relative alla migrazione di cluster Hadoop locali ad Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: e35917a7eb7b2e38fcc2689f6fe838ec6529428a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: adc0e5f5eef41dcb1f826ffbf0cfe91a937fac01
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087444"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499224"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'infrastruttura
 
@@ -24,7 +24,7 @@ Questo articolo offre indicazioni per la gestione dell'infrastruttura dei cluste
 Le opzioni principali per la pianificazione della capacità dei cluster HDInsight sono:
 
 - **Scegliere l'area** - L'area di Azure determina il luogo in cui viene fisicamente eseguito il provisioning del cluster. Per ridurre al minimo la latenza di lettura e scrittura, è opportuno che il cluster si trovi nella stessa area dei dati.
-- **Scegliere dimensioni e posizione di archiviazione** -- L'archiviazione predefinita deve essere nella stessa area del cluster. Per un cluster a 48 nodi è consigliabile avere da 4 a 8 account di archiviazione. Anche se è possibile che lo spazio di archiviazione complessivo sia già sufficiente, ogni account di archiviazione fornisce larghezza di banda di rete aggiuntiva per i nodi di calcolo. In caso di più account di archiviazione, usare un nome casuale per ognuno di essi, senza prefisso. La denominazione casuale ha lo scopo di diminuire le probabilità di colli di bottiglia di archiviazione (limitazione) e di errori di modo comune negli account. Per prestazioni ottimali, usare solo un contenitore per ogni account archiviazione.
+- **Scegliere dimensioni e posizione di archiviazione** -- L'archiviazione predefinita deve essere nella stessa area del cluster. Per un cluster a 48 nodi, è consigliabile avere un account di archiviazione da 4 a 8. Anche se è possibile che lo spazio di archiviazione complessivo sia già sufficiente, ogni account di archiviazione fornisce larghezza di banda di rete aggiuntiva per i nodi di calcolo. In caso di più account di archiviazione, usare un nome casuale per ognuno di essi, senza prefisso. La denominazione casuale ha lo scopo di diminuire le probabilità di colli di bottiglia di archiviazione (limitazione) e di errori di modo comune negli account. Per prestazioni ottimali, usare solo un contenitore per ogni account archiviazione.
 - **Scegliere tipo e dimensioni della VM (ora supportata la serie G)** - Ogni tipo di cluster contiene un set di tipi di nodo, a cui sono associate opzioni specifiche per il tipo e la dimensione della macchina virtuale. Il tipo e le dimensioni della macchina virtuale variano in base alla potenza di elaborazione della CPU, alle dimensioni della RAM e alla latenza di rete. È possibile usare un carico di lavoro simulato per determinare il tipo e le dimensioni ottimali della macchina virtuale per ogni tipo di nodo.
 - **Scegliere il numero di nodi del ruolo di lavoro** - Il numero iniziale di nodi del ruolo di lavoro può essere determinato mediante i carichi di lavoro simulati. I cluster possono essere ridimensionati in un secondo momento aggiungendo più nodi del ruolo di lavoro per soddisfare le richieste di picchi di carico. Il cluster può essere nuovamente ridimensionato in un secondo momento quando non sono richiesti nodi del ruolo di lavoro aggiuntivi.
 
@@ -87,14 +87,14 @@ HDInsight include script predefiniti per installare i componenti seguenti nei cl
 - Installare Solr
 - Installare Giraph
 - Precaricare le librerie Hive
-- Installa e aggiorna Mono
+- Installare o aggiornare Mono
 
 > [!Note]  
 > HDInsight non offre supporto diretto per i componenti Hadoop personalizzati o per i componenti installati tramite azioni script.
 
-Le azioni script possono anche essere pubblicate in Azure Marketplace come applicazione HDInsight.
+Le azioni di script possono anche essere pubblicate in Azure Marketplace come applicazione HDInsight.
 
-Per altre informazioni, vedere i seguenti articoli:
+Per altre informazioni, vedere gli articoli seguenti:
 
 - [Installare applicazioni Apache Hadoop di terze parti in Azure HDInsight](../hdinsight-apps-install-applications.md)
 - [Personalizzare i cluster HDInsight con azioni script](../hdinsight-hadoop-customize-cluster-linux.md)
@@ -165,7 +165,7 @@ HDInsight può essere aggiunto a una rete virtuale di Azure nuova o esistente. S
 > [!Note]  
 > HDInsight non supporta al momento il tunneling forzato. Il tunneling forzato è un'impostazione di subnet che spinge il traffico Internet in uscita verso un dispositivo per l'ispezione e la registrazione. Occorre quindi rimuovere questa funzionalità prima di installare HDInsight in una subnet oppure si può creare una nuova subnet per HDInsight. HDInsight non supporta la limitazione della connettività di rete in uscita.
 
-Per altre informazioni, vedere i seguenti articoli:
+Per altre informazioni, vedere gli articoli seguenti:
 
 - [Panoramica di Rete virtuale di Azure](../../virtual-network/virtual-networks-overview.md)
 - [Estendere Azure HDInsight usando Rete virtuale di Azure](../hdinsight-plan-virtual-network-deployment.md)
@@ -174,7 +174,7 @@ Per altre informazioni, vedere i seguenti articoli:
 
 HDInsight supporta gli [endpoint di servizio della rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md), che consentono di connettersi in modo sicuro a archiviazione BLOB di Azure, Azure Data Lake Storage Gen2, Cosmos DB e database SQL. Abilitando un endpoint del servizio per Azure HDInsight, il traffico attraversa una route protetta all'interno del data center di Azure. Con questo livello avanzato di sicurezza a livello di rete, è possibile bloccare gli account di archiviazione di Big Data nelle reti virtuali specificate e continuare a usare i cluster HDInsight per accedere ai dati ed elaborarli.
 
-Per altre informazioni, vedere i seguenti articoli:
+Per altre informazioni, vedere gli articoli seguenti:
 
 - [Endpoint servizio di rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Enhance HDInsight security with service endpoints](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/) (Ottimizzare la sicurezza di HDInsight con gli endpoint del servizio)

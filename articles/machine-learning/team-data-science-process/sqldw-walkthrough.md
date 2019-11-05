@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f9da031fd4b35c2fa9126f545eecacf6143b18a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc70e2e6475620bfb8842fc740772e326f8ee8d0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478847"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480341"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Data Warehouse
 In questa esercitazione verranno esaminate la compilazione e la distribuzione di un modello di Machine Learning usando SQL Data Warehouse (SQL DW) per un set di dati disponibile pubblicamente, il set di dati [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). Il modello di classificazione binaria costruito stabilisce se sia stata lasciata o meno una mancia per una corsa. Vengono illustrati anche i modelli per la regressione e la classificazione multiclasse che consentono di stimare la distribuzione delle mance pagate.
@@ -52,15 +52,15 @@ La **chiave univoca** usata per unire trip\_data e trip\_fare è costituita dai 
 ## <a name="mltasks"></a>Risolvere tre tipi di attività di stima
 Sono stati formulati tre problemi di stima basati sul valore di *tip\_amount* per illustrare tre tipi di attività di modellazione:
 
-1. **Classificazione binaria**: per prevedere se è stata lasciata una mancia per una corsa oppure no, ovvero se un valore di *tip\_amount* superiore a $0 è un esempio positivo, mentre un valore di *tip\_amount* pari a $ 0 è un esempio negativo.
-2. **Classificazione multiclasse**: consente di stimare l'intervallo degli importi delle mance lasciate per la corsa. Il valore *tip\_amount* viene suddiviso in cinque bin o classi:
+1. **Classificazione binaria**: consente di prevedere se sia stata lasciata o meno una mancia per la corsa. In questo caso, un valore di *tip\_amount* superiore a $ 0 rappresenta un esempio positivo, mentre un valore di *tip\_amount* pari a $ 0 rappresenta un esempio negativo.
+2. **Classificazione multiclasse**: consente di prevedere l'intervallo in cui rientra la mancia lasciata per la corsa. Il valore *tip\_amount* viene suddiviso in cinque bin o classi:
 
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. **Attività di regressione**: permette di stimare l'importo della mancia lasciata per una corsa.
+3. **Attività di regressione**: consente di prevedere l'importo della mancia lasciata per una corsa.
 
 ## <a name="setup"></a>Configurare l'ambiente di scienza dei dati di Azure per l'analisi avanzata
 Per configurare l'ambiente di analisi scientifica dei dati di Azure, seguire questi passaggi.
@@ -77,7 +77,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure, seguire que
 **Effettuare il provisioning dell'istanza di Azure SQL DW.**
 Per effettuare il provisioning di un'istanza di SQL Data Warehouse seguire la documentazione in [Creare un SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) . Verificare di avere preso nota delle credenziali di SQL Data Warehouse seguenti che verranno usate nei passaggi successivi.
 
-* **Nome del server**: \<server Name >. database.windows.net
+* **Nome server**: \<nome server >. database. Windows. NET
 * **Nome SQLDW (database)**
 * **Nome utente**
 * **Password**
@@ -376,7 +376,7 @@ Questa query di esempio identifica le licenze (numeri dei taxi) che hanno esegui
 
 **Output:** la query dovrebbe restituire una tabella con righe che specificano le 13.369 licenze (taxi) e il numero di viaggi eseguiti da ognuna nel 2013. L'ultima colonna contiene il totale delle corse eseguite.
 
-### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Esplorazione: distribuzione delle corse per licenza e hack_license
+### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Esplorazione: distribuzione delle corse per licenza e hack_license
 Questo esempio identifica le licenze (numeri dei taxi) e i numeri di hack_license (tassisti) che hanno eseguito più di 100 corse in un periodo specificato.
 
     SELECT medallion, hack_license, COUNT(*)
@@ -387,7 +387,7 @@ Questo esempio identifica le licenze (numeri dei taxi) e i numeri di hack_licens
 
 **Output:** la query dovrebbe restituire una tabella con 13.369 righe in cui vengono specificati quali dei 13.369 ID di automobile/autista hanno eseguito più di 100 corse nel 2013. L'ultima colonna contiene il totale delle corse eseguite.
 
-### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Valutazione della qualità dei dati: verifica dei record con longitudine e/o latitudine errate
+### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Valutazione della qualità dei dati: verifica dei record con longitudine o latitudine errate
 In questo esempio viene esaminato se uno dei campi relativi alla longitudine o alla latitudine contiene un valore non valido (i gradi radianti devono essere compresi tra -90 e 90) o presenta le coordinate (0, 0).
 
     SELECT COUNT(*) FROM <schemaname>.<nyctaxi_trip>
@@ -540,7 +540,7 @@ Ecco un esempio per chiamare questa funzione per generare le funzionalità nella
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Preparazione dei dati per la creazione del modello
-Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione dall'intero set di dati unito. Il campionamento viene eseguito recuperando un subset delle corse in base all'orario di partenza.  La query può essere copiata e incollata direttamente nel modulo [Import Data][import-data] (Importa dati) di [Azure Machine Learning Studio](https://studio.azureml.net) per l'inserimento diretto dei dati dall'istanza del database SQL in Azure. La query esclude i record con le coordinate errate (0, 0).
+Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione dall'intero set di dati unito. Il campionamento viene eseguito recuperando un subset delle corse in base all'orario di partenza.  Questa query può essere copiata e incollata direttamente nel modulo [Azure Machine Learning Studio](https://studio.azureml.net) [Import Data][import-data] per l'inserimento diretto dei dati dall'istanza del database SQL in Azure. La query esclude i record con le coordinate errate (0, 0).
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -559,8 +559,8 @@ Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e
 
 Una volta pronti a proseguire con Azure Machine Learning, è possibile effettuare una delle seguenti operazioni:
 
-1. Salvare la query SQL finale per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Import Data][import-data] (Importa dati) in Azure Machine Learning, oppure
-2. Salvare in modo definitivo i dati campionati e progettati che si prevede di usare per la compilazione di modelli in una nuova tabella di SQL DW e usare la nuova tabella nel modulo [Import Data][import-data] (Importa dati) in Azure Machine Learning. Questa operazione è stata eseguita dallo script di PowerShell nel passaggio precedente. È possibile leggere direttamente in questa tabella nel modulo Import Data.
+1. Salvare la query SQL finale per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Import Data (Importa dati][import-data] ) in Azure Machine Learning
+2. Salvare in modo permanente i dati campionati e progettati che si prevede di usare per la compilazione di modelli in una nuova tabella di SQL DW e usare la nuova tabella nel modulo [Import Data (Importa dati][import-data] ) in Azure Machine Learning. Questa operazione è stata eseguita dallo script di PowerShell nel passaggio precedente. È possibile leggere direttamente in questa tabella nel modulo Import Data.
 
 ## <a name="ipnb"></a>Esplorazione dei dati e progettazione di funzionalità in IPython Notebook
 In questa sezione verranno eseguite l'esplorazione dei dati e la generazione di funzionalità usando query sia Python che SQL sull'istanza di SQL DW creata in precedenza. Un IPython Notebook di esempio denominato **SQLDW_Explorations.ipynb** e un file di script di Python **SQLDW_Explorations_Scripts.py** sono stati scaricati nella directory locale. Sono disponibili anche in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). Questi due file sono identici negli script di Python. Il file di script di Python viene fornito nel caso in cui non sia presente un server IPython Notebook. Questi due file di Python di esempio sono stati progettati in **Python 2.7**.
@@ -615,7 +615,7 @@ Ecco la stringa di connessione che crea la connessione al database.
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-### <a name="report-number-of-rows-and-columns-in-table-nyctaxitrip"></a>Segnalare il numero di righe e di colonne nella tabella <nyctaxi_trip>
+### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a>Segnalare il numero di righe e di colonne nella tabella <nyctaxi_trip>
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_trip>')
@@ -633,7 +633,7 @@ Ecco la stringa di connessione che crea la connessione al database.
 * Numero di righe totali = 173179759
 * Numero di colonne totali = 14
 
-### <a name="report-number-of-rows-and-columns-in-table-nyctaxifare"></a>Segnalare il numero di righe e di colonne nella tabella <nyctaxi_fare>
+### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_fare"></a>Segnalare il numero di righe e di colonne nella tabella <nyctaxi_fare>
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_fare>')
@@ -679,14 +679,14 @@ Ora è possibile esplorare i dati campionati. Si inizia da alcune statistiche de
 
     df1['trip_distance'].describe()
 
-### <a name="visualization-box-plot-example"></a>Visualizzazione: Esempio di box plot
+### <a name="visualization-box-plot-example"></a>Visualizzazione: esempio di box plot
 Successivamente si consulterà il box plot per la distanza delle corse, per visualizzare i quantili.
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
 ![Output di box plot][1]
 
-### <a name="visualization-distribution-plot-example"></a>Visualizzazione: Esempio di tracciato di distribuzione
+### <a name="visualization-distribution-plot-example"></a>Visualizzazione: esempio di tracciato di distribuzione
 Tracciati che visualizzano la distribuzione e un istogramma per le distanze delle corse campionate.
 
     fig = plt.figure()
@@ -697,7 +697,7 @@ Tracciati che visualizzano la distribuzione e un istogramma per le distanze dell
 
 ![Output del tracciato di distribuzione][2]
 
-### <a name="visualization-bar-and-line-plots"></a>Visualizzazione: Tracciati a barre e linee
+### <a name="visualization-bar-and-line-plots"></a>Visualizzazione: tracciati a barre e linee
 In questo esempio, la distanza delle corse viene suddivisa in cinque contenitori e vengono visualizzati i risultati di questa suddivisione.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -717,7 +717,7 @@ e
 
 ![Output del tracciato a linee][4]
 
-### <a name="visualization-scatterplot-examples"></a>Visualizzazione: Esempi di grafico a dispersione
+### <a name="visualization-scatterplot-examples"></a>Visualizzazione: esempi di grafico a dispersione
 Viene eseguito un grafico a dispersione tra **trip\_time\_in\_secs** e **trip\_distance** per verificare se esiste una correlazione.
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
@@ -781,7 +781,7 @@ In questa sezione verranno esplorate le distribuzioni di dati usando i dati camp
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Esplorazione: distribuzione delle corse per licenza e hack license
+#### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Esplorazione: distribuzione delle corse per licenza e hack_license
     query = '''select medallion, hack_license,count(*) from <schemaname>.<nyctaxi_sample> group by medallion, hack_license'''
     pd.read_sql(query,conn)
 
@@ -805,11 +805,11 @@ In questa sezione verranno esplorate le distribuzioni di dati usando i dati camp
 ## <a name="mlmodel"></a>Creare modelli in Azure Machine Learning
 A questo punto è possibile procedere con la creazione e la distribuzione di modelli in [Azure Machine Learning](https://studio.azureml.net). I dati sono pronti per essere usati nei problemi di stima identificati in precedenza, in modo specifico:
 
-1. **Classificazione binaria**: permette di stimare se per un viaggio è stata lasciata o meno una mancia.
-2. **Classificazione multiclasse**: consente di stimare l'intervallo degli importi delle mance lasciate, in base alle classi definite in precedenza.
-3. **Attività di regressione**: permette di stimare l'importo della mancia lasciata per una corsa.
+1. **Classificazione binaria**: consente di prevedere se per la corsa è stata lasciata o meno una mancia.
+2. **Classificazione multiclasse**: consente di prevedere l'intervallo di mance pagato, in base alle classi definite in precedenza.
+3. **Attività di regressione**: consente di prevedere l'importo della mancia lasciata per una corsa.
 
-Per iniziare l'esercizio relativo alla creazione di modelli, accedere all'area di lavoro **Azure Machine Learning** . Se non è ancora disponibile un'area di lavoro di Machine Learning, vedere [Creare un'area di lavoro di Azure Machine Learning Studio](../studio/create-workspace.md).
+Per iniziare l'esercizio di modellazione, accedere all'area di lavoro di **Azure Machine Learning (classica)** . Se non è stata ancora creata un'area di lavoro di Machine Learning, vedere [creare un'area di lavoro di Azure Machine Learning Studio (classica)](../studio/create-workspace.md).
 
 1. Per iniziare a utilizzare Azure Machine Learning, vedere [Informazioni su Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 2. Effettuare l'accesso ad [Azure Machine Learning Studio](https://studio.azureml.net).
@@ -830,7 +830,7 @@ Un tipico esperimento di training comprende i passaggi seguenti:
 
 In questo esercizio i dati sono già stati esplorati e compilati in SQL Data Warehouse ed è stata decisa la dimensione del campione da inserire in Azure Machine Learning Studio. Ecco la procedura per compilare uno o più modelli di stima:
 
-1. Inserire i dati in Azure Machine Learning Studio tramite il modulo [Import Data][import-data] (Importa dati), disponibile nella sezione **Data Input and Output** (Input e output dei dati). Per altre informazioni, vedere la pagina di riferimento sul modulo [Import Data][import-data] (Importa Dati).
+1. Ottenere i dati in Azure Machine Learning Studio (classico) usando il modulo [Import Data (Importa dati][import-data] ), disponibile nella sezione **input e output dei dati** . Per ulteriori informazioni, vedere la pagina di riferimento del modulo [Import Data][import-data] .
 
     ![Import Data di Azure ML][17]
 2. Selezione di **Database SQL di Azure** come **Origine dati** nel pannello **Proprietà**.
@@ -846,7 +846,7 @@ Nella figura seguente è illustrato un esempio di esperimento di classificazione
 > [!IMPORTANT]
 > Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell'**escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, con la classificazione binaria, usare l'etichetta **tipped** ed escludere i campi **tip\_class**, **tip\_amount** e **total\_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
 >
-> Per escludere eventuali colonne non necessarie o le perdite di destinazione, è possibile usare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) o [Edit Metadata][edit-metadata] (Modifica metadati). Per altre informazioni, vedere le pagine di riferimento per [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) ed [Edit Metadata][edit-metadata] (Modifica metadati).
+> Per escludere le colonne non necessarie o le perdite di destinazione, è possibile usare il modulo [Select Columns in DataSet][select-columns] o [Edit Metadata][edit-metadata]. Per altre informazioni, vedere [selezionare le colonne nel set di dati][select-columns] e modificare le pagine di riferimento [dei metadati][edit-metadata] .
 >
 >
 
@@ -868,7 +868,7 @@ Azure Machine Learning tenterà di creare un esperimento di assegnazione di punt
 2. Identificazione di una **porta di input** logica per rappresentare lo schema di dati di input previsto.
 3. Identificazione di una **porta di output** logica per rappresentare lo schema di output del servizio Web previsto.
 
-Una volta creato l'esperimento di punteggio, esaminarlo e apportare le dovute modifiche. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, di solito vengono esclusi tutti i campi di input e inclusi soltanto **Scored Labels** (Etichette con punteggio) e **Scored Probabilities** (Probabilità con punteggio) nell'output, tramite il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati).
+Una volta creato l'esperimento di punteggio, esaminarlo e apportare le dovute modifiche. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, è comune escludere tutti i campi di input e includere solo le **etichette con punteggio** e le **probabilità con punteggio** nell'output usando il modulo [Select Columns in DataSet][select-columns] .
 
 Nella figura di seguito viene fornito un esperimento di assegnazione dei punteggi di esempio. Quando si è pronti per la distribuzione, fare clic sul pulsante **PUBBLICA SERVIZIO WEB** nella barra delle azioni inferiore.
 

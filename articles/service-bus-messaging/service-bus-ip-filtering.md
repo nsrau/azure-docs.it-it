@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 540435e3e018ae77477030ae8b9f727d71782121
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45415af479c9581ee04b97af4fb5297d09c5769d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704581"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496341"
 ---
-# <a name="use-firewall-rules"></a>Uso delle regole del firewall
+# <a name="use-firewall-rules"></a>Usare le regole del firewall
 
 Per gli scenari in cui bus di servizio di Azure deve essere accessibile solo da determinati siti noti, le regole del firewall consentono di configurare regole per accettare il traffico proveniente da indirizzi IPv4 specifici, ad esempio quelli di un gateway NAT aziendale.
 
 ## <a name="when-to-use"></a>Quando usare le autorizzazioni
 
-Se si desidera configurare il bus di servizio di Microsoft Azure in modo che riceva il traffico solo da un intervallo specificato di indirizzi IP e rifiutare tutto il resto, è possibile usare un *Firewall* per bloccare gli endpoint del bus di servizio di Microsoft Azure da altri indirizzi IP. Si usa ad esempio il bus di servizio con [Azure ExpressRoute][express-route] per creare connessioni private con l'infrastruttura locale. 
+Se si desidera configurare il bus di servizio di Microsoft Azure in modo che riceva il traffico solo da un intervallo specificato di indirizzi IP e rifiutare tutto il resto, è possibile usare un *Firewall* per bloccare gli endpoint del bus di servizio di Microsoft Azure da altri indirizzi IP. Si usa ad esempio il bus di servizio con [Azure Express Route][express-route] per creare connessioni private all'infrastruttura locale. 
 
 ## <a name="how-filter-rules-are-applied"></a>Come vengono applicate le regole di filtro
 
@@ -51,7 +51,6 @@ Le regole del filtro IP vengono applicate in ordine e la prima regola corrispond
 > - Integrazione con Griglia di eventi di Azure
 > - Route dell'hub IoT di Azure
 > - Azure IoT Device Explorer
-> - Esplora dati di Azure
 >
 > I servizi Microsoft seguenti devono essere in una rete virtuale
 > - Servizio app di Azure
@@ -60,7 +59,7 @@ Le regole del filtro IP vengono applicate in ordine e la prima regola corrispond
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Creazione di una regola di rete virtuale e di una regola del firewall con i modelli di Azure Resource Manager
 
 > [!IMPORTANT]
-> Firewall e reti virtuali sono supportate solo nel **premium** livello del Bus di servizio.
+> I firewall e le reti virtuali sono supportati solo nel livello **Premium** del bus di servizio.
 
 Il modello di Resource Manager seguente consente di aggiungere una regola di rete virtuale a uno spazio dei nomi esistente del bus di servizio.
 
@@ -72,7 +71,7 @@ Parametri del modello:
 > Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
 > Quando si creano regole di rete virtuale o del firewall, occorre modificare ***"defaultAction"***
 > 
-> from
+> Da
 > ```json
 > "defaultAction": "Allow"
 > ```
@@ -149,7 +148,7 @@ Per distribuire il modello, seguire le istruzioni per [Azure Resource Manager][l
 
 Per limitare l'accesso al bus di servizio dalle reti virtuali di Azure, vedere il collegamento seguente:
 
-- [Usare gli endpoint servizio di rete virtuale con il bus di servizio di Azure][lnk-vnet]
+- [Endpoint del servizio rete virtuale per il bus di servizio][lnk-vnet]
 
 <!-- Links -->
 

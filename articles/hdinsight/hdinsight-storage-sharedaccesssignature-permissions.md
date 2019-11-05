@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 46cf7d3dd7efecff0280320c100af432367e25f2
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 031498119eb4f9feb92046d7d7a86cfd77f8f368
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180814"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498113"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usare le firme di accesso condiviso di archiviazione di Azure per limitare l'accesso ai dati in HDInsight
 
@@ -41,7 +41,7 @@ HDInsight ha accesso completo ai dati negli account di archiviazione di Azure as
 
 * Se si C#USA, Visual Studio deve essere 2013 o versione successiva.
 
-* [Schema URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'account di archiviazione. Corrisponde a `wasb://` per Archiviazione di Azure, a `abfs://` per Azure Data Lake Storage Gen2 e a `adl://` per Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure, l'URI `wasbs://`è. Vedere anche [trasferimento sicuro](../storage/common/storage-require-secure-transfer.md).
+* [Schema URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'account di archiviazione. Corrisponde a `wasb://` per Archiviazione di Azure, a `abfs://` per Azure Data Lake Storage Gen2 e a `adl://` per Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per Archiviazione di Azure, l'URI sarà `wasbs://`. Vedere anche l'articolo sul [trasferimento sicuro](../storage/common/storage-require-secure-transfer.md).
 
 * Un cluster HDInsight esistente a cui aggiungere una firma di accesso condiviso. In caso contrario, è possibile usare Azure PowerShell per creare un cluster e aggiungere una firma di accesso condiviso durante la creazione del cluster.
 
@@ -50,7 +50,7 @@ HDInsight ha accesso completo ai dati negli account di archiviazione di Azure as
   * Un progetto di Visual Studio che può creare un contenitore di archiviazione, i criteri archiviati e la firma di accesso condiviso da usare con HDInsight.
   * Uno script di Python che può creare un contenitore di archiviazione, i criteri archiviati e la firma di accesso condiviso da usare con HDInsight.
   * Uno script di PowerShell in grado di creare un cluster HDInsight e configurarlo per l'uso della firma di accesso condiviso. Di seguito viene usata una versione aggiornata.
-  * Un file di esempio:`hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
+  * Un file di esempio: `hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
 
 ## <a name="shared-access-signatures"></a>Firme di accesso condiviso
 
@@ -90,7 +90,7 @@ Salvare il token SAS prodotto alla fine di ogni metodo. Il token sarà simile al
 
 ### <a name="using-powershell"></a>Tramite PowerShell
 
-Sostituire `RESOURCEGROUP`, `STORAGEACCOUNT` e`STORAGECONTAINER` con i valori appropriati per il contenitore di archiviazione esistente. Passare alla `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` directory o rivedere il `-File` parametro in modo che contenga il percorso `Set-AzStorageblobcontent`assoluto per. Immettere il seguente comando di PowerShell:
+Sostituire `RESOURCEGROUP`, `STORAGEACCOUNT`e `STORAGECONTAINER` con i valori appropriati per il contenitore di archiviazione esistente. Passare alla directory `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` o modificare il parametro `-File` in modo che contenga il percorso assoluto per `Set-AzStorageblobcontent`. Immettere il seguente comando di PowerShell:
 
 ```PowerShell
 $resourceGroupName = "RESOURCEGROUP"
@@ -156,7 +156,7 @@ Set-AzStorageblobcontent `
 
 L'uso delle variabili in questa sezione si basa su un ambiente Windows. Le piccole variazioni saranno necessarie per bash o altri ambienti.
 
-1. Sostituire `STORAGEACCOUNT` e`STORAGECONTAINER` con i valori appropriati per il contenitore di archiviazione esistente.
+1. Sostituire `STORAGEACCOUNT`e `STORAGECONTAINER` con i valori appropriati per il contenitore di archiviazione esistente.
 
     ```azurecli
     # set variables
@@ -180,7 +180,7 @@ L'uso delle variabili in questa sezione si basa su un ambiente Windows. Le picco
     set AZURE_STORAGE_KEY=PRIMARYKEY
     ```
 
-3. Passare alla `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` directory o rivedere il `--file` parametro in modo che contenga il percorso `az storage blob upload`assoluto per. Eseguire i comandi rimanenti:
+3. Passare alla directory `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` o modificare il parametro `--file` in modo che contenga il percorso assoluto per `az storage blob upload`. Eseguire i comandi rimanenti:
 
     ```azurecli
     # Create stored access policy on the containing object
@@ -201,9 +201,9 @@ L'uso delle variabili in questa sezione si basa su un ambiente Windows. Le picco
 
 ### <a name="using-python"></a>Uso di Python
 
-Aprire il `SASToken.py` file e sostituire `storage_account_name`, `storage_account_key`, e `storage_container_name` con i valori appropriati per il contenitore di archiviazione esistente, quindi eseguire lo script.
+Aprire il file di `SASToken.py` e sostituire `storage_account_name`, `storage_account_key`e `storage_container_name` con i valori appropriati per il contenitore di archiviazione esistente, quindi eseguire lo script.
 
-Potrebbe essere necessario eseguire `pip install --upgrade azure-storage` se viene visualizzato il messaggio `ImportError: No module named azure.storage`di errore.
+Potrebbe essere necessario eseguire `pip install --upgrade azure-storage` se viene visualizzato il messaggio di errore `ImportError: No module named azure.storage`.
 
 ### <a name="using-c"></a>Uso di C#
 
@@ -213,7 +213,7 @@ Potrebbe essere necessario eseguire `pip install --upgrade azure-storage` se vie
 
 3. Selezionare **Impostazioni** e aggiungere i valori per le voci seguenti:
 
-   * StorageConnectionString: stringa di connessione per l'account di archiviazione per cui si vogliono creare criteri archiviati e una firma di accesso condiviso. Il formato deve essere `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`, dove `myaccount` è il nome dell'account di archiviazione e `mykey` è la chiave dell'account di archiviazione.
+   * StorageConnectionString: stringa di connessione per l'account di archiviazione per cui si vuole creare un criterio archiviato e una firma di accesso condiviso. Il formato deve essere `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`, dove `myaccount` è il nome dell'account di archiviazione e `mykey` è la chiave dell'account di archiviazione.
 
    * ContainerName: contenitore nell'account di archiviazione a cui si vuole limitare l'accesso.
 
@@ -231,7 +231,7 @@ Per usare una firma di accesso condiviso allo scopo di limitare l'accesso a un c
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>Creare un cluster che usa la firma di accesso condiviso
 
-Sostituire `CLUSTERNAME`, `RESOURCEGROUP`, ,`DEFAULTSTORAGEACCOUNT` ,`STORAGEACCOUNT`econ ivaloriappropriati`TOKEN` . `STORAGECONTAINER` Immettere i comandi di PowerShell:
+Sostituire `CLUSTERNAME`, `RESOURCEGROUP`, `DEFAULTSTORAGEACCOUNT`, `STORAGECONTAINER`, `STORAGEACCOUNT`e `TOKEN` con i valori appropriati. Immettere i comandi di PowerShell:
 
 ```powershell
 
@@ -364,8 +364,8 @@ Se si dispone di un cluster esistente, è possibile aggiungere la firma di acces
 
 4. Espandere la sezione **Custom core-site**, quindi scorrere fino alla fine e selezionare il collegamento **Add property**. Usare i valori seguenti per i campi **Key** e **Value**:
 
-   * **Chiave**:`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-   * **Value**: Firma di accesso condiviso restituita da uno dei metodi eseguiti in precedenza.
+   * **Chiave**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+   * **Value**: la firma di accesso condiviso restituita da uno dei metodi eseguiti in precedenza.
 
      Sostituire `CONTAINERNAME` con il nome del contenitore usato con l' C# applicazione SAS o. Sostituire `STORAGEACCOUNTNAME` con il nome dell'account di archiviazione usato.
 
@@ -402,7 +402,7 @@ Usare la procedura seguente per verificare che sia possibile leggere ed elencare
 
     L'elenco include il file caricato quando sono stati creati il contenitore e la firma di accesso condiviso.
 
-3. Usare il comando seguente per verificare che sia possibile leggere il contenuto del file. `SASCONTAINER` Sostituire e `SASACCOUNTNAME` come nel passaggio precedente. Sostituire `sample.log` con il nome del file visualizzato nel comando precedente:
+3. Usare il comando seguente per verificare che sia possibile leggere il contenuto del file. Sostituire il `SASCONTAINER` e `SASACCOUNTNAME` come nel passaggio precedente. Sostituire `sample.log` con il nome del file visualizzato nel comando precedente:
 
     ```bash
     hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log

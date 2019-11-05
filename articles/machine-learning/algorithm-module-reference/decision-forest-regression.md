@@ -1,30 +1,30 @@
 ---
 title: 'Regressione della foresta delle decisioni: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo di regressione della foresta delle decisioni nel servizio Azure Machine Learning per creare un modello di regressione basato su un insieme di alberi delle decisioni.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo di regressione della foresta delle decisioni in Azure Machine Learning per creare un modello di regressione basato su un insieme di alberi delle decisioni.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 7b89d08f4621ecde77a60510b05d96decff0cfde
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: d930a6d856c6608e7792ce8ef3204b39aba0028a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693181"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497967"
 ---
 # <a name="decision-forest-regression-module"></a>Modulo di regressione della foresta delle decisioni
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per creare un modello di regressione basato su un insieme di alberi delle decisioni.
 
-Dopo aver configurato il modello, è necessario eseguire il training del modello usando un set di dati con etichetta e il modulo [Train Model](./train-model.md) .  Il modello con Training può quindi essere utilizzato per eseguire stime. 
+Dopo aver configurato il modello, è necessario eseguire il training del modello usando un set di dati con etichetta e il modulo [Train Model](./train-model.md) . Il modello con Training può quindi essere utilizzato per eseguire stime. 
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Gli alberi delle decisioni sono modelli non parametrici che eseguono una sequenza di semplici test per ogni istanza, attraversando una struttura di dati dell'albero binario finché non viene raggiunto un nodo foglia (decisione).
 
@@ -42,11 +42,11 @@ Per altre informazioni sul framework teorico per questo algoritmo e sulla relati
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Come configurare il modello di regressione della foresta delle decisioni
 
-1. Aggiungere il modulo di **regressione della foresta delle decisioni** alla pipeline. È possibile trovare il modulo nell'interfaccia in **Machine Learning**, **inizializzare il modello**e **regressione**.
+1. Aggiungere il modulo di **regressione della foresta delle decisioni** alla pipeline. È possibile trovare il modulo nella finestra di progettazione in **Machine Learning**, **inizializzare il modello**e **regressione**.
 
 2. Aprire le proprietà del modulo e, per il **metodo di ricampionamento**, scegliere il metodo usato per creare i singoli alberi.  È possibile scegliere tra l' **insaccamento** o la **replica**.
 
-    - **Insaccamento**: l'insaccamento viene chiamato anche *aggregazione bootstrap*. Ogni albero in una foresta delle decisioni di regressione restituisce una distribuzione gaussiana mediante la stima. L'aggregazione consiste nel trovare un controllo gaussiana i cui primi due istanti corrispondono ai momenti della combinazione di gaussiana forniti combinando tutti i gaussiana restituiti da singoli alberi.
+    - **Insaccamento**: l'insaccamento viene chiamato anche *aggregazione bootstrap*. Ogni albero in una foresta delle decisioni di regressione restituisce una distribuzione gaussiana mediante la stima. L'aggregazione consiste nell'individuare un controllo gaussiana i cui primi due istanti corrispondono ai momenti della combinazione di distribuzioni di Gauss fornite combinando tutte le distribuzioni restituite da singoli alberi.
 
          Per ulteriori informazioni, vedere la voce Wikipedia per l' [aggregazione bootstrap](https://wikipedia.org/wiki/Bootstrap_aggregating).
 
@@ -96,4 +96,4 @@ Al termine del training:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

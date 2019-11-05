@@ -1,39 +1,55 @@
 ---
-title: Domande frequenti su SQL Data Warehouse di Azure | Microsoft Docs
-description: In questo articolo sono elencate le domande frequenti su SQL Data Warehouse di Azure poste dai clienti e dagli sviluppatori
+title: Domande frequenti su Azure sinapsi Analytics (noto in precedenza come SQL DW) | Microsoft Docs
+description: Questo articolo elenca le domande frequenti su Azure sinapsi Analytics (noto in precedenza come SQL DW) da clienti e sviluppatori
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 04/17/2018
+ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 4679a3bb1935e9f3e2bc90c9bc9ef1247b7ecb30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 4db84ed69979713d613679e94d50cdb73475e2be
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515864"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520860"
 ---
-# <a name="sql-data-warehouse-frequently-asked-questions"></a>Domande frequenti su SQL Data Warehouse di Azure
+# <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Domande frequenti su Azure sinapsi Analytics (noto in precedenza come SQL DW)
 
 ## <a name="general"></a>Generale
 
-D: Cosa offre SQL DW per la protezione dei dati?
+D: Che cos'è la sinapsi di Azure?
 
-R. SQL DW offre diverse soluzioni per la protezione dei dati, ad esempio TDE e il controllo. Per altre informazioni, vedere [Sicurezza].
+R. La sinapsi di Azure è un servizio di analisi senza limiti che riunisce data warehousing e analisi di Big Data. Consente di eseguire query sui dati in base alle proprie esigenze, usando risorse su richiesta senza server o con provisioning, su larga scala. Le sinapsi di Azure offrono questi due mondi insieme a un'esperienza unificata per l'inserimento, la preparazione, la gestione e la gestione dei dati per esigenze immediate di BI e machine learning. Per altre informazioni, vedere informazioni su [Azure sinapsi Analytics](sql-data-warehouse-overview-what-is.md).
 
-D: Dove è possibile trovare gli standard legali o aziendali a cui SQL DW è conforme?
+D: Che cosa è successo a Azure SQL Data Warehouse?
 
-R. Visitare la pagina [Conformità di Microsoft] per le diverse offerte di conformità per prodotto, ad esempio SOC e ISO. Scegliere prima in base al titolo di conformità, quindi espandere Azure nella sezione servizi cloud nell'ambito di Microsoft sul lato destro della pagina per visualizzare i servizi conformi ai servizi di Azure.
+R. La sinapsi di Azure è Azure SQL Data Warehouse (SQL DW) è stata sviluppata. Abbiamo adottato lo stesso data warehouse leader del settore per un livello completamente nuovo di prestazioni e funzionalità. È possibile continuare a eseguire i carichi di lavoro di data warehouse esistenti attualmente in produzione con le sinapsi di Azure e trarre automaticamente vantaggio dalle nuove funzionalità disponibili in anteprima. Per altre informazioni, vedere informazioni su [Azure sinapsi Analytics](sql-data-warehouse-overview-what-is.md).
 
-D: È possibile connettersi a PowerBI?
+D: Che cos'è SQL Analytics?
 
-R. Sì. Anche se PowerBI supporta la query diretta con SQL DW, non è pensato per un numero elevato di utenti o di dati in tempo reale. Per l'uso della produzione di PowerBI, è consigliabile usare PowerBI su Azure Analysis Services o IaaS di Analysis Service. 
+R. Analisi SQL si riferisce alle funzionalità di data warehousing aziendali disponibili a livello generale con le sinapsi di Azure. Per altre informazioni, vedere informazioni su [Azure sinapsi Analytics](sql-data-warehouse-overview-what-is.md).
 
-D: Quali sono i limiti di capacità di SQL Data Warehouse?
+D: Ricerca per categorie iniziare a usare la sinapsi di Azure?
+
+R. Per ulteriori informazioni, è possibile iniziare con un [account Azure gratuito](https://azure.microsoft.com/free/sql-data-warehouse/) o [contattare le vendite](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html). 
+
+D: Cosa offre Azure sinapsi per la sicurezza dei dati?
+
+R. La funzionalità sinapsi di Azure offre diverse soluzioni per la protezione dei dati, ad esempio la crittografia e il controllo. Per altre informazioni, vedere [Sicurezza].
+
+D: Dove è possibile scoprire quali standard legali o aziendali sono conformi a sinapsi di Azure?
+
+R. Visitare la pagina [Conformità di Microsoft] per le diverse offerte di conformità per prodotto, ad esempio SOC e ISO. Prima di tutto scegliere il titolo di conformità e quindi espandere Azure nella sezione servizi cloud in ambito Microsoft sul lato destro della pagina per vedere quali servizi sono conformi a sinapsi di Azure.
+
+D: È possibile connettersi Power BI?
+
+R. È possibile usarlo. Tuttavia Power BI supporta la query diretta con la sinapsi di Azure, non è destinata a un numero elevato di utenti o dati in tempo reale. Per l'uso in produzione di Power BI, è consigliabile usare Power BI su Azure Analysis Services o IaaS di Analysis Services. 
+
+D: Quali sono i limiti di capacità di analisi SQL?
 
 R. Vedere la pagina relativa ai [limiti di capacità] correnti. 
 
@@ -49,7 +65,7 @@ R. Se si dispone di una richiesta di funzionalità, inviarla alla pagina [UserVo
 
 D: Come posso fare?
 
-R. Per assistenza nello sviluppo con SQL Data Warehouse, è possibile porre domande alla pagina [Stack Overflow]. 
+R. Per informazioni sullo sviluppo con le sinapsi di Azure, è possibile porre domande nella pagina [stack overflow] . 
 
 D: Come posso inviare un ticket di supporto?
 
@@ -57,23 +73,23 @@ R. [Ticket di supporto] possono essere inviati tramite il Portale di Azure.
 
 ## <a name="sql-languagefeature-support"></a>Supporto per le funzionalità/linguaggio SQL 
 
-D: Quali tipi di dati sono supportati da SQL Data Warehouse?
+D: Quali tipi di dati sono supportati?
 
-R. Vedere i [tipi di dati] di SQL Data Warehouse.
+R. Vedere [tipi di dati].
 
 D: Quali funzionalità delle tabelle sono supportate?
 
-R. Sebbene SQL Data Warehouse supporti molte funzionalità, alcune non sono supportate. Queste sono documentate in [Funzionalità non supportate delle tabelle].
+R. Sono supportate molte funzionalità, quelle che non sono supportate e sono documentate in [Funzionalità non supportate delle tabelle]non supportate.
 
 ## <a name="tooling-and-administration"></a>Strumenti e amministrazione
 
 D: I progetti di Database sono supportati in Visual Studio.
 
-R. Attualmente i progetti di Database non sono supportati in Visual Studio per SQL Data Warehouse. Se si desidera eseguire il cast di un voto per ottenere questa funzionalità, visitare il forum [richiesta di funzionalità per progetti di Database].
+R. Attualmente non sono supportati progetti di database in Visual Studio. Se si desidera eseguire il cast di un voto per ottenere questa funzionalità, visitare il forum [richiesta di funzionalità per progetti di Database].
 
-D: SQL Data Warehouse supporta le API REST?
+D: Analisi SQL supporta le API REST?
 
-R. Sì. La maggior parte delle funzionalità REST che può essere usata con il Database SQL è disponibile anche con SQL Data Warehouse. È possibile trovare informazioni sulle API nelle pagine di documentazione REST o in [MSDN].
+R. Sì. La maggior parte delle funzionalità REST che è possibile usare con il database SQL è disponibile anche con analisi SQL. È possibile trovare informazioni sulle API nelle pagine di documentazione REST o in [MSDN].
 
 
 ## <a name="loading"></a>Caricamento
@@ -82,24 +98,24 @@ D: Quali driver client sono supportati?
 
 R. Il supporto dei driver per DW è reperibile nella pagina delle[Stringhe di connessione]
 
-D: D: Quali formati di file sono supportati da PolyBase con SQL Data Warehouse?
+D: quali formati di file sono supportati da polibase?
 
-R: R: Orc, RC, Parquet e testo delimitato semplice
+R: Orc, RC, Parquet e testo delimitato semplice
 
-D: D: A cosa è possibile connettersi da SQL DW usando PolyBase? 
+D: a quali origini dati è possibile connettersi tramite la funzione polibase? 
 
-R: [Azure Data Lake Store] e [BLOB di archiviazione di Azure]
+R: [Archivio Data Lake di Azure] e [BLOB di archiviazione di Azure]
 
-D: È possibile impostare il calcolo per la connessione al BLOB del servizio di archiviazione di Azure o ad ADLS? 
+D: calcolo distribuzione possibile quando ci si connette a BLOB di archiviazione di Azure o ADLS? 
 
-R: No, PolyBase di SQL DW interagisce solo con i componenti di archiviazione. 
+R: No, polibase interagisce solo con i componenti di archiviazione. 
 
-D: È possibile connettersi all'HDI?
+D: È possibile connettersi ad HDI?
 
-R: HDI può usare sia ADLS sia WASB a livello di Hadoop Distributed File System. Se si dispone di un livello HDFS, è possibile caricare i dati in SQL DW. Tuttavia, non è possibile generare il calcolo di distribuzione per l'istanza HDI. 
+R: HDI può usare ADLS o WASB come livello HDFS. Se si dispone di un livello HDFS, è possibile caricare i dati in SQL DW. Tuttavia, non è possibile generare il calcolo di distribuzione per l'istanza HDI. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni su SQL Data Warehouse nel complesso, vedere la pagina [Panoramica].
+Per altre informazioni sull'intera sinapsi di Azure, vedere la pagina [Panoramica] .
 
 
 <!-- Article references -->
@@ -112,7 +128,7 @@ Per altre informazioni su SQL Data Warehouse nel complesso, vedere la pagina [Pa
 [limiti di capacità]: ./sql-data-warehouse-service-capacity-limits.md
 [tipi di dati]: ./sql-data-warehouse-tables-data-types.md
 [Funzionalità non supportate delle tabelle]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
+[Archivio Data Lake di Azure]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [BLOB di archiviazione di Azure]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [Richiesta di funzionalità per progetti di database]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx

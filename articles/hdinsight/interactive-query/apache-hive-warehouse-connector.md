@@ -1,5 +1,5 @@
 ---
-title: Integrare Apache Spark e Apache Hive con il connettore del warehouse di hive
+title: Apache Spark & connettore del warehouse hive hive-Azure HDInsight
 description: Informazioni su come integrare Apache Spark e Apache Hive con il connettore del warehouse di hive in Azure HDInsight.
 author: nakhanha
 ms.author: nakhanha
@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 440820b7772d8edeb43ce328b8393789d7ba2973
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 2448550cf35f92bc8d91bc6ad9d5b22cc90b5ae0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264303"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494303"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrare Apache Spark e Apache Hive con il connettore del warehouse di hive
 
@@ -58,7 +58,7 @@ Copiare le informazioni sul nodo dal file `/etc/hosts` in headnode0 del cluster 
 
 1. Passare a **hive** > **configs** > **Advanced** > **Advanced hive-site** > **hive. Zookeeper. quorum** e prendere nota del valore. Il valore può essere simile a: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
 
-1. Passare a **hive** > **configs** > **Advanced** > **General** > **hive. Metastore. Uri** e prendere nota del valore. Il valore può essere simile a: `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
+1. Passare a **Hive** > **configs** > **Advanced** > **generale** > **hive. Metastore. Uri** e prendere nota del valore. Il valore può essere simile a: `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
 
 #### <a name="from-your-apache-spark-cluster"></a>Dal cluster Apache Spark
 
@@ -74,11 +74,11 @@ Dall'interfaccia utente Web di Spark Ambari passare a **Spark2** > **configs** >
 
 Selezionare **Aggiungi proprietà** in base alle esigenze per aggiungere/aggiornare quanto segue:
 
-| Chiave | Value |
+| Chiave | Valore |
 |----|----|
 |`spark.hadoop.hive.llap.daemon.service.hosts`|Valore ottenuto in precedenza da **hive. LLAP. daemon. Service. hosts**.|
-|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2` (Indici per tabelle con ottimizzazione per la memoria). Impostare sulla stringa di connessione JDBC, che si connette a Hiveserver2 nel cluster Interactive query. SOSTITUIRE `LLAPCLUSTERNAME` con il nome del cluster Interactive query. Sostituire `PWD` con la password effettiva.|
-|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp` (Indici per tabelle con ottimizzazione per la memoria). Impostare su una directory di gestione temporanea compatibile con HDFS appropriata. Se si dispone di due cluster diversi, la directory di staging deve essere una cartella nella directory di staging dell'account di archiviazione del cluster LLAP in modo che HiveServer2 possa accedervi.  Sostituire `STORAGE_ACCOUNT_NAME` con il nome dell'account di archiviazione usato dal cluster e `STORAGE_CONTAINER_NAME` con il nome del contenitore di archiviazione.|
+|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`. Impostare sulla stringa di connessione JDBC, che si connette a Hiveserver2 nel cluster Interactive query. SOSTITUIRE `LLAPCLUSTERNAME` con il nome del cluster Interactive query. Sostituire `PWD` con la password effettiva.|
+|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. Impostare su una directory di gestione temporanea compatibile con HDFS appropriata. Se si dispone di due cluster diversi, la directory di staging deve essere una cartella nella directory di staging dell'account di archiviazione del cluster LLAP in modo che HiveServer2 possa accedervi.  Sostituire `STORAGE_ACCOUNT_NAME` con il nome dell'account di archiviazione usato dal cluster e `STORAGE_CONTAINER_NAME` con il nome del contenitore di archiviazione.|
 |`spark.datasource.hive.warehouse.metastoreUri`|Valore ottenuto in precedenza da **hive. Metastore. Uri**.|
 |`spark.security.credentials.hiveserver2.enabled`|`false` per la modalità di distribuzione del client YARN.|
 |`spark.hadoop.hive.zookeeper.quorum`|Valore ottenuto in precedenza da **hive. Zookeeper. quorum**.|
@@ -91,7 +91,7 @@ Salvare le modifiche e riavviare i componenti in base alle esigenze.
 
 È possibile scegliere tra alcuni metodi diversi per connettersi al cluster Interactive query ed eseguire query usando il connettore del warehouse di hive. I metodi supportati includono gli strumenti seguenti:
 
-* [spark-shell](../spark/apache-spark-shell.md)
+* [Shell Spark](../spark/apache-spark-shell.md)
 * PySpark
 * Spark-Submit
 * [Zeppelin](../spark/apache-spark-zeppelin-notebook.md)
@@ -248,13 +248,13 @@ Usare **CTRL + C** per arrestare netcat nella seconda sessione SSH. Usare `:q` p
 1. Applicare un criterio di mascheramento delle colonne che mostra solo gli ultimi quattro caratteri della colonna.  
     1. Passare all'interfaccia utente di amministrazione di Ranger a `https://CLUSTERNAME.azurehdinsight.net/ranger/`.
     1. Fare clic sul servizio Hive per il cluster in **hive**.
-        ![ranger Service Manager @ no__t-1
+        ](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png) di gestione del servizio ![Ranger
     1. Fare clic sulla scheda **maschera** e quindi su **Aggiungi nuovo criterio**
 
         ![elenco dei criteri hive del connettore warehouse di hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
 
-    a. Specificare un nome di criterio desiderato. Selezione database: **Predefinita**, tabella hive: **demo**, colonna hive: **nome**, utente: **rsadmin2**, tipi di accesso: **selezione**e **maschera parziale: Mostra ultimi 4** dal menu **Opzioni di selezione maschera** . Fare clic su **Aggiungi**.
-                criteri ![create @ no__t-1
+    a. Specificare un nome di criterio desiderato. Selezione database: **predefinito**, tabella hive: **demo**, colonna hive: **nome**, utente: **rsadmin2**, tipi di accesso: **Seleziona**e **maschera parziale: Mostra gli ultimi 4** dal menu **Opzioni di selezione maschera** . Fare clic su **Aggiungi**.
+                ![Crea criterio](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Visualizzare di nuovo il contenuto della tabella. Dopo aver applicato i criteri Ranger, è possibile visualizzare solo gli ultimi quattro caratteri della colonna.
 
     ![tabella demo dopo l'applicazione dei criteri Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)

@@ -11,27 +11,28 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 5736667acfa510d89e549afd4d0f5c61a833dd1c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ebc86d1cf91cf79ab83b0f49d9898a91d8be8a75
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932743"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500271"
 ---
-<a name="train-your-app"></a>
-
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testare l'app LUIS nel portale LUIS
 
 Il [test](luis-concept-test.md) di un'app è un processo iterativo. Dopo aver eseguito il training dell'app LUIS, testarla con espressioni di esempio per verificare se le finalità e le entità vengono riconosciute correttamente. Se così non fosse, aggiornare l'app LUIS ed eseguire nuovamente il training e il test. 
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 <!-- anchors for H2 name changes -->
+<a name="train-your-app"></a>
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
 
 ## <a name="test-an-utterance"></a>Eseguire il test di un'espressione
 
-1. Accedere all'app selezionando il relativo nome nella pagina **My Apps** (App personali). 
+1. Accedere all'app selezionando il relativo nome nella pagina **App personali**. 
 
 1. Per accedere al pannello a scorrimento **Test**, selezionare **Test** nel pannello superiore dell'applicazione.
 
@@ -43,7 +44,7 @@ Il [test](luis-concept-test.md) di un'app è un processo iterativo. Dopo aver es
 
     ![Il test interattivo identifica la finalità errata](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="inspect-score"></a>Ispezionare il punteggio
+## <a name="inspect-score"></a>Punteggio dell'ispezione
 
 È possibile ispezionare i dettagli dei risultati del test nel pannello **Inspect** (Ispeziona). 
  
@@ -51,9 +52,9 @@ Il [test](luis-concept-test.md) di un'app è un processo iterativo. Dopo aver es
 
     ![Selezionare il pulsante Ispeziona per visualizzare altri dettagli sui risultati del test](./media/luis-how-to-interactive-test/inspect.png)
 
-1. Viene visualizzato il pannello **Inspection** (Ispezione). Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.
+1. Viene visualizzato il pannello **Inspection** (Ispezione). Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Nel pannello viene mostrato il risultato della frase selezionata.
 
-    ![Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.](./media/luis-how-to-interactive-test/inspect-panel.png)
+    ![Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Nel pannello viene mostrato il risultato della frase selezionata.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
 ## <a name="correct-top-scoring-intent"></a>Finalità con punteggio più alto corretta
 
@@ -132,5 +133,5 @@ Vedere i [concetti](luis-concept-batch-test.md) del test in batch e imparare a [
 
 Se il test indica che l'app LUIS non riconosce le finalità e le entità corrette, è possibile migliorare l'accuratezza dell'app LUIS etichettando più espressioni o aggiungendo funzionalità. 
 
-* [Etichettare espressioni suggerite con LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Etichettare le espressioni suggerite con LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Usare le funzionalità per migliorare le prestazioni dell'app LUIS](luis-how-to-add-features.md) 

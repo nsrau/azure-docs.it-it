@@ -6,14 +6,14 @@ manager: nitinme
 description: Due tabelle che rappresentano i registri dei contenitori, i repository e i nomi delle immagini per tutte le offerte di servizi cognitivi.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/06/2019
+ms.date: 10/09/2019
 ms.author: dapine
-ms.openlocfilehash: 181f4acd86dfacb15592ded6f2df3287e3dc13bf
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
-ms.translationtype: MT
+ms.openlocfilehash: c1593cb3dad7ee1370a66747fa3fe47e93c19957
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130160"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499186"
 ---
 ### <a name="container-repositories-and-images"></a>Repository e immagini del contenitore
 
@@ -37,9 +37,8 @@ Il registro di anteprima del contenitore ospita tutti i contenitori "controllati
 | Service | Contenitore | Container Registry/repository/nome dell'immagine |
 |--|--|--|
 | [Rilevamento anomalie](../../anomaly-detector/anomaly-detector-container-howto.md) | Rilevamento anomalie | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector` |
-| [Visione artificiale](../../Computer-vision/computer-vision-how-to-install-containers.md) | Riconoscimento del testo | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text` |
-| [Visione artificiale](../../Computer-vision/computer-vision-how-to-install-containers.md) | Leggi | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
+| [Visione artificiale](../../Computer-vision/computer-vision-how-to-install-containers.md) | Lettura | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
 | [Viso](../../face/face-how-to-install-containers.md) | Viso | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
 | [Riconoscimento moduli](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Riconoscimento modulo | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |
-| [API servizio Voce](../../speech-service/speech-container-howto.md) | Riconoscimento vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |
-| [API servizio Voce](../../speech-service/speech-container-howto.md) | Sintesi vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
+< < < < < < HEAD | [API del servizio vocale](../../speech-service/speech-container-howto.md?tab=stt) | Sintesi vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` | | [API del servizio vocale](../../speech-service/speech-container-howto.md?tab=cstt) | Da Riconoscimento vocale personalizzato a testo | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` | | [API del servizio vocale](../../speech-service/speech-container-howto.md?tab=tts) | Sintesi vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` | | [API del servizio vocale](../../speech-service/speech-container-howto.md?tab=ctts) | Sintesi vocale personalizzata | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` | ======= | [API del servizio vocale](../../speech-service/speech-container-howto.md) | Sintesi vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` | | [API del servizio vocale](../../speech-service/speech-container-howto.md) | Sintesi vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` | | [Traduzione testuale](../../translator/how-to-install-containers.md) | Traduzione testuale | `containerpreview.azurecr.io/microsoft/cognitive-services-translator-text` |
+>>>>>>> refs/remotes/MicrosoftDocs/Master

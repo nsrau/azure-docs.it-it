@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 54d7235ef56a94c9c0e7b780c53cbd9791bf4f53
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 503eb533b83cbeedcc16b73a9c1dbe821a4d4d94
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694714"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492577"
 ---
 # <a name="summarize-data"></a>Riepiloga dati
 
-Questo articolo descrive un modulo di Azure Machine Learning interfaccia visiva.
+Questo articolo descrive un modulo di Azure Machine Learning Designer (anteprima).
 
 Usare il modulo riepiloga dati per creare un set di misure statistiche standard che descrivono ogni colonna della tabella di input.
 
@@ -32,7 +32,7 @@ Il modulo calcola i punteggi importanti per ogni colonna e restituisce una riga 
 
 ## <a name="how-to-configure-summarize-data"></a>Come configurare il riepilogo dei dati  
 
-1. Aggiungere il modulo **riepiloga dati** alla pipeline. È possibile trovare questo modulo nella categoria **funzioni statistiche** in interfaccia visiva.
+1. Aggiungere il modulo **riepiloga dati** alla pipeline. Questo modulo è reperibile nella categoria **funzioni statistiche** della finestra di progettazione.
 
 1. Connettere il set di dati per il quale si desidera generare un report.
 
@@ -46,7 +46,7 @@ Il modulo calcola i punteggi importanti per ogni colonna e restituisce una riga 
 
 Il report del modulo può includere le statistiche seguenti. 
 
-|Nome colonna|Description|
+|Nome colonna|Descrizione|
 |------|------|  
 |**Funzionalità**|Nome della colonna|
 |**Numero**|Conteggio di tutte le righe|

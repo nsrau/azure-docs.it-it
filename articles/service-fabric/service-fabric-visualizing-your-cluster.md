@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 88fe73988f6a90fd5041445a561c0f77f25eddc1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 75568cf3c88c02968b3e3e95971f81cf1b9285d3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060419"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496345"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizzare il cluster con Service Fabric Explorer
 
@@ -46,7 +46,7 @@ Usare i collegamenti seguenti per scaricare Service Fabric Explorer come applica
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>Esecuzione di Service Fabric Explorer dal cluster
 
-Service Fabric Explorer è inoltre ospitato in un endpoint di gestione HTTP del cluster di Service Fabric. Per avviare SFX in un web browser, passare all'endpoint di gestione HTTP del cluster da qualsiasi browser, ad esempio https:\//clusterFQDN:19080.
+Service Fabric Explorer è inoltre ospitato in un endpoint di gestione HTTP del cluster di Service Fabric. Per avviare SFX in un Web browser, passare all'endpoint di gestione HTTP del cluster da qualsiasi browser, ad esempio https:\//clusterFQDN: 19080.
 
 Per la configurazione della workstation di sviluppo, è possibile avviare Service Fabric Explorer sul cluster locale passando a https://localhost:19080/Explorer. Vedere l'articolo [Preparare l'ambiente di sviluppo](service-fabric-get-started.md).
 
@@ -56,12 +56,12 @@ Per la configurazione della workstation di sviluppo, è possibile avviare Servic
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Connettersi a un cluster di Service Fabric
-Per connettersi a un cluster di Service Fabric, è necessario specificare l'endpoint di gestione dei cluster (FQDN/IP) e la porta dell'endpoint di gestione HTTP (19080 per impostazione predefinita). Ad esempio https\:/ / mysfcluster.westus.cloudapp.azure.com:19080. Usare la casella di controllo "Connetti a localhost" per connettersi a un cluster locale sulla propria workstation.
+Per connettersi a un cluster di Service Fabric, è necessario specificare l'endpoint di gestione dei cluster (FQDN/IP) e la porta dell'endpoint di gestione HTTP (19080 per impostazione predefinita). Ad esempio https\://mysfcluster.westus.cloudapp.azure.com:19080. Usare la casella di controllo "Connetti a localhost" per connettersi a un cluster locale sulla propria workstation.
 
 ### <a name="connect-to-a-secure-cluster"></a>Connettersi a un cluster sicuro
 È possibile controllare l'accesso al cluster di Service Fabric con certificati oppure usando Azure Active Directory (AAD).
 
-Se si prova a connettersi a un cluster protetto, quindi in base alla configurazione del cluster è necessario presentare un certificato client oppure accedere con AAD.
+Se si tenta di connettersi a un cluster sicuro, a seconda della configurazione del cluster sarà necessario presentare un certificato client o accedere con AAD.
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Comprendere il layout di Service Fabric Explorer
 È possibile spostarsi all'interno di Service Fabric Explorer seguendo la struttura ad albero a sinistra. Nella radice dell'albero, il dashboard del cluster fornisce una panoramica del cluster, inclusi un riepilogo dell'applicazione e l'integrità del nodo.
@@ -123,12 +123,21 @@ EventStore è una funzionalità offerta dalla piattaforma che rende disponibili 
 >[!NOTE]
 >A partire da Service Fabric versione 6.4. le API di EventStore sono disponibili solo per i cluster Windows eseguiti in Azure. Questa funzionalità sarà presto disponibile anche per Linux e per i cluster autonomi.
 
-## <a name="image-store-viewer"></a>Visualizzatore Image Store
-Visualizzatore di archivio immagini è che una funzionalità offerta se usando Native Image Store che consente di visualizzare il contenuto corrente dell'immagine di archiviarla e ottiene informazioni file e cartelle, con la rimozione di file e cartelle.
+## <a name="image-store-viewer"></a>Visualizzatore archivio immagini
+Image Store Viewer è una funzionalità offerta se si usa archivio immagini nativi che consente di visualizzare il contenuto corrente dell'archivio immagini e ottenere informazioni su file e cartelle, insieme alla rimozione di file/cartelle.
 
 ![Mappa del cluster di Service Fabric Explorer][sfx-imagestore]
 
+## <a name="backup-and-restore"></a>Backup e ripristino
+Service Fabric Explorer offre la possibilità di interfacciarsi con il [backup e il ripristino](./service-fabric-reliable-services-backup-restore.md). Sono possibili le operazioni seguenti:
 
+* Creare, modificare ed eliminare un criterio di backup.
+* Abilitare e disabilitare il backup per un'applicazione, un servizio o una partizione.
+* Sospendere e riprendere il backup per un'applicazione, un servizio o una partizione.
+* Attivare e tenere traccia del backup di una partizione.
+* Attivare e tenere traccia del ripristino per una partizione.
+
+Per altre informazioni sul servizio di backup e ripristino, vedere le informazioni di [riferimento sull'API REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
 ## <a name="next-steps"></a>Passaggi successivi
 * [Gestione delle applicazioni di Service Fabric in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Distribuzione di un'applicazione di Infrastruttura di servizi mediante PowerShell](service-fabric-deploy-remove-applications.md)

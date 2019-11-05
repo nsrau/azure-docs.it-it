@@ -10,15 +10,17 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: a722ce39a679fa13e1fe849c46b44f786ea5ee42
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f3c99856eaffc454754618a1eac34630b985a77e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390279"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499488"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Usare un'entità elenco per migliorare il rilevamento di entità 
 Questo articolo illustra l'uso di un' [entità elenco](luis-concept-entity-types.md) per aumentare il rilevamento delle entità. Non è necessario etichettare le entità elenco, in quanto rappresentano una corrispondenza esatta di termini.  
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 In questo articolo viene spiegato come:
 
@@ -46,7 +48,7 @@ Un sistema che ha molti nomi nei diversi paesi e nelle diverse culture è il ter
 
 Idealmente, le espressioni seguenti dovrebbero risolversi nell'entità predefinita **HomeAutomation.Device**:
 
-|#|Espressione|Entità identificata|score|
+|#|espressione|Entità identificata|score|
 |--|--|--|--|
 |1|turn on the ac|HomeAutomation.Device - "ac"|0.8748562|
 |2|turn up the heat|HomeAutomation.Device - "heat"|0.784990132|
@@ -212,7 +214,7 @@ Il dispositivo specifico **Thermostat** viene identificato con una query orienta
 
 Provare le altre due espressioni per vedere che anche per esse viene restituito il valore thermostat. 
 
-|#|Espressione|entità|type|value|
+|#|espressione|Entità|type|value|
 |--|--|--|--|--|
 |1|turn on the ac| ac | DevicesList | Thermostat|
 |2|turn up the heat|heat| DevicesList |Thermostat|

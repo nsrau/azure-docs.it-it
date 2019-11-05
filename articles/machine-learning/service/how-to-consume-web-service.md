@@ -11,14 +11,15 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: fda6c72504a75d600931185e224bb46db03e23ed
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e9d262380a8e0769b1191673a7e00eed770f7ab2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374300"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497082"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Come usare un modello di Azure Machine Learning distribuito come servizio Web
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Quando si distribuisce un modello di Azure Machine Learning come servizio Web, viene creata un’API REST. È possibile inviare dati a questa API per ottenere la stima restituita dal modello. Questo documento illustra come creare client per il servizio Web usando C#, Go, Java e Python.
 
@@ -41,9 +42,9 @@ Il flusso di lavoro generale per creare un client che usa un servizio Web di Mac
 La classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) fornisce le informazioni necessarie per creare un client. Per la creazione di un'applicazione client sono utili le proprietà `Webservice` seguenti:
 
 * `auth_enabled`-se è abilitata l'autenticazione della chiave, `True`; in caso contrario, `False`.
-* `token_auth_enabled`-se è abilitata l'autenticazione basata su token, `True`; in caso contrario, `False`.
+* `token_auth_enabled`-se è abilitata l'autenticazione del token, `True`; in caso contrario, `False`.
 * `scoring_uri` - L'indirizzo dell'API REST.
-* `swagger_uri`-l'indirizzo della specifica OpenAPI. Questo URI è disponibile se è stata abilitata la generazione automatica dello schema. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md#schema).
+* `swagger_uri`: Indirizzo della specifica OpenAPI. Questo URI è disponibile se è stata abilitata la generazione automatica dello schema. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md#schema).
 
 Sono disponibili tre modi per recuperare queste informazioni per servizi Web distribuiti:
 
@@ -79,7 +80,7 @@ Azure Machine Learning offre due modi per controllare l'accesso ai servizi Web.
 |Metodo di autenticazione|ACI|servizio Azure Container|
 |---|---|---|
 |Chiave|Disabilitato per impostazione predefinita| Abilitato per impostazione predefinita|
-|token| Non disponibile| Disabilitato per impostazione predefinita |
+|Token| Non disponibile| Disabilitato per impostazione predefinita |
 
 Quando si invia una richiesta a un servizio protetto con una chiave o un token, usare l'intestazione __authorization__ per passare la chiave o il token. La chiave o il token deve essere formattato come `Bearer <key-or-token>`, dove `<key-or-token>` è la chiave o il valore del token.
 
@@ -109,9 +110,9 @@ Quando si Abilita l'autenticazione basata su token per un servizio Web, è neces
 * Per impostazione predefinita, l'autenticazione del token è disabilitata quando si esegue la distribuzione nel servizio Azure Kubernetes.
 * L'autenticazione basata su token non è supportata quando si esegue la distribuzione in istanze di contenitore di Azure.
 
-Per controllare l'autenticazione basata su token, usare il parametro `token_auth_enabled` quando si crea o si aggiorna una distribuzione.
+Per controllare l'autenticazione basata su token, usare il parametro `token_auth_enabled` durante la creazione o l'aggiornamento di una distribuzione.
 
-Se è abilitata l'autenticazione basata su token, è possibile usare il metodo `get_token` per recuperare una bearer token e l'ora di scadenza del token:
+Se è abilitata l'autenticazione basata su token, è possibile usare il metodo `get_token` per recuperare una bearer token e l'ora di scadenza dei token:
 
 ```python
 token, refresh_by = service.get_token()

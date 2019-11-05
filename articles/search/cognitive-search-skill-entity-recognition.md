@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 08e9656e3b899cbb6d4de733696175e8f31b0e66
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 559d8cb25624c1d8bebb2969fbeeb80bdcc020e6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792017"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479743"
 ---
 #   <a name="entity-recognition-cognitive-skill"></a>Competenza cognitiva Riconoscimento delle entità
 
@@ -35,18 +35,17 @@ La dimensione massima di un record deve essere di 50.000 caratteri misurata da [
 
 I parametri fanno distinzione tra maiuscole e minuscole e sono tutti facoltativi.
 
-| Nome parametro     | Description |
+| Nome parametro     | Descrizione |
 |--------------------|-------------|
 | Categorie    | Matrice di categorie che devono essere estratte.  Possibili tipi di categorie: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se non vengono fornite categorie, vengono restituiti tutti i tipi.|
 |defaultLanguageCode |  Codice lingua del testo di input. Sono supportate le lingue seguenti: `de, en, es, fr, it`|
-|minimumPrecision | Non utilizzato. Riservato per utilizzi futuri. |
-|includeTypelessEntities | Quando è impostato su true, se il testo contiene un'entità conosciuta, ma che non può essere classificata in una delle categorie supportate, verrà restituito come parte del campo di output complesso `"entities"`. 
-Si tratta di entità note che non sono classificate come parte delle "categorie" supportate correnti. Ad esempio, "Windows 10" è un'entità nota (un prodotto), ma i "prodotti" non sono inclusi nelle categorie attualmente supportate. Il valore predefinito è `false` |
+|minimumPrecision | Immettere un valore compreso tra 0 e 1. Se il Punteggio di confidenza (nell'output del `namedEntities`) è inferiore a questo valore, l'entità non viene restituita. Il valore predefinito è 0. |
+|includeTypelessEntities | Impostare su `true` se si desidera riconoscere entità note che non rientrano nelle categorie correnti. Le entità riconosciute vengono restituite nel campo `entities` output complesso. Ad esempio, "Windows 10" è un'entità nota (un prodotto), ma dal momento che "prodotti" non è una categoria supportata, questa entità verrebbe inclusa nel campo di output entità. Il valore predefinito è `false` |
 
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome input      | Description                   |
+| Nome input      | Descrizione                   |
 |---------------|-------------------------------|
 | languageCode  | facoltativo. Il valore predefinito è `"en"`.  |
 | text          | Testo da analizzare.          |
@@ -56,16 +55,16 @@ Si tratta di entità note che non sono classificate come parte delle "categorie"
 > [!NOTE]
 > non tutte le categorie di entità sono supportate per tutte le lingue. Solo _en_, _es_ supportano l'estrazione dei tipi `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`.
 
-| Nome output     | Description                   |
+| Nome output     | Descrizione                   |
 |---------------|-------------------------------|
 | persons      | Una matrice di stringhe in cui ogni stringa rappresenta il nome di una persona. |
-| Località  | Una matrice di stringhe in cui ogni stringa rappresenta il nome una posizione. |
+| locations  | Una matrice di stringhe in cui ogni stringa rappresenta il nome una posizione. |
 | organizations  | Una matrice di stringhe in cui ogni stringa rappresenta un'organizzazione. |
 | quantities  | Una matrice di stringhe in cui ogni stringa rappresenta una quantità. |
 | dateTimes  | Una matrice di stringhe in cui ogni stringa rappresenta un valore DateTime (come viene visualizzato nel testo). |
 | urls | Una matrice di stringhe in cui ogni stringa rappresenta un URL |
 | emails | Una matrice di stringhe in cui ogni stringa rappresenta un indirizzo di posta elettronica |
-| namedEntities | Una matrice di tipi complessi, che contiene i campi seguenti: <ul><li>category</li> <li>valore (il nome effettivo dell'entità)</li><li>offset (percorso in cui è stato trovato nel testo)</li><li>confidence (non usato per il momento. Verrà impostato sul valore -1)</li></ul> |
+| namedEntities | Una matrice di tipi complessi, che contiene i campi seguenti: <ul><li>category</li> <li>valore (il nome effettivo dell'entità)</li><li>offset (percorso in cui è stato trovato nel testo)</li><li>confidenza (valore più elevato significa che si tratta di un'entità reale)</li></ul> |
 | entities | Una matrice di tipi complessi, che contiene informazioni dettagliate sulle entità estratte dal testo, con i campi seguenti <ul><li> name (nome entità effettivo. Rappresenta una forma "normalizzata")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (collegamento alla pagina di Wikipedia dell'entità)</li><li>bingId</li><li>type (categoria dell'entità riconosciuta)</li><li>subType (disponibile solo per determinate categorie, in modo da offrire una visualizzazione più granulare del tipo di entità)</li><li> matches (raccolta complessa contenente)<ul><li>testo (testo non elaborato per l'entità)</li><li>offset (posizione in cui è stata trovata)</li><li>length (lunghezza del testo dell'entità non elaborato)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Definizione di esempio
@@ -76,6 +75,7 @@ Si tratta di entità note che non sono classificate come parte delle "categorie"
     "categories": [ "Person", "Email"],
     "defaultLanguageCode": "en",
     "includeTypelessEntities": true,
+    "minimumPrecision": 0.5,
     "inputs": [
       {
         "name": "text",
@@ -131,7 +131,7 @@ Si tratta di entità note che non sono classificate come parte delle "categorie"
             "category":"Person",
             "value": "John Smith",
             "offset": 35,
-            "confidence": -1
+            "confidence": 0.98
           }
         ],
         "entities":  
@@ -191,7 +191,7 @@ Si tratta di entità note che non sono classificate come parte delle "categorie"
 ## <a name="error-cases"></a>Casi di errore
 Se il codice della lingua per il documento non è supportato, viene restituito un errore e non vengono estratte entità.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)

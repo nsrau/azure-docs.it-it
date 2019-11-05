@@ -6,16 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: c7d18ab6e9018511915e9b77ea02ac60b1277c12
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: fb11b785cecbd021c0b894754e31d226edfe72f2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72596488"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519300"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Trasformazione origine per il mapping del flusso di dati 
-
-
 
 Una trasformazione origine configura l'origine dati per il flusso di dati. Quando si progettano i flussi di dati, il primo passaggio consiste sempre nella configurazione di una trasformazione di origine. Per aggiungere un'origine, fare clic sulla casella **Aggiungi origine** nell'area di disegno del flusso di dati.
 
@@ -27,11 +25,12 @@ Ogni trasformazione di origine è associata a un solo set di dati Data Factory. 
 
 Il flusso di dati di mapping segue un approccio di estrazione, caricamento e trasformazione (ELT) e funziona con i set di dati di *staging* che sono tutti in Azure. Attualmente i set di dati seguenti possono essere utilizzati in una trasformazione di origine:
     
-* Archiviazione BLOB di Azure
-* Archiviazione Azure Data Lake di prima generazione
-* Azure Data Lake Storage Gen2
-* SQL Data Warehouse di Azure
-* database SQL di Azure
+* Archiviazione BLOB di Azure (JSON, avro, testo, parquet)
+* Azure Data Lake Storage Gen1 (JSON, avro, testo, parquet)
+* Azure Data Lake Storage Gen2 (JSON, avro, testo, parquet)
+* Azure SQL Data Warehouse
+* Database SQL di Azure
+* Azure CosmosDB
 
 Azure Data Factory ha accesso a oltre 80 connettori nativi. Per includere dati da tali origini nel flusso di dati, usare l'attività di copia per caricare i dati in una delle aree di gestione temporanea supportate.
 
@@ -79,7 +78,7 @@ Esempi di caratteri jolly:
 
 * ```/data/sales/**/*.csv``` Ottiene tutti i file CSV in/data/Sales
 * ```/data/sales/20??/**``` Ottiene tutti i file nel ventesimo secolo
-* ```/data/sales/2004/*/12/[XY]1?.csv``` ottiene tutti i file CSV 2004 nel dicembre a partire da X o Y preceduto da un numero a due cifre
+* ```/data/sales/2004/*/12/[XY]1?.csv``` Ottiene tutti i file CSV in 2004 nel dicembre a partire da X o Y preceduto da un numero a due cifre
 
 **Percorso radice partizione:** Se nell'origine file sono presenti cartelle partizionate con un formato ```key=value``` (ad esempio, Year = 2019), è possibile assegnare il livello principale dell'albero delle cartelle della partizione a un nome di colonna nel flusso di dati del flusso di dati.
 
@@ -122,15 +121,15 @@ In questo caso, tutti i file originati in/data/Sales vengono spostati in/backup/
 
 È possibile specificare tutte le impostazioni di origine come espressioni utilizzando il [linguaggio delle espressioni di trasformazione del flusso di dati di mapping](data-flow-expression-functions.md). Per aggiungere contenuto dinamico, fare clic o passare il puntatore del mouse all'interno dei campi nel pannello impostazioni. Fare clic sul collegamento ipertestuale per **Aggiungi contenuto dinamico**. Verrà avviato il generatore di espressioni in cui è possibile impostare i valori in modo dinamico tramite espressioni, valori letterali statici o parametri.
 
-![Parameters](media/data-flow/params6.png "parameters")
+![Parameters](media/data-flow/params6.png "Parametri") (Parametri)
 
 ## <a name="sql-source-options"></a>Opzioni origine SQL
 
 Se l'origine si trova nel database SQL o in SQL Data Warehouse, nella scheda **Opzioni di origine** sono disponibili altre impostazioni specifiche di SQL. 
 
-**Input:** Consente di scegliere se puntare l'origine a una tabella (equivalente a ```Select * from <table-name>```) o immettere una query SQL personalizzata.
+**Input:** Consente di specificare se puntare l'origine a una tabella (equivalente a ```Select * from <table-name>```) oppure immettere una query SQL personalizzata.
 
-**Query**: se si seleziona query nel campo di input, immettere una query SQL per l'origine. Questa impostazione esegue l'override di qualsiasi tabella scelta nel set di dati. Le clausole **Order by** non sono supportate in questo punto, ma è possibile impostare un'istruzione SELECT from completa. È anche possibile usare funzioni di tabella definite dall'utente. **Select * from udfGetData ()** è una funzione definita dall'utente in SQL che restituisce una tabella. Questa query produrrà una tabella di origine che è possibile utilizzare nel flusso di dati.
+**Query**: se si seleziona query nel campo di input, immettere una query SQL per l'origine. Questa impostazione esegue l'override di qualsiasi tabella scelta nel set di dati. Le clausole **Order by** non sono supportate in questo punto, ma è possibile impostare un'istruzione SELECT from completa. È anche possibile usare funzioni di tabella definite dall'utente. **Select * from udfGetData ()** è una funzione definita dall'utente in SQL che restituisce una tabella. Questa query produrrà una tabella di origine che è possibile utilizzare nel flusso di dati. L'utilizzo di query è anche un ottimo modo per ridurre le righe per il test o per le ricerche. Esempio: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
 **Dimensioni batch**: immettere le dimensioni del batch per suddividere i dati di grandi dimensioni in letture.
 
@@ -152,6 +151,19 @@ Analogamente agli schemi nei set di dati, la proiezione in un'origine definisce 
 Se nel file di testo non è definito alcuno schema, selezionare **rileva tipo di dati** in modo che data factory campionare e dedurre i tipi di dati. Selezionare **Definisci il formato predefinito** per rilevare automaticamente i formati di dati predefiniti. 
 
 È possibile modificare i tipi di dati delle colonne in una trasformazione di colonna derivata da un flusso inattivo. Utilizzare una trasformazione seleziona per modificare i nomi delle colonne.
+
+### <a name="import-schema"></a>Importa schema
+
+I set di dati come Avro e CosmosDB che supportano strutture di dati complesse non richiedono la presenza di definizioni dello schema nel DataSet. Sarà quindi possibile fare clic sul pulsante "Importa schema" della scheda proiezione per questi tipi di origini.
+
+## <a name="cosmosdb-specific-settings"></a>Impostazioni specifiche di CosmosDB
+
+Quando si usa CosmosDB come tipo di origine, è possibile prendere in considerazione alcune opzioni:
+
+* Includi colonne di sistema: se si seleziona questa opzione, ```id```, ```_ts```e altre colonne di sistema verranno incluse nei metadati del flusso di dati da CosmosDB. Quando si aggiornano le raccolte, è importante includerlo in modo che sia possibile acquisire l'ID di riga esistente.
+* Dimensioni pagina: numero di documenti per pagina del risultato della query. Il valore predefinito è "-1" che usa la pagina dinamica del servizio fino a 1000.
+* Velocità effettiva: impostare un valore facoltativo per il numero di ur da applicare alla raccolta CosmosDB per ogni esecuzione di questo flusso di dati durante l'operazione di lettura. Il valore minimo è 400.
+* Aree preferite: è possibile scegliere le aree di lettura preferite per questo processo.
 
 ## <a name="optimize-the-source-transformation"></a>Ottimizzare la trasformazione di origine
 

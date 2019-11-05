@@ -1,26 +1,26 @@
 ---
 title: 'Esegui script Python: informazioni di riferimento sui moduli'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Execute Python script nel servizio Azure Machine Learning per eseguire il codice Python.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Execute Python script (Esegui script Python) in Azure Machine Learning per eseguire il codice Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: ac68239c12fb284dd3cb5179b5719f3d36acbd34
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 1ba10bf682d900a45f345f2ebe2707ba1275e94e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693784"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497859"
 ---
 # <a name="execute-python-script-module"></a>Eseguire il modulo di script Python
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
-Usare questo modulo per eseguire il codice Python. Per altre informazioni sull'architettura e i principi di progettazione di Python, vedere [l'articolo seguente.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
+Usare questo modulo per eseguire il codice Python. Per altre informazioni sull'architettura e i principi di progettazione di Python, vedere [l'articolo seguente](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
 
 Con Python è possibile eseguire attività che non sono attualmente supportate dai moduli esistenti, ad esempio:
 
@@ -81,7 +81,7 @@ Il modulo **Execute Python script** contiene codice Python di esempio che è pos
 
 1. Aggiungere il modulo **Execute Python script (Esegui script Python** ) alla pipeline.
 
-2. Aggiungere e connettersi a **DataSet1** tutti i set di dati dell'interfaccia che si vuole usare per l'input. Fare riferimento a questo set di dati nello script Python come **DataFrame1**.
+2. Aggiungere e connettersi a **DataSet1** tutti i set di dati della finestra di progettazione che si desidera utilizzare per l'input. Fare riferimento a questo set di dati nello script Python come **DataFrame1**.
 
     L'uso di un set di dati è facoltativo se si vuole generare dati con Python o usare il codice Python per importare i dati direttamente nel modulo.
 
@@ -97,15 +97,15 @@ Il modulo **Execute Python script** contiene codice Python di esempio che è pos
 
 5. Nella casella di testo **script Python** Digitare o incollare uno script Python valido.
 
-    La casella di testo **script Python** è già popolata con alcune istruzioni nei commenti e il codice di esempio per l'accesso ai dati e l'output. **È necessario modificare o sostituire questo codice.** Assicurarsi di seguire le convenzioni Python relative a rientri e maiuscole e minuscole.
+    La casella di testo **script Python** è già popolata con alcune istruzioni nei commenti e il codice di esempio per l'accesso ai dati e l'output. È necessario modificare o sostituire questo codice. Assicurarsi di seguire le convenzioni Python relative a rientri e maiuscole e minuscole.
 
     + Lo script deve contenere una funzione denominata `azureml_main` come punto di ingresso per questo modulo.
     + La funzione del punto di ingresso può contenere un massimo di due argomenti di input: `Param<dataframe1>` e `Param<dataframe2>`
-    + I file compressi connessi alla terza porta di input vengono decompressi e archiviati nella directory, `.\Script Bundle`, che viene aggiunta anche al `sys.path` di Python. 
+    + I file compressi connessi alla terza porta di input vengono decompressi e archiviati nella directory, `.\Script Bundle`, che viene aggiunta anche al `sys.path`di Python. 
 
     Se quindi il file zip contiene `mymodule.py`, importarlo usando `import mymodule`.
 
-    + Due set di impostazioni possono essere restituiti all'interfaccia, che deve essere una sequenza di tipo `pandas.DataFrame`. È possibile creare altri output nel codice Python e scriverli direttamente in archiviazione di Azure.
+    + Due set di impostazioni possono essere restituiti alla finestra di progettazione, che deve essere una sequenza di tipo `pandas.DataFrame`. È possibile creare altri output nel codice Python e scriverli direttamente in archiviazione di Azure.
 
 6. Eseguire la pipeline oppure selezionare il modulo e fare clic su **Esegui selezione** per eseguire solo lo script Python.
 
@@ -124,4 +124,4 @@ Il modulo restituisce due set di impostazioni:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

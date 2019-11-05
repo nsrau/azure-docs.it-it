@@ -1,19 +1,19 @@
 ---
-title: Gestire cluster Apache Hadoop in HDInsight con PowerShell - Azure
+title: Gestire i cluster di Apache Hadoop con PowerShell-Azure HDInsight
 description: Informazioni su come eseguire attività amministrative per i cluster Apache Hadoop in HDInsight tramite Azure PowerShell.
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
-ms.author: tyfox
-ms.openlocfilehash: 751f064df271aeb0899a00aea8b1ff09e8b8bdf4
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: b3cdc673d5d99229e3e6934d85cae55f79590830
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077036"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494392"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gestire cluster Apache Hadoop in HDInsight usando Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -22,7 +22,9 @@ Azure PowerShell può essere usato per controllare e automatizzare la distribuzi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+* Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Il [modulo Az](https://docs.microsoft.com/powershell/azure/overview) di PowerShell installato.
 

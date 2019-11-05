@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 2147ca2565d5977e3e47d5182627483aa3d8d1b2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 9a7599cd71c087201b54c594954a6fff377b3e45
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756097"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490765"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Le caratteristiche sono informazioni su azioni e contesto
 
@@ -56,7 +56,7 @@ Personalizza esperienze accetta caratteristiche organizzate in spazi dei nomi. �
 Di seguito sono riportati esempi di spazi dei nomi di caratteristiche usati dalle applicazioni:
 
 * User_Profile_from_CRM
-* Durata
+* Time
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
@@ -69,7 +69,10 @@ Di seguito sono riportati esempi di spazi dei nomi di caratteristiche usati dall
 È possibile assegnare nomi agli spazi dei nomi di caratteristiche in base alle proprie convenzioni, purché siano chiavi JSON valide. Gli spazi dei nomi vengono usati per organizzare le funzionalità in Set distinti e per distinguere le funzionalità con nomi simili. È possibile considerare gli spazi dei nomi come un'prefisso ' aggiunto ai nomi delle funzionalità. Gli spazi dei nomi non possono essere annidati.
 
 
-Nel codice JSON seguente `user`, `state` e `device` sono spazi dei nomi di caratteristiche. Nota di anteprima pubblica: attualmente è consigliabile usare nomi per gli spazi dei nomi delle funzionalità che sono basati su UTF-8 e iniziano con lettere diverse. Ad esempio, `user`, `state` e `device` iniziano con `u`, `s` e `d`. Attualmente gli spazi dei nomi con gli stessi caratteri iniziali potrebbero causare collisioni negli indici usati per Machine Learning.
+Nel codice JSON seguente `user`, `state` e `device` sono spazi dei nomi di caratteristiche. 
+
+> [!Note]
+> Attualmente è consigliabile usare nomi per gli spazi dei nomi delle funzionalità che sono basati su UTF-8 e iniziano con lettere diverse. Ad esempio, `user`, `state`e `device` iniziano con `u`, `s`e `d`. Attualmente gli spazi dei nomi con gli stessi caratteri iniziali potrebbero causare collisioni negli indici usati per Machine Learning.
 
 Gli oggetti JSON possono includere oggetti JSON annidati e valori/proprietà semplici. Una matrice può essere inclusa solo se gli elementi della matrice sono numeri. 
 
@@ -140,7 +143,7 @@ L'intelligenza artificiale e i servizi cognitivi pronti per l'esecuzione possono
 
 Pre-elaborando gli elementi con i servizi di intelligenza artificiale, è possibile estrarre automaticamente le informazioni che saranno probabilmente più pertinenti per la personalizzazione.
 
-ad esempio:
+Ad esempio:
 
 * È possibile eseguire il file di un film tramite [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) per estrarre elementi delle scene, testo, sentiment e molti altri attributi. Questi attributi possono quindi essere resi più densi in base a caratteristiche non presenti nei metadati degli elementi originali. 
 * È possibile eseguire immagini tramite rilevamento di oggetti, visi tramite sentiment e così via.
@@ -175,7 +178,7 @@ Le azioni da inviare all'API Classifica cambiano in base a quello che si prova a
 
 Di seguito sono riportati alcuni esempi:
 
-|Finalità|Azione|
+|Scopo|Azione|
 |--|--|
 |Personalizzare l'articolo da evidenziare in un sito Web di notizie.|Ogni azione è un potenziale articolo di notizie.|
 |Ottimizzare il posizionamento degli annunci in un sito Web.|Ogni azione sarà costituita da un layout o da regole per creare un layout per gli annunci (ad esempio in alto, a destra, immagini piccole, immagini grandi).|

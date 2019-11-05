@@ -1,7 +1,7 @@
 ---
-title: Risoluzione dei problemi di un'area di lavoro
-titleSuffix: Azure Machine Learning Studio
-description: Questa guida offre soluzioni per alcuni problemi frequenti relativi alla configurazione di aree di lavoro di Azure Machine Learning Studio.
+title: Risoluzione dei problemi relativi a un'area di lavoro
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Questa guida fornisce soluzioni per alcune delle principali problemi riscontrati quando si configura la versione classica di Azure Machine Learning Studio aree di lavoro.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,24 +10,24 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 7cc825daa29a0398793f3c6fc5ce8ee426ad79e6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7d4aebf71ef16287a415e4c39eed1328c9359f6c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60193875"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492596"
 ---
-# <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-workspace"></a>Guida alla risoluzione dei problemi: Creare e connettersi a un'area di lavoro di Azure Machine Learning Studio
-Questa guida offre soluzioni per alcuni problemi frequenti relativi alla configurazione di aree di lavoro di Azure Machine Learning Studio.
+# <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-classic-workspace"></a>Guida alla risoluzione dei problemi: creare e connettersi a un'area di lavoro di Azure Machine Learning Studio (classica)
+Questa guida fornisce soluzioni per alcune delle principali problemi riscontrati durante la configurazione delle aree di lavoro Azure Machine Learning Studio (classiche).
 
 
 
 ## <a name="workspace-owner"></a>Proprietario dell'area di lavoro
-Per aprire un'area di lavoro in Machine Learning Studio, è necessario essere connessi con l'account Microsoft usato per creare l'area di lavoro oppure ricevere un invito dal proprietario per partecipare all'area di lavoro. Dal portale di Azure è possibile gestire l'area di lavoro e anche configurare l'accesso.
+Per aprire un'area di lavoro in Machine Learning Studio (versione classica), è necessario aver eseguito l'accesso all'account Microsoft usato per creare l'area di lavoro oppure è necessario ricevere un invito dal proprietario per partecipare all'area di lavoro. Dal portale di Azure è possibile gestire l'area di lavoro e anche configurare l'accesso.
 
-Per altre informazioni sulla gestione di un'area di lavoro, vedere [Gestire un'area di lavoro di Azure Machine Learning Studio].
+Per ulteriori informazioni sulla gestione di un'area di lavoro, vedere [gestire un'area di lavoro di Azure Machine Learning Studio (classica)].
 
-[Gestire un'area di lavoro di Azure Machine Learning Studio]: manage-workspace.md
+[Gestire un'area di lavoro di Azure Machine Learning Studio (classica)]: manage-workspace.md
 
 ## <a name="allowed-regions"></a>Aree geografiche disponibili
 Machine Learning è attualmente disponibile in un numero limitato di aree. Se la sottoscrizione non include una di queste aree, è possibile che venga visualizzato l'errore "Non sono presenti sottoscrizioni nelle aree consentite".
@@ -35,9 +35,9 @@ Machine Learning è attualmente disponibile in un numero limitato di aree. Se la
 Per richiedere l'aggiunta di un'area alla sottoscrizione, creare una nuova richiesta al supporto tecnico Microsoft dal portale di Azure, scegliere **Fatturazione** come tipo di problema, quindi seguire le istruzioni per inviare la richiesta.
 
 ## <a name="storage-account"></a>Account di archiviazione
-Il servizio Machine Learning necessita di un account di archiviazione per archiviare i dati. È possibile usare un account di archiviazione esistente oppure creare un nuovo account di archiviazione quando si crea la nuova area di lavoro di Machine Learning Studio, se la quota disponibile è sufficiente per la creazione di un nuovo account di archiviazione.
+Il servizio Machine Learning necessita di un account di archiviazione per archiviare i dati. È possibile usare un account di archiviazione esistente oppure è possibile creare un nuovo account di archiviazione quando si crea la nuova area di lavoro Machine Learning Studio (classica) (se si dispone di una quota per creare un nuovo account di archiviazione).
 
-Dopo aver creato una nuova area di lavoro di Machine Learning Studio, è possibile accedere a Machine Learning Studio usando l'account Microsoft specificato per creare l'area di lavoro. Se viene visualizzato il messaggio di errore relativo all'area di lavoro non trovata, analogo a quanto mostrato nella schermata sottostante, usare la procedura seguente per eliminare i cookie dal browser.
+Dopo aver creato la nuova area di lavoro Machine Learning Studio (classica), è possibile accedere a Machine Learning Studio (classica) usando il account Microsoft usato per creare l'area di lavoro. Se viene visualizzato il messaggio di errore relativo all'area di lavoro non trovata, analogo a quanto mostrato nella schermata sottostante, usare la procedura seguente per eliminare i cookie dal browser.
 
 ![Area di lavoro non trovata](media/troubleshooting-creating-ml-workspace/screen3.png)
 
@@ -55,7 +55,7 @@ Dopo aver creato una nuova area di lavoro di Machine Learning Studio, è possibi
 
    ![Eliminare i cookie](media/troubleshooting-creating-ml-workspace/screen6.png)
 
-Dopo l'eliminazione dei cookie, riavviare il browser e quindi passare alla pagina [Microsoft Azure Machine Learning Studio](https://studio.azureml.net). Quando vengono richiesti nome utente e password, immettere lo stesso account Microsoft usato per creare l'area di lavoro.
+Dopo l'eliminazione dei cookie, riavviare il browser e passare alla pagina [Microsoft Azure Machine Learning Studio (classica)](https://studio.azureml.net) . Quando vengono richiesti nome utente e password, immettere lo stesso account Microsoft usato per creare l'area di lavoro.
 
 ## <a name="comments"></a>Commenti
 

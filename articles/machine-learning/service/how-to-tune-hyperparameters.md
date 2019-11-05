@@ -9,16 +9,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb4023be41377846ed209b3d6702188f5d79ba00
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: a7b0276ca41e1b9342b3602a67dea0517c60f66a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999396"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489351"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Ottimizzazione degli iperparametri per il modello con Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Ottimizza in modo efficiente gli iperparametri per il modello usando Azure Machine Learning.  L'ottimizzazione degli iperparametri include i passaggi seguenti:
 
@@ -96,6 +97,12 @@ Questo codice definisce uno spazio di ricerca con due parametri: `learning_rate`
 
 È anche possibile specificare il metodo di campionamento dei parametri da usare per la definizione dello spazio degli iperparametri. Azure Machine Learning supporta il campionamento casuale, il campionamento della griglia e il campionamento Bayes.
 
+#### <a name="picking-a-sampling-method"></a>Selezione di un metodo di campionamento
+
+* Il campionamento della griglia può essere usato se lo spazio degli iperparametri può essere definito come scelta tra valori discreti e se si dispone di un budget sufficiente per eseguire una ricerca completa su tutti i valori nello spazio di ricerca definito. Inoltre, è possibile utilizzare la terminazione anticipata automatica delle esecuzioni con prestazioni scarse, riducendo così gli sprechi delle risorse.
+* Il campionamento casuale consente allo spazio degli iperparametri di includere sia gli iperparametri discreti che quelli continui. In pratica, la maggior parte delle volte produce risultati ottimali e consente anche l'uso di una terminazione automatica anticipata delle esecuzioni con prestazioni ridotte. Alcuni utenti eseguono una ricerca iniziale usando il campionamento casuale e quindi rifiniscono in modo iterativo lo spazio di ricerca per migliorare i risultati.
+* Il campionamento bayesiano sfrutta le conoscenze degli esempi precedenti quando si scelgono i valori degli iperparametri, tentando in modo efficace di migliorare la metrica primaria segnalata. Il campionamento Bayes è consigliato quando si dispone di un budget sufficiente per esplorare lo spazio degli iperparametri: per ottenere risultati ottimali con il campionamento Bayes è consigliabile usare un numero massimo di esecuzioni maggiore o uguale a 20 volte il numero di iperparametri da ottimizzare. Si noti che il campionamento Bayes non supporta attualmente i criteri di terminazione precedenti.
+
 #### <a name="random-sampling"></a>Campionamento casuale
 
 Nel campionamento casuale i valori degli iperparametri vengono selezionati in modo casuale dallo spazio di ricerca definito. Il [campionamento casuale](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling?view=azure-ml-py) consente allo spazio di ricerca di includere sia gli iperparametri discreti che quelli continui.
@@ -129,7 +136,7 @@ Il [campionamento bayesiano](https://docs.microsoft.com/python/api/azureml-train
 
 Quando si usa il campionamento bayesiano, il numero di esecuzioni simultanee influisce sull'efficacia del processo di ottimizzazione. In genere, un numero minore di esecuzioni simultanee può migliorare la convergenza di campionamento, poiché il minor grado di parallelismo aumenta il numero di esecuzioni che traggono vantaggio dalle esecuzioni precedentemente completate.
 
-Il campionamento bayesiano `choice`supporta `uniform`solo le `quniform` distribuzioni, e tramite lo spazio di ricerca.
+Il campionamento bayesiano supporta solo le distribuzioni di `choice`, `uniform`e `quniform` nello spazio di ricerca.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
@@ -150,7 +157,7 @@ param_sampling = BayesianParameterSampling( {
 Specificare la [metrica primaria](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py) da ottimizzare per l'esperimento di ottimizzazione degli iperparametri. Ogni esecuzione di training viene valutata in base a questa metrica primaria e le esecuzioni con scarse prestazioni (in cui la metrica primaria non soddisfa i criteri di terminazione anticipata) verranno terminate. Oltre al nome della metrica primaria, specificare anche l'obiettivo dell'ottimizzazione: se aumentare o ridurre la metrica primaria.
 
 * `primary_metric_name`: nome della metrica primaria da ottimizzare. Il nome della metrica primaria deve corrispondere esattamente al nome della metrica registrato dallo script di training. Vedere [Registrare le metriche per l'ottimizzazione degli iperparametri](#log-metrics-for-hyperparameter-tuning).
-* `primary_metric_goal`: può essere `PrimaryMetricGoal.MAXIMIZE` o `PrimaryMetricGoal.MINIMIZE` e determina se la metrica primaria verrà aumentata o ridotta durante la valutazione delle esecuzioni. 
+* `primary_metric_goal`: può essere `PrimaryMetricGoal.MAXIMIZE` o `PrimaryMetricGoal.MINIMIZE` e determina se la metrica primaria verrà aumentata o ridotta durante la valutazione dell'esecuzione. 
 
 ```Python
 primary_metric_name="accuracy",
@@ -163,7 +170,7 @@ Ottimizzare le esecuzioni per migliorare il livello di precisione.  Assicurarsi 
 
 ### <a name="log-metrics-for-hyperparameter-tuning"></a>Registrare le metriche per l'ottimizzazione degli iperparametri
 
-Lo script di training per il modello deve registrare le metriche pertinenti durante il training del modello. Quando si configura l'ottimizzazione degli iperparametri, specificare la metrica primaria da usare per la valutazione delle prestazioni di esecuzione. Vedere [Specificare una metrica primaria da ottimizzare](#specify-primary-metric-to-optimize).  Nello script di training è necessario registrare questa metrica in modo che sia disponibile per il processo di ottimizzazione degli iperparametri.
+Lo script di training per il modello deve registrare le metriche pertinenti durante il training del modello. Quando si configura l'ottimizzazione degli iperparametri, specificare la metrica primaria da usare per la valutazione delle prestazioni di esecuzione. Vedere [specificare una metrica primaria da ottimizzare](#specify-primary-metric-to-optimize).  Nello script di training è necessario registrare questa metrica in modo che sia disponibile per il processo di ottimizzazione degli iperparametri.
 
 Registrare la metrica nello script di training con il seguente frammento di esempio:
 
@@ -222,7 +229,7 @@ In questo esempio, i criteri di terminazione anticipata vengono applicati a ogni
 
 ### <a name="truncation-selection-policy"></a>Criteri di selezione con troncamento
 
-La [selezione](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?view=azure-ml-py) dei troncamenti Annulla una determinata percentuale di esecuzioni più basse a ogni intervallo di valutazione. Le esecuzioni vengono confrontate in base alle relative prestazioni rispetto alla metrica primaria e la percentuale X di quelle più basse viene terminata. I parametri di configurazione accettati sono i seguenti:
+La [selezione dei troncamenti](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?view=azure-ml-py) Annulla una determinata percentuale di esecuzioni più basse a ogni intervallo di valutazione. Le esecuzioni vengono confrontate in base alle relative prestazioni rispetto alla metrica primaria e la percentuale X di quelle più basse viene terminata. I parametri di configurazione accettati sono i seguenti:
 
 * `truncation_percentage`: percentuale delle esecuzioni con le prestazioni più basse da terminare in ogni intervallo di valutazione. Immettere un valore intero compreso tra 1 e 99.
 * `evaluation_interval`: frequenza per l'applicazione del criterio (parametro facoltativo).
@@ -248,8 +255,10 @@ policy=None
 
 Se non viene specificato alcun criterio, il servizio di ottimizzazione iperparametri consente di eseguire tutte le esecuzioni di training fino al completamento.
 
->[!NOTE] 
->Se si sta cercando un criterio conservativo che consenta un risparmio senza terminare i processi promettenti, è possibile usare un criterio di arresto con valore mediano con `evaluation_interval` 1 e `delay_evaluation` 5. Queste sono impostazioni conservative, che possono garantire circa il 25-35% di risparmio senza alcuna perdita sulla metrica primaria (in base ai dati di valutazione).
+### <a name="picking-an-early-termination-policy"></a>Selezione di un criterio di chiusura anticipato
+
+* Se si sta cercando un criterio conservativo che consenta un risparmio senza terminare i processi promettenti, è possibile usare un criterio di arresto con valore mediano con `evaluation_interval` 1 e `delay_evaluation` 5. Queste sono impostazioni conservative, che possono garantire circa il 25-35% di risparmio senza alcuna perdita sulla metrica primaria (in base ai dati di valutazione).
+* Se si sta cercando un risparmio più aggressivo dalla terminazione anticipata, è possibile usare criteri Bandit con criteri di selezione Slack o troncamento più restrittivi (più piccoli) con una percentuale di troncamento maggiore.
 
 ## <a name="allocate-resources"></a>Allocare le risorse
 
@@ -279,7 +288,7 @@ Questo codice configura l'esperimento di ottimizzazione degli iperparametri in m
 
 ## <a name="configure-experiment"></a>Configurare l'esperimento
 
-[Configurare](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py) l'esperimento di ottimizzazione iperparametri usando lo spazio di ricerca di iperparametri definito, i criteri di terminazione anticipati, la metrica primaria e l'allocazione delle risorse dalle sezioni precedenti. Specificare anche un oggetto `estimator`, che verrà chiamato con gli iperparametri campionati. L'oggetto `estimator` descrive lo script di training da eseguire, le risorse per ogni processo (singola GPU o più GPU) e la destinazione di calcolo da usare. Poiché la concorrenza per l'esperimento di ottimizzazione degli iperparametri è limitata dalle risorse disponibili, verificare che la destinazione di calcolo specificata in `estimator` disponga di risorse sufficienti per la concorrenza desiderata. Per altre informazioni sugli oggetti estimator, vedere [Come eseguire il training di modelli](how-to-train-ml-models.md).
+Configurare l'esperimento di [ottimizzazione iperparametri](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py) usando lo spazio di ricerca di iperparametri definito, i criteri di terminazione anticipati, la metrica primaria e l'allocazione delle risorse dalle sezioni precedenti. Specificare anche un oggetto `estimator`, che verrà chiamato con gli iperparametri campionati. L'oggetto `estimator` descrive lo script di training da eseguire, le risorse per ogni processo (singola GPU o più GPU) e la destinazione di calcolo da usare. Poiché la concorrenza per l'esperimento di ottimizzazione degli iperparametri è limitata dalle risorse disponibili, verificare che la destinazione di calcolo specificata in `estimator` disponga di risorse sufficienti per la concorrenza desiderata. Per altre informazioni sugli oggetti estimator, vedere [Come eseguire il training di modelli](how-to-train-ml-models.md).
 
 Configurare l'esperimento di ottimizzazione degli iperparametri:
 
@@ -304,7 +313,47 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name`è il nome assegnato all'esperimento di ottimizzazione iperparametri e `workspace` è l'area di lavoro in cui si desidera creare l'esperimento. per ulteriori informazioni sugli esperimenti, vedere la pagina relativa al funzionamento di [Azure Machine Learning.](concept-azure-machine-learning-architecture.md)
+`experiment_name` è il nome assegnato all'esperimento di ottimizzazione degli iperparametri e `workspace` è l'area di lavoro in cui si desidera creare l'esperimento. per ulteriori informazioni sugli esperimenti, vedere [come funziona Azure Machine Learning?](concept-azure-machine-learning-architecture.md)
+
+## <a name="warm-start-your-hyperparameter-tuning-experiment-optional"></a>Avvio a caldo dell'esperimento di ottimizzazione iperparametri (facoltativo)
+
+Spesso, la ricerca dei migliori valori di iperparametri per il modello può essere un processo iterativo, che necessita di più esecuzioni di ottimizzazione che apprendere dalle esecuzioni precedenti dell'ottimizzazione degli iperparametri. Il riutilizzo delle informazioni da queste esecuzioni precedenti accelererà il processo di ottimizzazione degli iperparametri, riducendo in tal modo il costo di ottimizzazione del modello e potenzialmente migliorerà la metrica primaria del modello risultante. Quando si avvia un esperimento di ottimizzazione di iperparametri con il campionamento Bayes, le versioni di valutazione dell'esecuzione precedente verranno usate come conoscenze precedenti per scegliere in modo intelligente i nuovi esempi, per migliorare la metrica primaria. Inoltre, quando si usa il campionamento casuale o della griglia, tutte le decisioni di terminazione anticipata utilizzeranno le metriche delle esecuzioni precedenti per determinare le esecuzioni di training con scarso rendimento. 
+
+Azure Machine Learning consente di avviare l'operazione di ottimizzazione dell'iperparametri usando le informazioni di un massimo di 5 esecuzioni del padre di ottimizzazione degli iperparametri completati o annullati in precedenza. È possibile specificare l'elenco di esecuzioni padre a cui iniziare a caldo usando il frammento di codice seguente:
+
+```Python
+from azureml.train.hyperdrive import HyperDriveRun
+
+warmstart_parent_1 = HyperDriveRun(experiment, "warmstart_parent_run_ID_1")
+warmstart_parent_2 = HyperDriveRun(experiment, "warmstart_parent_run_ID_2")
+warmstart_parents_to_resume_from = [warmstart_parent_1, warmstart_parent_2]
+```
+
+In alcuni casi, inoltre, è possibile che le singole esecuzioni di training di un esperimento di ottimizzazione iperparametri vengano annullate a causa di vincoli di budget o non riuscite per altri motivi. A questo punto è possibile riprendere l'esecuzione di questo training individuale dall'ultimo checkpoint (presupponendo che lo script di training gestisca i checkpoint). La ripresa di una singola esecuzione di training utilizzerà la stessa configurazione di iperparametri e installerà la cartella degli output utilizzata per l'esecuzione. Lo script di training deve accettare l'argomento `resume-from`, che contiene i file del checkpoint o del modello da cui riprendere l'esecuzione del training. È possibile riprendere le esecuzioni di training individuali usando il frammento di codice seguente:
+
+```Python
+from azureml.core.run import Run
+
+resume_child_run_1 = Run(experiment, "resume_child_run_ID_1")
+resume_child_run_2 = Run(experiment, "resume_child_run_ID_2")
+child_runs_to_resume = [resume_child_run_1, resume_child_run_2]
+```
+
+È possibile configurare l'esperimento di ottimizzazione iperparametri per iniziare a caldo da un esperimento precedente o riprendere le esecuzioni di training individuali usando i parametri facoltativi `resume_from` e `resume_child_runs` nella configurazione:
+
+```Python
+from azureml.train.hyperdrive import HyperDriveConfig
+
+hyperdrive_run_config = HyperDriveConfig(estimator=estimator,
+                          hyperparameter_sampling=param_sampling, 
+                          policy=early_termination_policy,
+                          resume_from=warmstart_parents_to_resume_from, 
+                          resume_child_runs=child_runs_to_resume,
+                          primary_metric_name="accuracy", 
+                          primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                          max_total_runs=100,
+                          max_concurrent_runs=4)
+```
 
 ## <a name="visualize-experiment"></a>Visualizzare l'esperimento
 
@@ -325,7 +374,7 @@ Il codice mostra una tabella con informazioni dettagliate sulle esecuzioni di tr
 
 È infine possibile identificare visivamente la correlazione tra le prestazioni e i valori dei singoli iperparametri usando un tracciato a coordinate parallele. 
 
-[![Coordinate parallele di ottimizzazione iperparametri](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
+[![le coordinate parallele di ottimizzazione degli iperparametri](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
 È possibile visualizzare tutte le esecuzioni di ottimizzazione degli iperparametri nel portale Web di Azure. Per altre informazioni su come visualizzare un esperimento nel portale Web, vedere la sezione relativa a [come tracciare gli esperimenti](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
 

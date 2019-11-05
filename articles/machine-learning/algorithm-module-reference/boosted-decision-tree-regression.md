@@ -1,24 +1,24 @@
 ---
 title: "Regressione dell'albero delle decisioni con boosting: riferimento al modulo"
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo di regressione dell'albero delle decisioni con boosting nel servizio Azure Machine Learning per creare un insieme di alberi di regressione con boosting.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo di regressione dell'albero delle decisioni con boosting in Azure Machine Learning per creare un insieme di alberi di regressione con boosting.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 4b8ff1c9f5b0f0b04448b950d3ba904ba76927c9
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: b04a44a82f793f39b24ffd94083ca8fd5e66cfb8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693843"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493891"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Modulo di regressione dell'albero delle decisioni con boosting
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per creare un insieme di alberi di regressione con boosting. L' *incremento* significa che ogni albero dipende da alberi precedenti. L'algoritmo apprende inserendo il residuo degli alberi che lo precedono. Il potenziamento in un insieme di alberi delle decisioni tende quindi a migliorare l'accuratezza con un piccolo rischio di minore copertura.  
   
@@ -97,6 +97,8 @@ Al termine del training:
 
 + Per utilizzare il modello per il punteggio, connetterlo al [modello di Punteggio](./score-model.md)per stimare i valori per i nuovi esempi di input.
 
++ Per salvare uno snapshot del modello con training, fare clic con il pulsante destro del mouse sull'output del **modello** sottoposto a training del modulo training e scegliere **Salva con nome**. La copia del modello sottoposto a training salvato non viene aggiornata sulle esecuzioni successive della pipeline.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

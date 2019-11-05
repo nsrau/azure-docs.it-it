@@ -11,14 +11,15 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: fe4a2082647ef1325d03ce4eec428ed1579704c5
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: MT
+ms.openlocfilehash: 373713cc92379236385024beff201d16fbbfd4b5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755992"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497047"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creare ed eseguire pipeline di Machine Learning con Azure Machine Learning SDK
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come creare, pubblicare, eseguire e monitorare una [pipeline di Machine Learning](concept-ml-pipelines.md) usando l'[SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Usare le **pipeline** di machine learning per creare un flusso di lavoro che unisce varie fasi di machine learning e quindi pubblicare tale pipeline nell'area di lavoro di Azure Machine Learning per accedere in un secondo momento o condividerla con altri utenti.  Le pipeline di ML sono ideali per gli scenari di assegnazione dei punteggi in batch, l'uso di diversi calcoli, il riutilizzo dei passaggi anziché la loro esecuzione, nonché la condivisione di flussi di lavoro ML con altri utenti. 
 
@@ -36,7 +37,11 @@ Se non si dispone di una sottoscrizione di Azure, creare un account gratuito pri
 
 * Creare un'[area di lavoro di Azure Machine Learning](how-to-manage-workspace.md) che conterrà tutte le risorse della pipeline.
 
-* [Configurare l'ambiente di sviluppo](how-to-configure-environment.md) per installare il Azure Machine Learning SDK o usare una [macchina virtuale notebook](tutorial-1st-experiment-sdk-setup.md#azure) con l'SDK già installato.
+* [Configurare l'ambiente di sviluppo](how-to-configure-environment.md) per installare il Azure Machine Learning SDK oppure usare un' [istanza di calcolo Azure Machine Learning](concept-compute-instance.md) con l'SDK già installato.
+
+> [!NOTE]
+> Le istanze di calcolo sono disponibili solo per le aree di lavoro con un'area **Stati Uniti centro-settentrionali** o **Regno Unito meridionale**.
+>Se l'area di lavoro si trova in un'altra area, è possibile continuare a creare e usare una [macchina virtuale del notebook](concept-compute-instance.md#notebookvm) . 
 
 Per iniziare, aggiungere l'area di lavoro:
 
@@ -48,7 +53,7 @@ ws = Workspace.from_config()
 ```
 
 
-## <a name="set-up-machine-learning-resources"></a>Configurare le risorse di Machine Learning
+## <a name="set-up-machine-learning-resources"></a>Impostare le risorse di Machine Learning
 
 Creare le risorse necessarie per eseguire una pipeline di ML:
 
@@ -120,7 +125,7 @@ In Azure Machine Learning il termine computes__ (o __destinazione di calcolo__) 
 
 Di seguito sono riportati esempi di creazione e collegamento di destinazioni di calcolo per:
 
-* Ambiente di calcolo di Machine Learning
+* Ambiente di calcolo di Azure Machine Learning
 * Azure Databricks 
 * Azure Data Lake Analytics.
 
@@ -157,7 +162,7 @@ else:
 
 ### <a id="databricks"></a>Azure Databricks
 
-Azure Databricks è un ambiente basato su Apache Spark nel cloud di Azure. Può essere usata come destinazione di calcolo con una pipeline di Azure Machine Learning.
+Azure Databricks è un ambiente basato su Apache Spark nel cloud di Azure. Può essere usato come destinazione di calcolo con una pipeline di Azure Machine Learning.
 
 Creare un'area di lavoro di Azure Databricks prima di usarlo. Per creare una risorsa dell'area di lavoro, vedere il documento [eseguire un processo Spark in Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) .
 
@@ -210,7 +215,7 @@ Per un esempio più dettagliato, vedere un [notebook di esempio](https://aka.ms/
 
 ### <a id="adla"></a>Azure Data Lake Analytics
 
-Azure Data Lake Analytics è una piattaforma di analisi dei Big Data nel cloud di Azure. Può essere usata come destinazione di calcolo con una pipeline di Azure Machine Learning.
+Azure Data Lake Analytics è una piattaforma di analisi dei Big Data nel cloud di Azure. Può essere usato come destinazione di calcolo con una pipeline di Azure Machine Learning.
 
 Creare un account di Azure Data Lake Analytics prima di usarla. Per creare questa risorsa vedere il documento [Introduzione ad Azure Data Lake Analytics con il portale di Azure](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
 
@@ -410,21 +415,21 @@ response = requests.post(published_pipeline1.endpoint,
 ### <a name="view-results-of-a-published-pipeline"></a>Visualizzare i risultati di una pipeline pubblicata
 
 Vedere l'elenco di tutte le pipeline pubblicate e i relativi dettagli di esecuzione:
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere a [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. [Visualizzare l'area di lavoro](how-to-manage-workspace.md#view) per trovare l'elenco delle pipeline.
  ![elenco delle pipeline di Machine Learning](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Selezionare una pipeline specifica per visualizzare i risultati dell'esecuzione.
 
-Questi risultati sono disponibili anche nella [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com).
+Questi risultati sono disponibili anche nell'area di lavoro in [Azure Machine Learning Studio]] (https://ml.azure.com).
 
 ### <a name="disable-a-published-pipeline"></a>Disabilitare una pipeline pubblicata
 
 Per nascondere una pipeline dall'elenco di pipeline pubblicate, è possibile disabilitarla:
 
 ```
-# Get the pipeline by using its ID from the Azure portal
+# Get the pipeline by using its ID from Azure Machine Learning studio
 p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 7c163dacae24749dbe309bca33bac016a3be7aa5
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 902bf84ebf090cf9f0f886ad1e774ff7bdfeca93
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002899"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490743"
 ---
 # <a name="how-personalizer-works"></a>Funzionamento di Personalizza esperienze
 
@@ -27,13 +27,13 @@ Per ogni ciclo, **chiamare l'API Classifica** in base al contesto corrente con:
 
 L'API **Classifica** decide di usare:
 
-* _Exploit_ (Sfruttamento): il modello corrente per decidere l'azione ottimale in base a dati passati.
-* _Explore_ (Esplorazione): selezionare un'azione diversa invece di quella principale.
+* _Exploit_: modello corrente per decidere l'azione migliore in base ai dati passati.
+* _Esplora_: selezionare un'azione diversa anziché l'azione principale.
 
 l'API **Ricompensa**:
 
 * Raccoglie i dati per eseguire il training del modello registrando le caratteristiche e i punteggi di ricompensa di ogni chiamata a Classifica.
-* Usa questi dati per aggiornare il modello in base alle impostazioni specificate in _Learning Policy_ (Criteri di apprendimento).
+* USA i dati per aggiornare il modello in base alla configurazione specificata nei _criteri di apprendimento_.
 
 ## <a name="architecture"></a>Architettura
 
@@ -55,11 +55,11 @@ Personalizza esperienze si basa su dati scientifici e ricerche nel campo dell'[a
 
 ## <a name="terminology"></a>Terminologia
 
-* **Ciclo di apprendimento**: è possibile creare un ciclo di apprendimento per ogni parte dell'applicazione che potrà beneficiare dalla personalizzazione. Nel caso di più esperienze da personalizzare, creare un ciclo per ognuna. 
+* **Learning loop**: è possibile creare un ciclo di apprendimento per ogni parte dell'applicazione che può trarre vantaggio dalla personalizzazione. Nel caso di più esperienze da personalizzare, creare un ciclo per ognuna. 
 
-* **Azioni**: le azioni sono contenuti, come prodotti o promozioni, tra cui scegliere. Personalizza esperienze sceglie l'azione principale da mostrare agli utenti, la cosiddetta _azione ricompensa_, tramite l'API Classifica. Per ogni azione è possibile inviare caratteristiche con la richiesta Classifica.
+* **Azioni**: le azioni sono elementi di contenuto, ad esempio prodotti o promozioni, tra cui scegliere. Personalizza esperienze sceglie l'azione principale da mostrare agli utenti, la cosiddetta _azione ricompensa_, tramite l'API Classifica. Per ogni azione è possibile inviare caratteristiche con la richiesta Classifica.
 
-* **Context**: per ottenere una classifica più accurata, fornire informazioni sul contesto, ad esempio:
+* **Contesto**: per fornire un rango più preciso, fornire informazioni sul contesto, ad esempio:
     * L'utente.
     * Il dispositivo che usa. 
     * Ora corrente.
@@ -68,19 +68,19 @@ Personalizza esperienze si basa su dati scientifici e ricerche nel campo dell'[a
 
     Le specifiche applicazioni possono avere informazioni diverse sul contesto. 
 
-* **[Caratteristiche](concepts-features.md)** : un'unità di informazioni su un contenuto o su un contesto utente.
+* **[Funzionalità](concepts-features.md)** : unità di informazioni relative a un elemento di contenuto o a un contesto utente.
 
-* **Riconoscimento**: la misura del tipo di risposta data dall'utente all'azione restituita dall'API Classifica, sotto forma di punteggio compreso tra 0 e 1. Il valore da 0 a 1 viene impostato dalla logica di business in base all'efficacia della scelta per realizzare gli obiettivi aziendali della personalizzazione. 
+* **Reward**: una misura della risposta dell'utente all'API Rank restituita, come un punteggio compreso tra 0 e 1. Il valore da 0 a 1 viene impostato dalla logica di business in base all'efficacia della scelta per realizzare gli obiettivi aziendali della personalizzazione. 
 
-* **Esplorazione**: il servizio Personalizza esperienze usa l'esplorazione quando, invece di restituire l'azione ottimale, ne sceglie una diversa per l'utente. Il servizio Personalizza esperienze evita scenari di deriva e di stallo e può adattarsi al comportamento in corso dell'utente tramite esplorazione. 
+* **Esplorazione**: il servizio di personalizzazione sta esplorando quando, anziché restituire l'azione migliore, sceglie un'azione diversa per l'utente. Il servizio Personalizza esperienze evita scenari di deriva e di stallo e può adattarsi al comportamento in corso dell'utente tramite esplorazione. 
 
-* **Durata dell'esperimento**: il periodo di tempo durante il quale Personalizza esperienze aspetta una ricompensa, a partire dal momento in cui si verifica la chiamata a Classifica per tale evento.
+* **Durata dell'esperimento**: periodo di tempo durante il quale il servizio di personalizzazione resta in attesa di una ricompensa, a partire dal momento in cui si è verificata la chiamata di rango per quell'evento.
 
-* **Eventi inattivi**: un evento inattivo si verifica quando viene effettuata una chiamata a Classifica ma non è certo se l'utente vedrà il risultato a causa delle decisioni dell'applicazione client. Gli eventi inattivi consentono di creare e archiviare i risultati della personalizzazione e quindi di decidere di rimuoverli in seguito senza influire sul modello di Machine Learning.
+* **Eventi inattivi**: un evento inattivo è quello in cui è stato chiamato Rank, ma non si è certi che l'utente visualizzerà mai il risultato, a causa delle decisioni relative alle applicazioni client. Gli eventi inattivi consentono di creare e archiviare i risultati della personalizzazione e quindi di decidere di rimuoverli in seguito senza influire sul modello di Machine Learning.
 
-* **Model** (Modella): un modello di Personalizza esperienze acquisisce tutti i dati appresi sul comportamento dell'utente, ottenendo i dati di training dalla combinazione degli argomenti inviati alle chiamate a Classifica e Ricompensa e con un comportamento di training determinato dai criteri di apprendimento. 
+* **Modello**: un modello di personalizzatore acquisisce tutti i dati appresi sul comportamento dell'utente, recuperando i dati di training dalla combinazione degli argomenti inviati a chiamate di rango e premi e con un comportamento di training determinato dai criteri di apprendimento. 
 
-* **Criteri di apprendimento**: Il modo in cui la personalizzazione del training di un modello su ogni evento verrà determinato da alcuni metadati che influiscono sul funzionamento degli algoritmi di machine learning. I nuovi cicli di personalizzazione inizieranno con criteri di apprendimento predefiniti che possono produrre prestazioni moderate. Quando si eseguono [valutazioni](concepts-offline-evaluation.md), il Personalizzatore può creare nuovi criteri di apprendimento specificamente ottimizzati per i casi d'uso del ciclo. Il Personalizzatore offre prestazioni significativamente migliori con i criteri ottimizzati per ogni ciclo specifico, generato durante la valutazione.
+* **Criteri di apprendimento**: il modo in cui la personalizzazione del training di un modello su ogni evento verrà determinato da alcuni metadati che influiscono sul funzionamento degli algoritmi di machine learning. I nuovi cicli di personalizzazione inizieranno con criteri di apprendimento predefiniti che possono produrre prestazioni moderate. Quando si eseguono [valutazioni](concepts-offline-evaluation.md), il Personalizzatore può creare nuovi criteri di apprendimento specificamente ottimizzati per i casi d'uso del ciclo. Il Personalizzatore offre prestazioni significativamente migliori con i criteri ottimizzati per ogni ciclo specifico, generato durante la valutazione.
 
 ## <a name="example-use-cases-for-personalizer"></a>Casi d'uso di esempio per Personalizza esperienze
 

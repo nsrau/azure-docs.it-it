@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: bd57880b11f56b13b4225652071593d29dcc6280
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 9d7336fb933ee5e9781d15214fa3e59446aa5b6a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515219"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490737"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analizzare il ciclo di apprendimento con una valutazione offline
 
 Informazioni su come completare una valutazione offline e comprendere i risultati.
 
-Le valutazioni offline consentono di misurare l'efficacia di Personalizza esperienze rispetto al comportamento predefinito dell'applicazione, scoprire quali funzionalità contribuiscono maggiormente alla personalizzazione e individuare nuove impostazioni di apprendimento automatico automaticamente.
+Le valutazioni offline consentono di misurare il modo in cui il Personalizzatore effettivo viene confrontato con il comportamento predefinito dell'applicazione, scoprire quali funzionalità contribuiscono maggiormente alla personalizzazione e individuare automaticamente nuovi valori di machine learning.
 
 Altre informazioni sulle [valutazioni offline](concepts-offline-evaluation.md).
 
@@ -35,11 +35,11 @@ Altre informazioni sulle [valutazioni offline](concepts-offline-evaluation.md).
 
 1. Nella [portale di Azure](https://azure.microsoft.com/free/)individuare la risorsa di personalizzazione.
 1. Nella portale di Azure passare alla sezione **valutazioni** e selezionare **Crea valutazione**.
-    ![In il portale di Azure, passare alla sezione * * valutazioni * * e selezionare * * Crea valutazione * *. ](./media/offline-evaluation/create-new-offline-evaluation.png)
-1. Selezionare le impostazioni seguenti:
+    ![nella portale di Azure, passare alla sezione * * valutazioni * * e selezionare * * Crea valutazione * *.](./media/offline-evaluation/create-new-offline-evaluation.png)
+1. Configurare i valori seguenti:
 
     * Nome della valutazione
-    * Data di inizio e di fine. si tratta di date nel passato, che specificano l'intervallo di dati da usare nella valutazione. Questi dati devono essere presenti nei log, come specificato nell'impostazione [Conservazione dei dati](how-to-settings.md).
+    * Data di inizio e di fine. si tratta di date nel passato, che specificano l'intervallo di dati da usare nella valutazione. Questi dati devono essere presenti nei log, come specificato nel valore di [conservazione dei dati](how-to-settings.md) .
     * Individuazione ottimizzazione impostata su **Sì**
 
     ![Scegliere le impostazioni di valutazione offline](./media/offline-evaluation/create-an-evaluation-form.png)

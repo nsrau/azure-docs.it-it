@@ -2,23 +2,24 @@
 title: Creare esperimenti di Machine Learning automatizzato
 titleSuffix: Azure Machine Learning
 description: L'apprendimento automatico automatizzato seleziona un algoritmo per l'utente e genera un modello pronto per la distribuzione. Informazioni sulle opzioni che è possibile usare per configurare esperimenti di apprendimento automatico.
-author: nacharya1
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 181f11bd5cfda479c25b5bce20649b8f382968fe
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: 4d050385bb76817c8aeada1bef4c4697a1f58d09
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935383"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497264"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di Machine Learning automatici in Python
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questa guida illustra come definire diverse impostazioni di configurazione degli esperimenti di Machine Learning automatici con l' [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Il processo di Machine Learning automatizzato seleziona un algoritmo e iperparametri per l'utente e genera un modello pronto per la distribuzione. Per configurare esperimenti di Machine Learning automatizzato sono disponibili varie opzioni.
 
@@ -34,7 +35,7 @@ Opzioni di configurazione disponibili nell'apprendimento automatico:
 * Esplorare le metriche del modello
 * Registrare e distribuire modelli
 
-Se si preferisce un'esperienza senza codice, è anche possibile [creare esperimenti automatici di Machine Learning in portale di Azure](how-to-create-portal-experiments.md).
+Se si preferisce un'esperienza senza codice, è anche possibile [creare esperimenti automatici di Machine Learning in Azure Machine Learning Studio](how-to-create-portal-experiments.md).
 
 ## <a name="select-your-experiment-type"></a>Selezionare il tipo di esperimento
 
@@ -72,7 +73,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## <a name="data-source-and-format"></a>Origine dati e formato
 
-Il processo di Machine Learning automatizzato supporta dati presenti nel desktop locale o nel cloud, ad esempio Archiviazione BLOB di Azure. I dati possono essere letti in un **Dataframe Pandas** o in un **Azure Machine Learning TabularDataset**.  [Altre informazioni su datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+Il processo di Machine Learning automatizzato supporta dati presenti nel desktop locale o nel cloud, ad esempio Archiviazione BLOB di Azure. I dati possono essere letti in un **Dataframe Pandas** o in un **Azure Machine Learning TabularDataset**.  [Altre informazioni sui set di impostazioni](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
 
 Requisiti per i dati di training:
 - I dati devono essere in formato tabulare.
@@ -111,7 +112,7 @@ Vedere le [procedure](how-to-train-with-datasets.md#option-2--mount-files-to-a-r
 
 ## <a name="train-and-validation-data"></a>Dati di training e convalida
 
-È possibile specificare direttamente set di training e di convalida separati nel costruttore `AutoMLConfig`.
+È possibile specificare il training e i set di convalida distinti direttamente nel costruttore `AutoMLConfig`.
 
 ### <a name="k-folds-cross-validation"></a>Convalida incrociata K-Folds
 
@@ -145,26 +146,24 @@ Per configurare l'esperimento di Machine Learning automatizzato sono disponibili
 
 Di seguito sono riportati alcuni esempi:
 
-1.  Esperimento di classificazione con AUC ponderato come metrica primaria con un tempo massimo di 12.000 secondi per iterazione, con l'esperimento che termina dopo 50 iterazioni e 2 riduzioni di convalida incrociata.
+1.  Esperimento di classificazione con AUC ponderato come metrica primaria con minuti di timeout dell'esperimento impostati su 30 minuti e 2 riduzioni di convalida incrociata.
 
     ```python
     automl_classifier=AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        max_time_sec=12000,
-        iterations=50,
+        experiment_timeout_minutes=30,
         blacklist_models='XGBoostClassifier',
         training_data=train_data,
         label_column_name=label,
         n_cross_validations=2)
     ```
-2.  Di seguito è riportato un esempio di un set di esperimento di regressione da terminare allo scadere di 100 iterazioni, con ogni iterazione della durata fino a 600 secondi con 5 riduzioni di convalida incrociata.
+2.  Di seguito è riportato un esempio di un esperimento di regressione impostato per terminare dopo 60 minuti con 5 riduzioni di convalida incrociate.
 
     ```python
     automl_regressor = AutoMLConfig(
         task='regression',
-        max_time_sec=600,
-        iterations=100,
+        experiment_timeout_minutes=60,
         whitelist_models='kNN regressor'
         primary_metric='r2_score',
         training_data=train_data,
@@ -172,7 +171,7 @@ Di seguito sono riportati alcuni esempi:
         n_cross_validations=5)
     ```
 
-I tre valori dei parametri `task` diversi (il terzo tipo di attività è `forecasting` e utilizza lo stesso pool di algoritmi delle attività `regression`) determina l'elenco dei modelli da applicare. Usare i parametri `whitelist` o `blacklist` per modificare ulteriormente le iterazioni con i modelli disponibili da includere o escludere. L'elenco dei modelli supportati è disponibile nella [classe SupportedModels](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
+I tre valori di parametro `task` diversi (il terzo tipo di attività è `forecasting`e usa lo stesso pool di algoritmi di `regression` attività) determina l'elenco dei modelli da applicare. Usare i parametri `whitelist` o `blacklist` per modificare ulteriormente le iterazioni con i modelli disponibili da includere o escludere. L'elenco dei modelli supportati è disponibile nella [classe SupportedModels](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
 
 ### <a name="primary-metric"></a>Metrica primaria
 La metrica primaria determina la metrica da utilizzare durante il training del modello per l'ottimizzazione. La metrica disponibile che è possibile selezionare è determinata dal tipo di attività scelto e la tabella seguente mostra le metriche primarie valide per ogni tipo di attività.
@@ -191,13 +190,13 @@ Informazioni sulle definizioni specifiche di questi dati sono disponibili in inf
 
 In ogni esperimento di Machine Learning automatizzato, i dati vengono [ridimensionati e normalizzati automaticamente](concept-automated-ml.md#preprocess) per aiutare *determinati* algoritmi sensibili alle funzionalità con diverse scale.  Tuttavia, è anche possibile abilitare la pre-elaborazione/conteggi aggiuntiva, ad esempio la mancata imputazione, la codifica e le trasformazioni dei valori mancanti. [Scopri di più su cosa è incluso conteggi](how-to-create-portal-experiments.md#preprocess).
 
-Per abilitare questo conteggi, specificare `"preprocess": True` per la [classe `AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+Per abilitare questo conteggi, specificare `"preprocess": True` per la [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 > [!NOTE]
 > I passaggi di pre-elaborazione di Machine Learning automatizzati (normalizzazione delle funzionalità, gestione dei dati mancanti, conversione di valori di testo nel formato numerico e così via) diventano parte del modello sottostante. Quando si usa il modello per le previsioni, gli stessi passaggi di pre-elaborazione applicati durante il training vengono automaticamente applicati ai dati di input.
 
 ### <a name="time-series-forecasting"></a>Previsione delle serie temporali
-L'attività Time Series `forecasting` richiede parametri aggiuntivi nell'oggetto di configurazione:
+L'attività `forecasting` della serie temporale richiede parametri aggiuntivi nell'oggetto di configurazione:
 
 1. `time_column_name`: parametro obbligatorio che definisce il nome della colonna nei dati di training contenenti una serie temporale valida.
 1. `max_horizon`: definisce l'intervallo di tempo che si desidera stimare in base alla periodicità dei dati di training. Se, ad esempio, si dispone di dati di training con intervalli di tempo giornalieri, si definisce la distanza in giorni per cui si desidera eseguire il training del modello.
@@ -225,7 +224,7 @@ time_series_settings = {
 automl_config = AutoMLConfig(task = 'forecasting',
                              debug_log='automl_oj_sales_errors.log',
                              primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
+                             experiment_timeout_minutes=20,
                              training_data=train_data,
                              label_column_name=label,
                              n_cross_validations=5,
@@ -240,7 +239,7 @@ I modelli di ensemble sono abilitati per impostazione predefinita e vengono visu
 
 Sono disponibili più argomenti predefiniti che possono essere forniti come `kwargs` in un oggetto `AutoMLConfig` per modificare il comportamento predefinito dell'insieme dello stack.
 
-* `stack_meta_learner_type`: il metaapprendimento è un modello di cui è stato eseguito il training sull'output dei singoli modelli di eterogeneo. I meta-Learning predefiniti sono `LogisticRegression` per le attività di classificazione (oppure `LogisticRegressionCV` se la convalida incrociata è abilitata) e `ElasticNet` per le attività di regressione/previsione (oppure `ElasticNetCV` Se la convalida incrociata è abilitata). Questo parametro può essere una delle seguenti stringhe: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor` o `LinearRegression`.
+* `stack_meta_learner_type`: il metaapprendimento è un modello di cui è stato eseguito il training sull'output dei singoli modelli di eterogeneo. I meta-Learning predefiniti sono `LogisticRegression` per le attività di classificazione (oppure `LogisticRegressionCV` se la convalida incrociata è abilitata) e `ElasticNet` per le attività di regressione/previsione (o `ElasticNetCV` se la convalida incrociata è abilitata). Questo parametro può essere una delle seguenti stringhe: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`o `LinearRegression`.
 * `stack_meta_learner_train_percentage`: specifica la proporzione del set di training (quando si sceglie il tipo di training di training e di convalida) da riservare per il training del meta-Learning. Il valore predefinito è `0.2`.
 * `stack_meta_learner_kwargs`: parametri facoltativi da passare all'inizializzatore del meta-Learning. Questi parametri e tipi di parametro eseguono il mirroring di quelli del costruttore del modello corrispondente e vengono trasmessi al costruttore del modello.
 
@@ -262,7 +261,7 @@ ensemble_settings = {
 automl_classifier = AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        iterations=20,
+        experiment_timeout_minutes=30,
         training_data=train_data,
         label_column_name=label,
         n_cross_validations=5,
@@ -276,7 +275,7 @@ Il training di ensemble è abilitato per impostazione predefinita, ma può esser
 automl_classifier = AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        iterations=20,
+        experiment_timeout_minutes=30,
         training_data=data_train,
         label_column_name=label,
         n_cross_validations=5,
@@ -314,7 +313,6 @@ run = experiment.submit(automl_config, show_output=True)
 ### <a name="exit-criteria"></a>Criteri di uscita
 Sono disponibili alcune opzioni che è possibile definire per terminare l'esperimento.
 1. Nessun criterio: se non si definiscono parametri di uscita, l'esperimento continuerà fino a quando non verrà effettuato ulteriore avanzamento sulla metrica primaria.
-1. Numero di iterazioni: è possibile definire il numero di iterazioni per l'esecuzione dell'esperimento. Facoltativamente, è possibile aggiungere `iteration_timeout_minutes` per definire un limite di tempo in minuti per ogni iterazione.
 1. Uscire dopo un periodo di tempo: l'uso di `experiment_timeout_minutes` nelle impostazioni consente di definire per quanto tempo, in minuti, un esperimento continuerà a essere eseguito.
 1. Uscire dopo che è stato raggiunto un punteggio: se si usa `experiment_exit_score` l'esperimento viene completato dopo il raggiungimento di un punteggio della metrica primario.
 
@@ -338,7 +336,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>Progettazione automatica delle funzioni
 
-Vedere l'elenco delle funzionalità di pre-elaborazione e di [progettazione automatica delle funzioni](concept-automated-ml.md#preprocess) che si verificano quando pre-elaborazione = true.
+Vedere l'elenco delle funzionalità di pre-elaborazione e di [progettazione automatica delle funzioni](concept-automated-ml.md#preprocess) che si verificano quando feauturization = auto.
 
 Considerare questo esempio:
 + Sono disponibili 4 funzionalità di input: A (numerico), B (numerico), C (numerico), D (DateTime)
@@ -407,6 +405,32 @@ Usare queste 2 API nel primo passaggio del modello montato per comprendere megli
    |Eliminato|Indica se la funzionalità di input è stata eliminata o utilizzata.|
    |EngineeringFeatureCount|Numero di funzionalità generate tramite trasformazioni automatiche di progettazione delle funzionalità.|
    |Trasformazioni|Elenco di trasformazioni applicate alle funzionalità di input per generare funzionalità progettate.|
+   
+### <a name="customize-feature-engineering"></a>Personalizzare la progettazione delle funzionalità
+Per personalizzare la progettazione delle funzionalità, specificare `"feauturization":FeaturizationConfig`.
+
+La personalizzazione supportata include:
+
+|Personalizzazione|Definizione|
+|--|--|
+|Aggiornamento a scopo di colonna|Consente di eseguire l'override del tipo di funzionalità per la colonna specificata.|
+|Aggiornamento parametri Transformer |Aggiornare i parametri per il trasformatore specificato. Attualmente supporta l'Imputatore e HashOneHotEncoder.|
+|Rilascia colonne |Colonne da eliminare dall'oggetto trasformato.|
+|Trasformatori blocco| Blocca i trasformatori da usare nel processo conteggi.|
+
+Creare l'oggetto FeaturizationConfig usando le chiamate API:
+```python
+featurization_config = FeaturizationConfig()
+featurization_config.blocked_transformers = ['LabelEncoder']
+featurization_config.drop_columns = ['aspiration', 'stroke']
+featurization_config.add_column_purpose('engine-size', 'Numeric')
+featurization_config.add_column_purpose('body-style', 'CategoricalHash')
+#default strategy mean, add transformer param for for 3 columns
+featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strategy": "median"})
+featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
+featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
+featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
+```
 
 ### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Ridimensionamento/normalizzazione e algoritmo con valori di iperparametri:
 
@@ -467,78 +491,13 @@ LogisticRegression
 
 <a name="explain"></a>
 
-## <a name="explain-the-model-interpretability"></a>Descrizione del modello (interpretazione)
+## <a name="model-interpretability"></a>Interpretabilità dei modelli
 
-Il processo di Machine Learning automatizzato consente di riconoscere l'importanza delle caratteristiche.  Durante il training, è possibile ottenere l'importanza delle caratteristiche a livello globale per il modello.  Per gli scenari di classificazione, è anche possibile ottenere l'importanza delle caratteristiche a livello di classe.  Per ottenere l'importanza della funzionalità, è necessario fornire un set di dati di convalida (validation_data).
+L'interpretazione dei modelli consente di comprendere il motivo per cui i modelli hanno eseguito stime e i valori di importanza delle funzionalità sottostanti. L'SDK include diversi pacchetti per abilitare le funzionalità di interpretazione dei modelli, sia in fase di training che di inferenza, per i modelli locali e distribuiti.
 
-È possibile generare l'importanza delle caratteristiche in due modi.
+Vedere le [procedure](how-to-machine-learning-interpretability-automl.md) per esempi di codice su come abilitare le funzionalità di interpretazione in modo specifico negli esperimenti di Machine Learning automatici.
 
-*   Al termine di un esperimento, è possibile usare il metodo `explain_model` su qualsiasi iterazione.
-
-    ```python
-    from azureml.train.automl.automlexplainer import explain_model
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-        explain_model(fitted_model, train_data, test_data)
-
-    #Overall feature importance
-    print(overall_imp)
-    print(overall_summary)
-
-    #Class-level feature importance
-    print(per_class_imp)
-    print(per_class_summary)
-    ```
-
-*   Per visualizzare l'importanza delle caratteristiche per tutte le iterazioni, impostare il flag `model_explainability` su `True` in AutoMLConfig.
-
-    ```python
-    automl_config = AutoMLConfig(task='classification',
-                                 debug_log='automl_errors.log',
-                                 primary_metric='AUC_weighted',
-                                 max_time_sec=12000,
-                                 iterations=10,
-                                 verbosity=logging.INFO,
-                                 training_data=train_data,
-                                 label_column_name=y_train,
-                                 validation_data=test_data,
-                                 model_explainability=True,
-                                 path=project_folder)
-    ```
-
-    Dopo aver eseguito questa operazione, è possibile usare il metodo retrieve_model_explanation per recuperare l'importanza delle caratteristiche per un'iterazione specifica.
-
-    ```python
-    from azureml.train.automl.automlexplainer import retrieve_model_explanation
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-        retrieve_model_explanation(best_run)
-
-    #Overall feature importance
-    print(overall_imp)
-    print(overall_summary)
-
-    #Class-level feature importance
-    print(per_class_imp)
-    print(per_class_summary)
-    ```
-
-Visualizzare l'URL per visualizzare l'importanza della funzionalità usando l'oggetto Run:
-
-```
-automl_run.get_portal_url()
-```
-
-È possibile visualizzare il grafico relativo all'importanza della funzionalità nell'area di lavoro nell'portale di Azure o dalla [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com). Il grafico viene visualizzato anche quando si usa il widget `RunDetails` [Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in un notebook. Per altre informazioni sui grafici, vedere l'articolo relativo ai [risultati automatici di Machine Learning](how-to-understand-automated-ml.md).
-
-```Python
-from azureml.widgets import RunDetails
-RunDetails(automl_run).show()
-```
-
-![grafico relativo all'importanza delle caratteristiche](./media/how-to-configure-auto-train/feature-importance.png)
-
-Per altre informazioni su come è possibile abilitare le spiegazioni dei modelli e l'importanza delle funzionalità in altre aree dell'SDK al di fuori dell'apprendimento automatico automatico, vedere l'articolo relativo al [concetto](machine-learning-interpretability-explainability.md) di interpretazione.
+Per informazioni generali sul modo in cui è possibile abilitare le spiegazioni dei modelli e l'importanza delle funzionalità in altre aree dell'SDK al di fuori dell'apprendimento automatico automatico, vedere l'articolo relativo al [concetto](how-to-machine-learning-interpretability.md) di interpretazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

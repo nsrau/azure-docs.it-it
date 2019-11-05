@@ -1,5 +1,5 @@
 ---
-title: 'MLOps: Gestire, distribuire, & monitorare i modelli ML'
+title: 'MLOps: gestire, distribuire, & monitorare i modelli ML'
 titleSuffix: Azure Machine Learning
 description: 'Informazioni su come usare Azure Machine Learning per MLOps: distribuire, gestire e monitorare i modelli per migliorarli continuamente. È possibile distribuire i modelli di cui si è effettuato il training con Azure Machine Learning sul computer locale o da altre origini.'
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 06/24/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98a3102d47504b40a6b62eb329b508468947ca79
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 8741a9a362a10dfdb0150c9dc0dfddeed54594a7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035477"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497437"
 ---
-# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps: Gestione, distribuzione e monitoraggio dei modelli con Azure Machine Learning
+# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps: gestire, distribuire e monitorare i modelli con Azure Machine Learning
 
 Questo articolo illustra come usare Azure Machine Learning per gestire il ciclo di vita dei modelli. Azure Machine Learning usa un approccio per le operazioni di Machine Learning (MLOps), che migliora la qualità e la coerenza delle soluzioni di machine learning. 
 
@@ -88,9 +88,9 @@ Questi asset vengono assemblati in un'immagine Docker e distribuiti come un serv
 
 Facoltativamente, è possibile usare i parametri seguenti per ottimizzare ulteriormente la distribuzione:
 
-* Abilita GPU: Usato per abilitare il supporto GPU nell'immagine docker. L'immagine deve essere usata nei servizi di Microsoft Azure, ad esempio istanze di contenitore di Azure, servizio Azure Kubernetes, Azure Machine Learning calcolo o macchine virtuali di Azure.
-* Passaggi aggiuntivi per il file docker: Un file che contiene altri passaggi Docker da eseguire durante la creazione dell'immagine docker.
-* Immagine di base: Immagine personalizzata da usare come immagine di base. Se non si usa un'immagine personalizzata, l'immagine di base viene fornita da Azure Machine Learning.
+* Enable GPU: usato per abilitare il supporto GPU nell'immagine docker. L'immagine deve essere usata nei servizi di Microsoft Azure, ad esempio istanze di contenitore di Azure, servizio Azure Kubernetes, Azure Machine Learning calcolo o macchine virtuali di Azure.
+* Passaggi aggiuntivi del file docker: un file che contiene altri passaggi di Docker da eseguire durante la creazione dell'immagine docker.
+* Immagine di base: immagine personalizzata da usare come immagine di base. Se non si usa un'immagine personalizzata, l'immagine di base viene fornita da Azure Machine Learning.
 
 Viene inoltre fornita la configurazione della piattaforma di distribuzione di destinazione. Ad esempio, il tipo di famiglia di VM, la memoria disponibile e il numero di core quando si esegue la distribuzione nel servizio Azure Kubernetes.
 
@@ -121,7 +121,7 @@ Per ulteriori informazioni, vedere [deploy Models](how-to-deploy-and-where.md).
 
 Per ulteriori informazioni, vedere [deploy Models](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analisi
+### <a name="analytics"></a>Analytics
 
 Microsoft Power BI supporta l'uso di modelli di apprendimento automatico per l'analisi dei dati. Per ulteriori informazioni, vedere [integrazione di Azure Machine Learning in Power BI (anteprima)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
@@ -157,7 +157,7 @@ Per altre informazioni sull'uso di Azure Pipelines con Azure Machine Learning, v
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su [come e dove è possibile distribuire i modelli](how-to-deploy-and-where.md) con Azure Machine Learning. Per un esempio di distribuzione, vedere [esercitazione: Distribuire un modello di classificazione delle immagini in istanze](tutorial-deploy-models-with-aml.md)di contenitore di Azure.
+Altre informazioni su [come e dove è possibile distribuire i modelli](how-to-deploy-and-where.md) con Azure Machine Learning. Per un esempio di distribuzione, vedere [esercitazione: distribuire un modello di classificazione delle immagini in istanze di contenitore di Azure](tutorial-deploy-models-with-aml.md).
 
 Informazioni su come creare l' [integrazione e la distribuzione continue dei modelli ml con Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning). 
 

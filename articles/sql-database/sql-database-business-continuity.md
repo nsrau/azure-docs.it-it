@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 5cc033787e1045926ff4fece6826e41f430d48fd
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 69ff1a5681fbb0b434d7114b069610ed34d9e843
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744459"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492207"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 
@@ -53,7 +53,7 @@ Il database SQL offre inoltre diverse funzionalità di continuità aziendale, ch
 
 ## <a name="recover-a-database-within-the-same-azure-region"></a>Ripristinare un database nella stessa area di Azure
 
-È possibile utilizzare i backup automatici del database per ripristinare un database a un punto nel tempo precedente. In questo modo è possibile eseguire il ripristino dai danneggiamenti dei dati causati da errori umani. Il ripristino in poin consente di creare un nuovo database nello stesso server che rappresenta lo stato dei dati prima dell'evento danneggiato. Per la maggior parte dei database, le operazioni di ripristino richiedono meno di 12 ore. Il ripristino di un database molto grande o molto attivo potrebbe richiedere più tempo. Per altre informazioni sui tempi di ripristino, vedere il [tempo di ripristino dei database](sql-database-recovery-using-backups.md#recovery-time). 
+È possibile utilizzare i backup automatici del database per ripristinare un database a un punto nel tempo precedente. In questo modo è possibile eseguire il ripristino dai danneggiamenti dei dati causati da errori umani. Il ripristino temporizzato consente di creare un nuovo database nello stesso server che rappresenta lo stato dei dati prima dell'evento danneggiato. Per la maggior parte dei database, le operazioni di ripristino richiedono meno di 12 ore. Il ripristino di un database molto grande o molto attivo potrebbe richiedere più tempo. Per altre informazioni sui tempi di ripristino, vedere il [tempo di ripristino dei database](sql-database-recovery-using-backups.md#recovery-time). 
 
 Se il periodo di conservazione dei backup massimo supportato per il ripristino temporizzato (ripristino temporizzato) non è sufficiente per l'applicazione, è possibile estenderlo configurando un criterio di conservazione a lungo termine per i database. Per altre informazioni, vedere [Conservazione dei backup a lungo termine](sql-database-long-term-retention.md).
 
@@ -63,13 +63,13 @@ I [gruppi di failover automatico](sql-database-auto-failover-group.md#auto-failo
 
 |                                              | Replica geografica | Gruppi di failover  |
 |:---------------------------------------------| :-------------- | :----------------|
-| Failover automatico                           |     No          |      Yes         |
+| Failover automatico                           |     No          |      Sì         |
 | Eseguire contemporaneamente il failover di più database  |     No          |      Sì         |
 | Aggiornare la stringa di connessione dopo il failover      |     Sì         |      No          |
-| Istanza gestita supportata                   |     No          |      Yes         |
+| Istanza gestita supportata                   |     No          |      Sì         |
 | Può trovarsi nella stessa area del database primario             |     Sì         |      No          |
 | Più repliche                            |     Sì         |      No          |
-| Supporta la scalabilità in lettura                          |     Yes         |      Sì         |
+| Supporta la scalabilità in lettura                          |     Sì         |      Sì         |
 | &nbsp; | &nbsp; | &nbsp; |
 
 

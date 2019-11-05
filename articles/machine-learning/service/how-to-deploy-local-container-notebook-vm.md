@@ -1,7 +1,7 @@
 ---
-title: Come distribuire i modelli nelle VM notebook
+title: Come distribuire i modelli nelle istanze di calcolo
 titleSuffix: Azure Machine Learning
-description: Informazioni su come distribuire i modelli di Azure Machine Learning come servizio Web usando le macchine virtuali del notebook.
+description: Informazioni su come distribuire i modelli di Azure Machine Learning come servizio Web usando le istanze di calcolo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,43 +9,55 @@ ms.topic: conceptual
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
-ms.date: 08/08/2019
-ms.openlocfilehash: 046f998038c47a48a8528bf36d87ac836395eec2
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
-ms.translationtype: MT
+ms.date: 10/25/2019
+ms.openlocfilehash: bb187826250b3edc9ac3d9e36a243d75819a45b3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002819"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496884"
 ---
-# <a name="deploy-a-model-to-notebook-vms"></a>Distribuire un modello in macchine virtuali notebook
+# <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuire un modello per Azure Machine Learning istanze di calcolo
 
-Informazioni su come usare Azure Machine Learning per distribuire un modello come servizio Web nella macchina virtuale del notebook. Usare le macchine virtuali del notebook se si verifica una delle condizioni seguenti:
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
+> [!NOTE]
+> Le istanze di calcolo sono disponibili solo per le aree di lavoro con un'area **Stati Uniti centro-settentrionali** o **Regno Unito meridionale**.
+>Se l'area di lavoro si trova in un'altra area, è possibile continuare a creare e usare una [macchina virtuale del notebook](concept-compute-instance.md#notebookvm) .  È possibile distribuire un modello in un'istanza di calcolo o in una VM notebook usando la procedura descritta in questo articolo.
+
+Informazioni su come usare Azure Machine Learning per distribuire un modello come servizio Web nell'istanza di calcolo Azure Machine Learning. Usare le istanze di calcolo se si verifica una delle condizioni seguenti:
 
 - È necessario distribuire e convalidare rapidamente il modello.
 - Si sta eseguendo il test di un modello in fase di sviluppo.
 
 > [!TIP]
-> La distribuzione di un modello da un Jupyter Notebook in una macchina virtuale notebook a un servizio Web nella stessa VM è una _distribuzione locale_. In questo caso, il computer locale è la VM del notebook. Per altre informazioni sulle distribuzioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
+> La distribuzione di un modello da un Jupyter Notebook in un'istanza di calcolo a un servizio Web nella stessa VM è una _distribuzione locale_. In questo caso, il computer ' local ' è l'istanza di calcolo. Per altre informazioni sulle distribuzioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un'area di lavoro Azure Machine Learning con una VM notebook in esecuzione. Per ulteriori informazioni, vedere [configurazione dell'ambiente e dell'area di lavoro](tutorial-1st-experiment-sdk-setup.md).
+- Un'area di lavoro Azure Machine Learning con un'istanza di calcolo in esecuzione. Per ulteriori informazioni, vedere [configurazione dell'ambiente e dell'area di lavoro](tutorial-1st-experiment-sdk-setup.md).
 
-## <a name="deploy-to-the-notebook-vms"></a>Eseguire la distribuzione nelle VM notebook
+## <a name="deploy-to-the-compute-instances"></a>Eseguire la distribuzione nelle istanze di calcolo
 
-Un notebook di esempio che illustra le distribuzioni locali è incluso nella macchina virtuale del notebook. Usare la procedura seguente per caricare il notebook e distribuire il modello come servizio Web nella macchina virtuale:
+Un notebook di esempio che illustra le distribuzioni locali è incluso nell'istanza di calcolo. Usare la procedura seguente per caricare il notebook e distribuire il modello come servizio Web nella macchina virtuale:
 
-1. Dal [portale di Azure](https://portal.azure.com)selezionare le VM Azure Machine Learning notebook.
+1. Da [Azure Machine Learning Studio](https://ml.azure.com)selezionare le istanze di calcolo Azure Machine Learning.
 
-1. Aprire la `samples-*` sottodirectory e quindi aprire `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`. Una volta aperto, Esegui il notebook.
+1. Aprire la sottodirectory `samples-*`, quindi aprire `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`. Una volta aperto, Esegui il notebook.
 
     ![Screenshot del servizio locale in esecuzione nel notebook](media/how-to-deploy-local-container-notebookvm/deploy-local-service.png)
 
-1. Il notebook Visualizza l'URL e la porta su cui è in esecuzione il servizio. Ad esempio `https://localhost:6789`. È anche possibile eseguire la cella che `print('Local service port: {}'.format(local_service.port))` contiene per visualizzare la porta.
+1. Il notebook Visualizza l'URL e la porta su cui è in esecuzione il servizio. Ad esempio, `https://localhost:6789`. È anche possibile eseguire la cella contenente `print('Local service port: {}'.format(local_service.port))` per visualizzare la porta.
 
     ![Screenshot della porta del servizio locale in esecuzione](media/how-to-deploy-local-container-notebookvm/deploy-local-service-port.png)
 
-1. Per testare il servizio dalla VM notebook, usare l' `https://localhost:<local_service.port>` URL. Per eseguire il test da un client remoto, ottenere l'URL pubblico del servizio in esecuzione nella macchina virtuale del notebook. è possibile determinare l'URL pubblico usando la formula seguente. `https://<notebookvm_name>-<local_service_port>.<azure_region_of_notebook>.notebooks.azureml.net/score`. Ad esempio `https://mynotebookvm-6789.eastus2.notebooks.azureml.net/score`.
+1. Per testare il servizio da un'istanza di calcolo, usare l'URL del `https://localhost:<local_service.port>`. Per eseguire il test da un client remoto, ottenere l'URL pubblico del servizio in esecuzione nell'istanza di calcolo. È possibile determinare l'URL pubblico utilizzando la formula seguente. 
+    * VM notebook: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score`. 
+    * Istanza di calcolo: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score`. 
+    
+    Ad esempio, 
+    * VM notebook: `https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
+    * Istanza di calcolo: `https://vm-name-6789.northcentralus.instances.azureml.net/score`
 
 ## <a name="test-the-service"></a>Testare il servizio
 
@@ -61,7 +73,8 @@ test_sample = json.dumps({'data': [
 test_sample = bytes(test_sample,encoding = 'utf8')
 access_token = "your bearer token"
 headers = {'Content-Type':'application/json', 'Authorization': 'Bearer ' + access_token}
-service_url = "https://mynotebookvm-6789.eastus2.notebooks.azureml.net/score"
+service_url = "https://vm-name-6789.northcentralus.notebooks.azureml.net/score"
+# for a compute instance, the url would be https://vm-name-6789.northcentralus.instances.azureml.net/score
 resp = requests.post(service_url, test_sample, headers=headers)
 print("prediction:", resp.text)
 ```

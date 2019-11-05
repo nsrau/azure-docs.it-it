@@ -1,23 +1,23 @@
 ---
 title: Processi del servizio Azure Batch
-titleSuffix: Azure Machine Learning Studio
-description: Panoramica dei servizi di Azure Batch per i processi di Machine Learning Studio. L'elaborazione di pool di Batch consente di creare pool a cui è possibile inviare i processi batch.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Panoramica dei servizi di Azure Batch per i processi di Machine Learning Studio (classico). L'elaborazione di pool di Batch consente di creare pool a cui è possibile inviare i processi batch.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 24efa3caba3918a38c09b1c921c600b117dedbc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1de7ad10a54c34595f69a543843097cee1377067
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751149"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493030"
 ---
-# <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Servizio Azure Batch per processi di Azure Machine Learning Studio
+# <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Servizio Azure Batch per i processi di Azure Machine Learning Studio (classico)
 
 L'elaborazione di pool di Batch in Machine Learning fornisce la scalabilità gestita dal cliente per il servizio di esecuzione Batch di Azure Machine Learning. L'elaborazione batch classica per l'apprendimento automatico avviene in un ambiente multi-tenant, limitando il numero di processi simultanei che è possibile inviare, e i processi vengono accodati in base alla modalità First-In-First-Out. Non è quindi possibile prevedere con precisione quando verrà eseguito il processo.
 
@@ -111,4 +111,4 @@ Se si crea un pool Batch con 4 macchine virtuali e lo si elimina dopo 12 ore, al
 
 | **Usare l'elaborazione di pool Batch quando**    | **Usare l'elaborazione di batch classica quando**  |
 |---|---|
-|È necessario eseguire un numero elevato di processi<br>Oppure<br/>È necessario che i processi vengano eseguiti immediatamente<br/>Oppure<br/>È necessario garantire la velocità effettiva. Ad esempio, è necessario eseguire alcuni processi in un determinato intervallo temporale e aumentare le risorse di calcolo in base alle esigenze.    | Si sta eseguendo un numero limitato di processi<br/>e<br/> non è necessario che i processi vengano eseguiti immediatamente |
+|È necessario eseguire un numero elevato di processi<br>oppure<br/>È necessario che i processi vengano eseguiti immediatamente<br/>oppure<br/>È necessario garantire la velocità effettiva. Ad esempio, è necessario eseguire alcuni processi in un determinato intervallo temporale e aumentare le risorse di calcolo in base alle esigenze.    | Si sta eseguendo un numero limitato di processi<br/>e<br/> non è necessario che i processi vengano eseguiti immediatamente |

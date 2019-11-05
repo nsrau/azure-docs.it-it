@@ -1,24 +1,24 @@
 ---
-title: 'Selezionare le colonne nel set di dati: Riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Select Columns in DataSet nel servizio Azure Machine Learning per scegliere un subset di colonne da usare nelle operazioni downstream.
+title: 'Selezionare le colonne nel set di dati: riferimento al modulo'
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Select Columns in DataSet in Azure Machine Learning per scegliere un subset di colonne da usare nelle operazioni downstream.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 097477fb9fc10d954954815c7f4b0fef8947a526
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.date: 10/22/2019
+ms.openlocfilehash: 3511c448298aa96c95dc970d1d192869c127eb0d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128502"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497662"
 ---
 # <a name="select-columns-in-dataset-module"></a>Selezionare le colonne nel modulo DataSet
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per scegliere un subset di colonne da usare nelle operazioni downstream. Il modulo non rimuove fisicamente le colonne dal set di dati di origine. viene invece creato un subset di colonne, in modo analogo a una *vista* o *proiezione*del database.
 
@@ -40,7 +40,7 @@ Sono disponibili più opzioni nel modulo per la scelta delle colonne in base al 
 
     Se è stato connesso un set di dati già popolato, verrà visualizzato un elenco di colonne disponibili. Se non viene visualizzata alcuna colonna, potrebbe essere necessario eseguire i moduli upstream per visualizzare l'elenco di colonne.
 
-    Per filtrare l'elenco, digitare nella casella di ricerca. Se, ad esempio, si digita la `w` lettera nella casella di ricerca, l'elenco verrà filtrato in modo da visualizzare i nomi delle `w`colonne che contengono la lettera.
+    Per filtrare l'elenco, digitare nella casella di ricerca. Se ad esempio si digita la lettera `w` nella casella di ricerca, l'elenco viene filtrato in modo da visualizzare i nomi delle colonne che contengono la lettera `w`.
 
     Selezionare le colonne e fare clic sul pulsante freccia destra per spostare le colonne selezionate nell'elenco nel riquadro di destra.
 
@@ -73,13 +73,13 @@ Se si utilizza l'opzione **with Rules** , è possibile applicare più condizioni
 
 L'opzione **Begin with** determina il punto di partenza ed è importante per comprendere i risultati. 
 
-+ Se si seleziona l'opzione **tutte le colonne** , tutte le colonne vengono aggiunte all'elenco. Quindi, è necessario utilizzare l' opzione Escludi per *rimuovere* le colonne che soddisfano determinate condizioni. 
++ Se si seleziona l'opzione **tutte le colonne** , tutte le colonne vengono aggiunte all'elenco. Quindi, è necessario utilizzare l'opzione **Escludi** per *rimuovere* le colonne che soddisfano determinate condizioni. 
 
     Ad esempio, è possibile iniziare con tutte le colonne, quindi rimuovere le colonne in base al nome o al tipo.
 
 + Se si seleziona l'opzione **No Columns** , l'elenco di colonne viene avviato come vuoto. È quindi possibile specificare le condizioni per *aggiungere* colonne all'elenco. 
 
-    Se si applicano più regole, ogni condizioneè additiva. Si immagini, ad esempio, di iniziare senza colonne, quindi aggiungere una regola per ottenere tutte le colonne numeriche. Nel set di dati del prezzo automobile, che restituisce 16 colonne. Quindi, fare clic sul **+** segno per aggiungere una nuova condizione e selezionare **Includi tutte le funzionalità**. Il set di dati risultante include tutte le colonne numeriche, oltre a tutte le colonne di funzionalità, incluse alcune colonne della funzionalità di stringa.
+    Se si applicano più regole, ogni condizione è **additiva**. Si immagini, ad esempio, di iniziare senza colonne, quindi aggiungere una regola per ottenere tutte le colonne numeriche. Nel set di dati del prezzo automobile, che restituisce 16 colonne. Quindi, fare clic sul segno di **+** per aggiungere una nuova condizione e selezionare **Includi tutte le funzionalità**. Il set di dati risultante include tutte le colonne numeriche, oltre a tutte le colonne di funzionalità, incluse alcune colonne della funzionalità di stringa.
 
 ### <a name="choose-by-column-index"></a>Seleziona per indice colonna
 
@@ -87,7 +87,7 @@ L'indice di colonna si riferisce all'ordine della colonna all'interno del set di
 
 + Le colonne sono numerate in modo sequenziale a partire da 1.  
 + Per ottenere un intervallo di colonne, usare un trattino. 
-+ Le specifiche aperte, ad esempio `1-` o `-3` , non sono consentite.
++ Non sono consentite specifiche aperte, ad esempio `1-` o `-3`.
 + I valori di indice o i nomi di colonna duplicati non sono consentiti e potrebbero verificarsi errori.
 
 Ad esempio, supponendo che il set di dati includa almeno otto colonne, è possibile incollare uno degli esempi seguenti per restituire più colonne non contigue: 
@@ -112,4 +112,4 @@ Ad esempio, in un set di dati con le colonne col1, Col2, col3 e Col4, è possibi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bf0e679ab46752d71ba4f5ef2b014e0cb2b4c6ad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e9daf1be1f931bb13cda446cbb9d6e37acce3bcf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593807"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498105"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accedere a set di dati con Python mediante la libreria client Python di Azure Machine Learning
 L'anteprima della libreria client Python di Microsoft Azure Machine Learning consente l'accesso sicuro a set di dati di Azure Machine Learning da un ambiente Python locale, nonché la creazione e la gestione di set di dati in un'area di lavoro.
@@ -27,8 +27,6 @@ Questo argomento fornisce istruzioni su come:
 * Accedere e caricare set di dati, fornendo istruzioni su come ottenere l'autorizzazione per accedere a set di dati di Azure Machine Learning dall'ambiente Python locale
 * Accedere ai set di dati intermedi di un esperimento
 * Usare la libreria client Python per enumerare set di dati, accedere a metadati, leggere il contenuto di un set di dati, creare nuovi set di dati e aggiornare set di dati esistenti.
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 La libreria client Python è stata testata negli ambienti seguenti:
@@ -66,9 +64,9 @@ Dall'interfaccia Web di Studio è possibile generare frammenti di codice che inc
 ### <a name="security"></a>Sicurezza per l'accesso ai dati
 I frammenti di codice forniti da Studio per essere usati con la libreria client Python includono l'ID dell'area di lavoro e il token di autorizzazione, che offrono l'accesso completo all'area di lavoro e pertanto devono essere protetti, come una password.
 
-Per motivi di sicurezza, le funzionalità dei frammenti di codice sono disponibili solo per gli utenti il cui ruolo nell'area di lavoro è impostato su **Owner** . Il ruolo viene visualizzato in Azure Machine Learning Studio nella pagina **USERS** in **Settings**.
+Per motivi di sicurezza, le funzionalità dei frammenti di codice sono disponibili solo per gli utenti il cui ruolo nell'area di lavoro è impostato su **Owner** . Il ruolo viene visualizzato in Azure Machine Learning Studio (classico) nella pagina **utenti** in **Impostazioni**.
 
-![Security][security]
+![Sicurezza][security]
 
 Se il proprio ruolo non è impostato su **Owner**, è possibile chiedere di essere nuovamente invitati con il ruolo di proprietario o chiedere il frammento di codice al proprietario dell'area di lavoro.
 
@@ -112,11 +110,11 @@ Sono supportati i formati seguenti (le costanti per questi formati sono disponib
 
 È possibile determinare il formato passando il puntatore del mouse su un nodo di output del modulo. Il formato viene visualizzato in una descrizione comando insieme al nome del nodo.
 
-Alcuni moduli, ad esempio [Split][split], eseguono l'output in un formato denominato `Dataset`, che non è supportato dalla libreria client Python.
+Alcuni moduli, ad esempio il modulo [Split][split] , restituiscono un formato denominato `Dataset`, che non è supportato dalla libreria client Python.
 
 ![Formato del set di dati][dataset-format]
 
-Per ottenere un output in un formato supportato, è necessario usare un modulo di conversione, ad esempio [Convert to CSV][convert-to-csv] (Converti in CSV).
+È necessario usare un modulo di conversione, ad esempio [Convert to CSV][convert-to-csv], per ottenere un output in un formato supportato.
 
 ![Formato GenericCSV][csv-format]
 
@@ -124,10 +122,10 @@ I passaggi seguenti illustrano un esempio in cui si crea e si esegue un esperime
 
 1. Creare un nuovo esperimento.
 2. Inserire un modulo **Adult Census Income Binary Classification dataset** .
-3. Inserire un modulo [Split][split] e connetterne l'input all'output del modulo del set di dati.
-4. Inserire un modulo [Convert to CSV][convert-to-csv] (Converti in CSV) e connetterne l'input a uno degli output del modulo [Split][split] (Dividi).
+3. Inserire un modulo [Split][split] e connetterne l'input all'output del modulo DataSet.
+4. Inserire un modulo [Convert to CSV][convert-to-csv] e connetterne l'input a uno degli output del modulo [Split][split] .
 5. Salvare l'esperimento, eseguirlo e attendere il completamento dell'esecuzione.
-6. Fare clic sul nodo di output del modulo [Convert to CSV][convert-to-csv] (Converti in CSV).
+6. Fare clic sul nodo output nel modulo [Convert to CSV][convert-to-csv] .
 7. Nel menu di scelta rapida visualizzato selezionare **Generate Data Access Code** (Genera codice di accesso ai dati).
    
     ![Menu di scelta rapida][experiment]
@@ -193,7 +191,7 @@ Altri valori vengono assegnati da Azure Machine Learning:
 Vedere la classe `SourceDataset` per altre informazioni sui metadati disponibili.
 
 ### <a name="read-contents"></a>Leggere il contenuto
-I frammenti di codice disponibili in Machine Learning Studio scaricano e deserializzano automaticamente il set di dati in un oggetto DataFrame pandas. Questa operazione viene eseguita con il metodo `to_dataframe` :
+I frammenti di codice forniti da Machine Learning Studio (classico) scaricano e deserializzano automaticamente il set di dati in un oggetto di dataframe Pandas. Questa operazione viene eseguita con il metodo `to_dataframe` :
 
     frame = ds.to_dataframe()
 

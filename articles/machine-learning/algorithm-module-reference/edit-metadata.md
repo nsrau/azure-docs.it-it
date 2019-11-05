@@ -1,24 +1,24 @@
 ---
 title: 'Modifica metadati: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Modifica metadati nel servizio Azure Machine Learning per modificare i metadati associati alle colonne in un set di dati.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo di modifica dei metadati nella Azure Machine Learning per modificare i metadati associati alle colonne in un set di dati.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: b6e28577fefe4892d719e211e16edafed1504e87
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 2c8224edbe95c8185e390c2ce48cbb4263f97586
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693820"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497956"
 ---
 # <a name="edit-metadata-module"></a>Modulo Modifica metadati
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+Questo articolo descrive un modulo incluso in Azure Machine Learning Designer (anteprima).
 
 Usare il modulo Edit data per modificare i metadati associati alle colonne in un set di dati. Il valore e il tipo di dati del set di dati cambieranno dopo l'uso del modulo di modifica dei metadati.
 
@@ -98,4 +98,4 @@ Le modifiche tipiche dei metadati possono includere:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per il servizio Azure Machine Learning.
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning.

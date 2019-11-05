@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: c5de4277915e71763f034596d372554e4f88e204
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 2f55ad795cc76d59581b25ca60a1c89e7db96b04
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316651"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496018"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Informazioni sull'opzione database singolo del database SQL di Azure
 
@@ -25,11 +25,11 @@ L'opzione di distribuzione database singolo crea un database nel database SQL di
 > [!IMPORTANT]
 > Il database singolo è una delle tre opzioni di distribuzione per il database SQL di Azure. Le altre due sono i [pool elastici](sql-database-elastic-pool.md) e l'[istanza gestita](sql-database-managed-instance.md).
 > [!NOTE]
-> Per un glossario di termini relativi al database SQL di Azure, vedere [Glossario dei termini relativi al database SQL](sql-database-glossary-terms.md)
+> Per un glossario di termini relativi al database SQL di Azure, vedere [SQL Database terms glossary](sql-database-glossary-terms.md) (Glossario di termini relativi al database SQL)
 
 ## <a name="dynamic-scalability"></a>Scalabilità dinamica
 
-Puoi creare la tua prima app in un database di piccole dimensioni, a basso costo nel livello di calcolo senza server (anteprima) o in una piccola dimensione di calcolo nel livello di calcolo con provisioning. È possibile modificare il [livello di calcolo o di servizio](sql-database-single-database-scale.md) manualmente o a livello di codice in qualsiasi momento per soddisfare le esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
+Puoi creare la tua prima app in un database di piccole dimensioni, a basso costo nel livello di calcolo senza server o in una piccola dimensione di calcolo nel livello di calcolo di cui è stato effettuato il provisioning. È possibile modificare il [livello di calcolo o di servizio](sql-database-single-database-scale.md) manualmente o a livello di codice in qualsiasi momento per soddisfare le esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
 
 ## <a name="single-databases-and-elastic-pools"></a>Database singoli e pool elastici
 
@@ -50,7 +50,7 @@ Inoltre, alcune funzionalità e sintassi non sono affatto supportate, perché il
 
 Per altre informazioni, vedere [Risoluzione delle differenze di Transact-SQL durante la migrazione al database SQL](sql-database-transact-sql-information.md).
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 Il database SQL offre un'ampia gamma di [funzionalità predefinite per sicurezza e conformità](sql-database-security-overview.md) utili per fare in modo che le applicazioni possano soddisfare svariati requisiti di sicurezza e conformità.
 

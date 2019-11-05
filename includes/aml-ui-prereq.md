@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: machine-learning
 ms.service: machine-learning
 ms.custom: include file
@@ -8,19 +8,20 @@ ms.topic: include
 author: sgilley
 ms.author: sgilley
 ms.date: 05/06/2019
-ms.openlocfilehash: 695153438ba33d9803f7f938aa15b6552d28da40
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 18e855a5f87e700481b69c39c4fe03a69437895e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692786"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490072"
 ---
-1. [Creare un'area di lavoro del servizio Azure Machine Learning](../articles/machine-learning/service/how-to-manage-workspace.md) se non è già presente.
+1. Se non è presente, [creare un'area di lavoro di Azure Machine Learning](../articles/machine-learning/service/how-to-manage-workspace.md).
 
-1. Aprire l'area di lavoro nel [portale di Azure](https://portal.azure.com/).  Se non si è certi di come individuare l'area di lavoro nel portale, vedere [come trovare l'](../articles/machine-learning/service/how-to-manage-workspace.md#view)area di lavoro.  
+1. Accedere a [ml.Azure.com](https://ml.azure.com) e selezionare l'area di lavoro che si vuole usare.
 
-1. Nell'area di lavoro selezionare **Interfaccia visiva grafica**.  
- 
-    ![Avviare l'interfaccia visiva grafica](./media/aml-ui-prereq/launch-ui.png)
+1. Selezionare **finestra di progettazione**.
 
-    È anche possibile accedere all'interfaccia visiva dalla [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com).
+    ![Avviare la finestra di progettazione](./media/aml-ui-prereq/launch-designer.png)
+
+
+

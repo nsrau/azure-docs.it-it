@@ -10,14 +10,15 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 47387108de09c9b24471c4afc06a25fa0cbeca00
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 3f822e0089772f06245d80c1323cf1f5dfe10361
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053395"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496922"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuire un modello usando un'immagine di base Docker personalizzata
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Informazioni su come usare un'immagine di base Docker personalizzata quando si distribuiscono modelli con training con Azure Machine Learning.
 
@@ -171,7 +172,7 @@ Per usare un'immagine personalizzata, sono necessarie le informazioni seguenti:
 * __Nome dell'immagine__. Ad esempio, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` è il percorso di un'immagine Docker di base fornita da Microsoft.
 * Se l'immagine si trova in un __repository privato__, sono necessarie le informazioni seguenti:
 
-    * __Indirizzo__del registro di sistema. Ad esempio `myregistry.azureecr.io`.
+    * __Indirizzo__del registro di sistema. Ad esempio, `myregistry.azureecr.io`.
     * __Nome utente__ e __password__ di un'entità servizio con accesso in lettura al registro di sistema.
 
     Se non si dispone di queste informazioni, rivolgersi all'amministratore per il Container Registry di Azure che contiene l'immagine.
@@ -180,10 +181,10 @@ Per usare un'immagine personalizzata, sono necessarie le informazioni seguenti:
 
 Microsoft fornisce diverse immagini Docker in un repository accessibile pubblicamente, che può essere usato con i passaggi descritti in questa sezione:
 
-| Image | Description |
+| Image | Descrizione |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Immagine di base per Azure Machine Learning |
-| `mcr.microsoft.com/azureml/onnxruntime:latest` | Contiene ONNX Runtime per CPU inferecning |
+| `mcr.microsoft.com/azureml/onnxruntime:latest` | Contiene il runtime ONNX per l'inferenza della CPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | Contiene il runtime ONNX e CUDA per GPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | Contiene ONNX Runtime e TensorRT per GPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | Contiene ONNX Runtime e OpenVINO per Intel<sup> </sup> Vision Accelerator Design basati su Movidius<sup>TM</sup> MyriadX VPUs |

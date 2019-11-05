@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 80a1ac3ebe5f49d6a63f47e08e0b16114d75e91f
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 97541484501a3ecdd1bd5998314c1ee9e7a4e3a5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199210"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489068"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrare in blocco le macchine virtuali SQL in Azure con il provider di risorse VM SQL
 
@@ -37,9 +37,9 @@ Per registrare la macchina virtuale di SQL Server con il provider di risorse, è
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/) che è stata [registrata con il provider di risorse](virtual-machines-windows-sql-register-with-resource-provider.md#register-subscription-with-rp) e contiene macchine virtuali SQL Server non registrate. 
 - Le credenziali client utilizzate per registrare le macchine virtuali sono disponibili in uno dei ruoli RBAC seguenti: **collaboratore macchina virtuale**, **collaboratore**o **proprietario**. 
 - La versione più recente di [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
-- La versione più recente di [AZ. SqlVirtualMachine] (https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0.
+- Versione più recente di [AZ. SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 Prima di procedere, è necessario creare prima di tutto una copia locale dello script, importarlo come modulo di PowerShell e connettersi ad Azure. 
 
@@ -57,7 +57,7 @@ Aprire un terminale di PowerShell amministrativo e passare al percorso in cui è
 Import-Module .\RegisterSqlVMs.psm1
 ```
 
-### <a name="connect-to-azure"></a>Connettersi ad Azure
+### <a name="connect-to-azure"></a>Connect to Azure
 
 Usare il cmdlet di PowerShell seguente per connettersi ad Azure:
 
@@ -198,7 +198,7 @@ Please find the detailed report in  file RegisterSqlVMScriptReport1571314821.txt
 
 Ogni volta che viene utilizzato il `Register-SqlVMs` cmdlet viene generato un report e un file di log. 
 
-### <a name="report"></a>Documentazione
+### <a name="report"></a>Report
 
 Il report viene generato come file `.txt` denominato `RegisterSqlVMScriptReport<Timestamp>.txt` dove il timestamp è l'ora in cui è stato avviato il cmdlet. Il report elenca i dettagli seguenti:
 

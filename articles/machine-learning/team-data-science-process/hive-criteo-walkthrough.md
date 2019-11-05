@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eca19b3774ad285cb143ffc2b6c53360bec85fa4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60305920"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492351"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Hadoop di Azure HDInsight su un set di dati da 1 TB
 
 Questa procedura dettagliata descrive come usare in uno scenario end-to-end il Processo di analisi scientifica dei dati per i team con un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviare, esplorare e sottocampionare i dati, nonché progettare caratteristiche, da uno dei set di dati [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) disponibili pubblicamente. Viene usato Azure Machine Learning per creare un modello di classificazione binaria in questi dati. Viene illustrato anche come pubblicare uno di questi modelli come servizio Web.
 
-Per eseguire le attività presentate in questa procedura dettagliata, è anche possibile usare IPython Notebook. Se si vuole provare questo approccio, vedere l'argomento [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) (Procedura dettagliata su Criteo con una connessione Hive ODBC).
+Per eseguire le attività presentate in questa procedura dettagliata, è anche possibile usare IPython Notebook. Se si vuole provare questo approccio, vedere l'argomento relativo alla [procedura dettagliata Criteo con una connessione Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) .
 
 ## <a name="dataset"></a>Descrizione del set di dati Criteo
 I dati Criteo sono un set di dati di stima dei clic raccolti in file TSV compressi nel formato gzip con dimensioni di circa 370 GB (circa 1,3 TB non compressi) e includono più di 4,3 miliardi di record. I valori sono ottenuti da 24 giorni di dati sui clic resi disponibili da [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/). Per semplificare il lavoro dei data scientist, i dati disponibili per eseguire gli esperimenti sono stati decompressi.
@@ -33,7 +33,7 @@ Ogni record nel set di dati contiene 40 colonne:
 * le successive 13 colonne sono di tipo numerico
 * le ultime 26 colonne sono di tipo categorico
 
-Le colonne sono rese anonime e usano una serie di nomi enumerati: da "Col1" (per la colonna delle etichette) a "Col40" (per l'ultima colonna categorica).
+Le colonne sono rese anonime e usano una serie di nomi enumerati: da "Col1" (per la colonna di etichetta) a "Col40" (per l'ultima colonna categorica).
 
 Di seguito è riportato un estratto delle prime 20 colonne di due osservazioni (righe) di questo set di dati:
 
@@ -44,28 +44,28 @@ Di seguito è riportato un estratto delle prime 20 colonne di due osservazioni (
 
 Il set di dati presenta valori mancanti sia nelle colonne numeriche sia in quelle categoriche. Di seguito viene descritto un metodo semplice per la gestione dei valori mancanti. Sono illustrati anche altri dettagli sui dati quando vengono archiviati nelle tabelle Hive.
 
-**Definizione:** *Tasso di click-through:* Percentuale di clic nei dati. In questo set di dati Criteo, il valore corrisponde circa al 3,3% o 0,033.
+**Definizione:** *percentuale di click-through (CTR, Clickthrough Rate):* indica la percentuale di clic nei dati. In questo set di dati Criteo, il valore corrisponde circa al 3,3% o 0,033.
 
 ## <a name="mltasks"></a>Esempi di attività di stima
 Questa procedura dettagliata illustra due problemi di stima di esempio:
 
 1. **Classificazione binaria**: stima se un utente ha fatto clic su un annuncio:
 
-   * Classe 0: Nessun clic
-   * Classe 1: Fare clic su
+   * Classe 0: nessun clic
+   * Classe 1: clic
 2. **Regressione**: stima la probabilità di un clic su un annuncio in base alle caratteristiche dell'utente.
 
 ## <a name="setup"></a>Configurare un cluster Hadoop di HDInsight per l'analisi scientifica
-**Nota:** In genere, questa attività viene svolta da un **amministratore** .
+**Nota:** in genere, questa attività viene svolta da un **amministratore**.
 
 Per configurare l'ambiente di analisi scientifica dei dati di Azure per la creazione di soluzioni di analisi predittiva con i cluster HDInsight, sono necessari tre passaggi:
 
-1. [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md): questo account di archiviazione viene usato per archiviare i dati in Archiviazione BLOB di Azure. I dati usati nei cluster HDInsight vengono archiviati in questa posizione.
-2. [Personalizzare i cluster di Azure HDInsight Hadoop per le attività di data science](customize-hadoop-cluster.md): questo passaggio consente di creare un cluster Hadoop di Azure HDInsight con la versione a 64 bit di Anaconda Python 2.7 installata in tutti i nodi. Quando si personalizza il cluster HDInsight, occorre completare due importanti passaggi descritti in questo argomento.
+1. [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md): l'account di archiviazione viene usato per archiviare i dati nell'archivio BLOB di Azure. I dati usati nei cluster HDInsight vengono archiviati in questa posizione.
+2. [Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati](customize-hadoop-cluster.md): questo passaggio consente di creare un cluster Hadoop di Azure HDInsight con la versione a 64 bit di Anaconda Python 2.7 installata in tutti i nodi. Quando si personalizza il cluster HDInsight, occorre completare due importanti passaggi descritti in questo argomento.
 
    * È necessario collegare l'account di archiviazione creato nel passaggio 1 al cluster HDInsight al momento della creazione. Questo account di archiviazione viene usato per accedere ai dati che possono essere elaborati all'interno del cluster.
    * È necessario abilitare l'accesso remoto al nodo head del cluster dopo la creazione. Ricordare le credenziali di accesso remoto specificate qui, che sono diverse da quelle specificate durante la creazione del cluster, perché sono necessarie per completare le procedure seguenti.
-3. [Creare un'area di lavoro di Azure Machine Learning Studio](../studio/create-workspace.md): l'area di lavoro di Azure Machine Learning viene usata per la creazione di modelli di Machine Learning dopo l'esplorazione iniziale dei dati e il loro sottocampionamento nel cluster HDInsight.
+3. [Creare un'area di lavoro di Azure Machine Learning Studio (classica)](../studio/create-workspace.md): questa area di lavoro Azure Machine Learning viene usata per la creazione di modelli di apprendimento automatico dopo un'esplorazione iniziale dei dati e il campionamento inattivo nel cluster HDInsight.
 
 ## <a name="getdata"></a>Ottenere e utilizzare i dati da un'origine pubblica
 È possibile accedere al set di dati [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) facendo clic sul collegamento, accettando le condizioni per l'utilizzo e specificando un nome. Ecco uno snapshot di come appare:
@@ -157,13 +157,13 @@ Queste tabelle sono tutte esterne e, quindi, è possibile puntare semplicemente 
 
 **Esistono due modi per eseguire QUALSIASI query Hive:**
 
-1. **Tramite la riga di comando REPL Hive**: il primo modo consiste nell'eseguire un comando "hive" e copiare e incollare la query nella riga di comando REPL Hive. A tale scopo, eseguire l'operazione seguente:
+1. **Usando la riga di comando REPL Hive**: il primo modo consiste nell'eseguire un comando "hive" e copiare e incollare la query nella riga di comando REPL Hive. A tale scopo, eseguire l'operazione seguente:
 
         cd %hive_home%\bin
         hive
 
      A questo punto, tagliando e incollando la query nella riga di comando REPL questa viene eseguita.
-2. **Salvando le query in un file ed eseguendo il comando**: il secondo modo consiste nel salvare le query in un file con estensione hql ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), quindi eseguire il comando seguente per eseguire la query:
+2. **Salvando le query in un file ed eseguendo il comando**: il secondo modo consiste nel salvare le query in un file con estensione hql ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) e quindi eseguire il comando seguente per eseguire la query:
 
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
@@ -417,14 +417,14 @@ Per creare tabelle di conteggio sui dati di conteggio, vengono usati i dati nell
 Il processo di creazione di un modello in Azure Machine Learning prevede i passaggi seguenti:
 
 1. [Ottenere i dati dalle tabelle Hive in Azure Machine Learning](#step1)
-2. [Creare l'esperimento: pulire i dati e impostarlo come una funzionalità con le tabelle di conteggio](#step2)
+2. [Creare l'esperimento: pulire i dati e renderli una funzionalità con le tabelle di conteggio](#step2)
 3. [Compilare, eseguire il training e assegnare un punteggio al modello](#step3)
 4. [Valutare il modello](#step4)
 5. [Pubblicare il modello come servizio Web](#step5)
 
 È ora possibile creare modelli in Azure Machine Learning Studio. I dati sottocampionati vengono salvati come tabelle Hive nel cluster. Per leggere i dati viene usato il modulo **Import data** di Azure Machine Learning. Le credenziali per accedere all'account di archiviazione del cluster sono indicate di seguito.
 
-### <a name="step1"></a> Passaggio 1: Ottenere dati dalle tabelle Hive in Azure Machine Learning usando il modulo Import Data e selezionarli per un esperimento di Machine Learning
+### <a name="step1"></a> Passaggio 1: Ottenere i dati dalle tabelle Hive in Azure Machine Learning usando il modulo Import Data e selezionarli per un esperimento di Machine Learning
 Per iniziare, selezionare **+NEW** -> **EXPERIMENT** -> **Blank Experiment** (+NUOVO -> ESPERIMENTO -> Esperimento vuoto). Quindi, nella casella **Search** (Ricerca) in alto a sinistra cercare "Import Data". Trascinare il modulo **Import Data** sull'area di disegno degli esperimenti (la parte centrale della schermata) per usare il modulo per l'accesso ai dati.
 
 Ecco l'aspetto del modulo **Import Data** durante il recupero dei dati dalla tabella Hive:
@@ -435,13 +435,13 @@ Per il modulo **Import Data** i valori dei parametri forniti nel grafico sono so
 
 1. In **Data Source**
 2. Nella casella **Hive database query** (Query di database Hive) è sufficiente specificare l'istruzione SELECT * FROM <nome\_del\_database.nome\_della\_tabella>.
-3. **URI del server Hcatalog**: se il cluster è "abc", specificare semplicemente https://abc.azurehdinsight.net
-4. **Nome dell'account utente Hadoop**: nome utente scelto al momento dell'autorizzazione del cluster. (NON il nome utente di accesso remoto).
-5. **Password dell'account utente Hadoop**: password per il nome utente scelta al momento dell'autorizzazione del cluster. (NON la password di accesso remoto).
-6. **Percorso dei dati di output**: Scegliere "Azure"
-7. **Nome dell'account di archiviazione di Azure**: Account di archiviazione associato al cluster
-8. **Chiave dell'account di archiviazione di Azure**: Chiave dell'account di archiviazione associato al cluster.
-9. **Nome del contenitore di Azure**: se il nome del cluster è "abc", in genere questo valore è semplicemente "abc".
+3. **Hcatalog server URI** (URI del server Hcatalog): se il cluster è "abc", specificare semplicemente https://abc.azurehdinsight.net
+4. **Hadoop user account name** (Nome dell'account utente Hadoop): nome utente scelto al momento dell'autorizzazione del cluster (NON il nome utente di accesso remoto).
+5. **Hadoop user account password** (Password dell'account utente Hadoop): password per il nome utente scelta al momento dell'autorizzazione del cluster (NON la password di accesso remoto).
+6. **Location of output data**: scegliere "Azure".
+7. **Azure storage account name**: account di archiviazione associato al cluster.
+8. **Azure storage account key**: chiave dell'account di archiviazione associato al cluster.
+9. **Azure container name**: se il nome del cluster è "abc", in genere questo valore è semplicemente "abc".
 
 Quando il modulo **Import Data** termina il recupero dei dati, il completamento è indicato da un segno di spunta verde nel modulo, salvarli come set di dati con un nome a propria scelta. L'aspetto è il seguente:
 
@@ -451,15 +451,15 @@ Fare clic con il pulsante destro del mouse sulla porta di output del modulo **Im
 
 Per selezionare il set di dati salvato per l'uso in un esperimento di Machine Learning, individuare il set di dati usando la casella **Search** (Ricerca) illustrata nella figura seguente. Digitare quindi una parte del nome assegnato al set di dati per accedervi e trascinare il set di dati nel pannello principale. Rilasciando il set di dati sul pannello principale, questo viene selezionato per la modellazione in Machine Learning.
 
-![Trascinare i set di dati nel pannello principale](./media/hive-criteo-walkthrough/cl5tpGw.png)
+![Trascinare DataSet nel pannello principale](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Eseguire questa operazione per entrambi i set di dati, di training e di test. Ricordare anche di usare il nome database e i nomi delle tabelle assegnati a questo scopo. I valori usati nella figura hanno puramente scopo illustrativo.**
 >
 >
 
-### <a name="step2"></a> Passaggio 2: creare un semplice esperimento in Azure Machine Learning per stimare i clic o l'assenza di clic
-Il nostro esperimento di Azure Machine Learning Studio ha l'aspetto seguente:
+### <a name="step2"></a> Passaggio 2: Creare un semplice esperimento in Azure Machine Learning per stimare i clic o l'assenza di clic
+L'esperimento Azure Machine Learning Studio (classico) ha un aspetto simile al seguente:
 
 ![Esperimento di Machine Learning](./media/hive-criteo-walkthrough/xRpVfrY.png)
 
@@ -535,7 +535,7 @@ In questo estratto si nota che, per le colonne usate per i conteggi, si ottengon
 
 È possibile ora compilare un modello di Azure Machine Learning usando questi set di dati trasformati. Nella sezione successiva viene illustrato come effettuare questa operazione.
 
-### <a name="step3"></a> Passaggio 3: Compilare, eseguire il training e assegnare un punteggio al modello
+### <a name="step3"></a>Passaggio 3: Compilare, eseguire il training e assegnare un punteggio al modello
 
 #### <a name="choice-of-learner"></a>Scelta dello strumento di apprendimento
 Per prima cosa, è necessario scegliere uno strumento di apprendimento. In questo caso, viene usato un albero delle decisioni con boosting a due classi. Ecco le opzioni predefinite per questo strumento di apprendimento:

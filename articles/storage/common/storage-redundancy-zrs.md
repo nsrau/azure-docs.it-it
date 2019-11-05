@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a343601ec126549926cfd4035d901862c0a585a8
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: e075091461949639fc36ffb9feab69ac5399ae61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673103"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491987"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Archiviazione con ridondanza della zona (ZRS) per la creazione di applicazioni di archiviazione di Azure a disponibilità elevata
 
@@ -42,6 +42,7 @@ Per gli account per utilizzo generico V2, ZRS è disponibile a livello generale 
 Per gli account filestorage, ZRS è disponibile a livello generale nelle aree seguenti:
 
 - Europa occidentale
+- Stati Uniti orientali
 
 Microsoft continua ad abilitare l'archiviazione con ridondanza della zona in aree di Azure aggiuntive. Fare riferimento regolarmente alla pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/) per informazioni sulle nuove aree.
 
@@ -56,7 +57,7 @@ I dati sono ancora accessibili per le operazioni di lettura e scrittura anche se
 
 Quando una zona non è disponibile, Azure avvia gli aggiornamenti di rete, ad esempio la modifica del puntamento DNS. Questi aggiornamenti possono interessare l'applicazione se si accede ai dati prima che l'aggiornamento sia stato completato.
 
-L'archiviazione con ridondanza della zona potrebbe non proteggere i dati in caso di un'emergenza a livello di area in cui più zone sono interessate in modo permanente. L'archiviazione con ridondanza della zona offre invece resilienza per i dati qualora diventino temporaneamente non disponibili. Per la protezione in caso di emergenze a livello di area, Microsoft consiglia di usare l'archiviazione con ridondanza geografica (GRS). Per altre informazioni sull'archiviazione con ridondanza geografica (GRS), vedere [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy-grs.md).
+L'archiviazione con ridondanza della zona potrebbe non proteggere i dati in caso di un'emergenza a livello di area in cui più zone sono interessate in modo permanente. L'archiviazione con ridondanza della zona offre invece resilienza per i dati qualora diventino temporaneamente non disponibili. Per la protezione in caso di emergenze a livello di area, Microsoft consiglia di usare l'archiviazione con ridondanza geografica (GRS). Per altre informazioni sull'archiviazione con ridondanza geografica, vedere [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy-grs.md).
 
 ## <a name="converting-to-zrs-replication"></a>Conversione nella replica di archiviazione con ridondanza della zona
 
@@ -100,13 +101,13 @@ Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
 3. Selezionare **Avanti**. 
 4. Specificare i valori seguenti nella sezione **Problema**: 
     - **Gravità**: lasciare il valore predefinito.
-    - **Tipo di problema**: Selezionare **Migrazione dei dati**.
-    - **Categoria**: Selezionare **migrate to ZRS**.
-    - **Titolo**: digitare un titolo descrittivo, ad esempio **Migrazione di account ZRS**.
-    - **Informazioni dettagliate**: digitare dettagli aggiuntivi nella casella **Dettagli**, ad esempio Vorrei eseguire la migrazione all'archiviazione con ridondanza locale da [LRS, GRS] nell'area \_\_. 
+    - **Tipo di problema**: selezionare **Migrazione dei dati**.
+    - **Category**: selezionare **migrate to ZRS**.
+    - **Titolo**: digitare un titolo descrittivo, ad esempio **migrazione di account con archiviazione con ridondanza della zona**.
+    - **Dettagli**: digitare ulteriori dettagli nella casella **Dettagli** , ad esempio, si desidera eseguire la migrazione a ZRS da [con ridondanza locale, GRS] nell'area \_\_. 
 5. Selezionare **Avanti**.
 6. Verificare che le informazioni di contatto nel pannello **Informazioni contatto** siano corrette.
-7. Selezionare **Create**.
+7. Selezionare **Crea**.
 
 Un addetto del supporto tecnico contatterà l'utente e fornirà l'assistenza necessaria.
 

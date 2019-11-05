@@ -1,7 +1,7 @@
 ---
 title: 'Esegui script R: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Execute R script nel servizio Azure Machine Learning per eseguire il codice R.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Execute R script in Azure Machine Learning per eseguire il codice R.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,25 +9,25 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: 01d4e3a06b8c6a95374b9ee246864167e6d2ac85
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: f9aae1302f0d83c27d5d8f01745ddecbaeea9467
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693778"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497890"
 ---
 # <a name="execute-r-script"></a>Execute R Script
 
-Questo articolo descrive come usare il modulo **Execute R script** per eseguire il codice r nella pipeline dell'interfaccia visiva.
+Questo articolo descrive come usare il modulo **Execute R script** per eseguire il codice R nella pipeline di Azure Machine Learning Designer (anteprima).
 
 Con R è possibile eseguire attività che non sono attualmente supportate dai moduli esistenti, ad esempio: 
 - Creare trasformazioni di dati personalizzate
 - Usare metriche personalizzate per valutare le stime
-- Compilare modelli usando algoritmi che non sono implementati come moduli autonomi nell'interfaccia visiva
+- Compilare modelli usando algoritmi che non sono implementati come moduli autonomi nella finestra di progettazione
 
 ## <a name="r-version-support"></a>Supporto della versione di R
 
-L'interfaccia visiva del servizio Azure Machine Learning usa la distribuzione CRAN (complete R Archive Network) di R. La versione attualmente utilizzata è CRAN 3.5.1.
+Azure Machine Learning Designer usa la distribuzione CRAN (complete R Archive Network) di R. La versione attualmente utilizzata è CRAN 3.5.1.
 
 ## <a name="supported-r-packages"></a>Pacchetti R supportati
 
@@ -73,7 +73,7 @@ Il modulo **Execute R script** contiene codice di esempio che è possibile usare
 
 ![Modulo R](media/module/execute-r-script.png)
 
-I set di dati archiviati nell'interfaccia visiva vengono convertiti automaticamente in un frame di dati R quando vengono caricati con questo modulo.
+I set di dati archiviati nella finestra di progettazione vengono convertiti automaticamente in un frame di dati R quando vengono caricati con questo modulo.
 
 1.  Aggiungere il modulo **Execute R script** alla pipeline.
 
@@ -116,10 +116,10 @@ azureml_main <- function(dataframe1, dataframe2){
  * La funzione del punto di ingresso può contenere un massimo di due argomenti di input: `Param<dataframe1>` e `Param<dataframe2>`
  
    > [!NOTE]
-    > Ai dati passati al modulo **Execute R script** viene fatto riferimento come `dataframe1` e `dataframe2`, che è diverso da Azure Machine Learning Studio (riferimento a Studio come `dataset1`, `dataset2`). Verificare che i dati di input siano referneced correttamente nello script.  
+    > Ai dati passati al modulo **Execute R script** viene fatto riferimento come `dataframe1` e `dataframe2`, che è diverso da Azure Machine Learning Designer (il riferimento alla finestra di progettazione come `dataset1`, `dataset2`). Verificare che i dati di input siano referneced correttamente nello script.  
  
     > [!NOTE]
-    >  Il codice R esistente potrebbe richiedere modifiche minime per l'esecuzione in una pipeline dell'interfaccia visiva. Ad esempio, i dati di input forniti in formato CSV devono essere convertiti in modo esplicito in un set di dati prima di poterli usare nel codice. I tipi di dati e di colonna usati nel linguaggio R variano anche in qualche modo dai tipi di dati e di colonna usati nell'interfaccia visiva.
+    >  Il codice R esistente potrebbe richiedere modifiche minime per l'esecuzione in una pipeline di progettazione. Ad esempio, i dati di input forniti in formato CSV devono essere convertiti in modo esplicito in un set di dati prima di poterli usare nel codice. I tipi di dati e di colonna usati nel linguaggio R variano anche in qualche modo dai tipi di dati e di colonna usati nella finestra di progettazione.
 
 1.  **Seed casuale**: digitare un valore da usare all'interno dell'ambiente R come valore di inizializzazione casuale. Questo parametro equivale a chiamare `set.seed(value)` nel codice R.  
 
@@ -127,7 +127,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="results"></a>Risultati
 
-I moduli **Execute R script** possono restituire più output, ma devono essere specificati come frame di dati R. I frame di dati vengono convertiti automaticamente nei set di dati dell'interfaccia visiva per la compatibilità con altri moduli.
+I moduli **Execute R script** possono restituire più output, ma devono essere specificati come frame di dati R. I frame di dati vengono convertiti automaticamente in set di dati nella finestra di progettazione per la compatibilità con altri moduli.
 
 I messaggi e gli errori standard di R vengono restituiti al log del modulo.
 
@@ -235,7 +235,7 @@ azureml_main <- function(dataframe1, dataframe2){
     }
     ```
 
-    La conversione esplicita in un tipo Integer viene eseguita perché la funzione di serializzazione restituisce i dati nel formato R `Raw`, che non è supportato dall'interfaccia visiva.
+    La conversione esplicita in un tipo Integer viene eseguita perché la funzione di serializzazione restituisce i dati nel formato R `Raw`, che non è supportato dalla finestra di progettazione.
 
 1. Aggiungere una seconda istanza del modulo **Execute R script** e connetterla alla porta di output del modulo precedente.
 
@@ -402,4 +402,4 @@ Elenco corrente dei pacchetti R preinstallati disponibili per l'uso:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

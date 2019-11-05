@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 10/09/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a8ebd0b36c6ee8bf6762a70af9f4a7c09f6b118d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
-ms.translationtype: MT
+ms.openlocfilehash: 15253e67283d1ad53bb1d4c018987dceaafac6c8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955160"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486747"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Aggiungere chit chat a una knowledge base
 
@@ -31,20 +31,33 @@ Per la query utente di `When is your birthday?`, ogni personalità ha una rispos
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |Personalità|Esempio|
 |--|--|
-|Professionale|Age non è effettivamente applicabile all'utente.|
+|Professional|Age non è effettivamente applicabile all'utente.|
 |Gentile|Non ho realmente un tempo.|
 |Spiritoso|Sono privo di età.|
 |Occuparsi|Non ho un periodo di tempo.|
 |Entusiasta|Sono un bot, quindi non ho un periodo di tempo.|
 ||
 
-> [!NOTE]
-> L'assistenza chit chat è attualmente disponibile solo in inglese. 
+
+## <a name="language-support"></a>Supporto per le lingue
+
+I set di dati Chit-Chat sono supportati nelle seguenti lingue:
+
+|Lingua|
+|--|
+|Cinese, `zh-cn`|
+|Inglese, `en-us`|
+|Francese, `fr-fr`|
+|Germania, `de-de`|
+|Italiano, `it-it`|
+|Giapponese, `ja-jp`|
+|Coreano, `ko-kr`|
+|Portoghese, `pr-br`|
+|Spagnolo, `es-es`|
+
 
 ## <a name="add-chit-chat-during-kb-creation"></a>Aggiungere una chit chat durante la creazione di KB
 Durante la creazione della knowledge base, dopo aver aggiunto l'URL di origine e i file, è disponibile un'opzione per l'aggiunta di una chit chat. Scegliere la personalità da usare come base di una chit chat. Se non si desidera aggiungere una chit chat o se si dispone già del supporto chit chat nelle origini dati, scegliere **Nessuno.** 
-   
-![Aggiungere una chit chat durante la creazione](../media/qnamaker-how-to-chit-chat/create-kb-chit-chat.png)
 
 ## <a name="add-chit-chat-to-an-existing-kb"></a>Aggiungere una chit chat a una KB esistente
 Selezionare la KB e passare alla pagina **Impostazioni**. È disponibile un collegamento a tutti i set di dati chit chat nel formato **.tsv.** Scaricare la personalità desiderata, quindi caricare il file come un file di origine. Assicurarsi di non modificare il formato o i metadati durante il download e caricare il file. 

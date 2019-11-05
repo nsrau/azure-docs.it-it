@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/08/2019
-ms.openlocfilehash: 27988edaf9d6fe70288352b0ba45945e32976d4d
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 10/25/2019
+ms.openlocfilehash: 6590b6c3ecf1efc43822a4fefab79cdc7f624dcd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034640"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496973"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Distribuire un modello in istanze di contenitore di Azure
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Informazioni su come usare Azure Machine Learning per distribuire un modello come servizio Web in istanze di contenitore di Azure (ACI). Usare istanze di contenitore di Azure se si verifica una delle condizioni seguenti:
 
@@ -36,13 +37,13 @@ Per informazioni sulla disponibilità di quote e aree per ACI, vedere l'articolo
 
 - I frammenti di codice __Python__ in questo articolo presuppongono che siano impostate le variabili seguenti:
 
-    * `ws`-Impostare sull'area di lavoro.
-    * `model`: Impostare sul modello registrato.
-    * `inference_config`-Impostare sulla configurazione di inferenza per il modello.
+    * `ws`: impostare sull'area di lavoro.
+    * `model`-impostato sul modello registrato.
+    * `inference_config`-impostato sulla configurazione di inferenza per il modello.
 
     Per ulteriori informazioni sull'impostazione di queste variabili, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
-- I frammenti di codice dell' __interfaccia__ della riga di comando in questo articolo `inferenceconfig.json` presuppongono che sia stato creato un documento. Per ulteriori informazioni sulla creazione di questo documento, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
+- I frammenti di codice dell' __interfaccia__ della riga di comando in questo articolo presuppongono che sia stato creato un documento `inferenceconfig.json`. Per ulteriori informazioni sulla creazione di questo documento, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
 ## <a name="deploy-to-aci"></a>Distribuire in ACI
 
@@ -68,7 +69,7 @@ Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in qu
 
 ### <a name="using-the-cli"></a>Uso dell'interfaccia della riga di comando
 
-Per eseguire la distribuzione usando l'interfaccia della riga di comando, usare il comando seguente. Sostituire `mymodel:1` con il nome e la versione del modello registrato. Sostituire `myservice` con il nome da assegnare al servizio:
+Per eseguire la distribuzione usando l'interfaccia della riga di comando, usare il comando seguente. Sostituire `mymodel:1` con il nome e la versione del modello registrato. Sostituire `myservice` con il nome da assegnare a questo servizio:
 
 ```azurecli-interactive
 az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json

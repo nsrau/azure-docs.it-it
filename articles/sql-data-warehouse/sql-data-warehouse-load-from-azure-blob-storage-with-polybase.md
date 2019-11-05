@@ -1,6 +1,6 @@
 ---
-title: Caricare dati di Contoso Retail in Azure SQL Data Warehouse | Microsoft Docs
-description: Usare i comandi PolyBase e T-SQL per caricare due tabelle dai dati di Contoso Retail in Azure SQL Data Warehouse.
+title: Caricare i dati di Contoso retail in un data warehouse SQL Analytics | Microsoft Docs
+description: Usare i comandi polibase e T-SQL per caricare due tabelle dai dati di Contoso retail in Analisi SQL di Azure.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: load-data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b96b65b7dd38900fccb8d5d3a9133f37ee93949f
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 76d9be9159a609e4f7c019afca5da2ab903ffe0c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "67595509"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520948"
 ---
-# <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Caricare dati di Contoso Retail in Azure SQL Data Warehouse
+# <a name="load-contoso-retail-data-to-a-sql-analytics-data-warehouse"></a>Caricare i dati di Contoso retail in un data warehouse SQL Analytics
 
-In questa esercitazione si apprenderà come usare i comandi polibase e T-SQL per caricare due tabelle dai dati di Contoso retail in Azure SQL Data Warehouse. 
+In questa esercitazione si apprenderà come usare i comandi polibase e T-SQL per caricare due tabelle dai dati di Contoso retail in un data warehouse di analisi SQL. 
 
 In questa esercitazione si apprenderà come:
 
@@ -28,10 +28,10 @@ In questa esercitazione si apprenderà come:
 3. Una volta completato il caricamento, effettuare le ottimizzazioni.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-Per eseguire questa esercitazione, è necessario un account Azure che disponga già di una SQL Data Warehouse. Se non si dispone di un data warehouse sottoposto a provisioning, vedere [creare una SQL data warehouse e impostare la regola del firewall a livello di server][Create a SQL Data Warehouse].
+Per eseguire questa esercitazione, è necessario un account Azure che già dispone di un data warehouse SQ Analytics. Se non si dispone di un data warehouse sottoposto a provisioning, vedere [creare una data warehouse SQL e impostare una regola del firewall a livello di server] [creare una data warehouse SQL].
 
-## <a name="1-configure-the-data-source"></a>1. Configurare l'origine dati
-PolyBase utilizza oggetti esterni T-SQL per definire il percorso e gli attributi dei dati esterni. Le definizioni degli oggetti esterni vengono archiviate in SQL Data Warehouse. I dati vengono archiviati esternamente.
+## <a name="1-configure-the-data-source"></a>1. configurare l'origine dati
+PolyBase utilizza oggetti esterni T-SQL per definire il percorso e gli attributi dei dati esterni. Le definizioni degli oggetti esterni vengono archiviate nel data warehouse SQL Analytics. I dati vengono archiviati esternamente.
 
 ### <a name="11-create-a-credential"></a>1.1. Creare una credenziale
 **Ignorare questo passaggio** se si desidera caricare i dati pubblici di Contoso. Non è necessario l'accesso sicuro ai dati pubblici perché è già accessibile a chiunque.
@@ -88,7 +88,7 @@ WITH
 > 
 > 
 
-## <a name="2-configure-data-format"></a>2. Configurare il formato dei dati
+## <a name="2-configure-data-format"></a>2. configurare il formato dei dati
 I dati vengono archiviati in file di testo nell'archiviazione BLOB di Azure e ogni campo è separato con un delimitatore. In SSMS eseguire il comando [Create external file format][CREATE EXTERNAL FILE FORMAT] seguente per specificare il formato dei dati nei file di testo. I dati di Contoso sono delimitati da barre verticali e non sono compressi.
 
 ```sql
@@ -103,7 +103,7 @@ WITH
 );
 ``` 
 
-## <a name="3-create-the-external-tables"></a>3. Creare le tabelle esterne.
+## <a name="3-create-the-external-tables"></a>3. creare le tabelle esterne
 Ora che è stata specificata l'origine dati e il formato di file, si è pronti per creare le tabelle esterne. 
 
 ### <a name="31-create-a-schema-for-the-data"></a>3.1. Creare uno schema per i dati.
@@ -115,7 +115,7 @@ GO
 ```
 
 ### <a name="32-create-the-external-tables"></a>3.2. Creare le tabelle esterne.
-Eseguire lo script seguente per creare le tabelle esterne DimProduct e FactOnlineSales. In questo esempio vengono definiti i nomi delle colonne e i tipi di dati e il relativo binding al percorso e al formato dei file di archiviazione BLOB di Azure. La definizione viene archiviata in SQL Data Warehouse e i dati sono ancora nel BLOB di Archiviazione di Azure.
+Eseguire lo script seguente per creare le tabelle esterne DimProduct e FactOnlineSales. In questo esempio vengono definiti i nomi delle colonne e i tipi di dati e il relativo binding al percorso e al formato dei file di archiviazione BLOB di Azure. La definizione viene archiviata nel data warehouse SQL Analytics e i dati sono ancora presenti nel BLOB del servizio di archiviazione di Azure.
 
 Il parametro **LOCATION** corrisponde alla cartella sotto la cartella radice nel BLOB di Archiviazione di Azure. Ogni tabella è in una cartella diversa.
 
@@ -201,7 +201,7 @@ WITH
 ;
 ```
 
-## <a name="4-load-the-data"></a>4. Caricare i dati
+## <a name="4-load-the-data"></a>4. caricare i dati
 Esistono diversi modi per accedere ai dati esterni.  È possibile eseguire query sui dati direttamente dalle tabelle esterne, caricare i dati nelle nuove tabelle del data warehouse o aggiungere dati esterni alle tabelle data warehouse esistenti.  
 
 ### <a name="41-create-a-new-schema"></a>4.1. Crea un nuovo schema
@@ -263,8 +263,8 @@ ORDER BY
     gb_processed desc;
 ```
 
-## <a name="5-optimize-columnstore-compression"></a>5. Ottimizzare la compressione columnstore
-Per impostazione predefinita, SQL Data Warehouse archivia le tabelle come un indice columnstore cluster. Al termine di un caricamento, alcune delle righe di dati potrebbero non essere compresse nel columnstore.  Esistono diversi motivi per cui questo può verificarsi. Per altre informazioni, vedere l'articolo [Gestire gli indici columnstore][manage columnstore indexes].
+## <a name="5-optimize-columnstore-compression"></a>5. ottimizzare la compressione columnstore
+Per impostazione predefinita, l'analisi SQL data warehouse archivia la tabella come indice columnstore cluster. Al termine di un caricamento, alcune delle righe di dati potrebbero non essere compresse nel columnstore.  Esistono diversi motivi per cui questo può verificarsi. Per altre informazioni, vedere l'articolo [Gestire gli indici columnstore][manage columnstore indexes].
 
 Per ottimizzare le prestazioni delle query e la compressione columnstore dopo un'operazione di caricamento, ricompilare la tabella per forzare l'indice columnstore per comprimere tutte le righe. 
 
@@ -278,7 +278,7 @@ ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 
 Per altre informazioni sulla gestione degli indici columnstore, vedere [Indicizzazione di tabelle in SQL Data Warehouse][manage columnstore indexes] .
 
-## <a name="6-optimize-statistics"></a>6. Ottimizzare le statistiche
+## <a name="6-optimize-statistics"></a>6. ottimizzare le statistiche
 È preferibile creare statistiche a colonna singola immediatamente dopo un caricamento. Se si è certi che alcune colonne non saranno presenti nei predicati di query, è possibile ignorare la creazione di statistiche per tali colonne. Se si creano statistiche a colonna singola su ogni colonna, la ricompilazione di tutte le statistiche potrebbe richiedere molto tempo. 
 
 Per creare statistiche a colonna singola su ogni colonna di ogni tabella, è possibile usare l'esempio di codice di stored procedure `prc_sqldw_create_stats` riportato nell'articolo relativo alle [statistiche][statistics].
@@ -328,7 +328,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ```
 
 ## <a name="achievement-unlocked"></a>Obiettivo raggiunto
-I dati pubblici sono stati caricati correttamente in Azure SQL Data Warehouse. Ottimo lavoro.
+I dati pubblici sono stati caricati in un data warehouse di analisi SQL. Ottimo lavoro.
 
 È ora possibile iniziare a eseguire query sulle tabelle per esplorare i dati. Eseguire la query seguente per trovare le vendite totali per marchio:
 
@@ -343,14 +343,14 @@ GROUP BY p.[BrandName]
 ## <a name="next-steps"></a>Passaggi successivi
 Per caricare il set di dati completo, eseguire l'esempio [caricare il data warehouse completo di Contoso Retail](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) dal repository degli esempi di Microsoft SQL Server.
 
-Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][SQL Data Warehouse development overview].
+Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo di SQL data warehouse] [Panoramica sullo sviluppo SQL Data Warehouse].
 
 <!--Image references-->
 
 <!--Article references-->
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[Create a SQL Analytics data warehouse]: sql-data-warehouse-get-started-provision.md
+[Load data into SQL Analytics data warehouse]: sql-data-warehouse-overview-load.md
+[SQL Analytics data warehouse development overview]: sql-data-warehouse-overview-develop.md
 [manage columnstore indexes]: sql-data-warehouse-tables-index.md
 [Statistics]: sql-data-warehouse-tables-statistics.md
 [CTAS]: sql-data-warehouse-develop-ctas.md

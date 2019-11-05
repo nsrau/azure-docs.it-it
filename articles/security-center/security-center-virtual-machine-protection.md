@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: a3bce8d6312dd09a7f10f8d5d2eaebd4e312d95d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 2317d0206e3fc4a342606d17c172ac42cbe82870
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200781"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520681"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protezione delle macchine virtuali nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure, dei server non Azure e delle macchine virtuali. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari. Le raccomandazioni sono applicabili a diversi tipi di risorse di Azure, ovvero macchine virtuali (VM) e computer, applicazioni, risorse di rete, SQL, identità e accesso.
@@ -30,7 +30,7 @@ Questo articolo illustra le raccomandazioni relative alle macchine e alle applic
 
 È possibile visualizzare l'elenco di tutti i problemi selezionando **Consigli**. Per altre informazioni su come applicare le raccomandazioni, leggere l'articolo [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
 
-Per l'elenco completo delle raccomandazioni relative ai servizi di calcolo e app, vedere [Raccomandazioni](security-center-virtual-machine-protection.md#compute-and-app-recommendations).
+Per l'elenco completo delle raccomandazioni relative ai servizi di calcolo e app, vedere [Raccomandazioni](security-center-virtual-machine-protection.md#compute-and-app-recs).
 
 Per continuare, selezionare **Calcolo e app** in **Risorse** o dal menu principale del Centro sicurezza.
 ![Dashboard Centro sicurezza](./media/security-center-virtual-machine-recommendations/overview.png)
@@ -42,7 +42,7 @@ In **Calcolo e app** sono disponibili le schede seguenti:
 - **VM e computer**: elenco di VM, computer e il relativo stato di sicurezza.
 - **Servizi cloud**: elenco dei ruoli Web e di lavoro monitorati dal Centro sicurezza.
 - **Servizi app**: elenco di ambienti del Servizio app e relativo stato di sicurezza corrente.
-- **Contenitori (anteprima)** : elenco dei contenitori ospitati in computer IaaS Linux e valutazione della sicurezza delle relative configurazioni Docker.
+- **Contenitori**: elenco dei contenitori e valutazione della sicurezza delle configurazioni.
 - **Risorse di calcolo (anteprima)** : elenco di raccomandazioni per le risorse di calcolo, come cluster di Service Fabric e hub eventi.
 
 Per continuare, selezionare **Risorse di calcolo e app** in **Protezione della sicurezza delle risorse**.
@@ -65,9 +65,9 @@ Ogni raccomandazione è inoltre associata a una serie di azioni che è possibile
 
 **Applicare gli aggiornamenti di sistema** include un riepilogo degli aggiornamenti critici in un formato grafico, uno per Windows e uno per Linux. La seconda parte visualizza una tabella con le informazioni seguenti:
 
-- **NOME**: il nome dell'aggiornamento mancante.
-- **N. DI MACCHINE VIRTUALI E COMPUTER**: il numero totale di macchine virtuali e computer a cui manca l'aggiornamento.
-- **GRAVITÀ**: descrive il livello di gravità della raccomandazione:
+- **NOME**: nome dell'aggiornamento mancante.
+- **No. Macchine virtuali & computer**: numero totale di macchine virtuali e computer in cui manca questo aggiornamento.
+- **AGGIORNA GRAVITÀ**: descrive il livello di gravità della raccomandazione:
 
     - **Critica**: esiste una vulnerabilità associata a una risorsa significativa, ad esempio applicazione, macchina virtuale, gruppo di sicurezza di rete, che richiede attenzione.
     - **Importante**: sono necessari passaggi aggiuntivi, o non critici, per completare un processo o eliminare una vulnerabilità.
@@ -121,7 +121,7 @@ Per visualizzare una spiegazione più esaustiva riguardante questa raccomandazio
 
 
 
-![Aggiorna la versione del sistema operativo](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
+![Aggiornare la versione sistema operativo](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
 ### <a name="app-services"></a>Servizi app
 Per visualizzare le informazioni sul servizio app, è necessario abilitare il servizio app nella sottoscrizione. Per istruzioni sull'abilitazione di questa funzionalità, vedere [proteggere il servizio app con il Centro sicurezza di Azure](security-center-app-services.md).
@@ -159,7 +159,7 @@ Esistono tre tipi di icone rappresentate in questo elenco:
 
      ![Correzione del Servizio app di Azure](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
-## <a name="virtual-machine-scale-sets"></a>Set di scalabilità di macchine virtuali
+## <a name="virtual-machine-scale-sets"></a>set di scalabilità di macchine virtuali
 Il Centro sicurezza individua automaticamente se si dispone di set di scalabilità e consiglia di installare Microsoft Monitoring Agent in questi set di scalabilità. 
 
 Per installare Microsoft Monitoring Agent: 
@@ -178,50 +178,50 @@ Per impostare nuovi set di scalabilità per installare automaticamente i Microso
 Se si desidera impostare tutti i set di scalabilità esistenti affinché installino Microsoft Monitoring Agent, in Criteri di Azure passare a **Correzione** e applicare i criteri esistenti ai set di scalabilità esistenti.
 
 
-## <a name="compute-and-app-recommendations"></a>Consigli per le app e il calcolo
-|Tipo di risorsa|Punteggio di sicurezza|Indicazione|Descrizione|
+## Raccomandazioni su calcolo e app<a name="compute-and-app-recs"></a>
+|Tipo di risorsa|Punteggio di sicurezza|Raccomandazione|Descrizione|
 |----|----|----|----|
 |Servizio app|20|L'applicazione Web deve essere accessibile solo tramite HTTPS|Limitare l'accesso delle applicazioni Web solo tramite HTTPS.|
 |Servizio app|20|L'app per le funzioni deve essere accessibile solo tramite HTTPS|Limitare l'accesso delle app per le funzioni solo tramite HTTPS.|
-|Servizio app|5|I log di diagnostica nei servizi app devono essere abilitati|Abilitare i log e conservarli per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
+|Servizio app|5|I log di diagnostica nei servizi app devono essere abilitati|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |Servizio app|10|Il debug remoto deve essere disattivato per l'applicazione Web|Disattivare il debug per le applicazioni Web se non è più necessario. Il debug remoto richiede che vengano aperte le porte in ingresso in un'app per le funzioni.|
 |Servizio app|10|Il debug remoto deve essere disattivato per l'app per le funzioni|Disattivare il debug per l'app per le funzioni se non è più necessario. Il debug remoto richiede che vengano aperte le porte in ingresso in un'app per le funzioni.|
-|Servizio app|10|Non consentire a tutte le risorse ('*') di accedere all'applicazione| Non consentire l'impostazione del parametro WEBSITE_LOAD_CERTIFICATES su "". L'impostazione del parametro su " comporta che tutti i certificati verranno caricati nell'archivio certificati personale delle applicazioni Web. Ciò può causare un abuso del principio dei privilegi minimi poiché è improbabile che il sito necessiti dell'accesso a tutti i certificati in fase di esecuzione.|
+|Servizio app|10|Do not allow all ('*') resources to access your application (Non consentire a tutte le risorse ('*') di accedere all'applicazione)| Non consentire l'impostazione del parametro WEBSITE_LOAD_CERTIFICATES su "". L'impostazione del parametro su " comporta che tutti i certificati verranno caricati nell'archivio certificati personale delle applicazioni Web. Ciò può causare un abuso del principio dei privilegi minimi poiché è improbabile che il sito necessiti dell'accesso a tutti i certificati in fase di esecuzione.|
 |Servizio app|20|CORS non deve consentire a tutte le risorse di accedere alle applicazioni Web|Consentire solo ai domini richiesti di interagire con l'applicazione Web. Condivisione di risorse tra le origini (CORS) non deve consentire a tutti i domini di accedere all'applicazione Web.|
 |Servizio app|20|Condivisione risorse tra le origini non deve consentire a tutte le risorse di accedere all'app per le funzioni dell'utente| Consentire solo ai domini richiesti di interagire con l'app per le funzioni. Condivisione di risorse tra le origini (CORS) non deve consentire a tutti i domini di accedere all'applicazione per le funzioni.|
 |Risorse di calcolo (Batch)|1|Le regole di avviso delle metriche devono essere configurate negli account batch|Configurare regole di avviso relative alle metriche nell'account Batch e abilitare le metriche Eventi eliminazione pool completati ed Eventi eliminazione pool avviati|
 |Risorse di calcolo (Service Fabric)|10|I cluster di Service Fabric deve usare solo Azure Active Directory per l'autenticazione client|Eseguire l'autenticazione client solo tramite Azure Active Directory in Service Fabric.|
 |Risorse di calcolo (account di automazione)|5|Le variabili dell'account di automazione devono essere crittografate|Abilitare la crittografia degli asset della variabile dell'account di Automazione quando si archiviano dati sensibili.|
-|Risorse di calcolo (Ricerca)|5|Controllare l'abilitazione dei log di diagnostica per i servizi di ricerca|Abilitare i log e conservarli per un periodo massimo di un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
-|Risorse di calcolo (bus di servizio)|5|I log di diagnostica nel bus di servizio devono essere abilitati|Abilitare i log e conservarli per un periodo massimo di un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
-|Calcolo delle risorse (Analisi di flusso)|5|I log di diagnostica in analisi di flusso di Azure devono essere abilitati|Abilitare i log e conservarli per un periodo massimo di un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
+|Risorse di calcolo (Ricerca)|5|Controllare l'abilitazione dei log di diagnostica per i servizi di ricerca|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
+|Risorse di calcolo (bus di servizio)|5|I log di diagnostica nel bus di servizio devono essere abilitati|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
+|Calcolo delle risorse (Analisi di flusso)|5|I log di diagnostica in analisi di flusso di Azure devono essere abilitati|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |Risorse di calcolo (Batch)|5|Abilitare i log di diagnostica negli account Batch|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
-|Risorse di calcolo (Hub eventi)|5|I log di diagnostica nell'hub eventi devono essere abilitati|Abilitare i log e conservarli per un periodo massimo di un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
+|Risorse di calcolo (Hub eventi)|5|I log di diagnostica nell'hub eventi devono essere abilitati|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |Risorse di calcolo (App per la logica)|5|Abilitare i log di diagnostica in App per la logica|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |Risorse di calcolo (Service Fabric)|15|Impostare la proprietà ClusterProtectionLevel su EncryptAndSign in Service Fabric|Service Fabric offre tre livelli di protezione (None, Sign ed EncryptAndSign) per la comunicazione da nodo a nodo mediante un certificato cluster primario.  Impostare il livello di protezione per garantire che tutti i messaggi da nodo a nodo vengano crittografati e firmati digitalmente. |
 |Risorse di calcolo (bus di servizio)|1|Rimuovere tutte le regole di autorizzazione ad eccezione di RootManageSharedAccessKey dallo spazio dei nomi del bus di servizio |I client del bus di servizio non devono usare un criterio di accesso a livello di spazio dei nomi che assicura l'accesso a tutte le code e gli argomenti in uno spazio dei nomi. Per allinearsi al modello di sicurezza con privilegi minimi, è opportuno creare criteri di accesso a livello di entità per code e argomenti per assicurare l'accesso solo all'entità specifica.|
 |Risorse di calcolo (Hub eventi)|1|Tutte le regole di autorizzazione eccetto RootManageSharedAccessKey devono essere rimosse dallo spazio dei nomi dell'hub eventi|I client di Hub eventi non devono usare un criterio di accesso a livello di spazio dei nomi che assicura l'accesso a tutte le code e gli argomenti in uno spazio dei nomi. Per allinearsi al modello di sicurezza con privilegi minimi, è opportuno creare criteri di accesso a livello di entità per code e argomenti per assicurare l'accesso solo all'entità specifica.|
 |Risorse di calcolo (Hub eventi)|5|È necessario definire le regole di autorizzazione nell'entità dell'hub eventi|Controllare regole di autorizzazione nell'entità di Hub eventi per concedere l'accesso con privilegi minimi.|
-|Computer|50|Installare l'agente di monitoraggio nei computer|Installare l'agente di monitoraggio per abilitare la raccolta di dati, la ricerca di aggiornamenti, l'analisi della baseline e la protezione degli endpoint in ogni computer.|
-|Computer|50|Abilitare il provisioning automatico e la raccolta dei dati per le sottoscrizioni |Abilitare il provisioning automatico e la raccolta dei dati per i computer nelle sottoscrizioni per abilitare la raccolta dei dati, la ricerca di aggiornamenti, l'analisi della baseline e la protezione degli endpoint in ogni computer aggiunto alle sottoscrizioni.|
-|Computer|40|Risolvere i problemi di integrità dell'agente di monitoraggio nei computer|Per la protezione completa del Centro sicurezza, risolvere i problemi dell'agente di monitoraggio nei computer seguendo le istruzioni nella Guida alla risoluzione dei problemi| 
-|Computer|40|Risolvere i problemi di integrità della protezione degli endpoint nei computer|Per la protezione completa del Centro sicurezza, risolvere i problemi dell'agente di monitoraggio nei computer seguendo le istruzioni nella Guida alla risoluzione dei problemi.|
-|Computer|40|Risolvere il problema dei dati di analisi mancanti nei computer|Risolvere il problema dei dati di analisi mancanti nelle macchine virtuali e nei computer. L'assenza di dati di analisi nei computer determina l'impossibilità di usufruire di valutazioni sulla sicurezza, ad esempio la ricerca di aggiornamenti, l'analisi della baseline e la ricerca di soluzioni di protezione degli endpoint.|
-|Computer|40|Gli aggiornamenti di sistema devono essere installati nelle macchine|Installare gli aggiornamenti mancanti per la sicurezza del sistema e critici per proteggere i computer e le macchine virtuali Windows e Linux
-|Computer|15|Aggiungi un web application firewall| Aggiungere una soluzione WAF (web application firewall) per proteggere le applicazioni Web. |
-|Computer|40|Aggiornare la versione del sistema operativo per i ruoli del servizio cloud|Aggiornare la versione del sistema operativo per i ruoli del servizio cloud alla versione più recente disponibile per la famiglia del sistema operativo.|
-|Computer|35|Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte|Risolvere le vulnerabilità nella configurazione della sicurezza dei computer per proteggerli da attacchi.|
-|Computer|35|Risolvere le vulnerabilità nella configurazione della sicurezza nei contenitori|Risolvere le vulnerabilità nella configurazione della sicurezza nei computer in cui è installato Docker per proteggerli da attacchi.|
-|Computer|25|Abilita i controlli applicazione adattivi|Abilitare il controllo delle applicazioni per controllare quali applicazioni possono essere eseguite nelle macchine virtuali in Azure. Sarà così possibile rafforzare la protezione delle macchine virtuali dai malware. Il Centro sicurezza usa l'apprendimento automatico per analizzare le applicazioni in esecuzione in ogni macchina virtuale e, grazie a questa funzionalità intelligente, consente di applicare regole di autorizzazione. Questa funzionalità semplifica il processo di configurazione e gestione delle regole di autorizzazione delle applicazioni.|
-|Computer|20|Installare la soluzione di protezione degli endpoint nei computer|Installare una soluzione di protezione degli endpoint nelle macchine virtuali per proteggerli da minacce e vulnerabilità.|
-|Computer|20|Riavviare i computer per applicare gli aggiornamenti del sistema|Riavviare i computer per applicare gli aggiornamenti del sistema e proteggere i computer dalle vulnerabilità.|
-|Computer|15|La crittografia del disco deve essere applicata nelle macchine virtuali|Crittografare i dischi delle macchine virtuali con Crittografia dischi di Azure per macchine virtuali Windows e Linux. Crittografia dischi di Azure sfrutta la funzionalità standard di settore BitLocker di Windows e la funzionalità DM-Crypt di Linux per offrire la crittografia del sistema operativo e del disco dati per proteggere e salvaguardare i dati e rispettare gli impegni in termini di sicurezza e conformità dell'organizzazione nell'insieme di credenziali delle chiavi di Azure del cliente. Se il requisito di conformità e sicurezza prevede la crittografia dei dati end-to-end tramite le chiavi di crittografia, tra cui la crittografia del disco temporaneo collegato in locale, usare Crittografia dischi di Azure. In alternativa, per impostazione predefinita, il servizio Managed Disks viene crittografato con dischi inattivi per impostazione predefinita usando la crittografia del servizio di archiviazione di Azure in cui le chiavi di crittografia sono chiavi gestite da Microsoft in Azure. Se questa condizione soddisfa i requisiti di sicurezza e conformità, è possibile usare la crittografia di Managed Disks predefinita.|
-|Computer|30|Installare una soluzione di valutazione della vulnerabilità nelle macchine virtuali|Installare una soluzione di valutazione della vulnerabilità nelle macchine virtuali|
-|Computer|15|Aggiungi un web application firewall| Aggiungere una soluzione WAF (web application firewall) per proteggere le applicazioni Web. |
-|Computer|30|Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità|Le macchine virtuali per cui viene distribuita una soluzione di terze parti per la valutazione della vulnerabilità vengono costantemente controllate per individuare vulnerabilità del sistema operativo e delle applicazioni. Ogni volta che vengono individuate queste vulnerabilità, sono disponibili altre informazioni nell'ambito dell'indicazione.|
-|Computer|30|Installare una soluzione di valutazione della vulnerabilità nelle macchine virtuali|Installare una soluzione di valutazione della vulnerabilità nelle macchine virtuali|
-|Computer|1|È necessario eseguire la migrazione delle macchine virtuali a nuove risorse AzureRM|Usare Azure Resource Manager per le macchine virtuali per fornire funzionalità di sicurezza migliorate quali controllo di accesso (Controllo degli accessi in base al ruolo) più avanzato, controllo migliore, distribuzione e governance basate su Resource Manager, accesso alle identità gestite, accesso all'insieme di credenziali delle chiavi per i segreti, autenticazione basata su Azure AD e supporto di tag e gruppi di risorse per una gestione della sicurezza semplificata. |
-|Computer|30|Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità|Le macchine virtuali per cui viene distribuita una soluzione di terze parti per la valutazione della vulnerabilità vengono costantemente controllate per individuare vulnerabilità del sistema operativo e delle applicazioni. Ogni volta che vengono individuate queste vulnerabilità, sono disponibili altre informazioni nell'ambito dell'indicazione.|
+|Machine|50|Installare l'agente di monitoraggio nei computer|Installare l'agente di monitoraggio per abilitare la raccolta di dati, la ricerca di aggiornamenti, l'analisi della baseline e la protezione degli endpoint in ogni computer.|
+|Machine|50|Abilitare il provisioning automatico e la raccolta dei dati per le sottoscrizioni |Abilitare il provisioning automatico e la raccolta dei dati per i computer nelle sottoscrizioni per abilitare la raccolta dei dati, la ricerca di aggiornamenti, l'analisi della baseline e la protezione degli endpoint in ogni computer aggiunto alle sottoscrizioni.|
+|Machine|40|Risolvere i problemi di integrità dell'agente di monitoraggio nei computer|Per la protezione completa del Centro sicurezza, risolvere i problemi dell'agente di monitoraggio nei computer seguendo le istruzioni nella Guida alla risoluzione dei problemi| 
+|Machine|40|Risolvere i problemi di integrità della protezione degli endpoint nei computer|Per la protezione completa del Centro sicurezza, risolvere i problemi dell'agente di monitoraggio nei computer seguendo le istruzioni nella Guida alla risoluzione dei problemi.|
+|Machine|40|Risolvere il problema dei dati di analisi mancanti nei computer|Risolvere il problema dei dati di analisi mancanti nelle macchine virtuali e nei computer. L'assenza di dati di analisi nei computer determina l'impossibilità di usufruire di valutazioni sulla sicurezza, ad esempio la ricerca di aggiornamenti, l'analisi della baseline e la ricerca di soluzioni di protezione degli endpoint.|
+|Machine|40|Gli aggiornamenti di sistema devono essere installati nelle macchine|Installare gli aggiornamenti mancanti per la sicurezza del sistema e critici per proteggere i computer e le macchine virtuali Windows e Linux
+|Machine|15|Aggiungere un Web Application Firewall| Aggiungere una soluzione WAF (web application firewall) per proteggere le applicazioni Web. |
+|Machine|40|Aggiornare la versione del sistema operativo per i ruoli del servizio cloud|Aggiornare la versione del sistema operativo per i ruoli del servizio cloud alla versione più recente disponibile per la famiglia del sistema operativo.|
+|Machine|35|Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte|Risolvere le vulnerabilità nella configurazione della sicurezza dei computer per proteggerli da attacchi.|
+|Machine|35|Risolvere le vulnerabilità nella configurazione della sicurezza nei contenitori|Risolvere le vulnerabilità nella configurazione della sicurezza nei computer in cui è installato Docker per proteggerli da attacchi.|
+|Machine|25|Abilitare i controlli applicazioni adattivi|Abilitare il controllo delle applicazioni per controllare quali applicazioni possono essere eseguite nelle macchine virtuali in Azure. Sarà così possibile rafforzare la protezione delle macchine virtuali dai malware. Il Centro sicurezza usa l'apprendimento automatico per analizzare le applicazioni in esecuzione in ogni macchina virtuale e, grazie a questa funzionalità intelligente, consente di applicare regole di autorizzazione. Questa funzionalità semplifica il processo di configurazione e gestione delle regole di autorizzazione delle applicazioni.|
+|Machine|20|Installare la soluzione di protezione degli endpoint nei computer|Installare una soluzione di protezione degli endpoint nelle macchine virtuali per proteggerli da minacce e vulnerabilità.|
+|Machine|20|Riavviare i computer per applicare gli aggiornamenti del sistema|Riavviare i computer per applicare gli aggiornamenti del sistema e proteggere i computer dalle vulnerabilità.|
+|Machine|15|La crittografia del disco deve essere applicata nelle macchine virtuali|Crittografare i dischi delle macchine virtuali con Crittografia dischi di Azure per macchine virtuali Windows e Linux. Crittografia dischi di Azure sfrutta la funzionalità standard di settore BitLocker di Windows e la funzionalità DM-Crypt di Linux per offrire la crittografia del sistema operativo e del disco dati per proteggere e salvaguardare i dati e rispettare gli impegni in termini di sicurezza e conformità dell'organizzazione nell'insieme di credenziali delle chiavi di Azure del cliente. Se il requisito di conformità e sicurezza prevede la crittografia dei dati end-to-end tramite le chiavi di crittografia, tra cui la crittografia del disco temporaneo collegato in locale, usare Crittografia dischi di Azure. In alternativa, per impostazione predefinita, il servizio Managed Disks viene crittografato con dischi inattivi per impostazione predefinita usando la crittografia del servizio di archiviazione di Azure in cui le chiavi di crittografia sono chiavi gestite da Microsoft in Azure. Se questa condizione soddisfa i requisiti di sicurezza e conformità, è possibile usare la crittografia di Managed Disks predefinita.|
+|Machine|30|Installare una soluzione di valutazione della vulnerabilità nelle macchine virtuali|Installare una soluzione di valutazione della vulnerabilità nelle macchine virtuali|
+|Machine|15|Aggiungere un Web Application Firewall| Aggiungere una soluzione WAF (web application firewall) per proteggere le applicazioni Web. |
+|Machine|30|Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità|Le macchine virtuali per cui viene distribuita una soluzione di terze parti per la valutazione della vulnerabilità vengono costantemente controllate per individuare vulnerabilità del sistema operativo e delle applicazioni. Ogni volta che vengono individuate queste vulnerabilità, sono disponibili altre informazioni nell'ambito dell'indicazione.|
+|Machine|30|Installare una soluzione di valutazione della vulnerabilità nelle macchine virtuali|Installare una soluzione di valutazione della vulnerabilità nelle macchine virtuali|
+|Machine|1|È necessario eseguire la migrazione delle macchine virtuali a nuove risorse AzureRM|Usare Azure Resource Manager per le macchine virtuali per fornire funzionalità di sicurezza migliorate quali controllo di accesso (Controllo degli accessi in base al ruolo) più avanzato, controllo migliore, distribuzione e governance basate su Resource Manager, accesso alle identità gestite, accesso all'insieme di credenziali delle chiavi per i segreti, autenticazione basata su Azure AD e supporto di tag e gruppi di risorse per una gestione della sicurezza semplificata. |
+|Machine|30|Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità|Le macchine virtuali per cui viene distribuita una soluzione di terze parti per la valutazione della vulnerabilità vengono costantemente controllate per individuare vulnerabilità del sistema operativo e delle applicazioni. Ogni volta che vengono individuate queste vulnerabilità, sono disponibili altre informazioni nell'ambito dell'indicazione.|
 |Set di scalabilità di macchine virtuali |4|I log di diagnostica nei set di scalabilità di macchine virtuali devono essere abilitati|Abilitare i log e conservarli per un periodo massimo di un anno. In questo modo è possibile ricreare la traccia delle attività per scopi di analisi. Ciò è utile quando si verifica un evento imprevisto di sicurezza o la rete è compromessa.|
 |Set di scalabilità di macchine virtuali|35|Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte|Risolvere le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali per proteggerli da attacchi. |
 |Set di scalabilità di macchine virtuali|5|Risolvere i problemi di integrità della protezione degli endpoint nei set di scalabilità di macchine virtuali|Risolvere i problemi di integrità della protezione degli endpoint nei set di scalabilità di macchine virtuali per proteggerli da minacce e vulnerabilità. |
@@ -238,7 +238,7 @@ Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risors
 
 
 * [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-protection.md)
-* [Monitoraggio dell'identità e dell'accesso nel Centro sicurezza di Azure](security-center-identity-access.md)
+* [Monitorare l'identità e l'accesso nel Centro sicurezza di Azure](security-center-identity-access.md)
 * [Protezione della rete nel Centro sicurezza di Azure](security-center-network-recommendations.md)
 * [Protezione del servizio SQL di Azure nel Centro sicurezza di Azure](security-center-sql-service-recommendations.md)
 

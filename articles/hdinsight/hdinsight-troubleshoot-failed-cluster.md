@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi relativi a un processo lento o in errore in un cluster HDInsight-Azure HDInsight
+title: Risolvere i problemi relativi a un processo lento o in errore nel cluster HDInsight di Azure
 description: Diagnosticare e risolvere i problemi relativi a un processo lento o in errore in un cluster Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: efb2ac4be074508107bb31ae321c27a3d1263d9e
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 69711f7ac20882617de175b1b90d8df4f2858c4d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105354"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498081"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Risolvere i problemi relativi a un processo lento o in errore in un cluster HDInsight
 
@@ -21,13 +21,13 @@ Se un'applicazione che elabora i dati in un cluster HDInsight viene eseguita len
 
 Per diagnosticare un cluster lento o in errore, raccogliere informazioni su tutti gli aspetti dell'ambiente, ad esempio informazioni sui servizi di Azure associati, sulla configurazione cluster e sull'esecuzione dei processi. Una tecnica diagnostica utile consiste nel provare a riprodurre lo stato di errore in un altro cluster.
 
-* Passaggio 1: Raccogliere i dati sul problema.
-* Passaggio 2: Convalidare l'ambiente cluster HDInsight.
-* Passaggio 3: Visualizzare l'integrità del cluster.
-* Passaggio 4: Esaminare lo stack e le versioni dell'ambiente.
-* Passaggio 5: Esaminare i file di log del cluster.
-* Passaggio 6: Controllare le impostazioni di configurazione.
-* Passaggio 7: Riprodurre l'errore in un cluster diverso.
+* Passaggio 1: raccogliere i dati sul problema.
+* Passaggio 2: convalidare l'ambiente cluster HDInsight.
+* Passaggio 3: visualizzare l'integrità del cluster.
+* Passaggio 4: esaminare lo stack e le versioni dell'ambiente.
+* Passaggio 5: esaminare i file di log del cluster.
+* Passaggio 6: controllare le impostazioni di configurazione.
+* Passaggio 7: riprodurre l'errore in un cluster diverso.
 
 ## <a name="step-1-gather-data-about-the-issue"></a>Passaggio 1: Raccogliere i dati sul problema
 
@@ -184,7 +184,7 @@ A livello di YARN si verificano due tipi di timeout:
 
     * Elencare tutti i processi: è una chiamata dispendiosa in termini di tempo. Questa chiamata enumera le applicazioni da YARN ResourceManager e, per ogni applicazione completata, ottiene lo stato da YARN JobHistoryServer. Con un numero di processi più elevato, questa chiamata può raggiungere il timeout.
 
-    * Elencare i processi anteriori a sette giorni: HDInsight YARN JobHistoryServer è configurato in modo da mantenere le informazioni sui processi completati per sette giorni (valore `mapreduce.jobhistory.max-age-ms`). Il tentativo di enumerare i processi eliminati restituisce un timeout.
+    * Elencare i processi più vecchi di sette giorni: HDInsight YARN JobHistoryServer è configurato per conservare le informazioni sui processi completati per sette giorni (valore `mapreduce.jobhistory.max-age-ms`). Il tentativo di enumerare i processi eliminati restituisce un timeout.
 
 Per diagnosticare questi problemi:
 

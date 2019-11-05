@@ -10,17 +10,19 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 10/10/2019
-ms.openlocfilehash: f85b286de1318181ab660d51d5f434375f1fa46f
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: aabbac60acc53cfccc29fc3dbd06575e09840d83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965318"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497149"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Creare e accedere ai set di impostazioni (anteprima) in Azure Machine Learning
 
-In questo articolo si apprenderà come creare set di dati Azure Machine Learning (anteprima) e come accedere ai dati da esperimenti locali o remoti.
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
+Questo articolo illustra come creare Azure Machine Learning set di dati (anteprima) e come accedere ai dati da esperimenti locali o remoti.
 
 Con Azure Machine Learning set di impostazioni è possibile:
 
@@ -63,7 +65,7 @@ Affinché i dati siano accessibili da parte di Azure Machine Learning, è necess
 
 Per creare set di dati da un [archivio dati di Azure](how-to-access-data.md) usando Python SDK:
 
-* Verificare di avere `contributor` o `owner` accedere all'archivio dati di Azure registrato.
+* Verificare di disporre dell'accesso `contributor` o `owner` all'archivio dati di Azure registrato.
 
 * Creare il set di dati facendo riferimento a un percorso nell'archivio dati.
 
@@ -80,7 +82,10 @@ workspace = Workspace.from_config()
 # retrieve an existing datastore in the workspace by name
 datastore = Datastore.get(workspace, datastore_name)
 ```
-#### <a name="create-tabulardatasets"></a>Crea TabularDatasets
+
+#### <a name="create-a-tabulardataset"></a>Creare un TabularDataset
+
+TabularDatasets può essere creato tramite l'SDK o con Azure Machine Learning Studio. Un timestamp può essere specificato da una colonna nei dati oppure i dati del modello di percorso vengono archiviati in per abilitare un tratto di serie temporali, che consente un filtro semplice ed efficiente in base al tempo.
 
 Usare il metodo [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) sulla classe `TabularDatasetFactory` per leggere i file in formato CSV o TSV e creare un TabularDataset non registrato. Se si esegue la lettura da più file, i risultati verranno aggregati in una rappresentazione tabulare.
 
@@ -107,11 +112,11 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |PassengerId|Rimasti|Pclass|name|Sesso|Età|SibSp|Parch|Ticket|Tariffe|Abitacolo|Intrapreso
+| |PassengerId|Rimasti|Pclass|Name|Sesso|Age|SibSp|Parch|Ticket|Tariffe|Abitacolo|Intrapreso
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|Falso|3|Braund, Mr. Owen Harris|male|22,0|1|0|A/5 21171|7,2500||S
-1|2|Vero|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|Vero|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||S
+0|1|False|3|Braund, Mr. Owen Harris|male|22,0|1|0|A/5 21171|7,2500||S
+1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
+2|3|True|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 Usare il metodo [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-) sulla classe `TabularDatasetFactory` per leggere dal database SQL di Azure.
 
@@ -145,7 +150,7 @@ data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
 data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
 
-#### <a name="create-filedatasets"></a>Crea set di dati
+#### <a name="create-a-filedataset"></a>Creare un oggetto FileDataset
 
 Utilizzare il metodo [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) sulla classe `FileDatasetFactory` per caricare file in qualsiasi formato e creare un oggetto filedataset non registrato.
 
@@ -166,15 +171,18 @@ web_paths = [
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
-### <a name="using-the-workspace-landing-page"></a>Uso della pagina di destinazione dell'area di lavoro
-
-Accedere alla pagina di [destinazione dell'area di lavoro](https://ml.azure.com) per creare un set di dati tramite l'esperienza Web. La pagina di destinazione dell'area di lavoro supporta la creazione di TabularDatasets e filedataset.
-
-Nell'animazione seguente viene illustrato come creare un set di dati nella pagina di destinazione dell'area di lavoro.
-
-Per prima cosa, selezionare **set di impostazioni** nella sezione **Asset** del riquadro sinistro. Selezionare quindi **+ Crea set di dati** per scegliere l'origine del set di dati. può provenire da file locali, archivio dati o URL Web pubblici. Selezionare il **tipo di set di dati**: * tabulare o file. Le **Impostazioni e l'anteprima** e i moduli **dello schema** vengono popolati in modo intelligente in base al tipo di file. Selezionare **Avanti** per esaminarli o per configurare ulteriormente il set di dati prima della creazione. Selezionare **fine** per completare la creazione del set di dati.
+#### <a name="on-the-web"></a>Nel Web 
+I passaggi e l'animazione seguenti illustrano come creare un set di dati in Azure Machine Learning Studio, https://ml.azure.com.
 
 ![Creare un set di dati con l'interfaccia utente](media/how-to-create-register-datasets/create-dataset-ui.gif)
+
+Per creare un set di dati in studio:
+1. Accedere al https://ml.azure.com.
+1. Selezionare **set di impostazioni** nella sezione **Asset** del riquadro sinistro. 
+1. Selezionare **+ Crea set di dati** per scegliere l'origine del set di dati. può provenire da file locali, archivio dati o URL Web pubblici.
+1. Selezionare **tabulare** o **file** per tipo di set di dati.
+1. Selezionare **Avanti** per esaminare i moduli **Impostazioni e anteprima**, **schema** e **Conferma dettagli** ; vengono popolate in modo intelligente in base al tipo di file. Usare questi moduli per verificare le selezioni e per configurare ulteriormente il set di dati prima della creazione.  
+1. Selezionare **Crea** per completare la creazione del set di dati.
 
 ## <a name="register-datasets"></a>Registrare i set di impostazioni
 
@@ -183,13 +191,61 @@ Per completare il processo di creazione, registrare i set di impostazioni con un
 Usare il metodo [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) per registrare i set di elementi con l'area di lavoro in modo che possano essere condivisi con altri utenti e riutilizzati in diversi esperimenti.
 
 ```Python
-titanic_ds = titanic_ds.register(workspace = workspace,
-                                 name = 'titanic_ds',
-                                 description = 'titanic training data')
+titanic_ds = titanic_ds.register(workspace=workspace,
+                                 name='titanic_ds',
+                                 description='titanic training data')
 ```
 
->[!Note]
-> I set di impostazioni creati tramite la pagina di destinazione dell'area di lavoro vengono registrati automaticamente nell'area di lavoro.
+> [!Note]
+> I set di impostazioni creati tramite il Azure Machine Learning Studio vengono registrati automaticamente nell'area di lavoro.
+
+## <a name="create-datasets-with-azure-open-datasets"></a>Creare set di impostazioni con i set di impostazioni di Azure Open
+
+[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) include set di dati pubblici curati che è possibile usare per aggiungere caratteristiche specifiche dello scenario alle soluzioni di Machine Learning e realizzare modelli più accurati. I set di dati includono dati di pubblico dominio relativi a meteo, censimento, festività, sicurezza pubblica e posizione, che consentono di eseguire il training di modelli di Machine Learning e arricchire le soluzioni predittive. I set di impostazioni aperti si trovano nel cloud in Microsoft Azure e sono inclusi sia nell'SDK che nell'interfaccia utente dell'area di lavoro.
+
+### <a name="using-the-sdk"></a>Uso dell'SDK
+
+Per creare set di impostazioni con Azure Open DataSets dall'SDK, verificare che il pacchetto sia stato installato con `pip install azureml-opendatasets`. Ogni set di dati discreto è rappresentato dalla propria classe nell'SDK e alcune classi sono disponibili come `TabularDataset`, `FileDataset`o entrambi. Per un elenco completo delle classi, vedere la [documentazione di riferimento](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) .
+
+La maggior parte delle classi ereditano da e restituiscono un'istanza di `TabularDataset`. Esempi di queste classi sono `PublicHolidays`, `BostonSafety`e `UsPopulationZip`. Per creare un `TabularDataset` da questi tipi di classi, usare il costruttore senza argomenti. Quando si registra un set di dati creato da set di dati aperti, non vengono scaricati immediatamente dati, ma i dati saranno accessibili in un secondo momento, quando richiesto (durante il training, ad esempio) da una posizione di archiviazione centrale. 
+
+```python
+from azureml.opendatasets import UsPopulationZip
+
+tabular_dataset = UsPopulationZip()
+tabular_dataset = tabular_dataset.register(workspace=workspace, name="pop data", description="US population data by zip code")
+```
+
+È possibile recuperare determinate classi come un `TabularDataset` o `FileDataset`, che consente di modificare e/o scaricare direttamente i file. Altre classi possono ottenere un set di dati solo usando le funzioni `get_tabular_dataset()` **o** `get_file_dataset()`. Nell'esempio di codice riportato di seguito vengono illustrati alcuni esempi di questi tipi di classi.
+
+```python
+from azureml.opendatasets import MNIST
+
+# MNIST class can return either TabularDataset or FileDataset
+tabular_dataset = MNIST.get_tabular_dataset()
+file_dataset = MNIST.get_file_dataset()
+
+from azureml.opendatasets import Diabetes
+
+# Diabetes class can return ONLY return TabularDataset and must be called from the static function
+diabetes_tabular = Diabetes.get_tabular_dataset()
+```
+
+### <a name="using-the-ui"></a>Uso dell'interfaccia utente
+
+È anche possibile creare set di impostazioni da classi Open DataSets usando l'interfaccia utente. Nell'area di lavoro passare alla scheda **set di impostazioni** in *Asset*. Fare clic sull'elenco a discesa **Crea set di dati** e quindi fare clic su **da set di dati aperti**.
+
+![Aprire il set di dati con l'interfaccia utente](media/how-to-create-register-datasets/open-datasets-1.png)
+
+Selezionare quindi un set di dati selezionando il riquadro, filtrando facoltativamente usando la barra di ricerca. Quindi fare clic su **Avanti**.
+
+![Scegliere il set di dati](media/how-to-create-register-datasets/open-datasets-2.png)
+
+Scegliere quindi un nome per registrare il set di dati e, facoltativamente, filtrare i dati usando i filtri disponibili. In questo caso per il set di dati Public Holidays, il periodo di tempo viene filtrato in base a un anno e il codice paese viene specificato solo negli Stati Uniti. Fare quindi clic su **Create**.
+
+![Imposta parametri set di dati e crea set di dati](media/how-to-create-register-datasets/open-datasets-3.png)
+
+Il set di dati è ora creato e disponibile nell'area di lavoro in **set**di dati e può essere usato nello stesso modo degli altri set di dati creati.
 
 ## <a name="version-datasets"></a>Set di impostazioni di versione
 

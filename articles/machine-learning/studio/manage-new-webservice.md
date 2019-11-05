@@ -1,7 +1,7 @@
 ---
 title: Gestire i servizi Web
-titleSuffix: Azure Machine Learning Studio
-description: Gestire i servizi Web classici e nuovi di Machine Learning usando il portale di servizi Web di Microsoft Azure Machine Learning. Poiché i servizi Web classici e nuovi sono basati su tecnologie diverse, sono disponibili funzionalità di gestione leggermente diverse.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Gestisci i tuoi Machine Learning i servizi Web nuovi e classici usando il portale dei servizi Web di Microsoft Azure Machine Learning. Poiché i servizi Web classici e nuovi sono basati su tecnologie diverse, sono disponibili funzionalità di gestione leggermente diverse.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 711cb674cb00a880eadda11b03da87631df90b0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0d31ce46ce185ad5bbcd736d9f45e62d7436d24
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861736"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489244"
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning Studio
+# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning Studio (classico)
 Il portale dei servizi Web di Microsoft Azure Machine Learning consente di gestire i servizi Web classici e nuovi di Machine Learning. Poiché i servizi Web classici e nuovi sono basati su tecnologie diverse, sono disponibili funzionalità di gestione leggermente diverse.
 
 Nel portale dei servizi Web di Azure Machine Learning è possibile:
@@ -29,7 +29,7 @@ Nel portale dei servizi Web di Azure Machine Learning è possibile:
 * Aggiungere ed eliminare gli endpoint (solo servizi classici)
 
 >[!NOTE]
->È anche possibile gestire i servizi Web classici in [Machine Learning Studio](https://studio.azureml.net) nella scheda **Servizi Web**.
+>È anche possibile gestire i servizi Web classici in [Machine Learning Studio (classico)](https://studio.azureml.net) nella scheda **servizi Web** .
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Autorizzazioni per gestire i nuovi servizi Web basati su Resource Manager
 
@@ -37,9 +37,9 @@ I nuovi servizi Web vengono distribuiti come risorse di Azure. Di conseguenza, �
 
 Se l'utente non dispone delle autorizzazioni corrette per accedere alle risorse nel portale dei servizi Web di Azure Machine Learning, riceverà l'errore seguente quando cercherà di distribuire un servizio Web:
 
-*Web Service deployment failed. This account does not have sufficient access to the Azure subscription that contains the Workspace. In order to deploy a Web Service to Azure, the same account must be invited to the Workspace and be given access to the Azure subscription that contains the Workspace.* (Distribuzione del servizio Web non riuscita. L'account non dispone dei diritti di accesso sufficienti per accedere alla sottoscrizione di Azure che contiene l'area di lavoro. Per distribuire un servizio Web in Azure, è necessario che lo stesso account sia invitato all'area di lavoro e che gli sia assegnato l'accesso alla sottoscrizione di Azure contenente l'area di lavoro).
+*Distribuzione del servizio Web non riuscita. Questo account non dispone di diritti di accesso sufficienti per la sottoscrizione di Azure che contiene l'area di lavoro. Per distribuire un servizio Web in Azure, è necessario che lo stesso account sia invitato all'area di lavoro e che venga concesso l'accesso alla sottoscrizione di Azure che contiene l'area di lavoro.*
 
-Per altre informazioni sulla creazione di un'area di lavoro, vedere [Creare e condividere un'area di lavoro di Azure Machine Learning Studio](create-workspace.md).
+Per ulteriori informazioni sulla creazione di un'area di lavoro, vedere [creare e condividere un'area di lavoro Azure Machine Learning Studio (classica)](create-workspace.md).
 
 Per altre informazioni sull'impostazione delle autorizzazioni di accesso, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -86,7 +86,7 @@ Fare clic sull'opzione di menu **CONFIGURA** .
 * **Title** (Titolo) consente di immettere un titolo per il servizio Web.
 * **Chiavi** consente di ruotare le chiavi API primarie e secondarie.
 * **Storage account key** (Chiave dell'account di archiviazione) consente di aggiornare la chiave per l'account di archiviazione associato alle modifiche del servizio Web. 
-* **Enable Sample data** (Abilita dati di esempio) consente di fornire dati di esempio che è possibile usare per testare il servizio di richiesta-risposta. Se il servizio Web è stato creato in Machine Learning Studio, i dati di esempio vengono prelevati dai dati usati per il training del modello. Se il servizio è stato creato a livello di codice, i dati vengono ricavati dai dati di esempio forniti come parte del pacchetto JSON.
+* **Enable Sample data** (Abilita dati di esempio) consente di fornire dati di esempio che è possibile usare per testare il servizio di richiesta-risposta. Se il servizio Web è stato creato in Machine Learning Studio (versione classica), i dati di esempio vengono ricavati dai dati usati per il training del modello. Se il servizio è stato creato a livello di codice, i dati vengono ricavati dai dati di esempio forniti come parte del pacchetto JSON.
 
 ### <a name="managing-billing-plans"></a>Gestione dei piani di fatturazione
 Fare clic sull'opzione di menu **Piani** della pagina Avvio rapido dei servizi Web. È anche possibile fare clic sul piano associato al servizio Web specifico per gestire tale piano.
@@ -108,7 +108,7 @@ Il dashboard del piano contiene le informazioni seguenti:
 
 ## <a name="manage-classic-web-services"></a>Gestire i servizi Web classici
 > [!NOTE]
-> Le procedure di questa sezione si riferiscono alla gestione dei servizi Web classici nel portale dei servizi Web di Azure Machine Learning. Per informazioni sulla gestione dei servizi Web classici tramite Machine Learning Studio e il portale di Azure, vedere [Gestire un'area di lavoro di Azure Machine Learning Studio](manage-workspace.md).
+> Le procedure di questa sezione si riferiscono alla gestione dei servizi Web classici nel portale dei servizi Web di Azure Machine Learning. Per informazioni sulla gestione dei servizi Web classici tramite il Machine Learning Studio (classico) e il portale di Azure, vedere [gestire un'area di lavoro di Azure Machine Learning Studio (classica)](manage-workspace.md).
 > 
 > 
 
@@ -151,6 +151,6 @@ Fare clic sull'opzione di menu **CONFIGURA** .
 
 * **Description** (Descrizione) consente di immettere una descrizione per il servizio Web. La descrizione è un campo obbligatorio.
 * **Logging** (Registrazione) consente di abilitare o disabilitare la registrazione nell'endpoint. Per altre informazioni sulla registrazione, vedere [Abilitare la registrazione per i servizi Web di Machine Learning](web-services-logging.md).
-* **Enable Sample data** (Abilita dati di esempio) consente di fornire dati di esempio che è possibile usare per testare il servizio di richiesta-risposta. Se il servizio Web è stato creato in Machine Learning Studio, i dati di esempio vengono prelevati dai dati usati per il training del modello. Se il servizio è stato creato a livello di codice, i dati vengono ricavati dai dati di esempio forniti come parte del pacchetto JSON.
+* **Enable Sample data** (Abilita dati di esempio) consente di fornire dati di esempio che è possibile usare per testare il servizio di richiesta-risposta. Se il servizio Web è stato creato in Machine Learning Studio (versione classica), i dati di esempio vengono ricavati dai dati usati per il training del modello. Se il servizio è stato creato a livello di codice, i dati vengono ricavati dai dati di esempio forniti come parte del pacchetto JSON.
 
 

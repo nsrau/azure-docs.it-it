@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: rajanaki
-ms.openlocfilehash: 972223815810917684f35c4e99f04e1ab5b882c8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 68881d57f251d2f26996b2a837780106326ec1d3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952121"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492291"
 ---
 # <a name="upcoming-deprecation-of-dr-between-customer-owned-sites-using-hyper-v-and-between-sites-managed-by-scvmm-to-azure"></a>Imminente deprecazione del ripristino di emergenza tra siti di proprietà del cliente che usano Hyper-V e tra siti gestiti da SCVMM in Azure
 
@@ -32,13 +32,13 @@ Questo articolo descrive il piano di deprecazione imminente, le implicazioni cor
 
 - Una volta che gli scenari sono stati deprecati, si verificano le implicazioni seguenti, a meno che il cliente non segua la procedura consigliata.
 
-    - RIPRISTINO di emergenza tra macchine virtuali Hyper-V gestite da SCVMM tra siti di proprietà del cliente: le repliche continueranno a funzionare, perché la funzionalità sottostante della replica Hyper-V continuerà a funzionare, ma i clienti non saranno in grado di visualizzare, gestire o eseguire operazioni correlate a NY per il ripristino di emergenza tramite l'esperienza di ripristino di Azure Sire nel portale di Azure. 
-    - RIPRISTINO di emergenza di macchine virtuali Hyper-V gestite da SCVMM in Azure: le repliche esistenti verranno interrotte e i clienti non saranno in grado di visualizzare, gestire o eseguire operazioni correlate a NY per il ripristino di emergenza tramite il Azure Site Recovery
+    - RIPRISTINO di emergenza tra macchine virtuali Hyper-V gestite da SCVMM tra siti di proprietà del cliente: le repliche continueranno a funzionare, perché la funzionalità sottostante della replica Hyper-V continuerà a funzionare, ma i clienti non saranno in grado di visualizzare, gestire o eseguire operazioni relative al ripristino di emergenza. tramite l'esperienza di ripristino di Azure Sire nel portale di Azure. 
+    - RIPRISTINO di emergenza di macchine virtuali Hyper-V gestite da SCVMM in Azure: le repliche esistenti verranno interrotte e i clienti non saranno in grado di visualizzare, gestire o eseguire operazioni relative al ripristino di emergenza tramite il Azure Site Recovery
 
 
 ## <a name="recommended-actions-to-be-taken"></a>Azioni consigliate da intraprendere
 
-Di seguito sono riportate le opzioni alternative che il cliente deve verificare che la strategia di ripristino di emergenza non abbia alcun effetto quando lo scenario è deprecato. 
+Di seguito sono riportate le opzioni che il cliente deve verificare che la strategia di ripristino di emergenza non abbia alcun effetto quando lo scenario è deprecato. 
 
 - Scegliere di [iniziare a usare Azure come destinazione di ripristino di emergenza per le macchine virtuali in host Hyper-V](hyper-v-azure-tutorial.md).
 
@@ -48,6 +48,6 @@ Di seguito sono riportate le opzioni alternative che il cliente deve verificare 
 - Scegliere di continuare con la replica da sito a sito ma usando la [soluzione di replica Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica)sottostante, ma non sarà in grado di gestire le configurazioni di ripristino di emergenza usando Azure Site Recovery nel portale di Azure. 
 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Pianificare la deprecazione e scegliere un'opzione alternativa più adatta per l'infrastruttura e l'azienda. Nel caso in cui siano presenti query relative a questo, contattare supporto tecnico Microsoft
 

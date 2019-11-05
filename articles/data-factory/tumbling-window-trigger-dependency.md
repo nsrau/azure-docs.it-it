@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: daperlov
-ms.openlocfilehash: 6e5e293e9759f091b6537d5efab9884e0a20fabc
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 24a1a5d132990db2aa10b7860774eecafb4b4edb
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725500"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "73520586"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Creare una dipendenza del trigger di finestra a cascata
 
@@ -30,7 +30,7 @@ Per creare una catena di dipendenze e accertarsi che un trigger venga eseguito s
 
 Per creare dipendenze di un trigger, selezionare **Trigger > Avanzate > Nuovo**, quindi scegliere il trigger da cui dipendere con le dimensioni e gli scostamenti appropriati. Selezionare **Fine** e pubblicare le modifiche alla data factory per attivare le dipendenze.
 
-![Creazione] di dipendenze (media/tumbling-window-trigger-dependency/tumbling-window-dependency01.png "Creazione") di dipendenze
+![Creazione di dipendenze](media/tumbling-window-trigger-dependency/tumbling-window-dependency01.png "Creazione di dipendenze")
 
 ## <a name="tumbling-window-dependency-properties"></a>Proprietà di una dipendenza in una finestra a cascata
 
@@ -79,8 +79,8 @@ La tabella seguente fornisce l'elenco degli attributi necessari per definire una
 | **Nome proprietà** | **Descrizione**  | **Tipo** | **Obbligatorio** |
 |---|---|---|---|
 | type  | Tutti i trigger presenti in una finestra a cascata vengono visualizzati nell'elenco a tendina. Scegliere il trigger da cui dipendere.  | TumblingWindowTriggerDependencyReference o SelfDependencyTumblingWindowTriggerReference | Sì |
-| offset | Scostamento del trigger delle dipendenze. Fornire un valore nel formato di intervallo di tempo ed entrambi gli offset negativi e positivi sono consentiti. Questa proprietà è obbligatoria se il trigger dipende da se stesso e in tutti gli altri casi è facoltativo. L'auto-dipendenza deve avere sempre uno scostamento negativo. Se non viene specificato alcun valore, la finestra è uguale a quella del trigger. | Timespan<br/>(hh:mm:ss) | Auto-dipendenza: Sì<br/>Altro: No |
-| size | Dimensione della finestra a cascata di dipendenze. Fornire un valore TimeSpan positivo. Questa proprietà è facoltativa. | Timespan<br/>(hh:mm:ss) | No  |
+| offset | Scostamento del trigger delle dipendenze. Fornire un valore nel formato di intervallo di tempo ed entrambi gli offset negativi e positivi sono consentiti. Questa proprietà è obbligatoria se il trigger dipende da se stesso e in tutti gli altri casi è facoltativo. L'auto-dipendenza deve avere sempre uno scostamento negativo. Se non viene specificato alcun valore, la finestra è uguale a quella del trigger. | TimeSpan<br/>(hh:mm:ss) | Dipendenza autonoma: Sì<br/>Altro: No |
+| size | Dimensione della finestra a cascata di dipendenze. Fornire un valore TimeSpan positivo. Questa proprietà è facoltativa. | TimeSpan<br/>(hh:mm:ss) | No  |
 
 > [!NOTE]
 > Un trigger di finestra a cascata può dipendere da un massimo di altri due trigger.
@@ -135,7 +135,7 @@ Di seguito sono illustrate le illustrazioni degli scenari e l'utilizzo delle pro
 
 ### <a name="self-dependency"></a>Auto-dipendenza
 
-![Dipendenza autonoma](media/tumbling-window-trigger-dependency/tumbling-window-dependency04.png "Dipendenza autonoma")
+![Dipendenza autonoma](media/tumbling-window-trigger-dependency/tumbling-window-dependency04.png "Auto-dipendenza")
 
 ### <a name="dependency-on-another-tumbling-window-trigger"></a>Dipendenza di un altro trigger in una finestra a cascata
 
@@ -151,15 +151,17 @@ Un processo giornaliero senza interruzioni nei flussi di output del processo:
 
 ## <a name="monitor-dependencies"></a>Monitorare le dipendenze
 
-È possibile monitorare la catena delle dipendenze e le finestre corrispondenti dalla pagina di monitoraggio dell'esecuzione del trigger. Navigare alla voce **Monitoraggio > Esecuzioni di trigger**.
+È possibile monitorare la catena delle dipendenze e le finestre corrispondenti dalla pagina di monitoraggio dell'esecuzione del trigger. Navigare alla voce **Monitoraggio > Esecuzioni di trigger**. Nella colonna azioni è possibile eseguire nuovamente il trigger o visualizzarne le dipendenze.
 
-![Monitorare] le esecuzioni di trigger (media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "Monitorare") le esecuzioni di trigger
+![Monitorare le esecuzioni di trigger](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "Monitorare le esecuzioni del trigger")
 
-Fare clic sull'icona azione per visualizzare tutte le esecuzioni di trigger dipendenti della finestra selezionata.
+Se si fa clic su "Visualizza dipendenze trigger", è possibile visualizzare lo stato delle dipendenze. Se uno dei trigger di dipendenza ha esito negativo, è necessario eseguirlo di nuovo affinché il trigger dipendente venga eseguito. Un trigger di finestra a cascata attenderà le dipendenze per sette giorni prima del timeout.
 
-![Monitorare] le dipendenze (media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Monitorare") le dipendenze
+![Monitorare le dipendenze](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Monitorare le dipendenze")
 
-Nell'esempio precedente, un trigger giornaliero dipende da un trigger orario senza finestra definita e da un offset di 3 ore. Di conseguenza, il trigger viene eseguito dopo 24 esecuzioni riuscite della dipendenza.
+Per un oggetto visivo più visualizzato per visualizzare la pianificazione delle dipendenze del trigger, selezionare la visualizzazione Gantt.
+
+![Monitorare le dipendenze](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "Monitorare le dipendenze")
 
 ## <a name="next-steps"></a>Passaggi successivi
 

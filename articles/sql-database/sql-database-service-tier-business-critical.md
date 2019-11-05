@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: 9e398fd7d370d30fac87035b27a218834b4fab22
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: ef1f420e4c4dbd38ad703eb0573fae36af078edb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899727"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496226"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Livello Business critical - Servizio di database SQL di Azure
 
@@ -49,7 +49,7 @@ Il livello di servizio Business critical è progettato per le applicazioni che r
 I motivi principali per cui è consigliabile scegliere business critical livello di servizio anziché per utilizzo generico livello sono:
 -   Requisiti di latenza IO Bassi: il carico di lavoro che richiede la risposta rapida dal livello di archiviazione (1-2 millisecondi in media) deve usare business critical livello. 
 -   Comunicazione frequente tra l'applicazione e il database. Un'applicazione che non può sfruttare la memorizzazione nella cache a livello di applicazione o la richiesta di invio in [batch](sql-database-use-batching-to-improve-performance.md) e la necessità di inviare molte query SQL che devono essere elaborate rapidamente sono candidati ottimali per business critical livello.
--   Un numero elevato di aggiornamenti: le operazioni di inserimento, aggiornamento ed eliminazione consentono di modificare le pagine di dati in memoria (pagina dirty) che devono essere `CHECKPOINT` salvate nei file di dati con l'operazione. Un potenziale arresto anomalo del processo del motore di database o un failover del database con un numero elevato di pagine dirty potrebbe aumentare il tempo di recupero nel livello per utilizzo generico. Usare business critical livello se si ha un carico di lavoro che causa molte modifiche in memoria. 
+-   Un numero elevato di aggiornamenti: le operazioni di inserimento, aggiornamento ed eliminazione consentono di modificare le pagine di dati in memoria (pagina dirty) che devono essere salvate nei file di dati con `CHECKPOINT` operazione. Un potenziale arresto anomalo del processo del motore di database o un failover del database con un numero elevato di pagine dirty potrebbe aumentare il tempo di recupero nel livello per utilizzo generico. Usare business critical livello se si ha un carico di lavoro che causa molte modifiche in memoria. 
 -   Transazioni con esecuzione prolungata che modificano i dati. Le transazioni aperte per un periodo di tempo più lungo impediscono il troncamento del file di log che potrebbe aumentare le dimensioni del log e il numero di [file di log virtuali (VLF)](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). Un numero elevato di VLF può rallentare il recupero del database dopo il failover.
 -   Carico di lavoro con query di Reporting e analisi che possono essere reindirizzate alla replica secondaria di sola lettura gratuita.
 - Maggiore resilienza e ripristino più rapido dagli errori. In caso di errore di sistema, il database nell'istanza primaria verrà disabilitato e una delle repliche secondarie diventerà immediatamente un nuovo database primario di lettura/scrittura pronto per l'elaborazione delle query. Il motore di database non deve analizzare e ripristinare le transazioni dal file di log e caricare tutti i dati nel buffer di memoria.
@@ -59,7 +59,7 @@ I motivi principali per cui è consigliabile scegliere business critical livello
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Trovare le caratteristiche delle risorse (numero di core, i/o, memoria) del livello business critical in [istanza gestita](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), database singolo nel modello [Vcore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) o [modello DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)o pool elastico nel modello [vCore](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) e [modello DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
+- Trovare le caratteristiche delle risorse (numero di core, i/o, memoria) del livello business critical in [istanza gestita](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), database singolo nel modello [Vcore](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) o [modello DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)o pool elastico nel modello [vCore](sql-database-vcore-resource-limits-elastic-pools.md#business-critical---provisioned-compute---gen4) e [modello DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
 - Informazioni sui livelli [Utilizzo generico](sql-database-service-tier-general-purpose.md) e [Hyperscale](sql-database-service-tier-hyperscale.md).
 - Informazioni su [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Per altre opzioni relative a disponibilità elevata e ripristino di emergenza, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
