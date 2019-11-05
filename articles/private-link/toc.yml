@@ -30,6 +30,8 @@
   items:
     - name: Connettersi privatamente a un account di archiviazione
       href: create-private-endpoint-storage-portal.md
+    - name: Connettersi privatamente a un account Cosmos DB
+      href: create-private-endpoint-cosmosdb-portal.md
     - name: Disabilitare i criteri di rete per un endpoint privato
       href: disable-private-endpoint-network-policy.md
     - name: Disabilitare i criteri di rete per un servizio Collegamento privato

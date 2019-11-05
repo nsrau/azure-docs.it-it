@@ -115,6 +115,9 @@
         - name: Servizio Blockchain
           tocHref: /azure/blockchain/service/
           topicHref: /azure/blockchain/service/index
+        - name: Token di blockchain
+          tocHref: /azure/blockchain/tokens/
+          topicHref: /azure/blockchain/tokens/index
         - name: Blockchain Workbench
           tocHref: /azure/blockchain/workbench/
           topicHref: /azure/blockchain/workbench/
@@ -451,6 +454,9 @@
     - name: Firewall
       tocHref: /azure/firewall/
       topicHref: /azure/firewall/
+    - name: Gestione firewall
+      tocHref: /azure/firewall-manager
+      topicHref: /azure/firewall-manager
     - name: Servizio Frontdoor
       tocHref: /azure/frontdoor/
       topicHref: /azure/frontdoor/
@@ -539,7 +545,7 @@
             - name: Informazioni di riferimento su algoritmi e moduli
               tocHref: /azure/machine-learning/algorithm-module-reference
               topicHref: /azure/machine-learning/algorithm-module-reference/module-reference
-        - name: Studio
+        - name: Studio (versione classica)
           tocHref: /azure/machine-learning/studio
           topicHref: /azure/machine-learning/studio/
         - name: Processo di analisi scientifica dei dati per i team
@@ -671,12 +677,15 @@
     - name: Site Recovery
       tocHref: /azure/site-recovery/
       topicHref: /azure/site-recovery/
-    - name: SQL Data Warehouse
+    - name: Synapse Analytics
       tocHref: /azure/sql-data-warehouse/
       topicHref: /azure/sql-data-warehouse/
     - name: Database SQL
       tocHref: /azure/sql-database/
       topicHref: /azure/sql-database/
+    - name: Database SQL Edge
+      tocHref: /azure/sql-database-edge/
+      topicHref: /azure/sql-database-edge/
     - name: SQL Server Stretch Database
       tocHref: /azure/sql-server-stretch-database/
       topicHref: /azure/sql-server-stretch-database/
@@ -751,9 +760,15 @@
     - name: Rete virtuale
       tocHref: /azure/virtual-network/
       topicHref: /azure/virtual-network/
+    - name: Servizio di peering
+      tocHref: /azure/peering-service/
+      topicHref: /azure/peering-service/
     - name: Gateway VPN
       tocHref: /azure/vpn-gateway/
       topicHref: /azure/vpn-gateway/
+    - name: Web application firewall
+      tocHref: /azure/web-application-firewall/
+      topicHref: /azure/web-application-firewall/
     - name: Desktop virtuale Windows
       tocHref: /azure/virtual-desktop/
       topicHref: /azure/virtual-desktop/

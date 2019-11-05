@@ -781,20 +781,32 @@
                   href: insights/container-insights-enable-new-cluster.md
                 - name: Abilitare per un cluster esistente
                   href: insights/container-insights-enable-existing-clusters.md
+                - name: Abilitare per l'ambiente ibrido
+                  href: insights/container-insights-hybrid-setup.md
                 - name: Mapping delle aree
                   href: insights/container-insights-region-mapping.md
             - name: Analizzare
               href: insights/container-insights-analyze.md
             - name: Disabilitare il monitoraggio
               href: insights/container-insights-optout.md
-            - name: Visualizzare i log in tempo reale
-              href: insights/container-insights-live-logs.md
+            - name: Visualizzare i dati dinamici
+              items:
+                - name: Panoramica dei dati dinamici (anteprima)
+                  href: insights/container-insights-livedata-overview.md
+                - name: Configurazione
+                  href: insights/container-insights-livedata-setup.md
+                - name: Visualizzare le metriche del cluster
+                  href: insights/container-insights-livedata-metrics.md
+                - name: Visualizzare le distribuzioni
+                  href: insights/container-insights-livedata-deployments.md
             - name: Analizzare i dati con le query sui log
               href: insights/container-insights-log-search.md
             - name: Creazione di avvisi
               href: insights/container-insights-alerts.md
             - name: Gestione dell'agente
               href: insights/container-insights-manage-agent.md
+            - name: Configurare lo scraping di metriche Prometheus
+              href: insights/container-insights-prometheus-integration.md
             - name: Configurare le impostazioni di raccolta dati dall'agente
               href: insights/container-insights-agent-config.md
             - name: Aggiornare per abilitare le metriche

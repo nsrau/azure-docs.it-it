@@ -1,0 +1,57 @@
+- name: Documentazione di Gestione firewall di Azure
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Che cos'è Gestione firewall di Azure?
+      href: overview.md
+- name: Esercitazioni
+  expanded: true
+  items:
+    - name: Proteggere la rete cloud - portale
+      href: secure-cloud-network.md
+- name: Concetti
+  items:
+    - name: Che cos'è un hub virtuale protetto?
+      href: secured-virtual-hub.md
+    - name: Processo generale di distribuzione
+      href: deployment-overview.md
+    - name: Partner di sicurezza affidabili
+      href: trusted-security-partners.md
+    - name: Logica di elaborazione delle regole
+      href: rule-processing.md
+- name: Guide alle procedure
+  items:
+    - name: Distribuire partner di sicurezza affidabili
+      href: deploy-trusted-security-partner.md
+    - name: Eseguire la migrazione a criterio firewall
+      href: migrate-to-policy.md
+- name: riferimento
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/ext/azure-firewall/network/firewall
+    - name: Azure PowerShell
+      href: /powershell/module/az.network/new-azfirewall
+    - name: .NET
+      href: /dotnet/api
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/firewall
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
+- name: Risorse
+  items:
+    - name: Creare modelli
+      href: ../azure-resource-manager/resource-group-authoring-templates.md
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Modelli della community
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/regions/services/'

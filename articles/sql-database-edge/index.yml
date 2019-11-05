@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Documentazione del database SQL Edge di Azure
+summary: Il database SQL Edge di Azure un motore di database relazionale ottimizzato, progettato per distribuzioni IoT e perimetrali.
+metadata:
+  title: Documentazione del database SQL Edge di Azure
+  meta.description: Learn how to use Azure SQL Database Edge.
+  services: sql-database-edge
+  ms.service: sql-database-edge
+  ms.topic: landing-page
+  author: stevestein
+  ms.author: sstein
+  ms.date: 11/04/2019
+  ms.openlocfilehash: a13235e6451997a2fab320c38663af941e43789d
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508636"
+landingContent:
+- title: Database SQL Edge
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è il database SQL Edge?
+      url: overview.md
+- title: Distribuire il database SQL Edge
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Distribuire il database SQL Edge
+      url: deploy-portal.md
+- title: Sincronizzare i dati
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Sincronizzare i dati del database SQL Edge con Azure Data Factory
+      url: tutorial-sync-data-factory.md
+    - text: Sincronizzare i dati del database SQL Edge con il database SQL
+      url: tutorial-sync-data-sync.md
+- title: Machine learning
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Machine Learning e intelligenza artificiale
+      url: onnx-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Distribuire ONNX nel database SQL Edge
+      url: deploy-onnx.md

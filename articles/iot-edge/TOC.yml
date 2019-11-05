@@ -45,7 +45,7 @@
           href: tutorial-deploy-function.md
         - name: Trovare le medie con Analisi di flusso di Azure
           href: tutorial-deploy-stream-analytics.md
-        - name: Assegnare punteggi ai dati con il servizio Azure Machine Learning
+        - name: Assegnare punteggi ai dati con Azure Machine Learning
           href: tutorial-deploy-machine-learning.md
         - name: Classificare immagini con Visione personalizzata
           href: tutorial-deploy-custom-vision.md

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Azure SQL Data Warehouse
-summary: Informazioni su come usare Azure SQL Data Warehouse, che combina i database relazionali SQL con l'elaborazione parallela elevata (Massively Parallel Processing, MPP). Le esercitazioni e gli altri documenti illustrano come progettare, caricare, gestire e analizzare i dati con un data warehouse.
+title: Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse)
+summary: Azure Synapse è un servizio di analisi senza limiti che riunisce funzionalità aziendali di data warehousing e analisi di Big Data. Offre la libertà di eseguire query sui dati in base alle proprie esigenze, usando risorse serverless su richiesta o con provisioning, su larga scala.
 metadata:
-  title: Azure SQL Data Warehouse
-  description: description
+  title: Azure Synapse Analytics
+  description: Azure Synapse è un servizio di analisi senza limiti che riunisce funzionalità aziendali di data warehousing e analisi di Big Data. Offre la libertà di eseguire query sui dati in base alle proprie esigenze, usando risorse serverless su richiesta o con provisioning, su larga scala.
   services: sql-data-warehouse
   ms.service: sql-data-warehouse
   ms.subservice: design
@@ -12,38 +12,38 @@ metadata:
   author: julieMSFT
   ms.author: jrasnick
   ms.date: 10/03/2019
-  ms.openlocfilehash: ffb90d5d15b83570511c3f70b39f9f83f000ab35
-  ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+  ms.openlocfilehash: 2ad2e5b4d17c4642b42efd51de2b91308f49a101
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/10/2019
-  ms.locfileid: "72245848"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73492225"
 landingContent:
-- title: Informazioni su SQL Data Warehouse
+- title: Informazioni Azure Synapse Analytics
   linkLists:
   - linkListType: overview
     links:
-    - text: Che cos'è SQL Data Warehouse?
+    - text: Che cos'è Azure Synapse?
       url: sql-data-warehouse-overview-what-is.md
   - linkListType: architecture
     links:
-    - text: SQL Data Warehouse - Architettura MPP
+    - text: Architettura di Azure Synapse
       url: massively-parallel-processing-mpp-architecture.md
-    - text: Suggerimenti e procedure consigliate per il data warehouse
+    - text: Suggerimenti e procedure consigliate
       url: cheat-sheet.md
 - title: Introduzione
   linkLists:
   - linkListType: deploy
     links:
-    - text: Creare un SQL Data Warehouse
+    - text: Creare un pool SQL (data warehouse)
       url: create-data-warehouse-portal.md
 - title: Caricare i dati
   linkLists:
   - linkListType: concept
     links:
-    - text: Progettare una strategia di caricamento di dati PolyBase
+    - text: Progettare la strategia di caricamento di dati
       url: design-elt-data-loading.md
-    - text: Procedure consigliate per il caricamento di dati
+    - text: Procedure consigliate
       url: guidance-for-loading-data.md
   - linkListType: how-to-guide
     links:
@@ -51,13 +51,13 @@ landingContent:
       url: sql-data-warehouse-load-from-azure-data-lake-store.md
   - linkListType: tutorial
     links:
-    - text: Caricare dati dall'archiviazione BLOB di Azure
+    - text: Caricare dati da archiviazione BLOB di Azure
       url: load-data-from-azure-blob-storage-using-polybase.md
 - title: Ottimizzazione delle prestazioni
   linkLists:
   - linkListType: overview
     links:
-    - text: Procedure consigliate per SQL Data Warehouse
+    - text: Procedure consigliate
       url: sql-data-warehouse-best-practices.md
     - text: Ottimizzazione dell'indice columnstore cluster ordinato
       url: performance-tuning-ordered-cci.md
@@ -67,11 +67,11 @@ landingContent:
     links:
     - text: Analizzare il carico di lavoro
       url: analyze-your-workload.md
-- title: Gestire e monitorare SQL Data Warehouse
+- title: Gestire e monitorare
   linkLists:
   - linkListType: overview
     links:
-    - text: Informazioni su come gestire e monitorare SQL Data Warehouse
+    - text: Informazioni su come gestire e monitorare il data warehouse
       url: sql-data-warehouse-overview-manageability-monitoring.md
   - linkListType: how-to-guide
     links:
@@ -79,11 +79,11 @@ landingContent:
       url: sql-data-warehouse-manage-monitor.md
     - text: Gestire e monitorare la priorità del carico di lavoro
       url: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
-- title: Proteggere SQL Data Warehouse
+- title: Proteggere il data warehouse
   linkLists:
   - linkListType: overview
     links:
-    - text: Nozioni di base sulla protezione di SQL Data Warehouse
+    - text: Nozioni di base sulla protezione del data warehouse
       url: sql-data-warehouse-overview-manage-security.md
   - linkListType: how-to-guide
     links:
@@ -93,5 +93,5 @@ landingContent:
   linkLists:
   - linkListType: video
     links:
-    - text: Guardare i video più recenti su Azure SQL Data Warehouse
+    - text: Guardare i video più recenti su data warehouse
       url: sql-data-warehouse-videos.md

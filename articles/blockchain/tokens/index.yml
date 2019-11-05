@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Documentazione di Token di blockchain di Azure
+summary: Informazioni su come creare, emettere e gestire i token di blockchain.
+metadata:
+  title: Documentazione di Token di blockchain di Azure - Esercitazioni e informazioni di riferimento sulle API
+  description: Informazioni su come emettere e gestire i token di blockchain. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come usare il servizio Token di blockchain di Azure per creare e gestire i token di blockchain in Azure.
+  services: azure-blockchain
+  ms.service: azure-blockchain
+  ms.topic: landing-page
+  author: PatAltimore
+  ms.author: patricka
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 6df625c2264db279e29c4ebcf5aab5695b335a0e
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508432"
+landingContent:
+- title: Informazioni su Token di blockchain di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è il servizio Token di blockchain di Azure?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Gestione account
+      url: account-management.md
+    - text: Modelli
+      url: templates.md
+    - text: Componibilità
+      url: composability.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Iscriversi per accedere all'anteprima
+      url: https://aka.ms/PreviewForm
+  - linkListType: video
+    links:
+    - text: Iniziare a usare Token di blockchain di Azure
+      url: https://aka.ms/ABTokensPartI
+    - text: Gestione di account
+      url: https://aka.ms/ABTokensPartII
+    - text: Modelli e componibilità
+      url: https://aka.ms/ABTokensPartIII
+    - text: Token e framework di tassonomia dei token
+      url: https://aka.ms/TokenTaxFramework

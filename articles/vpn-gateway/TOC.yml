@@ -124,6 +124,8 @@
               href: point-to-site-how-to-vpn-client-install-azure-cert.md
             - name: Creare e installare i file di configurazione dei client VPN
               href: point-to-site-vpn-client-configuration-azure-cert.md
+            - name: Informazioni sul file di download del profilo VPN client
+              href: about-vpn-profile-download.md
         - name: Autenticazione RADIUS
           items:
             - name: Configurare una VPN P2S
@@ -138,6 +140,14 @@
               href: vpn-gateway-howto-openvpn.md
             - name: Configurare client OpenVPN
               href: vpn-gateway-howto-openvpn-clients.md
+            - name: Open VPN - Autenticazione di Azure Active Directory
+              items:
+                - name: Configurare un tenant di Azure Active Directory
+                  href: openvpn-azure-ad-tenant.md
+                - name: Configurare un client VPN - Azure AD
+                  href: openvpn-azure-ad-client.md
+        - name: Passaggio a un certificato del gateway CA pubblico per la connessione da punto a sito
+          href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Configurare un tunnel di dispositivo VPN Always On
           href: vpn-gateway-howto-always-on-device-tunnel.md
         - name: Configurare un tunnel utente VPN Always On
@@ -188,6 +198,10 @@
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
         - name: Configurare gli avvisi in base a log di diagnostica
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
+    - name: Configurare le acquisizioni pacchetti
+      href: packet-capture.md
+    - name: Configurare selettori di traffico personalizzati
+      href: custom-traffic-selectors.md
     - name: Risolvere problemi
       href: vpn-gateway-troubleshoot.md
       items:
@@ -203,6 +217,8 @@
               href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
             - name: Problemi di connessione da punto a sito - Client VPN in Mac OS X
               href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
+            - name: Da punto a sito - Autenticazione di Azure AD
+              href: troubleshoot-ad-vpn-client.md
         - name: Problemi della connessione da sito a sito
           items:
             - name: Connessioni Site-to-site

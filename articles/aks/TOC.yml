@@ -102,6 +102,8 @@
       href: supported-kubernetes-versions.md
     - name: Protezione avanzata nel sistema operativo host
       href: security-hardened-vm-host-image.md
+    - name: Panoramica della diagnostica del servizio Azure Kubernetes
+      href: concepts-diagnostics.md
 - name: Guide alle procedure
   items:
     - name: Operazioni del cluster
@@ -128,11 +130,11 @@
               href: virtual-nodes-portal.md
         - name: Usare Virtual Kubelet
           href: virtual-kubelet.md
-        - name: Usare il ridimensionamento automatico del cluster (anteprima)
+        - name: Usare il ridimensionamento automatico del cluster
           href: cluster-autoscaler.md
-        - name: Usare le zone di disponibilità (anteprima)
+        - name: Usare le zone di disponibilità
           href: availability-zones.md
-        - name: Usare più pool di nodi (anteprima)
+        - name: Usare più pool di nodi
           href: use-multiple-node-pools.md
         - name: Distribuire servizio Azure Kubernetes con Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
@@ -199,7 +201,7 @@
           href: use-network-policies.md
         - name: Usare criteri di sicurezza dei pod (anteprima)
           href: use-pod-security-policies.md
-        - name: Definire gli intervalli IP autorizzati per il server API (anteprima)
+        - name: Definire gli intervalli IP autorizzati per il server API
           href: api-server-authorized-ip-ranges.md
         - name: Controllare le distribuzioni con Criteri di Azure (anteprima)
           href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
@@ -225,8 +227,8 @@
           href: view-master-logs.md
         - name: Visualizzare i log di kubelet
           href: kubelet-logs.md
-        - name: Visualizzare i log dei contenitori in tempo reale (anteprima)
-          href: ../azure-monitor/insights/container-insights-live-logs.md
+        - name: Visualizzare i dati dei contenitori in tempo reale
+          href: ../azure-monitor/insights/container-insights-livedata-overview.md
           maintainContext: true
     - name: Usare i contenitori di Windows Server (anteprima)
       items:

@@ -77,6 +77,8 @@
           href: application-gateway-waf-configuration.md
         - name: Regole personalizzate
           href: custom-waf-rules-overview.md
+    - name: In ingresso per il servizio Azure Kubernetes
+      href: ingress-controller-overview.md
     - name: Monitoraggio dell’integrità
       items:
         - name: Probe di integrità
@@ -153,6 +155,28 @@
           href: create-custom-waf-rules.md
         - name: Configurare WAF con regole personalizzate
           href: configure-waf-custom-rules.md
+    - name: In ingresso per il servizio Azure Kubernetes
+      items:
+        - name: Configurare con un gateway applicazione esistente
+          href: ingress-controller-install-existing.md
+        - name: Configurare con un nuovo gateway applicazione
+          href: ingress-controller-install-new.md
+        - name: Abilitare l'affinità basata su cookie
+          href: ingress-controller-cookie-affinity.md
+        - name: Abilitare il supporto per più spazi dei nomi
+          href: ingress-controller-multiple-namespace-support.md
+        - name: Usare IP privato per il routing interno
+          href: ingress-controller-private-ip.md
+        - name: Aggiungere i probe di integrità ai pod del servizio Azure Kubernetes
+          href: ingress-controller-add-health-probes.md
+        - name: Usare il gateway applicazione per esporre il servizio Azure Kubernetes tramite HTTP/HTTPS
+          href: ingress-controller-expose-service-over-http-https.md
+        - name: Aggiornare il controller di ingresso con Helm
+          href: ingress-controller-update-ingress-controller.md
+        - name: Usare LetsEncrypt.org con il gateway applicazione
+          href: ingress-controller-letsencrypt-certificate-application-gateway.md
+        - name: Esporre WebSocket al gateway applicazione
+          href: ingress-controller-expose-websocket-server.md
     - name: Indirizzare in base all'URL
       items:
         - name: Azure PowerShell
@@ -223,6 +247,8 @@
           href: application-gateway-troubleshooting-502.md
         - name: WAF (Web application firewall)
           href: web-application-firewall-troubleshoot.md
+        - name: In ingresso per il servizio Azure Kubernetes
+          href: ingress-controller-troubleshoot.md
         - name: Integrità delle risorse
           href: resource-health-overview.md
         - name: Usare Log Analytics
@@ -235,6 +261,8 @@
   items:
     - name: Regole CRS
       href: application-gateway-crs-rulegroups-rules.md
+    - name: In ingresso per le annotazioni del servizio Azure Kubernetes
+      href: ingress-controller-annotations.md
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/network/application-gateway
     - name: Azure PowerShell

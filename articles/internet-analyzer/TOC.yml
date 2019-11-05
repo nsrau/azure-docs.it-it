@@ -1,0 +1,34 @@
+- name: Documentazione dell'analizzatore Internet
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni sull'analizzatore Internet
+      href: internet-analyzer-overview.md
+- name: Esercitazione
+  items:
+    - name: Creare un test dell'analizzatore Internet con il portale
+      href: internet-analyzer-create-test-portal.md
+    - name: Creare un test dell'analizzatore Internet con l'interfaccia della riga di comando
+      herf: internet-analyzer-cli.md
+- name: Guide alle procedure
+  items:
+    - name: Incorporare il client
+      href: internet-analyzer-embed-client.md
+    - name: Configurare un endpoint personalizzato
+      href: internet-analyzer-custom-endpoint.md
+    - name: Interpretazione della scorecard
+      href: internet-analyzer-scorecard.md
+- name: Risorse
+  items:
+    - name: Domande frequenti sull'analizzatore Internet
+      href: internet-analyzer-faq.md
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Contratto di servizio in anteprima
+      href: 'https://azure.microsoft.com/support/legal/preview-supplemental-terms'
+    - name: Contratto di servizio
+      href: 'https://azure.microsoft.com/support/legal/sla'

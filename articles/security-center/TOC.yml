@@ -37,6 +37,14 @@
       href: security-center-using-recommendations.md
     - name: Gestione tra tenant
       href: security-center-cross-tenant-management.md
+    - name: Sicurezza del contenitore
+      items:
+        - name: Panoramica della sicurezza dei contenitori
+          href: container-security.md
+        - name: Integrazione con Registro Azure Container
+          href: azure-container-registry-integration.md
+        - name: Integrazione con il servizio Azure Kubernetes
+          href: azure-kubernetes-service-integration.md
     - name: Avvisi ed eventi di rilevamento delle minacce
       items:
         - name: Panoramica sugli avvisi di sicurezza
@@ -67,33 +75,47 @@
       href: security-center-secure-score.md
     - name: Eseguire l'aggiornamento alla sicurezza avanzata
       href: security-center-onboarding.md
-    - name: Protezione dei server con Microsoft Defender ATP
+    - name: Proteggere i server con Microsoft Defender ATP
       href: security-center-wdatp.md
-    - name: Sicurezza dei dati avanzata per SQL in macchine virtuali di Azure (anteprima pubblica)
+    - name: Usare la sicurezza dei dati avanzata per SQL in VM di Azure
       href: security-center-iaas-advanced-data.md
     - name: Usare il servizio app per proteggere le applicazioni
       href: security-center-app-services.md
-    - name: Utilizzo dei criteri di sicurezza
-      href: tutorial-security-policy.md
+    - name: Usare i criteri di sicurezza
+      items:
+        - name: Panoramica dei criteri di sicurezza
+          href: tutorial-security-policy.md
+        - name: Usare criteri di sicurezza predefiniti
+          href: security-center-policy-definitions.md
+        - name: Creare criteri di sicurezza personalizzati
+          href: custom-security-policies.md
+        - name: Gestire i criteri con l'API REST Criteri di Azure
+          href: configure-security-policy-azure-policy.md
+    - name: Aggiungere pacchetti di conformità dinamici
+      href: update-regulatory-compliance-packages.md
     - name: Personalizzare i criteri di protezione delle informazioni
       href: security-center-info-protection-policy.md
     - name: Gestire le soluzioni di sicurezza
       href: security-center-partner-integration.md
     - name: Automatizzare l'onboarding con PowerShell
       href: security-center-powershell-onboarding.md
-    - name: Impostazioni di Centro sicurezza
-      href: security-center-policies-overview.md
+    - name: Integrazione con Windows Admin Center
+      href: windows-admin-center-integration.md
     - name: Confrontare le baseline con Monitoraggio dell'integrità dei file
       href: security-center-file-integrity-monitoring-baselines.md
-    - name: Raccolta dei dati
+    - name: Automatizzare le risposte ad avvisi e raccomandazioni
+      href: workflow-automation.md
+    - name: Esportare avvisi e raccomandazioni
+      href: continuous-export.md
+    - name: Configurare la raccolta dei dati
       href: security-center-enable-data-collection.md
-    - name: Criteri di sicurezza predefiniti
-      href: security-center-policy-definitions.md
-    - name: Notifiche tramite posta elettronica
+    - name: Configurare Advanced Threat Protection per Azure Key Vault
+      href: advanced-threat-protection-key-vault.md
+    - name: Configurare le notifiche tramite posta elettronica
       href: security-center-provide-security-contact-details.md
     - name: Prezzi
       href: security-center-pricing.md
-    - name: Visibilità a livello di tenant
+    - name: Acquisire visibilità a livello di tenant
       href: security-center-management-groups.md
     - name: Implementare le raccomandazioni sulla sicurezza
       items:
@@ -160,7 +182,7 @@
     - name: Gestire i dati utente
       href: security-center-privacy.md
     - name: Documentazione del Centro sicurezza di Azure per IoT
-      href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
+      href: 'https://docs.microsoft.com/azure/asc-for-iot/'
     - name: Domande frequenti
       href: security-center-faq.md
     - name: Documentazione sulla sicurezza di Azure

@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Documentazione dell'analizzatore Internet di Azure (anteprima)
+summary: L'analizzatore Internet di Azure è una piattaforma di misurazione lato client che consente di testare l'impatto delle modifiche apportate all'infrastruttura di rete sulle prestazioni dei clienti. Indipendentemente dal fatto si esegua la migrazione da locale ad Azure o che si stia valutando un nuovo servizio di Azure, l'analizzatore Internet di Azure consente di acquisire dai dati degli utenti e dalle analisi avanzate di Microsoft le informazioni necessarie sull'architettura di rete per ottimizzarla con Azure prima della migrazione.
+metadata:
+  title: Documentazione dell'analizzatore Internet di Azure (anteprima)
+  description: L'analizzatore Internet di Azure è una piattaforma di misurazione lato client che consente di testare l'impatto delle modifiche apportate all'infrastruttura di rete sulle prestazioni dei clienti. Indipendentemente dal fatto si esegua la migrazione da locale ad Azure o che si stia valutando un nuovo servizio di Azure, l'analizzatore Internet di Azure consente di acquisire dai dati degli utenti e dalle analisi avanzate di Microsoft le informazioni necessarie sull'architettura di rete per ottimizzarla con Azure prima della migrazione.
+  services: internet-analyzer
+  ms.service: internet-analyzer
+  ms.topic: landing-page
+  author: megan-beatty
+  ms.author: mebeatty
+  ms.date: 10/16/2019
+  ms.openlocfilehash: 27ad858137901f7cb803b380115f6b55967caef7
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508840"
+landingContent:
+- title: Informazioni sull'analizzatore Internet
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è l'analizzatore Internet di Azure?
+      url: internet-analyzer-overview.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Creare un analizzatore Internet con il portale
+      url: internet-analyzer-create-test-portal.md
+    - text: Creare un analizzatore Internet con l'interfaccia della riga di comando
+      url: internet-analyzer-cli.md
+  - linkListType: how-to-guide
+    links:
+    - text: Incorporare il client dell'analizzatore Internet
+      url: internet-analyzer-embed-client.md
+    - text: Configurare un endpoint personalizzato
+      url: internet-analyzer-custom-endpoint.md
+- title: Risorse
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Domande frequenti sull'analizzatore Internet
+      url: internet-analyzer-faq.md
+    - text: Interpretazione della scorecard
+      url: internet-analyzer-scorecard.md

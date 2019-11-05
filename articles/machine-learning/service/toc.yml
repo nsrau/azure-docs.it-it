@@ -6,6 +6,9 @@
     - name: Informazioni su Azure Machine Learning
       displayName: 'AML, services, overview, introduction'
       href: overview-what-is-azure-ml.md
+    - name: Differenze tra Azure Machine Learning e Studio
+      displayName: 'AML, Studio, designer'
+      href: ../compare-azure-ml-to-studio-classic.md
     - name: Architettura e termini
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
@@ -32,15 +35,22 @@
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
         - name: Pipeline di Machine Learning (avanzato)
-          href: tutorial-pipeline-batch-scoring-classification.md
-    - name: Interfaccia visiva grafica
+          items:
+            - name: Assegnare un punteggio in batch a un modello di classificazione
+              displayName: pipelines
+              href: tutorial-pipeline-batch-scoring-classification.md
+    - name: R SDK
+      items:
+        - name: Creare il primo esperimento di Machine Learning (R)
+          href: tutorial-1st-r-experiment.md
+    - name: Finestra di progettazione
       items:
         - name: 1. Eseguire il training del modello di regressione
           displayName: studio
-          href: ui-tutorial-automobile-price-train-score.md
+          href: tutorial-designer-automobile-price-train-score.md
         - name: 2. Distribuire il modello di regressione
           displayName: studio
-          href: ui-tutorial-automobile-price-deploy.md
+          href: tutorial-designer-automobile-price-deploy.md
     - name: Machine Learning automatizzato (interfaccia)
       displayName: 'automl, automated, auto ml, portal, ui'
       href: tutorial-first-experiment-automated-ml.md
@@ -57,42 +67,51 @@
   items:
     - name: Area di lavoro
       href: concept-workspace.md
-    - name: Destinazione del calcolo
-      displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
-      href: concept-compute-target.md
     - name: Training dei modelli
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
       href: concept-train-machine-learning-model.md
-    - name: Interfaccia visiva grafica
-      displayName: studio
-      href: ui-concept-visual-interface.md
-    - name: Funzionalità automatizzate di Machine Learning
-      displayName: 'automl, auto ml'
-      href: concept-automated-ml.md
     - name: Gestione modelli (MLOps)
       displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
+    - name: Interpretabilità
+      displayName: explainability
+      href: how-to-machine-learning-interpretability.md
+    - name: 'Finestra di progettazione: Machine Learning senza codice'
+      displayName: studio
+      href: concept-designer.md
+    - name: Foglio informativo sugli algoritmi
+      href: /azure/machine-learning/algorithm-cheat-sheet?context=azure/machine-learning/service/context/ml-context
+    - name: Funzionalità automatizzate di Machine Learning
+      displayName: 'automl, auto ml'
+      href: concept-automated-ml.md
+    - name: Istanza di calcolo
+      displayName: 'resource, dsvm, Data Science Virtual Machine'
+      href: concept-compute-instance.md
+    - name: Destinazione del calcolo
+      displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
+      href: concept-compute-target.md
     - name: Pipeline di apprendimento automatico
       href: concept-ml-pipelines.md
-    - name: Interpretabilità dei modelli
-      displayName: explainability
-      href: machine-learning-interpretability-explainability.md
     - name: ONNX
       href: concept-onnx.md
-    - name: Security
+    - name: Idoneità e sicurezza aziendale
       items:
-        - name: Enterprise Security Package
-          displayName: authorization authentication encryption aad azure active directory
-          href: concept-enterprise-security.md
-        - name: Gestire utenti e ruoli
-          href: how-to-assign-roles.md
-        - name: Usare le reti virtuali
-          displayName: vnet
-          href: how-to-enable-virtual-network.md
-        - name: Proteggere il servizio Web con SSL
-          href: how-to-secure-web-service.md
-        - name: Rigenerazione delle chiavi di accesso alle risorse di archiviazione
-          href: how-to-change-storage-access-key.md
+        - name: Sicurezza aziendale
+          items:
+            - name: Enterprise Security Package
+              displayName: authorization authentication encryption aad azure active directory
+              href: concept-enterprise-security.md
+            - name: Gestire utenti e ruoli
+              href: how-to-assign-roles.md
+            - name: Usare le reti virtuali
+              displayName: vnet
+              href: how-to-enable-virtual-network.md
+            - name: Proteggere il servizio Web con SSL
+              href: how-to-secure-web-service.md
+            - name: Rigenerazione delle chiavi di accesso alle risorse di archiviazione
+              href: how-to-change-storage-access-key.md
+        - name: Monitorare Azure Machine Learning
+          href: monitor-azure-machine-learning.md
     - name: Apprendimento avanzato
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
@@ -138,32 +157,38 @@
         - name: Eseguire il training con set di dati
           displayName: 'data, dataset'
           href: how-to-train-with-datasets.md
+        - name: Rilevare la deriva nei set di dati
+          displayName: 'data, dataset'
+          href: how-to-monitor-datasets.md
         - name: Eseguire il controllo delle versioni e tenere traccia dei set di dati
           displayName: 'data, data set'
           href: how-to-version-track-datasets.md
     - name: Eseguire il training dei modelli
       items:
-        - name: Usare l'interfaccia visiva grafica
-          displayName: sample visual interface experiments
+        - name: Usare la finestra di progettazione
+          displayName: sample designer experiments
           items:
             - name: Prevedere il prezzo
               displayName: 'regression, studio'
-              href: how-to-ui-sample-regression-predict-automobile-price-basic.md
+              href: how-to-designer-sample-regression-automobile-price-basic.md
             - name: Prevedere il prezzo (impostazioni avanzate)
               displayName: 'regression, studio'
-              href: how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md
-            - name: Prevedere il rischio di credito
+              href: how-to-designer-sample-regression-automobile-price-compare-algorithms.md
+            - name: Prevedere il reddito
               displayName: 'classification, studio'
-              href: how-to-ui-sample-classification-predict-credit-risk-basic.md
+              href: how-to-designer-sample-classification-predict-income.md
             - name: Prevedere il rischio di credito (impostazioni avanzate)
               displayName: 'classification, studio'
-              href: how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md
+              href: how-to-designer-sample-classification-credit-risk-cost-sensitive.md
             - name: Prevedere la varianza
               displayName: 'classification, studio'
-              href: how-to-ui-sample-classification-predict-churn.md
+              href: how-to-designer-sample-classification-churn.md
             - name: Prevedere i ritardi dei voli
               displayName: 'classification, studio'
-              href: how-to-ui-sample-classification-predict-flight-delay.md
+              href: how-to-designer-sample-classification-flight-delay.md
+            - name: Classificazione testo
+              displayName: 'classification, studio'
+              href: how-to-designer-sample-text-classification.md
         - name: Usare le stime per Machine Learning
           items:
             - name: Creare oggetti estimator durante il training
@@ -187,6 +212,15 @@
           href: how-to-train-pytorch.md
         - name: Chainer
           href: how-to-train-chainer.md
+    - name: Interpretare i modelli
+      displayName: interpretability
+      items:
+        - name: Interpretare i modelli locali e remoti
+          displayName: 'SDK, interpret'
+          href: how-to-machine-learning-interpretability-aml.md
+        - name: Interpretare i modelli di ML automatizzato
+          displayName: 'SDK, interpret, automl'
+          href: how-to-machine-learning-interpretability-automl.md
     - name: Automatizzare l'apprendimento automatico
       displayName: 'automl, auto ml'
       items:
@@ -236,7 +270,7 @@
         - name: Servizio app di Azure
           displayName: web app
           href: how-to-deploy-app-service.md
-        - name: VM notebook
+        - name: Istanze di calcolo
           href: how-to-deploy-local-container-notebook-vm.md
         - name: Usare l'immagine Docker personalizzata
           href: how-to-deploy-custom-docker-image.md
@@ -253,6 +287,9 @@
         - name: Eseguire previsioni in batch
           displayName: score scoring asynchronous consume pipeline
           href: how-to-run-batch-predictions.md
+        - name: Usare la finestra di progettazione per le previsioni in batch
+          displayName: score scoring asynchronous consume pipeline
+          href: how-to-run-batch-predictions-ui.md
     - name: Monitorare i modelli
       items:
         - name: Raccogliere e valutare i dati dei modelli
@@ -262,18 +299,18 @@
           href: how-to-monitor-data-drift.md
         - name: Monitorare con Application Insights
           href: how-to-enable-app-insights.md
-    - name: Creare flussi di lavoro riutilizzabili
+    - name: Creare e usare le pipeline di Machine Learning
       displayName: pipelines
       items:
-        - name: Creare pipeline di Machine Learning in Python
+        - name: Creare pipeline di Machine Learning (Python)
           href: how-to-create-your-first-pipeline.md
-        - name: Eseguire il debug e risolvere i problemi delle pipeline di Machine Learning
+        - name: Pianificare una pipeline (Python)
+          href: how-to-schedule-pipelines.md
+        - name: Debug e risoluzione dei problemi delle pipeline
           href: how-to-debug-pipelines.md
         - name: Azure Pipelines per CI/CD
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
-        - name: Pianificare pipeline di Machine Learning in Python
-          href: how-to-schedule-pipelines.md
     - name: Gestire le quote di risorse
       displayName: limits
       href: how-to-manage-quotas.md
@@ -282,15 +319,20 @@
       href: how-to-export-delete-data.md
 - name: riferimento
   items:
-    - name: Machine Learning SDK
+    - name: ML SDK (Python)
       displayName: 'api, core, package, python, class'
       href: 'https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py'
+    - name: ML SDK (R)
+      displayName: 'api, core, package, R, class'
+      href: 'https://azure.github.io/azureml-sdk-for-r/reference/index.html'
     - name: Interfaccia della riga di comando di Machine Learning
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
+    - name: Informazioni di riferimento sui dati del monitoraggio
+      href: monitor-resource-reference.md
     - name: Informazioni di riferimento sulla pipeline di Machine Learning in YAML
       href: reference-pipeline-yaml.md
-    - name: Moduli dell'interfaccia visiva
+    - name: Moduli della finestra di progettazione
       displayName: 'module, reference, algorithm, studio'
       items:
         - name: Panoramica sui riferimenti ai moduli
@@ -299,18 +341,14 @@
           items:
             - name: Eseguire la conversione in CSV
               href: ../algorithm-module-reference/convert-to-csv.md
+            - name: Eseguire la conversione in set di dati
+              href: ../algorithm-module-reference/convert-to-dataset.md
         - name: Input e output di dati
           items:
             - name: Importazione dei dati
               items:
                 - name: Importazione dei dati
                   href: ../algorithm-module-reference/import-data.md
-                - name: Importazione da URL Web tramite HTTP
-                  href: ../algorithm-module-reference/import-from-web-url-via-http.md
-                - name: Importazione dal modulo Archiviazione BLOB di Azure
-                  href: ../algorithm-module-reference/import-from-azure-blob-storage.md
-                - name: Importazione da Database SQL di Azure
-                  href: ../algorithm-module-reference/import-from-azure-sql-database.md
             - name: Esportare dati
               href: ../algorithm-module-reference/export-data.md
             - name: Immettere i dati manualmente
@@ -319,12 +357,18 @@
           items:
             - name: Select Columns in Dataset
               href: ../algorithm-module-reference/select-columns-in-dataset.md
+            - name: Select Columns Transform
+              href: ../algorithm-module-reference/select-columns-transform.md
             - name: Modificare i metadati
               href: ../algorithm-module-reference/edit-metadata.md
             - name: Pulire i dati mancanti
               href: ../algorithm-module-reference/clean-missing-data.md
             - name: Feature Hashing
               href: ../algorithm-module-reference/feature-hashing.md
+            - name: Permutation Feature Importance
+              href: ../algorithm-module-reference/permutation-feature-importance.md
+            - name: Filter Based Feature Selection
+              href: ../algorithm-module-reference/filter-based-feature-selection.md
             - name: Extract N-Gram Features from Text
               href: ../algorithm-module-reference/extract-n-gram-features-from-text.md
             - name: Aggiungere colonne
@@ -341,6 +385,8 @@
               href: ../algorithm-module-reference/split-data.md
             - name: Normalizzare i dati
               href: ../algorithm-module-reference/normalize-data.md
+            - name: SMOTE
+              href: ../algorithm-module-reference/smote.md
             - name: Creare partizioni ed eseguire campionamenti
               href: ../algorithm-module-reference/partition-and-sample.md
             - name: Ritagliare valori
@@ -351,14 +397,24 @@
           items:
             - name: Assegnare il punteggio al modello
               href: ../algorithm-module-reference/score-model.md
+            - name: Score SVD Recommender
+              href: ../algorithm-module-reference/score-svd-recommender.md
             - name: Assegnare dati ai cluster
               href: ../algorithm-module-reference/assign-data-to-clusters.md
             - name: Eseguire il training del modello
               href: ../algorithm-module-reference/train-model.md
             - name: Eseguire il training del modello di clustering
               href: ../algorithm-module-reference/train-clustering-model.md
+            - name: Train SVD Recommender
+              href: ../algorithm-module-reference/train-svd-recommender.md
+            - name: Tune Model Hyperparameters
+              href: ../algorithm-module-reference/tune-model-hyperparameters.md
+            - name: Cross Validate Model
+              href: ../algorithm-module-reference/cross-validate-model.md
             - name: Valutare il modello
               href: ../algorithm-module-reference/evaluate-model.md
+            - name: Evaluate Recommender
+              href: ../algorithm-module-reference/evaluate-recommender.md
             - name: Applicare la trasformazione
               href: ../algorithm-module-reference/apply-transformation.md
             - name: Linear Regression
@@ -381,6 +437,8 @@
               href: ../algorithm-module-reference/multiclass-decision-forest.md
             - name: Albero delle decisioni incrementato a più classi
               href: ../algorithm-module-reference/multiclass-boosted-decision-tree.md
+            - name: One vs. All Multiclass
+              href: ../algorithm-module-reference/one-vs-all-multiclass.md
             - name: Percettrone medio a due classi
               href: ../algorithm-module-reference/two-class-averaged-perceptron.md
             - name: Foresta delle decisioni a due classi

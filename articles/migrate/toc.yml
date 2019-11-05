@@ -30,8 +30,18 @@
           href: tutorial-assess-hyper-v.md
         - name: Eseguire la migrazione di VM Hyper-V
           href: tutorial-migrate-hyper-v.md
-    - name: Eseguire la migrazione di server fisici e VM
-      href: tutorial-migrate-physical-virtual-machines.md
+    - name: Valutare ed eseguire la migrazione di server fisici
+      items:
+        - name: Preparare i server fisici per la valutazione e la migrazione
+          href: tutorial-prepare-physical.md
+        - name: Valutare i server fisici
+          href: tutorial-assess-physical.md
+        - name: Eseguire la migrazione di server fisici
+          href: tutorial-migrate-physical-virtual-machines.md
+    - name: Valutare i server importati per la migrazione
+      items:
+        - name: Valutare i server importati per la migrazione
+          href: tutorial-assess-import.md
 - name: Concetti
   items:
     - name: Domande frequenti
@@ -44,6 +54,8 @@
           href: migrate-support-matrix-vmware.md
         - name: Matrice di supporto per la valutazione e la migrazione di Hyper-V
           href: migrate-support-matrix-hyper-v.md
+        - name: Matrice di supporto per la valutazione e la migrazione di server fisici
+          href: migrate-support-matrix-physical.md
     - name: Architettura di migrazione di Hyper-V
       href: hyper-v-migration-architecture.md
     - name: Architettura di migrazione basata su agente
@@ -66,6 +78,10 @@
       href: how-to-set-up-appliance-vmware.md
     - name: Distribuire un'appliance Hyper-V
       href: how-to-set-up-appliance-hyper-v.md
+    - name: Distribuire un'appliance server fisico
+      href: how-to-set-up-appliance-physical.md
+    - name: 'Individuare app, ruoli e funzionalità'
+      href: how-to-discover-applications.md
     - name: Aggiungere uno strumento per la prima volta
       href: how-to-add-tool-first-time.md
     - name: Aggiungere strumenti di valutazione
@@ -74,6 +90,8 @@
       href: how-to-create-a-group.md
     - name: Raggruppare i computer tramite visualizzazione delle dipendenze
       href: how-to-create-group-machine-dependencies.md
+    - name: Raggruppare i computer tramite visualizzazione delle dipendenze senza agente
+      href: how-to-create-group-machine-dependencies-agentless.md
     - name: Creare una valutazione
       href: how-to-create-assessment.md
     - name: Valutare un database di SQL Server
@@ -84,6 +102,8 @@
       href: how-to-migrate.md
     - name: Preparare i computer per la migrazione
       href: prepare-for-migration.md
+    - name: Eliminare un progetto di Azure Migrate
+      href: how-to-delete-project.md
 - name: Valutazione e migrazione su larga scala
   items:
     - name: Valutare numeri elevati di VM VMware

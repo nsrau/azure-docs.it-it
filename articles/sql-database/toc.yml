@@ -20,29 +20,34 @@
           items:
             - name: Panoramica
               href: sql-database-purchase-models.md
-            - name: Modello basato su vCore
-              href: sql-database-service-tiers-vcore.md
+            - name: Modello vCore
               items:
-                - name: Livello di elaborazione serverless
+                - name: Panoramica del modello vCore
+                  href: sql-database-service-tiers-vcore.md
+                - name: Senza server
                   href: sql-database-serverless.md
-                - name: Pagare in anticipo la capacità riservata
+                - name: Vantaggio Azure Hybrid
+                  href: sql-database-azure-hybrid-benefit.md
+                - name: Capacità riservata
                   href: sql-database-reserved-capacity.md
-            - name: Livelli di servizio DTU
+            - name: Panoramica del modello DTU
               href: sql-database-service-tiers-dtu.md
+            - name: Eseguire la migrazione da DTU a vCore
+              href: sql-database-dtu-to-vcore.md
         - name: Calcolo e archiviazione
           items:
             - name: Panoramica
               href: sql-database-service-tiers-general-purpose-business-critical.md
               displayName: provisioned compute tier
-            - name: Livelli di servizio Utilizzo generico/Standard
+            - name: Utilizzo generico/Standard
               href: sql-database-service-tier-general-purpose.md
-            - name: Livelli di servizio Business critical/Premium
+            - name: Business critical/Premium
               href: sql-database-service-tier-business-critical.md
-            - name: Livello di servizio Hyperscale
+            - name: Hyperscale
               href: sql-database-service-tier-hyperscale.md
             - name: Domande frequenti su Hyperscale
               href: sql-database-service-tier-hyperscale-faq.md
-            - name: Eseguire la migrazione dal livello di servizio Premium RS
+            - name: Eseguire la migrazione da Premium RS
               href: sql-database-service-tiers-prs.md
 - name: Guide introduttive
   expanded: true
@@ -501,17 +506,17 @@
       items:
         - name: Risorse del database singolo
           items:
-            - name: Limiti delle risorse basati su vCore
+            - name: Limiti delle risorse vCore
               href: sql-database-vcore-resource-limits-single-databases.md
-            - name: Limiti delle risorse basati su DTU
+            - name: Limiti delle risorse DTU
               href: sql-database-dtu-resource-limits-single-databases.md
             - name: Ridimensionare le risorse
               href: sql-database-single-database-scale.md
         - name: Risorse del pool elastico
           items:
-            - name: Limiti delle risorse basati su vCore
+            - name: Limiti delle risorse vCore
               href: sql-database-vcore-resource-limits-elastic-pools.md
-            - name: Limiti delle risorse basati su DTU
+            - name: Limiti delle risorse DTU
               href: sql-database-dtu-resource-limits-elastic-pools.md
             - name: Ridimensionare le risorse
               href: sql-database-elastic-pool-scale.md

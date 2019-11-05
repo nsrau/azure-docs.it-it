@@ -61,6 +61,8 @@
       href: api-management-error-handling-policies.md
     - name: Limitazioni relative all'importazione di API
       href: api-management-api-import-restrictions.md
+    - name: Panoramica del gateway self-hosted
+      href: self-hosted-gateway-overview.md
 - name: Guide alle procedure
   items:
     - name: Definire API
@@ -93,6 +95,16 @@
           href: api-management-howto-autoscale.md
         - name: Configurare un dominio personalizzato
           href: configure-custom-domain.md
+        - name: Eseguire la distribuzione in più aree di Azure
+          href: api-management-howto-deploy-multi-region.md
+        - name: Effettuare il provisioning di un gateway self-hosted
+          href: api-management-howto-provision-self-hosted-gateway.md
+        - name: Distribuire un gateway self-hosted in Kubernetes
+          href: api-management-howto-deploy-self-hosted-gateway-to-k8s.md
+        - name: Distribuire un gateway self-hosted in Docker
+          href: api-management-howto-deploy-self-hosted-gateway-to-docker.md
+        - name: Configurare un dominio personalizzato per il gateway self-hosted
+          href: api-management-howto-configure-custom-domain-gateway.md
     - name: Cache
       items:
         - name: Aggiungere il caching per migliorare le prestazioni
@@ -195,8 +207,6 @@
       items:
         - name: Gestire i gruppi
           href: api-management-howto-create-groups.md
-        - name: Eseguire la distribuzione in più aree di Azure
-          href: api-management-howto-deploy-multi-region.md
         - name: Recuperare gli indirizzi IP
           href: api-management-howto-ip-addresses.md
         - name: Registrare eventi in Hub eventi di Azure

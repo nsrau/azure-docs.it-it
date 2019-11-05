@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 09/03/2019
-  ms.openlocfilehash: 589e97442412d30d844111cd9a3e332d70d705b6
-  ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+  ms.date: 10/29/2019
+  ms.openlocfilehash: 400ebc88faad1ba5d55aa81dd737c8913b131340
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/19/2019
-  ms.locfileid: "71130376"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73497548"
 landingContent:
 - title: Introduzione ad Azure Machine Learning
   linkLists:
@@ -25,9 +25,11 @@ landingContent:
     links:
     - text: Sperimentare con i notebook Python
       url: service/tutorial-1st-experiment-sdk-setup.md
-    - text: Sperimentare con trascinamento della selezione
-      url: service/ui-tutorial-automobile-price-train-score.md
-    - text: Automatizzare il primo esperimento
+    - text: Sperimentare in RStudio
+      url: service/tutorial-1st-r-experiment.md
+    - text: Sperimentare nella finestra di progettazione con trascinamento della selezione
+      url: service/tutorial-designer-automobile-price-train-score.md
+    - text: Automatizzare il primo esperimento di Machine Learning
       url: service/tutorial-first-experiment-automated-ml.md
   - linkListType: overview
     links:
@@ -51,8 +53,6 @@ landingContent:
       url: service/tutorial-train-models-with-aml.md
     - text: Stimare le tariffe dei taxi con un processo automatizzato di Machine Learning
       url: service/tutorial-auto-train-models.md
-    - text: Usare le pipeline per l'assegnazione di punteggi in batch
-      url: service/tutorial-pipeline-batch-scoring-classification.md
   - linkListType: how-to-guide
     links:
     - text: Eseguire il training con Scikit-learn
@@ -63,22 +63,28 @@ landingContent:
       url: service/how-to-train-pytorch.md
     - text: Eseguire il training con Keras
       url: service/how-to-train-keras.md
-- title: 'Sperimentare: interfaccia visiva grafica'
+- title: Usare pipeline di Machine Learning
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cosa sono le pipeline di Machine Learning?
+      url: service/concept-ml-pipelines.md
+    - text: Finestra di progettazione con trascinamento della selezione
+      url: service/concept-designer.md
   - linkListType: tutorial
     links:
-    - text: Usare un processo automatizzato di Machine Learning per stimare le sottoscrizioni
-      url: service/tutorial-first-experiment-automated-ml.md
-    - text: Usare la regressione lineare per stimare i prezzi
-      url: service/ui-tutorial-automobile-price-train-score.md
+    - text: Regressione lineare per prevedere i prezzi (finestra di progettazione)
+      url: service/tutorial-designer-automobile-price-train-score.md
+    - text: Creare pipeline di Machine Learning (Python SDK)
+      url: service/tutorial-pipeline-batch-scoring-classification.md
   - linkListType: how-to-guide
     links:
-    - text: Prevedere il rischio di credito
-      url: service/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md
-    - text: Stimare i ritardi
-      url: service/how-to-ui-sample-classification-predict-flight-delay.md
-    - text: Prevedere la varianza
-      url: service/how-to-ui-sample-classification-predict-churn.md
+    - text: Pianificazione di pipeline (Python SDK)
+      url: service/how-to-schedule-pipelines.md
+    - text: Prevedere i ritardi (finestra di progettazione)
+      url: service/how-to-designer-sample-classification-flight-delay.md
+    - text: Prevedere la varianza (finestra di progettazione)
+      url: service/how-to-designer-sample-classification-churn.md
 - title: Distribuire e gestire i modelli
   linkLists:
   - linkListType: how-to-guide
@@ -95,9 +101,11 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Python SDK per Azure Machine Learning
+    - text: SDK per Python
       url: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
-    - text: Interfaccia della riga di comando di Azure ML
+    - text: SDK per R
+      url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
+    - text: Interfaccia della riga di comando di Machine Learning
       url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
-    - text: Algoritmi e moduli dell'interfaccia visiva grafica
+    - text: Algoritmi e moduli della finestra di progettazione
       url: algorithm-module-reference/module-reference.md

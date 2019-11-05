@@ -1,10 +1,10 @@
-- name: Documentazione di SQL Data Warehouse
+- name: Documentazione di Azure Synapse Analytics
   href: index.yml
 - name: Panoramica
   items:
-    - name: Che cos'è SQL Data Warehouse?
+    - name: Che cos'è Azure Synapse Analytics?
       href: sql-data-warehouse-overview-what-is.md
-    - name: Architettura di SQL Data Warehouse
+    - name: Architettura di Azure Synapse Analytics
       href: massively-parallel-processing-mpp-architecture.md
     - name: Unità di data warehouse
       href: what-is-a-data-warehouse-unit-dwu-cdwu.md
@@ -257,20 +257,22 @@
           href: sql-data-warehouse-encryption-tde-tsql.md
     - name: Caricare i dati
       items:
-        - name: Dati relativi ai taxi di New York
-          href: load-data-from-azure-blob-storage-using-polybase.md
-        - name: Dati pubblici Contoso
-          href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-        - name: Archiviazione di Azure Data Lake
+        - name: Da Azure Data Lake Storage (ADLS)
           href: sql-data-warehouse-load-from-azure-data-lake-store.md
-        - name: Azure Databricks
+        - name: Con Azure Databricks (ADB)
           href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
-        - name: Data Factory
+        - name: Con Data Factory (ADF)
           href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
-        - name: SSIS
+        - name: Con SQL Server Integration Services (SSIS)
           href: /sql/integration-services/load-data-to-sql-data-warehouse
-        - name: Caricare WideWorldImporters
-          href: load-data-wideworldimportersdw.md
+        - name: Esempi
+          items:
+            - name: Taxi di New York
+              href: load-data-from-azure-blob-storage-using-polybase.md
+            - name: Contoso
+              href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+            - name: Wide World Importers
+              href: load-data-wideworldimportersdw.md
     - name: Sviluppo
       items:
         - name: Panoramica
@@ -351,9 +353,9 @@
       items:
         - name: Informazioni di riferimento complete
           href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-        - name: Elementi del linguaggio SQL Data Warehouse
+        - name: Elementi del linguaggio TSQL di Azure Synapse Analytics
           href: sql-data-warehouse-reference-tsql-language-elements.md
-        - name: Istruzioni di SQL Data Warehouse
+        - name: Istruzioni TSQL di Azure Synapse Analytics
           href: sql-data-warehouse-reference-tsql-statements.md
     - name: Viste di sistema
       href: sql-data-warehouse-reference-tsql-system-views.md

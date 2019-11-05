@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Documentazione di Gestione firewall di Azure
+summary: Informazioni su come distribuire Gestione firewall di Azure, un servizio di gestione della sicurezza distribuito a livello globale.
+metadata:
+  title: Documentazione di Gestione firewall di Azure
+  description: Informazioni su come distribuire Gestione firewall di Azure, un servizio di gestione della sicurezza distribuito a livello globale.
+  services: firewall
+  ms.service: firewall-manager
+  ms.topic: landing-page
+  author: vhorne
+  ms.author: victorh
+  ms.date: 10/10/2019
+  ms.openlocfilehash: e3b98f3954ee70b5e002bb844147d4d51b1f6d9d
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508670"
+landingContent:
+- title: Informazioni su Gestione firewall di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Gestione firewall di Azure?
+      url: overview.md
+    - text: Panoramica della distribuzione
+      url: deployment-overview.md
+- title: Informazioni sugli hub virtuali protetti
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Che cos'è un hub virtuale protetto?
+      url: secured-virtual-hub.md
+- title: Partner di sicurezza affidabili
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Che cosa sono i partner di sicurezza affidabili (anteprima)?
+      url: trusted-security-partners.md
+  - linkListType: how-to-guide
+    links:
+    - text: Distribuire un partner di sicurezza affidabile (anteprima)
+      url: deploy-trusted-security-partner.md
+- title: Proteggere la rete cloud di Azure
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Proteggere la rete cloud con il portale di Azure
+      url: secure-cloud-network.md
