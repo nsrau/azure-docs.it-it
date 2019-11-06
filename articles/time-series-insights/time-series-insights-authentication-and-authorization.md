@@ -3,7 +3,7 @@ title: Eseguire l'autenticazione e l'autorizzazione usando un'API in Azure Time 
 description: Questo articolo descrive come configurare l'autenticazione e l'autorizzazione per un'applicazione personalizzata che chiama l'API Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: e98c004b802711c83558bf4d7ec86c418679836b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 4fd68f770cbe48b15646ec41c0bf94be5e760a50
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981142"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990195"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticazione e autorizzazione per l'API Azure Time Series Insights
 
@@ -59,15 +59,15 @@ Al **passaggio 3**, la separazione delle credenziali dell'applicazione e dell'ut
 
 1. Per l'ambiente di Time Series Insights, selezionare **criteri di accesso ai dati** e selezionare **Aggiungi**.
 
-   [@no__t 1Add i nuovi criteri di accesso ai dati nell'ambiente Time Series Insights](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
+   [![aggiungere nuovi criteri di accesso ai dati all'ambiente Time Series Insights](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
 
 1. Nella finestra di dialogo **Seleziona utente** incollare il nome dell' **applicazione** o l' **ID dell'applicazione** nella sezione relativa alla registrazione dell'app Azure Active Directory.
 
-   [@no__t 1Find un'applicazione nella finestra di dialogo Seleziona utente](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
+   [![trovare un'applicazione nella finestra di dialogo Seleziona utente](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
-1. Selezionare il ruolo. Selezionare **Reader** per eseguire query sui dati o sul **collaboratore** per eseguire query sui dati e modificare i dati di riferimento. Scegliere **OK**.
+1. Selezionare il ruolo. Selezionare **Reader** per eseguire query sui dati o sul **collaboratore** per eseguire query sui dati e modificare i dati di riferimento. Selezionare **OK**.
 
-   [![Pick Reader o collaboratore nella finestra di dialogo Seleziona ruolo utente](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
+   [![scegliere Reader o collaboratore nella finestra di dialogo Seleziona ruolo utente](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
 1. Salvare il criterio selezionando **OK**.
 
@@ -105,12 +105,12 @@ Al **passaggio 3**, la separazione delle credenziali dell'applicazione e dell'ut
 
 Questa sezione descrive le intestazioni e i parametri della richiesta HTTP comuni usati per eseguire query sulle API Time Series Insights GA e Preview. I requisiti specifici dell'API sono trattati più dettagliatamente nella [documentazione di riferimento dell'API REST di Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 
 Per eseguire query autenticate sulle [API REST di Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), è necessario passare un bearer token OAuth 2,0 valido nell' [intestazione Authorization](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) usando un client REST di propria scelta (postazione, JavaScript, C#). 
 
 > [!IMPORTANT]
-> Il token deve essere emesso esattamente con la risorsa `https://api.timeseries.azure.com/`, nota anche come "audience" del token.
+> Il token deve essere emesso esattamente con la risorsa `https://api.timeseries.azure.com/` (nota anche come "audience" del token).
 > * Il [Postman](https://www.getpostman.com/) **AuthURL** con è quindi conforme a: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
 
 > [!TIP]
@@ -120,18 +120,18 @@ Per eseguire query autenticate sulle [API REST di Time Series Insights](https://
 
 Intestazioni richieste obbligatorie:
 
-- `Authorization` per l'autenticazione e l'autorizzazione, è necessario passare un token di porta OAuth 2,0 valido nell'intestazione dell'autorizzazione. Il token deve essere emesso esattamente con la risorsa `https://api.timeseries.azure.com/`, nota anche come "audience" del token.
+- `Authorization` per l'autenticazione e l'autorizzazione, è necessario passare un token di porta OAuth 2,0 valido nell'intestazione dell'autorizzazione. Il token deve essere emesso esattamente con la risorsa `https://api.timeseries.azure.com/` (nota anche come "audience" del token).
 
 Intestazioni di richiesta facoltative:
 
-- `Content-type`-è supportato solo `application/json`.
-- `x-ms-client-request-id`-ID richiesta client. Il servizio registra questo valore. Consente al servizio di tracciare l'operazione tra i servizi.
-- `x-ms-client-session-id`-ID sessione client. Il servizio registra questo valore. Consente al servizio di tracciare un gruppo di operazioni correlate tra i servizi.
+- `application/json` solo `Content-type` è supportato.
+- `x-ms-client-request-id`: ID richiesta client. Il servizio registra questo valore. Consente al servizio di tracciare l'operazione tra i servizi.
+- `x-ms-client-session-id`: ID sessione client. Il servizio registra questo valore. Consente al servizio di tracciare un gruppo di operazioni correlate tra i servizi.
 - `x-ms-client-application-name`: nome dell'applicazione che ha generato la richiesta. Il servizio registra questo valore.
 
 Intestazioni risposta:
 
-- `Content-type`-è supportato solo `application/json`.
+- `application/json` solo `Content-type` è supportato.
 - ID richiesta generato dal server `x-ms-request-id`. Può essere usato per contattare Microsoft per esaminare una richiesta.
 
 ### <a name="http-parameters"></a>Parametri HTTP

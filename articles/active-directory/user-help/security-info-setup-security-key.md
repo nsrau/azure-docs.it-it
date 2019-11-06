@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ac894db42b2b5ee2612e2e3b2906bc2bffcc4c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 47ae7de87efd787b7d3cba14a33688c4b29637e6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717395"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160717"
 ---
 # <a name="set-up-security-info-to-use-a-security-key-preview"></a>Configurare le info di sicurezza per l'uso di una chiave di sicurezza (anteprima)
 
@@ -51,7 +51,7 @@ Prima di poter registrare la chiave di sicurezza, è necessario che siano soddis
 
 È necessario creare la chiave di sicurezza e assegnarle un PIN univoco prima di poter accedere all'account aziendale o dell'Istituto di istruzione usando la chiave. È possibile che si disponga di un massimo di 10 chiavi registrate con l'account. 
 
-1. Passare alla https://myprofile.microsoft.com pagina **profilo personale** e accedere se non è già stato fatto.
+1. Passare alla pagina **profilo personale** in https://myprofile.microsoft.com e accedere se non è già stato fatto.
 
 2. Selezionare **info di sicurezza**, selezionare **Aggiungi metodo**, quindi selezionare **chiave di sicurezza** dall'elenco a discesa **Aggiungi un metodo** .
 
@@ -128,7 +128,7 @@ Per eliminare tutte le informazioni sull'account archiviate nella chiave di sicu
 
 3. Seguire le istruzioni visualizzate in base al produttore della chiave di sicurezza specifico. Se il produttore della chiave non è elencato nelle istruzioni visualizzate, consultare il sito del produttore per ulteriori informazioni.
 
-4. Selezionare **Chiudi** per chiudere la schermata Gestisci.
+4. Selezionare **Chiudi** per chiudere la schermata **Gestisci** .
 
 ### <a name="create-a-new-security-key-pin"></a>Creare un nuovo PIN della chiave di sicurezza
 
@@ -142,7 +142,7 @@ Per eliminare tutte le informazioni sull'account archiviate nella chiave di sicu
 3. Selezionare **Aggiungi** nell'area del **pin della chiave di sicurezza** , digitare e confermare il nuovo PIN della chiave di sicurezza e quindi fare clic su **OK**.
 
      La chiave di sicurezza viene aggiornata con il nuovo PIN della chiave di sicurezza da usare con l'account aziendale o dell'Istituto di istruzione. Se si decide di modificare di nuovo il PIN, è possibile selezionare il pulsante **Cambia** .
-4. Selezionare **Chiudi** per chiudere la schermata Gestisci.
+4. Selezionare **Chiudi** per chiudere la schermata **Gestisci** .
 
 ## <a name="additional-security-info-methods"></a>Opzioni aggiuntive per le informazioni di sicurezza
 
@@ -152,8 +152,8 @@ Per registrare una chiave di sicurezza, è necessario avere almeno un metodo di 
 
 - Per ulteriori informazioni sui metodi di autenticazione con password, leggere l' [Azure ad Microsoft avvia l'anteprima pubblica delle chiavi di sicurezza FIDO2, abilitando gli account di accesso](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) con [Articoli introduttivi su Windows Hello](user-help-auth-app-overview.md) [password o leggere l'app Microsoft Authenticator? ](https://www.microsoft.com/windows/windows-hello).
 
-- Per informazioni più dettagliate sulle [chiavi di sicurezza](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)conformi a Microsoft.
+- Per informazioni più dettagliate sulle [chiavi di sicurezza conformi a Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 
-- Se la password viene persa o dimenticata, reimpostarla dal [portale per la reimpostazione della password](https://passwordreset.microsoftonline.com/) oppure seguire i passaggi nell'articolo [Reimpostare la password aziendale o dell'istituto di istruzione](user-help-reset-password.md).
+- Se la password viene persa o dimenticata, reimpostarla dal [portale per la reimpostazione della password](https://passwordreset.microsoftonline.com/) oppure seguire i passaggi nell'articolo [Reimpostare la password aziendale o dell'istituto di istruzione](active-directory-passwords-update-your-own-password.md).
 
 - Ottenere informazioni e suggerimenti per la risoluzione dei problemi di accesso nell'articolo [Quando non riesci ad accedere al tuo account Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
