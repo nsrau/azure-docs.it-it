@@ -69,14 +69,6 @@
           href: application-gateway-ssl-policy-overview.md
         - name: Uso di Key Vault
           href: key-vault-certs.md
-    - name: WAF
-      items:
-        - name: Web application firewall
-          href: waf-overview.md
-        - name: Configurazione di WAF
-          href: application-gateway-waf-configuration.md
-        - name: Regole personalizzate
-          href: custom-waf-rules-overview.md
     - name: In ingresso per il servizio Azure Kubernetes
       href: ingress-controller-overview.md
     - name: Monitoraggio dell’integrità
@@ -245,8 +237,6 @@
           href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
         - name: Errori di tipo Gateway non valido (502)
           href: application-gateway-troubleshooting-502.md
-        - name: WAF (Web application firewall)
-          href: web-application-firewall-troubleshoot.md
         - name: In ingresso per il servizio Azure Kubernetes
           href: ingress-controller-troubleshoot.md
         - name: Integrità delle risorse

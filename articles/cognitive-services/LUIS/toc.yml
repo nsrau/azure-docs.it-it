@@ -42,7 +42,7 @@
     - name: Compilare app
       items:
         - name: Determinare le intenzioni dell'utente
-          href: luis-quickstart-intents-only.md
+          href: tutorial-intents-only.md
         - name: Identificare dati utente comuni con modelli predefiniti
           href: luis-tutorial-prebuilt-intents-entities.md
         - name: Ottenere la valutazione da espressioni utente
@@ -116,6 +116,7 @@
           displayName: roles
         - name: Funzionalità
           href: luis-concept-feature.md
+          displayName: 'descriptor, phrase list'
     - name: Punteggio di previsione
       href: luis-concept-prediction-score.md
     - name: Procedure consigliate
