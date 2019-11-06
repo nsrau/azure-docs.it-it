@@ -11,12 +11,12 @@ metadata:
   author: mamccrea
   ms.author: mamccrea
   ms.date: 09/11/2019
-  ms.openlocfilehash: 40a023ee9498f8d5c487ab7317bc020260b98cce
-  ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+  ms.openlocfilehash: 3d82583617ac5ee2efc7f19bd937a01d557eb5ba
+  ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/12/2019
-  ms.locfileid: "70933532"
+  ms.lasthandoff: 11/05/2019
+  ms.locfileid: "73606052"
 landingContent:
 - title: Informazioni su Azure Databricks
   linkLists:
@@ -31,7 +31,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: Note sulla versione
-      url: https://docs.azuredatabricks.net/release-notes/index.html
+      url: /azure/databricks/release-notes/product/
   - linkListType: learn
     links:
     - text: Introduzione ad Azure Databricks
@@ -47,7 +47,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Creare un cluster Apache Spark
-      url: https://docs.azuredatabricks.net/user-guide/clusters/index.html
+      url: /azure/databricks/clusters/create
     - text: Connettersi alle origini dati
       url: databricks-connect-to-data-sources.md
     - text: Usare l'interfaccia della riga di comando di Databricks da Azure Cloud Shell
@@ -99,7 +99,7 @@ landingContent:
     - text: Trasmettere dati con Hub eventi
       url: databricks-stream-from-eventhubs.md
     - text: Trasmettere dati da HDInsight Kafka
-      url: https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html
+      url: /azure/databricks/spark/latest/structured-streaming/kafka
 - title: Guide per sviluppatori
   linkLists:
   - linkListType: learn

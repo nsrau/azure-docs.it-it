@@ -29,9 +29,9 @@
 - name: Riferimenti
   items:
     - name: Azure PowerShell
-      href: /powershell/module/az.network
+      href: /powershell/module/az.peering
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/network
+      href: /cli/azure/ext/peering/peering
 - name: Risorse
   items:
     - name: Roadmap per Azure
@@ -43,8 +43,8 @@
     - name: Feedback sulle reti
       href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
     - name: Prezzi
-      href: 'https://azure.microsoft.com/pricing/details/peering-service'
+      href: 'https://azure.microsoft.com/pricing/details/azure-peering/'
     - name: Calcolatore prezzi
-      href: 'https://azure.microsoft.com/pricing/calculator/'
+      href: 'https://azure.microsoft.com/pricing/calculator/?service=azure-peering'
     - name: Domande frequenti
       href: faq.md

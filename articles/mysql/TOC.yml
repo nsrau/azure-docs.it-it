@@ -73,6 +73,8 @@
       items:
         - name: Piani tariffari
           href: concepts-pricing-tiers.md
+        - name: Pagare in anticipo la capacità riservata
+          href: concept-reserved-pricing.md
         - name: Limiti
           href: concepts-limits.md
     - name: Accesso ai dati e sicurezza

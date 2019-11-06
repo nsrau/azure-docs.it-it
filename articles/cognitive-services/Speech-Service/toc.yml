@@ -6,6 +6,8 @@
   items:
     - name: Informazioni sul Servizio di riconoscimento vocale
       href: overview.md
+    - name: Supporto di lingua e area geografica
+      href: language-support.md
 - name: Riconoscimento vocale
   expanded: false
   items:
@@ -38,7 +40,7 @@
         - name: Usare formati di input audio compressi
           href: how-to-use-codec-compressed-audio-input-streams.md
         - name: Usare il riconoscimento vocale con i contenitori Docker
-          href: speech-container-howto.md
+          href: speech-container-howto.md?tabs=stt
     - name: riferimento
       items:
         - name: API Speech SDK
@@ -87,7 +89,7 @@
         - name: Sintetizzare la voce con l'API di audio lungo
           href: long-audio-api.md
         - name: Usare la sintesi vocale con contenitori Docker
-          href: speech-container-howto.md
+          href: speech-container-howto.md?tabs=tts
     - name: riferimento
       items:
         - name: Speech SDK
