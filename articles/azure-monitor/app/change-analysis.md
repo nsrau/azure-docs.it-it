@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: 3805d7b39c25bcb213a1d4f110161dcd00eb3630
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: dc572d29b4e6d95525959becad0ed8069735e33c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678244"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606017"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare l'analisi delle modifiche dell'applicazione (anteprima) in monitoraggio di Azure
 
@@ -37,7 +37,7 @@ L'analisi delle modifiche è attualmente integrata nell'esperienza di **diagnost
 
 Usando il [grafo delle risorse di Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview), l'analisi delle modifiche fornisce un record cronologico del modo in cui le risorse di Azure che ospitano l'applicazione sono state modificate nel tempo. L'analisi delle modifiche può rilevare, ad esempio, le modifiche alle regole di configurazione IP, alle identità gestite e alle impostazioni SSL. Quindi, se viene aggiunto un tag a un'app Web, l'analisi delle modifiche riflette la modifica. Queste informazioni sono disponibili purché il provider di risorse `Microsoft.ChangeAnalysis` sia abilitato nella sottoscrizione di Azure.
 
-### <a name="changes-in-web-app-deployment-and-configuration"></a>Modifiche alla distribuzione e alla configurazione dell'app Web
+### <a name="changes-in-web-app-deployment-and-configuration-in-guest-changes"></a>Modifiche alla distribuzione e alla configurazione dell'app Web (modifiche nel guest)
 
 L'analisi delle modifiche acquisisce lo stato di distribuzione e configurazione di un'applicazione ogni 4 ore. Può rilevare, ad esempio, le modifiche nelle variabili di ambiente dell'applicazione. Lo strumento calcola le differenze e presenta le modifiche apportate. Diversamente dalle modifiche apportate Gestione risorse, le informazioni sulle modifiche alla distribuzione del codice potrebbero non essere immediatamente disponibili nello strumento. Per visualizzare le ultime modifiche apportate all'analisi delle modifiche, selezionare **Scan changes Now**.
 
@@ -49,12 +49,34 @@ Le modifiche alle dipendenze delle risorse possono causare problemi anche in un'
 Attualmente sono supportate le dipendenze seguenti:
 - App Web
 - Archiviazione di Azure
-- Azure SQL
+- SQL di Azure
 
+## <a name="viewing-changes-for-all-resources-in-azure"></a>Visualizzazione delle modifiche per tutte le risorse in Azure
+In monitoraggio di Azure è disponibile un pannello autonomo per l'analisi delle modifiche per visualizzare tutte le modifiche con informazioni dettagliate e dipendenze dell'applicazione.
+
+Cercare Change Analysis nella barra di ricerca portale di Azure per avviare il pannello.
+
+![Screenshot della ricerca dell'analisi delle modifiche in portale di Azure](./media/change-analysis/search-change-analysis.png)
+
+Selezionare il gruppo di risorse e le risorse per iniziare a visualizzare le modifiche.
+
+![Screenshot del pannello di analisi delle modifiche in portale di Azure](./media/change-analysis/change-analysis-standalone-blade.png)
+
+È possibile visualizzare le informazioni dettagliate e le dipendenze correlate che ospitano l'applicazione. Questa vista è progettata per consentire agli sviluppatori di risolvere i problemi in modo incentrato sull'applicazione.
+
+Le risorse attualmente supportate includono:
+- Macchine virtuali
+- Set di scalabilità di macchine virtuali
+- Risorse di rete di Azure
+- Modifiche all'app Web con rilevamento dei file in-Guest e variabili di ambiente
+
+Per commenti e suggerimenti, usare il pulsante Invia commenti e suggerimenti nel pannello o nel messaggio di posta elettronica changeanalysisteam@microsoft.com. 
+
+![Screenshot del pulsante feedback nel pannello Change Analysis](./media/change-analysis/change-analysis-feedback.png)
 
 ## <a name="change-analysis-for-the-web-apps-feature"></a>Analisi delle modifiche per la funzionalità app Web
 
-In monitoraggio di Azure, l'analisi delle modifiche è attualmente integrata nell'esperienza di **diagnostica e risoluzione dei problemi** in modalità self-service. Accedere a questa esperienza dalla pagina **Panoramica** dell'applicazione del servizio app.
+In monitoraggio di Azure, l'analisi delle modifiche è incorporata anche nell'esperienza di **diagnostica e risoluzione dei problemi** in modalità self-service. Accedere a questa esperienza dalla pagina **Panoramica** dell'applicazione del servizio app.
 
 ![Screenshot del pulsante "panoramica" e del pulsante "diagnostica e risoluzione dei problemi"](./media/change-analysis/change-analysis.png)
 
@@ -77,7 +99,7 @@ In monitoraggio di Azure, l'analisi delle modifiche è attualmente integrata nel
     ![Screenshot dell'interfaccia utente "Enable Change Analysis"](./media/change-analysis/change-analysis-on.png)
 
 
-1. Per accedere all'analisi delle modifiche, selezionare **diagnostica e Risolvi i problemi**  > **disponibilità e prestazioni**  > **arresti anomali dell'applicazione**. Verrà visualizzato un grafico che riepiloga il tipo di modifiche nel tempo insieme ai dettagli relativi a tali modifiche:
+1. Per accedere all'analisi delle modifiche, selezionare **diagnostica e Risolvi i problemi** > **disponibilità e prestazioni** > **arresti anomali dell'applicazione**. Verrà visualizzato un grafico che riepiloga il tipo di modifiche nel tempo insieme ai dettagli relativi a tali modifiche:
 
      ![Screenshot della visualizzazione delle differenze delle modifiche](./media/change-analysis/change-view.png)
 

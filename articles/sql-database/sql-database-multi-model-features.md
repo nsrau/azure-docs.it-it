@@ -1,5 +1,5 @@
 ---
-title: Funzionalità multimodello del database SQL di Azure | Microsoft Docs
+title: Funzionalità multimodello del database SQL di Azure
 description: Il database SQL di Azure consente di usare più modelli di dati nello stesso database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: e319daf322d688828c7d05d78dacd2359273223f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7156b9923c9cb98ae3dde143c98eb32a6eb11a9c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567124"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687721"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Funzionalità multimodello del database SQL di Azure
 
@@ -29,7 +29,7 @@ Il database SQL di Azure è progettato per funzionare con il modello relazionale
 - Sono disponibili alcune informazioni o strutture più adatte per i modelli NoSQL e non si vuole usare un database NoSQL separato.
 - La maggior parte dei dati è adatta per il modello relazionale ed è necessario modellare alcune parti dei dati nello stile NoSQL.
 - Si desidera sfruttare il linguaggio Transact-SQL avanzato per eseguire query e analizzare i dati relazionali e NoSQL e integrarli con un'ampia gamma di strumenti e applicazioni in grado di utilizzare il linguaggio SQL.
-- Si desidera applicare funzionalità di database come le [tecnologie in memoria](sql-database-in-memory.md) per migliorare le prestazioni dell'analisi o dell'elaborazione dei dati NoSQL strutture, utilizzare la [replica](sql-database-managed-instance-transactional-replication.md) transazionale o [repliche leggibili](sql-database-read-scale-out.md) per creare una copia dei dati in l'altra posizione e l'offload di alcuni carichi di lavoro analitici dal database primario.
+- Si desidera applicare funzionalità di database come le [tecnologie in memoria](sql-database-in-memory.md) per migliorare le prestazioni dell'analisi o dell'elaborazione dei dati NoSQL strutture, utilizzare la [replica transazionale](sql-database-managed-instance-transactional-replication.md) o [repliche leggibili](sql-database-read-scale-out.md) per creare una copia dei dati in l'altra posizione e l'offload di alcuni carichi di lavoro analitici dal database primario.
 
 ## <a name="overview"></a>Panoramica
 

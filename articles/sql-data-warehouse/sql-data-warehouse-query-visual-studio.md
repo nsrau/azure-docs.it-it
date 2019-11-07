@@ -1,6 +1,6 @@
 ---
-title: 'Connettersi ad Azure SQL Data Warehouse: VSTS |Documentazione Microsoft'
-description: Eseguire query in SQL Data Warehouse con Visual Studio.
+title: Connettersi con VSTS
+description: Eseguire query Azure SQL Data Warehouse con Visual Studio.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e6c3de1714d363eb1481bcea5f470d04125b96b9
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: e2d37b2d71f605077903197d25b5da2803e34ad3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575306"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685564"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Connettersi a SQL Data Warehouse con Visual Studio e SSDT
 > [!div class="op_single_selector"]
@@ -36,7 +37,7 @@ Per eseguire questa esercitazione, è necessario:
 * SSDT per Visual Studio. Se Visual Studio è già installato, probabilmente SSDT è già disponibile. Per istruzioni sull'installazione e sulle opzioni, vedere [Installare Visual Studio 2015 e SSDT per SQL Data Warehouse][Installing Visual Studio and SSDT].
 * Il nome completo dell'istanza di SQL Server. Per trovarlo, vedere [Connect to Azure SQL Data Warehouse][Connect to SQL Data Warehouse](Connettersi ad Azure SQL Data Warehouse).
 
-## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Connettersi all'istanza di SQL Data Warehouse
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1. connettersi alla SQL Data Warehouse
 1. Aprire Visual Studio 2019.
 2. Aprire Esplora oggetti di SQL Server. A questo scopo, selezionare **Visualizza** > **Esplora oggetti di SQL Server**.
    
@@ -56,13 +57,13 @@ Per eseguire questa esercitazione, è necessario:
    
     ![Esplorare AdventureWorksDW][4]
 
-## <a name="2-run-a-sample-query"></a>2. Eseguire una query di esempio
+## <a name="2-run-a-sample-query"></a>2. eseguire una query di esempio
 Ora che è stata stabilita una connessione al database, è possibile scrivere una query.
 
 1. Fare clic con il pulsante destro del mouse sul database in Esplora oggetti di SQL Server.
 2. Scegliere **Nuova query**. Verrà visualizzata una nuova finestra di query.
    
-    ![Nuova query][5]
+    ![Nuova Query][5]
 3. Copiare la query TSQL seguente nella finestra di query:
    
     ```sql

@@ -1,5 +1,5 @@
 ---
-title: Configurare l'endpoint pubblico-istanza gestita di database SQL di Azure | Microsoft Docs
+title: Configurare l'endpoint pubblico-istanza gestita di database SQL di Azure
 description: Informazioni su come configurare un endpoint pubblico per l'istanza gestita
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: cebe6b4ca61b835e7c77f51592c20799fe271853
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6f953e4c549619a30564bdb061e98761474174c3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567393"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687973"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurare l'endpoint pubblico nell'istanza gestita di database SQL di Azure
 
@@ -29,7 +29,7 @@ L'articolo spiega come:
 > - Configurare il gruppo di sicurezza di rete dell'istanza gestita per consentire il traffico all'endpoint pubblico dell'istanza gestita
 > - Ottenere la stringa di connessione dell'endpoint pubblico dell'istanza gestita
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>autorizzazioni
 
 A causa della riservatezza dei dati presenti in un'istanza gestita, la configurazione per abilitare l'endpoint pubblico dell'istanza gestita richiede un processo in due passaggi. Questa misura di sicurezza si attiene alla separazione dei compiti (SoD):
 
@@ -38,12 +38,12 @@ A causa della riservatezza dei dati presenti in un'istanza gestita, la configura
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>Abilitazione dell'endpoint pubblico per un'istanza gestita nel portale di Azure
 
-1. Avviare il portale di Azure<https://portal.azure.com/.>
+1. Avviare il portale di Azure in <https://portal.azure.com/.>
 1. Aprire il gruppo di risorse con l'istanza gestita e selezionare l' **istanza di SQL gestita** in cui si vuole configurare l'endpoint pubblico.
 1. In impostazioni **sicurezza** selezionare la scheda **rete virtuale** .
 1. Nella pagina Configurazione rete virtuale selezionare **Abilita** e quindi l'icona **Salva** per aggiornare la configurazione.
 
-![mi-vnet-config.png](media/sql-database-managed-instance-public-endpoint-configure/mi-vnet-config.png)
+![mi-VNET-config. png](media/sql-database-managed-instance-public-endpoint-configure/mi-vnet-config.png)
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>Abilitazione dell'endpoint pubblico per un'istanza gestita tramite PowerShell
 
@@ -80,13 +80,13 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>Consenti traffico endpoint pubblico nel gruppo di sicurezza di rete
 
-1. Se la pagina Configurazione dell'istanza gestita è ancora aperta, passare alla scheda **Panoramica** . In caso contrario, tornare alla risorsa **istanza gestita di SQL** . Selezionare il collegamento **rete virtuale/subnet** , che consente di passare alla pagina Configurazione rete virtuale.
+1. Se la pagina di configurazione dell'istanza gestita è ancora aperta, passare alla scheda **Panoramica** . in caso contrario, tornare alla risorsa **istanza gestita di SQL** . Selezionare il collegamento **rete virtuale/subnet** , che consente di passare alla pagina Configurazione rete virtuale.
 
-    ![mi-overview.png](media/sql-database-managed-instance-public-endpoint-configure/mi-overview.png)
+    ![mi-Overview. png](media/sql-database-managed-instance-public-endpoint-configure/mi-overview.png)
 
 1. Selezionare la scheda **subnet** nel riquadro di configurazione a sinistra della rete virtuale e prendere nota del **gruppo di sicurezza** per l'istanza gestita.
 
-    ![mi-vnet-subnet.png](media/sql-database-managed-instance-public-endpoint-configure/mi-vnet-subnet.png)
+    ![mi-VNET-subnet. png](media/sql-database-managed-instance-public-endpoint-configure/mi-vnet-subnet.png)
 
 1. Tornare al gruppo di risorse che contiene l'istanza gestita. Verrà visualizzato il nome del **gruppo di sicurezza di rete** indicato in precedenza. Selezionare il nome da visualizzare nella pagina di configurazione del gruppo di sicurezza di rete.
 
@@ -96,13 +96,13 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |---------|---------|---------|
     |**Origine**     |Qualsiasi indirizzo IP o tag di servizio         |<ul><li>Per i servizi di Azure come Power BI, selezionare il tag del servizio cloud di Azure</li> <li>Per il computer o la macchina virtuale di Azure, usare l'indirizzo IP NAT</li></ul> |
     |**Intervalli di porte di origine**     |*         |Lasciarlo a * (qualsiasi) perché le porte di origine vengono in genere allocate in modo dinamico e come tali, imprevedibili |
-    |**Destinazione**     |Any         |Uscita da destinazione per consentire il traffico nella subnet dell'istanza gestita |
+    |**Destinazione**     |Qualsiasi         |Uscita da destinazione per consentire il traffico nella subnet dell'istanza gestita |
     |**Intervalli di porte di destinazione**     |3342         |Porta di destinazione dell'ambito su 3342, ovvero l'endpoint TDS pubblico dell'istanza gestita |
     |**Protocollo**     |TCP         |Istanza gestita usa il protocollo TCP per TDS |
-    |**Azione**     |Allow         |Consentire il traffico in ingresso verso l'istanza gestita tramite l'endpoint pubblico |
+    |**Azione**     |Consenti         |Consentire il traffico in ingresso verso l'istanza gestita tramite l'endpoint pubblico |
     |**Priorità**     |1300         |Verificare che questa regola abbia una priorità più alta rispetto alla regola **deny_all_inbound** |
 
-    ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)
+    ![mi-NSG-Rules. png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)
 
     > [!NOTE]
     > La porta 3342 viene usata per le connessioni dell'endpoint pubblico all'istanza gestita e non può essere modificata in questo momento.
@@ -112,7 +112,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 1. Passare alla pagina di configurazione dell'istanza gestita di SQL abilitata per l'endpoint pubblico. Selezionare la scheda **stringhe di connessione** nella configurazione **Impostazioni** .
 1. Si noti che il nome host dell'endpoint pubblico è nel formato < mi_name >. **public**. < dns_zone >. database. Windows. NET e che la porta usata per la connessione è 3342.
 
-    ![mi-public-endpoint-conn-string.png](media/sql-database-managed-instance-public-endpoint-configure/mi-public-endpoint-conn-string.png)
+    ![mi-public-endpoint-conn-String. png](media/sql-database-managed-instance-public-endpoint-configure/mi-public-endpoint-conn-string.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

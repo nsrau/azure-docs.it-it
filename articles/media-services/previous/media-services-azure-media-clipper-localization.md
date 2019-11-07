@@ -2,19 +2,19 @@
 title: Configurare la localizzazione di Azure Media Clipper | Microsoft Docs
 description: Informazioni sulle lingue supportate di Azure Media Clipper e il supporto di localizzazione
 services: media-services
-keywords: clip;clip secondaria;codifica;multimediale
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+keywords: clip;clip secondarie;codifica;file multimediali
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 41fd483a0b78619db6d018cf4b2ab7933a7c3031
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96ffdfe5e6b3e913bd5596dd624e35afcaecfabe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465797"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685020"
 ---
 # <a name="configure-localization"></a>Configurare la localizzazione 
 

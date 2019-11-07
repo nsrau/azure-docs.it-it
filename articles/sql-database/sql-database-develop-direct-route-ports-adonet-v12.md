@@ -1,5 +1,5 @@
 ---
-title: Porte superiori a 1433 per il database SQL | Documentazione Microsoft
+title: Porte oltre 1433 per il database SQL
 description: Le connessioni client da ADO.NET al database SQL di Azure possono ignorare il proxy e interagire direttamente con il database usando porte diverse da 1433.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 04/03/2019
-ms.openlocfilehash: a39cfd1981041c807a91a08c198378d238f0846e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 38ab3b6b0c64ad17311d15fd12e7625e8aa728ce
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568921"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690694"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Porte successive alla 1433 per ADO.NET 4.5
 
@@ -34,7 +34,7 @@ Per le connessioni al database SQL di Azure, è necessario prima chiedere se il 
 
 La porta 1433 è l'unica porta da aprire nel computer desktop che ospita l'applicazione client del database SQL.
 
-### <a name="inside-client-runs-on-azure"></a>*Interno:* il client è in esecuzione in Azure
+### <a name="inside-client-runs-on-azure"></a>*All'interno:* il client è in esecuzione in Azure
 
 Quando il client viene eseguito all'interno del limite del cloud di Azure, viene utilizzato ciò che possiamo definire un *percorso diretto* per interagire con il server di database SQL. Una volta stabilita una connessione, altre interazioni tra il client e il database non coinvolgono alcun gateway di database SQL di Azure.
 
@@ -83,6 +83,6 @@ In questa sezione vengono spiegati i moniker che fanno riferimento a versioni pr
 * [Elenco versioni del protocollo TDS](https://www.freetds.org/userguide/tdshistory.htm)
 * [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md)
 * [Firewall di database SQL di Azure](sql-database-firewall-configure.md)
-* [Procedura: configurare le impostazioni del firewall nel database SQL](sql-database-configure-firewall-settings.md)
+* [Procedura: configurare le impostazioni del firewall su Database SQL](sql-database-configure-firewall-settings.md)
 
 

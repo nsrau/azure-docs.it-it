@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: 436ab0a561349185de58c3783f334ea1dce9001d
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: f9b1af14bd986f1fa6fb5feb398a7f1fdf982f77
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720124"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669107"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -43,7 +43,7 @@ Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione 
 
 1. Nel [portale di Azure](https://portal.azure.com/) aprire la [pagina delle risorse](../azure-resource-manager/manage-resources-portal.md#manage-resources) dell'app.
 
-2. Nel riquadro sinistro selezionare **slot** > di distribuzione**Aggiungi slot**.
+2. Nel riquadro sinistro selezionare slot di **distribuzione** > **Aggiungi slot**.
    
     ![Aggiungi nuovo slot di distribuzione](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
@@ -156,7 +156,7 @@ Per scambiare con l'anteprima:
 
 2. Quando si è pronti per avviare lo scambio, selezionare **Avvia scambio**.
 
-    Al termine della fase 1, viene inviata una notifica nella finestra di dialogo. Visualizzare in anteprima lo swap nello slot di origine passando `https://<app_name>-<source-slot-name>.azurewebsites.net`a. 
+    Al termine della fase 1, viene inviata una notifica nella finestra di dialogo. Visualizzare in anteprima lo swap nello slot di origine passando a `https://<app_name>-<source-slot-name>.azurewebsites.net`. 
 
 3. Quando si è pronti per completare lo scambio in sospeso, selezionare **completa scambio** in **azione di scambio** e selezionare **completa scambio**.
 
@@ -188,7 +188,7 @@ Lo scambio automatico semplifica gli scenari DevOps di Azure in cui si vuole dis
 
 Per configurare lo scambio automatico:
 
-1. Passare alla pagina delle risorse dell'app. Selezionare slot > di **distribuzione** >  >  *\<slot di origine desiderata >* configurazione**Impostazioni generali**.
+1. Passare alla pagina delle risorse dell'app. Selezionare **slot di distribuzione** >  *\<slot di origine desiderato >* **configurazione** >  > **Impostazioni generali**.
    
 2. Per **scambio automatico abilitato**selezionare attivato. Selezionare quindi lo slot di destinazione desiderato per lo **slot di distribuzione di scambio automatico**e selezionare **Salva** sulla barra dei comandi. 
    
@@ -202,7 +202,7 @@ In caso di problemi, vedere risolvere i problemi di [swap](#troubleshoot-swaps).
 
 ## <a name="specify-custom-warm-up"></a>Specificare un riscaldamento personalizzato
 
-Alcune app potrebbero richiedere azioni di riscaldamento personalizzate prima dello scambio. L' `applicationInitialization` elemento di configurazione in Web. config consente di specificare azioni di inizializzazione personalizzate. L' [operazione di scambio](#AboutConfiguration) attende il completamento di questo riscaldamento personalizzato prima di eseguire lo scambio con lo slot di destinazione. Ecco un frammento di esempio di Web. config.
+Alcune app potrebbero richiedere azioni di riscaldamento personalizzate prima dello scambio. Il `applicationInitialization` elemento di configurazione in Web. config consente di specificare azioni di inizializzazione personalizzate. L' [operazione di scambio](#AboutConfiguration) attende il completamento di questo riscaldamento personalizzato prima di eseguire lo scambio con lo slot di destinazione. Ecco un frammento di esempio di Web. config.
 
     <system.webServer>
         <applicationInitialization>
@@ -211,15 +211,15 @@ Alcune app potrebbero richiedere azioni di riscaldamento personalizzate prima de
         </applicationInitialization>
     </system.webServer>
 
-Per altre informazioni sulla personalizzazione dell' `applicationInitialization` elemento, vedere la [maggior parte degli errori di swap degli slot di distribuzione più comuni e come risolverli](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+Per ulteriori informazioni sulla personalizzazione dell'elemento `applicationInitialization`, vedere [la maggior parte degli errori di swap degli slot di distribuzione più comuni e come risolverli](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
 È anche possibile personalizzare il comportamento di riscaldamento con una o entrambe le [impostazioni dell'app](configure-common.md)seguenti:
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`: Il percorso di ping per scaldare il sito. Aggiungere questa impostazione dell'app specificando un percorso personalizzato che inizi con una barra come valore. Un esempio è `/statuscheck`. Il valore predefinito è `/`. 
-- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: codici di risposta HTTP validi per l'operazione di riscaldamento. Aggiungere questa impostazione dell'app con un elenco di codici HTTP separati da virgole. Un esempio è `200,202` . Se il codice di stato restituito non è presente nell'elenco, le operazioni di riscaldamento e scambio vengono interrotte. Per impostazione predefinita, sono validi tutti i codici di risposta.
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: il percorso di ping per scaldare il sito. Aggiungere questa impostazione dell'app specificando un percorso personalizzato che inizi con una barra come valore. Un esempio è `/statuscheck`. Il valore predefinito è `/`. 
+- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: codici di risposta HTTP validi per l'operazione di riscaldamento. Aggiungere questa impostazione dell'app con un elenco di codici HTTP separati da virgole. Un esempio è `200,202`. Se il codice di stato restituito non è presente nell'elenco, le operazioni di riscaldamento e scambio vengono interrotte. Per impostazione predefinita, sono validi tutti i codici di risposta.
 
 > [!NOTE]
-> `<applicationInitialization>`fa parte di ogni avvio di app, in cui le due impostazioni dell'app si applicano solo agli scambi di slot.
+> L'elemento di configurazione `<applicationInitialization>` fa parte di ogni avvio dell'app, mentre le due impostazioni dell'app per il comportamento di riscaldamento si applicano solo agli scambi di slot.
 
 In caso di problemi, vedere risolvere i problemi di [swap](#troubleshoot-swaps).
 
@@ -259,21 +259,21 @@ Per consentire agli utenti di rifiutare esplicitamente l'app beta, ad esempio, �
 <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
 ```
 
-La stringa `x-ms-routing-name=self` specifica lo slot di produzione. Quando il browser client accede al collegamento, viene reindirizzato allo slot di produzione. Ogni richiesta successiva ha il `x-ms-routing-name=self` cookie che blocca la sessione allo slot di produzione.
+La stringa `x-ms-routing-name=self` specifica lo slot di produzione. Quando il browser client accede al collegamento, viene reindirizzato allo slot di produzione. Ogni richiesta successiva ha il cookie `x-ms-routing-name=self` che blocca la sessione allo slot di produzione.
 
-Per consentire agli utenti di acconsentire esplicitamente all'app beta, impostare lo stesso parametro di query sul nome dello slot non di produzione. Di seguito è riportato un esempio:
+Per consentire agli utenti di acconsentire esplicitamente all'app beta, impostare lo stesso parametro di query sul nome dello slot non di produzione. Ad esempio:
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
 
-Per impostazione predefinita, ai nuovi slot viene assegnata una `0%`regola di routing, visualizzata in grigio. Quando si imposta in modo esplicito questo `0%` valore su (visualizzato in testo nero), gli utenti possono accedere allo slot di staging manualmente `x-ms-routing-name` tramite il parametro di query. Ma non verranno indirizzati automaticamente allo slot perché la percentuale di routing è impostata su 0. Si tratta di uno scenario avanzato in cui è possibile "nascondere" lo slot di staging dal pubblico, consentendo ai team interni di testare le modifiche nello slot.
+Per impostazione predefinita, ai nuovi slot viene assegnata una regola di routing di `0%`, mostrata in grigio. Quando si imposta in modo esplicito questo valore su `0%` (visualizzato in testo nero), gli utenti possono accedere allo slot di staging manualmente usando il `x-ms-routing-name` parametro di query. Ma non verranno indirizzati automaticamente allo slot perché la percentuale di routing è impostata su 0. Si tratta di uno scenario avanzato in cui è possibile "nascondere" lo slot di staging dal pubblico, consentendo ai team interni di testare le modifiche nello slot.
 
 <a name="Delete"></a>
 
 ## <a name="delete-a-slot"></a>Eliminare uno slot
 
-Passare alla pagina delle risorse dell'app. Selezionare > slot di distribuzione > *slot per eliminare > Panoramica.\<* Selezionare **Elimina** sulla barra dei comandi.  
+Passare alla pagina delle risorse dell'app. Selezionare **slot di distribuzione** >  *\<slot per eliminare >* **Panoramica** > . Selezionare **Elimina** sulla barra dei comandi.  
 
 ![Eliminare uno slot di distribuzione](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -290,7 +290,7 @@ Azure PowerShell è un modulo che fornisce i cmdlet per gestire Azure tramite Wi
 Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Microsoft Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell](/powershell/azure/overview).  
 
 ---
-### <a name="create-a-web-app"></a>Crea un'app Web
+### <a name="create-a-web-app"></a>Creare un'app Web
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
@@ -315,7 +315,7 @@ Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType M
 ```
 
 ---
-### <a name="swap-deployment-slots"></a>Scambia slot di distribuzione
+### <a name="swap-deployment-slots"></a>Swap degli slot di distribuzione
 ```powershell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
@@ -334,14 +334,14 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## <a name="automate-with-arm-templates"></a>Automatizzare i modelli ARM
 
-I [modelli ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-deployment-overview) sono file JSON dichiarativi usati per automatizzare la distribuzione e la configurazione delle risorse di Azure. Per scambiare gli slot con i modelli ARM, è necessario impostare due proprietà nelle risorse *Microsoft. Web/sites/Slots* e *Microsoft. Web/sites* :
+I [modelli ARM](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) sono file JSON dichiarativi usati per automatizzare la distribuzione e la configurazione delle risorse di Azure. Per scambiare gli slot con i modelli ARM, è necessario impostare due proprietà nelle risorse *Microsoft. Web/sites/Slots* e *Microsoft. Web/sites* :
 
-- `buildVersion`: proprietà stringa che rappresenta la versione corrente dell'app distribuita nello slot. Ad esempio: "V1", "1.0.0.1" o "2019-09-20T11:53:25.2887393-07:00".
-- `targetBuildVersion`: questa è una proprietà di stringa che specifica il `buildVersion` dello slot. Se targetBuildVersion non è uguale al `buildVersion` corrente, verrà attivata l'operazione di scambio individuando lo slot con l'`buildVersion` specificato.
+- `buildVersion`: proprietà di stringa che rappresenta la versione corrente dell'app distribuita nello slot. Ad esempio: "V1", "1.0.0.1" o "2019-09-20T11:53:25.2887393-07:00".
+- `targetBuildVersion`: proprietà stringa che specifica la `buildVersion` dello slot. Se targetBuildVersion non è uguale all'`buildVersion`corrente, verrà attivata l'operazione di scambio individuando lo slot con la `buildVersion`specificata.
 
 ### <a name="example-arm-template"></a>Modello ARM di esempio
 
-Il modello ARM seguente aggiornerà il `buildVersion` dello slot di staging e imposterà il `targetBuildVersion` sullo slot di produzione. Questa operazione comporterà lo scambio dei due slot. Il modello presuppone che sia già stato creato un webapp con uno slot denominato "Staging".
+Il modello ARM seguente aggiornerà il `buildVersion` dello slot di staging e imposterà il `targetBuildVersion` nello slot di produzione. Questa operazione comporterà lo scambio dei due slot. Il modello presuppone che sia già stato creato un webapp con uno slot denominato "Staging".
 
 ```json
 {
@@ -385,7 +385,7 @@ Il modello ARM seguente aggiornerà il `buildVersion` dello slot di staging e im
 }
 ```
 
-Questo modello ARM è idempotente, vale a dire che può essere eseguito ripetutamente e produrre lo stesso stato degli slot. Dopo la prima esecuzione, `targetBuildVersion` corrisponderà al `buildVersion` corrente, quindi non verrà attivato uno scambio.
+Questo modello ARM è idempotente, vale a dire che può essere eseguito ripetutamente e produrre lo stesso stato degli slot. Dopo la prima esecuzione, `targetBuildVersion` corrisponderà al `buildVersion`corrente, quindi non verrà attivato uno scambio.
 
 <!-- ======== Azure CLI =========== -->
 
@@ -422,9 +422,9 @@ Di seguito sono riportati alcuni errori di scambio comuni:
       ...
     </conditions>
     ```
-- Alcune [regole di restrizione IP](app-service-ip-restrictions.md) potrebbero impedire all'operazione di scambio di inviare richieste HTTP all'app. Gli intervalli di indirizzi IPv4 che `10.` iniziano `100.` con e sono interni alla distribuzione. È necessario consentire la connessione all'app.
+- Alcune [regole di restrizione IP](app-service-ip-restrictions.md) potrebbero impedire all'operazione di scambio di inviare richieste HTTP all'app. Gli intervalli di indirizzi IPv4 che iniziano con `10.` e `100.` sono interni alla distribuzione. È necessario consentire la connessione all'app.
 
-- Dopo lo scambio di slot, l'app può riscontrare riavvii imprevisti. Questo è dovuto al fatto che dopo uno scambio la configurazione dell'associazione del nome host non viene sincronizzata, che non provoca il riavvio. Tuttavia, alcuni eventi di archiviazione sottostanti, ad esempio i failover del volume di archiviazione, possono rilevare tali discrepanze e forzare il riavvio di tutti i processi di lavoro. Per ridurre al minimo questi tipi di riavvii, impostare l' [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` impostazione dell'app](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) su tutti gli *slot*. Tuttavia, questa impostazione dell'app *non* funziona con le app Windows Communication Foundation (WCF).
+- Dopo lo scambio di slot, l'app può riscontrare riavvii imprevisti. Questo è dovuto al fatto che dopo uno scambio la configurazione dell'associazione del nome host non viene sincronizzata, che non provoca il riavvio. Tuttavia, alcuni eventi di archiviazione sottostanti, ad esempio i failover del volume di archiviazione, possono rilevare tali discrepanze e forzare il riavvio di tutti i processi di lavoro. Per ridurre al minimo questi tipi di riavvii, impostare l' [impostazione dell'app`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1`](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) in *tutti gli slot*. Tuttavia, questa impostazione dell'app *non* funziona con le app Windows Communication Foundation (WCF).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Bloccare l'accesso a slot non di produzione](app-service-ip-restrictions.md)

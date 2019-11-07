@@ -1,5 +1,5 @@
 ---
-title: Usare Azure Data Factory per migrare i dati da un cluster Hadoop locale ad archiviazione di Azure | Microsoft Docs
+title: Usare Azure Data Factory per migrare i dati da un cluster Hadoop locale ad archiviazione di Azure
 description: Informazioni su come usare Azure Data Factory per eseguire la migrazione dei dati dal cluster Hadoop locale al servizio di archiviazione di Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 8/30/2019
-ms.openlocfilehash: a2e98e46b168ff2e1270c6512aa515278190350f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: b952be49bf5bc00b338aa04ed51e9dc451b5c4f9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677945"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675826"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Usare Azure Data Factory per migrare i dati da un cluster Hadoop locale ad archiviazione di Azure 
 
@@ -25,8 +25,8 @@ Azure Data Factory offre un meccanismo efficiente, affidabile ed economicamente 
 
 Data Factory offre due approcci di base per la migrazione dei dati da HDFS locale ad Azure. È possibile selezionare l'approccio in base allo scenario. 
 
-- **Data Factory modalità DistCp** (scelta consigliata): In Data Factory, è possibile usare [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (copia distribuita) per copiare i file così come sono nell'archiviazione BLOB di Azure (inclusa la [copia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy)di staging) o Azure Data Lake Store Gen2. USA Data Factory integrato con DistCp per sfruttare i vantaggi di un cluster potente esistente per ottenere la migliore velocità effettiva di copia. Si ottiene anche il vantaggio di una pianificazione flessibile e un'esperienza di monitoraggio unificata da Data Factory. A seconda della configurazione di Data Factory, l'attività di copia crea automaticamente un comando DistCp, invia i dati al cluster Hadoop e quindi monitora lo stato della copia. È consigliabile Data Factory modalità DistCp per la migrazione dei dati da un cluster Hadoop locale ad Azure.
-- **Data Factory modalità runtime di integrazione nativa**: DistCp non è un'opzione in tutti gli scenari. Ad esempio, in un ambiente di reti virtuali di Azure, lo strumento DistCp non supporta il peering privato di Azure ExpressRoute con un endpoint di rete virtuale di archiviazione di Azure. Inoltre, in alcuni casi, non si vuole usare il cluster Hadoop esistente come motore per la migrazione dei dati, in modo da non inserire carichi elevati nel cluster, che potrebbero influire sulle prestazioni dei processi ETL esistenti. È invece possibile usare la funzionalità nativa del runtime di integrazione Data Factory come motore che copia i dati da HDFS locale ad Azure.
+- **Data Factory modalità DistCp** (scelta consigliata): in data factory è possibile usare [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (copia distribuita) per copiare i file così come sono nell'archiviazione BLOB di Azure (inclusa la [copia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy)di staging) o Azure Data Lake Store Gen2. USA Data Factory integrato con DistCp per sfruttare i vantaggi di un cluster potente esistente per ottenere la migliore velocità effettiva di copia. Si ottiene anche il vantaggio di una pianificazione flessibile e un'esperienza di monitoraggio unificata da Data Factory. A seconda della configurazione di Data Factory, l'attività di copia crea automaticamente un comando DistCp, invia i dati al cluster Hadoop e quindi monitora lo stato della copia. È consigliabile Data Factory modalità DistCp per la migrazione dei dati da un cluster Hadoop locale ad Azure.
+- **Data Factory modalità di runtime di integrazione nativa**: DistCp non è un'opzione in tutti gli scenari. Ad esempio, in un ambiente di reti virtuali di Azure, lo strumento DistCp non supporta il peering privato di Azure ExpressRoute con un endpoint di rete virtuale di archiviazione di Azure. Inoltre, in alcuni casi, non si vuole usare il cluster Hadoop esistente come motore per la migrazione dei dati, in modo da non inserire carichi elevati nel cluster, che potrebbero influire sulle prestazioni dei processi ETL esistenti. È invece possibile usare la funzionalità nativa del runtime di integrazione Data Factory come motore che copia i dati da HDFS locale ad Azure.
 
 Questo articolo fornisce le informazioni seguenti su entrambi gli approcci:
 > [!div class="checklist"]
@@ -52,7 +52,7 @@ Per ulteriori informazioni, vedere la [Guida alle prestazioni dell'attività di 
 
 ## <a name="resilience"></a>Resilienza
 
-In Data Factory modalità DistCp, è possibile usare parametri della riga di comando DistCp diversi, ad esempio `-i`, ignorare gli errori o `-update`, scrivere dati quando il file di origine e il file di destinazione presentano dimensioni diverse per i diversi livelli di resilienza.
+In Data Factory modalità DistCp è possibile utilizzare parametri della riga di comando DistCp diversi, ad esempio `-i`, ignorare gli errori o `-update`, scrivere dati quando il file di origine e il file di destinazione presentano dimensioni diverse) per diversi livelli di resilienza.
 
 In Data Factory modalità runtime di integrazione nativa, in una singola esecuzione dell'attività di copia, Data Factory dispone di un meccanismo di ripetizione dei tentativi incorporato. Può gestire un certo livello di errori temporanei negli archivi dati o nella rete sottostante. 
 
@@ -138,7 +138,7 @@ Ecco il prezzo stimato in base ai presupposti seguenti:
 > Questo è un esempio di prezzo ipotetico. I prezzi effettivi variano in base alla velocità effettiva dell'ambiente.
 > Il prezzo di una VM Windows di Azure (con il runtime di integrazione self-hosted installato) non è incluso.
 
-### <a name="additional-references"></a>Altri riferimenti
+### <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Connettore HDFS](https://docs.microsoft.com/azure/data-factory/connector-hdfs)
 - [Connettore di archiviazione BLOB di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)

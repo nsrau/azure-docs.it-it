@@ -1,5 +1,5 @@
 ---
-title: Informazioni dettagliate prestazioni query per il database SQL di Azure | Microsoft Docs
+title: Informazioni dettagliate prestazioni query per il database SQL di Azure
 description: Il monitoraggio delle prestazioni delle query identifica le query principali a livello di uso della CPU per un database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/03/2019
-ms.openlocfilehash: 659022f625604fe31c2ce47978d1132b20b7ffc8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: eb6827669829dc7aeeb6758a07218a29955b3682
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567027"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687587"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Informazioni dettagliate prestazioni query per il database SQL di Azure
 
@@ -27,7 +27,7 @@ La gestione e l'ottimizzazione delle prestazioni dei database relazionali richie
 * Possibilità di eseguire il drill-down nei dettagli di una query, visualizzarne il testo e la cronologia dell'uso delle risorse.
 * Annotazioni che mostrano raccomandazioni sulle prestazioni da [Advisor per database SQL](sql-database-advisor.md).
 
-![Informazioni dettagliate prestazioni query](./media/sql-database-query-performance/opening-title.png)
+![Informazioni dettagliate sulle prestazioni delle query](./media/sql-database-query-performance/opening-title.png)
 
 > [!TIP]
 > Per il monitoraggio delle prestazioni di base con il database SQL di Azure, è consigliabile usare Informazioni dettagliate prestazioni query. Tenere presente le limitazioni del prodotto pubblicate in questo articolo. Per il monitoraggio avanzato delle prestazioni dei database su larga scala, è consigliabile [Analisi SQL di Azure](../azure-monitor/insights/azure-sql.md). Include funzionalità di intelligence integrate per automatizzare la risoluzione dei problemi di prestazioni. Per ottimizzare automaticamente alcuni dei problemi più comuni di prestazioni del database, è consigliabile l'[ottimizzazione automatica](sql-database-automatic-tuning.md).
@@ -40,7 +40,7 @@ Per Informazioni dettagliate sulle prestazioni delle query è necessario che l' 
 > Se nel portale viene visualizzato un messaggio che indica che Query Store non è configurato correttamente nel database, vedere [Ottimizzare la configurazione di Query Store](#optimize-the-query-store-configuration-for-query-performance-insight).
 >
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>autorizzazioni
 
 Sono necessarie le autorizzazioni di [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) seguenti per usare Informazioni dettagliate prestazioni query:
 
@@ -236,14 +236,14 @@ Il secondo caso si verifica quando Query Store non è abilitato o se i parametri
 
 Esistono due tipi di criteri di conservazione:
 
-* **Basati sulle dimensioni**: se questo criterio è impostato su **AUTOMATICO**, i dati verranno automaticamente cancellati al raggiungimento delle dimensioni massime.
-* **Basati sul tempo**: per impostazione predefinita, questo criterio è impostato su 30 giorni. Se Query Store esaurisce lo spazio, verranno eliminate le informazioni sulle query più vecchie di 30 giorni.
+* **Basato sulle dimensioni**: se il criterio è impostato su **automatico**, i dati verranno puliti automaticamente quando viene raggiunta la dimensione massima.
+* **Basato su tempo**: per impostazione predefinita, questo criterio è impostato su 30 giorni. Se Query Store esaurisce lo spazio, verranno eliminate le informazioni sulle query più vecchie di 30 giorni.
 
 È possibile impostare i criteri di acquisizione su:
 
-* **Tutto**: Query Store acquisisce tutte le query.
-* **Automatico**: Query Store ignora le query poco frequenti e con durata di compilazione ed esecuzione trascurabile. Le soglie per il conteggio delle esecuzioni e la durata di compilazione ed esecuzione vengono stabilite internamente. Questa è l'opzione predefinita.
-* **Nessuna**: Query Store interrompe l'acquisizione di nuove query, ma continua a raccogliere le statistiche di runtime per le query già acquisite.
+* **All**: query Store acquisisce tutte le query.
+* **Auto**: query Store ignora le query e le query non frequenti con una durata di compilazione e di esecuzione non significativa. Le soglie per il conteggio delle esecuzioni e la durata di compilazione ed esecuzione vengono stabilite internamente. Questa è l'opzione predefinita.
+* **None**: query Store interrompe l'acquisizione di nuove query, ma vengono comunque raccolte le statistiche di runtime per le query già acquisite.
 
 È consigliabile impostare tutti i criteri su **AUTOMATICO** e i criteri di pulizia su 30 giorni eseguendo i comandi seguenti da [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o dal portale di Azure. Sostituire `YourDB` con il nome del database.
 

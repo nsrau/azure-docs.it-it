@@ -1,5 +1,5 @@
 ---
-title: 'Gestire più database SQL con i pool di database elastici: Azure | Microsoft Docs'
+title: Gestire più database SQL con pool elastici-Azure
 description: Gestire e ridimensionare centinaia o migliaia di database SQL usando i pool elastici. Un unico prezzo per le risorse che è possibile distribuire in base alle esigenze.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 0b0a6bec7916c056c187ed9e588dd3ac8fea8d84
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 68bb68b47ca240d6c20153af3ed4b0eb42475282
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876421"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690447"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>I pool di database elastici consentono di gestire e ridimensionare più database SQL di Azure
 
@@ -101,7 +101,7 @@ Si noti in questo esempio non prende in considerazione l'utilizzo di altri datab
 
 Una notevole differenza tra il picco e l'utilizzo medio di un database indica periodi prolungati di utilizzo ridotto e brevi periodi di utilizzo elevato. Questo modello di utilizzo è ideale per la condivisione delle risorse tra database. Un database deve essere considerato per un pool quando relativo picchi di utilizzo sono circa 1.5 volte maggiore relativo utilizzo medio.
 
-**Esempio di modello di acquisto basato su DTU**:  Un database S3 con picchi di 100 DTU e un utilizzo medio di 67 DTU o meno è un buon candidato per la condivisione di eDTU in un pool. In alternativa, un database S1 con picchi di 20 DTU e utilizzo medio di 13 DTU o meno è un buon candidato per un pool.
+**Esempio di modello di acquisto basato su DTU**: un database S3 con picchi di 100 DTU e in media USA 67 DTU o meno è un buon candidato per la condivisione di edtu in un pool. In alternativa, un database S1 con picchi di 20 DTU e utilizzo medio di 13 DTU o meno è un buon candidato per un pool.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>Come scegliere le dimensioni più adatte del pool
 
@@ -116,10 +116,10 @@ Nei casi in cui non è possibile utilizzare gli strumenti, le seguenti istruzion
 
 1. Stimare le eDTU o i vCore necessari per il pool come segue:
 
-   Per il modello di acquisto basato su DTU: MAX (<*numero totale di database* X *utilizzo medio di DTU per DB*>,<br>  
+   Per il modello di acquisto basato su DTU: MAX(<*numero totale di database* X *utilizzo medio di DTU per database*>,<br>  
    < *numero di database in picco contemporaneamente* X *picco di utilizzo di DTU per DB* )
 
-   Per il modello di acquisto basato su vCore: MAX (<*numero totale di database* X *utilizzo medio di vCore per DB*>,<br>  
+   Per il modello di acquisto basato su vCore: MAX(<*numero totale di database* X *utilizzo medio di vCore per database*>,<br>  
    < *numero di database in picco contemporaneamente* X *picco di utilizzo di vCore per database* )
 
 2. Stimare lo spazio di archiviazione necessario per il pool aggiungendo il numero di byte necessari per tutti i database nel pool. Determinare quindi la dimensione del pool in eDTU che fornisce la quantità di spazio di archiviazione.
@@ -155,8 +155,8 @@ I database in pool supportano in genere le stesse [funzionalità di continuità 
 
 Esistono due modi per creare un pool elastico nel portale di Azure.
 
-1. Selezionare **Azure SQL** nel menu a sinistra del portale di Azure. Se SQL di Azure non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare *Azure SQL* nella casella di ricerca.
-2. Selezionare **+ Aggiungi** per aprire la pagina **Seleziona opzione distribuzione SQL** . È possibile visualizzare informazioni aggiuntive sui pool elastici selezionando **Mostra dettagli** nel riquadro **database** .
+1. Selezionare **Azure SQL** nel menu a sinistra nel portale di Azure. Se Azure SQL non è presente nell'elenco, selezionare **Tutti i servizi** e quindi digitare *Azure SQL* nella casella di ricerca.
+2. Selezionare **+ Aggiungi** per aprire la pagina di **selezione dell'opzione di distribuzione SQL**. È possibile visualizzare informazioni aggiuntive sui pool elastici selezionando **Mostra dettagli** nel riquadro **database** .
 3. Nel riquadro **database** selezionare **pool elastico** nell'elenco a discesa **tipo di risorsa** e quindi selezionare **Crea**:
 
    ![Creare un pool elastico](./media/sql-database-elastic-pool/create-elastic-pool.png)

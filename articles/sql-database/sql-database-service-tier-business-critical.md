@@ -1,5 +1,5 @@
 ---
-title: Livello Business critical - Servizio di database SQL di Azure | Microsoft Docs
+title: Livello business critical-servizio di database SQL di Azure
 description: Informazioni sul livello Business critical del database SQL di Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: ef1f420e4c4dbd38ad703eb0573fae36af078edb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1d5a51e956f7dab85e1a591a08b472313e569776
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496226"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687379"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Livello Business critical - Servizio di database SQL di Azure
 

@@ -1,6 +1,6 @@
 ---
-title: Copiare i file da più contenitori con Azure Data Factory | Microsoft Docs
-description: Informazioni su come usare un modello di soluzione per copiare i file da più contenitori con Azure Data Factory.
+title: Copiare i file da più contenitori usando Azure Data Factory
+description: Informazioni su come usare un modello di soluzione per copiare file da più contenitori usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -12,44 +12,44 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/1/2018
-ms.openlocfilehash: a52729adf8d6df3f4e44e561b45b854db433628c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 004a623f0dfe251da9d452b53c2541e53339d965
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60635181"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684256"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Copiare file da più contenitori con Azure Data Factory
 
-Questo articolo descrive un modello di soluzione che è possibile usare per copiare i file da più contenitori di dati tra archivi di file. Ad esempio, è possibile utilizzare per eseguire la migrazione il lake dati da AWS S3 per Azure Data Lake Store. In alternativa, è possibile usare il modello di replicare tutti gli elementi da un account di archiviazione Blob di Azure a un altro.
+Questo articolo descrive un modello di soluzione che è possibile usare per copiare file da più contenitori tra archivi di file. Ad esempio, è possibile usarlo per eseguire la migrazione di data Lake da AWS S3 a Azure Data Lake Store. In alternativa, è possibile usare il modello per replicare tutti gli elementi da un account di archiviazione BLOB di Azure a un altro.
 
 > [!NOTE]
-> Se si desidera copiare i file da un singolo contenitore, è preferibile usare il [lo strumento Copia dati](copy-data-tool.md) per creare una pipeline con una singola attività di copia. Il modello in questo articolo è più bisogno per tale scenario semplice.
+> Se si desidera copiare i file da un singolo contenitore, è più efficiente utilizzare lo [strumento copia dati](copy-data-tool.md) per creare una pipeline con un'unica attività di copia. Il modello in questo articolo è più di quello necessario per questo semplice scenario.
 
 ## <a name="about-this-solution-template"></a>Informazioni sul modello di soluzione
 
-Questo modello consente di enumerare i contenitori dall'archivio di archiviazione di origine. Copia quindi tali contenitori nell'archivio di destinazione.
+Questo modello enumera i contenitori dall'archivio di archiviazione di origine. Quindi copia i contenitori nell'archivio di destinazione.
 
 Il modello contiene tre attività:
 - **GetMetadata** analizza l'archivio di archiviazione di origine e ottiene l'elenco dei contenitori.
-- **ForEach** Ottiene l'elenco dei contenitori dal **GetMetadata** attività scorre l'elenco e quindi passa ogni contenitore all'attività di copia.
-- **Copia** copia ogni contenitore dall'archivio di archiviazione di origine nell'archivio di destinazione.
+- **Foreach** Ottiene l'elenco di contenitori dall'attività **GetMetadata** , quindi scorre l'elenco e passa ogni contenitore all'attività di copia.
+- **Copy copia** ogni contenitore dall'archivio di archiviazione di origine nell'archivio di destinazione.
 
 Il modello definisce due parametri:
-- *Percorsofileorigine* rappresenta il percorso dell'archivio dell'origine dati, in cui è possibile ottenere un elenco dei contenitori. Nella maggior parte dei casi, il percorso è la cartella radice, che contiene più cartelle dei contenitori. Il valore predefinito per questo parametro è `/`.
+- *Percorsofileorigine* è il percorso dell'archivio dell'origine dati, in cui è possibile ottenere un elenco dei contenitori. Nella maggior parte dei casi, il percorso è la cartella radice, che contiene più cartelle dei contenitori. Il valore predefinito per questo parametro è `/`.
 - *Percorsofiledestinazione* è il percorso in cui verranno copiati i file nell'archivio di destinazione. Il valore predefinito per questo parametro è `/`.
 
 ## <a name="how-to-use-this-solution-template"></a>Come usare questo modello di soluzione
 
-1. Andare alla **copiare più contenitori di file tra gli archivi di File** modello. Creare un **New** connessione all'archivio di archiviazione di origine. L'archivio di archiviazione di origine è in cui si desidera copiare i file da più contenitori da.
+1. Passare al modello **copia più file di contenitori tra archivi di file** . Creare una **nuova** connessione all'archivio di archiviazione di origine. L'archivio di archiviazione di origine è il punto in cui si vogliono copiare i file da più contenitori da.
 
     ![Creare una nuova connessione all'origine](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
 
-2. Creare un **New** connessione all'archivio di archiviazione di destinazione.
+2. Creare una **nuova** connessione all'archivio di archiviazione di destinazione.
 
     ![Creare una nuova connessione alla destinazione](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
 
-3. Selezionare **usare questo modello**.
+3. Selezionare **Usa questo modello**.
 
     ![Usa questo modello](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
@@ -57,7 +57,7 @@ Il modello definisce due parametri:
 
     ![Mostra la pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Selezionare **eseguire il Debug**, immettere il **parametri**, quindi selezionare **fine**.
+5. Selezionare **debug**, immettere i **parametri**e quindi fare clic su **fine**.
 
     ![Eseguire la pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 
@@ -67,6 +67,6 @@ Il modello definisce due parametri:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Copia bulk da un database usando una tabella di controllo con Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
+- [Eseguire una copia bulk da un database tramite una tabella di controllo con Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
 
-- [Copiare i file da più contenitori con Azure Data Factory](solution-template-copy-files-multiple-containers.md)
+- [Copia i file da più contenitori con Azure Data Factory](solution-template-copy-files-multiple-containers.md)

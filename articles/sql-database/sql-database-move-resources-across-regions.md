@@ -1,5 +1,5 @@
 ---
-title: Come spostare le risorse del database SQL di Azure in un'altra area | Microsoft Docs
+title: Come spostare le risorse del database SQL di Azure in un'altra area
 description: Informazioni su come spostare il database SQL di Azure, il pool elastico SQL di Azure o l'istanza gestita di SQL di Azure in un'altra area.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 2158d4120445de4c62461fb89555a1b73bc1e2b4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9e7cd6cb338de1d029d38ef08693a7b52f7cf15c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567155"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687788"
 ---
 # <a name="how-to-move-azure-sql-resources-to-another-region"></a>Come spostare le risorse SQL di Azure in un'altra area
 
@@ -67,17 +67,17 @@ Questo articolo fornisce un flusso di lavoro generale per lo trasferimento di ri
  
 ### <a name="monitor-the-preparation-process"></a>Monitorare il processo di preparazione
 
-È possibile chiamare periodicamente [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) per monitorare la replica dei database dall'origine alla destinazione. L'oggetto di output `Get-AzSqlDatabaseFailoverGroup` di include una proprietà per **ReplicationState**: 
+È possibile chiamare periodicamente [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) per monitorare la replica dei database dall'origine alla destinazione. L'oggetto di output di `Get-AzSqlDatabaseFailoverGroup` include una proprietà per **ReplicationState**: 
    - **ReplicationState = 2** (CATCH_UP) indica che il database è sincronizzato e che può essere sottoposta a failover in modo sicuro. 
-   - **ReplicationState = 0** (SEEDing) indica che il database non è ancora stato sottoposta a seeding e un tentativo di failover non riesce. 
+   - **ReplicationState = 0** (seeding) indica che il database non è ancora stato sottoposta a seeding e un tentativo di failover non riesce. 
 
 ### <a name="test-synchronization"></a>Test della sincronizzazione
 
-Quando **ReplicationState** è `2`, connettersi a ogni database o sottoinsieme di database usando l'endpoint `<fog-name>.secondary.database.windows.net` secondario ed eseguire qualsiasi query sui database per garantire la connettività, la configurazione di sicurezza e i dati corretti. replica. 
+Quando **ReplicationState** è `2`, connettersi a ogni database o subset di database usando l'endpoint secondario `<fog-name>.secondary.database.windows.net` ed eseguire qualsiasi query sui database per garantire la connettività, la configurazione di sicurezza corretta e la replica dei dati. 
 
 ### <a name="initiate-the-move"></a>Avviare lo spostamento
 
-1. Connettersi al server di destinazione utilizzando l'endpoint `<fog-name>.secondary.database.windows.net`secondario.
+1. Connettersi al server di destinazione utilizzando l'endpoint secondario `<fog-name>.secondary.database.windows.net`.
 1. Usare [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) per impostare l'istanza gestita secondaria come primaria con sincronizzazione completa. Questa operazione avrà esito positivo o verrà eseguito il rollback. 
 1. Verificare che il comando sia stato completato correttamente usando `nslook up <fog-name>.secondary.database.windows.net` per verificare che la voce DNS CNAME punti all'indirizzo IP dell'area di destinazione. Se il comando switch ha esito negativo, il record CNAME non viene aggiornato. 
 
@@ -119,17 +119,17 @@ Al termine dello spostamento, rimuovere le risorse nell'area di origine per evit
 
 ### <a name="monitor-the-preparation-process"></a>Monitorare il processo di preparazione
 
-È possibile chiamare periodicamente [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) per monitorare la replica dei database dall'origine alla destinazione. L'oggetto di output `Get-AzSqlDatabaseFailoverGroup` di include una proprietà per **ReplicationState**: 
+È possibile chiamare periodicamente [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) per monitorare la replica dei database dall'origine alla destinazione. L'oggetto di output di `Get-AzSqlDatabaseFailoverGroup` include una proprietà per **ReplicationState**: 
    - **ReplicationState = 2** (CATCH_UP) indica che il database è sincronizzato e che può essere sottoposta a failover in modo sicuro. 
-   - **ReplicationState = 0** (SEEDing) indica che il database non è ancora stato sottoposta a seeding e un tentativo di failover non riesce. 
+   - **ReplicationState = 0** (seeding) indica che il database non è ancora stato sottoposta a seeding e un tentativo di failover non riesce. 
 
 ### <a name="test-synchronization"></a>Test della sincronizzazione
  
-Quando **ReplicationState** è `2`, connettersi a ogni database o sottoinsieme di database usando l'endpoint `<fog-name>.secondary.database.windows.net` secondario ed eseguire qualsiasi query sui database per garantire la connettività, la configurazione di sicurezza e i dati corretti. replica. 
+Quando **ReplicationState** è `2`, connettersi a ogni database o subset di database usando l'endpoint secondario `<fog-name>.secondary.database.windows.net` ed eseguire qualsiasi query sui database per garantire la connettività, la configurazione di sicurezza corretta e la replica dei dati. 
 
 ### <a name="initiate-the-move"></a>Avviare lo spostamento
  
-1. Connettersi al server di destinazione utilizzando l'endpoint `<fog-name>.secondary.database.windows.net`secondario.
+1. Connettersi al server di destinazione utilizzando l'endpoint secondario `<fog-name>.secondary.database.windows.net`.
 1. Usare [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) per impostare l'istanza gestita secondaria come primaria con sincronizzazione completa. Questa operazione avrà esito positivo o verrà eseguito il rollback. 
 1. Verificare che il comando sia stato completato correttamente usando `nslook up <fog-name>.secondary.database.windows.net` per verificare che la voce DNS CNAME punti all'indirizzo IP dell'area di destinazione. Se il comando switch ha esito negativo, il record CNAME non viene aggiornato. 
 
@@ -166,17 +166,17 @@ Creare un gruppo di failover tra ogni istanza di origine e l'istanza di destinaz
  
 ### <a name="monitor-the-preparation-process"></a>Monitorare il processo di preparazione
 
-È possibile chiamare periodicamente [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) per monitorare la replica dei database dall'origine alla destinazione. L'oggetto di output `Get-AzSqlDatabaseFailoverGroup` di include una proprietà per **ReplicationState**: 
+È possibile chiamare periodicamente [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) per monitorare la replica dei database dall'origine alla destinazione. L'oggetto di output di `Get-AzSqlDatabaseFailoverGroup` include una proprietà per **ReplicationState**: 
    - **ReplicationState = 2** (CATCH_UP) indica che il database è sincronizzato e che può essere sottoposta a failover in modo sicuro. 
-   - **ReplicationState = 0** (SEEDing) indica che il database non è ancora stato sottoposta a seeding e un tentativo di failover non riesce. 
+   - **ReplicationState = 0** (seeding) indica che il database non è ancora stato sottoposta a seeding e un tentativo di failover non riesce. 
 
 ### <a name="test-synchronization"></a>Test della sincronizzazione
 
-Quando **ReplicationState** è `2`, connettersi a ogni database o sottoinsieme di database usando l'endpoint `<fog-name>.secondary.database.windows.net` secondario ed eseguire qualsiasi query sui database per garantire la connettività, la configurazione di sicurezza e i dati corretti. replica. 
+Quando **ReplicationState** è `2`, connettersi a ogni database o subset di database usando l'endpoint secondario `<fog-name>.secondary.database.windows.net` ed eseguire qualsiasi query sui database per garantire la connettività, la configurazione di sicurezza corretta e la replica dei dati. 
 
 ### <a name="initiate-the-move"></a>Avviare lo spostamento 
 
-1. Connettersi al server di destinazione utilizzando l'endpoint `<fog-name>.secondary.database.windows.net`secondario.
+1. Connettersi al server di destinazione utilizzando l'endpoint secondario `<fog-name>.secondary.database.windows.net`.
 1. Usare [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup?view=azps-2.3.2) per impostare l'istanza gestita secondaria come primaria con sincronizzazione completa. Questa operazione avrà esito positivo o verrà eseguito il rollback. 
 1. Verificare che il comando sia stato completato correttamente usando `nslook up <fog-name>.secondary.database.windows.net` per verificare che la voce DNS CNAME punti all'indirizzo IP dell'area di destinazione. Se il comando switch ha esito negativo, il record CNAME non viene aggiornato. 
 

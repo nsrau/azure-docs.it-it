@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale | Microsoft Docs
+title: Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale
 description: Convertire database partizionati per l'uso di strumenti dei database elastici mediante la creazione di un gestore mappe partizioni
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 2d6d5c51cb381c089633ba010a1d64c8486ddcd8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b88c56872408a7ffe127a4e96d2313301d44c892
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568732"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690536"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale
 È possibile gestire facilmente i database partizionati con scalabilità orizzontale esistenti usando gli strumenti di database del database SQL di Azure, come ad esempio la [libreria client dei database elastici](sql-database-elastic-database-client-library.md). Come prima cosa convertire un set di database esistente per l'uso del [gestore delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md). 
@@ -97,7 +97,7 @@ Per usare questo modello di mapping, i valori dell'ID tenant devono essere a int
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-an-individual-database"></a>Opzione 3: elencare i mapping su un database singolo
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Opzione 3: elencare i mapping in un singolo database
 Per l'impostazione di questo modello è necessario anche creare una mappa di tipo elenco, come illustrato nel passaggio 2, opzione 1.
 
 ## <a name="step-3-prepare-individual-shards"></a>Passaggio 3: preparare le singole partizioni
@@ -110,7 +110,7 @@ Aggiungere ciascuna partizione (database) al gestore mappe partizioni. Ciò cons
     # The $ShardMap is the shard map created in step 2.
 
 
-## <a name="step-4-add-mappings"></a>Passaggio 4: aggiungere i mapping
+## <a name="step-4-add-mappings"></a>Passaggio 4: aggiungere mapping
 L'aggiunta di mapping dipende dal tipo di mappa partizioni creato. Se è stata creata una mappa di tipo elenco, aggiungere mapping di tipo elenco. Se è stata creata una mappa di tipo intervallo, aggiungere mapping di tipo intervallo.
 
 ### <a name="option-1-map-the-data-for-a-list-mapping"></a>Opzione 1: eseguire il mapping dei dati per il mapping di tipo elenco

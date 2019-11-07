@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66102a92ce279b594d61c8b2d484c89a8532057a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 50af82e79e7ba8b979ab28a1b3f608ec7e41bfb2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171993"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603440"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Abilitare l'accesso alla chiave di sicurezza senza password (anteprima)
 
@@ -26,7 +26,7 @@ Questo documento è incentrato sull'abilitazione dell'autenticazione senza passw
 
 |     |
 | --- |
-| Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="requirements"></a>Requisiti
@@ -68,7 +68,7 @@ Le funzionalità di registrazione per i metodi di autenticazione con password si
 1. Scegliere **dispositivo USB** o **dispositivo NFC**.
 1. Preparare la chiave e scegliere **Avanti**.
 1. Verrà visualizzata una casella per chiedere all'utente di creare/immettere un PIN per la chiave di sicurezza, quindi eseguire il gesto necessario per la chiave, ovvero biometrica o touch.
-1. L'utente verrà restituito all'esperienza di registrazione combinata e chiederà di fornire un nome significativo per la chiave in modo che l'utente possa identificare quello che ha più. Fare clic su **Next** (Avanti).
+1. L'utente verrà restituito all'esperienza di registrazione combinata e chiederà di fornire un nome significativo per la chiave in modo che l'utente possa identificare quello che ha più. Fare clic su **Avanti**.
 1. Fare clic su **fine** per completare il processo.
 
 ## <a name="sign-in-with-passwordless-credential"></a>Accedi con credenziali senza password
@@ -95,7 +95,7 @@ Il provisioning e il deprovisioning dell'amministratore delle chiavi di sicurezz
 
 ### <a name="upn-changes"></a>Modifiche UPN
 
-Si sta lavorando per supportare una funzionalità che consente la modifica dell'UPN nei dispositivi ibridi Azure AD aggiunti e Azure AD. Se l'UPN di un utente viene modificato, non è più possibile modificare le chiavi di sicurezza di FIDO2 per tenere conto della modifica. La risoluzione consiste nel reimpostare il dispositivo e l'utente deve eseguire di nuovo la registrazione.
+Se l'UPN di un utente viene modificato, non è più possibile modificare le chiavi di sicurezza di FIDO2 per tenere conto della modifica. La risoluzione consiste nel reimpostare il dispositivo e l'utente deve registrare di nuovo le chiavi di sicurezza FIDO2.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

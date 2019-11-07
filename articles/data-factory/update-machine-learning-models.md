@@ -1,5 +1,5 @@
 ---
-title: Aggiornare i modelli di Machine Learning con Azure Data Factory | Microsoft Docs
+title: Aggiornare i modelli di Machine Learning usando Azure Data Factory
 description: Illustra come creare pipeline predittive tramite Azure Data Factory e Machine Learning
 services: data-factory
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 56d0ce6668c1077b99c980c2bc5b16998a3a41c1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 3313c9c362a9b82cf7ed8db63479aaa5cf0c777e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140538"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683236"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aggiornare i modelli di Azure Machine Learning tramite l'attività Aggiorna risorsa
-Questo articolo è complementare all'articolo principale sull'integrazione di Azure Data Factory e Azure Machine Learning: [Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory](transform-data-using-machine-learning.md). Se ancora non è stato fatto, consultare l'articolo principale prima di leggere questo articolo.
+Questo articolo integra la versione principale di Azure Data Factory: articolo di integrazione di Azure Machine Learning: [Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory](transform-data-using-machine-learning.md). Se ancora non è stato fatto, consultare l'articolo principale prima di leggere questo articolo.
 
 ## <a name="overview"></a>Panoramica
 Nell'ambito del processo di messa in funzione dei modelli di Azure Machine Learning, viene eseguito il training del modello, che viene quindi salvato. Lo si userà quindi per creare un servizio Web predicativo. Il servizio Web potrà quindi essere utilizzato in siti Web, dashboard e app per dispositivi mobili.
@@ -60,10 +60,10 @@ Il frammento JSON seguente definisce un'attività Esecuzione batch di Azure Mach
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | Nome dell'attività nella pipeline     | Sì      |
 | description                   | Testo che descrive l'attività.  | No       |
-| type                          | Per l'attività Aggiorna risorsa di Azure Machine Learning il tipo corrisponde ad **AzureMLUpdateResource**. | Yes      |
+| type                          | Per l'attività Aggiorna risorsa di Azure Machine Learning il tipo corrisponde ad **AzureMLUpdateResource**. | Sì      |
 | linkedServiceName             | Servizio collegato di Azure Machine Learning che contiene la proprietà updateResourceEndpoint. | Sì      |
-| trainedModelName              | Nome del modulo di modello con training nell'esperimento del servizio Web da aggiornare | Yes      |
-| trainedModelLinkedServiceName | Nome del servizio collegato di Archiviazione di Azure che viene caricato dall'operazione di aggiornamento | Yes      |
+| trainedModelName              | Nome del modulo di modello con training nell'esperimento del servizio Web da aggiornare | Sì      |
+| trainedModelLinkedServiceName | Nome del servizio collegato di Archiviazione di Azure che viene caricato dall'operazione di aggiornamento | Sì      |
 | trainedModelFilePath          | Il percorso file relativo in trainedModelLinkedService per rappresentare il file con estensione iLearner caricato dall'operazione di aggiornamento | Sì      |
 
 ## <a name="end-to-end-workflow"></a>Flusso di lavoro end-to-end
@@ -196,7 +196,7 @@ Il frammento di codice JSON seguente definisce un servizio collegato di Azure Ma
 ```
 
 ### <a name="pipeline"></a>Pipeline
-La pipeline ha due attività: **AzureMLBatchExecution** e **AzureMLUpdateResource**. L'attività Esecuzione batch di Azure ML accetta i dati di training come input e genera un file iLearner come output. L'attività Aggiorna risorsa riceve quindi il file iLearner e lo usa per aggiornare il servizio Web predittivo.
+La pipeline include due attività: **AzureMLBatchExecution** e **AzureMLUpdateResource**. L'attività Esecuzione batch di Azure ML accetta i dati di training come input e genera un file iLearner come output. L'attività Aggiorna risorsa riceve quindi il file iLearner e lo usa per aggiornare il servizio Web predittivo.
 
 ```JSON
 {
@@ -267,7 +267,7 @@ La pipeline ha due attività: **AzureMLBatchExecution** e **AzureMLUpdateResourc
 }
 ```
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione dei dati:
+Vedere gli articoli seguenti che illustrano come trasformare i dati in altri modi:
 
 * [Attività U-SQL](transform-data-using-data-lake-analytics.md)
 * [Attività Hive](transform-data-using-hadoop-hive.md)

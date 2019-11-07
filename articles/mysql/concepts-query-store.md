@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 40718cdb12cbc46bf0587dfdc657ee06c090061b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/04/2019
+ms.openlocfilehash: c8891fc96e3e511e4127b4e114a45b5a865cf8eb
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598234"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603017"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitorare le prestazioni di database di Azure per MySQL con Query Store
 
 **Si applica a:** Database di Azure per MySQL 5,7
-
-> [!IMPORTANT]
-> Query Store è in anteprima.
 
 La funzionalità Query Store di database di Azure per MySQL offre un modo per tenere traccia delle prestazioni delle query nel tempo. Query Store semplifica la risoluzione dei problemi di prestazioni consentendo di trovare rapidamente le query con il tempo di esecuzione più lungo e il più elevato utilizzo di risorse. Query Store acquisisce automaticamente una cronologia delle query e le statistiche di runtime e le conserva a scopo di verifica. I dati vengono separati per intervalli di tempo per consentire l'individuazione dei modelli di utilizzo dei database. I dati per tutti gli utenti, i database e le query vengono archiviati nel database dello schema **MySQL** nell'istanza del database di Azure per MySQL.
 
@@ -107,7 +104,7 @@ Le opzioni seguenti si applicano specificamente alle statistiche di attesa.
 > [!NOTE]
 > Attualmente **query_store_capture_mode** sostituisce questa configurazione, vale a dire che **query_store_capture_mode** e **query_store_wait_sampling_capture_mode** devono essere abilitati per tutte le statistiche di attesa per il funzionamento. Se **query_store_capture_mode** è disattivato, le statistiche di attesa sono disattivate, perché le statistiche di attesa usano il performance_schema abilitato e la query_text acquisita da query Store.
 
-Usare il [portale di Azure](howto-server-parameters.md)  or [interfaccia](howto-configure-server-parameters-using-cli.md) della riga di comando di Azure  to ottenere o impostare un valore diverso per un parametro.
+Usare l'  [portale di Azure](howto-server-parameters.md) o l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md) per ottenere o impostare un valore diverso per un parametro.
 
 ## <a name="views-and-functions"></a>Viste e funzioni
 
@@ -130,10 +127,10 @@ Questa vista restituisce tutti i dati in Query Store. Contiene una riga per ogni
 | `execution_count` | bigint (20)| NO| Il numero di volte in cui la query è stata eseguita per questo ID timestamp/durante il periodo di intervallo configurato|
 | `warning_count` | bigint (20)| NO| Numero di avvisi generati dalla query durante l'esecuzione interna|
 | `error_count` | bigint (20)| NO| Numero di errori generati dalla query durante l'intervallo|
-| `sum_timer_wait` | Double| SÌ| Tempo di esecuzione totale della query durante l'intervallo|
-| `avg_timer_wait` | Double| SÌ| Tempo medio di esecuzione per la query durante l'intervallo|
-| `min_timer_wait` | Double| SÌ| Tempo di esecuzione minimo per la query|
-| `max_timer_wait` | Double| SÌ| Tempo massimo di esecuzione|
+| `sum_timer_wait` | double| SÌ| Tempo di esecuzione totale della query durante l'intervallo|
+| `avg_timer_wait` | double| SÌ| Tempo medio di esecuzione per la query durante l'intervallo|
+| `min_timer_wait` | double| SÌ| Tempo di esecuzione minimo per la query|
+| `max_timer_wait` | double| SÌ| Tempo massimo di esecuzione|
 | `sum_lock_time` | bigint (20)| NO| Quantità totale di tempo impiegato per tutti i blocchi per l'esecuzione di questa query durante questo intervallo di tempo|
 | `sum_rows_affected` | bigint (20)| NO| Numero di righe interessate|
 | `sum_rows_sent` | bigint (20)| NO| Numero di righe inviate al client|
@@ -162,7 +159,7 @@ Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene 
 | `event_type` | varchar (32) | NO| Categoria dell'evento Wait |
 | `event_name` | varchar (128) | NO| Nome dell'evento Wait |
 | `count_star` | bigint (20) | NO| Numero di eventi di attesa campionati durante l'intervallo per la query |
-| `sum_timer_wait_ms` | Double | NO| Tempo totale di attesa (in millisecondi) di questa query durante l'intervallo |
+| `sum_timer_wait_ms` | double | NO| Tempo totale di attesa (in millisecondi) di questa query durante l'intervallo |
 
 ### <a name="functions"></a>Funzioni
 
@@ -174,7 +171,7 @@ Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene 
 
 ## <a name="limitations-and-known-issues"></a>Limitazioni e problemi noti
 
-- Se un server MySQL ha il parametro `default_transaction_read_only` on, Query Store non può acquisire i dati.
+- Se un server MySQL dispone del parametro `default_transaction_read_only` in, Query Store non può acquisire dati.
 - Query Store funzionalità può essere interrotta se rileva query Unicode lunghe (\> = 6000 byte).
 - Il periodo di memorizzazione per le statistiche di attesa è di 24 ore.
 - Le statistiche di attesa utilizzano l'esempio per acquisire una frazione di eventi. La frequenza può essere modificata utilizzando il parametro `query_store_wait_sampling_frequency`.

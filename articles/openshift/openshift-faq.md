@@ -7,27 +7,17 @@ ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 8f7349310f72c8cccc7b1906239ece3038dd7861
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.date: 11/04/2019
+ms.openlocfilehash: d8707e2edccf144cbe58a530bcfe2c176e656915
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249222"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582407"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Domande frequenti su Azure Red Hat OpenShift
 
 Questo articolo risponde alle domande frequenti su Microsoft Azure Red Hat OpenShift.
-
-## <a name="how-do-i-get-started"></a>Come iniziare?
-
-Prima di poter usare Azure Red Hat OpenShift, è necessario acquistare almeno 4 nodi applicazione riservati di Azure Red Hat OpenShift.
-
-Se sei un cliente di Azure,[Acquista le istanze riservate di Azure Red Hat OpenShift](https://aka.ms/openshift/buy) tramite il portale di Azure. Dopo l'acquisto, la sottoscrizione verrà attivata entro 24 ore, dopo la quale sarà possibile effettuare il provisioning dei cluster.
-
-Se non si è un cliente di Azure, [contattare le vendite](https://aka.ms/openshift/contact-sales) e compilare il modulo delle vendite nella parte inferiore della pagina per avviare il processo.
-
-Per ulteriori informazioni, vedere la [pagina dei prezzi di Azure Red Hat OpenShift](https://aka.ms/openshift/pricing) .
 
 ## <a name="which-azure-regions-are-supported"></a>Quali aree di Azure sono supportate?
 
@@ -71,7 +61,7 @@ Sì. Un amministratore di Azure Red Hat OpenShift può gestire gli utenti e le q
 
 ## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>È possibile limitare un cluster solo a determinati utenti di Azure AD?
 
-Sì. È possibile limitare il Azure AD gli utenti possono accedere a un cluster configurando l'applicazione Azure AD. Per informazioni dettagliate, vedere [How per: Limitare l'app a un set di utenti @ no__t-0
+Sì. È possibile limitare il Azure AD gli utenti possono accedere a un cluster configurando l'applicazione Azure AD. Per informazioni dettagliate, vedere [procedura: limitare l'app a un set di utenti](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
 
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>Un cluster può avere nodi di calcolo in più aree di Azure?
 
@@ -85,7 +75,7 @@ No. Tutte le risorse, incluso il master del cluster, vengono eseguite nella sott
 
 Sì. È possibile usare OSBA con Azure Red Hat OpenShift. Per altre informazioni, vedere [aprire Service Broker per Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) .
 
-## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Si sta tentando di eseguire il peering in una rete virtuale in una sottoscrizione diversa ma viene ricevuto @no__t errore-0.
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Si sta tentando di eseguire il peering in una rete virtuale in una sottoscrizione diversa ma viene `Failed to get vnet CIDR` errore.
 
 Nella sottoscrizione in cui è presente la rete virtuale, assicurarsi di registrare il provider `Microsoft.ContainerService` con `az provider register -n Microsoft.ContainerService --wait` 
 
@@ -191,7 +181,7 @@ Ogni cluster Azure Red Hat OpenShift è dedicato a un determinato cliente e si t
 
 ## <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>È possibile scegliere qualsiasi soluzione di archiviazione persistente, ad esempio OCS? 
 
-È possibile scegliere tra due classi di archiviazione: Disco di Azure e file di Azure.
+È possibile scegliere tra due classi di archiviazione: disco di Azure e file di Azure.
 
 ## <a name="how-is-a-cluster-updated-including-majors-and-minors-due-to-vulnerabilities"></a>In che modo viene aggiornato un cluster, inclusi i principali e i minorenni a causa di vulnerabilità?
 

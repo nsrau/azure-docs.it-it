@@ -1,5 +1,5 @@
 ---
-title: Creare trigger di pianificazione in Azure Data Factory | Microsoft Docs
+title: Creare trigger di pianificazione in Azure Data Factory
 description: Informazioni su come creare un trigger in Azure Data Factory per l'esecuzione di una pipeline in base a una pianificazione.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.openlocfilehash: f693b04cb2a7166436497239dc7a874bdc5cbf46
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 127db8a484b9624586dea70c44af3bc84b3fc84e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141618"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673779"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creare un trigger per l'esecuzione di una pipeline in base a una pianificazione
 Questo articolo fornisce informazioni sui trigger di pianificazione e sulla procedura per creare, avviare e monitorare un trigger di pianificazione. Per altri tipi di trigger, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md).
@@ -68,7 +68,7 @@ Le sezioni successive illustrano la procedura per creare un trigger di pianifica
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Questa sezione illustra come usare Azure PowerShell per creare, avviare e monitorare un trigger di pianificazione. Per visualizzare l'esempio in esecuzione, eseguire prima [Avvio rapido: Creare una data factory tramite Azure PowerShell](quickstart-create-data-factory-powershell.md). Quindi, aggiungere il codice seguente al metodo principale, che crea e avvia un trigger di pianificazione che viene eseguito ogni 15 minuti. Il trigger è associato a una pipeline denominata **Adfv2QuickStartPipeline**, creata come parte dell'Avvio rapido.
+Questa sezione illustra come usare Azure PowerShell per creare, avviare e monitorare un trigger di pianificazione. Per vedere l'esempio in esecuzione, fare riferimento ad [Avvio rapido: Creare una data factory con Azure PowerShell](quickstart-create-data-factory-powershell.md). Quindi, aggiungere il codice seguente al metodo principale, che crea e avvia un trigger di pianificazione che viene eseguito ogni 15 minuti. Il trigger è associato a una pipeline denominata **Adfv2QuickStartPipeline**, creata come parte dell'Avvio rapido.
 
 1. Creare un file JSON denominato **MyTrigger.json** nella cartella C:\ADFv2QuickStartPSH con il contenuto seguente:
 
@@ -144,7 +144,7 @@ Questa sezione illustra come usare Azure PowerShell per creare, avviare e monito
 
 
 ## <a name="net-sdk"></a>.NET SDK
-Questa sezione illustra come usare .NET SDK per creare, avviare e monitorare un trigger. Per visualizzare l'esempio in esecuzione, eseguire prima [Avvio rapido: Creare una data factory tramite .NET SDK](quickstart-create-data-factory-dot-net.md). Quindi, aggiungere il codice seguente al metodo principale, che crea e avvia un trigger di pianificazione che viene eseguito ogni 15 minuti. Il trigger è associato a una pipeline denominata **Adfv2QuickStartPipeline**, creata come parte dell'Avvio rapido.
+Questa sezione illustra come usare .NET SDK per creare, avviare e monitorare un trigger. Per vedere l'esempio in esecuzione, fare riferimento ad [Avvio rapido: Creare una data factory con .NET SDK](quickstart-create-data-factory-dot-net.md). Quindi, aggiungere il codice seguente al metodo principale, che crea e avvia un trigger di pianificazione che viene eseguito ogni 15 minuti. Il trigger è associato a una pipeline denominata **Adfv2QuickStartPipeline**, creata come parte dell'Avvio rapido.
 
 Per creare e avviare un trigger di pianificazione che viene eseguito ogni 15 minuti, aggiungere il codice seguente al metodo principale:
 
@@ -224,7 +224,7 @@ Per monitorare le esecuzioni di trigger e di pipeline nel portale di Azure, vede
 
 
 ## <a name="python-sdk"></a>Python SDK
-Questa sezione illustra come usare Python SDK per creare, avviare e monitorare un trigger. Per visualizzare l'esempio in esecuzione, eseguire prima [Avvio rapido: Creare una data factory tramite Python SDK](quickstart-create-data-factory-python.md). Aggiungere quindi il blocco di codice seguente dopo il blocco di codice di "monitoraggio dell'esecuzione della pipeline" nello script Python. Questo codice crea un trigger di pianificazione che viene eseguito ogni 15 minuti tra le ore di inizio e di fine specificate. Aggiornare la variabile **start_time** impostandola sull'ora UTC corrente e la variabile **end_time** impostandola su un'ora dopo l'ora UTC corrente.
+Questa sezione illustra come usare Python SDK per creare, avviare e monitorare un trigger. Per vedere l'esempio in esecuzione, fare riferimento ad [Avvio rapido: Creare una data factory con Python SDK](quickstart-create-data-factory-python.md). Aggiungere quindi il blocco di codice seguente dopo il blocco di codice di "monitoraggio dell'esecuzione della pipeline" nello script Python. Questo codice crea un trigger di pianificazione che viene eseguito ogni 15 minuti tra le ore di inizio e di fine specificate. Aggiornare la variabile **start_time** impostandola sull'ora UTC corrente e la variabile **end_time** impostandola su un'ora dopo l'ora UTC corrente.
 
 ```python
     # Create a trigger
@@ -247,7 +247,7 @@ Per monitorare le esecuzioni di trigger e di pipeline nel portale di Azure, vede
 È possibile usare un modello di Azure Resource Manager per creare un trigger. Per istruzioni dettagliate, vedere [Creare una data factory di Azure usando un modello di Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Passare l'ora di inizio del trigger a una pipeline
-Azure Data Factory versione 1 supporta la lettura o la scrittura di dati partizionati usando le variabili di sistema: **SliceStart**, **SliceEnd**, **WindowStart** e **WindowEnd**. Nella versione corrente di Azure Data Factory è possibile ottenere questo comportamento usando un parametro della pipeline. L'ora di inizio e l'ora pianificata per il trigger vengono impostate come valore per il parametro della pipeline. Nell'esempio seguente l'ora pianificata per il trigger viene passata come valore al parametro **scheduledRunTime** della pipeline:
+Azure Data Factory versione 1 supporta la lettura o la scrittura di dati partizionati usando le variabili di sistema **SliceStart**, **SliceEnd**, **WindowStart** e **WindowEnd**. Nella versione corrente di Azure Data Factory è possibile ottenere questo comportamento usando un parametro della pipeline. L'ora di inizio e l'ora pianificata per il trigger vengono impostate come valore per il parametro della pipeline. Nell'esempio seguente l'ora pianificata per il trigger viene passata come valore al parametro **scheduledRunTime** della pipeline:
 
 ```json
 "parameters": {
@@ -322,13 +322,13 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 
 ### <a name="schema-defaults-limits-and-examples"></a>Impostazioni predefinite dello schema, limiti ed esempi
 
-| Proprietà JSON | Type | Obbligatoria | Valore predefinito | Valori validi | Esempio |
+| Proprietà JSON | Tipo | Obbligatorio | Valore predefinito | Valori validi | Esempio |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | String | Yes | Nessuna | Date-Ore ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Object | Yes | Nessuna | Oggetto ricorrenza | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | String | Sì | Nessuna | Date-Ore ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | Oggetto | Sì | Nessuna | Oggetto ricorrenza | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Number | No | 1 | Da 1 a 1.000 | `"interval":10` |
 | **endTime** | String | Sì | Nessuna | Valore di data e ora che fa riferimento a un momento nel futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | Object | No | Nessuna | Oggetto pianificazione | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **schedule** | Oggetto | No | Nessuna | Oggetto pianificazione | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Proprietà startTime
 La tabella seguente illustra come la proprietà **startTime** controlla l'esecuzione di un trigger:
@@ -338,7 +338,7 @@ La tabella seguente illustra come la proprietà **startTime** controlla l'esecuz
 | Ora di inizio nel passato | Calcola l'ora della prima esecuzione futura dopo l'ora di inizio e avvia l'esecuzione in corrispondenza di tale ora.<br/><br/>Avvia le esecuzioni successive basandosi sul calcolo dall'ultima esecuzione.<br/><br/>Vedere l'esempio sotto a questa tabella. | Il trigger viene avviato _non prima_ dell'ora di inizio specificata. La prima occorrenza è basata sulla pianificazione calcolata dall'ora di inizio.<br/><br/>Avvia le esecuzioni successive in base alla pianificazione di ricorrenza. |
 | Ora di inizio nel futuro o nel presente | Avvia l'esecuzione una sola volta all'ora di inizio specificata.<br/><br/>Avvia le esecuzioni successive basandosi sul calcolo dall'ultima esecuzione. | Il trigger viene avviato _non prima_ dell'ora di inizio specificata. La prima occorrenza è basata sulla pianificazione calcolata dall'ora di inizio.<br/><br/>Avvia le esecuzioni successive in base alla pianificazione di ricorrenza. |
 
-È possibile esaminare uno scenario in cui l'ora di inizio è nel passato, con una ricorrenza, ma nessuna pianificazione. Si supponga che l'ora corrente sia `2017-04-08 13:00`, l'ora di inizio sia `2017-04-07 14:00` e la ricorrenza sia ogni due giorni. Il valore **recurrence** viene definito impostando la proprietà **frequency** su "day" e la proprietà **interval** su 2. Si noti che il valore **startTime** è nel passato e si verifica prima dell'ora corrente.
+È possibile esaminare uno scenario in cui l'ora di inizio è nel passato, con una ricorrenza, ma nessuna pianificazione. Si supponga che l'ora corrente sia `2017-04-08 13:00`, l'ora di inizio sia `2017-04-07 14:00` e la ricorrenza sia ogni due giorni. Il valore di **ricorrenza** viene definito impostando la proprietà **Frequency** su "Day" e la proprietà **Interval** su 2. Si noti che il valore di **StartTime** è nel passato e si verifica prima dell'ora corrente.
 
 In queste condizioni, la prima esecuzione avviene alle `2017-04-09 at 14:00`. Il motore dell'utilità di pianificazione calcola le occorrenze dall'ora di inizio dell'esecuzione. Vengono eliminate tutte le istanze in passato. Il motore utilizza l'istanza successiva che si verifica in futuro. In questo scenario l'ora di inizio è `2017-04-07 at 2:00pm`, quindi l'istanza successiva viene eseguita due giorni dopo tale orario, ovvero il giorno `2017-04-09 at 2:00pm`.
 

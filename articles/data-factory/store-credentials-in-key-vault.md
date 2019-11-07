@@ -1,5 +1,5 @@
 ---
-title: Archiviare le credenziali in Azure Key Vault | Microsoft Docs
+title: Archiviare le credenziali in Azure Key Vault
 description: Informazioni su come archiviare le credenziali per gli archivi dati usati in un insieme di credenziali delle chiavi di Azure che Azure Data Factory può recuperare automaticamente in fase di esecuzione.
 services: data-factory
 author: linda33wj
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f46c54edff2bc765e75742848f83d30e7aa7c09
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1e2458fa125ee4d223ef46001534fb7ae72b805e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003407"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684001"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Archiviare le credenziali in Azure Key Vault
 
@@ -28,7 +28,7 @@ Attualmente questa funzionalità è supportata da tutti i tipi di attività tran
 
 Questa funzionalità si basa sull'identità gestita data factory. Scopri come funziona da [identità gestita per data factory](data-factory-service-identity.md) e assicurati che i data factory dispongano di un elemento associato.
 
-## <a name="steps"></a>Passaggi
+## <a name="steps"></a>Passi
 
 Per fare riferimento a una credenziale archiviata in Azure Key Vault, è necessario:
 
@@ -41,10 +41,10 @@ Per fare riferimento a una credenziale archiviata in Azure Key Vault, è necessa
 
 Per il servizio collegato di Azure Key Vault sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **AzureKeyVault**. | Yes |
-| baseUrl | Specificare l'URL di Azure Key Vault. | Yes |
+| type | La proprietà type deve essere impostata su **AzureKeyVault**. | Sì |
+| baseUrl | Specificare l'URL di Azure Key Vault. | Sì |
 
 **Nell'interfaccia utente:**
 
@@ -74,7 +74,7 @@ Selezionare l'insieme di credenziali delle chiavi di Azure di cui è stato effet
 
 Quando si configura un campo nel servizio collegato che fa riferimento a un segreto dell'insieme di credenziali delle chiavi, sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type del campo deve essere impostata su: **AzureKeyVaultSecret**. | Sì |
 | secretName | Nome del segreto in Azure Key Vault. | Sì |

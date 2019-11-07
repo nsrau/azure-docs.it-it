@@ -1,6 +1,6 @@
 ---
 title: Raccolta di intelligenza artificiale per Azure
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Condividere e scoprire risorse di analisi e altro in Azure AI Gallery. Imparare da altri utenti e offrire il proprio contributo alla community.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 445ea2fa299e32d0ceae7b3eee9bbf0a82dd75af
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3f02c7377242dc031cd2d21d2b57bbd5f839eec3
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492924"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619135"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Condividere e scoprire risorse in Azure AI Gallery
 
@@ -24,7 +24,7 @@ Questo sito include diverse risorse che è possibile usare per sviluppare soluzi
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Che cosa è disponibile all'interno di Cortana Intelligence Gallery?
 
-Azure AI Gallery contiene diverse risorse di vario tipo fornite come contributo da Microsoft e da membri della community di data science, Le aree includono:
+Azure AI Gallery contiene diverse risorse di vario tipo fornite come contributo da Microsoft e da membri della community di data science, inclusi i seguenti:
 
 * **Esperimenti** : la raccolta contiene un'ampia gamma di esperimenti sviluppati in Azure Machine Learning Studio (classico). da veloci esperimenti di prova che illustrano una tecnica di apprendimento automatico specifica a soluzioni complete per la risoluzione di problemi di apprendimento automatico complessi.
 * **Esercitazioni**: sono disponibili diverse esercitazioni che illustrano concetti e tecnologie di Machine Learning e metodi avanzati per la risoluzione di vari problemi di Machine Learning.
@@ -93,7 +93,7 @@ Gli utenti possono anche aggiungere commenti e condividere il contributo con alt
 1. Nella casella **DESCRIZIONE DETTAGLIATA** descrivere i passaggi in ogni parte dell'esperimento. Ecco alcuni elementi utili da includere:
    * Screenshot del grafico dell'esperimento
    * Origini dati e spiegazione
-   * Elaborazione dati
+   * Elaborazione dei dati
    * Progettazione delle funzioni
    * Descrizione modello
    * Risultati e valutazione delle prestazioni del modello
@@ -121,7 +121,7 @@ Se si desidera, è possibile apportare modifiche al flusso di lavoro (moduli, pa
 * Nome dell'esperimento
 * Riepilogo o descrizione
 * Tag
-* Immagine
+* Image
 * Impostazione di visibilità, tra **Public** (Pubblico) e **Unlisted** (Non in elenco)
 
 È anche possibile eliminare l'esperimento da Gallery.
@@ -149,16 +149,16 @@ Queste modifiche o eliminazioni possono essere apportate in Gallery dalla pagina
 
 1. Selezionare **Nuovo elemento**.
 
-1. Nella pagina **Descrizione**, per **Tipo di elemento**, selezionare **Esercitazione** o **Raccolta**. Immettere un nome, un breve riepilogo e una descrizione dettagliata, oltre a eventuali tag che potrebbero aiutare gli utenti a trovare il contributo in questione. Quindi fare clic su **Next**.
+1. Nella pagina **Descrizione**, per **Tipo di elemento**, selezionare **Esercitazione** o **Raccolta**. Immettere un nome, un breve riepilogo e una descrizione dettagliata, oltre a eventuali tag che potrebbero aiutare gli utenti a trovare il contributo in questione. Quindi fare clic su **Avanti**.
 
-1. Nella pagina **Selezione immagine** selezionare un'immagine visualizzata con il contributo. È possibile caricare il proprio file di immagine oppure selezionarne una. Scegliere un'immagine che possa aiutare gli utenti a identificare il contenuto e lo scopo del contributo. Quindi fare clic su **Next**.
+1. Nella pagina **Selezione immagine** selezionare un'immagine visualizzata con il contributo. È possibile caricare il proprio file di immagine oppure selezionarne una. Scegliere un'immagine che possa aiutare gli utenti a identificare il contenuto e lo scopo del contributo. Quindi fare clic su **Avanti**.
 
 1. Nella pagina **Impostazioni**, per **Visibilità**, selezionare se il contributo è **Public** (Pubblico) e quindi visibile a tutti gli utenti oppure **Unlisted** (Non in elenco), ovvero visibile solo agli utenti con un collegamento diretto.
 
    > [!TIP]
    > Per assicurarsi che la documentazione sia corretta prima di pubblicarla, è possibile usare l'opzione **Unlisted** (Non in elenco) prima di rendere pubblico l'esperimento. In un secondo momento sarà possibile modificare l'impostazione di visibilità su **Public** (Pubblico) nella pagina dei dettagli dell'esperimento. Si noti che, dopo aver impostato un esperimento su **Public** (Pubblico), successivamente non è possibile impostarlo su **Unlisted** (Non in elenco).
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 Il contributo si trova ora in Azure AI Gallery. I contributi vengono elencati nella pagina del proprio account, all'interno della scheda **Elementi**.
 
@@ -195,10 +195,10 @@ Al momento non è possibile pubblicare in Gallery un esperimento che usa credenz
 
 Dopo aver inserito un tag, premere il tasto TAB per inserirne un altro.
 
-## <a name="we-want-to-hear-from-you"></a>Vogliamo conoscere la tua opinione.
+## <a name="we-want-to-hear-from-you"></a>Esprimere un'opinione.
 
 La raccolta è stata concepita per essere creata dagli utenti per gli utenti. Per specificare gli aspetti della raccolta che più si apprezzano o che si ritiene possano essere migliorati, è possibile usare gli emoticon.  
 
-![Commenti](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![Commenti e suggerimenti](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[VAI A CORTANA INTELLIGENCE GALLERY >>](https://gallery.azure.ai)**
+**[VAI A GALLERY &gt;&gt;](https://gallery.azure.ai)**

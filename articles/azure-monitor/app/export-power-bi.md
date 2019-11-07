@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/10/2018
-ms.openlocfilehash: 04848f763fe8246f8e10f563169c04ea37b0ed37
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 3ec20f82bc12b60e5b88a02bb92a4a0ada4dcae7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677303"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668019"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
 [Power BI](https://www.powerbi.com/) è un insieme di strumenti aziendali che consente di analizzare i dati e condividere informazioni dettagliate e significative. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -81,15 +81,17 @@ Installare [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    ![Screenshot di Power BI Desktop, con la modifica del titolo evidenziata](./media/export-power-bi/changetitle.png)
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 È possibile che vengano restituiti errori relativi alle credenziali o alla dimensione del set di dati. Ecco alcune informazioni su come gestirli.
 
 ### <a name="unauthorized-401-or-403"></a>Non autorizzato (401 o 403)
 Questo errore può verificarsi se il token di aggiornamento non è stato aggiornato. Provare a eseguire questi passaggi per verificare di avere ancora i diritti di accesso:
 
-1. Accedere al portale di Azure e verificare di poter accedere alla risorsa.
+1. Accedere al portale di Azure e verificare che sia possibile accedere alla risorsa.
 2. Provare ad aggiornare le credenziali per il dashboard.
+3. Provare a cancellare la cache dal desktop di Power bi.
+
 
    Se si ha accesso e non è possibile aggiornare le credenziali, aprire un ticket di supporto.
 
@@ -100,8 +102,8 @@ Se la riduzione del set di dati risultante dalla query di Analisi non è una sol
 
 1. Creare una [chiave API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Aggiornare lo script M di Power BI esportato da Analisi sostituendo l'URL di Azure Resource Manager con l'API di Application Insights.
-   * Sostituisci **https: \//Management.Azure.com/subscriptions/...**
-   * con, **https: \//API.applicationinsights.io/beta/Apps/...**
+   * Sostituisci **https:\//Management.Azure.com/subscriptions/...**
+   * con, **https:\//API.applicationinsights.io/beta/Apps/...**
 3. Aggiornare infine le credenziali in credenziali di base e usare la chiave API.
 
 **Script esistente**

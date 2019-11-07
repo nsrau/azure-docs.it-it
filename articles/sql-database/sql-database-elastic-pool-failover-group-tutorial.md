@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: aggiungere un pool elastico del database SQL di Azure a un gruppo di failover | Microsoft Docs'
+title: 'Esercitazione: aggiungere un pool elastico del database SQL di Azure a un gruppo di failover '
 description: Aggiungere un pool elastico del database SQL di Azure a un gruppo di failover usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: 838bdd2aeba18ebeaa964cb329939931419c588c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 980740c4417d1085d7c367b172005b10ce828e0e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933410"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690494"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Esercitazione: aggiungere un pool elastico del database SQL di Azure a un gruppo di failover
 
@@ -43,12 +43,12 @@ Per completare questa esercitazione, accertarsi di avere:
 In questo passaggio si creerà un pool elastico e si aggiungerà il singolo database. 
 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 Creare il pool elastico usando il portale di Azure. 
 
 
-1. Selezionare **Azure SQL** dal menu a sinistra nel portale di Azure. Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare Azure SQL nella casella di ricerca. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro. 
+1. Selezionare **Azure SQL** nel menu a sinistra nel portale di Azure. Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare Azure SQL nella casella di ricerca. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro. 
 1. Selezionare **+ Aggiungi** per aprire la pagina **Selezionare l'opzione di distribuzione SQL**. È possibile visualizzare informazioni aggiuntive sui diversi database selezionando Mostra dettagli nel riquadro database.
 1. Selezionare **pool elastico** dall'elenco a discesa **tipo di risorsa** nel riquadro **database SQL** . Selezionare **Crea** per creare il pool elastico. 
 
@@ -129,7 +129,7 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 In questo passaggio verrà creato un gruppo di [failover](sql-database-auto-failover-group.md) tra un server SQL di Azure esistente e un nuovo server SQL di Azure in un'altra area. Aggiungere quindi il pool elastico al gruppo di failover. 
 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 Creare il gruppo di failover usando il portale di Azure. 
 
@@ -252,7 +252,7 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 In questo passaggio si verificherà un errore nel gruppo di failover nel server secondario e quindi si eseguirà il failback utilizzando il portale di Azure. 
 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 Testare il failover del gruppo di failover usando il portale di Azure. 
 
@@ -357,7 +357,7 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 Pulire le risorse eliminando il gruppo di risorse. 
 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 
 1. Passare al gruppo di risorse nel [portale di Azure](https://portal.azure.com).
@@ -412,7 +412,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Rimuove un gruppo di risorse | 
 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 Non sono disponibili script per la portale di Azure.
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: Mapping delle colonne del set di dati in Azure Data Factory | Documentazione Microsoft
+title: Mapping delle colonne del set di dati in Azure Data Factory
 description: Informazioni su come eseguire il mapping delle colonne di origine alle colonne di destinazione.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1b009ac2ca42e9804b88989b55b2e73524732550
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 80ba7dc48da7cb5c43aae209c4e76c54948b8f88
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60238132"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666780"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione
 > [!NOTE]

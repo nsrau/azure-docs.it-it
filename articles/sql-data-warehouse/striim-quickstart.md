@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva di Striim con Azure SQL Data Warehouse | Microsoft Docs
+title: Guida introduttiva a StriIm
 description: Informazioni su come iniziare rapidamente a usare Striim e Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,13 @@ ms.subservice: integration
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 8ed9936884a648d736942caecade2ac3c2980e67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 65dc0b8fcece4364f3828fee09221612b999df4e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873403"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685359"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Guida all'installazione dell'offerta Striim nel marketplace di Azure SQL DW
 
@@ -29,7 +30,7 @@ Configurare la macchina virtuale di Striim con le proprietà specificate, prende
 
 ![Configurare Striim][configure]
 
-Dopo la distribuzione, fare clic su \<nome della macchina virtuale >-masternode nel portale di Azure, fare clic su Connetti e copiare l'account di accesso con account locale della macchina virtuale 
+Al termine della distribuzione, fare clic su \<nome VM >-masternode nel portale di Azure, fare clic su Connetti e copiare l'account di accesso con l'account VM locale 
 
 ![Collegare Striim a SQL Data Warehouse][connect]
 
@@ -55,7 +56,7 @@ Eseguire i comandi seguenti per spostare il file JDBC con estensione JAR nella d
 
 ![Avviare il cluster Striim][start-striim]
 
-A questo punto, aprire un browser a scelta e passare a \<nome DNS >: 9080
+A questo punto, aprire il browser preferito e passare a \<nome DNS >: 9080
 
 ![Passare alla schermata di accesso][navigate]
 

@@ -1,5 +1,5 @@
 ---
-title: Spostare i file tra l'archiviazione basata su file usando Azure Data Factory | Microsoft Docs
+title: Spostare i file tra l'archiviazione basata su file usando Azure Data Factory
 description: Informazioni su come usare un modello di soluzione per spostare i file tra l'archiviazione basata su file usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: 9eb82a23aac5a98a521976118c1e859d0be253d0
-ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
+ms.openlocfilehash: f6f83917e84a880fb86b5f592c4d51b03462753d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67881243"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684132"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Spostare i file con Azure Data Factory
 
-Questo articolo descrive un modello di soluzione che è possibile usare per spostare i file da una cartella a un'altra tra archivi basati su file. Uno degli scenari comuni di utilizzo di questo modello: I file vengono continuamente rilasciati in una cartella di destinazione dell'archivio di origine. Tramite la creazione di un trigger di pianificazione, la pipeline ADF può spostare periodicamente tali file dall'origine all'archivio di destinazione.  Il modo in cui la pipeline di ADF ottiene "spostando i file" sta ricevendo i file dalla cartella di destinazione, copiando ognuno di essi in un'altra cartella nell'archivio di destinazione e quindi eliminando gli stessi file dalla cartella di destinazione nell'archivio di origine.
+Questo articolo descrive un modello di soluzione che è possibile usare per spostare i file da una cartella a un'altra tra archivi basati su file. Uno degli scenari comuni di utilizzo di questo modello: i file vengono continuamente rilasciati in una cartella di destinazione dell'archivio di origine. Tramite la creazione di un trigger di pianificazione, la pipeline ADF può spostare periodicamente tali file dall'origine all'archivio di destinazione.  Il modo in cui la pipeline di ADF ottiene "spostando i file" sta ricevendo i file dalla cartella di destinazione, copiando ognuno di essi in un'altra cartella nell'archivio di destinazione e quindi eliminando gli stessi file dalla cartella di destinazione nell'archivio di origine.
 
 > [!NOTE]
 > Tenere presente che questo modello è progettato per spostare i file anziché spostare le cartelle.  Se si vuole spostare la cartella cambiando il set di dati in modo che contenga solo un percorso di cartella e quindi usando l'attività di copia e l'attività di eliminazione per fare riferimento allo stesso set di dati che rappresenta una cartella, è necessario prestare molta attenzione. Il motivo è che è necessario assicurarsi che NON arrivino nuovi file nella cartella tra l'operazione di copia e quella di eliminazione. Se nuovi file arrivano nella cartella proprio quando l'attività Copy ha completato il processo di copia, ma l'attività Delete non è ancora stata avviata, è possibile che l'attività Delete elimini il file appena arrivato che NON è stato ancora copiato nella destinazione eliminando l'intera cartella.
@@ -32,7 +32,7 @@ Questo modello consente di ottenere i file dall'archivio basato su file di origi
 
 Il modello contiene cinque attività:
 - **GetMetadata** Ottiene l'elenco di oggetti che includono i file e le sottocartelle della cartella nell'archivio di origine. Gli oggetti non vengono recuperati in modo ricorsivo. 
-- Filtrare filtrare l'elenco oggetti dall'attività GetMetadata per selezionare solo i file. 
+- Filtrare **filtrare l'** elenco oggetti dall'attività **GetMetadata** per selezionare solo i file. 
 - **Foreach** Ottiene l'elenco dei file dall'attività di **filtro** e quindi scorre l'elenco e passa ogni file all'attività di copia ed Elimina l'attività.
 - **Copia copia** un file dall'origine all'archivio di destinazione.
 - **Delete** Elimina lo stesso file dall'archivio di origine.

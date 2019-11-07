@@ -1,5 +1,5 @@
 ---
-title: Copiare in modo incrementale i file nuovi e modificati in base a LastModifiedDate usando lo strumento Copia dati | Microsoft Docs
+title: Copia i file nuovi e modificati in modo incrementale in base a LastModifiedDate utilizzando lo strumento Copia dati
 description: Creare una data factory di Azure e quindi usare lo strumento Copia dati per caricare in modo incrementale i nuovi file in base a LastModifiedDate.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 9f6fd57586603d0d987faa674d40a7e4678530a1
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 09a9fa4515913470c86bbafe293add007a3117ea
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933878"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683472"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copia i file nuovi e modificati in modo incrementale in base a LastModifiedDate utilizzando lo strumento Copia dati
 
@@ -38,8 +38,8 @@ In questa esercitazione si eseguiranno le attività seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure**: Usare l'archiviazione BLOB come archivio dati di _origine_ e _sink_ . Se non è disponibile un account di archiviazione di Azure, vedere le istruzioni fornite in [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
+* **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* **Account di archiviazione di Azure**: usare l'archiviazione BLOB come archivio dati di _origine_ e _sink_ . Se non si ha un account di archiviazione di Azure, vedere le istruzioni riportate in [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
 
 ### <a name="create-two-containers-in-blob-storage"></a>Creare due contenitori nell'archivio BLOB
 
@@ -49,7 +49,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
 2. Creare un contenitore denominato **Destination**. 
 
-## <a name="create-a-data-factory"></a>Creare una data factory
+## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
 
 1. Nel menu a sinistra selezionare **Crea una risorsa** > **Dati e analisi** > **Data factory**: 
    
@@ -74,7 +74,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 5. In **versione**selezionare **v2**.
 6. In **Località** selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dal data factory possono trovarsi in altre località e aree.
 7. Selezionare **Aggiungi al dashboard**. 
-8. Selezionare **Create**.
+8. Selezionare **Crea**.
 9. Nel dashboard fare riferimento al riquadro **deploying Data Factory** per visualizzare lo stato del processo.
 
     ![Distribuzione del riquadro Data Factory](media/tutorial-copy-data-tool/deploying-data-factory.png)
@@ -97,7 +97,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
     c. In **tipo di trigger**selezionare **finestra a cascata**.
     
-    d. Inricorrenza immettere **15 minuto/i**. 
+    d. In **ricorrenza**immettere **15 minuto/i**. 
     
     e. Selezionare **Avanti**. 
     
@@ -179,7 +179,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
     ![Creare File1. txt e caricare nel contenitore di origine](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
     
-13. Per tornare alla visualizzazione delle **esecuzioni di pipeline** , selezionare tutte le esecuzioni di **pipeline**e attendere che la stessa pipeline venga attivata automaticamente.  
+13. Per tornare alla visualizzazione delle **esecuzioni di pipeline** , selezionare **tutte le esecuzioni di pipeline**e attendere che la stessa pipeline venga attivata automaticamente.  
 
     ![Seleziona tutte le esecuzioni di pipeline](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Runtime di integrazione in Azure Data Factory | Microsoft Docs
+title: Runtime di integrazione in Azure Data Factory
 description: Informazioni sul runtime di integrazione in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: ab82055d99401b0e7bc8aedf247fdf0d779f9f07
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 7475d660fd2fa64ce69e7c23e0bad518fffddd26
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875269"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681502"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le seguenti funzionalità di integrazione di dati in diversi ambienti di rete:
 
-- **Flusso di dati**: Eseguire un [flusso di dati](concepts-data-flow-overview.md) nell'ambiente di calcolo di Azure gestito.  
-- **Spostamento dei dati**: copiare dati tra gli archivi dati nella rete pubblica e gli archivi dati nella rete privata (locale o VPN). Fornisce il supporto per i connettori predefiniti, la conversione dei formati, il mapping di colonne e il trasferimento di dati scalabile e ad alte prestazioni.
-- **Invio di attività**:  Invia e monitora le attività di trasformazione in esecuzione in diversi servizi di calcolo, ad esempio Azure Databricks, Azure HDInsight, Azure Machine Learning, database SQL di Azure, SQL Server e altro ancora.
+- **Flusso di dati**: eseguire un [flusso di dati](concepts-data-flow-overview.md) nell'ambiente di calcolo di Azure gestito.  
+- **Spostamento dei dati**: copiare i dati tra archivi dati nella rete pubblica e negli archivi dati in una rete privata (in locale o in una rete privata virtuale). Fornisce il supporto per i connettori predefiniti, la conversione dei formati, il mapping di colonne e il trasferimento di dati scalabile e ad alte prestazioni.
+- **Invio di attività**: inviare e monitorare le attività di trasformazione in esecuzione in diversi servizi di calcolo, ad esempio Azure Databricks, Azure HDInsight, Azure Machine Learning, database SQL di azure, SQL Server e altro ancora.
 - **Esecuzione di pacchetti SSIS**: eseguire in modo nativo i pacchetti SQL Server Integration Services (SSIS) in un ambiente di calcolo Azure gestito.
 
 In Data Factory, un'attività definisce l'azione da eseguire. Un servizio collegato definisce un archivio dati o un servizio di calcolo di destinazione. Un runtime di integrazione funge da ponte tra l'attività e i servizi collegati.  Viene fatto riferimento al servizio collegato o all'attività e fornisce l'ambiente di calcolo in cui l'attività viene eseguita o da cui viene inviata. In questo modo, l'attività può essere eseguita nell'area più vicina possibile all'archivio dati o al servizio di calcolo di destinazione nel modo più efficiente soddisfacendo al contempo le esigenze di sicurezza e conformità.
@@ -53,7 +53,7 @@ Un runtime di integrazione di Azure è in grado di eseguire queste operazioni:
 
 - Esecuzione di flussi di dati in Azure 
 - Eseguire attività di copia tra archivi dati cloud
-- Invio delle seguenti attività di trasformazione nella rete pubblica: Attività di databricks Notebook/Jar/Python, attività hive HDInsight, attività Pig HDInsight, attività HDInsight MapReduce, attività HDInsight Spark, attività di streaming HDInsight, attività di esecuzione batch Machine Learning, risorsa di Machine Learning aggiornamento attività, attività stored procedure, Data Lake Analytics attività U-SQL, attività personalizzata .NET, attività Web, attività di ricerca e attività Ottieni metadati.
+- Invio delle seguenti attività di trasformazione nella rete pubblica: databricks notebook/attività jar/Python, attività hive HDInsight, attività Pig HDInsight, attività HDInsight MapReduce, attività HDInsight Spark, attività di streaming HDInsight, computer Attività di esecuzione batch di formazione, attività Machine Learning aggiornamento risorse, attività stored procedure, Data Lake Analytics attività U-SQL, attività personalizzata .NET, attività Web, attività ricerca e attività Ottieni metadati.
 
 ### <a name="azure-ir-network-environment"></a>Ambiente di rete del runtime di integrazione di Azure
 Azure Integration Runtime supporta la connessione a archivi dati e servizi di calcolo con endpoint accessibili pubblicamente. Usare un runtime di integrazione self-hosted per l'ambiente di rete virtuale Azure.
@@ -74,10 +74,10 @@ Per maggiori dettagli, vedere le informazioni su come creare e configurare il ru
 Un runtime di integrazione self-hosted è in grado di eseguire queste operazioni:
 
 - Eseguire attività di copia tra gli archivi dati cloud e un archivio dati in una rete privata.
-- Invio delle seguenti attività di trasformazione a risorse di calcolo in locale o nella rete virtuale di Azure: Attività hive HDInsight (BYOC-Bring your own cluster), attività Pig HDInsight (BYOC), attività HDInsight MapReduce (BYOC), attività HDInsight Spark (BYOC), attività di streaming HDInsight (BYOC), attività di esecuzione batch Machine Learning Machine Learning Aggiornare attività della risorsa, attività stored procedure, Data Lake Analytics attività U-SQL, attività personalizzata (in esecuzione su Azure Batch), attività di ricerca e attività Ottieni metadati.
+- Invio delle seguenti attività di trasformazione sulle risorse di calcolo in locale o in una rete virtuale di Azure: attività hive HDInsight (BYOC-Bring your own cluster), HDInsight Pig Activity (BYOC), HDInsight MapReduce Activity (BYOC), HDInsight Spark attività (BYOC), attività di streaming HDInsight (BYOC), attività di esecuzione batch Machine Learning, attività Machine Learning aggiornamento risorse, attività stored procedure, Data Lake Analytics attività U-SQL, attività personalizzata (in esecuzione su Azure Batch), ricerca attività e ottenere l'attività dei metadati.
 
 > [!NOTE] 
-> Usare il runtime di integrazione self-hosted per supportare gli archivi dati che necessitano dell'approccio Bring-Your-Own-Driver, ad esempio SAP Hana, MySQL e così via.  Per altre informazioni, vedere [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
+> Usare il runtime di integrazione self-hosted per supportare gli archivi dati che richiedono un driver Bring Your Own, ad esempio SAP Hana, MySQL e così via.  Per altre informazioni, vedere [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
 ### <a name="self-hosted-ir-network-environment"></a>Ambiente di rete del runtime di integrazione self-hosted
 Per eseguire l'integrazione dei dati in modo sicuro in un ambiente di rete privata, che non ha una visione diretta dall'ambiente cloud pubblico, è possibile installare un runtime di integrazione self-hosted nell'ambiente locale protetto dal firewall aziendale o all'interno un rete privata virtuale.  Il runtime di integrazione self-hosted stabilisce solo connessioni basate su HTTP in uscita per accedere a Internet.
@@ -85,7 +85,7 @@ Per eseguire l'integrazione dei dati in modo sicuro in un ambiente di rete priva
 ### <a name="self-hosted-ir-compute-resource-and-scaling"></a>Risorsa di calcolo e ridimensionamento del runtime di integrazione self-hosted
 Il runtime di integrazione self-hosted deve essere installato su un computer locale o una macchina virtuale all'interno di una rete privata. Attualmente in un sistema operativo Windows è supportato solo il runtime di integrazione self-hosted.  
 
-In termini di disponibilità elevata e scalabilità è possibile scalare orizzontalmente il runtime di integrazione self-hosted associando l'istanza logica con più computer locali in modalità attivo-attivo.  Per ulteriori informazioni, vedere la pagina relativa alla procedura per [creare e configurare](create-self-hosted-integration-runtime.md) un runtime di integrazione self-hosted in guide dettagliate.
+In termini di disponibilità elevata e scalabilità è possibile scalare orizzontalmente il runtime di integrazione self-hosted associando l'istanza logica con più computer locali in modalità attivo-attivo.  Per ulteriori informazioni, vedere la pagina relativa alla procedura per creare e configurare un runtime di integrazione [self-hosted](create-self-hosted-integration-runtime.md) in guide dettagliate.
 
 ## <a name="azure-ssis-integration-runtime"></a>Runtime di integrazione Azure-SSIS
 Per eseguire in modalità lift-and-shift il carico di lavoro SSIS esistente, è possibile creare un runtime di integrazione Azure-SSIS per l'esecuzione di pacchetti SSIS in modo nativo.
@@ -101,7 +101,7 @@ Per altre informazioni, vedere l'articolo su come creare e configurare il runtim
 Per altre informazioni sul runtime SSIS di Azure, vedere gli articoli seguenti: 
 
 - [Esercitazione: distribuire i pacchetti SSIS in Azure](tutorial-create-azure-ssis-runtime-portal.md). In questo articolo vengono fornite le istruzioni passo per passo per creare un runtime di integrazione SSIS di Azure e utilizzare un database SQL di Azure per ospitare il catalogo SSIS. 
-- [Procedura: Creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md). Questo articolo amplia l'esercitazione e offre istruzioni sull'uso dell'Istanza gestita di database SQL di Azure e sull'aggiunta del runtime di integrazione a una rete virtuale. 
+- [Procedura: come creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md). Questo articolo amplia l'esercitazione e offre istruzioni sull'uso dell'Istanza gestita di database SQL di Azure e sull'aggiunta del runtime di integrazione a una rete virtuale. 
 - [Monitorare un runtime di integrazione SSIS di Azure](monitor-integration-runtime.md#azure-ssis-integration-runtime). In questo articolo viene illustrato come recuperare informazioni su un runtime di integrazione SSIS di Azure e le descrizioni degli stati nelle informazioni restituite. 
 - [Gestire un runtime di integrazione SSIS di Azure](manage-azure-ssis-integration-runtime.md). In questo articolo viene illustrato come arrestare, avviare o rimuovere un runtime di integrazione SSIS di Azure. Viene inoltre mostrato come scalare orizzontalmente il runtime di integrazione SSIS di Azure aggiungendo più nodi al runtime di integrazione. 
 - [Aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale](join-azure-ssis-integration-runtime-virtual-network.md). Questo articolo offre informazioni concettuali sull'aggiunta di un runtime di integrazione Azure-SSIS a una rete virtuale di Azure. Indica inoltre i passaggi per usare il portale di Azure per configurare la rete virtuale in modo che il runtime di integrazione Azure-SSIS possa essere aggiunto alla rete virtuale. 

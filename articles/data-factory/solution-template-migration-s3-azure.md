@@ -1,5 +1,5 @@
 ---
-title: Migrare i dati da Amazon S3 a Azure Data Lake Storage Gen2 con Azure Data Factory | Microsoft Docs
+title: Migrare i dati da Amazon S3 a Azure Data Lake Storage Gen2 con Azure Data Factory
 description: Informazioni su come usare un modello di soluzione per migrare i dati da Amazon S3 usando una tabella di controllo esterna per archiviare un elenco di partizioni in AWS S3 con Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2019
-ms.openlocfilehash: e4567d79b70fc18622e4a5e927031e9849b96e99
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: a8591762bf4e8eccd5e1b7d67538674feed720b9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092287"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684187"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrare i dati da Amazon S3 a Azure Data Lake Storage Gen2
 
@@ -73,7 +73,7 @@ Il modello contiene due parametri:
 
     > [!NOTE]
     > Il nome della tabella è s3_partition_control_table.
-    > Lo schema della tabella dei controlli è PartitionPrefix e SuccessOrFailure, dove PartitionPrefix è l'impostazione del prefisso in S3 per filtrare le cartelle e i file in Amazon S3 per nome e SuccessOrFailure è lo stato della copia di ogni partizione: 0 indica che la partizione non è stata copiata in Azure e 1 indica che questa partizione è stata copiata in Azure.
+    > Lo schema della tabella dei controlli è PartitionPrefix e SuccessOrFailure, dove PartitionPrefix è l'impostazione del prefisso in S3 per filtrare le cartelle e i file in Amazon S3 per nome e SuccessOrFailure è lo stato della copia di ogni partizione: 0 indica che questa partizione ha non è stato copiato in Azure e 1 indica che questa partizione è stata copiata correttamente in Azure.
     > Nella tabella di controllo sono definite 5 partizioni e lo stato predefinito di copia di ogni partizione è 0.
 
     ```sql
@@ -134,7 +134,7 @@ Il modello contiene due parametri:
 
     > [!NOTE]
     > Il nome della tabella è s3_partition_delta_control_table.
-    > Lo schema della tabella dei controlli è PartitionPrefix, JobRunTime e SuccessOrFailure, dove PartitionPrefix è l'impostazione del prefisso in S3 per filtrare le cartelle e i file in Amazon S3 per nome, JobRunTime è il valore DateTime quando vengono eseguiti i processi di copia e SuccessOrFailure è stato di copia di ogni partizione: 0 indica che la partizione non è stata copiata in Azure e 1 indica che questa partizione è stata copiata in Azure.
+    > Lo schema della tabella dei controlli è PartitionPrefix, JobRunTime e SuccessOrFailure, dove PartitionPrefix è l'impostazione del prefisso in S3 per filtrare le cartelle e i file in Amazon S3 per nome, JobRunTime è il valore DateTime quando vengono eseguiti i processi di copia e SuccessOrFailure è lo stato della copia di ogni partizione: 0 indica che la partizione non è stata copiata in Azure e 1 indica che la partizione è stata copiata in Azure.
     > Sono presenti 5 partizioni definite nella tabella del controllo. Il valore predefinito di JobRunTime può essere l'ora in cui viene avviata la migrazione dei dati cronologici una volta. L'attività di copia ADF copia i file in AWS S3 che sono stati modificati per ultimi dopo tale periodo di tempo. Lo stato predefinito di copia di ogni partizione è 1.
 
     ```sql

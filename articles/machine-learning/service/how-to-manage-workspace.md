@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1985c596b9f4b9b78b0055bfe1eab9888c30e201
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9e3915a2f55680fc2e24ac63d5e7170ada026c2e
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489730"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615214"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creare e gestire aree di lavoro Azure Machine Learning nel portale di Azure
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,22 +30,22 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
 
 1. Nell'angolo in alto a sinistra del portale di Azure selezionare **+ Crea una risorsa**.
 
-      ![Creare una nuova risorsa](../../../includes/media/aml-create-in-portal/portal-create-resource.png)
+      ![Creare una nuova risorsa](../../../includes/media/aml-create-in-portal/create-workspace.gif)
 
-1. Usare la barra di ricerca per trovare **Area di lavoro del servizio Machine Learning**.
+1. Utilizzare la barra di ricerca per trovare **Machine Learning**.
 
-1. Selezionare **Area di lavoro del servizio Machine Learning**.
+1. Selezionare **Machine Learning**.
 
-1. Nel riquadro **Area di lavoro del servizio Machine Learning** selezionare **Crea** per iniziare.
+1. Nel riquadro **Machine Learning** selezionare **Crea** per iniziare.
 
 1. Specificare le informazioni seguenti per configurare la nuova area di lavoro:
 
-   Campo|Description 
+   Campo|Descrizione 
    ---|---
    Nome dell'area di lavoro |Immettere un nome univoco che identifichi l'area di lavoro. In questo esempio si usa **docs-ws**. I nomi devono essere univoci all'interno del gruppo di risorse. Usare un nome facile da ricordare e da distinguere dai nomi delle aree di lavoro create da altri utenti.  
    Sottoscrizione |Selezionare la sottoscrizione di Azure da usare.
-   Gruppo di risorse | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. 
-   Località | Selezionare la località più vicina agli utenti e alle risorse di dati per creare l'area di lavoro.
+   Resource group | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. 
+   Percorso | Selezionare la località più vicina agli utenti e alle risorse di dati per creare l'area di lavoro.
    Edizione area di lavoro | Selezionare **Basic** o **Enterprise**.  Questa edizione dell'area di lavoro determina le funzionalità a cui si avrà accesso e i prezzi. Scopri di più sulle [offerte Basic ed Enterprise Edition](overview-what-is-azure-ml.md#sku). 
 
     ![Configurare l'area di lavoro](media/how-to-manage-workspace/select-edition.png)
@@ -89,18 +89,15 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
 
 ## <a name="view"></a>Trovare un'area di lavoro
 
-1. Nell'angolo superiore sinistro del portale selezionare **Tutti i servizi**.
+1. Nel campo di ricerca superiore digitare **Machine Learning**.  
 
-1. Nel campo filtro **tutti i servizi** Digitare **Machine Learning**.  
+1. Selezionare **Machine Learning**.
 
-1. Selezionare **Azure Machine Learning**.
-
-   ![Cerca area di lavoro Azure Machine Learning](media/how-to-manage-workspace/all-services.png)
+   ![Cerca area di lavoro Azure Machine Learning](media/how-to-manage-workspace/find-workspaces.png)
 
 1. Esaminare l'elenco delle aree di lavoro trovate. È possibile filtrarle in base alla sottoscrizione, ai gruppi di risorse e alle posizioni.  
 
 1. Selezionare un'area di lavoro per visualizzarne le proprietà.
-   Proprietà dell'area di lavoro ![](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>Eliminazione di un'area di lavoro
 

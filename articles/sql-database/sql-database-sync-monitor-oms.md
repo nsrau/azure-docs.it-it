@@ -1,5 +1,5 @@
 ---
-title: Monitorare sincronizzazione dati SQL di Azure con i log di monitoraggio di Azure | Microsoft Docs
+title: 'Monitorare sincronizzazione dati SQL di Azure con i log di monitoraggio di Azure '
 description: Informazioni su come monitorare sincronizzazione dati SQL di Azure usando i log di monitoraggio di Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 26dc1ebef1c627ed2b20eb0fda68b2ca2d01b82a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9e89ad8e6ac556df87a674efdf2d3bbc2041c38b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791752"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687040"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitorare sincronizzazione dati SQL con i log di monitoraggio di Azure 
 
@@ -27,7 +27,7 @@ Per controllare il registro attività di sincronizzazione dati SQL e rilevare gl
 Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> Al momento la sincronizzazione dati SQL di Azure **non** supporta Istanza gestita di database SQL di Azure.
+> Al momento, la sincronizzazione dati SQL di Azure **non** supporta Istanza gestita di database SQL di Azure.
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard di monitoraggio per tutti i gruppi di sincronizzazione 
 
@@ -85,7 +85,7 @@ Per altre informazioni sulla creazione di un runbook, vedere [Il primo runbook P
 
 4.  In **File di runbook** usare il file `DataSyncLogPowerShellRunbook` specifico. Impostare il **tipo di runbook** come `PowerShell`. Assegnare un nome al runbook.
 
-5.  Selezionare **Create** (Crea). È ora disponibile un runbook.
+5.  Selezionare **Crea**. È ora disponibile un runbook.
 
 6.  In Account di Automazione di Azure selezionare la scheda**Variabili** in Risorse condivise.
 
@@ -123,7 +123,7 @@ Per pianificare il runbook:
 
 5.  Impostare **Ricorrenza** su Ricorrente e impostare l'intervallo desiderato. Usare lo stesso intervallo qui, nello script e nei log di monitoraggio di Azure.
 
-6.  Selezionare **Create** (Crea).
+6.  Selezionare **Crea**.
 
 ### <a name="check-the-automation"></a>Controllare l'automazione
 
@@ -135,7 +135,7 @@ Per creare un avviso che usa i log di monitoraggio di Azure, eseguire le operazi
 
 1.  Nel portale di Azure selezionare **Ricerca log**.
 
-2.  Creare una query per selezionare gli errori e gli avvisi per gruppo di sincronizzazione entro l'intervallo selezionato. ad esempio:
+2.  Creare una query per selezionare gli errori e gli avvisi per gruppo di sincronizzazione entro l'intervallo selezionato. Ad esempio:
 
     `DataSyncLog_CL | where TimeGenerated > ago(60m) | where LogLevel_s != "Success" | summarize count() by SyncGroupName_s`
 
@@ -149,7 +149,7 @@ Per creare un avviso che usa i log di monitoraggio di Azure, eseguire le operazi
 
 5.  In **Azioni** impostare **Notifica di posta elettronica** su "Sì". Immettere i destinatari di posta elettronica desiderati.
 
-6.  Fare clic su **Salva** I destinatari specificati ora ricevono notifiche tramite e-mail in caso di errori.
+6.  Fare clic su **Save**. I destinatari specificati ora ricevono notifiche tramite e-mail in caso di errori.
 
 ## <a name="create-an-azure-monitor-view-for-monitoring"></a>Creare una visualizzazione di monitoraggio di Azure per il monitoraggio
 

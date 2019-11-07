@@ -4,14 +4,14 @@ description: Usare i modelli di Azure Resource Manager per creare e configurare 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7861196daf3b04430200096a0d42bdcc6e6d5cf9
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: ecdfe89e899e0d416784ae32a0d66b335c09e2b6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053233"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582817"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Modelli di Azure Resource Manager per Azure Cosmos DB
 
@@ -21,12 +21,10 @@ Le tabelle seguenti includono collegamenti a modelli di Azure Resource Manager p
 
 |**Modello**|**Descrizione**|
 |---|---|
-|[Creare un account Azure Cosmos, un database, un contenitore](manage-sql-with-resource-manager.md#create-resource) | Questo modello consente di creare un account API SQL (Core) in due aree con la funzionalità multimaster abilitata. L'account Azure Cosmos avrà due contenitori che condividono la velocità effettiva a livello di database. |
+|[Creare un account Azure Cosmos, un database, un contenitore](manage-sql-with-resource-manager.md#create-resource) | Questo modello consente di creare un account API SQL (Core) in due aree con due contenitori con velocità effettiva del database condivisa e un contenitore con velocità effettiva dedicata. La velocità effettiva può essere aggiornata inviando nuovamente il modello con il valore della proprietà velocità effettiva aggiornata. |
 |[Creare un account, un database e un contenitore di Azure Cosmos con una stored procedure, un trigger e una funzione definita dall'utente](manage-sql-with-resource-manager.md#create-sproc) | Questo modello consente di creare un account API SQL (Core) in due aree con un stored procedure, un trigger e una funzione definita dall'utente per un contenitore. |
-|[Aggiornamento della velocità effettiva (UR/sec) per un database](manage-sql-with-resource-manager.md#database-ru-update) | Questo modello Aggiorna la velocità effettiva per un database in un account API SQL (Core). |
-|[Aggiornamento della velocità effettiva (UR/sec) per un contenitore](manage-sql-with-resource-manager.md#container-ru-update) | Questo modello Aggiorna la velocità effettiva per un contenitore in un account API SQL (Core). |
 
-## <a name="mongodb-api"></a>API MongoDB
+## <a name="mongodb-api"></a>API di MongoDB
 
 |**Modello**|**Descrizione**|
 |---| ---|

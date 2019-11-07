@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: c3791946ee31183e4b3c5131a8e62934bf87dfee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 75e789ac1f9c161bc67ba90062be39f986f5b140
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497469"
+ms.locfileid: "73580595"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning? 
 
@@ -46,22 +46,11 @@ Informazioni su [dove e come distribuire il modello in una destinazione di calco
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Calcolo Azure Machine Learning (gestito)
 
-Una risorsa di calcolo gestita viene creata e gestita da Azure Machine Learning. Questo calcolo è ottimizzato per i carichi di lavoro di machine learning. Azure Machine Learning i cluster di calcolo e le [istanze di calcolo](concept-compute-instance.md) sono gli unici calcoli gestiti. In futuro potrebbero essere aggiunte risorse di calcolo gestite aggiuntive.
+Una risorsa di calcolo gestita viene creata e gestita da Azure Machine Learning. Questo calcolo è ottimizzato per i carichi di lavoro di machine learning. Azure Machine Learning cluster di elaborazione. In futuro potrebbero essere aggiunte risorse di calcolo gestite aggiuntive.
 
-È possibile creare Azure Machine Learning istanze di calcolo o cluster di calcolo in:
-
-| | Azure Machine Learning Studio | Portale di Azure | SDK | Modello di Resource Manager | CLI |
-|---| ----- | ----- | ----- | ----- | ----- |
-| Istanza di calcolo | Sì | Sì | Sì | Sì |  |
-| Cluster di calcolo | Sì | Sì | Sì | Sì | Sì |
+È possibile creare cluster di calcolo Azure Machine Learning in Azure Machine Learning Studio, portale di Azure, SDK, un modello di Gestione risorse o l'interfaccia della riga di comando.
 
 Quando vengono create, queste risorse di calcolo fanno automaticamente parte dell'area di lavoro, a differenza di altri tipi di destinazioni di calcolo.
-
-> [!NOTE]
-> Le istanze di calcolo sono disponibili solo per le aree di lavoro con un'area **Stati Uniti centro-settentrionali** o **Regno Unito meridionale**.
->Se l'area di lavoro si trova in un'altra area, è possibile continuare a creare e usare una [macchina virtuale del notebook](concept-compute-instance.md#notebookvm) . 
-
-### <a name="compute-clusters"></a>Cluster di elaborazione
 
 È possibile usare Azure Machine Learning cluster di calcolo per il training e l'inferenza in batch (anteprima).  Con questa risorsa di calcolo sono disponibili:
 

@@ -1,6 +1,6 @@
 ---
 title: Usare i set di dati di esempio
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Descrizioni dei set di impostazioni utilizzati nei modelli di esempio inclusi in Machine Learning Studio (classico). È possibile usare questi set di dati di esempio per gli esperimenti.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: c44fd4fcc6672d81332d79d1f5cc6845868a09d5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f22d27f7900ce9dda3a8e65451acb9b743a25811
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466974"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618917"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Usare i set di impostazioni di esempio in Azure Machine Learning Studio (versione classica)
 [top]: #machine-learning-sample-datasets

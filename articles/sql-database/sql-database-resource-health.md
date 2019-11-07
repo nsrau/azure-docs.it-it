@@ -1,5 +1,5 @@
 ---
-title: Usare Integrità risorse di Azure per monitorare l'integrità dei database SQL | Microsoft Docs
+title: Usare Integrità risorse di Azure per monitorare l'integrità del database SQL
 description: Usare Integrità risorse di Azure per monitorare l'integrità dei database SQL, diagnosticare gli eventuali problemi di Azure che possono influire negativamente sulle risorse e ottenere il supporto necessario.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
-ms.openlocfilehash: 1c2720d61c7b4ea918a3d0c1ff7f41984ea42c69
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 10ce2da8ae8bcd8a12f0972d437a84a37a8390b9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566912"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687514"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Usare Integrità risorse di Azure per risolvere i problemi di connettività del database SQL di Azure
 
@@ -38,11 +38,11 @@ Lo stato **Disponibile** indica che Integrità risorse non ha rilevato problemi 
 
 ![Disponibile](./media/sql-database-resource-health/sql-resource-health-available.jpg)
 
-### <a name="degraded"></a>Danneggiato
+### <a name="degraded"></a>Degraded
 
 Lo stato **Danneggiato** indica che Integrità risorse ha rilevato una maggioranza di accessi riusciti, ma anche alcuni accessi non riusciti. Si tratta con ogni probabilità di errori di accesso temporanei. Per ridurre l'impatto dei problemi di connessione causati dagli errori di accesso temporanei, implementare la [logica di ripetizione dei tentativi](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) nel codice.
 
-![Danneggiato](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
+![Degraded](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
 ### <a name="unavailable"></a>Non disponibile
 

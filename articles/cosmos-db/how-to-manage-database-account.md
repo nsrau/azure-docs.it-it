@@ -4,20 +4,20 @@ description: Informazioni su come gestire gli account di database in Azure Cosmo
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: f67487f6da5c9be028703d7890e16ffab0c858c6
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 049be390403fe984ed4f8f38a4cdc86e24060e49
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812520"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582627"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gestire un account Azure Cosmos
 
 Questo articolo descrive come gestire varie attività relative a un account Azure Cosmos usando il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure e i modelli di Azure Resource Manager.
 
-## <a name="create-an-account"></a>Crea un account
+## <a name="create-an-account"></a>Creare un account
 
 ### <a id="create-database-account-via-portal"></a>Portale di Azure
 
@@ -33,13 +33,13 @@ Vedere [creare un account Azure Cosmos DB con PowerShell](manage-with-powershell
 
 ### <a id="create-database-account-via-arm-template"></a>Modello di Azure Resource Manager
 
-Questo modello di Azure Resource Manager consentirà di creare, per qualsiasi API supportata, un account Azure Cosmos configurato con due aree e opzioni per selezionare il livello di coerenza, il failover automatico e la funzionalità multimaster. Per distribuire il modello, fare clic su Deploy to Azure (Distribuisci in Azure) nella pagina README relativa alla [creazione di un account Azure Cosmos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account).
+Questo modello di Azure Resource Manager creerà un account Azure Cosmos per l'API SQL configurato con due aree e opzioni per selezionare il livello di coerenza, il failover automatico e il multimaster. Per distribuire il modello, fare clic su Deploy to Azure (Distribuisci in Azure) nella pagina README relativa alla [creazione di un account Azure Cosmos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql).
 
 ## <a name="addremove-regions-from-your-database-account"></a>Aggiungere o rimuovere aree dall'account di database
 
 ### <a id="add-remove-regions-via-portal"></a>Portale di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com). 
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Passare all'account Azure Cosmos e aprire il menu **Replica i dati a livello globale**.
 
@@ -113,7 +113,7 @@ Vedere [abilitare aree con più scritture con PowerShell](manage-with-powershell
             "type": "Microsoft.DocumentDb/databaseAccounts",
             "kind": "GlobalDocumentDB",
             "name": "[parameters('name')]",
-            "apiVersion": "2015-04-08",
+            "apiVersion": "2019-08-01",
             "location": "[parameters('location')]",
             "tags": {},
             "properties": {
@@ -123,11 +123,13 @@ Vedere [abilitare aree con più scritture con PowerShell](manage-with-powershell
                 [
                     {
                         "locationName": "[parameters('primaryRegion')]",
-                        "failoverPriority": 0
+                        "failoverPriority": 0,
+                        "isZoneRedundant": false
                     },
                     {
                         "locationName": "[parameters('secondaryRegion')]",
-                        "failoverPriority": 1
+                        "failoverPriority": 1,
+                        "isZoneRedundant": false
                     }
                 ],
                 "enableMultipleWriteLocations": true
