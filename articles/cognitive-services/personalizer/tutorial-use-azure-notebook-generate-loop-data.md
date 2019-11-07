@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 10/04/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 7c0dc40ee2d748b1f48c3254a3e3a6e197069c08
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6bc306551d158d4b996002de0bb5ab991a0bcbd9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515179"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467240"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Esercitazione: Usare Personalizza esperienze in Azure Notebooks
 
@@ -81,7 +81,7 @@ Descrizioni dei file:
 
 ## <a name="configure-personalizer-resource"></a>Configurare la risorsa di Personalizza esperienze
 
-Nel portale di Azure configurare la [risorsa di Personalizza esperienze](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)con la **frequenza di aggiornamento del modello** impostata su 15 secondi e un **tempo di attesa per la ricompensa** di 15 secondi. Queste impostazioni sono disponibili nella pagina **[Impostazioni](how-to-settings.md#configure-service-settings-in-the-azure-portal)** . 
+Nel portale di Azure configurare la [risorsa di Personalizza esperienze](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)con la **frequenza di aggiornamento del modello** impostata su 15 secondi e un **tempo di attesa per la ricompensa** di 15 secondi. Questi valori sono disponibili nella pagina **[Configurazione](how-to-settings.md#configure-service-settings-in-the-azure-portal)** . 
 
 |Impostazione|Valore|
 |--|--|
@@ -170,7 +170,7 @@ def get_last_updated(currentModifiedDate):
 
 Verificare lo stato del servizio con queste due chiamate REST.
 
-Queste celle non hanno output. Quando viene chiamata, la funzione restituisce le impostazioni del servizio.
+Queste celle non hanno output. Quando viene chiamata, la funzione restituisce i valori del servizio.
 
 ```python
 def get_service_settings():
@@ -574,11 +574,11 @@ Questo grafico mostra l'esito positivo del modello per i criteri di apprendiment
 ![Questo grafico mostra l'esito positivo dei criteri di apprendimento correnti per la durata del test.](./media/tutorial-azure-notebook/azure-notebook-chart-results.png)
 
 
-L'obiettivo ideale è che entro la fine del test il ciclo abbia ottenuto in media una percentuale di successo vicina al 100% meno l'esplorazione. L'impostazione predefinita dell'esplorazione è 20%. 
+L'obiettivo ideale è che entro la fine del test il ciclo abbia ottenuto in media una percentuale di successo vicina al 100% meno l'esplorazione. Il valore predefinito dell'esplorazione è 20%. 
 
 `100-20=80`
 
-Questa impostazione di esplorazione si trova nella pagina **Impostazioni** della risorsa di Personalizza esperienze nel portale di Azure. 
+Questo valore di esplorazione si trova nella pagina **Configurazione** della risorsa Personalizza esperienze nel portale di Azure. 
 
 Per trovare un criterio di apprendimento migliore, in base ai dati dell'API di classificazione, eseguire una [valutazione offline](how-to-offline-evaluation.md) del ciclo di personalizzazione nel portale.
 
@@ -598,7 +598,7 @@ Per trovare un criterio di apprendimento migliore, in base ai dati dell'API di c
 
 ## <a name="change-update-model-frequency-to-5-minutes"></a>Impostare la frequenza di aggiornamento del modello su 5 minuti
 
-1. Nel portale di Azure, sempre nella risorsa di Personalizza esperienze, selezionare la pagina **Impostazioni**. 
+1. Nel portale di Azure, sempre nella risorsa Personalizza esperienze, selezionare la pagina **Configurazione**. 
 1. Impostare **Frequenza di aggiornamento del modello**  e **Tempo di attesa per la ricompensa**  su 5 minuti e selezionare **Salva**.
 
 Altre informazioni sulle opzioni [Tempo di attesa per la ricompensa ](concept-rewards.md#reward-wait-time) e [Frequenza di aggiornamento del modello](how-to-settings.md#model-update-frequency).

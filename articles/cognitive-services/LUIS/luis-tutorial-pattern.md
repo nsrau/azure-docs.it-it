@@ -9,18 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 69f853b77e3fbab149dbf163ed5cccb08578aa4e
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 4e4f1787db86378eaeff9df196cc061c42d0ab1e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390347"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498999"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Esercitazione: Aggiungere formati comuni di espressione modello di criterio
 
 In questa esercitazione, i criteri vengono usati per migliorare le stime in termini di finalità ed entità fornendo poche espressioni di esempio. Il criterio viene fornito tramite un esempio di espressione modello, che include la sintassi per identificare le entità e il testo che può essere ignorato. Un criterio è una combinazione di corrispondenza a espressioni e apprendimento automatico.  L'esempio di espressione modello, insieme alle espressioni della finalità, offrono a LUIS una migliore comprensione delle espressioni appropriate per la finalità. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **In questa esercitazione si imparerà come:**
 
@@ -69,7 +71,7 @@ Seguire questa procedura:
     |A chi fa riferimento direttamente Jill Jones?|
     |Chi è il supervisore di Jill Jones?|
 
-    [![Screenshot di LUIS in cui vengono aggiunte nuove espressioni a una finalità](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Screenshot di LUIS in cui vengono aggiunte nuove espressioni a una finalità")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
+    [![Screenshot di LUIS in cui si aggiungono nuove espressioni alla finalità](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Screenshot di LUIS in cui si aggiungono nuove espressioni alla finalità")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
 
     Non occorre preoccuparsi se l'entità keyPhrase è etichettata nelle espressioni della finalità invece che nell'entità employee. Entrambe sono stimate correttamente nel riquadro di Test e in corrispondenza dell'endpoint. 
 

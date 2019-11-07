@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
-ms.openlocfilehash: 04771ddc633c210ce8c7b3c42a9e46cb2f1ed349
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122164"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494328"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Esercitazione: Eseguire query in Apache Hive con ODBC e PowerShell
 
@@ -36,7 +36,7 @@ Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Installare Microsoft Hive ODBC driver
 
-Scaricare e installare [Microsoft Hive ODBC driver](https://go.microsoft.com/fwlink/?LinkID=286698).
+Scaricare e installare [Microsoft Hive ODBC driver](https://www.microsoft.com/download/details.aspx?id=40886).
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Creare un'origine dati Apache Hive ODBC
 
@@ -70,7 +70,7 @@ I passaggi seguenti descrivono come creare un'origine dati ODBC Apache Hive.
    |  Rows fetched per block |Quando si recupera un numero elevato di record, potrebbe essere necessario ottimizzare questo parametro per assicurare prestazioni ottimali. |
    |  Default string column length, Binary column length, Decimal column scale |Le lunghezze e le precisioni del tipo di dati potrebbero avere effetto sulla visualizzazione dei dati. In questo caso verranno restituite informazioni non corrette a causa della perdita di precisione e dei troncamenti. |
 
-    ![Opzioni di configurazione DNS avanzate](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Opzioni di configurazione DSN avanzate")
+    ![Opzioni di configurazione del DSN avanzate](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Opzioni di configurazione del DSN avanzate")
 
 1. Selezionare **Test** per testare l'origine dati. Se l'origine dati è configurata correttamente, come risultato del test è indicato **OPERAZIONE RIUSCITA**.  
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8264030593a1e44b2a50d9f95dce925136eb4d26
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: edb100901dea4419d65635f9214555c27c1949f0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965995"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494047"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Guida introduttiva: Distribuire il primo modulo IoT Edge in un dispositivo Windows virtuale
 
@@ -139,7 +139,7 @@ Usare PowerShell per scaricare e installare il runtime IoT Edge. Usare la string
 
 1. Se non è già stato fatto, seguire i passaggi descritti in [Registrare un nuovo dispositivo Azure IoT Edge](how-to-register-device.md) per registrare il dispositivo e recuperare la stringa di connessione.
 
-2. Eseguire PowerShell come amministratore.
+2. Nella macchina virtuale eseguire PowerShell come amministratore.
 
    >[!NOTE]
    >Usare una sessione AMD64 di PowerShell per installare IoT Edge, non PowerShell (x86). Se non si conosce il tipo di sessione in uso, eseguire questo comando:
@@ -148,7 +148,7 @@ Usare PowerShell per scaricare e installare il runtime IoT Edge. Usare la string
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-3. Il comando **Deploy-IoTEdge** verifica che nel computer Windows sia presente una versione supportata, attiva la funzionalità dei contenitori, scarica il runtime moby e infine scarica il runtime IoT Edge.
+3. Il comando **Deploy-IoTEdge** verifica che nel computer Windows sia presente una versione supportata, attiva la funzionalità dei contenitori, scarica il runtime Moby e infine scarica il runtime IoT Edge.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `

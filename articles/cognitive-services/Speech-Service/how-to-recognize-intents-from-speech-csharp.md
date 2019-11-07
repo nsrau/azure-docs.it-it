@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: cf5bf3dfd7b6a408179bb267156433168e562a8e
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 7f42d5914a2ec7f479a8b3d1df1b8672f318036b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326841"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464633"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Esercitazione: Riconoscere le finalità dai contenuti vocali con Speech SDK per C#
 
@@ -45,11 +45,12 @@ Prima di iniziare questa esercitazione, è necessario disporre degli elementi se
 
 LUIS si integra con i servizi Voce per distinguere le finalità dai contenuti vocali. Non è necessaria una sottoscrizione ai servizi Voce, LUIS è sufficiente.
 
-LUIS usa due tipi di chiave:
+LUIS usa tre tipi di chiave:
 
 |Tipo di chiave|Scopo|
 |--------|-------|
 |Creazione|Consente di creare e modificare a livello di codice app LUIS|
+|Starter|Testa l'applicazione LUIS usando solo testo|
 |Endpoint |Autorizza l'accesso a una particolare app LUIS|
 
 Per questa esercitazione è necessario il tipo di chiave dell'endpoint. L'esercitazione usa l'esempio dell'app di domotica LUIS, che è possibile creare seguendo l'avvio rapido [Usare l'app di domotica predefinita](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Se è stata creata un'app LUIS personalizzata, è possibile invece usare quest'ultima.
@@ -195,4 +196,4 @@ Cercare il codice usato in questo articolo nella cartella **samples/csharp/share
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Riconoscimento vocale](quickstart-csharp-dotnetcore-windows.md)
+> [Riconoscimento vocale](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)

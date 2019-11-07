@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: mlearned
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 0e09d541cb84ef7857e4d68f776b92f845488771
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 89bb7014ddb04b63a83dc8c5b520bcf500bdc707
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329880"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472717"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Guida introduttiva: Distribuire un cluster del servizio Azure Kubernetes usando il portale di Azure
 
@@ -31,27 +31,29 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
-Nell'angolo in alto a sinistra nel portale di Azure, selezionare **+ Crea una risorsa** > **Contenitori** >  **Servizio Kubernetes**.
-
 Per creare un cluster del servizio Azure Kubernetes, seguire questa procedura:
 
-1. Nella pagina **Informazioni di base** configurare le opzioni seguenti:
-   - *DETTAGLI DEL PROGETTO*: Selezionare una sottoscrizione di Azure, quindi selezionare o creare un gruppo di risorse di Azure, ad esempio *myResourceGroup*. Immettere un **nome cluster Kubernetes**, ad esempio *myAKSCluster*.
-   - *DETTAGLI DEI CLUSTER*: Selezionare un'area, una versione di Kubernetes e il prefisso di nome DNS per il cluster del servizio Azure Kubernetes.
-   - **POOL DI NODI PRIMARIO**: selezionare una dimensione di macchina virtuale per i nodi del servizio Azure Kubernetes. Le dimensioni della macchina virtuale **non possono** essere modificate dopo che un cluster del servizio Azure Container è stato distribuito. 
-       - Selezionare il numero di nodi da distribuire nel cluster. Per questa guida introduttiva, impostare **Numero di nodi** su *1*. Il numero di nodi **può** essere modificato dopo che il cluster è stato distribuito.
+1. Nel menu del portale di Azure o dalla **Home** page selezionare **Crea una risorsa**.
+
+2. Selezionare **Contenitori** >  **Servizio Kubernetes**.
+
+3. Nella pagina **Informazioni di base** configurare le opzioni seguenti:
+    - **Dettagli del progetto**: Selezionare una **sottoscrizione** di Azure, quindi selezionare o creare un **gruppo di risorse** di Azure, ad esempio *myResourceGroup*.
+    - **Dettagli del cluster**: Immettere un **nome cluster Kubernetes**, ad esempio *myAKSCluster*. Selezionare un'**area**, una **versione di Kubernetes** e il **prefisso di nome DNS** per il cluster del servizio Azure Kubernetes.
+    - **Pool di nodi primario**: Selezionare le **dimensioni del nodo** della macchina virtuale per i nodi del servizio Azure Kubernetes. *Non è possibile* modificare le dimensioni della macchina virtuale dopo la distribuzione di un cluster del servizio Azure Kubernetes. 
+            - Selezionare il numero di nodi da distribuire nel cluster. Per questa guida introduttiva, impostare **Numero di nodi** su *1*. Il numero di nodi *può* essere modificato dopo che il cluster è stato distribuito.
     
-     ![Creare un cluster del servizio Azure Kubernetes - fornire informazioni di base](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
+    ![Creare un cluster del servizio Azure Kubernetes - fornire informazioni di base](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-     Selezionare **Avanti: Scala** al termine.
+    Selezionare **Avanti: Scala** al termine.
 
-2. Nella pagina **Scala** mantenere le opzioni predefinite. Nella parte inferiore dello schermo fare clic su **Avanti: Autenticazione**.
-> [!CAUTION]
-> Quando si creano nuove entità servizio AAD, queste potrebbero propagarsi e diventare disponibili dopo diversi minuti, causando errori di entità servizio non trovata e di convalida nel portale di Azure. In questo caso, visitare [questa pagina](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) per avere informazioni su come mitigare tali problemi.
+4. Nella pagina **Scala** mantenere le opzioni predefinite. Nella parte inferiore della schermata fare clic su **Successivo: Autenticazione**.
+    > [!CAUTION]
+    > Quando si creano nuove entità servizio AAD, queste potrebbero propagarsi e diventare disponibili dopo diversi minuti, causando errori di entità servizio non trovata e di convalida nel portale di Azure. In questo caso, visitare [questa pagina](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) per avere informazioni su come mitigare tali problemi.
 
-3. Nella pagina **Autenticazione** configurare le opzioni seguenti:
-   - Creare una nuova entità servizio lasciando il campo **Entità servizio** impostato su **(novità) entità servizio predefinita**. In alternativa, si può scegliere *Configura entità servizio* per usarne una esistente. Se si usa un'entità servizio esistente, è necessario specificarne l'ID client e il segreto.
-   - Abilitare l'opzione per il controllo degli accessi in base al ruolo di Kubernetes, per ottenere un controllo più capillare sull'accesso alle risorse Kubernetes distribuite nel cluster del servizio Azure Kubernetes.
+5. Nella pagina **Autenticazione** configurare le opzioni seguenti:
+    - Creare una nuova entità servizio lasciando il campo **Entità servizio** impostato su **(novità) entità servizio predefinita**. In alternativa, si può scegliere *Configura entità servizio* per usarne una esistente. Se si usa un'entità servizio esistente, è necessario specificarne l'ID client e il segreto.
+    - Abilitare l'opzione per il controllo degli accessi in base al ruolo di Kubernetes, per ottenere un controllo più capillare sull'accesso alle risorse Kubernetes distribuite nel cluster del servizio Azure Kubernetes.
 
 Per impostazione predefinita, viene usata la rete di livello *Basic* e Monitoraggio di Azure per i contenitori è abilitato. Una volta completata la convalida, selezionare **Rivedi e crea** e quindi **Crea**.
 

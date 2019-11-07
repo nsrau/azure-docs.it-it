@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 5fb1050fed2ab7318ad5b4ecafec7a96a9324575
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: cf0332909e053a0875d41a00d15f196b193ba15e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792059"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466709"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Risorse di documentazione per l'arricchimento tramite intelligenza artificiale in Ricerca cognitiva di Azure
 
@@ -22,8 +22,8 @@ L'arricchimento tramite intelligenza artificiale è una funzionalità dell'indic
 Gli articoli seguenti rappresentano la documentazione completa per l'arricchimento tramite intelligenza artificiale.
 
 ## <a name="getting-started"></a>Introduzione
-+ [Introduzione all'arricchimento tramite intelligenza artificiale in Ricerca cognitiva di Azure](cognitive-search-concept-intro.md)
-+ [Guida introduttiva: Provare l'arricchimento tramite intelligenza artificiale nel portale](cognitive-search-quickstart-blob.md)
++ [Introduzione all'intelligenza artificiale nella ricerca cognitiva di Azure](cognitive-search-concept-intro.md)
++ [Guida introduttiva: Creare un set di competenze cognitive nel portale di Azure](cognitive-search-quickstart-blob.md)
 + [Esercitazione: Indicizzazione arricchita con intelligenza artificiale](cognitive-search-tutorial-blob.md)
 + [Esempio: Creazione di una competenza personalizzata per l'arricchimento tramite intelligenza artificiale](cognitive-search-create-custom-skill-example.md)
 
@@ -49,6 +49,7 @@ Gli articoli seguenti rappresentano la documentazione completa per l'arricchimen
   + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
   + [Microsoft.Skills.Util.ConditionalSkill](cognitive-search-skill-conditional.md)
+  + [Microsoft.Skills.Util.DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + Competenze personalizzate

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9e51249bdcfa3cf506700cd3032b1ca39b773d82
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7c31c04137a8d36adfe41a18cbc276a45483b05b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73102358"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467168"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fornire un'autenticazione di Key Vault con un criterio di controllo di accesso
 
@@ -162,7 +162,7 @@ Set-AzKeyVaultAccessPolicy –VaultName <your-key-vault-name> -PermissionsToKeys
 
 È possibile creare un gruppo di Azure AD, aggiungere applicazioni e utenti al gruppo e quindi concedere al gruppo l'accesso all'insieme di credenziali delle chiavi.  Questo consente di aggiungere a un insieme di credenziali delle chiavi più applicazioni come una singola voce di criterio di accesso eliminando così la necessità di concedere agli utenti l'accesso diretto all'insieme di credenziali delle chiavi (procedura sconsigliata). Per informazioni dettagliate, vedere [Gestire l'accesso ad app e risorse tramite i gruppi di Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md).
 
-### <a name="addition-prerequisites"></a>Prerequisiti aggiuntivi
+### <a name="additional-prerequisites"></a>Prerequisiti aggiuntivi
 
 Oltre ai [prerequisiti precedenti](#prerequisites), saranno necessarie le autorizzazioni per la creazione/modifica dei gruppi nel tenant di Azure Active Directory. Se non si dispone delle autorizzazioni, può essere necessario contattare l'amministratore di Azure Active Directory.
 
