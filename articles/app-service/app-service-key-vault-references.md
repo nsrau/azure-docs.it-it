@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 49bf7984efe74edd2a19909509e0c6b9564fc2e9
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: e42fa7f48b5e6475604570a95f2ffc034b43b8f7
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274425"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604609"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usare i riferimenti Key Vault per il servizio app e funzioni di Azure
 
@@ -51,13 +51,15 @@ Un riferimento a Key Vault viene espresso nel formato `@Microsoft.KeyVault({refe
 > | SecretUri=_secretUri_                                                       | **SecretUri** deve essere l'URI del piano dati completo di un segreto in Key Vault, inclusa una versione, ad esempio, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** deve essere il nome della risorsa Key Vault. **SecretName** deve essere il nome del segreto di destinazione. **SecretVersion** deve essere la versione del segreto da usare. |
 
-> [!NOTE] 
-> Le versioni sono attualmente obbligatorie. Durante la rotazione dei segreti sarà necessario aggiornare la versione nella configurazione dell'applicazione.
-
-Un riferimento completo, ad esempio, avrebbe un aspetto simile al seguente:
+Un riferimento completo con la versione, ad esempio, sarà simile al seguente:
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
+```
+Un riferimento completo senza versione avrà un aspetto simile al seguente:
+
+```
+@Microsoft.KeyVault(SecretUri=https://<MYKEYVAULT>.vault.azure.net/secrets/eShopStorageAccountCS/)
 ```
 
 In alternativa:
@@ -69,7 +71,7 @@ In alternativa:
 
 ## <a name="source-application-settings-from-key-vault"></a>Impostazioni dell'applicazione di origine da Key Vault
 
-I riferimenti a Key Vault possono essere usati come valori per [Impostazioni applicazione](configure-common.md#configure-app-settings), consentendo di mantenere i segreti in Key Vault invece che nella configurazione del sito. Le impostazioni dell'applicazione vengono crittografate in modo sicuro se statiche, ma se sono necessarie funzionalità di gestione dei segreti, è consigliabile archiviarle in Key Vault.
+Key Vault riferimenti possono essere utilizzati come valori per [le impostazioni dell'applicazione](configure-common.md#configure-app-settings), consentendo di tenere segreti in Key Vault invece che nella configurazione del sito. Le impostazioni dell'applicazione vengono crittografate in modo sicuro, ma se sono necessarie le funzionalità di gestione dei segreti, è opportuno entrare in Key Vault.
 
 Per usare un riferimento a Key Vault per un'impostazione di applicazione, impostare il riferimento come valore dell'impostazione. L'app può fare riferimento al segreto tramite la relativa chiave come di consueto. Non sono necessarie modifiche al codice.
 

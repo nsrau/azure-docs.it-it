@@ -1,18 +1,18 @@
 ---
 title: Registrazione diagnostica per Azure Analysis Services | Microsoft Docs
-description: Informazioni sulla configurazione della registrazione diagnostica per Azure Analysis Services.
+description: Viene descritto come configurare la registrazione diagnostica delle risorse di Azure per il monitoraggio del server Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a9684042a76c9c906a75334c319b4ca8ee0b727b
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b8ae2c529bebebae4ebc2d7b0b8a7e420fe9bcc7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298618"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572783"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
 
@@ -42,9 +42,9 @@ Se si seleziona la categoria **Engine** (Motore) vengono registrati nel log tutt
 |Query     |   Fine query      |
 |Comandi:     |  Inizio comando       |
 |Comandi:     |  Fine comando       |
-|Errori e avvisi     |   Errore      |
+|Errori e avvisi     |   Tipi di errore      |
 |Scoprire     |   Fine individuazione      |
-|Notification     |    Notification     |
+|Notifica     |    Notifica     |
 |sessione     |  Inizializzazione sessione       |
 |Blocchi    |  Deadlock       |
 |Elaborazione di query     |   Inizio query SE VertiPaq      |
@@ -88,7 +88,7 @@ La categoria metrica registra le stesse [metriche del server](analysis-services-
     * **Servizio**. Selezionare questa opzione per registrare gli eventi a livello di servizio. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Metrics** (Metriche). Selezionare questa opzione per archiviare informazioni dettagliate in [Metrics](analysis-services-monitor.md#server-metrics) (Metriche). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
 
-3. Fare clic su **Salva**.
+3. Fare clic su **Save**.
 
     Se si riceve il messaggio di errore "Non è stato possibile aggiornare la diagnostica per \<nome area di lavoro>. La sottoscrizione \<id sottoscrizione> non è registrata per l'uso di microsoft.insights." seguire le istruzioni in [Risolvere i problemi relativi a Diagnostica di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) per registrare l'account, quindi ripetere questa procedura.
 

@@ -1,5 +1,5 @@
 ---
-title: Uso di Gestione ripristino per risolvere i problemi della mappe partizioni | Microsoft Docs
+title: Uso di gestione ripristino per correggere i problemi delle mappe partizioni
 description: Usare la classe RecoveryManager per risolvere i problemi relativi alle mappe partizioni.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: cbc4985f032c228db7a9ddf719390bbf2d0166b9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5920f0a3f08d83b1300956ca830b3b9b827fa5e2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568687"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690480"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Uso della classe RecoveryManager per correggere i problemi delle mappe partizioni
 
@@ -28,7 +28,7 @@ La classe RecoveryManager fa parte della [Libreria client dei database elastici]
 
 ![Mappa partizioni][1]
 
-Per le definizioni dei termini, vedere il [Glossario degli strumenti di database elastici](sql-database-elastic-scale-glossary.md). Per informazioni su come usare **ShardMapManager** per gestire dati in una soluzione partizionata, vedere [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
+Per le definizioni dei termini, vedere il [glossario degli strumenti del database elastico](sql-database-elastic-scale-glossary.md). Per informazioni su come usare **ShardMapManager** per gestire dati in una soluzione partizionata, vedere [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
 
 ## <a name="why-use-the-recovery-manager"></a>Perché usare Gestione ripristino
 
@@ -76,7 +76,7 @@ Questo esempio rimuove le partizioni dalla mappa partizioni.
    rm.DetachShard(s.Location, customerMap);
    ```
 
-La mappa partizioni riflette il percorso della partizione nella mappa globale delle partizioni precedente l'eliminazione della partizione. Poiché la partizione è stata eliminata, si presuppone che questa operazione sia stata intenzionale che l'intervallo di chiavi di partizionamento orizzontale non venga più usato. Se non è questo il caso, è possibile eseguire un ripristino temporizzato. Per ripristinare le partizioni da un punto nel tempo precedente. In questo caso, vedere la sezione seguente per rilevare le incoerenze della partizione. Per eseguire il ripristino, vedere [Recupero temporizzato](sql-database-recovery-using-backups.md).
+La mappa partizioni riflette il percorso della partizione nella mappa globale delle partizioni precedente l'eliminazione della partizione. Poiché la partizione è stata eliminata, si presuppone che questa operazione sia stata intenzionale che l'intervallo di chiavi di partizionamento orizzontale non venga più usato. Se non è questo il caso, è possibile eseguire un ripristino temporizzato. Per ripristinare le partizioni da un punto nel tempo precedente. In tal caso, rivedere la sezione seguente per rilevare le incoerenze della partizione. Per eseguire il ripristino, vedere [recupero temporizzato](sql-database-recovery-using-backups.md).
 
 Presupponendo che l'eliminazione del database sia stata intenzionale, l'azione di pulizia amministrativa finale consiste nell'eliminare la voce relativa alla partizione nel gestore delle mappe partizioni. In questo modo si impedisce all'applicazione di scrivere inavvertitamente informazioni in un intervallo non previsto.
 

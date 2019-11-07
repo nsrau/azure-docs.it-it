@@ -1,5 +1,5 @@
 ---
-title: Visualizzare i dati da Esplora dati di Azure mediante Grafana
+title: Visualizzare i dati da Esplora dati di Azure con Grafana
 description: In questa procedura viene descritto come configurare Esplora dati di Azure come origine dati per Grafana e quindi come visualizzare i dati da un cluster di esempio.
 author: orspod
 ms.author: orspodek
@@ -7,22 +7,22 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 6/30/2019
-ms.openlocfilehash: 0f148a97b25afb9135223ff92afb898d4734c586
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: f1eb9fb0d81d1e9cdf3dd8628a6d7ad1f0ccce92
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537793"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581927"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualizzare i dati da Esplora dati di Azure in Grafana
 
 Grafana è una piattaforma di analisi che consente di visualizzare i dati ed eseguirvi query, quindi di creare e condividere dashboard basati sulle visualizzazioni. Grafana fornisce un *plugin* di Esplora dati di Azure che consente di connettersi ai dati e di visualizzarli da Esplora dati di Azure. In questo articolo viene descritto come configurare Esplora dati di Azure come origine dati per Grafana e quindi come visualizzare i dati da un cluster di esempio.
 
-Usa il video seguente, è possibile informazioni su come usare plug-in di Grafana Esplora dati di Azure, configurare Esplora dati di Azure come origine dati per Grafana e quindi visualizzare i dati. 
+Usando il video seguente, è possibile imparare a usare il plug-in Azure Esplora dati di Grafana, configurare Esplora dati di Azure come origine dati per Grafana e quindi visualizzare i dati. 
 
 > [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
 
-In alternativa è possibile [configurare l'origine dati](#configure-the-data-source) e [Visualizza dati](#visualize-data) come descritto in dettaglio nell'articolo seguente.
+In alternativa, è possibile [configurare l'origine dati](#configure-the-data-source) e [visualizzare i dati](#visualize-data) come descritto in dettaglio nell'articolo seguente.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,112 +32,11 @@ Per completare questa procedura, sono necessari gli elementi seguenti:
 
 * Il [plug-in di Esplora dati di Azure](https://grafana.com/plugins/grafana-azure-data-explorer-datasource/installation) per Grafana
 
-* Un cluster che include i dati di esempio StormEvents. Per altre informazioni, vedere [Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure](create-cluster-database-portal.md) e [Inserire i dati di esempio in Esplora dati di Azure](ingest-sample-data.md).
+* Un cluster che include i dati di esempio StormEvents. Per altre informazioni, vedere [Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md) (Guida introduttiva: creare un cluster e un database di Esplora dati di Azure) e [Inserire i dati di esempio in Esplora dati di Azure](ingest-sample-data.md).
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-## <a name="configure-the-data-source"></a>Configurare l'origine dati
-
-Per configurare Esplora dati di Azure come origine dati per Grafana, eseguire la procedura seguente. In questa sezione verranno illustrati in dettaglio questi passaggi:
-
-1. Creare un'entità servizio di Azure Active Directory (Azure AD). L'entità servizio viene usata da Grafana per accedere al servizio Esplora dati di Azure.
-
-1. Aggiungere l'entità servizio di Azure AD al ruolo di *visualizzatori* nel database di Esplora dati di Azure.
-
-1. Specificare le proprietà di connessione di Grafana in base alle informazioni fornite dall'entità servizio di Azure AD e quindi testare la connessione.
-
-### <a name="create-a-service-principal"></a>Creare un'entità servizio
-
-È possibile creare l'entità servizio nel [portale di Azure](#azure-portal) o tramite l'[interfaccia della riga di comando di Azure](#azure-cli). Indipendentemente dal metodo usato, dopo la creazione si ottengono i valori per quattro proprietà di connessione da usare nei passaggi successivi.
-
-#### <a name="azure-portal"></a>Portale di Azure
-
-1. Per creare l'entità servizio, seguire le istruzioni riportate nella [documentazione del portale di Azure](/azure/active-directory/develop/howto-create-service-principal-portal).
-
-    1. Nella sezione [Assegnare l'applicazione a un ruolo](/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) assegnare il tipo di ruolo di **Lettore** al cluster di Esplora dati di Azure.
-
-    1. Nella sezione [Ottenere i valori per l'accesso](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) copiare i valori delle tre proprietà illustrati nei passaggi: **ID directory** (ID tenant), **ID applicazione** e **Password**.
-
-1. Nel portale di Azure selezionare **Sottoscrizioni** e quindi copiare l'ID della sottoscrizione in cui è stata creata l'entità servizio.
-
-    ![ID sottoscrizione - Portale](media/grafana/subscription-id-portal.png)
-
-#### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-
-1. Creare un'entità servizio. Impostare un ambito appropriato e il tipo di ruolo di `reader`.
-
-    ```azurecli
-    az ad sp create-for-rbac --name "https://{UrlToYourGrafana}:{PortNumber}" --role "reader" \
-                             --scopes /subscriptions/{SubID}/resourceGroups/{ResourceGroupName}
-    ```
-
-    Per altre informazioni, vedere [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
-
-1. Il comando restituisce un set di risultati simile al seguente. Copiare i valori delle tre proprietà: **appID**, **password** e **tenant**.
-
-    ```json
-    {
-      "appId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-      "displayName": "{UrlToYourGrafana}:{PortNumber}",
-      "name": "https://{UrlToYourGrafana}:{PortNumber}",
-      "password": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-      "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-    }
-    ```
-
-1. Ottenere un elenco delle sottoscrizioni.
-
-    ```azurecli
-    az account list --output table
-    ```
-
-    Copiare l'ID sottoscrizione appropriato.
-
-    ![ID sottoscrizione - Interfaccia della riga di comando](media/grafana/subscription-id-cli.png)
-
-### <a name="add-the-service-principal-to-the-viewers-role"></a>Aggiungere l'entità servizio al ruolo di visualizzatori
-
-Dopo aver creato l'entità servizio, aggiungerla al ruolo di *visualizzatori* nel database di Esplora dati di Azure. È possibile eseguire questa attività in **Autorizzazioni** nel portale di Azure o in **Query** usando un comando di gestione.
-
-#### <a name="azure-portal---permissions"></a>Portale di Azure - Autorizzazioni
-
-1. Nel portale di Azure passare a cluster di Esplora dati di Azure.
-
-1. Nella sezione **Panoramica** selezionare il database con i dati di esempio StormEvents.
-
-    ![Selezionare il database](media/grafana/select-database.png)
-
-1. Selezionare **Autorizzazioni** quindi**Aggiungi**.
-
-    ![Autorizzazioni per il database](media/grafana/database-permissions.png)
-
-1. In **Aggiungere autorizzazioni database** selezionare il ruolo **Visualizzatore** e quindi **Selezionare entità di sicurezza**.
-
-    ![Aggiungere autorizzazioni database](media/grafana/add-permission.png)
-
-1. Cercare l'entità servizio creata (nell'esempio **mb-grafana**). Selezionare l'entità di sicurezza e quindi **Seleziona**.
-
-    ![Gestire le autorizzazioni nel portale di Azure](media/grafana/new-principals.png)
-
-1. Selezionare **Salva**.
-
-    ![Gestire le autorizzazioni nel portale di Azure](media/grafana/save-permission.png)
-
-#### <a name="management-command---query"></a>Comando di gestione - Query
-
-1. Nel portale di Azure passare a cluster di Esplora dati di Azure e selezionare **Query**.
-
-    ![Query](media/grafana/query.png)
-
-1. Eseguire il comando seguente nella finestra di query. Usare l'ID applicazione e l'ID tenant nel portale di Azure o nell'interfaccia della riga di comando.
-
-    ```kusto
-    .add database {TestDatabase} viewers ('aadapp={ApplicationID};{TenantID}')
-    ```
-
-    Il comando restituisce un set di risultati simile al seguente. In questo esempio, la prima riga è per un utente esistente nel database e la seconda riga è per l'entità servizio appena aggiunta.
-
-    ![Set di risultati](media/grafana/result-set.png)
+[!INCLUDE [data-explorer-configure-data-source](../../includes/data-explorer-configure-data-source.md)]
 
 ### <a name="specify-properties-and-test-the-connection"></a>Specificare le proprietà e testare la connessione
 
@@ -161,7 +60,7 @@ Con l'entità servizio assegnata al ruolo di *visualizzatori* è ora possibile s
     | --- | --- | --- |
     | ID sottoscrizione | ID SOTTOSCRIZIONE | SubscriptionId |
     | ID tenant | ID directory | tenant |
-    | Client Id | ID applicazione | appId |
+    | ID client | ID applicazione | appId |
     | Segreto client | Password | password |
     | | | |
 
@@ -216,4 +115,4 @@ Dopo aver completato la configurazione di Esplora dati di Azure come origine dat
 
 * [Scrivere query per Esplora dati di Azure](write-queries.md)
 
-* [Esercitazione: Visualizzare i dati da Esplora dati di Azure in Power BI](visualize-power-bi.md)
+* [Esercitazione: visualizzare i dati da Esplora dati di Azure in Power BI](visualize-power-bi.md)

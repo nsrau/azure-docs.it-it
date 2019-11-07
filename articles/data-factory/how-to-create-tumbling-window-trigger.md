@@ -1,5 +1,5 @@
 ---
-title: Creare trigger di finestra a cascata in Azure Data Factory | Microsoft Docs
+title: Crea trigger finestra a cascata in Azure Data Factory
 description: Informazioni su come creare un trigger in Azure Data Factory per l'esecuzione di una pipeline in una finestra a cascata.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 940b3010713f2f32b2c4d9880c425b1e88820729
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: f9e31b8f0fce1af8408b80afb1049dae8c8ecf1c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374515"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673702"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creare un trigger per l'esecuzione di una pipeline in una finestra a cascata
 Questo articolo descrive la procedura per creare, avviare e monitorare un trigger di finestra a cascata. Per informazioni generali sui trigger e i tipi supportati, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md).
@@ -92,20 +92,20 @@ Una finestra a cascata ha le proprietà del tipo di trigger seguenti:
 
 La tabella seguente fornisce una panoramica generale degli elementi JSON principali correlati alla ricorrenza e alla pianificazione di un trigger di finestra a cascata:
 
-| Elemento JSON | Description | Type | Valori consentiti | Obbligatoria |
+| Elemento JSON | Descrizione | Tipo | Valori consentiti | Obbligatorio |
 |:--- |:--- |:--- |:--- |:--- |
-| **type** | Tipo di trigger. Il tipo è il valore fisso "TumblingWindowTrigger". | Stringa | "TumblingWindowTrigger" | SÌ |
-| **runtimeState** | Stato attuale del runtime del trigger.<br/>**Nota**: questo elemento è \<readOnly>. | Stringa | "Started", "Stopped", "Disabled" | SÌ |
-| **frequency** | Stringa che rappresenta l'unità di frequenza (minuti o ore) con cui si ripete il trigger. Se i valori di data di **startTime** sono più granulari del valore di **frequency**, le date di **startTime** sono considerate quando vengono calcolati i limiti della finestra. Ad esempio, se il valore di **frequency** è ogni ora e il valore di **startTime** è 2017-09-01T10:10:10Z, la prima finestra è (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Stringa | "minute", "hour"  | SÌ |
-| **interval** | Numero intero positivo indicante l'intervallo per il valore **frequency**, che determina la frequenza con cui viene eseguito il trigger. Se, ad esempio, **interval** è 3 e **frequency** è "hour", il trigger si ripete ogni 3 ore. <br/>**Nota**: l'intervallo minimo della finestra è 15 minuti. | Integer | Numero intero positivo. | SÌ |
-| **startTime**| Prima occorrenza, che può essere nel passato. Il primo intervallo di trigger è (**startTime**, **startTime** + **interval**). | Data e ora | Valore DateTime. | SÌ |
-| **endTime**| Ultima occorrenza, che può essere nel passato. | Data e ora | Valore DateTime. | SÌ |
+| **type** | Tipo di trigger. Il tipo è il valore fisso "TumblingWindowTrigger". | String | "TumblingWindowTrigger" | Sì |
+| **runtimeState** | Stato attuale del runtime del trigger.<br/>**Nota**: questo elemento è \<readOnly>. | String | "Started", "Stopped", "Disabled" | Sì |
+| **frequency** | Stringa che rappresenta l'unità di frequenza (minuti o ore) con cui si ripete il trigger. Se i valori di data di **startTime** sono più granulari del valore di **frequency**, le date di **startTime** sono considerate quando vengono calcolati i limiti della finestra. Ad esempio, se il valore di **frequency** è ogni ora e il valore di **startTime** è 2017-09-01T10:10:10Z, la prima finestra è (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minute", "hour"  | Sì |
+| **interval** | Numero intero positivo indicante l'intervallo per il valore **frequency**, che determina la frequenza con cui viene eseguito il trigger. Se, ad esempio, **interval** è 3 e **frequency** è "hour", il trigger si ripete ogni 3 ore. <br/>**Nota**: l'intervallo minimo della finestra è 15 minuti. | Integer | Numero intero positivo. | Sì |
+| **startTime**| Prima occorrenza, che può essere nel passato. Il primo intervallo di trigger è (**startTime**, **startTime** + **interval**). | DateTime | Valore DateTime. | Sì |
+| **endTime**| Ultima occorrenza, che può essere nel passato. | DateTime | Valore DateTime. | Sì |
 | **delay** | Periodo di tempo in base a cui ritardare l'avvio dell'elaborazione dei dati per la finestra. L'esecuzione della pipeline viene avviata dopo il tempo di esecuzione previsto più il periodo di **ritardo**. Il valore **delay** definisce per quanto tempo il trigger rimane in attesa dopo la scadenza prima di attivare una nuova esecuzione. Il valore **delay** non modifica il valore **startTime** della finestra. Ad esempio, un valore di **delay** pari a 00:10:00 implica un ritardo di 10 minuti. | TimeSpan<br/>(hh:mm:ss)  | Valore di un intervallo di tempo il cui il valore predefinito è 00:00:00. | No |
-| **maxConcurrency** | Il numero di esecuzioni di trigger simultanee che vengono generate per le finestre che sono pronte. Ad esempio, per recuperare le informazioni relative alle esecuzioni ogni ora per i risultati del giorno prima in 24 finestre. Se **maxConcurrency** = 10, gli eventi di attivazione vengono generati solo per le prime 10 finestre (00:00-01:00 - 09:00-10:00). Al termine delle prime 10 esecuzioni di pipeline attivate, le esecuzioni di trigger vengono generate per le 10 finestre successive (10:00-11:00 - 19:00-20:00). Continuando con questo esempio di **maxConcurrency** = 10, se sono pronte 10 finestre, ci sono 10 esecuzioni di pipeline totali. Se c'è solo una finestra pronta, è disponibile solo un'esecuzione di pipeline. | Integer | Numero intero compreso tra 1 e 50. | SÌ |
+| **maxConcurrency** | Il numero di esecuzioni di trigger simultanee che vengono generate per le finestre che sono pronte. Ad esempio, per recuperare le informazioni relative alle esecuzioni ogni ora per i risultati del giorno prima in 24 finestre. Se **maxConcurrency** = 10, gli eventi di attivazione vengono generati solo per le prime 10 finestre (00:00-01:00 - 09:00-10:00). Al termine delle prime 10 esecuzioni di pipeline attivate, le esecuzioni di trigger vengono generate per le 10 finestre successive (10:00-11:00 - 19:00-20:00). Continuando con questo esempio di **maxConcurrency** = 10, se sono pronte 10 finestre, ci sono 10 esecuzioni di pipeline totali. Se c'è solo una finestra pronta, è disponibile solo un'esecuzione di pipeline. | Integer | Numero intero compreso tra 1 e 50. | Sì |
 | **retryPolicy: Count** | Numero di tentativi prima che l'esecuzione della pipeline venga contrassegnata come "Non riuscita".  | Integer | Numero intero, in cui il valore predefinito è 0 (nessun tentativo). | No |
 | **retryPolicy: intervalInSeconds** | Ritardo tra i tentativi di ripetizione specificato in secondi. | Integer | Numero di secondi, in cui il valore predefinito è 30. | No |
-| **dependsOn: tipo** | Tipo di TumblingWindowTriggerReference. Obbligatorio se è impostata una dipendenza. | Stringa |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | No |
-| **dependsOn: dimensioni** | Dimensione della finestra a cascata delle dipendenze. | TimeSpan<br/>(hh:mm:ss)  | Valore TimeSpan positivo in cui il valore predefinito è la dimensione della finestra del trigger figlio  | No |
+| **dependsOn: type** | Tipo di TumblingWindowTriggerReference. Obbligatorio se è impostata una dipendenza. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | No |
+| **dependsOn: size** | Dimensione della finestra a cascata delle dipendenze. | TimeSpan<br/>(hh:mm:ss)  | Valore TimeSpan positivo in cui il valore predefinito è la dimensione della finestra del trigger figlio  | No |
 | **dependsOn: offset** | Offset del trigger di dipendenza. | TimeSpan<br/>(hh:mm:ss) |  Valore TimeSpan che deve essere negativo in una dipendenza indipendente. Se non viene specificato alcun valore, la finestra è uguale a quella del trigger. | Dipendenza autonoma: Sì<br/>Altro: No  |
 
 ### <a name="windowstart-and-windowend-system-variables"></a>Variabili di sistema WindowStart e WindowEnd

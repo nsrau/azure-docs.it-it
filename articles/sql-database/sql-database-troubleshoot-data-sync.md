@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di sincronizzazione dati SQL di Azure | Microsoft Docs
+title: 'Risolvere i problemi di sincronizzazione dati SQL di Azure '
 description: Informazioni su come risolvere i problemi comuni di sincronizzazione dati SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: f1345c7de3ef56473b8ebd16cea20cfe76f0380e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 31cf2693ba33461f38ea6361bf2ca8b688f177ff
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566287"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686896"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Risolvere i problemi della sincronizzazione dati SQL
 
-Questo articolo descrive come risolvere i problemi noti di sincronizzazione dati SQL di Azure. Le possibili risoluzioni a un problema vengono fornite qui.
+Questo articolo descrive come risolvere i problemi noti di Azure sincronizzazione dati SQL. Se è presente una risoluzione per un problema, è disponibile qui.
 
 Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md).
 
@@ -39,9 +39,9 @@ Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati
 
 - [Si osserva una riduzione delle prestazioni considerevole](#sync-perf)
 
-- [Viene visualizzato il messaggio: "Impossibile inserire il valore null nella colonna colonna \<>. La colonna non ammette valori Null." Cosa significa e come è possibile correggere l'errore?](#sync-nulls)
+- [Viene visualizzato il messaggio seguente: "Impossibile inserire il valore NULL nella colonna \<colonna >. La colonna non ammette valori null. Che cosa significa e come si può risolvere il problema?](#sync-nulls)
 
-- [In che modo la sincronizzazione dati gestisce i riferimenti circolari? In altre parole, quando vengono sincronizzati gli stessi dati in più gruppi di sincronizzazione e pertanto continuano a cambiare?](#sync-circ)
+- [In che modo la sincronizzazione dati gestisce i riferimenti circolari? Ovvero, quando gli stessi dati vengono sincronizzati in più gruppi di sincronizzazione e continuano a cambiare come risultato?](#sync-circ)
 
 ### <a name="sync-fails"></a>La sincronizzazione non viene eseguita correttamente nell'interfaccia utente del portale per i database locali associati all'agente client
 
@@ -104,7 +104,7 @@ Le prestazioni vengono considerevolmente ridotte, anche al punto da non poter ap
 
 - **Risoluzione**. La correzione migliore è prevenire questa situazione. Verificare che non siano presenti riferimenti circolari nei gruppi di sincronizzazione. Le righe sincronizzate da un gruppo di sincronizzazione non possono essere sincronizzate da un altro gruppo di sincronizzazione.
 
-### <a name="sync-nulls"></a> Viene visualizzato il messaggio: "Impossibile inserire il valore null nella colonna colonna \<>. La colonna non ammette valori Null." Cosa significa e come è possibile correggere l'errore? 
+### <a name="sync-nulls"></a>Viene visualizzato il messaggio seguente: "Impossibile inserire il valore NULL nella colonna \<colonna >. La colonna non ammette valori Null." Cosa significa e come è possibile correggere l'errore? 
 Questo messaggio di errore indica che si è verificato uno dei due problemi seguenti:
 -  Una tabella non dispone di una chiave primaria. Per risolvere il problema, aggiungere una chiave primaria a tutte le tabelle da sincronizzare.
 -  Potrebbe essere presente una clausola WHERE nell'istruzione CREATE INDEX. La sincronizzazione dati non gestisce questa condizione. Per risolvere il problema, rimuovere la clausola WHERE o apportare manualmente le modifiche a tutti i database. 
@@ -243,7 +243,7 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 
 -   Panoramica: [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md)
 -   Configurare la sincronizzazione dati
-    - Nel portale - [Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale](sql-database-get-started-sql-data-sync.md)
+    - Nel portale: [Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale](sql-database-get-started-sql-data-sync.md)
     - Con PowerShell
         -  [Usare PowerShell per sincronizzare più database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Usare PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)

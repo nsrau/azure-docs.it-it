@@ -5,31 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 11/1/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b26679542753d5fb429c33e4220c23a3937c5cb
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 68acf32660fe36ddd4c2982b818ce21adde7ddab
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430434"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603600"
 ---
-# <a name="add-google-as-an-identity-provider-for-b2b-guest-users-preview"></a>Aggiungere Google come provider di identità per utenti Guest B2B (anteprima)
+# <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Aggiungere Google come provider di identità per utenti guest B2B
 
-|     |
-| --- |
-| Google Federation è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+Impostando la Federazione con Google, è possibile consentire agli utenti invitati di accedere alle app e alle risorse condivise con i propri account Gmail, senza dover creare account Microsoft (MSAs). 
 
-Impostando la Federazione con Google, è possibile consentire agli utenti invitati di accedere alle app e alle risorse condivise con i propri account Gmail, senza dover creare account Microsoft (MSAs) o account Azure AD. Google Federation è appositamente progettato per gli utenti di Gmail. Per la Federazione con i domini G Suite, usare invece la [funzionalità di federazione diretta](direct-federation.md) .
 > [!NOTE]
-> Gli utenti guest di Google devono accedere tramite un collegamento che include il contesto tenant, ad esempio `https://myapps.microsoft.com/?tenantid=<tenant id>` o `https://portal.azure.com/<tenant id>` oppure, nel caso di un dominio verificato, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`. È possibile usare anche collegamenti diretti alle applicazioni e alle risorse, purché includano tale contesto. Gli utenti guest attualmente non possono accedere tramite endpoint privi di un contesto tenant. Se si usa ad esempio `https://myapps.microsoft.com`, `https://portal.azure.com` o l'endpoint comune di Teams, verrà generato un errore.
- 
+> Google Federation è appositamente progettato per gli utenti di Gmail. Per la Federazione con i domini G Suite, usare la [funzionalità di federazione diretta](direct-federation.md).
+
 ## <a name="what-is-the-experience-for-the-google-user"></a>Qual è l'esperienza per l'utente di Google?
 Quando si invia un invito a un utente di Google Gmail, l'utente guest deve accedere alle app o alle risorse condivise tramite un collegamento che include il contesto tenant. L'esperienza varia a seconda che sia stato già eseguito o meno l'accesso a Google:
   - Se l'utente guest non ha ancora eseguito l'accesso a Google, gli verrà chiesto di farlo.
@@ -38,6 +34,19 @@ Quando si invia un invito a un utente di Google Gmail, l'utente guest deve acced
 Se viene visualizzato un errore a causa dell'intestazione troppo lunga, l'utente guest può provare a cancellare i cookie oppure aprire una finestra privata o in incognito e tentare nuovamente l'accesso.
 
 ![Screenshot che mostra la pagina di accesso di Google](media/google-federation/google-sign-in.png)
+
+## <a name="limitations"></a>Limitazioni
+
+Team supporta completamente gli utenti guest di Google su tutti i dispositivi. Gli utenti di Google possono accedere ai team da un endpoint comune come `https://teams.microsoft.com`.
+
+Gli endpoint comuni di altre applicazioni potrebbero non supportare gli utenti di Google. Gli utenti guest di Google devono accedere usando un collegamento che include le informazioni del tenant. Di seguito sono riportati alcuni esempi:
+  * `https://myapps.microsoft.com/?tenantid=<your tenant id>`
+  * `https://portal.azure.com/<your tenant id>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+
+   Se gli utenti guest di Google tentano di usare un collegamento, ad esempio `https://myapps.microsoft.com` o `https://portal.azure.com`, riceveranno un errore.
+
+È anche possibile assegnare agli utenti guest di Google un collegamento diretto a un'applicazione o a una risorsa, purché il collegamento includa le informazioni del tenant, ad esempio `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
 
 ## <a name="step-1-configure-a-google-developer-project"></a>Passaggio 1: Configurare un progetto di Google Developers
 Prima di tutto creare un nuovo progetto nella console di Google Developers per ottenere un ID client e un segreto client che sarà possibile aggiungere ad Azure AD in un secondo momento. 
@@ -73,7 +82,7 @@ Prima di tutto creare un nuovo progetto nella console di Google Developers per o
 
    ![Screenshot che mostra la sezione relativa agli URI di reindirizzamento autorizzati](media/google-federation/google-create-oauth-client-id.png)
 
-9. Selezionare **Create** (Crea). Copiare l'ID client e il segreto client, che verranno usati quando si aggiungerà il provider di identità nel portale di Azure AD.
+9. Selezionare **Crea**. Copiare l'ID client e il segreto client, che verranno usati quando si aggiungerà il provider di identità nel portale di Azure AD.
 
    ![Screenshot che mostra l'ID client OAuth e il segreto client](media/google-federation/google-auth-client-id-secret.png)
 

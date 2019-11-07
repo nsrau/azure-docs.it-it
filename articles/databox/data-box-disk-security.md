@@ -1,19 +1,19 @@
 ---
-title: Panoramica di Microsoft Azure Data Box Disk | Microsoft Docs
-description: Viene descritta la soluzione cloud Azure Data Box Disk che consente di trasferire grandi quantità di dati in Azure
+title: Microsoft Azure Data Box Disk funzionalità di sicurezza | Microsoft Docs nei dati
+description: Descrive le funzionalità di sicurezza implementate per Azure Data Box Disk, una soluzione cloud che consente di trasferire grandi quantità di dati in Azure
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
-ms.date: 01/09/2019
+ms.topic: conceptual
+ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: afb344418f843e54c3172c17d28bde7055e101b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 5db65ab6f1c96ff816252ecaba2170adf358001c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093457"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606567"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Sicurezza e protezione dei dati per Azure Data Box Disk
 
@@ -92,6 +92,6 @@ Per altre informazioni, consultare l'Informativa sulla privacy Microsoft nel [Ce
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Rivedere i [requisiti per Data Box Disk](data-box-disk-system-requirements.md).
+- Rivedere i [requisiti di Data Box Disk](data-box-disk-system-requirements.md).
 - Comprendere i [limiti di Data Box Disk](data-box-disk-limits.md).
 - Distribuire rapidamente [Azure Data Box Disk](data-box-disk-quickstart-portal.md) nel portale di Azure.

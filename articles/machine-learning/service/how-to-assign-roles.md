@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/10/2019
+ms.date: 11/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0ceb21d6f77fd9694f7cd564c2e89735cf2a774d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 07191245c08e26fe884ba237a9e3ef1a080aa069
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497429"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671508"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire l'accesso a un'area di lavoro Azure Machine Learning
 [!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -43,8 +43,8 @@ Per altre informazioni sui ruoli predefiniti specifici, vedere [ruoli predefinit
 Se si è proprietari di un'area di lavoro, è possibile aggiungere e rimuovere ruoli per l'area di lavoro. È anche possibile assegnare ruoli agli utenti. Usare i collegamenti seguenti per scoprire come gestire l'accesso:
 - [Interfaccia utente di portale di Azure](/azure/role-based-access-control/role-assignments-portal)
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
-- [interfaccia della riga di comando di Azure](/azure/role-based-access-control/role-assignments-cli)
-- [REST API](/azure/role-based-access-control/role-assignments-rest)
+- [Interfaccia della riga di comando di Azure](/azure/role-based-access-control/role-assignments-cli)
+- [API REST](/azure/role-based-access-control/role-assignments-rest)
 - [Modelli di Gestione risorse di Azure](/azure/role-based-access-control/role-assignments-template)
 
 Se è stata installata l' [interfaccia](reference-azure-machine-learning-cli.md)della riga di comando di Azure Machine Learning, è anche possibile usare un comando dell'interfaccia della riga di comando per assegnare ruoli agli utenti.

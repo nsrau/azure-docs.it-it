@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8da27773cc74324c1dde5a95de1abef3256c1f1c
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 06de71776cdf503ff0df9fbf3b28cf9e01a12e01
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811685"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575280"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos
 
@@ -29,7 +29,7 @@ Questo articolo illustra come effettuare il provisioning della velocità effetti
    * Immettere un ID contenitore (o Table o Graph).
    * Immettere un valore della chiave di partizione, ad esempio `/userid`.
    * Immettere una velocità effettiva di cui si desidera eseguire il provisioning (ad esempio, 1000 UR).
-   * Scegliere **OK**.
+   * Selezionare **OK**.
 
     ![Screenshot del riquadro Esplora dati con l'opzione Nuova raccolta evidenziata](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
@@ -63,18 +63,27 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 400 });
 ```
 
-### <a name="net-v3-sdk"></a>.NET V3 SDK
+### <a name="net-v3-sdk"></a>.Net V3 SDK
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>API Cassandra
+Comandi simili possono essere emessi tramite qualsiasi driver conforme a CQL.
 
 ```csharp
 // Create a Cassandra table with a partition (primary) key and provision throughput of 400 RU/s
-session.Execute(CREATE TABLE myKeySpace.myTable(
+session.Execute("CREATE TABLE myKeySpace.myTable(
     user_id int PRIMARY KEY,
     firstName text,
-    lastName text) WITH cosmosdb_provisioned_throughput=400);
+    lastName text) WITH cosmosdb_provisioned_throughput=400");
+
 ```
+### <a name="alter-or-change-throughput-for-cassandra-table"></a>Modificare o modificare la velocità effettiva per la tabella Cassandra
+
+```csharp
+// Altering the throughput too can be done through code by issuing following command
+session.Execute("ALTER TABLE myKeySpace.myTable WITH cosmosdb_provisioned_throughput=5000");
+```
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

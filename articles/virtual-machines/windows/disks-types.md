@@ -3,20 +3,20 @@ title: Selezionare un tipo di disco per le macchine virtuali Windows di Azure Ia
 description: Informazioni sui tipi di dischi di Azure disponibili per le macchine virtuali Windows, tra cui dischi Ultra, SSD Premium, SSD standard e HDD standard.
 author: roygara
 ms.author: rogarana
-ms.date: 08/15/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 634ff02b216403788c1ded9223909e2cce230207
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 5f06af41f2ad75d704836944e9d8d8d180aed730
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512700"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606593"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 
-Se si vuole iniziare a usare dischi Ultra, vedere l'articolo sull'argomento: [Uso di Azure ultra disks](disks-enable-ultra-ssd.md).
+Per iniziare a usare i dischi Ultra, vedere l'articolo sull'argomento relativo all'uso di [dischi ultra di Azure](disks-enable-ultra-ssd.md).
 
 [!INCLUDE [virtual-machines-managed-disks-types-ga](../../../includes/virtual-machines-managed-disks-types-ga.md)]
 

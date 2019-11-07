@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 647edcab5ec2925016e8a099ae43b6133037f8de
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: efb2fd8fd6b77a27130b834c2b192c1e88eec97c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491075"
+ms.locfileid: "73578392"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installare ed eseguire i contenitori dei servizi vocali
 
@@ -167,19 +167,7 @@ Il seguente tag è un esempio del formato:
 2.0.0-amd64-en-us-preview
 ```
 
-La tabella seguente elenca le impostazioni locali supportate per la **sintesi vocale** nella versione 2.0.0 del contenitore:
-
-| Impostazioni locali della lingua | Tag |
-|--|--|
-| Cinese | `zh-CN` |
-| Inglese | `en-US`<br>`en-GB`<br>`en-AU`<br>`en-IN` |
-| Francese | `fr-CA`<br>`fr-FR` |
-| Tedesco | `de-DE` |
-| Italiano | `it-IT` |
-| Giapponese | `ja-JP` |
-| Coreano | `ko-KR` |
-| Portoghese | `pt-BR` |
-| Spagnolo | `es-ES`<br>`es-MX` |
+Per tutte le impostazioni locali supportate nella versione 2.0.0 del contenitore **vocale-testo** , lease vedere la colonna **supporto del contenitore** della tabella di [supporto per la lingua da voce a testo](language-support.md#speech-to-text) .
 
 # <a name="custom-speech-to-texttabcstt"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
 
@@ -221,24 +209,7 @@ Il seguente tag è un esempio del formato:
 1.3.0-amd64-en-us-jessarus-preview
 ```
 
-La tabella seguente elenca le impostazioni locali supportate per la **sintesi vocale** nella versione 1.3.0 del contenitore:
-
-| Impostazioni locali della lingua | Tag | Voci supportate |
-|--|--|--|
-| Cinese | `zh-CN` | huihuirus<br>kangkang-Apollo<br>Yaoyao-Apollo |
-| Inglese | `en-AU` | Catherine<br>hayleyrus |
-| Inglese | `en-GB` | Giorgio-Apollo<br>hazelrus<br>Susan-Apollo |
-| Inglese | `en-IN` | si-Apollo<br>priyarus<br>Ravi-Apollo<br> |
-| Inglese | `en-US` | jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus |
-| Francese | `fr-CA` | Caroline<br>harmonierus |
-| Francese | `fr-FR` | hortenserus<br>Julie-Apollo<br>Paul-Apollo |
-| Tedesco | `de-DE` | Hedda<br>heddarus<br>Stefan-Apollo |
-| Italiano | `it-IT` | Cosimo-Apollo<br>luciarus |
-| Giapponese | `ja-JP` | Ayumi-Apollo<br>harukarus<br>Ichiro-Apollo |
-| Coreano | `ko-KR` | heamirus |
-| Portoghese | `pt-BR` | Daniel-Apollo<br>heloisarus |
-| Spagnolo | `es-ES` | elenarus<br>Laura-Apollo<br>Pablo-Apollo<br> |
-| Spagnolo | `es-MX` | hildarus<br>Raul-Apollo |
+Per tutte le impostazioni locali supportate e le voci corrispondenti nella versione 1.3.0 del contenitore da **sintesi vocale** , vedere la colonna **supporto del contenitore** della tabella di supporto per le [voci standard](language-support.md#standard-voices) .
 
 > [!IMPORTANT]
 > Quando si crea un POST HTTP *di tipo text-to-Speech standard* , il messaggio [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md) richiede un elemento `voice` con un attributo `name`. Il valore corrisponde alle impostazioni locali del contenitore e alla voce corrispondenti, nota anche come ["nome breve"](language-support.md#standard-voices). Ad esempio, il tag `latest` avrà un nome vocale di `en-US-JessaRUS`.

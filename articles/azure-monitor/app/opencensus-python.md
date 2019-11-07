@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0d848027d6c754df371b4d87cf01c5b2fdbc8c02
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 7fb436ef8d915898bc8f36dd10766e71f63e4a59
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820745"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575577"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurare monitoraggio di Azure per l'applicazione Python (anteprima)
 
@@ -23,8 +23,6 @@ Monitoraggio di Azure supporta la traccia distribuita, la raccolta delle metrich
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - Installazione di Python. Questo articolo usa [Python 3.7.0](https://www.python.org/downloads/), anche se le versioni precedenti potrebbero funzionare con modifiche minime.
-
-
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -40,13 +38,13 @@ Prima di tutto è necessario creare una risorsa Application Insights in monitora
 
 1. Viene visualizzata una finestra di configurazione. Usare la tabella seguente per compilare i campi di input.
 
-   | Impostazione        | Value           | Description  |
+   | Impostazione        | Valore           | Descrizione  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore univoco globale | Nome che identifica l'app che si sta monitorando |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per ospitare i dati Application Insights |
-   | **Località** | Stati Uniti Orientali | Una località nelle vicinanze o vicino alla posizione in cui è ospitata l'app |
+   | **Posizione** | Stati Uniti orientali | Una località nelle vicinanze o vicino alla posizione in cui è ospitata l'app |
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrumentare con OpenCensus Python SDK per monitoraggio di Azure
 
@@ -55,6 +53,8 @@ Installare gli esportatori di monitoraggio di Azure OpenCensus:
 ```console
 python -m pip install opencensus-ext-azure
 ```
+
+Per un elenco completo dei pacchetti e delle integrazioni, vedere [pacchetti OpenCensus](https://docs.microsoft.com/azure/azure-monitor/app/nuget#common-packages-for-python-using-opencensus).
 
 > [!NOTE]
 > Il comando `python -m pip install opencensus-ext-azure` presuppone che sia stata impostata una variabile di ambiente `PATH` per l'installazione di Python. Se questa variabile non è stata configurata, è necessario fornire il percorso completo della directory in cui si trova il file eseguibile di Python. Il risultato è un comando simile al seguente: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
@@ -84,7 +84,7 @@ L'SDK usa tre utilità di esportazione di monitoraggio di Azure per inviare dive
         main()
     ```
 
-2. L'esecuzione del codice genera una richiesta ripetuta di immissione di un valore. Con ogni voce, il valore verrà stampato nella shell e il modulo Python di OpenCensus genererà un componente di `SpanData` corrispondente. Il progetto OpenCensus definisce una [traccia come albero di intervalli](https://opencensus.io/core-concepts/tracing/).
+2. L'esecuzione del codice genera una richiesta ripetuta di immissione di un valore. Con ogni voce, il valore verrà stampato nella shell e il modulo Python di OpenCensus genererà un componente di `SpanData`corrispondente. Il progetto OpenCensus definisce una [traccia come albero di intervalli](https://opencensus.io/core-concepts/tracing/).
     
     ```
     Enter a value: 4
@@ -127,6 +127,10 @@ L'SDK usa tre utilità di esportazione di monitoraggio di Azure per inviare dive
     ```
 
 4. A questo punto, quando si esegue lo script Python, viene comunque richiesto di immettere i valori, ma solo il valore viene stampato nella shell. Il `SpanData` creato verrà inviato a monitoraggio di Azure. È possibile trovare i dati di intervallo emessi in `dependencies`.
+
+5. Per informazioni sul campionamento in OpenCensus, vedere [campionamento in OpenCensus](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-fixed-rate-sampling-in-opencensus-python).
+
+6. Per informazioni dettagliate sulla correlazione dei dati di telemetria nei dati di traccia, esaminare la [correlazione di telemetria](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)di OpenCensus.
 
 ### <a name="metrics"></a>Metriche
 
@@ -291,6 +295,8 @@ L'SDK usa tre utilità di esportazione di monitoraggio di Azure per inviare dive
     ```
 
 4. L'utilità di esportazione invierà i dati di log a monitoraggio di Azure. È possibile trovare i dati in `traces`.
+
+5. Per informazioni dettagliate su come arricchire i log con i dati del contesto di traccia, vedere OpenCensus Python [logs Integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Avviare il monitoraggio nel portale di Azure
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: a5a19910d101f3f30afcafa049056c78cd976f75
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 8850aef8b5d45f236385551a1455e6fe7b540340
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933069"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614451"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Esempi di query di log in Monitoraggio di Azure
 Questo articolo include vari esempi di [query](log-query-overview.md) che usano il [linguaggio di query Kusto](/azure/kusto/query/) per recuperare tipi diversi di dati da Monitoraggio di Azure. Poiché vengono usati metodi diversi per consolidare e analizzare i dati, è possibile usare questi esempi per identificare strategie diverse che si possono applicare in base alle necessità.  
@@ -164,7 +164,7 @@ NetworkMonitoring
 | distinct Computer
 ```
 
-## <a name="performance"></a>Performance
+## <a name="performance"></a>Prestazioni
 
 ### <a name="join-computer-perf-records-to-correlate-memory-and-cpu"></a>Aggiungere i record delle prestazioni di un computer per correlare memoria e CPU
 Questo esempio correla i record delle **prestazioni** di un computer specifico e crea due diagrammi temporali, uno relativo all'utilizzo medio della CPU e l'altro per l'utilizzo massimo della memoria.
@@ -175,7 +175,6 @@ let EndTime = now()-4d;
 Perf
 | where CounterName == "% Processor Time"  
 | where TimeGenerated > StartTime and TimeGenerated < EndTime
-and TimeGenerated < EndTime
 | project TimeGenerated, Computer, cpu=CounterValue 
 | join kind= inner (
    Perf

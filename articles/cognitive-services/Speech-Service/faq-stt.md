@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: 1f934bc5627331cc92ad3f497f1f7e4e0e5526cd
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 3b957181015cba06eb361272ca1004ba3e7a7008
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595331"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579688"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
 Se in questo documento non sono presenti risposte alle domande di proprio interesse, vedere le [altre opzioni di supporto](support.md).
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 
 **D: Qual è la differenza tra un modello di base e un modello di riconoscimento vocale personalizzato?**
 
@@ -84,14 +84,14 @@ e uno
 
 - un token di accesso per l'utente subrscription (vedere [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
 
-Oppure
+oppure
 
 - ID risorsa per la sottoscrizione:
   - Passare a https://portal.azure.com,
   - Selezionare `Cognitive Services` nella casella di ricerca.
   - dai servizi visualizzati selezionare il servizio di riconoscimento vocale per il quale si desidera aumentare la concorrenza,
   - visualizzare le proprietà del servizio.
-  - Copiare il `Resource ID` completo.
+  - Copiare il `Resource ID`completo.
 
 **D: È possibile scaricare il modello ed eseguirlo in locale?**
 
@@ -176,7 +176,19 @@ Oppure
 
 **R**: Il caricamento di un elenco di parole consente di aggiungere le parole nel vocabolario ma non di insegnare al sistema come le parole stesse vengono generalmente usate. Se si specificano espressioni complete o parziali, ovvero frasi o espressioni di probabile uso da parte degli utenti, il modello linguistico può apprendere le nuove parole e come vengono usate. Il modello linguistico personalizzato è utile non solo per aggiungere nuove parole nel sistema ma anche per modificare la probabilità di parole note per l'applicazione. L'indicazione di espressioni complete favorisce l'apprendimento da parte del sistema. 
 
+## <a name="tenant-model-custom-speech-with-office-365-data"></a>Modello tenant (Riconoscimento vocale personalizzato con i dati di Office 365)
+
+**D: quali informazioni sono incluse nel modello tenant e come viene creata?**
+
+**R:** Un modello tenant viene compilato tramite messaggi di posta elettronica e documenti di [gruppo pubblici](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) che possono essere visualizzati da chiunque nell'organizzazione. 
+ 
+**D: quali esperienze vocali sono migliorate con il modello tenant?**
+
+**R:** Quando il modello tenant è abilitato, creato e pubblicato, viene utilizzato per migliorare il riconoscimento per tutte le applicazioni aziendali compilate mediante il servizio di riconoscimento vocale. che passano anche un token AAD utente che indica l'appartenenza all'azienda. 
+ 
+Le esperienze di sintesi vocale integrate in Office 365, ad esempio la dettatura e la didascalia di PowerPoint, non vengono modificate quando si crea un modello tenant per le applicazioni di servizio vocale.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [risoluzione dei problemi](troubleshooting.md)
+* [Risoluzione dei problemi](troubleshooting.md)
 * [Note sulla versione](releasenotes.md)

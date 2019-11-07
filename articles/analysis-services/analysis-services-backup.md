@@ -1,18 +1,18 @@
 ---
 title: Backup e ripristino del database di Azure Analysis Services | Microsoft Docs
-description: Viene descritto come eseguire backup e ripristino di un database di Azure Analysis Services.
+description: Questo articolo descrive come eseguire il backup e il ripristino dei dati e dei metadati del modello da un database di Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fde545f3764f5910d00da5a8ce7f0e8c1772c7ea
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 3f63ecf560a14248fed6dea53c30a27acdf9a938
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295421"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573441"
 ---
 # <a name="backup-and-restore"></a>Backup e ripristino
 
@@ -73,7 +73,7 @@ Prima di eseguire il backup, è necessario configurare le impostazioni di archiv
 ### <a name="powershell"></a>PowerShell
 Usare il cmdlet [Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase).
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Ripristino
 Durante il ripristino, il file di backup deve essere nell'account di archiviazione configurato per il server. Se è necessario spostare un file di backup da un percorso locale all'account di archiviazione, usare [Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) o l'utilità della riga di comando [AzCopy](../storage/common/storage-use-azcopy.md). 
 
 

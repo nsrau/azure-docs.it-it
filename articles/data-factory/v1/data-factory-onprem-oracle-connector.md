@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da o verso Oracle con Data Factory | Microsoft Docs
+title: Copiare dati da o verso Oracle usando Data Factory
 description: Informazioni su come copiare dati da o verso database Oracle locali tramite Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 51fae63b6db99f28a5b3bed056dadc0c2513ff0f
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 822713d67790906c972ad77a748ef8d52b871bc4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839940"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682431"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiare dati da o verso un database Oracle locale con Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-onprem-oracle-connector.md)
 > * [Versione 2 (corrente)](../connector-oracle.md)
 
@@ -69,7 +69,7 @@ Il connettore Oracle supporta due versioni di driver:
     > Il driver Microsoft per Oracle supporta attualmente solo la copia dei dati da Oracle, ma non la scrittura in Oracle. La funzionalità di connessione di test nella scheda **Diagnostica** di Gateway di gestione dati non supporta questo driver. In alternativa, è possibile usare la Copia guidata per convalidare la connettività.
     >
 
-- **Provider di dati Oracle per .NET**: è possibile usare il provider di dati Oracle per copiare i dati da o verso Oracle. Questo componente è incluso in [Oracle Data Access Components for Windows](https://www.oracle.com/technetwork/topics/dotnet/downloads/). Installare la versione corrispondente (32 bit o 64 bit) nel computer in cui è installato il gateway. Il [provider di dati Oracle per .NET 12.1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) può accedere a Oracle Database 10g Release 2 e versioni successive.
+- **Provider di dati Oracle per .NET:** è possibile usare il provider di dati Oracle per copiare i dati da o verso Oracle. Questo componente è incluso in [Oracle Data Access Components for Windows](https://www.oracle.com/technetwork/topics/dotnet/downloads/). Installare la versione corrispondente (32 bit o 64 bit) nel computer in cui è installato il gateway. Il [provider di dati Oracle per .NET 12.1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) può accedere a Oracle Database 10g Release 2 e versioni successive.
 
     Se si sceglie di **installare XCopy**, completare i passaggi descritti nel file readme.htm. È consigliabile selezionare il programma di installazione con l'interfaccia utente (non il programma di installazione XCopy).
 
@@ -77,13 +77,13 @@ Il connettore Oracle supporta due versioni di driver:
 
 Se si usa la Copia guidata per creare la pipeline di copia, il tipo di driver viene determinato automaticamente. Per impostazione predefinita, viene usato il driver Microsoft, a meno che la versione del gateway sia inferiore a 2.7 o si selezioni Oracle come sink.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 È possibile creare una pipeline con un'attività di copia. La pipeline sposta i dati da o verso un database Oracle locale usando diversi strumenti o API.
 
-Il modo più semplice per creare una pipeline è usare la Copia guidata. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md) per una rapida procedura dettagliata di creazione di una pipeline mediante la procedura guidata Copia dati.
+Il modo più semplice per creare una pipeline è usare la Copia guidata. Vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md) per una rapida procedura dettagliata di creazione di una pipeline mediante la procedura guidata Copia dati.
 
-È anche possibile usare uno dei seguenti strumenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, una **modello Azure Resource Manager**, la **API .NET**, o **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Per creare una pipeline, è anche possibile usare uno degli strumenti seguenti: **Visual Studio**, **Azure PowerShell**, un **modello di Azure Resource Manager**, l' **API .NET**o l' **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Se si usano gli strumenti o le API, completare la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -100,17 +100,17 @@ Nelle sezioni seguenti sono disponibili informazioni dettagliate sulle propriet�
 
 La tabella seguente descrive gli elementi JSON specifici del servizio collegato Oracle:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
-| type |La proprietà **type** deve essere impostata su **OnPremisesOracle**. |Yes |
+| type |La proprietà **type** deve essere impostata su **OnPremisesOracle**. |Sì |
 | driverType | Specificare il driver da usare per copiare i dati da o verso il database Oracle. I valori consentiti sono **Microsoft** e **ODP** (impostazione predefinita). Per informazioni dettagliate sui driver, vedere [Versioni supportate e installazione](#supported-versions-and-installation). | No |
-| connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà **connectionString**. | Yes |
+| connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà **connectionString**. | Sì |
 | gatewayName | Nome del gateway usato per connettersi al server Oracle locale. |Sì |
 
 **Esempio: mediante il driver Microsoft**
 
 > [!TIP]
-> Se viene visualizzato un errore che indica "ORA 01025: UPI parameter out of range" (parametro UPI esterno all'intervallo) e la versione Oracle è la 8i, aggiungere `WireProtocolMode=1` alla stringa di connessione e riprovare:
+> Se viene visualizzato un errore che indica "ORA 01025: UPI parameter out of range" (Parametro UPI fuori intervallo) e la versione Oracle è la 8i, aggiungere `WireProtocolMode=1` alla stringa di connessione e riprovare:
 
 ```json
 {
@@ -170,7 +170,7 @@ Le proprietà disponibili nella sezione **typeProperties** dell'attività varian
 
 Nell'attività di copia con origine di tipo **OracleSource** sono disponibili le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | oracleReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio, "select \* from **MyTable**". <br/><br/>Se non specificato, viene eseguita questa istruzione SQL: "select \* from **MyTable**" |No<br />(se è specificato **tableName** nel **set di dati**) |
 
@@ -178,16 +178,16 @@ Nell'attività di copia con origine di tipo **OracleSource** sono disponibili le
 
 **OracleSink** supporta le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |**timespan**<br/><br/> Esempio: 00:30:00 (30 minuti) |No |
+| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |**timespan**<br/><br/> Ad esempio: 00:30:00 (30 minuti) |No |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge il valore di **writeBatchSize**. |Numero intero (numero di righe) |No (valore predefinito: 100) |
-| sqlWriterCleanupScript |Specifica una query da eseguire nell'attività di copia per eseguire la pulizia dei dati di una sezione specifica. |Istruzione di query. |N. |
+| sqlWriterCleanupScript |Specifica una query da eseguire nell'attività di copia per eseguire la pulizia dei dati di una sezione specifica. |Istruzione di query. |No |
 | sliceIdentifierColumnName |Specifica il nome della colonna per l'attività di copia da riempire con un identificatore di sezione generato automaticamente. Il valore di **sliceIdentifierColumnName** viene usato per eseguire la pulizia dei dati di una sezione specifica quando viene nuovamente eseguita. |Nome di colonna di una colonna con tipo di dati **binary(32)** . |No |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Esempi JSON per la copia dei dati da e verso il database Oracle
 
-Gli esempi seguenti forniscono le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) oppure [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Questi esempi illustrano come copiare dati da o verso un database Oracle e da o verso Archiviazione BLOB di Azure. I dati possono tuttavia essere copiati in uno qualsiasi dei sink elencati in [Archivi dati e formati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
+Gli esempi seguenti forniscono le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Questi esempi illustrano come copiare dati da o verso un database Oracle e da o verso Archiviazione BLOB di Azure. I dati possono tuttavia essere copiati in uno qualsiasi dei sink elencati in [Archivi dati e formati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
 
 **Esempio: Copiare i dati da Oracle ad Archiviazione BLOB di Azure**
 
@@ -570,7 +570,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 * Se viene visualizzato il messaggio di errore anche dopo l'installazione del provider, completare questa procedura:
     1. Aprire il file machine.config per .NET 2.0 dalla cartella <disco di sistema\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
     2. Cercare **Provider di dati Oracle per .NET**. Dovrebbe essere possibile trovare una voce, come illustrato nell'esempio seguente in **system.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
-* Copiare questa voce nel file machine.config nella seguente cartella .NET 4.0: <disco di sistema\>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Modificare quindi la versione impostandola su 4.xxx.x.x.
+* Copiare questa voce nel file Machine. config nella seguente cartella .NET 4,0: <\>del disco di sistema: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Modificare quindi la versione in 4. xxx. x.x.
 * Installare <percorso di installazione di ODP.NET\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll nella Global Assembly Cache eseguendo **gacutil /i [percorso del provider]** .
 
 ### <a name="problem-2-datetime-formatting"></a>Problema 2: formattazione di data/ora
@@ -605,7 +605,7 @@ Quando si spostano dati da Oracle, vengono usati i mapping seguenti dal tipo di 
 | FLOAT |Decimal, String (se la precisione > 28) |
 | INTEGER |Decimal, String (se la precisione > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
-| INTERVAL DAY TO SECOND |Intervallo di tempo |
+| INTERVAL DAY TO SECOND |TimeSpan |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
@@ -617,7 +617,7 @@ Quando si spostano dati da Oracle, vengono usati i mapping seguenti dal tipo di 
 | TIMESTAMP |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
 | TIMESTAMP WITH TIME ZONE |DateTime |
-| UNSIGNED INTEGER |NUMBER |
+| UNSIGNED INTEGER |Number |
 | VARCHAR2 |String |
 | XML |String |
 

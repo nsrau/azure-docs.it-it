@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e2328bcd2b2d9fe957df82c46730091ffdf9366
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 695bd461ae7e979c0a803cd2d6cb450003a6bcee
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474293"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602992"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuire la protezione delle password di Azure AD
 
@@ -32,7 +32,7 @@ Durante la fase di controllo, molte organizzazioni scoprono che:
 * Spesso gli utenti usano password non sicure.
 * Devono informare gli utenti sulla modifica imminente dell'applicazione della sicurezza, sulla possibile incidenza su di essi e su come scegliere password più sicure.
 
-È anche possibile che la convalida delle password più avanzata influisca sull'automazione della distribuzione del controller di dominio Active Directory esistente. È consigliabile che almeno una promozione del controller di dominio e un'abbassamento di livello del controller di dominio si verifichino durante la valutazione del periodo di controllo, in modo da individuare in anticipo tali problemi.  Per scoprire di più, vedi:
+È anche possibile che la convalida delle password più avanzata influisca sull'automazione della distribuzione del controller di dominio Active Directory esistente. È consigliabile che almeno una promozione del controller di dominio e un'abbassamento di livello del controller di dominio si verifichino durante la valutazione del periodo di controllo, in modo da individuare in anticipo tali problemi.  Per altre informazioni, vedere:
 
 * [Ntdsutil. exe non è in grado di impostare una password per la modalità di ripristino di servizi directory debole](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [La promozione della replica del controller di dominio non riesce a causa di una password della modalità ripristino servizi directory debole](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
@@ -96,7 +96,7 @@ Il diagramma seguente illustra il modo in cui i componenti di base di Azure AD l
 
 È consigliabile esaminare il funzionamento del software prima di distribuirlo. Vedere [panoramica concettuale di Azure ad Password Protection](concept-password-ban-bad-on-premises.md).
 
-### <a name="download-the-software"></a>Scarica il software
+### <a name="download-the-software"></a>Scaricare il software
 
 Per la protezione Azure AD password sono disponibili due programmi di installazione necessari. Sono disponibili nell' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -135,7 +135,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
 
      Questo cmdlet richiede le credenziali di amministratore globale per il tenant di Azure. Sono necessari anche i privilegi di amministratore di dominio Active Directory locali nel dominio radice della foresta. Dopo che il comando ha avuto esito positivo una volta per un servizio proxy, le chiamate aggiuntive verranno riuscite, ma non sono necessarie.
 
-      Il cmdlet `Register-AzureADPasswordProtectionProxy` supporta le tre modalità di autenticazione seguenti.
+      Il cmdlet `Register-AzureADPasswordProtectionProxy` supporta le tre modalità di autenticazione seguenti. Le prime due modalità supportano Azure Multi-Factor Authentication ma la terza modalità non lo è. Per altri dettagli, vedere i commenti seguenti.
 
      * Modalità di autenticazione interattiva:
 
@@ -179,7 +179,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
 1. Registrare la foresta.
    * È necessario inizializzare la foresta Active Directory locale con le credenziali necessarie per comunicare con Azure tramite il cmdlet `Register-AzureADPasswordProtectionForest` PowerShell. Il cmdlet richiede le credenziali di amministratore globale per il tenant di Azure. Richiede anche privilegi di amministratore dell'organizzazione Active Directory locale. Questo passaggio viene eseguito una volta per ogni foresta.
 
-      Il cmdlet `Register-AzureADPasswordProtectionForest` supporta le tre modalità di autenticazione seguenti.
+      Il cmdlet `Register-AzureADPasswordProtectionForest` supporta le tre modalità di autenticazione seguenti. Le prime due modalità supportano Azure Multi-Factor Authentication ma la terza modalità non lo è. Per altri dettagli, vedere i commenti seguenti.
 
      * Modalità di autenticazione interattiva:
 
@@ -302,7 +302,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
 
    È possibile installare il servizio DC Agent in un computer che non è ancora un controller di dominio. In questo caso, il servizio verrà avviato ed eseguito ma rimarrà inattivo fino a quando il computer non viene promosso a controller di dominio.
 
-   È possibile automatizzare l'installazione del software utilizzando le procedure MSI standard. ad esempio:
+   È possibile automatizzare l'installazione del software utilizzando le procedure MSI standard. Ad esempio:
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
@@ -350,4 +350,4 @@ La progettazione del software dell'agente di controller di dominio attenua i nor
 
 Ora che sono stati installati i servizi necessari per Azure AD la protezione con password nei server locali, [eseguire la configurazione post-installazione e raccogliere le informazioni di report](howto-password-ban-bad-on-premises-operations.md) per completare la distribuzione.
 
-[Panoramica dei concetti relativi alla protezione password di Azure AD](concept-password-ban-bad-on-premises.md)
+[Panoramica concettuale della password di protezione di Azure AD](concept-password-ban-bad-on-premises.md)

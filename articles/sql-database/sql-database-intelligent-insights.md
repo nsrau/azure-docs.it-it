@@ -1,5 +1,5 @@
 ---
-title: Monitorare le prestazioni del database con Intelligent Insights - Database SQL di Azure | Microsoft Docs
+title: Monitorare le prestazioni del database con Intelligent Insights-database SQL di Azure
 description: Intelligent Insights per il database SQL di Azure usa le funzionalità di intelligence integrata per monitorare in modo continuativo l'utilizzo del database grazie all'intelligenza artificiale e di rilevare gli eventi che possono causare interruzioni del funzionamento e una riduzione delle prestazioni.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 70498c5f4c824681ee59b7232e9409235d7f6a93
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c073b535271ba8f9f11e17ba5203b13e257e211b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262165"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689688"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights con intelligenza artificiale per eseguire il monitoraggio e risolvere i problemi delle prestazioni del database
 
@@ -112,7 +112,7 @@ Per usare Intelligent Insights con strumenti di terze parti o per la creazione d
 
 Le metriche usate per i modelli di rilevamento per la generazione di analisi intelligenti si basano sul monitoraggio degli elementi seguenti:
 
-- Durata query
+- Durata delle query
 - Richieste di timeout
 - Tempo di attesa eccessivo
 - Richieste che hanno generato errori
@@ -127,7 +127,7 @@ Tutte le metriche vengono prese in considerazione complessivamente in diverse re
 - Analisi della causa radice dei problemi rilevati.
 - Dove possibile, consigli su come migliorare le prestazioni del database SQL monitorato.
 
-## <a name="query-duration"></a>Durata query
+## <a name="query-duration"></a>Durata delle query
 
 Il modello di riduzione delle prestazioni basato sulla durata delle query analizza le singole query e rileva l'aumento del tempo necessario per compilare ed eseguire una query rispetto alla baseline delle prestazioni.
 
@@ -153,7 +153,7 @@ Il modello basato sui tempi di attesa eccessivi monitora le singole query di dat
 - Raggiungimento dei limiti delle risorse del pool elastico
 - Numero eccessivo di thread di sessioni o di processi di lavoro
 - Blocco eccessivo del database
-- Uso elevato della memoria
+- Utilizzo elevato della memoria
 - Altre statistiche di attesa
 
 Il raggiungimento dei limiti delle risorse o dei limiti delle risorse del pool elastico indica che il consumo di risorse disponibili in una sottoscrizione o nel pool elastico ha superato le soglie assolute, indicando una riduzione delle prestazioni del carico di lavoro. Un numero eccessivo di thread di sessioni o di processi di lavoro indica una condizione in cui il numero di thread di processi di lavoro o di sessioni avviate ha superato le soglie assolute, indicando una riduzione delle prestazioni del carico di lavoro.

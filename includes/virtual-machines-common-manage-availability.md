@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0879cb33a0796e19724bd143e57780d6ce27bfcf
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c884d3c7102fc47f6efad86d9fe3704afd0edcf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657809"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73590918"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Informazioni sui riavvii delle VM: manutenzione e tempo di inattività
 Sono tre gli scenari che possono interessare la macchina virtuale in Azure: manutenzione dell'hardware non pianificata, tempo di inattività imprevisto e manutenzione pianificata.
@@ -60,7 +60,7 @@ A ciascuna macchina virtuale nel set di disponibilità viene assegnato un **domi
 I domini di errore definiscono il gruppo di macchine virtuali che condividono una fonte di alimentazione e uno switch di rete comuni. Per impostazione predefinita, le macchine virtuali configurate in un set di disponibilità vengono suddivise tra un massimo di tre domini di errore per le distribuzioni di Resource Manager e in due domini di errore per la distribuzione classica. Il raggruppamento di più macchine virtuali in un set di disponibilità non garantisce la protezione dell'applicazione da eventuali errori del sistema operativo o di singole applicazioni, ma limita le conseguenze prodotte da potenziali guasti dell'hardware fisico e interruzioni di rete o di alimentazione.
 
 <!--Image reference-->
-   ![Disegno concettuale della configurazione del dominio di aggiornamento e del dominio di errore](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+   ![disegno concettuale della configurazione del dominio di aggiornamento e del dominio di errore](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Usare Managed Disks per le macchine virtuali nel set di disponibilità
 Se si usano macchine virtuali con dischi non gestiti, è fortemente consigliabile [convertire le macchine virtuali nel set di disponibilità per l'uso di Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
@@ -72,6 +72,13 @@ Se si usano macchine virtuali con dischi non gestiti, è fortemente consigliabil
 > Il numero di domini di errore per i set di disponibilità gestiti dipende dall'area: due o tre per area. La tabella seguente illustra il numero per area
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
+
+> Nota: in alcune circostanze, è possibile che due macchine virtuali che fanno parte dello stesso abilitate per condividono lo stesso FaultDomain. Per confermare questo problema, passare a abilitate per e selezionare la colonna "dominio di errore".
+> Questo comportamento può essere osservato quando si verifica la sequenza seguente durante la distribuzione delle macchine virtuali:
+> - Distribuire la prima VM
+> - Arrestare/deallocare la prima VM
+> - Distribuire la seconda macchina virtuale in queste circostanze, il disco del sistema operativo della seconda macchina virtuale potrebbe essere creato nello stesso dominio di errore della prima VM, quindi anche la seconda macchina virtuale verrà visualizzata nella stessa FaultDomain. 
+> Per evitare questo problema, è consigliabile non arrestare/deallocare la VM tra le distribuzioni.
 
 Se si intende usare macchine virtuali con dischi non gestiti, seguire queste procedure consigliate per gli account di archiviazione in cui i dischi rigidi virtuali delle macchine virtuali vengono archiviati come [BLOB di pagine](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
@@ -89,7 +96,7 @@ Se le macchine virtuali sono quasi identiche e svolgono la stessa funzione per l
 Ad esempio, è possibile inserire tutte le macchine virtuali nel front-end dell'applicazione che esegue IIS, Apache e nginx in una singola zona di disponibilità o in un set. Assicurarsi che solo le macchine virtuali front-end si trovino nella stessa zona di disponibilità o nello stesso set. Analogamente, assicurarsi che solo le macchine virtuali del livello dati siano inserite nella propria zona di disponibilità o in un set, ad esempio le macchine virtuali SQL Server replicate o le macchine virtuali MySQL.
 
 <!--Image reference-->
-   ![Livelli applicazione](./media/virtual-machines-common-manage-availability/application-tiers.png)
+   ![livelli applicazione](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>Combinare un servizio di bilanciamento del carico con le zone o i set di disponibilità
 Combinare la [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) con una zona di disponibilità o impostare per ottenere la massima resilienza dell'applicazione. Il servizio di bilanciamento del carico distribuisce il traffico tra più macchine virtuali ed è incluso nelle macchine virtuali di livello Standard. Non tutti i livelli delle macchine virtuali includono Azure Load Balancer. Per altre informazioni sul bilanciamento del carico delle macchine virtuali, vedere [Load Balancing virtual machines](../articles/virtual-machines/virtual-machines-linux-load-balance.md) (Bilanciamento del carico delle macchine virtuali).

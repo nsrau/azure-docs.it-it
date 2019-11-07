@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 5e8dc6629cfbbc3e42aeeb4dc94f33d13867ca9f
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 8c9258f099587ba4dbdfe3a7e46f72cd7a825024
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024802"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603828"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Origini evento di Griglia di eventi di Azure
 
@@ -24,7 +24,7 @@ Questo articolo fornisce i collegamenti al contenuto per ogni origine evento.
 
 Sottoscrivere gli eventi delle sottoscrizioni di Azure per rispondere alle modifiche apportate alle risorse in una sottoscrizione di Azure.
 
-|Title |Description  |
+|Titolo |Descrizione  |
 |---------|---------|
 | [Esercitazione: Automazione di Azure con Griglia di eventi e Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Creare una macchina virtuale, che invia un evento. L'evento attiva un runbook di Automazione che contrassegna la macchina virtuale e attiva un messaggio che viene inviato a un canale di Microsoft Teams. |
 | [Come sottoscrivere eventi tramite il portale](subscribe-through-portal.md) | Usare il portale per sottoscrivere eventi per una sottoscrizione di Azure. |
@@ -36,7 +36,7 @@ Sottoscrivere gli eventi delle sottoscrizioni di Azure per rispondere alle modif
 
 Sottoscrivere gli eventi di Registro Azure Container per rispondere alle modifiche delle immagini.
 
-|Title |Description  |
+|Titolo |Descrizione  |
 |---------|---------|
 | [Guida introduttiva: inviare eventi del registro contenitori](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare gli eventi di Registro Azure Container. |
 | [Schema di eventi](event-schema-container-registry.md) | Mostrare gli eventi di Registro Azure Container. |
@@ -45,7 +45,7 @@ Sottoscrivere gli eventi di Registro Azure Container per rispondere alle modific
 
 Sottoscrivere argomenti personalizzati per rispondere agli eventi delle applicazioni.
 
-|Title  |Description  |
+|Titolo  |Descrizione  |
 |---------|---------|
 | [Guida introduttiva: creare e instradare eventi personalizzati con l'interfaccia della riga di comando di Azure](custom-event-quickstart.md) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare gli eventi personalizzati. |
 | [Guida introduttiva: creare e instradare eventi personalizzati con Azure PowerShell](custom-event-quickstart-powershell.md) | Illustra come usare Azure PowerShell per inviare gli eventi personalizzati. |
@@ -65,9 +65,9 @@ Sottoscrivere argomenti personalizzati per rispondere agli eventi delle applicaz
 
 Sottoscrivere gli eventi di Hub eventi per rispondere agli eventi dei file di Acquisizione. Hub eventi può fungere da gestore dell'evento o da origine evento. I seguenti articoli illustrano come usare Hub eventi come origine.
 
-|Title  |Description  |
+|Titolo  |Descrizione  |
 |---------|---------|
-| [Esercitazione: Trasmettere Big Data a un data warehouse](event-grid-event-hubs-integration.md) | Quando Hub eventi crea un file di Acquisizione, Griglia di eventi invia un evento a un'app per le funzioni. L'app recupera il file di Acquisizione ed esegue la migrazione dei dati a un data warehouse. |
+| [Esercitazione: trasmettere Big Data a un data warehouse](event-grid-event-hubs-integration.md) | Quando Hub eventi crea un file di Acquisizione, Griglia di eventi invia un evento a un'app per le funzioni. L'app recupera il file di Acquisizione ed esegue la migrazione dei dati a un data warehouse. |
 | [Schema di eventi](event-schema-event-hubs.md) | Illustra i campi negli eventi di Hub eventi. |
 
 Per esempi di Hub eventi come gestore, vedere [Gestore di Hub eventi](event-handlers.md#event-hubs).
@@ -76,7 +76,7 @@ Per esempi di Hub eventi come gestore, vedere [Gestore di Hub eventi](event-hand
 
 Sottoscrivere gli eventi dell'hub Internet per rispondere agli eventi di creazione, eliminazione, connessione, disconnessione e telemetria del dispositivo.
 
-|Title  |Description  |
+|Titolo  |Descrizione  |
 |---------|---------|
 | [Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando App per la logica](publish-iot-hub-events-to-logic-apps.md) | Un'app per la logica invia una notifica tramite posta elettronica ogni volta che un dispositivo viene aggiunto all'hub IoT. |
 | [Rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni](../iot-hub/iot-hub-event-grid.md) | Panoramica dell'integrazione dell'hub IoT con Griglia di eventi. |
@@ -89,7 +89,7 @@ Key Vault integrazione con griglia di eventi è attualmente in fase di anteprima
 
 Sottoscrivere gli eventi di Key Vault per ricevere una notifica quando un segreto sta per scadere, scade un segreto o un segreto ha una nuova versione disponibile. 
 
-|Title  |Description  |
+|Titolo  |Descrizione  |
 |---------|---------|
 | [Monitoraggio di eventi di Key Vault con griglia di eventi di Azure](../key-vault/event-grid-overview.md) | Panoramica dell'integrazione di Key Vault con griglia di eventi. |
 | [Esercitazione: creare e monitorare Key Vault eventi con griglia di eventi](../key-vault/event-grid-tutorial.md) | Informazioni su come configurare le notifiche di griglia di eventi per Key Vault. |
@@ -99,7 +99,7 @@ Sottoscrivere gli eventi di Key Vault per ricevere una notifica quando un segret
 
 Sottoscrivere gli eventi di Servizi multimediali per rispondere agli eventi dello stato dei processi.
 
-|Title  |Description  |
+|Titolo  |Descrizione  |
 |---------|---------|
 | [Panoramica: reazione a eventi di Servizi multimediali](../media-services/latest/reacting-to-media-services-events.md) | Panoramica dell'integrazione di Servizi multimediali con Griglia di eventi. |
 | [Esercitazione: instradare gli eventi di Servizi multimediali di Azure verso un endpoint Web personalizzato tramite l'interfaccia della riga di comando](../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come inviare gli eventi da Servizi multimediali. |
@@ -109,9 +109,9 @@ Sottoscrivere gli eventi di Servizi multimediali per rispondere agli eventi dell
 
 Sottoscrivere gli eventi dei gruppi di risorse per rispondere alle modifiche apportate alle risorse in un gruppo di risorse.
 
-|Title  |Description  |
+|Titolo  |Descrizione  |
 |---------|---------|
-| [Esercitazione: Monitorare le modifiche alla macchina virtuale con la Griglia di eventi di Azure e le app per la logica](monitor-virtual-machine-changes-event-grid-logic-app.md) | Un'app per la logica monitora le modifiche a una macchina virtuale e invia messaggi di posta elettronica su tali modifiche. |
+| [Esercitazione: monitorare le modifiche alla macchina virtuale con la Griglia di eventi di Azure e le app per la logica](monitor-virtual-machine-changes-event-grid-logic-app.md) | Un'app per la logica monitora le modifiche a una macchina virtuale e invia messaggi di posta elettronica su tali modifiche. |
 | [Interfaccia della riga di comando di Azure: sottoscrivere eventi per un gruppo di risorse](./scripts/event-grid-cli-resource-group.md)| Script di esempio che sottoscrive eventi per un gruppo di risorse. Invia eventi a un webhook. |
 | [Interfaccia della riga di comando di Azure: sottoscrivere eventi per un gruppo di risorse e applicare un filtro per una risorsa](./scripts/event-grid-cli-resource-group-filter.md) | Script di esempio che sottoscrive eventi per un gruppo di risorse e applica un filtro per una risorsa. |
 | [PowerShell: sottoscrivere eventi per un gruppo di risorse](./scripts/event-grid-powershell-resource-group.md) | Script di esempio che sottoscrive eventi per un gruppo di risorse. Invia eventi a un webhook. |
@@ -119,13 +119,13 @@ Sottoscrivere gli eventi dei gruppi di risorse per rispondere alle modifiche app
 | [Modello di Resource Manager: sottoscrizione della risorsa](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Sottoscrive eventi per una sottoscrizione di Azure o un gruppo di risorse. Invia eventi a un webhook. |
 | [Schema di eventi](event-schema-resource-groups.md) | Illustra i campi negli eventi dei gruppi di risorse. |
 
-## <a name="service-bus"></a>Bus di servizio
+## <a name="service-bus"></a>BUS DI SERVIZIO
 
 Sottoscrivere gli eventi del bus di servizio per rispondere ai messaggi senza un listener attivo.
 
-|Title  |Description  |
+|Titolo  |Descrizione  |
 |---------|---------|
-| [Esercitazione: Esempi dell'integrazione del bus di servizio di Azure in Griglia di eventi di Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Griglia di eventi invia i messaggi dall'argomento del bus di servizio all'app per le funzioni e all'app per la logica. |
+| [Esercitazione: esempi dell'integrazione del bus di servizio di Azure in Griglia di eventi di Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Griglia di eventi invia i messaggi dall'argomento del bus di servizio all'app per le funzioni e all'app per la logica. |
 | [Panoramica: bus di servizio di Azure in Griglia di eventi](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Panoramica dell'integrazione del bus di servizio con Griglia di eventi. |
 | [Schema di eventi](event-schema-service-bus.md) | Illustra i campi negli eventi del bus di servizio. |
 
@@ -133,7 +133,7 @@ Sottoscrivere gli eventi del bus di servizio per rispondere ai messaggi senza un
 
 Sottoscrivere gli eventi di archiviazione BLOB per rispondere agli eventi creati ed eliminati dai BLOB.
 
-|Title  |Description  |
+|Titolo  |Descrizione  |
 |---------|---------|
 | [Guida introduttiva: indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato con l'interfaccia della riga di comando di Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare gli eventi di archiviazione BLOB a un webhook. |
 | [Guida introduttiva: indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato con PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare PowerShell per inviare gli eventi di archiviazione BLOB a un webhook. |
@@ -147,7 +147,7 @@ Sottoscrivere gli eventi di archiviazione BLOB per rispondere agli eventi creati
 ## <a name="maps"></a>Mappe
 Eseguire la sottoscrizione agli eventi di Mappe di Azure per rispondere agli eventi di recinto virtuale. Un'applicazione, ad esempio, può recapitare una notifica di posta elettronica ogni volta che un dispositivo entra o esce da un recinto virtuale.
 
-|Title  |Description  |
+|Titolo  |Descrizione  |
 |---------|---------|
 | [Reagire agli eventi di Mappe di Azure con Griglia di eventi](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Panoramica dell'integrazione di Mappe di Azure con Griglia di eventi. |
 | [Esercitazione: configurare una rete virtuale](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Questa esercitazione illustra i passaggi di base per la configurazione di un recinto virtuale con Mappe di Azure. Si usa Griglia di eventi di Azure per trasmettere i risultati del recinto virtuale e configurare una notifica in base ai risultati del recinto virtuale stesso. |
@@ -156,7 +156,7 @@ Eseguire la sottoscrizione agli eventi di Mappe di Azure per rispondere agli eve
 ## <a name="app-configuration"></a>Configurazione app
 Sottoscrivere gli eventi di configurazione di app Azure per rispondere agli eventi di modifica chiave-valore.
 
-|Title | Description |
+|Titolo | Descrizione |
 |---------|---------|
 | [Reagire agli eventi di configurazione di app Azure tramite griglia di eventi](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Panoramica dell'integrazione di app Azure configurazione con griglia di eventi. |
 | [Guida introduttiva: indirizzare eventi di configurazione app Azure a un endpoint Web personalizzato con l'interfaccia della riga di comando](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare eventi di configurazione app Azure a un webhook. |
@@ -165,13 +165,20 @@ Sottoscrivere gli eventi di configurazione di app Azure per rispondere agli even
 ## <a name="azure-signalr"></a>Servizio Azure SignalR
 Sottoscrivere gli eventi del servizio Azure SignalR per rispondere agli eventi di connessione client.
 
-|Title | Description |
+|Titolo | Descrizione |
 |---------|---------|
 | [Reagire agli eventi del servizio Azure SignalR usando griglia di eventi](../azure-signalr/signalr-concept-event-grid-integration.md) | Panoramica dell'integrazione del servizio SignalR di Azure con griglia di eventi. |
 | [Come inviare eventi del servizio Azure SignalR a griglia di eventi](../azure-signalr/signalr-howto-event-grid-integration.md) | Mostra come inviare eventi del servizio Azure SignalR a un'applicazione tramite griglia di eventi. |
 | [Schema di eventi](event-schema-azure-signalr.md) | Mostra i campi negli eventi del servizio Azure SignalR. |
 
+## <a name="azure-machine-learning"></a>Azure Machine Learning
 
+Sottoscrivere gli eventi dell'area di lavoro Azure Machine Learning per rispondere alla registrazione del modello.
+
+| Titolo | Descrizione |
+| ----- | ----- |
+| [USA eventi Azure Machine Learning](../machine-learning/service/concept-event-grid-integration.md) | Panoramica dell'integrazione di Azure Machine Learning con griglia di eventi. |
+| [Schema di eventi di griglia di eventi di Azure per Azure Machine Learning](event-schema-machine-learning.md) | Mostra i campi negli eventi Azure Machine Learning. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

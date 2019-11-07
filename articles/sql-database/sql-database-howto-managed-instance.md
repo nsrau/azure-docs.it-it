@@ -1,5 +1,5 @@
 ---
-title: Come configurare un'istanza gestita di database SQL di Azure | Microsoft Docs
+title: Come configurare un'istanza gestita di database SQL di Azure
 description: Informazioni su come configurare e gestire Istanza gestita di database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: b8c05ab05630e92e64a4885d5e6cdc6f5471dff2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 22bad381a59a74237a5539cd4294a08797c017b1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568058"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689915"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Come usare un'istanza gestita nel database SQL di Azure
 
@@ -28,7 +28,7 @@ In questo articolo sono disponibili varie guide, script e spiegazioni che posson
 
 - [Eseguire la migrazione del certificato TDE a un'istanza gestita](sql-database-managed-instance-migrate-tde-certificate.md): se il database di SQL Server è protetto tramite crittografia TDE (Transparent Data Encryption), è necessario eseguire la migrazione di certificati che un'istanza gestita può usare per decrittografare il backup da ripristinare in Azure.
 
-## <a name="network-configuration"></a>Configurazione di rete
+## <a name="network-configuration"></a>Network configuration
 
 - [Determinare le dimensioni di una subnet di un'istanza gestita](sql-database-managed-instance-determine-size-vnet-subnet.md): la funzione Istanza gestita viene inserita in subnet dedicate che non possono essere ridimensionate quando si aggiungono le risorse all'interno. Si deve pertanto calcolare quale intervallo di indirizzi IP sarebbe necessario per la subnet a seconda del numero e dei tipi di istanze da distribuire nella subnet.
 - [Creare una nuova rete virtuale e una nuova subnet per un'istanza gestita](sql-database-managed-instance-create-vnet-subnet.md): la rete virtuale e la subnet di Azure in cui si intende distribuire le istanze gestite devono essere configurate in base ai [requisiti di rete descritti qui](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Questa guida descrive il modo più semplice per creare la nuova rete virtuale e la nuova subnet configurate correttamente per le istanze gestite.

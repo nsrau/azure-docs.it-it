@@ -1,5 +1,5 @@
 ---
-title: Informazioni sul servizio database SQL di Azure | Microsoft Docs
+title: Informazioni sul servizio database SQL di Azure
 description: 'Introduzione al database SQL: dettagli tecnici e funzionalità del sistema di gestione di database relazionali Microsoft (RDBMS) nel cloud.'
 keywords: introduzione a sql,intro a sql,informazioni sul database sql
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: e5782ba016cf58335de17cdacabbcca95914f59a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: d22408904ae21bc7512d4ebe8792666227893337
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066272"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687017"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure
 
@@ -48,7 +48,7 @@ Il database SQL offre prestazioni prevedibili con più tipi di risorse, livelli 
 ## <a name="scalable-performance-and-pools"></a>Prestazioni e pool scalabili
 
 È possibile definire la quantità di risorse assegnate. 
-- Con i database singoli, ogni database è isolato dagli altri ed è portabile. Ognuno ha una propria quantità garantita di risorse di calcolo, memoria e archiviazione. La quantità di risorse assegnate al database è dedicata a tale database e non è condivisa con altri database in Azure. È possibile ridimensionare in modo dinamico [le risorse del database singolo](sql-database-single-database-scale.md) . L'opzione database singolo fornisce risorse di calcolo, memoria e archiviazione diverse per esigenze diverse. Ad esempio, è possibile ottenere da 1 a 80 Vcore o da 32 GB a 4 TB. Il [livello di servizio](sql-database-service-tier-hyperscale.md) con scalabilità elevata per database singolo consente di scalare fino a 100 TB, con funzionalità di backup e ripristino rapide.
+- Con i database singoli, ogni database è isolato dagli altri ed è portabile. Ognuno ha una propria quantità garantita di risorse di calcolo, memoria e archiviazione. La quantità di risorse assegnate al database è dedicata a tale database e non è condivisa con altri database in Azure. È possibile ridimensionare in modo dinamico [le risorse del database singolo](sql-database-single-database-scale.md) . L'opzione database singolo fornisce risorse di calcolo, memoria e archiviazione diverse per esigenze diverse. Ad esempio, è possibile ottenere da 1 a 80 Vcore o da 32 GB a 4 TB. Il [livello di servizio con scalabilità](sql-database-service-tier-hyperscale.md) elevata per database singolo consente di scalare fino a 100 TB, con funzionalità di backup e ripristino rapide.
 - Con i pool elastici è possibile assegnare le risorse condivise da tutti i database nel pool. È possibile creare un nuovo database o spostare i database singoli esistenti in un pool di risorse per massimizzare l'utilizzo delle risorse e risparmiare denaro. Questa opzione offre inoltre la possibilità di ridimensionare in modo dinamico [le risorse del pool elastico](sql-database-elastic-pool-scale.md) .
 - Con le istanze gestite, ogni istanza è isolata dalle altre con risorse garantite. All'interno di un'istanza gestita, i database dell'istanza condividono un set di risorse. È possibile ridimensionare in modo dinamico [le risorse dell'istanza gestita](sql-database-managed-instance-resource-limits.md) .
 
@@ -99,9 +99,9 @@ Il database SQL di Azure offre funzionalità avanzate di monitoraggio e risoluzi
 
 Azure offre strumenti [integrati di monitoraggio delle prestazioni](sql-database-performance.md) e [avvisi](sql-database-insights-alerts-portal.md) , combinati con valutazioni delle prestazioni, che consentono di monitorare lo stato di migliaia di database. Grazie a questi strumenti, è possibile valutare rapidamente l'effetto della scalabilità verso l'alto o verso il basso, in base alle esigenze di prestazioni correnti o proiettate. Database SQL può anche [generare log di metrica e diagnostica](sql-database-metrics-diag-logging.md) per facilitare il monitoraggio. È possibile configurare il database SQL per archiviare l'utilizzo delle risorse, ruoli di lavoro, sessioni e connettività in una delle risorse di Azure seguenti:
 
-- **Archiviazione di Azure**: Per l'archiviazione di grandi quantità di dati di telemetria per un prezzo ridotto.
-- **Hub eventi di Azure**: Per l'integrazione dei dati di telemetria del database SQL con la soluzione di monitoraggio personalizzata o le pipeline a caldo.
-- **Log di Monitoraggio di Azure**: Per una soluzione di monitoraggio incorporata con funzionalità di Reporting, avviso e mitigazione.
+- **Archiviazione di Azure**: per l'archiviazione di enormi quantità di dati di telemetria a un costo conveniente.
+- **Hub eventi di Azure**: per l'integrazione dei dati di telemetria del database SQL con la soluzione di monitoraggio personalizzata o le pipeline sensibili.
+- **Log**di monitoraggio di Azure: per una soluzione di monitoraggio integrata con funzionalità di Reporting, avviso e mitigazione.
 
 ![Diagramma dell'architettura di monitoraggio di Azure](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -117,7 +117,7 @@ Zone di disponibilità di Azure tenta di proteggersi da un'interruzione di una s
 
 Infatti, il contratto di servizio di Azure, basato su una rete globale di data center gestiti da Microsoft, [consente di garantire](https://azure.microsoft.com/support/legal/sla/) l'esecuzione dell'app 24/7. La piattaforma Azure gestisce completamente tutti i database e non garantisce alcuna perdita di dati e una percentuale elevata di disponibilità dei dati. Azure gestisce automaticamente l'applicazione di patch, i backup, la replica, il rilevamento degli errori, i possibili errori di hardware, software o rete sottostanti, la distribuzione di correzioni di bug, i failover, gli aggiornamenti del database e altre attività di manutenzione. La disponibilità standard viene ottenuta separando i livelli di calcolo e archiviazione. La disponibilità Premium viene eseguita integrando risorse di calcolo e archiviazione in un singolo nodo per le prestazioni e quindi implementando una tecnologia simile a Always On gruppi di disponibilità. Per una descrizione completa delle funzionalità a disponibilità elevata del database SQL di Azure, vedere la [disponibilità del database SQL](sql-database-high-availability.md). 
 
-Inoltre, il database SQL offre funzionalità integrate per la [continuità aziendale e la scalabilità globale](sql-database-business-continuity.md) . Sono inclusi:
+Inoltre, il database SQL offre funzionalità integrate per la [continuità aziendale e la scalabilità globale](sql-database-business-continuity.md) . inclusi i seguenti:
 
 - [Backup automatici](sql-database-automated-backups.md):
 
@@ -153,7 +153,7 @@ Molti dei nostri partner che eseguono [app SaaS multi-tenant](sql-database-desig
 [Nel database SQL sono disponibili](sql-database-automatic-tuning.md)due aspetti di ottimizzazione automatica:
 
 - **Gestione automatica degli indici**: consente di identificare gli indici da aggiungere al database e quelli che è consigliabile rimuovere.
-- **Correzione automatica dei piani**: Identifica i piani problematici e corregge i problemi di prestazioni dei piani SQL.
+- **Correzione automatica**dei piani: identifica i piani problematici e corregge i problemi di prestazioni dei piani SQL.
 
 ### <a name="adaptive-query-processing"></a>Elaborazione di query adattiva
 
@@ -184,7 +184,7 @@ Sicurezza dei dati avanzata è un pacchetto unificato che include le funzionalit
 
 Il servizio di [controllo](sql-database-auditing.md) tiene traccia degli eventi che si verificano nel database e li registra in un log di controllo nell'account di archiviazione di Azure. Il controllo consente di agevolare la conformità alle normative, comprendere l'attività del database e ottenere informazioni dettagliate su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza.
 
-### <a name="data-encryption"></a>Crittografia dati
+### <a name="data-encryption"></a>Crittografia dei dati
 
 Il database SQL consente di proteggere i dati fornendo la crittografia. Per i dati in movimento, viene utilizzata la [sicurezza a livello di trasporto](https://support.microsoft.com/kb/3135244). Per i dati inattivi, usa la [crittografia dei dati trasparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Per i dati in uso, USA [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
@@ -250,11 +250,11 @@ I clienti del database SQL dispongono dei diritti seguenti associati a Vantaggio
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Comunicare con il team di progettazione di SQL Server
 
-- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Domande sull'amministrazione del database.
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): Porre domande sullo sviluppo.
-- [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Porre domande tecniche.
-- [Commenti e suggerimenti](https://aka.ms/sqlfeedback): Segnala bug e funzionalità richiesta.
-- [Reddit](https://www.reddit.com/r/SQLServer/): Discutere SQL Server.
+- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): domande sull'amministrazione del database.
+- [Stack overflow](https://stackoverflow.com/questions/tagged/sql-server): porre domande sullo sviluppo.
+- [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): porre domande tecniche.
+- [Feedback](https://aka.ms/sqlfeedback): Segnala bug e funzionalità richiesta.
+- [Reddit](https://www.reddit.com/r/SQLServer/): discutere SQL Server.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

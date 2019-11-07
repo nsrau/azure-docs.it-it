@@ -1,5 +1,5 @@
 ---
-title: Distribuire un servizio di divisione e unione | Documentazione Microsoft
+title: Distribuire un servizio di divisione e unione
 description: Usare anche lo strumento di divisione e unione per spostare i dati tra database partizionati.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: a8c50f492c28bf1e009d15d6332e939959190a49
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 009fb4be61aad5c700c7520764e9414ed9422721
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568514"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690307"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuire un servizio di divisione e unione per spostare i dati tra database partizionati
 
@@ -162,7 +162,7 @@ I file di script inclusi sono i seguenti:
    <table style="width:100%">
      <tr>
        <th>File PowerShell</th>
-       <th>Passaggi</th>
+       <th>Passi</th>
      </tr>
      <tr>
        <th rowspan="5">SetupSampleSplitMergeEnvironment.ps1</th>
@@ -184,7 +184,7 @@ I file di script inclusi sono i seguenti:
    <table style="width:100%">
      <tr>
        <th>File PowerShell</th>
-       <th>Passaggi</th>
+       <th>Passi</th>
      </tr>
    <tr>
        <th rowspan="4">ExecuteSampleSplitMerge.ps1 </th>
@@ -310,7 +310,7 @@ Per eseguire un'operazione di divisione e unione, è necessario dichiarare le ta
 
 Il servizio di divisione e unione non crea automaticamente il database di destinazione (o lo schema per tutte le tabelle nel database). Questi devono essere creati precedentemente, prima di inviare richieste al servizio.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 Quando si eseguono gli script di PowerShell di esempio, è possibile che venga visualizzato un messaggio simile a quello riportato di seguito:
 
    ```

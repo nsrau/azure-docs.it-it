@@ -1,22 +1,22 @@
 ---
-title: Usare un gateway dati locale per le origini dati di Rete virtuale di Azure | Microsoft Docs
-description: Informazioni su come configurare un server per l'uso di un gateway per le origini dati in una rete virtuale.
+title: Configurare Azure Analysis Services per le origini dati VNet | Microsoft Docs
+description: Informazioni su come configurare un server di Azure Analysis Services per l'uso di un gateway per le origini dati in rete virtuale di Azure (VNet).
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d1993996c0f982624d6976b50871fa8c4592e2f6
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 384f4c2ee3021678c530aa5c98eaf4dbfd661e95
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301210"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572269"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Usare il gateway per le origini dati in un'istanza di Rete virtuale di Azure (VNet)
 
-Questo articolo descrive la proprietà del server **AlwaysUseGateway** da usare quando le origini dati si trovano in un'istanza di [Rete virtuale di Azure (VNet)](../virtual-network/virtual-networks-overview.md).
+Questo articolo descrive la Azure Analysis Services proprietà del server **AlwaysUseGateway** da usare quando le origini dati si trovano in una [rete virtuale di Azure (VNet)](../virtual-network/virtual-networks-overview.md).
 
 ## <a name="server-access-to-vnet-data-sources"></a>Accesso del server alle origini dati della rete virtuale
 

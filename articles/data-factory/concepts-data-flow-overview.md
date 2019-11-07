@@ -1,5 +1,5 @@
 ---
-title: Mapping di flussi di dati in Azure Data Factory | Microsoft Docs
+title: Mapping di flussi di dati in Azure Data Factory
 description: Cenni preliminari sul mapping dei flussi di dati in Azure Data Factory
 author: kromerm
 ms.author: makromer
@@ -7,20 +7,20 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/7/2019
-ms.openlocfilehash: 7f6c131737ca63d120e111b3ef4504a36dbd7fc1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ed2502ffebbacf5e66e3e4738e2e88ce7fb8a562
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754701"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681568"
 ---
-# <a name="what-are-mapping-data-flows"></a>Che cosa sono i flussi di dati di mapping?
+# <a name="what-are-mapping-data-flows"></a>Cosa sono i flussi di dati di mapping?
 
 I flussi di dati di mapping sono le trasformazioni di dati progettate visivamente in Azure Data Factory. I flussi di dati consentono agli ingegneri di dati di sviluppare la logica di trasformazione dei dati grafici senza scrivere codice. I flussi di dati risultanti vengono eseguiti come attività all'interno di Azure Data Factory pipeline che usano cluster Spark con scalabilità orizzontale. Le attività del flusso di dati possono essere operative tramite le funzionalità di pianificazione, controllo, flusso e monitoraggio Data Factory esistenti.
 
 Il mapping di flussi di dati offre un'esperienza visiva completamente senza necessità di scrivere codice. I flussi di dati vengono eseguiti nel proprio cluster di esecuzione per l'elaborazione dei dati con scalabilità orizzontale. Azure Data Factory gestisce tutta la conversione del codice, l'ottimizzazione del percorso e l'esecuzione dei processi del flusso di dati.
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 Per creare un flusso di dati, selezionare il segno più in **risorse Factory**, quindi selezionare **flusso di dati**. 
 
@@ -32,13 +32,13 @@ Viene quindi riportata l'area di disegno del flusso di dati in cui è possibile 
 
 L'area di disegno del flusso di dati è suddivisa in tre parti: la barra superiore, il grafico e il pannello di configurazione. 
 
-![Disegno](media/data-flow/canvas1.png "Canvas")
+![Canvas](media/data-flow/canvas1.png "Canvas")
 
-### <a name="graph"></a>Grafo
+### <a name="graph"></a>Grafico
 
 Il grafico mostra il flusso di trasformazione. Mostra la derivazione dei dati di origine durante il flusso in uno o più sink. Per aggiungere una nuova origine, selezionare **Aggiungi origine**. Per aggiungere una nuova trasformazione, selezionare il segno più in basso a destra di una trasformazione esistente.
 
-![Disegno](media/data-flow/canvas2.png "Canvas")
+![Canvas](media/data-flow/canvas2.png "Canvas")
 
 ### <a name="azure-integration-runtime-data-flow-properties"></a>Proprietà del flusso di dati del runtime di integrazione di Azure
 
@@ -84,11 +84,11 @@ La prima scheda del riquadro di configurazione di ogni trasformazione contiene l
 
 ![Scheda Impostazioni di origine](media/data-flow/source1.png "Scheda Impostazioni di origine")
 
-#### <a name="optimize"></a>Ottimizzare
+#### <a name="optimize"></a>Eseguire l'ottimizzazione
 
 La scheda **ottimizza** contiene le impostazioni per la configurazione degli schemi di partizionamento.
 
-![Optimize](media/data-flow/optimize1.png "Ottimizzare") (Ottimizza)
+![Optimize](media/data-flow/optimize1.png "Eseguire l'ottimizzazione") (Ottimizza)
 
 L'impostazione predefinita è **Usa il partizionamento corrente**, che indica Azure Data Factory di usare lo schema di partizionamento nativo per i flussi di dati in esecuzione in Spark. Nella maggior parte degli scenari è consigliabile questa impostazione.
 

@@ -4,16 +4,16 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 10/23/2019
 ms.author: lugoldbe
-ms.openlocfilehash: 9aca01b24bc3351460c462c08689fdaa41e3a755
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: d0cef9f8ec4d7afde4f83e4f83bccdb44d5615ca
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73057285"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581827"
 ---
 ## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 
-In questo articolo viene usato un modello di Azure Resource Manager per creare un gruppo di risorse, un account di archiviazione e un contenitore, un hub eventi e un cluster e un database di Azure Esplora dati. Salvare il contenuto seguente in un file con nome `template.json`, che verrà usato per eseguire l'esempio di codice.
+In questo articolo viene usato un modello di Azure Resource Manager per creare un gruppo di risorse, un account di archiviazione e un contenitore, un hub eventi e un cluster e un database di Azure Esplora dati. Salvare il contenuto seguente in un file con il nome `template.json`. Questo file verrà usato per eseguire l'esempio di codice.
 
 ```json
 {

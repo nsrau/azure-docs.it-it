@@ -1,6 +1,6 @@
 ---
 title: Gestire i servizi Web tramite gestione API
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Guida che mostra come gestire i servizi Web di AzureML con Gestione API. Gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 60f890912874cfda993ae45f84fa3d1c04503d00
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 227a7205788194cc507dcd9dab7e5cad57abc7f9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489254"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671583"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Gestire i servizi Web di Azure Machine Learning Studio (classico) tramite gestione API
 ## <a name="overview"></a>Panoramica
@@ -29,7 +29,7 @@ Per completare questa guida, è necessario:
 
 * Un account Azure.
 * Un account AzureML.
-* L'area di lavoro, il servizio e l'api_key per un esperimento di AzureML distribuito come servizio web. Per informazioni dettagliate su come creare un esperimento AzureML, vedere la [Guida introduttiva di studio](create-experiment.md). Per informazioni su come distribuire un esperimento di studio (classico) come servizio Web, vedere le procedure per la [distribuzione di studio](publish-a-machine-learning-web-service.md) per informazioni dettagliate su come distribuire un esperimento AzureML come servizio Web. In alternativa, l'Appendice A contiene le istruzioni per creare e testare un semplice esperimento di AzureML e distribuirlo come servizio Web.
+* L'area di lavoro, il servizio e l'api_key per un esperimento di AzureML distribuito come servizio web. Per informazioni dettagliate su come creare un esperimento AzureML, vedere la [Guida introduttiva di studio](create-experiment.md). Per informazioni su come distribuire un esperimento di studio (classico) come servizio Web, vedere le procedure per la [distribuzione di studio](deploy-a-machine-learning-web-service.md) per informazioni dettagliate su come distribuire un esperimento AzureML come servizio Web. In alternativa, l'Appendice A contiene le istruzioni per creare e testare un semplice esperimento di AzureML e distribuirlo come servizio Web.
 
 ## <a name="create-an-api-management-instance"></a>Creare un'istanza di Gestione API
 

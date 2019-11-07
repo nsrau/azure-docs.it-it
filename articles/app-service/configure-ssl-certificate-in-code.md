@@ -1,5 +1,5 @@
 ---
-title: Usare il certificato SSL nel servizio app Azure del codice dell'applicazione | Microsoft Docs
+title: Usare il certificato SSL nel servizio app Azure di codice | Microsoft Docs
 description: Informazioni su come usare i certificati client per la connessione alle risorse remote che li richiedono.
 services: app-service
 documentationcenter: ''
@@ -10,22 +10,22 @@ ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 11/04/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 1f042f72f82d2198472fe81670c697c0c4b28321
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 93dfe784d45cd9cd93d22c5e8c3275c563f7f88b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513692"
+ms.locfileid: "73572086"
 ---
-# <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Usare un certificato SSL nel codice dell'applicazione in Servizio app di Azure
+# <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>Usare un certificato SSL nel codice nel servizio app Azure
 
-Il codice dell'app del servizio app può fungere da client e accedere a un servizio esterno che richiede l'autenticazione del certificato. Questa guida dettagliata illustra come usare certificati pubblici o privati nel codice dell'applicazione.
+Nel codice dell'applicazione è possibile accedere ai [certificati pubblici o privati aggiunti al servizio app](configure-ssl-certificate.md). Il codice dell'app può fungere da client e accedere a un servizio esterno che richiede l'autenticazione del certificato o potrebbe dover eseguire attività crittografiche. Questa guida dettagliata illustra come usare certificati pubblici o privati nel codice dell'applicazione.
 
-Questo approccio all'uso dei certificati nel codice usa la funzionalità SSL nel servizio app, che richiede che l'app sia nel livello **Basic** o superiore. In alternativa, è possibile [includere il file del certificato nel repository dell'app](#load-certificate-from-file), ma non è una procedura consigliata per i certificati privati.
+Questo approccio all'uso dei certificati nel codice usa la funzionalità SSL nel servizio app, che richiede che l'app sia nel livello **Basic** o superiore. Se l'app è a livello **gratuito** o **condiviso** , è possibile [includere il file del certificato nel repository dell'app](#load-certificate-from-file).
 
 Quando si consente al servizio app di gestire i certificati SSL, è possibile tenere separati i certificati e il codice dell'applicazione e proteggere i dati sensibili.
 
@@ -46,9 +46,9 @@ Individuare il certificato che si vuole usare e copiare l'identificazione person
 
 ![Copiare l'identificazione personale del certificato](./media/configure-ssl-certificate/create-free-cert-finished.png)
 
-## <a name="load-the-certificate"></a>Caricare il certificato
+## <a name="make-the-certificate-accessible"></a>Rendere accessibile il certificato
 
-Per usare un certificato nel codice dell'app, aggiungere la relativa identificazione personale all'impostazione `WEBSITE_LOAD_CERTIFICATES` app, eseguendo il comando seguente nel <a target="_blank" href="https://shell.azure.com" >cloud Shell</a>:
+Per accedere a un certificato nel codice dell'app, aggiungere l'identificazione personale all'impostazione `WEBSITE_LOAD_CERTIFICATES` app, eseguendo il comando seguente nel <a target="_blank" href="https://shell.azure.com" >cloud Shell</a>:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
@@ -56,15 +56,14 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 Per rendere accessibili tutti i certificati, impostare il valore su `*`.
 
-> [!NOTE]
-> Questa impostazione inserisce i certificati specificati nell'archivio [User\My corrente](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) per la maggior parte dei piani tariffari, ma nel livello **isolato** (ad esempio, l'app viene eseguita in un [ambiente del servizio app](environment/intro.md)), inserisce i certificati nel [Machine\My locale](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) negozio.
->
+## <a name="load-certificate-in-windows-apps"></a>Caricare il certificato nelle app di Windows
 
-I certificati configurati sono ora pronti per essere usati dal codice.
+L'impostazione dell'app `WEBSITE_LOAD_CERTIFICATES` rende accessibili i certificati specificati all'app ospitata in Windows nell'archivio certificati di Windows e il percorso dipende dal piano [tariffario](overview-hosting-plans.md):
 
-## <a name="load-the-certificate-in-code"></a>Caricare il certificato nel codice
+- Livello **isolato** in [Machine\My locale](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
+- Tutti gli altri livelli, nella [User\My corrente](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
 
-Quando il certificato è accessibile, vi si accede nel codice C# tramite l'identificazione personale del certificato. Il codice seguente carica un certificato con l'identificazione personale `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
+Nel C# codice è possibile accedere al certificato dall'identificazione personale del certificato. Il codice seguente carica un certificato con l'identificazione personale `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 
 ```csharp
 using System;
@@ -89,30 +88,74 @@ certStore.Close();
 ...
 ```
 
-<a name="file"></a>
-## <a name="load-certificate-from-file"></a>Carica certificato da file
+Nel codice Java è possibile accedere al certificato dall'archivio "Windows-MY" usando il campo nome comune del soggetto (vedere [certificato chiave pubblica](https://en.wikipedia.org/wiki/Public_key_certificate)). Nel codice seguente viene illustrato come caricare un certificato di chiave privata:
 
-Se è necessario caricare un file di certificato dalla directory dell'applicazione, è preferibile caricarlo usando [FTPS](deploy-ftp.md) invece di [git](deploy-local-git.md), ad esempio. È necessario tenere i dati sensibili come un certificato privato fuori dal controllo del codice sorgente.
+```java
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import java.security.KeyStore;
+import java.security.cert.Certificate;
+import java.security.PrivateKey;
 
-Anche se si sta caricando il file direttamente nel codice .NET, la libreria verifica comunque se il profilo utente corrente è caricato. Per caricare il profilo utente corrente, impostare l'impostazione dell'app `WEBSITE_LOAD_USER_PROFILE` con il comando seguente nel <a target="_blank" href="https://shell.azure.com" >cloud Shell</a>.
+...
+KeyStore ks = KeyStore.getInstance("Windows-MY");
+ks.load(null, null); 
+Certificate cert = ks.getCertificate("<subject-cn>");
+PrivateKey privKey = (PrivateKey) ks.getKey("<subject-cn>", ("<password>").toCharArray());
 
-```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
+// Use the certificate and key
+...
 ```
 
-Una volta impostata questa impostazione, nell'esempio C# seguente viene caricato un certificato denominato `mycert.pfx` dalla directory `certs` del repository dell'app.
+Per le lingue che non supportano o non offrono supporto insufficiente per l'archivio certificati di Windows, vedere [caricare il certificato da un file](#load-certificate-from-file).
+
+## <a name="load-certificate-in-linux-apps"></a>Caricare il certificato nelle app Linux
+
+Le impostazioni dell'app `WEBSITE_LOAD_CERTIFICATES` rendono i certificati specificati accessibili alle app ospitate da Linux, incluse le app contenitore personalizzate, come file. I file si trovano nelle directory seguenti:
+
+- Certificati privati-`/var/ssl/private` (file `.p12`)
+- Certificati pubblici-`/var/ssl/certs` (file `.der`)
+
+I nomi dei file di certificato sono le identificazioni personali del certificato. Il codice C# seguente illustra come caricare un certificato pubblico in un'app Linux.
 
 ```csharp
 using System;
 using System.Security.Cryptography.X509Certificates;
 
 ...
-// Replace the parameter with "~/<relative-path-to-cert-file>".
-string certPath = Server.MapPath("~/certs/mycert.pfx");
+var bytes = System.IO.File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
+var cert = new X509Certificate2(bytes);
 
-X509Certificate2 cert = GetCertificate(certPath, signatureBlob.Thumbprint);
-...
+// Use the loaded certificate
 ```
+
+Per informazioni su come caricare un certificato SSL da un file in node. js, PHP, Python, Java o Ruby, vedere la documentazione relativa alla rispettiva lingua o piattaforma Web.
+
+## <a name="load-certificate-from-file"></a>Carica certificato da file
+
+Se è necessario caricare un file di certificato caricato manualmente, è preferibile caricare il certificato usando [FTPS](deploy-ftp.md) invece di [git](deploy-local-git.md), ad esempio. È necessario tenere i dati sensibili come un certificato privato fuori dal controllo del codice sorgente.
+
+> [!NOTE]
+> ASP.NET e ASP.NET Core in Windows devono accedere all'archivio certificati anche se si carica un certificato da un file. Per caricare un file di certificato in un'app .NET di Windows, caricare il profilo utente corrente con il comando seguente nel <a target="_blank" href="https://shell.azure.com" >cloud Shell</a>:
+>
+> ```azurecli-interactive
+> az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
+> ```
+
+Nell'esempio C# seguente viene caricato un certificato pubblico da un percorso relativo nell'app:
+
+```csharp
+using System;
+using System.Security.Cryptography.X509Certificates;
+
+...
+var bytes = System.IO.File.ReadAllBytes("~/<relative-path-to-cert-file>");
+var cert = new X509Certificate2(bytes);
+
+// Use the loaded certificate
+```
+
+Per informazioni su come caricare un certificato SSL da un file in node. js, PHP, Python, Java o Ruby, vedere la documentazione relativa alla rispettiva lingua o piattaforma Web.
 
 ## <a name="more-resources"></a>Altre risorse
 

@@ -1,5 +1,5 @@
 ---
-title: Pool di istanze del database SQL di Azure (anteprima) | Microsoft Docs
+title: Pool di istanze del database SQL di Azure (anteprima)
 description: Questo articolo descrive i pool di istanze del database SQL di Azure (anteprima).
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 34e779f04f59b23733c6fbfa3450931fccb442b1
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 7d8c316d5c78cfe09bcf134b5a5c513e1c007d74
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70294256"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689762"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>Che cosa sono i pool di istanze di database SQL (anteprima)?
 
 I pool di istanze sono una nuova risorsa nel database SQL di Azure che offre un modo pratico ed economico per eseguire la migrazione di istanze SQL più piccole al cloud su larga scala.
 
-I pool di istanze consentono di eseguire il pre-provisioning di risorse di calcolo in base ai requisiti di migrazione totali. È quindi possibile distribuire più istanze gestite singole fino al livello di calcolo di cui è stato eseguito il pre-provisioning. Se, ad esempio, si esegue il pre-provisioning di 8 Vcore, è possibile distribuire due istanze vCore e una 4 vCore e quindi eseguire la migrazione dei database in queste istanze. Prima che i pool di istanze fossero disponibili, i carichi di lavoro a elevato utilizzo di calcolo e minori dovrebbero spesso essere consolidati in un'istanza gestita più ampia durante la migrazione al cloud. La necessità di eseguire la migrazione di gruppi di database a un'istanza di grandi dimensioni richiede in genere un'attenta pianificazione della capacità e governance delle risorse, considerazioni aggiuntive sulla sicurezza e alcune operazioni di consolidamento dei dati aggiuntive a livello di istanza.
+I pool di istanze consentono di eseguire il pre-provisioning di risorse di calcolo in base ai requisiti di migrazione complessivi. È quindi possibile distribuire più istanze gestite singole fino al livello di calcolo di cui è stato eseguito il pre-provisioning. Se, ad esempio, si esegue il pre-provisioning di 8 Vcore, è possibile distribuire due istanze vCore e una 4 vCore e quindi eseguire la migrazione dei database in queste istanze. Prima che i pool di istanze fossero disponibili, i carichi di lavoro a elevato utilizzo di calcolo e minori dovrebbero spesso essere consolidati in un'istanza gestita più ampia durante la migrazione al cloud. La necessità di eseguire la migrazione di gruppi di database a un'istanza di grandi dimensioni richiede in genere un'attenta pianificazione della capacità e governance delle risorse, considerazioni aggiuntive sulla sicurezza e alcune operazioni di consolidamento dei dati aggiuntive a livello di istanza.
 
 Inoltre, i pool di istanze supportano l'integrazione VNet nativa, in modo da poter distribuire più pool di istanze e più istanze singole nella stessa subnet.
 
@@ -31,7 +31,7 @@ Inoltre, i pool di istanze supportano l'integrazione VNet nativa, in modo da pot
 
 I pool di istanze offrono i vantaggi seguenti:
 
-1. Possibilità di ospitare 2 istanze vCore. *Solo per le istanze nei pool di istanze. \**
+1. Possibilità di ospitare 2 istanze vCore. *\*solo per le istanze nei pool di istanze*.
 2. Tempo di distribuzione dell'istanza prevedibile e veloce (fino a 5 minuti).
 3. Allocazione minima degli indirizzi IP.
 
@@ -59,7 +59,7 @@ Nell'elenco seguente sono riportati i principali casi d'uso in cui devono essere
 
 ## <a name="architecture-of-instance-pools"></a>Architettura dei pool di istanze
 
-I pool di istanze hanno un'architettura simile alle istanze gestite regolari (*istanze singole*). Per supportare le [distribuzioni nelle reti virtuali di Azure (reti virtuali)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) e per garantire l'isolamento e la sicurezza per i clienti, i pool di istanze si basano anche sui [cluster virtuali](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). I cluster virtuali rappresentano un set dedicato di macchine virtuali isolate distribuite all'interno della subnet della rete virtuale del cliente.
+I pool di istanze hanno un'architettura simile alle istanze gestite regolari (*istanze singole*). Per supportare le [distribuzioni all'interno di reti virtuali di Azure (reti virtuali)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) e per garantire l'isolamento e la sicurezza per i clienti, i pool di istanze si basano anche sui [cluster virtuali](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). I cluster virtuali rappresentano un set dedicato di macchine virtuali isolate distribuite all'interno della subnet della rete virtuale del cliente.
 
 La differenza principale tra i due modelli di distribuzione è che i pool di istanze consentono più distribuzioni di processi di SQL Server nello stesso nodo della macchina virtuale, che sono regolate dalle risorse con [gli oggetti processo di Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), mentre le singole istanze sono sempre da sole un nodo della macchina virtuale.
 
@@ -71,7 +71,7 @@ Ogni pool di istanze crea un cluster virtuale separato sotto. Le istanze in un p
 
 ## <a name="instance-pools-resource-limitations"></a>Limitazioni delle risorse del pool di istanze
 
-Esistono diverse limitazioni delle risorse relative ai pool di istanze e alle istanze all'interno di pool:
+Esistono diverse limitazioni delle risorse relative ai pool di istanze e alle istanze contenute all'interno dei pool:
 
 - I pool di istanze sono disponibili solo nell'hardware quinta generazione.
 - Le istanze in un pool hanno CPU e RAM dedicate, quindi il numero aggregato di Vcore in tutte le istanze deve essere minore o uguale al numero di Vcore allocato al pool.
@@ -136,8 +136,8 @@ il prezzo vCore per un pool viene addebitato indipendentemente dal numero di ist
 
 Per il prezzo di calcolo (misurato in VCore), sono disponibili due opzioni di prezzo:
 
-  1. *Licenza inclusa*: Applicare licenze di SQL Server esistenti con Software Assurance.
-  2. *Vantaggio Azure Hybrid*: Prezzo ridotto che include Vantaggio Azure Hybrid per SQL Server. I clienti possono optare per questo prezzo usando le licenze di SQL Server esistenti con Software Assurance. Per informazioni sull'idoneità e altri dettagli, vedere [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
+  1. *Licenza inclusa*: applica le licenze SQL Server esistenti con Software Assurance.
+  2. *Vantaggio Azure Hybrid*: prezzo ridotto che include Vantaggio Azure Hybrid per SQL Server. I clienti possono optare per questo prezzo usando le licenze di SQL Server esistenti con Software Assurance. Per informazioni sull'idoneità e altri dettagli, vedere [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Non è possibile impostare opzioni di prezzo diverse per le singole istanze in un pool. Tutte le istanze nel pool padre devono essere al prezzo incluso per la licenza o Vantaggio Azure Hybrid prezzo. Il modello di licenza per il pool può essere modificato dopo la creazione del pool.
 

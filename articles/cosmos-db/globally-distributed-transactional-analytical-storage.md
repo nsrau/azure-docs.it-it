@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: abf222b7a6d6e8fd053fa83c066d2b7850f575ab
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 22bb36e3b22f65bbf9922bd31e4b2e041cdb8979
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756895"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601222"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Archiviazione transazionale e analitica distribuita a livello globale per i contenitori di Azure Cosmos
 
@@ -36,8 +36,8 @@ Il motore di archiviazione transazionale è supportato da unità SSD locali, men
 |Durabilità  |    99,99999 (7-9 s)     |  99,99999 (7-9 s)       |
 |API che accedono ai dati  |   SQL, MongoDB, Cassandra, Gremlin, tabelle e ETCD.       | Apache Spark         |
 |Conservazione (TTL (time-to-Live)   |  Basato sui criteri, configurato nel contenitore Azure Cosmos usando la proprietà `DefaultTimeToLive`.       |   Basato sui criteri, configurato nel contenitore Azure Cosmos usando la proprietà `ColumnStoreTimeToLive`.      |
-|Prezzo per GB    |   $0,25/GB      |  $0.02/GB       |
-|Prezzo per le transazioni di archiviazione    | La velocità effettiva con provisioning viene addebitata a $0,008 per 100 ur/sec con fatturazione oraria.        |  La velocità effettiva basata sul consumo viene addebitata a $0,05 per 10.000 transazioni di scrittura e $0,004 per le transazioni di lettura 10.000.       |
+|Prezzo per GB    |   Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/)     |   Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
+|Prezzo per le transazioni di archiviazione    |  Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/)         |   Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
 
 ## <a name="benefits-of-transactional-and-analytical-storage"></a>Vantaggi dell'archiviazione transazionale e analitica
 
@@ -66,53 +66,6 @@ Per gli account Azure Cosmos a una o più aree, indipendentemente dal fatto che 
 In una determinata area, i carichi di lavoro transazionali operano sull'archiviazione transazionale/riga del contenitore. D'altra parte, i carichi di lavoro analitici operano sull'archiviazione analitica/colonna del contenitore. I due motori di archiviazione operano in modo indipendente e garantiscono un isolamento delle prestazioni rigoroso tra i carichi di lavoro.
 
 I carichi di lavoro transazionali utilizzano la velocità effettiva con provisioning (UR). A differenza dei carichi di lavoro transazionali, la velocità effettiva dei carichi di lavoro analitici è basata sul consumo effettivo. I carichi di lavoro analitici utilizzano risorse su richiesta.
-
-### <a name="on-demand-snapshots-and-time-travel-analytics"></a>Snapshot su richiesta e analisi del tempo di viaggio
-
-È possibile creare snapshot dei dati archiviati nell'archiviazione analitica dei contenitori di Azure Cosmos, in qualsiasi momento, chiamando il comando `CreateSnapshot (name, timestamp)` nel contenitore. Gli snapshot sono denominati "segnalibri" nella cronologia degli aggiornamenti che sono stati eseguiti nel contenitore.
-
-![Snapshot su richiesta e analisi del tempo di viaggio](./media/globally-distributed-transactional-analytical-storage/ondemand-analytical-data-snapshots.png)
-
-Al momento della creazione dello snapshot, oltre al nome, è possibile specificare il timestamp che definisce lo stato del contenitore nella cronologia degli aggiornamenti. È quindi possibile caricare i dati dello snapshot in Spark ed eseguire le query.
-
-Attualmente, è possibile creare snapshot su richiesta in qualsiasi momento nel contenitore, la possibilità di creare automaticamente snapshot in base a una pianificazione o a un criterio personalizzato non è ancora supportata.
-
-### <a name="configure-and-tier-data-between-transactional-and-analytical-storage-independently"></a>Configurare e impostare i dati di livello tra archiviazione transazionale e analitica in modo indipendente
-
-A seconda dello scenario, è possibile abilitare o disabilitare in modo indipendente ognuno dei due motori di archiviazione. Di seguito sono riportate le configurazioni per ogni scenario:
-
-|Scenario |Impostazione di archiviazione transazionale  |Impostazione di archiviazione analitica |
-|---------|---------|---------|
-|Esecuzione esclusiva dei carichi di lavoro analitici (con conservazione infinita) |  DefaultTimeToLive = 0       |  ColumnStoreTimeToLive =-1       |
-|Esecuzione esclusiva dei carichi di lavoro transazionali (con conservazione infinita)  |   DefaultTimeToLive =-1      |  ColumnStoreTimeToLive = 0       |
-|Esecuzione di carichi di lavoro transazionali e analitici (con conservazione infinita)   |   DefaultTimeToLive =-1      | ColumnStoreTimeToLive =-1        |
-|Esecuzione di carichi di lavoro transazionali e analitici (con intervalli di conservazione diversi, noti anche come suddivisione in livelli di archiviazione)  |  DefaultTimeToLive = <Value1>       |     ColumnStoreTimeToLive = <Value2>    |
-
-1. **Configurare il contenitore esclusivamente per i carichi di lavoro analitici (con conservazione infinita)**
-
-   È possibile configurare il contenitore di Azure Cosmos esclusivamente per i carichi di lavoro analitici. Questa configurazione offre un vantaggio per cui non è necessario pagare per l'archiviazione transazionale. Se l'obiettivo consiste nell'usare il contenitore solo per i carichi di lavoro analitici, è possibile disabilitare l'archiviazione transazionale impostando `DefaultTimeToLive` su 0 nel contenitore Cosmos ed è possibile abilitare l'archiviazione analitica con conservazione infinita impostando `ColumnStoreTimeToLive` su-1.
-
-   ![Carichi di lavoro analitici con conservazione infinita](./media/globally-distributed-transactional-analytical-storage/analytical-workload-configuration.png)
-
-1. **Configurare il contenitore esclusivamente per i carichi di lavoro transazionali (con conservazione infinita)**
-
-   È possibile configurare il contenitore di Azure Cosmos esclusivamente per i carichi di lavoro transazionali. È possibile disabilitare l'archiviazione analitica impostando `ColumnStoreTimeToLive` su 0 nel contenitore ed è possibile abilitare l'archiviazione analitica con conservazione infinita impostando `DefaultTimeToLive` su-1.
-
-   ![Carichi di lavoro transazionali con conservazione infinita](./media/globally-distributed-transactional-analytical-storage/transactional-workload-configuration.png)
-
-1. **Configurare il contenitore per i carichi di lavoro transazionali e analitici (con conservazione infinita)**
-
-   È possibile configurare il contenitore di Azure Cosmos per i carichi di lavoro transazionali e analitici con un isolamento completo delle prestazioni. È possibile abilitare l'archiviazione analitica impostando `ColumnStoreTimeToLive` su-1 e abilitare l'archiviazione transazionale con conservazione infinita impostando `DefaultTimeToLive ` su-1.
-
-   ![Carichi di lavoro transazionali e analitici con conservazione infinita](./media/globally-distributed-transactional-analytical-storage/analytical-transactional-configuration-infinite-retention.png)
-
-1. **Configurare il contenitore per carichi di lavoro transazionali e analitici con suddivisione in livelli di archiviazione**
-
-   È possibile configurare il contenitore di Azure Cosmos per i carichi di lavoro transazionali e analitici con un isolamento completo delle prestazioni tra di essi con intervalli di conservazione diversi. Azure Cosmos DB impone che l'archiviazione analitica venga sempre mantenuta per un periodo di tempo più lungo rispetto all'archiviazione transazionale.
-
-   È possibile abilitare l'archiviazione transazionale con conservazione infinita impostando `DefaultTimeToLive` su < valore 1 > e abilitare l'archiviazione analitica impostando `ColumnStoreTimeToLive` su < valore 2 >. Azure Cosmos DB imporrà che < valore 2 > è sempre maggiore di < valore 1 >.
-
-   ![Carichi di lavoro transazionali e analitici con suddivisione in livelli di archiviazione](./media/globally-distributed-transactional-analytical-storage/analytical-transactional-configuration-specified-retention.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

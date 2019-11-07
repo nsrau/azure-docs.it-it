@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8ec61a04d6bb7289f12becf8baebae5e47150897
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c8e4027bd8892ff3bf5c598573b7736aea42953f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802088"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602565"
 ---
-# <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migrazione degli utenti
+# <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: migrazione degli utenti
 
 Quando si esegue la migrazione del provider di identità a Azure Active Directory B2C (Azure AD B2C), potrebbe essere necessario eseguire la migrazione degli account utente. Questo articolo spiega come eseguire la migrazione degli account utente esistenti da qualsiasi provider di identità ad Azure AD B2C. L'articolo non è destinato a essere prescrittivo, ma descrive invece alcuni scenari. Lo sviluppatore è responsabile dell'idoneità di ogni approccio.
 
@@ -27,13 +27,13 @@ Con Azure AD B2C, è possibile eseguire la migrazione degli utenti tramite la [A
 
 - **Pre-migrazione**: questo flusso si applica quando si ha accesso alle credenziali di un utente (nome utente e password) o se le credenziali sono crittografate ma è possibile decrittografarle. Il processo di pre-migrazione include la lettura degli utenti dal vecchio provider di identità e la creazione di nuovi account nella directory di Azure AD B2C.
 
-- **Pre-migrazione e reimpostazione della password**: questo flusso si applica quando la password di un utente non è accessibile. Esempio:
+- **Pre-migrazione e reimpostazione della password**: questo flusso si applica quando la password di un utente non è accessibile, Ad esempio:
   - La password è archiviata in formato HASH.
   - La password è archiviata in un provider di identità a cui non è possibile accedere. Il vecchio provider di identità convalida le credenziali dell'utente chiamando un servizio Web.
 
 In entrambi i flussi, eseguire prima il processo di pre-migrazione, leggere gli utenti dal vecchio provider di identità e creare nuovi account nella directory di Azure AD B2C. Se non si dispone della password, è necessario creare l'account usando una password generata in modo casuale. Chiedere quindi all'utente di cambiare la password oppure al primo accesso Azure AD B2C chiederà all'utente di reimpostarla.
 
-## <a name="password-policy"></a>Criteri per le password
+## <a name="password-policy"></a>Criteri password
 
 I criteri password di Azure AD B2C (per gli account locali) si basano su quelli di Azure AD. I criteri di Azure AD B2C iscrizione o accesso e reimpostazione della password usano il livello di attendibilità della password "forte" e non scadono alcuna password. Per altre informazioni, vedere [Criteri password in Azure AD][AD-PasswordPolicies].
 
@@ -55,13 +55,13 @@ Registrare innanzitutto un'applicazione che è possibile usare per attività di 
 
 [!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
-### <a name="step-12-grant-administrative-permission-to-your-application"></a>Passaggio 1.2: Concedere l'autorizzazione amministrativa all'applicazione
+### <a name="step-12-grant-administrative-permission-to-your-application"></a>Passaggio 1,2: concedere l'autorizzazione amministrativa all'applicazione
 
 Successivamente, concedere all'applicazione il Azure AD API Graph le autorizzazioni necessarie per la scrittura nella directory.
 
 [!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
-### <a name="step-13-create-the-application-secret"></a>Passaggio 1.3: Creare il segreto dell'applicazione
+### <a name="step-13-create-the-application-secret"></a>Passaggio 1,3: creare il segreto dell'applicazione
 
 Creare un segreto client (chiave) per l'uso da parte dell'applicazione di migrazione utenti che viene configurata in un passaggio successivo.
 
@@ -177,12 +177,12 @@ Per convalidare la migrazione, usare uno dei due metodi seguenti:
    1. Aprire **Azure ad B2C**, quindi selezionare **utenti**.
    1. Nella casella di ricerca digitare il nome visualizzato dell'utente e quindi visualizzarne il profilo.
 
-- Per recuperare un utente in base all'indirizzo e-mail di accesso, usare questa applicazione di esempio:
+- Per recuperare un utente tramite l'indirizzo di posta elettronica di accesso, usare l'applicazione di esempio:
 
    1. Eseguire il comando seguente:
 
       ```Console
-          UserMigration.exe 3 {email address}
+          UserMigration.exe 3 {email address} > UserProfile.json
       ```
 
       > [!TIP]
@@ -217,7 +217,7 @@ Per ottenere il collegamento ai criteri di reimpostazione della password, seguir
 1. Selezionare l'applicazione nell'elenco a discesa **Seleziona applicazione** .
 
     > [!NOTE]
-    > **Esegui ora** richiede la registrazione di almeno un'applicazione nel tenant. Per informazioni su come registrare le applicazioni, vedere [Tutorial: Registrare un'applicazione nel Azure Active Directory B2C @ no__t-0.
+    > **Esegui ora** richiede la registrazione di almeno un'applicazione nel tenant. Per informazioni su come registrare le applicazioni, vedere [esercitazione: registrare un'applicazione in Azure Active Directory B2C][B2C-AppRegister].
 
 1. Copiare l'URL visualizzato nella casella di testo **Run Now endpoint** e quindi inviarlo agli utenti.
 
@@ -228,9 +228,9 @@ Per ottenere il collegamento ai criteri di reimpostazione della password, seguir
 > [!NOTE]
 > Per controllare e modificare lo stato di migrazione degli utenti è necessario usare criteri personalizzati. È necessario completare le istruzioni di installazione di [Introduzione ai criteri personalizzati][B2C-GetStartedCustom] .
 
-Quando gli utenti provano a eseguire l'accesso senza prima reimpostare la password, i criteri dovrebbero restituire un messaggio di errore descrittivo, Esempio:
+Quando gli utenti provano a eseguire l'accesso senza prima reimpostare la password, i criteri dovrebbero restituire un messaggio di errore descrittivo, Ad esempio:
 
-> *La password è scaduta. Per reimpostarla, selezionare il collegamento Reimposta password.*
+> *La password è scaduta. Per reimpostarlo, selezionare il collegamento Reimposta password.*
 
 Questo passaggio facoltativo richiede l'uso di criteri personalizzati in Azure AD B2C, come descritto nell'articolo [Introduzione ai criteri personalizzati][B2C-GetStartedCustom].
 
@@ -238,7 +238,7 @@ In questa sezione vengono modificati i criteri per controllare lo stato di migra
 
 Per monitorare il cambio della password, usare una tabella di Azure. L'esecuzione del processo di pre-migrazione con il parametro `2` della riga di comando crea un'entità utente in una tabella di Azure. Il servizio esegue le operazioni seguenti:
 
-- In fase di accesso, i criteri di Azure AD B2C richiamano il servizio RESTful di migrazione inviando un messaggio e-mail come attestazione di input. Il servizio cerca l'indirizzo e-mail nella tabella di Azure. Se l'indirizzo esiste, il servizio genera un messaggio di errore: *La password deve essere modificata*.
+- In fase di accesso, i criteri di Azure AD B2C richiamano il servizio RESTful di migrazione inviando un messaggio e-mail come attestazione di input. Il servizio cerca l'indirizzo e-mail nella tabella di Azure. Se l'indirizzo esiste, il servizio genera un messaggio di errore che richiede di *cambiare la password*.
 
 - Dopo che l'utente ha cambiato la password, rimuovere l'entità dalla tabella di Azure.
 

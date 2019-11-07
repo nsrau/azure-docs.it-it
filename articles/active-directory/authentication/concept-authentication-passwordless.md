@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17a99a522c6ab960c2ccd0cc2729076c54ed07f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 8c8bfa5fc31ce8500d1ed339ba28afeed21e25a0
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151857"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603515"
 ---
 # <a name="passwordless-authentication-options"></a>Opzioni di autenticazione con password
 
@@ -52,7 +52,7 @@ Ogni telefono iOS o Android viene trasformato in una credenziale complessa e sen
 
 Le chiavi di sicurezza di FIDO2 sono un metodo di autenticazione senza password basato su standard unphishable che può provenire da qualsiasi fattore di forma. Fast Identity online (FIDO) è uno standard aperto per l'autenticazione con password. Consente a utenti e organizzazioni di sfruttare lo standard per accedere alle risorse senza nome utente o password usando una chiave di sicurezza esterna o una chiave della piattaforma incorporata in un dispositivo.
 
-Per la versione di anteprima pubblica, i dipendenti possono usare le chiavi di sicurezza per accedere ai dispositivi Azure AD o ibridi Azure AD aggiunti a dispositivi Windows 10 e ottenere l'accesso Single Sign-on alle risorse cloud e locali. Possono anche accedere ai browser supportati.
+Per la versione di anteprima pubblica, i dipendenti possono usare le chiavi di sicurezza per accedere ai dispositivi Windows 10 aggiunti a Azure AD e ottenere l'accesso Single Sign-on alle risorse cloud e locali. Possono anche accedere ai browser supportati.
 
 ![Accedere a Microsoft Edge con una chiave di sicurezza](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 

@@ -1,18 +1,18 @@
 ---
 title: Origini dati supportate in Azure Analysis Services | Microsoft Docs
-description: Descrive le origini dati supportate per i modelli di dati di Azure Analysis Services.
+description: Descrive le origini dati e i connettori supportati per i modelli di dati tabulari 1200 e versioni successive in Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cc47ff50aa7bb6dce58ed83f75f69fb600ad040b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5539d290ea182e24a50a103a762f011202ebf33a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146934"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572967"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -22,14 +22,14 @@ Le origini dati e i connettori visualizzati in Get Data (Recupera dati) o Import
 
 |Origine dati  |In memoria  |DirectQuery  |
 |---------|---------|---------|
-|Database SQL di Azure<sup>[2](#azsqlmanaged)</sup>     |   SÌ      |    SÌ      |
-|SQL Data Warehouse di Azure     |   SÌ      |   SÌ       |
-|Archiviazione BLOB di Azure<sup>[1](#tab1400a)</sup>     |   SÌ       |    No      |
-|Archiviazione tabelle di Azure<sup>[1](#tab1400a)</sup>    |   SÌ       |    No      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  SÌ        |  No        |
-|Azure Data Lake Store (Gen 1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   SÌ       |    No      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     SÌ     |   No       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   SÌ       |   No       |
+|Database SQL di Azure<sup>[2](#azsqlmanaged)</sup>     |   Sì      |    Sì      |
+|Azure SQL Data Warehouse     |   Sì      |   Sì       |
+|Archiviazione BLOB di Azure<sup>[1](#tab1400a)</sup>     |   Sì       |    No      |
+|Archiviazione tabelle di Azure<sup>[1](#tab1400a)</sup>    |   Sì       |    No      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sì        |  No        |
+|Azure Data Lake Store (Gen 1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sì       |    No      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sì     |   No       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sì       |   No       |
 ||||
 
 <a name="tab1400a">1</a> - Solo modelli tabulari 1400 e superiori.   
@@ -61,7 +61,7 @@ La connessione alle origini dati locali da un server Azure Analysis Services ric
 |---------|
 |Database di Access     |  
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
-|Servizi di analisi     |  
+|Analysis Services     |  
 |Piattaforma di strumenti analitici     |  
 |File CSV  |
 |Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
@@ -71,7 +71,7 @@ La connessione alle origini dati locali da un server Azure Analysis Services ric
 |IBM Informix<sup>[1](#tab1400b)</sup> (Beta) |
 |Documento JSON<sup>[1](#tab1400b)</sup>     |  
 |Righe da file binario<sup>[1](#tab1400b)</sup>     | 
-|Database MySQL     | 
+|MySQL Database     | 
 |Feed OData<sup>[1](#tab1400b)</sup>     |  
 |Query ODBC     | 
 |OLE DB     |   

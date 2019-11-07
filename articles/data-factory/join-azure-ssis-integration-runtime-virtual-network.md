@@ -1,5 +1,5 @@
 ---
-title: Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale | Microsoft Docs
+title: Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
 description: Informazioni su come aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale di Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 065f69cc98f05fcb19648f190a7dba4b43da1a9a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: d36900a1ce05eaf022637a6ef6b866fe0d190b17
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326629"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672745"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
 Quando si usa SQL Server Integration Services (SSIS) in Azure Data Factory, è necessario aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale di Azure negli scenari seguenti: 
@@ -118,7 +118,7 @@ Per altre informazioni, vedere [risoluzione dei nomi che usa il proprio server D
 ### <a name="nsg"></a>Configurare un NSG
 Se è necessario implementare un NSG per la subnet usata dal Azure-SSIS IR, consentire il traffico in ingresso e in uscita attraverso le porte seguenti: 
 
-| Direzione | Protocollo di trasporto | Source (Sorgente) | Intervallo di porte di origine | Destinazione | Intervallo di porte di destinazione | Commenti |
+| Direzione | Protocollo di trasporto | Source | Intervallo di porte di origine | Destination | Intervallo di porte di destinazione | Commenti |
 |---|---|---|---|---|---|---|
 | In ingresso | TCP | BatchNodeManagement | * | VirtualNetwork | 29876, 29877 (se si aggiunge il runtime di integrazione a una rete virtuale Gestione risorse) <br/><br/>10100, 20100, 30100 (se si aggiunge il runtime di integrazione a una rete virtuale classica)| Il servizio Data Factory usa queste porte per comunicare con i nodi del Azure-SSIS IR nella rete virtuale. <br/><br/> Indipendentemente dalla creazione di un NSG a livello di subnet, Data Factory configura sempre un NSG al livello delle schede di interfaccia di rete collegate alle macchine virtuali che ospitano il Azure-SSIS IR. Il gruppo di sicurezza di rete a livello di scheda di interfaccia di rete consente solo il traffico in entrata dagli indirizzi IP di Data Factory nelle porte specificate. Anche se si aprono queste porte al traffico Internet a livello di subnet, il traffico da indirizzi IP che non sono Data Factory indirizzi IP viene bloccato a livello di NIC. |
 | In uscita | TCP | VirtualNetwork | * | AzureCloud | 443 | I nodi del Azure-SSIS IR nella rete virtuale usano questa porta per accedere ai servizi di Azure, ad esempio archiviazione di Azure e hub eventi di Azure. |
@@ -139,7 +139,7 @@ In entrambi i casi, la route di traffico interrompe la connettività in ingresso
 
 Se si è preoccupati di perdere la possibilità di controllare il traffico Internet in uscita da tale subnet, è possibile definire UdR specifici per instradare il traffico solo tra i servizi Azure Batch Management e i Azure-SSIS IR con un tipo di hop successivo **Internet**.
 
-Ad esempio, se il Azure-SSIS IR si trova in `UK South`, si otterrebbe un elenco di intervalli IP di tag di servizio `BatchNodeManagement.UKSouth` dal [collegamento di download dell'intervallo IP dei tag del servizio](https://www.microsoft.com/en-us/download/details.aspx?id=56519) o tramite l' [API di individuazione dei tag di servizio](https://aka.ms/discoveryapi). Applicare quindi le seguenti UdR di route di intervallo IP correlate con il tipo di hop successivo come **Internet**.
+Se, ad esempio, il Azure-SSIS IR si trova in `UK South`, si otterrebbe un elenco di intervalli IP di tag di servizio `BatchNodeManagement.UKSouth` dal [collegamento di download dell'intervallo IP dei tag del servizio](https://www.microsoft.com/en-us/download/details.aspx?id=56519) o tramite l'API di individuazione dei tag di [servizio](https://aka.ms/discoveryapi). Applicare quindi le seguenti UdR di route di intervallo IP correlate con il tipo di hop successivo come **Internet**.
 
 ![Impostazioni Azure Batch UDR](media/join-azure-ssis-integration-runtime-virtual-network/azurebatch-udr-settings.png)
 
@@ -238,7 +238,7 @@ Usare il portale per configurare una rete virtuale classica prima di provare ad 
 
     ![Pulsanti "Controllo di accesso" e "Aggiungi"](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-    b. Selezionare **Aggiungi assegnazione ruolo**.
+    b. Selezionare **Aggiungi assegnazione di ruolo**.
 
     c. Nella pagina **Aggiungi assegnazione ruolo** selezionare **collaboratore macchina virtuale classica**per **ruolo**. Nella casella **Seleziona** incollare **ddbf3205-c6bd-46AE-8127-60eb93363864**, quindi selezionare **Microsoft Azure batch** dall'elenco dei risultati della ricerca. 
 

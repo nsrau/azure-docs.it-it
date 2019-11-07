@@ -1,5 +1,5 @@
 ---
-title: Esempio in memoria del database SQL di Azure | Microsoft Docs
+title: Esempio in memoria del database SQL di Azure
 description: Le tecnologie in memoria del database SQL di Azure con esempi OLTP e columnstore.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: e3e819fc90e8900219ebc7809adb293369084a72
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8526236afdb0a312879cb3c1635a7fd85985278f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828202"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689814"
 ---
 # <a name="in-memory-sample"></a>Esempio in memoria
 
@@ -34,7 +34,7 @@ Per altre informazioni, vedere:
 
 &nbsp;
 
-## <a name="1-install-the-in-memory-oltp-sample"></a>1. Installare l'esempio di OLTP in memoria
+## <a name="1-install-the-in-memory-oltp-sample"></a>1. installare l'esempio di OLTP in memoria
 
 È possibile creare il database AdventureWorksLT di esempio con pochi clic nel [portale di Azure](https://portal.azure.com/). I passaggi descritti in questa sezione illustrano come migliorare il database AdventureWorksLT con oggetti OLTP in memoria e dimostra i vantaggi sulle prestazioni.
 
@@ -51,7 +51,7 @@ Per una dimostrazione più semplice e visivamente più interessante sulle presta
 
 3. Copiare lo [script Transact-SQL OLTP in memoria](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) negli Appunti. Lo script T-SQL crea gli oggetti in memoria necessari nel database AdventureWorksLT di esempio creato nel passaggio 1.
 
-4. Incollare lo script T-SQL in SSMS.exe, quindi eseguirlo. La clausola `MEMORY_OPTIMIZED = ON` è fondamentale nelle istruzioni CREATE TABLE, Esempio:
+4. Incollare lo script T-SQL in SSMS.exe, quindi eseguirlo. La clausola `MEMORY_OPTIMIZED = ON` è fondamentale nelle istruzioni CREATE TABLE, Ad esempio:
 
 
 ```sql
@@ -100,7 +100,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 ```
 
 
-**Stored procedure compilate in modo nativo**: è possibile esaminare SalesLT.usp_InsertSalesOrder_inmem usando una query delle viste del catalogo:
+**Stored procedure compilata in modo nativo**: è possibile esaminare SalesLT.usp_InsertSalesOrder_inmem usando una query delle viste del catalogo.
 
 
 ```sql
@@ -262,7 +262,7 @@ I test delle funzionalità in memoria hanno mostrato un miglioramento delle pres
 
 &nbsp;
 
-## <a name="2-install-the-in-memory-analytics-sample"></a>2. Installare l'esempio di analisi in memoria
+## <a name="2-install-the-in-memory-analytics-sample"></a>2. installare l'esempio di analisi in memoria
 
 
 In questa sezione vengono messi a confronto i risultati di statistiche e IO quando si usa un indice columnstore rispetto a un indice ad albero B tradizionale.
@@ -382,7 +382,7 @@ In un database con piano tariffario P2 è possibile raggiungere circa 9X il guad
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Avvio rapido 1: Tecnologie OLTP in memoria per ottimizzare le prestazioni di T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Guida introduttiva 1: tecnologie OLTP in memoria per migliorare le prestazioni di T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
 
 - [Usare OLTP in memoria in un'applicazione esistente del database SQL di Azure.](sql-database-in-memory-oltp-migration.md)
 

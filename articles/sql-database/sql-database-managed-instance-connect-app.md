@@ -1,5 +1,5 @@
 ---
-title: Applicazione connessa a Istanza gestita di database SQL di Azure | Microsoft Docs
+title: Applicazione Istanza gestita di database SQL di Azure Connect
 description: Questo articolo illustra come connettere un'applicazione a Istanza gestita di database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 133110d015ac7a26f18f14f6ff957729a4f079b5
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 5dc287ab58636b4921c14ae71f9a62ab36d9c596
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060662"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688235"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connettere l'applicazione a istanza gestita di database SQL di Azure
 
@@ -65,7 +65,7 @@ Le istanze gestite sono accessibili solo tramite un indirizzo IP privato, quindi
 
 Un altro scenario implementato dai clienti è quello in cui il gateway VPN è installato in una rete virtuale e una sottoscrizione separata da quelle che ospitano Istanza gestita. Sulle due reti virtuali viene quindi eseguito il peering. Il seguente esempio di diagramma di architettura mostra come questo può essere implementato.
 
-![Peering di rete virtuale](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
+![Peering reti virtuali](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
 Una volta configurata l'infrastruttura di base, è necessario modificare alcune impostazioni in modo che il gateway VPN possa vedere gli indirizzi IP nella rete virtuale che ospita l'istanza gestita. Per fare ciò, apportare le seguenti modifiche molto specifiche in **Impostazioni di peering**.
 
