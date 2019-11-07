@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: victorh
-ms.openlocfilehash: 53a4fca0c05cd54bae6d01d07e72e1033a247a05
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: afdb5d256c33042655c122e9c84a4ab07c94f14c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327371"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470045"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Esercitazione: Configurare un gateway applicazione con la terminazione SSL tramite il portale di Azure
 
@@ -62,7 +62,7 @@ Usare [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkicl
 > Non usare caratteri speciali nella password del file con estensione pfx. Sono supportati solo caratteri alfanumerici.
 
 ```powershell
-$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+$pwd = ConvertTo-SecureString -String "Azure123456" -Force -AsPlainText
 Export-PfxCertificate `
   -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
   -FilePath c:\appgwcert.pfx `
@@ -150,7 +150,7 @@ Nella scheda **Configurazione** verranno connessi il front-end e il pool back-en
 
    - **File di certificato PFX**: individuare e selezionare il file c:\appgwcert.pfx creato in precedenza.
    - **Nome del certificato**: immettere *mycert1* come nome del certificato.
-   - **Password**: digitare *Azure123456!* come password.
+   - **Password**: digitare *Azure123456* come password.
   
         Accettare i valori predefiniti per le altre impostazioni nella scheda **Listener**, quindi selezionare la scheda **Destinazioni back-end** per configurare il resto della regola di routing.
 
@@ -194,7 +194,7 @@ A questo scopo, è necessario:
     - **Gruppo di risorse**: selezionare **myResourceGroupAG** come nome del gruppo di risorse.
     - **Nome macchina virtuale**: immettere *myVM* come nome della macchina virtuale.
     - **Nome utente**: immettere *azureuser* come nome utente dell'amministratore.
-    - **Password**: immettere *Azure123456!* come password amministratore.
+    - **Password**: immettere *Azure123456* come password dell'amministratore.
 4. Accettare tutte le altre impostazioni predefinite e quindi selezionare **Avanti: Dischi**.  
 5. Accettare le impostazioni predefinite della scheda **Dischi** e quindi selezionare **Avanti: Rete**.
 6. Nella scheda **Rete** verificare che **myVNet** sia selezionato per la **Rete virtuale** e che la **Subnet** sia **myBackendSubnet**. Accettare tutte le altre impostazioni predefinite e quindi selezionare **Avanti: Gestione**.

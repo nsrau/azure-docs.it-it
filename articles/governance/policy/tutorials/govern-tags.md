@@ -15,7 +15,7 @@ ms.locfileid: "73510005"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Esercitazione: Gestire la governance dei tag con Criteri di Azure
 
-I [tag](../../../azure-resource-manager/resource-group-using-tags.md) sono una parte cruciale dell'organizzazione delle risorse di Azure in una tassonomia. Quando si seguono le [procedure consigliate per la gestione dei tag](/azure/architecture/cloud-adoption/ready/considerations/name-and-tag#metadata-tags), questi possono costituire la base per l'applicazione dei criteri aziendali con Criteri di Azure o con il[monitoraggio dei costi con Gestione costi](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+I [tag](../../../azure-resource-manager/resource-group-using-tags.md) sono una parte cruciale dell'organizzazione delle risorse di Azure in una tassonomia. Quando si seguono le [procedure consigliate per la gestione dei tag](/azure/architecture/cloud-adoption/ready/considerations/name-and-tag#metadata-tags), questi possono costituire la base per l'applicazione dei criteri aziendali con Criteri di Azure o con il [monitoraggio dei costi con Gestione costi](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
 Indipendentemente da come o perché si usano i tag, è importante che sia possibile aggiungere, modificare e rimuovere rapidamente questi tag nelle risorse di Azure.
 
 L'effetto [Modify](../concepts/effects.md#modify) di Criteri di Azure è progettato per semplificare la governance dei tag, indipendentemente dalla fase di governance delle risorse in cui ci si trova. **Modify** è utile quando:
@@ -28,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="identify-requirements"></a>Identificare i requisiti
 
-Analogamente a qualsiasi implementazione efficace dei controlli di governance, i requisiti dovrebbero provenire dalle esigenze aziendali e essere compresi a fondo prima della creazione di controlli tecnici. Per l'esercitazione relativa a questo scenario, gli elementi seguenti rappresentano i requisiti aziendali:
+Analogamente a qualsiasi implementazione efficace dei controlli di governance, i requisiti dovrebbero provenire dalle esigenze aziendali ed essere compresi a fondo prima della creazione di controlli tecnici. Per l'esercitazione relativa a questo scenario, gli elementi seguenti rappresentano i requisiti aziendali:
 
 - Due tag obbligatori per tutte le risorse: _CostCenter_ ed _Env_
 - _CostCenter_ deve esistere in tutti i contenitori e nelle singole risorse
@@ -94,10 +94,10 @@ La seconda necessità di _CostCenter_ è che le risorse ereditino il tag dal gru
 }
 ```
 
-Questa regola dei criteri usa l'operazione di **aggiungi** invece di **addOrReplace** poiché non si vuole modificare il valore del tag se è presente durante la [correzione](../how-to/remediate-resources.md) di risorse esistenti. Questa regola usa anche la funzione di modello `[resourcegroup()]` per ottenere il valore del tag dal gruppo di risorse padre.
+Questa regola dei criteri usa l'operazione **add** invece di **addOrReplace** poiché non si vuole modificare il valore del tag se è presente durante la [correzione](../how-to/remediate-resources.md) di risorse esistenti. Questa regola usa anche la funzione di modello `[resourcegroup()]` per ottenere il valore del tag dal gruppo di risorse padre.
 
 > [!NOTE]
-> Poiché questa regola dei criteri è destinata a risorse che supportano i tag, la _modalità_ nella definizione dei criteri deve essere "Indicizzata". Questa configurazione garantisce inoltre che i criteri ignorino i gruppi di risorse.
+> Poiché questa regola dei criteri è destinata a risorse che supportano i tag, la _modalità_ nella definizione dei criteri deve essere "Indicizzato". Questa configurazione garantisce inoltre che i criteri ignorino i gruppi di risorse.
 
 ## <a name="configure-the-env-tag"></a>Configurare il tag Env
 
@@ -178,13 +178,13 @@ Il requisito aziendale richiede che tutte le risorse abbiano il tag _Env_ del gr
 ```
 
 > [!NOTE]
-> Poiché questa regola dei criteri è destinata a risorse che supportano i tag, la _modalità_ nella definizione dei criteri deve essere "Indicizzata". Questa configurazione garantisce inoltre che i criteri ignorino i gruppi di risorse.
+> Poiché questa regola dei criteri è destinata a risorse che supportano i tag, la _modalità_ nella definizione dei criteri deve essere "Indicizzato". Questa configurazione garantisce inoltre che i criteri ignorino i gruppi di risorse.
 
 Questa regola dei criteri cerca le risorse che non hanno i propri valori dei gruppi di risorse padre per il tag _Env_ o in cui lo stesso tag _Env_ risulta mancante. Le risorse corrispondenti hanno il tag _Env_ impostato sul valore dei gruppi di risorse padre, anche se il tag esiste già nella risorsa, ma con un valore diverso.
 
 ## <a name="assign-the-initiative-and-remediate-resources"></a>Assegnazione dell'iniziativa e correzione delle risorse
 
-Una volta creati i criteri di tag precedenti, è necessario aggiungerli a un'unica iniziativa per la governance dei tag e assegnarli a un gruppo di gestione o a una sottoscrizione. L'iniziativa e i criteri inclusi valutano la conformità delle risorse esistenti e modificano le richieste per le risorse nuove o aggiornate che corrispondono alla proprietà **if** nella regola dei criteri. Tuttavia, il criterio non aggiorna automaticamente le risorse non conformi esistenti con le modifiche ai tag definiti.
+Dopo aver creato i criteri di tag precedenti, è necessario aggiungerli a un'unica iniziativa per la governance dei tag e assegnarli a un gruppo di gestione o a una sottoscrizione. L'iniziativa e i criteri inclusi valutano la conformità delle risorse esistenti e modificano le richieste per le risorse nuove o aggiornate che corrispondono alla proprietà **if** nella regola dei criteri. Tuttavia, il criterio non aggiorna automaticamente le risorse non conformi esistenti con le modifiche ai tag definiti.
 
 Analogamente ai criteri di [deployIfNotExists](../concepts/effects.md#deployifnotexists), il criterio **Modify** usa le attività di correzione per modificare le risorse non conformi esistenti. Seguire le istruzioni riportate in [Correggere le risorse non conformi con Criteri di Azure](../how-to/remediate-resources.md) per identificare le risorse non conformi a **Modify** e correggere i tag secondo la tassonomia definita.
 

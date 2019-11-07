@@ -12,22 +12,22 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: 3e328d242bccd9f2ab037131d3fcce585bc6b8da
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 9a5e826fd4de3641c4c5ce8ae728d354cb7ba8f7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432813"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495193"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Guida introduttiva: Creare un'applicazione Python usando un account API SQL di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [.NET](create-sql-api-dotnet.md)
+> * [.NET V3](create-sql-api-dotnet.md)
+> * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
->  
 
 Questa guida introduttiva illustra come creare un account dell'[API SQL](sql-api-introduction.md) di Azure Cosmos DB, un database di documenti e un contenitore usando il portale di Azure. Quindi, si creerà ed eseguirà un'app console creata con Python SDK per [API SQL](sql-api-sdk-python.md).
 

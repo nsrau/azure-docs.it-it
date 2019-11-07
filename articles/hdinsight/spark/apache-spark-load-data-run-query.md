@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Caricare dati ed eseguire query in un cluster Apache Spark in Azure HDInsight'
+title: 'Esercitazione: Caricare dati ed eseguire query con Apache Spark - Azure HDInsight'
 description: 'Esercitazione: Come caricare i dati ed eseguire query interattive nei cluster Spark in Azure HDInsight.'
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 10/03/2019
-ms.openlocfilehash: 3d6b7cf67faa94d0947d16cc79d0d5b839de7acb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8c5fe1970857a04c7b237a101ac228dea024815b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027801"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494503"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Esercitazione: Caricare i dati ed eseguire query in un cluster Apache Spark in Azure HDInsight
 
@@ -36,7 +36,7 @@ Jupyter Notebook è un ambiente notebook interattivo che supporta diversi lingua
 
 2. Dalla pagina Web di Jupyter, selezionare **Nuovo** > **PySpark** per creare un notebook.
 
-   ![Creare un oggetto Jupyter Notebook per eseguire una query Spark SQL interattiva](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Creare un oggetto Jupyter Notebook per eseguire una query Spark SQL interattiva")
+   ![Creare un Jupyter Notebook per eseguire una query Spark SQL interattiva](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Creare un Jupyter Notebook per eseguire una query Spark SQL interattiva")
 
    Un nuovo notebook verrà creato e aperto con il nome Untitled(`Untitled.ipynb`).
 
@@ -47,7 +47,7 @@ Jupyter Notebook è un ambiente notebook interattivo che supporta diversi lingua
 
 Le applicazioni possono creare frame di dati direttamente da file o cartelle nell'archiviazione remota, ad esempio Archiviazione di Azure o Azure Data Lake Storage, da una tabella Hive o da altre origini dati supportate da Spark, come Cosmos DB, data warehouse, database SQL di Azure e così via. Lo screenshot seguente mostra uno snapshot del file HVAC.csv usato in questa esercitazione. Il file csv è disponibile con tutti i cluster HDInsight Spark. I dati acquisiscono le variazioni di temperatura di alcuni edifici.
 
-![Snapshot di dati per query SQL Spark interattive](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Snapshot di dati per query SQL Spark interattive")
+![Snapshot dei dati per la query Spark SQL interattiva](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Snapshot dei dati per la query Spark SQL interattiva")
 
 1. Incollare il codice seguente in una cella vuota del notebook Jupyter e quindi premere **MAIUSC+INVIO** per eseguire il codice. Il codice importa i tipi necessari per questo scenario:
 
@@ -58,7 +58,7 @@ Le applicazioni possono creare frame di dati direttamente da file o cartelle nel
 
     Quando si esegue una query interattiva in Jupyter, la barra del titolo della scheda o della finestra del Web browser visualizza lo stato **(Occupato)** accanto al titolo del notebook. È anche visibile un cerchio pieno accanto al testo **PySpark** nell'angolo in alto a destra. Al termine del processo viene visualizzato un cerchio vuoto.
 
-    ![Stato della query interattiva Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Stato della query interattiva Spark SQL")
+    ![Stato della query Spark SQL interattiva](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Stato della query Spark SQL interattiva")
 
 2. Eseguire il codice seguente per creare un frame di dati e una tabella temporanea (**hvac**).
 
@@ -81,11 +81,11 @@ Dopo aver creato la tabella, è possibile eseguire una query interattiva sui dat
 
    Viene visualizzato l'output tabulare seguente.
 
-     ![Tabella di output dei risultati della query interattiva Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Tabella di output dei risultati della query interattiva Spark")
+     ![Output della tabella del risultato della query Spark interattiva](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Output della tabella del risultato della query Spark interattiva")
 
 2. È anche possibile visualizzare i risultati in altri formati. Per visualizzare un grafico ad area per lo stesso output, selezionare **Area** e quindi impostare altri valori, come illustrato.
 
-    ![Grafico ad area dei risultati della query interattiva Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Grafico ad area dei risultati della query interattiva Spark")
+    ![Grafico ad area del risultato della query Spark interattiva](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Grafico ad area del risultato della query Spark interattiva")
 
 3. Dalla barra dei menu del notebook, passare a **File** > **Save and Checkpoint** (Salva e checkpoint).
 
@@ -97,7 +97,7 @@ Con HDInsight i dati e i notebook Jupyter vengono salvati in Archiviazione di Az
 
 Aprire il cluster nel portale di Azure e selezionare **Elimina**.
 
-![Eliminare cluster HDInsight](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Eliminare cluster HDInsight")
+![Eliminare il cluster HDInsight](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Eliminare un cluster HDInsight")
 
 È anche possibile selezionare il nome del gruppo di risorse per aprire la pagina del gruppo di risorse e quindi selezionare **Elimina gruppo di risorse**. Eliminando il gruppo di risorse, si elimina sia il cluster HDInsight Spark che l'account di archiviazione predefinito.
 

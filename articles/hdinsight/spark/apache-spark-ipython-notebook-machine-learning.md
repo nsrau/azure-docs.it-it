@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Compilare un'applicazione di apprendimento automatico Spark in Azure HDInsight"
+title: "Esercitazione: Compilare un'app di apprendimento automatico Spark - Azure HDInsight"
 description: Esercitazione - Istruzioni dettagliate su come compilare applicazioni di Machine Learning Apache Spark nei cluster HDInsight Spark usando Jupyter notebook.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: e77414da964d548b64250bbf98f86bee1529f2ab
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 6e46d7403e251bccd69467cfcdaa1d5073b4e454
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327002"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494557"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Esercitazione: Compilare un'applicazione di apprendimento automatico Apache Spark in Azure HDInsight
 
@@ -35,7 +35,7 @@ In questa esercitazione si apprenderà come:
 
 L'applicazione usa i dati di **HVAC.csv** di esempio disponibili in tutti i cluster per impostazione predefinita. Il file si trova in `\HdiSamples\HdiSamples\SensorSampleData\hvac`. I dati illustrano la temperatura di destinazione e la temperatura effettiva di alcuni edifici con sistemi HVAC installati. La colonna **System** rappresenta l'ID del sistema e la colonna **SystemAge** il numero di anni in cui il sistema HVAC è stato installato nell'edificio. Usando i dati è possibile stimare se un edificio è caldo o freddo in base alla temperatura di destinazione, a un ID di sistema e all'età di sistema.
 
-![Snapshot dei dati usati per l'esempio Machine Learning Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Snapshot dei dati usati per l'esempio Machine Learning Spark")
+![Snapshot dei dati usati per l'esempio di apprendimento automatico Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Snapshot dei dati usati per l'esempio di apprendimento automatico Spark")
 
 ## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>Sviluppare un'applicazione di Machine Learning Spark usando Spark MLlib
 
@@ -141,7 +141,7 @@ In questa applicazione si usa una [pipeline ML](https://spark.apache.org/docs/2.
 
     Confrontare l'output con il file CSV non elaborato. Ad esempio, la prima riga del file con estensione csv ha dati:
 
-    ![Snapshot dei dati di output per l'esempio Machine Learning Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Snapshot dei dati di output per l'esempio Machine Learning Spark")
+    ![Snapshot dei dati di output per l'esempio di apprendimento automatico Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Snapshot dei dati di output per l'esempio di apprendimento automatico Spark")
 
     Si noti come la temperatura effettiva è inferiore alla temperatura di destinazione. Questo dato indica che l'edificio è freddo. Nell'output di training, il valore per **label** nella prima riga è **0.0**, che indica che l'edificio non è caldo.
 
@@ -202,7 +202,7 @@ Se non si intende continuare a usare questa applicazione, eliminare il cluster c
 
 1. Selezionare **Elimina**. Selezionare **Sì**.
 
-![Eliminazione di un cluster HDInsight nel portale di Azure](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Eliminazione del cluster HDInsight")
+![Eliminazione di un cluster HDInsight nel portale di Azure](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Eliminare un cluster HDInsight")
 
 ## <a name="next-steps"></a>Passaggi successivi
 

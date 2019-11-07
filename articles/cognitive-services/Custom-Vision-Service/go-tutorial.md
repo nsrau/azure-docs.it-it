@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: ed49d5763db4c9ffcb11d24dfa835c899d76aeec
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7f78230028b66fb12e52f7d5e96cbecbfe8b99a3
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946197"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "73519476"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>Guida introduttiva: Creare un progetto di classificazione immagini con Custom Vision SDK per Go
 
@@ -24,6 +24,7 @@ Questo articolo fornisce informazioni e codice di esempio utili per iniziare a u
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Go 1.8+](https://golang.org/doc/install)
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="install-the-custom-vision-sdk"></a>Installare Custom Vision SDK
 
@@ -48,7 +49,9 @@ Creare un nuovo file denominato *sample.go* nella directory del progetto preferi
 
 ### <a name="create-the-custom-vision-service-project"></a>Creare il progetto di Servizio visione artificiale personalizzato
 
-Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi di sottoscrizione nelle definizioni appropriate. Per specificare altre opzioni quando si crea il progetto, come illustrato in [Creare un classificatore](getting-started-build-a-classifier.md) nella guida al portale Web, vedere il metodo [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_).
+Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi di sottoscrizione nelle definizioni appropriate. Inoltre, ottenere l'URL dell'endpoint dalla pagina Impostazioni del sito Visione personalizzata.
+
+Per specificare altre opzioni quando si crea il progetto, come illustrato in [Creare un classificatore](getting-started-build-a-classifier.md) nella guida al portale Web, vedere il metodo [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_).
 
 ```go
 import(
@@ -67,7 +70,7 @@ var (
     training_key string = "<your training key>"
     prediction_key string = "<your prediction key>"
     prediction_resource_id = "<your prediction resource id>"
-    endpoint string = "https://southcentralus.api.cognitive.microsoft.com"
+    endpoint string = "<your endpoint URL>"
     project_name string = "Go Sample Project"
     iteration_publish_name = "classifyModel"
     sampleDataDirectory = "<path to sample images>"

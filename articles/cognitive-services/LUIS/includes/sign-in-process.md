@@ -8,14 +8,14 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 09/02/2018
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 00eb6f40e77cbdb64249600e35ca8531f1a744a8
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1effd07cef439a6257028549b7b7114b742eb478
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258164"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488811"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Accedere al portale LUIS
 
@@ -41,8 +41,8 @@ Un nuovo utente di LUIS deve seguire questa procedura:
 
 1. Viene visualizzato un riepilogo della risorsa da creare. Selezionare **Avanti**.
 
-    ![Creare la risorsa di creazione](./media/sign-in-confirm-key-selection.png)
+    ![Creare la risorsa di creazione](../media/sign-in/sign-in-confirm-key-selection.png)
 
-1. Il passaggio 3 è una conferma. Per confermare, selezionare **Continua**. 
+1. Per confermare, selezionare **Continua**. 
 
-    ![Creare la risorsa di creazione](./media/sign-in-confirm-continue.png)
+    ![Creare la risorsa di creazione](../media/sign-in/sign-in-confirm-continue.png)

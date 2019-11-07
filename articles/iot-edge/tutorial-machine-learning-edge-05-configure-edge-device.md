@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b9f9fe78db2d8bcf50a076fdfc3eba7b1f347201
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 6d8f67cf94e143cd67a525fa2cc675650fb59e65
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965400"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494011"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Esercitazione: Configurare un dispositivo IoT Edge
 
@@ -73,11 +73,11 @@ In questa sezione vengono creati certificati autofirmati usando un'immagine Dock
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Caricare i certificati in Azure Key Vault
 
-Per archiviare i certificati in sicurezza e renderli accessibili da più dispositivi, caricarli in Azure Key Vault. Come si può vedere nell'elenco precedente, sono disponibili due tipi di file di certificati: PFX e PEM. I file PFX verranno trattati come certificati di Key Vault da caricare in Key Vault. I file PEM sono in testo normale e verranno trattati come segreti di Key Vault. Verrà usata l'istanza di Key Vault associata all'area di lavoro del servizio Azure Machine Learning creata eseguendo [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
+Per archiviare i certificati in sicurezza e renderli accessibili da più dispositivi, caricarli in Azure Key Vault. Come si può vedere nell'elenco precedente, sono disponibili due tipi di file di certificati: PFX e PEM. I file PFX verranno trattati come certificati di Key Vault da caricare in Key Vault. I file PEM sono in testo normale e verranno trattati come segreti di Key Vault. Verrà usata l'istanza di Key Vault associata all'area di lavoro di Azure Machine Learning creata eseguendo [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
 
-1. Nel [portale di Azure](https://portal.azure.com) passare all'area di lavoro del servizio Azure Machine Learning.
+1. Nel [portale di Azure](https://portal.azure.com) passare all'area di lavoro di Azure Machine Learning.
 
-2. Nella pagina di panoramica dell'area di lavoro del servizio Azure Machine Learning trovare il nome di **Key Vault**.
+2. Nella pagina di panoramica dell'area di lavoro di Azure Machine Learning trovare il nome di **Key Vault**.
 
     ![Copiare il nome di Key Vault](media/tutorial-machine-learning-edge-05-configure-edge-device/find-key-vault-name.png)
 

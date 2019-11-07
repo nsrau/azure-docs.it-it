@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5fa13f209d6f4df0ebd531f803e75cdb657abf5c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 731abdde2160c16123ed648b5e552e9e62378438
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163116"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494008"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Esercitazione: Creare e distribuire moduli IoT Edge personalizzati
 
@@ -172,7 +172,7 @@ A questo punto, aggiungere il modulo Router alla soluzione. Il modulo Router ges
 4. Quando viene chiesto di specificare il repository di immagini Docker, usare il registro dell'area di lavoro di Machine Learning, disponibile nel nodo registryCredentials del file *deployment.template.json*. Questo valore corrisponde all'indirizzo completo del registro, ad esempio **\<registro\>.azurecr.io/turbofanrouter**.
 
     > [!NOTE]
-    > In questo articolo viene usato il Registro Azure Container creato dall'area di lavoro del servizio Machine Learning, che è stata usata per il training e la distribuzione del classificatore. Questa scelta viene fatta esclusivamente per praticità. Sarebbe stato possibile creare un nuovo registro contenitori in cui pubblicare i moduli.
+    > In questo articolo viene usato il Registro Azure Container creato dall'area di lavoro di Machine Learning, che è stata usata per il training e la distribuzione del classificatore. Questa scelta viene fatta esclusivamente per praticità. Sarebbe stato possibile creare un nuovo registro contenitori in cui pubblicare i moduli.
 
 5. Aprire una nuova finestra del terminale in Visual Studio Code (**Visualizza** > **Terminale**) e copiare i file dalla directory modules.
 
@@ -752,7 +752,7 @@ Dopo aver apportato le modifiche di configurazione, è possibile creare le immag
 
 Dopo aver completato la compilazione, è possibile usare il portale di Azure per esaminare i moduli pubblicati.
 
-1. Nel portale di Azure passare all'area di lavoro del servizio Machine Learning e fare clic sul collegamento ipertestuale **Registro**.
+1. Nel portale di Azure passare all'area di lavoro di Machine Learning e fare clic sul collegamento ipertestuale **Registro**.
 
     ![Passare al registro dall'area di lavoro del servizio Machine Learning](media/tutorial-machine-learning-edge-06-custom-modules/follow-registry-link.png)
 

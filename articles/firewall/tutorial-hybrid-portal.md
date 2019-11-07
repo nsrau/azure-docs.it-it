@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 11/02/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 50f1d0bca958ef4504394cad1d771459cc8be27d
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 4a4fd2f89bc662f394b59aa6295c3a909cb8552b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018983"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468474"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure in una rete ibrida con il portale di Azure
 
@@ -107,14 +107,6 @@ A questo punto, creare la rete virtuale:
 9. In **Subnet**, in **Nome** digitare **SN-Workload**.
 10. In **Intervallo indirizzi** digitare **10.6.0.0/24**.
 11. Accettare le altre impostazioni predefinite e quindi selezionare **Crea**.
-
-A questo punto creare una seconda subnet per il gateway.
-
-1. Nella pagina **VNet-Spoke** selezionare **Subnet**.
-2. Selezionare **+Subnet**.
-3. In **Nome** digitare **GatewaySubnet**.
-4. In **Intervallo di indirizzi (blocco CIDR)** digitare **10.6.1.0/24**.
-5. Selezionare **OK**.
 
 ## <a name="create-the-on-premises-virtual-network"></a>Creare la rete virtuale locale
 
@@ -341,7 +333,7 @@ A questo punto creare la route predefinita dalla subnet spoke.
 2. Al termine della creazione della tabella di route, selezionarla per aprire la pagina corrispondente.
 3. Selezionare **Route** nella colonna di sinistra.
 4. Selezionare **Aggiungi**.
-5. Come nome della route digitare **ToSpoke**.
+5. Come nome della route digitare **ToHub**.
 6. Per il prefisso dell'indirizzo digitare **0.0.0.0/0**.
 7. Come tipo hop successivo selezionare **Appliance virtuale**.
 8. Come indirizzo hop successivo digitare l'indirizzo IP privato del firewall annotato in precedenza.
@@ -384,7 +376,7 @@ Creare una macchina virtuale nella rete virtuale spoke, con IIS in esecuzione e 
 ### <a name="install-iis"></a>Installare IIS
 
 1. Nel portale di Azure aprire Cloud Shell e assicurarsi che sia impostato su **PowerShell**.
-2. Eseguire questo comando per installare IIS nella macchina virtuale:
+2. Eseguire questo comando per installare IIS nella macchina virtuale e, se necessario, modificare il percorso:
 
    ```azurepowershell-interactive
    Set-AzVMExtension `
@@ -420,7 +412,7 @@ Si tratta di una macchina virtuale usata per connettersi all'indirizzo IP pubbli
 
 ## <a name="test-the-firewall"></a>Testare il firewall
 
-1. Prima di tutto, ottenere e quindi annotare l'indirizzo IP privato per la macchina virtuale **VM-spoke-01**.
+1. Innanzitutto, prendere nota dell'indirizzo IP privato per la macchina virtuale **VM-spoke-01**.
 
 2. Dal portale di Azure connettersi alla macchina virtuale **VM-Onprem**.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.

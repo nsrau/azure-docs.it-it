@@ -16,7 +16,7 @@ ms.locfileid: "73509945"
 ---
 # <a name="assess-servers-using-imported-data"></a>Valutare i server con dati importati
 
-Questo articolo descrive come valutare i server locali con [Azure Migrate: Valutazione server](migrate-services-overview.md#azure-migrate-server-assessment-tool), mediante l'importazione di metadati del server con CSV. Con questo metodo di valutazione, non è necessario configurare l'appliance Azure Migrate per creare una valutazione. Questa operazione è utile se: 
+Questo articolo descrive come valutare i server locali con [Azure Migrate: Valutazione server](migrate-services-overview.md#azure-migrate-server-assessment-tool), tramite l'importazione di metadati del server con CSV. Con questo metodo di valutazione, non è necessario configurare l'appliance Azure Migrate per creare una valutazione. Questa operazione è utile se: 
 
 - Si vuole creare una rapida valutazione iniziale prima di distribuire l'appliance.
 - Non è possibile distribuire l'appliance di Azure Migrate nell'organizzazione.
@@ -28,7 +28,7 @@ Questo articolo descrive come valutare i server locali con [Azure Migrate: Valut
 
 Si noti che:
 
-- È possibile aggiungere fino a un massimo di 20000 server in un singolo file CSV.
+- È possibile aggiungere fino a un massimo di 20000 server in un singolo file con estensione csv.
 - È possibile aggiungere fino a 20000 server in un progetto Azure Migrate tramite CSV.
 - È possibile caricare più volte le informazioni sul server con CSV per Valutazione server di Azure Migrate.
 - Anche se la raccolta di informazioni sull'applicazione è utile nella valutazione dell'ambiente locale per la migrazione, Valutazione server di Azure Migrate attualmente non esegue la valutazione a livello di applicazione e non prende in considerazione le applicazioni nella creazione di una valutazione.
@@ -36,7 +36,7 @@ Si noti che:
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
 > * Configurare un progetto di Azure Migrate.
-> * Compilare un file CSV con le informazioni sul server.
+> * Compilare un file con estensione csv con le informazioni sul server.
 > * Importare il file per aggiungere informazioni sul server in Valutazione server di Azure Migrate.
 > * Creare ed esaminare una valutazione.
 
@@ -96,14 +96,14 @@ Scaricare il modello CSV e aggiungervi le informazioni sul server.
 
 1. In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Valutazione server** fare clic su **Individua**.
 2. In **Individua macchine virtuali**selezionare **Importa tramite file CSV**.
-3. Fare clic su **Scarica** per scaricare il modello di file CSV. In alternativa, è possibile [scaricarlo direttamente](https://go.microsoft.com/fwlink/?linkid=2108404).
+3. Fare clic su **Scarica** per scaricare il modello di file con estensione csv. In alternativa, è possibile [scaricarlo direttamente](https://go.microsoft.com/fwlink/?linkid=2108404).
 
-    ![Scaricare il modello di file CSV](./media/tutorial-assess-import/download-template.png)
+    ![Scaricare il modello di file con estensione csv](./media/tutorial-assess-import/download-template.png)
 
 
 ### <a name="add-server-information"></a>Aggiungere informazioni sul server
 
-Raccogliere i dati sul server e aggiungerli al file CSV.
+Raccogliere i dati sul server e aggiungerli al file con estensione csv.
 
 - Per raccogliere dati, è possibile esportarli dagli strumenti usati per la gestione di server locali, ad esempio VMware vSphere o il database di gestione della configurazione.
 - Per esaminare i dati di esempio, scaricare il [file di esempio](https://go.microsoft.com/fwlink/?linkid=2108405).
@@ -133,7 +133,7 @@ Nella tabella seguente vengono riepilogati i campi del file da compilare.
 **Totale velocità effettiva scrittura da dischi** | No | Dati scritti su disco in MB al secondo.
 **Velocità effettiva della rete in ingresso** | No | Dati ricevuti dal server in MB al secondo.
 **Velocità effettiva della rete in uscita** | No | Dati trasmessi dal server in MB al secondo.
-**Tipo si firmware** | No | Firmware del server. I valori possono essere "BIOS" o "UEFI"
+**Tipo di firmware** | No | Firmware del server. I valori possono essere "BIOS" o "UEFI"
 **Tipo di server** | No | I valori possono essere "Fisico" o "Virtuale".
 **Hypervisor** | No | Hypervisor in cui un computer è in esecuzione. <br/> I valori possono essere "VMware", "Hyper-V", "Xen", "AWS", "GCP" o "Altro".
 **Numero di versione Hypervisor** | No | Versione Hypervisor.
@@ -192,9 +192,9 @@ Dopo l'aggiunta di informazioni al modello CSV, importare i server in Azure Migr
 3. Viene visualizzato lo stato dell'importazione. 
     - Se gli avvisi vengono visualizzati nello stato, è possibile correggerli oppure continuare senza risolverli.
     - Il miglioramento delle informazioni sul server, come suggerito negli avvisi, migliora l'accuratezza della valutazione.
-    - Per visualizzare e correggere gli avvisi in caso vengano visualizzati, fare clic su **Scarica i dettagli degli avvisi in formato CSV**. Il file CSV viene scaricato con gli avvisi annessi. È possibile esaminare gli avvisi e correggere i problemi in base alle esigenze. 
-    Se gli errori vengono visualizzati nello stato (lo stato importazione è **Non riuscito**), è necessario correggerli prima di poter continuare con l'importazione. A tale scopo, scaricare il file CSV in cui sono stati aggiunti i dettagli dell'errore. Esaminare e risolvere gli errori in base alle esigenze. Quindi, caricare nuovamente il file modificato.
-4. Quando lo stato importazione è **Completato**, vengono importate le informazioni sul server.
+    - Per visualizzare e correggere gli avvisi in caso vengano visualizzati, fare clic su **Scarica i dettagli degli avvisi in formato CSV**. Il file con estensione csv viene scaricato con gli avvisi annessi. È possibile esaminare gli avvisi e correggere i problemi in base alle esigenze. 
+    Se gli errori vengono visualizzati nello stato (lo stato dell'importazione è **Non riuscito**), è necessario correggerli prima di poter continuare con l'importazione. A tale scopo, scaricare il file con estensione csv in cui sono stati aggiunti i dettagli dell'errore. Esaminare e risolvere gli errori in base alle esigenze. Quindi, caricare nuovamente il file modificato.
+4. Quando lo stato dell'importazione è **Completato**, vengono importate le informazioni sul server.
 
 
 > [!NOTE]
@@ -321,4 +321,4 @@ In questa esercitazione:
 > * Server importati in Azure Migrate: Valutazione server con CSV.
 > * È stata creata ed esaminata una valutazione
 
-A questo punto, [distribuire un'appliance](./migrate-appliance.md) per valutazioni più accurate e riunire i server in gruppi per una valutazione più approfondita mediante [Analisi delle dipendenze](./concepts-dependency-visualization.md).
+A questo punto, [distribuire un'appliance](./migrate-appliance.md) per valutazioni più accurate e riunire i server in gruppi per una valutazione più approfondita tramite [Analisi delle dipendenze](./concepts-dependency-visualization.md).

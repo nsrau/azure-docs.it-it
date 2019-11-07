@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 268def74a354b19427849738549fbc0c6b197746
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: e07b1d7e01d743bb46c8d5a21664bf68184c97dd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813395"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488466"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali
 
@@ -158,7 +158,7 @@ Selezionare e verificare le risorse di destinazione.
 
 ## <a name="create-a-replication-policy"></a>Creare un criterio di replica
 
-1. Aprire il [portale di Azure](https://portal.azure.com) e selezionare **Tutte le risorse**.
+1. Aprire il [portale di Azure](https://portal.azure.com). Cercare e selezionare **Insiemi di credenziali dei servizi di ripristino**.
 2. Selezionare l'insieme di credenziali di Servizi di ripristino (**ContosoVMVault** in questa esercitazione).
 3. Per creare i criteri di replica, selezionare **Infrastruttura di Site Recovery** > **Criteri di replica** >  **+Criteri di replica**.
 4. In **Creare i criteri di replica** immettere il nome dei criteri. In questo scenario viene usato **VMwareRepPolicy**.
