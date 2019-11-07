@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: e427a7b80b28f1cc70a02890152f9f2247a8bcd2
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 4bd890adcaa4982c52366faed0f2975729290360
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68360307"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612094"
 ---
 La tabella seguente elenca i limiti applicabili alle risorse del servizio Device Provisioning in hub IoT di Azure.
 
@@ -20,7 +20,7 @@ La tabella seguente elenca i limiti applicabili alle risorse del servizio Device
 | Numero massimo di registrazioni | 1\.000.000 |
 | Numero massimo di gruppi di registrazione | 100 |
 | Numero massimo di autorità di certificazione | 25 |
-| Numero massimo di hub IoT collegati | 10 |
+| Numero massimo di hub IoT collegati | 50 |
 | Dimensioni massime del messaggio | 96 KB|
 
 

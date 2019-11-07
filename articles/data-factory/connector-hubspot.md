@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da HubSpot tramite Azure Data Factory (anteprima) | Microsoft Docs
+title: Copiare dati da HubSpot tramite Azure Data Factory (anteprima)
 description: Informazioni su come copiare dati da HubSpot in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 066c80f7791bb9699494a09dec12f43dfb383ac6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: e59d281ee492a1e926acc25cd812054f84c11f72
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090212"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680819"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copiare dati da HubSpot tramite Azure Data Factory (anteprima)
 
@@ -48,11 +48,11 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di HubSpot sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Hubspot** | Sì |
-| clientId | ID client associato all'applicazione Hubspot.  | Yes |
-| clientSecret | Segreto client associato all'applicazione Hubspot. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| clientId | ID client associato all'applicazione Hubspot.  | Sì |
+| clientSecret | Segreto client associato all'applicazione Hubspot. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | accessToken | Il token di accesso ottenuto durante l'autenticazione iniziale dell'integrazione OAuth. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | refreshToken | Il token di aggiornamento ottenuto durante l'autenticazione iniziale dell'integrazione OAuth. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
@@ -91,9 +91,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da HubSpot, impostare la proprietà type del set di dati su **HubspotObject**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **HubspotObject** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **HubspotObject** | Sì |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -121,9 +121,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da HubSpot, impostare il tipo di origine nell'attività di copia su **HubspotSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **HubspotSource** | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **HubspotSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Companies where Company_Id = xxx"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

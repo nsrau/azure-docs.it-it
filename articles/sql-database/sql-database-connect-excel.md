@@ -1,5 +1,5 @@
 ---
-title: Connettere Excel a un database singolo in database SQL di Azure | Microsoft Docs
+title: Connettere Excel a un database singolo nel database SQL di Azure
 description: Informazioni su come connettere Microsoft Excel a un database singolo in database SQL di Azure. Importare i dati in Excel per creare report ed esplorare i dati.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: ''
 ms.date: 02/12/2019
-ms.openlocfilehash: 8711d8f7ebc00b2d0fa51ff9f420293e96766d1c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 603aa52aefc4c4d1200d433f7f73f6070849c8f7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569360"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691029"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Connettere Excel a un database singolo in database SQL di Azure e creare un report
 
@@ -33,7 +33,7 @@ Sarà necessaria anche una copia di Excel. In questa esercitazione viene usato [
 1. Per connettere Excel a un database SQL, aprire Excel e quindi creare una nuova cartella di lavoro o aprirne una esistente.
 2. Sulla barra dei menu nella parte superiore della pagina selezionare la scheda **Dati**, selezionare **Recupera dati**, selezionare Da Azure e quindi selezionare **Dal database SQL di Azure**. 
 
-   ![Selezionare l'origine dati: Connettere Excel al database SQL.](./media/sql-database-connect-excel/excel_data_source.png)
+   ![Selezione dell'origine dati: connettere Excel al database SQL.](./media/sql-database-connect-excel/excel_data_source.png)
 
    Si apre la Connessione guidata dati.
 3. Nella finestra di dialogo **Connessione al server di database** digitare il **Nome del server** per il database SQL a cui si vuole stabilire la connessione nel formato <*nomeserver*> **.database.windows.net**. Ad esempio, **msftestserver.database.windows.net**. Se si vuole, immettere il nome del database. Scegliere **OK** per aprire la finestra delle credenziali. 
@@ -67,7 +67,7 @@ Ora che è stata stabilita la connessione, è possibile caricare i dati in diver
 
 > [!TIP]
 > Per connettere altre cartelle di lavoro e altri fogli di lavoro di Excel al database, selezionare la scheda **Dati** e quindi selezionare **Origini recenti** per aprire la finestra di dialogo **Origini recenti**. In questa finestra selezionare la connessione creata dall'elenco e fare clic su **Apri**.
-> ![Finestra di dialogo origini recenti](media/sql-database-connect-excel/recent-connections.png)
+> ![finestra di dialogo origini recenti](media/sql-database-connect-excel/recent-connections.png)
 
 ## <a name="create-a-permanent-connection-using-odc-file"></a>Creare una connessione permanente mediante un file con estensione odc
 

@@ -1,5 +1,5 @@
 ---
-title: Presentazione dell'app Wingtips - Database SQL di Azure | Microsoft Docs
+title: "Benvenuti nell'app wingtips-database SQL di Azure "
 description: Informazioni sui modelli di tenancy database e sull'applicazione SaaS Wingtips di esempio per il database SQL di Azure nell'ambiente cloud.
 keywords: esercitazione database SQL
 services: sql-database
@@ -12,16 +12,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: ca534d3ffcfd1d4caeb9cf755934a846fafae26e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6b8cb9bed2f5fdd0b246e73c84731081d0f2e41e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570102"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691830"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>L'applicazione SaaS Wingtip Tickets
 
-La stessa applicazione SaaS *Wingtip Tickets* viene implementata in ciascuno dei tre campioni. L'app è una semplice app SaaS di elencazione di eventi ed emissione di biglietti per locali di ritrovo di piccole dimensioni, come teatri, discoteche, ecc. Ogni locale è un tenant dell'app e dispone di propri dati: dettagli del locale, elenchi di eventi, clienti, ordini di biglietti e così via.  L'app, unitamente agli script di gestione e alle esercitazioni, illustra uno scenario SaaS completo. Sono inclusi i tenant di provisioning, il monitoraggio e la gestione delle prestazioni, la gestione dello schema e il reporting e analisi su più tenant.
+La stessa applicazione SaaS *Wingtip Tickets* viene implementata in ciascuno dei tre campioni. L'app è un semplice elenco di eventi e app SaaS per ticket destinate a piccole sedi, teatri, clubs e così via. Ogni sede è un tenant dell'app e ha i propri dati: dettagli della sede, elenchi di eventi, clienti, ordini di ticket e così via.  L'app, insieme agli script di gestione e alle esercitazioni, illustra uno scenario SaaS end-to-end. Sono inclusi i tenant di provisioning, il monitoraggio e la gestione delle prestazioni, la gestione dello schema e il reporting e analisi su più tenant.
 
 ## <a name="three-saas-application-and-tenancy-patterns"></a>Tre modelli di applicazione SaaS e tenancy
 

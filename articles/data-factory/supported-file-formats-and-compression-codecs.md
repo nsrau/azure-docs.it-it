@@ -1,5 +1,5 @@
 ---
-title: Formati di file supportati in Azure Data Factory | Microsoft Docs
+title: Formati di file supportati in Azure Data Factory
 description: Questo argomento descrive i formati di file e i codici di compressione supportati dai connettori basati su file in Azure Data Factory.
 author: linda33wj
 manager: craigg
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 00d8fb69abb6ce74a36ff017f3f356cb86114d99
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d0183e991a3cbc0481aff44b5b0f03eaa9d43103
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930922"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683969"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formati di file e codec di compressione supportati in Azure Data Factory
 
@@ -39,7 +39,7 @@ Per **copiare i file così come sono** tra archivi basati su file (copia binaria
 
 Se si vuole leggere da un file di testo o scrivere in un file di testo, impostare la proprietà `type` nella sezione `format` del set di dati **TextFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio di TextFormat](#textformat-example) sulla configurazione.
 
-| Proprietà | Description | Valori consentiti | Obbligatoria |
+| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | columnDelimiter |Il carattere usato per separare le colonne in un file. È possibile usare un carattere non stampabile raro che potrebbe non esistere nei dati. Ad esempio, specificare "\u0001", che rappresenta l'inizio intestazione (SOH). |È consentito un solo carattere. Il valore **predefinito** è la **virgola (",")** . <br/><br/>Per usare un carattere Unicode, vedere i [caratteri Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) per ottenere il codice corrispondente. |No |
 | rowDelimiter |Il carattere usato per separare le righe in un file. |È consentito un solo carattere. Sono consentiti i seguenti valori **predefiniti** in lettura: **["\r\n", "\r", "\n"]** e **"\r\n"** in scrittura. |No |
@@ -47,9 +47,9 @@ Se si vuole leggere da un file di testo o scrivere in un file di testo, impostar
 | quoteChar |Carattere usato per delimitare tra virgolette un valore stringa. I delimitatori di colonne e righe tra virgolette sono considerati parte del valore stringa. Questa proprietà è applicabile sia ai set di dati di input che a quelli di output.<br/><br/>Per una tabella, è possibile specificare sia escapeChar che quoteChar. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello, world>), è possibile definire " (virgolette doppie) come carattere di virgolette e usare la stringa "Hello, world" nell'origine. |No |
 | nullValue |Uno o più caratteri usati per rappresentare un valore null. |Uno o più caratteri. I valori **predefiniti** sono **"\N" e "NULL"** in lettura e **"\N"** in scrittura. |No |
 | encodingName |Specificare il nome della codifica. |Un nome di codifica valido. Vedere [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No |
-| firstRowAsHeader |Specifica se considerare la prima riga come intestazione. In un set di dati di input Data factory legge la prima riga come intestazione. In un set di dati di output Data factory scrive la prima riga come intestazione. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |Vero<br/><b>False (impostazione predefinita)</b> |No |
+| firstRowAsHeader |Specifica se considerare la prima riga come intestazione. In un set di dati di input Data factory legge la prima riga come intestazione. In un set di dati di output Data factory scrive la prima riga come intestazione. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |True<br/><b>False (impostazione predefinita)</b> |No |
 | skipLineCount |Indica il numero di righe **non vuote** da ignorare durante la lettura di dati da file di input. Se sono specificati sia skipLineCount che firstRowAsHeader, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |Integer |No |
-| treatEmptyAsNull |Specifica se considerare una stringa vuota o null come valore null durante la lettura di dati da un file di input. |**True (impostazione predefinita)**<br/>Falso |No |
+| treatEmptyAsNull |Specifica se considerare una stringa vuota o null come valore null durante la lettura di dati da un file di input. |**True (impostazione predefinita)**<br/>False |No |
 
 ### <a name="textformat-example"></a>Esempio di TextFormat
 
@@ -95,13 +95,13 @@ Per **importare/esportare un file JSON senza modifiche in/da Azure Cosmos DB**, 
 
 Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la proprietà `type` nella sezione `format` su **JsonFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No |
 | jsonNodeReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti presenti nel campo di una matrice con lo stesso modello, specificare il percorso JSON di tale matrice. Questa proprietà è supportata solo quando si copiano dati **da** file JSON. | No |
 | jsonPathDefinition | Specificare l'espressione del percorso JSON per ogni mapping colonne con un nome di colonna personalizzato. Iniziare con una lettera minuscola. Questa proprietà è supportata solo quando si copiano dati **da** file JSON ed è possibile estrarre dati dall'oggetto o dalla matrice. <br/><br/> Per i campi sotto l'oggetto radice, iniziare con la radice $. Per i campi nella matrice scelta dalla proprietà `jsonNodeReference`, iniziare dall'elemento matrice. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione. | No |
 | encodingName |Specificare il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: Proprietà [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) . Ad esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No |
-| nestingSeparator |Carattere utilizzato per separare i livelli di nidificazione. Il valore predefinito è "." (punto). |No |
+| nestingSeparator |Carattere usato per separare i livelli di annidamento. Il valore predefinito è "." (punto). |No |
 
 >[!NOTE]
 >Per il caso di applicazione incrociata di dati in una matrice in più righe (caso 1-> esempio 2 in [esempi di JsonFormat](#jsonformat-example)), è possibile scegliere di espandere solo una singola matrice utilizzando la proprietà `jsonNodeReference`.
@@ -235,7 +235,7 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, estraend
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
-Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). In particolare:
+Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
 
 - La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Per altre informazioni, vedere [Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione](copy-activity-schema-and-type-mapping.md).
 - `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. Per copiare i dati dalla matrice, è possibile usare `array[x].property` per estrarre il valore della proprietà specificata dall'oggetto `xth`, oppure è possibile usare `array[*].property` per trovare il valore in qualsiasi oggetto contenente tale proprietà.
@@ -310,7 +310,7 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, rendendo
 | 01 | 20170122 | P3 | 231 | `[{"sanmateo":"No 1"}]` |
 
 
-Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). In particolare:
+Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
 
 - La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Per altre informazioni, vedere [Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione](copy-activity-schema-and-type-mapping.md).
 - `jsonNodeReference` indica di seguire l'iterazione dei dati e di estrarli dagli oggetti con lo stesso modello sotto la **matrice**`orderlines`.
@@ -452,7 +452,7 @@ Esempio: impostare la variabile `_JAVA_OPTIONS` con il valore `-Xms256m -Xmx16g`
 
 | Tipo di dati provvisori di Data Factory | Tipo Parquet primitivo | Tipo Parquet originale (deserializzazione) | Tipo Parquet originale (serializzazione) |
 |:--- |:--- |:--- |:--- |
-| boolean | boolean | N/D | N/D |
+| Booleano | Booleano | N/D | N/D |
 | SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -460,18 +460,18 @@ Esempio: impostare la variabile `_JAVA_OPTIONS` con il valore `-Xms256m -Xmx16g`
 | Int32 | Int32 | Int32 | Int32 |
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
-| UInt64 | Int64/Binary | UInt64 | DECIMAL |
-| Singolo | Float | N/D | N/D |
-| DOUBLE | DOUBLE | N/D | N/D |
-| DECIMAL | Binary | DECIMAL | DECIMAL |
-| Stringa | Binary | Utf8 | Utf8 |
-| Data e ora | Int96 | N/D | N/D |
-| Intervallo di tempo | Int96 | N/D | N/D |
-| DateTimeOffset | Int96 | N/D | N/D |
+| UInt64 | Int64/Binary | UInt64 | Decimal |
+| Single | Float | N/D | N/D |
+| Double | Double | N/D | N/D |
+| Decimal | Binary | Decimal | Decimal |
+| String | Binary | Utf8 | Utf8 |
+| DateTime | Int96 | N/D | N/D |
+| TimeSpan | Int96 | N/D | N/D |
+| Datetimeoffset | Int96 | N/D | N/D |
 | ByteArray | Binary | N/D | N/D |
-| GUID | Binary | Utf8 | Utf8 |
+| Guid | Binary | Utf8 | Utf8 |
 | Char | Binary | Utf8 | Utf8 |
-| CharArray | Supporto non disponibile | N/D | N/D |
+| CharArray | Non supportate | N/D | N/D |
 
 ## <a name="orc-format"></a>Formato ORC
 
@@ -505,24 +505,24 @@ Per la copia in esecuzione nel runtime di integrazione self-hosted con la serial
 
 | Tipo di dati provvisori di Data Factory | Tipi ORC |
 |:--- |:--- |
-| boolean | boolean |
+| Booleano | Booleano |
 | SByte | Byte |
 | Byte | Breve |
 | Int16 | Breve |
 | UInt16 | Int |
 | Int32 | Int |
-| UInt32 | Lungo |
-| Int64 | Lungo |
-| UInt64 | Stringa |
-| Singolo | Float |
-| DOUBLE | DOUBLE |
-| DECIMAL | DECIMAL |
-| Stringa | Stringa |
-| Data e ora | Timestamp |
-| DateTimeOffset | Timestamp |
-| Intervallo di tempo | Timestamp |
+| UInt32 | long |
+| Int64 | long |
+| UInt64 | String |
+| Single | Float |
+| Double | Double |
+| Decimal | Decimal |
+| String | String |
+| DateTime | Timestamp |
+| Datetimeoffset | Timestamp |
+| TimeSpan | Timestamp |
 | ByteArray | Binary |
-| GUID | Stringa |
+| Guid | String |
 | Char | Char(1) |
 
 ## <a name="avro-format"></a>Formato AVRO

@@ -1,5 +1,5 @@
 ---
-title: Automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure | Microsoft Docs
+title: Automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure
 description: Informazioni su come automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 11/14/2018
-ms.openlocfilehash: b1c3f49808a59576f02178dee1107b4019e34b5e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 01cc82a2ada1f4ac8f26b223b7168b2cca157793
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566262"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686875"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure
 
@@ -31,7 +31,7 @@ In questo articolo viene presentata una soluzione per replicare automaticamente 
 In questo articolo si usa ALTER TABLE come esempio di modifica dello schema, ma la soluzione funziona anche per altri tipi di modifiche dello schema.
 
 > [!IMPORTANT]
-> Prima di iniziare a implementare la replica automatizzata delle modifiche dello schema nell'ambiente di sincronizzazione, è consigliabile leggere questo articolo con attenzione, in particolare le sezioni [Risoluzione dei problemi](#troubleshoot) e [Altre considerazioni](#other). È consigliabile anche leggere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL](sql-database-sync-data.md). Alcune operazioni di database possono creare problemi nella soluzione descritta in questo articolo. È possibile che vengano richieste ulteriori informazioni di dominio su SQL Server e Transact-SQL per risolvere i problemi.
+> Prima di iniziare a implementare la replica automatizzata delle modifiche dello schema nell'ambiente di sincronizzazione, è consigliabile leggere questo articolo con attenzione, in particolare le sezioni [Risoluzione dei problemi](#troubleshoot) e [Altre considerazioni](#other). Si consiglia inoltre di leggere [sincronizzare i dati tra più database cloud e locali con sincronizzazione dati SQL](sql-database-sync-data.md). È possibile che alcune operazioni del database interrompano la soluzione descritta in questo articolo. È possibile che vengano richieste ulteriori informazioni di dominio su SQL Server e Transact-SQL per risolvere i problemi.
 
 ![Automazione della replica delle modifiche dello schema](media/sql-database-update-sync-schema/automate-schema-changes.png)
 
@@ -223,7 +223,7 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 
 -   Panoramica: [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md)
 -   Configurare la sincronizzazione dati
-    - Nel portale - [Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale](sql-database-get-started-sql-data-sync.md)
+    - Nel portale: [Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale](sql-database-get-started-sql-data-sync.md)
     - Con PowerShell
         -  [Usare PowerShell per sincronizzare più database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Usare PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)

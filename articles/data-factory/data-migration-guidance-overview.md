@@ -1,5 +1,5 @@
 ---
-title: Usare Azure Data Factory per migrare i dati dal data Lake e data warehouse ad Azure | Microsoft Docs
+title: Usare Azure Data Factory per migrare i dati dal data Lake e data warehouse ad Azure
 description: Usare Azure Data Factory per migrare i dati dal data Lake e data warehouse ad Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/30/2019
-ms.openlocfilehash: 2d2fc1e2992e379c80a16dee2c1983f9559470c5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 0be9cbc9c5af2e0778654ef70c5350b48f10c35d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931123"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675767"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Usare Azure Data Factory per migrare i dati dal data Lake o da data warehouse ad Azure
 
@@ -36,7 +36,7 @@ Azure Data Factory possibile spostare i dati petabyte (PB) per la migrazione di 
   - Azure Data Factory usa un metodo con pagamento in base al consumo, in modo da pagare solo il tempo usato per eseguire la migrazione dei dati in Azure.  
 - Azure Data Factory possibile eseguire un carico cronologico unico e i caricamenti incrementali pianificati.
 - Azure Data Factory usa il runtime di integrazione di Azure (IR) per spostare i dati tra gli endpoint di data Lake e warehouse accessibili pubblicamente. Può anche usare il runtime di integrazione self-hosted per lo stato di trasferimento dei dati per gli endpoint data Lake e warehouse nella rete virtuale di Azure (VNet) o dietro un firewall.
-- Azure Data Factory dispone di sicurezza di livello aziendale: È possibile utilizzare Windows Installer (MSI) o l'identità del servizio per l'integrazione da servizio a servizio protetta oppure utilizzare Azure Key Vault per la gestione delle credenziali.
+- Azure Data Factory dispone di sicurezza di livello aziendale: è possibile utilizzare Windows Installer (MSI) o l'identità del servizio per l'integrazione da servizio a servizio protetta oppure utilizzare Azure Key Vault per la gestione delle credenziali.
 - Azure Data Factory offre un'esperienza di creazione senza codice e un dashboard di monitoraggio completo e integrato.  
 
 ## <a name="online-vs-offline-data-migration"></a>Migrazione dei dati online e offline

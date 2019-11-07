@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di Azure Data Factory connettori | Microsoft Docs
+title: Risolvere i problemi di Azure Data Factory connettori
 description: Informazioni su come risolvere i problemi del connettore in Azure Data Factory.
 services: data-factory
 author: linda33wj
@@ -8,33 +8,33 @@ ms.topic: troubleshooting
 ms.date: 08/26/2019
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: bea5191063cf673f6b1395d46a15536e80b0aa30
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 8cabc1031f9d0be772ba087109ae1dfc881ce163
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143505"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680073"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Risolvere i problemi di Azure Data Factory connettori
 
 Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i connettori in Azure Data Factory.
 
-## <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
+## <a name="azure-data-lake-storage"></a>Archiviazione di Azure Data Lake
 
-### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>Messaggio di errore: Il server remoto ha restituito un errore: (403) non consentito
+### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>Messaggio di errore: il server remoto ha restituito un errore: (403) non consentito
 
-- **Sintomi**: L'attività di copia ha esito negativo con l'errore seguente: 
+- **Sintomi**: l'attività di copia ha esito negativo con l'errore seguente: 
 
     ```
     Message: The remote server returned an error: (403) Forbidden.. 
     Response details: {"RemoteException":{"exception":"AccessControlException""message":"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)....
     ```
 
-- **Causa**: Una delle possibili cause è che l'entità servizio o l'identità gestita usata non è autorizzata ad accedere a una cartella o a un file specifico.
+- **Motivo**: è possibile che l'entità servizio o l'identità gestita usata non disponga dell'autorizzazione per accedere a una cartella o a un file specifico.
 
-- **Risoluzione**: Concedere le autorizzazioni corrispondenti per tutte le cartelle e le sottocartelle che è necessario copiare. Fare riferimento a [questo documento](connector-azure-data-lake-store.md#linked-service-properties).
+- **Soluzione**: concedere le autorizzazioni corrispondenti per tutte le cartelle e le sottocartelle che è necessario copiare. Fare riferimento a [questo documento](connector-azure-data-lake-store.md#linked-service-properties).
 
-### <a name="error-message-failed-to-get-access-token-by-using-service-principal-adal-error-service_unavailable"></a>Messaggio di errore: Non è stato possibile ottenere il token di accesso tramite l'entità servizio. Errore ADAL: service_unavailable
+### <a name="error-message-failed-to-get-access-token-by-using-service-principal-adal-error-service_unavailable"></a>Messaggio di errore: non è stato possibile ottenere il token di accesso tramite l'entità servizio. Errore ADAL: service_unavailable
 
 - **Sintomi**: l'attività di copia ha esito negativo con l'errore seguente:
 
@@ -43,15 +43,15 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
     ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.
     ```
 
-- **Causa**: Quando il server del token del servizio (STS) di proprietà di Azure Active Directory non è disponibile, ad esempio troppo occupato per gestire le richieste, restituisce un errore HTTP 503. 
+- **Motivo**: quando il server dei token di servizio (STS) di proprietà di Azure Active Directory non è disponibile, ad esempio troppo occupato per gestire le richieste, viene restituito un errore HTTP 503. 
 
-- **Risoluzione**: Eseguire di nuovo l'attività di copia dopo alcuni minuti.
+- **Soluzione**: ripetere l'attività di copia dopo alcuni minuti.
 
 ## <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
-### <a name="error-message-conversion-failed-when-converting-from-a-character-string-to-uniqueidentifier"></a>Messaggio di errore: Conversione non riuscita durante la conversione da una stringa di caratteri a uniqueidentifier
+### <a name="error-message-conversion-failed-when-converting-from-a-character-string-to-uniqueidentifier"></a>Messaggio di errore: conversione non riuscita durante la conversione da una stringa di caratteri a uniqueidentifier
 
-- **Sintomi**: Quando si copiano dati da un'origine dati tabulare, ad esempio SQL Server, in Azure SQL Data Warehouse usando la copia di staging e la polibase, viene raggiunto il seguente errore:
+- **Sintomi**: quando si copiano dati da un'origine dati tabulare, ad esempio SQL Server, in Azure SQL data warehouse usando la copia di staging e la polibase, viene raggiunto l'errore seguente:
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
@@ -60,13 +60,13 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
     Message=Conversion failed when converting from a character string to uniqueidentifier...
     ```
 
-- **Causa**: Azure SQL Data Warehouse polibase non è in grado di convertire una stringa vuota in GUID.
+- **Motivo**: Azure SQL data warehouse polibase non è in grado di convertire una stringa vuota in GUID.
 
-- **Risoluzione**: In sink attività di copia, in impostazioni di base, impostare l'opzione "**Usa tipo predefinito**" su false.
+- **Soluzione**: nel sink dell'attività di copia, in impostazioni di base, impostare l'opzione "**Usa tipo predefinito**" su false.
 
-### <a name="error-message-expected-data-type-decimalxx-offending-value"></a>Messaggio di errore: Tipo di dati previsto: DECIMAL (x, x), valore offensivo
+### <a name="error-message-expected-data-type-decimalxx-offending-value"></a>Messaggio di errore: tipo di dati previsto: DECIMAL (x, x), valore offensivo
 
-- **Sintomi**: Quando si copiano dati da un'origine dati tabulare, ad esempio SQL Server, in SQL DW usando la copia di staging e la polibase, viene raggiunto il seguente errore:
+- **Sintomi**: quando si copiano dati da un'origine dati tabulare, ad esempio SQL Server, in SQL DW usando la copia di staging e la polibase, viene raggiunto l'errore seguente:
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
@@ -76,13 +76,13 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
     Column ordinal: 18, Expected data type: DECIMAL(x,x), Offending value:..
     ```
 
-- **Causa**: Azure SQL Data Warehouse polibase non può inserire una stringa vuota (valore null) in una colonna decimale.
+- **Motivo**: Azure SQL data warehouse polibase non può inserire una stringa vuota (valore null) in una colonna decimale.
 
-- **Risoluzione**: In sink attività di copia, in impostazioni di base, impostare l'opzione "**Usa tipo predefinito**" su false.
+- **Soluzione**: nel sink dell'attività di copia, in impostazioni di base, impostare l'opzione "**Usa tipo predefinito**" su false.
 
-### <a name="error-message-java-exception-messagehdfsbridgecreaterecordreader"></a>Messaggio di errore: Messaggio di eccezione Java: HdfsBridge:: CreateRecordReader
+### <a name="error-message-java-exception-messagehdfsbridgecreaterecordreader"></a>Messaggio di errore: messaggio eccezione Java: HdfsBridge:: CreateRecordReader
 
-- **Sintomi**: Si copiano i dati in Azure SQL Data Warehouse usando la polibase e si raggiunge l'errore seguente:
+- **Sintomi**: i dati vengono copiati in Azure SQL data warehouse usando la polibase e viene raggiunto l'errore seguente:
 
     ```
     Message=110802;An internal DMS error occurred that caused this operation to fail. 
@@ -91,7 +91,7 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
     Java exception message:HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file.....
     ```
 
-- **Causa**: La possibile cause è che lo schema (larghezza totale della colonna) è troppo grande (maggiore di 1 MB). Controllare lo schema della tabella SQL DW di destinazione aggiungendo la dimensione di tutte le colonne:
+- **Motivo**: la possibile cause è che lo schema (larghezza totale della colonna) è troppo grande (maggiore di 1 MB). Controllare lo schema della tabella SQL DW di destinazione aggiungendo la dimensione di tutte le colonne:
 
     - Int-> 4 byte
     - Bigint-> 8 byte
@@ -109,42 +109,42 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
     - Tempo-> 12 byte
     - Tinyint-> 1 byte
 
-- **Risoluzione**: Ridurre la larghezza della colonna in modo che sia minore di 1 MB
+- **Soluzione**: ridurre la larghezza della colonna in modo che sia minore di 1 MB
 
 - In alternativa, usare l'approccio BULK INSERT disabilitando la funzionalità di base
 
-### <a name="error-message-the-condition-specified-using-http-conditional-headers-is-not-met"></a>Messaggio di errore: La condizione specificata con le intestazioni condizionali HTTP non è stata soddisfatta
+### <a name="error-message-the-condition-specified-using-http-conditional-headers-is-not-met"></a>Messaggio di errore: la condizione specificata con le intestazioni condizionali HTTP non è stata soddisfatta
 
-- **Sintomi**: Usare query SQL per estrarre i dati da Azure SQL Data Warehouse e raggiungere l'errore seguente:
+- **Sintomi**: si usa la query SQL per estrarre i dati da Azure SQL data warehouse e si raggiunge l'errore seguente:
 
     ```
     ...StorageException: The condition specified using HTTP conditional header(s) is not met...
     ```
 
-- **Causa**: Azure SQL Data Warehouse ha riscontrato un problema durante l'esecuzione di query sulla tabella esterna in archiviazione di Azure.
+- **Causa**: si è verificata Azure SQL data warehouse problema durante l'esecuzione di query sulla tabella esterna in archiviazione di Azure.
 
-- **Risoluzione**: Eseguire la stessa query in SSMS e verificare se viene visualizzato lo stesso risultato. In caso affermativo, aprire un ticket di supporto per Azure SQL Data Warehouse e fornire il nome del server e del database SQL DW per ulteriore risoluzione dei problemi.
+- **Soluzione**: eseguire la stessa query in SSMS e verificare se viene visualizzato lo stesso risultato. In caso affermativo, aprire un ticket di supporto per Azure SQL Data Warehouse e fornire il nome del server e del database SQL DW per ulteriore risoluzione dei problemi.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-### <a name="error-message-request-size-is-too-large"></a>Messaggio di errore: Dimensione della richiesta troppo grande
+### <a name="error-message-request-size-is-too-large"></a>Messaggio di errore: dimensione della richiesta troppo grande
 
-- **Sintomi**: I dati vengono copiati in Azure Cosmos DB con le dimensioni predefinite del batch di scrittura e l'errore di hit *"**dimensioni della richiesta è troppo grande**"* .
+- **Sintomi**: i dati vengono copiati in Azure Cosmos DB con le dimensioni predefinite del batch di scrittura e l'errore di hit *"**dimensioni della richiesta è troppo grande**"* .
 
-- **Causa**: Cosmos DB limita le dimensioni di una singola richiesta a 2 MB. La formula è, Size della richiesta = dimensioni del singolo documento * dimensioni del batch di scrittura. Se le dimensioni del documento sono elevate, il comportamento predefinito comporterà dimensioni di richiesta troppo grandi. È possibile ottimizzare le dimensioni del batch di scrittura.
+- **Motivo**: Cosmos DB limita le dimensioni di una singola richiesta a 2 MB. La formula è, Size della richiesta = dimensioni del singolo documento * dimensioni del batch di scrittura. Se le dimensioni del documento sono elevate, il comportamento predefinito comporterà dimensioni di richiesta troppo grandi. È possibile ottimizzare le dimensioni del batch di scrittura.
 
-- **Risoluzione**: Nel sink dell'attività di copia, ridurre il valore di "dimensioni batch di scrittura" (il valore predefinito è 10000).
+- **Soluzione**: nel sink dell'attività di copia ridurre il valore di ' dimensioni batch di scrittura ' (il valore predefinito è 10000).
 
-### <a name="error-message-unique-index-constraint-violation"></a>Messaggio di errore: Violazione del vincolo di indice univoco
+### <a name="error-message-unique-index-constraint-violation"></a>Messaggio di errore: violazione del vincolo di indice univoco
 
-- **Sintomi**: Quando si copiano i dati in Cosmos DB, viene raggiunto l'errore seguente:
+- **Sintomi**: quando si copiano i dati in Cosmos DB, viene raggiunto l'errore seguente:
 
     ```
     Message=Partition range id 0 | Failed to import mini-batch. 
     Exception was Message: {"Errors":["Encountered exception while executing function. Exception &#61; Error: {\"Errors\":[\"Unique index constraint violation.\"]}... 
     ```
 
-- **Causa**: Le cause possono essere due:
+- **Causa**: sono possibili due cause:
 
     - Se si usa l'istruzione **Insert** As Write Behavior, questo errore indica che i dati di origine contengono righe/oggetti con lo stesso ID.
 
@@ -155,18 +155,18 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
     - Per cause1, impostare **Upsert** come comportamento di scrittura.
     - Per la seconda ragione, assicurarsi che ogni documento abbia un valore diverso per la chiave univoca definita.
 
-### <a name="error-message-request-rate-is-large"></a>Messaggio di errore: La frequenza delle richieste è troppo elevata
+### <a name="error-message-request-rate-is-large"></a>Messaggio di errore: la frequenza delle richieste è elevata
 
-- **Sintomi**: Quando si copiano i dati in Cosmos DB, viene raggiunto l'errore seguente:
+- **Sintomi**: quando si copiano i dati in Cosmos DB, viene raggiunto l'errore seguente:
 
     ```
     Type=Microsoft.Azure.Documents.DocumentClientException,
     Message=Message: {"Errors":["Request rate is large"]}
     ```
 
-- **Causa**: Il numero di unità richiesta usate è maggiore della UR disponibile configurata in Cosmos DB. Informazioni su come Cosmos DB calcola ur da [qui](../cosmos-db/request-units.md#request-unit-considerations).
+- **Motivo**: le unità richiesta usate sono maggiori di quelle disponibili configurate in Cosmos DB. Informazioni su come Cosmos DB calcola ur da [qui](../cosmos-db/request-units.md#request-unit-considerations).
 
-- **Risoluzione**: Ecco due soluzioni:
+- **Soluzione**: di seguito sono riportate due soluzioni:
 
     1. **Aumentare il** numero di unità richiesta del contenitore a un valore più grande in Cosmos DB, che consente di migliorare le prestazioni dell'attività di copia, anche se comporta un aumento dei costi Cosmos DB. 
 
@@ -174,19 +174,19 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
 
 ### <a name="column-missing-in-column-mapping"></a>Colonna mancante nel mapping delle colonne
 
-- **Sintomi**: Quando si importa lo schema per Cosmos DB per il mapping delle colonne, alcune colonne risultano mancanti. 
+- **Sintomi**: quando si importa lo schema per Cosmos DB per il mapping delle colonne, alcune colonne risultano mancanti. 
 
-- **Causa**: ADF deduce lo schema dai primi 10 documenti Cosmos DB. Se alcune colonne/proprietà non dispongono di un valore in tali documenti, non verranno rilevati da ADF, quindi non verranno visualizzati.
+- **Motivo**: ADF deduce lo schema dai primi 10 documenti Cosmos DB. Se alcune colonne/proprietà non dispongono di un valore in tali documenti, non verranno rilevati da ADF, quindi non verranno visualizzati.
 
-- **Risoluzione**: È possibile ottimizzare la query come indicato di seguito per applicare la colonna per la visualizzazione nel set di risultati con un valore vuoto: (si supponga che la colonna "Impossibile" non sia presente nei primi 10 documenti). In alternativa, è possibile aggiungere manualmente la colonna per il mapping.
+- **Soluzione**: è possibile ottimizzare la query come indicato di seguito per applicare la colonna per la visualizzazione nel set di risultati con un valore vuoto: (si supponga che la colonna "Impossibile" non sia presente nei primi 10 documenti). In alternativa, è possibile aggiungere manualmente la colonna per il mapping.
 
     ```sql
     select c.company, c.category, c.comments, (c.impossible??'') as impossible from c
     ```
 
-### <a name="error-message-the-guidrepresentation-for-the-reader-is-csharplegacy"></a>Messaggio di errore: Il GuidRepresentation per il Reader è CSharpLegacy
+### <a name="error-message-the-guidrepresentation-for-the-reader-is-csharplegacy"></a>Messaggio di errore: GuidRepresentation per il Reader è CSharpLegacy
 
-- **Sintomi**: Quando si copiano dati da Cosmos DB MongoAPI/MongoDB con il campo UUID, viene raggiunto l'errore seguente:
+- **Sintomi**: quando si copiano dati da Cosmos DB MongoAPI/MongoDB con il campo UUID, viene raggiunto l'errore seguente:
 
     ```
     Failed to read data via MongoDB client.,
@@ -194,21 +194,21 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
     Message=The GuidRepresentation for the reader is CSharpLegacy which requires the binary sub type to be UuidLegacy not UuidStandard.,Source=MongoDB.Bson,’“,
     ```
 
-- **Causa**: Esistono due modi per rappresentare UUID in BSON-UuidStardard e UuidLegacy. Per impostazione predefinita, UuidLegacy viene usato per leggere i dati. Si raggiungerà un errore se i dati UUID in MongoDB sono UuidStandard.
+- **Motivo**: esistono due modi per rappresentare UUID in BSON-UuidStardard e UuidLegacy. Per impostazione predefinita, UuidLegacy viene usato per leggere i dati. Si raggiungerà un errore se i dati UUID in MongoDB sono UuidStandard.
 
-- **Risoluzione**: Nella stringa di connessione MongoDB aggiungere l'opzione "**uuidRepresentation = standard**". Per altre informazioni, vedere [stringa di connessione MongoDB](connector-mongodb.md#linked-service-properties).
+- **Soluzione**: nella stringa di connessione di MongoDB aggiungere l'opzione "**uuidRepresentation = standard**". Per altre informazioni, vedere [stringa di connessione MongoDB](connector-mongodb.md#linked-service-properties).
 
 ## <a name="sftp"></a>SFTP
 
-### <a name="error-message-invalid-sftp-credential-provided-for-sshpublickey-authentication-type"></a>Messaggio di errore: Credenziale SFTP non valida specificata per il tipo di autenticazione ' SshPublicKey '
+### <a name="error-message-invalid-sftp-credential-provided-for-sshpublickey-authentication-type"></a>Messaggio di errore: credenziale SFTP non valida specificata per il tipo di autenticazione ' SshPublicKey '
 
-- **Sintomi**: Si usa `SshPublicKey` l'autenticazione di e si raggiunge l'errore seguente:
+- **Sintomi**: si usa l'autenticazione `SshPublicKey` e si raggiunge l'errore seguente:
 
     ```
     Invalid Sftp credential provided for 'SshPublicKey' authentication type
     ```
 
-- **Causa**: Esistono tre possibili cause:
+- **Causa**: esistono tre possibili cause:
 
     1. Se si usa l'interfaccia utente di creazione di ADF per creare il servizio collegato SFTP, questo errore indica che la chiave privata che si sceglie di usare è in formato errato. È possibile usare un formato PKCS # 8 per la chiave privata SSH, ma si noti che ADF supporta solo il formato di chiave SSH tradizionale. In particolare, la differenza tra il formato PKCS # 8 e il formato di chiave tradizionale è il contenuto della chiave PKCS # 8 inizia con " *-----iniziare la chiave privata crittografata-----* " mentre il formato della chiave tradizionale inizia con " *-----iniziare la chiave privata RSA-----* ".
     2. Se si usa Azure Key Vault per archiviare il contenuto della chiave privata o usare il modo programmatico per creare il servizio collegato SFTP, questo errore indica che il contenuto della chiave privata non è corretto, probabilmente non è con codifica Base64.

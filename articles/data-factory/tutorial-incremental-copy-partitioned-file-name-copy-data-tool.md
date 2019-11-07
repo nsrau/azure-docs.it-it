@@ -1,5 +1,5 @@
 ---
-title: Utilizzo di Azure Data Factory per la copia incrementale dei nuovi file in base al nome file partizionato ora | Microsoft Docs
+title: Utilizzo di Azure Data Factory per la copia incrementale dei nuovi file in base al nome del file partizionato ora
 description: Creare una data factory di Azure e quindi usare lo strumento Copia dati per caricare in modo incrementale i nuovi file in base al nome del file partizionato ora.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 8081d7112d67e3bb4e72c6f6e88d765a159e047f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 273aaaa2ac51f75edfad6da03d6720f58b7c3c47
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933908"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683440"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Consente di copiare in modo incrementale i nuovi file in base al nome del file partizionato ora utilizzando lo strumento Copia dati
 
@@ -36,8 +36,8 @@ In questa esercitazione si segue questa procedura:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure**: Usare l'archiviazione BLOB come archivio dati di _origine_ e _sink_ . Se non è disponibile un account di archiviazione di Azure, vedere le istruzioni fornite in [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
+* **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* **Account di archiviazione di Azure**: usare l'archiviazione BLOB come archivio dati di _origine_ e _sink_ . Se non si ha un account di archiviazione di Azure, vedere le istruzioni riportate in [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
 
 ### <a name="create-two-containers-in-blob-storage"></a>Creare due contenitori nell'archivio BLOB
 
@@ -52,7 +52,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
 2. Creare un contenitore denominato **Destination**. Per eseguire queste attività è possibile usare vari strumenti, ad esempio [Azure Storage Explorer](https://storageexplorer.com/).
 
-## <a name="create-a-data-factory"></a>Creare una data factory
+## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
 
 1. Nel menu a sinistra selezionare **Crea una risorsa** > **Dati e analisi** > **Data factory**: 
    
@@ -77,7 +77,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 5. In **Versione** selezionare la versione **V2**.
 6. In **Località** selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dalla data factory possono trovarsi in altre località e aree.
 7. Selezionare **Aggiungi al dashboard**. 
-8. Selezionare **Create**.
+8. Selezionare **Crea**.
 9. Il riquadro **Deploying Data Factory** (Distribuzione della data factory) nel dashboard mostra lo stato del processo.
 
     ![Riquadro Deploying data factory (Distribuzione della data factory)](media/tutorial-copy-data-tool/deploying-data-factory.png)
@@ -100,7 +100,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
     c. In **tipo di trigger**selezionare **finestra a cascata**.
     
-    d. Inricorrenza immettere **1 ora**/e. 
+    d. In **ricorrenza**immettere **1 ora**/e. 
     
     e. Selezionare **Avanti**. 
     
@@ -165,7 +165,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
     ![Pagina Riepilogo](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/summary-page.png)
     
 9. Nella pagina **Distribuzione** selezionare **Monitoraggio** per monitorare la pipeline (attività).
-    ![Pagina distribuzione](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/deployment-page.png)
+    ![pagina di distribuzione](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/deployment-page.png)
     
 10. Si noti che la scheda **Monitoraggio** a sinistra è selezionata automaticamente.  È necessario attendere l'esecuzione della pipeline quando viene attivata automaticamente (circa dopo un'ora).  Quando viene eseguito, nella colonna **azioni** sono inclusi collegamenti per visualizzare i dettagli dell'esecuzione dell'attività e per eseguire di nuovo la pipeline. Selezionare **Aggiorna** per aggiornare l'elenco e selezionare il collegamento **Visualizza esecuzioni attività** nella colonna **azioni** . 
 
@@ -184,7 +184,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
     > [!NOTE]
     > È possibile che si sia consapevoli che è necessario creare un nuovo percorso della cartella. Modificare il nome della cartella con l'ora UTC.  Ad esempio, se l'ora UTC corrente è 3:20 PM il 26 febbraio 2019, è possibile creare il percorso della cartella come **origine/2019/02/26/15/** dalla regola **{year}/{month}/{day}/{hour}/** .
     
-13. Per tornare alla visualizzazione delle **esecuzioni di pipeline** , selezionare **tutte**le esecuzioni di pipeline e attendere che la stessa pipeline venga nuovamente attivata automaticamente dopo un'altra ora.  
+13. Per tornare alla visualizzazione delle **esecuzioni di pipeline** , selezionare **tutte le esecuzioni**di pipeline e attendere che la stessa pipeline venga nuovamente attivata automaticamente dopo un'altra ora.  
 
     ![Monitorare le esecuzioni di pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
 
@@ -196,7 +196,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
     
     ![Monitorare le esecuzioni di pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs7.png) 
     
-    È anche possibile verificare lo stesso usando Azure Storage Explorer (https://storageexplorer.com/) per analizzare i file nel contenitore di **destinazione**
+    È anche possibile verificare lo stesso usando Azure Storage Explorer (https://storageexplorer.com/) per eseguire la scansione dei file nel contenitore di **destinazione**
     
     ![Monitorare le esecuzioni di pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs8.png)
 

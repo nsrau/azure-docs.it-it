@@ -1,5 +1,5 @@
 ---
-title: Copia di dati da origini OData tramite Azure Data Factory | Microsoft Docs
+title: Copiare dati da origini OData usando Azure Data Factory
 description: Informazioni su come copiare dati da origini OData in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: f3afccd2414ae4acbd31452d989e9540d36d512d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 85da7752575164ba505d788a5d45f5af0908edc9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090004"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680598"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copiare dati da un'origine OData tramite Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-odata-connector.md)
 > * [Versione corrente](connector-odata.md)
 
@@ -39,13 +39,13 @@ Questo connettore OData è supportato per le attività seguenti:
 In particolare, il connettore OData supporta:
 
 - OData versioni 3.0 e 4.0.
-- Copia di dati tramite una di queste autenticazioni: **Anonymous**, **Basic**, **Windows**, **AadServicePrincipal** e **ManagedServiceIdentity**.
+- Copia dei dati con una delle seguenti autenticazioni: **anonima**, di **base**, **Windows**, **entità servizio AAD**e **identità gestite per le risorse di Azure**.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -55,10 +55,10 @@ Le sezioni seguenti presentano informazioni dettagliate sulle proprietà che è 
 
 Per il servizio collegato OData sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà **type** deve essere impostata su **OData**. |Sì |
-| url | URL radice del servizio OData. |Sì |
+| URL | URL radice del servizio OData. |Sì |
 | authenticationType | Tipo di autenticazione usato per la connessione all'origine OData. I valori consentiti sono **Anonima**, **Di base** e **Windows**, **entità servizio AAD**e **identità del servizio gestita**. L'autenticazione OAuth basata su utente non è supportata. | Sì |
 | userName | Specificare **userName** se si usa l'autenticazione di base o di Windows. | No |
 | password | Specificare la proprietà **password** per l'account utente indicato per **userName**. Contrassegnare questo campo come tipo **SecureString** per archiviare la password in modo sicuro in Data Factory. È anche possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
@@ -138,7 +138,7 @@ Per il servizio collegato OData sono supportate le proprietà seguenti:
 }
 ```
 
-**Esempio 4: Uso dell'autenticazione con chiave dell'entità servizio**
+**Esempio 4: uso dell'autenticazione con chiave dell'entità servizio**
 
 ```json
 {
@@ -165,7 +165,7 @@ Per il servizio collegato OData sono supportate le proprietà seguenti:
 }
 ```
 
-**Esempio 5: Uso dell'autenticazione con certificato dell'entità servizio**
+**Esempio 5: uso dell'autenticazione del certificato dell'entità servizio**
 
 ```json
 {
@@ -204,10 +204,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da OData, impostare la proprietà**type** del set di dati su **ODataResource**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà **type** del set di dati deve essere impostata su **ODataResource**. | Sì |
-| path | Percorso della risorsa OData. | Yes |
+| path | Percorso della risorsa OData. | Sì |
 
 **Esempio**
 
@@ -240,7 +240,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da OData, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **ODataSource**. | Sì |
 | query | Opzioni di query OData per filtrare i dati. Esempio: `"$select=Name,Description&$top=5"`.<br/><br/>**Nota**: il connettore OData copia dati dall'URL combinato: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`. Per altre informazioni, vedere [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/) (Componenti dell'URL di OData). | No |
@@ -277,7 +277,7 @@ Per copiare dati da OData, nella sezione **origine** dell'attività di copia son
 ]
 ```
 
-Se si usa `RelationalSource` l'origine tipizzata, questo è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
+Se si usa `RelationalSource` origine tipizzata, questo è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
 
 ## <a name="data-type-mapping-for-odata"></a>Mapping dei tipi di dati per OData
 
@@ -299,7 +299,7 @@ Quando si copiano dati da OData, vengono usati i mapping seguenti tra i tipi di 
 | Edm.SByte | Int16 |
 | Edm.String | String |
 | Edm.Time | TimeSpan |
-| Edm.DateTimeOffset | DateTimeOffset |
+| Edm.DateTimeOffset | Datetimeoffset |
 
 > [!NOTE]
 > I tipi di dati complessi di OData (come **Object**) non sono supportati.

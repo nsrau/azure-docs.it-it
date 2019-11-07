@@ -2,16 +2,16 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 11/06/2019
 ms.author: larryfr
-ms.openlocfilehash: 11cc93e0eb11d0422fae4fbbbf0a549df067daca
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 694d7e6afbf7bd4b219d52254159dcf2e02f8769
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390669"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682099"
 ---
-Per aggiornare un servizio Web, utilizzare il `update` metodo. È possibile aggiornare il servizio Web per usare un nuovo modello, un nuovo script di immissione o nuove dipendenze che possono essere specificate in una configurazione di inferenza. Per ulteriori informazioni, vedere la documentazione relativa a [WebService. Update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
+Per aggiornare un servizio Web, usare il metodo `update`. È possibile aggiornare il servizio Web per usare un nuovo modello, un nuovo script di immissione o nuove dipendenze che possono essere specificate in una configurazione di inferenza. Per ulteriori informazioni, vedere la documentazione relativa a [WebService. Update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
 
 > [!IMPORTANT]
 > Quando si crea una nuova versione di un modello, è necessario aggiornare manualmente ogni servizio che si desidera utilizzare.
@@ -61,6 +61,6 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 > [!TIP]
 > In questo esempio viene usato un documento JSON per passare le informazioni sul modello dal comando di registrazione nel comando Update.
 >
-> Per aggiornare il servizio per l'utilizzo di un nuovo script di immissione o di un ambiente, creare un file di configurazione `ic` dell' [inferenza](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema) e specificarlo con il parametro.
+> Per aggiornare il servizio per l'uso di un nuovo script di immissione o di un ambiente, creare un [file di configurazione dell'inferenza](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema) e specificarlo con il parametro `ic`.
 
 Per ulteriori informazioni, vedere la documentazione relativa all' [aggiornamento del servizio AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update) .

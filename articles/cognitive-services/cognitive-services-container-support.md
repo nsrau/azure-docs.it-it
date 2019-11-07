@@ -8,18 +8,18 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 926c2c0bbe4fdd24a6a8271b2e01ababcacf77d5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 958acd042acba2a8c6c38ad1e6bac614db509da8
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499195"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604437"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Supporto dei contenitori in Servizi cognitivi di Azure
 
-Il supporto dei contenitori in Servizi cognitivi di Azure consente agli sviluppatori di usare le stesse API avanzate disponibili in Azure e al tempo stesso di usufruire della flessibilità offerta dai [contenitori Docker](https://www.docker.com/what-container) per quanto riguarda la posizione di distribuzione e hosting dei servizi. Il supporto dei contenitori è attualmente disponibile in anteprima per un sottoinsieme di servizi cognitivi di Azure, incluse le parti di:
+Il supporto dei contenitori in Servizi cognitivi di Azure consente agli sviluppatori di usare le stesse API avanzate disponibili in Azure e al tempo stesso di usufruire della flessibilità offerta dai [contenitori Docker](https://www.docker.com/what-container) per quanto riguarda la posizione di distribuzione e hosting dei servizi. Il supporto dei contenitori è attualmente disponibile per un sottoinsieme di servizi cognitivi di Azure, incluse le parti di:
 
 > [!div class="checklist"]
 > * [Rilevamento anomalie][ad-containers]
@@ -132,13 +132,9 @@ Installare ed esplorare le funzionalità fornite dai contenitori in Servizi cogn
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
-<<<<<<< HEAD
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
-=======
-[ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
 [tt-containers]: translator/how-to-install-containers.md
->>>>>>> refs/remotes/MicrosoftDocs/Master

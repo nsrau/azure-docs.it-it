@@ -1,5 +1,5 @@
 ---
-title: Endpoint e regole di rete virtuale per database singoli e in pool in Azure SQL | Microsoft Docs
+title: 'VNet e regole endpoint per database singoli e in pool in SQL di Azure '
 description: Contrassegnare una subnet come endpoint servizio di rete virtuale. Contrassegnare quindi l'endpoint come regola di rete virtuale per ACL nel database SQL di Azure. Il database SQL accetta quindi la comunicazione da tutte le macchine virtuali e altri nodi nella subnet.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 08/27/2019
-ms.openlocfilehash: 5506f95d532f69286bf29ec8916485bd63ce94da
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: e1f8ab6725c58d9e1f15f88e6d2465ab88df79e2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828815"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686911"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usare endpoint servizio e regole di rete virtuale per server di database
 
@@ -53,14 +53,14 @@ Ogni regola di rete virtuale si applica all'intero server di database SQL di Azu
 
 I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint servizio di rete virtuale. Ogni ruolo indicato di seguito deve svolgere determinate azioni:
 
-- **Amministratore di rete:** &nbsp; attiva l'endpoint.
-- **Amministratore del database:** &nbsp; aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al server di database SQL.
+- **Amministratore di rete:** &nbsp; attivare l'endpoint.
+- **Amministratore di database:** &nbsp; aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al server di database SQL.
 
 *Alternativa del controllo degli accessi in base al ruolo:*
 
 I ruoli di amministratore di rete e amministratore di database hanno più funzionalità di quelle necessarie a gestire le regole di rete virtuale. È necessario solo un subset delle relative funzionalità.
 
-È possibile scegliere di usare il [controllo degli accessi in base al ruolo (RBAC)][rbac-what-is-813s] in Azure per creare un singolo ruolo personalizzato con solo il subset di funzionalità necessario. È possibile usare il ruolo personalizzato anziché coinvolgere l'amministratore di rete o di database. La superficie di attacco dell'esposizione a rischi per la sicurezza è ridotta se si aggiunge un utente a un ruolo personalizzato, anziché aggiungere l'utente agli altri due ruoli di amministratore principali.
+È possibile scegliere di usare il [controllo degli accessi in base al ruolo (RBAC)][rbac-what-is-813s] in Azure per creare un singolo ruolo personalizzato con solo il subset di funzionalità necessario. Il ruolo personalizzato può essere utilizzato invece di coinvolgere l'amministratore di rete o l'amministratore del database. La superficie di attacco dell'esposizione alla sicurezza è inferiore se si aggiunge un utente a un ruolo personalizzato, anziché aggiungere l'utente agli altri due ruoli di amministratore principali.
 
 > [!NOTE]
 > In alcuni casi il database SQL di Azure e la subnet della rete virtuale sono in sottoscrizioni diverse. In questi casi è necessario garantire le configurazioni seguenti:
@@ -89,7 +89,7 @@ Per il database SQL di Azure, la funzionalità delle regole di rete virtuale pre
 
 Quando si usano gli endpoint del servizio per il Database SQL di Azure, rivedere le considerazioni seguenti:
 
-- **In uscita verso gli indirizzi IP pubblici del database SQL di Azure**: i gruppi di sicurezza di rete devono essere aperti verso gli indirizzi IP del database SQL di Azure per consentire la connettività. È possibile farlo tramite i [Tag dei servizi](../virtual-network/security-overview.md#service-tags) del Gruppo di sicurezza di rete per il Database SQL di Azure.
+- **In uscita verso gli indirizzi IP pubblici del Database SQL di Azure è necessario che** i gruppi di sicurezza di rete devono essere aperti gli indirizzi IP del Database SQL di Azure per consentire la connettività. È possibile farlo tramite i [Tag dei servizi](../virtual-network/security-overview.md#service-tags) del Gruppo di sicurezza di rete per il Database SQL di Azure.
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -123,7 +123,7 @@ PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse d
 2.  Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, prima è necessario eseguire l'aggiornamento all'utilizzo generico v2 usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  È necessario avere attivato l'opzione **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**  nel menu delle impostazioni **Firewall e reti virtuali** di tale account. Per altre informazioni, fare riferimento a [questa guida](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
  
-#### <a name="steps"></a>Passaggi
+#### <a name="steps"></a>Passi
 1. In PowerShell **registrare il SQL Server di Azure** che ospita l'istanza di Azure SQL Data Warehouse con Azure Active Directory (AAD):
 
    ```powershell
@@ -189,7 +189,7 @@ L'errore di connessione 40914 è correlato alle *regole di rete virtuale*, come 
 
 ### <a name="error-40914"></a>Errore 40914
 
-*Testo del messaggio:* Impossibile aprire il server " *[nome-server]* " richiesto dall'account di accesso. Al client non è consentito accedere al server.
+*Testo del messaggio:* Impossibile aprire il server ' *[nome-server]* ' richiesto dall'accesso. Non è consentito l'accesso del client al server.
 
 *Descrizione dell'errore:* il client si trova in una subnet che include endpoint server di rete virtuale. Tuttavia, il server di database SQL di Azure non è associato ad alcuna regola di rete virtuale che concede alla subnet il diritto di comunicare con il database SQL.
 
@@ -197,7 +197,7 @@ L'errore di connessione 40914 è correlato alle *regole di rete virtuale*, come 
 
 ### <a name="error-40615"></a>Errore 40615
 
-*Testo del messaggio:* Impossibile aprire il server "{0}" richiesto dall'account di accesso. Non è consentito l'accesso del client con indirizzo IP "{1}" al server.
+*Testo del messaggio:* Impossibile aprire il server '{0}' richiesto dall'accesso. Non è consentito l'accesso del client con indirizzo IP "{1}" al server.
 
 *Descrizione dell'errore:* il client sta tentando di connettersi da un indirizzo IP che non è autorizzato a connettersi al server di database SQL di Azure. Il firewall del server non ha alcuna regola degli indirizzi IP che consente a un client di comunicare dall'indirizzo IP specifico al database SQL.
 
@@ -224,7 +224,7 @@ Anche uno script di PowerShell può creare regole di rete virtuale. Il cmdlet cr
 
 Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiamano API REST. È possibile chiamare direttamente le API REST.
 
-- [Regole di rete virtuale: Operazioni][rest-api-virtual-network-rules-operations-862r]
+- [Regole della rete virtuale: operazioni][rest-api-virtual-network-rules-operations-862r]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -268,7 +268,7 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 > Le regole presentano gli stati seguenti:
 > - **Pronta:** indica che l'operazione avviata è riuscita.
 > - **Non riuscita:** indica che l'operazione avviata non è riuscita.
-> - **Eliminata:** si applica solo all'operazione di eliminazione e indica che la regola è stata eliminata e non viene più applicata.
+> - **Eliminata:** si applica solo alle operazioni di eliminazione e indica che la regola è stata eliminata e non viene più applicata.
 > - **In corso:** indica che l'operazione è in corso. Mentre l'operazione è in questo stato, viene applicata la regola precedente.
 
 <a name="anchor-how-to-links-60h" />
@@ -283,7 +283,7 @@ La funzionalità delle regole di rete virtuale per il database SQL di Azure è d
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Usare PowerShell per creare un endpoint del servizio di rete virtuale e quindi una regola della rete virtuale per il database SQL di Azure.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
-- [Regole di rete virtuale: Operazioni][rest-api-virtual-network-rules-operations-862r] con le API REST
+- [Regole della rete virtuale: operazioni][rest-api-virtual-network-rules-operations-862r] con le API REST
 
 <!-- Link references, to images. -->
 

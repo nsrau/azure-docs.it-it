@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da Dynamics AX usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da Dynamics AX usando Azure Data Factory
 description: Informazioni su come copiare dati da Dynamics AX in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 02080388cdc6e408164de1eff208d19e4b5da60f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 07edc284c29ca209ee20e5de390e8126993f4ce3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935675"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681009"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copiare dati da Dynamics AX usando Azure Data Factory
 
@@ -37,7 +37,7 @@ In particolare, questo connettore Dynamics AX supporta la copia dei dati da Dyna
 >[!TIP]
 >Per copiare dati da **Dynamics 365 for Finance and Operations**, è possibile usare questo connettore. Fare riferimento al [supporto per OData](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/odata) di Dynamics 365 e al [metodo di autenticazione](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page#authentication).
 
-## <a name="get-started"></a>Inizia oggi stesso
+## <a name="get-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -59,14 +59,14 @@ Per usare l'autenticazione basata su entità servizio, eseguire la procedura seg
 
 Per il servizio collegato di Dynamics AX sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà **type** deve essere impostata su: **DynamicsAX**. |SÌ |
-| url | L'istanza dell'endpoint OData di Dynamics AX (o Dynamics 365 Finance and Operations). |SÌ |
-| servicePrincipalId | Specificare l'ID client dell'applicazione. | SÌ |
-| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
-| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarle passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | SÌ |
-| aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione. Ad esempio, se è l'URL di Dynamics è `https://sampledynamics.sandbox.operations.dynamics.com/data/`, la risorsa AAD corrispondente è in genere `https://sampledynamics.sandbox.operations.dynamics.com`. | SÌ |
+| type | La proprietà **type** deve essere impostata su: **DynamicsAX**. |Sì |
+| URL | L'istanza dell'endpoint OData di Dynamics AX (o Dynamics 365 Finance and Operations). |Sì |
+| servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
+| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarle passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
+| aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione. Ad esempio, se è l'URL di Dynamics è `https://sampledynamics.sandbox.operations.dynamics.com/data/`, la risorsa AAD corrispondente è in genere `https://sampledynamics.sandbox.operations.dynamics.com`. | Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile scegliere tra Azure Integration Runtime e un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No |
 
 **Esempio**
@@ -103,10 +103,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Dynamics AX, impostare la proprietà **type** del set di dati su **DynamicsAXResource**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del set di dati deve essere impostata su: **DynamicsAXResource**. | SÌ |
-| path | Percorso di entità OData Dynamics AX. | SÌ |
+| type | La proprietà **type** del set di dati deve essere impostata su: **DynamicsAXResource**. | Sì |
+| path | Percorso di entità OData Dynamics AX. | Sì |
 
 **Esempio**
 
@@ -137,9 +137,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Dynamics AX, impostare il tipo di **origine** nell'attività di copia su **DynamicsAXSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **DynamicsAXSource**. | SÌ |
+| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **DynamicsAXSource**. | Sì |
 | query | Opzioni di query OData per filtrare i dati. Esempio: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota**: il connettore copia dati dall'URL combinato: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Per altre informazioni, vedere [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/) (Componenti dell'URL di OData). | No |
 
 **Esempio**

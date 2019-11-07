@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/17/2019
-ms.openlocfilehash: 938511069500c551eb526b6c7238546b85d59dce
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 5ae043c356559b2e675f05af3eb7eb61973eb170
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818938"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621943"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gestire Application Insights risorse con PowerShell
 
@@ -235,7 +235,7 @@ Vedere la [documentazione dettagliata](https://docs.microsoft.com/powershell/mod
 
 ## <a name="set-the-data-retention"></a>Impostare la conservazione dei dati 
 
-Per ottenere la conservazione dei dati corrente per la risorsa di Application Insights, è possibile usare lo strumento OSS [ARMClient](https://github.com/projectkudu/ARMClient).  Per altre informazioni su ARMClient, vedere gli articoli di [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) e [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Di seguito è riportato un esempio di utilizzo di `ARMClient` per ottenere la conservazione corrente:
+Per ottenere la conservazione dei dati corrente per la risorsa di Application Insights, è possibile usare lo strumento OSS [ARMClient](https://github.com/projectkudu/ARMClient).  Per altre informazioni su ARMClient, vedere gli articoli di [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) e [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Di seguito è riportato un esempio di utilizzo di `ARMClient`per ottenere la conservazione corrente:
 
 ```PS
 armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview
@@ -250,10 +250,10 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 Per impostare la conservazione dei dati su 365 giorni utilizzando il modello precedente, eseguire:
 
 ```PS
-        New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
-               -TemplateFile .\template1.json `
-               -retentionInDays 365 `
-               -appName myApp
+New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
+       -TemplateFile .\template1.json `
+       -retentionInDays 365 `
+       -appName myApp
 ```
 
 Lo script seguente può essere usato anche per modificare la conservazione. Copiare questo script per salvare come `Set-ApplicationInsightsRetention.ps1`.

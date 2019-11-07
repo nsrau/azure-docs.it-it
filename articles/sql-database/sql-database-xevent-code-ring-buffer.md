@@ -1,5 +1,5 @@
 ---
-title: Codice del buffer circolare XEvent per il database SQL | Documentazione Microsoft
+title: Codice del buffer circolare XEvent per il database SQL
 description: Fornisce un esempio di codice Transact-SQL reso semplice e veloce tramite l'uso della destinazione del buffer circolare nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: f1ec9cd3a4256597ade409fb3e04d44171277554
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8fd04cac394f05a9db18e84117a8647c1a17ba30
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566153"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686804"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Codice di destinazione del buffer circolare per gli eventi estesi nel database SQL
 
@@ -222,7 +222,7 @@ Per visualizzare i risultati, è stato fatto clic sulla cella sotto l'intestazio
 
 Quindi, nel riquadro dei risultati, è stato fatto clic sulla cella sotto l'intestazione di colonna **target_data_XML**. Tramite questo clic del mouse è stata creata un'altra scheda del file in ssms.exe, in cui è stato visualizzato il contenuto della cella del risultato, come XML.
 
-L'output è illustrato nella sezione seguente. Sembra lungo, ma si tratta solo di due  **\<elementi > Eventi** .
+L'output è illustrato nella sezione seguente. Sembra lungo, ma si tratta solo di due elementi **>\<eventi** .
 
 &nbsp;
 
@@ -347,7 +347,7 @@ L'argomento principale per gli eventi estesi in un database SQL di Azure è:
 
 Altri argomenti con esempi di codice per gli eventi estesi sono disponibili ai collegamenti seguenti. È comunque necessario controllare regolarmente qualsiasi esempio per verificare se è destinato a Microsoft SQL Server o al database SQL di Azure. È quindi possibile decidere se sono necessarie alcune modifiche per eseguire l'esempio.
 
-* Esempio di codice per il database SQL di Azure: [Codice di destinazione del file evento per eventi estesi nel database SQL](sql-database-xevent-code-event-file.md)
+* Esempio di codice per il database SQL di Azure: [codice di destinazione del file evento per gli eventi estesi nel database SQL](sql-database-xevent-code-event-file.md)
 
 <!--
 ('lock_acquired' event.)

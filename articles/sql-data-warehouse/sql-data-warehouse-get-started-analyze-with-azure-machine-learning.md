@@ -1,5 +1,5 @@
 ---
-title: Analizzare i dati con Azure Machine Learning | Documentazione di Microsoft
+title: Analizzare i dati con Azure Machine Learning
 description: Usare Azure Machine Learning per creare un modello predittivo di apprendimento automatico basato sui dati archiviati in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,13 @@ ms.subservice: integration
 ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cae2acf98f39030f4ff340d32f1911bb2b5763ae
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f91960eaac92047e76275e63b1feaf471de3bac3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "65860835"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692795"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analizzare i dati con Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -38,7 +39,7 @@ Per eseguire questa esercitazione, è necessario:
 
 * Un'istanza di SQL Data Warehouse in cui sia precaricato il database di esempio AdventureWorksDW. Per effettuarne il provisioning, vedere [Creare un Azure SQL Data Warehouse][Create a SQL Data Warehouse] e scegliere di caricare i dati di esempio. Se si ha già un data warehouse ma non i dati di esempio, è possibile [caricare manualmente i dati di esempio][load sample data manually].
 
-## <a name="1-get-the-data"></a>1. Ottenere i dati
+## <a name="1-get-the-data"></a>1. recuperare i dati
 I dati sono disponibili nella visualizzazione dbo.vTargetMail nel database AdventureWorksDW. Per leggere i dati:
 
 1. Accedere ad [Azure Machine Learning Studio][Azure Machine Learning studio] e fare clic sugli esperimenti personali.
@@ -74,8 +75,8 @@ Eseguire l'esperimento facendo clic su **Esegui** sotto l'area di disegno dell'e
 Dopo aver concluso con successo l’esperimento, per visualizzare i dati importati fare clic sulla porta di output nella parte inferiore del modulo Reader e selezionare **Visualizza**.
 ![Visualizzare i dati importati][3]
 
-## <a name="2-clean-the-data"></a>2. Pulire i dati
-Per pulire i dati, eliminare alcune colonne non rilevanti per il modello. A tale scopo, effettuare le seguenti operazioni:
+## <a name="2-clean-the-data"></a>2. pulire i dati
+Per pulire i dati, eliminare alcune colonne non rilevanti per il modello. A tale scopo, seguire questa procedura:
 
 1. Trascinare il modulo **Select Columns in DataSet** in **Data Transformation < Manipulation** nell'area di disegno. Connettere questo modulo al modulo **Import Data** .
 2. Fare clic su **Launch column selector** nel riquadro Proprietà per specificare le colonne da eliminare.
@@ -83,8 +84,8 @@ Per pulire i dati, eliminare alcune colonne non rilevanti per il modello. A tale
 3. Escludere due colonne: CustomerAlternateKey e GeographyKey.
    ![Rimuovere le colonne non necessarie][5]
 
-## <a name="3-build-the-model"></a>3. Compilare il modello
-Si suddivideranno i dati 80-20: l'80% per il training di un modello di Machine Learning e il 20% per testare il modello. Per questo problema di classificazione binaria si useranno gli algoritmi "Two-Class".
+## <a name="3-build-the-model"></a>3. compilare il modello
+Si suddivideranno i dati 80-20: 80% per il training di un modello di Machine Learning e 20% per testare il modello. Per questo problema di classificazione binaria si useranno gli algoritmi "Two-Class".
 
 1. Trascinare il modulo **Split** nell'area di disegno.
 2. Nel riquadro Proprietà immettere 0,8 per la frazione di righe nel primo set di dati di output.
@@ -95,11 +96,11 @@ Si suddivideranno i dati 80-20: l'80% per il training di un modello di Machine L
 5. Fare clic su **Launch column selector** nel riquadro Properties. Selezionare la colonna **BikeBuyer** come colonna da stimare.
    ![Selezionare una colonna da stimare][8]
 
-## <a name="4-score-the-model"></a>4. Assegnare un punteggio al modello
+## <a name="4-score-the-model"></a>4. assegnare un punteggio al modello
 A questo punto si verificheranno le prestazioni del modello sui dati di test. L'algoritmo scelto verrà confrontato con un algoritmo diverso per verificare quale offre prestazioni migliori.
 
 1. Trascinare il modulo **Score Model** nell'area di disegno e connetterlo ai moduli **Train Model** e **Split data** .
-   ![Assegnare un punteggio al modello][9]
+   ![assegnare un punteggio al modello][9]
 2. Trascinare il **Two-Class Bayes Point Machine** nell'area di disegno dell'esperimento. Si confronteranno le prestazioni di questo algoritmo rispetto a Two-Class Boosted Decision Tree.
 3. Copiare e incollare i moduli Train Model e Score Model nell'area di disegno.
 4. Trascinare il modulo **Evaluate Model** nell'area di disegno per confrontare i due algoritmi.

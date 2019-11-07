@@ -1,6 +1,6 @@
 ---
 title: Come scegliere gli algoritmi
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Come scegliere gli algoritmi di Azure Machine Learning Studio (classico) per l'apprendimento supervisionato e non supervisionato in esperimenti di clustering, classificazione o regressione.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
-ms.openlocfilehash: 02e72286e824de49be4fbfddcdc5d0e68625f5ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e8d296f8752e06e6e47c349be9c900b9d0489ec5
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493531"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619756"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio-classic"></a>Come scegliere gli algoritmi per Azure Machine Learning Studio (versione classica)
 
@@ -107,7 +107,7 @@ Per alcuni tipi di dati, il numero di caratteristiche può essere molto grande r
 
 Alcuni algoritmi di apprendimento fanno ipotesi particolari sulla struttura dei dati o sui risultati desiderati. Se è possibile trovarne uno adatto alle proprie esigenze, può fornire risultati più utili, previsioni più accurate o tempi di addestramento più rapidi.
 
-| **Algoritmo** | **Precisione** | **Tempo di addestramento** | **Linearità** | **Parameters** | **Note** |
+| **Algoritmo** | **Precisione** | **Tempo di addestramento** | **Linearità** | **Parameters** (Parametri) | **Note** |
 | --- |:---:|:---:|:---:|:---:| --- |
 | **Classificazione a due classi** | | | | | |
 | [regressione logistica](/azure/machine-learning/studio-module-reference/two-class-logistic-regression) | |● |● |5 | |
@@ -147,7 +147,7 @@ Alcuni algoritmi di apprendimento fanno ipotesi particolari sulla struttura dei 
 
 ## <a name="algorithm-notes"></a>Note algoritmo
 
-### <a name="linear-regression"></a>Regressione lineare
+### <a name="linear-regression"></a>Linear regression
 
 Come accennato in precedenza, la [regressione lineare](/azure/machine-learning/studio-module-reference/linear-regression) adatta una riga (o piano o iperpiano) al set di dati. È un ottimo strumento di lavoro, semplice e veloce, ma potrebbe essere troppo semplicistica per alcuni problemi.
 
@@ -155,7 +155,7 @@ Come accennato in precedenza, la [regressione lineare](/azure/machine-learning/s
 
 ***Dati con una tendenza lineare***
 
-### <a name="logistic-regression"></a>Regressione logistica
+### <a name="logistic-regression"></a>regressione logistica
 
 Sebbene includa "regressione" nel nome, la regressione logistica è in realtà uno strumento potente per la classificazione a [due classi](/azure/machine-learning/studio-module-reference/two-class-logistic-regression) e [multiclasse](/azure/machine-learning/studio-module-reference/multiclass-logistic-regression) . È semplice e veloce. Il fatto che utilizzi una curva a forma di 'S' anziché una linea retta la rende ideale per dividere i dati in gruppi. La regressione logistica fornisce limiti della classe lineari, pertanto quando la si utilizza, assicurarsi che un'approssimazione lineare sia accettabile.
 
@@ -236,7 +236,7 @@ La versione classica di Azure Machine Learning Studio include anche l'accesso a 
 VW sfugge alla categorizzazione in questo caso, poiché può apprendere problemi sia di classificazione che di regressione e può apprendere anche dati parzialmente senza etichetta. È possibile configurarlo in modo che utilizzi uno di una serie di algoritmi di apprendimento, funzioni di perdita e algoritmi di ottimizzazione. È stato progettato da zero per essere efficace, parallelo ed estremamente veloce. Consente di gestire insiemi di caratteristiche estremamente grandi con uno sforzo minimo.
 Avviato e condotto da John Langford di Microsoft Research, VW è un elemento da Formula Uno in un campo di algoritmi pari a vetture di serie. Non tutti i problemi sono adatti a VW, ma per quelli che lo sono, potrebbe valere la pena superare la curva di apprendimento della relativa interfaccia. È inoltre disponibile come [codice open source autonomo](https://github.com/JohnLangford/vowpal_wabbit) in diverse lingue.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 * Per scaricare una panoramica infografica di facile comprensione delle nozioni fondamentali di Machine Learning per ottenere informazioni sugli algoritmi comuni usati per rispondere a domande frequenti su Machine Learning, vedere [Nozioni fondamentali di Machine Learning con esempi di algoritmi](basics-infographic-with-algorithm-examples.md).
 

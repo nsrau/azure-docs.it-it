@@ -1,5 +1,5 @@
 ---
-title: Attività Delete in Azure Data Factory | Microsoft Docs
+title: Attività Delete in Azure Data Factory
 description: Informazioni su come eliminare i file in diversi archivi di file con l'attività Delete in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: d9a1c76e8ac386b954c68f16e2189df4e6c0e1b7
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 8efbf5cd6003781450afe70b8019b39d75290546
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996313"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675631"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Attività Delete in Azure Data Factory
 
@@ -81,10 +81,10 @@ Ecco alcuni consigli per l'uso dell'attività Delete:
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | dataset | Fornisce il riferimento al set di dati per determinare quali file o cartelle eliminare | Sì |
-| recursive | Indica se i file devono essere eliminati in modo ricorsivo dalle sottocartelle o solo dalla cartella specificata.  | No. Il valore predefinito è `false`. |
+| ricorsiva | Indica se i file devono essere eliminati in modo ricorsivo dalle sottocartelle o solo dalla cartella specificata.  | No. Il valore predefinito è `false`. |
 | maxConcurrentConnections | Numero di connessioni cui connettere l'archivio simultaneamente per eliminare la cartella o i file.   |  No. Il valore predefinito è `1`. |
 | enablelogging | Indica se è necessario registrare i nomi di cartella o di file che sono stati eliminati. Se è true, è necessario fornire un account di archiviazione per salvare il file di log, in modo da poter monitorare i comportamenti dell'attività Delete leggendo il file di log. | No |
 | logStorageSettings | Applicabile solo quando enablelogging = true.<br/><br/>Gruppo di proprietà di archiviazione che può essere specificato e in cui si vuole salvare il file di log che contiene i nomi di cartella o di file eliminati tramite l'attività Delete. | No |
@@ -117,12 +117,12 @@ Ecco alcuni consigli per l'uso dell'attività Delete:
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>File di log di esempio dell'attività Delete
 
-| Name | Category | Stato | Errore |
+| Name | Categoria | Stato | Tipi di errore |
 |:--- |:--- |:--- |:--- |
-| test1/yyy. JSON | File | Eliminata |  |
-| test2/hello789.txt | File | Eliminata |  |
-| test2/test3/hello000.txt | File | Eliminata |  |
-| test2/test3/zzz.json | File | Eliminata |  |
+| test1/yyy. JSON | File | Deleted |  |
+| test2/hello789. txt | File | Deleted |  |
+| test2/test3/hello000. txt | File | Deleted |  |
+| test2/test3/zzz. JSON | File | Deleted |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>Esempi dell'uso dell'attività Delete
 
@@ -263,7 +263,7 @@ Viene ora usata l'attività Delete per eliminare cartelle o file attraverso la c
 
 ### <a name="clean-up-the-expired-files-that-were-last-modified-before-201811"></a>Pulire i file scaduti modificati per l'ultima volta prima della versione 2018.1.1
 
-È possibile creare una pipeline per pulire i file meno recenti o scaduti sfruttando il filtro degli attributi dei file: "LastModified" nel set di dati.  
+È possibile creare una pipeline per pulire i file obsoleti o scaduti sfruttando il filtro degli attributi di file: "LastModified" nel set di dati.  
 
 #### <a name="sample-pipeline"></a>Pipeline di esempio
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 531f6d86d57be550d0a1147e131d93ae6e298406
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 942c565c885d59a14d64e7ec06beee0354e7c4ca
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474771"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641628"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Proteggere un'API di gestione API di Azure con Azure AD B2C
 
@@ -35,21 +35,21 @@ Prima di continuare con i passaggi descritti in questo articolo, è necessario d
 
 Quando si protegge un'API in gestione API di Azure con Azure AD B2C, sono necessari diversi valori per i [criteri in ingresso](../api-management/api-management-howto-policies.md) creati in gestione API. Prima di tutto, registrare l'ID applicazione di un'applicazione creata in precedenza nel tenant del Azure AD B2C. Se si usa l'applicazione creata nei prerequisiti, usare l'ID applicazione per *webbapp1*.
 
-Per ottenere l'ID applicazione, è possibile usare l'esperienza corrente delle **applicazioni** o la nuova esperienza Unified **registrazioni app (Preview)** . [Scopri di più sull'esperienza di anteprima](http://aka.ms/b2cappregintro).
+Per ottenere l'ID applicazione, è possibile usare l'esperienza corrente delle **applicazioni** o la nuova esperienza Unified **registrazioni app (Preview)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
-1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
+1. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi selezionare la directory che contiene il tenant Azure ad B2C.
+1. Nel menu a sinistra selezionare **Azure ad B2C**. In alternativa, selezionare **tutti i servizi** e cercare e selezionare **Azure ad B2C**.
 1. In **Gestisci**selezionare **applicazioni**.
 1. Registrare il valore nella colonna **ID applicazione** per *app Web 1* o un'altra applicazione creata in precedenza.
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
-1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
+1. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi selezionare la directory che contiene il tenant Azure ad B2C.
+1. Nel menu a sinistra selezionare **Azure ad B2C**. In alternativa, selezionare **tutti i servizi** e cercare e selezionare **Azure ad B2C**.
 1. Selezionare **registrazioni app (anteprima)** , quindi selezionare la scheda **applicazioni di proprietà** .
 1. Registrare il valore nella colonna **ID applicazione (client)** per *app Web 1* o un'altra applicazione creata in precedenza.
 
@@ -73,7 +73,7 @@ Ottenere quindi l'URL di configurazione noto per uno dei flussi utente di Azure 
 
     Questo valore viene usato nella sezione successiva quando si configura l'API in gestione API di Azure.
 
-A questo punto dovrebbero essere registrati due URL da usare nella sezione successiva: l'URL dell'endpoint di configurazione noto di OpenID Connect e l'URI dell'autorità emittente. ad esempio:
+A questo punto dovrebbero essere registrati due URL da usare nella sezione successiva: l'URL dell'endpoint di configurazione noto di OpenID Connect e l'URI dell'autorità emittente. Ad esempio:
 
 ```
 https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1
@@ -154,13 +154,13 @@ Un'applicazione client (in questo caso, poster) che chiama un'API pubblicata dev
 
 Con il token di accesso e la chiave di sottoscrizione gestione API registrati, è ora possibile verificare se l'accesso sicuro all'API è stato configurato correttamente.
 
-1. Creare una nuova richiesta di `GET` in [post](https://www.getpostman.com/). Per l'URL della richiesta, specificare l'endpoint dell'elenco dei relatori dell'API pubblicata come uno dei prerequisiti. ad esempio:
+1. Creare una nuova richiesta di `GET` in [post](https://www.getpostman.com/). Per l'URL della richiesta, specificare l'endpoint dell'elenco dei relatori dell'API pubblicata come uno dei prerequisiti. Ad esempio:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 
 1. Aggiungere quindi le intestazioni seguenti:
 
-    | Chiave | Value |
+    | Chiave | Valore |
     | --- | ----- |
     | `Authorization` | Valore del token codificato registrato in precedenza, con prefisso `Bearer ` (includere lo spazio dopo "Bearer") |
     | `Ocp-Apim-Subscription-Key` | Chiave di sottoscrizione gestione API registrata in precedenza |

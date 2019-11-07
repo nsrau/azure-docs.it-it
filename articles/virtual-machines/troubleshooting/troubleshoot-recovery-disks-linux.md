@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: faa15e9cf6288bcd4014cbc03dcf9d82a2047bde
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1b91a39e1297d8952da67a4f8d3b8568cefe04ce
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088363"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620570"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Risolvere i problemi relativi a una VM Linux collegando il disco del sistema operativo a una VM di ripristino con l'interfaccia della riga di comando di Azure
 Se nella VM Linux viene rilevato un errore di avvio o del disco, potrebbe essere necessario eseguire dei passaggi per la risoluzione dei problemi sul disco rigido virtuale stesso. Un esempio comune è una voce non valida in `/etc/fstab` che impedisce il corretto avvio della macchina virtuale. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per connettere il disco rigido virtuale a un'altra VM Linux per risolvere eventuali errori e quindi ricreare la VM originale. 
@@ -39,7 +39,7 @@ Per eseguire questi passaggi per la risoluzione dei problemi, è necessario aver
 > [!Important]
 > Gli script in questo articolo si applicano solo alle VM che usano [Managed Disks](../linux/managed-disks-overview.md). 
 
-Negli esempi seguenti sostituire i nomi dei parametri con valori personalizzati, ad esempio `myResourceGroup` e. `myVM`
+Negli esempi seguenti sostituire i nomi dei parametri con valori personalizzati, ad esempio `myResourceGroup` e `myVM`.
 
 ## <a name="determine-boot-issues"></a>Individuare i problemi di avvio
 Esaminare l'output seriale per determinare perché la macchina virtuale non è in grado di avviarsi correttamente. Un esempio comune è una voce non valida in `/etc/fstab`, oppure l'eliminazione o lo spostamento del disco rigido virtuale sottostante.
@@ -112,7 +112,7 @@ A questo punto si ha una copia del disco del sistema operativo originale. È pos
 ## <a name="attach-the-new-virtual-hard-disk-to-another-vm"></a>Connetti il nuovo disco rigido virtuale a un'altra macchina virtuale
 Nei passaggi successivi viene utilizzata un'altra macchina virtuale per la risoluzione dei problemi. Il disco viene collegato a questa macchina virtuale per la risoluzione dei problemi per esplorare e modificare il contenuto del disco. Questo processo consente di correggere eventuali errori di configurazione o di esaminare ulteriori file di registro di sistema o dell'applicazione.
 
-Questo script connette il disco `myNewOSDisk` alla macchina virtuale `MyTroubleshootVM`:
+Questo script connette il disco `myNewOSDisk` alla VM `MyTroubleshootVM`:
 
 ```azurecli
 # Get ID of the OS disk that you just created.
@@ -126,7 +126,7 @@ az vm disk attach --disk $diskId --resource-group MyResourceGroup --size-gb 128 
 > [!NOTE]
 > Gli esempi seguenti mostrano in dettaglio i passaggi necessari in una VM Ubuntu. Se si usa una diversa distribuzione Linux, ad esempio Red Hat Enterprise Linux o SUSE, i percorsi dei file di log e i comandi `mount` potrebbero differire. Consultare la documentazione relativa alla distribuzione specifica per le opportune modifiche ai comandi.
 
-1. Eseguire SSH nella macchina virtuale di cui risolvere i problemi usando le credenziali appropriate. Se questo disco è il primo disco dati collegato alla macchina virtuale usata per la risoluzione dei problemi, è probabilmente connesso a `/dev/sdc`. Usare `dmseg` per visualizzare i dischi collegati:
+1. Eseguire SSH nella macchina virtuale di cui risolvere i problemi usando le credenziali appropriate. Se questo disco è il primo disco dati collegato alla macchina virtuale usata per la risoluzione dei problemi, è probabilmente connesso a `/dev/sdc`. Usare `dmesg` per visualizzare i dischi collegati:
 
     ```bash
     dmesg | grep SCSI

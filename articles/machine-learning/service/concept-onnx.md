@@ -1,5 +1,5 @@
 ---
-title: Inferenza tra piattaforme elevate e prestazioni con ONNX
+title: 'ONNX: inferenza a prestazioni elevate e inferenza multipiattaforma'
 titleSuffix: Azure Machine Learning
 description: Scopri in che modo l'uso di Open Neural Network Exchange (ONNX) consente di ottimizzare l'inferenza del modello di machine learning.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: dc4a5984f42e87aa42c6873bb1ee63d66744e633
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: c94d36065b27b0afcaeb214b8a86e5e2a09df14b
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053574"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648027"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX e Azure Machine Learning: creare e accelerare i modelli ML
 
@@ -30,7 +30,7 @@ Microsoft e una community di partner hanno creato ONNX come standard aperto per 
 
 Il runtime di ONNX viene usato in servizi Microsoft a scalabilità elevata, ad esempio Bing, Office e servizi cognitivi. I miglioramenti delle prestazioni dipendono da diversi fattori, ma questi servizi Microsoft hanno riscontrato un __miglioramento medio delle prestazioni della CPU__. Il runtime di ONNX viene usato anche come parte di Windows ML su centinaia di milioni di dispositivi. È possibile usare il runtime con Azure Machine Learning. Grazie al runtime di ONNX, è possibile trarre vantaggio dall'ampia gamma di ottimizzazioni del livello di produzione, dai test e dai miglioramenti continui.
 
-[diagramma di flusso di![ONNX che mostra formazione, convertitori e distribuzione](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
+[diagramma di flusso di ![ONNX che mostra formazione, convertitori e distribuzione](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>Ottenere modelli ONNX
 
@@ -78,7 +78,7 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 
 Per informazioni di riferimento complete sull'API di Python, vedere la [documentazione di riferimento su ONNX Runtime](https://aka.ms/onnxruntime-python).    
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 Per alcuni notebook di esempio che creano e distribuiscono modelli ONNX, vedere [how-to-use-azureml/deployment/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx).
 

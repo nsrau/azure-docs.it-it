@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 08/30/2019
-ms.openlocfilehash: 8606ac2578c45062182517b5e67d669a09b8e5c0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/05/2019
+ms.openlocfilehash: c7eb18cf2f8868001c1937b03a63c6013e9cbea8
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489713"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619882"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,12 +59,12 @@ L'area di lavoro Azure Machine Learning si basa sui servizi o sulle entità di A
 > [!IMPORTANT]
 > Se non si specifica un servizio di Azure esistente, ne verrà creato uno automaticamente durante la creazione dell'area di lavoro. È sempre necessario specificare un gruppo di risorse.
 
-| Servizio | Parametro per specificare un'istanza esistente |
+| Service | Parametro per specificare un'istanza esistente |
 | ---- | ---- |
 | **Gruppo di risorse di Azure** | `-g <resource-group-name>`
 | **Account di archiviazione di Azure** | `--storage-account <service-id>` |
 | **Azure Application Insights** | `--application-insights <service-id>` |
-| **Insieme di credenziali chiave Azure** | `--keyvault <service-id>` |
+| **Insieme di credenziali delle chiavi di Azure** | `--keyvault <service-id>` |
 | **Registro Azure Container** | `--container-registry <service-id>` |
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
@@ -99,6 +99,9 @@ Per ulteriori informazioni sull'utilizzo dei gruppi di risorse, vedere [AZ Group
 ### <a name="automatically-create-required-resources"></a>Crea automaticamente le risorse necessarie
 
 Per creare una nuova area di lavoro in cui __vengono creati automaticamente i servizi__, usare il comando seguente:
+
+> [!TIP]
+> I comandi in questa sezione consentono di creare un'area di lavoro Basic Edition. Per creare un'area di lavoro aziendale, usare l'opzione `--sku enterprise` con il comando `az ml workspace create`. Per ulteriori informazioni sulle edizioni di Azure Machine Learning, vedere [che cos'è Azure Machine Learning](overview-what-is-azure-ml.md#sku).
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>

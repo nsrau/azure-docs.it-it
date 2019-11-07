@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery - Configurare e testare il ripristino di emergenza per le macchine virtuali di Azure usando Azure PowerShell | Microsoft Docs
+title: Ripristino di emergenza per macchine virtuali di Azure con Azure PowerShell e Azure Site Recovery
 description: Informazioni su come configurare il ripristino di emergenza per le macchine virtuali di Azure con Azure Site Recovery usando Azure PowerShell.
 services: site-recovery
 author: sujayt
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: fe74080387f76b858f60c5285a98c9b67f051449
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: aa91725daf36113334849dd15dd01b6ce6ed4389
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671898"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621083"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure usando Azure PowerShell
 
@@ -43,8 +43,8 @@ Si apprenderà come:
 
 Prima di iniziare:
 - Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](azure-to-azure-architecture.md).
-- Verificare i [requisiti di supporto](azure-to-azure-support-matrix.md) per tutti i componenti.
-- Si dispone di Azure PowerShell `Az` modulo. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
+- Esaminare i [requisiti di supporto](azure-to-azure-support-matrix.md) per tutti i componenti.
+- Il modulo Azure PowerShell `Az`. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Accedere alla sottoscrizione di Microsoft Azure
 
@@ -53,7 +53,7 @@ Accedere alla sottoscrizione di Azure usando il cmdlet Connect-AzAccount
 ```azurepowershell
 Connect-AzAccount
 ```
-Selezionare la sottoscrizione di Azure. Usare il cmdlet Get-AzSubscription per ottenere l'elenco delle sottoscrizioni di Azure che ha accesso a. Selezionare la sottoscrizione di Azure da usare tramite il cmdlet Select-AzSubscription.
+Selezionare la sottoscrizione di Azure. Usare il cmdlet Get-AzSubscription per ottenere l'elenco delle sottoscrizioni di Azure a cui si ha accesso. Selezionare la sottoscrizione di Azure da usare con il cmdlet Select-AzSubscription.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -154,7 +154,7 @@ a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
 Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
 
-Per una migrazione a Azure ad Azure, è possibile impostare il contesto dell'insieme di credenziali per l'insieme di credenziali appena creato: 
+Per una migrazione da Azure ad Azure, è possibile impostare il contesto dell'insieme di credenziali per l'insieme di credenziali appena creato: 
 
 ```azurepowershell
 
@@ -594,9 +594,9 @@ Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
 
-## <a name="reprotect-and-failback-to-source-region"></a>La riprotezione e failback all'area di origine
+## <a name="reprotect-and-failback-to-source-region"></a>Riprotezione e failback nell'area di origine
 
-Dopo un failover, quando si è pronti per tornare all'area di origine, avviare la replica inversa per l'elemento di replica protetto usando il cmdlet Update-AzRecoveryServicesAsrProtectionDirection.
+Dopo un failover, quando si è pronti a tornare all'area originale, avviare la replica inversa per l'elemento protetto da replica usando il cmdlet Update-AzRecoveryServicesAsrProtectionDirection.
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
@@ -609,15 +609,15 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 -ProtectionContainerMapping $RecoveryProtContainer -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.Id
 ```
 
-Dopo aver completata la riprotezione, è possibile avviare il failover nella direzione inversa (Stati Uniti occidentali negli Stati Uniti orientali) ed eseguire il failback all'area di origine.
+Al termine della riprotezione, è possibile avviare il failover in direzione inversa (Stati Uniti occidentali negli Stati Uniti orientali) e failback nell'area di origine.
 
 ## <a name="disable-replication"></a>Disabilitare la replica
 
-È possibile disabilitare la replica usando il cmdlet Remove-ASRReplicationProtectedItem.
+Per disabilitare la replica, è possibile usare il cmdlet Remove-ASRReplicationProtectedItem.
 
 ```azurepowershell
 Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Visualizza i [riferimento di PowerShell per Azure Site Recovery](https://docs.microsoft.com/powershell/module/az.RecoveryServices) per informazioni su come è possibile eseguire altre attività, ad esempio la creazione di piani di ripristino e test del failover dei piani di ripristino tramite PowerShell.
+Per informazioni su come eseguire altre attività, ad esempio creare piani di ripristino e testare il failover dei piani di ripristino tramite PowerShell, vedere le informazioni di [riferimento su Azure Site Recovery PowerShell](https://docs.microsoft.com/powershell/module/az.RecoveryServices) .

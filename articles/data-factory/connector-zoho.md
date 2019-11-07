@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da Zoho tramite Azure Data Factory (anteprima) | Microsoft Docs
+title: Copiare dati da Zoho tramite Azure Data Factory (anteprima)
 description: Informazioni su come copiare dati da Zoho in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: e87ec0f24c07cc703b623043080d8968d08e0817
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 525599dcc262b8250e96d02707c0baa29d973196
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089058"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679989"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Copiare dati da Zoho tramite Azure Data Factory (anteprima)
 
@@ -48,10 +48,10 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Zoho sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Zoho** | Yes |
-| endpoint | Endpoint del server Zoho (`crm.zoho.com/crm/private`). | Yes |
+| type | La proprietà type deve essere impostata su: **Zoho** | Sì |
+| endpoint | Endpoint del server Zoho (`crm.zoho.com/crm/private`). | Sì |
 | accessToken | Token di accesso per l'autenticazione Zoho. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
@@ -81,9 +81,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Zoho, impostare la proprietà type del set di dati su **ZohoObject**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **ZohoObject** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **ZohoObject** | Sì |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -111,9 +111,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Zoho, impostare il tipo di origine nell'attività di copia su **ZohoSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **ZohoSource** | Yes |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **ZohoSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Accounts"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

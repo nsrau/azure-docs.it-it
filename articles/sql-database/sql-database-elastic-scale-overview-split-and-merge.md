@@ -1,5 +1,5 @@
 ---
-title: Spostamento di dati tra database cloud con scalabilità orizzontale |Documentazione Microsoft
+title: Spostamento di dati tra database cloud con scalabilità orizzontale
 description: Illustra come gestire partizioni e spostare dati tramite un servizio self-hosted usando API di database elastici.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 841794dcbb41249ea25f615524150df4bd257b45
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b2203b7fb9e168b251eda16a9505ae2004b0460
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568393"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690201"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Spostamento di dati tra database cloud con scalabilità orizzontale
 
@@ -26,7 +26,7 @@ Lo strumento di suddivisione-unione viene eseguito come servizio Web di Azure. U
 
 ![Panoramica][1]
 
-## <a name="download"></a>Download
+## <a name="download"></a>Scaricare
 
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
@@ -211,7 +211,7 @@ Il servizio di suddivisione-unione fornisce la tabella **RequestStatus** nel dat
 
 ### <a name="azure-diagnostics"></a>Diagnostica Azure
 
-Il servizio di suddivisione-unione utilizza la diagnostica Azure basata su Azure SDK 2.5 per il monitoraggio e la diagnostica. È possibile controllare la configurazione di diagnostica come indicato di seguito: [Abilitazione di Diagnostica di Azure in servizi cloud di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). Il pacchetto di download include due configurazioni della diagnostica: una per il ruolo Web e una per il ruolo di lavoro. Essi includono le definizioni per la registrazione di contatori delle prestazioni, log IIS, registri eventi di Windows e registri eventi dell'applicazione di suddivisione-unione.
+Il servizio di suddivisione-unione utilizza la diagnostica Azure basata su Azure SDK 2.5 per il monitoraggio e la diagnostica. È possibile controllare la configurazione della diagnostica come indicato di seguito: [Abilitazione della diagnostica nei servizi cloud e nelle macchine virtuali di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). Il pacchetto di download include due configurazioni della diagnostica: una per il ruolo Web e una per il ruolo di lavoro. Essi includono le definizioni per la registrazione di contatori delle prestazioni, log IIS, registri eventi di Windows e registri eventi dell'applicazione di suddivisione-unione.
 
 ## <a name="deploy-diagnostics"></a>Distribuire la diagnostica
 
@@ -233,7 +233,7 @@ Per abilitare il monitoraggio e la diagnostica utilizzando la configurazione del
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
 ```
 
-È possibile trovare altre informazioni su come configurare e distribuire le impostazioni di diagnostica di seguito: [Abilitazione di Diagnostica di Azure in servizi cloud di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md).
+Altre informazioni su come configurare e distribuire le impostazioni di diagnostica sono disponibili qui: [Abilitazione della diagnostica nei servizi cloud e nelle macchine virtuali di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## <a name="retrieve-diagnostics"></a>Recuperare la diagnostica
 

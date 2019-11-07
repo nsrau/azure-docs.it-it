@@ -1,5 +1,5 @@
 ---
-title: Attività IfCondition in Azure Data Factory | Microsoft Docs
+title: Attività IfCondition in Azure Data Factory
 description: L'attività IfCondition consente di controllare il flusso di elaborazione in base a una condizione.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: fc6318b5033ff1297f917ab95b28f8ed9285e930
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 562e84b4fe51603ae32884057578541f5536ebd4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142498"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679840"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Attività IfCondition in Azure Data Factory
 L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguaggi di programmazione. Valuta un set di attività se la condizione restituisce `true` e un altro set di attività se la condizione restituisce `false`. 
@@ -63,12 +63,12 @@ L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguag
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
+Proprietà | Descrizione | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività if-condition. | String | Yes
+name | Nome dell'attività if-condition. | String | Sì
 type | Deve essere impostata su **IfCondition** | String | Sì
-expression | Espressione che deve restituire true o false | Espressione con tipo di risultato booleano | Yes
-ifTrueActivities | Set di attività che vengono eseguite quando l'espressione restituisce `true`. | Array | Yes
+expression | Espressione che deve restituire true o false | Espressione con tipo di risultato booleano | Sì
+ifTrueActivities | Set di attività che vengono eseguite quando l'espressione restituisce `true`. | Array | Sì
 ifFalseActivities | Set di attività che vengono eseguite quando l'espressione restituisce `false`. | Array | Sì
 
 ## <a name="example"></a>Esempio

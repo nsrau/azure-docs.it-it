@@ -1,5 +1,5 @@
 ---
-title: Domande comuni sul ripristino di emergenza da Azure ad Azure con Azure Site Recovery
+title: Domande comuni sul ripristino di emergenza delle macchine virtuali di Azure con Azure Site Recovery
 description: Questo articolo risponde a domande comuni sul ripristino di emergenza di macchine virtuali di Azure in un'altra area di Azure usando Azure Site Recovery
 author: asgang
 manager: rochakm
@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: cd1c6cf0ff5a963720df7420a5d983d24e7b4d3e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 5ed501a9f11e790bcc2196d57c6479beb54f1a17
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861383"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621076"
 ---
-# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Domande frequenti: Ripristino di emergenza da Azure ad Azure
+# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Domande comuni: ripristino di emergenza da Azure ad Azure
 
 Questo articolo fornisce le risposte alle domande comuni sul ripristino di emergenza di macchine virtuali di Azure in un'altra area di Azure usando [Site Recovery](site-recovery-overview.md). 
 
@@ -45,7 +45,7 @@ Il team di Site Recovery collabora con il team di gestione della capacità di Az
 Sì, Site Recovery supporta il ripristino di emergenza di macchine virtuali con crittografia dischi di Azure (ADE) abilitata. Quando si Abilita la replica, tutte le chiavi e i segreti di crittografia del disco necessari vengono copiati dall'area di origine all'area di destinazione nel contesto utente. Se non si dispone delle autorizzazioni appropriate, è possibile passare uno script pronto all'uso all'amministratore della sicurezza per copiare le chiavi e i segreti.
 
 - Site Recovery supporta ADE per le macchine virtuali di Azure che eseguono Windows.
-- Site Recovery supporta ADE versione 0,1, con uno schema che usa Azure Active Directory (AAD) e la versione 1,1, senza AAD. [Altre informazioni](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata)
+- Site Recovery supporta ADE versione 0,1, con uno schema che usa Azure Active Directory (AAD) e la versione 1,1, senza AAD. [Altre informazioni](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
 - ADE versione 1,1, le macchine virtuali Windows devono essere usate dischi gestiti.
 - [Altre](azure-to-azure-how-to-enable-replication-ade-vms.md) informazioni sull'abilitazione della replica per le macchine virtuali crittografate.
 
@@ -97,7 +97,7 @@ Site Recovery definisce le impostazioni per la cronologia della conservazione de
 * 24 ore per la cronologia della conservazione dei punti di recupero.
 * 60 minuti per la frequenza degli snapshot coerenti con l'app.
 
-[Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings)
+[Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>Che cos'è il punto di recupero coerente con l'arresto anomalo del sistema?
 Il punto di recupero coerente con l'arresto anomalo del sistema rappresenta i dati su disco come quando la macchina virtuale si arresta in modo anomalo o il cavo di alimentazione viene estratto dal server al momento della creazione dello snapshot temporizzato. Non include tutto ciò che era contenuto in memoria quando è stato creato lo snapshot.
@@ -225,7 +225,7 @@ Nell'esempio seguente, il processo denominato SAPTestRecoveryPlan ha richiesto 8
 ![Elenco dei processi di Site Recovery](./media/azure-to-azure-troubleshoot-errors/recoveryplanrto.PNG)
 
 ### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>È possibile aggiungere runbook di Automazione al piano di ripristino?
-Sì, è possibile integrare i runbook di Automazione di Azure nel piano di ripristino. [Altre informazioni](site-recovery-runbook-automation.md)
+Sì, è possibile integrare i runbook di Automazione di Azure nel piano di ripristino. [Altre informazioni](site-recovery-runbook-automation.md).
 
 ## <a name="reprotection-and-failback"></a>Riprotezione e failback
 
@@ -247,7 +247,7 @@ Il team di Site Recovery collabora con il team di gestione della capacità di Az
 Sì, è possibile acquistare [istanze riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/) nell'area di ripristino di emergenza e Site Recovery le operazioni di failover le useranno. </br> Non è necessaria alcuna configurazione aggiuntiva.
 
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>I dati di replica vengono inviati al servizio Site Recovery?
 No, Site Recovery non intercetta i dati replicati e non contiene informazioni su ciò che è in esecuzione nelle macchine virtuali. Al servizio Site Recovery vengono inviati solo i metadati necessari per gestire la replica e il failover.  

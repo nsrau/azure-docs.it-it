@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 36e0742101203764a731dd2007d239593a500bfa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1ae3caa2d1f90bbbae1070d95d676eb206a361a0
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507924"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647340"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurare le reti virtuali dei servizi cognitivi di Azure
 
@@ -24,7 +24,7 @@ Un'applicazione che accede a una risorsa di servizi cognitivi quando le regole d
 
 > [!IMPORTANT]
 > L'attivazione delle regole del firewall per l'account servizi cognitivi blocca le richieste in ingresso per i dati per impostazione predefinita. Per consentire le richieste tramite, è necessario che venga soddisfatta una delle condizioni seguenti:
-> * La richiesta deve essere originata da un servizio che opera all'interno di una rete virtuale di Azure (VNet) nell'elenco di subnet consentite dell'account di servizi cognitivi di destinazione.
+> * La richiesta deve essere originata da un servizio che opera all'interno di una rete virtuale di Azure (VNet) nell'elenco di subnet consentite dell'account di servizi cognitivi di destinazione. L'endpoint nelle richieste originate da VNet deve essere impostato come [sottodominio personalizzato](cognitive-services-custom-subdomains.md) dell'account servizi cognitivi.
 > * In alternativa, la richiesta deve essere originata da un elenco di indirizzi IP consentiti.
 >
 > Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via.

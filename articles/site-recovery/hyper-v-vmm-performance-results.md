@@ -1,5 +1,5 @@
 ---
-title: Eseguire test dei risultati della replica delle macchine virtuali Hyper-V in cloud VMM in un sito secondario con Azure Site Recovery | Microsoft Docs
+title: Testare la replica di macchine virtuali Hyper-V in un sito secondario con VMM usando Azure Site Recovery
 description: Questo articolo fornisce informazioni sui test delle prestazioni per la replica di macchine virtuali Hyper-V in cloud VMM in un sito secondario tramite Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: a7413b2dcb24a42092eb2af9816b1d29a8306e19
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68377219"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663179"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Eseguire test dei risultati della replica Hyper-V in un sito secondario
 
@@ -133,7 +133,7 @@ I risultati mostrano chiaramente che Site Recovery, grazie a Replica Hyper-V, si
 
 | Carico di lavoro | Dimensioni I/O (KB) | % accesso | % lettura | I/O in sospeso | Modello I/O |
 | --- | --- | --- | --- | --- | --- |
-| File server |4<br />8<br />16<br />32<br />64 |60%<br />20%<br />5%<br />5%<br />10% |80%<br />80%<br />80%<br />80%<br />80% |8<br />8<br />8<br />8<br />8 |Tutti 100% casuale |
+| File Server |4<br />8<br />16<br />32<br />64 |60%<br />20%<br />5%<br />5%<br />10% |80%<br />80%<br />80%<br />80%<br />80% |8<br />8<br />8<br />8<br />8 |Tutti 100% casuale |
 | SQL Server (volume 1)<br />SQL Server (volume 2) |8<br />64 |100%<br />100% |70%<br />0% |8<br />8 |100% casuale<br />100% sequenziale |
 | Exchange |32 |100% |67% |8 |100% casuale |
 | Workstation/VDI |4<br />64 |66%<br />34% |70%<br />95% |1<br />1 |Entrambi 100% casuale |
@@ -174,11 +174,11 @@ Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori mi
 | --- | --- |
 | CPU |\Processor(_Total)\% Processor Time |
 | Memoria disponibile |\Memoria\MByte disponibili |
-| Input/output al secondo |\DiscoFisico(_Totale)\Trasferimenti disco/secondo |
-| Operazioni di lettura VM (IOPS) al secondo |\Dispositivo dispositivo di archiviazione virtuale\<(VHD >) \Byte letti/sec |
-| Operazioni di scrittura VM (IOPS) al secondo |Dispositivo di archiviazione virtuale \dispositivo\<(VHD >) \Byte scritti operazioni/sec |
-| Velocità effettiva lettura VM |Dispositivo di archiviazione virtuale \dispositivo\<(> VHD) \Byte letti/sec |
-| Velocità effettiva di scrittura VM |Dispositivo di archiviazione virtuale \dispositivo\<(> VHD) \Byte scritti/sec |
+| IOPS |\DiscoFisico(_Totale)\Trasferimenti disco/secondo |
+| Operazioni di lettura VM (IOPS) al secondo |Dispositivo di archiviazione virtuale \Dispositivo (\<VHD >) operazioni \Byte letti/sec |
+| Operazioni di scrittura VM (IOPS) al secondo |Dispositivo di archiviazione virtuale \Dispositivo (\<VHD >) \Byte scritti operazioni/sec |
+| Velocità effettiva lettura VM |Dispositivo di archiviazione virtuale \Dispositivo (> VHD\<) \Byte letti/sec |
+| Velocità effettiva di scrittura VM |Dispositivo di archiviazione virtuale \Dispositivo (> VHD\<) \Byte scritti/sec |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Configurare il ripristino di emergenza per una distribuzione di Dynamics AX multilivello con Azure Site Recovery | Microsoft Docs
+title: Ripristino di emergenza per una distribuzione di Dynamics AX multilivello con Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive come configurare il ripristino di emergenza per Dynamics AX con Azure Site Recovery
 author: asgang
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: b97bf56c23dfa96acf7cb5af5ac28b4270de117d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b8aaff3a3418177f92c3b54fb3bb3e99f93810e
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61281488"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620745"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurare il ripristino di emergenza per un'applicazione Dynamics AX multilivello   
 
@@ -45,15 +45,15 @@ Ai fini di questo articolo sono state usate macchine virtuali VMware con Dynamic
 
 **Scenario** | **In un sito secondario** | **In Azure**
 --- | --- | ---
-**Hyper-V** | Yes | Yes
-**VMware** | Yes | Yes
-**Server fisico** | Yes | Yes
+**Hyper-V** | Sì | Sì
+**VMware** | Sì | Sì
+**Server fisico** | Sì | Sì
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Abilitare il ripristino di emergenza dell'applicazione Dynamics AX tramite Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Proteggere l'applicazione Dynamics AX
 Per abilitare la replica e il ripristino completi dell'applicazione, ogni componente di Dynamics AX deve essere protetto.
 
-### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Configurare la replica di Active Directory e DNS
+### <a name="1-set-up-active-directory-and-dns-replication"></a>1. configurare Active Directory e la replica DNS
 
 Ai fini del funzionamento dell'applicazione Dynamics AX, nel sito di ripristino di emergenza deve essere presente Active Directory. Le scelte consigliate sono due, a seconda della complessità dell'ambiente locale del cliente.
 
@@ -67,10 +67,10 @@ Il cliente ha un numero elevato di applicazioni, esegue una foresta Active Direc
 
  Per altre informazioni, vedere come [rendere disponibile un controller di dominio in un sito di ripristino di emergenza](site-recovery-active-directory.md). Nella parte restante di questo documento, si presuppone che sia disponibile un controller di dominio nel sito di ripristino di emergenza.
 
-### <a name="2-set-up-sql-server-replication"></a>2. Configurare la replica di SQL Server
+### <a name="2-set-up-sql-server-replication"></a>2. configurare SQL Server replica
 Per informazioni tecniche sull'opzione consigliata per la protezione del livello SQL, vedere come [eseguire la replica delle applicazioni con SQL Server e Azure Site Recovery](site-recovery-sql.md).
 
-### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. Abilitare la protezione per il client Dynamics AX e le VM AOS (Application Object Server)
+### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. abilitare la protezione per le VM del client Dynamics AX e del server oggetti applicazione
 Eseguire la configurazione di Site Recovery pertinente a seconda che le VM vengano distribuite in [Hyper-V](site-recovery-hyper-v-site-to-azure.md) o [VMware](site-recovery-vmware-to-azure.md).
 
 > [!TIP]
@@ -81,7 +81,7 @@ Lo snapshot seguente illustra lo stato di protezione delle VM del componente Dyn
 
 ![Elementi protetti](./media/site-recovery-dynamics-ax/protecteditems.png)
 
-### <a name="4-configure-networking"></a>4. Configurare le impostazioni di rete
+### <a name="4-configure-networking"></a>4. configurare la rete
 **Configurare le impostazioni di calcolo e di rete delle VM**
 
 Per le macchine virtuali AOS (Application Object Server) e il client AX, configurare le impostazioni di rete in Site Recovery in modo che le reti delle macchine virtuali siano collegate alla rete di ripristino di emergenza corretta dopo il failover. Assicurarsi che la rete di ripristino di emergenza per questi livelli possa essere instradata al livello SQL.
@@ -95,7 +95,7 @@ Per le macchine virtuali AOS (Application Object Server) e il client AX, configu
     ![Impostazioni di rete](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
-### <a name="5-create-a-recovery-plan"></a>5. Creare un piano di ripristino
+### <a name="5-create-a-recovery-plan"></a>5. creare un piano di ripristino
 
 È possibile creare un piano di ripristino in Site Recovery per automatizzare il processo di failover. Aggiungere un livello app e il livello Web nel piano di ripristino. Ordinare i livelli in gruppi diversi in modo che il front-end si arresti prima del livello app.
 
@@ -118,9 +118,9 @@ Per le macchine virtuali AOS (Application Object Server) e il client AX, configu
 È possibile personalizzare il piano di ripristino per l'applicazione Dynamics AX aggiungendo i passaggi seguenti. Lo snapshot precedente illustra il piano di ripristino completo dopo aver aggiunto tutti i passaggi.
 
 
-* **Passaggi di failover di SQL Server**: Per informazioni sulla procedura di ripristino specifica per SQL server, vedere come [eseguire la replica di applicazioni con SQL Server e Azure Site Recovery](site-recovery-sql.md).
+* **Passaggi di failover di SQL Server**: per informazioni sulla procedura di ripristino specifica per SQL server, vedere come [eseguire la replica di applicazioni con SQL Server e Azure Site Recovery](site-recovery-sql.md).
 
-* **Gruppo di failover 1**: eseguire il failover delle macchine virtuali per server oggetti applicativi (AOS, Application Object Server).
+* **Gruppo di failover 1**: eseguire il failover delle macchine virtuali AOS (Application Object Server).
 Assicurarsi che il punto di ripristino selezionato sia il più vicino possibile al ripristino temporizzato del database, senza tuttavia precederlo.
 
 * **Script**: aggiungere il bilanciamento del carico (solo E-A).

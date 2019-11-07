@@ -1,5 +1,5 @@
 ---
-title: Applicare le raccomandazioni per le prestazioni - Database SQL di Azure | Microsoft Docs
+title: Applicare le raccomandazioni per le prestazioni-database SQL di Azure
 description: Usare il portale di Azure per trovare raccomandazioni per le prestazioni che consentono di ottimizzare le prestazioni del database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: b6bcb2650cd11ed97b6e81fda6aaafe7fca61202
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 24a590a80e768bba2e9b102bdf200e0cd96858f8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569595"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691281"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 
@@ -38,10 +38,10 @@ Le raccomandazioni per le prestazioni vengono visualizzate in una tabella simile
 
 Le raccomandazioni vengono ordinate in base all'impatto potenziale sulle prestazioni nelle categorie seguenti:
 
-| Impatto | DESCRIZIONE |
+| Impatto | Descrizione |
 |:--- |:--- |
-| High |Le indicazioni ad alto impatto devono fornire l'impatto più significativo sulle prestazioni. |
-| Medi |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
+| Alto |Le indicazioni ad alto impatto devono fornire l'impatto più significativo sulle prestazioni. |
+| Medio |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
 | Basso |Le raccomandazioni a basso impatto devono offrire prestazioni migliori, ma i miglioramenti potrebbero non essere significativi. |
 
 
@@ -53,7 +53,7 @@ Le raccomandazioni vengono ordinate in base all'impatto potenziale sulle prestaz
 
 Di seguito è riportato un esempio della raccomandazione "Crea indice" nel portale di Azure.
 
-![Crea indice](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
+![Creare un indice](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
 ## <a name="applying-recommendations"></a>Applicazione delle raccomandazioni
 Il database SQL di Azure offre il controllo completo sull'attivazione delle raccomandazioni tramite una delle tre opzioni seguenti: 
@@ -127,13 +127,13 @@ Le raccomandazioni con stato **In sospeso**, **Convalida** oppure **Operazione c
 
 L'applicazione di un'indicazione potrebbe non avvenire in tempo reale. Il portale fornisce dettagli sullo stato della raccomandazione. Di seguito sono indicati gli stati possibili di un indice:
 
-| Stato | DESCRIZIONE |
+| Stato | Descrizione |
 |:--- |:--- |
 | In sospeso |Il comando di applicazione della raccomandazione è stato ricevuto ed è pianificato per l'esecuzione. |
 | In esecuzione |La raccomandazione viene applicata. |
-| Convalida |La raccomandazione è stata applicata e il servizio sta valutando i vantaggi. |
-| Riuscito |La raccomandazione è stata applicata e i vantaggi sono stati misurati. |
-| Errore |Si è verificato un errore durante il processo di applicazione della raccomandazione. Può trattarsi di un problema temporaneo o eventualmente di una modifica dello schema della tabella e lo script non è più valido. |
+| Convalida in corso. |La raccomandazione è stata applicata e il servizio sta valutando i vantaggi. |
+| Success |La raccomandazione è stata applicata e i vantaggi sono stati misurati. |
+| Tipi di errore |Si è verificato un errore durante il processo di applicazione della raccomandazione. Può trattarsi di un problema temporaneo o eventualmente di una modifica dello schema della tabella e lo script non è più valido. |
 | Ripristino |La raccomandazione è stata applicata, ma è stata considerata non efficiente e verrà ripristinata automaticamente. |
 | Ripristinato |La raccomandazione è stata ripristinata. |
 

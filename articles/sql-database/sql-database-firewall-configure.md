@@ -1,5 +1,5 @@
 ---
-title: Regole del firewall IP del database SQL di Azure e Azure SQL Data Warehouse | Microsoft Docs
+title: Regole del firewall IP del database SQL di Azure e Azure SQL Data Warehouse
 description: Configurare le regole del firewall IP a livello di server per un database SQL o un firewall SQL Data Warehouse. Gestire l'accesso e configurare le regole del firewall IP a livello di database per un database singolo o in pool.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: e3e65a6deadfbcad563a6b64c0a9f48182cdd571
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 52566dbc60c3c2fd532891ab4f7d3461f9d77557
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686461"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690042"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Regole del firewall IP del database SQL di Azure e Azure SQL Data Warehouse
 
@@ -144,7 +144,7 @@ Verrà visualizzata la pagina Panoramica del server. Mostra il nome completo del
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>Usare Transact-SQL per gestire le regole del firewall IP
 
-| Vista del catalogo o stored procedure | Livello | Descrizione |
+| Vista del catalogo o stored procedure | Level | Descrizione |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Server |Visualizza le regole del firewall IP a livello di server correnti |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Server |Crea o aggiorna regole del firewall IP a livello di server |
@@ -178,7 +178,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 > [!IMPORTANT]
 > Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutto lo sviluppo è ora per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli AZ e AzureRm sono sostanzialmente identici.
 
-| Cmdlet | Livello | Descrizione |
+| Cmdlet | Level | Descrizione |
 | --- | --- | --- |
 | [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Server |Restituisce le regole del firewall a livello di server correnti |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Server |Crea una nuova regola del firewall a livello di server |
@@ -198,7 +198,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ### <a name="use-cli-to-manage-server-level-ip-firewall-rules"></a>Usare l'interfaccia della riga di comando per gestire le regole firewall IP a livello di server
 
-| Cmdlet | Livello | Descrizione |
+| Cmdlet | Level | Descrizione |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Server|Crea una regola del firewall IP del server|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Server|Elenca le regole del firewall IP in un server|
@@ -218,7 +218,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ### <a name="use-a-rest-api-to-manage-server-level-ip-firewall-rules"></a>Usare un'API REST per gestire le regole del firewall IP a livello di server
 
-| API | Livello | Descrizione |
+| API | Level | Descrizione |
 | --- | --- | --- |
 | [Elencare le regole del firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Server |Visualizza le regole del firewall IP a livello di server correnti |
 | [Creare o aggiornare le regole del firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Crea o aggiorna regole del firewall IP a livello di server |
@@ -231,7 +231,7 @@ Quando l'accesso al servizio del database SQL non si comporta come previsto, con
 
 - **Configurazione del firewall locale:**
 
-  Prima che il computer possa accedere al database SQL, potrebbe essere necessario creare un'eccezione del firewall nel computer per la porta TCP 1433. Per stabilire connessioni entro il limite del cloud di Azure, potrebbe essere necessario aprire porte aggiuntive. Per ulteriori informazioni, vedere il "database SQL: All'esterno rispetto all'interno della sezione "di [porte oltre 1433 per ADO.NET 4,5 e database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
+  Prima che il computer possa accedere al database SQL, potrebbe essere necessario creare un'eccezione del firewall nel computer per la porta TCP 1433. Per stabilire connessioni entro il limite del cloud di Azure, potrebbe essere necessario aprire porte aggiuntive. Per ulteriori informazioni, vedere la sezione "database SQL: all'esterno rispetto all'interno" di [porte oltre 1433 per ADO.NET 4,5 e database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 - **NAT (Network Address Translation):**
 
@@ -260,7 +260,7 @@ Quando l'accesso al servizio del database SQL non si comporta come previsto, con
 - Verificare che l'ambiente di rete aziendale consenta le comunicazioni in ingresso dagli intervalli di indirizzi IP di calcolo (inclusi gli intervalli SQL) usati dai Data Center di Azure. Potrebbe essere necessario aggiungere gli indirizzi IP all'elenco Consenti. Vedere [Microsoft Azure intervalli IP del Data Center](https://www.microsoft.com/download/details.aspx?id=41653).  
 - Per una guida introduttiva sulla creazione di una regola del firewall IP a livello di server, vedere [creare un database SQL di Azure](sql-database-single-database-get-started.md).
 - Per informazioni sulla connessione a un database SQL di Azure da applicazioni open source o di terze parti, vedere [esempi di codice di avvio rapido del client per il database SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-- Per informazioni sulle porte aggiuntive che potrebbe essere necessario aprire, vedere il "database SQL: All'esterno rispetto all'interno della sezione "di [porte oltre 1433 per ADO.NET 4,5 e database SQL](sql-database-develop-direct-route-ports-adonet-v12.md)
+- Per informazioni sulle porte aggiuntive che potrebbe essere necessario aprire, vedere la sezione "database SQL: all'esterno rispetto all'interno" di [porte oltre 1433 per ADO.NET 4,5 e database SQL](sql-database-develop-direct-route-ports-adonet-v12.md)
 - Per una panoramica della sicurezza del database SQL di Azure, vedere [protezione del database](sql-database-security-overview.md).
 
 <!--Image references-->

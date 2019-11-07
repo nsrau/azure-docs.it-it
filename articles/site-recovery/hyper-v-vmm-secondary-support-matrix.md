@@ -1,18 +1,18 @@
 ---
-title: Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V in cloud VMM in un sito secondario con Azure Site Recovery
+title: Supporto per Matrix-ripristino di emergenza Hyper-V in un sito VMM secondario con Azure Site Recovery
 description: Offre un riepilogo del supporto per la replica delle macchine virtuali Hyper-V di cloud VMM in un sito secondario con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 46d6cba1d702773639420a3bc5ac74b9c16ce706
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7711ebaaddccd68d4322c1d3ebdd049a57bc709b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933823"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686159"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali Hyper-V in un sito secondario
 
@@ -56,15 +56,15 @@ Windows Server 2012 R2 | Qualsiasi sistema operativo guest [supportato da Hyper-
 
 **Configurazione** | **Supportato**  
 --- | --- 
-Host - Gruppo NIC | SÌ 
-Host - VLAN | SÌ 
-Host - IPv4 | SÌ 
+Host - Gruppo NIC | Sì 
+Host - VLAN | Sì 
+Host - IPv4 | Sì 
 Host - IPv6 | No 
 VM guest - Gruppo NIC | No
-VM guest - IPv4 | SÌ
+VM guest - IPv4 | Sì
 VM guest - IPv6 | No
-VM guest - Windows/Linux - Indirizzo IP statico | SÌ
-VM guest - Più NIC | SÌ
+VM guest - Windows/Linux - Indirizzo IP statico | Sì
+VM guest - Più NIC | Sì
 
 
 ## <a name="storage"></a>Archiviazione
@@ -74,9 +74,9 @@ VM guest - Più NIC | SÌ
 **Archiviazione (host)** | **Supportato**
 --- | --- 
 NFS | N/D
-SMB 3.0 |  SÌ
-SAN (iSCSI) | SÌ
-Percorsi multipli (MPIO) | SÌ
+SMB 3.0 |  Sì
+SAN (iSCSI) | Sì
+Percorsi multipli (MPIO) | Sì
 
 ### <a name="guest-or-physical-server-storage"></a>Archiviazione su server fisico o guest
 
@@ -84,19 +84,19 @@ Percorsi multipli (MPIO) | SÌ
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sì (fino a 16 dischi)
-VM di seconda generazione | SÌ
+VM di seconda generazione | Sì
 Disco cluster condiviso | No
 Disco crittografato | No
 UEFI| N/D
 NFS | No
 SMB 3.0 | No
 RDM | N/D
-Disco superiore a 1 TB | SÌ
-Volume con disco con striping superiore a 1 TB<br/><br/> LVM | SÌ
-Spazi di archiviazione | SÌ
+Disco superiore a 1 TB | Sì
+Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Sì
+Spazi di archiviazione | Sì
 Aggiunta/rimozione a caldo disco | No
-Esclusione disco | SÌ
-Percorsi multipli (MPIO) | SÌ
+Esclusione disco | Sì
+Percorsi multipli (MPIO) | Sì
 
 ## <a name="vaults"></a>Insiemi di credenziali
 

@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione di un certificato TDE - Istanza gestita di database SQL di Azure | Microsoft Docs
+title: 'Migrare il certificato Transparent Data Encryption-Istanza gestita di database SQL di Azure '
 description: Eseguire la migrazione a un'istanza gestita del database SQL di Azure del certificato di protezione della chiave di crittografia di un database con Transparent Data Encryption
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
-ms.openlocfilehash: 6f9c1cefafdf6f7f33db3c5143e6b97b328fe699
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4d931a927888cb96116043a72006ac77cfa7dded
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567417"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688076"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Eseguire la migrazione del certificato di un database protetto tramite TDE a un'istanza gestita del database SQL di Azure
 

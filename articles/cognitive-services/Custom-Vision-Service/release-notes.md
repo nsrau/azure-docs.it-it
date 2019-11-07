@@ -1,6 +1,7 @@
 ---
 title: Note sulla versione - Servizio visione artificiale personalizzato
 titleSuffix: Azure Cognitive Services
+description: Ottenere le informazioni più recenti sulle nuove versioni dal team di Visione personalizzata.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -9,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 79f3f2a5545b8cdcee86e52f35bd22a31e93d387
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b9606c63ec7b53fb0b69918c21bdd9206f34c555
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564087"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647565"
 ---
 # <a name="custom-vision-service-release-notes"></a>Note sulla versione di Servizio visione artificiale personalizzato
 
@@ -53,7 +54,7 @@ ms.locfileid: "68564087"
 
 ## <a name="january-22-2019"></a>22 gennaio 2019
 
-- Supporto aggiunto per le nuove aree di Azure: Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti orientali 2, Europa occidentale, Europa settentrionale, Asia sud-orientale, Australia orientale, India centrale, Regno Unito meridionale, Giappone orientale e Stati Uniti centro-settentrionali. Il supporto è valido anche per gli Stati Uniti centro-meridionali.
+- È stato aggiunto il supporto per le nuove aree di Azure: Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti orientali 2, Europa occidentale, Europa settentrionale, Asia sudorientale, Australia orientale, India centrale, Regno Unito meridionale, Giappone orientale e Stati Uniti centro-settentrionali. Il supporto è valido anche per gli Stati Uniti centro-meridionali.
 
 ## <a name="december-12-2018"></a>12 dicembre 2018
 
@@ -70,7 +71,7 @@ ms.locfileid: "68564087"
 ## <a name="october-9-2018"></a>9 ottobre 2018
 
 - Rilevamento di oggetti entra in anteprima a pagamento. È ora possibile creare progetti Rilevamento di oggetti con una risorsa di Azure.
-- Aggiunta la funzionalità "Sposta in Azure" al sito Web per facilitare l'aggiornamento di un progetto in versione di valutazione limitata per il collegamento ad Azure. progetto con risorse collegate (F0 o S0). È possibile trovarlo nella pagina Impostazioni per il prodotto.  
+- Aggiunta la funzionalità "Sposta in Azure" al sito Web per facilitare l'aggiornamento di un progetto in versione di valutazione limitata per il collegamento ad Azure. progetto collegato alle risorse (F0 o S0) È possibile trovarlo nella pagina delle impostazioni del prodotto.  
 - Aggiunta l'esportazione in ONNX 1.2 per supportare la versione di aggiornamento di Windows di ottobre 2018 per Windows ML.
 Correzioni di bug, ad esempio per l'esportazione ONNX con caratteri speciali.
 
@@ -107,7 +108,7 @@ Correzioni di bug, ad esempio per l'esportazione ONNX con caratteri speciali.
 
 ## <a name="december-19-2017"></a>19 dicembre 2017
 
-- È stata aggiunta l'esportazione in Android (TensorFlow), oltre all'esportazione già rilasciata in iOS (CoreML). Ciò consente l'esportazione di un modello compatto con training da eseguire offline in un'applicazione.
+- L'esportazione in Android (TensorFlow) è stata aggiunta, oltre a quella rilasciata in precedenza in iOS (CoreML). In questo modo è possibile eseguire l'esportazione di un modello compatto sottoposto a training in un'applicazione.
 - Sono stati aggiunti i domini compatti Retail e Landmark per consentire l'esportazione dei modelli per questi domini.
 - Sono state rilasciate le versioni [1.2 dell'API Training](https://southcentralus.dev.cognitive.microsoft.com/docs/services/f2d62aa3b93843d79e948fe87fa89554/operations/5a3044ee08fa5e06b890f11f) e [1.1 dell'API Prediction](https://southcentralus.dev.cognitive.microsoft.com/docs/services/57982f59b5964e36841e22dfbfe78fc1/operations/5a3044f608fa5e06b890f164). Le API aggiornate supportano l'esportazione di modelli, è stata introdotta una nuova operazione dell'API Prediction che non salva le immagini in "Predictions" e sono state aggiunte operazioni in batch nell'API Training.
 - Modifiche all'esperienza utente, inclusa la possibilità di visualizzare i domini usati per eseguire il training di un'iterazione.

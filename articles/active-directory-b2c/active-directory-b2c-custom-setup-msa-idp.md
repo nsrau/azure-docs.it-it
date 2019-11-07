@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c04f578e73b81000fa605283a4afa4103655bcf4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 1f068b624b5a8f580f61e9eb2ed0d197f05aa1b0
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71826972"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643655"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Microsoft usando criteri personalizzati in Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Questo articolo illustra come abilitare l'accesso per gli utenti da un account M
 - Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Se non si ha già un account Microsoft, crearne uno all'indirizzo [https://www.live.com/](https://www.live.com/).
 
-## <a name="add-an-application"></a>Aggiungi applicazione
+## <a name="add-an-application"></a>Aggiungere un'applicazione
 
 Per abilitare l'accesso per gli utenti con una account Microsoft, è necessario registrare un'applicazione all'interno del tenant di Azure AD. Il tenant di Azure AD non corrisponde al tenant di Azure AD B2C.
 
@@ -38,7 +38,7 @@ Per abilitare l'accesso per gli utenti con una account Microsoft, è necessario 
 1. Selezionare **Nuova registrazione**.
 1. Immettere un **nome** per l'applicazione. Ad esempio, *MSAapp1*.
 1. In **tipi di account supportati**selezionare **account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)** .
-1. In **URI di reindirizzamento (facoltativo)** selezionare **Web** e immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` nella casella di testo. Sostituire `your-tenant-name` con il nome del tenant Azure ad B2C.
+1. In **URI di reindirizzamento (facoltativo)** selezionare **Web** e immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` nella casella di testo. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C.
 1. Seleziona **Registro**
 1. Registrare l' **ID dell'applicazione (client)** visualizzato nella pagina Panoramica dell'applicazione. Questa operazione è necessaria quando si configura il provider di attestazioni in una sezione successiva.
 1. Selezionare i **certificati & segreti**
@@ -56,10 +56,10 @@ Ora che l'applicazione è stata creata nel tenant di Azure AD, è necessario arc
 1. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
 1. Selezionare **Chiavi dei criteri** e quindi selezionare **Aggiungi**.
 1. Per **Opzioni** scegliere `Manual`.
-1. Immettere un **nome** per la chiave dei criteri. Ad esempio `MSASecret`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
+1. Immettere un **nome** per la chiave dei criteri. Ad esempio, `MSASecret`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
 1. In **Secret (segreto**) immettere il segreto client registrato nella sezione precedente.
 1. In **Uso chiave** selezionare `Signature`.
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Create**.
 
 ## <a name="add-a-claims-provider"></a>Aggiungere un provider di attestazioni
 
@@ -135,7 +135,7 @@ A questo punto, il provider di identità è stato configurato, ma non è ancora 
 1. Trovare e copiare l'intero contenuto dell'elemento **UserJourney** che include `Id="SignUpOrSignIn"`.
 1. Aprire *TrustFrameworkExtensions.xml* e trovare l'elemento **UserJourneys**. Se l'elemento non esiste, aggiungerne uno.
 1. Incollare l'intero contenuto dell'elemento **UserJourney** copiato come figlio dell'elemento **UserJourneys**.
-1. Rinominare l'ID del percorso utente. Ad esempio `SignUpSignInMSA`.
+1. Rinominare l'ID del percorso utente. Ad esempio, `SignUpSignInMSA`.
 
 ### <a name="display-the-button"></a>Visualizzare il pulsante
 
@@ -159,7 +159,7 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
     <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
     ```
 
-    Aggiornare il valore di **TechnicalProfileReferenceId** in modo che corrisponda `Id` a quello del valore nell'elemento **TechnicalProfile** del provider di attestazioni aggiunto in precedenza. Ad esempio `MSA-OIDC`.
+    Aggiornare il valore di **TechnicalProfileReferenceId** in modo che corrisponda a quello del valore `Id` nell'elemento **TechnicalProfile** del provider di attestazioni aggiunto in precedenza. Ad esempio, `MSA-OIDC`.
 
 1. Salvare il file *TrustFrameworkExtensions.xml* e caricarlo di nuovo per la verifica.
 
@@ -174,7 +174,7 @@ La comunicazione con Azure AD B2C avviene tramite un'applicazione registrata nel
 Aggiornare il file della relying party (RP) che avvierà il percorso utente appena creato.
 
 1. Creare una copia di *SignUpOrSignIn.xml* nella directory di lavoro e rinominare la copia. Ad esempio, assegnare il nome *SignUpSignInMSA.xml*.
-1. Aprire il nuovo file e aggiornare il valore dell'attributo **PolicyId** per **TrustFrameworkPolicy** con un valore univoco. Ad esempio `SignUpSignInMSA`.
+1. Aprire il nuovo file e aggiornare il valore dell'attributo **PolicyId** per **TrustFrameworkPolicy** con un valore univoco. Ad esempio, `SignUpSignInMSA`.
 1. Aggiornare il valore di **PublicPolicyUri** con l'URI dei criteri. Ad esempio, `http://contoso.com/B2C_1A_signup_signin_msa`
 1. Aggiornare il valore dell'attributo **ReferenceId** in **DefaultUserJourney** in modo che corrisponda all'ID del percorso utente creato in precedenza (SignUpSignInMSA).
 1. Salvare le modifiche, caricare il file e quindi selezionare i nuovi criteri nell'elenco.

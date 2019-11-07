@@ -1,5 +1,5 @@
 ---
-title: Cambia attività in Azure Data Factory | Microsoft Docs
+title: Cambia attività in Azure Data Factory
 description: L'attività Switch consente di controllare il flusso di elaborazione in base a una condizione.
 services: data-factory
 author: djpmsft
@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 3f60965ad54fb94e7f69b69c161b482f0b953c5a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 582e0c6b9f6a51f97e8d4990634ceac61c6d9f23
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293960"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679414"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Cambia attività in Azure Data Factory
 
@@ -67,11 +67,11 @@ L'attività switch fornisce la stessa funzionalità fornita da un'istruzione swi
 
 Proprietà | Descrizione | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività switch. | string | Yes
-type | Deve essere impostato su *Switch** | string | Yes
-expression | Espressione che deve restituire un valore stringa | Espressione con stringa del tipo di risultato | Yes
-cases | Set di case che contengono un valore e un set di attività da eseguire quando il valore corrisponde alla valutazione dell'espressione. Deve fornire almeno un case. È previsto un limite massimo di 25 case. | Matrice di oggetti case | Yes
-defaultActivities | Set di attività che vengono eseguite quando la valutazione dell'espressione non viene soddisfatta. | Matrice di attività | Yes
+name | Nome dell'attività switch. | String | Sì
+type | Deve essere impostato su *Switch** | String | Sì
+expression | Espressione che deve restituire un valore stringa | Espressione con stringa del tipo di risultato | Sì
+cases | Set di case che contengono un valore e un set di attività da eseguire quando il valore corrisponde alla valutazione dell'espressione. Deve fornire almeno un case. È previsto un limite massimo di 25 case. | Matrice di oggetti case | Sì
+defaultActivities | Set di attività che vengono eseguite quando la valutazione dell'espressione non viene soddisfatta. | Matrice di attività | Sì
 
 ## <a name="example"></a>Esempio
 

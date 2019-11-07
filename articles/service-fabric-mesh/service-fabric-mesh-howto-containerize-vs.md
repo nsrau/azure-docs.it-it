@@ -1,6 +1,6 @@
 ---
 title: Distribuire un'app .NET esistente in un contenitore per Service Fabric Mesh | Microsoft Docs
-description: Aggiungere il supporto di Service Fabric Mesh a un'app .NET esistente
+description: Aggiungere Service Fabric supporto dell'orchestrazione del contenitore mesh ai progetti ASP.NET e console che usano la versione completa di .NET Framework.
 services: service-fabric-mesh
 keywords: distribuire in un contenitore service fabric mesh
 author: dkkapur
@@ -9,12 +9,12 @@ ms.date: 11/08/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chakdan
-ms.openlocfilehash: cb4e327e1c8c0a653cb94233f568b4847494c439
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 070d07316c0ff06a45e76936e75cb5345548e78f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60419443"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686287"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Distribuire un'app .NET esistente in un contenitore per Service Fabric Mesh
 
@@ -71,4 +71,4 @@ A questo punto è possibile pubblicare l'app in Azure Service Fabric Mesh.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere come pubblicare un'app nel mesh Service Fabric: [Esercitazione - Distribuire un'applicazione mesh Service Fabric](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+Per informazioni su come pubblicare un'app in Service Fabric Mesh, vedere [Esercitazione: Distribuire un'applicazione Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)

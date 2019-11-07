@@ -2,19 +2,19 @@
 title: Informazioni su un mondo senza password con Azure Active Directory | Microsoft Docs
 description: Questa guida aiuta i CEO, cio, CISO, Chief Identity Architects, Enterprise Architects e Security and IT Decision Maker responsabili della scelta di un metodo di autenticazione con password per l'implementazione del Azure Active Directory.
 keywords: con password, azuread
-author: martincoetzer
-ms.author: martinco
+author: TerryLanfear
+ms.author: terrylan
 ms.date: 07/09/2019
 ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: d1c69cd1cf9990fc77a24e18d87690210453cf75
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: a24195dcf8f384db8d78d39ac7100e487f6c9272
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091964"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621275"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Un mondo senza password con Azure Active Directory
 
@@ -44,7 +44,7 @@ In Windows 10, Windows Hello for business sostituisce le password con l'autentic
 
 ### <a name="windows-hello-for-business-scenarios"></a>Scenari di Windows Hello for business
 
-Windows Hello for business è ideale per gli Information Worker che dispongono di un proprio PC Windows designato. La biometrica e le credenziali sono direttamente collegate al PC dell'utente, che impedisce l'accesso a utenti diversi dal proprietario. Con l'integrazione dell'infrastruttura a chiave pubblica e il supporto integrato per Single Sign-on (SSO), Windows Hello for business offre un metodo semplice e pratico per accedere facilmente alle risorse aziendali in locale e nel cloud.
+Windows Hello for business è ideale per gli Information Worker che dispongono di un proprio PC Windows designato. La biometrica e le credenziali sono direttamente collegate al PC dell'utente, che impedisce l'accesso a utenti diversi dal proprietario. Con l'integrazione con l'infrastruttura a chiave pubblica e il supporto integrato per Single Sign-On (SSO), Windows Hello for business offre un metodo semplice e pratico per accedere facilmente alle risorse aziendali in locale e nel cloud.
 
 ### <a name="windows-hello-for-business-deployment-considerations"></a>Considerazioni sulla distribuzione di Windows Hello for business
 
@@ -109,7 +109,7 @@ Per approfondire il processo di autenticazione in altri scenari che coinvolgono 
 
 Il [servizio di reimpostazione PIN Microsoft](/windows/security/identity-protection/hello-for-business/hello-feature-pin-reset) è una funzionalità di Azure ad che consente agli utenti di reimpostare il PIN, se necessario. Utilizzando criteri di gruppo, Microsoft Intune o una soluzione MDM compatibile, un amministratore può configurare i dispositivi Windows 10 per utilizzare in modo sicuro il servizio di reimpostazione PIN Microsoft che consente agli utenti di reimpostare il PIN dimenticato tramite le impostazioni o sopra la schermata di blocco senza richiedere Ripetere la registrazione.
 
-A volte gli utenti devono eseguire il fallback all'uso delle password. [Reimpostazione della password self-service](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) è un'altra Azure AD funzionalità che consente agli utenti di reimpostare le proprie password senza dover contattare il personale IT. Prima di usare il servizio, gli utenti devono registrarsi per la reimpostazione della password self-service o essere registrati. Durante la registrazione, l'utente sceglie uno o più metodi di autenticazione abilitati dall'organizzazione. SSPR consente agli utenti di essere sbloccati rapidamente e continuare a lavorare indipendentemente da dove si trovano o dall'ora del giorno. Consentendo agli utenti di sbloccare autonomamente, l'organizzazione può ridurre il tempo non produttivo e i costi di supporto elevati per la maggior parte dei problemi comuni relativi alle password.
+A volte gli utenti devono eseguire il fallback all'uso delle password. La [reimpostazione della password self-service](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) è un'altra Azure ad funzionalità che consente agli utenti di reimpostare le password senza dover contattare il personale it. Prima di usare il servizio, gli utenti devono registrarsi per la reimpostazione della password self-service o essere registrati. Durante la registrazione, l'utente sceglie uno o più metodi di autenticazione abilitati dall'organizzazione. SSPR consente agli utenti di essere sbloccati rapidamente e continuare a lavorare indipendentemente da dove si trovano o dall'ora del giorno. Consentendo agli utenti di sbloccare autonomamente, l'organizzazione può ridurre il tempo non produttivo e i costi di supporto elevati per la maggior parte dei problemi comuni relativi alle password.
 
 ## <a name="passwordless-sign-in-with-microsoft-authenticator"></a>Accesso senza password con Microsoft Authenticator
 
@@ -123,7 +123,7 @@ L'app Microsoft Authenticator consente agli utenti di verificare la propria iden
 
 I prerequisiti per l'uso dell'app Microsoft Authenticator per eseguire l'accesso senza password ai Azure AD includono quanto segue:
 
-* Gli utenti finali sono abilitati per l'autenticazione a più fattori di Azure
+* Gli utenti finali sono abilitati per Azure Multi-Factor Authentication
 
 * Si consiglia agli utenti di registrare i propri dispositivi usando Microsoft Intune o una soluzione di gestione di dispositivi mobili (MDM) di terze parti per semplificare la distribuzione dell'app
 
@@ -131,7 +131,7 @@ Supponendo che questi requisiti siano soddisfatti, gli amministratori possono ab
 
 Supponendo che l'accesso senza password sia abilitato da un amministratore, gli utenti finali dovranno soddisfare i requisiti seguenti:
 
-* Registrato in Azure Multifactor Authentication
+* Registrato in Multi-Factor Authentication di Azure
 
 * La versione più recente di Microsoft Authenticator installata nei dispositivi che eseguono iOS 8,0 o versione successiva o Android 6,0 o versione successiva
 
@@ -150,7 +150,7 @@ Poiché la maggior parte degli utenti è abituata a usare solo password per l'au
 
 Prima che l'app Microsoft Authenticator possa essere usata come soluzione senza password per accedere a un account Azure AD, i passaggi devono essere eseguiti sia da un amministratore che dagli utenti finali.
 
-Per prima cosa, un amministratore deve [abilitare l'uso dell'app come credenziale](../../active-directory/authentication/howto-authentication-passwordless-phone.md) nel tenant usando Windows PowerShell. L'amministratore dovrà anche abilitare gli utenti finali per Azure multi-factor authentication (autenticazione a più fattori di Azure) e configurare l'app Microsoft Authenticator come uno dei [metodi di verifica](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods).
+Per prima cosa, un amministratore deve [abilitare l'uso dell'app come credenziale](../../active-directory/authentication/howto-authentication-passwordless-phone.md) nel tenant usando Windows PowerShell. L'amministratore dovrà anche abilitare gli utenti finali per Azure Multi-Factor Authentication (autenticazione a più fattori di Azure) e configurare l'app Microsoft Authenticator come uno dei [metodi di verifica](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods).
 
 Gli utenti finali dovranno [scaricare e installare](../../active-directory/user-help/user-help-auth-app-download-install.md) l'app Microsoft Authenticator e [configurare il proprio account](../../active-directory/user-help/security-info-setup-auth-app.md) per usare l'app Microsoft Authenticator come uno dei metodi di verifica.
 
@@ -184,7 +184,7 @@ L'autenticazione senza password con Microsoft Authenticator segue lo stesso mode
 
 #### <a name="user-manages-their-passwordless-sign-in-with-microsoft-authenticator-credentials"></a>L'utente gestisce l'accesso senza password con Microsoft Authenticator credenziali
 
-Con la [registrazione combinata](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md), gli utenti possono registrarsi e sfruttare i vantaggi di Azure Multifactor Authentication e della reimpostazione della password self-service. Gli utenti registrano e gestiscono queste impostazioni passando alla [pagina del profilo personale](https://aka.ms/mysecurityinfo). Oltre ad abilitare SSPR, la registrazione combinata supporta più metodi di autenticazione e azioni.
+Con la [registrazione combinata](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md), gli utenti possono registrarsi e sfruttare i vantaggi di Azure multi-factor authentication e la reimpostazione della password self-service. Gli utenti registrano e gestiscono queste impostazioni passando alla [pagina del profilo personale](https://aka.ms/mysecurityinfo). Oltre ad abilitare SSPR, la registrazione combinata supporta più metodi di autenticazione e azioni.
 
 ## <a name="fido2-security-keys"></a>Chiavi di sicurezza FIDO2
 
@@ -228,7 +228,7 @@ Si consiglia inoltre di fare in modo che ogni organizzazione crei un protocollo 
 
 Sebbene gli amministratori possano eseguire manualmente il provisioning delle [chiavi](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless) e distribuirle agli utenti finali, il provisioning e l'abilitazione del provider di credenziali FIDO2 nella schermata di blocco di Windows 10 saranno supportati tramite [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Gli amministratori dovranno anche usare il [portale di Azure](https://portal.azure.com/) per abilitare i dispositivi token hardware come metodo di autenticazione senza password.
 
-Per la distribuzione di chiavi di sicurezza FIDO2 è inoltre necessario che gli utenti registrino le proprie chiavi utilizzando la [registrazione combinata](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md) Con la registrazione combinata, gli utenti registrano una sola volta e ottengono i vantaggi di Azure Multifactor Authentication e della reimpostazione della password Single Sign-on (SSPR).
+Per la distribuzione di chiavi di sicurezza FIDO2 è inoltre necessario che gli utenti registrino le proprie chiavi utilizzando la [registrazione combinata](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md) Con la registrazione combinata, gli utenti registrano una sola volta e ottengono i vantaggi di Azure Multi-Factor Authentication e della reimpostazione della password di Single Sign-On (SSPR).
 
 Oltre a selezionare il token hardware come metodo di autenticazione a più fattori predefinito, è consigliabile selezionare anche un'opzione di verifica aggiuntiva.
 
@@ -236,7 +236,7 @@ Oltre a selezionare il token hardware come metodo di autenticazione a più fatto
 
 * App Authenticator o token hardware--code
 
-* Telefonata
+* Chiamata telefonica
 
 * SMS
 
@@ -287,11 +287,11 @@ Di seguito sono riportati alcuni fattori da considerare quando si sceglie la tec
 |**Modalità**|Piattaforma|Software|Hardware|
 |**Sistemi e dispositivi**|PC con un Trusted Platform Module incorporato (TPM)<br>Riconoscimento del PIN e della biometria |Riconoscimento del PIN e della biometria sul telefono|Dispositivi di sicurezza FIDO2 compatibili con Microsoft|
 |**Esperienza utente**|Accedere con un PIN o un riconoscimento biometrico (facciale, Iris o impronta digitale) con i dispositivi Windows.<br>L'autenticazione di Windows Hello è associata al dispositivo. per accedere alle risorse aziendali, l'utente deve disporre sia del dispositivo sia di un componente di accesso, ad esempio un PIN o un fattore biometrico.|Eseguire l'accesso con un telefono cellulare con impronta digitale, riconoscimento facciale o Iris oppure PIN.<br>Gli utenti possono accedere al proprio account di lavoro o personale dal PC o dal telefono cellulare.|Accedere con il dispositivo di sicurezza FIDO2 (biometria, PIN e NFC)<br>L'utente può accedere al dispositivo in base ai controlli dell'organizzazione ed eseguire l'autenticazione in base al PIN, alla biometria usando dispositivi quali chiavi di sicurezza USB e smart card, chiavi o indossabili abilitati per NFC.|
-|**Scenari abilitati**| Esperienza senza password con il dispositivo Windows.<br>Applicabile per PC di lavoro dedicati con funzionalità per l'accesso Single Sign-on a dispositivi e applicazioni.|Soluzione senza password con il telefono cellulare.<br>Applicabile per accedere alle applicazioni aziendali o personali sul Web da qualsiasi dispositivo.|Esperienza senza password per i dipendenti che usano biometria, PIN e NFC.<br>Applicabile per i PC condivisi e in cui un telefono cellulare non è un'opzione valida, ad esempio per il personale help desk, il chiosco pubblico o il team ospedaliero|
+|**Scenari abilitati**| Esperienza senza password con il dispositivo Windows.<br>Applicabile per PC di lavoro dedicati con la possibilità di Single Sign-On al dispositivo e alle applicazioni.|Soluzione senza password con il telefono cellulare.<br>Applicabile per accedere alle applicazioni aziendali o personali sul Web da qualsiasi dispositivo.|Esperienza senza password per i dipendenti che usano biometria, PIN e NFC.<br>Applicabile per i PC condivisi e in cui un telefono cellulare non è un'opzione valida, ad esempio per il personale help desk, il chiosco pubblico o il team ospedaliero|
 
 Usare la tabella seguente per scegliere il metodo che supporterà i requisiti e gli utenti.
 
-|Utente tipo|Scenario|Ambiente|Tecnologia con password|
+|Utente tipo|Scenario|Environment|Tecnologia con password|
 |:-|:-|:-|:-|
 |**Admin**|Proteggere l'accesso a un dispositivo per le attività di gestione|Dispositivo Windows 10 assegnato|Chiave di sicurezza di Windows Hello for business e/o FIDO2|
 |**Admin**|Attività di gestione su dispositivi non Windows| Dispositivo mobile o non Windows|Accesso senza password con l'app Microsoft Authenticator|

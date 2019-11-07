@@ -1,5 +1,5 @@
 ---
-title: Personalizzazione dei mapping degli attributi di Azure AD | Documentazione Microsoft
+title: Personalizzazione dei mapping degli attributi Azure AD | Microsoft Docs
 description: Informazioni sui mapping degli attributi per app SaaS in Azure Active Directory e su come è possibile modificarli in base alle esigenze aziendali.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef3d6a47986056925f9964638c9c7192341ca5f9
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 82c1a536bb86f0b3a4fe6a24af00379686ccc292
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241003"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641495"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
+# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi per il provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
 
 Microsoft Azure AD fornisce il supporto per il provisioning degli utenti in applicazioni SaaS di terze parti, ad esempio Salesforce, G Suite e altri. Se si Abilita il provisioning utenti per un'applicazione SaaS di terze parti, il portale di Azure controlla i valori degli attributi tramite mapping degli attributi.
 
@@ -77,6 +77,16 @@ Insieme a questa proprietà, i mapping degli attributi supportano anche gli attr
   - **Sempre** : applica il mapping sia alle azioni di creazione che di aggiornamento dell'utente.
   - **Solo durante la creazione** : applicare questo mapping solo alle azioni di creazione dell'utente.
 
+## <a name="matching-users-in-the-source-and-target--systems"></a>Corrispondenza degli utenti nei sistemi di origine e di destinazione
+Il servizio di provisioning di Azure AD può essere distribuito in Greenfield (gli utenti non vengono chiusi nel sistema di destinazione) e Brownfield (gli utenti già esistono negli scenari di sistema di destinazione). Per supportare entrambi gli scenari, il servizio di provisioning usa il concetto di attributo/i corrispondente. Gli attributi corrispondenti consentono di determinare come identificare in modo univoco un utente nell'origine e associare l'utente nella destinazione. Nell'ambito della pianificazione della distribuzione, identificare l'attributo che può essere usato per identificare in modo univoco un utente nei sistemi di origine e di destinazione. Aspetti da considerare:
+
+- **Gli attributi corrispondenti devono essere univoci:** I clienti spesso utilizzano attributi come userPrincipalName, mail o ID oggetto come attributo corrispondente.
+- **È possibile utilizzare più attributi come attributi corrispondenti:** È possibile definire più attributi da valutare quando si abbinano gli utenti e l'ordine in cui vengono valutati (definito come precedenza corrispondente nell'interfaccia utente). Se, ad esempio, si definiscono tre attributi come attributi corrispondenti e un utente viene associato in modo univoco dopo aver valutato i primi due attributi, il servizio non valuterà il terzo attributo. Il servizio valuterà gli attributi corrispondenti nell'ordine specificato e arresterà la valutazione quando viene trovata una corrispondenza.  
+- **Non è necessario che il valore nell'origine e nella destinazione corrisponda esattamente a** quanto segue: Il valore nella destinazione può essere una funzione semplice del valore nell'origine. Quindi, è possibile che sia presente un attributo emailAddress nell'origine e userPrincipalName nella destinazione e corrisponda a una funzione dell'attributo emailAddress che sostituisce alcuni caratteri con un valore costante.  
+- **La corrispondenza basata su una combinazione di attributi non è supportata:** La maggior parte delle applicazioni non supporta l'esecuzione di query in base a due proprietà e conseguenza non è possibile trovare una corrispondenza in base a una combinazione di attributi. È possibile valutare le singole proprietà dopo l'altra.
+- **Tutti gli utenti devono avere un valore per almeno un attributo corrispondente:** Se si definisce un attributo corrispondente, tutti gli utenti devono disporre di un valore per tale attributo nel sistema di origine. Se, ad esempio, si definisce userPrincipalName come attributo corrispondente, tutti gli utenti devono disporre di un userPrincipalName. Se si definisce più attributi corrispondenti (ad esempio extensionAttribute1 e mail), non tutti gli utenti devono avere lo stesso attributo corrispondente. Un utente può avere un extensionAttribute1 ma non un messaggio di posta elettronica, mentre un altro utente può avere la posta elettronica ma non extensionAttribute1. 
+- **L'applicazione di destinazione deve supportare l'applicazione di filtri all'attributo corrispondente:** Gli sviluppatori di applicazioni consentono di filtrare un subset di attributi nell'API utente o gruppo. Per le applicazioni nella raccolta, si garantisce che il mapping predefinito degli attributi sia per un attributo di cui l'API dell'applicazione di destinazione supporta il filtraggio. Quando si modifica l'attributo corrispondente predefinito per l'applicazione di destinazione, controllare la documentazione dell'API di terze parti per assicurarsi che l'attributo possa essere filtrato in base a.  
+
 ## <a name="editing-group-attribute-mappings"></a>Modifica dei mapping degli attributi gruppo
 
 Un numero selezionato di applicazioni, ad esempio ServiceNow, box e G Suite, supporta la possibilità di effettuare il provisioning di oggetti gruppo e oggetti utente. Gli oggetti Group possono contenere proprietà del gruppo, ad esempio i nomi visualizzati e gli alias di posta elettronica, insieme ai membri del gruppo.
@@ -125,6 +135,113 @@ Quando si modifica l'elenco degli attributi supportati, vengono fornite le propr
 - **Attributo oggetto a cui si fa riferimento** : se è un attributo di tipo riferimento, questo menu consente di selezionare la tabella e l'attributo nell'applicazione di destinazione che contiene il valore associato all'attributo. Ad esempio, in presenza di un attributo denominato "Reparto" il cui valore archiviato fa riferimento a un oggetto in una tabella "Reparti" separata, sarà necessario selezionare "Reparti.Nome". Le tabelle di riferimento e i campi ID primari supportati per un'applicazione specifica sono preconfigurati e attualmente non possono essere modificati usando il portale di Azure, ma possono essere modificati usando il [API Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 Per aggiungere un nuovo attributo, scorrere fino alla fine dell'elenco degli attributi supportati, completare i campi sopra con gli input indicati e quindi selezionare **Aggiungi attributo**. Selezionare **Salva** dopo aver aggiunto gli attributi. Sarà quindi necessario ricaricare la scheda **provisioning** per rendere disponibili i nuovi attributi nell'editor mapping attributi.
+## <a name="provisioning-a-role-to-a-scim-app"></a>Provisioning di un ruolo in un'app SCIM
+Attenersi alla procedura seguente per eseguire il provisioning dei ruoli per un utente nell'applicazione. Si noti che la descrizione seguente è specifica per le applicazioni SCIM personalizzate. Per le applicazioni della raccolta, ad esempio Salesforce e ServiceNow, usare i mapping dei ruoli predefiniti. I punti elenco seguenti descrivono come trasformare l'attributo AppRoleAssignments nel formato previsto dall'applicazione.
+
+- Per eseguire il mapping di un appRoleAssignment in Azure AD a un ruolo nell'applicazione, è necessario trasformare l'attributo usando un' [espressione](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). L'attributo appRoleAssignment **non deve essere mappato direttamente** a un attributo Role senza utilizzare un'espressione per analizzare i dettagli del ruolo. 
+
+- **SingleAppRoleAssignment** 
+  - **Quando usare:** Usare l'espressione SingleAppRoleAssignment per eseguire il provisioning di un singolo ruolo per un utente e per specificare il ruolo primario. 
+  - **Come configurare:** Utilizzare la procedura descritta in precedenza per passare alla pagina mapping attributi e utilizzare l'espressione SingleAppRoleAssignment per eseguire il mapping all'attributo roles. È possibile scegliere tra tre attributi di ruolo: (Roles [Primary EQ "true"]. display, Roles [Primary EQ "true]. Type e Roles [Primary EQ" true "]. Value). È possibile scegliere di includere uno o tutti gli attributi del ruolo nei mapping. Se si desidera includere più di uno, è sufficiente aggiungere un nuovo mapping e includerlo come attributo di destinazione.  
+  
+  ![Aggiungi SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+  - **Aspetti da considerare**
+    - Assicurarsi che a un utente non siano assegnati più ruoli. Non è possibile garantire quale ruolo verrà sottoposto a provisioning.
+    
+  - **Output di esempio** 
+
+   ```json
+    {
+      "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": true,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "value": "Admin"
+         }
+      ]
+   }
+   ```
+  
+- **AppRoleAssignmentsComplex** 
+  - **Quando usare:** Usare l'espressione AppRoleAssignmentsComplex per eseguire il provisioning di più ruoli per un utente. 
+  - **Come configurare:** Modificare l'elenco degli attributi supportati come descritto in precedenza per includere un nuovo attributo per i ruoli: 
+  
+    ![Aggiungere ruoli](./media/customize-application-attributes/add-roles.png)<br>
+
+    Usare quindi l'espressione AppRoleAssignmentsComplex per eseguire il mapping all'attributo del ruolo personalizzato, come illustrato nell'immagine seguente:
+
+    ![Aggiungi AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+  - **Aspetti da considerare**
+    - Verrà eseguito il provisioning di tutti i ruoli come Primary = false.
+    - Il POST contiene il tipo di ruolo. La richiesta PATCH non contiene il tipo. Stiamo lavorando per inviare il tipo nelle richieste POST e PATCH.
+    
+  - **Output di esempio** 
+  
+   ```json
+   {
+       "schemas": [
+           "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "Admin",
+               "value": "Admin"
+         },
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "User",
+             "value": "User"
+         }
+      ]
+   }
+   ```
+
+  
+
+
+## <a name="provisioning-a-multi-value-attribute"></a>Provisioning di un attributo multivalore
+Alcuni attributi, ad esempio phoneNumbers e messaggi di posta elettronica, sono attributi multivalore, in cui potrebbe essere necessario specificare tipi diversi di numeri di telefono o messaggi di posta elettronica. Utilizzare l'espressione seguente per gli attributi multivalore. Consente di specificare il tipo di attributo ed eseguirne il mapping all'attributo utente Azure AD corrispondente per il valore. 
+
+* phoneNumbers[type eq "work"].value
+* phoneNumbers[type eq "mobile"].value
+* phoneNumbers[type eq "fax"].value
+
+   ```json
+   "phoneNumbers": [
+       {
+         "value": "555-555-5555",
+         "type": "work"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "mobile"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "fax"
+      }
+   ]
+   ```
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Ripristino degli attributi e dei mapping degli attributi predefiniti
 

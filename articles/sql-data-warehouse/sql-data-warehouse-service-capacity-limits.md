@@ -1,5 +1,5 @@
 ---
-title: Limiti di capacità-Azure sinapsi Analytics (in precedenza SQL DW) | Microsoft Docs
+title: Limiti di capacità-Azure sinapsi Analytics (in precedenza SQL DW)
 description: Valori massimi consentiti per vari componenti di analisi SQL in sinapsi di Azure.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,25 +10,26 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 702f78f5bae12b2eba6669a344af14f6d1236856
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c4ab9d9cc8007281e0e5729fe883e654107be6fe
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475795"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645299"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limiti di capacità di Azure sinapsi Analytics (precedentemente SQL DW)
 
 Valori massimi consentiti per vari componenti di sinapsi di Azure.
 
 ## <a name="workload-management"></a>Gestione del carico di lavoro
+
 | Categoria | Descrizione | Massima |
 |:--- |:--- |:--- |
 | [Unità Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Numero massimo di DWU per una singola unità del pool SQL (data warehouse) | Prima generazione: DW6000<br></br>Seconda generazione: DW30000c |
 | [Unità Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU predefinita per server |54.000<br></br>Per impostazione predefinita, ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota DTU di 54.000, che consente fino a 9 DW6000c. Questa quota è semplicemente un limite di sicurezza. È possibile aumentare la quota [creando un ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md) e selezionando *Quota* come tipo di richiesta.  Per calcolare le esigenze in termini di DTU, moltiplicare 7,5 per il valore DWU totale necessario oppure moltiplicare per 9 il totale di DWU a elevato utilizzo di calcolo necessari. Ad esempio:<br></br>DW6000 x 7,5 = 45.000 DTU<br></br>DW6000c x 9 = 54.000 DTU.<br></br>È possibile visualizzare l'utilizzo di DTU attuale nell'opzione SQL Server del portale. I database in pausa e non in pausa vengono conteggiati nella quota di DTU. |
 | Connessione del database |Numero massimo di sessioni aperte simultanee |1024<br/><br/>Il numero di sessioni aperte simultanee può variare in base al DWU selezionato. DWU600c e versioni successive supportano un massimo di 1024 sessioni aperte. DWU500c e versioni precedenti supportano un limite massimo di sessioni aperte simultanee pari a 512. Si noti che vi sono limiti nel numero di query che è possibile eseguire contemporaneamente. Quando si supera il limite di concorrenza, la richiesta viene inviata a una coda interna in cui resta in attesa di elaborazione. |
 | Connessione del database |Memoria massima per le istruzioni preparate |20 MB |
-| [Gestione del carico di lavoro](resource-classes-for-workload-management.md) |Numero massimo di query simultanee |128<br/><br/>  Verrà eseguito un massimo di 128 query simultanee e le query rimanenti verranno accodate.<br/><br/>Il numero di query simultanee può diminuire quando gli utenti vengono assegnati a classi di risorse superiori o quando l'impostazione dell' [unità data warehouse](memory-and-concurrency-limits.md) è ridotta. Per alcune query, come le query DMV, l'esecuzione è sempre consentita e non influisce sul limite di query simultanee. Per altre informazioni sull'esecuzione di query simultanee, vedere l'articolo sui [valori massimi di concorrenza](memory-and-concurrency-limits.md#concurrency-maximums). |
+| [Gestione del carico di lavoro](resource-classes-for-workload-management.md) |Numero massimo di query simultanee |128<br/><br/>  Verrà eseguito un massimo di 128 query simultanee e le query rimanenti verranno accodate.<br/><br/>Il numero di query simultanee può diminuire quando gli utenti vengono assegnati a classi di risorse superiori o quando l'impostazione [data warehouse unità] Memory-Concurrency-limits.md) è ridotta. Per alcune query, come le query DMV, l'esecuzione è sempre consentita e non influisce sul limite di query simultanee. Per altri dettagli sull'esecuzione di query simultanee, vedere l'articolo [Maximes Concurrency] Memory-Concurrency-limits.md). |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |GB massimi |399 GB per DW100. Pertanto a DWU1000, tempdb ha le dimensioni di 3,99 TB. |
 
 ## <a name="database-objects"></a>Oggetti di database

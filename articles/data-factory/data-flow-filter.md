@@ -1,5 +1,5 @@
 ---
-title: Trasformazione filtro nel flusso di dati del mapping Azure Data Factory | Microsoft Docs
+title: Trasformazione filtro nel flusso di dati del mapping Azure Data Factory
 description: Filtrare le righe utilizzando la trasformazione filtro nel flusso di dati del mapping Azure Data Factory
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: a4dd53f37a8a963d05a3ad9c49769528e945f6a1
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 77587d007d9bfcdc1461201f676c79880bd89d6b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527395"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676168"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>Trasformazione filtro nel flusso di dati di mapping
 
@@ -37,7 +37,7 @@ Utilizzare il generatore di espressioni del flusso di dati per immettere un'espr
 
 ### <a name="example"></a>Esempio
 
-Nell'esempio seguente viene illustrata una trasformazione Suddivisione condizionale denominata `FilterBefore1960` che accetta `CleanData` flusso in ingresso. La condizione di filtro è l'espressione `year <= 1960`.
+Nell'esempio seguente viene illustrata una trasformazione Suddivisione condizionale denominata `FilterBefore1960` che accetta `CleanData`flusso in ingresso. La condizione di filtro è l'espressione `year <= 1960`.
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 

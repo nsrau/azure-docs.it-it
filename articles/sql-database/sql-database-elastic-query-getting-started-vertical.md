@@ -1,5 +1,5 @@
 ---
-title: Introduzione alle query tra database (partizionamento verticale) | Documentazione Microsoft
+title: Introduzione alle query tra database (partizionamento verticale)
 description: Informazioni sull'uso della query del database elastico con database con partizionamento verticale.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: a6a87f90586dc4392dc1304a83349bc386590ee4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b6d9ba0c57850c61626d7b6d99fcb1fffc2d3c25
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568596"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690395"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introduzione alle query tra database (partizionamento verticale) (anteprima)
 
@@ -73,7 +73,7 @@ Eseguire quindi la query seguente sul database **Customers** per creare la tabel
     Il nome utente e la password devono corrispondere al nome utente e alla password usati per l'accesso al database Customers.
     L'autenticazione tramite Azure Active Directory con query elastiche non è attualmente supportata.
 
-### <a name="external-data-sources"></a>Origini dati esterne
+### <a name="external-data-sources"></a>DROP EXTERNAL DATA SOURCE
 
 Per creare un'origine dati esterna, eseguire il comando seguente sul database Orders:
 

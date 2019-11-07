@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7c52adfb919586fc590ef60215592a5b5c1c1cb3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 3fd97e33c88e7767e1d9b230792aea675a744f27
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476077"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619775"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi Azure Machine Learning
 
@@ -88,9 +88,19 @@ I grafici di classificazione binaria (precisione-richiamo, ROC, curva di guadagn
 
 ## <a name="datasets-and-data-preparation"></a>Set di dati e preparazione dei dati
 
+Si tratta di problemi noti per Azure Machine Learning set di impostazioni.
+
 ### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>Non è possibile leggere il file parquet da HTTP o ADLS gen 2
 
-Si è verificato un problema noto in AzureML dataprep SDK versione 1.1.25 che causa un errore durante la creazione di un set di dati leggendo i file parquet da HTTP o ADLS gen 2. Per risolvere il problema, eseguire l'aggiornamento a una versione successiva a 1.1.26 o effettuare il downgrade a una versione precedente a 1.1.24.
+Si è verificato un problema noto in AzureML dataprep SDK versione 1.1.25 che causa un errore durante la creazione di un set di dati leggendo i file parquet da HTTP o ADLS gen 2. L'operazione avrà esito negativo con `Cannot seek once reading started.`. Per risolvere il problema, aggiornare `azureml-dataprep` a una versione successiva a 1.1.26 o effettuare il downgrade a una versione precedente a 1.1.24.
+
+```python
+pip install --upgrade azureml-dataprep
+```
+
+### <a name="typeerror-mount-got-an-unexpected-keyword-argument-invocation_id"></a>TypeError: Mount () ha un argomento parola chiave imprevisto ' invocation_id '
+
+Questo errore si verifica se si dispone di una versione incompatibile tra `azureml-core` e `azureml-dataprep`. Se viene visualizzato questo errore, aggiornare `azureml-dataprep` pacchetto a una versione più recente (maggiore o uguale a 1.1.29).
 
 ```python
 pip install --upgrade azureml-dataprep
@@ -146,15 +156,8 @@ Se questi passaggi non risolvono il problema, provare a riavviare il cluster.
 Se viene visualizzato un errore `FailToSendFeather` durante la lettura dei dati in Azure Databricks cluster, fare riferimento alle soluzioni seguenti:
 
 * Aggiornare il pacchetto `azureml-sdk[automl]` alla versione più recente.
-* Aggiungere `azure-dataprep` versione 1.1.8 o successiva.
+* Aggiungere `azureml-dataprep` versione 1.1.8 o successiva.
 * Aggiungere `pyarrow` versione 0,11 o successiva.
-
-
-## <a name="datasets"></a>Set di dati
-
-Si tratta di problemi noti per Azure Machine Learning set di impostazioni.
-
-+ **Non è stato possibile leggere i file parquet nel Azure Data Lake storage Gen2** La lettura dei file parquet da Azure Data Lake Storage Gen2 archivi dati non funziona se `azureml-dataprep==1.1.25` è installato. L'operazione avrà esito negativo con `Cannot seek once reading started.`. Se viene visualizzato questo errore, è possibile installare `azureml-dataprep<=1.1.24` o installare `azureml-dataprep>=1.1.26`.
 
 ## <a name="azure-portal"></a>Portale di Azure
 
@@ -262,3 +265,23 @@ Questa eccezione deve provenire dagli script di training. È possibile esaminare
 
 ### <a name="horovod-is-shutdown"></a>Horovod è stato arrestato
 Nella maggior parte dei casi, questa eccezione indica che si è verificata un'eccezione sottostante in uno dei processi che hanno causato l'arresto di horovod. Ogni rango nel processo MPI ottiene il proprio file di log dedicato in Azure ML. Questi log sono denominati `70_driver_logs`. In caso di training distribuito, i nomi dei log sono con suffisso `_rank` per facilitare la differenziazione dei log. Per individuare l'errore esatto che ha causato l'arresto di horovod, esaminare tutti i file di log e cercare `Traceback` alla fine dei file driver_log. Uno di questi file fornirà l'effettiva eccezione sottostante. 
+
+## <a name="labeling-projects-issues"></a>Problemi relativi all'assegnazione di etichette ai progetti
+
+Problemi noti relativi all'assegnazione di etichette ai progetti.
+
+### <a name="only-datasets-created-on-blob-datastores-can-be-used"></a>È possibile usare solo i set di dati creati negli archivi dati BLOB
+
+Si tratta di un limite noto della versione corrente. 
+
+### <a name="after-creation-the-project-shows-initializing-for-a-long-time"></a>Dopo la creazione, il progetto Mostra "inizializzazione" per molto tempo
+
+Aggiornare manualmente la pagina. L'inizializzazione deve continuare a circa 20 punti di database al secondo. La mancanza di AutoRefresh è un problema noto. 
+
+### <a name="bounding-box-cannot-be-drawn-all-the-way-to-right-edge-of-image"></a>Impossibile disegnare il rettangolo di delimitazione fino al bordo destro dell'immagine 
+
+Provare a ridimensionare la finestra del browser. Si sta esaminando per determinare la ragione di questo comportamento. 
+
+### <a name="when-reviewing-images-newly-labeled-images-are-not-shown"></a>Quando si esaminano le immagini, le immagini appena etichettate non vengono visualizzate
+
+Per caricare tutte le immagini con etichetta, scegliere il **primo** pulsante. Il **primo** pulsante consente di tornare all'inizio dell'elenco, ma carica tutti i dati con etichetta.

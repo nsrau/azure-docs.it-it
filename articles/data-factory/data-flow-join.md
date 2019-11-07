@@ -1,5 +1,5 @@
 ---
-title: Trasformazione join nel flusso di dati del mapping Azure Data Factory | Microsoft Docs
+title: Trasformazione join nel flusso di dati del mapping Azure Data Factory
 description: Combinare i dati di due origini dati utilizzando la trasformazione join nel flusso di dati di mapping Azure Data Factory
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 78de9f2bedfc36add567053e1de47e8893bfaf3c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4680804017a9b08248bb41ff999c6ba6371e99c8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597057"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675921"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Trasformazione join nel flusso di dati di mapping
 
@@ -32,7 +32,7 @@ Left outer join restituisce tutte le righe dal flusso di sinistra e i record cor
 
 ### <a name="right-outer"></a>Right outer join
 
-Left outer join restituisce tutte le righe dal flusso destro e i record corrispondenti dal flusso di sinistra. Se una riga dal flusso destro non corrisponde, le colonne di output del flusso di destra vengono impostate su NULL. L'output sarà costituito dalle righe restituite da un inner join più le righe senza corrispondenza del flusso destro.
+Right outer join restituisce tutte le righe dal flusso destro e i record corrispondenti dal flusso di sinistra. Se una riga dal flusso destro non corrisponde, le colonne di output del flusso di sinistra vengono impostate su NULL. L'output sarà costituito dalle righe restituite da un inner join più le righe senza corrispondenza del flusso destro.
 
 ### <a name="full-outer"></a>Full outer join
 
@@ -83,7 +83,7 @@ Quando si verificano le trasformazioni join con Anteprima dati in modalità di d
 
 ### <a name="inner-join-example"></a>Esempio di Inner join
 
-Nell'esempio seguente viene illustrata una trasformazione join denominata `JoinMatchedData` che accetta il flusso sinistro `TripData` e il flusso destro `TripFare`.  La condizione di join è l'espressione `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` che restituisce true se le colonne `hack_license`, `medallion`, `vendor_id` e `pickup_datetime` in ogni flusso corrispondono. Il `joinType` è `'inner'`. È in corso l'abilitazione della trasmissione solo nel flusso di sinistra, quindi `broadcast` ha un valore `'left'`.
+Nell'esempio seguente viene illustrata una trasformazione join denominata `JoinMatchedData` che accetta il flusso sinistro `TripData` e il flusso destro `TripFare`.  La condizione di join è l'espressione `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` che restituisce true se le colonne `hack_license`, `medallion`, `vendor_id`e `pickup_datetime` in ogni flusso corrispondono. Il `joinType` è `'inner'`. È in corso l'abilitazione della trasmissione solo nel flusso di sinistra, quindi `broadcast` ha un valore `'left'`.
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 
@@ -105,7 +105,7 @@ TripData, TripFare
 
 ### <a name="cross-join-example"></a>Esempio di cross join
 
-Nell'esempio seguente viene illustrata una trasformazione join denominata `CartesianProduct` che accetta il flusso sinistro `TripData` e il flusso destro `TripFare`. Questa trasformazione accetta due flussi e restituisce un prodotto cartesiano delle relative righe. La condizione di join è `true()` perché restituisce un prodotto cartesiano completo. @No__t_0 in `cross`. È in corso l'abilitazione della trasmissione solo nel flusso di sinistra, quindi `broadcast` ha un valore `'left'`.
+Nell'esempio seguente viene illustrata una trasformazione join denominata `CartesianProduct` che accetta il flusso sinistro `TripData` e il flusso destro `TripFare`. Questa trasformazione accetta due flussi e restituisce un prodotto cartesiano delle relative righe. La condizione di join è `true()` perché restituisce un prodotto cartesiano completo. `joinType` in `cross`. È in corso l'abilitazione della trasmissione solo nel flusso di sinistra, quindi `broadcast` ha un valore `'left'`.
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 

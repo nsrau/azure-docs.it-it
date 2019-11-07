@@ -1,5 +1,5 @@
 ---
-title: Analizzare il carico di lavoro in Azure SQL Data Warehouse | Microsoft Docs
+title: Analizzare il carico di lavoro
 description: Tecniche per l'analisi della definizione della priorità delle query per il carico di lavoro in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,20 +10,21 @@ ms.subservice: workload-management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 54652ba573fb2ec2d064b7a85ad5728b73e71db3
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 14e53c1ebe63fac0f7c8e29f66ee5aa0cb3b9526
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588740"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693122"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analizzare il carico di lavoro in Azure SQL Data Warehouse
 
-Tecniche per analizzare il carico di lavoro in Azure SQL Data Warehouse.
+Tecniche per l'analisi del carico di lavoro in Azure SQL Data Warehouse.
 
 ## <a name="resource-classes"></a>Classi di risorse
 
-SQL Data Warehouse fornisce le classi di risorse per assegnare le risorse di sistema per le query.  Per altre informazioni sulle classi di risorse, vedere [gestione delle classi di & carico di lavoro risorse](resource-classes-for-workload-management.md).  Le query rimarrà in attesa se la classe di risorse assegnata a una query richiede più risorse rispetto a quelli attualmente disponibili.
+SQL Data Warehouse fornisce le classi di risorse per assegnare le risorse di sistema alle query.  Per altre informazioni sulle classi di risorse, vedere [classi di risorse & gestione del carico di lavoro](resource-classes-for-workload-management.md).  Le query attendono se la classe di risorse assegnata a una query richiede più risorse rispetto a quelle attualmente disponibili.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Rilevamento di query in coda e altre viste a gestione dinamica
 
@@ -64,10 +65,10 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 
 SQL Data Warehouse prevede i tipi di attesa seguenti.
 
-* **LocalQueriesConcurrencyResourceType**: query che si trovano all'esterno del framework degli slot di concorrenza. Le query DMV e le funzioni di sistema  come `SELECT @@VERSION` sono esempi di query locali.
-* **UserConcurrencyResourceType**: query che si trovano all'interno del framework degli slot di concorrenza. Le query sulle tabelle dell'utente finale rappresentano esempi in cui si usa questo tipo di risorsa.
+* **LocalQueriesConcurrencyResourceType**: query che si trovano all'esterno del framework di slot di concorrenza. Le query DMV e le funzioni di sistema  come `SELECT @@VERSION` sono esempi di query locali.
+* **UserConcurrencyResourceType**: query che si trovano all'interno del framework di slot di concorrenza. Le query sulle tabelle dell'utente finale rappresentano esempi in cui si usa questo tipo di risorsa.
 * **DmsConcurrencyResourceType**: attese risultanti dalle operazioni di spostamento dei dati.
-* **BackupConcurrencyResourceType**: questa attesa indica che è in esecuzione il backup di un database. Il valore massimo per questo tipo di risorsa è 1. Se sono stati richiesti più backup contemporaneamente, gli altri vengono accodati. In generale, è consigliabile un tempo minimo tra snapshot consecutivi di 10 minuti. 
+* **BackupConcurrencyResourceType**: indica che è in esecuzione il backup di un database. Il valore massimo per questo tipo di risorsa è 1. Se sono stati richiesti più backup contemporaneamente, gli altri vengono accodati. In generale, è consigliabile un tempo minimo tra gli snapshot consecutivi di 10 minuti. 
 
 La DMV `sys.dm_pdw_waits` può essere usata per visualizzare le risorse per cui una richiesta è in attesa.
 
@@ -106,7 +107,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-Il `sys.dm_pdw_resource_waits` DMV Mostra le informazioni di attesa per una determinata query. Risorsa attesa misure ora il tempo di attesa per le risorse devono essere fornite. Tempo di attesa del segnale è il tempo che necessario per il server SQL Server sottostante pianificare la query sulla CPU.
+La DMV `sys.dm_pdw_resource_waits` Mostra le informazioni di attesa per una determinata query. Il tempo di attesa delle risorse misura il tempo necessario per fornire le risorse. Il tempo di attesa del segnale è il tempo necessario per i server SQL sottostanti per pianificare la query sulla CPU.
 
 ```sql
 SELECT  [session_id]
@@ -152,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). Per ulteriori informazioni sulle classi di risorse più grandi che possono migliorare le qualità degli indici indice columnstore cluster, vedere [Ricompilazione degli indici per migliorare la qualità del segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Per altre informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). Per ulteriori informazioni sulle classi di risorse più grandi che possono migliorare le qualità degli indici indice columnstore cluster, vedere [Ricompilazione degli indici per migliorare la qualità del segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

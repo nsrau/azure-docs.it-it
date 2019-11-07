@@ -1,7 +1,7 @@
 ---
 title: Come caricare un documento - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Usando la funzionalità di caricamento dei documenti è possibile caricare documenti paralleli per il training. I documenti paralleli sono coppie di documenti in cui uno è la traduzione dell'altro. Un documento della coppia contiene frasi nella lingua di origine, mentre l'altro contiene le stesse frasi tradotte nella lingua di destinazione.
+description: La funzionalità di caricamento del documento consente di caricare i documenti paralleli (due documenti in cui uno è l'origine e l'altro la traduzione) nel servizio.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f2bd6103c27d455265ee967554fb27513f78a472
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b2a249a40d8c782d54a12df43d33655f3409753c
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595638"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647375"
 ---
 # <a name="upload-a-document"></a>Caricare un documento
 
@@ -39,7 +39,7 @@ Dal portale di [Custom Translator](https://portal.customtranslator.azure.ai) far
 
     -  Training: questi documenti verranno usati per il set di training.
     -  Tuning (Ottimizzazione): questi documenti verranno usati per il set di ottimizzazione.
-    -  Testing: questi documenti verranno usati per il set di test.
+    -  Testing (Test): questi documenti verranno usati per il set di test.
     -  Phrase Dictionary (Dizionario di espressioni): questi documenti verranno usati per il dizionario di espressioni.
     -  Sentence Dictionary (Dizionario di frasi): questi documenti verranno usati per il dizionario di frasi.
 
@@ -52,7 +52,7 @@ Dal portale di [Custom Translator](https://portal.customtranslator.azure.ai) far
     -  Parallel data (Dati paralleli):
         -  Source file (File di origine): selezionare il file nella lingua di origine nel computer locale.
         -  Target file (File di destinazione): selezionare il file nella lingua di destinazione nel computer locale.
-        -  Document name (Nome documento): usato solo per il caricamento di file paralleli.
+        -  Document name (Nome del documento): usato solo per il caricamento di file paralleli.
 
     - Combo data (Dati combinati):
         -  Combo File (File combinato): selezionare il file combinato nel computer locale. Il file combinato include sia le frasi nella lingua di origine che quelle nella lingua di destinazione. La [convenzione di denominazione](document-formats-naming-convention.md) è importante per i file combinati.

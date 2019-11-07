@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: e2faa47a58283623747ae569de22e1c57df1a51f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 249cbea173afe1671118446e0714b721b8c7f72b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231136"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685103"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -61,7 +61,7 @@ Ecco i dati sulle prestazioni delle macchine virtuali VMware che l'appliance rac
 **Dati** | **Contatore** | **Impatto valutazione**
 --- | --- | ---
 Uso della CPU | cpu.usage.average | Costo/dimensioni VM consigliate
-Utilizzo memoria | mem.usage.average | Costo/dimensioni VM consigliate
+Utilizzo della memoria | mem.usage.average | Costo/dimensioni VM consigliate
 Velocità effettiva lettura disco (MB al secondo) | virtualDisk.read.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
 Velocità effettiva scrittura disco (MB al secondo) | virtualDisk.write.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
 Operazioni di lettura disco al secondo | virtualDisk.numberReadAveraged.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
@@ -93,7 +93,7 @@ Numero di dischi | VM. Config. hardware. Device. ToList (). FindAll (x = > è Vi
 Elenco dimensioni disco | VM. Config. hardware. Device. ToList (). FindAll (x = > è VirtualDisk)
 Elenco schede di rete | VM. Config. hardware. Device. ToList (). FindAll (x = > è VirtualEthernet). Count
 Uso della CPU | cpu.usage.average
-Utilizzo memoria |mem.usage.average
+Utilizzo della memoria |mem.usage.average
 **Dettagli per disco** | 
 Valore chiave disco | disk.Key
 Numero Dikunit | disk.UnitNumber
@@ -129,7 +129,7 @@ Dettagli host per macchina virtuale | ((HostSystem)container).VM
 > [!NOTE]
 > I metadati individuati dal dispositivo Azure Migrate vengono usati per semplificare le operazioni di ridimensionamento delle applicazioni durante la migrazione in Azure, l'analisi dell'idoneità di Azure, l'analisi delle dipendenze delle applicazioni e la pianificazione dei costi. Microsoft non utilizza questi dati in relazione a qualsiasi controllo di conformità delle licenze.
 
-Ecco i dati sulle prestazioni delle macchine virtuali VMware che l'appliance raccoglie e Invia ad Azure.
+Ecco i dati sulle prestazioni di Hyper VM che l'appliance raccoglie e Invia ad Azure.
 
 **Classe del contatore delle prestazioni** | **Contatore** | **Impatto valutazione**
 --- | --- | ---
@@ -162,7 +162,7 @@ Nome/versione/FQDN del sistema operativo | Msvm_KvpExchangeComponent | GuestIntr
 Stato di alimentazione della macchina virtuale | Msvm_ComputerSystem | EnabledState
 **Dettagli per disco** | 
 Identificatore disco | Msvm_VirtualHardDiskSettingData | VirtualDiskId
-Tipo di disco rigido virtuale | Msvm_VirtualHardDiskSettingData | Type
+Tipo di disco rigido virtuale | Msvm_VirtualHardDiskSettingData | Tipo
 Dimensioni del disco rigido virtuale | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 Padre del disco rigido virtuale | Msvm_VirtualHardDiskSettingData | ParentPath
 **Dettagli per NIC** | 
@@ -187,14 +187,14 @@ L'appliance comunica con i server vCenter e gli host/cluster Hyper-V usando il p
 2. **Raccogliere i metadati e i dati sulle prestazioni**:
     - L'appliance usa una sessione di Common Information Model (CIM) per raccogliere i dati delle macchine virtuali Hyper-V dall'host Hyper-V sulle porte 5985 e 5986.
     - Per impostazione predefinita, l'appliance comunica con la porta 443 per raccogliere i dati delle macchine virtuali VMware dal server vCenter.
-3. **Invia dati**: Il dispositivo invia i dati raccolti alla valutazione Azure Migrate server e alla migrazione del server Azure Migrate sulla porta SSL 443.
+3. **Invia dati**: il dispositivo invia i dati raccolti a Azure migrate server Assessment e Azure migrate migrazione del server sulla porta SSL 443.
     - Per i dati sulle prestazioni, l'appliance raccoglie i dati di utilizzo in tempo reale.
         - I dati sulle prestazioni vengono raccolti ogni 20 secondi per VMware e ogni 30 secondi per Hyper-V per ogni metrica delle prestazioni.
         - Viene eseguito il rollup dei dati raccolti per creare un singolo punto dati per dieci minuti.
         - Il valore di picco dell'utilizzo viene selezionato da tutti i punti dati di 20/30 secondi e inviato ad Azure per il calcolo della valutazione.
         - In base al valore percentile specificato nelle proprietà di valutazione (cinquantesimo/90/95/99 °), i punti di dieci minuti sono ordinati in ordine crescente e il valore percentile appropriato viene usato per calcolare la valutazione
     - Per la migrazione del server, l'appliance avvia la raccolta dei dati della macchina virtuale e la replica in Azure.
-4. **Valutazione e migrazione**: È ora possibile creare valutazioni dei metadati raccolti dal dispositivo utilizzando Azure Migrate server assessment. Inoltre, è possibile avviare la migrazione di macchine virtuali VMware con Azure Migrate migrazione del server per orchestrare la replica di VM senza agenti.
+4. Valutazione **e migrazione**: è ora possibile creare valutazioni dei metadati raccolti dal dispositivo usando Azure migrate Assessment server. Inoltre, è possibile avviare la migrazione di macchine virtuali VMware con Azure Migrate migrazione del server per orchestrare la replica di VM senza agenti.
 
 
 ![Architettura](./media/migrate-appliance/architecture.png)

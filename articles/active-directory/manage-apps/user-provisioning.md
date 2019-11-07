@@ -15,16 +15,16 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ff6d9e33e15aa04adfa03705172166492f87e30
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ef2ce1ce7a754868a1adc2e78b4c0a83fc84f071
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330014"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641442"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
 
-Azure Active Directory (Azure AD) consente di automatizzare la creazione, la manutenzione e la rimozione delle identità utente in applicazioni cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)), ad esempio Dropbox, Salesforce, ServiceNow e altro ancora. Questa operazione è nota come provisioning utenti automatizzato per app SaaS.
+Azure Active Directory (Azure AD) consente di automatizzare la creazione, la manutenzione e la rimozione delle identità utente nelle applicazioni SaaS cloud, ad esempio [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)e altro ancora. Questa operazione è nota come provisioning utenti automatizzato per app SaaS.
 
 > [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
@@ -56,11 +56,14 @@ Di seguito sono riportate alcune motivazioni comuni per l'uso di questa funziona
 
 Il **servizio di provisioning Azure ad esegue il provisioning** degli utenti nelle app SaaS e in altri sistemi connettendosi agli endpoint dell'API di gestione degli utenti forniti da ogni fornitore dell'applicazione. Gli endpoint dell'API di gestione utenti consentono ad Azure AD di creare, aggiornare e rimuovere utenti a livello di codice. Per le applicazioni selezionate, il servizio di provisioning può anche creare, aggiornare e rimuovere oggetti correlati all'identità aggiuntivi, ad esempio gruppi e ruoli.
 
-![Azure servizio di provisioning di Active Directory @ no__t-1*Figura 1: il servizio di provisioning Azure ad*
+![Azure AD servizio di provisioning](./media/user-provisioning/provisioning0.PNG)
+*Figura 1: il servizio di provisioning Azure ad*
 
-flusso di lavoro di provisioning utenti ![Outbound @ no__t-1*Figura 2: flusso di lavoro di provisioning utenti in uscita da Azure ad a applicazioni SaaS più diffuse*
+![flusso di lavoro di provisioning utenti *in uscita](./media/user-provisioning/provisioning1.PNG)
+figura 2: flusso di lavoro di provisioning utenti "in uscita" da Azure ad a applicazioni SaaS più diffuse*
 
-flusso di lavoro di provisioning utenti ![Inbound @ no__t-1*Figura 3: flusso di lavoro di provisioning utenti "in ingresso" da applicazioni di gestione di capitale popolare (HCM) a Azure Active Directory e Windows Server Active Directory*
+![flusso di lavoro di provisioning utenti *in ingresso](./media/user-provisioning/provisioning2.PNG)
+figura 3: flusso di lavoro di provisioning utenti "in ingresso" da applicazioni di gestione di capitale umana più diffuse per Azure Active Directory e Windows Server Active Directory*
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Quali applicazioni e sistemi è possibile usare con il provisioning utenti automatico di Azure AD?
 
@@ -87,11 +90,7 @@ Usare il portale di Azure Active Directory per configurare il servizio di provis
 
 1. Aprire il **[portale di Azure Active Directory](https://aad.portal.azure.com)** .
 1. Selezionare **applicazioni aziendali** dal riquadro sinistro. Viene visualizzato un elenco di tutte le app configurate.
-1. Scegliere **+ nuova applicazione** per aggiungere un'applicazione. Aggiungere uno degli elementi seguenti a seconda dello scenario:
-
-   - L'opzione **Aggiungi un'app** supporta le integrazioni scim sviluppate in un ambiente personalizzato.
-   - Tutte le applicazioni nella sezione **aggiungere dalla raccolta** > **applicazioni in primo piano** supportano il provisioning automatico. Per eventuali altre applicazioni, vedere l'[elenco delle esercitazioni sulle applicazioni per il provisioning utenti](../saas-apps/tutorial-list.md).
-
+1. Scegliere **+ nuova applicazione** per aggiungere un'applicazione. 
 1. Specificare i dettagli e selezionare **Aggiungi**. La nuova app viene aggiunta all'elenco di applicazioni aziendali e si apre alla relativa schermata di gestione delle applicazioni.
 1. Selezionare **provisioning** per gestire le impostazioni di provisioning degli account utente per l'app.
 
@@ -193,7 +192,7 @@ Per informazioni aggiuntive su come risolvere i problemi di provisioning automat
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
-Per un esempio di piano di distribuzione dettagliato per il provisioning utenti in uscita verso un'applicazione, vedere [Identity Deployment Guide for User Provisioning](https://aka.ms/userprovisioningdeploymentplan) (Guida alla distribuzione delle identità per il provisioning utenti).
+Per un esempio di piano di distribuzione dettagliato per il provisioning utenti in uscita verso un'applicazione, vedere [Identity Deployment Guide for User Provisioning](https://aka.ms/deploymentplans/userprovisioning) (Guida alla distribuzione delle identità per il provisioning utenti).
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

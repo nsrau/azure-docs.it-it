@@ -1,6 +1,6 @@
 ---
 title: Terminologia di Azure Service Fabric Mesh | Microsoft Docs
-description: Informazioni sui termini comuni relativi a Azure Service Fabric Mesh.
+description: Questo articolo illustra in dettaglio la terminologia usata da Azure Service Fabric mesh per comprendere meglio i termini usati nella documentazione.
 services: service-fabric-mesh
 keywords: ''
 author: dkkapur
@@ -9,16 +9,16 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 2d2661593ba3d9be2755d81803c8e248a2f7d0e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cacf3a7419982e8c0e8d55700c903e3414cfcbb4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60810598"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663016"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologia di Service Fabric Mesh
 
-Azure Service Fabric Mesh è un servizio completamente gestito che consente agli sviluppatori di distribuire applicazioni di microservizi senza dover gestire macchine virtuali, archiviazione o connettività di rete. Questo articolo illustra in modo dettagliato la terminologia usata per Azure Service Fabric Mesh al fine di agevolare la comprensione dei termini usati nella documentazione.
+Azure Service Fabric Mesh è un servizio completamente gestito che consente agli sviluppatori di distribuire applicazioni di microservizi senza dover gestire macchine virtuali, archiviazione o connettività di rete. Questo articolo illustra in dettaglio la terminologia usata da Azure Service Fabric mesh per comprendere meglio i termini usati nella documentazione.
 
 ## <a name="service-fabric"></a>Service Fabric
 
@@ -28,7 +28,7 @@ Azure Service Fabric Mesh è un servizio completamente gestito che consente agli
 
 **Applicazione Service Fabric Mesh**: le applicazioni Service Fabric Mesh sono descritte dal [modello di risorse](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources) (file di risorse YAML e JSON) e possono essere distribuite in qualsiasi ambiente in cui viene eseguito Service Fabric.
 
-**Applicazione nativa di Service Fabric**: le applicazioni native Service Fabric sono descritte dal [modello applicativo nativo](/azure/service-fabric/service-fabric-application-model) (manifesti delle applicazioni e dei servizi basati su XML).  Non è possibile eseguire applicazioni native Service Fabric in Service Fabric Mesh.
+**Applicazione nativa Service Fabric**: le applicazioni native Service Fabric sono descritte dal [modello applicativo nativo](/azure/service-fabric/service-fabric-application-model) (manifesti delle applicazioni e dei servizi basati su XML).  Non è possibile eseguire applicazioni native Service Fabric in Service Fabric Mesh.
 
 **Applicazione**: un'applicazione Service Fabric Mesh è l'unità di distribuzione, controllo delle versioni e durata di un'applicazione Mesh. Il ciclo di vita di ogni istanza dell'applicazione può essere gestito in modo indipendente.  Le applicazioni sono composte da uno o più pacchetti di codice del servizio e dalle impostazioni. Un'applicazione viene definita in base allo schema del modello di risorse (RM) di Azure.  I servizi sono descritti come proprietà della risorsa applicazione in un modello RM.  L'applicazione fa riferimento alle reti e ai volumi che usa.  Quando si crea un'applicazione, l'applicazione, i servizi, la rete e i volumi vengono modellati in base al modello di risorsa Service Fabric.
 

@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio delle prestazioni del database SQL di Azure con DMV | Microsoft Docs
+title: Monitoraggio delle prestazioni del database SQL di Azure con DMV
 description: Informazioni su come rilevare e diagnosticare i problemi di prestazioni comuni utilizzando visualizzazioni a gestione dinamica per monitorare il database SQL di Microsoft Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: a630ceb1748f38dc169a4ebabcbb4e021de4273c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c7eed3fc8e9d0328a3e793e1ff4b3652ab86e2bc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881568"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687744"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitoraggio delle prestazioni del database SQL di Azure tramite DMV
 
@@ -30,7 +30,7 @@ Il database SQL supporta parzialmente tre categorie di visualizzazioni a gestion
 
 Per informazioni dettagliate sulle visualizzazioni a gestione dinamica, vedere [Visualizzazioni a gestione dinamica e funzioni (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) nella documentazione Online di SQL Server. 
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>autorizzazioni
 
 Nel Database SQL, l'esecuzione di query in una visualizzazione a gestione dinamica richiede autorizzazioni **VIEW DATABASE STATE** . Le autorizzazioni **VIEW DATABASE STATE** restituiscono informazioni su tutti gli oggetti all'interno del database corrente.
 Per concedere le autorizzazioni **VIEW DATABASE STATE** a un utente di database specifico, eseguire la query seguente:
@@ -237,7 +237,7 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>Identificare i problemi di prestazioni di `tempdb`
 
-Quando si identificano i problemi di prestazioni di IO, il tipo di attesa più frequente associato a problemi di `tempdb` è `PAGELATCH_*` (non `PAGEIOLATCH_*`). Tuttavia, le attese `PAGELATCH_*` non indicano sempre una contesa di `tempdb`.  Questo tipo di attesa può anche indicare una contesa della pagina di dati utente-oggetto causata da richieste simultanee che puntano alla stessa pagina di dati. `tempdb` Per confermare ulteriormente la contesa, utilizzare [sys. dm _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per verificare che il valore di wait_resource `2:x:y` inizi con dove `tempdb` 2 è l'ID del `x` database, è l'ID del `y` file e è l'ID della pagina.  
+Quando si identificano i problemi di prestazioni di IO, il tipo di attesa più frequente associato a problemi di `tempdb` è `PAGELATCH_*` (non `PAGEIOLATCH_*`). Tuttavia, le attese `PAGELATCH_*` non indicano sempre una contesa di `tempdb`.  Questo tipo di attesa può anche indicare una contesa della pagina di dati utente-oggetto causata da richieste simultanee che puntano alla stessa pagina di dati. Per confermare ulteriormente `tempdb` contesa, utilizzare [sys. dm _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per verificare che il valore di wait_resource inizi con `2:x:y` dove 2 è `tempdb` è l'ID del database, `x` è l'ID del file e `y` è l'ID della pagina.  
 
 Per la contesa di tempdb, un metodo comune consiste nel ridurre o riscrivere il codice dell'applicazione che si basa su `tempdb`.  Le aree di utilizzo di `tempdb` comuni includono:
 
@@ -612,7 +612,7 @@ L'esempio successivo mostra i diversi modi in cui è possibile usare la vista de
 
    | Percentuale CPU media | Percentuale CPU massima |
    | --- | --- |
-   | 24,5 |100.00 |
+   | 24,5 |100,00 |
 
     L'uso medio della CPU corrisponde a circa un quarto del limite delle dimensioni di calcolo, che potrebbe rientrare nelle dimensioni di calcolo del database. Il valore massimo corrisponde tuttavia al limite delle dimensioni di calcolo del database. È necessario passare alle dimensioni di calcolo superiori a quelle attualmente in uso? Considerare il numero di volte in cui il carico di lavoro raggiunge il 100% e quindi confrontare tale numero con l'obiettivo del carico di lavoro del database.
 
@@ -734,4 +734,4 @@ Un piano di query inefficiente può anche aumentare il consumo della CPU. Nell'e
 
 ## <a name="see-also"></a>Vedere anche
 
-[Introduzione al Database SQL](sql-database-technical-overview.md)
+[Introduzione al database SQL](sql-database-technical-overview.md)

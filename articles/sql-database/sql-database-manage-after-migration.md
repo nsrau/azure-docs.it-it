@@ -1,5 +1,5 @@
 ---
-title: Gestire i database singoli e in pool dopo la migrazione - Database SQL di Azure | Microsoft Docs
+title: 'Gestire database singoli e in pool dopo la migrazione: database SQL di Azure'
 description: Informazioni su come gestire il database dopo la migrazione al database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 36e48e86ed3cf7138f7ff5efe89d08c07df87f25
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d92b4b99e6ae6a7a07174e59d7cf3c9766c0eabf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028262"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689532"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione dei database singoli e in pool nel database SQL di Azure
 
@@ -130,7 +130,7 @@ Esistono diverse tecniche a disposizione che è possibile usare per conseguire u
 
 Un firewall impedisce l'accesso al server da un'entità esterna, consentendo solo a entità specifiche l'accesso al server di database SQL. Per impostazione predefinita, vengono rifiutate tutte le connessioni e i database all'interno del server di database SQL, a eccezione delle connessioni in entrata da altri servizi di Azure. Con una regola firewall è possibile aprire l'accesso al server solo alle entità (ad esempio, un computer per sviluppatori) approvate, consentendo all'indirizzo IP del computer di attraversare il firewall. Consente anche di specificare un intervallo di indirizzi IP a cui si intende consentire l'accesso al server di database SQL. È ad esempio possibile aggiungere in una sola volta gli indirizzi IP del computer per sviluppatori specificando un intervallo nella pagina Impostazioni del firewall.
 
-È possibile creare regole firewall a livello di server o database. Le regole del firewall IP a livello di server possono essere create usando il portale di Azure oppure con SSMS. Per altre informazioni su come impostare una regola firewall a livello di server e database, vedere: [Creare regole del firewall IP nel database SQL](sql-database-security-tutorial.md#create-firewall-rules).
+È possibile creare regole firewall a livello di server o database. Le regole del firewall IP a livello di server possono essere create usando il portale di Azure oppure con SSMS. Per altre informazioni su come impostare una regola del firewall a livello di server e a livello di database, vedere: [creare regole del firewall IP nel database SQL](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Endpoint di servizio
 
@@ -152,11 +152,11 @@ La porta 1433. Il database SQL comunica attraverso questa porta. Per connettersi
 
 #### <a name="sql-database-auditing"></a>Controllo del database SQL
 
-Con il database SQL è possibile attivare il controllo per rilevare gli eventi di database. Il servizio di [controllo del database SQL](sql-database-auditing.md) registra gli eventi che si verificano nel database e li registra in un file di log di controllo nell'account di Archiviazione di Azure dell'utente. Il controllo è particolarmente utile se si intende ottenere informazioni su potenziali violazioni in termini di sicurezza e criteri, mantenere la conformità ai requisiti normativi e così via. Consente di definire e configurare determinate categorie di eventi che si ritiene necessitino di controllo e, sulla base di ciò, è possibile ottenere report preconfigurati e un dashboard per avere una panoramica degli eventi che si verificano nel database. È possibile applicare questi criteri di controllo a livello di database o server. Per una guida su come attivare il controllo per il server/database, vedere: [Abilitare il controllo del database SQL](sql-database-security-tutorial.md#enable-security-features).
+Con il database SQL è possibile attivare il controllo per rilevare gli eventi di database. Il servizio di [controllo del database SQL](sql-database-auditing.md) registra gli eventi che si verificano nel database e li registra in un file di log di controllo nell'account di Archiviazione di Azure dell'utente. Il controllo è particolarmente utile se si intende ottenere informazioni sulle potenziali violazioni di sicurezza e criteri, mantenere la conformità alle normative e così via. Consente di definire e configurare determinate categorie di eventi che si ritiene necessario controllare e in base a che è possibile ottenere report preconfigurati e un dashboard per ottenere una panoramica degli eventi che si verificano nel database. È possibile applicare questi criteri di controllo a livello di database o server. Per una guida su come attivare il controllo per il server/database, vedere: [Abilitare il controllo del database SQL](sql-database-security-tutorial.md#enable-security-features).
 
 #### <a name="threat-detection"></a>Introduzione al rilevamento delle minacce
 
-Con il [rilevamento delle minacce](sql-database-threat-detection.md) è possibile intervenire in modo molto semplice sulle violazioni in termini di sicurezza o criteri individuate con il controllo. Non è necessario essere esperti di sicurezza per risolvere potenziali minacce o violazioni nel sistema. Il rilevamento delle minacce include anche alcune funzionalità incorporate come il rilevamento di attacchi SQL injection. Un attacco SQL injection è un tentativo di modificare o compromettere i dati e un modo molto comune per attaccare in genere un'applicazione di database. Il rilevamento delle minacce esegue vari set di algoritmi che rilevano potenziali vulnerabilità e attacchi SQL injection, nonché modelli anomali di accesso al database (ad esempio, accesso da una posizione insolita o da un'entità di sicurezza sconosciuta). I responsabili della sicurezza o altri amministratori designati ricevono una notifica e-mail se viene rilevata una minaccia nel database. Ogni notifica contiene dettagli sull'attività sospetta e consigli su come eseguire altre indagini e mitigare la minaccia. Per informazioni su come attivare il rilevamento delle minacce, vedere: [Enable threat detection](sql-database-security-tutorial.md#enable-security-features) (Abilitare il rilevamento delle minacce).
+Con il [rilevamento delle minacce](sql-database-threat-detection.md) è possibile intervenire in modo molto semplice sulle violazioni in termini di sicurezza o criteri individuate con il controllo. Non è necessario essere esperti di sicurezza per risolvere potenziali minacce o violazioni nel sistema. Il rilevamento delle minacce include anche alcune funzionalità incorporate come il rilevamento di attacchi SQL injection. Un attacco SQL injection è un tentativo di modificare o compromettere i dati e un modo molto comune per attaccare in genere un'applicazione di database. Il rilevamento delle minacce esegue vari set di algoritmi che rilevano potenziali vulnerabilità e attacchi SQL injection, nonché modelli anomali di accesso al database (ad esempio, accesso da una posizione insolita o da un'entità di sicurezza sconosciuta). I responsabili della sicurezza o altri amministratori designati ricevono una notifica e-mail se viene rilevata una minaccia nel database. Ogni notifica contiene dettagli sull'attività sospetta e consigli su come eseguire altre indagini e mitigare la minaccia. Per informazioni su come attivare il rilevamento delle minacce, vedere [abilitare il rilevamento delle minacce](sql-database-security-tutorial.md#enable-security-features).
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>Come proteggere i dati in generale nel database SQL
 
@@ -181,7 +181,7 @@ Per proteggere i dati sensibili in elaborazione e inattivi, il database SQL incl
 
 Ogni applicazione include quantità specifiche di dati sensibili nel database che non devono essere visibili a chiunque. Alcuni membri del personale all'interno dell'organizzazione devono essere in grado di visualizzare questi dati, a differenza di altri. Un esempio è rappresentato dai salari dei dipendenti. Un responsabile deve accedere alle informazioni sui salari per i loro dipendenti diretti, tuttavia, i singoli membri del team non devono avere accesso alle informazioni sui salari dei propri peer. Un altro scenario è rappresentato da sviluppatori di dati che potrebbero interagire con dati sensibili durante le fasi di sviluppo o test, ad esempio i codici fiscali dei clienti. Anche queste informazioni non devono essere esposte agli sviluppatori. In questi casi, i dati sensibili devono essere mascherati o addirittura non esposti. Per impedire a utenti non autorizzati di visualizzare dati sensibili, il database SQL offre due approcci di questo tipo:
 
-[Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md) è una funzionalità di mascheramento dei dati che limita l'esposizione a dati sensibili mascherandoli agli utenti sprovvisti di privilegi sul lato applicazione. Definire una regola di maschera che può creare un criterio di maschera (ad esempio per visualizzare solo le ultime quattro cifre di un codice fiscale: XXX-XX-0000 e visualizzarne la maggior parte come X) e identificare gli utenti da escludere dalla regola di maschera. Il mascheramento avviene in tempo reale e sono disponibili varie funzioni di mascheramento per categorie di dati diverse. Dynamic Data Masking consente di rilevare automaticamente i dati sensibili nel database e applicarvi il mascheramento.
+[Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md) è una funzionalità di mascheramento dei dati che limita l'esposizione a dati sensibili mascherandoli agli utenti sprovvisti di privilegi sul lato applicazione. Definire una regola di mascheramento che possa creare criteri (ad esempio, per visualizzare solo le ultime quattro cifre di un codice fiscale: XXX-XX-0000 e mascherare le altre cifre con X) e identificare gli utenti che devono essere esclusi dalla regola di mascheramento. Il mascheramento avviene in tempo reale e sono disponibili varie funzioni di mascheramento per categorie di dati diverse. Dynamic Data Masking consente di rilevare automaticamente i dati sensibili nel database e applicarvi il mascheramento.
 
 La [sicurezza a livello di riga](/sql/relational-databases/security/row-level-security) consente di controllare l'accesso a livello di riga. In altre parole, alcune righe in una tabella di database in base all'utente che esegue la query (appartenenza a un gruppo o contesto di esecuzione) sono nascoste. La limitazione dell'accesso viene eseguita a livello di database anziché a livello di applicazione, per semplificare la logica dell'app. Per iniziare, creare un predicato di filtro per escludere le righe che non devono essere esposte e i criteri di sicurezza che definiscono gli utenti con accesso a queste righe. Per concludere, l'utente finale esegue la query e, a seconda dei privilegi dell'utente, visualizza le righe con restrizioni o non ne visualizza alcuna.
 
@@ -274,17 +274,17 @@ Da questo grafico è anche possibile configurare avvisi per risorsa. Questi avvi
 
 È possibile eseguire una query nella DMV [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) per restituire la cronologia delle statistiche sull'uso delle risorse dell'ultima ora e la vista del catalogo di sistema [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) per restituire la cronologia degli ultimi 14 giorni.
 
-#### <a name="query-performance-insight"></a>Informazioni dettagliate prestazioni query
+#### <a name="query-performance-insight"></a>Informazioni dettagliate sulle prestazioni delle query
 
 [Informazioni dettagliate prestazioni query](sql-database-query-performance.md) consente di visualizzare una cronologia delle query principali a livello di uso delle risorse e le query con esecuzione prolungata per un database specifico. È possibile identificare rapidamente le query principali in base all'uso delle risorse, alla durata e alla frequenza di esecuzione. È possibile tenere traccia delle query e rilevare la regressione. Questa funzionalità richiede che [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) sia abilitato e attivo per il database.
 
-![Informazioni dettagliate prestazioni query](./media/sql-database-manage-after-migration/query-performance-insight.png)
+![Informazioni dettagliate sulle prestazioni delle query](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
 #### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Analisi SQL di Azure (anteprima) nei log di monitoraggio di Azure
 
 [Log di monitoraggio di Azure](../azure-monitor/insights/azure-sql.md) consente di raccogliere e visualizzare le metriche chiave delle prestazioni del database SQL di Azure, supportando fino a 150.000 database sql e 5.000 pool elastici SQL per area di lavoro. È possibile usare il servizio per monitorare e ricevere notifiche. È possibile monitorare le metriche del database SQL e dei pool elastici in più sottoscrizioni e pool elastici di Azure e usarle per identificare problemi a ogni livello dello stack di applicazioni.
 
-### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Si riscontrano problemi di prestazioni. In che modo la metodologia di risoluzione dei problemi del database SQL differisce da SQL Server
+### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Si verificano problemi di prestazioni: in che modo la metodologia di risoluzione dei problemi del database SQL differisce da SQL Server
 
 Una parte significativa delle tecniche di risoluzione dei problemi che verrebbero usate per diagnosticare problemi di query e prestazioni del database rimane invariata. Dopo tutto, lo stesso motore di SQL Server alimenta il cloud. Tuttavia, la piattaforma, il database SQL di Azure, include "intelligence" integrata. Consente di risolvere e diagnosticare i problemi di prestazioni anche più facilmente. Può inoltre eseguire alcune di queste azioni correttive per conto dell'utente e, in alcuni casi, correggerli automaticamente in modo proattivo.
 
@@ -294,7 +294,7 @@ Con la risoluzione dei problemi delle prestazioni è importante stabilire se a i
 
 Se poi si riscontra una riduzione generale delle prestazioni del database, è possibile monitorare le viste a gestione dinamica [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) per individuare il consumo di memoria, CPU e I/O. Le prestazioni potrebbero risentirne perché il database ha esaurito le risorse. Potrebbe essere necessario modificare le dimensioni di calcolo e/o il livello di servizio in base all'aumento o alla riduzione delle esigenze di carico di lavoro.
 
-Per un set completo di elementi consigliati per la risoluzione dei problemi relativi alle prestazioni, vedere: [Ottimizzare il database](sql-database-performance-guidance.md#tune-your-database).
+Per un set completo di raccomandazioni per la risoluzione dei problemi relativi alle prestazioni, vedere [Ottimizzare il database](sql-database-performance-guidance.md#tune-your-database).
 
 ### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>Come verificare di usare il livello di servizio e le dimensioni di calcolo appropriati
 
@@ -309,7 +309,7 @@ Il database SQL offre vari livelli di servizio: Basic, Standard e Premium. Per o
 
 Per accertarsi di usare le dimensioni di calcolo ideali, è possibile monitorare il consumo di risorse di database e query con uno dei modi sopra indicati in "Come monitorare le prestazioni e l'uso delle risorse nel database SQL di Azure?". Se ci si accorge che le query e/o i database esauriscono costantemente CPU, memoria e così via, è opportuno valutare la scalabilità verticale a dimensioni di calcolo superiori. In modo analogo, qualora si notasse che, anche nelle ore di punta, le risorse non vengono usate in modo eccessivo, prendere in considerazione la scalabilità verso il basso dalle dimensioni di calcolo correnti.
 
-In presenza di criteri di app SaaS o uno scenario di consolidamento del database, considerare l'uso di un pool elastico per l'ottimizzazione dei costi. Il pool elastico è un ottimo modo per conseguire il consolidamento dei database e l'ottimizzazione dei costi. Per altre informazioni sulla gestione di più database con un pool elastico, vedere: [Gestire pool e database](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
+In presenza di criteri di app SaaS o uno scenario di consolidamento del database, considerare l'uso di un pool elastico per l'ottimizzazione dei costi. Il pool elastico è un ottimo modo per conseguire il consolidamento dei database e l'ottimizzazione dei costi. Per altre informazioni sulla gestione di più database con il pool elastico, vedere: [gestire i pool e i database](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>Con quale frequenza è necessario eseguire controlli di integrità del database
 
@@ -319,11 +319,11 @@ Il database SQL usa alcune tecniche intelligenti che consentono di gestire autom
 
 ### <a name="how-do-i-export-and-import-data-as-bacpac-files-from-sql-database"></a>Come esportare e importare i dati come file BACPAC dal database SQL
 
-- **Esportazione**: È possibile esportare il database SQL di Azure come file BACPAC dal portale di Azure
+- **Esportazione**: è possibile esportare il database SQL di Azure come file BACPAC dal portale di Azure
 
    ![esportazione di database](./media/sql-database-export/database-export1.png)
 
-- **Importazione**: È anche possibile importare dati come file BACPAC nel database dal portale di Azure.
+- **Importazione**: è anche possibile importare dati come file BACPAC nel database dal portale di Azure.
 
    ![importazione di database](./media/sql-database-import/import1.png)
 
@@ -332,7 +332,7 @@ Il database SQL usa alcune tecniche intelligenti che consentono di gestire autom
 A tale scopo, è possibile procedere in diversi modi:
 
 - **[Sincronizzazione dei dati](sql-database-sync-data.md)** : questa funzionalità consente di sincronizzare i dati in modo bidirezionale tra più database SQL Server locali e il database SQL. Per eseguire la sincronizzazione con database SQL Server locali, è necessario installare e configurare l'agente di sincronizzazione in un computer locale e aprire la porta TCP in uscita 1433.
-- **[Replica di tipo transazionale](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** : con la replica di tipo transazionale è possibile sincronizzare i dati dal server locale al database SQL di Azure, con il primo come database di pubblicazione e il database SQL di Azure come database sottoscrittore. Per il momento è supportata solo questa configurazione. Per altre informazioni su come eseguire la migrazione dei dati dal database locale al database SQL di Azure con tempi di inattività minimi, vedere: [Usare la replica transazionale](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
+- **[Replica di tipo transazionale](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** : con la replica di tipo transazionale è possibile sincronizzare i dati dal server locale al database SQL di Azure, con il primo come database di pubblicazione e il database SQL di Azure come database sottoscrittore. Per il momento è supportata solo questa configurazione. Per altre informazioni su come eseguire la migrazione dei dati dal database locale al database SQL di Azure con tempi di inattività minimi, vedere: [Use Transaction Replication](sql-database-single-database-migrate.md#method-2-use-transactional-replication) (Uso della replica di tipo transazionale)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

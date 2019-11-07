@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da Office 365 usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da Office 365 usando Azure Data Factory
 description: Informazioni su come copiare dati da Office 365 in archivi dati di sink supportati usando attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 7290a7a2f0bf6e12234ff3c09f5c5211dcaeba2d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9bd059d42686a37701af0d42f54335b83c06b752
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931036"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680581"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiare dati da Office 365 in Azure usando Azure Data Factory
 
@@ -57,18 +57,18 @@ Per informazioni sul modo in cui il responsabile dell'approvazione può approvar
 
 Se Azure Data Factory viene creato come parte di un'app gestita e le assegnazioni dei criteri di Azure vengono eseguite sulle risorse all'interno del gruppo di risorse di gestione, quindi per ogni esecuzione dell'attività di copia, Azure Data Factory verificherà che vengano applicate le assegnazioni dei criteri. Per un elenco dei criteri supportati, vedere [questo articolo](https://docs.microsoft.com/graph/data-connect-policies#policies).
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 >[!TIP]
 >Per una procedura dettagliata sull'uso del connettore di Office 365, vedere l'articolo [Caricare dati da Office 365](load-office-365-data.md).
 
 È possibile creare una pipeline con l'attività di copia usando uno degli strumenti o degli SDK seguenti. Selezionare un collegamento per passare a un'esercitazione con istruzioni dettagliate per creare una pipeline con un'attività di copia. 
 
-- [Azure portal](quickstart-create-data-factory-portal.md)
+- [Portale di Azure](quickstart-create-data-factory-portal.md)
 - [.NET SDK](quickstart-create-data-factory-dot-net.md)
 - [Python SDK](quickstart-create-data-factory-python.md)
 - [Azure PowerShell](quickstart-create-data-factory-powershell.md)
-- [REST API](quickstart-create-data-factory-rest-api.md)
+- [API REST](quickstart-create-data-factory-rest-api.md)
 - [Modello di Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md) 
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di data factory specifiche per il connettore di Office 365.
@@ -77,14 +77,14 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Office 365 sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Office 365** | SÌ |
-| office365TenantId | ID tenant di Azure a cui appartiene l'account di Office 365. | SÌ |
-| servicePrincipalTenantId | Specificare le informazioni sul tenant in cui si trova l'applicazione Web di Azure AD. | SÌ |
-| servicePrincipalId | Specificare l'ID client dell'applicazione. | SÌ |
-| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. | SÌ |
-| connectVia | Runtime di integrazione da usare per la connessione all'archivio dati.  Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. | No |
+| type | La proprietà type deve essere impostata su: **Office 365** | Sì |
+| office365TenantId | ID tenant di Azure a cui appartiene l'account di Office 365. | Sì |
+| servicePrincipalTenantId | Specificare le informazioni sul tenant in cui si trova l'applicazione Web di Azure AD. | Sì |
+| servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
+| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. | Sì |
+| connectVia | Runtime di integrazione da usare per la connessione all'archivio dati.  Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No |
 
 >[!NOTE]
 > Differenza tra **office365TenantId** e **servicePrincipalTenantId** e il valore corrispondente da specificare:
@@ -117,10 +117,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Office 365, sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **Office365Table** | SÌ |
-| tableName | Nome del set di dati da estrarre da Office 365. Per l'elenco dei set di dati di Office 365 disponibili per l'estrazione, vedere [questo articolo](https://docs.microsoft.com/graph/data-connect-datasets#datasets). | SÌ |
+| type | La proprietà type del set di dati deve essere impostata su: **Office365Table** | Sì |
+| tableName | Nome del set di dati da estrarre da Office 365. Per l'elenco dei set di dati di Office 365 disponibili per l'estrazione, vedere [questo articolo](https://docs.microsoft.com/graph/data-connect-datasets#datasets). | Sì |
 
 Se si imposta `dateFilterColumn`, `startTime`, `endTime`e `userScopeFilterUri` nel set di dati, è ancora supportata così com'è, mentre si consiglia di usare il nuovo modello in origine attività in futuro.
 
@@ -151,9 +151,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Office 365, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **Office365Source** | SÌ |
+| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **Office365Source** | Sì |
 | allowedGroups | Predicato di selezione del gruppo.  Utilizzare questa proprietà per selezionare un massimo di 10 gruppi di utenti per i quali verranno recuperati i dati.  Se non viene specificato alcun gruppo, i dati verranno restituiti per l'intera organizzazione. | No |
 | userScopeFilterUri | Quando `allowedGroups` proprietà non è specificata, è possibile usare un'espressione del predicato applicata all'intero tenant per filtrare le righe specifiche da estrarre da Office 365. Il formato del predicato deve corrispondere al formato di query delle API di Microsoft Graph, ad esempio `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | No |
 | dateFilterColumn | Nome della colonna di filtro DateTime. Usare questa proprietà per limitare l'intervallo di tempo per cui vengono estratti i dati di Office 365. | Sì se il set di dati contiene una o più colonne DateTime. Per un elenco dei set di impostazioni che richiedono questo filtro DateTime, vedere [qui](https://docs.microsoft.com/graph/data-connect-filtering#filtering) . |

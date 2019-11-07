@@ -1,5 +1,5 @@
 ---
-title: Esercitazione sulle app SaaS multi-tenant - Database SQL di Azure | Microsoft Docs
+title: Esercitazione SaaS multi-tenant-database SQL di Azure
 description: Effettuare il provisioning di nuovi tenant e catalogarli usando il modello di applicazione autonoma
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/24/2018
-ms.openlocfilehash: f9087ff33bccb54497ec8d781a47469553683d65
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: de1007aac3988f2ea78b9d1b7b1de19b862f196a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570282"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691942"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Effettuare il provisioning di nuovi tenant e catalogarli usando il modello SaaS di un'applicazione per ogni tenant
 
@@ -69,7 +69,7 @@ Al termine di questa esercitazione si disporrà di un set di applicazioni autono
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati: 
+Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti: 
 
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * Le tre app di tenant di esempio sono state distribuite. Per distribuire queste app in meno di cinque minuti, vedere [Distribuire ed esplorare il modello di applicazione SaaS autonoma Wingtip Tickets](saas-standaloneapp-get-started-deploy.md).
@@ -98,7 +98,7 @@ Al completamento dello script il catalogo sarà disponibile e saranno stati regi
 A questo punto esaminare le risorse appena create.
 
 1. Aprire il [portale di Azure](https://portal.azure.com/) ed esplorare i gruppi di risorse.  Aprire il gruppo di risorse **wingtip-sa-catalog-\<utente\>**  e prendere nota del server e del database del catalogo.
-1. Aprire il database nel portale e scegliere *Esplora dati* nel menu a sinistra.  Fare clic sul comando login, quindi immettere la password **=\@P ssword1**.
+1. Aprire il database nel portale e scegliere *Esplora dati* nel menu a sinistra.  Fare clic sul comando login, quindi immettere la password = **P\@ssword1**.
 
 
 1. Esplorare lo schema del database *tenantcatalog*.  

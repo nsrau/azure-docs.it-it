@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 4215dc85da6d507b08f23cf248044ea807fe5319
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1854a99cac3ead386f38c1c7fe27a56b672f365c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935166"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664315"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure nell'output di archiviazione BLOB di Azure (anteprima)
 
@@ -23,7 +23,7 @@ Questo articolo illustra come abilitare l'identità gestita per gli output del B
 
 1. Creare un nuovo processo di analisi di flusso o aprire un processo esistente nel portale di Azure. Dalla barra dei menu disponibile sul lato sinistro della schermata selezionare **identità gestita** situata in **Configura**. Verificare che sia selezionata l'opzione "Usa identità gestita assegnata dal sistema" e quindi fare clic sul pulsante **Salva** nella parte inferiore della schermata.
 
-   ![Configurare l'identità gestita di analisi di flusso](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-enable-managed-identity.png)
+   ![Configurare l'identità gestita di analisi di flusso](./media/common/stream-analytics-enable-managed-identity.png)
 
 2. Nella finestra Proprietà output del sink di output di archiviazione BLOB di Azure selezionare l'elenco a discesa modalità di autenticazione e scegliere **identità gestita**. Per informazioni sulle altre proprietà di output, vedere [comprendere gli output di analisi di flusso di Azure](./stream-analytics-define-outputs.md). Al termine, fare clic su **Salva**.
 

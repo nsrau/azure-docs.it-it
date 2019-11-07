@@ -1,35 +1,38 @@
 ---
-title: Panoramica degli account utente in Azure Active Directory B2C | Microsoft Docs
-description: Informazioni sugli account utente in Azure Active Directory B2C.
+title: Panoramica degli account utente in Azure Active Directory B2C
+description: Informazioni sui tipi di account utente che è possibile usare in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 11/05/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0ef4bca3a2b08271b3623a346df6613b5ad16995
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a627b0eebc3aa4a19b0670f899d3032d8df58da4
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063150"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620466"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Panoramica degli account utente in Azure Active Directory B2C
 
-In Azure Active Directory B2C (Azure AD B2C), è possibile usare diversi tipi di account. Azure AD, Azure AD B2B e Azure AD B2C condividono i tipi di account utente che possono essere usati.
+In Azure Active Directory B2C (Azure AD B2C), è possibile creare diversi tipi di account. Azure Active Directory, Active Directory B2B e Active Directory B2C condividere i tipi di account utente che è possibile utilizzare.
 
 Sono disponibili i tipi di account seguenti:
 
 - **Account aziendale**: un account aziendale può accedere alle risorse in un tenant; se dispone di un ruolo di amministratore, può gestire i tenant.
 - **Account guest**: un account guest può essere solo un account Microsoft o un utente di Azure AD che può essere usato per accedere alle applicazioni o gestire i tenant.
-- **Account consumer**: un account consumer viene creato tramite un flusso utente di iscrizione in un'applicazione di Azure AD B2C o usando l'API Graph di Azure AD. Viene usato dagli utenti delle applicazioni registrate in Azure AD B2C.
+- **Account del consumer** : un account utente viene usato da un utente delle applicazioni registrate con Azure ad B2C. Gli account utente possono essere creati da:
+  - Utente che attraversa un flusso utente di iscrizione in un'applicazione Azure AD B2C
+  - Utilizzo di Azure AD API Graph
+  - Uso del portale di Azure
 
 ## <a name="work-account"></a>Account aziendale
 
-La procedura per la creazione di un account aziendale è la stessa per tutti i tenant basati su Azure AD. Per creare un account aziendale, usare le informazioni contenute in [Avvio rapido: Aggiungere o modificare utenti in Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Per creare un account aziendale usare l'opzione **Nuovo utente** nel portale di Azure.
+La procedura per la creazione di un account aziendale è la stessa per tutti i tenant basati su Azure AD. Per creare un account aziendale, usare le informazioni contenute in [Guida introduttiva: Aggiungere nuovi utenti ad anteprima di Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Per creare un account aziendale usare l'opzione **Nuovo utente** nel portale di Azure.
 
 Quando si aggiunge un nuovo account aziendale, è necessario prendere in considerazione le impostazioni di configurazione seguenti:
 
@@ -73,7 +76,7 @@ Per invitare un utente guest è anche possibile usare l'[API Graph di Microsoft]
 
 ## <a name="consumer-user"></a>Utente consumer
 
-L'utente consumer può accedere ad applicazioni protette da Azure AD B2C, ma non alle risorse di Azure, ad esempio il portale di Azure.  Può usare un account locale o account federati come ad esempio Facebook o Twitter. L'account consumer viene creato usando un [flusso utente di iscrizione o di accesso](../active-directory-b2c/active-directory-b2c-reference-policies.md).
+L'utente consumer può accedere ad applicazioni protette da Azure AD B2C, ma non alle risorse di Azure, ad esempio il portale di Azure. Può usare un account locale o account federati come ad esempio Facebook o Twitter. Un account utente viene creato usando un [flusso utente di iscrizione o accesso](../active-directory-b2c/active-directory-b2c-reference-policies.md), usando il Azure ad API Graph o usando il portale di Azure.
 
 È possibile specificare i dati raccolti quando viene creato un account consumer usando attributi utente personalizzati. Per altre informazioni, vedere [Definire attributi personalizzati in Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
 

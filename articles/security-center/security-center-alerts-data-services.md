@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: memildin
-ms.openlocfilehash: 7e45dffd15cdf2acf15c7d46ed0cf42fc5997a6a
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: c69352b8ff11edfce8bd800a0d3aad4584557572
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244566"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621335"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Rilevamento delle minacce per i servizi dati nel centro sicurezza di Azure
 
@@ -40,7 +40,7 @@ Rilevamento minacce SQL identifica le attività anomale che indicano tentativi i
 
 Per altre informazioni sugli avvisi di rilevamento delle minacce di SQL, vedere [rilevamento delle minacce nel database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview). In particolare, esaminare la sezione avvisi di rilevamento minacce. Vedere anche [come il Centro sicurezza di Azure consente di rivelare un cyberattack](https://azure.microsoft.com/blog/how-azure-security-center-helps-reveal-a-cyberattack/) per visualizzare un esempio del modo in cui il Centro sicurezza ha usato il rilevamento di attività SQL dannose per individuare un attacco.
 
-## Archiviazione<a name="azure-storage"></a>
+## Archiviazione di Azure<a name="azure-storage"></a>
 
 >[!NOTE]
 > Advanced Threat Protection per l'archiviazione è attualmente disponibile solo per l'archiviazione BLOB.
@@ -53,7 +53,7 @@ Il Centro sicurezza analizza i log di diagnostica delle richieste di lettura, sc
 
 |Avviso|Descrizione|
 |---|---|
-|**Anomalia di accesso al percorso insolito**|L'analisi del traffico di rete campionata ha rilevato una comunicazione in uscita Remote Desktop Protocol (RDP) anomala, originata da una risorsa nella distribuzione. Questa attività viene considerata anomala per questo ambiente. Può indicare che la risorsa è stata compromessa e viene ora usata per l'attacco di forza bruta a un endpoint RDP esterno. Si noti che questo tipo di attività potrebbe causare la segnalazione dell'indirizzo IP come dannoso da entità esterne.|
+|**Anomalia di accesso al percorso insolito**|L'analisi del traffico di rete campionata ha rilevato una comunicazione in uscita Remote Desktop Protocol (RDP) anomala, originata da una risorsa nella distribuzione. Questa attività viene considerata anomala per questo ambiente. Può indicare che la risorsa è stata compromessa e viene ora usata per l'attacco di forza bruta a un endpoint RDP esterno. Questo tipo di attività potrebbe causare la segnalazione dell'indirizzo IP come dannoso da entità esterne.|
 |**Anomalie di accesso all'applicazione**|Indica che l'account di archiviazione ha eseguito l'accesso a un'applicazione insolita. Una causa potenziale è che un utente malintenzionato ha eseguito l'accesso all'account di archiviazione utilizzando una nuova applicazione.|
 |**Anomalia accesso anonimo**|Indica la presenza di una modifica nel modello di accesso a un account di archiviazione. Ad esempio, è stato eseguito l'accesso anonimo all'account (senza autenticazione), che è imprevisto rispetto al modello di accesso recente su questo account. Una possibile provocazione è che un utente malintenzionato ha sfruttato l'accesso in lettura pubblico a un contenitore che contiene l'archiviazione BLOB.|
 |**Anomalia Tor**|Indica che l'accesso a questo account è stato eseguito correttamente da un indirizzo IP noto come nodo di uscita attivo di Tor (un proxy anonime). La gravità di questo avviso considera il tipo di autenticazione usato, se presente, e se questo è il primo caso di tale accesso. Le possibili cause possono essere un utente malintenzionato che ha eseguito l'accesso all'account di archiviazione usando Tor o un utente legittimo che ha eseguito l'accesso all'account di archiviazione usando Tor.|
@@ -63,6 +63,7 @@ Il Centro sicurezza analizza i log di diagnostica delle richieste di lettura, sc
 |**Anomalie di accesso alle autorizzazioni**|Indica che le autorizzazioni di accesso di questo contenitore di archiviazione sono state modificate in modo insolito. È possibile che un utente malintenzionato abbia modificato le autorizzazioni del contenitore per indebolirne il comportamento di sicurezza o per ottenere la persistenza.|
 |**Anomalia di accesso ispezione**|Indica che le autorizzazioni di accesso di un account di archiviazione sono state ispezionate in modo insolito, rispetto alle attività recenti di questo account. Una possibile provocazione è che un utente malintenzionato ha eseguito la ricognizione per un attacco futuro.|
 |**Anomalia di esplorazione dei dati**|Indica che i BLOB o i contenitori in un account di archiviazione sono stati enumerati in modo anomalo, rispetto alle attività recenti di questo account. Una possibile provocazione è che un utente malintenzionato ha eseguito la ricognizione per un attacco futuro.|
+|**Potenziale caricamento malware**|Indica che un BLOB contenente il potenziale malware è stato caricato in un account di archiviazione. Possibili cause possono includere un malware intenzionale caricato da un utente malintenzionato o un caricamento non intenzionale, di un BLOB potenzialmente dannoso, da un utente legittimo.|
 
 >[!NOTE]
 >Advanced Threat Protection per l'archiviazione non è attualmente disponibile in Azure per enti pubblici e aree cloud sovrane.

@@ -1,6 +1,6 @@
 ---
 title: Scalabilità di Azure Service Fabric Mesh | Microsoft Docs
-description: Informazioni sul ridimensionamento dei servizi in Azure Service Fabric Mesh.
+description: Uno dei vantaggi della distribuzione di applicazioni a Service Fabric mesh è la possibilità di ridimensionare facilmente i servizi, manualmente o con i criteri di scalabilità automatica.
 services: service-fabric-mesh
 keywords: ''
 author: dkkapur
@@ -9,16 +9,16 @@ ms.date: 10/26/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 1688cac35ea9de43bac529a4994bd4ea55eb0ab7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 59fdf68ed1ead4665ec8944d67f2d5112d370716
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811098"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73662991"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Applicazioni Service Fabric Mesh per il ridimensionamento
 
-Uno dei principali vantaggi della distribuzione di applicazioni in Service Fabric Mesh è la possibilità di ridurre o aumentare facilmente il numero di istanze dei servizi. Questo consente di gestire diverse quantità di carico nei servizi o migliorare la disponibilità. È possibile ridurre o aumentare manualmente le istanze dei servizi o impostare criteri di ridimensionamento automatico.
+Uno dei principali vantaggi derivanti dalla distribuzione di applicazioni a Service Fabric mesh è la possibilità di ridimensionare facilmente i servizi. Questa operazione deve essere usata per la gestione di diverse quantità di carico nei servizi o per migliorare la disponibilità. È possibile ridurre o aumentare manualmente le istanze dei servizi o impostare criteri di ridimensionamento automatico.
 
 ## <a name="manual-scaling-instances"></a>Ridimensionamento manuale delle istanze
 
@@ -31,7 +31,7 @@ Il ridimensionamento automatico è una funzionalità aggiuntiva di Service Fabri
 
 Per ogni servizio i criteri di ridimensionamento vengono definiti automaticamente nel file di risorse del servizio. Ogni criterio di scalabilità automatica è costituito da due parti:
 
-- Un trigger di ridimensionamento, che indica quando verrà eseguito il ridimensionamento del servizio. Esistono tre fattori che determinano il momento in cui il servizio viene ridimensionato. *Soglia di carico inferiore*: valore che determina quando le istanze del servizio si riducono. Se il carico medio di tutte le istanze delle partizioni è inferiore a questo valore, il servizio verrà ridotto. *Soglia di carico superiore*: valore che determina quando le istanze del servizio aumentano. Se il carico medio di tutte le istanze delle partizioni è superiore a questo valore, il servizio verrà aumentato. *Intervallo di ridimensionamento*: determina ogni quanti secondi verrà eseguito un controllo del trigger. Una volta controllato il trigger, se è necessario eseguire un ridimensionamento verrà applicato il meccanismo. Se il ridimensionamento non è necessario, non verrà eseguita alcuna azione. In entrambi i casi il trigger non verrà controllato nuovamente prima dello scadere dell'intervallo di ridimensionamento.
+- Un trigger di ridimensionamento, che indica quando verrà eseguito il ridimensionamento del servizio. Esistono tre fattori che determinano il momento in cui il servizio viene ridimensionato. *Soglia di carico inferiore*: valore che determina quando le istanze del servizio si riducono. Se il carico medio di tutte le istanze delle partizioni è inferiore a questo valore, il servizio verrà ridotto. La *soglia di carico superiore* è un valore che determina quando il servizio verrà scalato orizzontalmente. Se il carico medio di tutte le istanze della partizione è superiore a questo valore, il servizio verrà scalato orizzontalmente. L' *intervallo di scalabilità* determina la frequenza (in secondi) in cui il trigger verrà controllato. Una volta controllato il trigger, se è necessario eseguire un ridimensionamento verrà applicato il meccanismo. Se il ridimensionamento non è necessario, non verrà eseguita alcuna azione. In entrambi i casi il trigger non verrà controllato nuovamente prima dello scadere dell'intervallo di ridimensionamento.
 
 - Un meccanismo di ridimensionamento, che descrive come verrà eseguito il ridimensionamento dopo l'attivazione. *Incremento di scalabilità*: determina il numero di istanze che verranno aggiunte o rimosse quando viene attivato il meccanismo. *Numero massimo di istanze*: definisce il limite superiore per il ridimensionamento. Se il numero di istanze raggiunge questo limite, non sarà possibile aumentare le istanze del servizio, indipendentemente dal carico. *Numero minimo di istanze*: definisce il limite inferiore per il ridimensionamento. Se il numero di istanze della partizione raggiunge questo limite, non sarà possibile ridurre il servizio, indipendentemente dal carico.
 

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 134ca92671a41eb53201101a3622215466a60c09
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a921d6110fd0294012e2e59542ba2c82d63ffcde
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065103"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73642086"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Microsoft tramite Azure Active Directory B2C
 
 ## <a name="create-a-microsoft-account-application"></a>Creare un'applicazione di account Microsoft
 
-Per usare un account Microsoft come [provider di identità](active-directory-b2c-reference-oidc.md) in Azure Active Directory B2C (Azure ad B2C), è necessario creare un'applicazione nel tenant Azure ad. Il tenant di Azure AD non corrisponde al tenant di Azure AD B2C. Se non si dispone già di una account Microsoft, è possibile ottenerne [https://www.live.com/](https://www.live.com/)una in.
+Per usare un account Microsoft come [provider di identità](active-directory-b2c-reference-oidc.md) in Azure Active Directory B2C (Azure ad B2C), è necessario creare un'applicazione nel tenant Azure ad. Il tenant di Azure AD non corrisponde al tenant di Azure AD B2C. Se non si dispone già di un account Microsoft, è possibile ottenerne uno [https://www.live.com/](https://www.live.com/).
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant del Azure ad.
@@ -30,8 +30,8 @@ Per usare un account Microsoft come [provider di identità](active-directory-b2c
 1. Immettere un **nome** per l'applicazione. Ad esempio, *MSAapp1*.
 1. In **tipi di account supportati**selezionare **account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)** . Questa opzione è destinata al set più ampio di identità Microsoft.
 
-   Per ulteriori informazioni sulle diverse selezioni del tipo di conto, vedere [Guida introduttiva: Registrare un'applicazione con la piattaforma](../active-directory/develop/quickstart-register-app.md)di identità Microsoft.
-1. In **URI di reindirizzamento (facoltativo)** selezionare **Web** e immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` nella casella di testo. Sostituire `your-tenant-name` con il nome del tenant Azure ad B2C.
+   Per altre informazioni sulle diverse selezioni del tipo di conto, vedere [Guida introduttiva: registrare un'applicazione con la piattaforma di identità Microsoft](../active-directory/develop/quickstart-register-app.md).
+1. In **URI di reindirizzamento (facoltativo)** selezionare **Web** e immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` nella casella di testo. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C.
 1. Seleziona **Registro**
 1. Registrare l' **ID dell'applicazione (client)** visualizzato nella pagina Panoramica dell'applicazione. Questa operazione è necessaria quando si configura il provider di identità nella sezione successiva.
 1. Selezionare i **certificati & segreti**
@@ -42,7 +42,7 @@ Per usare un account Microsoft come [provider di identità](active-directory-b2c
 ## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>Configurare un account Microsoft come provider di identità
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
 1. Selezionare **provider di identità**e quindi selezionare **account Microsoft**.
 1. Immettere un **Nome**. Ad esempio, *MSA*.

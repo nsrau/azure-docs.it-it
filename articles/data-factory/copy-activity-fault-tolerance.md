@@ -1,5 +1,5 @@
 ---
-title: Tolleranza di errore dell'attività di copia in Azure Data Factory | Microsoft Docs
+title: Tolleranza di errore dell'attività di copia in Azure Data Factory
 description: Informazioni su come aggiungere la tolleranza di errore all'attività di copia in Azure Data Factory ignorando le righe incompatibili.
 services: data-factory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
-ms.openlocfilehash: 0af35748ee9fd5db45668ae4c6619a32f905d0db
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a60cafd529db1c6726a15db2c442af8d097411cc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827449"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678166"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolleranza di errore dell'attività di copia in Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [Versione corrente](copy-activity-fault-tolerance.md)
 
@@ -34,15 +34,15 @@ L'attività di copia supporta tre scenari per rilevare, ignorare e registrare i 
 
 - **Incompatibilità tra il tipo di dati di origine e il tipo nativo sink**. 
 
-    Ad esempio:  si vogliono copiare dati da un file CSV nell'archiviazione BLOB a un database SQL con una definizione di schema che contiene tre colonne di tipo INT. Le righe del file CSV contenenti dati numerici, ad esempio 123, 456, 789, vengono copiate nell'archivio sink. Tuttavia, le righe che contengono valori non numerici, ad esempio 123, 456, abc, vengono rilevate come incompatibili e vengono ignorate.
+    Esempio: si vogliono copiare dati da un file CSV nell'archiviazione BLOB a un database SQL con una definizione di schema che contiene tre colonne di tipo INT. Le righe del file CSV contenenti dati numerici, ad esempio 123, 456, 789, vengono copiate nell'archivio sink. Tuttavia, le righe che contengono valori non numerici, ad esempio 123, 456, abc, vengono rilevate come incompatibili e vengono ignorate.
 
 - **Mancata corrispondenza nel numero di colonne tra l'origine e il sink**.
 
-    Ad esempio:  si vogliono copiare dati da un file CSV nell'archivio BLOB a un database SQL con una definizione di schema che contiene sei colonne. Le righe del file CSV che contengono sei colonne vengono copiate nell'archivio sink. Le righe del file CSV che contengono più o meno di sei colonne vengono rilevate come incompatibili e vengono ignorate.
+    Esempio: si vogliono copiare dati da un file CSV nell'archivio BLOB a un database SQL con una definizione di schema che contiene sei colonne. Le righe del file CSV che contengono sei colonne vengono copiate nell'archivio sink. Le righe del file CSV che contengono più o meno di sei colonne vengono rilevate come incompatibili e vengono ignorate.
 
 - **Violazione della chiave primaria per la scrittura in SQL Server/database SQL di Azure/Azure Cosmos DB**.
 
-    Ad esempio:  si vogliono copiare dati da un'istanza di SQL Server a un database SQL. Il database SQL del sink contiene la definizione di una chiave primaria, che invece manca nell'istanza di SQL Server di origine. Non è possibile copiare nel sink le righe duplicate presenti nell'origine. L'attività di copia copierà nel sink solo la prima riga dei dati di origine. Le righe di origine successive che contengono il valore della chiave primaria duplicato vengono rilevate come incompatibili e vengono ignorate.
+    Esempio: si vogliono copiare dati da un'istanza di SQL Server a un database SQL. Il database SQL del sink contiene la definizione di una chiave primaria, che invece manca nell'istanza di SQL Server di origine. Non è possibile copiare nel sink le righe duplicate presenti nell'origine. L'attività di copia copierà nel sink solo la prima riga dei dati di origine. Le righe di origine successive che contengono il valore della chiave primaria duplicato vengono rilevate come incompatibili e vengono ignorate.
 
 >[!NOTE]
 >- Per caricare dati in SQL Data Warehouse mediante PolyBase, configurare le impostazioni native della tolleranza di errore di PolyBase specificando i criteri di rifiuto tramite "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" nell'attività di copia. È comunque possibile abilitare il reindirizzamento delle righe incompatibili di PolyBase a BLOB o ADLS come di consueto, come illustrato di seguito.
@@ -71,7 +71,7 @@ L'esempio seguente offre la definizione JSON per specificare di ignorare le righ
 }
 ```
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
+Proprietà | Descrizione | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Specifica se ignorare o meno le righe incompatibili durante la copia. | True<br/>False (impostazione predefinita) | No
 redirectIncompatibleRowSettings | Un gruppo di proprietà che può essere specificato quando si vuole registrare le righe incompatibili. | &nbsp; | No

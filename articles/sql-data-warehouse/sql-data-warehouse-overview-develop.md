@@ -1,5 +1,5 @@
 ---
-title: Risorse per lo sviluppo di un data warehouse in Azure | Documentazione Microsoft
+title: Risorse per lo sviluppo di un data warehouse in Azure
 description: Concetti di sviluppo, decisioni di progettazione, suggerimenti e tecniche di codifica per SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a78d78618a4cd9bf8d2aaebbd0c0da13697549bc
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: a6cb7937bdd5dea9eb1a48b2b350db9077431fe0
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479464"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645606"
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse
 Esaminare questi articoli sullo sviluppo per capire meglio le decisioni chiave nella progettazione, i suggerimenti e le tecniche di codifica per SQL Data Warehouse.
@@ -23,7 +23,7 @@ Esaminare questi articoli sullo sviluppo per capire meglio le decisioni chiave n
 ## <a name="key-design-decisions"></a>Decisioni chiave nella progettazione
 Gli articoli seguenti illustrano concetti e decisioni di progettazione per lo sviluppo di un data warehouse distribuito con SQL Data Warehouse:
 
-* [Connessioni][connections]
+* [connections][connections]
 * [Concorrenza][concurrency]
 * [Transazioni][transactions]
 * [Schemi definiti dall'utente][user-defined schemas]

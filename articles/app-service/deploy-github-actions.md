@@ -3,28 +3,26 @@ title: Distribuire il codice da una pipeline di integrazione continua/recapito c
 description: Informazioni su come usare le azioni di GitHub per distribuire il codice nel servizio app
 services: app-service
 documentationcenter: ''
-author: jasonfreeberg
-writer: ''
-manager: ''
-editor: ''
-ms.assetid: ''
+author: cephalin
+manager: gwallace
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 10/25/2019
 ms.author: jafreebe
-ms.openlocfilehash: b7ec1ae1d04fb1dbe16fd9f4a2640b2b3d9584c2
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.reviewer: ushan
+ms.openlocfilehash: 9842057a590b08f2207a1ea166e0ce0d457e4381
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809773"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620505"
 ---
-# <a name="github-actions-for-deploying-to-app-service"></a>Azioni di GitHub per la distribuzione nel servizio app
+# <a name="deploy-to-app-service-using-github-actions"></a>Eseguire la distribuzione nel servizio app usando le azioni di GitHub
 
-[Azioni di GitHub](https://help.github.com/en/articles/about-github-actions) offre la flessibilità necessaria per creare un flusso di lavoro automatizzato del ciclo di vita di sviluppo software. Con le azioni di servizio app Azure per GitHub, è possibile automatizzare il flusso di lavoro per distribuire [app Web di Azure](https://azure.microsoft.com/services/app-service/web/) usando le azioni di GitHub.
+[Azioni di GitHub](https://help.github.com/en/articles/about-github-actions) offre la flessibilità necessaria per creare un flusso di lavoro automatizzato del ciclo di vita di sviluppo software. Con le azioni di servizio app Azure per GitHub, è possibile automatizzare il flusso di lavoro per la distribuzione in [app Azure servizio](overview.md) usando le azioni di GitHub.
 
 > [!IMPORTANT]
 > Le azioni di GitHub sono attualmente in versione beta. È prima di tutto necessario [iscriversi per partecipare all'anteprima](https://github.com/features/actions) usando il proprio account github.
@@ -32,35 +30,35 @@ ms.locfileid: "72809773"
 
 Un flusso di lavoro viene definito da un file YAML (. yml) nel percorso `/.github/workflows/` nel repository. Questa definizione contiene i vari passaggi e parametri che costituiscono il flusso di lavoro.
 
-Per il flusso di lavoro di un'app Web di Azure, il file è costituito da tre sezioni:
+Per un flusso di lavoro del servizio app Azure, il file è costituito da tre sezioni:
 
 |Sezione  |Attività  |
 |---------|---------|
 |**Autenticazione** | 1. definire un'entità servizio <br /> 2. creare un segreto GitHub |
 |**Build** | 1. configurare l'ambiente <br /> 2. compilare l'app Web |
-|**Distribuzione** | 1. distribuire l'app Web |
+|**Distribuire** | 1. distribuire l'app Web |
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-È possibile creare un' [entità servizio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) usando il comando [AZ ad SP create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) nell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/). È possibile eseguire questo comando usando [Azure cloud Shell](https://shell.azure.com/) nel portale di Azure o selezionando il pulsante **prova** .
+È possibile creare un' [entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) usando il comando [AZ ad SP create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) nell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/). È possibile eseguire questo comando usando [Azure cloud Shell](https://shell.azure.com/) nel portale di Azure o selezionando il pulsante **prova** .
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
+az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> --sdk-auth
 ```
 
-In questo esempio, sostituire i segnaposto nella risorsa con l'ID sottoscrizione, il gruppo di risorse e il nome dell'app Web. L'output corrisponde alle credenziali di assegnazione di ruolo che consentono di accedere all'app Web. Copiare questo oggetto JSON, che è possibile usare per eseguire l'autenticazione da GitHub.
+In questo esempio, sostituire i segnaposto nella risorsa con l'ID sottoscrizione, il nome del gruppo di risorse e il nome dell'app. L'output è costituito dalle credenziali di assegnazione di ruolo che consentono l'accesso all'app del servizio app. Copiare questo oggetto JSON, che è possibile usare per eseguire l'autenticazione da GitHub.
 
 > [!NOTE]
 > Non è necessario creare un'entità servizio se si decide di usare il profilo di pubblicazione per l'autenticazione.
 
 > [!IMPORTANT]
-> È sempre consigliabile concedere l'accesso minimo. Questo è il motivo per cui l'ambito nell'esempio precedente è limitato all'app Web specifica e non all'intero gruppo di risorse.
+> È sempre consigliabile concedere l'accesso minimo. Questo è il motivo per cui l'ambito nell'esempio precedente è limitato all'app del servizio app specifica e non all'intero gruppo di risorse.
 
 ## <a name="configure-the-github-secret"></a>Configurare il segreto di GitHub
 
 È anche possibile usare le credenziali a livello di app, ad esempio il profilo di pubblicazione per la distribuzione. Seguire i passaggi per configurare il segreto:
 
-1. Scaricare il profilo di pubblicazione per l'app Web dal portale usando l'opzione **Ottieni profilo di pubblicazione** .
+1. Scaricare il profilo di pubblicazione per l'app del servizio app dal portale usando l'opzione **Ottieni profilo di pubblicazione** .
 
 2. In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto**
 
@@ -80,7 +78,7 @@ In questo esempio, sostituire i segnaposto nella risorsa con l'ID sottoscrizione
 
     ![chiavi private](media/app-service-github-actions/app-service-secrets.png)
 
-## <a name="setup-the-environment"></a>Configurare l'ambiente
+## <a name="set-up-the-environment"></a>Configurare l'ambiente
 
 La configurazione dell'ambiente può essere eseguita utilizzando una delle azioni di installazione.
 
@@ -132,7 +130,7 @@ Negli esempi seguenti viene illustrata la parte del flusso di lavoro che configu
 
 ## <a name="build-the-web-app"></a>Compilare l'app Web
 
-Questo dipende dalla lingua e dalle lingue supportate dalle app Web di Azure. questa sezione deve essere la procedura standard di compilazione di ogni linguaggio.
+Ciò dipende dalla lingua e dalle lingue supportate dal servizio app Azure, questa sezione deve essere la procedura di compilazione standard di ogni lingua.
 
 Gli esempi seguenti illustrano la parte del flusso di lavoro che compila l'app Web, nei vari linguaggi supportati.
 
@@ -189,20 +187,20 @@ Gli esempi seguenti illustrano la parte del flusso di lavoro che compila l'app W
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 ```
-## <a name="deploy-the-web-app"></a>Distribuire l'app Web
+## <a name="deploy-to-app-service"></a>Eseguire la distribuzione nel servizio app
 
-Per distribuire il codice in un'app Web, sarà necessario usare l'azione `Azure/appservice-actions/webapp@master`. Questa azione ha 4 parametri:
+Per distribuire il codice in un'app del servizio app, usare l'azione `azure/webapps-deploy@v1 `. Questa azione ha quattro parametri:
 
 | **Parametro**  | **Spiegazione**  |
 |---------|---------|
-| **Nome app** | Necessaria Nome dell'app Web di Azure | 
+| **Nome app** | Necessaria Nome dell'app del servizio app | 
 | **pubblica-profilo** | Opzionale Pubblicare il contenuto del file di profilo con Distribuzione Web Secrets |
 | **package** | Opzionale Percorso del pacchetto o della cartella. *. zip, *. War, *. jar o una cartella da distribuire |
 | **nome slot** | Opzionale Immettere uno slot esistente diverso dallo slot di produzione |
 
 ### <a name="deploy-using-publish-profile"></a>Eseguire la distribuzione usando il profilo di pubblicazione
 
-Di seguito è riportato il flusso di lavoro di esempio per compilare e distribuire un'app Web Node. js in Azure usando il profilo di pubblicazione.
+Di seguito è riportato il flusso di lavoro di esempio per compilare e distribuire un'app node. js in Azure usando il profilo di pubblicazione.
 
 ```yaml
 # File: .github/workflows/workflow.yml
@@ -236,7 +234,7 @@ jobs:
 
 ### <a name="deploy-using-azure-service-principal"></a>Eseguire la distribuzione usando l'entità servizio di Azure
 
-Di seguito è riportato il flusso di lavoro di esempio per compilare e distribuire un'app Web Node. js in Azure usando l'entità servizio di Azure.
+Di seguito è riportato il flusso di lavoro di esempio per compilare e distribuire un'app node. js in Azure usando un'entità servizio di Azure.
 
 ```yaml
 on: [push]
@@ -281,7 +279,9 @@ jobs:
 
 È possibile trovare il set di azioni raggruppate in repository diversi su GitHub, ognuno dei quali contiene documentazione ed esempi che consentono di usare GitHub per CI/CD e distribuire le app in Azure.
 
-- [Accesso ad Azure](https://github.com/Azure/actions)
+- [Flusso di lavoro azioni da distribuire in Azure](https://github.com/Azure/actions-workflow-samples)
+
+- [Accesso ad Azure](https://github.com/Azure/login)
 
 - [Azure WebApp](https://github.com/Azure/webapps-deploy)
 
