@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 06ab1783a6e0f4884ab46d3f00a26c47f28d02b0
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 410b945f1a9a8d659f55668e272e2d9d08482bde
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596907"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601753"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Ripristino di emergenza a livello di area per cluster di Azure Databricks
 
@@ -47,7 +47,7 @@ Per creare una topologia di ripristino di emergenza a livello di area, rispettar
 
    Questo articolo mostra alcuni esempi di codice che usano l'interfaccia della riga di comando per la maggior parte dei passaggi automatizzati, poiché è un wrapper di semplice utilizzo applicato all'API REST di Azure Databricks.
 
-   Prima di eseguire i passaggi di migrazione, installare databricks-cli nel computer desktop o in una macchina virtuale in cui si prevede di eseguire il lavoro. Per altre informazioni, vedere [Install Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html) (Installare l'interfaccia della riga di comando di Databricks).
+   Prima di eseguire i passaggi di migrazione, installare databricks-cli nel computer desktop o in una macchina virtuale in cui si prevede di eseguire il lavoro. Per altre informazioni, vedere [Install Databricks CLI](/azure/databricks/dev-tools/databricks-cli) (Installare l'interfaccia della riga di comando di Databricks).
 
    ```bash
    pip install databricks-cli
@@ -90,7 +90,7 @@ Per creare una topologia di ripristino di emergenza a livello di area, rispettar
    > [!NOTE]
    > Le librerie non vengono copiate in questo passaggio poiché non sono supportate dall'API sottostante.
 
-   Copiare e salvare lo script python seguente in un file ed eseguirlo nella riga di comando di Databricks. Ad esempio `python scriptname.py`.
+   Copiare e salvare lo script python seguente in un file ed eseguirlo nella riga di comando di Databricks. Ad esempio, `python scriptname.py`.
 
    ```python
    from subprocess import call, check_output
@@ -133,7 +133,7 @@ Per creare una topologia di ripristino di emergenza a livello di area, rispettar
 
    Lo script seguente restituisce un mapping degli ID di cluster esistenti con quelli nuovi, che può essere usato per eseguire la migrazione dei processi in un secondo momento (per i processi configurati per l'uso di cluster esistenti).
 
-   Copiare e salvare lo script python seguente in un file ed eseguirlo nella riga di comando di Databricks. Ad esempio `python scriptname.py`.
+   Copiare e salvare lo script python seguente in un file ed eseguirlo nella riga di comando di Databricks. Ad esempio, `python scriptname.py`.
 
    ```python
    from subprocess import call, check_output
@@ -286,7 +286,7 @@ Per creare una topologia di ripristino di emergenza a livello di area, rispettar
 
 8. **Eseguire la migrazione di archiviazione BLOB di Azure e Azure Data Lake Storage montaggi**
 
-   Rimontare manualmente tutti i punti di montaggio di [archiviazione BLOB di Azure](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) e [Azure Data Lake Storage (gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) usando una soluzione basata su notebook. Se le risorse di archiviazione sono state montate nell'area di lavoro primaria, questa operazione deve essere ripetuta nell'area di lavoro secondaria. Non è disponibile alcuna API esterna per le operazioni di montaggio.
+   Rimontare manualmente tutti i punti di montaggio di [archiviazione BLOB di Azure](/azure/databricks/data/data-sources/azure/azure-storage.html) e [Azure Data Lake Storage (gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html) usando una soluzione basata su notebook. Se le risorse di archiviazione sono state montate nell'area di lavoro primaria, questa operazione deve essere ripetuta nell'area di lavoro secondaria. Non è disponibile alcuna API esterna per le operazioni di montaggio.
 
 9. **Eseguire la migrazione degli script di inizializzazione dei cluster**
 
@@ -302,7 +302,7 @@ Per creare una topologia di ripristino di emergenza a livello di area, rispettar
 
 10. **Riconfigurare e riapplicare manualmente il controllo di accesso**
 
-    Se l'area di lavoro primaria esistente è configurata per l'uso del livello Premium (SKU), è probabile che si usi anche la [funzionalità Controllo di accesso](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
+    Se l'area di lavoro primaria esistente è configurata per l'uso del livello Premium (SKU), è probabile che si usi anche la [funzionalità Controllo di accesso](/azure/databricks/administration-guide/access-control/index).
 
     In tal caso, riapplicare manualmente il controllo di accesso alle risorse (notebook, cluster, processi, tabelle).
 
@@ -312,4 +312,4 @@ Se si usano altri servizi di Azure, assicurarsi di implementare anche le procedu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere la [documentazione su Azure Databricks](https://docs.azuredatabricks.net/user-guide/index.html).
+Per altre informazioni, vedere la [documentazione su Azure Databricks](index.yml).

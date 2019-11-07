@@ -1,5 +1,5 @@
 ---
-title: Distribuire una macchina virtuale Windows 7 in un desktop virtuale Windows-Azure
+title: Distribuire Windows 7 macchina virtuale desktop virtuale Windows-Azure
 description: Come configurare e distribuire una macchina virtuale Windows 7 su desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: helohr
-ms.openlocfilehash: 3a6fb67ce531ed8cc028d2d0a8dfc3022544efe0
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 90b871c2b75f7ed40c290231ef822258c6b4e6d4
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947577"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606877"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Distribuire una macchina virtuale Windows 7 in Desktop virtuale Windows
 
@@ -35,7 +35,7 @@ Per configurare una macchina virtuale Windows 7 in un desktop virtuale Windows:
 5. Passare a Windows Update nella macchina virtuale.
 6. Installare tutti gli aggiornamenti di Windows nella categoria importante.
 7. Installare tutti gli aggiornamenti di Windows nella categoria facoltativa (esclusi i Language Pack). Viene installato l'aggiornamento di Remote Desktop Protocol 8,0 ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35393)) necessario per completare queste istruzioni.
-8. Aprire il Editor Criteri di gruppo locali e passare a **Configurazione Computer** > **modelli amministrativi** > **componenti Windows** > **Servizi Desktop remoto** > **host sessione Desktop remoto** **ambiente sessione remota** > .
+8. Aprire il Editor Criteri di gruppo locali e passare a **Configurazione Computer** > **modelli amministrativi** > **componenti** di Windows ** > Servizi Desktop remoto > host sessione Desktop remoto** > **ambiente di sessione remota**.
 9. Abilitare i criteri Remote Desktop Protocol 8,0.
 10. Riavviare la macchina virtuale eseguendo il comando seguente:
     

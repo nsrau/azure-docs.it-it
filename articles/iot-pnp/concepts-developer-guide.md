@@ -7,12 +7,12 @@ ms.date: 07/05/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6d5247454fe65e5539a2401330192f1db9a65114
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6d8e0e9e675b88c69b74cdad261280f5dcaf7161
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880566"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581620"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>Guida per gli sviluppatori di modelli di anteprima Plug and Play
 
@@ -20,7 +20,7 @@ Il Plug and Play anteprima consente di creare dispositivi che annunciano le prop
 
 Per creare un dispositivo Plug and Play, è necessario creare una descrizione del dispositivo. La descrizione viene eseguita con un linguaggio di definizione semplice denominato Digital Gemini Definition Language (DTDL).
 
-## <a name="device-capability-model"></a>Modello di funzionalità del dispositivo
+## <a name="device-capability-model"></a>Modello di funzionalità di dispositivo
 
 Con DTDL è possibile creare un _modello di funzionalità del dispositivo_ per descrivere le parti del dispositivo. Un dispositivo molto comune è costituito da:
 
@@ -51,25 +51,25 @@ L'esempio seguente mostra il modello di funzionalità del dispositivo per un dis
 
 Un modello di funzionalità include alcuni campi obbligatori:
 
-- `@id`: ID univoco sotto forma di un semplice nome di risorsa uniforme.
+- `@id`: un ID univoco sotto forma di un semplice nome di risorsa uniforme.
 - `@type`: dichiara che questo oggetto è un modello di funzionalità.
 - `@context`: specifica la versione di DTDL usata per il modello di funzionalità.
 - `implements`: elenca le interfacce implementate dal dispositivo.
 
 Ogni voce dell'elenco di interfacce nella sezione Implements include:
 
-- `name`: nome di programmazione dell'interfaccia.
+- `name`: il nome di programmazione dell'interfaccia.
 - `schema`: interfaccia implementata dal modello di funzionalità.
 
 Sono disponibili ulteriori campi facoltativi che è possibile utilizzare per aggiungere ulteriori dettagli al modello di funzionalità, ad esempio il nome visualizzato e la descrizione. Le interfacce dichiarate all'interno di un modello di funzionalità possono essere considerate come componenti del dispositivo. Per l'anteprima pubblica, è possibile che l'elenco di interfacce includa una sola voce per schema.
 
 ## <a name="interface"></a>Interfaccia
 
-Con DTDL è possibile descrivere le funzionalità del dispositivo usando le interfacce. Le interfacce descrivono le _Proprietà_, la telemetria e i _comandi_ che una parte del dispositivo implementa:
+Con DTDL è possibile descrivere le funzionalità del dispositivo usando le interfacce. Le interfacce descrivono le _Proprietà_, la _telemetria_e i _comandi_ che una parte del dispositivo implementa:
 
-- [https://login.microsoftonline.com/common/](`Properties`). Le proprietà sono campi dati che rappresentano lo stato del dispositivo. Usare le proprietà per rappresentare lo stato durevole del dispositivo, ad esempio lo stato di spegnimento di un pompa di raffreddamento. Le proprietà possono anche rappresentare le proprietà di base dei dispositivi, ad esempio la versione del firmware del dispositivo. È possibile dichiarare le proprietà in sola lettura o in scrittura.
+- `Properties`. Le proprietà sono campi dati che rappresentano lo stato del dispositivo. Usare le proprietà per rappresentare lo stato durevole del dispositivo, ad esempio lo stato di spegnimento di un pompa di raffreddamento. Le proprietà possono anche rappresentare le proprietà di base dei dispositivi, ad esempio la versione del firmware del dispositivo. È possibile dichiarare le proprietà in sola lettura o in scrittura.
 - `Telemetry`. I campi di telemetria rappresentano le misurazioni dai sensori. Ogni volta che il dispositivo acquisisce una misura del sensore, deve inviare un evento di telemetria contenente i dati del sensore.
-- [https://login.microsoftonline.com/consumers/](`Commands`). I comandi rappresentano i metodi che gli utenti del dispositivo possono eseguire sul dispositivo. Ad esempio, un comando reset o un comando per attivare o disattivare un ventilatore.
+- `Commands`. I comandi rappresentano i metodi che gli utenti del dispositivo possono eseguire sul dispositivo. Ad esempio, un comando reset o un comando per attivare o disattivare un ventilatore.
 
 Nell'esempio seguente viene illustrata l'interfaccia per un dispositivo termostato:
 
@@ -84,14 +84,14 @@ Nell'esempio seguente viene illustrata l'interfaccia per un dispositivo termosta
       "schema": "double"
     }
   ],
-  "@context": "http://azureiot.com/v1/contexts/Interface.json"
+  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
 }
 ```
 
 In un'interfaccia sono presenti alcuni campi obbligatori:
 
-- `@id`: ID univoco sotto forma di un semplice nome di risorsa uniforme.
-- `@type`: dichiara che questo oggetto è un'interfaccia.
+- `@id`: un ID univoco sotto forma di un semplice nome di risorsa uniforme.
+- `@type`: dichiara che l'oggetto è un'interfaccia.
 - `@context`: specifica la versione di DTDL usata per l'interfaccia.
 - `contents`: elenca le proprietà, la telemetria e i comandi che compongono il dispositivo.
 
@@ -103,7 +103,7 @@ In questo semplice esempio esiste un solo campo di telemetria. Una descrizione d
 
 Altri campi facoltativi, ad esempio nome visualizzato e descrizione, consentono di aggiungere ulteriori dettagli all'interfaccia e alle funzionalità.
 
-### <a name="properties"></a>Properties
+### <a name="properties"></a>Proprietà
 
 Per impostazione predefinita, le proprietà sono di sola lettura. Le proprietà di sola lettura indicano che il dispositivo segnala gli aggiornamenti del valore della proprietà all'hub. L'hub Internet delle cose non può impostare il valore di una proprietà di sola lettura.
 
@@ -111,7 +111,7 @@ Per impostazione predefinita, le proprietà sono di sola lettura. Le proprietà 
 
 Non è necessario che i dispositivi siano connessi per impostare i valori delle proprietà. I valori aggiornati vengono trasferiti quando il dispositivo si connette successivamente all'hub. Questo comportamento si applica sia alle proprietà di sola lettura che a quelle scrivibili.
 
-Non usare le proprietà per inviare dati di telemetria dal dispositivo. Una proprietà di sola lettura, ad `temperatureSetting=80` esempio, deve indicare che la temperatura del dispositivo è stata impostata su 80 e che il dispositivo sta provando a raggiungere o rimanere in corrispondenza della temperatura.
+Non usare le proprietà per inviare dati di telemetria dal dispositivo. Ad esempio, una proprietà di sola lettura, ad esempio `temperatureSetting=80`, deve indicare che la temperatura del dispositivo è stata impostata su 80 e che il dispositivo sta tentando di raggiungere o rimanere in questa temperatura.
 
 Per le proprietà scrivibili, l'applicazione del dispositivo restituisce un codice di stato desiderato, una versione e una descrizione per indicare se ha ricevuto e applicato il valore della proprietà.
 
@@ -127,10 +127,10 @@ I comandi sono sincroni o asincroni. Per impostazione predefinita, un comando si
 
 Usare i comandi asincroni per le operazioni a esecuzione prolungata. Il dispositivo invia le informazioni di stato usando i messaggi di telemetria. Questi messaggi di stato hanno le proprietà di intestazione seguenti:
 
-- `iothub-command-name`: nome del comando, ad esempio `UpdateFirmware`.
+- `iothub-command-name`: il nome del comando, ad esempio `UpdateFirmware`.
 - `iothub-command-request-id`: ID richiesta generato sul lato server e inviato al dispositivo nella chiamata iniziale.
-- `iothub-interface-id`:  ID dell'interfaccia su cui è definito questo comando, ad esempio `urn:example:AssetTracker:1`.
- `iothub-interface-name`: nome dell'istanza di questa interfaccia, ad esempio `myAssetTracker`.
+- `iothub-interface-id`: ID dell'interfaccia su cui è definito questo comando, ad esempio `urn:example:AssetTracker:1`.
+ `iothub-interface-name`: il nome dell'istanza di questa interfaccia, ad esempio `myAssetTracker`.
 - `iothub-command-statuscode`: codice di stato restituito dal dispositivo, ad esempio `202`.
 
 ## <a name="register-a-device"></a>Registrare un dispositivo
@@ -184,15 +184,15 @@ Internet delle cose Plug and Play consente di usare i dispositivi che hanno regi
 
 Per usare un Plug and Play dispositivo connesso all'hub Internet delle cose, usare l'API REST dell'hub Internet delle cose o uno degli SDK del linguaggio Internet delle cose. Gli esempi seguenti usano l'API REST dell'hub Internet.
 
-Per ottenere il valore di una proprietà del dispositivo, ad esempio la versione del`fwVersion`firmware () `DeviceInformation` nell'interfaccia del termostato, si usa l'API REST di Digital gemelli.
+Per ottenere il valore di una proprietà del dispositivo, ad esempio la versione del firmware (`fwVersion`) nell'interfaccia `DeviceInformation` nel termostato, si usa l'API REST Digital gemelli.
 
-Se il dispositivo termostato viene `t-123`chiamato, si ottengono tutte le proprietà implementate dal dispositivo con una chiamata Get dell'API REST:
+Se il dispositivo termostato è denominato `t-123`, si ottengono tutte le proprietà implementate dal dispositivo con una chiamata GET dell'API REST:
 
 ```REST
 GET /digitalTwins/t-123/interfaces
 ```
 
-Più in generale, si accede a tutte le proprietà con questo modello `{device-id}` API REST in cui è l'identificatore del dispositivo:
+Più in generale, si accede a tutte le proprietà con questo modello API REST in cui `{device-id}` è l'identificatore del dispositivo:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces
@@ -204,13 +204,13 @@ Se si conosce il nome dell'interfaccia e si desidera ottenere proprietà per l'i
 GET /digitalTwins/t-123/interfaces/info
 ```
 
-Più in generale, è possibile accedere alle proprietà di un'interfaccia specifica tramite questo modello API `device-id` Rest, dove è l'identificatore per `{interface-name}` il dispositivo e è il nome dell'interfaccia:
+Più in generale, è possibile accedere alle proprietà di un'interfaccia specifica tramite questo modello API REST, dove `device-id` è l'identificatore per il dispositivo e `{interface-name}` è il nome dell'interfaccia:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces/{interface-name}
 ```
 
-È possibile chiamare direttamente i comandi del dispositivo Plug and Play. Se l' `Thermostat` interfaccia `t-123` nel dispositivo ha un `restart` comando, è possibile chiamarla con una chiamata all'API REST:
+È possibile chiamare direttamente i comandi del dispositivo Plug and Play. Se l'interfaccia `Thermostat` nel dispositivo `t-123` dispone di un comando `restart`, è possibile chiamarla con una chiamata all'API REST:
 
 ```REST
 POST /digitalTwins/t-123/interfaces/thermostat/commands/restart
@@ -218,8 +218,8 @@ POST /digitalTwins/t-123/interfaces/thermostat/commands/restart
 
 Più in generale, i comandi possono essere chiamati tramite questo modello API REST:
 
-- `device-id`: identificatore per il dispositivo.
-- `interface-name`: nome dell'interfaccia dalla sezione Implements nel modello di funzionalità del dispositivo.
+- `device-id`: identificatore del dispositivo.
+- `interface-name`: il nome dell'interfaccia dalla sezione Implements nel modello di funzionalità del dispositivo.
 - `command-name`: nome del comando.
 
 ```REST

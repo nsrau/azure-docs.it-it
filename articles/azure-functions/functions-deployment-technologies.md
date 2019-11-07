@@ -1,21 +1,19 @@
 ---
 title: Tecnologie di distribuzione in funzioni di Azure | Microsoft Docs
 description: Informazioni sui diversi modi in cui è possibile distribuire il codice in funzioni di Azure.
-services: functions
-documentationcenter: .net
 author: ColbyTresness
-manager: dariac
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 4d32a652219d48a2cc101259ea6b76fbfa910821
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: ce8287626b390d6eac4a3461d928c24f515f4023
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674957"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576132"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologie di distribuzione in funzioni di Azure
 
@@ -31,7 +29,7 @@ Funzioni di Azure supporta lo sviluppo locale multipiattaforma e l'hosting in Wi
 
 Ogni piano ha comportamenti diversi. Non tutte le tecnologie di distribuzione sono disponibili per ogni versione di funzioni di Azure. Nel grafico seguente vengono illustrate le tecnologie di distribuzione supportate per ogni combinazione di sistema operativo e piano di hosting:
 
-| Tecnologia di distribuzione | Utilizzo di Windows | Windows Premium (anteprima) | Windows dedicato  | Consumo Linux | Linux Premium (anteprima) | Linux dedicato |
+| Tecnologia di distribuzione | Utilizzo di Windows | Windows Premium | Windows dedicato  | Consumo Linux | Linux Premium | Linux dedicato |
 |-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
 | URL pacchetto esterno<sup>1</sup> |✔|✔|✔|✔|✔|✔|
 | Distribuzione zip |✔|✔|✔|✔|✔|✔|
@@ -86,7 +84,7 @@ Quando le app vengono compilate in remoto in Linux, vengono [eseguite dal pacche
 
 Le app per le funzioni di Linux in esecuzione nel piano a consumo non dispongono di un sito SCM/Kudu, che limita le opzioni di distribuzione. Tuttavia, le app per le funzioni in Linux in esecuzione nel piano a consumo supportano le compilazioni remote.
 
-##### <a name="dedicated-and-premium-preview-plans"></a>Piani dedicati e Premium (anteprima)
+##### <a name="dedicated-and-premium-plans"></a>Piani dedicati e Premium
 
 Le app per le funzioni in esecuzione in Linux nel [piano dedicato (servizio app)](functions-scale.md#app-service-plan) e nel [piano Premium](functions-scale.md#premium-plan) hanno anche un sito SCM/Kudu limitato.
 
@@ -183,13 +181,13 @@ Nell'editor basato su portale è possibile modificare direttamente i file presen
 
 Nella tabella seguente sono illustrati i sistemi operativi e i linguaggi che supportano la modifica del portale:
 
-| | Utilizzo di Windows | Windows Premium (anteprima) | Windows dedicato | Consumo Linux | Linux Premium (anteprima)| Linux dedicato |
-|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
+| | Utilizzo di Windows | Windows Premium | Windows dedicato | Consumo Linux | Linux Premium | Linux dedicato |
+|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
-| Script C# |✔|✔|✔| |✔<sup> \*</sup> |✔<sup> \*</sup>|
+| Script C# |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
 | F# | | | | | | |
 | Java | | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔<sup> \*</sup>|✔<sup> \*</sup>|
+| JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
 | Python (anteprima) | | | | | | |
 | PowerShell (anteprima) |✔|✔|✔| | | |
 | TypeScript (node. js) | | | | | | |

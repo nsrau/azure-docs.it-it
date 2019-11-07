@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 1bbfd2a64de0b42da19d0a978874d564f1755c59
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 2dea1c160b07ac08075dad3a1ca1f6fc753e3481
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387622"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622659"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Linee guida per le richieste limitate in Azure Resource Graph
 
@@ -184,7 +184,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 }
 ```
 
-## <a name="pagination"></a>Impaginazione
+## <a name="pagination"></a>Paginazione
 
 Poiché il grafico risorse di Azure restituisce al massimo 1000 voci in una singola risposta di query, potrebbe essere necessario [impaginare](./work-with-data.md#paging-results) le query per ottenere il set di dati completo che si sta cercando. Tuttavia, alcuni client di Azure Resource Graph gestiscono l'impaginazione in modo diverso rispetto ad altri.
 
@@ -227,7 +227,7 @@ Poiché il grafico risorse di Azure restituisce al massimo 1000 voci in una sing
 
 ## <a name="still-get-throttled"></a>È ancora stato limitato?
 
-Se viene applicata la limitazione dopo aver eseguito i consigli indicati in precedenza, contattare il team al [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com).
+Se viene applicata la limitazione dopo aver eseguito le raccomandazioni precedenti, contattare il team all' [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com).
 
 Specificare i dettagli seguenti:
 
@@ -240,4 +240,4 @@ Specificare i dettagli seguenti:
 
 - Vedere il linguaggio in uso nelle [query Starter](../samples/starter.md).
 - Vedere uso avanzato nelle [query avanzate](../samples/advanced.md).
-- Scopri come [esplorare le risorse](explore-resources.md).
+- Altre informazioni su come [esplorare le risorse](explore-resources.md).

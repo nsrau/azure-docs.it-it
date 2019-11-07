@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: helohr
-ms.openlocfilehash: 764ed4fefd1a3aba1f0b7812fa2965505aa34161
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: bfc7efa6e8ead3b53704e3c9bd189b18cb787618
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338696"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605843"
 ---
 # <a name="connect-with-the-ios-client"></a>Connettersi con il client iOS
 
@@ -28,7 +28,7 @@ Per installare il client iOS Beta:
 
 1. Installare l'app [Apple TestFlight](https://apps.apple.com/us/app/testflight/id899247664) nel dispositivo iOS.
 2. Sul dispositivo iOS aprire un browser e passare a [aka.ms/rdiosbeta](https://aka.ms/rdiosbeta).
-3. Nell'etichetta **passaggio 2: Aggiungere la versione**beta e selezionare **Avvia test**.
+3. Nell'etichetta **passaggio 2: partecipare alla beta**selezionare **Avvia test**.
 4. Quando si viene reindirizzati all'app TestFlight, selezionare **accetta**, quindi selezionare **Installa**.
 
 ## <a name="subscribe-to-a-feed"></a>Sottoscrivere un feed
@@ -37,9 +37,9 @@ Sottoscrivere il feed fornito dall'amministratore per ottenere l'elenco delle ri
 
 Per sottoscrivere un feed:
 
-1. Nel Centro connessioni toccare **+** , quindi toccare **Aggiungi area di lavoro**.
+1. Nel Centro connessioni toccare **+** e quindi toccare **Aggiungi area di lavoro**.
 2. Immettere l'URL del feed nel campo **feed URL** . L'URL del feed può essere un URL o un indirizzo di posta elettronica.
-   - Se si usa un URL, usare quello che l'amministratore ha assegnato. In genere, l'URL <https://rdweb.wvd.microsoft.com>è.
+   - Se si usa un URL, usare quello che l'amministratore ha assegnato. L'URL viene in genere <https://rdweb.wvd.microsoft.com>.
    - Per usare la posta elettronica, immettere l'indirizzo di posta elettronica. Indica al client di cercare un URL associato all'indirizzo di posta elettronica se l'amministratore ha configurato il server in modo.
 3. Toccare **Avanti**.
 4. Specificare le credenziali quando richiesto.

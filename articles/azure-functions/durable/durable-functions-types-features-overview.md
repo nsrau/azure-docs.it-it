@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7b395bd6024beb52b9263ac4fe655b5328a8e662
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 555b4d95358978e84e14e8a2e8b3d1c9cb2efc18
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "70933146"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614608"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Tipi e funzionalità di Durable Functions (funzioni di Azure)
 
@@ -24,7 +24,7 @@ In funzioni di Azure sono attualmente disponibili quattro tipi di funzioni perma
 
 ## <a name="orchestrator-functions"></a>Funzioni dell'agente di orchestrazione
 
-Le funzioni dell'agente di orchestrazione descrivono come vengono eseguite le azioni e l'ordine in cui vengono eseguite le azioni. Le funzioni dell'agente di orchestrazione descrivono l'orchestrazione nel codice (C# o JavaScript), come illustrato in [Durable Functions modelli di applicazione](durable-functions-overview.md#application-patterns). Un'orchestrazione può avere molti tipi diversi di azioni, incluse le [funzioni di attività](#activity-functions), le [sottoorchestrazioni](durable-functions-orchestrations.md#sub-orchestrations), l' [attesa di eventi esterni](durable-functions-orchestrations.md#external-events), [http](durable-functions-orchestrations.md#calling-http-endpoints)e [timer](durable-functions-orchestrations.md#durable-timers). Le funzioni dell'agente di orchestrazione possono interagire anche con le [funzioni dell'entità](#entity-functions).
+Le funzioni dell'agente di orchestrazione descrivono come vengono eseguite le azioni e l'ordine in cui vengono eseguite le azioni. Le funzioni dell'agente di orchestrazione descrivono l'orchestrazione nel codice (C# o JavaScript), come illustrato in [Durable Functions modelli di applicazione](durable-functions-overview.md#application-patterns). Un'orchestrazione può avere molti tipi diversi di azioni, incluse le [funzioni di attività](#activity-functions), le [sottoorchestrazioni](durable-functions-orchestrations.md#sub-orchestrations), l' [attesa di eventi esterni](durable-functions-orchestrations.md#external-events), [http](durable-functions-http-features.md)e [timer](durable-functions-orchestrations.md#durable-timers). Le funzioni dell'agente di orchestrazione possono interagire anche con le [funzioni dell'entità](#entity-functions).
 
 > [!NOTE]
 > Le funzioni dell'agente di orchestrazione vengono scritte utilizzando codice ordinario, ma esistono requisiti severi per la scrittura del codice. In particolare, il codice della funzione di orchestrazione deve essere *deterministico*. Il mancato completamento di questi requisiti di determinismo può causare un errore di esecuzione delle funzioni dell'agente di orchestrazione. Per informazioni dettagliate su questi requisiti e su come risolverli, vedere l'argomento [vincoli di codice](durable-functions-code-constraints.md) .
@@ -40,7 +40,7 @@ Diversamente dalle funzioni dell'agente di orchestrazione, le funzioni di attivi
 > [!NOTE]
 > Poiché le funzioni di attività garantiscono solo l'esecuzione *almeno una volta* , è consigliabile rendere la logica della funzione di attività *idempotente* quando possibile.
 
-Usare un [trigger di attività](durable-functions-bindings.md#activity-trigger) per definire una funzione di attività. Le funzioni .NET ricevono un [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) come parametro. È anche possibile associare il trigger a qualsiasi altro oggetto serializzabile in JSON per passare gli input alla funzione. In JavaScript è possibile accedere a un input tramite la proprietà `<activity trigger binding name>` nell' [oggetto `context.bindings`](../functions-reference-node.md#bindings). Alle funzioni di attività può essere passato un solo valore. Per passare più valori, è necessario utilizzare tuple, matrici o tipi complessi.
+Usare un [trigger di attività](durable-functions-bindings.md#activity-trigger) per definire una funzione di attività. Le funzioni .NET ricevono un `DurableActivityContext` come parametro. È anche possibile associare il trigger a qualsiasi altro oggetto serializzabile in JSON per passare gli input alla funzione. In JavaScript è possibile accedere a un input tramite la proprietà `<activity trigger binding name>` nell' [oggetto`context.bindings`](../functions-reference-node.md#bindings). Alle funzioni di attività può essere passato un solo valore. Per passare più valori, è necessario utilizzare tuple, matrici o tipi complessi.
 
 > [!NOTE]
 > È possibile attivare una funzione di attività solo da una funzione dell'agente di orchestrazione.
@@ -50,7 +50,7 @@ Usare un [trigger di attività](durable-functions-bindings.md#activity-trigger) 
 Le funzioni di entità definiscono le operazioni per la lettura e l'aggiornamento di piccole parti di stato. Spesso si fa riferimento a queste entità con stato come *entità durevoli*. Come le funzioni dell'agente di orchestrazione, le funzioni di entità sono funzioni con un tipo di trigger speciale, il *trigger di entità*. Possono anche essere richiamate dalle funzioni client o dalle funzioni dell'agente di orchestrazione. Diversamente dalle funzioni dell'agente di orchestrazione, le funzioni di entità non hanno vincoli di codice specifici. Le funzioni di entità, inoltre, gestiscono lo stato in modo esplicito anziché in modo implicito, rappresentandolo tramite flusso di controllo.
 
 > [!NOTE]
-> Le funzioni di entità e le funzionalità correlate sono disponibili solo in Durable Functions 2.0 e versioni successive. Le funzioni di entità sono attualmente disponibili in versione di anteprima pubblica.
+> Le funzioni di entità e le funzionalità correlate sono disponibili solo in Durable Functions 2.0 e versioni successive.
 
 Per altre informazioni sulle funzioni di entità, vedere l'articolo sulle [entità durevoli](durable-functions-entities.md) .
 

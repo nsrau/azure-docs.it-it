@@ -1,7 +1,7 @@
 ---
 title: Miglioramento del classificatore - Servizio visione artificiale personalizzato
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come migliorare la qualità del classificatore.
+description: In questo articolo si apprenderà come la quantità, la qualità e la varietà di dati possono migliorare la qualità del classificatore nel servizio Visione personalizzata.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: d71c750185589fd488df70b63fd48e9e674ee3dc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c2858d5f9bca662cbbcd48b2345a7dc2c7ae48b2
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561053"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718538"
 ---
 # <a name="how-to-improve-your-classifier"></a>Come migliorare il classificatore
 
@@ -53,15 +53,15 @@ Assicurarsi di usare immagini rappresentative di ciò che verrà inviato al clas
 
 Per risolvere questo problema, includere un'ampia gamma di immagini per garantire che il classificatore possa generalizzare al meglio. Di seguito sono illustrati alcuni modi in cui è possibile diversificare il set di training:
 
-* __Contesto__: specificare le immagini dell'oggetto davanti a diversi colori di sfondo. Le foto in contesti naturali sono migliori delle foto con sfondi neutri in quanto forniscono informazioni aggiuntive al classificatore.
+* __Sfondo:__ Fornire immagini dell'oggetto davanti a diversi sfondi. Le foto in contesti naturali sono migliori delle foto con sfondi neutri in quanto forniscono informazioni aggiuntive al classificatore.
 
     ![Immagine di esempi di sfondo](./media/getting-started-improving-your-classifier/background.png)
 
-* __Illuminazione:__ fornire immagini con diversi tipi di illuminazione, ad esempio eseguite con flash, con un'esposizione alta e così via, soprattutto se le immagini usate per la stima hanno illuminazioni diverse. È inoltre utile usare immagini con saturazione, tonalità e luminosità variabili.
+* __Illuminazione:__ Fornire immagini con illuminazione variegata (ovvero, con Flash, esposizione elevata e così via), soprattutto se le immagini utilizzate per la stima hanno un'illuminazione diversa. È inoltre utile usare immagini con saturazione, tonalità e luminosità variabili.
 
     ![Immagine di esempi di illuminazione](./media/getting-started-improving-your-classifier/lighting.png)
 
-* __Dimensioni dell'oggetto:__ fornire immagini in cui gli oggetti variano per dimensione e numero (ad esempio, la foto di un casco di banane e il primo piano di una banana singola). Le diverse dimensioni consentono una migliore generalizzazione da parte del classificatore.
+* __Dimensioni oggetto:__ Fornire le immagini in cui gli oggetti variano a seconda delle dimensioni e del numero (ad esempio, una foto di grappoli di banane e un primo piano di una singola Banana). Le diverse dimensioni consentono una migliore generalizzazione da parte del classificatore.
 
     ![Immagine di esempi di dimensioni](./media/getting-started-improving-your-classifier/size.png)
 
@@ -69,7 +69,7 @@ Per risolvere questo problema, includere un'ampia gamma di immagini per garantir
 
     ![Immagine di esempi di angolazione](./media/getting-started-improving-your-classifier/angle.png)
 
-* __Stile:__ Specificare le immagini di stili diversi della stessa classe (ad esempio, diverse varietà degli stessi frutti). Tuttavia, se si dispone di oggetti con stili drasticamente diversi (ad esempio, un'immagine di Mickey Mouse rispetto a un topo vero), è consigliabile etichettarle come classi separate in modo da rappresentare meglio le caratteristiche distinte.
+* __Stile:__ Fornire immagini di stili diversi della stessa classe (ad esempio, diverse varietà dello stesso frutto). Tuttavia, se si dispone di oggetti con stili drasticamente diversi (ad esempio, un'immagine di Mickey Mouse rispetto a un topo vero), è consigliabile etichettarle come classi separate in modo da rappresentare meglio le caratteristiche distinte.
 
     ![Immagine di esempi di stile](./media/getting-started-improving-your-classifier/style.png)
 
@@ -86,7 +86,7 @@ A un certo punto del progetto, potrebbe essere necessario aggiungere _esempi neg
 
 Quando si usa o si testa il classificatore di immagini tramite l'invio di immagini per l'endpoint di stima, il servizio Visione personalizzata archivia le immagini. È quindi possibile usarle per migliorare il modello.
 
-1. Per visualizzare le immagini inviate al classificatore aprire la [pagina Web di Visione personalizzata](https://customvision.ai), andare al progetto e selezionare la scheda __Predictions__ (Stime). La visualizzazione predefinita mostra le immagini dall'iterazione corrente. È possibile usare il menu a discesa __Iteration__ (Iterazione) per visualizzare le immagini inviate durante le iterazioni precedenti.
+1. Per visualizzare le immagini inviate al classificatore, aprire la [pagina web visione personalizzata](https://customvision.ai), passare al progetto e selezionare la scheda __stime__ . La visualizzazione predefinita mostra le immagini dell'iterazione corrente. È possibile usare il menu a discesa __Iteration__ (Iterazione) per visualizzare le immagini inviate durante le iterazioni precedenti.
 
     ![Screenshot della scheda delle stime con immagini in vista](./media/getting-started-improving-your-classifier/predictions.png)
 

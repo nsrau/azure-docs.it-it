@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 798f95281740213ac23892eb3b54ff780ca18395
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 411b4bb74c21a445f4001c949e1c7811af212453
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772339"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606445"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configurare le regole e le tabelle del firewall per i cloud privati
 
@@ -33,6 +33,9 @@ Le tabelle del firewall e le regole associate consentono di specificare restrizi
 4. Immettere un nome per la tabella.
 5. Viene elencata una regola predefinita per la tabella. Fare clic su **Crea nuova regola** per creare una regola aggiuntiva. Per informazioni dettagliate, vedere la procedura riportata di seguito.
 6. Fare clic su **fine** per salvare la tabella del firewall.
+
+> [!IMPORTANT]
+> È possibile creare fino a due tabelle del firewall per ogni cloud privato.
 
 ## <a name="firewall-rules"></a>Regole del firewall
 
@@ -62,12 +65,15 @@ Le regole del firewall determinano il modo in cui il firewall tratta tipi specif
 
 3. Fare clic su **fine** per salvare la regola e aggiungerla all'elenco di regole per la tabella del firewall.
 
+> [!IMPORTANT]
+> Ogni tabella del firewall può avere fino a 10 regole in ingresso e 20 regole in uscita. Questi limiti possono essere aumentati [contattando il supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 ## <a name="attach-vlanssubnets"></a>Connetti VLAN/subnet
 
 Dopo aver definito una tabella del firewall, è possibile specificare le subnet soggette alle regole della tabella.
 
-1. Nella pagina**tabelle del firewall** di **rete** > selezionare una tabella del firewall.
+1. Nella pagina **Network** > **Firewall Tables** Selezionare una tabella del firewall.
 2. Aprire la scheda **VLAN/subnet collegata** .
 3. Fare clic su **Connetti a una VLAN/subnet**.
 4. Selezionare il cloud privato e la VLAN. Vengono visualizzati il nome della subnet e il blocco CIDR associati.
-5. Fare clic su **Invia**.
+5. Fare clic su **Submit**.

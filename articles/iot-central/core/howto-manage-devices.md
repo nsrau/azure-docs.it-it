@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c3d07c95592c1c43a070afbbf5091693ce0a6611
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: adcaa29ed894f2d61871f467369bcdd05f8cc593
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950353"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601610"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gestire i dispositivi nell'applicazione Azure IoT Central
 
@@ -21,7 +21,7 @@ ms.locfileid: "72950353"
 
 L'articolo illustra come un operatore può gestire i dispositivi nell'applicazione Azure IoT Central. Un operatore può:
 
-- Usare la pagina **Device Explorer** per visualizzare, aggiungere ed eliminare dispositivi connessi all'applicazione Azure IoT Central.
+- Usare la pagina **dispositivi** per visualizzare, aggiungere ed eliminare i dispositivi connessi all'applicazione IoT Central di Azure.
 - Mantenere aggiornato un inventario di dispositivi.
 - Mantenere aggiornati i metadati dei dispositivi modificando i valori archiviati nelle proprietà dei dispositivi.
 - Controllare il comportamento dei dispositivi mediante l'aggiornamento di un'impostazione per un dispositivo specifico nella pagina **Settings** (Impostazioni).
@@ -30,11 +30,11 @@ L'articolo illustra come un operatore può gestire i dispositivi nell'applicazio
 
 Per visualizzare un singolo dispositivo:
 
-1. Scegliere **Device Explorer** nel riquadro sinistro. Verrà visualizzato un elenco di [modelli di dispositivo](howto-set-up-template.md).
+1. Scegliere **dispositivi** nel riquadro sinistro. Verrà visualizzato un elenco di [modelli di dispositivo](howto-set-up-template.md).
 
 1. Scegliere un modello di dispositivo dall'elenco **Modelli**.
 
-1. Nel riquadro di destra della pagina **Device Explorer** verrà visualizzato un elenco di dispositivi creati a partire da tale modello di dispositivo. Scegliere un singolo dispositivo per visualizzare la pagina dei dettagli dispositivo per questo dispositivo:
+1. Nel riquadro di destra della pagina **dispositivi** viene visualizzato un elenco di dispositivi creati da tale modello di dispositivo. Scegliere un singolo dispositivo per visualizzare la pagina dei dettagli dispositivo per questo dispositivo:
 
     ![Pagina dei dettagli dispositivo](./media/howto-manage-devices/devicelist.png)
 
@@ -42,7 +42,7 @@ Per visualizzare un singolo dispositivo:
 
 Per aggiungere un dispositivo all'applicazione Azure IoT Central:
 
-1. Scegliere **Device Explorer** nel riquadro sinistro.
+1. Scegliere **dispositivi** nel riquadro sinistro.
 
 1. Scegliere il modello di dispositivo da cui si vuole creare un dispositivo.
 
@@ -59,7 +59,7 @@ Per connettere un numero elevato di dispositivi all'applicazione, è possibile i
 
 Per registrare in blocco i dispositivi nell'applicazione:
 
-1. Scegliere **Device Explorer** nel riquadro sinistro.
+1. Scegliere **dispositivi** nel riquadro sinistro.
 
 1. Nel riquadro di sinistra scegliere il modello di dispositivo per il quale si vuole creare in blocco i dispositivi.
 
@@ -84,7 +84,7 @@ Se l'importazione di dispositivi ha esito negativo, verrà visualizzato un messa
 
 Se si registrano i dispositivi avviando l'importazione sotto **Dispositivi non associati**, i dispositivi vengono creati senza l'associazione di modelli dispositivo. I dispositivi devono essere associati a un modello per esplorare i dati e altri dettagli relativi al dispositivo. Per associare i dispositivi a un modello attenersi a questa procedura:
 
-1. Scegliere **Device Explorer** nel riquadro sinistro.
+1. Scegliere **dispositivi** nel riquadro sinistro.
 
 1. Nel pannello di sinistra scegliere **Dispositivi non associati**:
 
@@ -109,13 +109,13 @@ Per connettere un dispositivo reale a IoT Central, è necessario disporre della 
 
 Per esportare in blocco i dispositivi dall'applicazione:
 
-1. Scegliere **Device Explorer** nel riquadro sinistro.
+1. Scegliere **dispositivi** nel riquadro sinistro.
 
 1. Nel pannello di sinistra scegliere il modello di dispositivo a partire dal quale si vuole esportare i dispositivi.
 
 1. Selezionare i dispositivi che si desidera esportare, quindi selezionare l'azione **Esporta** .
 
-    ![Esportazione](./media/howto-manage-devices/export1a.png)
+    ![Esporta](./media/howto-manage-devices/export1a.png)
 
 1. Verrà avviato il processo di esportazione. È possibile tenere traccia dello stato nella parte superiore della griglia.
 
@@ -140,7 +140,7 @@ Per altre informazioni sulle stringhe di connessione e sulla connessione di disp
 
 Per eliminare un dispositivo simulato o reale dall'applicazione Azure IoT Central:
 
-1. Scegliere **Device Explorer** nel riquadro sinistro.
+1. Scegliere **dispositivi** nel riquadro sinistro.
 
 1. Scegliere il modello di dispositivo del dispositivo da eliminare.
 
@@ -152,7 +152,7 @@ Per eliminare un dispositivo simulato o reale dall'applicazione Azure IoT Centra
 
 Le impostazioni controllano il comportamento di un dispositivo. In altre parole consentono di specificare gli input per il dispositivo. È possibile visualizzare e aggiornare le impostazioni di dispositivo nella pagina **Device Details** (Dettagli dispositivo).
 
-1. Scegliere **Device Explorer** nel riquadro sinistro.
+1. Scegliere **dispositivi** nel riquadro sinistro.
 
 1. Scegliere il modello di dispositivo del dispositivo di cui si vuole modificare le impostazioni.
 
@@ -166,7 +166,7 @@ Le impostazioni controllano il comportamento di un dispositivo. In altre parole 
 
 Le proprietà sono i metadati associati al dispositivo, ad esempio città e numero di serie. È possibile visualizzare e aggiornare le proprietà nella pagina **Device Details** (Dettagli dispositivo).
 
-1. Scegliere **Device Explorer** nel riquadro sinistro.
+1. Scegliere **dispositivi** nel riquadro sinistro.
 
 1. Scegliere il modello di dispositivo del dispositivo di cui si vuole modificare le proprietà.
 

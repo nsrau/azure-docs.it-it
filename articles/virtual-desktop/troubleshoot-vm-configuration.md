@@ -1,5 +1,5 @@
 ---
-title: Configurazione della macchina virtuale host sessione-Azure
+title: Risolvere i problemi di host sessione desktop virtuale di Windows-Azure
 description: Come risolvere i problemi durante la configurazione di macchine virtuali host sessione desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: a847ba7d782b332d9cae7f83bc1278fea58b8811
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 1470bb049cffce52ae921057bdaece40f3d3161c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330829"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607404"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configurazione di macchine virtuali nell'host sessione
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
@@ -309,7 +309,7 @@ Se viene visualizzato uno di questi messaggi, significa che nell'immagine non so
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Disabilitare l'impostazione di criteri di gruppo Desktop remoto modalità di gestione licenze
 
-Per verificare l'impostazione di criteri di gruppo, aprire l'Editor Criteri di gruppo nella macchina virtuale e passare a **Modelli amministrativi** > **componenti di Windows** > **Servizi Desktop remoto** > **host sessione Desktop remoto**@no __t-7**licensing** > **impostare la modalità di gestione licenze Desktop remoto**. Se l'impostazione di criteri di gruppo è **abilitata**, modificarla in **disabilitata**. Se è già disabilitato, lasciarlo invariato.
+Controllare l'impostazione di criteri di gruppo aprendo l'Editor Criteri di gruppo nella macchina virtuale e passando a **Modelli amministrativi** > **componenti di Windows** > Servizi Desktop remoto ** > host sessione Desktop remoto** > **licenze** > **impostare la modalità di gestione licenze Desktop remoto**. Se l'impostazione di criteri di gruppo è **abilitata**, modificarla in **disabilitata**. Se è già disabilitato, lasciarlo invariato.
 
 >[!NOTE]
 >Se si impostano i criteri di gruppo tramite il dominio, disabilitare questa impostazione nei criteri destinati a queste VM multisessione Enterprise di Windows 10.

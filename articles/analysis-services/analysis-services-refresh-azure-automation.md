@@ -1,17 +1,17 @@
 ---
 title: Aggiornare i modelli di Azure Analysis Services con automazione di Azure | Microsoft Docs
-description: Informazioni su come codificare gli aggiornamenti del modello usando automazione di Azure.
+description: Questo articolo descrive come codificare gli aggiornamenti dei modelli per Azure Analysis Services usando automazione di Azure.
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: ed1634ef1009149dc2937174b20248eab9cd335f
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294786"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572360"
 ---
 # <a name="refresh-with-azure-automation"></a>Eseguire l'aggiornamento con Automazione di Azure
 
@@ -21,7 +21,7 @@ L'esempio in questo articolo usa i [moduli di PowerShell SqlServer](https://docs
 
 Un esempio di Runbook di PowerShell, che illustra l'aggiornamento di un modello, è disponibile più avanti in questo articolo.  
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Tutte le chiamate devono essere autenticate con un token di Azure Active Directory (OAuth 2) valido.  Nell'esempio riportato in questo articolo verrà usata un'entità servizio (SPN) per l'autenticazione Azure Analysis Services.
 
@@ -101,11 +101,11 @@ Questa configurazione può essere configurata nel modo seguente:
  
     ![Crea pianificazione](./media/analysis-services-refresh-azure-automation/14.png)
 
-2. Fare clic su **pianifica** >  per**creare una nuova pianificazione**e quindi specificare i dettagli.
+2. Fare clic su **pianifica** > **creare una nuova pianificazione**e quindi specificare i dettagli.
 
     ![Configura pianificazione](./media/analysis-services-refresh-azure-automation/15.png)
 
-3. Fare clic su **Create**(Crea).
+3. Fai clic su **Crea**.
 
 4. Immettere i parametri per la pianificazione. Questi verranno usati ogni volta che il Runbook viene attivato. Il parametro **WEBHOOKDATA** deve essere lasciato vuoto durante l'esecuzione tramite una pianificazione.
 
@@ -144,11 +144,11 @@ L' **URL** è l'URL creato dal webhook.
 Il **corpo** è un documento JSON che deve contenere le proprietà seguenti:
 
 
-|Proprietà  |Value  |
+|Proprietà  |Valore  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Nome del database di Azure Analysis Services <br/> Esempio: AdventureWorksDB         |
 |**AnalysisServicesServer**     |Nome del server Azure Analysis Services. <br/> Esempio: https: \//westus. asazure. Windows. NET/Servers/MyServer/Models/AdventureWorks/         |
-|**DatabaseRefreshType**     |Tipo di aggiornamento da eseguire. <br/> Esempio: Completa         |
+|**DatabaseRefreshType**     |Tipo di aggiornamento da eseguire. <br/> Esempio: completo         |
 
 Corpo JSON di esempio:
 
@@ -175,7 +175,7 @@ Una macchina virtuale di Azure con un indirizzo IP pubblico statico può essere 
 >
 >Per altre informazioni sulla configurazione di ruoli di lavoro ibridi di automazione di Azure, vedere [automatizzare le risorse nel Data Center o nel cloud usando il ruolo di lavoro ibrido per Runbook](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker).
 
-Una volta configurato un ruolo di lavoro ibrido, creare un webhook, come descritto nella sezione [utilizzare con data factory](#consume-with-data-factory).  L'unica differenza consiste nel selezionare l'opzione **Esegui in**un ruolo di**lavoro ibrido**  >  durante la configurazione del webhook.
+Una volta configurato un ruolo di lavoro ibrido, creare un webhook, come descritto nella sezione [utilizzare con data factory](#consume-with-data-factory).  L'unica differenza consiste nel selezionare l'opzione **Esegui su** > ruolo di **lavoro ibrido** durante la configurazione del webhook.
 
 Webhook di esempio con ruolo di lavoro ibrido:
 

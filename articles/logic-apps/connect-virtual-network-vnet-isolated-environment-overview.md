@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/26/2019
-ms.openlocfilehash: 5d42b9fc2dfd7cbee230b65f7d9844c9e7332147
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.date: 11/06/2019
+ms.openlocfilehash: adb89c04a83bbfbd5bddd5c23b0fa88019a88991
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680510"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721375"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accedere alle risorse di Rete virtuale di Azure da App per la logica di Azure usando ambienti del servizio di integrazione (ISE)
 
@@ -28,9 +28,9 @@ Dopo aver creato l'ISE, quando si crea l'app per la logica o l'account di integr
 
 L'app per la logica ora può accedere direttamente ai sistemi interni o connessi alla rete virtuale usando uno di questi elementi:
 
-* Un connettore con etichetta **ISE**per quel sistema, ad esempio SQL Server
+* Un connettore con etichetta **ISE**per quel sistema
 * Un trigger o un'azione incorporata con etichetta **Core**, ad esempio il trigger o l'azione http
-* un connettore personalizzato
+* Un connettore personalizzato
 
 Questa panoramica descrive più dettagliatamente il modo in cui un ISE fornisce alle app per la logica e agli account di integrazione l'accesso diretto alla rete virtuale di Azure e confronta le differenze tra un ISE e il servizio globale app per la logica.
 
@@ -51,7 +51,7 @@ Le app per la logica in un ambiente del servizio di integrazione offrono le stes
 * Archiviazione BLOB, Archiviazione file e Archiviazione tabelle di Azure
 * Code di Azure, bus di servizio di Azure, hub eventi di Azure e IBM MQ
 * FTP e SFTP-SSH
-* SQL Server, SQL Data Warehouse, Azure Cosmos DB
+* SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
 * AS2, X12 ed EDIFACT
 
 La differenza tra connettori dell'ambiente del servizio di integrazione e quelli non dell'ambiente del servizio di integrazione è data dalle posizioni in cui i trigger e le azioni vengono eseguiti:
@@ -92,6 +92,7 @@ Per informazioni sui prezzi, vedere [prezzi di app](https://azure.microsoft.com/
 Quando si crea ISE, è possibile scegliere di usare endpoint di accesso interni o esterni. Questi endpoint determinano se i trigger di richiesta o webhook nelle app per la logica in ISE possono ricevere chiamate dall'esterno della rete virtuale. Questi endpoint influiscono anche sull'accesso a input e output nella cronologia di esecuzione dell'app per la logica.
 
 * **Interno**: endpoint privati che consentono chiamate alle app per la logica in ISE e l'accesso agli input e agli output nella cronologia di esecuzione solo *dall'interno della rete virtuale*
+
 * **Esterno**: endpoint pubblici che consentono chiamate alle app per la logica in ISE e l'accesso a input e output nella cronologia di esecuzione *dall'esterno della rete virtuale*
 
 > [!IMPORTANT]
@@ -103,15 +104,20 @@ Quando si crea ISE, è possibile scegliere di usare endpoint di accesso interni 
 
 Per i sistemi locali connessi a una rete virtuale di Azure, inserire ISE in tale rete, in modo che le app per la logica possano accedere direttamente a tali sistemi usando uno di questi elementi:
 
-* ISE-connettore della versione per quel sistema, ad esempio SQL Server
 * Azione HTTP
+
+* Connettore con etichetta ISE per quel sistema
+
+  > [!IMPORTANT]
+  > Per usare l'autenticazione di Windows con il connettore SQL Server, è necessario usare il [gateway dati locale](../logic-apps/logic-apps-gateway-install.md). Il connettore SQL Server non supporta l'autenticazione di Windows per un'app per la logica in ISE.
+
 * Connettore personalizzato
 
   * Se sono presenti connettori personalizzati che richiedono il gateway dati locale e i connettori sono stati creati al di fuori di un ISE, le app per la logica in un ISE possono anche usare tali connettori.
   
   * I connettori personalizzati creati in un ISE non funzionano con il gateway dati locale. Tuttavia, questi connettori possono accedere direttamente alle origini dati locali connesse alla rete virtuale che ospita ISE. Quindi, le app per la logica in un ISE probabilmente non necessitano del gateway dati durante la comunicazione con tali risorse.
 
-Per i sistemi locali che non sono connessi a una rete virtuale o non hanno connettori di versione ISE, è necessario prima [configurare il gateway dati locale](../logic-apps/logic-apps-gateway-install.md) prima che le app per la logica possano connettersi a tali sistemi.
+Per i sistemi locali che non sono connessi a una rete virtuale o non hanno connettori con etichetta ISE, è necessario prima [configurare il gateway dati locale](../logic-apps/logic-apps-gateway-install.md) prima che le app per la logica possano connettersi a tali sistemi.
 
 <a name="create-integration-account-environment"></a>
 

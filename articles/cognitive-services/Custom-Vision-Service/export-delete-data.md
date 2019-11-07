@@ -1,7 +1,7 @@
 ---
 title: Esportare o eliminare i dati - Servizio visione artificiale personalizzato
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come esportare o eliminare i dati nel Servizio visione artificiale personalizzato.
+description: Si mantiene il controllo completo sui dati. Questo articolo illustra come è possibile visualizzare, esportare o eliminare i dati nel Servizio visione artificiale personalizzato.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: b885f359d9416fbc5f778b094610260342a75f65
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 82d9f4508db376ebbe69ef772c15fb732391a31d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564220"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718962"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Esportare o eliminare i dati in Visione personalizzata
 
@@ -25,7 +25,7 @@ Visione personalizzata raccoglie i dati utente per il funzionamento del servizio
 
 Per informazioni su come esportare ed eliminare i dati utente in Visione personalizzata, vedere la tabella seguente.
 
-| Data | Operazione di esportazione | Operazione di eliminazione |
+| Dati | Operazione di esportazione | Operazione di eliminazione |
 | ---- | ---------------- | ---------------- |
 | Informazioni sull'account (chiavi di sottoscrizione) | [GetAccountInfo](https://go.microsoft.com/fwlink/?linkid=865446) | Eliminare tramite il portale di Azure (sottoscrizioni di Azure). In alternativa, usare il pulsante "Elimina l'account" nella pagina delle impostazioni di CustomVision.ai (sottoscrizioni di account Microsoft) | 
 | Dettagli sull'iterazione | [GetIteration](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |

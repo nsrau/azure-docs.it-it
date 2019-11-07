@@ -1,26 +1,24 @@
 ---
 title: Crittografia inattiva con chiavi gestite dal cliente in Azure Key Vault (anteprima)
 titleSuffix: Azure Cognitive Search
-description: Integrare la crittografia lato server su indici e mappe sinonimi in Azure ricerca cognitiva tramite chiavi create e gestite in Azure Key Vault.
+description: Integrare la crittografia lato server su indici e mappe sinonimi in Azure ricerca cognitiva tramite chiavi create e gestite in Azure Key Vault. Questa funzionalità è attualmente in anteprima pubblica.
 manager: nitinme
 author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 94c9d94edb9a9ca3f6117bd43ab9cefe1dad52a3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1521abfa327c69648b38f02d1d6313baa369f304
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794362"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721744"
 ---
 # <a name="content-encryption-of-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia del contenuto di Azure ricerca cognitiva usando chiavi gestite dal cliente in Azure Key Vault
 
-> [!Note]
-> La crittografia con chiavi gestite dal cliente è in anteprima e non è destinata all'uso in produzione. Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). È anche possibile usare .NET SDK versione 8,0-Preview.
->
-> Questa funzionalità non è disponibile per i servizi gratuiti. È necessario usare un servizio di ricerca fatturabile creato il o dopo il 2019-01-01. Al momento non è disponibile alcun supporto per il portale.
+> [!IMPORTANT] 
+> Il supporto per la crittografia inattiva è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Questa funzionalità è disponibile nell' [API REST versione 2019-05-06-Preview](search-api-preview.md) e [.net SDK versione 8,0-Preview](search-dotnet-sdk-migration-version-9.md) . Attualmente non è disponibile alcun supporto per il portale.
 
 Per impostazione predefinita, Azure ricerca cognitiva crittografa il contenuto utente inattivo con le [chiavi gestite dal servizio](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). È possibile integrare la crittografia predefinita con un livello di crittografia aggiuntivo usando le chiavi create e gestite in Azure Key Vault. Questo articolo illustra i passaggi necessari.
 

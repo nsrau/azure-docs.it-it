@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 26b0f710590496875521e0dd8577a35841fbd3dd
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c757ef8508f9364a46116e6ddf19207f23a4b6f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657008"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583673"
 ---
 # <a name="set-or-reset-password-for-virtual-machines-in-classroom-labs-students"></a>Impostare o reimpostare la password per le macchine virtuali in laboratori della classe (studenti)
 Questo articolo illustra in che modo gli studenti possono impostare o reimpostare la password per le proprie macchine virtuali. 
@@ -40,4 +40,4 @@ Lo studente può anche impostare la password facendo clic sul menu di overflow (
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni sulle altre opzioni di utilizzo degli studenti che possono essere configurate da un proprietario del Lab, vedere l'articolo seguente: [Configurare l'utilizzo degli studenti](how-to-configure-student-usage.md).
+Per informazioni sulle altre opzioni di utilizzo degli studenti che un proprietario del Lab può configurare, vedere l'articolo seguente: [configurare l'utilizzo degli studenti](how-to-configure-student-usage.md).

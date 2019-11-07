@@ -1,7 +1,7 @@
 ---
 title: Rilevamento del marchio - Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Concetti relativi al rilevamento di marchi o logo tramite l'API Visione artificiale.
+description: In questo articolo viene illustrata una modalità specializzata di rilevamento di oggetti; rilevamento del marchio e/o del logo tramite il API Visione artificiale.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: pafarley
-ms.openlocfilehash: c3a80cbdd166f77681665ee3675c1a71ce3a9bd6
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 117beca1284f28c75c1ac772425423f732b8a236
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967081"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718626"
 ---
 # <a name="detect-popular-brands-in-images"></a>Rileva i marchi più diffusi nelle immagini
 
@@ -74,7 +74,7 @@ In alcuni casi, il rilevatore di marchi identificherà l'immagine del logo e il 
 
 ## <a name="use-the-api"></a>Usare l'API
 
-La funzionalità per il rilevamento del marchio fa parte dell'API di [analisi delle immagini](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Brands` nel parametro di query **visualFeatures** . Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"brands"` sezione.
+La funzionalità per il rilevamento del marchio fa parte dell'API di [analisi delle immagini](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Brands` nel parametro di query **visualFeatures** . Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della sezione `"brands"`.
 
-* [Avvio rapido: Visione artificiale .NET SDK](./quickstarts-sdk/csharp-sdk.md)
-* [Avvio rapido: Analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)
+* [Guida introduttiva: Visione artificiale .NET SDK](./quickstarts-sdk/csharp-sdk.md)
+* [Guida introduttiva: analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)

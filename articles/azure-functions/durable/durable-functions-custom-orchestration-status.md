@@ -7,20 +7,23 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5cb5ce82dcd5a1c22dd05c7bd6cc9485f413752e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d3b3ee1fabf59ae3b87185c4c9eb2f85aa8acd91
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933789"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614931"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Stato dell'orchestrazione personalizzato in Funzioni permanenti (Funzioni di Azure)
 
-Lo stato dell'orchestrazione personalizzato consente di impostare un valore di stato personalizzato per la funzione di agente di orchestrazione. Questo stato viene fornito tramite l'API HTTP GetStatus o l'API `DurableOrchestrationClient.GetStatusAsync`.
+Lo stato dell'orchestrazione personalizzato consente di impostare un valore di stato per la funzione dell'agente di orchestrazione. Questo stato viene fornito tramite l'API HTTP GetStatus o l'API `DurableOrchestrationClient.GetStatusAsync`.
 
 ## <a name="sample-use-cases"></a>Caso d'uso di esempio
+
+> [!NOTE]
+> Gli esempi seguenti illustrano come usare la funzionalità di stato C# personalizzato in e JavaScript. Gli C# esempi sono scritti per Durable Functions 2. x e non sono compatibili con Durable functions 1. x. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 ### <a name="visualize-progress"></a>Visualizzazione dello stato
 
@@ -31,29 +34,29 @@ I client possono eseguire il polling dell'endpoint di stato e visualizzare un el
 ```csharp
 [FunctionName("E1_HelloSequence")]
 public static async Task<List<string>> Run(
-  [OrchestrationTrigger] DurableOrchestrationContextBase context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
-  var outputs = new List<string>();
+    var outputs = new List<string>();
 
-  outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Tokyo"));
-  context.SetCustomStatus("Tokyo");
-  outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Seattle"));
-  context.SetCustomStatus("Seattle");
-  outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "London"));
-  context.SetCustomStatus("London");
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Tokyo"));
+    context.SetCustomStatus("Tokyo");
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Seattle"));
+    context.SetCustomStatus("Seattle");
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "London"));
+    context.SetCustomStatus("London");
 
-  // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
-  return outputs;
+    // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+    return outputs;
 }
 
 [FunctionName("E1_SayHello")]
 public static string SayHello([ActivityTrigger] string name)
 {
-  return $"Hello {name}!";
+    return $"Hello {name}!";
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
+#### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -86,10 +89,10 @@ A questo punto il client riceverà l'output dell'orchestrazione solo quando il c
 ```csharp
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
-  [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
-  [OrchestrationClient] DurableOrchestrationClientBase starter,
-  string functionName,
-  ILogger log)
+    [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
+    [DurableClient] IDurableOrchestrationClient starter,
+    string functionName,
+    ILogger log)
 {
     // Function input comes from the request content.
     dynamic eventData = await req.Content.ReadAsAsync<object>();
@@ -100,13 +103,13 @@ public static async Task<HttpResponseMessage> Run(
     DurableOrchestrationStatus durableOrchestrationStatus = await starter.GetStatusAsync(instanceId);
     while (durableOrchestrationStatus.CustomStatus.ToString() != "London")
     {
-      await Task.Delay(200);
-      durableOrchestrationStatus = await starter.GetStatusAsync(instanceId);
+        await Task.Delay(200);
+        durableOrchestrationStatus = await starter.GetStatusAsync(instanceId);
     }
 
     HttpResponseMessage httpResponseMessage = new HttpResponseMessage(HttpStatusCode.OK)
     {
-      Content = new StringContent(JsonConvert.SerializeObject(durableOrchestrationStatus))
+        Content = new StringContent(JsonConvert.SerializeObject(durableOrchestrationStatus))
     };
 
     return httpResponseMessage;
@@ -114,7 +117,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
+#### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -146,9 +149,6 @@ module.exports = async function(context, req) {
 > [!NOTE]
 > In JavaScript, il campo `customStatus` verrà impostato alla pianificazione della successiva azione `yield` o `return`.
 
-> [!WARNING]
-> Quando si sviluppa in locale con JavaScript, è necessario impostare la variabile di ambiente `WEBSITE_HOSTNAME` su `localhost:<port>`, ad esempio `localhost:7071` per usare i metodi su `DurableOrchestrationClient`. Per altre informazioni su questo requisito, vedere il [problema GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
-
 ### <a name="output-customization"></a>Personalizzazione dell'output
 
 Un altro scenario interessante è la segmentazione degli utenti con la restituzione di un output personalizzato in base a caratteristiche o interazioni univoche. Con l'aiuto dello stato dell'orchestrazione personalizzato, il codice lato client viene mantenuto generico. Tutte le modifiche principali avverranno sul lato server come illustrato nell'esempio seguente:
@@ -158,7 +158,7 @@ Un altro scenario interessante è la segmentazione degli utenti con la restituzi
 ```csharp
 [FunctionName("CityRecommender")]
 public static void Run(
-  [OrchestrationTrigger] DurableOrchestrationContextBase context)
+  [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
   int userChoice = context.GetInput<int>();
 
@@ -191,7 +191,7 @@ public static void Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
+#### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -233,7 +233,7 @@ L'agente di orchestrazione può offrire istruzioni univoche ai client tramite lo
 ```csharp
 [FunctionName("ReserveTicket")]
 public static async Task<bool> Run(
-  [OrchestrationTrigger] DurableOrchestrationContextBase context)
+  [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
   string userId = context.GetInput<string>();
 
@@ -256,7 +256,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
+#### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -290,7 +290,7 @@ Nell'esempio seguente lo stato personalizzato è impostato per primo:
 ### <a name="c"></a>C#
 
 ```csharp
-public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext context)
+public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     // ...do work...
 
@@ -302,7 +302,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrati
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -321,25 +321,24 @@ module.exports = df.orchestrator(function*(context) {
 Mentre l'orchestrazione è in esecuzione, i client esterni possono recuperare questo stato personalizzato:
 
 ```http
-GET /admin/extensions/DurableTaskExtension/instances/instance123
-
+GET /runtime/webhooks/durabletask/instances/instance123
 ```
 
 I client visualizzano la risposta seguente:
 
-```http
+```json
 {
   "runtimeStatus": "Running",
   "input": null,
   "customStatus": { "nextActions": ["A", "B", "C"], "foo": 2 },
   "output": null,
-  "createdTime": "2017-10-06T18:30:24Z",
-  "lastUpdatedTime": "2017-10-06T19:40:30Z"
+  "createdTime": "2019-10-06T18:30:24Z",
+  "lastUpdatedTime": "2019-10-06T19:40:30Z"
 }
 ```
 
 > [!WARNING]
-> Il payload dello stato personalizzato è limitato a 16 kB di testo JSON UTF-16, perché deve rientrare in una colonna dell'archivio tabelle di Azure. Gli sviluppatori possono usare l'archiviazione esterna hanno bisogno di un payload maggiore.
+> Il payload dello stato personalizzato è limitato a 16 kB di testo JSON UTF-16, perché deve rientrare in una colonna dell'archivio tabelle di Azure. Se è necessario un payload di dimensioni maggiori, è consigliabile usare l'archiviazione esterna.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

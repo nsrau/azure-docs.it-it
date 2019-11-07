@@ -2,29 +2,41 @@
 title: Panoramica del portale di Azure | Microsoft Docs
 description: Scopri come esplorare il portale di Azure e usarlo per gestire i servizi
 services: azure-portal
-keywords: ''
+keywords: portal
 author: kfollis
 ms.author: kfollis
-ms.date: 05/24/2019
+ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 6e176a8b16129cd35fc011e14fcb36038f7c0144
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 90bbea1068bb237501daf5e0dfac865ca6b9a12a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000349"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579410"
 ---
 # <a name="azure-portal-overview"></a>Panoramica del portale di Azure
 
 Questo articolo introduce la portale di Azure, identifica gli elementi della pagina del portale e consente di acquisire familiarità con l'esperienza di gestione portale di Azure.
 
-## <a name="what-is-the-azure-portal"></a>Qual è la portale di Azure?
+## <a name="what-is-the-azure-portal"></a>Che cos'è il portale di Azure?
 
-Il portale di Azure è una console unificata basata sul Web che fornisce un'alternativa agli strumenti da riga di comando. Con la portale di Azure è possibile gestire la sottoscrizione di Azure usando un'interfaccia utente grafica. Puoi creare, gestire e monitorare tutti gli elementi, dalle semplici app Web alle distribuzioni cloud complesse, creare dashboard personalizzati per una visualizzazione organizzata delle risorse e configurare le opzioni di accessibilità per un'esperienza ottimale.
+Il portale di Azure è una console unificata basata sul Web che offre un'alternativa agli strumenti da riga di comando. Con la portale di Azure è possibile gestire la sottoscrizione di Azure usando un'interfaccia utente grafica. Puoi creare, gestire e monitorare tutti gli elementi, dalle semplici app Web alle distribuzioni cloud complesse. Creare dashboard personalizzati per una visualizzazione organizzata delle risorse. Configurare le opzioni di accessibilità per un'esperienza ottimale.
 
-Il portale di Azure è progettato per la resilienza e la disponibilità continua. Dispone di una presenza in ogni data center di Azure, rendendola resiliente agli errori dei singoli data center e, inoltre, evita il rallentamento della rete in quanto si avvicina agli utenti. Il portale di Azure viene aggiornato continuamente e non richiede alcun tempo di inattività per le attività di manutenzione.
+Il portale di Azure è progettato per la resilienza e la disponibilità continua. Ha una presenza in ogni data center di Azure. Questa configurazione rende il portale di Azure resiliente agli errori dei singoli Data Center ed evita il rallentamento della rete in quanto si avvicina agli utenti. Il portale di Azure viene aggiornato continuamente e non richiede alcun tempo di inattività per le attività di manutenzione.
+
+## <a name="azure-portal-menu"></a>Menu portale di Azure
+
+È possibile scegliere la modalità predefinita per il menu del portale. Può essere ancorato o può fungere da pannello a comparsa.
+
+Quando il menu del portale è in modalità a comparsa, è nascosto fino a quando non è necessario. Selezionare l'icona di menu per aprire o chiudere il menu.
+
+![Menu portale di Azure in modalità a comparsa](./media/azure-portal-overview/azure-portal-overview-portal-menu-flyout.png)
+
+Se si sceglie modalità ancorata per il menu del portale, sarà sempre visibile. È possibile comprimere il menu per fornire maggiore spazio di lavoro.
+
+![Menu portale di Azure in modalità ancorata](./media/azure-portal-overview/azure-portal-overview-portal-menu-expandcollapse.png)
 
 ## <a name="azure-home"></a>Home page di Azure
 
@@ -32,19 +44,25 @@ Un nuovo abbonato ai servizi di Azure, la prima cosa che viene visualizzato dopo
 
 ![Screenshot che mostra il selettore di visualizzazione predefinito](./media/azure-portal-overview/azure-portal-default-view.png)
 
+Sia il menu portale di Azure che la visualizzazione predefinita di Azure possono essere modificati nelle **impostazioni del portale**. Se si modifica la selezione, la modifica viene applicata immediatamente.
+
+![Screenshot che mostra il selettore di visualizzazione predefinito](./media/azure-portal-overview/azure-portal-overview-portal-settings-menu-home.png)
+
 ## <a name="azure-dashboard"></a>Dashboard di Azure
 
-I dashboard offrono una visualizzazione mirata delle risorse della sottoscrizione più importanti per l'utente. È stato fornito un dashboard predefinito per iniziare. È possibile personalizzare questo dashboard per riportare le risorse più utilizzate in un'unica visualizzazione. Qualsiasi modifica apportata alla visualizzazione predefinita influisce solo sull'esperienza utente. Tuttavia, è possibile creare dashboard aggiuntivi per uso personale o pubblicare i dashboard personalizzati e condividerli con altri utenti nell'organizzazione. Per ulteriori informazioni, vedere [la pagina relativa alla creazione e alla condivisione di dashboard nel portale di Azure](../azure-portal/azure-portal-dashboards.md).
+I dashboard offrono una visualizzazione mirata delle risorse della sottoscrizione più importanti per l'utente. È stato fornito un dashboard predefinito per iniziare. È possibile personalizzare questo dashboard per riportare le risorse usate di frequente in un'unica visualizzazione. Qualsiasi modifica apportata alla visualizzazione predefinita influisce solo sull'esperienza utente. Tuttavia, è possibile creare dashboard aggiuntivi per uso personale o pubblicare i dashboard personalizzati e condividerli con altri utenti nell'organizzazione. Per ulteriori informazioni, vedere [la pagina relativa alla creazione e alla condivisione di dashboard nel portale di Azure](../azure-portal/azure-portal-dashboards.md).
 
 ## <a name="getting-around-the-portal"></a>Come spostarsi nel portale
 
 È utile comprendere il layout del portale di base e come interagire con esso. Qui verranno introdotti i componenti dell'interfaccia utente e alcuni dei termini usati per fornire istruzioni. Per una panoramica più dettagliata del portale, vedere la lezione sul corso [esplorare il portale](https://docs.microsoft.com/learn/modules/tour-azure-portal/3-navigate-the-portal).
 
-Il portale di Azure Sidebar e l'intestazione di pagina sono elementi globali sempre presenti. Queste funzionalità permanenti sono la "Shell" per l'interfaccia utente associata a ogni singolo servizio o funzionalità e l'intestazione fornisce l'accesso ai controlli globali. La pagina di configurazione (talvolta definita "pannello") per una risorsa può avere anche un riquadro sinistro che consente di spostarsi tra le funzionalità.
+Il menu portale di Azure e l'intestazione di pagina sono elementi globali sempre presenti. Queste funzionalità permanenti sono la "Shell" per l'interfaccia utente associata a ogni singolo servizio o funzionalità e l'intestazione fornisce l'accesso ai controlli globali. La pagina di configurazione (talvolta definita "pannello") per una risorsa può includere anche un menu delle risorse che consente di spostarsi tra le funzionalità.
 
 Nella figura seguente vengono etichettati gli elementi di base dell'portale di Azure, ciascuno dei quali è descritto nella tabella seguente.
 
-![Screenshot che mostra la visualizzazione e la chiave del portale a schermo intero per gli elementi dell'interfaccia utente](./media/azure-portal-overview/azure-portal-fullscreen-map.png)
+![Screenshot che mostra la visualizzazione e la chiave del portale a schermo intero per gli elementi dell'interfaccia utente](./media/azure-portal-overview/azure-portal-overview-portal-callouts.png)
+
+![Screenshot che mostra il menu del portale espanso](./media/azure-portal-overview/azure-portal-overview-portal-menu-callouts.png)
 
 |Chiave|Descrizione
 |:---:|---|
@@ -52,13 +70,13 @@ Nella figura seguente vengono etichettati gli elementi di base dell'portale di A
 |2| Ricerca globale. Usare la barra di ricerca per trovare rapidamente una risorsa specifica, un servizio o una documentazione.|
 |3|Controlli globali. Come tutti gli elementi globali, queste funzionalità vengono mantenute nel portale e includono: Cloud Shell, filtro delle sottoscrizioni, notifiche, impostazioni del portale, guida e supporto tecnico e inviare commenti e suggerimenti.|
 |4|L'account. Visualizzare le informazioni sull'account, cambiare directory, disconnettersi o accedere con un account diverso.|
-|5|Sidebar. Il Sidebar è un elemento globale che consente di spostarsi tra i servizi. È possibile comprimere l'intestazione laterale per fornire maggiore attenzione al riquadro di lavoro.|
-|6|Controllo master per la creazione di una nuova risorsa nella sottoscrizione corrente. Cercare o esplorare Azure Marketplace per il tipo di risorsa che si vuole creare.|
-|7|Elenco Preferiti. Aggiungere o rimuovere preferiti dalla pagina **tutti i servizi** .|
-|8|Riquadro sinistro. Molti servizi includono un menu del riquadro sinistro che consente di gestire il servizio.|
-|9|Barra degli ordini. I controlli sulla barra dei comandi sono contestuale allo stato attivo corrente.|
-|10|Breadcrumb. È possibile utilizzare i collegamenti di navigazione per spostare di nuovo un livello nel flusso di lavoro.|
-|11|Riquadro di lavoro.  Visualizza i dettagli relativi alla risorsa attualmente attiva.|
+|5|Menu del portale. Il menu del portale è un elemento globale che consente di spostarsi tra i servizi. A volte indicato come sidebar, la modalità del menu del portale può essere modificata nelle **impostazioni del portale**.|
+|6|Menu delle risorse. Molti servizi includono un menu delle risorse che consente di gestire il servizio. Questo elemento può essere indicato come riquadro sinistro.|
+|7|Barra degli ordini. I controlli sulla barra dei comandi sono contestuale allo stato attivo corrente.|
+|8|Riquadro di lavoro.  Visualizza i dettagli relativi alla risorsa attualmente attiva.|
+|9|Breadcrumb. È possibile utilizzare i collegamenti di navigazione per spostare di nuovo un livello nel flusso di lavoro.|
+|10|Controllo master per la creazione di una nuova risorsa nella sottoscrizione corrente. Espandere o aprire il menu del portale per trovare **+ Crea una risorsa**. Cercare o esplorare Azure Marketplace per il tipo di risorsa che si vuole creare.|
+|11|Elenco Preferiti. Per informazioni su come personalizzare l'elenco, vedere [aggiungere, rimuovere e ordinare i Preferiti](../azure-portal/azure-portal-add-remove-sort-favorites.md) .|
 
 ## <a name="get-started-with-services"></a>Inizia a usare i servizi
 
@@ -79,5 +97,5 @@ Guardare questo video per una demo su come usare la ricerca globale nella portal
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Scopri di più su dove eseguire portale di Azure nei [browser e nei dispositivi supportati](../azure-portal/azure-portal-supported-browsers-devices.md)
-
 * Rimanere connessi con [app per dispositivi mobili di Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
+* Caricare e configurare l'ambiente cloud con il centro di [avvio rapido di Azure](../azure-portal/azure-portal-quickstart-center.md)

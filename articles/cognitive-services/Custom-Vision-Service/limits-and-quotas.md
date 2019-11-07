@@ -1,7 +1,7 @@
 ---
 title: Limiti e quote - Servizio visione artificiale personalizzato
 titleSuffix: Azure Cognitive Services
-description: Informazioni sui limiti e le quote per il Servizio visione artificiale personalizzato.
+description: Questo articolo illustra i diversi tipi di chiavi di licenza e i limiti e le quote per la Servizio visione artificiale personalizzato.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: 878e2b03e21c18ef4ee845251e91642037c6c5ff
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: e4fc3555d7d880dcbd4f76d8f507300e98c237db
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114654"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718359"
 ---
 # <a name="limits-and-quotas"></a>Limiti e quote
 
@@ -26,8 +26,8 @@ Si prevede che nel tempo il numero di immagini di training per progetto di tag p
 ||**F0**|**S0**|
 |-----|-----|-----|
 |Progetti|2|100|
-|Immagini di training per progetto |5\.000|100,000|
-|Stime/mese|10,000 |Senza limitazioni|
+|Immagini di training per progetto |5\.000|100.000|
+|Stime/mese|10.000 |Illimitato|
 |Tag/progetto|50|500|
 |Iterazioni |10|10|
 |Immagini con etichetta min per tag, classificazione (50 + consigliata) |5|5|
@@ -39,7 +39,7 @@ Si prevede che nel tempo il numero di immagini di training per progetto di tag p
 |[Altre chiamate API](https://go.microsoft.com/fwlink/?linkid=865446) (transazioni al secondo)|10|10|
 |Tipi di immagine accettati|jpg, PNG, BMP, gif|jpg, PNG, BMP, gif|
 |Altezza/larghezza minima immagine in pixel|256 (vedere la nota)|256 (vedere la nota)|
-|Altezza/Larghezza immagine massima in pixel|senza limitazioni|senza limitazioni|
+|Altezza/Larghezza immagine massima in pixel|senza limiti|senza limiti|
 |Dimensioni max dell'immagine (caricamento dell'immagine di training) |6 MB|6 MB|
 |Dimensioni max dell'immagine (stima)|4 MB|4 MB|
 |Numero massimo di aree per l'immagine di training del rilevamento oggetti|200|200|

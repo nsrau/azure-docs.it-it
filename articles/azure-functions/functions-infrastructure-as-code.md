@@ -1,23 +1,20 @@
 ---
 title: Automatizzare la distribuzione di risorse per un'app per le funzioni in Funzioni di Azure | Microsoft Docs
 description: Informazioni su come creare un modello di Azure Resource Manager per distribuire l'app per le funzioni.
-services: Functions
-documtationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: funzioni di azure, funzioni, architettura senza server, infrastruttura come codice, azure resource manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.service: azure-functions
-ms.server: functions
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: ff5b104c9fa1bedf1f710c06761b6449b20bbf05
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 8435aab65d26627de26fb8b5ad0510fcd7c57c33
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263205"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575945"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
 
@@ -29,14 +26,11 @@ Per i modelli di esempio, vedere:
 - [App per le funzioni in un piano a consumo]
 - [App per le funzioni in un piano di servizio app di Azure]
 
-> [!NOTE]
-> Il piano Premium per l'hosting di funzioni di Azure è attualmente in fase di anteprima. Per altre informazioni, vedere [piano Premium di funzioni di Azure](functions-premium-plan.md).
-
 ## <a name="required-resources"></a>Risorse necessarie
 
 Una distribuzione di funzioni di Azure è in genere costituita da queste risorse:
 
-| Resource                                                                           | Requisito | Guida di riferimento a sintassi e proprietà                                                         |   |
+| Gruppi                                                                           | Requisito | Guida di riferimento a sintassi e proprietà                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | Un'app per le funzioni                                                                     | Obbligatorio    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
 | Un account di [archiviazione di Azure](../storage/index.yml)                                   | Obbligatorio    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
@@ -314,7 +308,7 @@ In Linux l'app per le funzioni deve avere la proprietà `kind` impostata su `fun
 
 ## <a name="deploy-on-premium-plan"></a>Distribuisci nel piano Premium
 
-Il piano Premium offre la stessa scalabilità del piano a consumo, ma include risorse dedicate e funzionalità aggiuntive. Per altre informazioni, vedere [piano Premium di funzioni di Azure (anteprima)](./functions-premium-plan.md).
+Il piano Premium offre la stessa scalabilità del piano a consumo, ma include risorse dedicate e funzionalità aggiuntive. Per altre informazioni, vedere [piano Premium di funzioni di Azure](./functions-premium-plan.md).
 
 ### <a name="create-a-premium-plan"></a>Creare un piano Premium
 

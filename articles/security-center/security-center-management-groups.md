@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 730ccd7c64ac9ca87fb6da5add130feb3b6ce502
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73b99b9ebcd18e1eb5b670d0809d1f0f6cbf8f9a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201961"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582918"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
 Questo articolo illustra come iniziare a eseguire diverse azioni che ottimizzano i vantaggi offerti dal Centro sicurezza di Azure. Queste azioni consentono di ottenere visibilità su tutte le sottoscrizioni di Azure collegate al tenant di Azure Active Directory e di gestire in modo efficiente la sicurezza dell'organizzazione su vasta scala applicando i criteri di sicurezza in più sottoscrizioni secondo una logica aggregativa.
@@ -49,7 +49,7 @@ Per una panoramica dettagliata dei gruppi di gestione, vedere l'articolo [Organi
     - L'**ID del gruppo di gestione** è l'identificatore univoco della directory usato per inviare i comandi per questo gruppo di gestione. Questo identificatore non è modificabile dopo la creazione, perché è usato all'interno dell'intero sistema Azure per identificare il gruppo. 
     - Il nome visualizzato è il nome che viene visualizzato nel portale di Azure. Un nome visualizzato separato è un campo facoltativo al momento della creazione del gruppo di gestione e può essere modificato in qualsiasi momento.  
 
-      ![Crea](./media/security-center-management-groups/create_context_menu.png)  
+      ![Create](./media/security-center-management-groups/create_context_menu.png)  
 5.  Selezionare **Salva**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Visualizzare i gruppi di gestione nel portale di Azure
@@ -168,7 +168,7 @@ Dopo che i ruoli Controllo degli accessi in base al ruolo sono stati assegnati a
 
 
 
-## <a name="adding-subscriptions-to-a-management-groups"></a>Aggiunta di sottoscrizioni a un gruppo di gestione
+## <a name="adding-subscriptions-to-a-management-group"></a>Aggiunta di sottoscrizioni a un gruppo di gestione
 È possibile aggiungere le sottoscrizioni al gruppo di gestione creato. Questi passaggi non sono obbligatori per ottenere visibilità a livello di tenant sui criteri globali e sulla gestione dell'accesso.
 
 1. In **Gruppi di gestione** selezionare un gruppo di gestione a cui aggiungere la sottoscrizione.

@@ -1,25 +1,24 @@
 ---
 title: Utilizzo delle proiezioni in un archivio informazioni (anteprima)
 titleSuffix: Azure Cognitive Search
-description: Salvare e modellare i dati arricchiti dalla pipeline di indicizzazione dell'intelligenza artificiale per l'uso in scenari diversi dalla ricerca full-text.
+description: Salvare e modellare i dati arricchiti dalla pipeline di indicizzazione dell'intelligenza artificiale in un archivio informazioni per l'uso in scenari diversi dalla ricerca full-text. Archivio informazioni è attualmente disponibile in anteprima pubblica.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8e6c285e8917c4224e2007c565d5ac5447b20853
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: bb6af4be232810c1f5d135e459238e2e4f2cd5d8
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790008"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720032"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Utilizzo delle proiezioni in un archivio informazioni in Azure ricerca cognitiva
 
-> [!Note]
-> Il knowledge store è in anteprima e non ne è previsto l'uso in ambienti di produzione. Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Non è attualmente disponibile alcun supporto di .NET SDK.
->
+> [!IMPORTANT] 
+> Archivio informazioni è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L' [API REST versione 2019-05-06-Preview](search-api-preview.md) fornisce funzionalità di anteprima. Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
 
 Azure ricerca cognitiva consente di arricchire il contenuto tramite competenze cognitive predefinite e competenze personalizzate come parte dell'indicizzazione. Gli arricchimenti aggiungono la struttura ai documenti e rendono più efficiente la ricerca. In molti casi, i documenti arricchiti sono utili per scenari diversi dalla ricerca, ad esempio per le informazioni di data mining.
 

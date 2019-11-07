@@ -1,5 +1,5 @@
 ---
-title: Ottimizzazione delle prestazioni con Azure SQL Data Warehouse indice columnstore cluster ordinato | Microsoft Docs
+title: Ottimizzazione delle prestazioni con indice columnstore cluster ordinato
 description: Raccomandazioni e considerazioni che è necessario tenere presente quando si usa l'indice columnstore cluster ordinato per migliorare le prestazioni delle query.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 37d8f17e825daa3a1c160509b1a38f8c70256d1c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 3cc2f140eeed0a4667a01aa8c5ccbad7e4411521
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595376"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685999"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ottimizzazione delle prestazioni con indice columnstore cluster ordinato  
 
@@ -43,7 +44,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> In una tabella CCI ordinata, i nuovi dati risultanti da operazioni di caricamento dati o DML non vengono ordinati automaticamente.  Gli utenti possono ricompilare la CCI ordinata per ordinare tutti i dati nella tabella.  In Azure SQL Data Warehouse, la ricompilazione dell'indice columnstore è un'operazione offline.  Per una tabella partizionata, la ricompilazione viene eseguita una partizione alla volta.  I dati della partizione che viene ricompilata sono "offline" e non sono disponibili fino al completamento della ricompilazione per la partizione. 
+> In una tabella CCI ordinata, i nuovi dati risultanti dallo stesso batch di operazioni DML o di caricamento dei dati vengono ordinati all'interno del batch, non esiste alcun ordinamento globale in tutti i dati della tabella.  Gli utenti possono ricompilare la CCI ordinata per ordinare tutti i dati nella tabella.  In Azure SQL Data Warehouse, la ricompilazione dell'indice columnstore è un'operazione offline.  Per una tabella partizionata, la ricompilazione viene eseguita una partizione alla volta.  I dati della partizione che viene ricompilata sono "offline" e non sono disponibili fino al completamento della ricompilazione per la partizione. 
 
 ## <a name="query-performance"></a>Prestazioni delle query
 
@@ -63,7 +64,7 @@ ORDER (Col_C, Col_B, Col_A)
 
 ```
 
-Le prestazioni di query 1 possono trarre vantaggio dall'CCI ordinata rispetto alle altre 3 query. 
+Le prestazioni di query 1 possono trarre vantaggio dalla CCI ordinata rispetto alle altre tre query. 
 
 ```sql
 -- Query #1: 
@@ -100,7 +101,7 @@ Di seguito è riportato un esempio di confronto delle prestazioni delle query tr
 
 Il numero di segmenti sovrapposti dipende dalle dimensioni dei dati da ordinare, dalla memoria disponibile e dall'impostazione del grado massimo di parallelismo (MAXDOP) durante la creazione di CCI ordinata. Di seguito sono riportate le opzioni per ridurre la sovrapposizione del segmento durante la creazione di CCI ordinati.
 
-- Usare la classe di risorse xlargerc in un DWU superiore per consentire una maggiore quantità di memoria per l'ordinamento dei dati prima che il generatore di indici comprime i dati in segmenti.  Una volta in un segmento di indice, la posizione fisica dei dati non può essere modificata.  Nessun ordinamento dei dati in un segmento o in più segmenti.  
+- Usare la classe di risorse xlargerc in un DWU superiore per consentire una maggiore quantità di memoria per l'ordinamento dei dati prima che il generatore di indici comprime i dati in segmenti.  Una volta in un segmento di indice, la posizione fisica dei dati non può essere modificata.  Nessun ordinamento dei dati all'interno di un segmento o tra più segmenti.  
 
 - Creare una CCI ordinata con MAXDOP = 1.  Ogni thread usato per la creazione di CCI ordinati funziona su un subset di dati e lo ordina localmente.  Non esiste alcun ordinamento globale tra i dati ordinati in base a thread diversi.  L'uso di thread paralleli può ridurre il tempo necessario per creare un'CCI ordinata, ma genererà più segmenti sovrapposti rispetto all'uso di un singolo thread.  Attualmente, l'opzione MAXDOP è supportata solo per la creazione di una tabella CCI ordinata usando CREATE TABLE come comando SELECT.  La creazione di una CCI ordinata tramite i comandi CREATE INDEX o CREATE TABLE non supporta l'opzione MAXDOP. Ad esempio,
 
@@ -112,7 +113,7 @@ OPTION (MAXDOP 1);
 - Pre-ordinare i dati in base alle chiavi di ordinamento prima di caricarli in tabelle Azure SQL Data Warehouse.
 
 
-Di seguito è riportato un esempio di una distribuzione della tabella CCI ordinata con un segmento zero che si sovrappone alle raccomandazioni precedenti. La tabella CCI ordinata viene creata in un database DWU1000c tramite CTAS da una tabella heap 20 GB con MAXDOP 1 e xlargerc.  Il valore CCI viene ordinato in una colonna BIGINT senza duplicati.  
+Di seguito è riportato un esempio di una distribuzione della tabella CCI ordinata con un segmento zero che si sovrappone alle raccomandazioni precedenti. La tabella CCI ordinata viene creata in un database DWU1000c tramite CTAS da una tabella heap da 20 GB con MAXDOP 1 e xlargerc.  Il valore CCI viene ordinato in una colonna BIGINT senza duplicati.  
 
 ![Segment_No_Overlapping](media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
@@ -126,7 +127,7 @@ La creazione di una CCI ordinata è un'operazione offline.  Per le tabelle senza
 5.  Ripetere i passaggi 3 e 4 per ogni partizione in Table_A.
 6.  Una volta passate tutte le partizioni da Table_A a Table_B e ricompilate, eliminare Table_A e rinominare Table_B in Table_A. 
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 **A. per verificare la presenza di colonne ordinate e ordinali ordinali:**
 ```sql

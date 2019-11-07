@@ -6,16 +6,16 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 10/11/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 2990917243507d93cb6a86da11cf771f3a42eebd
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a9444847fb75bdf01cabba98057605afbe03c9fc
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298421"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577436"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Panoramica sullo sviluppo di servizi blockchain di Azure
 
@@ -39,7 +39,7 @@ Per sviluppare sofisticate soluzioni blockchain aziendali, è necessario un Fram
 
 Tartufo è un noto framework di sviluppo blockchain per la scrittura, la compilazione, la distribuzione e il test di applicazioni decentralizzate in Ethereum blockchain. È anche possibile pensare al tartufo come a un Framework che tenta di integrare agevolmente lo sviluppo di contratti intelligenti e lo sviluppo Web tradizionale.
 
-Anche il progetto più piccolo interagisce con almeno due nodi blockchain: Uno sul computer dello sviluppatore e l'altro che rappresenta la rete in cui lo sviluppatore distribuisce l'applicazione. Ad esempio, la rete Ethereum pubblica principale o il servizio Azure blockchain. Il tartufo fornisce un sistema per la gestione degli artefatti di compilazione e distribuzione per ogni rete ed esegue questa operazione in modo da semplificare la distribuzione finale dell'applicazione. Per altre informazioni, vedere [Avvio rapido: Usare tartufo per connettersi a una rete del servizio Azure blockchain @ no__t-0.
+Anche il progetto più piccolo interagisce con almeno due nodi blockchain: uno nel computer dello sviluppatore e l'altro che rappresenta la rete in cui lo sviluppatore distribuisce l'applicazione. Ad esempio, la rete Ethereum pubblica principale o il servizio Azure blockchain. Il tartufo fornisce un sistema per la gestione degli artefatti di compilazione e distribuzione per ogni rete ed esegue questa operazione in modo da semplificare la distribuzione finale dell'applicazione. Per altre informazioni, vedere [Guida introduttiva: usare il tartufo per connettersi a una rete del servizio Azure blockchain](connect-truffle.md).
 
 ## <a name="ethereum-quorum-private-transaction"></a>Transazione privata quorum Ethereum
 
@@ -51,7 +51,7 @@ Il quorum è un protocollo di Ledger distribuito basato su Ethereum con transazi
 * Autorizzazione peer-autorizzazione per nodi e peer con contratti intelligenti, assicurando che solo le parti note possano partecipare alla rete
 * Prestazioni più elevate: il quorum offre prestazioni superiori rispetto a Geth pubblici
 
-Per istruzioni dettagliate, vedere [Esercitazione: Inviare una transazione usando Azure blockchain Service @ no__t-0 per un esempio di transazione privata.
+Per un esempio di transazione privata, vedere [esercitazione: inviare una transazione usando il servizio Azure blockchain](send-transaction.md) .
 
 ## <a name="block-explorers"></a>Esplora blocchi
 
@@ -66,4 +66,4 @@ Quando blockchain viene usato in più scenari aziendali, la velocità delle tran
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Avvio rapido: Usare il tartufo per connettersi a una rete del servizio Azure blockchain @ no__t-0
+[Guida introduttiva: usare il tartufo per connettersi a una rete del servizio Azure blockchain](connect-truffle.md)

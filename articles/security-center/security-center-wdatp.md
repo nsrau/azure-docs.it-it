@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender Advanced Threat Protection con il Centro sicurezza di Azure
+title: Microsoft Defender Advanced Threat Protection-Centro sicurezza di Azure
 description: Questo documento introduce l'integrazione tra il Centro sicurezza di Azure e Microsoft Defender Advanced Threat Protection.
 services: security-center
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 6ceed914d1c69ccdfce5d7acb6dcfc1afc9ef868
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 46b9fe5c6a038aa98cf8df64c40bf8ea1747efec
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819880"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663600"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection con il Centro sicurezza di Azure
 
@@ -95,7 +95,7 @@ Se si ha un proxy o un firewall che blocca il traffico anonimo, perché un senso
 
 Per generare un avviso di test di Microsoft Defender ATP benigno:
 
-1. Usare Desktop remoto per accedere a una macchina virtuale Windows Server 2012 R2 o Windows Server 2016.  Aprire una finestra del prompt dei comandi.
+1. Usare Desktop remoto per accedere a una macchina virtuale Windows Server 2012 R2 o Windows Server 2016. Aprire una finestra del prompt dei comandi.
 
 2. Al prompt copiare ed eseguire il comando seguente. La finestra del prompt dei comandi verrà chiusa automaticamente.
 
@@ -107,7 +107,7 @@ Per generare un avviso di test di Microsoft Defender ATP benigno:
 
 3. Se il comando ha esito positivo, verrà visualizzato un nuovo avviso nel dashboard del Centro sicurezza di Azure e nel portale di Microsoft Defender ATP. Possono trascorrere alcuni minuti prima che l'avviso venga visualizzato.
 
-4. Per esaminare l'avviso nel Centro sicurezza, passare a **Avvisi di sicurezza** >  **Suspicious Powershell CommandLine** (Riga di comando PowerShell sospetta).
+4. Per esaminare l'avviso nel Centro sicurezza, passare a **Avvisi di sicurezza** > **Suspicious Powershell CommandLine** (Riga di comando PowerShell sospetta).
 
 5. Nella finestra di analisi selezionare il collegamento per passare al portale di Microsoft Defender ATP.
 

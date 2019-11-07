@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce91d53bec3c74a8a55d46fd53bc3cf0ccd7e28a
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: bf713029f26ac7ec0b6c043fb887fa5190083888
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550629"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576066"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
@@ -47,8 +47,8 @@ La tabella seguente indica il livello di supporto corrente per i tre piani di ho
 
 | | Piano a consumo | Piano Premium | Piano dedicato |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | Disponibilità a livello generale | anteprima | Disponibilità a livello generale |
-| Linux | Disponibilità a livello generale | anteprima | Disponibilità a livello generale |
+| Windows | Disponibilità a livello generale | Disponibilità a livello generale | Disponibilità a livello generale |
+| Linux | Disponibilità a livello generale | Disponibilità a livello generale | Disponibilità a livello generale |
 
 ## <a name="consumption-plan"></a>Piano a consumo
 
@@ -65,7 +65,7 @@ Le app per le funzioni nella stessa area possono essere assegnate allo stesso pi
 
 Per altre informazioni su come stimare i costi durante l'esecuzione in un piano a consumo, vedere [informazioni sui costi del piano a consumo](functions-consumption-costs.md).
 
-## <a name="premium-plan"></a>Piano Premium (anteprima)
+## <a name="premium-plan"></a>Piano Premium
 
 Quando si usa il piano Premium, le istanze dell'host di funzioni di Azure vengono aggiunte e rimosse in base al numero di eventi in ingresso esattamente come il piano a consumo.  Il piano Premium supporta le funzionalità seguenti:
 

@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0bac6f9105d505bdfc1492b6966c2352771e73b0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4b4e82acbd3037c70b87731c0661605041090435
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791299"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614518"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Controllo delle versioni in Funzioni permanenti (Funzioni di Azure)
 
@@ -32,7 +32,7 @@ Si supponga, ad esempio, che sia presente la funzione dell'agente di orchestrazi
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -43,16 +43,19 @@ Questa semplice funzione usa i risultati di **Foo** e li passa a **Bar**. Si sup
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     int result = await context.CallActivityAsync<int>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
 ```
 
-Questa modifica funziona correttamente per tutte le nuove istanze della funzione dell'agente di orchestrazione, ma interrompe tutte le istanze in corso. Si consideri ad esempio il caso in cui un'istanza di orchestrazione chiama **Foo** e riceve un valore booleano e quindi i checkpoint. Se la modifica della firma viene distribuita a questo punto, l'istanza per cui è stato applicato il checkpoint ha immediatamente esito negativo quando riprende e riesegue la chiamata a `context.CallActivityAsync<int>("Foo")`. Ciò si verifica perché il risultato nella tabella di cronologia è `bool`, ma il nuovo codice tenta di deserializzarlo in `int`.
+> [!NOTE]
+> Gli esempi C# precedenti hanno come destinazione Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `DurableOrchestrationContext` invece di `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
-Questo è solo uno dei molti modi diversi in cui una modifica della firma può interrompere le istanze esistenti. In generale, se è necessario modificare il modo in cui un agente di orchestrazione chiama una funzione, la modifica può diventare un problema.
+Questa modifica funziona correttamente per tutte le nuove istanze della funzione dell'agente di orchestrazione, ma interrompe tutte le istanze in corso. Si consideri, ad esempio, il caso in cui un'istanza di orchestrazione chiama una funzione denominata `Foo`, ottiene un valore booleano e quindi i checkpoint. Se la modifica della firma viene distribuita a questo punto, l'istanza per cui è stato applicato il checkpoint ha immediatamente esito negativo quando riprende e riesegue la chiamata a `context.CallActivityAsync<int>("Foo")`. Questo errore si verifica perché il risultato nella tabella di cronologia è `bool`, ma il nuovo codice tenta di deserializzarlo in `int`.
+
+Questo esempio è solo uno dei diversi modi in cui una modifica della firma può interrompere le istanze esistenti. In generale, se è necessario modificare il modo in cui un agente di orchestrazione chiama una funzione, la modifica può diventare un problema.
 
 ### <a name="changing-orchestrator-logic"></a>Modifica della logica dell'agente di orchestrazione
 
@@ -62,7 +65,7 @@ Si consideri la funzione dell'agente di orchestrazione seguente:
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -73,7 +76,7 @@ Si supponga ora che si desideri apportare una modifica apparentemente innocua pe
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     if (result)
@@ -85,7 +88,10 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-Questa modifica aggiunge una chiamata di funzione a **SendNotification** tra **Foo** e **Bar**. Non sono presenti modifiche della firma. Il problema si verifica quando un'istanza esistente riprende dopo la chiamata a **Bar**. Durante la riesecuzione, se la chiamata originale a **Foo** ha restituito `true` la riesecuzione dell'agente di orchestrazione eseguirà la chiamata a **SendNotification** che non si trova nella cronologia di esecuzione. Di conseguenza, il framework di attività permanenti ha esito negativo e genera un'eccezione `NonDeterministicOrchestrationException` perché ha rilevato una chiamata a **SendNotification** quando era prevista la visualizzazione di una chiamata a **Bar**. È possibile che si verifichi lo stesso tipo di problema quando si aggiungono chiamate a API "durevoli", tra cui `CreateTimer`, `WaitForExternalEvent`e così via.
+> [!NOTE]
+> Gli esempi C# precedenti hanno come destinazione Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `DurableOrchestrationContext` invece di `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+
+Questa modifica aggiunge una chiamata di funzione a **SendNotification** tra **Foo** e **Bar**. Non sono presenti modifiche della firma. Il problema si verifica quando un'istanza esistente riprende dopo la chiamata a **Bar**. Durante la riproduzione, se la chiamata originale a **foo** ha restituito `true`, la riesecuzione dell'agente di orchestrazione chiamerà **SendNotification**, che non si trova nella cronologia di esecuzione. Di conseguenza, il framework di attività permanenti ha esito negativo e genera un'eccezione `NonDeterministicOrchestrationException` perché ha rilevato una chiamata a **SendNotification** quando era prevista la visualizzazione di una chiamata a **Bar**. È possibile che si verifichi lo stesso tipo di problema quando si aggiungono chiamate a API "durevoli", tra cui `CreateTimer`, `WaitForExternalEvent`e così via.
 
 ## <a name="mitigation-strategies"></a>Strategie di mitigazione
 
@@ -99,11 +105,11 @@ Di seguito vengono indicate alcune strategie per affrontare le problematiche di 
 
 Il modo più semplice per gestire una modifica di rilievo è quello di consentire che le istanze di orchestrazione in corso abbiano esito negativo. Le nuove istanze eseguono correttamente il codice modificato.
 
-L'eventuale presenza di un problema dipende dall'importanza delle istanze in corso. In fase di sviluppo attivo e quando la presenza di istanze in corso non è importante, questa situazione potrebbe essere corretta. È necessario tuttavia gestire eccezioni ed errori nella pipeline di diagnostica. Se si desidera evitare queste situazioni, prendere in considerazione le altre opzioni di controllo delle versioni.
+Se questo tipo di errore è un problema dipende dall'importanza delle istanze in corso. In fase di sviluppo attivo e quando la presenza di istanze in corso non è importante, questa situazione potrebbe essere corretta. Tuttavia, sarà necessario gestire le eccezioni e gli errori nella pipeline di diagnostica. Se si desidera evitare queste situazioni, prendere in considerazione le altre opzioni di controllo delle versioni.
 
 ### <a name="stop-all-in-flight-instances"></a>Arrestare tutte le istanze in corso
 
-Un'altra opzione è quella di arrestare tutte le istanze in corso. Questa operazione può essere eseguita cancellando il contenuto della **coda di controllo** e della **coda di elementi di lavoro**. Le istanze verranno bloccate nel punto in cui si trovano, ma i dati di telemetria non verranno confusi con messaggi di errore. Questa soluzione è ideale in fase di sviluppo rapido di prototipi.
+Un'altra opzione è quella di arrestare tutte le istanze in corso. L'arresto di tutte le istanze può essere eseguito cancellando il contenuto delle code interne della coda di **controllo** e del **WorkItem** . Le istanze rimarranno sempre bloccate, ma i log non verranno confusi con i messaggi di errore. Questo approccio è ideale per lo sviluppo rapido di prototipi.
 
 > [!WARNING]
 > I dettagli di queste code possono cambiare nel tempo, pertanto non è consigliabile basarsi su questa tecnica per i carichi di lavoro di produzione.
@@ -114,7 +120,7 @@ Il modo migliore per garantire che le modifiche di rilievo vengano distribuite i
 
 * Distribuire tutti gli aggiornamenti come funzioni completamente nuove, lasciando le funzioni esistenti così come sono. Questa operazione può risultare complessa perché i chiamanti delle nuove versioni della funzione devono essere aggiornati anche seguendo le stesse linee guida.
 * Distribuire tutti gli aggiornamenti come una nuova app per le funzioni con un account di archiviazione diverso.
-* Distribuire una nuova copia dell'app per le funzioni con lo stesso account di archiviazione ma con un nome `taskHub` aggiornato. Questa è la tecnica consigliata.
+* Distribuire una nuova copia dell'app per le funzioni con lo stesso account di archiviazione ma con un nome `taskHub` aggiornato. Le distribuzioni affiancate sono la tecnica consigliata.
 
 ### <a name="how-to-change-task-hub-name"></a>Come modificare il nome dell'hub attività
 
@@ -130,7 +136,7 @@ L'hub attività può essere configurato nel file *host.json* come indicato di se
 }
 ```
 
-#### <a name="functions-2x"></a>Funzioni 2.x
+#### <a name="functions-20"></a>Funzioni 2,0
 
 ```json
 {

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 62af688c6090b61f2596ab376cb479c270b87759
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 78e085aae97114e6848b736c40b16c755256d0cd
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274125"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571109"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
@@ -48,6 +48,9 @@ La configurazione del probe di integrità è costituita dagli elementi seguenti:
 - Protocollo del probe
 - Porta del probe
 - Percorso HTTP da usare per HTTP GET quando si usano Probe HTTP (S)
+
+> [!NOTE]
+> Una definizione di probe non è obbligatoria o verificata quando si usa Azure PowerShell, interfaccia della riga di comando di Azure, modelli o API. I test di convalida dei probe vengono eseguiti solo quando si usa il portale di Azure.
 
 ## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>Informazioni sul segnale dell'applicazione, sul rilevamento del segnale e sulla reazione della piattaforma
 

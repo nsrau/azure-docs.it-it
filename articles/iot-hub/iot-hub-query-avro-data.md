@@ -7,20 +7,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 84e1dd77c6e873dc2facb5126bbddf795192b60d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 92fc5bb88ff5efd8fe1a8cd61be833b3984b673a
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257756"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605609"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Eseguire query sui dati di Avro con Azure Data Lake Analytics
 
-Questo articolo illustra come eseguire query sui dati di Avro per un routing efficiente dei messaggi provenienti dall'hub IoT di Azure ai servizi di Azure. [Routing dei messaggi](iot-hub-devguide-messages-d2c.md) consente di filtrare i dati usando query avanzate basate sulle proprietà dei messaggi, sul corpo del messaggio, sui tag e sulle proprietà del dispositivo gemello. Per altre informazioni sulle funzionalità di query nel messaggio di Routing, vedere l'articolo [routing sintassi di query di messaggio](iot-hub-devguide-routing-query-syntax.md).
+Questo articolo illustra come eseguire query sui dati di Avro per un routing efficiente dei messaggi provenienti dall'hub IoT di Azure ai servizi di Azure. [Routing dei messaggi](iot-hub-devguide-messages-d2c.md) consente di filtrare i dati usando query avanzate basate sulle proprietà dei messaggi, sul corpo del messaggio, sui tag e sulle proprietà del dispositivo gemello. Per ulteriori informazioni sulle funzionalità di query nel routing dei messaggi, vedere l'articolo relativo alla [sintassi delle query di routing dei messaggi](iot-hub-devguide-routing-query-syntax.md).
 
-È stata la sfida che quando l'IoT Hub di Azure indirizza i messaggi nell'archivio Blob di Azure, per impostazione predefinita dell'IoT Hub scrive il contenuto in formato Avro, che include una proprietà del corpo del messaggio e una proprietà del messaggio. Il formato Avro non viene utilizzato per tutti gli altri endpoint. Anche se il formato Avro è molto utile per la conservazione dei dati e dei messaggi, è difficile da usare per eseguire query sui dati. In confronto, il formato JSON o CSV è molto più semplice per l'esecuzione di query sui dati. L'IoT Hub supporta ora la scrittura dei dati nell'archiviazione Blob in JSON, nonché AVRO.
+Il problema è che, quando l'hub Azure Internet instrada i messaggi nell'archiviazione BLOB di Azure, per impostazione predefinita l'hub Internet scrive il contenuto in formato Avro, che include sia una proprietà del corpo del messaggio che una proprietà del messaggio. Il formato avro non viene usato per altri endpoint. Anche se il formato Avro è molto utile per la conservazione dei dati e dei messaggi, è difficile da usare per eseguire query sui dati. In confronto, il formato JSON o CSV è molto più semplice per l'esecuzione di query sui dati. L'hub Internet delle cose supporta ora la scrittura dei dati nell'archivio BLOB in JSON e AVRO.
 
-Per altre informazioni, vedere [uso di archiviazione Blob di Azure come endpoint di routing](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+Per altre informazioni, vedere [uso di archiviazione di Azure come endpoint di routing](iot-hub-devguide-messages-d2c.md#azure-storage).
 
 Per soddisfare esigenze e formati di Big Data non relazionali e superare questo problema, è possibile usare molti dei modelli di Big Data per la trasformazione e il ridimensionamento dei dati. Uno dei modelli, basato sul "pagamento per query" è Azure Data Lake Analytics, che viene illustrato in dettaglio in questo articolo. Nonostante sia possibile eseguire facilmente la query in Hadoop o con altre soluzioni, Data Lake Analytics è spesso più indicato per questo approccio basato sul "pagamento per query".
 
@@ -173,6 +173,6 @@ In questa esercitazione si è appreso come eseguire query sui dati di Avro per u
 
 Per avere degli esempi di soluzioni end-to-end che usano l'hub IoT, vedere la[documentazione degli acceleratori di soluzioni IoT di Azure](/azure/iot-accelerators).
 
-Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md).
+Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per gli sviluppatori dell'hub IoT](iot-hub-devguide.md).
 
 Per altre informazioni sul routing dei messaggi nell'hub IoT, vedere [Inviare e ricevere messaggi con l'hub IoT](iot-hub-devguide-messaging.md).

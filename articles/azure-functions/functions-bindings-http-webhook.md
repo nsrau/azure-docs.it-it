@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 9dd3f6490d1e9f6bdd20e99025545d83bca191fb
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 9203f54989d010b8f1f10a7f90f00cc82fa41238
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162332"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574609"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Trigger e associazioni HTTP di Funzioni di Azure
 
@@ -520,7 +520,7 @@ Per un esempio completo, vedere l' [esempio di trigger](#trigger---example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `HttpTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 | **type** | N/D| Obbligatoria. Deve essere impostata su `httpTrigger`. |
 | **direction** | N/D| Obbligatoria. Deve essere impostata su `in`. |
@@ -857,12 +857,6 @@ La lunghezza della richiesta HTTP è limitata a 100 MB (104.857.600 byte) e la l
 
 Se una funzione che usa il trigger HTTP non viene completata entro 2,5 minuti circa, il gateway raggiungerà il timeout e restituirà un errore HTTP 502. La funzione rimarrà in esecuzione, ma non riuscirà a restituire una risposta HTTP. Per le funzioni con esecuzione prolungata, è consigliabile seguire modelli asincroni e restituire una posizione in cui è possibile effettuare il ping dello stato della richiesta. Per informazioni su quanto tempo può durare l'esecuzione di una funzione, vedere [Scalabilità e hosting - Piano a consumo](functions-scale.md#timeout).
 
-## <a name="trigger---hostjson-properties"></a>Trigger - proprietà di host.json
-
-Il file [host.json](functions-host-json.md) contiene le impostazioni che controllano il comportamento del trigger HTTP.
-
-[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
-
 ## <a name="output"></a>Output
 
 Usare l'associazione di output HTTP per rispondere al mittente della richiesta HTTP. Questa associazione richiede un trigger HTTP e consente di personalizzare la risposta associata alla richiesta del trigger. Se non viene fornita un'associazione di output HTTP, un trigger HTTP restituisce HTTP 200 OK con un corpo vuoto nelle funzioni 1.x o HTTP 204 Nessun contenuto con un corpo vuoto nelle funzioni 2.x.
@@ -871,17 +865,54 @@ Usare l'associazione di output HTTP per rispondere al mittente della richiesta H
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*. Per le librerie di classe C# non vi sono proprietà di attributo che corrispondano a queste proprietà *function.json*.
 
-|Proprietà  |Description  |
+|Proprietà  |Descrizione  |
 |---------|---------|
 | **type** |Il valore deve essere impostato su `http`. |
 | **direction** | Il valore deve essere impostato su `out`. |
-|**nome** | Nome della variabile usato nel codice della funzione per la risposta, o `$return`per usare il valore restituito. |
+| **nome** | Nome della variabile usato nel codice della funzione per la risposta, o `$return`per usare il valore restituito. |
 
 ## <a name="output---usage"></a>Output - uso
 
 Per inviare una risposta HTTP, usare modelli di risposta standard del linguaggio. In C# o nello script C#, eseguire il tipo restituito della funzione `IActionResult` o `Task<IActionResult>`. In C#, non è necessario un attributo del valore restituito.
 
 Per le risposte di esempio, vedere l'[esempio di trigger](#trigger---example).
+
+## <a name="hostjson-settings"></a>impostazioni host.json
+
+Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nella versione 2.x. Il file host.json di esempio seguente contiene solo le impostazioni della versione 2.x per questa associazione. Per altre informazioni sulle impostazioni di configurazione globali nella versione 2.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure versione 2.x](functions-host-json.md).
+
+> [!NOTE]
+> Per informazioni di riferimento su host.json in Funzioni 1.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 1.x](functions-host-json-v1.md#http).
+
+```json
+{
+    "extensions": {
+        "http": {
+            "routePrefix": "api",
+            "maxOutstandingRequests": 200,
+            "maxConcurrentRequests": 100,
+            "dynamicThrottlesEnabled": true,
+            "hsts": {
+                "isEnabled": true,
+                "maxAge": "10"
+            },
+            "customHeaders": {
+                "X-Content-Type-Options": "nosniff"
+            }
+        }
+    }
+}
+```
+
+|Proprietà  |Default | Descrizione |
+|---------|---------|---------| 
+| customHeaders|Nessuno|Consente di impostare intestazioni personalizzate nella risposta HTTP. Nell'esempio precedente l'intestazione `X-Content-Type-Options` viene aggiunta alla risposta per evitare l'analisi dei tipi di contenuto. |
+|dynamicThrottlesEnabled|<sup>\*</sup> true|Quando è abilitata, questa impostazione determina la pipeline di elaborazione della richiesta per il controllo periodico delle prestazioni dei contatori del sistema, ad esempio connessioni/thread/processi/memoria/CPU e così via. Se uno di questi contatori supera una soglia massima predefinita (80%), le richieste verranno rifiutate con una risposta 429 "Occupato" fino a quando i contatori non tornano a livelli normali.<br/><sup>\*</sup> Il valore predefinito in un piano a consumo è `true`. Il valore predefinito in un piano dedicato è `false`.|
+|HSTS|non abilitato|Quando `isEnabled` è impostato su `true`, viene applicato il [comportamento di sicurezza del trasporto http Strict (HSTS) di .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) , come definito nella [classe`HstsOptions`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). Nell'esempio precedente viene inoltre impostata la proprietà [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) su 10 giorni. |
+|maxConcurrentRequests|100<sup>\*</sup>|Numero massimo di funzioni http eseguite in parallelo. Ciò consente di controllare la concorrenza e pertanto di semplificare la gestione dell'uso delle risorse. Ad esempio, potrebbe essere presente una funzione HTTP che usa una quantità di risorse di sistema (memoria/CPU/socket) tale da creare problemi quando la concorrenza è troppo elevata. Oppure potrebbe essere presente una funzione che invia richieste a un servizio di terze parti e tali chiamate devono essere a frequenza limitata. In questi casi potrebbe risultare utile l'applicazione di una limitazione. <br/><sup>*</sup> Il valore predefinito per un piano a consumo è 100. Il valore predefinito per un piano dedicato è unbounded (`-1`).|
+|maxOutstandingRequests|200<sup>\*</sup>|Il numero massimo di richieste in sospeso che verrà mantenuto in un determinato intervallo. Questo limite include le richieste che vengono messe in coda ma non hanno avviato l'esecuzione, nonché le esecuzioni in corso. Le richieste in arrivo che superano questo limite vengono rifiutate con la risposta 429 "Occupato". Ciò consente ai chiamanti di usare strategie di ripetizione dei tentativi basate sul tempo e di controllare la latenza massima delle richieste. Questa impostazione controlla solo l'accodamento che si verifica all'interno del percorso di esecuzione dell'host dello script. Altre code, ad esempio la coda di richieste ASP.NET, saranno valide e non interessate da questa impostazione. <br/><sup>\*</sup>valore predefinito \il per un piano a consumo è 200. Il valore predefinito per un piano dedicato è unbounded (`-1`).|
+|routePrefix|api|Il prefisso della route che si applica a tutte le route. Utilizzare una stringa vuota per rimuovere il prefisso predefinito. |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

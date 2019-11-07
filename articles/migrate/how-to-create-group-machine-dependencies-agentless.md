@@ -6,14 +6,17 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/23/2019
 ms.author: hamusa
-ms.openlocfilehash: d646187627d74810a846d7126562e2e796c5c9f7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e9f9e812d5463f0a503b100780f9b988e43f748d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512808"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720260"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurare la visualizzazione delle dipendenze senza agenti per la valutazione
+
+> [!NOTE]
+> Se questa funzionalità non è ancora visualizzata nel portale di Azure Migrate, bloccarsi. Verrà visualizzato nella settimana successiva.
 
 Questo articolo descrive come configurare il mapping delle dipendenze senza agente in Azure Migrate: server assessment. Questa funzionalità è attualmente disponibile in anteprima per i computer VMware individuati con un appliance Azure Migrate. 
 

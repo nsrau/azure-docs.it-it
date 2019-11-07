@@ -1,19 +1,19 @@
 ---
-title: Azure HPC cache anteprima inserimento dati-msrsync
+title: Inserimento di dati nella cache HPC di Azure-msrsync
 description: Come usare msrsync per spostare i dati in una destinazione di archiviazione BLOB nella cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 6eac6c367be42021a4654f85c8f4ec980c9f6925
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 3e5937a036763fab57f9e37494ace33e8452b1f2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255293"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582265"
 ---
-# <a name="azure-hpc-cache-preview-data-ingest---msrsync-method"></a>Inserimento di dati nella cache HPC di Azure (anteprima)-metodo msrsync
+# <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Inserimento di dati nella cache HPC di Azure-metodo msrsync
 
 Questo articolo fornisce istruzioni dettagliate per l'uso dell'utilità ``msrsync`` per copiare i dati in un contenitore di archiviazione BLOB di Azure da usare con la cache HPC di Azure.
 
@@ -23,7 +23,7 @@ Lo strumento ``msrsync`` può essere usato per spostare i dati in una destinazio
 
 ``msrsync`` suddivide la directory di origine in contenitori separati e quindi esegue singoli processi ``rsync`` in ogni contenitore.
 
-I test preliminari su una macchina virtuale con quattro core hanno indicato la massima efficienza utilizzando 64 processi. Usare l'opzione ``-p`` di ``msrsync`` per impostare il numero di processi su 64.
+I test preliminari su una macchina virtuale con quattro core hanno indicato la massima efficienza utilizzando 64 processi. Usare l'opzione ``msrsync`` di ``-p`` per impostare il numero di processi su 64.
 
 Si noti che ``msrsync`` può scrivere solo da e verso i volumi locali. L'origine e la destinazione devono essere accessibili come montaggi locali nella workstation utilizzata per eseguire il comando.
 

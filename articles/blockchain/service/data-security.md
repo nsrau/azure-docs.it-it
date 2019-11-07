@@ -6,20 +6,20 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: 00d4911c0f2541ea5c64eccca3ab1b1505e06390
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 63e61844ddb5bd0f0ed52b67e26ea5bf1857fd2b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608537"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579929"
 ---
 # <a name="azure-blockchain-service-security"></a>Sicurezza del servizio Azure blockchain
 
-Il servizio Azure blockchain usa diverse funzionalità di Azure per garantire la sicurezza e la disponibilità dei dati. I dati sono protetti tramite isolamento, crittografia e autenticazione.
+Il servizio Azure Blockchain usa alcune funzionalità di Azure per assicurare la protezione e la disponibilità dei tuoi dati. I dati vengono protetti tramite l'isolamento, la crittografia e l'autenticazione.
 
 ## <a name="isolation"></a>Isolamento
 
@@ -29,9 +29,9 @@ Le risorse del servizio Azure blockchain sono isolate in una rete virtuale priva
 
 ## <a name="encryption"></a>Crittografia
 
-I dati utente vengono archiviati in archiviazione di Azure. I dati utente vengono crittografati in movimento e inattivi per la sicurezza e la riservatezza. Per altre informazioni, vedere: [Guida alla sicurezza di Archiviazione di Azure](../../storage/common/storage-security-guide.md).
+I dati utente vengono archiviati in archiviazione di Azure. I dati utente vengono crittografati in movimento e inattivi per la sicurezza e la riservatezza. Per ulteriori informazioni, vedere la [Guida alla sicurezza di archiviazione di Azure](../../storage/common/storage-security-guide.md).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 È possibile inviare le transazioni ai nodi blockchain tramite un endpoint RPC. I client comunicano con un nodo di transazione utilizzando un server proxy inverso che gestisce l'autenticazione utente e crittografa i dati tramite SSL.
 
@@ -49,7 +49,7 @@ Le chiavi di accesso usano una stringa generata in modo casuale incluso nell'URL
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Azure Active Directory (Azure AD) utilizza un meccanismo di autenticazione basato sulle attestazioni in cui l'utente viene autenticato da Azure AD utilizzando Azure AD credenziali utente. Azure AD offre la gestione delle identità basata sul cloud e consente ai clienti di usare una singola identità in un'intera azienda e di accedere alle applicazioni nel cloud. Il servizio Azure blockchain si integra con Azure AD abilitando la Federazione degli ID, Single Sign-on e autenticazione a più fattori. È possibile assegnare utenti, gruppi e ruoli applicazione all'interno dell'organizzazione per l'accesso ai membri e ai nodi di blockchain.
+Azure Active Directory (Azure AD) utilizza un meccanismo di autenticazione basato sulle attestazioni in cui l'utente viene autenticato da Azure AD utilizzando Azure AD credenziali utente. Azure AD offre la gestione delle identità basata sul cloud e consente ai clienti di usare una singola identità in un'intera azienda e di accedere alle applicazioni nel cloud. Il servizio Azure blockchain si integra con Azure AD abilitando la Federazione degli ID, Single Sign-On e l'autenticazione a più fattori. È possibile assegnare utenti, gruppi e ruoli applicazione all'interno dell'organizzazione per l'accesso ai membri e ai nodi di blockchain.
 
 Il proxy client Azure AD è disponibile in [GitHub](https://github.com/Microsoft/azure-blockchain-connector/releases). Il proxy client indirizza l'utente alla pagina di accesso Azure AD e ottiene una bearer token al completamento dell'autenticazione. Successivamente, l'utente connette un'applicazione client Ethereum, ad esempio Geth o tartufo, all'endpoint del proxy client. Infine, quando viene inviata una transazione, il proxy client inserisce il bearer token nell'intestazione HTTP e il proxy inverso convalida il token tramite il protocollo OAuth.
 

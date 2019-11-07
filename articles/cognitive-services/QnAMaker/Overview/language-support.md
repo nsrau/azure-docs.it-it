@@ -1,7 +1,7 @@
 ---
 title: Supporto delle lingue - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: La lingua di una knowledge base influisce sulla capacità di QnA Maker di estrarre automaticamente domande e risposte dalle origini, nonché la pertinenza dei risultati forniti da QnA Maker in risposta alle query degli utenti. Elenco delle impostazioni cultura e dei linguaggi naturali supportati da QnA Maker per la knowledge base. Non combinare linguaggi diversi nella stessa knowledge base.
+description: Elenco delle impostazioni cultura e dei linguaggi naturali supportati da QnA Maker per la knowledge base. Non combinare linguaggi diversi nella stessa knowledge base.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: f4f7fffdde7d103271fa667bbab11c09ebc54825
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285871"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720994"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Supporto delle lingue per una risorsa QnA Maker e Knowledge base
 
@@ -29,7 +29,7 @@ Altre informazioni sull' [effetto della selezione della lingua](../how-to/langua
 
 L'elenco seguente contiene le lingue supportate per una risorsa QnA Maker. 
 
-|Linguaggio|
+|Lingua|
 |--|
 |Arabo|
 |Armeno|

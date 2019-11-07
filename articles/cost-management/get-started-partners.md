@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 6d59964013a2631430ecd7e46d1ce0f6be60a05f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 611b3e608d9b0de9423c861ec70e9fc2e7ad67d5
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802036"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720762"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a gestione costi di Azure per i partner
 
@@ -85,10 +85,10 @@ I partner possono usare l'ambito per riconciliare le fatture. E usano l'ambito p
 - Fattura filtrata specifica
 - Customer
 - Sottoscrizione
-- Gruppo di risorse
+- Resource group
 - Gruppi
 - Servizio di Azure
-- Misuratore
+- Contatore
 - ResellerMPNID
 
 ### <a name="customer-scope"></a>Ambito del cliente
@@ -139,7 +139,7 @@ In **fatturazione**fare clic su **sottoscrizioni Azure**, quindi fare clic su un
 ![Selezionare un cliente per la sottoscrizione di Azure](./media/get-started-partners/subscriptions-select-customer.png)
 
 Fare clic su **analisi costi** e iniziare a esaminare i costi.
-L'analisi dei costi, i budget e gli avvisi sono ora disponibili per gli ambiti di sottoscrizione e del gruppo di risorse RBAC con costi basati sulla velocità con pagamento in base al consumo.
+L'analisi dei costi, i budget e gli avvisi sono disponibili per gli ambiti di sottoscrizione e del gruppo di risorse RBAC con costi basati sulla velocità con pagamento in base al consumo.
 
 ![Visualizzazione dell'analisi dei costi come cliente ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
 
@@ -147,21 +147,22 @@ Le visualizzazioni ammortizzate e i costi effettivi per le istanze riservate neg
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analizzare i costi nell'analisi dei costi
 
-I partner possono esplorare e analizzare i costi nell'analisi dei costi tra i clienti per un cliente specifico o per una fattura. Le funzionalità di filtro e di raggruppamento consentono di analizzare i costi in base a più campi, tra cui:
+I partner possono esplorare e analizzare i costi nell'analisi dei costi tra i clienti per un cliente specifico o per una fattura.
 
-| **Campo** | **Descrizione** |
+I campi seguenti sono disponibili nei file di dettagli sull'utilizzo e nelle API di gestione dei costi. Per analizzare i costi in base a più campi, è possibile utilizzare le funzionalità di filtro e di raggruppamento in base all'analisi dei costi. Per visualizzare un elenco completo dei campi, vedere [campi dati di gestione dei costi](understand-cost-mgt-data.md#cost-management-data-fields).
+
+| Nome campo | Descrizione |
 | --- | --- |
-| PartnerTenantID | Identificatore del tenant Azure Active Directory del partner |
-| PartnerName | Nome del tenant Azure Active Directory partner |
-| CustomerTenantID | Identificatore del tenant Azure Active Directory della sottoscrizione del cliente |
-| CustomerName | Nome del tenant Azure Active Directory contenente la sottoscrizione del cliente |
-| ResellerMPNID | MPNID per il rivenditore associato alla sottoscrizione |
-| ID sottoscrizione | Identificatore univoco generato da Microsoft per la sottoscrizione di Azure |
-| subscriptionName | Nome della sottoscrizione di Azure |
-| billingProfileID | Identificatore del profilo di fatturazione. Raggruppa i costi tra le fatture in una singola valuta di fatturazione tra i clienti.
-| invoiceID | ID fattura per la fattura in cui viene visualizzata la transazione specifica |
-| resourceGroup | Nome del gruppo di risorse di Azure. Usato per la gestione del ciclo di vita delle risorse. |
-| partnerEarnedCreditRate | Tariffa di sconto applicata se è presente un credito guadagnato dal partner (PEC) in base all'accesso al collegamento dell'amministratore del partner. |
+| CustomerTenantID | Identificatore del tenant Azure Active Directory della sottoscrizione del cliente&#39;. |
+| CustomerName | Nome del tenant Azure Active Directory per la sottoscrizione del&#39;cliente. |
+| CustomerTenantDomainName | Nome di dominio per il tenant Azure Active Directory della sottoscrizione&#39;del cliente. |
+| PartnerTenantID | Identificatore per il tenant&#39;Azure Active Directory del partner. |
+| PartnerName | Nome del tenant del Azure Active Directory partner. |
+| ResellerMPNID | MPNID per il rivenditore associato alla sottoscrizione. |
+| costinUSD | Costo stimato di costo esteso o blended prima dell'imposizione in USD. |
+| paygCostInBillingCurrency | Mostra i costi se i prezzi sono nei prezzi di vendita al dettaglio. Mostra i prezzi con pagamento in base al consumo nella valuta di fatturazione. Disponibile solo in ambito RBAC. |
+| paygCostInUSD | Mostra i costi se i prezzi sono nei prezzi di vendita al dettaglio. Mostra i prezzi con pagamento in base al consumo in USD. Disponibile solo in ambito RBAC. |
+| partnerEarnedCreditRate | Tasso di sconto applicato se è presente un credito guadagnato dal partner (PEC) in base all'accesso al collegamento dell'amministratore del partner. |
 | partnerEarnedCreditApplied | Indica se è stato applicato il credito guadagnato dal partner. |
 
 Nella visualizzazione [analisi costi](quick-acm-cost-analysis.md) è inoltre possibile salvare le [visualizzazioni](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) ed esportare i dati in [file CSV e png](quick-acm-cost-analysis.md#automation-and-offline-analysis).
@@ -203,36 +204,67 @@ Le API nell'ambito della sottoscrizione possono essere chiamate da un partner in
 #### <a name="to-get-a-list-of-billing-accounts"></a>Per ottenere un elenco di account di fatturazione
 
 ```
-armclient get "providers/Microsoft.billing/billingAccounts?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts?api-version=2019-10-01-preview
 ```
 
 #### <a name="to-get-a-list-of-customers"></a>Per ottenere un elenco dei clienti
 
 ```
-armclient get "providers/Microsoft.billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers?api-version=2019-10-01-preview
 ```
+
 #### <a name="to-get-a-list-of-subscriptions"></a>Per ottenere un elenco di sottoscrizioni
 
 ```
-armclient get "/providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY/billingSubscriptions?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingSubscriptions?api-version=2019-10-01-preview
 ```
+
+#### <a name="to-get-a-list-of-invoices-for-a-period-of-time"></a>Per ottenere un elenco di fatture per un periodo di tempo
+
+```
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/invoices?api-version=2019-10-01-preview&periodStartDate={periodStartDate}&periodEndDate={periodEndDate}
+```
+
+La chiamata API restituisce una matrice di fatture con elementi simili al codice JSON seguente.
+
+```
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountID}/billingProfiles/{BillingProfileID}/invoices/{InvoiceID}",
+      "name": "{InvoiceID}",
+      "properties": {
+        "amountDue": {
+          "currency": "USD",
+          "value": x.xx
+        },
+        ...
+    }
+```
+
+Usare il valore del campo ID restituito precedente e sostituirlo nell'esempio seguente come ambito per eseguire una query per i dettagli di utilizzo.
+
+```
+GET https://management.azure.com/{id}/providers/Microsoft.Consumption/UsageDetails?api-version=2019-10-01
+```
+
+Nell'esempio vengono restituiti i record di utilizzo associati alla fattura specifica.
+
 
 #### <a name="to-get-the-policy-for-customers-to-view-costs"></a>Per ottenere i criteri per i clienti per visualizzare i costi
 
 ```
-armclient get "providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY/policies/default?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/policies/default?api-version=2019-10-01-preview
 ```
 
 #### <a name="to-set-the-policy-for-customers-to-view-costs"></a>Per impostare i criteri per i clienti per visualizzare i costi
 
 ```
-armclient put "providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY/policies/default?api-version=2019-10-01-preview" @policy.json
+PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/policies/default?api-version=2019-10-01-preview
 ```
 
 #### <a name="to-get-azure-service-usage-for-a-billing-account"></a>Per ottenere l'utilizzo dei servizi di Azure per un account di fatturazione
 
 ```
-armclient GET /providers/Microsoft.Billing/BillingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/providers/Microsoft.Consumption/usageDetails?api-version=2019-10-01
+GET https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/providers/Microsoft.Consumption/usageDetails?api-version=2019-10-01
 ```
 
 #### <a name="to-download-a-customers-azure-service-usage"></a>Per scaricare l'utilizzo dei servizi di Azure di un cliente
@@ -240,7 +272,7 @@ armclient GET /providers/Microsoft.Billing/BillingAccounts/XXXXXXXX-XXXX-XXXX-XX
 La chiamata Get seguente è un'operazione asincrona.
 
 ```
-armclient get providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY/providers/Microsoft.Consumption/usageDetails/download?api-version=2019-10-01 -verbose
+GET https://management.azure.com/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/providers/Microsoft.Consumption/usageDetails/download?api-version=2019-10-01 -verbose
 ```
 
 Chiamare l'URI `Location` restituito nella risposta per controllare lo stato dell'operazione. Una volta *completato*lo stato, la proprietà `downloadUrl` contiene un collegamento che è possibile utilizzare per scaricare il report generato.
@@ -251,50 +283,40 @@ Chiamare l'URI `Location` restituito nella risposta per controllare lo stato del
 Usare prima di tutto il post seguente.
 
 ```
-armclient post "/providers/Microsoft.Billing/BillingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/billingProfiles/YYYY-YYYY-YYY-YYYY-YYY/pricesheet/default/download?api-version=2019-10-01-preview&format=csv" -verbose
+POST https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheet/default/download?api-version=2019-10-01-preview&format=csv" -verbose
 ```
 
-Chiamare quindi il valore della proprietà Operation asincrona. ad esempio:
+Chiamare quindi il valore della proprietà Operation asincrona. Ad esempio:
 
 ```
-armclient get "providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/billingProfiles/YYYY-YYYY-YYY-YYYY-YYY/pricesheetDownloadOperations/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX?sessiontoken=0:11186&api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheetDownloadOperations/{operation}?sessiontoken=0:11186&api-version=2019-10-01-preview
 ```
 La chiamata Get precedente restituisce il collegamento di download contenente l'elenco prezzi.
 
-#### <a name="to-get-customer-costs-for-the-last-two-months-sorted-by-month"></a>Per ottenere i costi del cliente per gli ultimi due mesi, ordinati in base al mese
+
+#### <a name="to-get-aggregated-costs"></a>Per ottenere i costi aggregati
 
 ```
-armclient post providers/microsoft.billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31//providers/microsoft.costmanagement/query?api-version=2019-10-01 @CCMQueryCustomer.json
-```
-
-#### <a name="to-get-azure-subscription-costs-for-the-last-two-months-sorted-by-month"></a>Per ottenere i costi della sottoscrizione di Azure per gli ultimi due mesi, ordinati per mese
-
-```
-armclient post providers/microsoft.billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31//providers/microsoft.costmanagement/query?api-version=2019-10-01 @CCMQuerySubscription.json
-```
-
-#### <a name="to-get-daily-costs-for-the-current-month"></a>Per ottenere i costi giornalieri per il mese corrente
-
-```
-armclient post providers/microsoft.billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31//providers/microsoft.costmanagement/query?api-version=2019-10-01 @CCMQueryDaily.json
+POST https://management.azure.com/providers/microsoft.billing/billingAccounts/{billingAccountName}/providers/microsoft.costmanagement/query?api-version=2019-10-01
 ```
 
 #### <a name="create-a-budget-for-a-partner"></a>Creare un budget per un partner
 
 ```
-armclient put providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/providers/Microsoft.CostManagement/budgets/partnerworkshopbudget?api-version=2019-10-01 @budgetCreate.json
+PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/providers/Microsoft.CostManagement/budgets/partnerworkshopbudget?api-version=2019-10-01
 ```
-
 
 #### <a name="create-a-budget-for-a-customer"></a>Creare un budget per un cliente
 
 ```
-armclient put providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/providers/Microsoft.Consumption/budgets/test-partner-demo?api-version=2019-10-01 @budgetCreate.json
+PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/providers/Microsoft.Consumption/budgets/{budgetName}?api-version=2019-10-01
 ```
+
 #### <a name="delete-a-budget"></a>Eliminare un budget
 
 ```
-armclient delete providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/providers/Microsoft.CostManagement/budgets/partnerworkshopbudget?api-version=2019-10-01
+PUT
+https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/budgets/{budgetName}?api-version=2019-10-01
 ```
 
 

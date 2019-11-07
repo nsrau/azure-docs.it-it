@@ -1,7 +1,7 @@
 ---
 title: Testare e ripetere il training di un modello - Servizio visione artificiale personalizzato
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come testare un'immagine e quindi usarla per ripetere il training del modello.
+description: In questo articolo viene illustrato come testare un'immagine e usarla per ripetere il training del modello nel servizio Visione personalizzata.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 3f78f0b992581a44b030387f1bd0e37664df4cfd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c6ed8869f6d33609381a42fd22d728e9e5542802
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560918"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721192"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Test e ripetere il training di un modello con il Servizio visione artificiale personalizzato
 
@@ -39,7 +39,7 @@ L'immagine selezionata verrà visualizzata al centro della pagina. I risultati v
 
 Per usare l'immagine inviata in precedenza per il training, usare la procedura seguente:
 
-1. Per visualizzare le immagini inviate al classificatore aprire la [pagina Web di Visione personalizzata](https://customvision.ai) e selezionare la scheda __Predictions__ (Previsioni).
+1. Per visualizzare le immagini inviate al classificatore aprire la [pagina Web di Visione personalizzata](https://customvision.ai) e selezionare la scheda __Predictions__ (Stime).
 
     ![Immagine della scheda predictions (stime)](./media/test-your-model/predictions-tab.png)
 
@@ -55,7 +55,7 @@ Per usare l'immagine inviata in precedenza per il training, usare la procedura s
 
     ![Immagine della pagina dei tag](./media/test-your-model/tag-image.png)
 
-3. Usare il pulsante __Train__ (Eseguire il training) per ripetere il training del classificatore.
+3. Usare il pulsante __Train__ (Esegui il training) per ripetere il training del classificatore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

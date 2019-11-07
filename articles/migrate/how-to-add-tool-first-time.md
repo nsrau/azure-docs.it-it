@@ -4,19 +4,19 @@ description: Viene descritto come creare un progetto Azure Migrate e aggiungere 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: bd119956ced79b73b0376fe4530c9eafaf870238
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: a4e66175b20552e632702cb2ba46d0ae6c0956d4
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934169"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720237"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Aggiungere uno strumento di valutazione/migrazione per la prima volta
 
 Questo articolo descrive come aggiungere uno strumento di valutazione o migrazione a un progetto di [Azure migrate](migrate-overview.md) per la prima volta.  
-Azure Migrate offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione delle app e dei carichi di lavoro locali e delle macchine virtuali del cloud privato/pubblico in Azure. L'hub fornisce strumenti Azure Migrate per la valutazione e la migrazione, oltre a [offerte](migrate-services-overview.md#isv-integration) di fornitori di software indipendenti (ISV) di terze parti. 
+Azure Migrate offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione delle app e dei carichi di lavoro locali e delle macchine virtuali del cloud privato/pubblico in Azure. L'hub fornisce strumenti di Azure Migrate per la valutazione e la migrazione, nonché altri strumenti e [offerte](migrate-services-overview.md#isv-integration) di fornitori di software indipendenti (ISV). 
 
 ## <a name="create-a-project-and-add-a-tool"></a>Creare un progetto e aggiungere uno strumento
 
@@ -66,8 +66,8 @@ Configurare un nuovo progetto di Azure Migrate in una sottoscrizione di Azure e 
     > [!NOTE]
     > Quando si crea un progetto, è necessario aggiungere almeno uno strumento di valutazione o migrazione.
 
-5. In **Seleziona strumento di valutazione**aggiungere uno strumento di valutazione. Se non è necessario uno strumento di valutazione, selezionare **Ignora l'aggiunta di uno strumento di valutazione per il momento** > **successivo**. 
-2. In **selezione strumento di migrazione**aggiungere uno strumento di migrazione come richiesto. Se non è necessario uno strumento di migrazione in questo momento, selezionare **Ignora l'aggiunta di uno strumento di migrazione per il momento** > **successivo**.
+5. In **Seleziona strumento di valutazione**aggiungere uno strumento di valutazione. Se non è necessario uno strumento di valutazione, selezionare **Ignora l'aggiunta di uno strumento di valutazione per ora** > **Avanti**. 
+2. In **selezione strumento di migrazione**aggiungere uno strumento di migrazione come richiesto. Se al momento non è necessario uno strumento di migrazione, selezionare **Ignora l'aggiunta di uno strumento di migrazione per ora** > **Avanti**.
 3. In **Verifica + Aggiungi strumenti**, rivedere le impostazioni e fare clic su **Aggiungi strumenti**.
 
 Dopo aver creato il progetto, è possibile selezionare strumenti aggiuntivi per la valutazione e la migrazione di server e carichi di lavoro, database e app Web.

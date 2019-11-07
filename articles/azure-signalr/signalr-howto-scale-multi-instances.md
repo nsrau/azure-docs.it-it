@@ -1,30 +1,30 @@
 ---
-title: Come scalare con più istanze per il servizio Azure SignalR
-description: In molti scenari di ridimensionamento, customer spesso deve effettuare il provisioning di più istanze e configurare per usarli insieme, per creare una distribuzione su larga scala. Ad esempio, partizionamento orizzontale richiede che il supporto di più istanze.
+title: Come applicare la scalabilità con più istanze per il servizio Azure SignalR
+description: In molti scenari di scalabilità, il cliente deve spesso eseguire il provisioning di più istanze e configurare per usarle insieme, per creare una distribuzione su larga scala. Il partizionamento orizzontale, ad esempio, richiede supporto per più istanze.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: e284a0492774e02cab79db6d9006c1718a7fcfc9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e31bc4133cced793d793c07d2e0ee3df29efddb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809160"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672328"
 ---
-# <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Come ridimensionare SignalR Service con più istanze?
-il SDK più recente del servizio SignalR supporta più endpoint per le istanze di SignalR Service. È possibile usare questa funzionalità per ridimensionare le connessioni simultanee, o usarlo per la messaggistica tra diverse aree.
+# <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Come scalare il servizio SignalR con più istanze?
+L'SDK del servizio SignalR più recente supporta più endpoint per le istanze del servizio SignalR. È possibile usare questa funzionalità per ridimensionare le connessioni simultanee o usarle per la messaggistica tra più aree.
 
 ## <a name="for-aspnet-core"></a>Per ASP.NET Core
 
-### <a name="how-to-add-multiple-endpoints-from-config"></a>Come aggiungere più endpoint dalla configurazione?
+### <a name="how-to-add-multiple-endpoints-from-config"></a>Come aggiungere più endpoint dalla configurazione
 
-Configurazione con chiave `Azure:SignalR:ConnectionString` o `Azure:SignalR:ConnectionString:` per stringa di connessione SignalR Service.
+Config con `Azure:SignalR:ConnectionString` chiave o `Azure:SignalR:ConnectionString:` per la stringa di connessione del servizio SignalR.
 
-Se la chiave inizia con `Azure:SignalR:ConnectionString:`, deve essere nel formato `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, dove `Name` e `EndpointType` sono proprietà del `ServiceEndpoint` oggetti e sono accessibili dal codice.
+Se la chiave inizia con `Azure:SignalR:ConnectionString:`, deve essere nel formato `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, in cui `Name` e `EndpointType` sono proprietà dell'oggetto `ServiceEndpoint` e sono accessibili dal codice.
 
-È possibile aggiungere più stringhe di connessione di istanza utilizzando la seguente query `dotnet` comandi:
+È possibile aggiungere più stringhe di connessione di istanza usando i comandi di `dotnet` seguenti:
 
 ```batch
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-a <ConnectionString1>
@@ -32,10 +32,10 @@ dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-b:primary <Co
 dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <ConnectionString3>
 ```
 
-### <a name="how-to-add-multiple-endpoints-from-code"></a>Come è possibile aggiungere più endpoint dal codice?
+### <a name="how-to-add-multiple-endpoints-from-code"></a>Come aggiungere più endpoint dal codice?
 
-Oggetto `ServicEndpoint` classe è stata introdotta per descrivere le proprietà di un endpoint di servizio Azure SignalR.
-È possibile configurare più endpoint di istanza quando si usa il SDK del servizio Azure SignalR tramite:
+Viene introdotta una classe `ServicEndpoint` per descrivere le proprietà di un endpoint del servizio Azure SignalR.
+È possibile configurare più endpoint di istanza quando si usa Azure SignalR Service SDK tramite:
 ```cs
 services.AddSignalR()
         .AddAzureSignalR(options => 
@@ -53,23 +53,23 @@ services.AddSignalR()
         });
 ```
 
-### <a name="how-to-customize-endpoint-router"></a>Come personalizzare router endpoint?
+### <a name="how-to-customize-endpoint-router"></a>Come personalizzare il router endpoint
 
-Per impostazione predefinita, il SDK Usa il [DefaultEndpointRouter](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/EndpointRouters/DefaultEndpointRouter.cs) per prelevare gli endpoint.
+Per impostazione predefinita, l'SDK USA [DefaultEndpointRouter](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/EndpointRouters/DefaultEndpointRouter.cs) per selezionare gli endpoint.
 
 #### <a name="default-behavior"></a>Comportamento predefinito 
-1. Il routing delle richieste client
+1. Routing richieste client
 
-    Quando si client `/negotiate` con il server di app. Per impostazione predefinita, il SDK **seleziona casualmente** un endpoint del set di endpoint del servizio disponibili.
+    Quando il client `/negotiate` con il server app. Per impostazione predefinita, l'SDK **Seleziona in modo casuale** un endpoint dal set di endpoint di servizio disponibili.
 
-2. Routing dei messaggi di server
+2. Routing messaggi server
 
-    Quando * l'invio di messaggi a uno specifico * * connessione * * * e la connessione di destinazione sia indirizzato al server corrente, il messaggio viene inviato direttamente a tale endpoint connessi. In caso contrario, i messaggi di trasmissione per ogni endpoint di Azure SignalR.
+    Quando * invia un messaggio a una * * connessione specifica * * * e la connessione di destinazione viene indirizzata al server corrente, il messaggio passa direttamente all'endpoint connesso. In caso contrario, i messaggi vengono trasmessi a ogni endpoint di Azure SignalR.
 
 #### <a name="customize-routing-algorithm"></a>Personalizzare l'algoritmo di routing
-Quando si dispone di conoscenze specializzate per identificare quali endpoint devono passare i messaggi a, è possibile creare il proprio router.
+È possibile creare un router personalizzato quando si dispone di una conoscenza speciale per identificare gli endpoint ai quali i messaggi devono accedere.
 
-Un router personalizzato viene definito di seguito come esempio quando i gruppi a partire `east-` sempre accedere all'endpoint denominato `east`:
+Un router personalizzato viene definito di seguito come esempio quando i gruppi che iniziano con `east-` vengono sempre indirizzati all'endpoint denominato `east`:
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -87,7 +87,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-Un altro esempio riportato di seguito, che sostituisce il valore predefinito negotiate comportamento, per selezionare gli endpoint dipende da dove si trova il server di app.
+Un altro esempio seguente, che esegue l'override del comportamento di negoziazione predefinito, per selezionare gli endpoint dipende dalla posizione in cui si trova il server app.
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -110,7 +110,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-Non dimenticare di registrare il router per l'inserimento delle dipendenze contenitore usando:
+Non dimenticare di registrare il router nel contenitore DI inserimento delle dipendenze usando:
 
 ```cs
 services.AddSingleton(typeof(IEndpointRouter), typeof(CustomRouter));
@@ -129,13 +129,13 @@ services.AddSignalR()
 
 ## <a name="for-aspnet"></a>Per ASP.NET
 
-### <a name="how-to-add-multiple-endpoints-from-config"></a>Come aggiungere più endpoint dalla configurazione?
+### <a name="how-to-add-multiple-endpoints-from-config"></a>Come aggiungere più endpoint dalla configurazione
 
-Configurazione con chiave `Azure:SignalR:ConnectionString` o `Azure:SignalR:ConnectionString:` per stringa di connessione SignalR Service.
+Config con `Azure:SignalR:ConnectionString` chiave o `Azure:SignalR:ConnectionString:` per la stringa di connessione del servizio SignalR.
 
-Se la chiave inizia con `Azure:SignalR:ConnectionString:`, deve essere nel formato `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, dove `Name` e `EndpointType` sono proprietà del `ServiceEndpoint` oggetti e sono accessibili dal codice.
+Se la chiave inizia con `Azure:SignalR:ConnectionString:`, deve essere nel formato `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, in cui `Name` e `EndpointType` sono proprietà dell'oggetto `ServiceEndpoint` e sono accessibili dal codice.
 
-È possibile aggiungere più stringhe di connessione di istanza per `web.config`:
+È possibile aggiungere più stringhe di connessione di istanza a `web.config`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -150,10 +150,10 @@ Se la chiave inizia con `Azure:SignalR:ConnectionString:`, deve essere nel forma
 </configuration>
 ```
 
-### <a name="how-to-add-multiple-endpoints-from-code"></a>Come è possibile aggiungere più endpoint dal codice?
+### <a name="how-to-add-multiple-endpoints-from-code"></a>Come aggiungere più endpoint dal codice?
 
-Oggetto `ServicEndpoint` classe è stata introdotta per descrivere le proprietà di un endpoint di servizio Azure SignalR.
-È possibile configurare più endpoint di istanza quando si usa il SDK del servizio Azure SignalR tramite:
+Viene introdotta una classe `ServicEndpoint` per descrivere le proprietà di un endpoint del servizio Azure SignalR.
+È possibile configurare più endpoint di istanza quando si usa Azure SignalR Service SDK tramite:
 
 ```cs
 app.MapAzureSignalR(
@@ -171,11 +171,11 @@ app.MapAzureSignalR(
         });
 ```
 
-### <a name="how-to-customize-router"></a>Come personalizzare router?
+### <a name="how-to-customize-router"></a>Come personalizzare il router
 
-L'unica differenza tra ASP.NET SignalR e ASP.NET Core SignalR è il tipo di contesto http per `GetNegotiateEndpoint`. ASP.NET SignalR, sia espresso [IOwinContext](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19) tipo.
+L'unica differenza tra ASP.NET SignalR e ASP.NET Core SignalR è il tipo di contesto HTTP per `GetNegotiateEndpoint`. Per ASP.NET SignalR, è di tipo [IOwinContext](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19) .
 
-Di seguito è personalizzato la negoziazione esempio di ASP.NET SignalR:
+Di seguito è riportato l'esempio di negoziazione personalizzata per ASP.NET SignalR:
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -197,7 +197,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-Non dimenticare di registrare il router per l'inserimento delle dipendenze contenitore usando:
+Non dimenticare di registrare il router nel contenitore DI inserimento delle dipendenze usando:
 
 ```cs
 var hub = new HubConfiguration();
@@ -213,33 +213,33 @@ app.MapAzureSignalR(GetType().FullName, hub, options => {
 });
 ```
 
-## <a name="configuration-in-cross-region-scenarios"></a>Configurazione in scenari tra più aree
+## <a name="configuration-in-cross-region-scenarios"></a>Configurazione negli scenari tra più aree
 
-Il `ServiceEndpoint` oggetto ha un `EndpointType` proprietà con valore `primary` o `secondary`.
+L'oggetto `ServiceEndpoint` dispone di una proprietà `EndpointType` con valore `primary` o `secondary`.
 
-`primary` gli endpoint sono endpoint preferito per ricevere il traffico del client e dispongono di connessioni di rete più affidabili. `secondary` endpoint vengono considerati meno affidabile connessioni di rete e vengono usati solo per server prendendo al traffico client, ad esempio, la trasmissione dei messaggi, non per client di creazione per il traffico del server.
+gli endpoint `primary` sono endpoint preferiti per la ricezione del traffico client e sono considerati con connessioni di rete più affidabili. gli endpoint `secondary` sono considerati con connessioni di rete meno affidabili e vengono utilizzati solo per l'esecuzione del traffico da server a client, ad esempio per la trasmissione di messaggi, non per l'esecuzione del traffico da client a server.
 
-In casi tra più aree, rete può essere instabile. Per il server di un'app che si trova *Stati Uniti orientali*, l'endpoint di SignalR Service che si trova nella stessa *Stati Uniti orientali* area può essere configurata come `primary` e gli endpoint in altre aree contrassegnate come `secondary`. In questa configurazione, gli endpoint di servizio in altre aree possono **ricevere** messaggi da questa *Stati Uniti orientali* server app, ma non è presente alcun **tra aree** client indirizzato a Questo server di app. L'architettura è illustrata nel diagramma seguente:
+Nei casi tra aree, la rete può essere instabile. Per un server app che si trova negli *Stati Uniti orientali*, l'endpoint del servizio SignalR situato nella stessa area *Stati Uniti orientali* può essere configurato come `primary` ed endpoint in altre aree contrassegnate come `secondary`. In questa configurazione gli endpoint di servizio in altre aree possono **ricevere** messaggi da questo server applicazioni *degli Stati Uniti orientali* , ma non ci saranno client **tra aree** indirizzati a questo server app. L'architettura è illustrata nel diagramma seguente:
 
-![Cross-Geo Capabilities Infra](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
+![Infrarossi tra le aree geografiche](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
 
-Quando un client tenta `/negotiate` con il server di app, con il router predefinito, SDK **ne seleziona casualmente** un endpoint del set di disponibilità `primary` gli endpoint. Quando l'endpoint è disponibile, quindi SDK **seleziona casualmente** da tutti disponibili `secondary` gli endpoint. L'endpoint viene contrassegnato come **disponibili** quando la connessione tra server e l'endpoint del servizio è attiva.
+Quando un client tenta di `/negotiate` con il server app, con il router predefinito, l'SDK **Seleziona in modo casuale** un endpoint dal set di endpoint `primary` disponibili. Quando l'endpoint primario non è disponibile, SDK **Seleziona in modo casuale** tutti gli endpoint disponibili `secondary`. L'endpoint è contrassegnato come **disponibile** quando la connessione tra il server e l'endpoint del servizio è attiva.
 
-Nello scenario tra più aree, quando un client tenta `/negotiate` con il server di app ospitato in *Stati Uniti orientali*, da default viene sempre restituisce il `primary` endpoint che si trova nella stessa area. Quando tutti i *Stati Uniti orientali* endpoint non sono disponibili, il client viene reindirizzato agli endpoint in altre aree. Effettuare il failover sezione riportata di seguito viene descritto lo scenario in dettaglio.
+In uno scenario tra più aree, quando un client prova a `/negotiate` con il server app ospitato negli *Stati Uniti orientali*, per impostazione predefinita restituisce sempre l'endpoint di `primary` che si trova nella stessa area. Quando non sono disponibili tutti gli endpoint *degli Stati Uniti orientali* , il client viene reindirizzato agli endpoint in altre aree. La sezione di failover riportata di seguito descrive in dettaglio lo scenario.
 
-![Negotiate normale](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
+![Negoziazione normale](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
 
-## <a name="fail-over"></a>Effettuare il failover
+## <a name="fail-over"></a>Failover
 
-Quando tutti i `primary` gli endpoint non sono disponibili, del client `/negotiate` sceglie dai contatori `secondary` gli endpoint. Questo meccanismo di failover richiede che ogni endpoint deve essere usata come `primary` endpoint al server di almeno un'app.
+Quando non sono disponibili tutti gli endpoint di `primary`, `/negotiate` il client preleva dagli endpoint `secondary` disponibili. Questo meccanismo di failover richiede che ogni endpoint funga da endpoint `primary` ad almeno un server app.
 
-![Effettuare il failover](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
+![Failover](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida, si è appreso come configurare più istanze nella stessa applicazione per scenari tra più aree, partizionamento e ridimensionamento.
+In questa guida è stato illustrato come configurare più istanze nella stessa applicazione per la scalabilità, il partizionamento orizzontale e scenari tra più aree.
 
-Supporta più l'endpoint è anche utilizzabile negli scenari di ripristino di emergenza e disponibilità elevati.
+È possibile usare più endpoint supportati anche negli scenari di disponibilità elevata e ripristino di emergenza.
 
 > [!div class="nextstepaction"]
-> [Il programma di installazione SignalR Service per il ripristino di emergenza e disponibilità elevata](./signalr-concept-disaster-recovery.md)
+> [Configurare il servizio SignalR per il ripristino di emergenza e la disponibilità elevata](./signalr-concept-disaster-recovery.md)

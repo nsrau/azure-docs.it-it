@@ -1,21 +1,24 @@
 ---
-title: Abilità ricerca cognitiva di estrazione documenti
+title: Esperienza di ricerca cognitiva per l'estrazione di documenti (anteprima)
 titleSuffix: Azure Cognitive Search
-description: Estrae il contenuto da un file all'interno della pipeline di arricchimento.
+description: Estrae il contenuto da un file all'interno della pipeline di arricchimento. Questa competenza è attualmente disponibile in anteprima pubblica.
 manager: nitinme
 author: careyjmac
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: chalton
-ms.openlocfilehash: 8656896fe1a113ab143c43b4d1973e4196c5f087
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e4274f1cb2eacaf78ab83bfb9d637d044d2290bd
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512197"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720117"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Abilità cognitiva di estrazione documenti
+
+> [!IMPORTANT] 
+> Questa competenza è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L' [API REST versione 2019-05-06-Preview](search-api-preview.md) fornisce funzionalità di anteprima. Attualmente non è disponibile alcun portale o supporto per .NET SDK.
 
 L'abilità di **estrazione dei documenti** estrae il contenuto da un file all'interno della pipeline di arricchimento. In questo modo è possibile sfruttare i vantaggi del passaggio di estrazione del documento che in genere si verifica prima dell'esecuzione delle competenze con i file che possono essere generati da altre competenze.
 
@@ -63,7 +66,7 @@ Questo oggetto di riferimento file può essere generato in uno dei tre modi segu
 
  - Impostazione del parametro `allowSkillsetToReadFileData` nella definizione dell'indicizzatore su "true".  Verrà creato un percorso `/document/file_data` un oggetto che rappresenta i dati di file originali scaricati dall'origine dati BLOB. Questo parametro si applica solo ai dati nell'archivio BLOB.
 
- - Impostazione del parametro `imageAction` sulla definizione dell'indicizzatore su un valore diverso da `none`.  In questo modo viene creata una matrice di immagini `/document/normalized_images` che seguono la convenzione necessaria per l'input di questa competenza se viene passato singolarmente, ad esempio `/document/normalized_images/*`.
+ - Impostazione del parametro `imageAction` sulla definizione dell'indicizzatore su un valore diverso da `none`.  Viene creata una matrice di immagini che segue la convenzione necessaria per l'input di questa competenza se viene passato singolarmente, ad esempio `/document/normalized_images/*`.
 
  - La presenza di un'abilità personalizzata restituisce un oggetto JSON definito esattamente come sopra.  Il parametro `$type` deve essere impostato su exactly `file` e il parametro `data` deve essere costituito dai dati della matrice di byte codificati base 64 del contenuto del file.
 

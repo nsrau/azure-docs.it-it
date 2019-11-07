@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: anzaman
-ms.openlocfilehash: cb5969ccb4ee9780b597326a3811395c3b7d9971
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ced1bc647f93beec73b8101a952944f31e497658
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168472"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693220"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Informazioni sul routing VPN da punto a sito
 
@@ -32,7 +32,7 @@ In questo articolo sono presenti numerosi diagrammi. Ogni sezione illustra una t
 
 La connessione gateway VPN da punto a sito in questo esempio fa riferimento a una rete virtuale non connessa o che non ha eseguito il peering con un'altra rete virtuale (VNet1). In questo esempio, i client possono accedere a VNet1.
 
-![routing della rete virtuale isolata](./media/vpn-gateway-about-point-to-site-routing/1.jpg "routing della rete virtuale isolata")
+![routing VNet isolato](./media/vpn-gateway-about-point-to-site-routing/1.jpg "routing VNet isolato")
 
 ### <a name="address-space"></a>Spazio degli indirizzi
 
@@ -86,7 +86,7 @@ In questo esempio, la connessione gateway VPN da punto a sito fa riferimento a V
 
 I client che usano Windows, o un altro sistema operativo supportato, possono accedere solo a VNet1. Per accedere ad altre reti virtuali, è necessario usare il protocollo BGP.
 
-![più reti virtuali e connessioni da sito a sito](./media/vpn-gateway-about-point-to-site-routing/3.jpg "più reti virtuali e connessioni da sito a sito")
+![più reti virtuali e S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "più reti virtuali e S2S")
 
 ### <a name="address-space"></a>Spazio degli indirizzi
 
@@ -114,7 +114,7 @@ In questo esempio, la connessione gateway VPN da punto a sito fa riferimento a V
 
 I client che usano Windows, o un altro sistema operativo supportato, possono accedere a tutte le reti virtuali connesse tramite una connessione VPN da sito a sito, ma le route alle reti virtuali connesse devono essere aggiunte manualmente ai client Windows.
 
-![più reti virtuali e connessioni da sito a sito (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "più reti virtuali e connessioni da sito a sito (BGP)")
+![più reti virtuali e S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "più reti virtuali e S2S BGP")
 
 ### <a name="address-space"></a>Spazio degli indirizzi
 
@@ -142,7 +142,7 @@ In questo esempio, la connessione gateway VPN da punto a sito fa riferimento a V
 
 I client Windows e non Windows possono accedere solo a VNet1.
 
-![routing con una rete virtuale e una succursale](./media/vpn-gateway-about-point-to-site-routing/5.jpg "routing con una rete virtuale e una succursale")
+![routing con una VNet e una succursale](./media/vpn-gateway-about-point-to-site-routing/5.jpg "routing con una VNet e una succursale")
 
 ### <a name="address-space"></a>Spazio degli indirizzi
 
@@ -168,7 +168,7 @@ In questo esempio, la connessione gateway VPN da punto a sito fa riferimento a V
 
 I client Windows possono accedere alla rete virtuale e alla succursale (Site1), ma le route a Site1 devono essere aggiunte manualmente al client. I client non Windows possono accedere sia alla rete virtuale che alla succursale locale.
 
-![una rete virtuale e una succursale (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "una rete virtuale e una succursale")
+![una VNet e una succursale (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "una VNet e una succursale")
 
 ### <a name="address-space"></a>Spazio degli indirizzi
 
@@ -195,7 +195,7 @@ In questo esempio, la connessione gateway VPN da punto a sito fa riferimento a V
 
 Tutti i client possono accedere solo a VNet1.
 
-![più reti virtuali da sito a sito e una succursale](./media/vpn-gateway-about-point-to-site-routing/7.jpg "più reti virtuali da sito a sito e una succursale")
+![VNet S2S e succursale](./media/vpn-gateway-about-point-to-site-routing/7.jpg "VNet S2S e succursale")
 
 ### <a name="address-space"></a>Spazio degli indirizzi
 
@@ -209,7 +209,7 @@ Tutti i client possono accedere solo a VNet1.
 
 ### <a name="routes-added"></a>Route aggiunte
 
-* Route aggiunte ai client: 10.1.0.0/16, 192.168.0.0/24
+* Route aggiunte a client Windows: 10.1.0.0/16, 192.168.0.0/24
 
 * Route aggiunte a client non Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
@@ -225,7 +225,7 @@ In questo esempio, la connessione gateway VPN da punto a sito fa riferimento a V
 
 I client che usano Windows possono accedere alle reti virtuali e ai siti connessi tramite una connessione VPN da sito a sito, ma le route a VNet2, VNet3 e Site1 devono essere aggiunte manualmente al client. I client non Windows possono accedere alle reti virtuali e ai siti connessi tramite una connessione VPN da sito a sito senza alcun intervento manuale. L'accesso è transitivo e i client possono accedere alle risorse in tutte le reti virtuali e in tutti i siti (locali) connessi.
 
-![più reti virtuali da sito a sito e una succursale](./media/vpn-gateway-about-point-to-site-routing/8.jpg "più reti virtuali da sito a sito e una succursale")
+![VNet S2S e succursale](./media/vpn-gateway-about-point-to-site-routing/8.jpg "VNet S2S e succursale")
 
 ### <a name="address-space"></a>Spazio degli indirizzi
 
@@ -239,7 +239,7 @@ I client che usano Windows possono accedere alle reti virtuali e ai siti conness
 
 ### <a name="routes-added"></a>Route aggiunte
 
-* Route aggiunte ai client: 10.1.0.0/16, 192.168.0.0/24
+* Route aggiunte a client Windows: 10.1.0.0/16, 192.168.0.0/24
 
 * Route aggiunte a client non Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 

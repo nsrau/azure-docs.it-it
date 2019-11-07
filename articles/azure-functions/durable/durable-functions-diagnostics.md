@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d2badee3eaa5a9af48e89adc1b59beacc1571792
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 333ddbc15e3ff62b1cd46383c4e3be75fb3dbb88
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933511"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614944"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostica in Durable Functions in Azure
 
@@ -24,33 +24,33 @@ Per la diagnostica dei problemi con [Funzioni permanenti](durable-functions-over
 
 Per eseguire la diagnostica e il monitoraggio in Funzioni di Azure, è consigliabile usare [Application Insights](../../azure-monitor/app/app-insights-overview.md). Lo stesso consiglio vale per Funzioni permanenti. Per una panoramica su come usare Application Insights nell'app per le funzioni, vedere [Monitorare Funzioni di Azure](../functions-monitoring.md).
 
-L'estensione Funzioni permanenti di Funzioni di Azure genera anche *eventi di rilevamento* che consentono di tenere traccia dell'esecuzione end-to-end di un'orchestrazione. È possibile individuarli ed eseguire query su di essi usando lo strumento [Application Insights Analytics](../../azure-monitor/app/analytics.md) nel portale di Azure.
+L'estensione Funzioni permanenti di Funzioni di Azure genera anche *eventi di rilevamento* che consentono di tenere traccia dell'esecuzione end-to-end di un'orchestrazione. Questi eventi di rilevamento possono essere trovati e sottoposti a query usando lo strumento [Application Insights Analytics](../../azure-monitor/app/analytics.md) nel portale di Azure.
 
 ### <a name="tracking-data"></a>Dati di rilevamento
 
 Ogni evento del ciclo di vita di un'istanza di orchestrazione genera la scrittura di un evento di rilevamento nella raccolta **traces** in Application Insights. Questo evento contiene un payload **customDimensions** con diversi campi.  Ai nomi dei campi viene anteposta la stringa `prop__`.
 
-* **hubName**: nome dell'hub attività in cui vengono eseguite le orchestrazioni.
-* **appName**: Nome dell'app per le funzioni. Questo campo è utile quando più app per le funzioni condividono la stessa istanza di Application Insights.
-* **slotName**: [slot di distribuzione](../functions-deployment-slots.md) in cui è in esecuzione l'app per le funzioni corrente. Questo campo è utile quando si usano gli slot di distribuzione per controllare le versioni delle orchestrazioni.
-* **functionName**: nome della funzione dell'agente di orchestrazione o di attività.
-* **functionType**: tipo di funzione, ad esempio **agente di orchestrazione** o **attività**.
-* **instanceId**: ID univoco dell'istanza di orchestrazione.
-* **state**: stato di esecuzione del ciclo di vita dell'istanza. I valori validi includono:
+* **hubName**: il nome dell'hub attività in cui vengono eseguite le orchestrazioni.
+* **appName**: il nome dell'app per le funzioni. Questo campo è utile quando più app per le funzioni condividono la stessa istanza di Application Insights.
+* **slotName**: [slot di distribuzione](../functions-deployment-slots.md) in cui è in esecuzione l'app per le funzioni corrente. Questo campo è utile quando si sfruttano gli slot di distribuzione per la versione delle orchestrazioni.
+* **functionName**: il nome della funzione dell'agente di orchestrazione o di attività.
+* **functionType**: il tipo di funzione, ad esempio **agente di orchestrazione** o **attività**.
+* **instanceId**: l'ID univoco dell'istanza di orchestrazione.
+* **state**: lo stato di esecuzione del ciclo di vita dell'istanza. I valori validi includono:
   * **Scheduled**: la funzione è stata pianificata per l'esecuzione, ma non è stata ancora avviata.
   * **Started**: la funzione è stata avviata, ma non è ancora in stato di attesa o non è stata completata.
   * **Awaited**: l'agente di orchestrazione ha pianificato un lavoro ed è in attesa del completamento.
   * **Listening**: l'agente di orchestrazione è in ascolto di una notifica degli eventi esterni.
   * **Completed**: la funzione è stata completata.
   * **Failed**: la funzione ha avuto esito negativo generando un errore.
-* **reason**: dati aggiuntivi associati all'evento di rilevamento. Ad esempio, se un'istanza è in attesa di una notifica degli eventi esterni, questo campo indica il nome dell'evento di cui è in attesa. Se una funzione ha avuto esito negativo, il campo contiene i dettagli dell'errore.
+* **reason**: dati aggiuntivi associati all'evento di rilevamento. Ad esempio, se un'istanza è in attesa di una notifica degli eventi esterni, questo campo indica il nome dell'evento di cui è in attesa. Se una funzione ha avuto esito negativo, questo campo conterrà i dettagli dell'errore.
 * **isReplay**: valore booleano che indica se per l'evento di rilevamento è prevista la riesecuzione.
-* **extensionVersion**: versione dell'estensione Durable Task. Questi dati sono particolarmente importanti quando si segnalano possibili bug nell'estensione. Le istanze con esecuzione prolungata possono segnalare più versioni, se si verifica un aggiornamento durante l'esecuzione.
+* **extensionVersion**: la versione dell'estensione Durable Task. Le informazioni sulla versione sono dati particolarmente importanti quando si segnalano possibili bug nell'estensione. Le istanze con esecuzione prolungata possono segnalare più versioni, se si verifica un aggiornamento durante l'esecuzione.
 * **sequenceNumber**: numero di sequenza di esecuzione per un evento. In combinazione con il timestamp consente di ordinare gli eventi per ora di esecuzione. *Si noti che questo numero verrà reimpostato su zero se l'host viene riavviato durante l'esecuzione dell'istanza. È quindi importante eseguire sempre l'ordinamento prima per timestamp e quindi per sequenceNumber.*
 
-Il livello di dettaglio dei dati di rilevamento generati ad Application Insights può essere configurato nella sezione `logger` (Funzioni 1.x) o `logging` (Funzioni 2.x) del file `host.json`.
+Il livello di dettaglio dei dati di rilevamento emessi per Application Insights può essere configurato nella sezione `logger` (Functions 1. x) o `logging` (Functions 2,0) del file `host.json`.
 
-#### <a name="functions-1x"></a>Funzioni 1.x
+#### <a name="functions-10"></a>Funzioni 1,0
 
 ```json
 {
@@ -64,7 +64,7 @@ Il livello di dettaglio dei dati di rilevamento generati ad Application Insights
 }
 ```
 
-#### <a name="functions-2x"></a>Funzioni 2.x
+#### <a name="functions-20"></a>Funzioni 2,0
 
 ```json
 {
@@ -80,7 +80,7 @@ Per impostazione predefinita vengono generati tutti gli eventi di rilevamento se
 
 Per abilitare la creazione di eventi di riproduzione con orchestrazione verbose, `LogReplayEvents` può essere impostato su `true` nel file `host.json` sotto `durableTask` come illustrato:
 
-#### <a name="functions-1x"></a>Funzioni 1.x
+#### <a name="functions-10"></a>Funzioni 1,0
 
 ```json
 {
@@ -90,7 +90,7 @@ Per abilitare la creazione di eventi di riproduzione con orchestrazione verbose,
 }
 ```
 
-#### <a name="functions-2x"></a>Funzioni 2.x
+#### <a name="functions-20"></a>Funzioni 2,0
 
 ```javascript
 {
@@ -161,8 +161,9 @@ Il risultato è un elenco di ID istanza e dello stato di runtime corrente.
 ### <a name="precompiled-c"></a>C# precompilato
 
 ```csharp
+[FunctionName("FunctionChain")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context,
+    [OrchestrationTrigger] IDurableOrchestrationContext context,
     ILogger log)
 {
     log.LogInformation("Calling F1.");
@@ -179,7 +180,7 @@ public static async Task Run(
 
 ```csharp
 public static async Task Run(
-    DurableOrchestrationContext context,
+    IDurableOrchestrationContext context,
     ILogger log)
 {
     log.LogInformation("Calling F1.");
@@ -192,7 +193,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -208,7 +209,7 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
-I dati di log risultanti eseguono una ricerca simile alla seguente:
+I dati di log risultanti hanno un aspetto simile all'output di esempio seguente:
 
 ```txt
 Calling F1.
@@ -231,8 +232,9 @@ Se si vuole eseguire la registrazione solo con l'esecuzione senza riesecuzione, 
 #### <a name="precompiled-c"></a>C# precompilato
 
 ```csharp
+[FunctionName("FunctionChain")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context,
+    [OrchestrationTrigger] IDurableOrchestrationContext context,
     ILogger log)
 {
     if (!context.IsReplaying) log.LogInformation("Calling F1.");
@@ -249,7 +251,7 @@ public static async Task Run(
 
 ```cs
 public static async Task Run(
-    DurableOrchestrationContext context,
+    IDurableOrchestrationContext context,
     ILogger log)
 {
     if (!context.IsReplaying) log.LogInformation("Calling F1.");
@@ -262,7 +264,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+#### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -278,7 +280,26 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
-Con questa modifica, l'output del log è il seguente:
+A partire da Durable Functions 2,0, le funzioni dell'agente di orchestrazione .NET hanno anche la possibilità di creare un `ILogger` che filtra automaticamente le istruzioni di log durante la riproduzione. Questo filtro automatico viene eseguito tramite l'API `IDurableOrchestrationContext.CreateReplaySafeLogger(ILogger)`.
+
+```csharp
+[FunctionName("FunctionChain")]
+public static async Task Run(
+    [OrchestrationTrigger] IDurableOrchestrationContext context,
+    ILogger log)
+{
+    log = context.CreateReplaySafeLogger(log);
+    log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
+    log.LogInformation("Done!");
+}
+```
+
+Con le modifiche indicate in precedenza, l'output del log è il seguente:
 
 ```txt
 Calling F1.
@@ -287,14 +308,18 @@ Calling F3.
 Done!
 ```
 
+> [!NOTE]
+> Gli esempi C# precedenti sono per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `DurableOrchestrationContext` invece di `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+
 ## <a name="custom-status"></a>Stato personalizzato
 
-Lo stato dell'orchestrazione personalizzato consente di impostare un valore di stato per la funzione dell'agente di orchestrazione. Questo stato viene fornito tramite l'API della query sullo stato HTTP o l'API `DurableOrchestrationClient.GetStatusAsync`. Lo stato di un'orchestrazione personalizzato consente di eseguire il monitoraggio in modo più completo per le funzioni dell'agente di orchestrazione. Il codice della funzione dell'agente di orchestrazione, ad esempio, può includere chiamate `DurableOrchestrationContext.SetCustomStatus` per aggiornare lo stato di avanzamento per un'operazione con esecuzione prolungata. Un client, ad esempio una pagina Web o un sistema esterno, può eseguire una query periodicamente sulle API di query dello stato HTTP per ottenere informazioni più dettagliate. Un esempio che usa `DurableOrchestrationContext.SetCustomStatus` viene indicato di seguito:
+Lo stato dell'orchestrazione personalizzato consente di impostare un valore di stato per la funzione dell'agente di orchestrazione. Questo stato viene fornito tramite l'API della query sullo stato HTTP o l'API `IDurableOrchestrationClient.GetStatusAsync`. Lo stato di un'orchestrazione personalizzato consente di eseguire il monitoraggio in modo più completo per le funzioni dell'agente di orchestrazione. Il codice della funzione dell'agente di orchestrazione, ad esempio, può includere chiamate `IDurableOrchestrationContext.SetCustomStatus` per aggiornare lo stato di avanzamento per un'operazione con esecuzione prolungata. Un client, ad esempio una pagina Web o un sistema esterno, può eseguire una query periodicamente sulle API di query dello stato HTTP per ottenere informazioni più dettagliate. Un esempio che usa `IDurableOrchestrationContext.SetCustomStatus` viene indicato di seguito:
 
 ### <a name="precompiled-c"></a>C# precompilato
 
 ```csharp
-public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext context)
+[FunctionName("SetStatusTest")]
+public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     // ...do work...
 
@@ -306,7 +331,10 @@ public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrati
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+> [!NOTE]
+> L'esempio C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `DurableOrchestrationContext` invece di `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+
+### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -343,30 +371,30 @@ I client visualizzano la risposta seguente:
 ```
 
 > [!WARNING]
-> Il payload dello stato personalizzato è limitato a 16 KB di testo JSON UTF-16, perché deve rientrare in una colonna dell'archiviazione tabelle di Azure. È possibile usare l'archiviazione esterna se è necessario un payload di dimensioni maggiori.
+> Il payload dello stato personalizzato è limitato a 16 kB di testo JSON UTF-16, perché deve rientrare in una colonna dell'archivio tabelle di Azure. È possibile usare l'archiviazione esterna se è necessario un payload di dimensioni maggiori.
 
 ## <a name="debugging"></a>Debug
 
 Funzioni di Azure supporta direttamente il debug del codice della funzione e lo stesso supporto si estende a Funzioni permanenti, in esecuzione in Azure o in locale. Quando si esegue il debug, è tuttavia opportuno conoscere alcuni comportamenti:
 
-* **Replay**: Le funzioni dell'agente di orchestrazione vengono regolarmente [riprodotte](durable-functions-orchestrations.md#reliability) quando vengono ricevuti nuovi input. Ciò implica che una singola esecuzione *logica* di una funzione dell'agente di orchestrazione può comportare l'accesso più volte allo stesso punto di interruzione, soprattutto se è impostata all'inizio del codice della funzione.
-* **Await**: Ogni volta `await` che un oggetto viene rilevato in una funzione dell'agente di orchestrazione, restituisce il controllo al dispatcher di Durable Task Framework. Se è la prima volta che uno specifico `await` è stato rilevato, l'attività associata non viene ripresa *mai*. Poiché l'attività non viene ripresa mai, non è possibile eseguire lo *step over* per await (F10 in Visual Studio). Questa operazione funziona solo se un'attività è in corso di riesecuzione.
-* **Timeout di messaggistica**: Durable Functions usa internamente i messaggi della coda per guidare l'esecuzione di funzioni di orchestrazione, attività ed entità. In un ambiente con più macchine virtuali, a causa dell'interruzione del debug per lunghi periodi di tempo è possibile che un'altra macchina virtuale prelevi il messaggio, generando un'esecuzione duplicata. Questo comportamento esiste anche per le normali funzioni attivate da coda, ma è importante sottolinearlo in questo contesto poiché le code sono un dettaglio dell'implementazione.
-* **Arresto e avvio**: I messaggi nelle funzioni permanenti vengono mantenuti tra le sessioni di debug. Se si interrompe il debug e si termina il processo host locale mentre è in esecuzione una funzione durevole, la funzione potrebbe essere rieseguita automaticamente in una sessione di debug futura. Questa operazione può generare confusione quando non è prevista. La cancellazione di tutti i messaggi dalle [code di archiviazione interne](durable-functions-perf-and-scale.md#internal-queue-triggers) tra le sessioni di debug è una tecnica per evitare questo comportamento.
+* **Riproduzione**: le funzioni dell'agente di orchestrazione vengono [riprodotte](durable-functions-orchestrations.md#reliability) regolarmente quando vengono ricevuti nuovi input. Questo comportamento significa che una singola esecuzione *logica* di una funzione dell'agente di orchestrazione può comportare il raggiungimento dello stesso punto di interruzione più volte, soprattutto se viene impostata all'inizio del codice della funzione.
+* **Await**: ogni volta che viene rilevata un'`await` in una funzione dell'agente di orchestrazione, restituisce il controllo al dispatcher di Durable Task Framework. Se è la prima volta che è stata rilevata una particolare `await`, l'attività associata *non viene mai* ripresa. Poiché l'attività non riprende mai, l'esecuzione di un'istruzione */* routine di await (F10 in Visual Studio) non è possibile. Questa operazione funziona solo se un'attività è in corso di riesecuzione.
+* **Timeout della messaggistica**: Durable Functions usa internamente i messaggi in coda per l'esecuzione di funzioni di orchestrazione, attività e entità. In un ambiente con più macchine virtuali, a causa dell'interruzione del debug per lunghi periodi di tempo è possibile che un'altra macchina virtuale prelevi il messaggio, generando un'esecuzione duplicata. Questo comportamento esiste anche per le normali funzioni attivate da coda, ma è importante sottolinearlo in questo contesto poiché le code sono un dettaglio dell'implementazione.
+* **Arresto e avvio**: i messaggi nelle funzioni permanenti vengono mantenuti tra le sessioni di debug. Se si interrompe il debug e si termina il processo host locale mentre è in esecuzione una funzione durevole, la funzione potrebbe essere rieseguita automaticamente in una sessione di debug futura. Questo comportamento può generare confusione quando non è previsto. La cancellazione di tutti i messaggi dalle [code di archiviazione interne](durable-functions-perf-and-scale.md#internal-queue-triggers) tra le sessioni di debug è una tecnica per evitare questo comportamento.
 
 > [!TIP]
-> Quando si impostano punti di interruzione nelle funzioni dell'agente di orchestrazione, se si desidera interrompere l'esecuzione solo in assenza di riproduzione, è possibile impostare `IsReplaying` un `false`punto di interruzione condizionale che si interrompe solo se è.
+> Quando si impostano punti di interruzione nelle funzioni dell'agente di orchestrazione, se si desidera interrompere l'esecuzione solo in caso di esecuzione non di riproduzione, è possibile impostare un punto di interruzione condizionale che si interrompe solo se `IsReplaying` è `false`
 
 ## <a name="storage"></a>Archiviazione
 
-Per impostazione predefinita, Funzioni permanenti archivia lo stato in Archiviazione di Azure. È quindi possibile controllare lo stato delle orchestrazioni tramite strumenti come [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+Per impostazione predefinita, Funzioni permanenti archivia lo stato in Archiviazione di Azure. Questo comportamento significa che è possibile controllare lo stato delle orchestrazioni utilizzando strumenti come [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
 ![Schermata Azure Storage Explorer](./media/durable-functions-diagnostics/storage-explorer.png)
 
 Risulta utile per il debug perché viene visualizzato esattamente lo stato in cui potrebbe trovarsi un'orchestrazione. È possibile esaminare i messaggi nelle code anche per individuare le attività in sospeso o, in alcuni casi, bloccate.
 
 > [!WARNING]
-> Sebbene sia utile esaminare la cronologia di esecuzioni in archiviazione tabelle, evitare di creare qualsiasi dipendenza in questa tabella, che può cambiare con l'evoluzione dell'estensione Funzioni permanenti.
+> Sebbene sia utile esaminare la cronologia di esecuzioni in archiviazione tabelle, evitare di creare qualsiasi dipendenza in questa tabella, Possono cambiare con l'evoluzione dell'estensione Funzioni permanenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

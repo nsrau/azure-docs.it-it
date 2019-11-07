@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: f0fc1e143ce7d271d5faaa8dda0eb40cdfc9e006
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: fd3396a98359aef966cd8bb2f984e556fc6abcc7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332765"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584832"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Creare e gestire un modello per le classi in Azure Lab Services
 Un modello in un lab è un'immagine della macchina virtuale di base da cui vengono create tutte le macchine virtuali di tutti gli utenti. Configurare la macchina virtuale modello con tutte le caratteristiche che si vuole fornire agli utenti del lab. È possibile specificare un nome e una descrizione del modello che verranno visualizzati dagli utenti del lab. Quindi, pubblicare il modello per rendere disponibili agli utenti del lab le istanze della macchina virtuale modello. Quando si pubblica un modello, Azure Lab Services crea le macchine virtuali nel lab usando il modello. Il numero di macchine virtuali create in questo processo corrisponde al numero massimo di utenti consentiti nel lab, che è possibile impostare nei criteri di utilizzo del lab. Tutte le macchine virtuali hanno la stessa configurazione del modello.
@@ -40,12 +40,10 @@ Seguire questa procedura per impostare il titolo e la descrizione per la prima v
 Usare la procedura seguente per aggiornare una macchina virtuale modello.  
 
 1. Nella pagina **modello** selezionare **Personalizza modello** sulla barra degli strumenti. 
-
-    ![Pulsante Personalizza modello](../media/how-to-create-manage-template/customize-template-button.png)
 2. Nella finestra di dialogo **Personalizza modello** selezionare **continua**. Una volta avviato il modello e apportato le modifiche, non avrà più la stessa configurazione delle macchine virtuali pubblicate per l'ultima volta agli utenti. Le modifiche ai modelli non verranno applicate alle macchine virtuali esistenti degli utenti finché non si esegue di nuovo la pubblicazione.
 
     ![Finestra di dialogo Personalizza](../media/how-to-create-manage-template/customize-template-dialog.png)
-1. Selezionare il pulsante **Connetti al modello** sulla barra degli strumenti per connettersi alla macchina virtuale del modello e seguire le istruzioni. Se si tratta di un computer Windows, verrà visualizzata un'opzione per scaricare il file RDP. 
+1. Attendere che la macchina virtuale del modello sia avviata e quindi selezionare **Connetti al modello** sulla barra degli strumenti per connettersi alla macchina virtuale modello e seguire le istruzioni. Se si tratta di un computer Windows, verrà visualizzata un'opzione per scaricare il file RDP. 
 
     ![Connettersi alla macchina virtuale modello](../media/how-to-create-manage-template/connect-template-vm.png)
 1. Installare tutto il software necessario agli studenti per eseguire il lab, ad esempio, Visual Studio, Azure Storage Explorer e così via. 

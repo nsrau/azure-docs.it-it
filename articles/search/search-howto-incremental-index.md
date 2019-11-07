@@ -1,7 +1,7 @@
 ---
-title: Configurare l'indicizzazione incrementale del rilevamento delle modifiche basato sul contenuto arricchito
+title: Configurare l'indicizzazione incrementale (anteprima) del rilevamento delle modifiche basato sul contenuto arricchito
 titleSuffix: Azure Cognitive Search
-description: Abilitare il rilevamento delle modifiche e mantenere lo stato del contenuto arricchito per l'elaborazione controllata in un Skills cognitivo.
+description: Abilitare il rilevamento delle modifiche e mantenere lo stato del contenuto arricchito per l'elaborazione controllata in un Skills cognitivo. Questa funzionalità è attualmente in anteprima pubblica.
 author: vkurpad
 manager: eladz
 ms.author: vikurpad
@@ -9,24 +9,21 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ac082d6ecb6624dc0d5bc0ab927ff8b91ebdabce
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 74631ee3167c65e59fbd05f53fe5327d1b532dba
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512184"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719930"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Come configurare l'indicizzazione incrementale dei documenti arricchiti in Azure ricerca cognitiva
+
+> [!IMPORTANT] 
+> L'indicizzazione incrementale è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Al momento non è disponibile alcun supporto per il portale o .NET SDK.
 
 Questo articolo illustra come aggiungere lo stato e la memorizzazione nella cache ai documenti arricchiti che passano attraverso una pipeline di arricchimento ricerca cognitiva di Azure in modo da poter indicizzare in modo incrementale i documenti da qualsiasi origine dati supportata. Per impostazione predefinita, un insieme di competenze è senza stato e la modifica di qualsiasi parte della relativa composizione richiede una ripetizione completa dell'indicizzatore. Con l'indicizzazione incrementale, l'indicizzatore può determinare quali parti della pipeline sono state modificate, riutilizzando gli arricchimenti esistenti per le parti non modificate e modificando i miglioramenti per i passaggi che cambiano. Il contenuto memorizzato nella cache viene inserito in archiviazione di Azure.
 
 Se non si ha familiarità con la configurazione degli indicizzatori, iniziare con l' [indicizzatore Panoramica](search-indexer-overview.md) e quindi continuare con [skillsets](cognitive-search-working-with-skillsets.md) per informazioni sulle pipeline di arricchimento. Per ulteriori informazioni sui concetti chiave, vedere [indicizzazione incrementale](cognitive-search-incremental-indexing-conceptual.md).
-
-L'indicizzazione incrementale viene configurata usando l' [API REST di ricerca-Version = 2019-05-06-Preview](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations).
-
-> [!NOTE]
-> Questa funzionalità non è ancora disponibile nel portale e deve essere usata a livello di programmazione.
->
 
 ## <a name="modify-an-existing-indexer"></a>Modificare un indicizzatore esistente
 

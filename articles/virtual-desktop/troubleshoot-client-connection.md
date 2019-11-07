@@ -1,5 +1,5 @@
 ---
-title: Desktop remoto le connessioni client nel desktop virtuale di Windows-Azure
+title: Risolvere i problemi di Desktop remoto desktop virtuale Windows-Azure
 description: Come risolvere i problemi quando si configurano le connessioni client in un ambiente tenant di desktop virtuali Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 22590a7ecc94efbfad5eefe27f284bdb191e876d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3aae74a4fed499674f015ed0adb59016877583f3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676397"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607380"
 ---
 # <a name="remote-desktop-client-connections"></a>Connessioni client di Desktop remoto
 
 Usare questo articolo per risolvere i problemi relativi alle connessioni client di desktop virtuali Windows.
 
-## <a name="provide-feedback"></a>Commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
@@ -34,23 +34,23 @@ nslookup rdweb.wvd.microsoft.com
 
 Provare a connettersi con un altro client, ad esempio Desktop remoto client per Windows 7 o Windows 10, e verificare se è possibile aprire il client Web.
 
-### <a name="error-opening-another-site-fails"></a>Errore: L'apertura di un altro sito non riesce
+### <a name="error-opening-another-site-fails"></a>Errore: l'apertura di un altro sito non riesce
 
-**Causa:** Problemi di rete e/o interruzioni.
+**Motivo:** Problemi di rete e/o interruzioni.
 
-**Difficoltà** Contattare il supporto di rete.
+**Correzione:** Contattare il supporto di rete.
 
-### <a name="error-nslookup-cannot-resolve-the-name"></a>Errore: Nslookup: Impossibile risolvere il nome
+### <a name="error-nslookup-cannot-resolve-the-name"></a>Errore: Impossibile risolvere il nome
 
-**Causa:** Problemi di rete e/o interruzioni.
+**Motivo:** Problemi di rete e/o interruzioni.
 
-**Difficoltà** Contattare il supporto di rete
+**Correzione:** Contattare il supporto di rete
 
-### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>Errore: Non è possibile connettersi, ma gli altri client possono connettersi
+### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>Errore: non è possibile connettersi, ma gli altri client possono connettersi
 
-**Causa:** Il browser non funziona come previsto e ha smesso di funzionare.
+**Motivo:** Il browser non funziona come previsto e ha smesso di funzionare.
 
-**Difficoltà** Seguire queste istruzioni per risolvere i problemi del browser.
+**Correzione:** Seguire queste istruzioni per risolvere i problemi del browser.
 
 1. Riavviare il browser.
 2. Cancella i cookie del browser. Vedere [come eliminare i file dei cookie in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
@@ -61,11 +61,11 @@ Provare a connettersi con un altro client, ad esempio Desktop remoto client per 
 
 Provare a connettersi usando un altro browser o client.
 
-### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>Errore: Anche altri browser e client malfunzionanti o non vengono aperti
+### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>Errore: anche altri browser e client malfunzionanti o non vengono aperti
 
-**Causa:** Problemi o interruzioni del sistema operativo di rete e/o
+**Motivo:** Problemi o interruzioni del sistema operativo di rete e/o
 
-**Difficoltà** Contattare il team di supporto.
+**Correzione:** Contattare il team di supporto.
 
 ## <a name="web-client-keeps-prompting-for-credentials"></a>Il client Web continua a richiedere le credenziali
 
@@ -135,28 +135,28 @@ Seguire queste istruzioni generali per la risoluzione dei problemi relativi ai c
     Time              : <Timestampt>
     ```
 
-### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>Errore: O_ADD_USER_TO_GROUP_FAILED/non è stato possibile aggiungere l'utente = ≤ nomeutente ≥ al gruppo = Desktop remoto utenti. Motivo: Win32.ERROR_NO_SUCH_MEMBER
+### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>Errore: O_ADD_USER_TO_GROUP_FAILED/non è stato possibile aggiungere l'utente = ≤ nomeutente ≥ al gruppo = Desktop remoto utenti. Motivo: Win32. ERROR_NO_SUCH_MEMBER
 
-**Causa:** La macchina virtuale non è stata aggiunta al dominio in cui l'oggetto utente è.
+**Motivo:** La macchina virtuale non è stata aggiunta al dominio in cui l'oggetto utente è.
 
-**Difficoltà** Aggiungere la macchina virtuale al dominio corretto. Vedere [aggiungere una macchina virtuale Windows Server a un dominio gestito](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
+**Correzione:** Aggiungere la macchina virtuale al dominio corretto. Vedere [aggiungere una macchina virtuale Windows Server a un dominio gestito](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 
-### <a name="error-nslookup-cannot-resolve-the-name"></a>Errore: Nslookup: Impossibile risolvere il nome
+### <a name="error-nslookup-cannot-resolve-the-name"></a>Errore: Impossibile risolvere il nome
 
-**Causa:** Problemi di rete o interruzioni.
+**Motivo:** Problemi di rete o interruzioni.
 
-**Difficoltà** Contattare il supporto di rete
+**Correzione:** Contattare il supporto di rete
 
 ### <a name="error-connectionfailedclientprotocolerror"></a>Errore: ConnectionFailedClientProtocolError
 
-**Causa:** Le macchine virtuali a cui un utente sta tentando di connettersi non sono unite a un dominio.
+**Motivo:** Le macchine virtuali a cui un utente sta tentando di connettersi non sono unite a un dominio.
 
-**Difficoltà** Aggiungere al controller di dominio tutte le macchine virtuali che fanno parte di un pool host.
+**Correzione:** Aggiungere al controller di dominio tutte le macchine virtuali che fanno parte di un pool host.
 
 ### <a name="error-connectionfailedusersidinformationmismatch"></a>Errore: ConnectionFailedUserSIDInformationMismatch
-**Causa:** Il SID del token Azure Active Directory (AD) dell'utente non corrisponde al SID restituito dal controller di dominio durante il tentativo di abilitare l'utente per l'accesso remoto. Questo errore si verifica in genere quando si tenta di accedere a un ambiente di Azure Active Directory Domain Services (Azure AD DS) con un utente originariamente originato da un Active Directory di Windows Server.
+**Motivo:** Il SID del token Azure Active Directory (AD) dell'utente non corrisponde al SID restituito dal controller di dominio durante il tentativo di abilitare l'utente per l'accesso remoto. Questo errore si verifica in genere quando si tenta di accedere a un ambiente di Azure Active Directory Domain Services (Azure AD DS) con un utente originariamente originato da un Active Directory di Windows Server.
 
-**Difficoltà** Questo scenario non è supportato in questo momento. Solo gli utenti originati da Azure Active Directory possono accedere a VM desktop virtuali Windows connesse a Azure AD DS.
+**Correzione:** Questo scenario non è supportato in questo momento. Solo gli utenti originati da Azure Active Directory possono accedere a VM desktop virtuali Windows connesse a Azure AD DS.
 
 ## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>L'utente si connette ma non viene visualizzato nulla (nessun feed)
 
@@ -178,4 +178,4 @@ Se il client Web viene utilizzato, verificare che non siano presenti problemi di
 - Per risolvere i problemi durante la creazione di un tenant e di un pool host in un ambiente desktop virtuale Windows, vedere [creazione di tenant e pool host](troubleshoot-set-up-issues.md).
 - Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in desktop virtuale di Windows, vedere [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration.md).
 - Per risolvere i problemi relativi all'uso di PowerShell con desktop virtuale di Windows, vedere [PowerShell per desktop virtuale di Windows](troubleshoot-powershell.md).
-- Per eseguire un'esercitazione di risoluzione dei problemi, vedere [Esercitazione: Risolvere i problemi relativi alle](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)distribuzioni gestione risorse modello.
+- Per un'esercitazione per la risoluzione dei problemi, vedere [esercitazione: risolvere i problemi relativi alle distribuzioni di modelli gestione risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).

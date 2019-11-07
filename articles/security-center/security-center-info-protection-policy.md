@@ -1,5 +1,5 @@
 ---
-title: Personalizzazione dei criteri di protezione delle informazioni SQL in Centro sicurezza di Azure | Microsoft Docs
+title: Personalizzare SQL Information Protection-Centro sicurezza di Azure
 description: Informazioni su come personalizzare i criteri di protezione delle informazioni in Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: f9b161bbb692c1336083640250b93f9d87f1e0d9
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
-ms.translationtype: HT
+ms.openlocfilehash: d37333c0ca3f8acab7a35c23bbab67beef056b72
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520794"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664397"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizzare i criteri di protezione delle informazioni SQL in Centro sicurezza di Azure (Anteprima)
  
-Un criterio di protezione delle informazioni SQL può essere definito e personalizzato per l'intero tenant di Azure in Centro sicurezza di Azure.
+È possibile definire e personalizzare i criteri di SQL Information Protection per l'intero tenant di Azure, nel centro sicurezza di Azure.
 
 Information Protection è una funzionalità di sicurezza avanzata per l'individuazione, la classificazione, l'assegnazione di etichette e la protezione dei dati sensibili nelle risorse dati di Azure. L'individuazione e la classificazione dei dati più sensibili (aziendale, finanziaria, sanitaria, dati personali e così via) possono svolgere un ruolo fondamentale nella protezione delle informazioni dell'organizzazione. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
 - Contribuire a soddisfare gli standard e i requisiti di conformità alle normative sulla privacy dei dati
-- Vari scenari di sicurezza, ad esempio monitoraggio (controllo) e invio di avvisi sulle anomalie di accesso a dati sensibili
+- Scenari di sicurezza, ad esempio monitoraggio (controllo) e avvisi sull'accesso anomalo ai dati sensibili
 - Controllare l'accesso ai database che contengono dati molto sensibili e rafforzarne la sicurezza
  
-[SQL Information Protection](../sql-database/sql-database-data-discovery-and-classification.md) implementa questo paradigma per gli archivi dati SQL, attualmente supportati per il database SQL di Azure. SQL Information Protection consente di individuare e classificare automaticamente i dati potenzialmente sensibili, offre un meccanismo di assegnazione delle etichette per contrassegnare in modo permanente i dati sensibili con attributi di classificazione e contiene un dashboard dettagliato che indica lo stato di classificazione del database. Inoltre, calcola la riservatezza del set di risultati delle query SQL, in modo che le query che estraggono dati sensibili possano essere controllate in modo esplicito, e i dati protetti. Per altre informazioni su SQL Information Protection, vedere [Individuazione dati e classificazione nel database SQL di Azure](../sql-database/sql-database-data-discovery-and-classification.md).
+[SQL Information Protection](../sql-database/sql-database-data-discovery-and-classification.md) implementa questo paradigma per gli archivi dati SQL, attualmente supportati per il database SQL di Azure. SQL Information Protection consente di individuare e classificare automaticamente i dati potenzialmente sensibili, offre un meccanismo di assegnazione delle etichette per contrassegnare in modo permanente i dati sensibili con attributi di classificazione e contiene un dashboard dettagliato che indica lo stato di classificazione del database. Inoltre, calcola la riservatezza del set di risultati delle query SQL, in modo che le query che estraggono dati sensibili possano essere controllate in modo esplicito, e i dati protetti. Per altre informazioni su SQL Information Protection, vedere [individuazione e classificazione dei dati del database SQL di Azure](../sql-database/sql-database-data-discovery-and-classification.md).
  
 Il meccanismo di classificazione si basa su due costrutti principali che costituiscono la tassonomia di classificazione, cioè le **etichette** e i **tipi di informazioni**.
 - **Etichette**: i principali attributi di classificazione, usati per definire il livello di sensibilità dei dati archiviati nella colonna. 
 - **Tipi di informazioni**: forniscono granularità aggiuntiva al tipo di dati archiviati nella colonna.
  
-Information Protection include un set predefinito di etichette e i tipi di informazioni, che viene utilizzato per impostazione predefinita. Per personalizzarlo, è necessario personalizzare i criteri di protezione delle informazioni in Centro sicurezza di Azure.
+Information Protection include un set predefinito di etichette e i tipi di informazioni, che viene utilizzato per impostazione predefinita. Per personalizzare le etichette e i tipi, è possibile personalizzare i criteri di Information Protection nel centro sicurezza.
  
 ## <a name="customize-the-information-protection-policy"></a>Personalizzare i criteri di protezione delle informazioni
 Per personalizzare i criteri di protezione delle informazioni del tenant di Azure, è necessario disporre di [privilegi amministrativi nel gruppo di gestione radice del tenant](security-center-management-groups.md). 

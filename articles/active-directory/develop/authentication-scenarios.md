@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3d87ab57a5cf3bcd768a28f7867dac37371570b
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 1ab2180c54f07ff5009e2c57d8522f2eb0b81aad
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200356"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718378"
 ---
 # <a name="authentication-basics"></a>Nozioni di base sull'autenticazione
 
@@ -37,7 +37,7 @@ L' **autorizzazione** è l'atto di concedere a un'entità autenticata l'autorizz
 
 Anziché creare app che gestiscono le proprie informazioni relative a nome utente e password, il che comporta un carico amministrativo elevato quando è necessario aggiungere o rimuovere utenti in più app, le app possono delegare tale responsabilità a un provider di identità centralizzato.
 
-Azure Active Directory (Azure AD) è un provider di identificazione centralizzato nel cloud. Delegare l'autenticazione e l'autorizzazione al servizio IT consente scenari come i criteri di accesso condizionale che richiedono che un utente si trovi in una posizione specifica, l'uso dell'autenticazione a più fattori, nonché l'abilitazione di un utente per l'accesso una sola volta e quindi automaticamente accesso a tutte le app Web che condividono la stessa directory centralizzata. Questa funzionalità è denominata Single Sign-on (SSO).
+Azure Active Directory (Azure AD) è un provider di identità centralizzato nel cloud. Delegare l'autenticazione e l'autorizzazione al servizio IT consente scenari come i criteri di accesso condizionale che richiedono che un utente si trovi in una posizione specifica, l'uso dell'autenticazione a più fattori, nonché l'abilitazione di un utente per l'accesso una sola volta e quindi automaticamente accesso a tutte le app Web che condividono la stessa directory centralizzata. Questa funzionalità è denominata Single Sign-on (SSO).
 
 Un provider di identità centralizzato è ancora più importante per le app che hanno utenti dislocati in tutto il mondo che non devono necessariamente accedere dalla rete aziendale. Azure AD autentica gli utenti e fornisce i token di accesso. Un token di accesso è un token di sicurezza emesso da un server di autorizzazione. Contiene informazioni sull'utente e sull'app per cui è previsto il token, che può essere usato per accedere alle API Web e ad altre risorse protette.
 
@@ -53,7 +53,7 @@ Azure AD fornisce anche Azure Active Directory B2C in modo che le organizzazioni
 
 ### <a name="security-tokens"></a>Token di sicurezza
 
-I token di sicurezza contengono informazioni su utenti e app. Azure AD USA token basati su JSon (token JWT) che contengono attestazioni. Un'attestazione fornisce asserzioni relative a un'entità a un'altra. Le applicazioni possono utilizzare attestazioni per diverse attività, ad esempio:
+I token di sicurezza contengono informazioni su utenti e app. Azure AD USA token basati su JSON (token JWT) che contengono attestazioni. Un'attestazione fornisce asserzioni relative a un'entità a un'altra. Le applicazioni possono utilizzare attestazioni per diverse attività, ad esempio:
 
 * Convalida del token
 * Identificazione del tenant di directory dell'oggetto
@@ -83,7 +83,7 @@ Le applicazioni possono accedere agli utenti stessi o delegare l'accesso a un pr
 Affinché un provider di identità sappia che un utente ha accesso a una determinata app, sia l'utente che l'applicazione devono essere registrati con il provider di identità. Quando si registra l'applicazione con Azure AD, viene offerta una configurazione di identità per l'applicazione che consente l'integrazione con Azure AD. La registrazione dell'app consente anche di:
 
 - personalizzare la personalizzazione dell'applicazione nella finestra di dialogo di accesso. Questo è importante perché si tratta della prima esperienza che un utente avrà con l'app.
-- decidere se si desidera consentire agli utenti di accedere solo se appartengono all'organizzazione. Si tratta di un'applicazione single-tenant. In alternativa, consentire agli utenti di accedere usando un account aziendale o dell'Istituto di istruzione. Si tratta di un'applicazione multi-tenant. È anche possibile consentire account Microsoft personali o un account di social networking da collegato, Google e così via.
+- decidere se si desidera consentire agli utenti di accedere solo se appartengono all'organizzazione. Si tratta di un'applicazione single-tenant. In alternativa, consentire agli utenti di accedere usando un account aziendale o dell'Istituto di istruzione. Si tratta di un'applicazione multi-tenant. È anche possibile consentire account Microsoft personali o un account di social networking da LinkedIn, Google e così via.
 - autorizzazioni dell'ambito della richiesta. È ad esempio possibile richiedere l'ambito "User. Read", che concede l'autorizzazione per leggere il profilo dell'utente che ha eseguito l'accesso.
 - definire gli ambiti che definiscono l'accesso all'API Web. In genere, quando un'app vuole accedere all'API, sarà necessario richiedere le autorizzazioni agli ambiti definiti.
 - condividere un segreto con Azure AD che dimostra l'identità dell'app per Azure AD.  Questo è rilevante nel caso in cui l'app sia un'applicazione client riservata. Un'applicazione client riservata è un'applicazione in grado di conservare le credenziali in modo sicuro. Per archiviare le credenziali è necessario un server back-end attendibile.
@@ -98,8 +98,9 @@ Piattaforma di identità Microsoft:
 * Include tutti i dati necessari per supportare l'autenticazione in fase di esecuzione.
 * Include tutti i dati per la decisione delle risorse a cui un'app potrebbe dover accedere e in quali circostanze deve essere soddisfatta una determinata richiesta.
 * Fornisce l'infrastruttura per implementare il provisioning delle app nel tenant dello sviluppatore di app e in qualsiasi altro tenant Azure AD.
+* Gestisce il consenso dell'utente durante il tempo di richiesta del token e facilita il provisioning dinamico delle app tra i tenant
 
-Gestire il consenso dell'utente durante il tempo di richiesta del token e semplificare il provisioning dinamico delle app attraverso il consenso dei tenant è il processo di un proprietario di risorse che concede l'autorizzazione a un'applicazione client per accedere alle risorse protette, in autorizzazioni specifiche, in nome del proprietario della risorsa. Piattaforma di identità Microsoft:
+Il consenso è il processo di un proprietario di risorse che concede l'autorizzazione a un'applicazione client per accedere alle risorse protette, in autorizzazioni specifiche, per conto del proprietario della risorsa. Piattaforma di identità Microsoft:
 
 * Consente a utenti e amministratori di concedere o negare dinamicamente il consenso all'app di accedere alle risorse per loro conto.
 * Consente agli amministratori di decidere quali app sono autorizzati a eseguire e quali utenti possono usare app specifiche, nonché la modalità di accesso alle risorse di directory.

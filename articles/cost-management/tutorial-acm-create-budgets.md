@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 8d8f796fa7db9cab5bcac88a293dd1b98707a571
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8c3c0574389fc9808af3cd70c928ede82d375076
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025766"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720719"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
@@ -50,7 +50,7 @@ Le seguenti autorizzazioni di Azure o gli ambiti sono supportati per ogni sottos
 
 Per altre informazioni sull'assegnazione dell'autorizzazione ai dati di Gestione costi, vedere [Assegnare l'accesso ai dati di Gestione costi](assign-access-acm-data.md).
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 - Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
@@ -78,7 +78,7 @@ In base ai campi scelti nel budget fino a questo punto, viene visualizzato un gr
 
 ![Esempio che mostra la creazione del budget con i dati dei costi mensili ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-Dopo aver configurato l'importo del budget, fare clic su **Avanti** per configurare gli avvisi del budget. Per i budget sono richiesti almeno una soglia per i costi (% del budget) e un indirizzo di posta elettronica corrispondente. Facoltativamente, è possibile includere fino a cinque soglie e cinque indirizzi di posta elettronica in un unico budget. Quando viene soddisfatta una soglia di budget, le notifiche tramite posta elettronica vengono normalmente ricevute in meno di 20 ore. Per altre informazioni sulle notifiche, vedere [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md) (Usare avvisi per i costi). Nell'esempio seguente viene generato un avviso di posta elettronica quando viene raggiunto il 90% del budget.
+Dopo aver configurato l'importo del budget, fare clic su **Avanti** per configurare gli avvisi del budget. Per i budget sono richiesti almeno una soglia per i costi (% del budget) e un indirizzo di posta elettronica corrispondente. Facoltativamente, è possibile includere fino a cinque soglie e cinque indirizzi di posta elettronica in un unico budget. Quando viene soddisfatta una soglia di budget, le notifiche tramite posta elettronica vengono normalmente ricevute in meno di 20 ore. Per altre informazioni sulle notifiche, vedere [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md) (Usare avvisi per i costi). Nell'esempio seguente viene generato un avviso di posta elettronica quando viene raggiunto il 90% del budget. Se si crea un budget con l'API budgets, è anche possibile assegnare ruoli agli utenti per ricevere gli avvisi. L'assegnazione di ruoli agli utenti non è supportata nel portale di Azure. Per altre informazioni sull'API di Azure budgets, vedere [budgets API](/rest/api/consumption/budgets).
 
 ![Esempio che mostra le condizioni di avviso](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
@@ -112,9 +112,11 @@ Nell'esempio seguente vengono illustrate le soglie del budget impostate su 50%, 
 
 ![Esempio che mostra le condizioni di avviso configurate con diversi gruppi di azioni e tipo di azioni](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
+L'integrazione del budget con i gruppi di azioni funziona solo per i gruppi di azioni in cui lo schema di avviso comune è disabilitato. Per ulteriori informazioni sulla disabilitazione dello schema, vedere [ricerca per categorie abilitare lo schema di avviso comune?](../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare un budget nel portale di Azure

@@ -8,12 +8,12 @@ ms.date: 11/04/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chroyal
-ms.openlocfilehash: 1f46fe92fd6650daa3ba4b9a930c4d781925d3fc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 484322fb0486eeb4ab67366d32350c69a18da743
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518255"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605917"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurare blockchain Data Manager usando il portale di Azure
 
@@ -53,7 +53,7 @@ Una connessione in uscita invia i dati di blockchain a griglia di eventi di Azur
 
 1. Selezionare **OK**.
 
-    La creazione di un'istanza di blockchain Data Manager richiede meno di un minuto. Una volta distribuita, l'istanza viene avviata automaticamente. Un'istanza in esecuzione di Data Manager blockchain acquisisce gli eventi blockchain dal nodo della transazione e invia i dati alle connessioni in uscita. Se si desidera acquisire anche dati di eventi e proprietà decodificati dal nodo della transazione, creare un'applicazione blockchain per l'istanza di blockchain Data Manager.
+    La creazione di un'istanza di blockchain Data Manager richiede meno di un minuto. Una volta distribuita, l'istanza viene avviata automaticamente. Un'istanza in esecuzione di Data Manager blockchain acquisisce gli eventi blockchain dal nodo della transazione e invia i dati alle connessioni in uscita.
 
     La nuova istanza viene visualizzata nell'elenco di istanze di blockchain Data Manager per il membro del servizio blockchain di Azure.
 
@@ -63,7 +63,10 @@ Una connessione in uscita invia i dati di blockchain a griglia di eventi di Azur
 
 Se si aggiunge un'applicazione blockchain, blockchain Data Manager decodifica l'evento e lo stato della proprietà per l'applicazione. In caso contrario, vengono inviati solo i dati delle transazioni RAW e i blocchi Raw. Blockchain Data Manager individua anche gli indirizzi del contratto quando il contratto viene distribuito. È possibile aggiungere più applicazioni blockchain a un'istanza di blockchain Data Manager.
 
-Per aggiungere l'applicazione, blockchain Data Manager richiede un file ABI e bytecode con Smart Contract.
+> [!IMPORTANT]
+> Attualmente, le applicazioni blockchain che dichiarano [tipi di matrici](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) di solidità o [tipi di mapping](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) non sono completamente supportate. Le proprietà dichiarate come matrici o tipi di mapping non verranno decodificate nei messaggi *ContractPropertiesMsg* o *DecodedContractEventsMsg* .
+
+Per aggiungere l'applicazione, blockchain Data Manager richiede un file con estensione bytecode di Smart contract e un file bytecode distribuito.
 
 ### <a name="get-contract-abi-and-bytecode"></a>Ottenere l'ABI e il bytecode del contratto
 
@@ -79,17 +82,15 @@ Il contratto ABI definisce le interfacce smart Contract. Viene descritto come in
 
 1. Salvare la matrice **Abi** come file JSON. Ad esempio, *ABI. JSON*. Il file viene usato in un passaggio successivo.
 
-Il bytecode del contratto è la Smart Contract compilata eseguita dalla macchina virtuale Ethereum. È possibile utilizzare l'estensione per copiare il bytecode del contratto negli Appunti.
+Blockchain Data Manager richiede il bytecode distribuito per il contratto Smart. Il bytecode distribuito è diverso dal bytecode del contratto Smart. È possibile ottenere il bytecode distribuito dal file di metadati del contratto compilato.
 
-1. Nel riquadro Visual Studio Code Explorer espandere la cartella **Build/Contracts** del progetto di solidità.
-1. Fare clic con il pulsante destro del mouse sul file JSON dei metadati del contratto. Il nome del file è il nome del contratto intelligente seguito dall'estensione **JSON** .
-1. Selezionare **copia bytecode del contratto**.
+1. Aprire il file di metadati del contratto contenuto nella cartella **Build/Contracts** del progetto di solidità. Il nome del file è il nome del contratto intelligente seguito dall'estensione **JSON** .
+1. Trovare l'elemento **deployedBytecode** nel file JSON.
+1. Copiare il valore esadecimale senza virgolette.
 
-    ![Riquadro Visual Studio Code con la selezione del bytecode del contratto di copia](./media/data-manager-portal/bytecode-devkit.png)
+    ![Riquadro Visual Studio Code con bytecode nei metadati](./media/data-manager-portal/bytecode-metadata.png)
 
-    Il bytecode del contratto viene copiato negli Appunti.
-
-1. Salvare il valore **bytecode** come file JSON. Ad esempio, *bytecode. JSON*. Salva solo il valore esadecimale. Il file viene usato in un passaggio successivo.
+1. Salvare il valore **bytecode** come file JSON. Ad esempio, *bytecode. JSON*. Il file viene usato in un passaggio successivo.
 
 L'esempio seguente mostra i file *ABI. JSON* e *bytecode. JSON* aperti nell'editor vs code. I file dovrebbero essere simili.
 
@@ -169,4 +170,7 @@ Arrestare l'istanza di blockchain Manager quando si desidera arrestare l'acquisi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sui [gestori di eventi in griglia di eventi di Azure](../../event-grid/event-handlers.md).
+Provare a creare un Visualizzatore messaggi di transazione blockchain usando blockchain Data Manager e Azure Cosmos DB.
+
+> [!div class="nextstepaction"]
+> [Esercitazione: usare blockchain Data Manager per inviare dati a Azure Cosmos DB](data-manager-cosmosdb.md)

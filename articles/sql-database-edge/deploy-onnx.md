@@ -4,21 +4,22 @@ description: Informazioni su come eseguire il training di un modello, convertirl
 keywords: distribuire Edge database SQL
 services: sql-database-edge
 ms.service: sql-database-edge
+ms.subservice: machine-learning
 ms.topic: conceptual
 author: ronychatterjee
 ms.author: achatter
 ms.reviewer: davidph
 ms.date: 11/04/2019
-ms.openlocfilehash: 2306a63aa46bd8816c742b0a6d076471705c46a6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 37fc04919b844d1edf87be62a587c34de4a8c4d5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514069"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692332"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-sql-database-edge-preview"></a>Distribuire ed eseguire stime con un modello ONNX in anteprima Edge del database SQL
 
-In questa Guida introduttiva si apprenderà come eseguire il training di un modello, convertirlo in ONNX, distribuirlo nell'anteprima Edge del database SQL di Azure e quindi eseguire stime native sui dati usando il modello ONNX caricato.
+In questa Guida introduttiva si apprenderà come eseguire il training di un modello, convertirlo in ONNX, distribuirlo nell'anteprima Edge del database SQL di Azure e quindi eseguire stime native sui dati usando il modello ONNX caricato. Per altre informazioni, vedere [Machine Learning e intelligenza artificiale con ONNX in SQL database Edge Preview](onnx-overview.md).
 
 Questa Guida introduttiva si basa su **Scikit-learn** e usa il [set di dati di Boston Housing](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
@@ -392,6 +393,6 @@ SELECT predict_input.id
 FROM PREDICT(MODEL = @model, DATA = predict_input) WITH (variable1 FLOAT) AS p
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 * [Machine Learning e AI con ONNX nel database perimetrale SQL](onnx-overview.md)

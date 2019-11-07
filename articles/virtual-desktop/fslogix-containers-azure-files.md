@@ -1,5 +1,5 @@
 ---
-title: Contenitori e File di Azure del profilo FSLogix nel desktop virtuale di Windows-Azure
+title: File di contenitori del profilo FSLogix di desktop virtuali Windows-Azure
 description: Questo articolo descrive i contenitori di profili FSLogix all'interno di un desktop virtuale di Windows e di file di Azure.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: e651695055b9bfdbfbb5b6281af8c1d21235009b
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: cf4274931d83b51afb4a8ada7d1c9040ccce3c14
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311804"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606844"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenitori di profili FSLogix e file di Azure
 
@@ -48,11 +48,11 @@ La tabella seguente illustra i vantaggi e le limitazioni delle tecnologie dei pr
 
 | Tecnologia | Impostazioni moderne | Impostazioni Win32 | Impostazioni del sistema operativo | Dati utente | Supportato nello SKU del server | Archiviazione back-end in Azure | Archiviazione back-end locale | Supporto della versione | Ora di accesso successiva |Note|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Dischi del profilo utente (UPD)** | Yes | Yes | Yes | Yes | Sì | No | Yes | Win 7 + | Yes | |
-| **Profilo utente mobile (RUP), modalità manutenzione** | No | Yes | Yes | Yes | Sì| No | Yes | Win 7 + | No | |
-| **Enterprise State Roaming (ESR)** | Yes | No | Yes | No | Vedere le note | Yes | No | Windows 10 | No | Funzioni nello SKU del server ma nessuna interfaccia utente di supporto |
-| **Virtualizzazione dell'esperienza utente (UE-V)** | Yes | Yes | Sì | No | Yes | No | Yes | Win 7 + | No |  |
-| **File Cloud OneDrive** | No | No | No | Yes | Vedere le note | Vedere le note  | Vedere le note | Win 10 RS3 | No | Non testato nello SKU del server. L'archiviazione back-end in Azure dipende dal client di sincronizzazione. Per l'archiviazione back-end locale è necessario un client di sincronizzazione. |
+| **Dischi del profilo utente (UPD)** | Sì | Sì | Sì | Sì | Sì | No | Sì | Win 7 + | Sì | |
+| **Profilo utente mobile (RUP), modalità manutenzione** | No | Sì | Sì | Sì | Sì| No | Sì | Win 7 + | No | |
+| **Enterprise State Roaming (ESR)** | Sì | No | Sì | No | Vedere le note | Sì | No | Windows 10 | No | Funzioni nello SKU del server ma nessuna interfaccia utente di supporto |
+| **Virtualizzazione dell'esperienza utente (UE-V)** | Sì | Sì | Sì | No | Sì | No | Sì | Win 7 + | No |  |
+| **File Cloud OneDrive** | No | No | No | Sì | Vedere le note | Vedere le note  | Vedere le note | Win 10 RS3 | No | Non testato nello SKU del server. L'archiviazione back-end in Azure dipende dal client di sincronizzazione. Per l'archiviazione back-end locale è necessario un client di sincronizzazione. |
 
 #### <a name="performance"></a>Prestazioni
 
@@ -71,7 +71,7 @@ I cluster S2D richiedono un sistema operativo con patch, aggiornamento e manuten
 Il 19 novembre 2018 Microsoft ha [acquisito FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix risolve molti problemi relativi ai contenitori di profili. La chiave tra di essi è:
 
 - **Prestazioni:** I [contenitori del profilo FSLogix](https://fslogix.com/products/profile-containers) sono prestazioni elevate e risoluzione dei problemi di prestazioni con modalità di scambio memorizzata nella cache storicamente bloccata.
-- **OneDrive** Senza i contenitori del profilo FSLogix, OneDrive for business non è supportato in ambienti RDSH o VDI non persistenti. [Le procedure consigliate per OneDrive for business e FSLogix](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices) descrivono il modo in cui interagiscono. Per altre informazioni, vedere [usare il client di sincronizzazione su desktop virtuali](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi).
+- **OneDrive:** Senza i contenitori del profilo FSLogix, OneDrive for business non è supportato in ambienti RDSH o VDI non persistenti. [Le procedure consigliate per OneDrive for business e FSLogix](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices) descrivono il modo in cui interagiscono. Per altre informazioni, vedere [usare il client di sincronizzazione su desktop virtuali](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi).
 - **Cartelle aggiuntive:** FSLogix offre la possibilità di estendere i profili utente per includere cartelle aggiuntive.
 
 Dall'acquisizione, Microsoft ha iniziato a sostituire le soluzioni del profilo utente esistenti, ad esempio UPD, con i contenitori del profilo FSLogix.

@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ee1168c32cf4d8797b3957340e0acee5605ccc0f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eb7319d665f228c552423a60a3b1529dc9b1143f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951887"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583222"
 ---
 # <a name="what-are-application-templates"></a>Che cosa sono i modelli di applicazione?
 
@@ -32,20 +32,19 @@ Azure IoT Central è una piattaforma applicativa indipendente dal settore. I mod
 
 - [Retail](../retail/overview-iot-central-retail-pnp.md) (Vendita)
   - Logistica connessa
-  - Centro distribuzione digitale
+  - Centro di distribuzione digitale
   - Analisi in-Store-monitoraggio delle condizioni
   - Analisi in-Store-checkout
   - Gestione Smart Inventory
 - [Energia](../energy/overview-iot-central-energy.md)
-  - Logistica connessa
   - Monitoraggio Smart Meter
   - Monitoraggio pannelli solari
 - [Governo](../government/overview-iot-central-government.md)
-  - Gestione dello spreco connesso
-  - Monitoraggio del consumo di acqua
-  - Monitoraggio della qualità dell'acqua
+  - Gestione rifiuti connessa
+  - Monitoraggio consumo idrico
+  - Monitoraggio qualità acqua
 - [Assistenza sanitaria](../healthcare/overview-iot-central-healthcare.md).
-  - Monitoraggio continuo del paziente
+  - Monitoraggio pazienti continuo
 
 ## <a name="next-steps"></a>Passaggi successivi
 

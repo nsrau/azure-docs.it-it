@@ -1,6 +1,6 @@
 ---
 title: Sicurezza e autenticazione di Griglia di eventi di Azure
-description: Descrive Griglia di eventi di Azure e ne illustra i principali concetti.
+description: Vengono descritti il servizio Griglia di eventi di Azure e i concetti correlati.
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: f22d8c57b0127e646321a20587d0cd89f5c9ea45
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b9e471928940094b29bdffeb73ea42fe852492cb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72325416"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665582"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sicurezza e autenticazione di Griglia di eventi 
 
@@ -85,15 +85,15 @@ Per dimostrare la proprietà dell'endpoint, rimandare il codice di convalida nel
 }
 ```
 
-È necessario restituire un codice di stato risposta HTTP 200 OK. HTTP 202 Accettata non una risposta di convalida di sottoscrizione di Griglia di eventi riconosciuta come valida.
+È necessario restituire un codice di stato risposta HTTP 200 OK. HTTP 202 accettato non è riconosciuto come risposta valida per la convalida della sottoscrizione di griglia di eventi. La richiesta HTTP deve essere completata entro 30 secondi. Se l'operazione non termina entro 30 secondi, l'operazione verrà annullata e potrebbe essere ritentata dopo 5 secondi. Se tutti i tentativi hanno esito negativo, verranno considerati come errori di handshake di convalida.
 
-In alternativa, è possibile convalidare manualmente la sottoscrizione inviando una richiesta GET all'URL di convalida. La sottoscrizione dell'evento rimane nello stato in sospeso fino a quando non viene convalidata.
+In alternativa, è possibile convalidare manualmente la sottoscrizione inviando una richiesta GET all'URL di convalida. La sottoscrizione di eventi rimane in stato di attesa fino a quando non viene convalidata. L'URL di convalida usa la porta 553. Se le regole del firewall bloccano la porta 553, potrebbe essere necessario aggiornare le regole per un handshake manuale riuscito.
 
 Per un esempio di gestione dell'handshake di convalida della sottoscrizione, vedere un [ esempio C#](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
 ### <a name="checklist"></a>Elenco di controllo
 
-Durante la creazione della sottoscrizione di eventi, se viene visualizzato un messaggio di errore, ad esempio "tentativo di convalidare l'endpoint specificato https: \//your-endpoint-qui non riuscito. Per altri dettagli, vedere https: \//aka. ms/esvalidation "indica che si è verificato un errore nell'handshake di convalida. Per risolvere questo errore, verificare gli aspetti seguenti:
+Durante la creazione della sottoscrizione di eventi, se viene visualizzato un messaggio di errore, ad esempio "tentativo di convalidare l'endpoint specificato https:\//your-endpoint-Here non riuscito. Per altri dettagli, vedere https:\//aka.ms/esvalidation "indica che si è verificato un errore nell'handshake di convalida. Per risolvere questo errore, verificare gli aspetti seguenti:
 
 * È possibile controllare il codice dell'applicazione nell'endpoint di destinazione? Se, ad esempio, si scrive una funzione di Azure basata su un trigger HTTP, si è autorizzati ad accedere al codice dell'applicazione per modificarlo?
 * Se si è autorizzati ad accedere al codice dell'applicazione, implementare il meccanismo di handshake basato su ValidationCode, come illustrato nell'esempio precedente.

@@ -1,5 +1,5 @@
 ---
-title: Opzioni di archiviazione per i contenitori di profili FSLogix in desktop virtuale di Windows-Azure
+title: Contenitore di profili di archiviazione FSLogix desktop virtuale Windows-Azure
 description: Opzioni per l'archiviazione del profilo FSLogix di desktop virtuale Windows in archiviazione di Azure.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: fc869bc0c52a54044cbc095cd20f0395e590c852
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 3577b459a1b6612d24346428512cfbc509515f52
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332823"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607417"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opzioni di archiviazione per i contenitori del profilo FSLogix in desktop virtuale di Windows
 
@@ -24,24 +24,24 @@ Le tabelle seguenti confrontano le soluzioni di archiviazione offerte da archivi
 
 ## <a name="azure-platform-details"></a>Dettagli della piattaforma Azure
 
-|database elastico|File di Azure|Azure NetApp Files|Spazi di archiviazione diretta|
+|Funzionalità|File di Azure|Azure NetApp Files|Spazi di archiviazione diretta|
 |--------|-----------|------------------|---------------------|
 |Servizio piattaforma|Sì, soluzione nativa di Azure|Sì, soluzione nativa di Azure|No, self-Managed|
-|Disponibilità a livello di area|Tutte le aree|[Selezionare le aree](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Tutte le aree|
+|Disponibilità internazionale|Tutte le aree|[Selezionare le aree](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Tutte le aree|
 |Ridondanza|Ridondanza locale/con ridondanza della zona/con ridondanza geografica|Ridondante a livello locale|Ridondanza locale/con ridondanza della zona/con ridondanza geografica|
 |Livelli e prestazioni|Standard<br>Premium<br>Fino a un massimo di 100.000 IOPS per condivisione con 5 GBps per condivisione a circa 3 ms di latenza|Standard<br>Premium<br>Ultra<br>Fino a 320K (16K) IOPS con 4,5 GBps per volume a circa 1 ms di latenza|HDD Standard: fino a 500 IOPS per disco<br>SDD Standard: limiti fino a 4K IOPS per disco<br>SSD Premium: fino a 20.000 IOPS per disco<br>È consigliabile usare dischi Premium per Spazi di archiviazione diretta|
-|Capacity|100 TiB per condivisione|100 TiB per volume, fino a 12,5 PiB per sottoscrizione|Massimo 32 TiB per disco|
+|Capacità|100 TiB per condivisione|100 TiB per volume, fino a 12,5 PiB per sottoscrizione|Massimo 32 TiB per disco|
 |Infrastruttura necessaria|Dimensioni minime condivisione 1 GiB|Pool di capacità minimo 4 TiB, dimensione minima del volume 100 GiB|Due macchine virtuali in Azure IaaS (+ cloud Witness) o almeno tre VM senza e i costi per i dischi|
 |Protocolli|SMB 2.1/3. e REST|NFSv3, NFSv 4.1 (anteprima), SMB 3. x/2. x|NFSv3, NFSv 4.1, SMB 3,1|
 
 ## <a name="azure-management-details"></a>Dettagli sulla gestione di Azure
 
-|database elastico|File di Azure|Azure NetApp Files|Spazi di archiviazione diretta|
+|Funzionalità|File di Azure|Azure NetApp Files|Spazi di archiviazione diretta|
 |--------|-----------|------------------|---------------------|
 |Accesso|Cloud, locale e ibrido (sincronizzazione file di Azure)|Cloud, locale (tramite ExpressRoute)|Cloud, locale|
-|Eseguire il backup|Integrazione di snapshot di backup di Azure|Snapshot Azure NetApp Files|Integrazione di snapshot di backup di Azure|
+|Backup|Integrazione di snapshot di backup di Azure|Snapshot Azure NetApp Files|Integrazione di snapshot di backup di Azure|
 |Sicurezza e conformità|[Tutti i certificati supportati di Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO completato|[Tutti i certificati supportati di Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
-|Integrazione con Azure Active Directory|Azure Active Directory e Azure Active Directory Domain Services|[Azure Active Directory Domain Services e Active Directory nativo](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Active Directory nativo o solo supporto Azure Active Directory Domain Services|
+|Integrazione di Azure Active Directory|Azure Active Directory e Azure Active Directory Domain Services|[Azure Active Directory Domain Services e Active Directory nativo](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Active Directory nativo o solo supporto Azure Active Directory Domain Services|
 
 Una volta scelto il metodo di archiviazione, vedere [prezzi di desktop virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/) per informazioni sui piani tariffari.
 

@@ -8,20 +8,20 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 69b81417e541bd6853e02065e8cee08e3e04b4a2
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: bd538d436d1c900a370f522bccf724eaf87210b4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433888"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582612"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Avvisi di sicurezza nel Centro sicurezza di Azure
 
 Nel centro sicurezza di Azure sono disponibili diversi avvisi per molti tipi di risorse diversi. Il Centro sicurezza genera avvisi per le risorse distribuite in Azure e anche per le risorse distribuite in ambienti locali e cloud ibridi.
 
-Il piano Standard del Centro sicurezza di Azure include funzionalità di rilevamento avanzate. È disponibile una versione di valutazione gratuita. È possibile eseguire l'aggiornamento dal piano tariffario selezionato in [Criteri di sicurezza](security-center-pricing.md). Per altre informazioni sui prezzi, vedere la [pagina del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/) .
+Il piano Standard del Centro sicurezza di Azure include funzionalità di rilevamento avanzate. È disponibile una prova gratuita. È possibile eseguire l'aggiornamento dal piano tariffario selezionato in [Criteri di sicurezza](security-center-pricing.md). Per altre informazioni sui prezzi, vedere la [pagina del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/) .
 
 ## Risposta alle minacce <a name="respond-threats"></a> attuali
 
@@ -37,7 +37,7 @@ Inoltre, gli utenti malintenzionati hanno sviluppato i loro metodi per sovvertir
 
 Gli avvisi sono le notifiche generate dal centro sicurezza quando rileva le minacce sulle risorse. Il Centro sicurezza assegna le priorità ed elenca gli avvisi, insieme alle informazioni necessarie per analizzare rapidamente il problema. Il Centro sicurezza fornisce anche indicazioni su come correggere un attacco.
 
-## In che modo il Centro sicurezza rileva le minacce? <a name="detect-threats"> </a>
+## In che modo il Centro sicurezza rileva le minacce? <a name="detect-threats"></a>
 
 I ricercatori Microsoft nell'ambito della sicurezza sono costantemente impegnati nella ricerca delle minacce. Grazie alla presenza globale di Microsoft nel cloud e in locale, l'utente ha accesso a un ampio set di dati di telemetria. La raccolta estesa e diversificata di set di impostazioni consente di individuare nuovi modelli di attacco e tendenze nei propri prodotti aziendali e consumer locali, oltre ai relativi Servizi online. Di conseguenza, il Centro sicurezza può aggiornare rapidamente gli algoritmi di rilevamento a fronte del rilascio di exploit nuovi e sofisticati da parte di utenti malintenzionati. Questo approccio consente di tenere il passo con un ambiente caratterizzato da minacce in rapida evoluzione.
 
@@ -57,13 +57,13 @@ Le sezioni seguenti illustrano ogni analisi in modo più dettagliato.
 
 Microsoft vanta un'enorme quantità di dati di intelligence per le minacce globali. Il flusso di dati di telemetria proviene da più origini, ad esempio Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital Crimes Unit (DCU) e Microsoft Security Response Center (MSRC). I ricercatori ricevono anche informazioni di intelligence per le minacce condivise tra i principali provider di servizi cloud e i feed di terze parti. Il Centro sicurezza di Azure usa queste informazioni per avvisare gli utenti nel caso di minacce provenienti da attori dannosi noti.
 
-### <a name="behavioral-analytics"></a>Analisi comportamentali
+### <a name="behavioral-analytics"></a>Analisi del comportamento
 
 L'analisi del comportamento è una tecnica che analizza e confronta i dati con una raccolta di modelli noti. Tuttavia, questi modelli non sono semplici firme. Sono determinati usando algoritmi di Machine Learning complessi applicati a set di dati di grandi dimensioni. Sono anche definiti tramite l'attento esame di comportamenti dannosi da parte di analisti esperti. Il Centro sicurezza di Azure può usare le analisi del comportamento per identificare le risorse compromesse in base all'analisi dei log delle macchine virtuali, dei dispositivi di rete virtuale, dell'infrastruttura, nonché dei dump di arresto anomalo del sistema e di altre origini.
 
 Inoltre, c'è la correlazione con altri segnali per verificare la presenza di evidenze di una campagna diffusa. La correlazione consente di identificare gli eventi che risultano coerenti con gli indicatori di violazione stabiliti. 
 
-### <a name="anomaly-detection"></a>Rilevazione delle anomalie
+### <a name="anomaly-detection"></a>Rilevamento anomalie
 
 Il Centro sicurezza di Azure usa inoltre il rilevamento anomalie per identificare le minacce. A differenza dell'analisi del comportamento, che dipende da modelli noti derivati da set di dati di grandi dimensioni, il rilevamento anomalie è più "personalizzato" e incentrato sulle baseline specifiche delle distribuzioni. Le tecniche di apprendimento automatico vengono applicate per determinare la normale attività per le distribuzioni dei clienti e quindi vengono generate regole per definire le condizioni degli outlier che possono rappresentare un evento di sicurezza.
 

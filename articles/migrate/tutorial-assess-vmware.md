@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 10/11/2019
 ms.author: hamusa
-ms.openlocfilehash: 04162f074dba05ac6492c16acb446912296cd673
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 46bf756a729441bd3bc4b2b00aaa2c79fa06c0b8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952092"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521245"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Valutare le macchine virtuali VMware con Azure Migrate: Valutazione server
 
@@ -104,7 +104,7 @@ Prima di distribuire il file OVA, verificarne la sicurezza.
 2. Eseguire il comando seguente per generare il valore hash per il file con estensione ova:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Per la versione 2.19.07.30 l'hash generato deve corrispondere a questi valori. 
+3. Per la versione 2.19.07.30 l'hash generato deve corrispondere a questi valori.
 
   **Algoritmo** | **Valore hash**
   --- | ---
@@ -166,17 +166,30 @@ Per configurare l'appliance, seguire questa procedura.
 3. Specificare un nome per l'appliance. Il nome deve essere costituito da un massimo di 14 caratteri alfanumerici.
 4. Fare clic su **Register**.
 
-
 ## <a name="start-continuous-discovery"></a>Avviare l'individuazione continua
 
-A questo punto occorre connettersi dall'appliance al server vCenter e avviare l'individuazione delle VM.
+L'appliance deve connettersi al server vCenter per individuare la configurazione e i dati sulle prestazioni delle macchine virtuali.
 
+### <a name="specify-vcenter-server-details"></a>Specificare i dettagli del server vCenter
 1. In **Specificare i dettagli del server vCenter** specificare il nome di dominio completo o l'indirizzo IP del server vCenter. È possibile lasciare la porta predefinita o specificare una porta personalizzata su cui il server vCenter rimane in ascolto.
 2. In **Nome utente** e **Password** specificare le credenziali dell'account di sola lettura che verranno usate dall'appliance per individuare le macchine virtuali nel server vCenter. Verificare che l'account abbia le [autorizzazioni necessarie per l'individuazione](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). È possibile definire l'ambito dell'individuazione limitando l'accesso all'account vCenter di conseguenza. Altre informazioni su come definire l'ambito dell'individuazione sono disponibili [qui](tutorial-assess-vmware.md#scoping-discovery).
 3. Fare clic su **Convalida connessione** per verificare che l'appliance sia in grado di connettersi al server vCenter.
-4. Una volta stabilita la connessione, fare clic su **Salva e avvia individuazione**.
 
-Viene avviata l'individuazione. Per visualizzare i metadati delle VM individuate nel portale occorre attendere circa 15 minuti.
+### <a name="specify-vm-credentials"></a>Specificare le credenziali della VM
+Per individuare le applicazioni, i ruoli, le funzionalità e visualizzare le dipendenze delle macchine virtuali, è possibile specificare le credenziali della VM che hanno accesso alle macchine virtuali VMware. È possibile aggiungere credenziali per le macchine virtuali Windows e per le macchine virtuali Linux. [Altre informazioni](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sui privilegi di accesso necessari.
+
+> [!NOTE]
+> Questo input è facoltativo: è necessario per abilitare l'individuazione delle applicazioni e la visualizzazione delle dipendenze senza agenti.
+
+1. In **Individua applicazioni e dipendenze nelle macchine virtuali** fare clic su **Aggiungi credenziali**.
+2. Selezionare il **sistema operativo**.
+3. Specificare un nome descrittivo per le credenziali.
+4. In **nome utente** e **password**specificare un account che disponga almeno dell'accesso guest nelle macchine virtuali.
+5. Fare clic su **Aggiungi**.
+
+Dopo aver specificato le credenziali server vCenter e VM (facoltativo), fare clic su **Salva e avvia individuazione** per avviare l'individuazione dell'ambiente locale.
+
+Per visualizzare i metadati delle VM individuate nel portale occorre attendere circa 15 minuti. L'individuazione di applicazioni, ruoli e funzionalità installate richiede tempo e la durata dipende dal numero di macchine virtuali individuate. Per le macchine virtuali 500, la visualizzazione dell'inventario delle applicazioni nel portale di Azure Migrate richiede circa 1 ora.
 
 ### <a name="scoping-discovery"></a>Definire l'ambito dell'individuazione
 
@@ -205,18 +218,18 @@ Per impostare l'ambito, seguire questa procedura:
 **Assegnare le autorizzazioni per gli oggetti vCenter**
 
 Sono disponibili due approcci per assegnare le autorizzazioni per gli oggetti inventario in vCenter all'account utente vCenter con un ruolo assegnato.
-- Per la valutazione del server, è necessario applicare il ruolo **Read-only** (sola lettura) all'account utente vCenter per tutti gli oggetti padre in cui sono ospitate le macchine virtuali da individuare. Tutti gli oggetti padre (host, cartella di host, cluster, cartella di cluster) nella gerarchia fino al data center devono essere inclusi. Queste autorizzazioni devono essere propagate agli oggetti figlio nella gerarchia. 
+- Per la valutazione del server, è necessario applicare il ruolo **Read-only** (sola lettura) all'account utente vCenter per tutti gli oggetti padre in cui sono ospitate le macchine virtuali da individuare. Tutti gli oggetti padre (host, cartella di host, cluster, cartella di cluster) nella gerarchia fino al data center devono essere inclusi. Queste autorizzazioni devono essere propagate agli oggetti figlio nella gerarchia.
 
     Allo stesso modo, per la migrazione del server, è necessario applicare un ruolo definito dall'utente (denominato, ad esempio, <em>Azure_Migrate</em>) con questi [privilegi](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) assegnati all'account utente vCenter per tutti gli oggetti padre che ospitano le macchine virtuali di cui verrà eseguita la migrazione.
 
 ![Assegnare autorizzazioni](./media/tutorial-assess-vmware/assign-perms.png)
 
 - L'approccio alternativo consiste nell'assegnare l'account e il ruolo utente al livello del data center e quindi propagarli agli oggetti figlio. Assegnare quindi all'account un ruolo **No access** (nessun accesso) per ogni oggetto, ad esempio le macchine virtuali, da escludere dall'individuazione/migrazione. Questa configurazione è complicata e al tempo stesso espone a controlli di accesso accidentali, perché a ogni nuovo oggetto figlio viene automaticamente concesso l'accesso ereditato dall'oggetto padre. È quindi consigliabile usare il primo approccio.
- 
+
 > [!NOTE]
 > Attualmente lo strumento Valutazione server non è in grado di individuare le VM se all'account vCenter è stato concesso l'accesso al livello di cartella di VM vCenter. Se si vuole definire l'ambito dell'individuazione in base alle cartelle di VM, è possibile farlo verificando che all'account vCenter sia assegnato l'accesso di sola lettura a livello di VM.  A questo scopo seguire le istruzioni seguenti:
 >
-> 1. Assegnare autorizzazioni di sola lettura su tutte le VM nelle cartelle a cui si vuole limitare l'ambito dell'individuazione. 
+> 1. Assegnare autorizzazioni di sola lettura su tutte le VM nelle cartelle a cui si vuole limitare l'ambito dell'individuazione.
 > 2. Concedere l'accesso in sola lettura a tutti gli oggetti padre in cui sono ospitate le VM. Devono essere inclusi tutti gli oggetti padre (host, cartella di host, cluster, cartella di cluster) nella gerarchia fino al data center. Non è necessario propagare le autorizzazioni a tutti gli oggetti figlio.
 > 3. Usare le credenziali per l'individuazione selezionando il data center come *Ambito raccolta*. La configurazione del controllo degli accessi in base al ruolo assicura che l'utente di vCenter corrispondente possa accedere solo alle VM specifiche del tenant.
 >

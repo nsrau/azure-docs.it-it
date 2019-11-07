@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 85a3a9f7afac8250b225d42462f6b29042e34a2a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 91469f27e1ca86650cf94fde5cff5d1864300183
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330389"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606353"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gestire i lab per le classi in Azure Lab Services 
 Questo articolo descrive come creare ed eliminare un lab per le classi, nonché come visualizzare tutti i lab per le classi in un account lab. 
@@ -90,12 +90,12 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
     2. Per avviare tutte le macchine virtuali contemporaneamente, selezionare **Avvia tutto** sulla barra degli strumenti. 
     3. Per avviare una macchina virtuale specifica, selezionare la freccia in giù nello **stato**e quindi selezionare **Avvia**. È anche possibile avviare una VM selezionando una macchina virtuale nella prima colonna e quindi facendo clic su **Avvia** sulla barra degli strumenti.                
 
-### <a name="vm-sizes"></a>Dimensioni delle VM  
+### <a name="vm-sizes"></a>Dimensioni delle macchine virtuali  
 
-| Dimensioni | Core | RAM | Description | 
+| Dimensioni | Core | RAM | Descrizione | 
 | ---- | ----- | --- | ----------- | 
-| Small | 2 | 3,5 GB | Queste dimensioni sono ideali per la riga di comando, l'apertura del Web browser, i server Web con traffico ridotto, i database di piccole e medie dimensioni. |
-| Media | 4 | 7 GB | Queste dimensioni sono ideali per database relazionali, Caching in memoria e analisi | 
+| Piccolo | 2 | 3,5 GB | Queste dimensioni sono ideali per la riga di comando, l'apertura del Web browser, i server Web con traffico ridotto, i database di piccole e medie dimensioni. |
+| Medio | 4 | 7 GB | Queste dimensioni sono ideali per database relazionali, Caching in memoria e analisi | 
 | Media (virtualizzazione annidata) | 4 | 16 GB | Queste dimensioni sono ideali per database relazionali, Caching in memoria e analisi. Questa dimensione supporta anche la virtualizzazione nidificata. <p>Questa dimensione può essere usata in scenari in cui ogni studente necessita di più macchine virtuali. Gli insegnanti possono usare la virtualizzazione annidata per configurare alcune macchine virtuali nidificate di piccole dimensioni all'interno della macchina virtuale. </p> |
 | Large | 8 | 32 GB | Queste dimensioni sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale, database di grandi dimensioni, cache di memoria di grandi dimensioni. Questa dimensione supporta anche la virtualizzazione nidificata |  
 | GPU piccola (visualizzazione) | 6 | 56 GB | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica tramite Framework come OpenGL e DirectX. | 
@@ -123,6 +123,10 @@ Per passare a un altro lab per le classi, in quello corrente selezionare l'elenc
 
 È anche possibile creare un nuovo Lab usando il **nuovo Lab** in questo elenco a discesa. 
 
+> [!NOTE]
+> È anche possibile usare il modulo di PowerShell AZ. LabServices (anteprima) per gestire i Lab. Per ulteriori informazioni, vedere [AZ. LabServices Home page su GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
+
+Per passare a un account Lab diverso, selezionare l'elenco a discesa accanto all'account Lab e selezionare l'altro account Lab. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 10/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 63ab30c83db692d00e292828b8a8203fa33e7e74
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 9b736e897278c4656df83c30388efc812ac6193d
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499766"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607374"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architettura di rete di transito globale e rete WAN virtuale
 
@@ -143,4 +143,4 @@ Creare una connessione usando la rete WAN virtuale e distribuire il firewall di 
 
 * [Connessioni da sito a sito tramite la rete WAN virtuale](virtual-wan-site-to-site-portal.md)
 * [Connessioni ExpressRoute tramite la rete WAN virtuale](virtual-wan-expressroute-portal.md)
-* [Gestione firewall di Azure per la distribuzione di FW di Azure in VWAN] (https://go.microsoft.com/fwlink/?linkid=2107683)
+* [Gestione firewall di Azure per la distribuzione di FW di Azure in VWAN](https://go.microsoft.com/fwlink/?linkid=2107683)

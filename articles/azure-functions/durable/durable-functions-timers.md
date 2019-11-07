@@ -7,39 +7,39 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/08/2018
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 11edfc11fc1e54684a99774c21517d4c322348b1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a24d6e96df3abf385b0a64ec4bc7e1f1c248998b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087051"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614630"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Timer in Funzioni permanenti (Funzioni di Azure)
 
 [Funzioni permanenti](durable-functions-overview.md) fornisce *timer permanenti* da usare nelle funzioni di orchestrazione per implementare ritardi o per impostare timeout nelle azioni asincrone. I timer permanenti devono essere usati nelle funzioni dell'agente di orchestrazione al posto di `Thread.Sleep` e `Task.Delay` (C#) oppure di `setTimeout()` e `setInterval()` (JavaScript).
 
-Si crea un timer permanente chiamando il metodo [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) di [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) in .NET o il metodo `createTimer` di `DurableOrchestrationContext` in JavaScript. Il metodo restituisce un'attività che riprende a una data e ora specificata.
+Si crea un timer durevole chiamando il metodo `CreateTimer` (.NET) o il metodo `createTimer` (JavaScript) dell'associazione del [trigger di orchestrazione](durable-functions-bindings.md#orchestration-trigger). Il metodo restituisce un'attività che viene completata in una data e un'ora specificate.
 
 ## <a name="timer-limitations"></a>Limitazioni dei timer
 
-Quando si crea un timer che scade alle 16:30, il Durable Task Framework sottostante accoda un messaggio che diventa visibile solo alle 16:30. Quando è in uso il piano a consumo di Funzioni di Azure, il nuovo messaggio del timer visibile garantisce che l'app per le funzioni sia attivata in una macchina virtuale appropriata.
+Quando si crea un timer che scade alle 4:30 PM, il Framework di attività permanenti sottostante Accoda un messaggio che diventa visibile solo alle 4:30. Quando si esegue il piano a consumo di funzioni di Azure, il messaggio del timer appena visibile garantisce che l'app per le funzioni venga attivata in una macchina virtuale appropriata.
 
 > [!NOTE]
-> * I timer permanenti non possono durare più di 7 giorni a causa dei limiti di Archiviazione di Azure. Microsoft sta lavorando su una [richiesta di funzionalità per estendere i timer oltre i 7 giorni](https://github.com/Azure/azure-functions-durable-extension/issues/14).
-> * Usare sempre [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) anziché `DateTime.UtcNow` in .NET e `currentUtcDateTime` anziché `Date.now` o `Date.UTC` in JavaScript, come illustrato negli esempi riportati di seguito durante il calcolo di una scadenza relativa di un timer permanente.
+> * I timer durevoli sono attualmente limitati a 7 giorni. Se sono necessari ritardi più lunghi, è possibile simularli usando le API del timer in un ciclo `while`.
+> * Usare sempre `CurrentUtcDateTime` anziché `DateTime.UtcNow` in .NET o `currentUtcDateTime` anziché `Date.now` o `Date.UTC` in JavaScript quando si calcola il tempo di attivazione per i timer durevoli. Per ulteriori informazioni, vedere l'articolo sui vincoli del codice della funzione dell'agente di [orchestrazione](durable-functions-code-constraints.md) .
 
 ## <a name="usage-for-delay"></a>Utilizzo per il ritardo
 
-L'esempio seguente illustra come usare i timer permanenti per ritardare l'esecuzione. L'esempio emette una notifica di fatturazione ogni giorno per dieci giorni.
+L'esempio seguente illustra come usare i timer permanenti per ritardare l'esecuzione. L'esempio sta inviando una notifica di fatturazione ogni giorno per 10 giorni.
 
 ### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BillingIssuer")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     for (int i = 0; i < 10; i++)
     {
@@ -50,7 +50,10 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+> [!NOTE]
+> L'esempio C# precedente è destinato Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `DurableOrchestrationContext` invece di `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+
+### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
 
 ```js
 const df = require("durable-functions");
@@ -78,7 +81,7 @@ Questo esempio illustra come usare i timer permanenti per implementare timeout.
 ```csharp
 [FunctionName("TryGetQuote")]
 public static async Task<bool> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     TimeSpan timeout = TimeSpan.FromSeconds(30);
     DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
@@ -104,7 +107,10 @@ public static async Task<bool> Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+> [!NOTE]
+> L'esempio C# precedente è destinato Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `DurableOrchestrationContext` invece di `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+
+### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
 
 ```js
 const df = require("durable-functions");
@@ -131,11 +137,11 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Usare `CancellationTokenSource` per annullare un timer permanente (C#) o una chiamata `cancel()` sull'oggetto restituito `TimerTask` (JavaScript) se il codice non attenderà il completamento. Il Framework di attività permanenti non modifica lo stato di un'orchestrazione su "completato" fino a quando tutte le attività in sospeso non vengono completate o annullate.
+> Usare un `CancellationTokenSource` per annullare un timer durevole (.NET) o chiamare `cancel()` sul `TimerTask` restituito (JavaScript) se il codice non ne attende il completamento. Il Framework di attività permanenti non modifica lo stato di un'orchestrazione su "completato" fino a quando tutte le attività in sospeso non vengono completate o annullate.
 
-Questo meccanismo non termina effettivamente l'esecuzione della funzione di attività in corso, ma consente semplicemente alla funzione di orchestrazione di ignorare il risultato e continuare. Se l'app per le funzioni usa il piano a consumo, verranno comunque addebitati il tempo e la memoria utilizzati dalla funzione di attività abbandonata. Per impostazione predefinita, le funzioni in esecuzione nel piano a consumo hanno un timeout di cinque minuti. Se questo limite viene superato, l'host di Funzioni di Azure viene riciclato per interrompere ogni esecuzione e impedire una fatturazione eccessiva. Il [timeout delle funzioni è configurabile](../functions-host-json.md#functiontimeout).
+Questo meccanismo di annullamento non termina le esecuzioni della funzione di attività in corso o dell'orchestrazione secondaria. ma consente semplicemente alla funzione di orchestrazione di ignorare il risultato e continuare. Se l'app per le funzioni usa il piano a consumo, verranno comunque addebitati tutti i tempi e la memoria utilizzati dalla funzione attività abbandonata. Per impostazione predefinita, le funzioni in esecuzione nel piano a consumo hanno un timeout di cinque minuti. Se questo limite viene superato, l'host di Funzioni di Azure viene riciclato per interrompere ogni esecuzione e impedire una fatturazione eccessiva. Il [timeout delle funzioni è configurabile](../functions-host-json.md#functiontimeout).
 
-Per un esempio dettagliato su come implementare i timeout nelle funzioni di orchestrazione, vedere la procedura dettagliata [Interazione umana e timeout - Verifica telefonica](durable-functions-phone-verification.md).
+Per un esempio più dettagliato di come implementare i timeout nelle funzioni dell'agente di orchestrazione, vedere l'articolo relativo all' [interazione umana & timeouts-Verifica telefono](durable-functions-phone-verification.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
-title: Importanza di carico di lavoro Azure SQL Data Warehouse | Microsoft Docs
-description: Linee guida per l'impostazione di priorità per le query in Azure SQL Data Warehouse.
+title: Priorità del carico di lavoro
+description: Linee guida per l'impostazione dell'importanza per le query in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -10,59 +10,60 @@ ms.subservice: workload-management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2a78f342d7e4b14700224bb63598f41ca95322a5
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: fea35325f11878373db8dd52b9b2bf08a25b81d1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595418"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692377"
 ---
-# <a name="azure-sql-data-warehouse-workload-importance"></a>Importanza di carico di lavoro Azure SQL Data Warehouse
+# <a name="azure-sql-data-warehouse-workload-importance"></a>Importanza del carico di lavoro Azure SQL Data Warehouse
 
-Questo articolo illustra come priorità del carico di lavoro possono influenzare l'ordine di esecuzione per le richieste di SQL Data Warehouse.
+Questo articolo illustra in che modo l'importanza del carico di lavoro può influenzare l'ordine di esecuzione per le richieste di SQL Data Warehouse.
 
-## <a name="importance"></a>priorità
+## <a name="importance"></a>Importance
 
 > [!Video https://www.youtube.com/embed/_2rLMljOjw8]
 
-Esigenze aziendali possono richiedere carichi di lavoro per essere più importante rispetto ad altri di data warehousing.  Si consideri uno scenario in cui i dati di vendita mission-critical viene caricati prima di chiudere periodo fiscale.  Dati vengono caricati per le altre origini, ad esempio i dati meteo non dispone di contratti di servizio di tipo strict.   L'impostazione di elevata importanza per una richiesta di caricamento dei dati di vendita e importanza bassa a una richiesta di caricamento se i dati assicura il caricamento dei dati di vendita ottiene prima di accesso alle risorse e viene completato più velocemente.
+Le esigenze aziendali possono richiedere che i carichi di lavoro di data warehousing siano più importanti rispetto ad altri.  Si consideri uno scenario in cui i dati di vendita mission-critical vengono caricati prima della chiusura del periodo fiscale.  I caricamenti di dati per altre origini, ad esempio i dati meteorologici, non hanno contratti di contratto severi   Impostando un'importanza elevata per una richiesta di caricamento dei dati di vendita e di minore importanza a una richiesta di caricamento dei dati, il caricamento dei dati delle vendite ottiene il primo accesso alle risorse e viene completato più rapidamente.
 
 ## <a name="importance-levels"></a>Livelli di importanza
 
-Esistono cinque livelli di importanza: bassa, below_normal, normale, above_normal e alta.  Le richieste che non impostano la priorità vengono assegnate il livello predefinito Normal.  Le richieste che hanno lo stesso livello di priorità hanno lo stesso comportamento di pianificazione che esista già.
+Sono disponibili cinque livelli di importanza: Low, below_normal, Normal, above_normal e High.  Alle richieste che non impostano l'importanza viene assegnato il livello predefinito normale.  Le richieste con lo stesso livello di importanza hanno lo stesso comportamento di pianificazione attualmente esistente.
 
 ## <a name="importance-scenarios"></a>Scenari di importanza
 
-Oltre lo scenario di importanza di base descritto in precedenza con vendite e i dati meteo, esistono altri scenari in cui la priorità del carico di lavoro consente di soddisfare l'elaborazione dati e l'esecuzione di query alle esigenze.
+Oltre agli scenari di importanza fondamentale descritti in precedenza con le vendite e i dati meteorologici, esistono altri scenari in cui l'importanza del carico di lavoro aiuta a soddisfare le esigenze di elaborazione dei dati e di query
 
 ### <a name="locking"></a>Blocco
 
-Accedere a blocchi per la lettura e scrittura di attività è un'area di contesa naturale.  Le attività, ad esempio [cambio della partizione](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) oppure [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) richiedono i blocchi con privilegi elevati.  Senza importanza del carico di lavoro, SQL Data Warehouse Ottimizza per velocità effettiva.  Ottimizza per velocità effettiva significa che durante l'esecuzione e le richieste in coda sono le stesse esigenze di bloccante e sono disponibili risorse, le richieste in coda possono ignorare le richieste con richiede il blocco superiore che è arrivato nella coda di richieste in precedenza.  Dopo aver applicato le richieste con blocco maggiore importanza del carico di lavoro è necessario. Richiesta con un'importanza superiore verrà eseguito prima della richiesta con priorità inferiore.
+L'accesso ai blocchi per l'attività di lettura e scrittura è un'area di contesa naturale.  Attività quali il [cambio di partizione](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) o l' [oggetto di ridenominazione](/sql/t-sql/statements/rename-transact-sql) richiedono blocchi con privilegi elevati.  Senza importanza del carico di lavoro, SQL Data Warehouse ottimizza la velocità effettiva.  L'ottimizzazione per la velocità effettiva significa che quando le richieste in esecuzione e in coda hanno le stesse esigenze di blocco e sono disponibili risorse, le richieste in coda possono ignorare le richieste con esigenze di blocco più elevate che arrivano prima nella coda di richieste.  Una volta applicata l'importanza del carico di lavoro alle richieste con esigenze di blocco più elevate. La richiesta con maggiore importanza verrà eseguita prima della richiesta con priorità più bassa.
 
 Si consideri l'esempio seguente:
 
-Q1 è attivamente in esecuzione e selezione di dati da SalesFact.
-(Domanda 2) viene accodato in attesa di Q1 per il completamento.  Inviata alle 9:00 e si sta provando a nuovi dati switch partition in SalesFact.
-(Domanda 3) viene inviato alle 9:00: 01 e richiede di selezionare dati da SalesFact.
+Q1 sta eseguendo attivamente e selezionando i dati da SalesFact.
+Q2 è in coda in attesa del completamento del Q1.  È stato inviato alle 9.00 e sta provando a partizionare i nuovi dati di cambio in SalesFact.
+Q3 viene inviato a 9:01am e desidera selezionare i dati da SalesFact.
 
-Se Q2 e Q3 hanno la stessa importanza e l'esecuzione di Q1, Q3 avvia l'esecuzione. Q2 rimarrà in attesa di un blocco esclusivo su SalesFact.  Se (domanda 2) ha un'importanza superiore rispetto a (domanda 3), Q3 attenderà fino al termine del Q2 prima che possa iniziare l'esecuzione.
+Se Q2 e Q3 hanno la stessa importanza e il Q1 è ancora in esecuzione, verrà avviata l'esecuzione del terzo trimestre. Q2 continuerà ad attendere un blocco esclusivo su SalesFact.  Se Q2 ha una maggiore importanza del Q3, il Q3 resterà in attesa fino al termine del Q2 prima di poter iniziare l'esecuzione.
 
-### <a name="non-uniform-requests"></a>Richieste non-uniform
+### <a name="non-uniform-requests"></a>Richieste non uniformi
 
-Un altro scenario in cui importanza può aiutare a soddisfare le richieste di query è quando vengono inviate le richieste con diverse classi di risorse.  Come accennato precedentemente, con la stessa importanza, SQL Data Warehouse Ottimizza per velocità effettiva.  Quando sono in coda le richieste di dimensioni misto (ad esempio smallrc o mediumrc), SQL Data Warehouse sceglierà la richiesta in arrivo prima che si adattino alle risorse disponibili.  Se viene applicata l'importanza del carico di lavoro, la richiesta di importanza più alta è pianificata successivo.
+Un altro scenario in cui l'importanza può essere utile per soddisfare le richieste di query è quando vengono inviate richieste con classi di risorse diverse.  Come indicato in precedenza, con la stessa importanza SQL Data Warehouse ottimizza la velocità effettiva.  Quando vengono accodate richieste di dimensioni miste, ad esempio smallrc o mediumrc, SQL Data Warehouse sceglierà la prima richiesta in arrivo che rientra nelle risorse disponibili.  Se viene applicata l'importanza del carico di lavoro, la richiesta di importanza più elevata viene pianificata successivamente.
   
-Si consideri l'esempio seguente su DW500c:
+Si consideri l'esempio seguente in DW500c:
 
-Q1, Q2, T3 e T4 eseguono le query smallrc.
-(Domanda 5) viene inviato con la classe di risorse mediumrc alle 9:00.
-(Domanda 6) viene inviato con la classe risorsa smallrc alle 9:00: 01.
+Q1, Q2, Q3 e Q4 eseguono query smallrc.
+Q5 viene inviato con la classe di risorse mediumrc alle 9.00.
+Q6 viene inviato con la classe di risorse smallrc a 9:01am.
 
-Poiché mediumrc (domanda 5), richiede due slot di concorrenza.  (Domanda 5) deve rimanere in attesa per due delle query in esecuzione per il completamento.  Tuttavia, quando viene completata una delle query in esecuzione (Q1 a Q4), (domanda 6) è pianificato immediatamente perché le risorse disponibili per eseguire la query.  Se (domanda 5) ha un'importanza superiore rispetto a (domanda 6), (domanda 6) attende (domanda 5) è in esecuzione prima che possa iniziare l'esecuzione.
+Poiché Q5 è mediumrc, richiede due slot di concorrenza.  Q5 deve attendere il completamento di due delle query in esecuzione.  Tuttavia, quando una delle query in esecuzione (Q1-Q4) viene completata, Q6 viene pianificato immediatamente perché sono presenti risorse per eseguire la query.  Se Q5 ha una priorità più elevata rispetto a Q6, Q6 attende che la versione Q5 sia in esecuzione prima di poter iniziare l'esecuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulla creazione di un classificatore, vedere la [CLASSIFICATORE di carico di lavoro CREATE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
-- Per altre informazioni sulla classificazione del carico di lavoro di SQL Data Warehouse, vedere [carico di lavoro classificazione](sql-data-warehouse-workload-classification.md).  
-- Vedere la Guida introduttiva [creare carichi di lavoro classificatore](quickstart-create-a-workload-classifier-tsql.md) per informazioni su come creare un classificatore di carico di lavoro.
+- Per ulteriori informazioni sulla creazione di un classificatore, vedere la pagina relativa alla creazione di un [classificatore del carico di lavoro (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Per ulteriori informazioni sulla classificazione del carico di lavoro SQL Data Warehouse, vedere [classificazione dei carichi di lavoro](sql-data-warehouse-workload-classification.md).  
+- Per informazioni su come creare un classificatore del carico di lavoro, vedere la Guida introduttiva [creare un classificatore](quickstart-create-a-workload-classifier-tsql.md) .
 - Vedere gli articoli sulle procedure per [configurare la priorità del carico di lavoro](sql-data-warehouse-how-to-configure-workload-importance.md) e per [gestire e monitorare la priorità del carico di lavoro](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 - Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) per visualizzare le query e la loro priorità.

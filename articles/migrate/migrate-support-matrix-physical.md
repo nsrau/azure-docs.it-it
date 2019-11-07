@@ -7,16 +7,19 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 56e49ab60733c9c0a813ca6e46712bcd8052a2ef
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 902e89305aa24e8cbb6d2dd84d6a61c710d11637
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518151"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715381"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Matrice di supporto per la valutazione e la migrazione dei server fisici
 
 È possibile usare il [servizio Azure migrate](migrate-overview.md) per valutare ed eseguire la migrazione di computer nel cloud Microsoft Azure. Questo articolo riepiloga le impostazioni e le limitazioni del supporto per la valutazione e la migrazione di server fisici locali.
+
+> [!NOTE]
+> Se le funzionalità sono indicate qui, non è ancora possibile vedere il portale di Azure Migrate, bloccarsi. Verranno visualizzati nella settimana successiva.
 
 
 ## <a name="physical-server-scenarios"></a>Scenari di server fisici

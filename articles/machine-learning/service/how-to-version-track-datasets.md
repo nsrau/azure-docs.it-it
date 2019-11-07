@@ -1,7 +1,7 @@
 ---
 title: Controllo delle versioni del set di dati
 titleSuffix: Azure Machine Learning service
-description: Informazioni sulla procedura consigliata per la versione dei set di impostazioni e sul funzionamento del controllo delle versioni con le pipeline di Machine Learning
+description: Informazioni su come ottimizzare la versione dei set di impostazioni e sul funzionamento del controllo delle versioni con le pipeline di machine learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,31 +9,32 @@ ms.topic: conceptual
 ms.author: sihhu
 author: sihhu
 ms.reviewer: nibaccam
-ms.date: 10/25/2019
+ms.date: 11/04/2019
 ms.custom: ''
-ms.openlocfilehash: a361800623796cb3bc26a47c4f8f532503836124
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 426a93473b969c166a847374d1b4c039055e92d5
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72902002"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73716105"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Set di impostazioni di versione e di rilevamento negli esperimenti
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In questa procedura viene illustrato come eseguire la versione e tenere traccia dei set di impostazioni di Azure Machine Learning per la riproducibilità. Il controllo delle versioni del set di dati consente di contrassegnare lo stato dei dati in modo da poter applicare una versione specifica del set di dati per esperimenti futuri.
+Questo articolo illustra come eseguire la versione e tenere traccia dei set di impostazioni di Azure Machine Learning per la riproducibilità. Il controllo delle versioni del set di dati consente di contrassegnare lo stato dei dati in modo da poter applicare una versione specifica del set di dati per esperimenti futuri.
 
-Scenari tipici da considerare per il controllo delle versioni:
+Scenari di controllo delle versioni tipiche:
 
-* Quando sono disponibili nuovi dati per la ripetizione del training.
-* Quando si applicano approcci diversi per la preparazione dei dati o la progettazione di funzionalità.
+* Quando sono disponibili nuovi dati per la ripetizione del training
+* Quando si applicano approcci diversi alla preparazione dei dati o alla progettazione delle funzionalità
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per questa procedura, è necessario:
+Per eseguire questa esercitazione, è necessario avere:
 
-- [SDK Azure Machine Learning per Python installato](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), che include il pacchetto [azureml-DataSets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py) .
+- [SDK di Azure Machine Learning per Python installato](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). Questo SDK include il pacchetto [azureml-DataSets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py) .
     
-- [Area di lavoro Azure Machine Learning](concept-workspace.md). Recuperarne uno esistente con il codice seguente o [creare una nuova area di lavoro](how-to-manage-workspace.md).
+- [Area di lavoro Azure Machine Learning](concept-workspace.md). Recuperarne uno esistente eseguendo il codice seguente oppure [creare una nuova area di lavoro](how-to-manage-workspace.md).
 
     ```Python
     import azureml.core
@@ -47,11 +48,11 @@ Per questa procedura, è necessario:
 
 ## <a name="register-and-retrieve-dataset-versions"></a>Registrare e recuperare le versioni del set di dati
 
-La registrazione di un set di dati consente la versione, il riutilizzo e la condivisione tra gli esperimenti e i colleghi. È possibile registrare più set di impostazioni con lo stesso nome e recuperare una versione specifica in base al nome e al numero di versione.
+Registrando un set di dati, è possibile riutilizzarlo e condividerlo tra diversi esperimenti e con i colleghi. È possibile registrare più set di impostazioni con lo stesso nome e recuperare una versione specifica in base al nome e al numero di versione.
 
 ### <a name="register-a-dataset-version"></a>Registrare una versione del set di dati
 
-Il codice seguente registra una nuova versione del set di dati, `titanic_ds`, impostando il parametro `create_new_version` su `True`. Se non è presente alcuna `titanic_ds` registrata con l'area di lavoro, viene creato un nuovo set di dati con il nome `titanic_ds` e la relativa versione viene impostata su 1.
+Il codice seguente registra una nuova versione del set di dati `titanic_ds` impostando il parametro `create_new_version` su `True`. Se non è presente alcun set di dati `titanic_ds` registrato con l'area di lavoro, il codice crea un nuovo set di dati con il nome `titanic_ds` e ne imposta la versione su 1.
 
 ```Python
 titanic_ds = titanic_ds.register(workspace = workspace,
@@ -78,14 +79,14 @@ titanic_ds = Dataset.get_by_name(workspace = workspace,
 
 ## <a name="versioning-best-practice"></a>Procedura consigliata per il controllo delle versioni
 
-Quando si crea una versione del set di dati, **non** si crea una copia aggiuntiva dei dati con l'area di lavoro. I set di dati sono riferimenti ai dati nel servizio di archiviazione, quindi è presente una sola origine di verità gestita dal servizio di archiviazione. 
+Quando si crea una versione del set di dati, *non* viene creata una copia aggiuntiva dei dati con l'area di lavoro. Poiché i set di dati sono riferimenti ai dati nel servizio di archiviazione, si ha un'unica origine di verità, gestita dal servizio di archiviazione.
 
 >[!IMPORTANT]
-> Se i dati a cui fa riferimento il set di dati vengono sovrascritti o eliminati, la chiamata a una versione specifica del set di dati non può annullare la modifica. 
+> Se i dati a cui fa riferimento il set di dati vengono sovrascritti o eliminati, la chiamata a una versione specifica del set di dati *non comporta il* ripristino della modifica.
 
-Quando si caricano dati da un set di dati, caricherà sempre il contenuto dei dati corrente a cui fa riferimento il set di dati. Se si desidera garantire la riproducibilità di ogni versione del set di dati, è consigliabile non modificare il contenuto dei dati a cui fa riferimento la versione del set di dati. Quando arrivano nuovi dati, Salva i nuovi file di dati in una cartella di dati separata e crea una nuova versione del set di dati per includere i dati dalla nuova cartella dati.
+Quando si caricano dati da un set di dati, il contenuto dei dati corrente a cui fa riferimento il set di dati viene sempre caricato. Per assicurarsi che ogni versione del set di dati sia riproducibile, è consigliabile non modificare il contenuto dei dati a cui fa riferimento la versione del set di dati. Quando arrivano nuovi dati, Salva i nuovi file di dati in una cartella di dati separata e quindi crea una nuova versione del set di dati per includere i dati dalla nuova cartella.
 
-L'immagine e il codice di esempio seguenti illustrano la modalità consigliata per strutturare le cartelle di dati e creare versioni del set di dati che fanno riferimento a tali cartelle.
+Nell'immagine e nel codice di esempio seguenti viene illustrata la modalità consigliata per strutturare le cartelle di dati e creare versioni del set di dati che fanno riferimento a tali cartelle:
 
 ![Struttura di cartelle](media/how-to-version-datasets/folder-image.png)
 
@@ -117,9 +118,9 @@ dataset2.register(workspace = workspace,
 
 ## <a name="version-a-pipeline-output-dataset"></a>Versione di un set di dati di output della pipeline
 
-È possibile usare il set di dati come input e output di ogni passaggio della pipeline di Machine Learning (ML). Quando si eseguono nuovamente le pipeline, l'output di ogni passaggio della pipeline viene registrato come nuova versione del set di dati. 
+È possibile usare un set di dati come input e output di ogni passaggio della pipeline Machine Learning. Quando si eseguono nuovamente le pipeline, l'output di ogni passaggio della pipeline viene registrato come nuova versione del set di dati.
 
-Poiché le pipeline di ML compilano l'output di ogni passaggio in una nuova cartella ogni volta che viene rieseguita la pipeline, i set di risultati con versione sono riproducibili.
+Poiché le pipeline di Machine Learning popolano l'output di ogni passaggio in una nuova cartella ogni volta che la pipeline viene rieseguita, i set di risultati con versione sono riproducibili.
 
 ```Python
 from azureml.core import Dataset
@@ -147,7 +148,7 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 Per ogni esperimento di Machine Learning, è possibile tracciare facilmente i set di dati usati come input tramite l'oggetto `Run` del modello registrato.
 
-Usare il codice seguente per registrare i modelli con i set di impostazioni.
+Usare il codice seguente per registrare i modelli con i set di impostazioni:
 
 ```Python
 model = run.register_model(model_name='keras-mlp-mnist',
@@ -155,9 +156,9 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Dopo la registrazione, è possibile visualizzare l'elenco dei modelli registrati con il set di dati usando Python o la [pagina di destinazione dell'area di lavoro](https://ml.azure.com/).
+Dopo la registrazione, è possibile visualizzare l'elenco dei modelli registrati con il set di dati usando Python o [Azure Machine Learning Studio](https://ml.azure.com/).
 
-Il codice seguente usa il metodo [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) per tenere traccia dei set di dati di input usati con l'esecuzione dell'esperimento.
+Il codice seguente usa il metodo [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) per tenere traccia dei set di dati di input usati con l'esecuzione dell'esperimento:
 
 ```Python
 # get input datasets
@@ -168,17 +169,17 @@ train_dataset = inputs[0]['dataset']
 train_dataset.to_path()
 ```
 
-È anche possibile trovare i `input_datasets` dagli esperimenti usando la [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com/). 
+È anche possibile trovare la `input_datasets` dagli esperimenti usando [Azure Machine Learning Studio](https://ml.azure.com/). 
 
-La figura seguente mostra dove trovare il set di dati di input di un esperimento nella pagina di destinazione dell'area di lavoro. Per questo esempio, passare al riquadro **Experiments (esperimenti** ) e aprire la scheda **Properties (proprietà** ) per un'esecuzione specifica dell'esperimento, `keras-mnist`. 
+La figura seguente mostra dove trovare il set di dati di input di un esperimento in Azure Machine Learning Studio. Per questo esempio, passare al riquadro **Experiments (esperimenti** ) e aprire la scheda **Properties (proprietà** ) per un'esecuzione specifica dell'esperimento, `keras-mnist`.
 
 ![Set di dati di input](media/how-to-version-datasets/input-datasets.png)
 
-È anche possibile trovare i modelli che hanno usato il set di dati con la pagina di destinazione dell'area di lavoro. La vista seguente si trova nel pannello set di impostazioni in asset. Selezionare il set di dati e passare alla scheda modelli per visualizzare un elenco dei modelli che usano tale set di dati. 
+È anche possibile trovare i modelli che hanno usato il set di dati. La vista seguente si trova nel riquadro **set di impostazioni** in **Asset**. Selezionare il set di dati e quindi selezionare la scheda **modelli** per un elenco dei modelli che usano tale set di dati. 
 
 ![Modelli di set di dati di input](media/how-to-version-datasets/dataset-models.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Eseguire il [training con i set di impostazioni](how-to-train-with-datasets.md).
-* [Altri notebook di esempio di set di impostazioni](https://aka.ms/dataset-tutorial).
+* [Eseguire il training con DataSet](how-to-train-with-datasets.md)
+* [Altri notebook del set di dati di esempio](https://aka.ms/dataset-tutorial)

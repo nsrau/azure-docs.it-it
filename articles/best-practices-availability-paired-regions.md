@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: 90111325677e1bdd12a03081ad7513a34f68fd40
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: b71048412f5715fd1b8ef3edf742716916672bd5
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044131"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718740"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
@@ -28,8 +28,8 @@ Figura 1: coppie di aree di Azure
 
 | Area geografica | Aree abbinate |  |
 |:--- |:--- |:--- |
-| Asia |Asia orientale |Asia sud-orientale |
-| Australia |Australia orientale |Australia sud-orientale |
+| Asia |Asia orientale |Asia sudorientale |
+| Australia |Australia orientale |Australia sudorientale |
 | Australia |Australia centrale |Australia centrale 2 |
 | Brasile |Brasile meridionale |Stati Uniti centro-meridionali |
 | Canada |Canada centrale |Canada orientale |
@@ -41,18 +41,18 @@ Figura 1: coppie di aree di Azure
 | India |India centrale |India meridionale |
 | India |India occidentale |India meridionale |
 | Giappone |Giappone orientale |Giappone occidentale |
-| Corea |Corea centrale |Corea meridionale |
-| America del Nord |Stati Uniti Orientali |Stati Uniti occidentali |
+| Corea del Sud |Corea del Sud centrale |Corea del Sud meridionale |
+| America del Nord |Stati Uniti orientali |Stati Uniti occidentali |
 | America del Nord |Stati Uniti orientali 2 |Stati Uniti centrali |
 | America del Nord |Stati Uniti centro-settentrionali |Stati Uniti centro-meridionali |
 | America del Nord |Stati Uniti occidentali 2 |Stati Uniti centro-occidentali 
-| Sudafrica | Sudafrica settentrionale | Sudafrica occidentale
+| Sud Africa | Sudafrica settentrionale | Sudafrica occidentale
 | Regno Unito |Regno Unito occidentale |Regno Unito meridionale |
 | Emirati Arabi Uniti | Emirati Arabi Uniti settentrionali | Emirati Arabi Uniti centrali
-| Dipartimento della difesa degli Stati Uniti |US DoD (area orientale) |US DoD (area centrale) |
-| Azure per enti pubblici |US Gov Arizona |US Gov Texas |
-| Azure per enti pubblici |Governo degli Stati Uniti - Iowa |US Gov Virginia |
-| Azure per enti pubblici |US Gov Virginia |US Gov Texas |
+| Dipartimento della difesa degli Stati Uniti |Dipartimento della difesa Stati Uniti orientali |US DoD (area centrale) |
+| Governo degli Stati Uniti |Governo degli Stati Uniti - Arizona |Governo degli Stati Uniti - Texas |
+| Governo degli Stati Uniti |US Gov Iowa |Governo degli Stati Uniti - Virginia |
+| Governo degli Stati Uniti |Governo degli Stati Uniti - Virginia |Governo degli Stati Uniti - Texas |
 
 Tabella 1 - Mapping di coppie di aree di Azure
 
@@ -75,7 +75,7 @@ Figura 2: ipotetica coppia di aree di Azure
 ## <a name="cross-region-activities"></a>Attività tra aree
 Come indicato nella figura 2.
 
-![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Calcolo di Azure (IaaS)** : è necessario eseguire anticipatamente il provisioning di risorse di calcolo aggiuntive per assicurare che siano disponibili in un'altra area in caso di emergenza. Per altre informazioni, vedere [Informazioni tecniche sulla resilienza di Azure](resiliency/resiliency-technical-guidance.md).
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Calcolo di Azure (IaaS)** : è necessario eseguire anticipatamente il provisioning di risorse di calcolo aggiuntive per assicurare che siano disponibili in un'altra area in caso di emergenza. Per altre informazioni, vedere [Indicazioni tecniche sulla resilienza di Azure](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md).
 
 Archiviazione ![](./media/best-practices-availability-paired-regions/2Green.png) **archiviazione di Azure** : se si usano dischi gestiti, è possibile ottenere informazioni sui [backup tra più aree](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) con backup di Azure e [replicare le macchine virtuali](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) da un'area a un'altra con Azure Site Recovery. Se si usano gli account di archiviazione, l'archiviazione con ridondanza geografica (GRS) viene configurata per impostazione predefinita quando viene creato un account di archiviazione di Azure. Con questa opzione di replica, i dati vengono replicati per tre volte all'interno dell'area primaria e per tre volte nell'area abbinata. Per altre informazioni, vedere [Opzioni di ridondanza di Archiviazione di Azure](storage/common/storage-redundancy.md).
 

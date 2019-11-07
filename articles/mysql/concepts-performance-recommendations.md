@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: 87942ae8132c89c502bd6e0f4c8d5b5c81a0a14c
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.date: 11/04/2019
+ms.openlocfilehash: 1371b286f5e9bd82345e17c11e910c68fac9fed2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950376"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603156"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Suggerimenti sulle prestazioni in database di Azure per MySQL
 
 **Si applica a:** Database di Azure per MySQL 5,7
-
-> [!IMPORTANT]
-> Le raccomandazioni sulle prestazioni sono in anteprima.
 
 La funzionalità raccomandazioni per le prestazioni analizza i database per creare suggerimenti personalizzati per migliorare le prestazioni. Per produrre le raccomandazioni, l'analisi esamina le varie caratteristiche del database, incluso lo schema. Abilitare [query Store](concepts-query-store.md) sul server per usare completamente la funzionalità delle raccomandazioni per le prestazioni. Se lo schema delle prestazioni è disattivato, l'attivazione di Query Store Abilita performance_schema e un subset di strumenti dello schema di prestazioni necessari per la funzionalità. Una volta implementate le indicazioni sulle prestazioni, è consigliabile testare le prestazioni per valutare l'effetto di tali modifiche.
 

@@ -1,5 +1,5 @@
 ---
-title: Creare un contenitore di profili FSLogix per un pool host usando Azure NetApp Files nel desktop virtuale di Windows-Azure
+title: FSLogix profile Containers NetApp desktop virtuale Windows-Azure
 description: Come creare un contenitore di profili FSLogix usando Azure NetApp Files nel desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: helohr
-ms.openlocfilehash: 4e714b872ae43eb313efe549c77f5610342f430c
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 1f5d1050815961f51c2bb1cfce256b1ea37d3ac1
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311628"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605769"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Creare un contenitore di profili FSLogix per un pool host usando Azure NetApp Files
 
@@ -134,7 +134,7 @@ Sarà quindi necessario creare un nuovo volume.
     - In **rete virtuale**selezionare una rete virtuale esistente con connettività al controller di dominio dal menu a discesa.
     - In **subnet**selezionare **Crea nuovo**. Tenere presente che questa subnet verrà delegata a Azure NetApp Files.
 
-3.  Selezionare **Avanti: Protocollo \> @ no__t-1 @ no__t-2 per aprire la scheda protocollo e configurare i parametri di accesso al volume.
+3.  Selezionare **Next: Protocol \>\>** per aprire la scheda protocollo e configurare i parametri di accesso al volume.
 
 ## <a name="configure-volume-access-parameters"></a>Configurare i parametri di accesso al volume
 
@@ -168,11 +168,11 @@ Questa sezione è basata sulla [creazione di un contenitore di profili per un po
 
 6. Selezionare **Installa**.
 
-7. Passare a **C: \\Program file @ no__t-2FSLogix @ no__t-3Apps** per verificare che l'agente sia installato.
+7. Passare a **C:\\programmi\\FSLogix\\app** per verificare che l'agente sia installato.
 
 8. Dal menu Start eseguire **Regedit** come amministratore.
 
-9. Passare al **computer @ no__t-1HKEY_LOCAL_MACHINE @ no__t-2Software @ no__t-3FSLogix**.
+9. Passare a **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
 
 10. Creare una chiave denominata **profili**.
 
@@ -219,7 +219,7 @@ Questa sezione è basata sulla [creazione di un contenitore di profili per un po
 
 5. Passare alla scheda **Panoramica** e verificare che il contenitore del profilo FSLogix stia usando lo spazio.
 
-6. Connettersi direttamente a qualsiasi parte della macchina virtuale del pool host usando Desktop remoto e aprire **Esplora file.** Passare quindi al **percorso di montaggio** (nell'esempio seguente il percorso di montaggio è @no__t -1\\anf-SMB-3863.gt1107.onmicrosoft.com @ no__t-3ANF-vol).
+6. Connettersi direttamente a qualsiasi parte della macchina virtuale del pool host usando Desktop remoto e aprire **Esplora file.** Passare quindi al **percorso di montaggio** (nell'esempio seguente il percorso di montaggio è \\\\ANF-SMB-3863.gt1107.onmicrosoft.com\\e-vol).
 
    All'interno di questa cartella deve essere presente un file VHD (o VHDX) del profilo come quello nell'esempio seguente.
 

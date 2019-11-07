@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 035a559f27d11a89dba1983f1bcaf406ef6a0d05
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: cab67a9a50d8e9d91897c170ef2cb0884f169c64
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331940"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606667"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Scegliere l'opzione del server MySQL corretta in Azure
 
@@ -38,7 +38,7 @@ Le differenze principali tra queste opzioni sono elencate nella tabella seguente
 | Patch di MySQL     | Automatico  | Gestito dai clienti |
 | Disponibilità elevata | Il modello a disponibilità elevata è basato sui meccanismi di failover predefiniti per quando si verifica un'interruzione a livello di nodo. In questi casi, il servizio crea automaticamente una nuova istanza e connette lo spazio di archiviazione a questa istanza. | I clienti progettano, implementano, testano e gestiscono la disponibilità elevata. Le funzionalità possono includere il clustering di failover always on, la replica di gruppi always on, log shipping o la replica transazionale.|
 | Ridondanza della zona | Attualmente non supportati | Le macchine virtuali di Azure possono essere configurate per l'esecuzione in diverse zone di disponibilità. Per una soluzione locale, i clienti devono creare, gestire e gestire i propri data center secondari.|
-| Scenari ibridi | Con [replica dei dati in ingresso](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)è possibile sincronizzare i dati da un server MySQL esterno al servizio database di Azure per MySQL. Il server esterno può trovarsi in locale, in macchine virtuali, o essere un servizio di database ospitato da altri provider di servizi cloud.<br/><br/> Con la funzionalità di [lettura della replica](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) è possibile replicare i dati da un server master di database di Azure per MySQL a un massimo di cinque server di replica di sola lettura. Le repliche si trovano nella stessa area di Azure o in aree diverse. Le repliche di sola lettura vengono aggiornate in modo asincrono tramite la tecnologia di replica binlog.<br/><br/>La replica di lettura tra aree è attualmente disponibile in anteprima pubblica.| Gestito dai clienti
+| Scenari ibridi | Con [replica dei dati in ingresso](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)è possibile sincronizzare i dati da un server MySQL esterno al servizio database di Azure per MySQL. Il server esterno può trovarsi in locale, in macchine virtuali, o essere un servizio di database ospitato da altri provider di servizi cloud.<br/><br/> Con la funzionalità di [lettura della replica](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) è possibile replicare i dati da un server master di database di Azure per MySQL a un massimo di cinque server di replica di sola lettura. Le repliche si trovano nella stessa area di Azure o in aree diverse. Le repliche di sola lettura vengono aggiornate in modo asincrono tramite la tecnologia di replica binlog.| Gestito dai clienti
 | Backup e ripristino | Crea automaticamente [backup del server](https://docs.microsoft.com/azure/mysql/concepts-backup#backups) e li archivia in una risorsa di archiviazione configurata dall'utente con ridondanza locale o con ridondanza geografica. Il servizio accetta backup completi, differenziali e del log delle transazioni | Gestito dai clienti |
 | Monitoraggio delle operazioni del database | Offre ai clienti la possibilità di [impostare avvisi](https://docs.microsoft.com/azure/mysql/concepts-monitoring) sull'operazione del database e di agire al raggiungimento delle soglie. | Gestito dai clienti |
 | Advanced Threat Protection | Offre [protezione avanzata dalle minacce](https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal). Questa protezione rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. | I clienti devono compilare questa protezione autonomamente.
@@ -49,7 +49,7 @@ Le differenze principali tra queste opzioni sono elencate nella tabella seguente
 
 Esistono diversi fattori che possono influenzare la decisione di scegliere PaaS o IaaS per ospitare i database MySQL.
 
-### <a name="cost"></a>Costo
+### <a name="cost"></a>Costi
 
 Un finanziamento limitato è spesso la considerazione principale che determina la migliore soluzione per l'hosting dei database. Si tratta di un avvio con pochi soldi o un team in una società stabilita che opera con vincoli di budget limitati. Questa sezione descrive le nozioni di base relative a fatturazione e licenze in Azure che si applicano a database di Azure per MySQL e MySQL in macchine virtuali di Azure.
 
@@ -66,7 +66,7 @@ Per ulteriori informazioni sui prezzi, vedere gli articoli seguenti:
 * [Prezzi di macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Calcolatore prezzi di Azure](https://azure.microsoft.com/pricing/calculator/)
 
-### <a name="administration"></a>Administration
+### <a name="administration"></a>Amministrazione
 
 Per molte aziende, la decisione di passare a un servizio cloud è la quantità di spazio di ripartizione della complessità dell'amministrazione, in quanto si tratta di costi. Con IaaS e PaaS, Microsoft:
 

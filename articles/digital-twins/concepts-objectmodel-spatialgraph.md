@@ -1,19 +1,19 @@
 ---
 title: Informazioni sui modelli a oggetti gemelli digitali di Azure e sul grafico di intelligence spaziale | Microsoft Docs
-description: Usa Gemelli digitali di Azure per modellare le relazioni tra persone, luoghi e dispositivi
+description: Gemelli digitali di Azure consente di modellare le relazioni tra persone, luoghi e dispositivi
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.openlocfilehash: 1186fec8d50d7e986d1c613cd96f741c34ca181a
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.date: 11/05/2019
+ms.openlocfilehash: 65e9e6235fd974a7731fa5e86322793f1b680ad9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372611"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721340"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Informazioni sui modelli a oggetti di Gemelli digitali e sul grafico di intelligenza spaziale
 
@@ -23,7 +23,7 @@ I modelli a oggetti di Gemelli digitali descrivono concetti, categorie e proprie
 
 Predisponendo modelli a oggetti di Gemelli digitali e un’ontologia, è possibile popolare un _grafico spaziale_. I grafici spaziali sono rappresentazioni virtuali delle molte relazioni tra spazi, dispositivi e persone rilevanti per una soluzione IoT. Questo diagramma mostra un esempio di grafico spaziale che usa l'ontologia di un edificio intelligente.
 
-[![Digital gemelli-creazione di grafici spaziali](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
+[![la creazione di grafici spaziali di gemelli digitali](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
 
 Il grafico spaziale riunisce spazi, dispositivi, sensori e utenti. Ogni elemento è collegato agli altri in modo da modellare il mondo reale. In questo esempio, la sede 43 presenta quattro piani, ciascuno con molte aree differenti. Gli utenti sono associati alla propria workstation e hanno accesso a parti del grafico. Un amministratore dispone dei diritti per apportare modifiche al grafico spaziale, mentre un visitatore ha solo i diritti per visualizzare determinati dati dell'edificio.
 
@@ -78,14 +78,14 @@ Dopo aver distribuito Gemelli digitali dal [portale di Azure](https://portal.azu
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| name | Sostituire con |
+| Name | Sostituire con |
 | --- | --- |
 | NOME_ISTANZA_UTENTE | Nome dell'istanza di Gemelli digitali dell'utente |
 | POSIZIONE_UTENTE | Area del server in cui è ospitata l'istanza |
 
  Il formato dell'URL completo viene visualizzato in questa immagine.
 
-[API di gestione del portale di 1Digital gemelli @no__t](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
+[API di gestione del portale di ![Digital Twins](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
 
 Per altre informazioni sull'uso dei grafici di intelligenza spaziale, visitare l'anteprima di prova delle API di gestione di Gemelli digitali di Azure.
 

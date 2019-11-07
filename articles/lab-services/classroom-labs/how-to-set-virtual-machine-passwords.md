@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 40cdd0adf7bf100e1dbca64dbba68db3bc59a4fe
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: d89d506d8912706bbdb802801b16d01036ecb8e2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331509"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583607"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurare e gestire il pool di macchine virtuali 
 Questo articolo illustra come eseguire le attività seguenti:
@@ -30,12 +30,12 @@ Questo articolo illustra come eseguire le attività seguenti:
 ## <a name="update-the-lab-capacity"></a>Aggiornare la capacità del Lab
 Per aumentare o diminuire la capacità del Lab (numero di macchine virtuali in un Lab), seguire questa procedura:
 
-1. Nella pagina **pool di macchine virtuali** selezionare **Lab capacity: &lt;Numero @ no__t-3 machines**.
+1. Nella pagina **pool di macchine virtuali** selezionare **capacità Lab: &lt;numero&gt; computer**.
 2. Immettere il nuovo **numero di macchine virtuali** desiderate nel Lab. Questo numero deve essere maggiore o uguale al numero di utenti registrati nel Lab. 
 3. Selezionare quindi **Salva**. 
 
     ![Pulsante Avvia tutto](../media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
-4. Se è stata aumentata la capacità, è possibile visualizzare la macchina virtuale o le VM in fase di creazione. 
+4. Se è stata aumentata la capacità, è possibile visualizzare la macchina virtuale o le VM in fase di creazione. Se la nuova macchina virtuale non viene visualizzata nell'elenco, aggiornare la pagina. 
 
     ![VM in fase di creazione](../media/how-to-set-virtual-machine-passwords/vm-being-created.png)
 
@@ -51,11 +51,13 @@ Per aumentare o diminuire la capacità del Lab (numero di macchine virtuali in u
     ![Pulsante Interrompi tutto](../media/how-to-set-virtual-machine-passwords/stop-all-vms-button.png)
 
 ### <a name="start-selected-vms"></a>Avvia macchine virtuali selezionate
-Esistono due modi per avviare le VM selezionate (una o più). Il primo consiste nel selezionare la VM o le macchine virtuali nell'elenco, quindi selezionare **Avvia** sulla barra degli strumenti. Il secondo consiste nel selezionare la VM o le macchine virtuali nell'elenco, selezionare l'elenco a discesa nella colonna **stato** in una delle righe e quindi selezionare **Avvia**. 
+Esistono due modi per avviare le VM selezionate (una o più). Il primo consiste nel selezionare la VM o le macchine virtuali nell'elenco, quindi selezionare **Avvia** sulla barra degli strumenti. 
+
+Il secondo modo consiste nel selezionare una o più macchine virtuali nell'elenco e impostare il pulsante nella colonna **stato** . 
 
 ![Avvia macchine virtuali selezionate](../media/how-to-set-virtual-machine-passwords/start-selected-vms.png)
 
-Analogamente, è possibile arrestare una o più macchine virtuali utilizzando l'elenco a discesa nella colonna **stato** oppure **arrestare** sulla barra degli strumenti. 
+Analogamente, è possibile arrestare una o più macchine virtuali attivando il pulsante nella colonna **stato** o selezionando **Interrompi** sulla barra degli strumenti. 
 
 ## <a name="reset-vms"></a>Reimposta macchine virtuali
 Per reimpostare una o più macchine virtuali, selezionarle nell'elenco e quindi fare clic su **Reimposta** sulla barra degli strumenti. 
@@ -81,11 +83,19 @@ Abilitando/disabilitando l'opzione **Usa la stessa password per tutte le macchin
 ### <a name="reset-password-later"></a>Reimposta la password in un secondo momento
 
 1. Nella pagina **modello** del Lab selezionare **Reimposta password** sulla barra degli strumenti. 
-
-    ![Menu Reimposta password nella home page](../media/how-to-set-virtual-machine-passwords/reset-password-menu-dashboard.png)
 1. Nella finestra di dialogo **Reimposta password** immettere una password e selezionare **Reimposta password**.
     
     ![Finestra di dialogo Imposta password](../media/how-to-set-virtual-machine-passwords/set-password.png)
+
+## <a name="connect-to-student-vms"></a>Connettersi alle macchine virtuali degli studenti
+Il creatore del Lab (insegnante/professore) può connettersi a una macchina virtuale per studenti se vengono soddisfatte le condizioni seguenti: 
+
+- Quando si crea il Lab, è stata selezionata l'opzione **Usa la stessa password per tutte le macchine virtuali**
+- La macchina virtuale è in esecuzione 
+
+ Per connettersi alla macchina virtuale studente, posizionare il mouse sulla macchina virtuale nell'elenco e selezionare il pulsante computer.  
+
+![Pulsante Connetti a macchina virtuale studente](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sulle altre opzioni di utilizzo degli studenti che possono essere configurate da un proprietario del Lab, vedere l'articolo relativo alla configurazione dell'utilizzo da parte [degli studenti](how-to-configure-student-usage.md).

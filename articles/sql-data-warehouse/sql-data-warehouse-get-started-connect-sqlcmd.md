@@ -1,5 +1,5 @@
 ---
-title: Connettersi ad Azure SQL Data Warehouse con sqlcmd | Documentazione Microsoft
+title: Connettersi con sqlcmd
 description: Usare l'utilità della riga di comando sqlcmd per connettersi ed eseguire query in un'istanza di Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f3b93660fb9f8f3b0bfdddc37105b9e998ed9eee
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: e4b432e0be0cdded5089965b9d272aa82e31bd36
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479513"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685745"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Connettersi a SQL Data Warehouse con sqlcmd
 > [!div class="op_single_selector"]
@@ -29,16 +30,16 @@ ms.locfileid: "68479513"
 
 Utilizzare l'utilità della riga di comando [SQLCMD][sqlcmd] per connettersi ed eseguire query su un Azure SQL data warehouse.  
 
-## <a name="1-connect"></a>1. Connetti
+## <a name="1-connect"></a>1. connessione
 Per iniziare a usare [sqlcmd][sqlcmd], aprire il prompt dei comandi e immettere **sqlcmd** seguito dalla stringa di connessione per il database di SQL Data Warehouse. La stringa di connessione richiede i parametri seguenti:
 
-* **Server (-S):** server nel formato `<`Nome server`>`.database.windows.net
+* **Server (-S):** server nel formato `<`Server Name`>`.database.windows.net
 * **Database (-d):** nome del database.
-* **Abilita identificatori delimitati (-I):** gli identificatori delimitati devono essere abilitati per la connessione a un'istanza di SQL Data Warehouse.
+* **Abilita identificatori delimitati (-I):** gli identificatori delimitati devono essere abilitati per consentire la connessione a un'istanza di SQL Data Warehouse.
 
 Per usare l'autenticazione di SQL Server è necessario aggiungere i parametri nome utente e password:
 
-* **Utente (-U):** utente server nel formato `<`Utente`>`
+* **Utente (-U):** utente del server nel formato `<`User`>`
 * **Password (-P):** password associata all'utente.
 
 Ad esempio, la stringa di connessione sarà simile alla seguente:
@@ -62,7 +63,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > 
 > 
 
-## <a name="2-query"></a>2. Query
+## <a name="2-query"></a>2. query
 Dopo la connessione sarà possibile eseguire qualsiasi istruzione Transact-SQL supportata nell'istanza.  In questo esempio le query vengono inviate in modalità interattiva.
 
 ```sql

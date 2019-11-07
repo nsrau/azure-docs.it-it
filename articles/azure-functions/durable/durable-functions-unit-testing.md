@@ -5,18 +5,21 @@ author: ggailey777
 manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 11/03/2019
 ms.author: glenga
-ms.openlocfilehash: 0080365853e7a9c74d3ba0e5efb06ce5a3af2a21
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 95c6afcb2f7e864da4b9b43235326a17bed785fa
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967108"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614524"
 ---
 # <a name="durable-functions-unit-testing"></a>Testing unità di Funzioni durevoli
 
-Il testing unità è una parte importante delle moderne procedure di sviluppo software. Gli unit test verificano il comportamento della logica di business e proteggono dall'introduzione futura di modifiche inosservate che causano un'interruzione. La complessità di Funzioni durevoli può facilmente aumentare e l'introduzione di unit test consentirà quindi di evitare le modifiche che causano un'interruzione. Le sezioni seguenti illustrano come eseguire lo unit test dei tre tipi di funzioni: funzioni del client di orchestrazione, dell'agente di orchestrazione e dell'attività.
+Il testing unità è una parte importante delle moderne procedure di sviluppo software. Gli unit test verificano il comportamento della logica di business e proteggono dall'introduzione futura di modifiche inosservate che causano un'interruzione. La complessità di Funzioni durevoli può facilmente aumentare e l'introduzione di unit test consentirà quindi di evitare le modifiche che causano un'interruzione. Nelle sezioni seguenti viene illustrato come unit test i tre tipi di funzione: client di orchestrazione, agente di orchestrazione e funzioni di attività.
+
+> [!NOTE]
+> Questo articolo fornisce indicazioni per il testing unità per Durable Functions app destinate a Durable Functions 1. x. Non è stato ancora aggiornato per tenere conto delle modifiche introdotte in Durable Functions 2. x. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -24,7 +27,7 @@ Gli esempi di questo articolo richiedono la conoscenza dei concetti e dei framew
 
 * Testing unità
 
-* Durable Functions
+* Funzioni permanenti
 
 * [xUnit](https://xunit.github.io/): framework di test
 
@@ -32,17 +35,17 @@ Gli esempi di questo articolo richiedono la conoscenza dei concetti e dei framew
 
 ## <a name="base-classes-for-mocking"></a>Classi base per il comportamento fittizio
 
-Il comportamento fittizio è supportato tramite tre classi astratte in Durable Functions:
+Il mocking è supportato tramite tre classi astratte in Durable Functions 1. x:
 
-* [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html)
+* `DurableOrchestrationClientBase`
 
-* [DurableOrchestrationContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContextBase.html)
+* `DurableOrchestrationContextBase`
 
-* [DurableActivityContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContextBase.html)
+* `DurableActivityContextBase`
 
-Queste sono classi base per [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html), [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) e [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) che definiscono i metodi Orchestration Client, Orchestrator e Activity. I comportamenti fittizi imposteranno il comportamento previsto per i metodi delle classi base in modo che lo unit test possa verificare la logica di business. Esiste un flusso di lavoro in due passaggi per il testing unità della logica di business nel client di orchestrazione e nell'agente di orchestrazione:
+Queste classi sono classi di base per `DurableOrchestrationClient`, `DurableOrchestrationContext`e `DurableActivityContext` che definiscono i metodi del client di orchestrazione, dell'agente di orchestrazione e dell'attività. I comportamenti fittizi imposteranno il comportamento previsto per i metodi delle classi base in modo che lo unit test possa verificare la logica di business. Esiste un flusso di lavoro in due passaggi per il testing unità della logica di business nel client di orchestrazione e nell'agente di orchestrazione:
 
-1. Usare le classi base invece dell'implementazione concreta quando si definiscono le firme del client di orchestrazione e dell'agente di orchestrazione.
+1. Utilizzare le classi base anziché l'implementazione concreta quando si definiscono le firme del client di orchestrazione e della funzione di orchestrazione.
 2. Negli unit test simulare il comportamento delle classi base e verificare la logica di business.
 
 Nei paragrafi seguenti sono disponibili altre informazioni dettagliate sulle funzioni di test che usano l'associazione del client di orchestrazione e l'associazione del trigger dell'agente di orchestrazione.
@@ -53,9 +56,9 @@ In questa sezione lo unit test convaliderà la logica della funzione di trigger 
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-L'attività di unit test servirà a verificare il valore dell'intestazione `Retry-After` fornita nel payload della risposta. Lo unit test simulerà quindi alcuni dei metodi [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) per assicurare un comportamento prevedibile.
+L'attività di unit test servirà a verificare il valore dell'intestazione `Retry-After` fornita nel payload della risposta. Quindi, il unit test simula alcuni `DurableOrchestrationClientBase` metodi per garantire un comportamento prevedibile.
 
-Prima di tutto è necessaria una simulazione della classe base, [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). La simulazione può essere una nuova classe che implementa [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). L'uso di un framework di comportamento fittizio, ad esempio [moq](https://github.com/moq/moq4), semplifica tuttavia il processo:
+Per prima cosa, è necessaria una simulazione della classe di base `DurableOrchestrationClientBase`. Il mock può essere una nuova classe che implementa `DurableOrchestrationClientBase`. L'uso di un framework di comportamento fittizio, ad esempio [moq](https://github.com/moq/moq4), semplifica tuttavia il processo:
 
 ```csharp
     // Mock DurableOrchestrationClientBase
@@ -93,7 +96,6 @@ Viene simulato anche `ILogger`:
 ```csharp
     // Mock ILogger
     var loggerMock = new Mock<ILogger>();
-
 ```  
 
 Il metodo `Run` viene ora chiamato dallo unit test:
@@ -174,7 +176,7 @@ In questa sezione lo unit test convaliderà il comportamento della funzione dell
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-Lo unit test verificherà il formato dell'output. Gli unit test possono usare i tipi di parametro in modo diretto o simulare la classe [DurableActivityContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContextBase.html):
+Lo unit test verificherà il formato dell'output. Gli unit test possono usare direttamente i tipi di parametro o la classe fittizia `DurableActivityContextBase`:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 

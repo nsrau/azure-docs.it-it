@@ -1,5 +1,5 @@
 ---
-title: Uso di cicli T-SQL in Azure SQL Data Warehouse | Microsoft Docs
+title: Uso di cicli T-SQL
 description: Suggerimenti per l'uso di cicli T-SQL e la sostituzione di cursori in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: e27edcc1383a235fbdb9513066e69e2f680ea2f9
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: b57358e32bda83ef51fe67aa1057411d51773fa6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479618"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685820"
 ---
 # <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Uso di cicli T-SQL in SQL Data Warehouse
 Suggerimenti per l'uso di cicli T-SQL e la sostituzione di cursori in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
@@ -25,7 +26,7 @@ Suggerimenti per l'uso di cicli T-SQL e la sostituzione di cursori in Azure SQL 
 SQL Data Warehouse supporta il ciclo [WHILE](/sql/t-sql/language-elements/while-transact-sql) per eseguire ripetutamente blocchi di istruzioni. Il ciclo WHILE continua fino a quando le condizioni specificate sono vere o fino a quando il codice termina il ciclo in modo specifico usando la parola chiave BREAK. I cicli sono utili per la sostituzione di cursori definiti nel codice SQL. Per fortuna, quasi tutti i cursori scritti in codice SQL sono del tipo avanzamento rapido, di sola lettura. Pertanto, i cicli [WHILE] sono un'ottima alternativa per la sostituzione dei cursori.
 
 ## <a name="replacing-cursors-in-sql-data-warehouse"></a>Sostituzione di cursori in SQL Data Warehouse
-Prima di procedere, è tuttavia necessario porsi la domanda seguente: "Per usare le operazioni basate su set, è possibile riscrivere questo cursore?". In molti casi la risposta è Sì ed è spesso l'approccio migliore. Un'operazione basata su set viene spesso eseguita più velocemente rispetto a un approccio iterativo riga per riga.
+Tuttavia, prima di procedere è innanzitutto necessario chiedersi se il cursore può essere riscritto per l'uso di operazioni basate su set. In molti casi la risposta è Sì ed è spesso l'approccio migliore. Un'operazione basata su set viene spesso eseguita più velocemente rispetto a un approccio iterativo riga per riga.
 
 I cursori ad avanzamento rapido di sola lettura possono essere facilmente sostituiti con un costrutto di ciclo. Di seguito è riportato un esempio semplice. Questo esempio di codice aggiorna le statistiche per ogni tabella nel database. Scorrendo le tabelle nel ciclo, eseguire ogni comando in sequenza.
 

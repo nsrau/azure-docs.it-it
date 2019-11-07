@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 10/25/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8741a9a362a10dfdb0150c9dc0dfddeed54594a7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0d0e567198fd25243b89245d54bbed5a658cc663
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497437"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73716605"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps: gestire, distribuire e monitorare i modelli con Azure Machine Learning
 
@@ -126,7 +126,7 @@ Per ulteriori informazioni, vedere [deploy Models](how-to-deploy-and-where.md).
 Microsoft Power BI supporta l'uso di modelli di apprendimento automatico per l'analisi dei dati. Per ulteriori informazioni, vedere [integrazione di Azure Machine Learning in Power BI (anteprima)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 
-## <a name="monitor-ml-applications-for-operational-and-ml-related-issues"></a>Monitorare le applicazioni ML per problemi operativi e ML correlati
+## <a name="monitor-for-operational--ml-issues"></a>Monitorare i problemi operativi di & ML
 
 Il monitoraggio consente di comprendere quali dati vengono inviati al modello e le stime che restituisce.
 
@@ -135,7 +135,7 @@ Queste informazioni consentono di comprendere la modalità di utilizzo del model
 Per altre informazioni, vedere [Come abilitare la raccolta dei dati dei modelli](how-to-enable-data-collection.md).
 
 
-## <a name="capture-an-end-to-end-audit-trail-of-the-ml-lifecycle"></a>Acquisisci un audit trail end-to-end del ciclo di vita ML
+## <a name="audit-trail-of-the-ml-lifecycle"></a>Audit Trail del ciclo di vita ML
 
 Azure ML ti permette di tenere traccia del audit trail end-to-end di tutte le risorse ML. In particolare:
 
@@ -144,7 +144,7 @@ Azure ML ti permette di tenere traccia del audit trail end-to-end di tutte le ri
 - La cronologia di esecuzione di Azure ML archivia uno snapshot del codice, i dati e il calcolo usati per eseguire il training di un modello.
 - Il registro di sistema del modello di Azure ML acquisisce tutti i metadati associati al modello (che sperimentano il training, la posizione in cui vengono distribuiti, se le distribuzioni sono integre).
 
-## <a name="automate-the-end-to-end-ml-lifecycle"></a>Automatizzare il ciclo di vita di ML end-to-end 
+## <a name="automate-the-ml-lifecycle"></a>Automatizzare il ciclo di vita del ML 
 
 È possibile usare GitHub e Azure Pipelines per creare un processo di integrazione continua che esegue il training di un modello. In uno scenario tipico, quando un data scientist verifica una modifica nel repository Git per un progetto, la pipeline di Azure avvierà un'esecuzione di training. I risultati dell'esecuzione possono quindi essere controllati per visualizzare le caratteristiche di prestazioni del modello sottoposto a training. È anche possibile creare una pipeline che distribuisce il modello come servizio Web.
 
@@ -157,8 +157,18 @@ Per altre informazioni sull'uso di Azure Pipelines con Azure Machine Learning, v
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su [come e dove è possibile distribuire i modelli](how-to-deploy-and-where.md) con Azure Machine Learning. Per un esempio di distribuzione, vedere [esercitazione: distribuire un modello di classificazione delle immagini in istanze di contenitore di Azure](tutorial-deploy-models-with-aml.md).
+Per altre informazioni, leggere ed esplorare le risorse seguenti:
 
-Informazioni su come creare l' [integrazione e la distribuzione continue dei modelli ml con Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning). 
++ [Come & dove distribuire i modelli](how-to-deploy-and-where.md) con Azure Machine Learning
 
-Informazioni su come creare servizi e applicazioni client che [utilizzano un modello distribuito come servizio Web](how-to-consume-web-service.md).
++ [Esercitazione: distribuire un modello di classificazione delle immagini in ACI](tutorial-deploy-models-with-aml.md).
+
++ [Repository degli esempi MLOps end-to-end](https://github.com/microsoft/MLOps)
+
++ [Modelli CI/CD di ML con Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
+
++ Creare client che [utilizzano un modello distribuito](how-to-consume-web-service.md)
+
++ [Machine Learning su larga scala](/architecture/data-guide/big-data/machine-learning-at-scale)
+
++ [Architetture di riferimento di intelligenza artificiale di Azure & Best Practices Rep](https://github.com/microsoft/AI)

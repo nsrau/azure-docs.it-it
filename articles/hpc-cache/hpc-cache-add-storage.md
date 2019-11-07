@@ -1,17 +1,17 @@
 ---
-title: Aggiungere spazio di archiviazione a una cache HPC di Azure (anteprima)
+title: Aggiungere spazio di archiviazione a una cache HPC di Azure
 description: Come definire le destinazioni di archiviazione in modo che la cache HPC di Azure possa usare il sistema NFS locale o i contenitori BLOB di Azure per l'archiviazione di file a lungo termine
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: dbcc68bacf8a11a7a85d5fad7fb4435fd03c7f93
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: b10692e352007ee2b0fd18543d8ae2ad8f9819dc
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024571"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621458"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -65,7 +65,7 @@ Passaggi per aggiungere i ruoli RBAC:
 
 1. Aprire la pagina **controllo di accesso (IAM)** per l'account di archiviazione. Il collegamento nella pagina **Aggiungi destinazione di archiviazione** apre automaticamente questa pagina per l'account selezionato.
 
-1. Fare clic su **+** nella parte superiore della pagina e scegliere **Aggiungi un'assegnazione di ruolo**.
+1. Fare clic sul **+** nella parte superiore della pagina e scegliere **Aggiungi un'assegnazione di ruolo**.
 
 1. Selezionare il ruolo "collaboratore account di archiviazione" nell'elenco.
 
@@ -74,7 +74,7 @@ Passaggi per aggiungere i ruoli RBAC:
 1. Nel campo **Seleziona** cercare "HPC".  Questa stringa deve corrispondere a un'entità servizio denominata "HPC cache Resource Provider". Fare clic su tale entità per selezionarla.
 
    > [!NOTE]
-   > Se la ricerca di "HPC" non funziona, provare a usare la stringa "storagecache". Gli utenti che hanno aggiunto l'anteprima potrebbero dover usare il nome precedente per l'entità servizio.
+   > Se la ricerca di "HPC" non funziona, provare a usare la stringa "storagecache". Per gli utenti che si aggiungono alle anteprime (prima di GA) potrebbe essere necessario usare il nome precedente per l'entità servizio.
 
 1. Fare clic sul pulsante **Salva** per aggiungere l'assegnazione di ruolo all'account di archiviazione.
 
@@ -134,3 +134,5 @@ Dopo aver creato le destinazioni di archiviazione, prendere in considerazione un
 
 * [Montare la cache HPC di Azure](hpc-cache-mount.md)
 * [Spostare i dati nell'archivio BLOB di Azure](hpc-cache-ingest.md)
+
+Se è necessario modificare una destinazione di archiviazione, leggere [Modifica destinazioni di archiviazione](hpc-cache-edit-storage.md) per informazioni su come.

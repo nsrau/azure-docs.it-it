@@ -7,16 +7,19 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 10/26/2019
 ms.author: victorh
-ms.openlocfilehash: a7622489008a8fabef8aee3ffb2ffc4f33b48296
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 31a5ad92942b40e42b66e404df2d09cd8158f7a2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516669"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606476"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Creare criteri del Web Application Firewall per il gateway applicazione
 
 L'associazione di un criterio WAF ai listener consente a più siti dietro un singolo WAF di essere protetti da criteri diversi. Ad esempio, se sono presenti cinque siti dietro la WAF, è possibile avere cinque criteri WAF distinti (uno per ogni listener) per personalizzare le esclusioni, le regole personalizzate e i RuleSet gestiti per un sito senza influire sugli altri quattro. Se si vuole applicare un singolo criterio a tutti i siti, è sufficiente associare il criterio al gateway applicazione, anziché ai singoli listener, per applicarlo a livello globale. I criteri possono essere applicati anche a una regola di routing basata sul percorso. 
+
+   > [!NOTE]
+   > Il criterio WAF per sito è disponibile negli Stati Uniti centro-meridionali ed Europa settentrionale. Per accedervi nel portale, usare [questo collegamento](https://aka.ms/AppgwwafWithAllFeatureFlags) fino a quando non diventa disponibile per tutti.  
 
 È possibile creare tutti i criteri desiderati. Dopo aver creato un criterio, è necessario associarlo a un gateway applicazione per renderlo effettivo, ma può essere associato a qualsiasi combinazione di gateway applicazione e listener. 
 

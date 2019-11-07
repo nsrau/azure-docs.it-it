@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: c6ad1cd7af02f281c53ece23a018f8b5ec0c7da9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 18e7e75b259475b9e360dc3441ed83ccb577e557
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640948"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492035"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Esercitazione: Progettare un database relazionale in un database singolo in Database SQL di Azure con SSMS
 
@@ -52,7 +52,7 @@ Un database singolo in Database SQL di Azure viene creato con un set definito di
 
 Per creare un database singolo vuoto, seguire questa procedura.
 
-1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
+1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**.
 2. Nella pagina **Nuovo**, selezionare **Database** nella sezione Azure Marketplace e quindi fare clic su **Database SQL** nella sezione **In primo piano**.
 
    ![creare database vuoto](./media/sql-database-design-first-database/create-empty-database.png)
@@ -97,21 +97,23 @@ Il servizio Database SQL crea un firewall per gli indirizzi IP a livello di serv
 > [!IMPORTANT]
 > Il servizio Database SQL comunica sulla porta 1433. Se si intende connettersi al servizio da una rete aziendale, il firewall della rete potrebbe non consentire il traffico in uscita sulla porta 1433. In questo caso, non è possibile connettersi al database singolo a meno che l'amministratore non apra la porta 1433.
 
-1. Al termine della distribuzione, fare clic su **Database SQL** nel menu a sinistra e quindi su *yourDatabase* nella pagina **Database SQL**. Verrà visualizzata la pagina di panoramica del database, che mostra il **nome server** completo, ad esempio *yourserver.database.windows.net*, e offre opzioni per operazioni di configurazione aggiuntive.
+1. Al termine della distribuzione, selezionare **database SQL** dal menu del portale di Azure oppure cercare e selezionare *database SQL* da qualsiasi pagina.  
 
-2. Copiare il nome completo del server per usarlo per la connessione al server e ai database da SQL Server Management Studio.
+1. Selezionare *yourDatabase* nella pagina **database SQL**. Verrà visualizzata la pagina di panoramica del database, che mostra il **nome completo del server**, ad esempio `contosodatabaseserver01.database.windows.net`, e offre altre opzioni per la configurazione.
 
    ![Nome del server](./media/sql-database-design-first-database/server-name.png)
 
-3. Fare clic su **Imposta firewall server** sulla barra degli strumenti. Si apre la pagina **Impostazioni del firewall** per il server di database SQL.
+1. Copiare il nome completo del server per usarlo per la connessione al server e ai database da SQL Server Management Studio.
+
+1. Fare clic su **Imposta firewall server** sulla barra degli strumenti. Si apre la pagina **Impostazioni del firewall** per il server di database SQL.
 
    ![regola del firewall IP a livello di server](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-4. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall per gli indirizzi IP. Una regola del firewall per gli indirizzi IP può aprire la porta 1433 per un singolo indirizzo IP o un intervallo di indirizzi IP.
+1. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall per gli indirizzi IP. Una regola del firewall per gli indirizzi IP può aprire la porta 1433 per un singolo indirizzo IP o un intervallo di indirizzi IP.
 
-5. Fare clic su **Save**. Viene creata una regola del firewall IP a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server di database SQL.
+1. Fare clic su **Save**. Viene creata una regola del firewall IP a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server di database SQL.
 
-6. Fare clic su **OK** e quindi chiudere la pagina **Impostazioni del firewall**.
+1. Fare clic su **OK** e quindi chiudere la pagina **Impostazioni del firewall**.
 
 L'indirizzo IP può ora superare il firewall per gli indirizzi IP. È quindi possibile connettersi al database singolo usando SQL Server Management Studio o un altro strumento di propria scelta. Assicurarsi di usare l'account amministratore del server creato in precedenza.
 

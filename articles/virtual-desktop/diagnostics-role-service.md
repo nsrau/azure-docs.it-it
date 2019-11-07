@@ -1,18 +1,18 @@
 ---
-title: Identificare i problemi con la funzionalità diagnostica desktop virtuale di Windows-Azure
-description: Viene descritta la funzionalità diagnostica desktop virtuale di Windows e viene illustrato come usarla.
+title: Problemi di diagnostica del desktop virtuale Windows-Azure
+description: Come utilizzare la funzionalità diagnostica desktop virtuali di Windows per diagnosticare i problemi.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 5401260921aee5fc54b50c1222188a6b244a0c5a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 0e04b075259ed1d003df4a03686d46b1adf694d3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840137"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606855"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificare e diagnosticare i problemi
 
@@ -32,7 +32,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="diagnose-issues-with-powershell"></a>Diagnosticare i problemi con PowerShell
 
-Diagnostica desktop virtuali Windows utilizza un solo cmdlet di PowerShell, ma contiene molti parametri facoltativi che consentono di limitare e isolare i problemi. Le sezioni seguenti elencano i cmdlet che è possibile eseguire per diagnosticare i problemi. La maggior parte dei filtri può essere applicata insieme. I valori elencati tra parentesi quadre, `<tenantName>`ad esempio, devono essere sostituiti con i valori che si applicano alla situazione.
+Diagnostica desktop virtuali Windows utilizza un solo cmdlet di PowerShell, ma contiene molti parametri facoltativi che consentono di limitare e isolare i problemi. Le sezioni seguenti elencano i cmdlet che è possibile eseguire per diagnosticare i problemi. La maggior parte dei filtri può essere applicata insieme. I valori elencati tra parentesi quadre, ad esempio `<tenantName>`, devono essere sostituiti con i valori che si applicano alla situazione.
 
 ### <a name="retrieve-diagnostic-activities-in-your-tenant"></a>Recuperare le attività di diagnostica nel tenant
 
@@ -46,7 +46,7 @@ Analogamente ad altri cmdlet di PowerShell per desktop virtuali di Windows, è n
 
 ### <a name="retrieve-detailed-diagnostic-activities"></a>Recuperare attività diagnostiche dettagliate
 
-Il parametro **-** detailed fornisce dettagli aggiuntivi per ogni attività diagnostica restituita. Il formato di ogni attività varia a seconda del tipo di attività. Il parametro **-** detailed può essere aggiunto a qualsiasi query **Get-RdsDiagnosticActivities** , come illustrato nell'esempio seguente.
+Il parametro **-detailed** fornisce dettagli aggiuntivi per ogni attività diagnostica restituita. Il formato di ogni attività varia a seconda del tipo di attività. Il parametro **-detailed** può essere aggiunto a qualsiasi query **Get-RdsDiagnosticActivities** , come illustrato nell'esempio seguente.
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -Detailed
@@ -62,7 +62,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityIdGuid
 
 ### <a name="view-error-messages-for-a-failed-activity-by-activity-id"></a>Visualizzare i messaggi di errore per un'attività non riuscita per ID attività
 
-Per visualizzare i messaggi di errore per un'attività non riuscita, è necessario eseguire il cmdlet con il parametro **-** detailed. È possibile visualizzare l'elenco di errori eseguendo il cmdlet **Select-Object** .
+Per visualizzare i messaggi di errore per un'attività non riuscita, è necessario eseguire il cmdlet con il parametro **-detailed** . È possibile visualizzare l'elenco di errori eseguendo il cmdlet **Select-Object** .
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantname> -ActivityId <ActivityGuid> -Detailed | Select-Object -ExpandProperty Errors
@@ -140,7 +140,7 @@ La tabella seguente elenca gli errori comuni che possono essere eseguiti dagli a
 
 ### <a name="external-management-error-codes"></a>Codici di errore di gestione esterna
 
-|Codice numerico|Codice errore|Soluzione suggerita|
+|Codice numerico|Codice di errore|Soluzione suggerita|
 |---|---|---|
 |3|UnauthorizedAccess|L'utente che ha tentato di eseguire il cmdlet di PowerShell amministrativo non ha le autorizzazioni per eseguire questa operazione o il nome utente è digitato in modo improprio.|
 |1000|TenantNotFound|Il nome del tenant immesso non corrisponde ad alcun tenant esistente. Verificare il nome del tenant per gli errori di ortografia e riprovare.|
@@ -161,7 +161,7 @@ La tabella seguente elenca gli errori comuni che possono essere eseguiti dagli a
 
 ### <a name="external-connection-error-codes"></a>Codici di errore della connessione esterna
 
-|Codice numerico|Codice errore|Soluzione suggerita|
+|Codice numerico|Codice di errore|Soluzione suggerita|
 |---|---|---|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|L'host sessione non è stato aggiunto correttamente al Active Directory.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|Connessioni non riuscite perché l'host sessione non è disponibile. Controllare l'integrità dell'host sessione.|

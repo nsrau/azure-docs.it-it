@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 41a626ba602ad33f22c3ea4acc39dd4f3438cbd0
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: eb4f607672c39d45b7791ccaeeb6f7cff9393cb9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935690"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571009"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Installare e usare l'estensione Azure per l'interfaccia della riga di comando di Azure
 
@@ -36,7 +36,7 @@ Questo articolo illustra come:
 
 ### <a name="step-1---install-the-azure-cli"></a>Passaggio 1: installare l'interfaccia della riga di comando di Azure
 
-Seguire le [istruzioni di installazione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) per configurare l'interfaccia della riga di comando di Azure nell'ambiente in uso. Per usare tutti i comandi seguenti, la versione dell'interfaccia della riga di comando di Azure deve essere 2.0.73 o versione successiva. Usare il comando `az -–version` per verificare.
+Seguire le [istruzioni di installazione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) per configurare l'interfaccia della riga di comando di Azure nell'ambiente in uso. Per usare tutti i comandi seguenti, la versione dell'interfaccia della riga di comando di Azure deve essere 2.0.73 o versione successiva. Usare `az -–version` per la convalida.
 
 ### <a name="step-2---install-iot-extension"></a>Passaggio 2: installare l'estensione Internet
 
@@ -60,9 +60,9 @@ Per usare l'estensione Azure per l'interfaccia della riga di comando di Azure, �
 - Un hub IoT di Azure. Sono disponibili diversi modi per aggiungere un hub Internet alla sottoscrizione di Azure, ad esempio [creare un hub Internet delle cose usando l'interfaccia della](../iot-hub/iot-hub-create-using-cli.md)riga di comando di Azure. È necessaria la stringa di connessione dell'hub Internet per l'esecuzione dei comandi dell'estensione Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
     > [!NOTE]
-    > Durante la fase di anteprima pubblica, le funzionalità Plug and Play sono disponibili solo negli hub di Internet delle cose creati nelle aree **Stati Uniti centrali**, **Europa settentrionale**e **Giappone orientale** .
+    > Durante la fase di anteprima pubblica, le funzionalità Plug and Play IoT sono disponibili solo negli hub IoT creati nelle aree **Stati Uniti centrali**, **Europa settentrionale** e **Giappone orientale**.
 
-- Un dispositivo registrato nell'hub Internet. È possibile usare il comando dell'interfaccia della riga di comando di Azure seguente per registrare un dispositivo `{YourIoTHubName}` , `{YourDeviceID}` assicurarsi di sostituire i segnaposto e con i valori:
+- Un dispositivo registrato nell'hub Internet. È possibile usare il comando dell'interfaccia della riga di comando di Azure seguente per registrare un dispositivo, assicurarsi di sostituire i segnaposto `{YourIoTHubName}` e `{YourDeviceID}` con i valori:
 
     ```cmd/sh
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -126,31 +126,31 @@ Elencare tutti i comandi per un'interfaccia in un dispositivo:
 az iot dt list-commands --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString}
 ```
 
-Senza il `--repo-login` parametro, questo comando usa il repository del modello pubblico.
+Senza il parametro `--repo-login`, questo comando usa il repository del modello pubblico.
 
 Richiamare un comando:
 
 ```cmd/sh
-az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --command-name {CommandName} --command-payload {CommandPayload or FilePath}
+az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --cn {CommandName} --command-payload {CommandPayload or FilePath}
 ```
 
-#### <a name="telemetry"></a>Telemetria
+#### <a name="digital-twin-events"></a>Eventi gemelli digitali
 
-Monitorare tutti i dati di telemetria Plug and Play da un dispositivo e un'interfaccia specifici che passano al **$default** endpoint dell'hub eventi:
+Esegui il monitoraggio di tutti gli Plug and Play eventi gemelli digitali da un dispositivo e un'interfaccia specifici che passano al gruppo di consumer dell'hub eventi **$default** :
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID}
 ```
 
-Monitora tutti i dati di telemetria Plug and Play da un dispositivo e un'interfaccia specifici che passano a un gruppo di consumer specifico:
+Monitora tutti gli eventi Plug and Play i dispositivi gemelli digitali da un dispositivo e un'interfaccia specifici che passano da un gruppo di consumer specifico:
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString} --consumer-group {YourConsumerGroup}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --consumer-group {YourConsumerGroup}
 ```
 
 ### <a name="manage-interfaces-in-a-model-repository"></a>Gestire le interfacce in un repository di modelli
 
-I comandi seguenti usano il repository del modello Plug and Play. Per usare un repository del modello aziendale, aggiungere `--login` l'argomento con la stringa di connessione del repository del modello.
+I comandi seguenti usano il repository del modello Plug and Play. Per usare un repository del modello aziendale, aggiungere l'argomento `--login` con la stringa di connessione del repository del modello.
 
 Elencare le interfacce nel repository di modelli di Plug and Play di Internet pubblico:
 
@@ -190,7 +190,7 @@ Solo i partner Microsoft possono pubblicare le interfacce nel repository del mod
 
 ### <a name="manage-device-capability-models-in-a-model-repository"></a>Gestire i modelli di funzionalità del dispositivo in un repository di modelli
 
-I comandi seguenti usano il repository del modello Plug and Play. Per usare un repository del modello aziendale, aggiungere `--login` l'argomento con la stringa di connessione del repository del modello.
+I comandi seguenti usano il repository del modello Plug and Play. Per usare un repository del modello aziendale, aggiungere l'argomento `--login` con la stringa di connessione del repository del modello.
 
 Elencare i modelli di funzionalità del dispositivo nel repository del modello pubblico Plug and Play:
 

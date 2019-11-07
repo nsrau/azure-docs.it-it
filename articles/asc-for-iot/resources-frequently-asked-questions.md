@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 0262be687b74ec1b97cb508f6da1b95cd5d7a533
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 639a3f89e470a832279add8d2ed7cf49441611f4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596933"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571790"
 ---
 # <a name="azure-security-center-for-iot-frequently-asked-questions"></a>Centro sicurezza di Azure per le domande frequenti su Internet  
 
@@ -66,11 +66,11 @@ Il Centro sicurezza di Azure per l'agente Internet offre la copertura delle mina
 
 ## <a name="where-can-i-get-the-azure-security-center-for-iot-security-agent"></a>Dove si può ottenere il Centro sicurezza di Azure per l'agente sicurezza?
 
-Il Centro sicurezza di Azure per l'agente di sicurezza Internet è open source ed è disponibile su GitHub in versioni di Windows e Linux a 32 https://github.com/Azure/Azure-Security-IoT bit e a 64 bit:.
+Il Centro sicurezza di Azure per l'agente di sicurezza Internet è open source ed è disponibile su GitHub in versioni di Windows e Linux a 32 bit e a 64 bit: https://github.com/Azure/Azure-Security-IoT.
 
 ## <a name="where-does-the-azure-security-center-for-iot-agent-get-installed"></a>Dove viene installato il Centro sicurezza di Azure per l'agente Internet? 
 
-Informazioni dettagliate sull'installazione e sulla distribuzione degli agenti sono disponibili in https://github.com/Azure/Azure-Security-IoT GitHub:.
+Informazioni dettagliate sull'installazione e sulla distribuzione degli agenti sono disponibili in GitHub: https://github.com/Azure/Azure-IoT-Security.
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>Quali sono le dipendenze e i prerequisiti dell'agente?
 
@@ -92,7 +92,7 @@ Il Centro sicurezza di Azure per l'it offre analisi degli agenti configurabili, 
 
 Sì. I dati trasmessi dall'agente vengono conteggiati nella quota dell'hub Internet delle cose. 
 
-## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>Operazioni successive Ho installato un agente senza visualizzare attività o registri...
+## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>Come procedere? Ho installato un agente senza visualizzare attività o registri...
 
 1. Verificare che il [tipo di agente corrisponda alla piattaforma del sistema operativo designata del dispositivo](how-to-deploy-agent.md)
 
@@ -126,7 +126,7 @@ Se l'agente interrompe la comunicazione o non riesce a inviare messaggi di sicur
 
 ## <a name="can-i-create-my-own-alerts"></a>È possibile creare avvisi personali?
 
-Sì. È possibile impostare un avviso personalizzato per un set di comportamenti predefinito, ad esempio l'indirizzo IP e le porte aperte. Per ulteriori informazioni sugli avvisi personalizzati e su come crearli, vedere [creare avvisi personalizzati](quickstart-create-custom-alerts.md) . 
+Sì. È possibile impostare un avviso personalizzato per un set di comportamenti predefinito, ad esempio l'indirizzo IP e le porte aperte. Per ulteriori informazioni sugli avvisi personalizzati e su come [crearli, vedere creare avvisi personalizzati](quickstart-create-custom-alerts.md) . 
 
 ## <a name="where-can-i-see-logs-can-i-customize-logs"></a>Dove è possibile visualizzare I log? È possibile personalizzare I log?
 

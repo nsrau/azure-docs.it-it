@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 4858d803b4fccdc6ae4d5a790721bad60d218313
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 44e7bbde40dbd4b79a6ce3735ab5a1ac81421d3b
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274195"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622571"
 ---
 # <a name="get-resource-changes"></a>Ottenere le modifiche delle risorse
 
@@ -44,8 +44,8 @@ Il primo passaggio per vedere le modifiche apportate a una risorsa consiste nel 
 
 L'endpoint **resourceChanges** accetta i parametri seguenti nel corpo della richiesta:
 
-- **resourceId** \[required @ no__t-2: Risorsa di Azure in cui cercare le modifiche.
-- **intervallo** \[required @ no__t-2: Proprietà con date di _inizio_ e di _fine_ per il momento in cui verificare la presenza di un evento di modifica utilizzando il **fuso orario Zulu (Z)** .
+- **resourceId** \[required\]: la risorsa di Azure in cui cercare le modifiche.
+- **intervallo** \[necessario\]: una proprietà con date di _inizio_ e di _fine_ per il momento in cui verificare la presenza di un evento di modifica usando il **fuso orario Zulu (Z)** .
 - **fetchPropertyChanges** (facoltativo): Proprietà booleana che imposta se l'oggetto risposta include le modifiche alle proprietà.
 
 Corpo della richiesta di esempio:
@@ -149,12 +149,12 @@ Ogni evento di modifica rilevato per **resourceId** presenta le proprietà segue
 - **changeId** : questo valore è univoco per la risorsa. Sebbene la stringa **changeId** possa talvolta contenere altre proprietà, è garantito che sia univoca.
 - **beforeSnapshot** : contiene il **snapshotId** e il **timestamp** dello snapshot di risorsa che è stato effettuato prima che venisse rilevata una modifica.
 - **afterSnapshot** : contiene l' **snapshotId** e il **timestamp** dello snapshot di risorsa che è stato eseguito dopo il rilevamento di una modifica.
-- **ChangeType** : descrive il tipo di modifica rilevata per l'intero record delle modifiche tra **beforeSnapshot** e **afterSnapshot**. I valori sono: _Creare_, _aggiornare_ed _eliminare_. La matrice di proprietà **propertyChanges** viene inclusa solo quando **ChangeType** è _Update_.
+- **ChangeType** : descrive il tipo di modifica rilevata per l'intero record delle modifiche tra **beforeSnapshot** e **afterSnapshot**. I valori sono: _create_, _Update_e _Delete_. La matrice di proprietà **propertyChanges** viene inclusa solo quando **ChangeType** è _Update_.
 - **propertyChanges** : questa matrice di proprietà descrive in dettaglio tutte le proprietà delle risorse aggiornate tra **beforeSnapshot** e **afterSnapshot**:
   - **PropertyName** : nome della proprietà della risorsa che è stata modificata.
-  - **changeCategory** : descrive la modifica apportata. I valori sono: _Sistema_ e _utente_.
+  - **changeCategory** : descrive la modifica apportata. I valori sono: _System_ e _User_.
   - **ChangeType** : descrive il tipo di modifica rilevata per la singola proprietà della risorsa.
-    I valori sono: _Inserimento_, _aggiornamento_e _rimozione_.
+    I valori sono: _Insert_, _Update_, _Remove_.
   - **beforeValue** : valore della proprietà Resource in **beforeSnapshot**. Non viene visualizzato quando **ChangeType** è _Insert_.
   - **afterValue** : valore della proprietà Resource in **afterSnapshot**. Non viene visualizzato quando **ChangeType** è _Remove_.
 
@@ -164,8 +164,8 @@ Con **changeId** dall'endpoint **resourceChanges** , l'endpoint REST **resourceC
 
 L'endpoint **resourceChangeDetails** richiede due parametri nel corpo della richiesta:
 
-- **resourceId**: Risorsa di Azure in cui confrontare le modifiche.
-- **changeId**: Evento di modifica univoco per **resourceId** raccolto da **resourceChanges**.
+- **resourceId**: risorsa di Azure in cui confrontare le modifiche.
+- **changeId**: evento di modifica univoco per il **resourceId** raccolto da **resourceChanges**.
 
 Corpo della richiesta di esempio:
 
@@ -292,4 +292,4 @@ Per confrontare i risultati, usare la proprietà **changes** in **resourceChange
 
 - Vedere il linguaggio in uso nelle [query Starter](../samples/starter.md).
 - Vedere uso avanzato nelle [query avanzate](../samples/advanced.md).
-- Scopri come [esplorare le risorse](../concepts/explore-resources.md).
+- Altre informazioni su come [esplorare le risorse](../concepts/explore-resources.md).

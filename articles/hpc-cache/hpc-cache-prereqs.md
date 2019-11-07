@@ -1,19 +1,19 @@
 ---
-title: Prerequisiti della cache HPC di Azure (anteprima)
+title: Prerequisiti della cache HPC di Azure
 description: Prerequisiti per l'uso della cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: cfaa8f94dbb836a61b7f024c9426625d874dc524
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ca7a12f45f8d907ee65df85e349883e4c14af47a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709969"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582142"
 ---
-# <a name="prerequisites-for-azure-hpc-cache-preview"></a>Prerequisiti per cache HPC di Azure (anteprima)
+# <a name="prerequisites-for-azure-hpc-cache"></a>Prerequisiti per cache HPC di Azure
 
 Prima di usare la portale di Azure per creare una nuova cache HPC di Azure, assicurarsi che l'ambiente soddisfi questi requisiti.
 
@@ -22,7 +22,7 @@ Prima di usare la portale di Azure per creare una nuova cache HPC di Azure, assi
 È consigliabile usare una sottoscrizione A pagamento.
 
 > [!NOTE]
-> Durante la versione di anteprima, il team di cache HPC di Azure deve aggiungere la sottoscrizione all'elenco di accesso prima di poterla usare per creare un'istanza della cache. Questa procedura consente di garantire che ogni cliente ottenga una risposta di alta qualità dalle cache di test. Compilare [questo modulo](https://aka.ms/onboard-hpc-cache) per richiedere l'accesso.
+> Durante i primi mesi della versione GA, il team di cache HPC di Azure deve aggiungere la sottoscrizione all'elenco di accesso prima di poterla usare per creare un'istanza della cache. Questa procedura consente di garantire che ogni cliente ottenga una risposta di alta qualità dalle proprie cache. Compilare [questo modulo](https://aka.ms/onboard-hpc-cache) per richiedere l'accesso.
 
 ## <a name="network-infrastructure"></a>Infrastruttura di rete
 
@@ -52,13 +52,13 @@ Se è necessario accedere solo all'archiviazione BLOB, è possibile usare il ser
 
 Per altre informazioni sulle reti virtuali di Azure e sulle configurazioni del server DNS, vedere [risoluzione dei nomi per le risorse nelle reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>Autorizzazioni
 
 Verificare questi prerequisiti relativi alle autorizzazioni prima di iniziare a creare la cache.
 
 * L'istanza della cache deve essere in grado di creare interfacce di rete virtuali (NIC). Per creare schede di interfaccia di rete, l'utente che crea la cache deve disporre di privilegi sufficienti nella sottoscrizione.
 
-* Se si usa l'archiviazione BLOB, la cache HPC di Azure deve disporre dell'autorizzazione per accedere all'account di archiviazione. È possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere all'archivio BLOB l'accesso alla cache. Sono necessari due ruoli: Collaboratore account di archiviazione e collaboratore dati BLOB di archiviazione. Per aggiungere i ruoli, seguire le istruzioni riportate in [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) .
+* Se si usa l'archiviazione BLOB, la cache HPC di Azure deve disporre dell'autorizzazione per accedere all'account di archiviazione. È possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere all'archivio BLOB l'accesso alla cache. Sono necessari due ruoli: collaboratore account di archiviazione e collaboratore dati BLOB di archiviazione. Per aggiungere i ruoli, seguire le istruzioni riportate in [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) .
 
 ## <a name="storage-infrastructure"></a>Infrastruttura di archiviazione
 
@@ -80,13 +80,13 @@ Creare l'account e il contenitore prima di tentare di aggiungerlo come destinazi
 
 Per creare un account di archiviazione compatibile, usare le impostazioni seguenti:
 
-* Prestazioni **Standard**
-* Tipo di account: **Archiviazione V2 (utilizzo generico v2)**
-* Replica: **Archiviazione con ridondanza locale (LRS)**
-* Livello di accesso (predefinito): **Livello di archiviazione ad accesso frequente**
+* Prestazioni: **standard**
+* Tipo di account: **archiviazione V2 (utilizzo generico v2)**
+* Replica: **archiviazione con ridondanza locale (con ridondanza locale)**
+* Livello di accesso (predefinito): **attivo**
 
 È consigliabile usare un account di archiviazione nella stessa posizione della cache.
-<!-- need to clarify location - same region or same resource group or same virtual network? -->
+<!-- clarify location - same region or same resource group or same virtual network? -->
 
 È anche necessario concedere all'applicazione cache l'accesso all'account di archiviazione di Azure. Seguire la descrizione in [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) per assegnare alla cache il collaboratore per l'account di archiviazione per i ruoli di accesso e i dati BLOB di archiviazione. Se non si è il proprietario dell'account di archiviazione, chiedere al proprietario di eseguire questo passaggio.
 

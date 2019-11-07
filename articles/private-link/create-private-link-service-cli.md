@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: c67d2cd4e90b2fa61a4d95e89a68c888a6e1fe3f
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 57ab18c8dfffb6994983179f434491b97589ebda
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273644"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693241"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Creare un servizio di collegamento privato usando l'interfaccia della riga di comando
 Questo articolo illustra come creare un servizio di collegamento privato in Azure usando l'interfaccia della riga di comando di Azure.
@@ -28,7 +28,7 @@ Per poter creare una rete virtuale, è prima necessario creare un gruppo di riso
 ```azurecli-interactive
 az group create --name myResourceGroup --location westcentralus
 ```
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
+### <a name="create-a-virtual-network"></a>Crea una rete virtuale
 Creare una rete virtuale con [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Questo esempio crea una rete virtuale predefinita denominata *myVirtualNetwork* con una subnet denominata *Subnet*:
 
 ```azurecli-interactive
@@ -62,7 +62,7 @@ Un probe di integrità controlla tutte le istanze di una macchina virtuale per a
 
 ### <a name="create-a-load-balancer-rule"></a>Creare una regola di bilanciamento del carico
 
-Una regola di bilanciamento del carico definisce la configurazione IP front-end per il traffico in ingresso e il pool IP back-end che riceve il traffico, insieme alla porta di origine e di destinazione necessaria. Creare una regola di bilanciamento del carico *myHTTPRule* con il comando [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) per l'ascolto sulla porta 80 nel pool front-end *myFrontEnd* e l'invio del traffico di rete con carico bilanciato al pool di indirizzi back-end *myBackEndPool* sempre tramite la porta 80. 
+Una regola di bilanciamento del carico definisce la configurazione IP front-end per il traffico in ingresso e il pool IP di back-end che riceve il traffico, insieme alla porta di origine e di destinazione necessaria. Creare una regola di bilanciamento del carico *myHTTPRule* con il comando [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) per l'ascolto sulla porta 80 nel pool front-end *myFrontEnd* e l'invio del traffico di rete con carico bilanciato al pool di indirizzi back-end *myBackEndPool* sempre tramite la porta 80. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -111,7 +111,7 @@ Verrà ora illustrato come eseguire il mapping di questo servizio a un endpoint 
 ## <a name="private-endpoints"></a>Endpoint privati
 
 ### <a name="create-the-virtual-network"></a>Creare la rete virtuale 
-Creare una rete virtuale con [AZ Network VNET create](/cli/azure/network/vnet#az-network-vnet-create). Questo esempio crea una rete virtuale denominata *myPEVNet* nel gruppo di risorse denominato *myResourcegroup*: 
+Creare una rete virtuale con [AZ Network VNET create](/cli/azure/network/vnet#az-network-vnet-create). Questo esempio crea una rete virtuale denominata *myPEVNet* in un gruppo di risorse denominato *myResourcegroup*: 
 ```azurecli-interactive
 az network vnet create \
 --resource-group myResourceGroup \
@@ -119,7 +119,7 @@ az network vnet create \
 --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-the-subnet"></a>Creare la subnet 
-Creare una subnet nella rete virtuale con [AZ Network VNET subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Questo esempio crea una subnet denominata *subnet nella rete virtuale denominata* *myPEVnet* nel gruppo di risorse denominato *myResourcegroup*: 
+Creare una subnet nella rete virtuale con [AZ Network VNET subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Questo esempio Mostra come creare una *subnet denominata subnet* nella rete virtuale denominata *myPEVnet* nel gruppo di risorse denominato *myResourcegroup*: 
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -151,7 +151,7 @@ az network private-endpoint create \
 --connection-name myPEConnectingPLS \
 --location westcentralus 
 ```
-È possibile ottenere la *connessione privata-Resource-ID* con `az network private-link-service show` il servizio di collegamento privato. L'ID sarà simile al seguente:   
+È possibile ottenere la *connessione privata-Resource-ID* con `az network private-link-service show` nel servizio di collegamento privato. L'ID sarà simile al seguente:   
 /subscriptions/subID/resourceGroups/*resourcegroupname*/Providers/Microsoft.Network/privateLinkServices/**privatelinkservicename** 
  
 ## <a name="show-private-link-service-connections"></a>Mostra connessioni al servizio di collegamento privato 

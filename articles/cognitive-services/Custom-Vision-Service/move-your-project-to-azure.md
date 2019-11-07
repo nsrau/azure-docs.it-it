@@ -1,7 +1,7 @@
 ---
 title: Spostare un progetto di valutazione limitato in Azure
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come spostare un progetto di valutazione limitato in Azure.
+description: In Visione personalizzata è presente un progetto di valutazione limitato? Questo articolo illustra come spostarlo in Azure con uno script di migrazione.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: 22c3767dfac1e377890f1e01517d18263e694854
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5c583270428a459f500ae0e220592805fd1bf454
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560922"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718901"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure"></a>Come spostare il progetto di valutazione limitato in Azure
 

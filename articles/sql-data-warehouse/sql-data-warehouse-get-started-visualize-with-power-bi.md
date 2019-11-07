@@ -1,5 +1,5 @@
 ---
-title: Visualizzare i dati di SQL Data Warehouse con Power BI in Microsoft Azure
+title: Visualizzare i dati con Power BI Microsoft Azure
 description: Visualizzare i dati di SQL Data Warehouse con Power BI
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,13 @@ ms.subservice: integration
 ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 4650e171c180653e94d78451d66bba1bcc71b136
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: eea4e3b0b1f0e4ec3eaf3e0aba8952f6693d2921
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241280"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685787"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualizzare i dati con Power BI
 Questa esercitazione illustra come usare Power BI per connettersi a SQL Data Warehouse e creare alcune visualizzazioni di base.
@@ -29,7 +30,7 @@ Per eseguire questa esercitazione, è necessario:
 
 * Un'istanza di SQL Data Warehouse in cui sia precaricato il database AdventureWorksDW. Per effettuarne il provisioning di un data warehouse, vedere [Creare un Azure SQL Data Warehouse](create-data-warehouse-portal.md) e scegliere di caricare i dati di esempio. Se si ha già un data warehouse, ma non i dati di esempio, è possibile [caricare WideWorldImportersDW](load-data-wideworldimportersdw.md).
 
-## <a name="1-connect-to-your-database"></a>1. Connettersi al database
+## <a name="1-connect-to-your-database"></a>1. connettersi al database
 Per aprire Power BI e connettersi al database AdventureWorksDW:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
@@ -49,7 +50,7 @@ Per aprire Power BI e connettersi al database AdventureWorksDW:
    
     ![Apertura di AdventureWorksDW in Power BI](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png)
 
-## <a name="2-create-a-report"></a>2. Creare un report
+## <a name="2-create-a-report"></a>2. creare un report
 È ora possibile usare Power BI per analizzare i dati di esempio di AdventureWorksDW. Per eseguire l'analisi, AdventureWorksDW dispone di una visualizzazione denominata VenditeAggregate. Questa visualizzazione contiene alcune metriche chiave per l'analisi delle vendite della società.
 
 1. Per creare una mappa degli importi di vendita in base al codice postale, nel riquadro con i campi a destra fare clic su AggregateSales per espanderlo. Fare clic sulle colonne PostalCode e SalesAmount per selezionarle.
@@ -93,4 +94,4 @@ Quando si usa la connessione diretta:
 Queste limitazioni e note sono soggette a modifiche con il miglioramento delle esperienze.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora che ti forniamo una certa esercitati con i dati di esempio, vedere come [sviluppare](sql-data-warehouse-overview-develop.md) oppure [caricare](design-elt-data-loading.md). In alternativa, vedere il [sito Web di Power BI](https://www.powerbi.com/).
+Ora che è stato fornito un po' di tempo per scaldarsi con i dati di esempio, vedere come [sviluppare](sql-data-warehouse-overview-develop.md) o [caricare](design-elt-data-loading.md). In alternativa, vedere il [sito Web di Power BI](https://www.powerbi.com/).

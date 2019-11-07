@@ -1,21 +1,24 @@
 ---
-title: Competenze cognitive per la traduzione del testo
+title: Traduzione del testo skill cognitive (anteprima)
 titleSuffix: Azure Cognitive Search
-description: Valuta il testo e, per ogni record, restituisce il testo convertito nel linguaggio di destinazione specificato in una pipeline di arricchimento AI in Azure ricerca cognitiva.
+description: Valuta il testo e, per ogni record, restituisce il testo convertito nel linguaggio di destinazione specificato in una pipeline di arricchimento AI in Azure ricerca cognitiva. Questa competenza è attualmente disponibile in anteprima pubblica.
 manager: nitinme
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c2405fe67b39e016e64efb1b36cc551a00a338fc
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7c42c9033fac057c12426726a96ae6079f3080da
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791863"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715406"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Competenze cognitive per la traduzione del testo
+
+> [!IMPORTANT] 
+> Questa competenza è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L' [API REST versione 2019-05-06-Preview](search-api-preview.md) fornisce funzionalità di anteprima. Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
 
 L'abilità di **traduzione del testo** valuta il testo e, per ogni record, restituisce il testo convertito nel linguaggio di destinazione specificato. Questa competenza usa il [API traduzione testuale v 3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) disponibile in Servizi cognitivi.
 
@@ -38,7 +41,7 @@ La dimensione massima di un record deve essere di 50.000 caratteri misurata da [
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Input                | Description |
+| Input                | Descrizione |
 |---------------------|-------------|
 | defaultToLanguageCode | Necessaria Codice della lingua in cui tradurre i documenti per i documenti che non specificano in modo esplicito la lingua a. <br/> Vedere l'[elenco completo delle lingue supportate](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
 | defaultFromLanguageCode | Opzionale Codice della lingua da cui tradurre i documenti per i documenti che non specificano in modo esplicito il linguaggio from.  Se defaultFromLanguageCode non è specificato, verrà utilizzato il rilevamento automatico della lingua fornito dal API Traduzione testuale per determinare la lingua da. <br/> Vedere l'[elenco completo delle lingue supportate](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
@@ -46,7 +49,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome input     | Description |
+| Nome input     | Descrizione |
 |--------------------|-------------|
 | text | Testo da tradurre.|
 | toLanguageCode    | Stringa che indica la lingua in cui deve essere convertito il testo. Se questo input non è specificato, verrà usato defaultToLanguageCode per tradurre il testo. <br/>Vedere l'[elenco completo delle lingue supportate](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
@@ -54,7 +57,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-outputs"></a>Output competenze
 
-| Nome output    | Description |
+| Nome output    | Descrizione |
 |--------------------|-------------|
 | translatedText | Risultato stringa della traduzione del testo da translatedFromLanguageCode a translatedToLanguageCode.|
 | translatedToLanguageCode  | Stringa che indica il codice della lingua in cui è stato convertito il testo. Utile se si esegue la conversione in più lingue e si desidera essere in grado di tenere traccia del testo che è il linguaggio.|
@@ -148,7 +151,7 @@ Se si fornisce un codice lingua non supportato per la lingua da o a, viene gener
 Se il testo è vuoto, verrà generato un avviso.
 Se il testo è più grande di 50.000 caratteri, verranno tradotti solo i primi 50.000 caratteri e verrà emesso un avviso.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)

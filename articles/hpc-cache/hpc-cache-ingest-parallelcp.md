@@ -1,19 +1,19 @@
 ---
-title: Azure HPC cache anteprima inserimento dati-script di copia parallela
+title: Inserimento di dati nella cache HPC di Azure-script di copia parallela
 description: Come usare uno script di copia parallela per spostare i dati in una destinazione di archiviazione BLOB nella cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 4899f946cb358693c969def3fa740af64675d934
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 0bb74dcd683145fbae22cf0b6d2827ad9e16de0e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254526"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582700"
 ---
-# <a name="azure-hpc-cache-preview-data-ingest---parallel-copy-script-method"></a>Cache HPC di Azure (anteprima) inserimento dati-metodo script copia parallela
+# <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Inserimento di dati nella cache HPC di Azure-metodo script di copia parallela
 
 Questo articolo fornisce le istruzioni per creare lo script ``parallelcp`` e usarlo per spostare i dati in un contenitore di archiviazione BLOB per l'uso con la cache HPC di Azure.
 

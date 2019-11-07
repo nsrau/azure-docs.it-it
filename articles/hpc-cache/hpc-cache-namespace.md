@@ -1,21 +1,21 @@
 ---
-title: Creare un'istanza di Cache HPC di Azure (anteprima)
+title: Creare una cache HPC di Azure
 description: Come creare un'istanza di Cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: fa6408d33504c6ac73eacec079e9c08acd4cece2
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: aaa939051a1aeafdb0650119772fc7214506aa8d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255276"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582186"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Pianificare lo spazio dei nomi aggregato
 
-Cache HPC di Azure (anteprima) consente ai client di accedere a un'ampia gamma di sistemi di archiviazione tramite uno spazio dei nomi virtuale che nasconde i dettagli del sistema di archiviazione back-end.
+La cache HPC di Azure consente ai client di accedere a un'ampia gamma di sistemi di archiviazione tramite uno spazio dei nomi virtuale che nasconde i dettagli del sistema di archiviazione back-end.
 
 Quando si aggiunge una destinazione di archiviazione, è necessario impostare il percorso del file per il client. I computer client montano questo percorso di file e possono eseguire richieste di lettura del file alla cache anziché montare direttamente il sistema di archiviazione.
 

@@ -1,19 +1,19 @@
 ---
-title: Inserimento dati anteprima cache HPC di Azure-copia manuale
+title: Inserimento di dati nella cache HPC di Azure-copia manuale
 description: Come usare i comandi CP per spostare i dati in una destinazione di archiviazione BLOB nella cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 7e29cbd202b32897026bed074743de543d3fd587
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: b2514eaaf70d13d3be63963f24ea7be99c4fbcce
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254461"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582292"
 ---
-# <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Inserimento di dati nella cache HPC di Azure (anteprima)-metodo di copia manuale
+# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Inserimento di dati nella cache HPC di Azure-metodo di copia manuale
 
 Questo articolo fornisce istruzioni dettagliate per la copia manuale dei dati in un contenitore di archiviazione BLOB per l'uso con la cache HPC di Azure. USA operazioni parallele multithread per ottimizzare la velocità di copia.
 
@@ -81,7 +81,7 @@ cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 
 ## <a name="when-to-add-mount-points"></a>Quando aggiungere punti di montaggio
 
-Quando si dispone di un numero sufficiente di thread paralleli rispetto a una singola destinazione file system punto di montaggio, sarà presente un punto in cui l'aggiunta di più thread non offre una maggiore velocità effettiva. (La velocità effettiva verrà misurata in byte al secondo o file al secondo, in base al tipo di dati.) Peggio ancora, il threading eccessivo può talvolta causare una riduzione della velocità effettiva.  
+Quando si dispone di un numero sufficiente di thread paralleli rispetto a una singola destinazione file system punto di montaggio, sarà presente un punto in cui l'aggiunta di più thread non offre una maggiore velocità effettiva. (La velocità effettiva viene misurata in file al secondo o in byte al secondo, a seconda del tipo di dati.) O peggio, il overthreading può a volte causare una riduzione della velocità effettiva.  
 
 Quando si verifica questo problema, è possibile aggiungere punti di montaggio lato client ad altri indirizzi di montaggio della cache HPC di Azure, usando lo stesso percorso di montaggio file system remoto:
 
@@ -136,7 +136,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ## <a name="create-file-manifests"></a>Creare manifesti di file
 
-Dopo aver compreso gli approcci precedenti (più thread di copia per destinazione, più destinazioni per client, più client per origine accessibile alla rete file system), considerare questa raccomandazione: creare manifesti di file e quindi usarli con i comandi di copia tra più client.
+Dopo aver compreso gli approcci precedenti (più thread di copia per destinazione, più destinazioni per client, più client per origine accessibile alla rete file system), considerare questa raccomandazione: compilare manifesti di file e quindi usarli con Copy comandi tra più client.
 
 Questo scenario usa il comando UNIX ``find`` per creare manifesti di file o directory:
 
@@ -208,7 +208,7 @@ Se hai cinque client, usare un comando simile al seguente:
 for i in 1 2 3 4 5; do sed -n ${i}~5p /tmp/foo > /tmp/client${i}; done
 ```
 
-Per sei... Estrapolare in base alle esigenze.
+E per sei.... Estrapolare in base alle esigenze.
 
 ```bash
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done

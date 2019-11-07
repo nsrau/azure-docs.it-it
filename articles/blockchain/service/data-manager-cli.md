@@ -8,12 +8,12 @@ ms.date: 11/04/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chroyal
-ms.openlocfilehash: 1e92ae36aee5e62cd05b40bbaa38a226943f0adb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 9f408b090db40e5145b424034c39cdba4de14a8f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518021"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605909"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurare Data Manager blockchain usando l'interfaccia della riga di comando di Azure
 
@@ -259,6 +259,10 @@ az resource create \
 
 Se si aggiunge un'applicazione blockchain, blockchain Data Manager decodifica l'evento e lo stato della proprietà per l'applicazione. In caso contrario, vengono inviati solo i dati delle transazioni RAW e i blocchi Raw. Blockchain Data Manager individua anche gli indirizzi del contratto quando il contratto viene distribuito. È possibile aggiungere più applicazioni blockchain a un'istanza di blockchain Data Manager.
 
+
+> [!IMPORTANT]
+> Attualmente, le applicazioni blockchain che dichiarano [tipi di matrici](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) di solidità o [tipi di mapping](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) non sono completamente supportate. Le proprietà dichiarate come matrici o tipi di mapping non verranno decodificate nei messaggi *ContractPropertiesMsg* o *DecodedContractEventsMsg* .
+
 ``` azurecli
 az resource create \
                    --resource-group <Resource group> \
@@ -306,7 +310,7 @@ Esempio JSON di configurazione per creare una risorsa dell'applicazione nell'are
 | location | Area in cui creare la risorsa dell'applicazione. |
 | artifactType | Tipo di applicazione. Attualmente, **EthereumSmartContract** è supportato. |
 | abiFileUrl | URL per il file JSON ABI Smart Contract. Per ulteriori informazioni su come ottenere l'ABI del contratto e creare un URL, vedere [Get Contract Abi and bytecode](data-manager-portal.md#get-contract-abi-and-bytecode) e [create Contract Abi and bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
-| bytecodeFileUrl | URL per il file JSON del bytecode Smart Contract. Per ulteriori informazioni su come ottenere il bytecode di Smart contract e creare un URL, vedere [Get Contract Abi and bytecode](data-manager-portal.md#get-contract-abi-and-bytecode) e [create Contract Abi and bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
+| bytecodeFileUrl | URL del file JSON bytecode distribuito con Smart Contract. Per ulteriori informazioni su come ottenere il bytecode distribuito con Smart contract e creare un URL, vedere [Get Contract Abi and bytecode](data-manager-portal.md#get-contract-abi-and-bytecode) e [create Contract Abi and bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). Nota: blockchain Data Manager richiede il **bytecode distribuito**. |
 | queryTargetTypes | Tipi di messaggio pubblicati. Se si specifica **ContractProperties** , viene pubblicato il tipo di messaggio *ContractPropertiesMsg* . Se si specifica **ContractEvents** , viene pubblicato il tipo di messaggio *DecodedContractEventsMsg* . Nota: i tipi di messaggi *RawBlockAndTransactionMsg* e *RawTransactionContractCreationMsg* vengono sempre pubblicati. |
 
 Creare un'applicazione denominata *MyApplication* per il *controllo* che monitora un contratto intelligente definito da una stringa JSON.
@@ -415,4 +419,7 @@ az resource delete \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sui [gestori di eventi in griglia di eventi di Azure](../../event-grid/event-handlers.md).
+Provare a creare un Visualizzatore messaggi di transazione blockchain usando blockchain Data Manager e Azure Cosmos DB.
+
+> [!div class="nextstepaction"]
+> [Esercitazione: usare blockchain Data Manager per inviare dati a Azure Cosmos DB](data-manager-cosmosdb.md)

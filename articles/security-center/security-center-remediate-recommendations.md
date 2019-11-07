@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2019
+ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 72212bf3687f891d3a04fe0ecddf415af72505a6
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
-ms.translationtype: HT
+ms.openlocfilehash: 5217c4c7b68c487d7285ec03700266ad2768606d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520712"
+ms.locfileid: "73571531"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Correggere le raccomandazioni nel centro sicurezza di Azure
 

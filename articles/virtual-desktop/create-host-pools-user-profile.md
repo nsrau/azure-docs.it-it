@@ -1,5 +1,5 @@
 ---
-title: Creare un contenitore di profili FSLogix per un pool host usando una condivisione file basata su macchina virtuale-Azure
+title: Condivisione contenitore del profilo FSLogix per desktop virtuale Windows-Azure
 description: Come configurare un contenitore del profilo FSLogix per un pool host di desktop virtuali Windows usando una condivisione file basata su macchina virtuale.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: 0e7516fc4874e4cbc387f2f494efc6ef745d64f7
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 65d800cc6c1b6818369807ffeae9cd350a34066f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311597"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606998"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Creare un contenitore di profili per un pool di host con una condivisione file
 
@@ -59,13 +59,13 @@ Per configurare le macchine virtuali con il software FSLogix, eseguire le operaz
 
 1. [Connettersi alla macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) con le credenziali fornite durante la creazione della macchina virtuale.
 2. Avviare un browser Internet e passare a [questo collegamento](https://go.microsoft.com/fwlink/?linkid=2084562) per scaricare l'agente FSLogix.
-3. Passare a \\ @ no__t-1Win32 @ no__t-2Release o \\ @ no__t-4X64 @ no__t-5Data nel file con estensione zip ed eseguire **FSLogixAppsSetup** per installare l'agente FSLogix.  Per ulteriori informazioni su come installare FSLogix, vedere [scaricare e installare FSLogix](https://docs.microsoft.com/fslogix/install-ht).
+3. Passare a \\\\versione Win32\\o \\\\x64\\versione nel file con estensione zip ed eseguire **FSLogixAppsSetup** per installare l'agente FSLogix.  Per ulteriori informazioni su come installare FSLogix, vedere [scaricare e installare FSLogix](https://docs.microsoft.com/fslogix/install-ht).
 4. Passare a **programmi** > **FSLogix** > **app** per verificare che l'agente sia installato.
-5. Dal menu Start eseguire **Regedit** come amministratore. Passare al **computer @ no__t-1HKEY_LOCAL_MACHINE @ no__t-2Software @ no__t-3FSLogix**.
+5. Dal menu Start eseguire **Regedit** come amministratore. Passare a **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
 6. Creare una chiave denominata **profili**.
 7. Creare i valori seguenti per la chiave dei profili:
 
-| NOME                | Type               | Dati/valore                        |
+| Name                | Tipo               | Dati/valore                        |
 |---------------------|--------------------|-----------------------------------|
 | Enabled             | DWORD              | 1                                 |
 | VHDLocations        | Valore multistringa | "Percorso di rete per la condivisione file"     |

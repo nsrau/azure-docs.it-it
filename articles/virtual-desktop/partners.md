@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 11/05/2019
 ms.author: helohr
-ms.openlocfilehash: b62351f1d99ef54d2416a2427264aea225afc5a8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cf344d6c551ecd3d301d79c29efe9e7adb7f8d83
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171619"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646876"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrazioni di partner desktop virtuali Windows
 
@@ -24,7 +24,7 @@ Questo articolo elenca i partner del desktop virtuale di Windows.
 
 Citrix è un provider approvato che offre alle aziende una gestione ibrida centralizzata delle app virtuali e dei carichi di lavoro desktop in Azure, affiancate alle distribuzioni locali. L'area di lavoro Citrix con il servizio app virtuali e desktop consente agli utenti di accedere alle app e ai desktop da qualsiasi dispositivo, sfruttando il protocollo Advanced Citrix HDX per offrire un'esperienza di definizione elevata ovunque ci si trovi.
 
-Citrix estende il valore del desktop virtuale di Windows con strumenti aziendali affidabili per migliorare la densità e le prestazioni degli utenti, effettuare il provisioning su richiesta dei carichi di lavoro e semplificare la gestione delle immagini e delle applicazioni. Può ottimizzare i costi con gli strumenti di scalabilità intelligente, mentre offre un'esperienza utente finale straordinaria che è stata testata sul campo per le applicazioni più complesse tra i settori.
+Citrix estende il valore del desktop virtuale di Windows con strumenti aziendali affidabili per migliorare la densità e le prestazioni degli utenti, effettuare il provisioning su richiesta dei carichi di lavoro e semplificare la gestione delle immagini e delle applicazioni. Consente di ottimizzare i costi con gli strumenti di scalabilità intelligente, offrendo al tempo stesso un'esperienza utente straordinaria che è stata testata per le applicazioni più complesse tra i settori. Citrix Managed desktops, inoltre, è un programma desktop Windows abilitato per desktop virtuali come servizio che offre una semplice soluzione di gestione basata sul cloud per la distribuzione di app virtuali e desktop a qualsiasi dispositivo.
 
 - [Accedere al sito Web del partner](https://more.citrix.com/wvd).
 
@@ -44,7 +44,7 @@ Come provider approvato, i vantaggi di desktop virtuale di Windows verranno este
 
 ![Logo di CloudJumper](./media/partners/cloudjumper.png)
 
-CloudJumper è un provider di servizi a valore aggiunto per desktop virtuale di Windows che fornisce a provider di soluzioni e IT aziendale un software per il provisioning olistico e la gestione di ambienti desktop virtuali Windows. Con il software CloudJumper, può gestire ogni livello di una distribuzione di desktop virtuali Windows. Il recapito dei carichi di lavoro e delle applicazioni è automatizzato, garantendo che gli utenti possano accedere rapidamente al desktop ovunque si trovino su qualsiasi dispositivo.
+CloudJumper è un provider di servizi a valore aggiunto per desktop virtuale di Windows che fornisce a provider di soluzioni e IT aziendale un software per il provisioning e la gestione di ambienti desktop virtuali Windows in modo olistico. Con il software CloudJumper, può gestire ogni livello di una distribuzione di desktop virtuali Windows. Il recapito dei carichi di lavoro e delle applicazioni è automatizzato, garantendo che gli utenti possano accedere rapidamente al desktop ovunque si trovino su qualsiasi dispositivo.
 
 Il software di CloudJumper, la suite di gestione delle aree di lavoro cloud estende il valore del desktop virtuale Windows semplificando la distribuzione e le attività amministrative in corso in Azure. Da un unico riquadro, può effettuare il provisioning, la gestione e l'ottimizzazione dell'infrastruttura per le aree di lavoro degli utenti. Il motore di attivazione semplice dello script di CloudJumper si integra con le piattaforme del servizio IT per automatizzare le attività necessarie per il provisioning di desktop virtuali Windows. Inoltre, le API CloudJumper consentono una maggiore estendibilità e integrazione con altri sistemi aziendali, ad esempio ServiceNow e BMC Ready.
 
@@ -66,11 +66,21 @@ Se usato con desktop virtuale di Windows, ControlUp offre funzionalità aggiunti
 
 ![Logo di deviceTRUST](./media/partners/devicetrust.png)
 
-deviceTRUST è un provider di servizi a valore aggiunto per desktop virtuale Windows che contestualizzare l'azienda aziendale, consentendo agli utenti la libertà di accedere al desktop virtuale Windows da qualsiasi posizione, su qualsiasi dispositivo, su qualsiasi rete, fornendo reparti le informazioni e il controllo necessari per soddisfare i requisiti di governance. 
+deviceTRUST è un provider di servizi a valore aggiunto per desktop virtuale di Windows che contestualizzare l'azienda aziendale. Consente agli utenti la libertà di accedere al desktop virtuale Windows da qualsiasi posizione, su qualsiasi dispositivo, su qualsiasi rete, fornendo ai reparti IT le informazioni e il controllo necessari per soddisfare i requisiti di governance. 
 
 deviceTRUST estende il valore di desktop virtuale di Windows con la tecnologia di sicurezza contestuale. deviceTRUST consente l'accesso condizionale per un accesso al desktop virtuale Windows sicuro, l'accesso condizionale alle applicazioni all'interno di un desktop virtuale Windows e l'applicazione di criteri condizionali per desktop virtuali Windows senza alcuna infrastruttura aggiuntiva. L'uso di deviceTRUST consente un'area di lavoro flessibile e mobile che soddisfa tutti i requisiti di sicurezza, conformità e normativi. 
 
 - [Accedere al sito Web del partner](https://devicetrust.com/wvd).
+
+## <a name="igel"></a>IGEL
+
+![Logo di IGEL](./media/partners/igel.png)
+
+IGEL è un partner approvato e verificato di Microsoft Azure e di servizi desktop virtuali Windows. IGEL offre il sistema operativo IGEL, il sistema operativo Edge di nuova generazione per le aree di lavoro cloud progettate per accedere a app virtuali, desktop e aree di lavoro cloud da uno o più dispositivi utente con un endpoint basato su Linux leggero, semplice e sicuro. Una soluzione software indipendente dalla piattaforma, il sistema operativo IGEL e il software di gestione e controllo basato su server, IGEL Universal Management Suite (UMS), costituiscono una soluzione di gestione e controllo degli endpoint che libera le aziende per sfruttare tutti i vantaggi di Azure istanze cloud e desktop virtuali di Windows, incluso il desktop virtuale di Windows multisessione economico, riducendo al tempo stesso i costi operativi e di gestione dei dispositivi dell'endpoint e dell'hardware.
+ 
+Il sistema operativo IGEL supporta tutte le app virtuali, i desktop e i protocolli client dell'area di lavoro cloud più diffusi da Citrix, Microsoft e VMware. Sono incluse tecnologie integrate di 85 periferiche, interfacce e partner di protocollo per aiutare le organizzazioni ad adottare rapidamente i servizi desktop virtuali Windows nei propri ambienti utente univoci. Il sistema operativo IGEL è un sistema operativo endpoint di sola lettura e modulare, che consente di proteggerlo dalle manomissioni. Ora include anche una "catena di trust" completa che verifica l'integrità di tutti i principali processi in esecuzione nell'endpoint, dall'hardware dell'endpoint (alcuni modelli selezionati) o dal processo UEFI fino al cloud di Azure e ai servizi desktop virtuali di Windows. Con il sistema operativo IGEL, le aziende possono sottoscrivere il desktop virtuale di Windows dal cloud di Azure con la massima confidenza dell'integrità, della sicurezza e della gestibilità dei dispositivi degli endpoint degli utenti.
+
+- [Accedere al sito Web del partner.](https://www.igel.com/igel-os-universal-desktop-operating-system/)
 
 ## <a name="ivanti"></a>Ivanti
 
@@ -78,7 +88,7 @@ deviceTRUST estende il valore di desktop virtuale di Windows con la tecnologia d
 
 Ivanti User Workspace Manager è un servizio di Windows Virtual Desktop aggiunto che semplifica la distribuzione e la gestione dei desktop separando i dati utente dal desktop per una portabilità senza problemi. Con ivanti, gli utenti possono distribuire progetti complessi, ad esempio la migrazione a Windows 10, l'adozione di Office 365 o lo spostamento rapido dei servizi nel cloud. 
 
-Quando viene usato con il desktop virtuale di Windows, ivanti User Workspace Manager fornisce una semplice gestione contestuale dell'esperienza desktop utente, eliminando lunghi tempi di accesso e sradicando gli incubi di criteri di gruppo. Ivanti User Workspace Manager: i modelli predefiniti semplificano l'installazione per gli utenti tramite agenti e la console esistente. Il gestore dell'area di lavoro utenti di ivanti offre desktop reattivi e sicuri che gli utenti amano, risparmiando denaro sui server, gestendo più efficacemente gli utenti e riducendo i rischi per la sicurezza degli endpoint. 
+Quando viene usato con desktop virtuale di Windows, gestione dell'area di lavoro per gli utenti di ivanti offre una semplice gestione contestuale dell'esperienza desktop utente, eliminando i tempi di accesso più lunghi ed eliminando gli incubi di criteri di gruppo. Ivanti User Workspace Manager: i modelli predefiniti semplificano l'installazione per gli utenti tramite agenti e la console esistente. Il gestore dell'area di lavoro utenti di ivanti offre desktop reattivi e sicuri che gli utenti amano, risparmiando denaro sui server, gestendo più efficacemente gli utenti e riducendo i rischi per la sicurezza degli endpoint. 
 
 - [Accedere al sito Web del partner](https://www.ivanti.com/products/user-workspace-manager).
 
@@ -137,9 +147,9 @@ I principali casi d'uso per PolicyPak sono rimuovere i diritti di amministratore
 
 ![Logo di PrinterLogic](./media/partners/printerlogic.png)
 
-PrinterLogic è una piattaforma di provider di servizi a valore aggiunto per desktop virtuale di Windows che consente ai professionisti IT di eliminare tutti i server di stampa e offrire un'infrastruttura di stampa senza server a disponibilità elevata. PrinterLogic estende il valore del desktop virtuale di Windows e di Azure, semplificando la gestione e la distribuzione centralizzata di oggetti Printer in qualsiasi sistema operativo di stampanti o endpoint.   
+PrinterLogic è una piattaforma di provider di servizi a valore aggiunto per desktop virtuale di Windows che consente ai professionisti IT di eliminare tutti i server di stampa e offrire un'infrastruttura di stampa senza server a disponibilità elevata. PrinterLogic estende il valore del desktop virtuale di Windows e di Azure, semplificando la gestione centralizzata e la distribuzione di oggetti stampante a qualsiasi stampante o sistema operativo endpoint.   
 
-Disponibile come SaaS o come uno stack Web nel cloud privato, la piattaforma PrinterLogic garantisce che gli utenti abbiano sempre le stampanti corrette di cui hanno bisogno nelle sessioni virtuali in base all'ID utente, al nome o al percorso del dispositivo. Questa funzionalità è complementare a una suite completa di funzionalità di gestione della stampa aziendale, ad esempio il rilevamento e la creazione di report, la stampa per dispositivi mobili e la stampa della versione per le notifiche protette. 
+Disponibile come SaaS o come uno stack Web nel cloud privato, la piattaforma PrinterLogic garantisce che gli utenti abbiano sempre le stampanti corrette di cui hanno bisogno nelle sessioni virtuali in base all'ID utente, al nome del dispositivo o alla posizione. Questa funzionalità è complementare a una suite completa di funzionalità di gestione della stampa aziendale, ad esempio il rilevamento e la creazione di report, la stampa per dispositivi mobili e la stampa della versione per le notifiche protette. 
 
 - [Vai al sito Web del partner](https://www.printerlogic.com).
 
@@ -147,7 +157,7 @@ Disponibile come SaaS o come uno stack Web nel cloud privato, la piattaforma Pri
 
 ![Logo di Numecent](./media/partners/numecent.png)
 
-Numecent è un provider di servizi a valore aggiunto per desktop virtuale di Windows che riduce significativamente i costi operativi totali grazie al caricamento e alla migrazione rapidi di app di Windows complesse o incompatibili negli ambienti desktop virtuali di Windows. Numecent consente inoltre di ridurre al minimo la quantità di configurazione che gli utenti devono eseguire, riduce gli aggiornamenti dell'applicazione e semplifica i processi complessi. Poiché Numecent Cloudpaging supporta più applicazioni senza problemi rispetto a qualsiasi altro strumento per la distribuzione di applicazioni, riduce il tempo e i carichi di lavoro IT negli ambienti con diversi set di applicazioni. 
+Numecent è un provider di servizi a valore aggiunto per desktop virtuale di Windows che riduce significativamente i costi operativi totali grazie al caricamento e alla migrazione rapidi di app di Windows complesse o incompatibili negli ambienti desktop virtuali di Windows. Numecent riduce inoltre la quantità di configurazione che gli utenti devono eseguire, riduce gli aggiornamenti dell'applicazione e semplifica i processi complessi. Poiché Numecent Cloudpaging supporta più applicazioni senza problemi rispetto a qualsiasi altro strumento per la distribuzione di applicazioni, riduce il tempo e i carichi di lavoro IT negli ambienti con diversi set di applicazioni. 
 
 Se usato con desktop virtuale di Windows, Cloudpaging riduce ulteriormente i costi completando il ciclo di vita delle risorse software dalla distribuzione all'aggiornamento, alla misurazione e alla rimozione di applicazioni. Cloudpaging semplifica la gestione delle immagini eseguendo il provisioning dinamico delle app in base alle esigenze in tempo reale per le distribuzioni di desktop virtuali Windows. Cloudpaging consente di eseguire le applicazioni senza l'intervento dell'amministratore o l'intervento tramite gli aggiornamenti periodici di Windows 10. Cloudpaging consente inoltre di ridurre il costo delle licenze per le applicazioni costose, consentendo una distribuzione e un utilizzo più efficienti di queste applicazioni. 
 
@@ -178,7 +188,7 @@ La soluzione ezeep di ThinPrint estende il valore del desktop virtuale di Window
 
 ![Logo triCerat](./media/partners/tricerat.png)
 
-TriCerat offre una soluzione di gestione della stampa superiore per desktop virtuale Windows e altre piattaforme desktop. Il software triCerat offre funzionalità affidabili che offrono un'esperienza migliore per gli utenti e gli amministratori. Gli amministratori ottengono le efficienze grazie alla gestione completa dei driver, alla distribuzione semplificata delle code di stampa e alla gestione coerente tra piattaforme ibride. L'esperienza utente migliora con i tempi di accesso più brevi, le code di stampa intelligenti basate su utente, dispositivo e percorso di rete e le opzioni self-service per la selezione rapida delle stampanti. 
+TriCerat offre una soluzione di gestione della stampa superiore per desktop virtuale Windows e altre piattaforme desktop. Il software triCerat offre funzionalità affidabili che offrono un'esperienza migliore per gli utenti e gli amministratori. Gli amministratori ottengono le efficienze grazie alla gestione completa dei driver, alla distribuzione semplificata delle code di stampa e alla gestione coerente tra piattaforme ibride. L'esperienza utente migliora con tempi di accesso più brevi, code di stampa intelligenti basate su utente, dispositivo e percorso di rete e opzioni self-service per una rapida selezione delle stampanti. 
 
 Con triCerat, la stampa è facile in Windows Virtual Desktop e versioni successive. Il software triCerat consente agli amministratori di connettere facilmente le stampanti locali al cloud, estendendo la gestione della stampa aziendale da ambienti tradizionali a nuove aree di lavoro moderne.
 

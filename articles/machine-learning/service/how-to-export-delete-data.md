@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: lobrien
 ms.author: laobri
-ms.date: 05/02/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: d653d1cd719ac59bf6c98bee588c41858052bc61
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 34ff3f9704b9c84a7daddcfd14fb9cd3e990f794
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489880"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73716522"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Esportare o eliminare i dati dell'area di lavoro nel servizio Machine Learning 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In Azure Machine Learning è possibile esportare o eliminare i dati dell'area di lavoro con l'API REST autenticata. Questo articolo descrive come esportare o eliminare i dati.
+In Azure Machine Learning è possibile esportare o eliminare i dati dell'area di lavoro con l'API REST autenticata. Questo articolo spiega come procedere.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -243,17 +243,16 @@ Nella finestra di progettazione in cui è stato creato l'esperimento, eliminare 
 
 1. Nell'elenco selezionare la bozza della singola pipeline da eliminare.
 
-1. Nella parte inferiore selezionare **Elimina**.
+1. Selezionare **Elimina**.
 
-## <a name="unregister-data-in-the-designer"></a>Annullare la registrazione dei dati nella finestra di progettazione
+### <a name="delete-datasets-in-the-designer"></a>Eliminare i set di impostazioni nella finestra di progettazione
+
+Per eliminare i set di impostazioni nella finestra di progettazione, usare il portale di Azure o Storage Explorer per passare agli account di archiviazione connessi ed eliminare i set di impostazioni. L'annullamento della registrazione dei set di impostazioni nella finestra di progettazione rimuove solo il punto di riferimento nell'archivio. 
+
+## <a name="export-data-in-the-designer"></a>Esportare i dati nella finestra di progettazione
 
 Nella finestra di progettazione in cui è stato creato l'esperimento, esportare i dati aggiunti:
 
 1. A sinistra selezionare set di **Impostazioni**.
 
-
-
     ![Scarica dati](media/how-to-export-delete-data.md/unregister-dataset.png)
-
-1. Nell'elenco selezionare il singolo set di dati e fare clic su Annulla registrazione.
-

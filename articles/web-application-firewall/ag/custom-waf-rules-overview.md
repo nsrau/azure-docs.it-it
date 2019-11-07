@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 10/04/2019
 ms.author: victorh
-ms.openlocfilehash: 844e24466e9a9b46be3212690767a408e75f234d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 0ac37378797c59d79af5d026200b68154836c5ac
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516617"
+ms.locfileid: "73585401"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Regole personalizzate per il Web Application Firewall V2 in applicazione Azure gateway
 
@@ -162,6 +162,11 @@ Elenco di valori da confrontare, che può essere considerato come *o*' ed. Ad es
 - Log: consente alla regola di scrivere nel log, ma consente di eseguire le altre regole per la valutazione. Le regole personalizzate successive vengono valutate in ordine di priorità, seguite dalle regole gestite.
 
 ## <a name="geomatch-custom-rules-preview"></a>Geomatch-regole personalizzate (anteprima)
+
+Le regole personalizzate consentono di creare regole personalizzate in base alle esigenze specifiche delle applicazioni e ai criteri di sicurezza. È ora possibile limitare l'accesso alle applicazioni Web per paese/area geografica, disponibile in anteprima pubblica. Come per tutte le regole personalizzate, questa logica può essere composta con altre regole in base alle esigenze dell'applicazione. 
+
+   > [!NOTE]
+   > Le regole personalizzate di geocorrispondenza sono disponibili negli Stati Uniti centro-meridionali e in Europa settentrionale. Per accedervi nel portale, usare [questo collegamento](https://aka.ms/AppGWWAFGeoMatch) fino a quando non diventa disponibile per tutti. 
 
 Se si utilizza l'operatore geomatch, i selettori possono essere uno qualsiasi dei seguenti codici paese a due cifre. 
 

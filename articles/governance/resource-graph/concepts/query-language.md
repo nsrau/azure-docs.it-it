@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 80b33212afa7fed3f87b241d5cf69b43be66574d
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d0ba3195aef246ff49042f61dcec0b4397b5dde6
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755923"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622627"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
 
@@ -25,21 +25,21 @@ Questo articolo illustra i componenti del linguaggio supportati da Resource Grap
 
 ## <a name="resource-graph-tables"></a>Tabelle di grafici delle risorse
 
-Il grafico risorse fornisce diverse tabelle per i dati archiviati su Gestione risorse tipi di risorse e le relative proprietà. Queste tabelle possono essere utilizzate con operatori `join` o `union` per ottenere proprietà dai tipi di risorse correlati. Ecco l'elenco di tabelle disponibili nel grafico delle risorse:
+Il grafico risorse fornisce diverse tabelle per i dati archiviati su Gestione risorse tipi di risorse e le relative proprietà. Queste tabelle possono essere utilizzate con operatori `join` o `union` per ottenere proprietà da tipi di risorse correlati. Ecco l'elenco di tabelle disponibili nel grafico delle risorse:
 
-|Tabelle di grafici delle risorse |Description |
+|Tabelle di grafici delle risorse |Descrizione |
 |---|---|
-|resources |Tabella predefinita se non ne è stata definita alcuna nella query. La maggior parte dei Gestione risorse tipi di risorse e le proprietà sono disponibili qui. |
+|Risorse |Tabella predefinita se non ne è stata definita alcuna nella query. La maggior parte dei Gestione risorse tipi di risorse e le proprietà sono disponibili qui. |
 |ResourceContainers |Include i dati e i tipi di risorse della sottoscrizione (in anteprima-`Microsoft.Resources/subscriptions`) e del gruppo di risorse (`Microsoft.Resources/subscriptions/resourcegroups`). |
-|AlertsManagementResources |Include le risorse _correlate_ a `Microsoft.AlertsManagement`. |
-|SecurityResources |Include le risorse _correlate_ a `Microsoft.Security`. |
+|AlertsManagementResources |Include risorse _correlate_ all'`Microsoft.AlertsManagement`. |
+|SecurityResources |Include risorse _correlate_ all'`Microsoft.Security`. |
 
 > [!NOTE]
 > Le _risorse_ sono la tabella predefinita. Quando si esegue una query sulla tabella _Resources_ , non è necessario fornire il nome della tabella, a meno che non vengano utilizzati `join` o `union`. Tuttavia, la procedura consigliata consiste nell'includere sempre la tabella iniziale nella query.
 
-Usare Esplora grafico risorse nel portale per individuare i tipi di risorse disponibili in ogni tabella. In alternativa, usare una query come `<tableName> | distinct type` per ottenere un elenco di tipi di risorse supportati dalla tabella del grafico di risorse specificata nell'ambiente in uso.
+Usare Esplora grafico risorse nel portale per individuare i tipi di risorse disponibili in ogni tabella. In alternativa, usare una query, ad esempio `<tableName> | distinct type` per ottenere un elenco di tipi di risorse supportati dalla tabella del grafico di risorse specificata nell'ambiente in uso.
 
-Nella query seguente viene illustrato un semplice `join`. Il risultato della query combina le colonne insieme e tutti i nomi di colonna duplicati della tabella unita in join, _ResourceContainers_ in questo esempio, vengono aggiunti con **1**. Poiché la tabella _ResourceContainers_ include tipi per le sottoscrizioni e i gruppi di risorse, è possibile usare entrambi i tipi per unire in join la risorsa dalla tabella _risorse_ .
+Nella query seguente viene illustrata una semplice `join`. Il risultato della query combina le colonne insieme e tutti i nomi di colonna duplicati della tabella unita in join, _ResourceContainers_ in questo esempio, vengono aggiunti con **1**. Poiché la tabella _ResourceContainers_ include tipi per le sottoscrizioni e i gruppi di risorse, è possibile usare entrambi i tipi per unire in join la risorsa dalla tabella _risorse_ .
 
 ```kusto
 Resources
@@ -47,7 +47,7 @@ Resources
 | limit 1
 ```
 
-La query seguente illustra un uso più complesso di `join`. La query limita la tabella unita in join alle risorse delle sottoscrizioni e con `project` per includere solo il campo originale _SubscriptionId_ e il campo _nome_ rinominato in _subname_. La ridenominazione dei campi evita `join` aggiungendola come _name1_ perché il campo esiste già nelle _risorse_. La tabella originale viene filtrata con `where` e il `project` seguente include le colonne di entrambe le tabelle. Il risultato della query è un singolo insieme di credenziali delle chiavi che Visualizza il tipo, il nome dell'insieme di credenziali delle chiavi e il nome della sottoscrizione in cui si trova.
+La query seguente illustra un uso più complesso di `join`. La query limita la tabella unita in join alle risorse delle sottoscrizioni e con `project` includere solo il campo originale _SubscriptionId_ e il campo _nome_ rinominato in _subname_. La ridenominazione dei campi evita di `join` aggiungerla come _name1_ poiché il campo esiste già nelle _risorse_. La tabella originale viene filtrata con `where` e il `project` seguente include le colonne di entrambe le tabelle. Il risultato della query è un singolo insieme di credenziali delle chiavi che Visualizza il tipo, il nome dell'insieme di credenziali delle chiavi e il nome della sottoscrizione in cui si trova.
 
 ```kusto
 Resources
@@ -58,7 +58,7 @@ Resources
 ```
 
 > [!NOTE]
-> Quando si limitano i risultati di `join` con `project`, la proprietà usata da `join` per correlare le due tabelle, _SubscriptionId_ nell'esempio precedente, deve essere inclusa in `project`.
+> Quando si limitano i risultati `join` con `project`, la proprietà utilizzata da `join` per correlare le due tabelle, _SubscriptionId_ nell'esempio precedente, deve essere inclusa in `project`.
 
 ## <a name="supported-kql-language-elements"></a>Elementi del linguaggio KQL supportati
 
@@ -83,12 +83,12 @@ Di seguito è riportato l'elenco degli operatori tabulari KQL supportati da Reso
 |[summarize](/azure/kusto/query/summarizeoperator) |[Contare le risorse di Azure](../samples/starter.md#count-resources) |Solo la prima pagina è stata semplificata |
 |[take](/azure/kusto/query/takeoperator) |[Elencare tutti gli indirizzi IP pubblici](../samples/starter.md#list-publicip) |Sinonimo di `limit` |
 |[top](/azure/kusto/query/topoperator) |[Mostrare le prime cinque macchine virtuali per nome e tipo di sistema operativo](../samples/starter.md#show-sorted) | |
-|[union](/azure/kusto/query/unionoperator) |[Combinare i risultati di due query in un unico risultato](../samples/advanced.md#unionresults) |Singola tabella consentita: _T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=` _tabella_ _ColumnName_ 1. Limite di 3 `union` gambe in un'unica query. Non è consentita la risoluzione fuzzy di tabelle `union`. Può essere utilizzato all'interno di una singola tabella o tra le _risorse_ e le tabelle _ResourceContainers_ . |
+|[union](/azure/kusto/query/unionoperator) |[Combinare i risultati di due query in un unico risultato](../samples/advanced.md#unionresults) |Singola tabella consentita: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_tabella_ _ColumnName_\]. Limite di 3 `union` gambe in un'unica query. La risoluzione fuzzy delle tabelle di `union` Leg non è consentita. Può essere utilizzato all'interno di una singola tabella o tra le _risorse_ e le tabelle _ResourceContainers_ . |
 |[where](/azure/kusto/query/whereoperator) |[Mostrare le risorse che contengono archivi](../samples/starter.md#show-storage) | |
 
 ## <a name="escape-characters"></a>Caratteri di escape
 
-Per alcuni nomi di proprietà, ad esempio quelli che includono un `.` o `$`, è necessario eseguire il wrapped o il carattere di escape nella query oppure il nome della proprietà non viene interpretato correttamente e non fornisce i risultati previsti.
+Alcuni nomi di proprietà, ad esempio quelli che includono un `.` o `$`, devono essere racchiusi o preceduti da un carattere di escape nella query o il nome della proprietà viene interpretato in modo errato e non fornisce i risultati previsti.
 
 - `.` eseguire il wrapping del nome della proprietà come segue: `['propertyname.withaperiod']`
   
@@ -100,19 +100,19 @@ Per alcuni nomi di proprietà, ad esempio quelli che includono un `.` o `$`, è 
 
 - `$`-escape per il carattere nel nome della proprietà. Il carattere di escape usato dipende dal grafico delle risorse della shell che viene eseguito da.
 
-  - **bash**  -  `\`
+  - **bash** - `\`
 
-    Query di esempio che esegue l'escape della proprietà _\$type_ in bash:
+    Query di esempio che esegue l'escape della proprietà _\$tipo_ in bash:
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
     ```
 
-  - **cmd** : non escludere il carattere di escape `$`.
+  - **cmd** : non escludere l'escape del carattere `$`.
 
   - **PowerShell** - ``` ` ```
 
-    Query di esempio che esegue l'escape della proprietà _\$type_ in PowerShell:
+    Query di esempio che esegue l'escape della proprietà _\$tipo_ in PowerShell:
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
@@ -120,6 +120,6 @@ Per alcuni nomi di proprietà, ad esempio quelli che includono un `.` o `$`, è 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere il linguaggio in uso nelle [query di base](../samples/starter.md)
-- Vedere gli usi avanzati nelle [query avanzate](../samples/advanced.md)
-- Informazioni su come [esplorare le risorse](explore-resources.md)
+- Vedere il linguaggio in uso nelle [query Starter](../samples/starter.md).
+- Vedere uso avanzato nelle [query avanzate](../samples/advanced.md).
+- Altre informazioni su come [esplorare le risorse](explore-resources.md).

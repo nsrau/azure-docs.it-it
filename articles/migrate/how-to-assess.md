@@ -1,75 +1,72 @@
 ---
-title: Componente aggiuntivo Strumenti di valutazione di Azure Migrate | Microsoft Docs
-description: Viene descritto come aggiungere gli strumenti di valutazione nell'hub di Azure Migrate.
+title: Aggiungere strumenti di valutazione in Azure Migrate | Microsoft Docs
+description: Viene descritto come aggiungere strumenti di valutazione nell'hub Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: d176e6276d69cd3465aa4943efa86ea1e6b0736d
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 8d13222ec05fc97fa591ac67d636a1f8c5c88845
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811648"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715865"
 ---
-# <a name="add-assessment-tools"></a>Aggiungere gli strumenti di valutazione
+# <a name="add-assessment-tools"></a>Aggiungere strumenti di valutazione
 
-Questo articolo descrive come aggiungere gli strumenti di valutazione nella [Azure Migrate](migrate-overview.md).
+Questo articolo descrive come aggiungere strumenti di valutazione in [Azure migrate](migrate-overview.md).
 
-Azure Migrate offre un hub di strumenti per la valutazione e migrazione in Azure. Include gli strumenti originali, gli strumenti forniti da altri servizi di Azure, mentre le offerte di fornitori di software indipendenti di terze parti.
+Azure Migrate offre un hub di strumenti per la valutazione e la migrazione ad Azure. Sono inclusi strumenti di Azure Migrate, nonché altri strumenti e offerte di fornitori di software indipendenti (ISV).
 
-Se si desidera aggiungere uno strumento di valutazione e non si ha un progetto Azure Migrate, seguire questo [articolo](how-to-add-tool-first-time.md).
+Se si vuole aggiungere uno strumento di valutazione e non si dispone ancora di un progetto di Azure Migrate, seguire questo [articolo](how-to-add-tool-first-time.md).
 
-## <a name="selecting-an-isv-tool"></a>Selezione di uno strumento di ISV
+## <a name="select-a-tool"></a>Selezionare uno strumento
 
-Se si sceglie un' [dello strumento di ISV](migrate-services-overview.md#isv-integration) per valutazione, è possibile iniziare da ottenere una licenza o iscriversi per una versione di valutazione gratuita, in conformità con i criteri di ISV. In ogni strumento, è disponibile un'opzione per connettersi a Azure Migrate. Seguire le istruzioni degli strumenti e documentazione per connettere l'area di lavoro dello strumento con Azure Migrate. 
+Se si sceglie uno strumento non Azure Migrate per la valutazione, iniziare con una licenza o iscriversi per ottenere una versione di valutazione gratuita, in base ai criteri degli strumenti. Gli strumenti hanno un'opzione per connettersi a Azure Migrate. Seguire le istruzioni e la documentazione per connettere lo strumento a Azure Migrate. [Altre](migrate-services-overview.md) informazioni sugli strumenti di.
 
 
 ## <a name="select-an-assessment-scenario"></a>Selezionare uno scenario di valutazione
 
-1. Nel progetto Azure Migrate, fare clic su **Panoramica**.
-2. Selezionare lo scenario di valutazione che si desidera utilizzare:
+1. Nel progetto di Azure Migrate fare clic su **Panoramica**.
+2. Selezionare lo scenario di valutazione che si vuole usare:
 
-    - Per individuare e valutare le macchine e i carichi di lavoro per la migrazione ad Azure, selezionare **fase di valutazione e la migrazione di server**.
-    - Per valutare le macchine virtuali SQL in locale, selezionare **fase di valutazione e la migrazione dei database**.
-    - Per valutare l'App web in locale, selezionare **fase di valutazione e la migrazione di App web**.
+    - Per individuare e valutare i computer e i carichi di lavoro per la migrazione ad Azure, selezionare **valuta ed Esegui la migrazione dei server**.
+    - Per valutare i computer SQL locali, selezionare **valuta ed Esegui la migrazione dei database**.
+    - Per valutare le app Web locali, selezionare **valuta ed Esegui la migrazione delle app Web**.
 
     ![Scenario di valutazione](./media/how-to-assess/assess-scenario.png)
 
-## <a name="select-a-server-assessment-tool"></a>Selezionare uno strumento di valutazione di server 
+## <a name="select-a-server-assessment-tool"></a>Selezionare uno strumento di valutazione del server 
 
-1. Fare clic su **valutare ed eseguire la migrazione di server**.
-2. In **Azure Migrate - server**, se è stato aggiunto uno strumento di valutazione, nella sezione **strumenti di valutazione**, selezionare **fare clic qui per aggiungere uno strumento di valutazione**. Se già stato aggiunto agli strumenti di valutazione, nella **aggiungere ulteriori strumenti di valutazione**, selezionare **modifica**.
+1. Fare clic su **valuta ed Esegui la migrazione dei server**.
+2. In **Azure migrate server**, se non è stato aggiunto uno strumento di valutazione, in **strumenti di valutazione**Selezionare **fare clic qui per aggiungere uno strumento di valutazione**. Se sono già stati aggiunti strumenti di valutazione, in **Aggiungi altri strumenti di valutazione**selezionare **Cambia**.
 
     > [!NOTE]
-    > Se è necessario passare a un altro progetto, in **Azure Migrate - server**, accanto a **vedere i dettagli per un progetto di migrazione diverso**, fare clic su **fare clic qui**.
+    > Se è necessario passare a un altro progetto, in **Azure migrate-Servers**, accanto a **Visualizza dettagli per un progetto di migrazione diverso**, fare clic **su fare clic qui**.
 
-3. Nelle **Azure Migrate**, selezionare lo strumento di valutazione si desidera utilizzare.
+3. In **Azure migrate**selezionare lo strumento di valutazione che si desidera utilizzare.
 
-    
-    ![Strumenti di valutazione](./media/how-to-assess/assess-tool.png)
-
-    - Se si usa Azure eseguire la migrazione di Server Assessment, è possibile configurare, eseguire e visualizzare le valutazioni direttamente nel progetto Azure Migrate.
-    - Se si usa uno strumento di valutazione di terze parti, passare al collegamento fornito per il sito ed eseguire la valutazione in conformità con le istruzioni che offrono.
+    - Se si utilizza Azure Migrate server Assessment, è possibile configurare, eseguire e visualizzare le valutazioni direttamente nel progetto Azure Migrate.
+    - Se si usa uno strumento di valutazione diverso, passare al collegamento fornito per il sito ed eseguire la valutazione in base alle istruzioni fornite.
 
 
-## <a name="select-a-database-assessment-tool"></a>Selezionare uno strumento di valutazione di database
+## <a name="select-a-database-assessment-tool"></a>Selezionare uno strumento di valutazione del database
 
-1. Fare clic su **valuta e la migrazione dei database**
-2. Nelle **database**, fare clic su **aggiungere gli strumenti**.
-3. In Aggiungi uno strumento > **lo strumento di valutazione selezionare**, selezionare lo strumento da usare per valutare il database.
+1. Fare clic su **valuta e migra database**
+2. In **database**fare clic su **Aggiungi strumenti**.
+3. In Aggiungi uno strumento > **Seleziona strumento di valutazione**selezionare lo strumento che si desidera utilizzare per valutare il database.
 
-## <a name="select-a-web-app-assessment-tool"></a>Selezionare uno strumento di valutazione di app web
+## <a name="select-a-web-app-assessment-tool"></a>Selezionare uno strumento di valutazione app Web
 
-1. Fare clic su **fase di valutazione e la migrazione di App web**.
-2. Seguire il collegamento allo strumento di migrazione per il servizio App di Azure. Usare lo strumento di migrazione per:
+1. Fare clic su **valuta ed Esegui la migrazione delle app Web**.
+2. Seguire il collegamento allo strumento di migrazione per il servizio app Azure. Usare lo strumento di migrazione per:
 
-    - **Valutare le app online**: È possibile valutare le app con un URL pubblico online, usando Azure App Service Migration Assistant.
-    - **.NET/PHP**: Per le app .NET e PHP interne, è possibile scaricare ed eseguire il Migration Assistant.
+    - **Valutazione delle app online**: è possibile valutare le app con un URL pubblico online, usando il servizio app Azure Migration Assistant.
+    - **.Net/php**: per le app .NET e php interne, è possibile scaricare ed eseguire il Migration Assistant.
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare una valutazione usando Azure eseguire la migrazione di Server di valutazione per [Hyper-V](tutorial-prepare-hyper-v.md) oppure [VMware](tutorial-prepare-vmware.md) macchine virtuali.
+Provare una valutazione usando Azure Migrate server assessment per macchine virtuali [VMware](tutorial-prepare-vmware.md) , [Hyper-V](tutorial-prepare-hyper-v.md)o [server fisici](tutorial-prepare-physical.md)

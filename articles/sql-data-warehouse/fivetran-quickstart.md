@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva Fivetran per Azure SQL Data Warehouse | Microsoft Docs
+title: Guida introduttiva a Fivetran
 description: Informazioni su come iniziare rapidamente a usare Fivetran e Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,13 @@ ms.subservice: integration
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d829ee67d516892283fa31d9180336d768170ac1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 250df3e106ae65cafc84a412c155e3a27c535c79
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65857008"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686111"
 ---
 # <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>Iniziare rapidamente a usare Fivetran e SQL Data Warehouse
 
@@ -70,7 +71,7 @@ Questa guida introduttiva descrive come configurare un nuovo utente Fivetran per
     EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
     ```
 
-    Per altre informazioni, leggere i materiali riguardanti i [limiti di memoria e concorrenza](memory-and-concurrency-limits.md) e le [classi di risorse](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
+    Per ulteriori informazioni, vedere la pagina relativa ai limiti di memoria e concorrenza di memoria e di limits.md) e alle [classi di risorse](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
 
 
 ## <a name="sign-in-to-fivetran"></a>Accedere a Fivetran
@@ -80,5 +81,5 @@ Per accedere a Fivetran, immettere le credenziali usate per accedere a SQL Data 
 * Host (nome del server).
 * Porta.
 * Database.
-* Utente (il nome utente deve essere **fivetran\@_nome_server_** in cui *nome_server* fa parte dell'host di Azure URI: ***nome_server*.database.Windows.NET**).
+* Utente (il nome utente deve essere **fivetran\@_nome_server_**  in cui *nome_server* fa parte dell'URI dell'host di Azure: ***nome_server *. database. Windows. NET**).
 * Password.

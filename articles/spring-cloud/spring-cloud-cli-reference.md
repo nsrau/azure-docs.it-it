@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 10/03/2019
 ms.author: jeconnoc
-ms.openlocfilehash: c0694bf53f4a0644c8da2b50660dbfd6a5b339c7
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: a1f82d4efa7756b44ca5ed9859aa872c1f55b565
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038860"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607834"
 ---
 # <a name="az-spring-cloud"></a>AZ Spring-cloud
 
@@ -183,11 +183,11 @@ az spring-cloud app create --name -n
 
 | Parametri facoltativi | |
 | --- | ---: |
-| --CPU | Numero di core virtuali per istanza.  Valore predefinito: 1. |
+| --CPU | Numero di core virtuali per istanza.  Impostazione predefinita: 1. |
 | --Enable-persistent-storage | Valore booleano.  Se true, monta un disco da 50 GB con il percorso predefinito. |
-| --instance-count | Numero di istanze.  Valore predefinito: 1. |
+| --instance-count | Numero di istanze.  Impostazione predefinita: 1. |
 | --is-public | Valore booleano.  Se true, assegna un dominio pubblico. |
-| -memoria | Numero di GB di memoria per ogni istanza.  Valore predefinito: 1. |
+| -memoria | Numero di GB di memoria per ogni istanza.  Impostazione predefinita: 1. |
 
 ### <a name="examples"></a>Esempi
 
@@ -734,9 +734,9 @@ Per distribuire il codice o per aggiornare le impostazioni a una distribuzione e
 
 | Parametri facoltativi | |
 | --- | ---: |
-| --CPU | Numero di core CPU virtuali per istanza.  Valore predefinito: 1 |
+| --CPU | Numero di core CPU virtuali per istanza.  Predefinito: 1 |
 | --ENV | Variabili di ambiente separate da spazi nel formato ' chiave [= valore]'. |
-| --instance-count | Numero di istanze. Valore predefinito: 1. |
+| --instance-count | Numero di istanze. Impostazione predefinita: 1. |
 | --jar-Path | Se specificato, distribuire jar.  In caso contrario, distribuire la cartella corrente come tar. |
 | --JVM-Options | Stringa contenente le opzioni JVM.  Usare ' =' invece di '' per evitare errori di analisi della shell. Ad esempio, `--jvm-options='-Xms1024m -Xmx2048m`. |
 | -memoria | Numero di GB di memoria per ogni istanza. |
@@ -1040,4 +1040,4 @@ az spring-cloud test-endpoint renew-key --name -n
 | --- | ---: |
 | --name | Nome del cloud Spring di Azure. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
-| --tipo | Tipo di chiave dell'endpoint di test.  Valori consentiti:  Primaria, secondaria. |
+| --tipo | Tipo di chiave dell'endpoint di test.  Valori consentiti: primario, secondario. |

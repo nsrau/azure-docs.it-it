@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 24ce6de63d06402e24abdeb33996a3853175ce91
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4e04ae7d9594ac064c9f3707c797fb2709a79cb6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954409"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583037"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central
 
@@ -119,7 +119,7 @@ Agitare il dispositivo per inviare una proprietà segnalata. Il dispositivo invi
 
 È possibile visualizzare le misure di telemetria e i valori delle proprietà segnalate e configurare le impostazioni in Azure IoT Central:
 
-1. Usare **Device Explorer** per passare alla pagina delle **misure** per il dispositivo MXChip reale aggiunto:
+1. Usare i **dispositivi** per passare alla pagina **misure** per il dispositivo MXChip effettivo aggiunto:
 
     ![Passare al dispositivo reale](media/howto-connect-devkit/realdevicenew.png)
 
@@ -190,7 +190,7 @@ Per informazioni su come modificare, compilare e caricare il codice di esempio n
 
 Un'applicazione creata dal modello di applicazione Sample Devkits include un modello di dispositivo MXChip con le caratteristiche seguenti:
 
-### <a name="measurements"></a>Measurements (Misure)
+### <a name="measurements"></a>Misure
 
 #### <a name="telemetry"></a>Telemetria
 
@@ -210,12 +210,12 @@ Un'applicazione creata dal modello di applicazione Sample Devkits include un mod
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>Stati 
-| name          | Nome visualizzato   | NORMALE | ATTENZIONE | PERICOLO | 
+| Name          | Nome visualizzato   | NORMALE | ATTENZIONE | PERICOLO | 
 | ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Stato del dispositivo   | Verde  | Orange  | Rosso    | 
+| DeviceState   | Stato del dispositivo   | Verde  | Arancione  | Rosso    | 
 
 #### <a name="events"></a>Events 
-| name             | Nome visualizzato      | 
+| Name             | Nome visualizzato      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Pulsante B premuto  | 
 
@@ -235,20 +235,20 @@ Impostazioni attivazione/disattivazione
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | ATTIVA      | DISATTIVA      | Off     |
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Proprietà
 
-| Type            | Nome visualizzato | Nome campo | Tipo di dati |
+| Tipo            | Nome visualizzato | Nome campo | Tipo di dati |
 | --------------- | ------------ | ---------- | --------- |
-| Proprietà dispositivo | Numero stampo   | dieNumber  | d'acquisto    |
+| Proprietà dispositivo | Numero stampo   | dieNumber  | number    |
 | Proprietà dispositivo | Percorso dispositivo   | location  | location    |
-| Testo            | Prodotto in     | manufacturedIn   | N/D       |
+| Text            | Prodotto in     | manufacturedIn   | N/D       |
 
 ### <a name="commands"></a>Comandi:
 
 | Nome visualizzato | Nome campo | Tipo restituito | Nome visualizzato del campo di input | Nome campo di input | Tipo di campo di input |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | Echo         | echo (eco)       | text        | valore da visualizzare         | displayedValue   | text             |
-| Conto alla rovescia    | Conto alla rovescia  | d'acquisto      | Conteggio da               | countFrom        | d'acquisto           |
+| Conto alla rovescia    | Conto alla rovescia  | number      | Conteggio da               | countFrom        | number           |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,7 +1,7 @@
 ---
 title: Origini dati supportate - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker estrae automaticamente coppie di domanda-risposta dal contenuto semistrutturato, ad esempio le domande frequenti, i manuali di prodotti, le linee guida, i documenti di supporto e i criteri archiviati come pagine Web, file PDF o file Microsoft Word. I contenuti possono anche essere aggiunti alla Knowledge Base da file di contenuto QnA strutturati.
+description: QnA Maker estrae automaticamente le coppie di domande e risposte archiviate come pagine Web, file PDF o file doc MS Word o file di contenuto QnA strutturato.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 39746032fd012de8e0868c3bc7f810cd8e780b68
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: a1fcc1bec5db3ad64dc045cf5e1a449fce808132
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176366"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721216"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origini dati per i contenuti QnA Maker
 
@@ -27,7 +27,7 @@ QnA Maker estrae automaticamente coppie di domande e risposte da contenuto semis
 
 La tabella seguente riepiloga i tipi di contenuto e di formato di file supportati da QnA Maker.
 
-|Tipo di origine|Content Type| esempi|
+|Tipo di origine|Content Type| Esempi|
 |--|--|--|
 |URL|Domande frequenti<br> (con struttura piatta, a sezioni o con collegamenti ad altre pagine)<br>Pagine del supporto <br> (singola pagina di procedure dettagliate, articoli sulla risoluzione dei problemi e così via).|[Domande frequenti semplici](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[domande frequenti con collegamenti](https://www.microsoft.com/en-us/software-download/faq),<br> [domande frequenti con home page degli argomenti](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[articolo del supporto tecnico](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
 |PDF/DOC|domande frequenti,<br> manuale del prodotto,<br> brochure,<br> documento,<br> volantino,<br> guida di supporto,<br> file domanda-risposta strutturato,<br> e così via.|[File domanda-risposta strutturato](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Esempio white paper. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br>[Esempio di multi-turn. docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)|
@@ -171,7 +171,7 @@ Una volta importato il file, la coppia di domande e risposte si trova nella Know
 
 L'importazione di una Knowledge Base sostituisce il contenuto della Knowledge Base esistente. L'importazione richiede un file TSV strutturato che contiene informazioni sull'origine dei dati. Queste informazioni consentono a QnA Maker di raggruppare le coppie domanda/risposta e di attribuirle a una specifica origine dati.
 
-| Domanda  | Risposta  | Source (Sorgente)| Metadati (1 chiave: 1 valore) |          
+| Domanda  | Risposta  | Source| Metadati (1 chiave: 1 valore) |          
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editoriale|    `Key:Value`       |
@@ -190,7 +190,7 @@ Se si aggiunge o modifica il contenuto direttamente nella Knowledge base, utiliz
 
 Di seguito è riportato l'elenco dei formati Markdown che è possibile usare in QnA Maker: 
 
-|Finalità|Format|Markdown di esempio|Rendering<br>come visualizzato in chat bot|
+|Scopo|Format|Markdown di esempio|Rendering<br>come visualizzato in chat bot|
 |--|--|--|--|
 Nuova riga tra due frasi.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![formattare la nuova riga tra due frasi](../media/qnamaker-concepts-datasources/format-newline.png)|
 |Intestazioni da H1 a H6, il numero di `#` indica l'intestazione. 1 `#` è H1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![formattare con le intestazioni Markdown](../media/qnamaker-concepts-datasources/format-headers.png)<br>![formattare con le intestazioni Markdown da H1 a H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
@@ -213,8 +213,8 @@ Se si vuole aggiungere contenuto usando le API della Knowledge base di aggiornam
 
 | Mantieni HTML  | Rappresentazione nella richiesta API  | Rappresentazione in KB |
 |-----------|---------|-------------------------|
-| SÌ | \&lt; br\&gt; | &lt;BR&gt; |
-| SÌ | \&lt; H3\&gt; header\&lt;/H3\&gt; | &lt;intestazione&gt;H3&lt;/H3&gt; |
+| Sì | \&lt; br\&gt; | &lt;BR&gt; |
+| Sì | \&lt; H3\&gt; header\&lt;/H3\&gt; | &lt;intestazione&gt;H3&lt;/H3&gt; |
 
 Inoltre, CR LF (\r\n) viene convertito in \n nella KB. LF (\n) viene mantenuto così com'è. Se si vuole eseguire l'escape di qualsiasi sequenza di escape come \t o \n, è possibile usare la barra rovesciata, ad esempio:'\\\\r\\\\n'' è\\\\t'
 
@@ -239,6 +239,6 @@ Il controllo della versione per i dati viene fornito tramite la [funzionalità i
 > [!div class="nextstepaction"]
 > [Configurare un servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
 
-## <a name="see-also"></a>Vedi anche 
+## <a name="see-also"></a>Vedere anche 
 
 [Panoramica di QnA Maker](../Overview/overview.md)

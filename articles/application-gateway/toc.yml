@@ -17,8 +17,6 @@
       href: quick-create-cli.md
 - name: Esercitazioni
   items:
-    - name: Abilitare il web application firewall
-      href: application-gateway-web-application-firewall-portal.md
     - name: Proteggere con SSL
       href: create-ssl-portal.md
     - name: Ospitare più siti
@@ -127,12 +125,6 @@
           items:
             - name: Configurare i criteri SSL
               href: application-gateway-configure-ssl-policy-powershell.md
-    - name: Configurare Web Application Firewall
-      items:
-        - name: Azure PowerShell
-          href: tutorial-restrict-web-traffic-powershell.md
-        - name: Interfaccia della riga di comando di Azure
-          href: tutorial-restrict-web-traffic-cli.md
     - name: In ingresso per il servizio Azure Kubernetes
       items:
         - name: Configurare con un gateway applicazione esistente

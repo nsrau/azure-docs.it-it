@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd0829afca05058892d3a0ceeb50c9955d792dc3
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: d106e803fdef4f054b7e4717ba59a43359d1d68a
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72517067"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720294"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Scaricare un elenco di utenti (anteprima) nel portale di Azure Active Directory
 
@@ -31,8 +31,9 @@ Per scaricare l'elenco di utenti dall'interfaccia di amministrazione di Azure AD
 ## <a name="to-download-a-list-of-users"></a>Per scaricare un elenco di utenti
 
 1. [Accedere all'organizzazione Azure ad](https://aad.portal.azure.com) con un account amministratore utente nell'organizzazione.
-1. In Azure AD selezionare **utenti**  > **Scarica utenti**.
-1. Nella pagina **Scarica utenti** selezionare **inizia** a ricevere un file CSV che elenca le proprietà del profilo utente. Se sono presenti errori, è possibile scaricare e visualizzare il file dei risultati nella pagina risultati operazione bulk. Il file contiene il motivo per ogni errore.
+2. Passare a Azure Active Directory > utenti. Quindi selezionare gli utenti che si desidera includere nel download selezionando la casella nella colonna a sinistra accanto a ogni utente. Nota: al momento non è possibile selezionare tutti gli utenti per l'esportazione. Ognuna di esse deve essere selezionata singolarmente.
+3. In Azure AD selezionare **utenti** > **Scarica utenti**.
+4. Nella pagina **Scarica utenti** selezionare **inizia** a ricevere un file CSV che elenca le proprietà del profilo utente. Se sono presenti errori, è possibile scaricare e visualizzare il file dei risultati nella pagina risultati operazione bulk. Il file contiene il motivo per ogni errore.
 
    ![Selezionare la posizione desiderata per l'elenco degli utenti che si desidera scaricare](./media/users-bulk-download/bulk-download.png)
 

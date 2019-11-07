@@ -9,12 +9,12 @@ ms.date: 07/25/2019
 ms.topic: conceptual
 description: Informazioni su come eseguire Azure Dev Spaces in un cluster esistente con i contenitori di Windows
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, contenitori di Windows
-ms.openlocfilehash: 6c15534d5d47ba384a0f368f5d212fb1350e5229
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 90d7c8e5fc08405178ab6596b765f289b9bd716f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858585"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582782"
 ---
 # <a name="use-azure-dev-spaces-to-interact-with-windows-containers"></a>Usare Azure Dev Spaces per interagire con i contenitori di Windows
 
@@ -57,7 +57,7 @@ kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 
 Eseguire il servizio Windows nel cluster AKS e verificare che sia in uno stato di *esecuzione* . Questo articolo usa un' [applicazione di esempio][sample-application] per illustrare un servizio Windows e Linux in esecuzione nel cluster.
 
-Clonare l'applicazione di esempio da GitHub e passare `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` alla directory:
+Clonare l'applicazione di esempio da GitHub e passare alla directory `dev-spaces/samples/existingWindowsBackend/mywebapi-windows`:
 
 ```console
 git clone https://github.com/Azure/dev-spaces
@@ -73,7 +73,7 @@ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admi
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
 ``` 
 
-Passare alla `charts` directory ed eseguire il servizio Windows:
+Passare alla directory `charts` ed eseguire il servizio Windows:
 
 ```console
 cd charts/
@@ -82,7 +82,7 @@ helm install . --namespace dev
 
 Il comando precedente USA Helm per eseguire il servizio Windows nello spazio dei nomi *dev* . Se non si dispone di uno spazio dei nomi denominato *dev*, verrà creato.
 
-Usare il `kubectl get pods` comando per verificare che il servizio Windows sia in esecuzione nel cluster. 
+Usare il comando `kubectl get pods` per verificare che il servizio Windows sia in esecuzione nel cluster. 
 
 ```console
 $ kubectl get pods --namespace dev --watch
@@ -102,9 +102,9 @@ az aks use-dev-spaces -g myResourceGroup -n myAKSCluster --space dev --yes
 
 ## <a name="update-your-windows-service-for-dev-spaces"></a>Aggiornare il servizio Windows per gli spazi di sviluppo
 
-Quando si abilitano gli spazi di sviluppo in uno spazio dei nomi esistente con contenitori già in esecuzione, per impostazione predefinita gli spazi di sviluppo proveranno a instrumentare tutti i nuovi contenitori in esecuzione in tale spazio dei nomi. Gli spazi di sviluppo proveranno anche a instrumentare tutti i nuovi contenitori creati per il servizio già in esecuzione nello spazio dei nomi. Per impedire agli spazi di sviluppo di instrumentare un contenitore in esecuzione nello spazio dei nomi, aggiungere l'intestazione *No-proxy* a `deployment.yaml`.
+Quando si abilitano gli spazi di sviluppo in uno spazio dei nomi esistente con contenitori già in esecuzione, per impostazione predefinita gli spazi di sviluppo proveranno a instrumentare tutti i nuovi contenitori in esecuzione in tale spazio dei nomi. Gli spazi di sviluppo proveranno anche a instrumentare tutti i nuovi contenitori creati per il servizio già in esecuzione nello spazio dei nomi. Per impedire agli spazi di sviluppo di instrumentare un contenitore in esecuzione nello spazio dei nomi, aggiungere l'intestazione *No-proxy* al `deployment.yaml`.
 
-`azds.io/no-proxy: "true"` Aggiungere`existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml` al file:
+Aggiungere `azds.io/no-proxy: "true"` al file `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml`:
 
 ```yaml
 apiVersion: apps/v1
@@ -138,11 +138,11 @@ $ helm upgrade gilded-jackal . --namespace dev
 Release "gilded-jackal" has been upgraded.
 ```
 
-Poiché è stato aggiornato `deployment.yaml`, gli spazi di sviluppo non tenterà di instrumentare il servizio.
+Dal momento che è stato aggiornato il `deployment.yaml`, gli spazi di sviluppo non tenterà di instrumentare il servizio.
 
 ## <a name="run-your-linux-application-with-azure-dev-spaces"></a>Eseguire l'applicazione Linux con Azure Dev Spaces
 
-Passare alla `webfrontend` directory e usare i `azds prep` comandi e `azds up` per eseguire l'applicazione Linux nel cluster.
+Passare alla directory `webfrontend` e usare i comandi `azds prep` e `azds up` per eseguire l'applicazione Linux nel cluster.
 
 ```console
 cd ../../webfrontend-linux/
@@ -150,7 +150,7 @@ azds prep --public
 azds up
 ```
 
-Il `azds prep --public` comando genera il grafico Helm e dockerfile per l'applicazione. Il `azds up` comando esegue il servizio nello spazio dei nomi.
+Il `azds prep --public` comando genera il grafico Helm e Dockerfile per l'applicazione. Il `azds up` comando esegue il servizio nello spazio dei nomi.
 
 ```console
 $ azds up
@@ -181,7 +181,7 @@ Informazioni su come Azure Dev Spaces consente di sviluppare applicazioni più c
 
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[helm-installed]: https://github.com/helm/helm/blob/master/docs/install.md
+[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
 [sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [team-development-qs]: ../quickstart-team-development.md

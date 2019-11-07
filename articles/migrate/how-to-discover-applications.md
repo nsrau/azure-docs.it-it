@@ -6,14 +6,17 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/16/2019
 ms.author: snehaa
-ms.openlocfilehash: e09c430204dea490bace029b809f25304be53a9e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 40cb73848bab97ef9030cb0c4f3f17c984a1e0ec
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512717"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715779"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Individuare app, ruoli e funzionalità del computer 
+
+> [!NOTE]
+> Se questa funzionalità non è ancora visualizzata nel portale di Azure Migrate, bloccarsi. Verrà visualizzato nella settimana successiva.
 
 Questo articolo descrive come individuare applicazioni, ruoli e funzionalità nei server locali, usando Azure Migrate: server assessment.
 

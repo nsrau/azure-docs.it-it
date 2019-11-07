@@ -1,7 +1,7 @@
 ---
 title: Configurare i contenitori - Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Configurare varie impostazioni per i contenitori di riconoscimento del testo in Visione artificiale.
+description: Questo articolo illustra come configurare le impostazioni obbligatorie e facoltative per i contenitori di riconoscimento del testo in Visione artificiale.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 1df8199abbbc195db873ab3da515cb1dd5fe9761
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ddbee3695c2a7ef7cb63c48cccacbd2d53a8c1a9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484091"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718982"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Configurare Visione artificiale contenitori Docker
 
-Configurare l'ambiente di runtime del contenitore Visione artificiale usando gli argomenti del comando `docker run`. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione. 
+Configurare l'ambiente di runtime del contenitore Visione artificiale usando gli argomenti del comando `docker run`. Questo contenitore ha diverse impostazioni necessarie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione. 
 
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 
@@ -51,9 +51,9 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 Ricordarsi di aggiungere il routing `vision/v1.0` all'URI dell'endpoint, come illustrato nella tabella seguente. 
 
-|Obbligatoria| name | Tipo di dati | Description |
+|Obbligatorio| Name | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
-|SÌ| `Billing` | Stringa | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|Sì| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -79,10 +79,10 @@ I contenitori Visione artificiale non usano montaggi di input o di output per l'
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](computer-vision-how-to-install-containers.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni utilizzate dall'account del servizio Docker e le autorizzazioni del percorso di montaggio dell'host. 
 
-|Facoltativo| name | Tipo di dati | Description |
+|Facoltativo| Name | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
-|Non consentito| `Input` | Stringa | I contenitori di Visione artificiale non la usano.|
-|Facoltativo| `Output` | Stringa | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Non consentito| `Input` | String | I contenitori di Visione artificiale non la usano.|
+|Facoltativo| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandi docker run di esempio
 
@@ -93,7 +93,7 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 
 Sostituire {_nome_argomento_} con i propri valori:
 
-| Placeholder | Value | Formato o esempio |
+| Placeholder | Valore | Formato o esempio |
 |-------------|-------|---|
 | **{API_KEY}** | Chiave dell'endpoint della risorsa `Computer Vision` nella pagina chiavi di `Computer Vision` di Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
 | **{ENDPOINT_URI}** | Il valore dell'endpoint di fatturazione è disponibile nella pagina Panoramica di Azure `Computer Vision`.| Vedere [raccolta di parametri obbligatori](computer-vision-how-to-install-containers.md#gathering-required-parameters) per esempi espliciti. |
@@ -101,7 +101,7 @@ Sostituire {_nome_argomento_} con i propri valori:
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore e avviarlo; altrimenti il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](computer-vision-how-to-install-containers.md#billing).
+> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](computer-vision-how-to-install-containers.md#billing).
 > Il valore ApiKey è la **chiave** della pagina delle chiavi delle risorse di Azure `Cognitive Services`.
 
 ## <a name="container-docker-examples"></a>Esempi di contenitori Docker

@@ -1,5 +1,5 @@
 ---
-title: Diagnosi dei problemi di prestazioni della grafica in Desktop remoto-Azure
+title: Diagnosticare problemi di prestazioni grafica Desktop remoto-Azure
 description: Questo articolo descrive come usare i contatori grafici RemoteFX nelle sessioni Remote Desktop Protocol per diagnosticare problemi di prestazioni con la grafica nel desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: b6a78fbf2fcb12962b42537965deea6c7912315d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: c41a433ee19969546e1db2aa583c72ed166b7ebf
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676537"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607472"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticare problemi di prestazioni grafica in Desktop remoto
 
@@ -24,8 +24,8 @@ Per diagnosticare problemi di qualità dell'esperienza con le sessioni remote, i
 
 1. Aprire il prompt dei comandi di Windows dalla sessione remota.
 2. Eseguire il comando **qwinsta** e trovare il nome della sessione.
-    - Se la sessione è ospitata in una macchina virtuale (VM) con più sessioni: L'istanza di ogni contatore è configurata con il suffisso dello stesso numero che consente di suffissare il nome della sessione, ad esempio "RDP-TCP 37".
-    - Se la sessione è ospitata in una VM che supporta vGPU (Virtual Graphics Processing Unit): L'istanza di ogni contatore viene archiviata nel server anziché nella macchina virtuale. Le istanze del contatore includono il nome della macchina virtuale anziché il numero nel nome della sessione, ad esempio "Win8 Enterprise VM".
+    - Se la sessione è ospitata in una macchina virtuale con più sessioni (VM): l'istanza di ogni contatore è configurata con lo stesso numero che consente di suffisso il nome della sessione, ad esempio "RDP-TCP 37".
+    - Se la sessione è ospitata in una VM che supporta vGPU (Virtual Graphics Processing Unit): l'istanza di ogni contatore viene archiviata nel server anziché nella macchina virtuale. Le istanze del contatore includono il nome della macchina virtuale anziché il numero nel nome della sessione, ad esempio "Win8 Enterprise VM".
 
 >[!NOTE]
 > Mentre i contatori hanno RemoteFX nei nomi, includono anche la grafica di desktop remoto in scenari vGPU.
@@ -34,7 +34,7 @@ Per diagnosticare problemi di qualità dell'esperienza con le sessioni remote, i
 
 Dopo aver determinato il nome della sessione remota, seguire queste istruzioni per raccogliere i contatori delle prestazioni della grafica RemoteFX per la sessione remota.
 
-1. Selezionare **Avvia** > strumentidi > amministrazione**monitoraggio prestazioni**.
+1. Selezionare **avvia** > **strumenti di amministrazione** > **Performance Monitor**.
 2. Nella finestra di dialogo **Performance Monitor** espandere **strumenti di monitoraggio**, selezionare **Performance Monitor**e quindi selezionare **Aggiungi**.
 3. Nella finestra di dialogo **Aggiungi contatori** , nell'elenco **contatori disponibili** , espandere la sezione per RemoteFX graphics.
 4. Selezionare i contatori da monitorare.
@@ -77,7 +77,7 @@ Poiché RDP supporta un tempo di codifica medio di 33 ms, supporta una frequenza
 
 Usare il contatore qualità del frame per diagnosticare i problemi di qualità dei frame. Questo contatore esprime la qualità del frame di output come percentuale della qualità del frame di origine. La perdita di qualità può essere dovuta a RemoteFX o può essere insita nell'origine grafica. Se RemoteFX ha causato la perdita di qualità, il problema potrebbe essere dovuto alla mancanza di risorse di rete o del server per l'invio di contenuti con maggiore fedeltà.
 
-## <a name="mitigation"></a>Attenuazione
+## <a name="mitigation"></a>Mitigazione
 
 Se le risorse del server causano il collo di bottiglia, provare uno degli approcci seguenti per migliorare le prestazioni:
 

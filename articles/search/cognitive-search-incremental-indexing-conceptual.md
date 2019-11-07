@@ -1,25 +1,24 @@
 ---
 title: Introduzione all'indicizzazione incrementale (anteprima)
 titleSuffix: Azure Cognitive Search
-description: Configurare la pipeline di arricchimento intelligenza artificiale per guidare i dati alla coerenza finale per gestire gli aggiornamenti per competenze, skillsets, indicizzatori o origini dati.
+description: Configurare la pipeline di arricchimento intelligenza artificiale per guidare i dati alla coerenza finale per gestire gli aggiornamenti per competenze, skillsets, indicizzatori o origini dati. Questa funzionalità è attualmente disponibile in anteprima pubblica
 manager: nitinme
 author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ea3bcfc25040f09b6871d85412ac64061ec2f9e8
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 94ce056185ff6a804521bf583ac4f6ffaa513fb0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73549123"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715428"
 ---
 # <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>Che cos'è l'indicizzazione incrementale in Azure ricerca cognitiva?
 
-> [!Note]
-> L'indicizzazione incrementale è in anteprima e non è destinata all'uso in produzione. Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Al momento non è disponibile alcun supporto per il portale o .NET SDK.
->
+> [!IMPORTANT] 
+> L'indicizzazione incrementale è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Al momento non è disponibile alcun supporto per il portale o .NET SDK.
 
 L'indicizzazione incrementale è una nuova funzionalità di Azure ricerca cognitiva che aggiunge la memorizzazione nella cache e lo stato al contenuto arricchito in un cognitivo, garantendo il controllo dell'elaborazione e della rielaborazione dei singoli passaggi in una pipeline di arricchimento. Non solo consente di mantenere l'investimento monetario nell'elaborazione, ma anche un sistema più efficiente. Quando le strutture e il contenuto vengono memorizzati nella cache, un indicizzatore può determinare quali competenze sono state modificate ed eseguire solo quelle che sono state modificate, oltre a eventuali competenze dipendenti a valle. 
 

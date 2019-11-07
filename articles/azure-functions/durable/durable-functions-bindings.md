@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1b056ce8afe86fcd6629aff23ac95acae02ed9ba
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d7e77907e2d394d2a4c1679ec50af8d4f72fa6f1
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299872"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615035"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Associazioni per Funzioni permanenti (Funzioni di Azure)
 
@@ -24,7 +24,7 @@ L'estensione [Funzioni permanenti](durable-functions-overview.md) introduce due 
 
 Il trigger di orchestrazione consente di creare funzioni dell'agente di [orchestrazione durevoli](durable-functions-types-features-overview.md#orchestrator-functions). Il trigger supporta l'avvio di nuove istanze di funzioni dell'agente di orchestrazione e la ripresa di istanze di funzioni analoghe esistenti in attesa di un'attività.
 
-Quando si usano gli strumenti di Visual Studio per Funzioni di Azure, il trigger di orchestrazione viene configurato tramite l'attributo .NET [OrchestrationTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationTriggerAttribute.html).
+Quando si usano gli strumenti di Visual Studio per Funzioni di Azure, il trigger di orchestrazione viene configurato tramite l'attributo .NET [OrchestrationTriggerAttribute](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.OrchestrationTriggerAttribute?view=azure-dotnet).
 
 Quando si scrivono funzioni dell'agente di orchestrazione in linguaggi di script (ad esempio JavaScript o C#), il trigger di orchestrazione viene definito dall'oggetto JSON seguente nella matrice `bindings` del file *function.json*:
 
@@ -37,7 +37,7 @@ Quando si scrivono funzioni dell'agente di orchestrazione in linguaggi di script
 }
 ```
 
-* `orchestration` è il nome dell'orchestrazione. Questo è il valore che i client devono usare quando si desidera avviare nuove istanze di questa funzione dell'agente di orchestrazione. Questa proprietà è facoltativa. Se non specificato, viene usato il nome della funzione.
+* `orchestration` è il nome dell'orchestrazione che i client devono utilizzare quando desiderano avviare nuove istanze di questa funzione dell'agente di orchestrazione. Questa proprietà è facoltativa. Se non specificato, viene usato il nome della funzione.
 
 Internamente questa associazione di trigger esegue il polling di una serie di code nell'account di archiviazione predefinito per l'app per le funzioni. Tali code sono dettagli di implementazione interna dell'estensione, motivo per cui non sono configurate in modo esplicito nelle proprietà dell'associazione.
 
@@ -60,7 +60,7 @@ Di seguito vengono indicate alcune note relative al trigger di orchestrazione:
 
 L'associazione di trigger di orchestrazione supporta sia input che output. Di seguito sono illustrati alcuni aspetti da conoscere sulla gestione di input e output.
 
-* **input** - Le funzioni di orchestrazione .NET supportano solo [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) come tipo di parametro. La deserializzazione degli input direttamente nella firma della funzione non è supportata. Il codice deve usare il metodo [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1)(.NET) o `getInput` (JavaScript) per recuperare gli input della funzione dell'agente di orchestrazione. I dati di input devono essere tipi serializzabili in JSON.
+* **input** : le funzioni di orchestrazione .NET supportano solo `DurableOrchestrationContext` come tipo di parametro. La deserializzazione degli input direttamente nella firma della funzione non è supportata. Il codice deve usare il metodo `GetInput<T>` (.NET) o `getInput` (JavaScript) per recuperare gli input della funzione dell'agente di orchestrazione. I dati di input devono essere tipi serializzabili in JSON.
 * **output** -I trigger di orchestrazione supportano valori di output in modo analogo ai valori di input. Il valore restituito della funzione viene usato per assegnare il valore di output e deve essere serializzabile in JSON. Se una funzione .NET restituisce `Task` o `void`, un valore `null` viene salvato come output.
 
 ### <a name="trigger-sample"></a>Esempio di trigger
@@ -71,14 +71,16 @@ Nell'esempio di codice seguente viene illustrata la funzione dell'agente di orch
 
 ```csharp
 [FunctionName("HelloWorld")]
-public static string Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static string Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string name = context.GetInput<string>();
     return $"Hello {name}!";
 }
 ```
+> [!NOTE]
+> Il codice precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `DurableOrchestrationContext` invece di `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+#### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -90,7 +92,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> L'oggetto `context` in JavaScript non rappresenta DurableOrchestrationContext, ma il contesto della [funzione nel suo complesso](../functions-reference-node.md#context-object). È possibile accedere ai metodi di orchestrazione tramite la proprietà `df` dell'oggetto `context`.
+> L'oggetto `context` in JavaScript non rappresenta DurableOrchestrationContext, ma il contesto della [funzione nel suo complesso](../functions-reference-node.md#context-object). È possibile accedere ai metodi di orchestrazione tramite la proprietà `context` dell'oggetto `df`.
 
 > [!NOTE]
 > Gli orchestratori JavaScript devono usare `return`. La libreria `durable-functions` provvede alla chiamata del metodo `context.done`.
@@ -102,7 +104,7 @@ La maggior parte delle funzioni dell'agente di orchestrazione chiama funzioni di
 ```csharp
 [FunctionName("HelloWorld")]
 public static async Task<string> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string name = context.GetInput<string>();
     string result = await context.CallActivityAsync<string>("SayHello", name);
@@ -110,7 +112,10 @@ public static async Task<string> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+> [!NOTE]
+> Il codice precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `DurableOrchestrationContext` invece di `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+
+#### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -126,7 +131,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Il trigger di attività consente di creare funzioni chiamate da funzioni dell'agente di orchestrazione, note come [funzioni di attività](durable-functions-types-features-overview.md#activity-functions).
 
-Se si usa Visual Studio, il trigger di attività viene configurato tramite l'attributo .NET [ActvityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html).
+Se si usa Visual Studio, il trigger di attività viene configurato usando l'attributo `ActivityTriggerAttribute` .NET.
 
 Se si usa VS Code o il portale di Azure per lo sviluppo, il trigger di attività viene definito per l'oggetto JSON seguente nella matrice `bindings` di *function.json*:
 
@@ -159,7 +164,7 @@ Di seguito vengono indicate alcune note relative al trigger di attività:
 
 In modo analogo al trigger di orchestrazione, l'associazione di trigger di attività supporta sia input che output. Di seguito sono illustrati alcuni aspetti da conoscere sulla gestione di input e output.
 
-* **input** - Le funzioni di attività .NET usano [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) come tipo di parametro in modo nativo. In alternativa, una funzione di attività può essere dichiarata con qualsiasi tipo di parametro serializzabile in JSON. Quando si usa `DurableActivityContext`, è possibile chiamare [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) per recuperare e deserializzare l'input della funzione di attività.
+* **input** : le funzioni di attività .NET usano in modo nativo `DurableActivityContext` come tipo di parametro. In alternativa, una funzione di attività può essere dichiarata con qualsiasi tipo di parametro serializzabile in JSON. Quando si utilizza `DurableActivityContext`, è possibile chiamare `GetInput<T>` per recuperare e deserializzare l'input della funzione di attività.
 * **output** - Le funzioni di attività supportano i valori di output in modo analogo a quelli di input. Il valore restituito della funzione viene usato per assegnare il valore di output e deve essere serializzabile in JSON. Se una funzione .NET restituisce `Task` o `void`, un valore `null` viene salvato come output.
 * **metadati** - Le funzioni di attività .NET possono eseguire l'associazione a un parametro `string instanceId` per ottenere l'ID istanza dell'orchestrazione padre.
 
@@ -171,14 +176,17 @@ Il codice di esempio seguente mostra l'aspetto di una semplice funzione di attiv
 
 ```csharp
 [FunctionName("SayHello")]
-public static string SayHello([ActivityTrigger] DurableActivityContext helloContext)
+public static string SayHello([ActivityTrigger] IDurableActivityContext helloContext)
 {
     string name = helloContext.GetInput<string>();
     return $"Hello {name}!";
 }
 ```
 
-Il tipo di parametro predefinito per l'associazione .NET `ActivityTriggerAttribute` è `DurableActivityContext`. I trigger di attività .NET, tuttavia, supportano anche l'associazione diretta a tipi serializzabili in JSON, ad esempio tipi primitivi, e di conseguenza la stessa funzione potrebbe essere semplificata nel modo seguente:
+> [!NOTE]
+> Il codice precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `DurableActivityContext` invece di `IDurableActivityContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+
+Il tipo di parametro predefinito per l'associazione .NET `ActivityTriggerAttribute` è `IDurableActivityContext`. I trigger di attività .NET, tuttavia, supportano anche l'associazione diretta a tipi serializzabili in JSON, ad esempio tipi primitivi, e di conseguenza la stessa funzione potrebbe essere semplificata nel modo seguente:
 
 ```csharp
 [FunctionName("SayHello")]
@@ -188,7 +196,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+#### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
 
 ```javascript
 module.exports = async function(context) {
@@ -244,9 +252,9 @@ L'associazione del client di orchestrazione consente di scrivere funzioni che in
 * Inviare eventi alle istanze mentre sono in esecuzione.
 * Ripulire la cronologia di istanza.
 
-Se si usa Visual Studio, è possibile eseguire l'associazione al client di orchestrazione usando l'attributo .NET [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) per Durable functions 1,0. A partire da Durable Functions 2,0 Preview, è possibile eseguire l'associazione al client di orchestrazione usando l'attributo .NET `DurableClientAttribute`.
+Se si usa Visual Studio, è possibile eseguire l'associazione al client di orchestrazione usando l'attributo `OrchestrationClientAttribute` .NET per Durable Functions 1,0. A partire da Durable Functions 2,0, è possibile eseguire l'associazione al client di orchestrazione usando l'attributo `DurableClientAttribute` .NET.
 
-Se si usano linguaggi di scripting, ad esempio file con *estensione CSX* o *JS* , per lo sviluppo, il trigger di orchestrazione viene definito dall'oggetto json seguente nella matrice `bindings` di *Function. JSON*:
+Se si usano linguaggi di scripting, ad esempio file con *estensione CSX* o *JS* , per lo sviluppo, il trigger di orchestrazione viene definito dall'oggetto JSON seguente nella `bindings` matrice di *Function. JSON*:
 
 ```json
 {
@@ -266,19 +274,19 @@ Se si usano linguaggi di scripting, ad esempio file con *estensione CSX* o *JS* 
 
 ### <a name="client-usage"></a>Uso del client
 
-Nelle funzioni .NET in genere se esegue l'associazione a `DurableOrchestrationClient` in modo da disporre dell'acceso completo a tutte le API client supportate da Durable Functions. A partire da Durable Functions 2,0, viene invece associato all'interfaccia `IDurableOrchestrationClient`. In JavaScript, le stesse API sono esposte dall'oggetto restituito da `getClient`. Le API per l'oggetto client includono:
+Nelle funzioni .NET, in genere si esegue l'associazione a `IDurableOrchestrationClient`, che consente l'accesso completo a tutte le API client di orchestrazione supportate da Durable Functions. Nelle versioni precedenti di Durable Functions 2. x, invece, si esegue il binding alla classe `DurableOrchestrationClient`. In JavaScript, le stesse API sono esposte dall'oggetto restituito da `getClient`. Le API per l'oggetto client includono:
 
-* [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)
-* [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_)
-* [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_)
-* [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_)
-* [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_)
-* [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_)
-* [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_)
+* `StartNewAsync`
+* `GetStatusAsync`
+* `TerminateAsync`
+* `RaiseEventAsync`
+* `PurgeInstanceHistoryAsync`
+* `CreateCheckStatusResponse`
+* `CreateHttpManagementPayload`
 
-In alternativa, le funzioni .NET possono eseguire l'associazione a `IAsyncCollector<T>`, dove `T` è [StartOrchestrationArgs](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) o `JObject`.
+In alternativa, le funzioni .NET possono essere associate a `IAsyncCollector<T>` in cui `T` è `StartOrchestrationArgs` o `JObject`.
 
-Per ulteriori informazioni su queste operazioni, vedere la documentazione dell'API [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) .
+Per ulteriori informazioni su queste operazioni, vedere la documentazione dell'API `IDurableOrchestrationClient`.
 
 ### <a name="client-sample-visual-studio-development"></a>Esempio di client (sviluppo di Visual Studio)
 
@@ -288,12 +296,15 @@ Di seguito viene riportata una funzione di esempio attivata dalla coda che avvia
 [FunctionName("QueueStart")]
 public static Task Run(
     [QueueTrigger("durable-function-trigger")] string input,
-    [OrchestrationClient] DurableOrchestrationClient starter)
+    [DurableClient] IDurableOrchestrationClient starter)
 {
     // Orchestration input comes from the queue message content.
     return starter.StartNewAsync("HelloWorld", input);
 }
 ```
+
+> [!NOTE]
+> Il codice C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `OrchestrationClient` attributo anziché l'attributo `DurableClient` ed è necessario usare il tipo di parametro `DurableOrchestrationClient` anziché `IDurableOrchestrationClient`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 ### <a name="client-sample-not-visual-studio"></a>Esempio di client (non Visual Studio)
 
@@ -310,27 +321,35 @@ Se per lo sviluppo non si usa Visual Studio, è possibile creare il file *functi
     },
     {
       "name": "starter",
-      "type": "orchestrationClient",
+      "type": "durableClient",
       "direction": "in"
     }
   ]
 }
 ```
 
+> [!NOTE]
+> Il codice JSON precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `orchestrationClient` anziché il `durableClient` come tipo di trigger. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+
 Di seguito vengono riportati esempi specifici del linguaggio che avviano nuove istanze della funzione dell'agente di orchestrazione.
 
-#### <a name="c-sample"></a>Esempio C#
+#### <a name="c-script-sample"></a>C#Esempio di script
 
-L'esempio seguente illustra come usare l'associazione di client di orchestrazione permanente per avviare una nuova istanza della funzione da una funzione di script C#:
+Nell'esempio seguente viene illustrato come utilizzare l'associazione del client di orchestrazione durevole per avviare una nuova istanza della funzione da una C# funzione attivata dalla coda:
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
 
-public static Task<string> Run(string input, DurableOrchestrationClient starter)
+using Microsoft.Azure.WebJobs.Extensions.DurableTask;
+
+public static Task Run(string input, IDurableOrchestrationClient starter)
 {
     return starter.StartNewAsync("HelloWorld", input);
 }
 ```
+
+> [!NOTE]
+> Il codice precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare il tipo di parametro `DurableOrchestrationClient` invece di `IDurableOrchestrationClient`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 #### <a name="javascript-sample"></a>Esempio di JavaScript
 
@@ -354,7 +373,7 @@ I trigger di entità consentono di creare [funzioni dell'entità](durable-functi
 Quando si usano le funzioni di Visual Studio Tools per Azure, il trigger di entità viene configurato usando l'attributo .NET `EntityTriggerAttribute`.
 
 > [!NOTE]
-> I trigger di entità sono disponibili in Durable Functions 2,0 e versioni successive. I trigger di entità non sono ancora disponibili per JavaScript.
+> I trigger di entità sono disponibili a partire da Durable Functions 2. x.
 
 Internamente questa associazione di trigger esegue il polling di una serie di code nell'account di archiviazione predefinito per l'app per le funzioni. Tali code sono dettagli di implementazione interna dell'estensione, motivo per cui non sono configurate in modo esplicito nelle proprietà dell'associazione.
 
@@ -362,7 +381,7 @@ Internamente questa associazione di trigger esegue il polling di una serie di co
 
 Di seguito sono riportate alcune note sul trigger di entità:
 
-* **A thread singolo**: Un singolo thread Dispatcher viene utilizzato per elaborare le operazioni per un'entità specifica. Se più messaggi vengono inviati contemporaneamente a una singola entità, le operazioni verranno elaborate una alla volta.
+* A **thread singolo**: viene usato un singolo thread Dispatcher per elaborare le operazioni per un'entità specifica. Se più messaggi vengono inviati contemporaneamente a una singola entità, le operazioni verranno elaborate una alla volta.
 * **Gestione dei messaggi non elaborabili** : nessun supporto dei messaggi non elaborabili nei trigger di entità.
 * **Visibilità del messaggio** : i messaggi del trigger dell'entità vengono rimossi dalla coda e mantenuti invisibili per una durata configurabile. La visibilità di questi messaggi viene rinnovata automaticamente fino a quando l'app per le funzioni è in esecuzione e integra.
 * **Valori restituiti** : le funzioni di entità non supportano valori restituiti. Sono disponibili API specifiche che possono essere utilizzate per salvare lo stato o passare i valori alle orchestrazioni.
@@ -378,18 +397,18 @@ Ogni funzione di entità ha un tipo di parametro `IDurableEntityContext`, che in
 * **EntityId**: ID dell'entità attualmente in esecuzione.
 * **OperationName**: nome dell'operazione corrente.
 * **HasState**: indica se l'entità esiste, ovvero presenta uno stato. 
-* **GetState @ no__t-1TState > ()** : ottiene lo stato corrente dell'entità. Se non esiste già, viene creato e inizializzato per `default<TState>`. Il parametro `TState` deve essere un tipo primitivo o serializzabile in JSON. 
-* **GetState @ no__t-1TState > (initfunction)** : ottiene lo stato corrente dell'entità. Se non esiste già, viene creato chiamando il parametro `initfunction` specificato. Il parametro `TState` deve essere un tipo primitivo o serializzabile in JSON. 
+* **GetState\<TState > ()** : ottiene lo stato corrente dell'entità. Se non esiste già, viene creato e inizializzato per `default<TState>`. Il parametro `TState` deve essere un tipo primitivo o serializzabile in JSON. 
+* **GetState\<TState > (initfunction)** : ottiene lo stato corrente dell'entità. Se non esiste già, viene creato chiamando il parametro `initfunction` specificato. Il parametro `TState` deve essere un tipo primitivo o serializzabile in JSON. 
 * **Sestate (ARG)** : crea o aggiorna lo stato dell'entità. Il parametro `arg` deve essere un oggetto serializzabile JSON o una primitiva.
 * **DeleteState ()** : Elimina lo stato dell'entità. 
-* **GetInput @ no__t-1TInput > ()** : Ottiene l'input per l'operazione corrente. Il parametro di tipo `TInput` deve essere un tipo primitivo o serializzabile in JSON.
+* **GetInput\<TInput > ()** : Ottiene l'input per l'operazione corrente. Il parametro di tipo `TInput` deve essere un tipo primitivo o serializzabile in JSON.
 * **Return (ARG)** : restituisce un valore all'orchestrazione che ha chiamato l'operazione. Il parametro `arg` deve essere un oggetto primitivo o serializzabile in JSON.
 * **SignalEntity (EntityId, Operation, input)** : Invia un messaggio unidirezionale a un'entità. Il parametro `operation` deve essere una stringa non null e il parametro `input` deve essere un oggetto primitivo o serializzabile in JSON.
 * **CreateNewOrchestration (orchestratorFunctionName, input)** : avvia una nuova orchestrazione. Il parametro `input` deve essere un oggetto primitivo o serializzabile in JSON.
 
 Per accedere all'oggetto `IDurableEntityContext` passato alla funzione di entità, è possibile usare la proprietà asincrona-local `Entity.Current`. Questo approccio è utile quando si usa il modello di programmazione basato su classi.
 
-### <a name="trigger-sample-function-based-syntax"></a>Esempio di trigger (sintassi basata su funzioni)
+### <a name="trigger-sample-c-function-based-syntax"></a>Esempio di triggerC# (sintassi basata su funzioni)
 
 Il codice seguente è un esempio di un'entità *contatore* semplice implementata come funzione durevole. Questa funzione definisce tre operazioni, `add`, `reset` e `get`, ognuna delle quali opera su uno stato Integer.
 
@@ -414,7 +433,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 Per ulteriori informazioni sulla sintassi basata sulla funzione e su come utilizzarla, vedere [sintassi basata su funzione](durable-functions-dotnet-entities.md#function-based-syntax).
 
-### <a name="trigger-sample-class-based-syntax"></a>Esempio di trigger (sintassi basata su classi)
+### <a name="trigger-sample-c-class-based-syntax"></a>Esempio di triggerC# (sintassi basata su classi)
 
 L'esempio seguente usa un'implementazione equivalente dell'entità `Counter` mediante classi e metodi.
 
@@ -446,6 +465,48 @@ Per ulteriori informazioni sulla sintassi basata su classi e su come utilizzarla
 
 Le classi di entità hanno meccanismi speciali per interagire con le associazioni e l'inserimento di dipendenze .NET. Per altre informazioni, vedere [costruzione di entità](durable-functions-dotnet-entities.md#entity-construction).
 
+### <a name="trigger-sample-javascript"></a>Esempio di trigger (JavaScript)
+
+Il codice seguente è un esempio di un'entità *contatore* semplice implementata come funzione durevole scritta in JavaScript. Questa funzione definisce tre operazioni, `add`, `reset` e `get`, ognuna delle quali opera su uno stato Integer.
+
+**Function. JSON**
+```json
+{
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+**index.js**
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.entity(function(context) {
+    const currentValue = context.df.getState(() => 0);
+    switch (context.df.operationName) {
+        case "add":
+            const amount = context.df.getInput();
+            context.df.setState(currentValue + amount);
+            break;
+        case "reset":
+            context.df.setState(0);
+            break;
+        case "get":
+            context.df.return(currentValue);
+            break;
+    }
+});
+```
+
+> [!NOTE]
+> Le entità durevoli sono disponibili in JavaScript a partire dalla versione **1.3.0** del pacchetto NPM `durable-functions`.
+
 ## <a name="entity-client"></a>Client entità
 
 L'associazione client di entità consente di attivare in modo asincrono le [funzioni dell'entità](#entity-trigger). Queste funzioni vengono talvolta definite [funzioni client](durable-functions-types-features-overview.md#client-functions).
@@ -455,7 +516,7 @@ Se si usa Visual Studio, è possibile eseguire l'associazione al client di entit
 > [!NOTE]
 > Il `[DurableClientAttribute]` può essere utilizzato anche per l'associazione al [client di orchestrazione](#orchestration-client).
 
-Se si usano linguaggi di scripting, ad esempio file con *estensione CSX* o *JS* , per lo sviluppo, il trigger di entità viene definito dall'oggetto json seguente nella matrice `bindings` di *Function. JSON*:
+Se si usano linguaggi di scripting, ad esempio file con *estensione CSX* o *JS* , per lo sviluppo, il trigger di entità viene definito dall'oggetto JSON seguente nella `bindings` matrice di *Function. JSON*:
 
 ```json
 {
@@ -475,9 +536,9 @@ Se si usano linguaggi di scripting, ad esempio file con *estensione CSX* o *JS* 
 
 ### <a name="entity-client-usage"></a>Utilizzo di Entity client
 
-Nelle funzioni .NET, in genere si esegue l'associazione a `IDurableEntityClient`, che consente l'accesso completo a tutte le API client supportate da entità durevoli. È anche possibile eseguire l'associazione all'interfaccia `IDurableClient`, che fornisce l'accesso alle API client per le entità e le orchestrazioni. Le API per l'oggetto client includono:
+Nelle funzioni .NET, in genere si esegue l'associazione a `IDurableEntityClient`, che consente l'accesso completo a tutte le API client supportate da entità durevoli. È anche possibile eseguire l'associazione all'interfaccia `IDurableOrchestrationClient`, che fornisce l'accesso alle API client per le entità e le orchestrazioni. Le API per l'oggetto client includono:
 
-* **ReadEntityStateAsync @ no__t-1T >** : legge lo stato di un'entità. Restituisce una risposta che indica se l'entità di destinazione esiste e, in caso affermativo, qual è il suo stato.
+* **ReadEntityStateAsync\<t >** : legge lo stato di un'entità. Restituisce una risposta che indica se l'entità di destinazione esiste e, in caso affermativo, qual è il suo stato.
 * **SignalEntityAsync**: Invia un messaggio unidirezionale a un'entità e ne attende l'accodamento.
 
 Non è necessario creare l'entità di destinazione prima di inviare un segnale: lo stato dell'entità può essere creato dall'interno della funzione di entità che gestisce il segnale.
@@ -485,7 +546,7 @@ Non è necessario creare l'entità di destinazione prima di inviare un segnale: 
 > [!NOTE]
 > È importante comprendere che i "segnali" inviati dal client vengono semplicemente accodati, per essere elaborati in modo asincrono in un secondo momento. In particolare, il `SignalEntityAsync` restituisce in genere prima che l'entità avvii l'operazione e non è possibile ottenere il valore restituito o osservare le eccezioni. Se sono necessarie garanzie più complesse, ad esempio per i flussi di lavoro, è necessario usare le funzioni dell'agente di *orchestrazione* , che possono attendere il completamento delle operazioni dell'entità e possono elaborare i valori restituiti e osservare le eccezioni.
 
-### <a name="example-client-signals-entity-directly"></a>Esempio: il client segnala direttamente l'entità
+### <a name="example-client-signals-entity-directly---c"></a>Esempio: il client segnala direttamente l'entità-C#
 
 Di seguito è riportato un esempio di funzione attivata dalla coda che richiama un'entità "contatore".
 
@@ -502,7 +563,7 @@ public static Task Run(
 }
 ```
 
-### <a name="example-client-signals-entity-via-interface"></a>Esempio: l'entità segnala il client tramite l'interfaccia
+### <a name="example-client-signals-entity-via-interface---c"></a>Esempio: l'entità segnala il client tramite l'interfaccia-C#
 
 Laddove possibile, è consigliabile [accedere alle entità tramite le interfacce](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) perché fornisce maggiore controllo dei tipi. Si supponga, ad esempio, che l'entità `Counter` citata in precedenza abbia implementato un'interfaccia `ICounter`, definita come segue:
 
@@ -539,7 +600,45 @@ Il parametro `proxy` è un'istanza generata dinamicamente di `ICounter`, che con
 > [!NOTE]
 > Le API `SignalEntityAsync` rappresentano operazioni unidirezionali. Se un'interfaccia di entità restituisce `Task<T>`, il valore del parametro `T` sarà sempre null o `default`.
 
-In particolare, non ha senso segnalare l'operazione `Get`, in quanto non viene restituito alcun valore. I client possono invece usare `ReadStateAsync` per accedere direttamente allo stato del contatore oppure può avviare una funzione dell'agente di orchestrazione che chiama l'operazione `Get`. 
+In particolare, non ha senso segnalare l'operazione `Get`, in quanto non viene restituito alcun valore. I client possono invece usare `ReadStateAsync` per accedere direttamente allo stato del contatore oppure può avviare una funzione dell'agente di orchestrazione che chiama l'operazione `Get`.
+
+### <a name="example-client-signals-entity---javascript"></a>Esempio: l'entità segnala il client-JavaScript
+
+Di seguito è riportato un esempio di funzione attivata dalla coda che segnala un'entità "contatore" in JavaScript.
+
+**Function. JSON**
+```json
+{
+    "bindings": [
+      {
+        "name": "input",
+        "type": "queueTrigger",
+        "queueName": "durable-entity-trigger",
+        "direction": "in",
+      },
+      {
+        "name": "starter",
+        "type": "durableClient",
+        "direction": "in"
+      }
+    ],
+    "disabled": false
+  }
+```
+
+**index.js**
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    await context.df.signalEntity(entityId, "add", 1);
+};
+```
+
+> [!NOTE]
+> Le entità durevoli sono disponibili in JavaScript a partire dalla versione **1.3.0** del pacchetto NPM `durable-functions`.
 
 <a name="host-json"></a>
 ## <a name="hostjson-settings"></a>impostazioni host.json

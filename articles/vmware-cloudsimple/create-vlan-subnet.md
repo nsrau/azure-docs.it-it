@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0f8e605db3d647b5907c8c6741e4e2200bf14c4f
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 56e0f720221f8de531087e8b8d0476688feb2547
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772356"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601490"
 ---
 # <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>Creare e gestire VLAN/subnet per i cloud privati
 
@@ -31,9 +31,13 @@ Aprire la scheda VLAN/subnet nella pagina rete per creare e gestire VLAN/subnet 
 5. Immettere un ID VLAN.
 6. Immettere il nome della subnet.
 7. Per abilitare il routing sulla VLAN (subnet), specificare l'intervallo CIDR della subnet. Verificare che l'intervallo CIDR non si sovrappongano con le subnet locali, le subnet di Azure o la subnet del gateway.
-8. Fare clic su **Invia**.
+8. Fare clic su **Submit**.
 
     ![Crea VLAN/subnet](media/create-new-vlan-subnet-details.png)
+
+
+> [!IMPORTANT]
+> Esiste una quota di 30 VLAN per ogni cloud privato. Questi limiti possono essere aumentati [contattando il supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere"></a>Usare le informazioni VLAN per configurare un gruppo di porte distribuite in vSphere
 

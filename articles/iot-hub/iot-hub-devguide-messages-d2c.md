@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 5d21d3800655cc0be78a2b63d13a3616b1d0f2f8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e4f1797d600a226eb152a464efe4da8ddbdb6207
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372724"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606246"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a endpoint diversi
 
@@ -23,7 +23,7 @@ Il routing dei messaggi consente di inviare messaggi dai dispositivi ai servizi 
 
 * **Inviare i messaggi di telemetria del dispositivo e gli eventi** in particolare gli eventi del ciclo di vita del dispositivo e gli eventi di modifica del dispositivo gemello all'endpoint predefinito e agli endpoint personalizzati. Informazioni sugli [endpoint di routing](#routing-endpoints).
 
-* **Filtrare i dati prima del routing a vari endpoint** applicando query complesse. Il routing dei messaggi consente di eseguire query sulle proprietà dei messaggi e sul corpo del messaggio, nonché sui tag e sulle proprietà del dispositivo gemello. Altre informazioni sull'uso delle [query nel routing dei messaggi](iot-hub-devguide-routing-query-syntax.md).
+* **Filtrare i dati prima del routing a vari endpoint** applicando query complesse. Il routing dei messaggi consente di eseguire query sulle proprietà e sul corpo dei messaggi, nonché sui tag dei dispositivi gemelli e sulle proprietà dei dispositivi gemelli. Altre informazioni sull'uso delle [query nel routing dei messaggi](iot-hub-devguide-routing-query-syntax.md).
 
 Hub IoT richiede l'accesso in scrittura a questi endpoint di servizio affinché il routing dei messaggi funzioni correttamente. Se si configurano gli endpoint tramite il Portale di Azure, verranno aggiunte le autorizzazioni necessarie. Accertarsi di configurare i servizi per supportare la velocità effettiva prevista. Ad esempio, se si usa hub eventi come endpoint personalizzato, è necessario configurare le unità di **velocità effettiva** per tale hub eventi in modo da poter gestire l'ingresso degli eventi che si intende inviare tramite il routing dei messaggi dell'hub Internet. Analogamente, quando si usa una coda del bus di servizio come endpoint, è necessario configurare la **dimensione massima** per assicurarsi che la coda possa conservare tutti i dati in ingresso, fino a quando non viene uscita dai consumer. Durante la prima configurazione della soluzione IoT, potrebbe essere necessario monitorare gli endpoint aggiuntivi e quindi apportare le modifiche necessarie per il carico effettivo.
 
@@ -41,15 +41,15 @@ L'hub IoT supporta attualmente i servizi seguenti come endpoint personalizzati:
 
 È possibile usare l'[integrazione standard di Hub eventi e gli SDK](iot-hub-devguide-messages-read-builtin.md) per ricevere i messaggi da dispositivo a cloud dall'endpoint predefinito (**messaggi/eventi**). Una volta creata una route, i dati vengono interrotti verso l'endpoint incorporato, a meno che non venga creata una route per tale endpoint.
 
-### <a name="azure-blob-storage"></a>Archiviazione BLOB di Azure
+### <a name="azure-storage"></a>Archiviazione di Azure
 
-L'hub Internet delle cose supporta la scrittura di dati nell'archivio BLOB di Azure in formato [Apache avro](https://avro.apache.org/) e in formato JSON. La funzionalità di codifica del formato JSON è disponibile a livello generale in tutte le aree in cui è disponibile l'hub Internet. Il valore predefinito è AVRO. Il formato di codifica può essere impostato solo quando viene configurato l'endpoint di archiviazione BLOB. Non è possibile modificare il formato per un endpoint esistente. Quando si usa la codifica JSON, è necessario impostare contentType su **Application/JSON** e ContentEncoding su **UTF-8** nelle [proprietà del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)del messaggio. Entrambi i valori non fanno distinzione tra maiuscole e minuscole. Se la codifica del contenuto non è impostata, l'hub Internet scriverà i messaggi nel formato con codifica base 64. È possibile selezionare il formato di codifica usando l'API REST di creazione o aggiornamento dell'hub Internet, in particolare [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), il portale di Azure, l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Il diagramma seguente illustra come selezionare il formato di codifica nel portale di Azure.
+È possibile instradare i messaggi a un account di [archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md) e [Azure Data Lake storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2). Azure Data Lake Storage account sono account di archiviazione gerarchici abilitati per gli [spazi dei nomi](../storage/blobs/data-lake-storage-namespace.md)basati su archiviazione BLOB. Entrambi usano i BLOB per la loro archiviazione.
+
+L'hub Internet delle cose supporta la scrittura di dati in archiviazione di Azure in formato [Apache avro](https://avro.apache.org/) e in formato JSON. Il valore predefinito è AVRO. Il formato di codifica può essere impostato solo quando viene configurato l'endpoint di archiviazione BLOB. Non è possibile modificare il formato per un endpoint esistente. Quando si usa la codifica JSON, è necessario impostare contentType su **Application/JSON** e ContentEncoding su **UTF-8** nelle [proprietà del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)del messaggio. Entrambi i valori non fanno distinzione tra maiuscole e minuscole. Se la codifica del contenuto non è impostata, l'hub Internet scriverà i messaggi nel formato con codifica base 64. È possibile selezionare il formato di codifica usando l'API REST di creazione o aggiornamento dell'hub Internet, in particolare [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), il portale di Azure, l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Il diagramma seguente illustra come selezionare il formato di codifica nel portale di Azure.
 
 ![Codifica dell'endpoint di archiviazione BLOB](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-L'hub Internet delle cose supporta anche il routing dei messaggi agli account Gen2 [Azure Data Lake storage](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) (ADLS), che sono account di archiviazione gerarchici abilitati per gli [spazi dei nomi](../storage/blobs/data-lake-storage-namespace.md)basati su archiviazione BLOB. Questa funzionalità è disponibile in anteprima pubblica per i nuovi account ADLS Gen2 negli Stati Uniti occidentali 2 e negli Stati Uniti centro-occidentali. [Iscriversi](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) per visualizzare l'anteprima. Questa funzionalità verrà implementata a breve da tutte le aree cloud. 
-
-L'hub IoT crea batch di messaggi e scrive i dati in un BLOB non appena il batch raggiunge una determinata dimensione oppure dopo che è trascorso un determinato intervallo di tempo. Per impostazione predefinita, l'hub IoT usa la convenzione di denominazione di file seguente: 
+L'hub Internet delle cose raggruppa i messaggi e scrive i dati nella risorsa di archiviazione ogni volta che il batch raggiunge una determinata dimensione o è trascorso un determinato periodo di tempo. Per impostazione predefinita, l'hub IoT usa la convenzione di denominazione di file seguente: 
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
@@ -57,23 +57,28 @@ L'hub IoT crea batch di messaggi e scrive i dati in un BLOB non appena il batch 
 
 È possibile usare qualsiasi convenzione di denominazione. È tuttavia necessario usare tutti i token elencati. L'hub IoT scriverà in un BLOB vuoto se non sono presenti dati da scrivere.
 
-Quando si esegue il routing all'archivio BLOB è consigliabile integrare i BLOB e quindi eseguirne l'iterazione per garantire che tutti i contenitori vengano letti senza fare ipotesi sulla partizione. L'intervallo di partizione potrebbe potenzialmente cambiare durante un [failover avviato da Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover)o un [failover manuale](iot-hub-ha-dr.md#manual-failover) dell'hub IoT. È possibile usare l' [API List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) per enumerare l'elenco di BLOB. Per informazioni, vedere l'esempio seguente.
+È consigliabile elencare i contenitori di archiviazione e quindi scorrerli per assicurarsi che tutti i contenitori vengano letti senza creare presupposti della partizione. L'intervallo di partizione potrebbe potenzialmente cambiare durante un [failover avviato da Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover)o un [failover manuale](iot-hub-ha-dr.md#manual-failover) dell'hub IoT. È possibile usare l' [API List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) per enumerare l'elenco di BLOB. Per informazioni, vedere l'esempio seguente.
 
-   ```csharp
-        public void ListBlobsInContainer(string containerName, string iothub)
+```csharp
+public void ListBlobsInContainer(string containerName, string iothub)
+{
+    var storageAccount = CloudStorageAccount.Parse(this.blobConnectionString);
+    var cloudBlobContainer = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
+    if (cloudBlobContainer.Exists())
+    {
+        var results = cloudBlobContainer.ListBlobs(prefix: $"{iothub}/");
+        foreach (IListBlobItem item in results)
         {
-            var storageAccount = CloudStorageAccount.Parse(this.blobConnectionString);
-            var cloudBlobContainer = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
-            if (cloudBlobContainer.Exists())
-            {
-                var results = cloudBlobContainer.ListBlobs(prefix: $"{iothub}/");
-                foreach (IListBlobItem item in results)
-                {
-                    Console.WriteLine(item.Uri);
-                }
-            }
+            Console.WriteLine(item.Uri);
         }
-   ```
+    }
+}
+```
+
+Per creare un account di archiviazione Azure Data Lake compatibile con Gen2, creare un nuovo account di archiviazione V2 e selezionare *abilitato* nel campo *spazio dei nomi gerarchico* nella scheda **Avanzate** , come illustrato nell'immagine seguente:
+
+![Selezionare Azure Data Lake Gen2 storage](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
+
 
 ### <a name="service-bus-queues-and-service-bus-topics"></a>Code e argomenti del bus di servizio
 

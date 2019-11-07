@@ -7,35 +7,31 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/07/2019
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7b5e811daecbb7687abe7a37b75e2730d7830c2c
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: cf160b767ee82701bad4c88d3b83951a3b875296
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983624"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614653"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Orchestrazioni secondarie in Funzioni permanenti (Funzioni di Azure)
 
-Oltre a chiamare le funzioni di attività, le funzioni dell'agente di orchestrazione possono chiamare altre funzioni dell'agente di orchestrazione. È possibile ad esempio compilare un'orchestrazione più grande da una raccolta di funzioni dell'agente di orchestrazione. Oppure è possibile eseguire più istanze di una funzione dell'agente di orchestrazione in parallelo.
+Oltre a chiamare le funzioni di attività, le funzioni dell'agente di orchestrazione possono chiamare altre funzioni dell'agente di orchestrazione. Ad esempio, è possibile creare un'orchestrazione più ampia da una libreria di funzioni di orchestrazione più piccole. Oppure è possibile eseguire più istanze di una funzione dell'agente di orchestrazione in parallelo.
 
-Una funzione dell'agente di orchestrazione può chiamare un'altra funzione dell'agente di orchestrazione chiamando il metodo [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) o i metodi [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) in .NET oppure i metodi `callSubOrchestrator` o `callSubOrchestratorWithRetry` in JavaScript. L'articolo [Error Handling & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) (Gestione e compensazione degli errori) contiene informazioni sulla ripetizione automatica.
+Una funzione dell'agente di orchestrazione può chiamare un'altra funzione dell'agente di orchestrazione usando il `CallSubOrchestratorAsync` o i metodi di `CallSubOrchestratorWithRetryAsync` in .NET oppure i metodi di `callSubOrchestrator` o `callSubOrchestratorWithRetry` in JavaScript. L'articolo [Error Handling & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) (Gestione e compensazione degli errori) contiene informazioni sulla ripetizione automatica.
 
 Le funzioni secondarie dell'agente di orchestrazione si comportano come le funzioni di attività dal punto di vista del chiamante. Possono restituire un valore, generare un'eccezione e possono essere attese dalla funzione dell'agente di orchestrazione padre. 
-
-> [!NOTE]
-> Attualmente, è necessario fornire un `instanceId` valore di argomento all'API di sottoorchestrazione in JavaScript.
-
 ## <a name="example"></a>Esempio
 
-L'esempio seguente illustra uno scenario di IoT ("Internet delle cose") in cui sono presenti più dispositivi di cui è necessario eseguire il provisioning. Esiste un'orchestrazione che deve essere eseguita per ognuno dei dispositivi, che potrebbe essere simile alla seguente:
+L'esempio seguente illustra uno scenario di IoT ("Internet delle cose") in cui sono presenti più dispositivi di cui è necessario eseguire il provisioning. La funzione seguente rappresenta il flusso di lavoro di provisioning che deve essere eseguito per ogni dispositivo:
 
 ### <a name="c"></a>C#
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string deviceId = context.GetInput<string>();
 
@@ -52,7 +48,7 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -73,7 +69,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Questa funzione dell'agente di orchestrazione può essere usata così com'è per il provisioning occasionale di dispositivi o può essere parte di un'orchestrazione di dimensioni maggiori. Nel secondo caso, la funzione dell'agente di orchestrazione padre può pianificare le istanze di `DeviceProvisioningOrchestration` usando l'API `CallSubOrchestratorAsync` (C#) o `callSubOrchestrator` (JavaScript).
+Questa funzione dell'agente di orchestrazione può essere usata così com'è per il provisioning occasionale di dispositivi o può essere parte di un'orchestrazione di dimensioni maggiori. Nel secondo caso, la funzione dell'agente di orchestrazione padre può pianificare le istanze di `DeviceProvisioningOrchestration` usando l'API `CallSubOrchestratorAsync` (.NET) o `callSubOrchestrator` (JavaScript).
 
 Di seguito è riportato un esempio che illustra come eseguire più funzioni dell'agente di orchestrazione in parallelo.
 
@@ -82,7 +78,7 @@ Di seguito è riportato un esempio che illustra come eseguire più funzioni dell
 ```csharp
 [FunctionName("ProvisionNewDevices")]
 public static async Task ProvisionNewDevices(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string[] deviceIds = await context.CallActivityAsync<string[]>("GetNewDeviceIds");
 
@@ -100,7 +96,10 @@ public static async Task ProvisionNewDevices(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+> [!NOTE]
+> Gli esempi C# precedenti sono per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `DurableOrchestrationContext` invece di `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+
+### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
 
 ```javascript
 const df = require("durable-functions");

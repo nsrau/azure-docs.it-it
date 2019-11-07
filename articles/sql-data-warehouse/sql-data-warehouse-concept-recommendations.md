@@ -1,5 +1,5 @@
 ---
-title: Consigli di SQL Data Warehouse- Concetti | Microsoft Docs
+title: Consigli di SQL Data Warehouse
 description: Informazioni sui consigli di SQL Data Warehouse e su come vengono generati
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b275f23209979e1a8068ecd99465f7b52392bc6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 09dff2c8ddf5b9038aa715cef02e099ccbc68f8a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61421223"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685915"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>Consigli di SQL Data Warehouse
 

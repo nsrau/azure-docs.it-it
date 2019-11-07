@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e81eaf232e3234ac4de0cfb7412e23709f0c0b99
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
-ms.translationtype: HT
+ms.openlocfilehash: 3a2967ab40da8594b2d6372d5da816a6c76c9109
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73549104"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721725"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Azure ricerca cognitiva
 
@@ -31,16 +31,18 @@ Le versioni API, i pacchetti NuGet, gli spazi dei nomi e gli endpoint sono invar
 
 4 novembre, 2019-conferenza Ignite
 
-+ L' [indicizzazione incrementale](cognitive-search-incremental-indexing-conceptual.md), ora disponibile in anteprima, consente di elaborare o rielaborare solo i passaggi assolutamente necessari per apportare modifiche a una pipeline di arricchimento. Questa operazione è particolarmente utile se si dispone di contenuto immagine analizzato in precedenza. L'output dell'analisi costosa viene archiviato e quindi usato come base per l'indicizzazione o l'arricchimento aggiuntivo.
++ L' [indicizzazione incrementale (anteprima)](cognitive-search-incremental-indexing-conceptual.md) consente di elaborare o rielaborare solo i passaggi assolutamente necessari per apportare modifiche a una pipeline di arricchimento. Questa operazione è particolarmente utile se si dispone di contenuto immagine analizzato in precedenza. L'output dell'analisi costosa viene archiviato e quindi usato come base per l'indicizzazione o l'arricchimento aggiuntivo.
 
 <!-- 
 + Custom Entity Lookup is a cognitive skill used during indexing that allows you to provide a list of custom entities (such as part numbers, diseases, or names of locations you care about) that should be found within the text. It supports fuzzy matching, case-insensitive matching, and entity synonyms. -->
 
-+ L' [estrazione dei documenti](cognitive-search-skill-document-extraction.md) è una competenza cognitiva usata durante l'indicizzazione che consente di estrarre il contenuto di un file dall'interno di un skillt. In precedenza, il cracking del documento si verificava solo prima dell'esecuzione di Skills. Con l'aggiunta di questa competenza, è anche possibile eseguire questa operazione all'interno dell'esecuzione di competenze.
++ L' [estrazione dei documenti (anteprima)](cognitive-search-skill-document-extraction.md) è una competenza cognitiva usata durante l'indicizzazione che consente di estrarre il contenuto di un file dall'interno di un skillt. In precedenza, il cracking del documento si verificava solo prima dell'esecuzione di Skills. Con l'aggiunta di questa competenza, è anche possibile eseguire questa operazione all'interno dell'esecuzione di competenze.
 
-+ La [traduzione del testo](cognitive-search-skill-text-translation.md) è una competenza cognitiva utilizzata durante l'indicizzazione che valuta il testo e, per ogni record, restituisce il testo convertito nel linguaggio di destinazione specificato.
++ [Traduzione testo (anteprima)](cognitive-search-skill-text-translation.md) è una competenza cognitiva utilizzata durante l'indicizzazione che valuta il testo e, per ogni record, restituisce il testo convertito nel linguaggio di destinazione specificato.
 
 + [Power bi modelli](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) possono avviare rapidamente le visualizzazioni e l'analisi di contenuto arricchito in un archivio informazioni in Power bi desktop. Questo modello è progettato per le proiezioni di tabelle di Azure create tramite la [procedura guidata Importa dati](knowledge-store-create-portal.md).
+
++ [Azure Data Lake storage Gen2 (anteprima)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB API Gremlin (anteprima)](search-howto-index-cosmosdb.md)e [Cosmos DB API Cassandra (anteprima)](search-howto-index-cosmosdb.md) sono ora supportate negli indicizzatori. È possibile iscriversi con [questo modulo](https://aka.ms/azure-cognitive-search/indexer-preview). Si riceverà un messaggio di posta elettronica di conferma una volta accettato il programma di anteprima.
 
 ## <a name="service-updates"></a>Aggiornamenti del servizio
 

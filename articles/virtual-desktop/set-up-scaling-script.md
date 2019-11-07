@@ -1,5 +1,5 @@
 ---
-title: Ridimensionare automaticamente gli host sessione desktop virtuale Windows-Azure
+title: Scalabilità dinamica host sessione desktop virtuali Windows-Azure
 description: Viene descritto come configurare lo script di ridimensionamento automatico per gli host sessione desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 932fbe6814df8ec324dd3360bcacfcbcf1c19b62
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 744f7d5c191180757620e87d926422c9f1e0baba
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71842776"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607448"
 ---
 # <a name="scale-session-hosts-dynamically"></a>Ridimensionare gli host di sessione in modo dinamico
 
@@ -49,7 +49,7 @@ Nelle procedure riportate di seguito viene illustrato come distribuire lo script
 Prima di tutto, preparare l'ambiente per lo script di ridimensionamento:
 
 1. Accedere alla VM (scaler VM) che eseguirà l'attività pianificata con un account amministrativo di dominio.
-2. Creare una cartella nella macchina virtuale scaler per mantenere lo script di ridimensionamento e la relativa configurazione (ad esempio, **C: \\scaling-HostPool1**).
+2. Creare una cartella nella macchina virtuale scaler per mantenere lo script di ridimensionamento e la relativa configurazione (ad esempio, **C:\\scaling-HostPool1**).
 3. Scaricare i file **basicScale. ps1**, **config. XML**e **Functions-PSStoredCredentials. ps1** e la cartella **PowershellModules** dal repository di [script di ridimensionamento](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) e copiarli nella cartella creata nel passaggio 2. Esistono due modi principali per ottenere i file prima di copiarli nella macchina virtuale scaler:
     - Clonare il repository git nel computer locale.
     - Visualizzare la versione non **elaborata** di ogni file, copiare e incollare il contenuto di ogni file in un editor di testo, quindi salvare i file con il nome file e il tipo di file corrispondenti. 
@@ -72,9 +72,9 @@ Successivamente, è necessario creare le credenziali archiviate in modo sicuro:
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
     ```
     
-    Ad esempio, **set-variable-name, percorso-valore globale "c: \\scaling-HostPool1"**
-5. Eseguire il cmdlet **New-StoredCredential-GetPath \$KeyPath** . Quando richiesto, immettere le credenziali del desktop virtuale Windows con le autorizzazioni per eseguire una query sul pool host (il pool host è specificato nel **file config. XML**).
-    - Se si usano entità servizio o account standard diversi, eseguire il cmdlet **New-StoredCredential-\$KeyPath** una volta per ogni account per creare le credenziali archiviate locali.
+    Ad esempio, **set-variable-name, percorso-valore globale "c:\\scaling-HostPool1"**
+5. Eseguire il cmdlet **New-StoredCredential-neuropatie \$il percorso** di un cmdlet. Quando richiesto, immettere le credenziali del desktop virtuale Windows con le autorizzazioni per eseguire una query sul pool host (il pool host è specificato nel **file config. XML**).
+    - Se si usano entità servizio o account standard diversi, eseguire una volta il cmdlet **New-StoredCredential--** getpath \$per ogni account per creare credenziali archiviate locali.
 6. Eseguire **Get-StoredCredential-list** per verificare che le credenziali siano state create correttamente.
 
 ### <a name="configure-the-configxml-file"></a>Configurare il file config. XML
@@ -89,7 +89,7 @@ Immettere i valori appropriati nei campi seguenti per aggiornare le impostazioni
 | currentAzureSubscriptionId    | ID della sottoscrizione di Azure in cui vengono eseguite le VM host della sessione                        |
 | tenantName                    | Nome del tenant di desktop virtuale Windows                                                    |
 | hostPoolName                  | Nome pool host per desktop virtuale Windows                                                 |
-| RDBroker                      | URL per il servizio WVD, valore predefinito https: \//rdbroker. Wvd. Microsoft. com             |
+| RDBroker                      | URL per il servizio WVD, valore predefinito https:\//rdbroker.wvd.microsoft.com             |
 | Nome utente                      | ID applicazione dell'entità servizio (è possibile avere la stessa entità servizio in AADApplicationId) o utente standard senza autenticazione a più fattori |
 | isServicePrincipal            | I valori accettati sono **true** o **false**. Indica se il secondo set di credenziali utilizzato è un'entità servizio o un account standard. |
 | BeginPeakTime                 | Quando inizia il tempo di utilizzo massimo                                                            |
@@ -111,7 +111,7 @@ Dopo aver configurato il file Configuration. XML, è necessario configurare il U
 4. Passare alla scheda **trigger** , quindi selezionare **nuovo...**
 5. Nella finestra di dialogo **nuovo trigger** , in **Impostazioni avanzate**, selezionare **Ripeti attività ogni** e selezionare il periodo e la durata appropriati (ad esempio, **15 minuti** o a **tempo indefinito**).
 6. Selezionare la scheda **azioni** e **nuovo...**
-7. Nella finestra di dialogo **nuova azione** immettere **PowerShell. exe** nel campo **programma/script** , quindi immettere **C: \\Scaling @ no__t-5basicScale. ps1** nel campo **Aggiungi argomenti (facoltativo)** .
+7. Nella finestra di dialogo **nuova azione** immettere **PowerShell. exe** nel campo **programma/script** , quindi immettere **C:\\ridimensionamento\\basicScale. ps1** nel campo **Aggiungi argomenti (facoltativo)** .
 8. Passare alle schede **condizioni** e **Impostazioni** e selezionare **OK** per accettare le impostazioni predefinite per ciascuna.
 9. Immettere la password per l'account amministrativo in cui si prevede di eseguire lo script di ridimensionamento.
 

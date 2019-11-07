@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi dei flussi di dati Azure Data Factory | Microsoft Docs
+title: Risolvere i problemi di Azure Data Factory flussi di dati
 description: Informazioni su come risolvere i problemi del flusso di dati in Azure Data Factory.
 services: data-factory
 author: kromerm
@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/08/2019
 ms.author: makromer
-ms.openlocfilehash: 53c38af2208be6bb7cdb794ad0403456613f2df6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1b2309ec71cb3d43f4e5a39b80db593ab201c614
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486173"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721355"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Risolvere i problemi di Azure Data Factory flussi di dati
 
@@ -75,6 +75,15 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i f
 - **Causa**: un campo del flusso di dati mappato a una colonna nel database SQL non è sufficientemente ampio per archiviare il valore, causando la generazione di questo errore da parte del driver SQL
 
 - **Soluzione**: è possibile ridurre la lunghezza dei dati per le colonne stringa usando ```left()``` in una colonna derivata o implementare il [modello "riga di errore".](how-to-data-flow-error-rows.md)
+
+### <a name="error-message-since-spark-23-the-queries-from-raw-jsoncsv-files-are-disallowed-when-the-referenced-columns-only-include-the-internal-corrupt-record-column"></a>Messaggio di errore: a partire da Spark 2,3, le query da file JSON/CSV non elaborati non sono consentite quando le colonne a cui si fa riferimento includono solo la colonna del record danneggiato interna. 
+
+- **Sintomi**: la lettura da un'origine JSON non riesce
+
+- **Causa**: durante la lettura da un'origine JSON con un singolo documento su molte righe annidate, ADF, tramite Spark, non è in grado di determinare la posizione in cui inizia un nuovo documento e il documento precedente termina.
+
+- **Soluzione**: nella trasformazione di origine che usa un set di dati JSON, espandere "impostazioni JSON" e attivare "documento singolo".
+
 
 ## <a name="general-troubleshooting-guidance"></a>Indicazioni generali per la risoluzione dei problemi
 

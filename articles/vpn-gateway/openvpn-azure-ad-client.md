@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: cherylmc
-ms.openlocfilehash: f4241b2ace2d7c86e1ed9036ca6d1da4a59eb61f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 704dcd6335766a6058de4e520b8dcbca0d304c9d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517527"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721462"
 ---
 # <a name="configure-a-vpn-client-for-p2s-vpn-connections-azure-ad-authentication-preview"></a>Configurare un client VPN per le connessioni VPN P2S: autenticazione Azure AD (anteprima)
 
@@ -20,7 +20,7 @@ Questo articolo illustra come configurare un client VPN per connettersi a una re
 
 ## <a name="profile"></a>Utilizzo dei profili client
 
-Per connettersi, è necessario configurare un profilo client VPN in ogni computer che desidera connettersi a VNet. È possibile creare un profilo client in un computer, esportarlo e quindi importarlo in altri computer.
+Per connettersi, è necessario [scaricare](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) il client VPN di Azure e configurare un profilo client VPN in ogni computer che desidera connettersi a VNet. È possibile creare un profilo client in un computer, esportarlo e quindi importarlo in altri computer.
 
 ### <a name="cert"></a>Per creare un profilo client basato su certificati
 
@@ -30,7 +30,7 @@ Quando si utilizza un profilo basato su certificato, verificare che nel computer
 
 ### <a name="radius"></a>Per creare un profilo client RADIUS
 
-  ![Raggio](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
+  ![raggio](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
 
 ### <a name="export"></a>Per esportare e distribuire un profilo client
 

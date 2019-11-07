@@ -8,18 +8,18 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 540e72a4472fce626822f0b22bfac11a23aea205
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6ed04c875140f3ecd14eff31829e931efbe84ea2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466763"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606658"
 ---
 # <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Errori e avvisi comuni della pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva
 
 Questo articolo fornisce informazioni e soluzioni per gli errori e gli avvisi comuni che possono verificarsi durante l'arricchimento di intelligenza artificiale in Azure ricerca cognitiva.
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>Errori
 L'indicizzazione viene arrestata quando il numero di errori supera [' maxFailedItems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
 
 Se si vuole che gli indicizzatori ignorino questi errori (e ignorino i "documenti non riusciti"), provare ad aggiornare il `maxFailedItems` e `maxFailedItemsPerBatch` come descritto [qui](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
@@ -34,7 +34,7 @@ L'indicizzatore non è stato in grado di leggere il documento dall'origine dati.
 
 | Motivo | Esempio | Azione |
 | --- | --- | --- |
-| tipi di campi incoerenti tra documenti diversi | Il tipo di valore non corrisponde al tipo di colonna. Impossibile archiviare `'{47.6,-122.1}'` nella colonna autori.  Il tipo previsto è JArray. | Verificare che il tipo di ogni campo sia lo stesso in documenti diversi. Ad esempio, se il primo documento `'startTime'` campo è un valore DateTime e nel secondo documento si tratta di una stringa, l'errore verrà raggiunto. |
+| tipi di campi incoerenti tra documenti diversi | Il tipo di valore non corrisponde al tipo di colonna. Non è stato possibile archiviare `'{47.6,-122.1}'` nella colonna authors.  Il tipo previsto è JArray. | Verificare che il tipo di ogni campo sia lo stesso in documenti diversi. Ad esempio, se il primo documento `'startTime'` campo è un valore DateTime e nel secondo documento si tratta di una stringa, l'errore verrà raggiunto. |
 | errori dal servizio sottostante dell'origine dati | (da Cosmos DB) `{"Errors":["Request rate is large"]}` | Controllare l'istanza di archiviazione per assicurarsi che sia integro. Potrebbe essere necessario modificare la scalabilità e il partizionamento. |
 | problemi temporanei | si è verificato un errore a livello di trasporto durante la ricezione dei risultati dal server. (provider: provider TCP, errore: 0-una connessione esistente è stata chiusa forzatamente dall'host remoto | Occasionalmente si verificano problemi di connettività imprevisti. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
 
@@ -55,7 +55,7 @@ L'indicizzatore ha letto il documento dall'origine dati, ma si è verificato un 
 | --- | --- | --- |
 | Manca la chiave del documento | La chiave del documento non può essere mancante o vuota | Verificare che tutti i documenti dispongano di chiavi di documento valide |
 | La chiave del documento non è valida | La chiave del documento non può contenere più di 1024 caratteri | Modificare la chiave del documento per soddisfare i requisiti di convalida. |
-| Non è stato possibile applicare il mapping dei campi a un campo | Non è stato possibile applicare la funzione di mapping `'functionName'` al campo `'fieldName'`. La matrice non può essere null. Nome parametro: bytes | Controllare i [mapping dei campi](search-indexer-field-mappings.md) definiti nell'indicizzatore e confrontarli con i dati del campo specificato del documento non riuscito. Potrebbe essere necessario modificare i mapping dei campi o i dati del documento. |
+| Non è stato possibile applicare il mapping dei campi a un campo | Impossibile applicare la funzione di mapping `'functionName'` al campo `'fieldName'`. La matrice non può essere null. Nome parametro: bytes | Controllare i [mapping dei campi](search-indexer-field-mappings.md) definiti nell'indicizzatore e confrontarli con i dati del campo specificato del documento non riuscito. Potrebbe essere necessario modificare i mapping dei campi o i dati del documento. |
 | Impossibile leggere il valore del campo | Impossibile leggere il valore della colonna `'fieldName'` in corrispondenza dell'indice `'fieldIndex'`. si è verificato un errore a livello di trasporto durante la ricezione dei risultati dal server. (provider: provider TCP, errore: 0-una connessione esistente è stata chiusa forzatamente dall'host remoto.) | Questi errori sono in genere causati da problemi di connettività imprevisti con il servizio sottostante dell'origine dati. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
 
 ### <a name="could-not-execute-skill"></a>Non è stato possibile eseguire skill
@@ -63,7 +63,7 @@ L'indicizzatore non è stato in grado di eseguire una competenza nel grado di co
 
 | Motivo | Esempio | Azione |
 | --- | --- | --- |
-| Problemi di connettività temporanei | Si è verificato un errore temporaneo. Riprova più tardi. | Occasionalmente si verificano problemi di connettività imprevisti. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
+| Problemi di connettività temporanei | Si è verificato un errore temporaneo. Riprovare più tardi. | Occasionalmente si verificano problemi di connettività imprevisti. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
 | Potenziale bug del prodotto | Si è verificato un errore imprevisto. | Indica una classe di errore sconosciuta e può indicare la presenza di un bug del prodotto. Inviare un [ticket di supporto](https://ms.portal.azure.com/#create/Microsoft.Support) per ottenere assistenza. |
 | Si è verificato un errore durante l'esecuzione | (Da Merge skill) Uno o più valori di offset non sono validi e non possono essere analizzati. Gli elementi sono stati inseriti alla fine del testo | Utilizzare le informazioni contenute nel messaggio di errore per risolvere il problema. Questo tipo di errore richiederà un'azione da risolvere. |
 
@@ -80,7 +80,7 @@ Esistono due casi in cui è possibile che si verifichi questo messaggio di error
 Molte delle competenze cognitive predefinite, ad esempio il rilevamento della lingua, il riconoscimento di entità o l'OCR, sono supportate da un endpoint API del servizio cognitivo. Talvolta si verificano problemi temporanei con questi endpoint e si verifica il timeout di una richiesta. Per i problemi temporanei, non esiste alcun rimedio ad eccezione dell'attesa e riprovare. Come mitigazione, provare a impostare l'indicizzatore per l' [esecuzione in base a una pianificazione](search-howto-schedule-indexers.md). L'indicizzazione pianificata preleva dal punto in cui è stata interrotta. Supponendo che si verifichino problemi temporanei, l'indicizzazione e l'elaborazione delle competenze cognitive dovrebbero essere in grado di continuare alla successiva esecuzione pianificata.
 
 #### <a name="custom-skills"></a>Competenze personalizzate
-Se si verifica un errore di timeout con un'abilità personalizzata creata, è possibile provare un paio di cose. Esaminare prima di tutto la propria abilità personalizzata e assicurarsi che non rimanga bloccata in un ciclo infinito e che restituisca un risultato coerente. Una volta confermata questa situazione, determinare il tempo di esecuzione delle proprie competenze. Se non è stato impostato in modo esplicito un valore `timeout` nella definizione di competenze personalizzate, il `timeout` predefinito è 30 secondi. Se la capacità di esecuzione non è sufficiente per 30 secondi, è possibile specificare un valore di `timeout` superiore nella definizione di competenze personalizzate. Di seguito è riportato un esempio di definizione di competenze personalizzate in cui il timeout è impostato su 90 secondi:
+Se si verifica un errore di timeout con un'abilità personalizzata creata, è possibile provare un paio di cose. Esaminare prima di tutto la propria abilità personalizzata e assicurarsi che non rimanga bloccata in un ciclo infinito e che restituisca un risultato coerente. Una volta confermata questa situazione, determinare il tempo di esecuzione delle proprie competenze. Se non è stato impostato in modo esplicito un valore `timeout` nella definizione di competenze personalizzate, il valore predefinito di `timeout` è 30 secondi. Se la capacità di esecuzione non è sufficiente per 30 secondi, è possibile specificare un valore `timeout` superiore per la definizione di abilità personalizzata. Di seguito è riportato un esempio di definizione di competenze personalizzate in cui il timeout è impostato su 90 secondi:
 
 ```json
   {
@@ -104,7 +104,7 @@ Se si verifica un errore di timeout con un'abilità personalizzata creata, è po
       }
 ```
 
-Il valore massimo che è possibile impostare per il parametro `timeout` è 230 secondi.  Se l'abilità personalizzata non è in grado di essere eseguita in modo coerente entro 230 secondi, è possibile valutare la possibilità di ridurre il `batchSize` dell'abilità personalizzata in modo da elaborare un minor numero di documenti in una singola esecuzione.  Se la `batchSize` è già stata impostata su 1, sarà necessario riscrivere la capacità per poter essere eseguita in meno di 230 secondi oppure suddividerla in più competenze personalizzate, in modo che il tempo di esecuzione per ogni singola skill personalizzata sia un massimo di 230 secondi. Per ulteriori informazioni, vedere la [documentazione relativa alle competenze personalizzate](cognitive-search-custom-skill-web-api.md) .
+Il valore massimo che è possibile impostare per il parametro `timeout` è 230 secondi.  Se l'abilità personalizzata non è in grado di essere eseguita in modo coerente entro 230 secondi, è possibile valutare la possibilità di ridurre il `batchSize` dell'abilità personalizzata in modo da elaborare un minor numero di documenti all'interno di una singola esecuzione.  Se è già stato impostato il `batchSize` su 1, sarà necessario riscrivere la competenza per poter essere eseguita in meno di 230 secondi oppure suddividerla in più competenze personalizzate, in modo che il tempo di esecuzione per ogni singola skill personalizzata sia un massimo di 230 secondi. Per ulteriori informazioni, vedere la [documentazione relativa alle competenze personalizzate](cognitive-search-custom-skill-web-api.md) .
 
 ### <a name="could-not-mergeorupload--delete-document-to-the-search-index"></a>Non è stato possibile ' `MergeOrUpload`' | documento ' `Delete`' nell'indice di ricerca
 
@@ -143,7 +143,7 @@ Gli avvisi non interrompono l'indicizzazione, ma indicano condizioni che potrebb
 ### <a name="could-not-execute-skill-because-a-skill-input-was-invalid"></a>Non è stato possibile eseguire l'abilità perché un input di competenze non è valido
 L'indicizzatore non è stato in grado di eseguire una competenza nel livello di competenze perché manca un input per la skill, il tipo errato o altrimenti non è valido.
 
-Le competenze cognitive hanno input obbligatori e input facoltativi. Ad esempio, l' [abilità di estrazione della frase chiave](cognitive-search-skill-keyphrases.md) ha due input obbligatori `text`, `languageCode` e nessun input facoltativo. Se gli input obbligatori non sono validi, l'abilità viene ignorata e viene generato un avviso. Le competenze ignorate non generano output, pertanto se altre competenze usano output della competenza ignorata, possono generare avvisi aggiuntivi.
+Le competenze cognitive hanno input obbligatori e input facoltativi. Ad esempio, l' [abilità di estrazione della frase chiave](cognitive-search-skill-keyphrases.md) ha due input obbligatori `text`, `languageCode`e nessun input facoltativo. Se gli input obbligatori non sono validi, l'abilità viene ignorata e viene generato un avviso. Le competenze ignorate non generano output, pertanto se altre competenze usano output della competenza ignorata, possono generare avvisi aggiuntivi.
 
 Se si vuole fornire un valore predefinito in caso di input mancante, è possibile usare l' [abilità condizionale](cognitive-search-skill-conditional.md) per generare un valore predefinito e quindi usare l'output della [competenza condizionale](cognitive-search-skill-conditional.md) come input di competenze.
 
@@ -168,7 +168,7 @@ Se si vuole fornire un valore predefinito in caso di input mancante, è possibil
 | Input codice lingua competenze non valido | L'input di competenze `languageCode` dispone dei seguenti codici di lingua `X,Y,Z`, almeno uno dei quali non è valido. | Vedere altri dettagli di [seguito](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
 ### <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>L'input di competenza ' codiceLingua ' ha i seguenti codici di lingua ' X, Y, Z ', almeno uno dei quali non è valido.
-Uno o più valori passati nell'input `languageCode` facoltativo di una competenza downstream non è supportato. Questo problema può verificarsi se si passa l'output del [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) alle competenze successive e l'output è costituito da più lingue rispetto a quelle supportate nelle competenze downstream.
+Uno o più valori passati nell'input `languageCode` facoltativo di una competenza downstream non sono supportati. Questo problema può verificarsi se si passa l'output del [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) alle competenze successive e l'output è costituito da più lingue rispetto a quelle supportate nelle competenze downstream.
 
 Se si è certi che il set di dati si trova in una sola lingua, è necessario rimuovere il [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) e l'input `languageCode` skill e usare il `defaultLanguageCode` parametro skill per tale skill, supponendo che la lingua sia supportata per tale competenza.
 
@@ -224,7 +224,12 @@ La possibilità di riprendere un processo di indicizzazione non completata si ba
 
 È possibile eseguire l'override di questo comportamento, abilitando lo stato incrementale ed eliminando questo avviso utilizzando la proprietà di configurazione `assumeOrderByHighWatermarkColumn`.
 
-[Ulteriori informazioni su Cosmos DB l'avanzamento incrementale e le query personalizzate.](https://go.microsoft.com/fwlink/?linkid=2099593)
+Per ulteriori informazioni, vedere [avanzamento incrementale e query personalizzate](search-howto-index-cosmosdb.md#IncrementalProgress).
+
+### <a name="truncated-extracted-text-to-x-characters"></a>Troncato testo estratto in caratteri X
+Gli indicizzatori limitano la quantità di testo che è possibile estrarre da un documento. Questo limite dipende dal piano tariffario: 32.000 caratteri per il livello gratuito, 64.000 per Basic e 4 milioni per i livelli standard, standard S2 e S3 standard. Il testo troncato non verrà indicizzato. Per evitare questo avviso, provare a suddividere i documenti con grandi quantità di testo in più documenti più piccoli. 
+
+Per altre informazioni, vedere [limiti dell'indicizzatore](search-limits-quotas-capacity.md#indexer-limits).
 
 ### <a name="could-not-map-output-field-x-to-search-index"></a>Impossibile eseguire il mapping del campo di output ' X ' all'indice di ricerca
 I mapping dei campi di output che fanno riferimento a dati inesistenti/null produrranno avvisi per ogni documento e restituiscono un campo di indice vuoto. Per aggirare questo problema, controllare i percorsi di origine del mapping dei campi di output per individuare possibili errori di digitazione o impostare un valore predefinito usando l' [abilità condizionale](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).

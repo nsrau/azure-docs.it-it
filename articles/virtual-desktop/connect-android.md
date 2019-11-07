@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: helohr
-ms.openlocfilehash: c19aa6e0acc936c5b03afdab99ce0b9230838ce2
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 41b0c1ced9e66bd58d73683865b2c40afc16c5d3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71339010"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605858"
 ---
 # <a name="connect-with-the-android-client"></a>Connettersi con il client Android
 
@@ -35,7 +35,7 @@ Per sottoscrivere un feed:
 
 1. Nel Centro connessioni toccare **+** e quindi toccare **feed risorse remote**.
 2. Immettere l'URL del feed nel campo **feed URL** . L'URL del feed può essere un URL o un indirizzo di posta elettronica.
-   - Se si usa un URL, usare quello che l'amministratore ha assegnato, normalmente <https://rdweb.wvd.microsoft.com>.
+   - Se si usa un URL, usare quello che l'amministratore ha assegnato, in genere <https://rdweb.wvd.microsoft.com>.
    - Per usare la posta elettronica, immettere l'indirizzo di posta elettronica. Il client eseguirà la ricerca di un URL associato all'indirizzo di posta elettronica se l'amministratore ha configurato il server in modo.
 3. Toccare **Avanti**.
 4. Specificare le credenziali quando richiesto.

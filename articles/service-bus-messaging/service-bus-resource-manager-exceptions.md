@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2019
 ms.author: aschhab
-ms.openlocfilehash: 9a2d25aba03156d6d14fe5ef9aa58b3748033b85
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 25b0c14fb94cba611dfa9fa9bece1b728f39a905
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72296378"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585218"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Eccezioni Gestione risorse del bus di servizio
 
@@ -30,11 +30,11 @@ Questo articolo elenca le eccezioni generate durante l'interazione con il bus di
 
 Di seguito sono riportate le varie eccezioni/errori che vengono rilevati tramite la Azure Resource Manager.
 
-## <a name="error-bad-request"></a>Errore: Bad Request
+## <a name="error-bad-request"></a>Errore: richiesta non valida
 
 "Richiesta non valida" indica che la richiesta ricevuta dalla Gestione risorse non è riuscita.
 
-| Codice di errore | Codice di errore | Messaggio di errore | Descrizione | Recommendation |
+| Codice di errore | Codice di errore | Messaggio di errore | Descrizione | Raccomandazione |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | Bad Request | 40000 | Sottocodice = 40000. Impossibile impostare la proprietà *' Property Name '* durante la creazione di una coda perché lo spazio dei nomi *' namespace name '* utilizza il livello ' Basic '. Questa operazione è supportata solo nel livello ' standard ' o ' Premium '. | Nel livello Basic del bus di servizio di Azure non è possibile impostare o aggiornare le proprietà seguenti: <ul> <li> RequiresDuplicateDetection </li> <li> AutoDeleteOnIdle </li> <li>RequiresSession</li> <li>DefaultMessageTimeToLive </li> <li> DuplicateDetectionHistoryTimeWindow </li> <li> EnableExpress </li> <li> ForwardTo </li> <li> Argomenti </li> </ul> | Per usare questa funzionalità, provare a eseguire l'aggiornamento dal livello Basic al livello standard o Premium. |
 | Bad Request | 40000 | Sottocodice = 40000. Impossibile modificare il valore della proprietà' requiresDuplicateDetection ' di una coda o di un argomento esistente. | Il rilevamento dei duplicati deve essere abilitato o disabilitato al momento della creazione dell'entità. Il parametro di configurazione del rilevamento duplicato non può essere modificato dopo la creazione. | Per abilitare il rilevamento dei duplicati in una coda o un argomento creato in precedenza, è possibile creare una nuova coda o un nuovo argomento con rilevamento duplicato e quindi procedere dalla coda originale alla nuova coda/argomento. |
@@ -48,11 +48,11 @@ Di seguito sono riportate le varie eccezioni/errori che vengono rilevati tramite
 | Bad Request | 40000 | Sottocodice = 40000. ' URI_PATH ' contiene caratteri non consentiti dal bus di servizio. I segmenti di entità possono contenere solo lettere, numeri, punti (.), trattini (-) e caratteri di sottolineatura (_). | I segmenti di entità possono contenere solo lettere, numeri, punti (.), trattini (-) e caratteri di sottolineatura (_). Qualsiasi altro carattere comporta l'esito negativo della richiesta. | Verificare che non siano presenti caratteri non validi nel percorso URI. |
 
 
-## <a name="error-code-429"></a>Codice errore: 429
+## <a name="error-code-429"></a>Codice di errore: 429
 
 Analogamente a HTTP, "codice errore 429" indica "numero eccessivo di richieste". Implica che la risorsa specifica (spazio dei nomi) viene limitata a causa di un numero eccessivo di richieste (o a causa di operazioni in conflitto) su tale risorsa.
 
-| Codice di errore | Codice di errore | Messaggio di errore | Descrizione | Recommendation |
+| Codice di errore | Codice di errore | Messaggio di errore | Descrizione | Raccomandazione |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | 429 | 50004 | Sottocodice = 50004. La richiesta è stata terminata perché *è in* corso la limitazione dello spazio dei nomi. | Questa condizione di errore viene raggiunta quando il numero di richieste in ingresso supera il limite della risorsa. | Attendere alcuni secondi e riprovare. <br/> <br/> Altre informazioni sulle [quote](service-bus-quotas.md) e sui [limiti delle richieste di Azure Resource Manager](../azure-resource-manager/resource-manager-request-limits.md)|
 | 429 | 40901 | Sottocodice = 40901. È in corso un'altra operazione in conflitto. | È in corso un'altra operazione in conflitto sulla stessa risorsa/entità | Attendere il completamento dell'operazione corrente in corso prima di riprovare. |
@@ -62,13 +62,30 @@ Analogamente a HTTP, "codice errore 429" indica "numero eccessivo di richieste".
 | 429 | Nessuno | Si è verificato un conflitto di risorse. È possibile che sia in corso un'altra operazione in conflitto. Se si tenta di eseguire un'operazione non riuscita, la pulitura in background è ancora in sospeso. Riprovare. | Questa condizione può essere raggiunta quando si verifica un'operazione in sospeso sulla stessa entità. | Attendere il completamento dell'operazione precedente prima di riprovare. |
 
 
-## <a name="error-code-not-found"></a>Codice errore: Non trovato
+## <a name="error-code-not-found"></a>Codice errore: non trovato
 
 Questa classe di errori indica che la risorsa non è stata trovata.
 
-| Codice di errore | Codice di errore | Messaggio di errore | Descrizione | Recommendation |
+| Codice di errore | Codice di errore | Messaggio di errore | Descrizione | Raccomandazione |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | Non trovato | Nessuno | L'entità *' nome entità'* non è stata trovata. | Entità sulla quale l'operazione non è stata trovata. | Verificare che l'entità esista, quindi riprovare. |
 | Non trovato | Nessuno | Non trovato. L'operazione non esiste. | L'operazione che si sta tentando di eseguire non esiste. | Controllare l'operazione e riprovare. |
 | Non trovato | Nessuno | La richiesta in ingresso non è riconosciuta come richiesta PUT del criterio dello spazio dei nomi. | Il corpo della richiesta in ingresso è null e pertanto non può essere eseguito come richiesta PUT. | Verificare il corpo della richiesta per assicurarsi che non sia null. | 
 | Non trovato | Nessuno | Impossibile trovare l'entità di messaggistica *"nome entità"* . | Impossibile trovare l'entità su cui si sta tentando di eseguire l'operazione. | Verificare se l'entità esiste, quindi riprovare. |
+
+## <a name="error-code-internal-server-error"></a>Codice di errore: errore interno del server
+
+Questa classe di errori indica che si è verificato un errore interno del server
+
+| Codice di errore | Codice di errore | Messaggio di errore | Descrizione | Raccomandazione |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Internal Server Error | 50000 | Sottocodice = 50000. Internal Server Error| Può verificarsi per diversi motivi. Alcuni dei sintomi sono: <ul> <li> La richiesta o il corpo del client è danneggiato e genera un errore. </li> <li> Timeout della richiesta del client a causa di problemi di elaborazione del servizio. </li> </ul> | Per risolvere il problema <ul> <li> Verificare che i parametri delle richieste non siano null o non validi. </li> <li> ripetere la richiesta. </li> </ul> |
+
+## <a name="error-code-unauthorized"></a>Codice di errore: non autorizzato
+
+Questa classe di errori indica l'assenza di autorizzazione per l'esecuzione del comando.
+
+| Codice di errore | Codice di errore | Messaggio di errore | Descrizione | Raccomandazione |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Non autorizzata | Nessuno | Operazione non valida nello spazio dei nomi secondario. Lo spazio dei nomi secondario è di sola lettura. | L'operazione è stata eseguita sullo spazio dei nomi secondario, che è configurato come spazio dei nomi di sola lettura. | Ripetere il comando con lo spazio dei nomi primario. Altre informazioni sullo [spazio dei nomi secondario](service-bus-geo-dr.md) |
+| Non autorizzata | Nessuno | MissingToken: l'intestazione dell'autorizzazione non è stata trovata. | Questo errore si verifica quando l'autorizzazione contiene valori null o non corretti. | Verificare che il valore del token indicato nell'intestazione dell'autorizzazione sia corretto e non null. |

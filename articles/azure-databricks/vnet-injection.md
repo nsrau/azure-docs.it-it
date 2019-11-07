@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 0bb3221c201e6dd4dd17cca8ef7e3ed3331de228
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 5eded3217e96ccc45951acae004d1424e16cb098
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432653"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605675"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network"></a>Distribuire Azure Databricks nella rete virtuale
 
@@ -37,7 +37,7 @@ La distribuzione di Azure Databricks risorse alla rete virtuale consente anche d
 
 La rete virtuale in cui si distribuisce l'area di lavoro di Azure Databricks deve soddisfare i requisiti seguenti:
 
-### <a name="location"></a>Località
+### <a name="location"></a>Percorso
 
 La rete virtuale deve risiedere nella stessa località dell'area di lavoro Azure Databricks.
 
@@ -119,9 +119,9 @@ Se si usa questo modello senza usare anche il modello gruppi di sicurezza di ret
 
 ## <a name="whitelisting-subnet-traffic"></a>Elenco elementi consentiti traffico subnet
 
-Se non si usa il [portale di Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) o i [modelli di Azure Resource Manager](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) per creare i gruppi di sicurezza di rete, è necessario includere manualmente il traffico seguente nelle subnet.
+Se non si usa il [portale di Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-portal) o i [modelli di Azure Resource Manager](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) per creare i gruppi di sicurezza di rete, è necessario includere manualmente il traffico seguente nelle subnet.
 
-|Direzione|Protocol|Source (Sorgente)|Porta di origine|Destinazione|Porta di destinazione|
+|Direzione|Protocollo|Source|Porta di origine|Destination|Porta di destinazione|
 |---------|--------|------|-----------|-----------|----------------|
 |In ingresso|\*|VirtualNetwork|\*|\*|\*|
 |In ingresso|\*|IP NAT del piano di controllo|\*|\*|22|
@@ -133,9 +133,9 @@ Se non si usa il [portale di Azure](https://docs.azuredatabricks.net/administrat
 
 Traffico della subnet whitelist con i seguenti indirizzi IP. Per SQL (Metastore) e archiviazione (artefatto e archiviazione dei log), è necessario usare i [tag del servizio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)SQL e di archiviazione.
 
-|Area Azure Databricks|Servizio|IP pubblico|
+|Area Azure Databricks|Service|IP pubblico|
 |-----------------------|-------|---------|
-|Stati Uniti Orientali|NAT del piano di controllo </br></br>WebApp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|Stati Uniti orientali|NAT del piano di controllo </br></br>WebApp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |Stati Uniti orientali 2|NAT del piano di controllo </br></br>WebApp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |Stati Uniti centro-settentrionali|NAT del piano di controllo </br></br>WebApp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |Stati Uniti centrali|NAT del piano di controllo </br></br>WebApp|23.101.152.95/32 </br></br>40.70.58.221/32|
@@ -154,13 +154,13 @@ Traffico della subnet whitelist con i seguenti indirizzi IP. Per SQL (Metastore)
 |Asia sudorientale|NAT del piano di controllo </br></br>WebApp|52.187.0.85/32 </br></br>52.187.145.107/32|
 |Asia orientale|NAT del piano di controllo </br></br>WebApp|52.187.0.85/32 </br></br>52.187.145.107/32|
 |Australia orientale|NAT del piano di controllo </br></br>WebApp|13.70.105.50/32 </br></br>13.75.218.172/32|
-|Australia sud-orientale|NAT del piano di controllo </br></br>WebApp|13.70.105.50/32 </br></br>13.75.218.172/32|
+|Australia sudorientale|NAT del piano di controllo </br></br>WebApp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |Australia centrale|NAT del piano di controllo </br></br>WebApp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |Australia centrale 2|NAT del piano di controllo </br></br>WebApp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |Giappone orientale|NAT del piano di controllo </br></br>WebApp|13.78.19.235/32 </br></br>52.246.160.72/32|
 |Giappone occidentale|NAT del piano di controllo </br></br>WebApp|13.78.19.235/32 </br></br>52.246.160.72/32|
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="workspace-launch-errors"></a>Errori di avvio dell'area di lavoro
 
