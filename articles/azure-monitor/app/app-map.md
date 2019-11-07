@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 49efad50b988da263a715c1aba9d53ad4b4a7121
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 65a257cc4613fb9e4dece09a2544de2e78779ab4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678379"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577069"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: valutare le applicazioni distribuite
 
@@ -180,13 +180,22 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### <a name="java"></a>Java
 
+A partire da Application Insights Java SDK 2.5.0, è possibile specificare il nome del ruolo Cloud aggiungendo `<RoleName>` al file `ApplicationInsights.xml`, ad esempio
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
 Se si usa Spring Boot con l'utilità di avvio Spring Boot di Application Insights, l'unica modifica necessaria consiste nell'impostare il nome personalizzato per l'applicazione nel file application.properties.
 
 `spring.application.name=<name-of-app>`
 
 L'Starter Spring boot assegna automaticamente il nome del ruolo cloud al valore immesso per la proprietà spring.application.name.
-
-Per ulteriori informazioni sulla correlazione Java e su come configurare il nome del ruolo Cloud per le applicazioni non SpringBoot, vedere questa [sezione](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) sulla correlazione.
 
 ### <a name="clientbrowser-side-javascript"></a>JavaScript lato client/browser
 
@@ -227,11 +236,11 @@ Uno scenario in cui potrebbe essere necessario eseguire l'override del valore pe
 
 Per altre informazioni su come eseguire l'override della proprietà del nome del ruolo cloud con gli inizializzatori di telemetria, vedere [aggiungere proprietà: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si verificano problemi nel far funzionare come previsto la mappa delle applicazioni, provare questa procedura:
 
-### <a name="general"></a>Informazioni di carattere generale
+### <a name="general"></a>Generale
 
 1. Assicurarsi di usare un SDK supportato ufficialmente. Gli SDK non supportati/community potrebbero non supportare la correlazione.
 

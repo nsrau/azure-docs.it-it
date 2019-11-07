@@ -1,5 +1,5 @@
 ---
-title: Ambienti di calcolo supportati da Azure Data Factory | Microsoft Docs
+title: Ambienti di calcolo supportati da Azure Data Factory
 description: Informazioni sugli ambienti di calcolo che è possibile usare nelle pipeline di Azure Data Factory (ad esempio, Azure HDInsight) per trasformare o elaborare i dati.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 12d12e96616d94360e5d193cf2b778a9ae389062
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 0cc7c3b7d8b364e0bcca671efaff2cf324695428
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140239"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667755"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
 > [!NOTE]
@@ -30,7 +30,7 @@ La tabella seguente presenta un elenco degli ambienti di calcolo supportati da D
 | ---------------------------------------- | ---------------------------------------- |
 | [Cluster HDInsight di Azure on demand](#azure-hdinsight-on-demand-linked-service) o [il proprio cluster HDInsight](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Attività di Machine Learning: Esecuzione batch e Aggiorna risorsa](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Attività di Machine Learning: esecuzione batch e aggiornamento risorse](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics.](#azure-data-lake-analytics-linked-service) | [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Attività stored procedure](data-factory-stored-proc-activity.md) |
 
@@ -118,8 +118,8 @@ Il codice JSON seguente definisce un servizio collegato HDInsight su richiesta b
 >
 > 
 
-### <a name="properties"></a>Properties
-| Proprietà                     | Descrizione                              | Obbligatoria |
+### <a name="properties"></a>Proprietà
+| Proprietà                     | Descrizione                              | Obbligatorio |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | Impostare la proprietà type su **HDInsightOnDemand**. | Sì      |
 | clusterSize                  | Numero di nodi del ruolo di lavoro e di dati nel cluster. Il cluster HDInsight viene creato con 2 nodi head, oltre al numero di nodi del ruolo di lavoro specificato per questa proprietà. I nodi sono di dimensione Standard_D3, con 4 core. Un cluster di 4 nodi del ruolo di lavoro ha 24 core, ossia 4\*4 = 16 core per i nodi del ruolo di lavoro + 2\*4 = 8 core per i nodi head. Per informazioni dettagliate sul livello Standard_D3, vedere [Creare cluster Hadoop basati su Linux in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Sì      |
@@ -130,7 +130,7 @@ Il codice JSON seguente definisce un servizio collegato HDInsight su richiesta b
 | osType                       | Tipo di sistema operativo. I valori consentiti sono **Linux** e **Windows**. Se questo valore non viene specificato, viene usato **Linux**.  <br /><br />È consigliabile usare cluster HDInsight basati su Linux. La data di ritiro di HDInsight per Windows è il 31 luglio 2018. | No       |
 | hcatalogLinkedServiceName    | Nome del servizio collegato SQL di Azure che fa riferimento al database HCatalog. Viene creato il cluster HDInsight on demand usando il database SQL come metastore. | No       |
 
-#### <a name="example-linkedservicenames-json"></a>Esempio: JSON LinkedServiceNames
+#### <a name="example-linkedservicenames-json"></a>Esempio: codice JSON LinkedServiceNames
 
 ```json
 "additionalLinkedServiceNames": [
@@ -153,7 +153,7 @@ Per la configurazione granulare del cluster HDInsight on demand, è anche possib
 | stormConfiguration     | Specifica i parametri di configurazione Storm (storm-site.xml) per il cluster HDInsight. | No       |
 | yarnConfiguration      | Specifica i parametri di configurazione YARN (yarn-site.xml) per il cluster HDInsight. | No       |
 
-#### <a name="example-on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Esempio: Configurazione del cluster HDInsight su richiesta con le proprietà avanzate
+#### <a name="example-on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Esempio: configurazione del cluster HDInsight on demand con le proprietà avanzate
 
 ```json
 {
@@ -213,7 +213,7 @@ Per creare nodi head e nodi del ruolo di lavoro di dimensioni D4, specificare **
 
 Se si imposta un valore non corretto per queste proprietà, è possibile che venga visualizzato il messaggio seguente:
 
-  Non è stato possibile creare il cluster. Eccezione: Impossibile completare l'operazione di creazione del cluster. L'operazione non è riuscita con codice '400'. Il cluster ha restituito lo stato: "Errore". Messaggio: "PreClusterCreationValidationFailure". 
+  Non è stato possibile creare il cluster. Eccezione: impossibile completare l'operazione di creazione del cluster. L'operazione non è riuscita con codice '400'. Nello stato del cluster è apparso il messaggio 'Errore'. Messaggio: ’PreClusterCreationValidationFailure’. 
   
 Se questo messaggio viene visualizzato, assicurarsi di usare i nomi di cmdlet e API indicati nella tabella in [Dimensioni delle macchine virtuali](../../virtual-machines/linux/sizes.md).  
 
@@ -254,12 +254,12 @@ Questo tipo di configurazione è supportato per gli ambienti di calcolo seguenti
 }
 ```
 
-### <a name="properties"></a>Properties
-| Proprietà          | Descrizione                              | Obbligatoria |
+### <a name="properties"></a>Proprietà
+| Proprietà          | Descrizione                              | Obbligatorio |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | Impostare la proprietà type su **HDInsight**. | Sì      |
 | clusterUri        | L'URI del cluster HDInsight.        | Sì      |
-| username          | Nome dell'account utente da usare per connettersi a un cluster HDInsight esistente. | Sì      |
+| Nome utente          | Nome dell'account utente da usare per connettersi a un cluster HDInsight esistente. | Sì      |
 | password          | La password per l'account utente.   | Sì      |
 | linkedServiceName | Nome del servizio collegato di archiviazione che fa riferimento all'archivio BLOB usato dal cluster HDInsight. <p>Attualmente non è possibile specificare un servizio collegato Data Lake Store per questa proprietà. Se il cluster HDInsight ha accesso a Data Lake Store, è possibile accedere ai dati in Data Lake Store da script Hive o Pig. </p> | Sì      |
 
@@ -302,8 +302,8 @@ Un'altra opzione consiste nello specificare l'endpoint **batchUri**. Ad esempio:
 "batchUri": "https://eastus.batch.azure.com",
 ```
 
-### <a name="properties"></a>Properties
-| Proprietà          | Descrizione                              | Obbligatoria |
+### <a name="properties"></a>Proprietà
+| Proprietà          | Descrizione                              | Obbligatorio |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | Impostare la proprietà type su **AzureBatch**. | Sì      |
 | accountName       | Nome dell'account Batch.         | Sì      |
@@ -329,10 +329,10 @@ Un'altra opzione consiste nello specificare l'endpoint **batchUri**. Ad esempio:
 }
 ```
 
-### <a name="properties"></a>Properties
+### <a name="properties"></a>Proprietà
 | Proprietà   | Descrizione                              | Obbligatorio |
 | ---------- | ---------------------------------------- | -------- |
-| Type       | Impostare la proprietà type su **AzureML**. | Sì      |
+| Tipo       | Impostare la proprietà type su **AzureML**. | Sì      |
 | mlEndpoint | L’URL del batch punteggio.                   | Sì      |
 | apiKey     | Modello dell'area di lavoro pubblicato di API.     | Sì      |
 
@@ -341,7 +341,7 @@ Un'altra opzione consiste nello specificare l'endpoint **batchUri**. Ad esempio:
 
 La tabella seguente descrive le proprietà generiche usate nella definizione JSON:
 
-| Proprietà                 | Descrizione                              | Obbligatoria                                 |
+| Proprietà                 | Descrizione                              | Obbligatorio                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | type                 | Impostare la proprietà type su **AzureDataLakeAnalytics**. | Sì                                      |
 | accountName          | Nome dell'account Data Lake Analytics.  | Sì                                      |
@@ -366,7 +366,7 @@ Usare l'autenticazione basata su entità servizio specificando le proprietà seg
 | servicePrincipalKey | Chiave dell'applicazione.           | Sì      |
 | tenant              | Informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Per ottenere queste informazioni, passare il puntatore del mouse sull'angolo superiore destro del portale di Azure. | Sì      |
 
-**Esempio: autenticazione di un'entità servizio**
+**Esempio: autenticazione basata su entità servizio**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -390,10 +390,10 @@ Per l'autenticazione delle credenziali utente per Data Lake Analytics, specifica
 
 | Proprietà          | Descrizione                              | Obbligatorio |
 | :---------------- | :--------------------------------------- | :------- |
-| authorization | Nell'editor di Data Factory selezionare il pulsante **Autorizza**. Immettere le credenziali che assegnano l'URL dell'autorizzazione generato automaticamente a questa proprietà. | Sì      |
+| autorizzazione | Nell'editor di Data Factory selezionare il pulsante **Autorizza**. Immettere le credenziali che assegnano l'URL dell'autorizzazione generato automaticamente a questa proprietà. | Sì      |
 | sessionId     | ID sessione OAuth dalla sessione di autorizzazione OAuth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questa impostazione viene generata automaticamente quando si usa l'editor di Data Factory. | Sì      |
 
-**Esempio: Autenticazione basata su credenziali utente**
+**Esempio: autenticazione basata su credenziali utente**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -416,7 +416,7 @@ Il codice di autorizzazione generato selezionando il pulsante **Autorizza** scad
 
 È possibile che venga visualizzato il seguente messaggio di errore alla scadenza del token di autenticazione: 
 
-  Errore dell'operazione relativa alle credenziali: invalid_grant - AADSTS70002: Errore di convalida delle credenziali. AADSTS70008: la concessione dell'accesso specificata è scaduta o è stata revocata. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z
+  Errore dell'operazione relativa alle credenziali: invalid_grant - AADSTS70002: Errore di convalida delle credenziali. AADSTS70008: La concessione dell'accesso specificata è scaduta o è stata revocata. ID traccia: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID correlazione: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z.
 
 La tabella seguente indica le scadenze in base al tipo di account utente: 
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: philmea
-ms.openlocfilehash: f1944e06989844528a55c89f82c3db3b3a28dca1
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 533a199f75baa5a27ed06698f22d4d046be45507
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876902"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607882"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza dell'hub IoT
 
@@ -49,7 +49,7 @@ Entrambe queste opzioni di failover offrono gli obiettivi del punto di ripristin
 | --- | --- |
 | Registro delle identità |Perdita di dati da 0 a 5 minuti |
 | Dati del dispositivo gemello |Perdita di dati da 0 a 5 minuti |
-| Messaggi da cloud a dispositivo<sup>1</sup> |Perdita di dati da 0 a 5 minuti |
+| Messaggi da cloud a dispositivo**<sup>1</sup> |Perdita di dati da 0 a 5 minuti |
 | Processi padre<sup>1</sup> e dispositivo |Perdita di dati da 0 a 5 minuti |
 | Messaggi da dispositivo a cloud |Tutti i messaggi non letti vengono persi |
 | Messaggi di monitoraggio delle operazioni |Tutti i messaggi non letti vengono persi |
@@ -62,7 +62,7 @@ Una volta completata l'operazione di failover per l'Hub IoT, tutte le operazioni
 > [!CAUTION]
 > - Il nome e l'endpoint compatibili con l'Hub eventi dell'Hub incorporato degli eventi IoT cambiano dopo il failover. Quando si ricevono messaggi di telemetria dall'endpoint incorporato usano il client Hub eventi o l'host del processore eventi, è necessario [usare la stringa di connessione Hub IoT ](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) per stabilire la connessione. Ciò garantisce che le applicazioni back-end continuino a funzionare senza richiedere l'intervento manuale dopo il failover. Se si usa il nome compatibile con Hub eventi e l'endpoint nell'applicazione back-end direttamente, è necessario riconfigurare l'applicazione eseguendo il [recupero del nuovo nome compatibile con l'Hub eventi e con l'endpoint](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) dopo il failover per continuare operazioni.
 >
-> - Quando si esegue il routing all'archivio BLOB è consigliabile integrare i BLOB e quindi eseguirne l'iterazione per garantire che tutti i contenitori vengano letti senza fare ipotesi sulla partizione. È possibile che l'intervallo di partizioni venga modificato durante un failover manuale o avviato da Microsoft. Per informazioni su come enumerare l'elenco di BLOB, vedere [routing nell'archivio BLOB](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+> - Quando si esegue il routing alla risorsa di archiviazione, è consigliabile eseguire l'integrazione del contenitore di archiviazione e quindi scorrerli per assicurarsi che tutti i contenitori vengano letti senza creare presupposti della partizione. È possibile che l'intervallo di partizioni venga modificato durante un failover manuale o avviato da Microsoft. Per informazioni su come enumerare l'elenco di BLOB, vedere [routing ad archiviazione di Azure](iot-hub-devguide-messages-d2c.md#azure-storage).
 
 ## <a name="microsoft-initiated-failover"></a>Failover avviato da Microsoft
 
@@ -108,14 +108,14 @@ In un modello di failover a livello di area il back-end della soluzione viene es
 
 In generale, per implementare un modello di failover regionale con l'Hub IoT è necessario quanto segue:
 
-* **Un hub e una logica di routing del dispositivo secondari**: Se il servizio nell'area primaria viene alterato, i dispositivi devono iniziare a connettersi all'area secondaria. Data la condizione con riconoscimento dello stato della maggior parte dei servizi coinvolti, gli amministratori delle soluzioni attivano comunemente il processo di failover tra aree. Il modo migliore per comunicare il nuovo endpoint ai dispositivi, mantenendo il controllo del processo, consiste nel fare in modo che controllino regolarmente un servizio *concierge* per verificare la disponibilità dell'endpoint attualmente attivo. Il servizio concierge può essere un'applicazione Web replicata e mantenuta raggiungibile con tecniche di reindirizzamento DNS, ad esempio con [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md).
+* **Un hub IoT secondario e una logica di routing del dispositivo**: se il servizio nell'area primaria viene interrotto, i dispositivi devono avviare la connessione all'area secondaria. Data la condizione con riconoscimento dello stato della maggior parte dei servizi coinvolti, gli amministratori delle soluzioni attivano comunemente il processo di failover tra aree. Il modo migliore per comunicare il nuovo endpoint ai dispositivi, mantenendo il controllo del processo, consiste nel fare in modo che controllino regolarmente un servizio *concierge* per verificare la disponibilità dell'endpoint attualmente attivo. Il servizio concierge può essere un'applicazione Web replicata e mantenuta raggiungibile con tecniche di reindirizzamento DNS, ad esempio con [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md).
 
    > [!NOTE]
    > Il servizio Hub IoT non è un tipo di endpoint supportato in Gestione traffico di Azure. La raccomandazione è quella di integrare il servizio di concierge proposto con il gestore del traffico di Azure, implementando l'API della sonda di endpoint.
 
-* **Replica del registro delle identità**: Per essere utilizzabile, l'hub dell'area Internet secondaria deve contenere tutte le identità dei dispositivi che possono connettersi alla soluzione. La soluzione deve mantenere backup con replica geografica delle identità dei dispositivi e caricarli nell'hub IoT secondario prima del passaggio all'endpoint attivo per i dispositivi. La funzionalità di esportazione delle identità dei dispositivi dell'hub IoT è utile in questo contesto. Per altre informazioni, vedere la [Guida per gli sviluppatori dell'hub IoT: registro delle identità](iot-hub-devguide-identity-registry.md).
+* **Replica del registro delle identità**: per poter essere usato, l'hub IoT secondario deve contenere tutte le identità dei dispositivi che possono connettersi alla soluzione. La soluzione deve mantenere backup con replica geografica delle identità dei dispositivi e caricarli nell'hub IoT secondario prima del passaggio all'endpoint attivo per i dispositivi. La funzionalità di esportazione delle identità dei dispositivi dell'hub IoT è utile in questo contesto. Per altre informazioni, vedere la [Guida per gli sviluppatori dell'hub IoT: registro delle identità](iot-hub-devguide-identity-registry.md).
 
-* **Logica di Unione**: Quando l'area primaria diventa di nuovo disponibile, è necessario eseguire la migrazione di tutti i dati e dello stato creati nel sito secondario all'area primaria. Lo stato e i dati sono per lo più correlati alle identità dei dispositivi e ai metadati dell'applicazione, che devono essere uniti all'hub IoT primario e agli altri archivi specifici dell'applicazione nell'area primaria. 
+* **Logica di unione**: quando un'area primaria diventa di nuovo disponibile, deve essere eseguita la migrazione di tutti i dati e dello stato creati nel sito secondario all'area primaria. Lo stato e i dati sono per lo più correlati alle identità dei dispositivi e ai metadati dell'applicazione, che devono essere uniti all'hub IoT primario e agli altri archivi specifici dell'applicazione nell'area primaria. 
 
 Per semplificare questo passaggio è consigliabile usare operazioni idempotenti. Le operazioni idempotenti riducono al minimo gli effetti collaterali della distribuzione coerente degli eventi e dei duplicati o del recapito non ordinato degli eventi. La logica dell'applicazione deve inoltre essere progettata per tollerare eventuali incoerenze o uno stato "leggermente" obsoleto. Questa situazione può verificarsi a causa del tempo aggiuntivo necessario per il recupero dell'integrità del sistema in base agli obiettivi del punto di ripristino (RPO).
 
@@ -131,6 +131,6 @@ Ecco un riepilogo delle opzioni di disponibilità elevata e ripristino di emerge
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Che cos'è l'hub IoT Azure?](about-iot-hub.md)
+* [Che cos'è l'hub IoT di Azure?](about-iot-hub.md)
 * [Introduzione agli hub IoT (guida introduttiva)](quickstart-send-telemetry-dotnet.md)
-* [Esercitazione: Eseguire il failover manuale per un hub Internet delle cose](tutorial-manual-failover.md)
+* [Esercitazione: eseguire il failover manuale per un hub Internet delle cose](tutorial-manual-failover.md)

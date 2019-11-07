@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 43c4b363f223c61bac3d3f7dbd272519a0cd014d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 7c730ad3f14cc26cd1251b497ef2d146fe99e448
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899037"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584364"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Estensione di macchina virtuale Key Vault per Windows
 
@@ -59,22 +59,22 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 ```
 
 > [!NOTE]
-> Gli URL dei certificati osservati devono essere nel formato `https://myVaultName.vault.azure.net/secrets/myCertName`.
+> Il formato degli URL dei certificati osservati deve essere `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Questo è dovuto al fatto che il percorso di `/secrets` restituisce il certificato completo, inclusa la chiave privata, mentre il percorso di `/certificates` non lo è. Altre informazioni sui certificati sono disponibili qui: [Key Vault Certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Questo perché il percorso `/secrets` restituisce il certificato completo, inclusa la chiave privata, mentre il percorso `/certificates` non lo è. Altre informazioni sui certificati sono disponibili qui: [Key Vault Certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| name | Valore/Esempio | Tipo di dati |
+| Name | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| publisher | Microsoft.Azure.KeyVault.Edp | string |
-| type | KeyVaultForWindows | string |
+| publisher | Microsoft.Azure.KeyVault.Edp | stringa |
+| type | KeyVaultForWindows | stringa |
 | typeHandlerVersion | 1.0 | int |
-| pollingIntervalInS | 3600 | int |
-| certificateStoreName | MY | string |
+| pollingIntervalInS | 3600 | stringa |
+| certificateStoreName | MY | stringa |
 | linkOnRenewal | false | boolean |
-| certificateStoreLocation  | LocalMachine | string |
+| certificateStoreLocation  | LocalMachine | stringa |
 | requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matrice di stringhe
 
@@ -191,7 +191,7 @@ Tenere presenti le restrizioni e i requisiti seguenti:
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere problemi
+### <a name="troubleshoot"></a>Risolvere i problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una macchina virtuale specifica, eseguire il comando seguente tramite Azure PowerShell.
 

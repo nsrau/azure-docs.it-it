@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: d52cb4d7b8e29838338baddd45a175661801b19b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 744958fc44a8d10bbc8ca5d44af8c473548ae5ca
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844670"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669171"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Metriche personalizzate in Monitoraggio di Azure
 
@@ -29,7 +29,7 @@ Le metriche **personalizzate** possono essere raccolte tramite i dati di telemet
 
 Quando si inviano le metriche personalizzate a Monitoraggio di Azure, ogni punto dati (o valore) segnalato deve includere le informazioni seguenti.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 Per inviare le metriche personalizzate a Monitoraggio di Azure, l'entità a cui inviare la metrica deve disporre di un token di Azure Active Directory (Azure AD) valido nell'intestazione **Bearer** della richiesta. Sono supportati alcuni modi per acquisire un token di connessione valido:
 1. [Identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Assegna un'identità a una risorsa di Azure, ad esempio una macchina virtuale. Identità del servizio gestita (MSI) è progettata per fornire alle risorse le autorizzazioni per eseguire determinate operazioni. Ad esempio può consentire a una risorsa di generare metriche su se stessa. Una risorsa o la relativa identità del servizio gestita possono ricevere autorizzazioni di **Autore delle metriche di monitoraggio** su di un'altra risorsa. Con questa autorizzazione, l'identità del servizio gestita può generare metriche anche per le altre risorse.
 2. [Entità servizio di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). In questo scenario, a un'applicazione o servizio Azure AD possono essere concesse autorizzazioni per generare metriche su una risorsa di Azure.
@@ -58,7 +58,7 @@ Questa proprietà consente di acquisire l'area di Azure in cui è distribuita la
 Ogni punto dati inviato a Monitoraggio di Azure deve essere contrassegnato con un timestamp. Il timestamp consente di acquisire il valore DateTime in corrispondenza del quale il valore della metrica viene misurato o raccolto. Monitoraggio di Azure accetta i dati di metrica con valori di timestamp non superiori a 20 minuti precedenti e 5 minuti successivi. Il timestamp deve essere in formato ISO 8601.
 
 ### <a name="namespace"></a>Spazio dei nomi
-Gli spazi dei nomi consentono di classificare o raggruppare metriche simili. Usando gli spazi dei nomi, è possibile isolare i gruppi di metriche per cui possono essere raccolte informazioni dettagliate o indicatori di prestazioni diversi. Ad esempio, si potrebbe disporre di uno spazio dei nomi denominato **ContosoMemoryMetrics** che tiene traccia delle metriche di utilizzo della memoria che profilano l'applicazione. Un altro spazio dei nomi denominato **ContosoAppTransaction** può tenere traccia di tutte le metriche relative alle transazioni utente nell'applicazione.
+Gli spazi dei nomi consentono di classificare o raggruppare metriche simili. Usando gli spazi dei nomi, è possibile isolare i gruppi di metriche per cui possono essere raccolte informazioni dettagliate o indicatori di prestazioni diversi. Ad esempio, si potrebbe avere uno spazio dei nomi denominato **contosomemorymetrics** che tiene traccia delle metriche di utilizzo della memoria che profilano l'app. Un altro spazio dei nomi denominato **contosoapptransaction** può tenere traccia di tutte le metriche sulle transazioni utente nell'applicazione.
 
 ### <a name="name"></a>Name
 **Nome** è il nome della metrica che viene segnalata. In genere, il nome è sufficientemente descrittivo per aiutare a identificare l'elemento misurato. Un esempio è una metrica che misura il numero di byte di memoria utilizzati su una determinata macchina virtuale. Potrebbe avere un nome di metrica come ad esempio **Byte di memoria In uso**.
@@ -80,7 +80,7 @@ Le dimensioni sono facoltative e non tutte le metriche possono avere dimensioni.
 ### <a name="metric-values"></a>Valori della metrica
 Monitoraggio di Azure archivia tutte le metriche a intervalli di granularità di un minuto. Siamo consapevoli che durante un minuto specificato, potrebbe essere necessario campionare più volte una metrica. Un esempio è l'utilizzo della CPU. Oppure potrebbe essere necessario misurarla per diversi eventi discreti. Un esempio sono le latenze delle transazioni di accesso. Per limitare il numero di valori non elaborati che è necessario generare e pagare in Monitoraggio di Azure, è possibile pre-aggregare in locale e generare i valori in locale, come indicato di seguito.
 
-* **Min**: valore minimo osservato da tutti i campioni e da tutte le osservazioni durante il minuto.
+* **Min**: valore minimo valore osservato da tutti i campioni e da tutte le osservazioni durante il minuto.
 * **Max**: valore massimo osservato da tutti i campioni e da tutte le osservazioni durante il minuto.
 * **Somma**: somma di tutti i valori osservati da tutti i campioni e da tutte le misurazioni durante il minuto.
 * **Numero**: numero di campioni/misurazioni acquisiti durante il minuto.
@@ -96,13 +96,13 @@ Quindi la pubblicazione delle metriche risultante in Monitoraggio di Azure sareb
 * Min: 4
 * Max: 16
 * Somma: 40
-* Conteggio: 4
+* Numero: 4
 
 Se l'applicazione non è in grado di eseguire una pre-aggregazione in locale e deve generare ogni campione o evento discreto immediatamente al momento della raccolta, è possibile generare i valori di misura non elaborati. Ogni volta che per l'app si verifica una transazione di accesso, ad esempio, si pubblica una metrica di Monitoraggio di Azure con una singola unità di misura. Una transazione di accesso di 12 ms determinerebbe quindi la pubblicazione delle metriche seguenti:
 * Min: 12
 * Max: 12
 * Somma: 12
-* Conteggio: 1
+* Numero: 1
 
 Con questo processo, è possibile generare più valori per la stessa combinazione di dimensione e metrica durante un determinato minuto. Monitoraggio di Azure acquisisce quindi tutti i valori non elaborati generati per un determinato minuto e ne esegue l'aggregazione.
 
@@ -173,33 +173,33 @@ Nella versione di anteprima pubblica la possibilità di pubblicare metriche pers
 | **Stati Uniti e Canada** | |
 |Stati Uniti centro-occidentali | https:\//westcentralus.monitoring.azure.com/ |
 |Stati Uniti occidentali 2       | https:\//westus2.monitoring.azure.com/ |
-|Stati Uniti centro-settentrionali | https:\//northcentralus.Monitoring.Azure.com
-|Stati Uniti centro-meridionali| https:\//southcentralus.Monitoring.Azure.com/ |
-|Stati Uniti centrali      | https:\//centralus.Monitoring.Azure.com |
+|Stati Uniti centro-settentrionali | https:\//northcentralus.monitoring.azure.com
+|Stati Uniti centro-meridionali| https:\//southcentralus.monitoring.azure.com/ |
+|Stati Uniti centrali      | https:\//centralus.monitoring.azure.com |
 |Canada centrale | https:\//canadacentral.Monitoring.Azure.comc
-|East US| https:\//eastus.Monitoring.Azure.com/ |
+|Stati Uniti orientali| https:\//eastus.monitoring.azure.com/ |
 | **Europa** | |
-|Europa settentrionale    | https:\//northeurope.Monitoring.Azure.com/ |
+|Europa settentrionale    | https:\//northeurope.monitoring.azure.com/ |
 |Europa occidentale     | https:\//westeurope.monitoring.azure.com/ |
-|Regno Unito meridionale | https:\//uksouth.Monitoring.Azure.com
-|Francia centrale | https:\//francecentral.Monitoring.Azure.com |
+|Regno Unito meridionale | https:\//uksouth.monitoring.azure.com
+|Francia centrale | https:\//francecentral.monitoring.azure.com |
 | **Africa** | |
-|Sudafrica settentrionale | https:\//southafricanorth.Monitoring.Azure.com
+|Sudafrica settentrionale | https:\//southafricanorth.monitoring.azure.com
 | **Asia** | |
-|India centrale | https:\//centralindia.Monitoring.Azure.com
-|Australia orientale | https:\//australiaeast.Monitoring.Azure.com
-|Giappone orientale | https:\//japaneast.Monitoring.Azure.com
-|Asia sud-orientale  | https:\//SouthEastAsia.Monitoring.Azure.com |
-|Asia orientale | https:\//eastasia.Monitoring.Azure.com
-|Corea del Sud centrale   | https:\//koreacentral.Monitoring.Azure.com
+|India centrale | https:\//centralindia.monitoring.azure.com
+|Australia orientale | https:\//australiaeast.monitoring.azure.com
+|Giappone orientale | https:\//japaneast.monitoring.azure.com
+|Asia sudorientale  | https:\//southeastasia.monitoring.azure.com |
+|Asia orientale | https:\//eastasia.monitoring.azure.com
+|Corea del Sud centrale   | https:\//koreacentral.monitoring.azure.com
 
 
 ## <a name="quotas-and-limits"></a>Quote e limiti
 Monitoraggio di Azure impone le seguenti limitazioni d'uso in relazione alle metriche personalizzate:
 
-|Category|Limite|
+|Categoria|Limite|
 |---|---|
-|Serie temporale attiva/sottoscrizioni/area|50,000|
+|Serie temporale attiva/sottoscrizioni/area|50.000|
 |Chiavi di dimensione per metrica|10|
 |Lunghezza della stringa per gli spazi dei nomi delle metriche, i nomi delle metriche e le chiavi e i valori di dimensione|256 caratteri|
 

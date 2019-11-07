@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione di Azure SQL Data Warehouse a Gen2 | Microsoft Docs
+title: Eseguire la migrazione del data warehouse a Gen2
 description: Istruzioni per la migrazione di un data warehouse esistente a Gen2, con la pianificazione della migrazione per area.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,13 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 07/22/2019
-ms.openlocfilehash: ac478a7b75bbac0c5e7f59cbe565ec2bbcd643ce
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 888f50d645c9b3babf95335e434db65423108ccb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900310"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693027"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Aggiornare il data warehouse a Gen2
 
@@ -30,43 +31,43 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 
 \* indica che una pianificazione specifica per l'area non è attualmente disponibile.
 
-| **Region** | **Disponibilità livello inferiore Gen2** | **Inizio aggiornamenti automatici** |
+| **Area** | **Disponibilità livello inferiore Gen2** | **Inizio aggiornamenti automatici** |
 |:--- |:--- |:--- |
-| Australia orientale |Disponibile |Completato |
-| Australia sud-orientale |Disponibile |Completato |
-| Brasile meridionale |Disponibile |Completato |
-| Canada centrale |Disponibile |Completato |
+| Australia orientale |Disponibile |Complete |
+| Australia sudorientale |Disponibile |Complete |
+| Brasile meridionale |Disponibile |Complete |
+| Canada centrale |Disponibile |Complete |
 | Canada orientale |1 giugno 2020 |1 ° luglio 2020 |
-| Stati Uniti centrali |Disponibile |Completato |
+| Stati Uniti centrali |Disponibile |Complete |
 | Cina orientale |\* |\* |
-| Cina orientale 2 |Disponibile |Completato |
+| Cina orientale 2 |Disponibile |Complete |
 | Cina settentrionale |\* |\* |
-| Cina settentrionale 2 |Disponibile |Completato |
-| Asia orientale |Disponibile |Completato |
-| East US |Disponibile |Completato |
-| Stati Uniti orientali 2 |Disponibile |Completato |
+| Cina settentrionale 2 |Disponibile |Complete |
+| Asia orientale |Disponibile |Complete |
+| Stati Uniti orientali |Disponibile |Complete |
+| Stati Uniti orientali 2 |Disponibile |Complete |
 | Francia centrale |Disponibile |In corso |
 | Germania centrale |\* |\* |
 | Germania centro-occidentale |1 settembre 2019|1 ottobre 2019 |
-| India centrale |Disponibile |Completato |
-| India meridionale |Disponibile |Completato |
+| India centrale |Disponibile |Complete |
+| India meridionale |Disponibile |Complete |
 | India occidentale |1 ° luglio 2019 |In corso |
-| Giappone orientale |Disponibile |Completato |
-| Giappone occidentale |Disponibile |Completato |
-| Corea del Sud centrale |Disponibile |Completato |
-| Corea del Sud meridionale |Disponibile |Completato |
-| Stati Uniti centro-settentrionali |Disponibile |Completato |
-| Europa settentrionale |Disponibile |Completato |
-| Sudafrica settentrionale |12 luglio 2019 |Completato |
-| Stati Uniti centro-meridionali |Disponibile |Completato |
-| Asia sudorientale |Disponibile |Completato |
-| Emirati Arabi Uniti settentrionali |20 luglio 2019 |Completato |
+| Giappone orientale |Disponibile |Complete |
+| Giappone occidentale |Disponibile |Complete |
+| Corea del Sud centrale |Disponibile |Complete |
+| Corea del Sud meridionale |Disponibile |Complete |
+| Stati Uniti centro-settentrionali |Disponibile |Complete |
+| Europa settentrionale |Disponibile |Complete |
+| Sudafrica settentrionale |12 luglio 2019 |Complete |
+| Stati Uniti centro-meridionali |Disponibile |Complete |
+| Asia sudorientale |Disponibile |Complete |
+| Emirati Arabi Uniti settentrionali |20 luglio 2019 |Complete |
 | Regno Unito meridionale |Disponibile |In corso |
 | Regno Unito occidentale |Disponibile |In corso |
 | Stati Uniti centro-occidentali |1 novembre 2019 |1 dicembre 2019|
-| Europa occidentale |Disponibile |Completato |
-| Stati Uniti occidentali |Disponibile |Completato |
-| Stati Uniti occidentali 2 |Disponibile |Completato |
+| Europa occidentale |Disponibile |Complete |
+| Stati Uniti occidentali |Disponibile |Complete |
+| Stati Uniti occidentali 2 |Disponibile |Complete |
 
 ## <a name="automatic-upgrade-process"></a>Processo di aggiornamento automatico
 
@@ -88,8 +89,8 @@ L'aggiornamento autonomo offre due opzioni.  È possibile aggiornare il data war
 - [Aggiornamento sul posto](upgrade-to-latest-generation.md): questa opzione aggiorna il data warehouse Gen1 esistente a Gen2. Il processo di aggiornamento comporterà una breve riduzione della connettività (circa 5 minuti) quando si riavvia il data warehouse.  Dopo il riavvio, il data warehouse sarà completamente disponibile per l'uso. Se si verificano problemi durante l'aggiornamento, aprire una [richiesta di supporto](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) e fare riferimento all'aggiornamento di Gen2 come possibile.
 - [Aggiornamento da un punto di ripristino](sql-data-warehouse-restore.md): questa opzione crea un punto di ripristino definito dall'utente nel data warehouse Gen1 corrente e quindi esegue il ripristino direttamente in un'istanza di Gen2. Il data warehouse Gen1 esistente rimarrà nella sua posizione. Una volta completato il ripristino, il data warehouse Gen2 sarà completamente disponibile per l'uso.  Dopo aver eseguito tutti i processi di test e convalida sull'istanza di Gen2 ripristinata, l'istanza di Gen1 originale può essere eliminata.
 
-   - Passaggio 1: Nel portale di Azure [creare un punto di ripristino definito dall'utente](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal).
-   - Passaggio 2: Quando si esegue il ripristino da un punto di ripristino definito dall'utente, impostare il "livello di prestazioni" sul piano Gen2 preferito.
+   - Passaggio 1: dalla portale di Azure [creare un punto di ripristino definito dall'utente](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal).
+   - Passaggio 2: durante il ripristino da un punto di ripristino definito dall'utente, impostare il "livello di prestazioni" sul livello Gen2 preferito.
 
 Si potrebbe riscontrare un periodo di riduzione delle prestazioni mentre il processo di aggiornamento prosegue l'aggiornamento dei file di dati in background. La durata totale di questa riduzione del livello delle prestazioni dipende dalle dimensioni dei file di dati.
 
@@ -104,47 +105,47 @@ Per altre informazioni, vedere [Aggiornamento a Gen2](upgrade-to-latest-generati
 
 ## <a name="migration-frequently-asked-questions"></a>Domande frequenti sulla migrazione
 
-**D: Il costo di Gen2 è uguale a quello di Gen1?**
+**D: il costo di Gen2 è uguale a quello di Gen1?**
 
-- R: Sì.
+- A: Sì.
 
-**D: Quale effetto avranno gli aggiornamenti sugli script di automazione?**
+**D: in che modo gli aggiornamenti interessano gli script di automazione?**
 
-- R: Tutti gli script di automazione che fanno riferimento a un obiettivo del livello di servizio devono essere modificati in modo da corrispondere all'equivalente di Gen2.  Vedere i dettagli [qui](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
+- R: tutti gli script di automazione che fanno riferimento a un obiettivo del livello di servizio devono essere modificati in modo che corrispondano all'equivalente Gen2.  Vedere i dettagli [qui](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
 
-**D: Quanto tempo richiede normalmente un aggiornamento autonomo?**
+**D: quanto tempo richiede normalmente un aggiornamento automatico?**
 
-- R: È possibile eseguire l'aggiornamento sul posto o da un punto di ripristino.  
+- R: è possibile eseguire l'aggiornamento sul posto o eseguire l'aggiornamento da un punto di ripristino.  
    - Con l'aggiornamento sul posto l'esecuzione del data warehouse dovrà essere momentaneamente sospesa e quindi ripresa.  Un processo in background continuerà mentre il data warehouse è online.  
    - L'aggiornamento da un punto di ripristino richiede più tempo, in quanto deve essere eseguito l'intero processo di ripristino.
 
-**D: Quanto tempo richiede l'aggiornamento automatico?**
+**D: quanto tempo è necessario per l'aggiornamento automatico?**
 
-- R: Il tempo di inattività effettivo per l'aggiornamento corrisponde al tempo necessario per sospendere e riprendere l'esecuzione del servizio, ossia tra i 5 e i 10 minuti. Dopo questa breve interruzione, un processo in background eseguirà una migrazione delle risorse di archiviazione. La durata del processo in background dipende dalle dimensioni del data warehouse.
+- R: i tempi di inattività effettivi per l'aggiornamento sono solo il tempo necessario per sospendere e riprendere il servizio, che è compreso tra 5 e 10 minuti. Dopo questa breve interruzione, un processo in background eseguirà una migrazione delle risorse di archiviazione. La durata del processo in background dipende dalle dimensioni del data warehouse.
 
-**D: Quando avverrà questo aggiornamento automatico?**
+**D: quando si verifica l'aggiornamento automatico?**
 
-- R: Durante la pianificazione della manutenzione. Sfruttando la pianificazione della manutenzione scelta dal cliente si ridurrà al minimo l'interruzione delle attività aziendali.
+- R: durante la pianificazione della manutenzione. Sfruttando la pianificazione della manutenzione scelta dal cliente si ridurrà al minimo l'interruzione delle attività aziendali.
 
-**D: Cosa occorre fare se il processo di aggiornamento in background sembra bloccato?**
+**D: quali operazioni è necessario eseguire se il processo di aggiornamento in background sembra bloccato?**
 
- - R: Attivare una reindicizzazione delle tabelle Columnstore. Si noti che durante l'operazione di reindicizzazione le tabelle saranno offline.
+ - R: avviare un REINDEX delle tabelle columnstore. Si noti che durante l'operazione di reindicizzazione le tabelle saranno offline.
 
-**D: Cosa occorre fare se Gen2 non ha lo stesso obiettivo del livello di servizio di cui si dispone con Gen1?**
-- R: Se si esegue un DW600 o un DW1200 in Gen1, è consigliabile usare rispettivamente DW500c o DW1000c, in quanto Gen2 offre una quantità maggiore di memoria e risorse, oltre a prestazioni superiori rispetto a Gen1.
+**D: cosa accade se Gen2 non ha l'obiettivo del livello di servizio in Gen1?**
+- R: se si esegue DW600 o DW1200 in Gen1, è consigliabile usare rispettivamente DW500c o compreso dw1000c, dal momento che Gen2 offre più memoria, risorse e prestazioni superiori rispetto a Gen1.
 
-**D: È possibile disabilitare il backup geografico?**
+**D: è possibile disabilitare il backup geografico?**
 - R: No. Il backup geografico è una funzionalità aziendale che mantiene la disponibilità del data warehouse nell'eventualità in cui un'area diventi non disponibile. Aprire una [richiesta di supporto](sql-data-warehouse-get-started-create-support-ticket.md) in caso di ulteriori problemi.
 
-**D: La sintassi T-SQL di Gen1 è diversa da quella di Gen2?**
+**D: esiste una differenza nella sintassi T-SQL tra Gen1 e Gen2?**
 
-- R: La sintassi del linguaggio T-SQL è rimasta invariata da Gen1 a Gen2.
+- R: non sono state apportate modifiche alla sintassi del linguaggio T-SQL da Gen1 a Gen2.
 
 **D: Gen2 supporta le finestre di manutenzione?**
 
-- R: Sì.
+- A: Sì.
 
-**D: Sarà possibile creare una nuova istanza di Gen1 dopo l'aggiornamento dell'area?**
+**D: sarà possibile creare una nuova istanza di Gen1 dopo l'aggiornamento dell'area?**
 
 - R: No. Dopo l'aggiornamento di un'area, la creazione di nuove istanze di Gen1 verrà disabilitata.
 

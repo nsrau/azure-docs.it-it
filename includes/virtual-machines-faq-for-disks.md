@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f8c049cc8d2b09cb37dbd444427b03c1013da65c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 95fe5471789b66c253aa21d73433f5192cd01e6b
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523111"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612102"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -170,15 +170,6 @@ La prenotazione dei dischi di Azure viene acquistata per un'area e uno SKU speci
 Si riceveranno le notifiche tramite posta elettronica 30 giorni prima della scadenza e nuovamente alla data di scadenza. Al termine della prenotazione, i dischi distribuiti continueranno a essere eseguiti e verranno fatturati con le [tariffe con pagamento in base](https://azure.microsoft.com/pricing/details/managed-disks/)al consumo più recenti.
 
 ## <a name="ultra-disks"></a>Dischi ultra
-
-**Quali aree attualmente supportano i dischi ultra?**
-- Stati Uniti orientali 2
-- Asia sudorientale
-- Europa settentrionale
-
-**Quali serie di VM attualmente supportano i dischi ultra?**
-- ESv3
-- DSv3
 
 **Per cosa è necessario impostare la velocità effettiva del disco Ultra?**
 Se non si è certi di cosa impostare la velocità effettiva del disco, è consigliabile iniziare supponendo una dimensione di i/o di 16 KiB e regolare le prestazioni da tale posizione durante il monitoraggio dell'applicazione. La formula è: velocità effettiva in MBps = # di IOPS * 16/1000.

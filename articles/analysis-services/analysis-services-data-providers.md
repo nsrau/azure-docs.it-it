@@ -1,18 +1,18 @@
 ---
-title: Librerie client necessarie per la connessione ad Azure Analysis Services | Microsoft Docs
+title: Librerie client di Azure Analysis Services | Microsoft Docs
 description: Vengono illustrate le librerie client necessarie per la connessione di applicazioni e strumenti client ad Azure Analysis Services
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8ce5083d444aa05b59677fb46e7aa80200835412
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f78ac8686f23c47995cab9686c2ca3f6cf88fa6b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147085"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573045"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Librerie client per la connessione ad Azure Analysis Services
 
@@ -20,7 +20,7 @@ Le librerie client sono necessarie per la connessione di applicazioni e strument
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Scaricare le librerie client più recenti (Windows Installer)  
 
-|Download  |Versione prodotto  | 
+|Scaricare  |Versione prodotto  | 
 |---------|---------|
 |[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.5.15    |
 |[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.5.15       |

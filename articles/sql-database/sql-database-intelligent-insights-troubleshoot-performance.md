@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights | Microsoft Docs
+title: Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights
 description: Intelligent Insights consente di risolvere i problemi di prestazioni del database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: f884b39db92f44f7cff938e0ac4b9c2e22dc36cb
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: fef1ed386dbf3acccc09b9bba743b6b33492da0e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262198"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689710"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights
 
@@ -72,7 +72,7 @@ Il log di diagnostica genera hash di query per le query con effetti sulle presta
 
 Se sono stati raggiunti i limiti delle sessioni disponibili, è possibile ottimizzare le applicazioni riducendo il numero di accessi al database. Se non si riesce a ridurre il numero di accessi dalle applicazioni al database, valutare il passaggio a un piano tariffario di livello superiore per il database. In alternativa, è possibile suddividere e spostare il database in più database per una distribuzione più equilibrata del carico di lavoro.
 
-Per altri suggerimenti sulla risoluzione dei problemi per i limiti delle sessioni, vedere [How to deal with the limits of Azure SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/).(Come gestire i limiti al numero massimo di accessi al database SQL di Azure). Per informazioni sui limiti a livello di server e sottoscrizione, vedere [Panoramica dei limiti delle risorse in un server di database SQL](sql-database-resource-limits-database-server.md).
+Per altri suggerimenti sulla risoluzione dei problemi per i limiti delle sessioni, vedere [How to deal with the limits of Azure SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/).(Come gestire i limiti al numero massimo di accessi al database SQL di Azure). Per informazioni sui limiti a livello di server e sottoscrizione, vedere [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) (Panoramica dei limiti delle risorse in un server di database SQL).
 
 ## <a name="workload-increase"></a>Aumento del carico di lavoro
 
@@ -108,7 +108,7 @@ Il log di diagnostica restituisce i dettagli dell'archivio di oggetti di memoria
 
 È anche possibile ridurre il carico di lavoro ottimizzandolo o distribuendolo su più database. Oppure è possibile distribuire il carico di lavoro tra più database. Se queste soluzioni non sono praticabili, valutare il passaggio a un piano tariffario di livello superiore per la sottoscrizione del database SQL per incrementare la quantità di risorse di memoria disponibili per il database.
 
-Per altri suggerimenti sulla risoluzione dei problemi, vedere [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/) (Riflessione sulle concessioni di memoria: il misterioso consumer di memoria di SQL Server con molti nomi).
+Per altre informazioni sulla risoluzione dei problemi, vedere [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/) (Riflessione sulle concessioni di memoria: il misterioso consumer di memoria di SQL Server con molti nomi).
 
 ## <a name="locking"></a>Blocco
 
@@ -222,11 +222,11 @@ Per altre informazioni sull'ottimizzazione delle prestazioni delle query, vedere
 
 ### <a name="what-is-happening"></a>Situazione
 
-Questo modello di prestazioni rilevabili indica una condizione delle prestazioni del database in cui è presente un collo di bottiglia di thread che tentano di accedere a risorse di tempDB. Questa condizione non è correlata all'I/O. Lo scenario tipico per questo problema di prestazioni è la presenza di centinaia di query simultanee che creano, usano e rilasciano tutte le tabelle tempDB di piccole dimensioni. Il sistema ha rilevato che il numero di query simultanee che usano le stesse tabelle tempDB è aumentato in modo statisticamente significativo sufficiente da influire sulle prestazioni del database rispetto alla baseline delle prestazioni degli ultimi sette giorni.
+Questo modello di prestazioni rilevabili indica una condizione delle prestazioni del database in cui è presente un collo di bottiglia di thread che tentano di accedere a risorse di tempDB. Questa condizione non è correlata a IO. Lo scenario tipico per questo problema di prestazioni è costituito da centinaia di query simultanee che creano, usano e rilasciano le tabelle tempDB di piccole dimensioni. Il sistema ha rilevato che il numero di query simultanee che usano le stesse tabelle tempDB è aumentato in modo statisticamente significativo sufficiente da influire sulle prestazioni del database rispetto alla baseline delle prestazioni degli ultimi sette giorni.
 
 ### <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Il log di diagnostica include informazioni dettagliate sulle contese di tempDB. È possibile usare queste informazioni come punto di partenza per la risoluzione dei problemi. Esistono due operazioni che è possibile eseguire per risolvere questo tipo di contesa e aumentare la velocità effettiva del carico di lavoro globale: è possibile interrompere l'uso delle tabelle temporanee e usare tabelle ottimizzate per la memoria. 
+Il log di diagnostica include informazioni dettagliate sulle contese di tempDB. È possibile usare queste informazioni come punto di partenza per la risoluzione dei problemi. Esistono due operazioni che è possibile eseguire per risolvere questo tipo di contesa e aumentare la velocità effettiva del carico di lavoro globale, ovvero è possibile interrompere l'uso di tabelle temporanee e usare tabelle ottimizzate per la memoria. 
 
 Per altre informazioni, vedere [Introduzione alle tabelle ottimizzate per la memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
@@ -325,7 +325,7 @@ Accedere a Intelligent Insights nel portale di Azure passando ad Analisi SQL di 
 > [!TIP]
 > Selezionare il diagramma di flusso per scaricarne una versione in formato PDF.
 
-Intelligent Insights in genere ha bisogno di un'ora di tempo per eseguire l'analisi della causa radice del problema di prestazioni. Se non è possibile individuare il problema in Intelligent Insights ed è cruciale trovare una soluzione, usare Query Store per identificare manualmente la causa radice del problema di prestazioni. (In genere, questi problemi risultano generati nell'ultima ora.) Per altre informazioni, vedere [Monitoraggio delle prestazioni con Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Intelligent Insights in genere ha bisogno di un'ora di tempo per eseguire l'analisi della causa radice del problema di prestazioni. Se non è possibile individuare il problema in Intelligent Insights ed è cruciale trovare una soluzione, usare Query Store per identificare manualmente la causa radice del problema di prestazioni. In genere, questi problemi sono inferiori a un'ora precedente. Per altre informazioni, vedere [monitorare le prestazioni usando il query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni sui concetti di [Intelligent Insights](sql-database-intelligent-insights.md).

@@ -1,7 +1,7 @@
 ---
 title: Distribuzione e utilizzo
-titleSuffix: Azure Machine Learning Studio (classic)
-description: You can use Azure Machine Learning Studio (classic) to deploy machine learning workflows and models as web services. Questi servizi Web possono quindi essere usati per chiamare i modelli di Machine Learning dalle applicazioni tramite Internet allo scopo di eseguire stime in tempo reale o in modalità batch.
+titleSuffix: ML Studio (classic) Azure
+description: È possibile usare Azure Machine Learning Studio (classico) per distribuire i flussi di lavoro e i modelli di machine learning come servizi Web. Questi servizi Web possono quindi essere usati per chiamare i modelli di Machine Learning dalle applicazioni tramite Internet allo scopo di eseguire stime in tempo reale o in modalità batch.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,30 +10,30 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: bf169a9b7064bd83caf0c9f8ec6dd6dd55894d67
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 47cd04615919fcc9db757ed4b9e8fd06eb297592
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493008"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684832"
 ---
-# <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (classic) Web Services: Deployment and consumption
+# <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Servizi Web di Azure Machine Learning Studio (classico): distribuzione e utilizzo
 
-You can use Azure Machine Learning Studio (classic) to deploy machine learning workflows and models as web services. Questi servizi Web possono quindi essere usati per chiamare i modelli di Machine Learning dalle applicazioni tramite Internet allo scopo di eseguire stime in tempo reale o in modalità batch. Essendo RESTFul, i servizi Web possono essere chiamati da diversi linguaggi di programmazione e piattaforme, come .NET e Java, nonché applicazioni, come Excel.
+È possibile usare Azure Machine Learning Studio (classico) per distribuire i flussi di lavoro e i modelli di machine learning come servizi Web. Questi servizi Web possono quindi essere usati per chiamare i modelli di Machine Learning dalle applicazioni tramite Internet allo scopo di eseguire stime in tempo reale o in modalità batch. Essendo RESTFul, i servizi Web possono essere chiamati da diversi linguaggi di programmazione e piattaforme, come .NET e Java, nonché applicazioni, come Excel.
 
 Le sezioni successive forniscono collegamenti a procedure dettagliate, codice e documentazione per aiutarvi a iniziare.
 
 ## <a name="deploy-a-web-service"></a>Distribuire un servizio Web
 
-### <a name="with-azure-machine-learning-studio-classic"></a>With Azure Machine Learning Studio (classic)
+### <a name="with-azure-machine-learning-studio-classic"></a>Con Azure Machine Learning Studio (versione classica)
 
-The Studio (classic) portal and the Microsoft Azure Machine Learning Web Services portal help you deploy and manage a web service without writing code.
+Il portale di studio (classico) e il portale dei servizi Web Microsoft Azure Machine Learning consentono di distribuire e gestire un servizio Web senza scrivere codice.
 
 I collegamenti seguenti offrono informazioni generali su come distribuire un nuovo servizio Web:
 
-* Per una panoramica di come distribuire un nuovo servizio Web basato su Azure Resource Manager, vedere [Distribuire un nuovo servizio Web](publish-a-machine-learning-web-service.md).
-* Per una procedura dettagliata su come distribuire un servizio Web, vedere [Distribuire un servizio Web di Azure Machine Learning](publish-a-machine-learning-web-service.md).
-* For a full walkthrough about how to create and deploy a web service, start with [Tutorial 1: Predict credit risk](tutorial-part1-credit-risk.md).
+* Per una panoramica di come distribuire un nuovo servizio Web basato su Azure Resource Manager, vedere [Distribuire un nuovo servizio Web](deploy-a-machine-learning-web-service.md).
+* Per una procedura dettagliata su come distribuire un servizio Web, vedere [Distribuire un servizio Web di Azure Machine Learning](deploy-a-machine-learning-web-service.md).
+* Per una procedura dettagliata completa su come creare e distribuire un servizio Web, iniziare con l' [esercitazione 1: prevedere il rischio di credito](tutorial-part1-credit-risk.md).
 * Per esempi specifici di distribuzione di un servizio Web, vedere:
 
   * [Esercitazione 3: distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md)
@@ -66,7 +66,7 @@ Con l'esecuzione dell'applicazione viene creato un modello JSON di servizio Web.
 
 Aggiungere le informazioni al modello JSON come figli del nodo *Properties* allo stesso livello del nodo *MachineLearningWorkspace*.
 
-Ecco un esempio:
+Ad esempio:
 
     "StorageAccount": {
             "name": "YourStorageAccountName",
@@ -87,8 +87,8 @@ Per altre informazioni, vedere gli articoli e il codice di esempio seguenti:
 
 È possibile testare il servizio Web dal portale dei servizi Web di Azure Machine Learning. Sono inclusi i test delle interfacce del Servizio di richiesta-risposta (RRS) e del Servizio Esecuzione batch (BES).
 
-* [Distribuire un nuovo servizio Web](publish-a-machine-learning-web-service.md)
-* [Distribuire un servizio Web di Azure Machine Learning](publish-a-machine-learning-web-service.md)
+* [Distribuire un nuovo servizio Web](deploy-a-machine-learning-web-service.md)
+* [Distribuire un servizio Web di Azure Machine Learning](deploy-a-machine-learning-web-service.md)
 * [Esercitazione 3: distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>Da Excel

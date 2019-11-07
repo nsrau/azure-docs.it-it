@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 05bae18d35eafc47eddc7c1450eb06af5bbe5562
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: e1bb84c142fb24086cf6c11a7b1070bdd29ae3f2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497200"
+ms.locfileid: "73581304"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Crea, Esplora e Distribuisci esperimenti di Machine Learning automatici con Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -104,7 +104,7 @@ In caso contrario, verrà visualizzato un elenco dei recenti esperimenti automat
 
     Selezionare **Avanti**.
 
-1. Nel modulo **tipo di attività e impostazioni** selezionare il tipo di attività, ovvero classificazione, regressione o previsione. 
+1. Nel modulo **tipo di attività e impostazioni** selezionare il tipo di attività, ovvero classificazione, regressione o previsione. Per ulteriori informazioni [, vedere come definire i tipi di attività](how-to-define-task-type.md) .
 
     1. Per la classificazione, è anche possibile abilitare l'apprendimento avanzato usato per featurizations di testo.
 
@@ -205,12 +205,17 @@ Automatizzato ML semplifica la distribuzione del modello senza scrivere codice:
 
     Campo| Valore
     ----|----
-    Nome distribuzione| Immettere un nome univoco per la distribuzione.
-    Descrizione della distribuzione| Immettere una descrizione per identificare meglio le finalità della distribuzione.
-    Scoring script (Script di assegnazione punteggi)| Generare automaticamente o caricare il proprio file di assegnazione dei punteggi. [Altre informazioni sugli script per il Punteggio](how-to-deploy-and-where.md#script).
-    Environment script (Script ambiente)| Generare automaticamente o caricare il file dell'ambiente.
+    Name| Immettere un nome univoco per la distribuzione.
+    Descrizione| Immettere una descrizione per identificare meglio le finalità della distribuzione.
+    Tipo di calcolo| Selezionare il tipo di endpoint che si vuole distribuire: *Azure Kubernetes Service (AKS)* o *Azure container instance (ACI)* .
+    Name| *Si applica solo a AKS:* Selezionare il nome del cluster AKS in cui si vuole eseguire la distribuzione.
+    Abilitare l'autenticazione | Selezionare questa impostazione per consentire l'autenticazione basata su token o basata su chiave.
+    Usare asset di distribuzione personalizzati| Abilitare questa funzionalità se si desidera caricare lo script di assegnazione dei punteggi e il file dell'ambiente. [Altre informazioni sugli script per il Punteggio](how-to-deploy-and-where.md#script).
+
     >[!Important]
     > Il nome file deve essere inferiore a 32 caratteri e deve iniziare e terminare con caratteri alfanumerici. Può includere trattini, caratteri di sottolineatura, punti e caratteri alfanumerici tra. Gli spazi non sono consentiti.
+
+    Il menu *Avanzate* offre funzionalità di distribuzione predefinite, ad esempio le impostazioni di raccolta dati e di utilizzo delle risorse. Se si desidera eseguire l'override di queste impostazioni predefinite, effettuare questa operazione in questo menu.
 
 1. Selezionare **Distribuisci**. Il completamento della distribuzione può richiedere circa 20 minuti.
 

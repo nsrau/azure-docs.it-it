@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 3f619caf7e2713e1c9251550b06c8bdefba5936f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 1854599956755716955a6e691c3266ac54ddafd9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493392"
+ms.locfileid: "73581562"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Esercitazione: eseguire il training e distribuire un modello dall'interfaccia della riga di comando
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -183,7 +183,7 @@ Questo comando crea un file di `.azureml/config.json`, che contiene le informazi
 
 ## <a name="create-the-compute-target-for-training"></a>Creare la destinazione di calcolo per il training
 
-Questo esempio usa un cluster di calcolo Azure Machine Learning per eseguire il training del modello. Per creare un nuovo cluster di calcolo, usare il comando seguente:
+Questo esempio usa una macchina virtuale Azure Machine Learning notebook per eseguire il training del modello. Per creare una nuova macchina virtuale notebook, usare il comando seguente:
 
 ```azurecli-interactive
 az ml computetarget create amlcompute -n cpu --max-nodes 4 --vm-size Standard_D2_V2
@@ -239,7 +239,7 @@ Questo testo viene registrato dallo script di training (`train-sklearn.py`) e vi
 
 Se si esaminano le `train-sklearn.py`, si noterà che viene usato anche il valore alfa quando archivia i modelli sottoposti a training per il file. In questo caso, vengono trainati diversi modelli. Quello con l'alfa più alto dovrebbe essere quello migliore. Esaminando l'output precedente e il codice, il modello con un Alpha di 0,95 è stato salvato come `./outputs/ridge_0.95.pkl`
 
-Il modello è stato salvato nella directory `./outputs` nella destinazione di calcolo in cui è stato eseguito il training. In questo caso, l'istanza di calcolo Azure Machine Learning nel cloud di Azure. Il processo di training carica automaticamente il contenuto della directory `./outputs` dalla destinazione di calcolo in cui viene eseguito il training nell'area di lavoro di Azure Machine Learning. Viene archiviato come parte dell'esperimento (`myexperiment` in questo esempio).
+Il modello è stato salvato nella directory `./outputs` nella destinazione di calcolo in cui è stato eseguito il training. In questo caso, la macchina virtuale Azure Machine Learning notebook nel cloud di Azure. Il processo di training carica automaticamente il contenuto della directory `./outputs` dalla destinazione di calcolo in cui viene eseguito il training nell'area di lavoro di Azure Machine Learning. Viene archiviato come parte dell'esperimento (`myexperiment` in questo esempio).
 
 ## <a name="register-the-model"></a>Registrare il modello
 

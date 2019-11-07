@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: eb48afb15e1314dcf670ba04afd9609876dc9539
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 3790511bf3f71cdeb01853e4051a013719502d9f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472825"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605096"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Creare un cluster Azure Kubernetes Service (AKS) che usa zone di disponibilità
 
@@ -72,9 +72,9 @@ In un'interruzione di zona, i nodi possono essere ribilanciati manualmente o usa
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>Creare un cluster AKS tra le zone di disponibilità
 
-Quando si crea un cluster usando il comando [AZ AKS create][az-aks-create] , il `--zones` parametro definisce quali zone vengono distribuiti i nodi agenti. I componenti del piano di controllo AKS per il cluster vengono distribuiti anche tra le zone con la configurazione più elevata disponibile quando si crea un cluster che specifica il `--zones` parametro.
+Quando si crea un cluster usando il comando [AZ AKS create][az-aks-create] , il `--zones` parametro definisce quali zone vengono distribuiti i nodi agenti. I componenti del piano di controllo AKS per il cluster vengono distribuiti anche tra le zone con la configurazione più elevata disponibile quando si definisce il parametro `--zones` al momento della creazione del cluster.
 
-Se non si definiscono zone per il pool di agenti predefinito quando si crea un cluster AKS, i componenti del piano di controllo AKS per il cluster non useranno le zone di disponibilità. È possibile aggiungere altri pool di nodi usando il comando [AZ AKS nodepool Add][az-aks-nodepool-add] e specificare `--zones` per i nuovi nodi dell'agente, tuttavia i componenti del piano di controllo rimangono senza la consapevolezza della zona di disponibilità. Non è possibile modificare la conoscenza della zona per un pool di nodi o per i componenti del piano di controllo AKS dopo che sono stati distribuiti.
+Se non si definiscono zone per il pool di agenti predefinito quando si crea un cluster AKS, i componenti del piano di controllo AKS per il cluster non useranno le zone di disponibilità. È possibile aggiungere altri pool di nodi usando il comando [AZ AKS nodepool Add][az-aks-nodepool-add] e specificare `--zones` per i nuovi nodi, tuttavia i componenti del piano di controllo rimangono senza la consapevolezza della zona di disponibilità. Non è possibile modificare la conoscenza della zona per un pool di nodi o per i componenti del piano di controllo AKS dopo che sono stati distribuiti.
 
 L'esempio seguente crea un cluster AKS denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*. Vengono creati un totale di *3* nodi: un agente nella zona *1*, uno in *2*e uno in *3*. I componenti del piano di controllo AKS vengono distribuiti anche tra le zone con la massima configurazione disponibile, perché sono definiti come parte del processo di creazione del cluster.
 

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: 536f3ab506dcbe2b8997f2c1870f25244b6c070f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: eddfddc994482bcb6e60604703e7f306fee9c32b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489649"
+ms.locfileid: "73574357"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Rilevare la tendenza dei dati (anteprima) nei modelli distribuiti in Azure Kubernetes Service (AKS)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -123,7 +123,7 @@ RunDetails(dd_run).show()
 Dopo aver inviato l'esecuzione di DataDriftDetector, è possibile visualizzare le metriche di spostamento salvate in ogni iterazione di esecuzione per un'attività di drifting dei dati:
 
 
-|Metrica|Description|
+|Metrica|Descrizione|
 --|--|
 wasserstein_distance|Distanza statistica definita per la distribuzione numerica unidimensionale.|
 energy_distance|Distanza statistica definita per la distribuzione numerica unidimensionale.|
@@ -161,14 +161,13 @@ datadrift.disable_schedule()
 
 La configurazione del rilevamento della derivazione dei dati può essere visualizzata in **modelli** nella scheda **Dettagli** dell'area di lavoro in [Azure Machine Learning Studio](https://ml.azure.com).
 
-![Spostamento dei dati di Azure Machine Learning Studio](media/how-to-monitor-data-drift/drift-config.png)
+[Spostamento dei dati ![Azure Machine Learning Studio](media/how-to-monitor-data-drift/drift-config.png)](media/how-to-monitor-data-drift/drift-config-expanded.png)
 
 ## <a name="view-results-in-your-azure-machine-learning-studio"></a>Visualizzare i risultati in Azure Machine Learning Studio
 
 Per visualizzare i risultati nell'area di lavoro in [Azure Machine Learning Studio](https://ml.azure.com), passare alla pagina del modello. Nella scheda Dettagli del modello viene visualizzata la configurazione della deviazione dati. È ora disponibile una scheda della barra di **spostamento dei** dati in cui vengono visualizzate le metriche di spostamento dei dati. 
 
 [Spostamento dei dati ![Azure Machine Learning Studio](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
-
 
 ## <a name="receiving-drift-alerts"></a>Ricezione di avvisi di Drift
 

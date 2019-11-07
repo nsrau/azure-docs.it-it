@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aab9d8c2b7993598c602ae6b730baff06d807e1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 9b6f07e1dd8e9252d2b6e00b85a47ba2e19f8bd8
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151624"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603465"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Completare una distribuzione di autenticazione non con password
 
@@ -110,15 +110,6 @@ Per abilitare l'accesso a Windows 10 con le chiavi di sicurezza di FIDO2 è nece
    - Se non è possibile eseguire la distribuzione di Intune, gli amministratori devono distribuire un pacchetto in ogni computer per abilitare la funzionalità del provider di credenziali. L'installazione del pacchetto può essere eseguita tramite una delle opzioni seguenti:
       - Criteri di gruppo o System Center Configuration Manager (SCCM)
       - Installazione locale in un computer Windows 10
-- [Abilita provider di credenziali con Criteri di gruppo](howto-authentication-passwordless-security-key-windows.md#enable-with-group-policy)
-   - Supportato solo per dispositivi ibridi Azure AD aggiunti.
-
-#### <a name="enable-on-premises-integration"></a>Abilitare l'integrazione locale
-
-Per abilitare l'accesso alle risorse locali, seguire la procedura illustrata nell'articolo [abilitare la chiave di sicurezza senza password accedi a risorse locali (anteprima)](howto-authentication-passwordless-security-key-on-premises.md) .
-
-> [!IMPORTANT]
-> Questi passaggi devono essere completati anche per i dispositivi ibridi Azure AD aggiunti per usare le chiavi di sicurezza FIDO2 per l'accesso a Windows 10.
 
 ### <a name="register-security-keys"></a>Registrare le chiavi di sicurezza
 
@@ -138,7 +129,7 @@ Prendere in considerazione le esigenze aziendali e i casi di utilizzo per ogni m
 
 Nella tabella seguente vengono illustrati i casi d'uso da implementare durante il progetto.
 
-| Area | Description |
+| Area | Descrizione |
 | --- | --- |
 | **Accedere** | L'accesso senza password è disponibile da un dispositivo aziendale o personale all'interno o all'esterno della rete aziendale. |
 | **Controllo** | I dati di utilizzo sono disponibili agli amministratori per il controllo quasi in tempo reale. <br> I dati di utilizzo vengono scaricati nei sistemi aziendali almeno ogni 29 giorni oppure viene usato lo strumento SIEM. |
@@ -254,7 +245,7 @@ Seguire i passaggi allineati al metodo scelto di seguito.
 
 ### <a name="required-administrative-roles"></a>Ruoli amministrativi richiesti
 
-| Ruolo Azure AD | Description |
+| Ruolo Azure AD | Descrizione |
 | --- | --- |
 | Amministratore dell'autenticazione | Ruolo con privilegi minimi in grado di implementare e gestire i metodi di autenticazione |
 | Utente | Ruolo con privilegi minimi per la configurazione dell'app Authenticator nel dispositivo o per la registrazione del dispositivo chiave di sicurezza per l'accesso Web o Windows 10. |

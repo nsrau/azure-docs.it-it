@@ -1,5 +1,5 @@
 ---
-title: Trasformazione Suddivisione condizionale nel flusso di dati del mapping Azure Data Factory | Microsoft Docs
+title: Trasformazione Suddivisione condizionale nel flusso di dati del mapping Azure Data Factory
 description: Suddividere i dati in flussi diversi usando la trasformazione Suddivisione condizionale nel flusso di dati del mapping Azure Data Factory
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 2d794714f27340e8886843988b6c075dd8d3366e
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9ace415aa725a82d8feda5702d25d7e5ff9875d9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72527432"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676820"
 ---
 # <a name="conditional-split-transformation-in-mapping-data-flow"></a>Trasformazione Suddivisione condizionale nel flusso di dati di mapping
 
@@ -42,7 +42,7 @@ Utilizzare il generatore di espressioni del flusso di dati per immettere un'espr
 
 ### <a name="example"></a>Esempio
 
-Nell'esempio seguente viene illustrata una trasformazione Suddivisione condizionale denominata `SplitByYear` che accetta `CleanData` flusso in ingresso. Questa trasformazione presenta due condizioni di divisione `year < 1960` e `year > 1980`. `disjoint` è false perché i dati passano alla prima condizione corrispondente. Ogni riga che corrisponde alla prima condizione passa al flusso di output `moviesBefore1960`. Tutte le righe rimanenti corrispondenti alla seconda condizione passano al flusso di output `moviesAFter1980`. Tutte le altre righe passano attraverso il flusso predefinito `AllOtherMovies`.
+Nell'esempio seguente viene illustrata una trasformazione Suddivisione condizionale denominata `SplitByYear` che accetta `CleanData`flusso in ingresso. Questa trasformazione presenta due condizioni di divisione `year < 1960` e `year > 1980`. `disjoint` è false perché i dati passano alla prima condizione corrispondente. Ogni riga che corrisponde alla prima condizione passa al flusso di output `moviesBefore1960`. Tutte le righe rimanenti corrispondenti alla seconda condizione passano al flusso di output `moviesAFter1980`. Tutte le altre righe passano attraverso il flusso predefinito `AllOtherMovies`.
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 

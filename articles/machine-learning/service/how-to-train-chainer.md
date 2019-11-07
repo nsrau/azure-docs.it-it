@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 91278bdc1748615c91675e3894ebae4cf5fce1e4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8427bd8532895e95de82a6ed577052971f15a25d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489496"
+ms.locfileid: "73584517"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Esegui il training e la registrazione dei modelli di Chainer su larga scala con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Se non si dispone di una sottoscrizione di Azure, creare un account gratuito pri
 
 Eseguire questo codice in uno degli ambienti seguenti:
 
-- Azure Machine Learning istanza di calcolo: nessun download o installazione necessaria
+- Azure Machine Learning macchina virtuale Notebook-nessun download o installazione necessaria
 
     - Completare l' [esercitazione: configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md) per creare un server notebook dedicato precaricato con l'SDK e il repository di esempio.
     - Nella cartella Samples Deep learning nel server notebook trovare un notebook e i file completati nella cartella **How-to-use-azureml > ml-frameworks > chainer > deployment > Train-iperparameter-Tune-deploy-with-Chainer** .  Il notebook include sezioni espanse che coprono l'ottimizzazione intelligente dei parametri, la distribuzione di modelli e i widget del notebook.

@@ -1,5 +1,5 @@
 ---
-title: 'App SaaS: backup con ridondanza geografica del database SQL di Azure per il ripristino di emergenza | Microsoft Docs'
+title: 'App SaaS: backup con ridondanza geografica del database SQL di Azure per il ripristino di emergenza '
 description: Informazioni su come usare i backup con ridondanza geografica del database SQL di Azure per ripristinare un'app SaaS multi-tenant in caso di interruzione
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/14/2019
-ms.openlocfilehash: c8990e5183d09e8f530fdef952a80a09104d3617
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2f058a5cd20fff845a1feafe42b66beb1afef766
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570496"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692203"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usare il ripristino geografico per ripristinare un'applicazione SaaS dai backup di database
 
@@ -79,7 +79,7 @@ Gli script per il ripristino di emergenza usati in questa esercitazione sono dis
 ## <a name="review-the-healthy-state-of-the-application"></a>Esaminare lo stato di integrità dell'applicazione
 Prima di iniziare il processo di ripristino, esaminare il normale stato di integrità dell'applicazione.
 
-1. Nel Web browser aprire l'hub eventi di Wingtip Tickets all'indirizzo http://events.wingtip-dpt.&lt ;utente&gt;.trafficmanager.net, sostituire &lt; utente&gt; con il valore utente della distribuzione.
+1. Nel Web browser aprire l'hub eventi di Wingtip Tickets all'indirizzo http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net, sostituire &lt;utente&gt; con il valore utente della distribuzione.
     
    Scorrere la pagina verso il basso e osservare il nome e la posizione del server di catalogo nella parte inferiore della pagina. La posizione corrisponde all'area in cui l'app è stata distribuita.    
 
@@ -103,7 +103,7 @@ Prima di iniziare il processo di ripristino, esaminare il normale stato di integ
 In questa attività si avvia un processo per sincronizzare la configurazione di server, pool elastici e database nel catalogo dei tenant. Queste informazioni verranno usate in un secondo momento per configurare un ambiente con immagine speculare nell'area di ripristino.
 
 > [!IMPORTANT]
-> Per semplicità, il processo di sincronizzazione e gli altri processi di ripristino e ricollocamento a esecuzione prolungata vengono implementati in questi esempi come sessioni o processi di PowerShell locali che vengono eseguiti con l'account di accesso utente client. I token di autenticazione rilasciati al momento dell'accesso scadono dopo alcune ore e i processi avranno quindi esito negativo. In uno scenario di produzione i processi a esecuzione prolungata devono essere implementati come servizi di Azure affidabili di un determinato tipo, in esecuzione in un'entità servizio. Vedere [Usare Azure PowerShell per creare un'entità servizio con un certificato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
+> Per semplicità, il processo di sincronizzazione e gli altri processi di ripristino e ricollocamento a esecuzione prolungata vengono implementati in questi esempi come sessioni o processi di PowerShell locali che vengono eseguiti con l'account di accesso utente client. I token di autenticazione rilasciati al momento dell'accesso scadono dopo alcune ore e i processi avranno quindi esito negativo. In uno scenario di produzione, i processi a esecuzione prolungata devono essere implementati come servizi di Azure affidabili, in esecuzione in un'entità servizio. Vedere [Usare Azure PowerShell per creare un'entità servizio con un certificato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
 
 1. In PowerShell ISE aprire il file ...\Learning Modules\UserConfig.psm1. Sostituire `<resourcegroup>` e `<user>` alle righe 10 e 11 con il valore usato al momento della distribuzione dell'app. Salvare il file.
 
@@ -113,7 +113,7 @@ In questa attività si avvia un processo per sincronizzare la configurazione di 
 
 3. Impostare i seguenti elementi:
 
-    $DemoScenario = 1: Avviare un processo in background che esegue la sincronizzazione del server tenant e delle informazioni di configurazione dei pool nel catalogo.
+    $DemoScenario = 1, per avviare un processo in background che esegue la sincronizzazione del server tenant e delle informazioni di configurazione dei pool nel catalogo.
 
 4. Per eseguire lo script di sincronizzazione, selezionare F5. 
 
@@ -124,7 +124,7 @@ In questa attività si avvia un processo per sincronizzare la configurazione di 
 Lasciare la finestra di PowerShell in esecuzione in background e continuare con il resto dell'esercitazione.
 
 > [!NOTE]
-> Il processo di sincronizzazione si connette al catalogo tramite un alias DNS. Questo alias viene modificato durante il ripristino e il ricollocamento in modo da puntare al catalogo attivo. Il processo di sincronizzazione mantiene aggiornato il catalogo con le modifiche apportate alla configurazione dei database o dei pool nell'area di ripristino. Durante il ricollocamento, queste modifiche vengono applicate alle risorse equivalenti nell'area originale.
+> Il processo di sincronizzazione si connette al catalogo tramite un alias DNS. Questo alias viene modificato durante il ripristino e il ricollocamento in modo da puntare al catalogo attivo. Il processo di sincronizzazione mantiene aggiornato il catalogo con le modifiche apportate alla configurazione dei database o dei pool nell'area di ripristino. Durante il ricollocamento, queste modifiche vengono applicate alle risorse equivalenti nell'area di origine.
 
 ## <a name="geo-restore-recovery-process-overview"></a>Panoramica del processo di ripristino geografico
 
@@ -162,7 +162,7 @@ Il processo di ripristino esegue le operazioni seguenti:
 
     * L'applicazione può accedere ai database tenant non appena vengono contrassegnati come online nel catalogo.
 
-    * Nel catalogo viene archiviata la somma dei valori rowversion per il database tenant. Questa somma funge da impronta digitale che consente al processo di ricollocamento di determinare se il database è stato aggiornato nell'area di ripristino.       
+    * Nel catalogo viene archiviata la somma dei valori rowversion nel database tenant. Questa somma funge da impronta digitale che consente al processo di ricollocamento di determinare se il database è stato aggiornato nell'area di ripristino.       
 
 ## <a name="run-the-recovery-script"></a>Eseguire lo script di ripristino
 
@@ -173,7 +173,7 @@ Si supponga che si verifichi un'interruzione nell'area in cui l'applicazione è 
 
 1. In PowerShell ISE aprire lo script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 e impostare il valore seguente:
 
-    $DemoScenario = 2: Ripristinare l'app in un'area di ripristino da backup con ridondanza geografica.
+    $DemoScenario = 2, per ripristinare l'app in un'area di ripristino da backup con ridondanza geografica.
 
 2. Per eseguire lo script, selezionare F5.  
 
@@ -189,7 +189,7 @@ Si supponga che si verifichi un'interruzione nell'area in cui l'applicazione è 
 > Per esplorare il codice per i processi di ripristino, esaminare gli script di PowerShell nella cartella ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\RecoveryJobs.
 
 ## <a name="review-the-application-state-during-recovery"></a>Esaminare lo stato dell'applicazione durante il ripristino
-Quando l'endpoint dell'applicazione è disabilitato in Gestione traffico, l'applicazione non è disponibile. Il catalogo viene ripristinato e tutti i tenant vengono contrassegnati come offline. L'endpoint dell'applicazione nell'area di ripristino viene quindi abilitato e l'applicazione torna online. Anche se l'applicazione è disponibile, i tenant risultano offline nell'hub eventi finché non vengono ripristinati i rispettivi database. È importante progettare l'applicazione in modo da gestire i database tenant offline.
+Quando l'endpoint dell'applicazione è disabilitato in Gestione traffico, l'applicazione non è disponibile. Il catalogo viene ripristinato e tutti i tenant vengono contrassegnati come offline. L'endpoint dell'applicazione nell'area di ripristino viene quindi abilitato e l'applicazione torna online. Anche se l'applicazione è disponibile, i tenant risultano offline nell'hub eventi finché non vengono ripristinati i rispettivi database. È importante progettare l'applicazione per gestire i database tenant offline.
 
 * Dopo che il database di catalogo è stato ripristinato, ma prima che i tenant siano tornati online, aggiornare l'hub eventi di Wingtip Tickets nel Web browser.
 
@@ -199,7 +199,7 @@ Quando l'endpoint dell'applicazione è disabilitato in Gestione traffico, l'appl
  
     ![Processo di ripristino](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * Se si apre direttamente la pagina degli eventi di un tenant mentre questo è offline, viene visualizzata una notifica per segnalare che il tenant è offline. Se, ad esempio, Contoso Concert Hall è offline, provare ad aprire http://events.wingtip-dpt.&lt ;utente&gt;.trafficmanager.net/contosoconcerthall.
+  * Se si apre direttamente la pagina degli eventi di un tenant mentre questo è offline, viene visualizzata una notifica per segnalare che il tenant è offline. Se, ad esempio, Contoso Concert Hall è offline, provare ad aprire http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Processo di ripristino](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -208,7 +208,7 @@ Ancora prima del ripristino dei database tenant, è possibile effettuare il prov
 
 1. In PowerShell ISE aprire lo script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 e impostare la proprietà seguente:
 
-    $DemoScenario = 3: Effettuare il provisioning di un nuovo tenant nell'area di ripristino.
+    $DemoScenario = 3, per effettuare il provisioning di un nuovo tenant nell'area di ripristino.
 
 2. Per eseguire lo script, selezionare F5.
 
@@ -261,11 +261,11 @@ In questa attività si aggiorna uno dei database tenant ripristinati. Il process
 
 2. In PowerShell ISE aprire lo script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 e impostare il valore seguente:
 
-    $DemoScenario = 4: Eliminare un evento da un tenant nell'area di ripristino.
+    $DemoScenario = 4, per eliminare un evento da un tenant nell'area di ripristino.
 
 3. Per eseguire lo script, selezionare F5.
 
-4. Aggiornare la pagina degli eventi di Contoso Concert Hall (http://events.wingtip-dpt.&lt ;utente&gt;.trafficmanager.net/contosoconcerthall). Si noti che l'evento Seriously Strauss non è presente.
+4. Aggiornare la pagina degli eventi di Contoso Concert Hall (http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net/contosoconcerthall). Si noti che l'evento Seriously Strauss non è presente.
 
 A questo punto dell'esercitazione l'applicazione è stata ripristinata ed è in esecuzione nell'area di ripristino. È stato effettuato il provisioning di un nuovo tenant nell'area di ripristino e sono stati modificati i dati di uno dei tenant ripristinati.  
 
@@ -319,17 +319,17 @@ Se sono stati seguiti i passaggi dell'esercitazione, lo script riattiva immediat
   
 1. In PowerShell ISE, nello script ...\Learning Modules\Business Continuity e Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 verificare che il processo di sincronizzazione del catalogo sia ancora in esecuzione nell'istanza di PowerShell relativa. Se necessario, riavviarlo impostando quanto segue:
 
-    $DemoScenario = 1: Avviare la sincronizzazione delle informazioni di configurazione di server tenant, pool e database nel catalogo.
+    $DemoScenario = 1, per avviare la sincronizzazione delle informazioni di configurazione di server tenant, pool e database nel catalogo.
 
     Per eseguire lo script, selezionare F5.
 
 2.  Avviare quindi il processo di ricollocamento impostando quanto segue:
 
-    $DemoScenario = 5: Ricollocare l'app nell'area di origine.
+    $DemoScenario = 5, per ricollocare l'app nell'area di origine.
 
     Premere F5 per eseguire lo script di ripristino in una nuova finestra di PowerShell. Il processo di ricollocamento richiede alcuni minuti e può essere monitorato nella finestra di PowerShell.
 
-3. Mentre lo script è in esecuzione, aggiornare la pagina dell'hub eventi (http://events.wingtip-dpt.&lt ;utente&gt;.trafficmanager.net).
+3. Mentre lo script è in esecuzione, aggiornare la pagina dell'hub eventi (http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net).
 
     Si noti che tutti i tenant sono online e accessibili durante questo processo.
 
@@ -351,7 +351,7 @@ Il processo di ripristino crea tutte le risorse di ripristino in un apposito gru
 
 1. In PowerShell ISE aprire lo script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 e impostare quanto segue:
     
-    $DemoScenario = 6: Eliminare le risorse obsolete dall'area di ripristino.
+    $DemoScenario = 6, per eliminare le risorse obsolete dall'area di ripristino.
 
 2. Per eseguire lo script, selezionare F5.
 
@@ -364,7 +364,7 @@ Per un certo intervallo di tempo durante il ricollocamento, i database tenant po
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 > [!div class="checklist"]
 > 
 > * Usare il catalogo dei tenant per memorizzare periodicamente le informazioni di configurazione aggiornate e consentire così la creazione di un ambiente di ripristino con immagine speculare in un'altra area.

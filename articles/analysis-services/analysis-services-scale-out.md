@@ -1,18 +1,18 @@
 ---
 title: Ridimensionamento orizzontale di Azure Analysis Services | Microsoft Docs
-description: Replicare server di Azure Analysis Services con ridimensionamento orizzontale
+description: Eseguire la replica di Azure Analysis Services server con scalabilità orizzontale. Le query client possono quindi essere distribuite tra più repliche di query in un pool di query con scalabilità orizzontale.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: af1a0db397510014301a58aea7238b695a6c0740
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1b40238dfc579e42d0389ae14fdea4b5692ede06
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146439"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572632"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -30,7 +30,7 @@ Indipendentemente dal numero di repliche di query presenti in un pool di query, 
 
 Quando si aumenta la scalabilità orizzontale, possono essere necessari fino a cinque minuti per aggiungere le nuove repliche di query al pool di query. Quando tutte le nuove repliche di query sono in esecuzione, le nuove connessioni client vengono sottoposte a bilanciamento del carico tra le risorse nel pool di query. Le connessioni client esistenti non vengono modificate dalla risorsa alla quale sono attualmente connesse. Durante il ridimensionamento verticale, tutte le connessioni client esistenti a una risorsa del pool di query che viene rimossa dal pool di query vengono terminate. I client possono riconnettersi a una risorsa del pool di query rimanente.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Quando si configura la scalabilità orizzontale per la prima volta, i database modello nel server primario vengono sincronizzati *automaticamente* con le nuove repliche in un nuovo pool di query. La sincronizzazione automatica viene eseguita una sola volta. Durante la sincronizzazione automatica, i file di dati del server primario (crittografati inattivi nell'archivio BLOB) vengono copiati in una seconda posizione, crittografati anche inattivi nell'archivio BLOB. Le repliche nel pool di query vengono quindi *idratate* con i dati del secondo set di file. 
 
@@ -107,13 +107,13 @@ Usare l'operazione **sync**.
 Codici di stato restituiti:
 
 
-|Codice  |Description  |
+|Codice  |Descrizione  |
 |---------|---------|
 |-1     |  Non valido       |
 |0     | La replica        |
 |1     |  Reidratanti       |
-|2     |   Completi       |
-|3     |   Failed      |
+|2     |   Completed       |
+|3     |   Operazione non riuscita      |
 |4     |    Finalizzazione     |
 |||
 
@@ -128,11 +128,11 @@ Per eseguire la sincronizzazione, usare [Sync-AzAnalysisServicesInstance](https:
 
 Per impostare il numero di repliche di query, usare [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specificare il parametro facoltativo `-ReadonlyReplicaCount`.
 
-Per separare il server di elaborazione dal pool di query, usare [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Consente di specificare il parametro `-DefaultConnectionMode` facoltativo da utilizzare `Readonly`.
+Per separare il server di elaborazione dal pool di query, usare [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specificare il parametro facoltativo `-DefaultConnectionMode` per utilizzare `Readonly`.
 
 Per altre informazioni, vedere [uso di un'entità servizio con il modulo AZ. AnalysisServices](analysis-services-service-principal.md#azmodule).
 
-## <a name="connections"></a>connessioni
+## <a name="connections"></a>Connessioni
 
 Nella pagina Panoramica del server sono presenti due nomi di server. Se il ridimensionamento orizzontale non è stato ancora configurato per un server, entrambi i nomi di server funzionano allo stesso modo. Dopo che per un server è stato configurato il ridimensionamento orizzontale, è necessario specificare il nome del server appropriato a seconda del tipo di connessione. 
 
@@ -146,7 +146,7 @@ Per SSMS, Visual Studio e le stringhe di connessione in PowerShell, app per le f
 
 È possibile modificare il piano tariffario in un server con più repliche. Lo stesso piano tariffario si applica a tutte le repliche. Un'operazione di ridimensionamento arresterà prima tutte le repliche in una sola volta e quindi mostrerà tutte le repliche nel nuovo piano tariffario.
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risolvere i problemi
 
 **Problema:** viene restituito un errore per segnalare che **non è possibile trovare l'istanza del server '\<nome del server>' in modalità di connessione 'ReadOnly'.**
 

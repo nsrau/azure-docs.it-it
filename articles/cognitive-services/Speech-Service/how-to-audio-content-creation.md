@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 8e3a76abe840a70ba7410855cde1d82ec96c28eb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 6ec98d1f7956ef1460909f62384a931400b596c4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506956"
+ms.locfileid: "73579636"
 ---
 # <a name="audio-content-creation"></a>Creazione di contenuto audio
 
@@ -43,7 +43,7 @@ Questo diagramma illustra i passaggi necessari per ottimizzare ed esportare outp
 
 Attenersi alla procedura seguente per creare una risorsa vocale e connetterla con speech studio.
 
-1. Seguire queste istruzioni per [iscriversi per ottenere un account Azure e creare una risorsa di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Verificare che il piano tariffario sia impostato su **S0**. Se si usa una delle voci neurali, assicurarsi di creare la risorsa in un' [area supportata](regions.md#standard-and-neural-voices).
+1. Seguire queste istruzioni per [iscriversi per ottenere un account Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account) e [creare una risorsa di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Verificare che il piano tariffario sia impostato su **S0**. Se si usa una delle voci neurali, assicurarsi di creare la risorsa in un' [area supportata](regions.md#standard-and-neural-voices).
 2. Accedere alla [creazione del contenuto audio](https://aka.ms/audiocontentcreation).
 3. Selezionare un progetto esistente oppure fare clic su **Crea nuovo**.
 4. È possibile modificare la sottoscrizione in qualsiasi momento con l'opzione **Impostazioni** , situata nella parte superiore del NAV.

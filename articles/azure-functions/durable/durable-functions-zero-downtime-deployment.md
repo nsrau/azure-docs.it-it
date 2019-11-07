@@ -8,17 +8,21 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5e6e51d2a058f89a04a81800b81f3c316be4eab7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b47604f2c8703ba587e98d68dc30552e5944f562
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301490"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614494"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Nessuna distribuzione del tempo di inattività per Durable Functions
+
 Il [modello di esecuzione affidabile](durable-functions-checkpointing-and-replay.md) di Durable Functions richiede che le orchestrazioni siano deterministiche, il che crea una sfida aggiuntiva da considerare durante la distribuzione degli aggiornamenti. Quando una distribuzione contiene modifiche alle firme delle funzioni attività o alla logica dell'agente di orchestrazione, le istanze di orchestrazione in corso hanno esito negativo Questa situazione è soprattutto un problema per le istanze di orchestrazioni a esecuzione prolungata, che possono rappresentare ore o giorni di lavoro.
 
 Per evitare che si verifichino questi errori, è necessario ritardare la distribuzione finché tutte le istanze di orchestrazione in esecuzione non sono state completate o assicurarsi che tutte le istanze di orchestrazione in esecuzione usino le versioni esistenti delle funzioni. Per ulteriori informazioni sul controllo delle versioni, vedere [controllo delle versioni in Durable Functions](durable-functions-versioning.md).
+
+> [!NOTE]
+> Questo articolo fornisce indicazioni per le app per le funzioni destinate a Durable Functions 1. x. Non è stato ancora aggiornato per tenere conto delle modifiche introdotte in Durable Functions 2. x. Per ulteriori informazioni sulle differenze tra le versioni delle estensioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 Nel grafico seguente vengono confrontate le tre strategie principali per ottenere una distribuzione senza tempi di inattività per Durable Functions: 
 
@@ -29,6 +33,7 @@ Nel grafico seguente vengono confrontate le tre strategie principali per ottener
 | **[Routing delle applicazioni](#application-routing)** | Sistema che non dispone di periodi di tempo durante i quali le orchestrazioni non sono in esecuzione, ad esempio quelle con orchestrazioni che durano più di 24 ore o con orchestrazioni sovrapposte di frequente. | Gestisce le nuove versioni dei sistemi con orchestrazioni continuamente in esecuzione con modifiche di rilievo. | Richiede un router applicazione intelligente.<br/>Potrebbe essere il numero massimo di app per le funzioni consentite dalla sottoscrizione (valore predefinito 100). |
 
 ## <a name="versioning"></a>Controllo delle versioni
+
 Definire le nuove versioni delle funzioni e lasciare le versioni precedenti nell'app per le funzioni. Come si può notare nel diagramma, la versione di una funzione diventa parte del nome. Poiché le versioni precedenti delle funzioni vengono mantenute, le istanze di orchestrazione in corso possono continuare a farvi riferimento. Nel frattempo, le richieste di nuove istanze di orchestrazione chiamano la versione più recente, a cui la funzione del client di orchestrazione può fare riferimento da un'impostazione dell'app.
 
 ![Strategia di controllo delle versioni](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
@@ -62,7 +67,7 @@ Il diagramma seguente illustra la configurazione descritta degli slot di distrib
 
 I frammenti JSON seguenti sono esempi di impostazioni della stringa di connessione nel file host. JSON.
 
-#### <a name="functions-2x"></a>Funzioni 2.x
+#### <a name="functions-20"></a>Funzioni 2,0
 
 ```json
 {
@@ -160,7 +165,7 @@ Il router monitora lo stato delle orchestrazioni nella versione 1.0.1 e rimuove 
 
 ### <a name="tracking-store-settings"></a>Impostazioni archivio di rilevamento
 
-Ogni app per le funzioni deve usare code di pianificazione separate, possibilmente in account di archiviazione separati. Tuttavia, se si desidera eseguire una query su tutte le istanze di orchestrazioni in tutte le versioni dell'applicazione, è possibile condividere le tabelle di cronologia e istanze nelle app per le funzioni. È possibile condividere le tabelle configurando i `trackingStoreConnectionStringName` e `trackingStoreNamePrefix` nel file di [Impostazioni host. JSON](durable-functions-bindings.md#host-json) in modo che tutti usino gli stessi valori.
+Ogni app per le funzioni deve usare code di pianificazione separate, possibilmente in account di archiviazione separati. Tuttavia, se si desidera eseguire una query su tutte le istanze di orchestrazioni in tutte le versioni dell'applicazione, è possibile condividere le tabelle di cronologia e istanze nelle app per le funzioni. È possibile condividere le tabelle configurando il `trackingStoreConnectionStringName` e `trackingStoreNamePrefix` nel file di [Impostazioni host. JSON](durable-functions-bindings.md#host-json) in modo che tutti usino gli stessi valori.
 
 Per altri dettagli, [gestire le istanze in Durable Functions in Azure](durable-functions-instance-management.md).
 

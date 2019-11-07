@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 6a01999eff6accf1b8d7f56729d9dce77fbedb0a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 49ed6eedf55a8a3c0faa2fa1ff60b9894af78285
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988740"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580865"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
 
@@ -28,8 +28,8 @@ Questo articolo illustra come creare una risorsa del gateway di Azure per un [ga
 Per informazioni su come usare il gateway con altri servizi, vedere i seguenti articoli:
 
 * [Gateway dati locale di Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Gateway dati locale di Microsoft Flow](https://flow.microsoft.com/documentation/gateway-manage/)
-* [Gateway dati locale di Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Power automatizzare il gateway dati locale](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Gateway dati locale di Microsoft Power Apps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Gateway dati locale di Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
 <a name="supported-connections"></a>
@@ -81,12 +81,12 @@ Dopo aver installato il gateway in un computer locale, creare la risorsa di Azur
 
 1. In **Crea gateway di connessione**fornire queste informazioni per la risorsa del gateway. Al termine, selezionare **Crea**.
 
-   | Proprietà | Description |
+   | Proprietà | Descrizione |
    |----------|-------------|
    | **Nome risorsa** | Specificare un nome per la risorsa del gateway che contenga solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`), parentesi (`(`, `)`) o punti (`.`). |
    | **Sottoscrizione** | Selezionare la sottoscrizione di Azure per l'account Azure usato per l'installazione del gateway. La sottoscrizione predefinita si basa sull'account di Azure usato per accedere. |
    | **Gruppo di risorse** | Il [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) che si vuole usare |
-   | **Località** | La stessa area o la stessa località selezionata per il servizio cloud gateway durante l' [installazione del gateway](../logic-apps/logic-apps-gateway-install.md). In caso contrario, l'installazione del gateway non verrà visualizzata nell'elenco **nome installazione** . Il percorso dell'app per la logica può essere diverso da quello delle risorse del gateway. |
+   | **Posizione** | La stessa area o la stessa località selezionata per il servizio cloud gateway durante l' [installazione del gateway](../logic-apps/logic-apps-gateway-install.md). In caso contrario, l'installazione del gateway non verrà visualizzata nell'elenco **nome installazione** . Il percorso dell'app per la logica può essere diverso da quello delle risorse del gateway. |
    | **Nome installazione** | Selezionare un'installazione del gateway che viene visualizzata nell'elenco solo quando vengono soddisfatte le condizioni seguenti: <p><p>-Esiste nella stessa area della risorsa del gateway che si vuole creare <br>-Scollegato da un'altra risorsa del gateway di Azure <br>-Collegato allo stesso account Azure usato per creare la risorsa del gateway <p><p>Per ulteriori informazioni, vedere la sezione [domande frequenti](#faq) . |
    |||
 
@@ -96,7 +96,7 @@ Dopo aver installato il gateway in un computer locale, creare la risorsa di Azur
 
 <a name="connect-logic-app-gateway"></a>
 
-## <a name="connect-to-on-premises-data"></a>Connettiti a dati locali
+## <a name="connect-to-on-premises-data"></a>Connettersi ai dati locali
 
 Dopo aver creato la risorsa per il gateway e associato la sottoscrizione di Azure a questa risorsa, è possibile creare una connessione tra l'app per la logica e l'origine dati in locale usando il gateway.
 
@@ -153,7 +153,7 @@ Per creare una risorsa del gateway diversa, collegare l'installazione del gatewa
 
 1. Se non è già selezionato, nel menu della risorsa del gateway selezionare **Gateway dati locale**. Sulla barra degli strumenti delle risorse del gateway selezionare **Elimina**.
 
-   ad esempio:
+   Ad esempio:
 
    ![Eliminare la risorsa del gateway in Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
 

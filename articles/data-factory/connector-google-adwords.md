@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da Google AdWords usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da Google AdWords usando Azure Data Factory
 description: Informazioni su come copiare dati da Google AdWords negli archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 65bf1fa37ecb8d9e862b0e5042bed29470d750e1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: cc620e4dd7a84a85fb8d7bc8466a7a3fd116416e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935632"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680955"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory"></a>Copiare dati da Google AdWords usando Azure Data Factory
 
@@ -35,7 +35,7 @@ Questo connettore Google AdWords è supportato per le attività seguenti:
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -45,12 +45,12 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato a Google AdWords sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà tipo deve essere impostata su **GoogleAdWords** | SÌ |
-| clientCustomerID | L'ID cliente Client dell'account AdWords di cui si desidera recuperare i dati del report.  | SÌ |
-| developerToken | Il token degli sviluppatori associato all'account di gestione che si usa per concedere l'accesso all'API AdWords.  È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
-| authenticationType | Meccanismo di autenticazione OAuth 2.0 usato per l'autenticazione. È possibile usare ServiceAuthentication solo su runtime di integrazione self-hosted. <br/>I valori consentiti sono **ServiceAuthentication**, **UserAuthentication** | SÌ |
+| type | La proprietà tipo deve essere impostata su **GoogleAdWords** | Sì |
+| clientCustomerID | L'ID cliente Client dell'account AdWords di cui si desidera recuperare i dati del report.  | Sì |
+| developerToken | Il token degli sviluppatori associato all'account di gestione che si usa per concedere l'accesso all'API AdWords.  È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| authenticationType | Meccanismo di autenticazione OAuth 2.0 usato per l'autenticazione. È possibile usare ServiceAuthentication solo su runtime di integrazione self-hosted. <br/>I valori consentiti sono **ServiceAuthentication**, **UserAuthentication** | Sì |
 | refreshToken | Il token di aggiornamento ottenuto da Google per autorizzare l'accesso a AdWords per UserAuthentication. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | clientId | ID client dell'applicazione Google utilizzata per acquisire il token di aggiornamento. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | clientSecret | Il segreto client dell'applicazione google usata per acquisire il token di aggiornamento. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | No |
@@ -101,9 +101,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Google AdWords, impostare la proprietà tipo del set di dati su **GoogleAdWordsObject**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su: **GoogleAdWordsObject** | SÌ |
+| type | La proprietà Type del set di dati deve essere impostata su: **GoogleAdWordsObject** | Sì |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -132,9 +132,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Google AdWords, impostare il tipo di origine nell'attività di copia su **GoogleAdWordsSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà tipo dell'origine dell'attività di copia deve essere impostata su: **GoogleADWordsSource** | SÌ |
+| type | La proprietà tipo dell'origine dell'attività di copia deve essere impostata su: **GoogleADWordsSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

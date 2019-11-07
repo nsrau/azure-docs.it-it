@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: b4be715bd910326b3d06837508e7a07ac853189f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 78f29bacaadac5f01e4a8dd26bf03b2bda84f2bf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322662"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577572"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creare un pool di Azure Batch in una rete virtuale
 
@@ -56,7 +56,7 @@ Dopo aver creato la rete virtuale e assegnato una subnet, è possibile creare un
 
 Per garantire che i nodi di calcolo dei pool di Azure Batch funzionino correttamente in una rete virtuale con il tunneling forzato abilitato, è necessario aggiungere le [route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md) seguenti per tali subnet:
 
-* Il servizio Batch deve comunicare con nodi di calcolo dei pool per la pianificazione delle attività. Per abilitare questa comunicazione, aggiungere una route definita dall'utente per ogni indirizzo IP usando il servizio Batch nell'area in cui è presente l'account Batch. Per informazioni su come ottenere l'elenco di indirizzi IP del servizio batch, vedere [tag di servizio in locale](../virtual-network/security-overview.md#service-tags-in-on-premises)
+* Il servizio Batch deve comunicare con nodi di calcolo dei pool per la pianificazione delle attività. Per abilitare questa comunicazione, aggiungere una route definita dall'utente per ogni indirizzo IP usando il servizio Batch nell'area in cui è presente l'account Batch. Per informazioni su come ottenere l'elenco di indirizzi IP del servizio batch, vedere [tag di servizio in locale](../virtual-network/service-tags-overview.md)
 
 * Verificare che il traffico in uscita verso il servizio Archiviazione di Azure (in particolare, gli URL con formato `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` e `<account>.blob.core.windows.net`) non sia bloccato tramite un Network Appliance locale.
 

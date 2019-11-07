@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da SAP ECC usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da SAP ECC usando Azure Data Factory
 description: Informazioni su come copiare dati da SAP ECC in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: c2b9fcc3f75b8f310532978061c887776f007ff0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 526f85ca4b8854a36232c75a55847a73a8d372cc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089538"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680305"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copiare dati da SAP ECC usando Azure Data Factory
 
@@ -62,7 +62,7 @@ In genere, SAP ECC espone entità tramite i servizi OData mediante il gateway SA
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -72,9 +72,9 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato SAP ECC sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| `type` | La `type` proprietà deve essere impostata su `SapEcc`. | Yes |
+| `type` | È necessario impostare la proprietà `type` su `SapEcc`. | Sì |
 | `url` | URL del servizio SAP ECC OData. | Sì |
 | `username` | Nome utente usato per la connessione a SAP ECC. | No |
 | `password` | Password in testo non crittografato utilizzata per la connessione a SAP ECC. | No |
@@ -107,11 +107,11 @@ Per il servizio collegato SAP ECC sono supportate le proprietà seguenti:
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere [Datasets](concepts-datasets-linked-services.md). Nella sezione seguente viene fornito un elenco delle proprietà supportate dal set di dati SAP ECC.
 
-Per copiare dati da SAP ecc, impostare la `type` proprietà del set di dati `SapEccResource`su.
+Per copiare dati da SAP ECC, impostare la proprietà `type` del set di dati su `SapEccResource`.
 
 Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | `path` | Percorso dell'entità SAP ECC OData. | Sì |
 
@@ -140,13 +140,13 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="sap-ecc-as-a-source"></a>SAP ECC come origine
 
-Per copiare dati da SAP ecc, impostare la `type` proprietà `source` nella sezione dell'attività di copia su `SapEccSource`.
+Per copiare dati da SAP ECC, impostare la proprietà `type` nella sezione `source` dell'attività di copia su `SapEccSource`.
 
-Nella sezione dell'attività di `source` copia sono supportate le proprietà seguenti:
+Nella sezione `source` dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| `type` | La `type` proprietà della `source` sezione dell'attività di copia deve essere impostata su `SapEccSource`. | Sì |
+| `type` | La proprietà `type` della sezione `source` dell'attività di copia deve essere impostata su `SapEccSource`. | Sì |
 | `query` | Opzioni di query OData per filtrare i dati. Ad esempio:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>Il connettore SAP ECC copia i dati dall'URL combinato:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Per altre informazioni, vedere [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/) (Componenti dell'URL di OData). | No |
 
 ### <a name="example"></a>Esempio

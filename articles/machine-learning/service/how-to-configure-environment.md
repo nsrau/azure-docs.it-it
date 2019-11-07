@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: eae1ac9c4e4b5a5a8927aa45e898c6f1c47a052d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 19045b54b97fdb69f9fdab3d17066faa5dbcc435
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497293"
+ms.locfileid: "73580727"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,10 +27,10 @@ La tabella seguente illustra tutti gli ambienti di sviluppo trattati in questo a
 
 | Environment | Vantaggi | Svantaggi |
 | --- | --- | --- |
-| [Istanza di calcolo Azure Machine Learning basata sul cloud](#compute-instance) | Modo più semplice per iniziare. L'intero SDK è già installato nella macchina virtuale dell'area di lavoro e le esercitazioni sui notebook sono pre-clonate e pronte per l'esecuzione. | Mancanza di controllo sull'ambiente di sviluppo e sulle dipendenze. Costi aggiuntivi per le VM Linux (è possibile arrestare la macchina virtuale quando non è in uso per evitare addebiti). Vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
+| [VM Azure Machine Learning notebook basata sul cloud](#notebookvm) | Modo più semplice per iniziare. L'intero SDK è già installato nella macchina virtuale dell'area di lavoro e le esercitazioni sui notebook sono pre-clonate e pronte per l'esecuzione. | Mancanza di controllo sull'ambiente di sviluppo e sulle dipendenze. Costi aggiuntivi per le VM Linux (è possibile arrestare la macchina virtuale quando non è in uso per evitare addebiti). Vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
 | [Ambiente locale](#local) | Controllo completo dell'ambiente di sviluppo e delle dipendenze. Eseguire con qualsiasi strumento di compilazione, ambiente o IDE di propria scelta. | Per iniziare, è necessario più tempo. È necessario installare i pacchetti SDK necessari ed è necessario installare anche un ambiente, se non è già presente. |
 | [Azure Databricks](#aml-databricks) | Ideale per l'esecuzione di flussi di lavoro di Machine Learning intensivi su larga scala sulla piattaforma Apache Spark scalabile. | Overkill per l'apprendimento automatico sperimentale o per esperimenti e flussi di lavoro su scala ridotta. Costi aggiuntivi per Azure Databricks. Vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/databricks/). |
-| [Il Data Science Virtual Machine (DSVM)](#dsvm) | Analogamente all'istanza di calcolo basata sul cloud (Python e SDK sono preinstallati), ma con gli strumenti di data science e di apprendimento automatico più diffusi pre-installati. Facile da scalare e combinare con altri strumenti e flussi di lavoro personalizzati. | Un'esperienza introduttiva più lenta rispetto all'istanza di calcolo basata sul cloud. |
+| [Il Data Science Virtual Machine (DSVM)](#dsvm) | Analogamente alla macchina virtuale notebook basata sul cloud (Python e SDK sono preinstallati), ma con gli strumenti di data science e di apprendimento automatico più diffusi preinstallati. Facile da scalare e combinare con altri strumenti e flussi di lavoro personalizzati. | Un'esperienza introduttiva più lenta rispetto alla VM notebook basata sul cloud. |
 
 
 Questo articolo fornisce anche suggerimenti sull'utilizzo aggiuntivi per gli strumenti seguenti:
@@ -41,7 +41,7 @@ Questo articolo fornisce anche suggerimenti sull'utilizzo aggiuntivi per gli str
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un'area di lavoro di Azure Machine Learning. Per creare l'area di lavoro, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md). Un'area di lavoro è sufficiente per iniziare a usare il proprio [Server notebook basato sul cloud](#compute-instance), un [DSVM](#dsvm)o [Azure Databricks](#aml-databricks).
+Un'area di lavoro di Azure Machine Learning. Per creare l'area di lavoro, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md). Un'area di lavoro è sufficiente per iniziare a usare il proprio [Server notebook basato sul cloud](#notebookvm), un [DSVM](#dsvm)o [Azure Databricks](#aml-databricks).
 
 Per installare l'ambiente SDK per il [computer locale](#local), [Jupyter Notebook server](#jupyter) o [Visual Studio Code](#vscode) sono necessari anche:
 
@@ -54,20 +54,16 @@ Per installare l'ambiente SDK per il [computer locale](#local), [Jupyter Noteboo
 
 - In Windows è necessario il prompt dei comandi o il prompt di Anaconda (installato per Anaconda e Miniconda).
 
-## <a id="compute-instance"></a>Istanza di calcolo basata sul cloud
+## <a id="notebookvm"></a>VM notebook basata sul cloud
 
-Il Azure Machine Learning [istanza di calcolo](concept-compute-instance.md) è una workstation di Azure sicura basata sul cloud che fornisce ai data scientist un server Jupyter notebook, JupyterLab e un ambiente ml completamente preparato.
+La VM Azure Machine Learning notebook è una workstation di Azure sicura basata sul cloud che fornisce ai data scientist un server Jupyter notebook, JupyterLab e un ambiente ML completamente preparato.
 
-> [!NOTE]
-> Le istanze di calcolo sono disponibili solo per le aree di lavoro con un'area **Stati Uniti centro-settentrionali** o **Regno Unito meridionale**.
->Se l'area di lavoro si trova in un'altra area, è possibile continuare a creare e usare una [macchina virtuale del notebook](concept-compute-instance.md#notebookvm) .
+La VM del notebook è:
 
 Non sono presenti elementi da installare o configurare per un'istanza di calcolo.  Crearne uno in qualsiasi momento dall'area di lavoro Azure Machine Learning. Fornire un solo nome e specificare un tipo di macchina virtuale di Azure. Provare ora con questa [esercitazione: configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md).
 
 
-Altre informazioni sulle [istanze di calcolo](concept-compute-instance.md).
-
-Per arrestare i costi di calcolo, [arrestare l'istanza di calcolo](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
+Per arrestare i costi di calcolo, [arrestare la VM del notebook](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 

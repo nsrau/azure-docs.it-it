@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3dfc3c309fe3583ddd4307cbfe4e55bf6522ffc3
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 60d0425a7dbc532e856c7bf3c91065d2548c9b9a
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955866"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601398"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quali tipi di dischi sono disponibili in Azure?
 
@@ -23,13 +23,13 @@ Azure Managed Disks offre attualmente quattro tipi di dischi, ciascuno dei quali
 
 La tabella seguente fornisce un confronto tra dischi Ultra, unità SSD Premium, unità SSD standard e unità disco rigido standard (HDD) per Managed disks che consentono di decidere cosa usare.
 
-|   | Disco Ultra   | Unità SSD Premium   | Unità SSD Standard   | HDD Standard   |
+|   | Disco Ultra   | SSD Premium   | SSD Standard   | HDD Standard   |
 |---------|---------|---------|---------|---------|
 |Tipo di disco   |SSD   |SSD   |SSD   |HDD   |
-|Scenario   |Carichi di lavoro con I/O elevato come SAP HANA, database di alto livello (ad esempio SQL, Oracle) e altri carichi di lavoro con numerose transazioni.   |Carichi di lavoro di produzione su cui influiscono le prestazioni   |Server Web, applicazioni aziendali con un utilizzo non intensivo e sviluppo/test   |Backup, carichi di lavoro non critici, accesso poco frequente   |
+|Scenario   |Carichi di lavoro intensivo di i/o, come [SAP Hana](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), database di livello superiore (ad esempio, SQL, Oracle) e altri carichi di lavoro con transazioni pesanti.   |Carichi di lavoro di produzione su cui influiscono le prestazioni   |Server Web, applicazioni aziendali con un utilizzo non intensivo e sviluppo/test   |Backup, carichi di lavoro non critici, accesso poco frequente   |
 |Dimensioni massime del disco   |65.536 gibibyte (GiB)    |32.767 GiB    |32.767 GiB   |32.767 GiB   |
 |Velocità effettiva massima   |2\.000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
-|Numero massimo di operazioni di I/O al secondo   |160.000    |20.000   |6000   |2\.000   |
+|Operazioni di I/O al secondo max   |160.000    |20.000   |6000   |2\.000   |
 
 ## <a name="ultra-disk"></a>Disco Ultra
 
@@ -41,12 +41,12 @@ Quando si effettua il provisioning di un disco Ultra, è possibile configurare i
 
 Di seguito sono riportate alcune funzionalità chiave di dischi Ultra:
 
-- Capacità disco: La capacità di dischi Ultra è compresa tra 4 GiB e 64 TiB.
-- Operazioni di I/O al secondo (IOPS) del disco: I dischi Ultra supportano i limiti di IOPS di 300 IOPS/GiB, fino a un massimo di 160 K di IOPS per disco. Per ottenere il valore di IOPS di cui è stato effettuato il provisioning, verificare che le operazioni di i/o al secondo del disco selezionate siano inferiori al limite di IOPS Il numero minimo di IOPS per disco è di 2 IOPS/GiB, con una linea di base complessiva minima di 100 IOPS. Se, ad esempio, si dispone di un disco con 4 GiB Ultra, si avrà almeno 100 IOPS, anziché otto IOPS.
-- Velocità effettiva del disco: Con dischi Ultra, il limite di velocità effettiva di un singolo disco è 256 KiB/s per ogni IOPS con provisioning, fino a un massimo di 2000 MBps per disco (dove MBps = 10 ^ 6 byte al secondo). La velocità effettiva minima per disco è 4KiB/s per ogni IOPS di cui è stato effettuato il provisioning, con una linea di base complessiva minima di 1 MBps.
+- Capacità disco: la capacità dei dischi Ultra è compresa tra 4 GiB e 64 TiB.
+- IOPS del disco: i dischi Ultra supportano i limiti di IOPS di 300 IOPS/GiB, fino a un massimo di 160 K di IOPS per disco. Per ottenere il valore di IOPS di cui è stato effettuato il provisioning, verificare che le operazioni di i/o al secondo del disco selezionate siano inferiori al limite di IOPS Il numero minimo di IOPS per disco è di 2 IOPS/GiB, con una linea di base complessiva minima di 100 IOPS. Se, ad esempio, si dispone di un disco con 4 GiB Ultra, si avrà almeno 100 IOPS, anziché otto IOPS.
+- Velocità effettiva del disco: con dischi Ultra, il limite di velocità effettiva di un singolo disco è 256 KiB/s per ogni IOPS di cui è stato effettuato il provisioning, fino a un massimo di 2000 MBps per disco (dove MBps = 10 ^ 6 byte al secondo). La velocità effettiva minima per disco è 4KiB/s per ogni IOPS di cui è stato effettuato il provisioning, con una linea di base complessiva minima di 1 MBps.
 - I dischi Ultra supportano la regolazione degli attributi relativi alle prestazioni del disco (IOPS e velocità effettiva) in fase di esecuzione senza scollegare il disco dalla macchina virtuale. Dopo l'esecuzione di un'operazione di ridimensionamento delle prestazioni in un disco, può essere necessario attendere fino a un'ora prima che la modifica abbia effetto. È previsto un limite di quattro operazioni di ridimensionamento delle prestazioni in un intervallo di 24 ore. È possibile che un'operazione di ridimensionamento delle prestazioni abbia esito negativo a causa della mancanza di capacità della larghezza di banda delle prestazioni.
 
-### <a name="disk-size"></a>Dimensioni disco
+### <a name="disk-size"></a>Dimensione disco
 
 |Dimensioni disco (GiB)  |Limite IOPS  |Limite velocità effettiva (MBps)  |
 |---------|---------|---------|
@@ -62,13 +62,4 @@ Di seguito sono riportate alcune funzionalità chiave di dischi Ultra:
 
 ### <a name="ga-scope-and-limitations"></a>Ambito e limitazioni di GA
 
-Per il momento, i dischi Ultra presentano limitazioni aggiuntive, come indicato di seguito:
-
-- Sono supportati negli Stati Uniti orientali 2, Asia sudorientale ed Europa settentrionale, in due zone di disponibilità per area  
-- Possono essere usati solo con le zone di disponibilità (i set di disponibilità e le distribuzioni di macchine virtuali singole all'esterno delle zone non consentono di collegare un disco Ultra)
-- Sono supportati solo nelle macchine virtuali ES/DS v3
-- Sono disponibili solo come dischi dati e supportano solo dimensioni di settori fisici di 4k  
-- Possono essere creati solo come dischi vuoti  
-- Non sono ancora supportati snapshot del disco, immagini di VM, set di disponibilità, set di scalabilità di macchine virtuali e crittografia dischi di Azure
-- Non supporta ancora l'integrazione con backup di Azure o Azure Site Recovery
-- Il limite massimo corrente per IOPS nelle VM GA è 80.000.
+[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](managed-disks-ultra-disks-GA-scope-and-limitations.md)]

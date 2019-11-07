@@ -1,5 +1,5 @@
 ---
-title: 'Script di PowerShell: eseguire il caricamento incrementale dei dati usando Azure Data Factory | Microsoft Docs'
+title: 'Script di PowerShell: caricare i dati in modo incrementale tramite Azure Data Factory '
 description: Questo script PowerShell mostra come usare Azure Data Factory per copiare i dati in modo incrementale da un database SQL di Azure ad Archiviazione BLOB di Azure.
 services: data-factory
 author: linda33wj
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: jingwang
-ms.openlocfilehash: 5ae6d6ed06aa5734dc601e6e72ba55ec8ddf7bcf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ef7b00172f0371e09d6462ed357744166b5fb08a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160631"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684324"
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>Script PowerShell: caricare i dati in modo incrementale usando Azure Data Factory
 Questo script PowerShell di esempio carica solo i record nuovi o aggiornati da un archivio dati di origine a un archivio dati sink dopo la copia iniziale completa dei dati dall'origine al sink.  

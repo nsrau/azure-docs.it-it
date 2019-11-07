@@ -1,5 +1,5 @@
 ---
-title: Sviluppo e debug iterativi in Azure Data Factory | Microsoft Docs
+title: Sviluppo e debug iterativi in Azure Data Factory
 description: Informazioni su come sviluppare ed eseguire in modo iterativo il debug delle pipeline di Data Factory nel portale di Azure.
 ms.date: 09/26/2018
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: a1c4bf55fbb8242293fc0e30bbe16a6884b901cb
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 38e51e33ef487da8879132eb1ce9cf1e63a814e4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178612"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672837"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Sviluppo e debug iterativi con Azure Data Factory
 
@@ -58,7 +58,7 @@ Se si dispone di sessioni di debug del flusso di dati attive, tali sessioni verr
 
 ## <a name="monitoring-debug-runs"></a>Esegue il monitoraggio delle esecuzioni di debug
 
-Le esecuzioni dei test avviate con la funzionalità **Debug** non sono disponibili nell'elenco della scheda **Monitoraggio**. Nella scheda **Monitoraggio** sono visibili solo le esecuzioni attivate con i trigger **Trigger Now** (Attiva adesso), **Pianificazione** o **Finestra a cascata**. È possibile vedere ultima esecuzione dei test avviata con la funzionalità **Debug** nella finestra **Output** del canvas della pipeline.
+Le esecuzioni dei test avviate con la funzionalità di **debug** non sono disponibili nell'elenco della scheda **monitoraggio** . Nella scheda **monitoraggio** è possibile visualizzare solo le esecuzioni attivate con trigger **Now**, **Schedule**o **finestra a cascata** . È possibile visualizzare l'ultima esecuzione dei test avviata con la funzionalità di **debug** nella finestra **output** dell'area di disegno della pipeline.
 
 ## <a name="setting-breakpoints-for-debugging"></a>Impostazione di punti di interruzione per il debug
 

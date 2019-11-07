@@ -1,5 +1,5 @@
 ---
-title: Usare Azure Data Factory per migrare i dati da un server Netezza locale ad Azure | Microsoft Docs
+title: Usare Azure Data Factory per migrare i dati da un server Netezza locale ad Azure
 description: Usare Azure Data Factory per eseguire la migrazione dei dati da un server Netezza locale ad Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/03/2019
-ms.openlocfilehash: 9ea8326b10536cb91b9dc67f637664f0fc055e74
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c5b36a04501b417af4e4527968a082da8a061804
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122840"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675793"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Usare Azure Data Factory per migrare i dati da un server Netezza locale ad Azure 
 
@@ -120,9 +120,9 @@ Il diagramma precedente può essere interpretato nel modo seguente:
 
 Per le tabelle di piccole dimensioni (ovvero le tabelle con un volume inferiore a 100 GB o di cui è possibile eseguire la migrazione in Azure entro due ore), è possibile fare in modo che ogni processo di copia carichi i dati per ogni tabella. Per una maggiore velocità effettiva, è possibile eseguire più processi di copia Azure Data Factory per caricare tabelle separate simultaneamente. 
 
-All'interno di ogni processo di copia, per eseguire query parallele e copiare dati in base alle partizioni, è anche possibile raggiungere un certo livello di parallelismo usando l' [ `parallelCopies` impostazione della proprietà](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) con una delle seguenti opzioni di partizione dei dati:
+All'interno di ogni processo di copia, per eseguire query parallele e copiare dati in base alle partizioni, è anche possibile raggiungere un certo livello di parallelismo usando l' [impostazione della proprietà`parallelCopies`](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) con una delle seguenti opzioni di partizione dei dati:
 
-- Per ottenere una maggiore efficienza, si consiglia di iniziare da una sezione di dati.  Verificare che il valore nell' `parallelCopies` impostazione sia inferiore al numero totale di partizioni di sezioni di dati nella tabella nel server Netezza.  
+- Per ottenere una maggiore efficienza, si consiglia di iniziare da una sezione di dati.  Verificare che il valore nell'impostazione `parallelCopies` sia inferiore al numero totale di partizioni di sezioni di dati nella tabella nel server Netezza.  
 
 - Se il volume di ogni partizione di sezione dati è ancora grande (ad esempio, 10 GB o superiore), si consiglia di passare a una partizione a intervalli dinamici. Questa opzione offre una maggiore flessibilità per definire il numero di partizioni e il volume di ogni partizione in base alla colonna di partizione, al limite superiore e al limite inferiore.
 
@@ -150,13 +150,13 @@ Se si esegue la migrazione dei dati dal server Netezza in Azure, indipendentemen
 
 Come procedura consigliata, eseguire un modello di verifica delle prestazioni con un set di dati di esempio rappresentativo, in modo da poter determinare le dimensioni della partizione appropriate per ogni attività di copia. Si consiglia di caricare ogni partizione in Azure entro due ore.  
 
-Per copiare una tabella, iniziare con una singola attività di copia con un singolo computer IR indipendente. Aumentare gradualmente l' `parallelCopies` impostazione in base al numero di partizioni di sezioni di dati nella tabella. Verificare se l'intera tabella può essere caricata in Azure entro due ore, in base alla velocità effettiva risultante dal processo di copia. 
+Per copiare una tabella, iniziare con una singola attività di copia con un singolo computer IR indipendente. Aumentare gradualmente l'impostazione del `parallelCopies` in base al numero di partizioni di sezioni di dati nella tabella. Verificare se l'intera tabella può essere caricata in Azure entro due ore, in base alla velocità effettiva risultante dal processo di copia. 
 
 Se non può essere caricato in Azure entro due ore e la capacità del nodo IR indipendente e l'archivio dati non sono completamente usati, aumentare gradualmente il numero di attività di copia simultanee fino a raggiungere il limite della rete o il limite di larghezza di banda dell'archivio dati s. 
 
 È possibile monitorare l'utilizzo della CPU e della memoria nel computer IR indipendente ed essere pronti per la scalabilità verticale della macchina o per la scalabilità orizzontale in più computer quando si nota che la CPU e la memoria sono completamente utilizzate. 
 
-Quando si verificano errori di limitazione, come indicato dall'attività di copia Azure Data Factory, ridurre la concorrenza o `parallelCopies` l'impostazione in Azure Data Factory oppure provare ad aumentare la larghezza di banda o le operazioni di i/o al secondo (IOPS) della rete e archivi dati. 
+Quando si verificano errori di limitazione delle richieste, come riportato da Azure Data Factory attività di copia, ridurre l'impostazione della concorrenza o del `parallelCopies` in Azure Data Factory oppure provare ad aumentare il limite di larghezza di banda o di operazioni di I/O al secondo (IOPS) della rete e dei dati Archivia. 
 
 
 ### <a name="estimate-your-pricing"></a>Stima dei prezzi 
@@ -173,7 +173,7 @@ Si supponga che le istruzioni seguenti siano vere:
 
 - Il volume da 50 TB è diviso in 500 partizioni e ogni attività di copia sposta una partizione.
 
-- Ogni attività di copia è configurata con un runtime di integrazione self-hosted su quattro computer e ottiene una velocità effettiva di 20 megabyte al secondo (MBps). (All'interno dell'attività `parallelCopies` di copia, è impostato su 4 e ogni thread per caricare i dati dalla tabella ottiene una velocità effettiva di 5 Mbps).
+- Ogni attività di copia è configurata con un runtime di integrazione self-hosted su quattro computer e ottiene una velocità effettiva di 20 megabyte al secondo (MBps). All'interno dell'attività di copia `parallelCopies` è impostato su 4 e ogni thread per caricare i dati dalla tabella raggiunge una velocità effettiva di 5 MBps.
 
 - La concorrenza ForEach è impostata su 3 e la velocità effettiva aggregata è 60 MBps.
 
@@ -186,7 +186,7 @@ In base ai presupposti precedenti, il prezzo stimato è il seguente:
 > [!NOTE]
 > I prezzi indicati nella tabella precedente sono ipotetici. I prezzi effettivi variano in base alla velocità effettiva dell'ambiente. Il prezzo per il computer Windows (con il runtime di integrazione self-hosted installato) non è incluso. 
 
-### <a name="additional-references"></a>Altri riferimenti
+### <a name="additional-references"></a>Riferimenti aggiuntivi
 
 Per ulteriori informazioni, vedere gli articoli e le guide seguenti:
 

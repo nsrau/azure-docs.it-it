@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: e41a037e657a8d2b484a3fcb62eb3bc03f53682d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 62210bf480d09ce2a256a44b7554ac53aa06eb0c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507088"
+ms.locfileid: "73579694"
 ---
 # <a name="custom-commands-preview"></a>Comandi personalizzati (anteprima)
 
 Gli [assistenti vocali](voice-assistants.md) ascoltano gli utenti e intraprendono un'azione in risposta e spesso parlano. Usano il [riconoscimento vocale](speech-to-text.md) per trascrivere la voce dell'utente, quindi intervenire sulla comprensione del testo del linguaggio naturale. Questa azione include spesso l'output parlato dell'assistente generato con [sintesi vocale](text-to-speech.md). I dispositivi si connettono agli assistenti con l'oggetto `DialogServiceConnector` dell'SDK di riconoscimento vocale.
 
-**Custom Commands (anteprima)** è una soluzione semplificata per la creazione di un assistente vocale. Offre un'esperienza di creazione unificata, un modello di hosting automatico e una complessità relativamente inferiore rispetto ad altre opzioni di creazione di assistenti come la comunicazione [diretta](direct-line-speech.md). Questa semplificazione, tuttavia, presenta una riduzione della flessibilità. In questo modo, i comandi personalizzati (anteprima) sono ideali per gli scenari di completamento delle attività o di comando e controllo.
+**Custom Commands (anteprima)** è una soluzione semplificata per la creazione di un assistente vocale. Offre un'esperienza di creazione unificata, un modello di hosting automatico e una complessità relativamente inferiore rispetto ad altre opzioni di creazione di assistenti come la comunicazione [diretta](direct-line-speech.md). Questa semplificazione, tuttavia, presenta una riduzione della flessibilità. In questo modo, i comandi personalizzati (anteprima) sono ideali per gli scenari di completamento delle attività o di comando e controllo. È particolarmente adatto per Internet delle cose e per i dispositivi senza intestazioni.
 
 Per l'interazione e l'integrazione colloquiale complesse con altre soluzioni come la [soluzione Virtual Assistant e il modello Enterprise,](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) è consigliabile usare la voce direct line.
 

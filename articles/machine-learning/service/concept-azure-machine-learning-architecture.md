@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: ba6d81596cd8a690f5c17e1ca55b91c5ff27b916
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 36c496b77be5bfda83b3ed424a7fdf2b53101aa4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497521"
+ms.locfileid: "73580622"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funzionamento di Azure Machine Learning: architettura e concetti
 
@@ -56,7 +56,7 @@ Usare questi strumenti per Azure Machine Learning:
 
 ## <a name="glossary"></a>Glossario
 + <a href="#activities">Attività</a>
-+ <a href="#compute-instance">Istanza di calcolo</a>
++ <a href="#compute-instance">VM notebook</a>
 + <a href="#compute-targets">Destinazioni di calcolo</a>
 + <a href="#datasets-and-datastores">DataSet & archivi dati</a>
 + <a href="#endpoints">Endpoint</a>
@@ -84,15 +84,11 @@ Un'attività rappresenta un'operazione a esecuzione prolungata. Le operazioni se
 
 Le attività possono fornire notifiche tramite l'SDK o l'interfaccia utente Web in modo da poter facilmente monitorare l'avanzamento di queste operazioni.
 
-### <a name="compute-instance"></a>Istanza di calcolo
+### <a name="compute-instance"></a>VM notebook
 
-> [!NOTE]
-> Le istanze di calcolo sono disponibili solo per le aree di lavoro con un'area **Stati Uniti centro-settentrionali** o **Regno Unito meridionale**.
->Se l'area di lavoro si trova in un'altra area, è possibile continuare a creare e usare una [macchina virtuale del notebook](concept-compute-instance.md#notebookvm) . 
+Una macchina **virtuale Azure Machine Learning notebook** è una workstation basata su cloud completamente gestita che include più strumenti e ambienti installati per Machine Learning. Le macchine virtuali del notebook possono essere usate come destinazione di calcolo per i processi di formazione e inferenza più piccoli. Per le attività di grandi dimensioni, [Azure Machine Learning cluster di calcolo](how-to-set-up-training-targets.md#amlcompute) con funzionalità di scalabilità a più nodi rappresenta una scelta migliore per la destinazione di calcolo.
 
-Un' **istanza di calcolo Azure Machine Learning** (in precedenza VM notebook) è una workstation basata sul cloud completamente gestita che include più strumenti e ambienti installati per Machine Learning. Le istanze di calcolo possono essere usate come destinazione di calcolo per il training e l'inferenza dei processi. Per le attività di grandi dimensioni, [Azure Machine Learning cluster di calcolo](how-to-set-up-training-targets.md#amlcompute) con funzionalità di scalabilità a più nodi rappresenta una scelta migliore per la destinazione di calcolo.
-
-Altre informazioni sulle [istanze di calcolo](concept-compute-instance.md).
+Altre informazioni sulle macchine virtuali del notebook.
 
 ### <a name="compute-targets"></a>Destinazioni di calcolo
 

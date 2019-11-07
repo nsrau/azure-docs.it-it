@@ -6,208 +6,248 @@ ms.service: logic-apps
 ms.workload: integration
 author: ecfan
 ms.author: klam
-ms.reviewer: jehollan, klam, LADocs
-manager: carmonm
-ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
-ms.date: 03/31/2017
-ms.openlocfilehash: 4fc20c4b1314d953ea979192c81b2c264292d3af
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.date: 11/04/2019
+ms.openlocfilehash: 41173e088b000530030b24400640f8003f330db6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041869"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580974"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Chiamare, attivare o annidare app per la logica usando endpoint HTTP in app per la logica di Azure
 
-È possibile esporre a livello nativo gli endpoint HTTP sincroni come trigger sulle app per la logica, permettendo in tal modo di attivare o di chiamare le app per la logica tramite un URL. È inoltre possibile annidare i flussi di lavoro nell'app per la logica usando un modello di endpoint richiamabile.
+Per fare in modo che l'app per la logica richiamabile tramite un URL in modo che l'app per la logica possa ricevere le richieste in ingresso da altri servizi, è possibile esporre in modo nativo un endpoint HTTP sincrono come trigger nell'app per la logica. Quando si configura questa funzionalità, è anche possibile annidare l'app per la logica all'interno di altre app per la logica, che consente di creare un modello di endpoint richiamabili.
 
-Per creare gli endpoint HTTP, è possibile aggiungere questi trigger in modo che le app per la logica possano ricevere le richieste in ingresso:
+Per configurare un endpoint HTTP, è possibile usare uno di questi tipi di trigger, che consentono alle app per la logica di ricevere le richieste in ingresso:
 
 * [Richiesta](../connectors/connectors-native-reqres.md)
-
-* [Webhook di connessione API](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
-
 * [Webhook HTTP](../connectors/connectors-native-webhook.md)
+* Trigger del connettore gestito che hanno il [tipo ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e possono ricevere richieste HTTP in ingresso
 
-   > [!NOTE]
-   > Sebbene questi esempi usino il trigger **Request** , è possibile usare uno dei trigger basati su richiesta elencati e tutti i principi si applicano in modo identico agli altri tipi di trigger.
+> [!NOTE]
+> In questi esempi viene usato il trigger request, ma è possibile usare qualsiasi trigger basato su richiesta HTTP presente nell'elenco precedente. Tutti i principi si applicano in modo identico a questi altri tipi di trigger.
 
-## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>Configurare un endpoint HTTP per un'app per la logica
+Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la](../logic-apps/logic-apps-overview.md) logica di Azure e [avvio rapido: creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-Per creare un endpoint HTTP, aggiungere un trigger in grado di ricevere le richieste in ingresso.
+## <a name="prerequisites"></a>Prerequisiti
 
-1. Accedere al [portale di Azure](https://portal.azure.com "Portale di Azure"). Andare in app per la logica e aprire Progettazione app per la logica.
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-1. Aggiungere un trigger che consente all'app per la logica di ricevere richieste in ingresso. Ad esempio aggiungere il trigger **Request** all'app per la logica.
+* App per la logica in cui si vuole configurare l'endpoint HTTP come trigger. È possibile iniziare con un'app per la logica vuota o un'app per la logica esistente in cui si vuole sostituire il trigger corrente. Questo esempio inizia con un'app per la logica vuota.
 
-1. In **Schema JSON del corpo della richiesta** è possibile immettere uno schema JSON per il payload (dati) che si prevede il trigger possa ricevere.
+## <a name="create-a-callable-endpoint"></a>Creare un endpoint chiamabile
 
-   La finestra di progettazione usa questo schema per generare token di cui l'app per la logica si può servire per usare, analizzare e passare dati dal trigger attraverso il flusso di lavoro. Altre informazioni sui [token generati dagli schemi JSON](#generated-tokens).
+1. Accedere al [portale di Azure](https://portal.azure.com). Creare e aprire un'app per la logica vuota nella finestra di progettazione dell'app per la logica.
 
-   Per questo esempio, immettere questo schema come illustrato nella finestra di progettazione:
+   Questo esempio usa il trigger request, ma è possibile usare qualsiasi trigger in grado di ricevere richieste HTTP in ingresso. Tutti i principi si applicano in modo identico a questi trigger. Per altre informazioni sul trigger di richiesta, vedere [ricevere e rispondere alle chiamate HTTPS in ingresso usando app per la logica di Azure](../connectors/connectors-native-reqres.md).
+
+1. Nella casella di ricerca selezionare **predefinito**. Nella casella di ricerca immettere `request` come filtro. Dall'elenco trigger selezionare **quando viene ricevuta una richiesta http**.
+
+   ![Trovare e selezionare il trigger di richiesta](./media/logic-apps-http-endpoint/find-and-select-request-trigger.png)
+
+1. Facoltativamente, nella casella **schema JSON del corpo della richiesta** è possibile immettere uno schema JSON che descrive il payload o i dati che si prevede vengano ricevuti dal trigger.
+
+   La finestra di progettazione utilizza questo schema per generare token che rappresentano output dei trigger. È quindi possibile fare facilmente riferimento a questi output nel flusso di lavoro dell'app per la logica. Altre informazioni sui [token generati dagli schemi JSON](#generated-tokens).
+
+   Per questo esempio, immettere questo schema:
 
    ```json
-   {
+      {
       "type": "object",
       "properties": {
          "address": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+               "streetNumber": {
+                  "type": "string"
+               },
+               "streetName": {
+                  "type": "string"
+               },
+               "town": {
+                  "type": "string"
+               },
+               "postalCode": {
+                  "type": "string"
+               }
+            }
          }
-      },
-      "required": [
-        "address"
-      ]
-    }
+      }
+   }
     ```
 
    ![Fornire lo schema JSON per l'azione di richiesta](./media/logic-apps-http-endpoint/manual-request-trigger-schema.png)
 
-   > [!TIP]
-   >
-   > È possibile generare uno schema per un payload JSON di esempio da uno strumento come [jsonschema.NET](https://jsonschema.net/) o nel trigger di **richiesta** scegliendo **USA payload di esempio per generare lo schema**. Immettere il payload di esempio e scegliere **Fine**.
+   In alternativa, è possibile generare uno schema JSON fornendo un payload di esempio:
 
-   Ad esempio, questo payload di esempio:
+   1. Nel trigger **richiesta** selezionare **USA payload di esempio per generare lo schema**.
 
-   ```json
-   {
-      "address": "21 2nd Street, New York, New York"
-   }
-   ```
+   1. Nella casella **immettere o incollare un payload JSON di esempio** immettere il payload di esempio, ad esempio:
 
-   Genera questo schema:
-
-   ```json
-   {
-      "type": "object",
-      "properties": {
+      ```json
+      {
          "address": {
-            "type": "string"
-         }
+            "streetNumber": "00000",
+            "streetName": "AnyStreet",
+            "town": "AnyTown",
+            "postalCode": "11111-1111"
+        }
       }
-   }
-   ```
+      ```
 
-1. Salvare l'app per la logica. In **HTTP POST in questo URL**, è necessario individuare un URL di callback generato, come in questo esempio:
+   1. Quando si è pronti, selezionare **fine**.
+
+      Nella casella **dello schema JSON del corpo della richiesta** è ora visualizzato lo schema generato.
+
+1. Salvare l'app per la logica.
+
+   La casella **http post in questo URL** Mostra ora l'URL di callback generato che altri servizi possono usare per chiamare e attivare l'app per la logica. Questo URL include una chiave di firma di accesso condiviso, che viene usata per l'autenticazione nei parametri di query, ad esempio:
 
    ![URL di callback generato per endpoint](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
-   L'URL contiene una chiave di firma di accesso condiviso (SAS) nei parametri di query usati per l'autenticazione. È inoltre possibile ottenere l'URL dell'endpoint HTTP dalla panoramica dell'app per la logica nel portale di Azure. In **Cronologia trigger** selezionare il trigger:
+   È anche possibile ottenere l'URL dell'endpoint HTTP dal riquadro di **Panoramica** dell'app per la logica.
 
-   ![Ottenere l'URL dell'endpoint HTTP GET dal portale di Azure](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
+   1. Scegliere **Panoramica**dal menu dell'app per la logica.
 
-   Oppure è possibile ottenere l'URL mediante questa chiamata:
+   1. Nella sezione **Riepilogo** selezionare **Visualizza cronologia trigger**.
 
-    ```http
-    POST https://management.azure.com/{logic-app-resource-ID}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
-    ```
+      ![Ottenere l'URL dell'endpoint HTTP GET dal portale di Azure](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
-## <a name="change-the-http-method-for-your-trigger"></a>Modificare il metodo HTTP per il trigger
+   1. In **URL callback [post]** copiare l'URL:
 
-Per impostazione predefinita, il trigger **Richiesta** prevede una richiesta HTTP POST, ma è possibile usare un metodo HTTP diverso.
+      ![Copia l'URL dell'endpoint HTTP da portale di Azure](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url.png)
 
-> [!NOTE]
-> È possibile specificare solo un tipo di metodo.
+      Oppure è possibile ottenere l'URL mediante questa chiamata:
 
-1. Nel trigger **Richiesta** scegliere **Mostra opzioni avanzate**.
+      ```http
+      POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01
+      ```
 
-2. Aprire l'elenco **Metodo**. Per questo esempio, selezionare **GET** (OTTIENI) in modo che sia possibile testare l'URL dell'endpoint HTTP in un secondo momento.
+<a name="set-method"></a>
 
-   > [!NOTE]
-   > È possibile selezionare qualsiasi altro metodo HTTP o specificare un metodo personalizzato per la propria app per la logica.
+## <a name="set-expected-http-method"></a>Imposta il metodo HTTP previsto
 
-   ![Selezionare il metodo HTTP da usare per la richiesta](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
+Per impostazione predefinita il trigger Request prevede una richiesta HTTP POST. Tuttavia, è possibile specificare un metodo diverso da prevedere, ma solo un metodo.
 
-## <a name="accept-parameters-through-your-http-endpoint-url"></a>Accettare i parametri tramite l'URL dell'endpoint HTTP
+1. Nel trigger request aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Metodo**, che aggiunge questa proprietà al trigger.
 
-Quando si desidera che l'URL dell'endpoint HTTP accetti i parametri, personalizzare il percorso relativo al trigger.
+   ![Aggiungere la proprietà "Method" al trigger](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
 
-1. Nel trigger **Richiesta** scegliere **Mostra opzioni avanzate**. 
+1. Dall'elenco **Metodo** selezionare un altro metodo previsto dal trigger. In alternativa, è possibile specificare un metodo personalizzato.
 
-2. In **Metodo** specificare il metodo HTTP che la richiesta deve usare. Per questo esempio, selezionare il metodo **GET** (OTTIENI), se non lo si è già fatto, in modo che sia possibile testare l'URL dell'endpoint HTTP.
+   Ad esempio, selezionare il metodo **Get** per poter testare l'URL dell'endpoint HTTP in un secondo momento.
 
-   > [!NOTE]
-   > Quando si specifica un percorso relativo per il trigger, è necessario specificare anche in modo esplicito un metodo HTTP per il trigger.
+   ![Selezionare il metodo HTTP da usare per il trigger](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
-3. In **Percorso relativo** specificare il percorso relativo per il parametro che l'URL deve accettare, ad esempio, `customers/{customerID}`.
+## <a name="accept-parameters-in-endpoint-url"></a>Accetta parametri nell'URL dell'endpoint
 
-   ![Specificare il percorso relativo e il metodo HTTP per il parametro](./media/logic-apps-http-endpoint/relative-path-url-value.png)
+Quando si vuole che l'URL dell'endpoint accetti parametri, specificare il percorso relativo nel trigger. È anche necessario impostare in modo esplicito [il metodo previsto dalla](#set-method) richiesta HTTP.
 
-4. Per usare il parametro, aggiungere un'azione **Risposta** all'app per la logica. (Nel trigger scegliere **Nuovo passaggio** > **Aggiungi un'azione** > **Risposta**) 
+1. Nel trigger request aprire l'elenco **Aggiungi nuovo parametro** e selezionare **percorso relativo**, che aggiunge questa proprietà al trigger.
 
-5. Nel **corpo** della risposta includere il token per il parametro specificato nel percorso relativo del trigger.
+   ![Aggiungere la proprietà "percorso relativo" al trigger](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
-   Ad esempio, per restituire `Hello {customerID}`, aggiornare il **corpo** della risposta con `Hello {customerID token}`. Viene visualizzato l'elenco del contenuto dinamico che mostra il token `customerID` da selezionare.
+1. Nella proprietà **percorso relativo** specificare il percorso relativo del parametro nello schema JSON che si desidera venga accettato dall'URL, ad esempio `address/{postalCode}`.
 
-   ![Aggiungere un parametro al corpo della risposta](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
+   ![Specificare il percorso relativo per il parametro](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
-   Il **corpo** dovrebbe essere simile al seguente:
+1. Per usare il parametro, trovare e aggiungere un'azione di **risposta** all'app per la logica.
+
+   1. Nel trigger richiesta selezionare **nuovo passaggio** > **Aggiungi un'azione**.
+
+   1. Nella casella di ricerca di **Scegliere un'azione** immettere `response` come filtro.
+
+   1. Nell'elenco azioni selezionare l'azione **risposta** .
+
+1. Nella proprietà **Body** dell'azione di risposta includere il token che rappresenta il parametro specificato nel percorso relativo del trigger.
+
+   Si supponga, ad esempio, che si desideri che l'azione di risposta restituisca `Postal Code: {postalCode}`.
+
+   Nella proprietà **Body** immettere `Postal Code: ` con uno spazio finale. Dall'elenco di contenuto dinamico visualizzato selezionare il token **Cap** .
+
+   ![Aggiungere il parametro specificato al corpo della risposta](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
+
+   La proprietà **Body** include ora il parametro selezionato:
 
    ![Esempio di corpo della risposta con parametro](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
-6. Salvare l'app per la logica. 
+1. Salvare l'app per la logica.
 
-    L'URL dell'endpoint HTTP include ora il percorso relativo, ad esempio: 
+    L'URL dell'endpoint HTTP include ora il percorso relativo, ad esempio:
 
     ```http
-    https://prod-00.southcentralus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/customers/{customerID}...
+    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/postalCode?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
     ```
 
-7. Per testare l'endpoint HTTP, copiare e incollare l'URL aggiornato in un'altra finestra del browser, ma sostituire `{customerID}` con `123456` e premere Invio.
+1. Per testare l'endpoint HTTP, copiare e incollare l'URL aggiornato in un'altra finestra del browser, ma sostituire `{postalCode}` con `123456` e premere Invio.
 
-   Il browser dovrebbe visualizzare questo testo: `Hello 123456`
+   Il browser Mostra questo testo: `Postal Code: 123456`
+
+## <a name="call-logic-app-through-http-endpoint"></a>Chiamare l'app per la logica tramite endpoint HTTP
+
+Dopo aver creato l'endpoint HTTP, è possibile attivare l'app per la logica inviando una richiesta HTTP `POST` all'URL completo dell'endpoint. Le app per la logica dispongono di supporto incorporato per gli endpoint di accesso diretto.
 
 <a name="generated-tokens"></a>
 
-### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>Token generati da schemi JSON per l'app per la logica
+## <a name="tokens-generated-from-schema"></a>Token generati dallo schema
 
-Quando si specifica uno schema JSON nel trigger **Richiesta**, la finestra di progettazione app per la logica genera i token per le proprietà nello schema. È quindi possibile usare tali token per passare dati tramite il flusso di lavoro di app per la logica.
+Quando si specifica uno schema JSON nel trigger di richiesta, la finestra di progettazione dell'app per la logica genera i token per le proprietà nello schema. È quindi possibile usare tali token per passare dati tramite il flusso di lavoro di app per la logica.
 
-Per questo esempio, se si aggiungono le proprietà `title` e `name` allo schema JSON, i token sono ora disponibili per essere usati nei passaggi successivi del flusso di lavoro. 
-
-Di seguito è riportato lo schema JSON completo:
+Ad esempio, se si aggiungono altre proprietà, ad esempio `"suite"`, allo schema JSON, i token per tali proprietà sono disponibili per l'uso nei passaggi successivi per l'app per la logica. Di seguito è riportato lo schema JSON completo:
 
 ```json
-{
+   {
    "type": "object",
    "properties": {
       "address": {
-         "type": "string"
-      },
-      "title": {
-         "type": "string"
-      },
-      "name": {
-         "type": "string"
+         "type": "object",
+         "properties": {
+            "streetNumber": {
+               "type": "string"
+            },
+            "streetName": {
+               "type": "string"
+            },
+            "suite": {
+               "type": "string"
+            },
+            "town": {
+               "type": "string"
+            },
+            "postalCode": {
+               "type": "string"
+            }
+         }
       }
-   },
-   "required": [
-      "address",
-      "title",
-      "name"
-   ]
+   }
 }
 ```
 
-## <a name="create-nested-workflows-for-logic-apps"></a>Creare flussi di lavoro annidati per le app per la logica
+## <a name="create-nested-logic-apps"></a>Creare app per la logica annidate
 
-È possibile nidificare i flussi di lavoro nell'app per la logica aggiungendo altre app per la logica che possono ricevere richieste. Per includere queste app per la logica, aggiungere l'azione **Azure Logic Apps - Choose a Logic Apps workflow** (App per la logica di Azure - Scegliere un flusso di lavoro delle app per la logica) al trigger. È quindi possibile selezionare dalle app per la logica idonee.
+È possibile nidificare i flussi di lavoro nell'app per la logica aggiungendo altre app per la logica che possono ricevere richieste. Per includere queste app per la logica, seguire questa procedura:
 
-![Annidare app per la logica nell'app per la logica corrente](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
+1. Nel passaggio in cui si vuole chiamare un'altra app per la logica, selezionare **nuovo passaggio** > **Aggiungi un'azione**.
 
-## <a name="call-or-trigger-logic-apps-through-http-endpoints"></a>Chiamare o avviare le app per la logica tramite endpoint HTTP
+1. In **Scegliere un'azione** selezionare **Predefinita**. Nella casella di ricerca immettere `logic apps` come filtro. Nell'elenco azioni selezionare **Scegli un flusso di lavoro di app per la logica**.
 
-Dopo aver creato l'endpoint HTTP, è possibile attivare l'app per la logica tramite un metodo `POST` per l'URL completo. Le app per la logica dispongono di supporto incorporato per gli endpoint di accesso diretto.
+   ![Annidare app per la logica nell'app per la logica corrente](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
-> [!NOTE] 
-> Per eseguire manualmente un'app per la logica in qualsiasi momento, sulla barra degli strumenti Progettazione app per la logica o Visualizzazione codice app per la logica scegliere **Esegui**.
+   La finestra di progettazione Mostra le app per la logica idonee per la selezione.
+
+1. Selezionare l'app per la logica da chiamare dall'app per la logica corrente.
+
+   ![Selezionare l'app per la logica da chiamare dall'app per la logica corrente](./media/logic-apps-http-endpoint/select-logic-app-to-nest.png)
 
 ## <a name="reference-content-from-an-incoming-request"></a>Riferimento al contenuto dalla richiesta in ingresso
 
-Se il tipo di contenuto è `application/json`, è possibile fare riferimento a proprietà dalla richiesta in ingresso. In caso contrario, il contenuto viene considerato come una singola unità binaria che è possibile passare ad altre API. Per fare riferimento a questo contenuto all'interno del flusso di lavoro è necessario convertire il contenuto. Se ad esempio si passa il contenuto `application/xml`, è possibile usare `@xpath()` per eseguire un'estrazione XPath o `@json()` per la conversione da XML a JSON. Informazioni sull'[uso dei tipi di contenuto](../logic-apps/logic-apps-content-type.md).
+Se il tipo di contenuto della richiesta in ingresso è `application/json`, è possibile fare riferimento alle proprietà nella richiesta in ingresso. In caso contrario, questo contenuto viene considerato come una singola unità binaria che è possibile passare ad altre API. Per fare riferimento a questo contenuto all'interno del flusso di lavoro dell'app per la logica, è necessario innanzitutto convertire il contenuto.
 
-Per ottenere l'output da una richiesta in ingresso, è possibile usare la funzione `@triggerOutputs()`. L'output potrebbe essere simile al seguente:
+Se ad esempio si passa il contenuto con `application/xml` tipo, è possibile usare l' [espressione`@xpath()`](../logic-apps/workflow-definition-language-functions-reference.md#xpath) per eseguire un'estrazione XPath oppure usare l' [espressione`@json()`](../logic-apps/workflow-definition-language-functions-reference.md#json) per la conversione di XML in JSON. Altre informazioni sull'uso dei [tipi di contenuto](../logic-apps/logic-apps-content-type.md)supportati.
+
+Per ottenere l'output da una richiesta in ingresso, è possibile usare l' [espressione`@triggerOutputs`](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs). Si supponga, ad esempio, di avere un output simile all'esempio seguente:
 
 ```json
 {
@@ -220,38 +260,41 @@ Per ottenere l'output da una richiesta in ingresso, è possibile usare la funzio
 }
 ```
 
-È possibile accedere in modo specifico alla proprietà `body` mediante il collegamento `@triggerBody()`.
+Per accedere in modo specifico alla proprietà `body`, è possibile usare l' [espressione`@triggerBody()`](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) come collegamento.
 
 ## <a name="respond-to-requests"></a>Rispondere alle richieste
 
-Per alcune richieste che avviano un'app per la logica, può risultare utile rispondere restituendo contenuto al chiamante. Per creare il codice di stato, l'intestazione e il corpo della risposta, è possibile usare l'azione **Risposta**. Questa azione può trovarsi in qualsiasi punto nell'app per la logica, non solo alla fine del flusso di lavoro.
+A volte si vuole rispondere a determinate richieste che attivano l'app per la logica restituendo contenuto al chiamante. Per costruire il codice di stato, l'intestazione e il corpo per la risposta, usare l'azione di risposta. Questa azione può trovarsi in qualsiasi punto nell'app per la logica, non solo alla fine del flusso di lavoro. Se l'app per la logica non include un'azione di risposta, l'endpoint HTTP risponde *immediatamente* con lo stato **accettato 202** .
 
-> [!NOTE] 
-> Se l'app per la logica non include una **Risposta**, l'endpoint HTTP risponde *immediatamente* con uno stato **202 -Accettato**. Nell'app per la logica, per far sì che la richiesta originale ottenga la risposta, tutti i passaggi necessari devono essere completati entro i [limiti di tempo della richiesta](./logic-apps-limits-and-config.md), salvo se si chiama il flusso di lavoro come app per la logica annidata. Se non si ottiene alcuna azione di risposta entro questo limite, si verifica il timeout della richiesta in ingresso, che riceverà una risposta HTTP **408 Client timeout** (408 - Timeout client). Per le app per la logica annidate, l'app per la logica padre resta in attesa di una risposta fino al completamento, indipendentemente dal tempo necessario.
+Affinché il chiamante originale ottenga correttamente la risposta, tutti i passaggi necessari per la risposta devono terminare entro il [limite di timeout della richiesta](./logic-apps-limits-and-config.md) , a meno che l'app per la logica attivata non venga chiamata come app per la logica annidata. Se non viene restituita alcuna risposta entro questo limite, la richiesta in ingresso scade e riceve la risposta di **timeout del Client 408** .
+
+Per le app per la logica annidate, l'app per la logica padre continua ad attendere una risposta fino al completamento di tutti i passaggi, indipendentemente dal tempo necessario.
 
 ### <a name="construct-the-response"></a>Costruire la risposta
 
-È possibile includere più di un'intestazione e qualsiasi tipo di contenuto nel corpo della risposta. Nell'esempio di risposta l'intestazione specifica che la risposta contiene il tipo di contenuto `application/json`, mentre il corpo contiene `title` e `name`, in base allo schema JSON aggiornato in precedenza per il trigger **Richiesta**.
+Nel corpo della risposta è possibile includere più intestazioni e qualsiasi tipo di contenuto. Ad esempio, l'intestazione di questa risposta specifica che il tipo di contenuto della risposta è `application/json` e che il corpo contiene valori per le proprietà `town` e `postalCode`, in base allo schema JSON descritto in precedenza in questo argomento per il trigger request.
 
 ![Fornire il contenuto della risposta per l'azione di risposta HTTP](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
 Le risposte hanno le seguenti proprietà:
 
-| Proprietà | Description |
-| --- | --- |
-| statusCode |Specifica il codice di stato HTTP per la risposta alla richiesta in ingresso. Può essere qualsiasi codice di stato valido che inizia con 2xx, 4xx o 5xx. I codici di stato 3xx non sono consentiti. |
-| Headers |Definisce un numero illimitato di intestazioni da includere nella risposta. |
-| body |Specifica un oggetto body che può essere una stringa, un oggetto JSON o anche contenuto binario a cui si fa riferimento da un passaggio precedente. |
+| Proprietà (visualizzazione) | Property (JSON) | Descrizione |
+|--------------------|-----------------|-------------|
+| **Codice di stato** | `statusCode` | Codice di stato HTTP da utilizzare nella risposta per la richiesta in ingresso. Può essere qualsiasi codice di stato valido che inizia con 2xx, 4xx o 5xx. I codici di stato 3xx non sono consentiti. |
+| **Intestazioni** | `headers` | Una o più intestazioni da includere nella risposta |
+| **Corpo** | `body` | Oggetto Body che può essere una stringa, un oggetto JSON o anche contenuto binario a cui si fa riferimento da un passaggio precedente |
+||||
 
-Di seguito viene riportato l'aspetto che lo schema JSON dovrebbe avere ora per l'azione **Risposta**:
+Per visualizzare la definizione JSON per l'azione di risposta e la definizione JSON completa dell'app per la logica, nella barra degli strumenti di progettazione app per la logica selezionare **visualizzazione codice**.
 
 ``` json
 "Response": {
    "type": "Response",
+   "kind": "http",
    "inputs": {
       "body": {
-         "title": "@{triggerBody()?['title']}",
-         "name": "@{triggerBody()?['name']}"
+         "postalCode": "@triggerBody()?['address']?['postalCode']",
+         "town": "@triggerBody()?['address']?['town']"
       },
       "headers": {
          "content-type": "application/json"
@@ -262,45 +305,27 @@ Di seguito viene riportato l'aspetto che lo schema JSON dovrebbe avere ora per l
 }
 ```
 
-> [!TIP]
-> Per visualizzare la definizione JSON completa per l'app per la logica, nella finestra di progettazione dell'app per la logica, scegliere **Visualizzazione codice**.
-
-## <a name="q--a"></a>Domande frequenti
+## <a name="q--a"></a>Domande e risposte
 
 #### <a name="q-what-about-url-security"></a>D: Come viene garantita la sicurezza degli URL?
 
-R: Azure genera in modo sicuro gli URL di callback dell'app per la logica mediante una firma di accesso condiviso (SAS). La firma viene trasmessa come parametro di query e deve essere convalidata prima dell'attivazione dell'app per la logica. Azure genera la firma con una combinazione univoca che include la chiave privata per ogni app per la logica, il nome del trigger e l'operazione in esecuzione. Pertanto, a meno che un utente non ottenga l'accesso alla chiave privata dell'app per la logica, non potrà generare una firma valida.
+**R**: Azure genera in modo sicuro gli URL di callback delle app per la logica usando la [firma di accesso condiviso (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature). Questa firma viene passata come parametro di query e deve essere convalidata prima di poter eseguire l'app per la logica. Azure genera la firma con una combinazione univoca che include la chiave privata per ogni app per la logica, il nome del trigger e l'operazione in esecuzione. Pertanto, a meno che un utente non ottenga l'accesso alla chiave privata dell'app per la logica, non potrà generare una firma valida.
 
-   > [!IMPORTANT]
-   > Per i sistemi di produzione e protezione, è consigliabile evitare la chiamata dell'app per la logica direttamente dal browser in quanto:
-   > 
-   > * La chiave di accesso condiviso viene visualizzata nell'URL.
-   > * Non è possibile gestire i criteri di contenuto protetti a causa di domini condivisi tra i clienti di App per la logica.
+> [!IMPORTANT]
+> Per i sistemi di produzione e sicurezza, è consigliabile non chiamare l'app per la logica direttamente dal browser per i motivi seguenti:
+>
+> * La chiave di accesso condiviso viene visualizzata nell'URL.
+> * Non è possibile gestire criteri di contenuto protetti a causa di domini condivisi tra i clienti di app per la logica di Azure.
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>D: È possibile configurare ulteriormente gli endpoint HTTP?
 
-R: Sì, gli endpoint HTTP supportano una configurazione più avanzata tramite [gestione API di Azure](../api-management/api-management-key-concepts.md). Questo servizio offre inoltre la possibilità di gestire tutte le API in modo coerente, incluse le app per la logica, di impostare i nomi di dominio personalizzato, usare più metodi di autenticazione e altro ancora, ad esempio:
+**R**: Sì, gli endpoint HTTP supportano una configurazione più avanzata tramite [gestione API di Azure](../api-management/api-management-key-concepts.md). Questo servizio offre inoltre la possibilità di gestire tutte le API in modo coerente, incluse le app per la logica, di impostare i nomi di dominio personalizzato, usare più metodi di autenticazione e altro ancora, ad esempio:
 
 * [Impostare il metodo della richiesta](../api-management/api-management-advanced-policies.md#SetRequestMethod)
 * [Modificare i segmenti dell'URL della richiesta](../api-management/api-management-transformation-policies.md#RewriteURL)
 * Configurare i domini di gestione API nel [portale di Azure](https://portal.azure.com/)
 * Impostare la norma per verificare l'autenticazione di base
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>D: Che cosa è cambiato con la migrazione dello schema dall'anteprima del 1 dicembre 2014?
-
-R: Di seguito è riportato un riepilogo di queste modifiche:
-
-| Anteprima del 1 dicembre 2014 | 1 giugno 2016 |
-| --- | --- |
-| Fare clic sull'app per le API **Listener HTTP** |Fare clic su **Attivazione manuale**. Non è necessaria un'app per le API. |
-| Impostazione di Listener HTTP "*Send response automatically*" (Invia risposta automaticamente) |Includere o meno un'azione **Risposta** nella definizione del flusso di lavoro |
-| Configurare l'autenticazione di base o OAuth |tramite Gestione API |
-| Configurare il metodo HTTP |In **Mostra opzioni avanzate** scegliere un metodo HTTP |
-| Configurare il percorso relativo |In **Mostra opzioni avanzate** aggiungere un percorso relativo |
-| Fare riferimento all'oggetto body in ingresso tramite `@triggerOutputs().body.Content` |Fare riferimento tramite `@triggerOutputs().body` |
-| **Send HTTP response** (Invia risposta HTTP) nel Listener HTTP |Fare clic su **Respond to HTTP request** (Rispondi alla richiesta HTTP). Non è necessaria un'app per le API. |
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare definizioni di app per la logica](logic-apps-author-definitions.md)
-* [Gestire errori ed eccezioni](logic-apps-exception-handling.md)
+* [Ricevere e rispondere alle chiamate HTTPS in ingresso usando app per la logica di Azure](../connectors/connectors-native-reqres.md)

@@ -1,5 +1,5 @@
 ---
-title: Esercitazioni per il ripristino di emergenza del database SQL | Documentazione Microsoft
+title: Esercitazioni sul ripristino di emergenza del database SQL
 description: Istruzioni e procedure consigliate relative all'uso del database SQL di Azure per eseguire esercitazioni per il ripristino di emergenza.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 2923ae8b9b25932ae214cfa45780dffb8780dd39
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf337b1312abc59048649aabe3e4f895d07a8d51
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568852"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690614"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Esercitazione per il ripristino di emergenza
 
@@ -38,7 +38,7 @@ Per evitare il rischio di perdita di dati durante l'esecuzione di un test per il
 
 Per simulare l'interruzione è possibile rinominare il database di origine. Questa modifica del nome causa errori di connettività dell'applicazione.
 
-### <a name="recovery"></a>Recupero
+### <a name="recovery"></a>Ripristino
 
 * Eseguire il ripristino geografico del database in un server diverso, come descritto [qui](sql-database-disaster-recovery.md).
 * Modificare la configurazione dell'applicazione per connettersi ai database ripristinati e seguire la guida [Configurare un database dopo il ripristino](sql-database-disaster-recovery.md) per completare il ripristino.
@@ -55,7 +55,7 @@ Per un database protetto mediante i gruppi di failover l'esercitazione comporta 
 
 Per simulare l'interruzione è possibile disabilitare l'applicazione web o la macchina virtuale connessa al database. Questa simulazione di interruzione determina errori di connettività per i client Web.
 
-### <a name="recovery"></a>Recupero
+### <a name="recovery"></a>Ripristino
 
 * Assicurarsi che la configurazione dell'applicazione nell'area DR punti al database secondario precedente, che diventa il nuovo database primario completamente accessibile.
 * Attivare il [failover pianificato](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) del gruppo di failover dal server secondario.
@@ -68,6 +68,6 @@ Completare il test verificando l'integrità dell'applicazione dopo il ripristino
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sugli scenari di continuità aziendale, vedere l'articolo relativo agli [scenari di continuità](sql-database-business-continuity.md).
-* Per informazioni sui backup automatici del database SQL di Azure, vedere [Panoramica: Backup automatici del database SQL](sql-database-automated-backups.md)
+* Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md)
 * Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md).
 * Per altre informazioni su opzioni di ripristino più veloci, vedere [Replica geografica attiva](sql-database-active-geo-replication.md) e [Gruppi di failover automatico](sql-database-auto-failover-group.md).

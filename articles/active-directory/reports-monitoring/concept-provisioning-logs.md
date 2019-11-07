@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/29/2019
+ms.date: 11/04/2019
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: c6e0c697f9ab9796feade9b4d5c2a64794f3980b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70983491"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612804"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisioning dei report nel portale di Azure Active Directory (anteprima)
 
@@ -48,7 +48,7 @@ Questo argomento offre una panoramica del report di provisioning.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-provisioning-activities"></a>Che Azure AD licenza è necessario per accedere alle attività di provisioning?
 
-Il tenant deve disporre di una licenza di Azure AD Premium associata per visualizzare il report di tutte le attività di provisioning. Per l'aggiornamento dell'edizione Azure Active Directory, vedere [Introduzione a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) . 
+Il tenant deve disporre di una licenza di Azure AD Premium associata per visualizzare il report di tutte le attività di provisioning. vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) per aggiornare l'edizione di Azure Active Directory in uso. 
 
 ## <a name="provisioning-logs"></a>Log di provisioning
 
@@ -85,7 +85,7 @@ In questo modo è possibile visualizzare campi aggiuntivi o rimuovere campi già
 
 Selezionare un elemento nella visualizzazione elenco per ottenere maggiori informazioni dettagliate.
 
-![Informazioni dettagliate](./media/concept-provisioning-logs/steps.png "Filtra")
+![Informazioni dettagliate](./media/concept-provisioning-logs/steps.png "Filtro")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrare le attività di provisioning
@@ -96,11 +96,11 @@ Per limitare i dati segnalati a un livello che funziona automaticamente, è poss
 - Azione
 - Sistema di origine
 - Sistema di destinazione
-- Status
+- Stato
 - Data
 
 
-![Filter](./media/concept-provisioning-logs/filter.png "Filtra")
+![Filter](./media/concept-provisioning-logs/filter.png "Filtro")
 
 Il filtro di **identità** consente di specificare il nome o l'identità a cui si è interessati. Questa identità può essere un utente, un gruppo, un ruolo o un altro oggetto. È possibile eseguire la ricerca in base al nome o all'ID dell'oggetto. L'ID varia in base allo scenario. Ad esempio, quando si esegue il provisioning di un oggetto da Azure AD a SalesForce, l'ID di origine è l'ID oggetto dell'utente in Azure AD mentre TargetID è l'ID dell'utente in Salesforce. Quando si effettua il provisioning da giorni lavorativi a Active Directory, l'ID di origine è l'ID del dipendente del lavoro lavorativo. Si noti che il nome dell'utente potrebbe non essere sempre presente nella colonna Identity. Ci sarà sempre un ID. 
 
@@ -110,7 +110,7 @@ Il filtro di **sistema di destinazione** consente di specificare la posizione in
 
 Il filtro **Stato** consente di selezionare:
 
-- Tutto
+- Tutti
 - Success
 - Esito negativo
 - Skipped
@@ -118,10 +118,10 @@ Il filtro **Stato** consente di selezionare:
 Il filtro **azione** consente di filtrare:
 
 - Create 
-- Aggiorna
-- Eliminazione
-- Disabilitare
-- Altro
+- Update
+- Elimina
+- Disabilitazione
+- Altri
 
 Il filtro **Date** (Data) permette di definire un intervallo di tempo per i dati restituiti.  
 I valori possibili sono:
@@ -152,20 +152,20 @@ Oltre ai campi predefiniti, quando è selezionata, è anche possibile includere 
 Quando si seleziona un elemento nella visualizzazione elenco di provisioning, si ottengono ulteriori dettagli su questo elemento.
 I dettagli sono raggruppati in base alle categorie seguenti:
 
-- Procedure
+- Passi
 
 - Risoluzione dei problemi e suggerimenti
 
 - Proprietà modificate
 
-- Summary
+- Riepilogo
 
 
 ![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Schede")
 
 
 
-### <a name="steps"></a>Procedure
+### <a name="steps"></a>Passi
 
 Nella scheda **passaggi** vengono descritti i passaggi necessari per eseguire il provisioning di un oggetto. Il provisioning di un oggetto può essere costituito da quattro passaggi: 
 
@@ -176,7 +176,7 @@ Nella scheda **passaggi** vengono descritti i passaggi necessari per eseguire il
 
 
 
-![Filter](./media/concept-provisioning-logs/steps.png "Filtra")
+![Filter](./media/concept-provisioning-logs/steps.png "Filtro")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Risoluzione dei problemi e suggerimenti
@@ -190,7 +190,7 @@ La scheda **risoluzione dei problemi e indicazioni** fornisce il codice e il mot
 Le **proprietà modificate** visualizzano il valore precedente e il nuovo valore. Nei casi in cui non è presente alcun valore precedente, la colonna del valore precedente è vuota. 
 
 
-### <a name="summary"></a>Summary
+### <a name="summary"></a>Riepilogo
 
 La scheda **Riepilogo** fornisce una panoramica delle operazioni eseguite e degli identificatori per l'oggetto nel sistema di origine e di destinazione. 
 
@@ -205,6 +205,29 @@ La scheda **Riepilogo** fornisce una panoramica delle operazioni eseguite e degl
 - Attualmente non è disponibile alcun supporto per log Analytics.
 
 - Quando si accede ai log di provisioning dal contesto di un'app, non filtra automaticamente gli eventi per l'app specifica nel modo in cui i log di controllo lo eseguono.
+
+## <a name="error-codes"></a>Codici di errore
+
+Usare la tabella seguente per comprendere meglio come risolvere gli errori che si possono trovare nei log di provisioning. Per i codici di errore mancanti, fornire commenti e suggerimenti usando il collegamento nella parte inferiore della pagina. 
+
+|Codice di errore|Descrizione|
+|---|---|
+|Conflitto, EntryConflict|Correggere i valori di attributo in conflitto in Azure AD o nell'applicazione oppure verificare la configurazione dell'attributo corrispondente se è necessario che l'account utente in conflitto corrisponda e venga ripreso. Per ulteriori informazioni sulla configurazione degli attributi corrispondenti, consultare la seguente [documentazione](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) .|
+|TooManyRequests|L'app di destinazione ha rifiutato questo tentativo di aggiornare l'utente perché è sovraccarico e riceve troppe richieste. Non è necessario eseguire alcuna operazione. Il tentativo verrà ritirato automaticamente. Microsoft ha inoltre ricevuto una notifica di questo problema.|
+|InternalServerError |L'app di destinazione ha restituito un errore imprevisto. Potrebbe essersi verificato un problema del servizio con l'applicazione di destinazione che impedisce l'esecuzione di questa operazione. Questo tentativo verrà ritirato automaticamente tra 40 minuti.|
+|InsufficientRights, MethodNotAllowed, NotPermitted, non autorizzato| Azure AD stato in grado di eseguire l'autenticazione con l'applicazione di destinazione, ma non è stato autorizzato a eseguire l'aggiornamento. Esaminare le istruzioni fornite dall'applicazione di destinazione, nonché l' [esercitazione](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)relativa all'applicazione corrispondente.|
+|UnprocessableEntity|L'applicazione di destinazione ha restituito una risposta imprevista. La configurazione dell'applicazione di destinazione potrebbe non essere corretta o potrebbe essersi verificato un problema del servizio con l'applicazione di destinazione che impedisce il funzionamento di questo.|
+|WebExceptionProtocolError |Si è verificato un errore del protocollo HTTP durante la connessione all'applicazione di destinazione. Non è necessario eseguire alcuna operazione. Questo tentativo verrà ritirato automaticamente tra 40 minuti.|
+|InvalidAnchor|Un utente creato in precedenza o corrispondente al servizio di provisioning non esiste più. Verificare che l'utente esista. Per forzare una nuova corrispondenza di tutti gli utenti, usare il API Graph MS per [riavviare il processo](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Si noti che il riavvio del provisioning attiverà un ciclo iniziale, operazione che può richiedere del tempo. Elimina inoltre la cache usata dal servizio di provisioning. Ciò significa che tutti gli utenti e i gruppi nel tenant dovranno essere nuovamente valutati e potrebbero essere eliminati determinati eventi di provisioning.|
+|NotImplemented | L'app di destinazione ha restituito una risposta imprevista. La configurazione dell'app potrebbe non essere corretta o potrebbe essersi verificato un problema del servizio con l'app di destinazione che impedisce il funzionamento. Esaminare le istruzioni fornite dall'applicazione di destinazione, nonché l' [esercitazione](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)relativa all'applicazione corrispondente. |
+|MandatoryFieldsMissing, MissingValues |Impossibile creare l'utente perché mancano i valori obbligatori. Correggere i valori degli attributi mancanti nel record di origine oppure verificare la configurazione dell'attributo corrispondente per assicurarsi che i campi obbligatori non vengano omessi. [Altre](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) informazioni sulla configurazione degli attributi corrispondenti.|
+|SchemaAttributeNotFound |Non è stato possibile eseguire l'operazione perché è stato specificato un attributo che non esiste nell'applicazione di destinazione. Vedere la [documentazione](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) sulla personalizzazione degli attributi e verificare che la configurazione sia corretta.|
+|InternalError |Si è verificato un errore interno del servizio all'interno del servizio di provisioning Azure AD. Non è necessario eseguire alcuna operazione. Questo tentativo verrà ritentato automaticamente tra 40 minuti.|
+|InvalidDomain |Non è stato possibile eseguire l'operazione a causa di un valore di attributo contenente un nome di dominio non valido. Aggiornare il nome di dominio dell'utente o aggiungerlo all'elenco delle applicazioni consentite nell'applicazione di destinazione. |
+|Timeout |Non è stato possibile completare l'operazione perché l'applicazione di destinazione ha impiegato troppo tempo per rispondere. Non è necessario eseguire alcuna operazione. Questo tentativo verrà ritentato automaticamente tra 40 minuti.|
+|LicenseLimitExceeded|Impossibile creare l'utente nell'applicazione di destinazione perché non sono disponibili licenze per questo utente. Ottenere licenze aggiuntive per l'applicazione di destinazione o esaminare le assegnazioni degli utenti e la configurazione del mapping degli attributi per assicurarsi che gli utenti corretti vengano assegnati con gli attributi corretti.|
+|DuplicateTargetEntries  |Non è stato possibile completare l'operazione perché è stato trovato più di un utente nell'applicazione di destinazione con gli attributi corrispondenti configurati. Rimuovere l'utente duplicato dall'applicazione di destinazione o riconfigurare i mapping degli attributi come descritto [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|DuplicateSourceEntries | Non è stato possibile completare l'operazione perché è stato trovato più di un utente con gli attributi corrispondenti configurati. Rimuovere l'utente duplicato o riconfigurare i mapping degli attributi come descritto [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

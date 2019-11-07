@@ -1,5 +1,5 @@
 ---
-title: Monitorare e gestire le pipeline con il portale di Azure e PowerShell | Microsoft Docs
+title: Monitorare e gestire le pipeline usando il portale di Azure e PowerShell
 description: Informazioni su come usare il portale di Azure e Azure PowerShell per monitorare e gestire le pipeline e le data factory di Azure create.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 8e8215d9737087cf1a5632dc8514c12988ff999f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139667"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666973"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorare e gestire le pipeline di Azure Data Factory con il portale di Azure e PowerShell
 > [!div class="op_single_selector"]
@@ -115,16 +115,16 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 </tr>
 <tr>
 <tr>
-<td rowspan="2">In corso</td><td>Convalida</td><td>La convalida è in esecuzione.</td>
+<td rowspan="2">InProgress</td><td>Convalida in corso.</td><td>La convalida è in esecuzione.</td>
 </tr>
 <td>-</td>
 <td>La sezione è in corso.</td>
 </tr>
 <tr>
-<td rowspan="4">Failed</td><td>TimedOut</td><td>L'esecuzione dell'attività ha richiesto più tempo di quello consentito dall'attività.</td>
+<td rowspan="4">Operazione non riuscita</td><td>TimedOut</td><td>L'esecuzione dell'attività ha richiesto più tempo di quello consentito dall'attività.</td>
 </tr>
 <tr>
-<td>Annullato</td><td>La sezione è stata annullata dall'utente.</td>
+<td>Cancellati</td><td>La sezione è stata annullata dall'utente.</td>
 </tr>
 <tr>
 <td>Convalida</td><td>Convalida non riuscita.</td>
@@ -132,10 +132,10 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 <tr>
 <td>-</td><td>Non è stato possibile generare e/o convalidare la sezione.</td>
 </tr>
-<td>Pronto</td><td>-</td><td>La sezione è pronta per essere utilizzata.</td>
+<td>Ready</td><td>-</td><td>La sezione è pronta per essere utilizzata.</td>
 </tr>
 <tr>
-<td>Ignorata</td><td>Nessuna</td><td>La sezione non viene elaborata.</td>
+<td>Skipped</td><td>Nessuna</td><td>La sezione non viene elaborata.</td>
 </tr>
 <tr>
 <td>Nessuna</td><td>-</td><td>Esisteva una sezione con uno stato differente, ma è stata reimpostata.</td>
@@ -161,7 +161,7 @@ Quando la data factory è stata distribuita e le pipeline hanno un periodo attiv
 
 ![Diagramma di stato](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-Il flusso della transizione di stato del set di dati nella data factory è il seguente: In attesa -> In corso/In corso (Convalida) -> Pronto/Errore.
+Il flusso di transizione di stato del set dati nella data factory è il seguente: In attesa -> In corso/In corso (Convalida) -> Pronto/Non riuscito.
 
 La sezione viene avviata nello stato **In attesa** e prima dell'esecuzione è necessario che vengano soddisfatte le precondizioni. In seguito inizia l'esecuzione dell'attività e la sezione passa allo stato **In corso**. L'esecuzione dell'attività può avere esito positivo o negativo. Lo stato della sezione sarà **Pronto** o **Non riuscito** in base al risultato dell'esecuzione.
 
@@ -189,7 +189,7 @@ Dopo aver risolto il problema della pipeline, è possibile riprendere l'esecuzio
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Esempio:
+Ad esempio:
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -222,7 +222,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   Esempio:
+   Ad esempio:
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -287,7 +287,7 @@ Se non è possibile eseguire la convalida della sezione a causa di un errore rel
 
 ![Correggere gli errori e convalidare](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
-### <a name="use-azure-powershell"></a>Usare Azure PowerShell
+### <a name="use-azure-powershell"></a>Uso di Azure PowerShell
 È possibile rieseguire gli errori usando il cmdlet **set-AzDataFactorySliceStatus** . Per informazioni sulla sintassi e altri dettagli sul cmdlet, vedere l'argomento [set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) .
 
 **Esempio:**
@@ -309,7 +309,7 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Creare un nuovo avviso](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
 
-3.  Definire la **condizione di avviso**. Assicurarsi di selezionare **Data factory** nel campo **Filter by resource type** (Filtra per tipo di risorsa). È inoltre possibile specificare valori per **Dimensioni**.
+3.  Definire la **condizione di avviso**. Assicurarsi di selezionare **Data Factory** nel campo **Filtra per tipo di risorsa** . È inoltre possibile specificare i valori per le **dimensioni**.
 
     ![Definire la condizione dell'avviso: selezionare la destinazione](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
 

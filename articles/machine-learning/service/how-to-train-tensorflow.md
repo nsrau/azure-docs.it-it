@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: a1ab8f881aaee9e29519e99a5cd2a0e6fdbc9846
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: b3d5a61b93175559bce92a17e27602a4f79d88ad
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489418"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603970"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Creazione di un modello di apprendimento avanzato TensorFlow su larga scala con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,7 +30,7 @@ Scopri di più sull'apprendimento avanzato [rispetto a Machine Learning](concept
 
 Eseguire questo codice in uno degli ambienti seguenti:
 
- - Azure Machine Learning istanza di calcolo: nessun download o installazione necessaria
+ - Azure Machine Learning macchina virtuale Notebook-nessun download o installazione necessaria
 
      - Completare l' [esercitazione: configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md) per creare un server notebook dedicato precaricato con l'SDK e il repository di esempio.
     - Nella cartella Samples Deep learning nel server notebook trovare un notebook completato e espanso passando a questa directory: **How-to-use-azureml > ml-frameworks > tensorflow > deployment > Train-iperparameter-Tune-deploy-with-tensorflow** cartella. 
@@ -158,6 +158,9 @@ est = TensorFlow(source_directory=script_folder,
                  compute_target=compute_target,
                  use_gpu=True)
 ```
+
+> [!TIP]
+> È stato aggiunto il supporto per **Tensorflow 2,0** alla classe Estimator Tensorflow. Per ulteriori informazioni, vedere il [post di Blog](https://azure.microsoft.com/blog/tensorflow-2-0-on-azure-fine-tuning-bert-for-question-tagging/) .
 
 ## <a name="submit-a-run"></a>Invia un'esecuzione
 

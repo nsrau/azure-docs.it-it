@@ -1,5 +1,5 @@
 ---
-title: Panoramica di Hyperscale per il database SQL di Azure | Microsoft Docs
+title: Panoramica sull'iperscalabilità del database SQL di Azure
 description: Questo articolo descrive il livello di servizio Hyperscale nel modello di acquisto basato su vCore nel database SQL di Azure e ne illustra le differenze rispetto ai livelli di servizio Utilizzo generico e Business critical.
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: dimitri-furman
+ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: db6e47b39b7ebe35a6c0fef42af53f91e96c363f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 38402d6ccf5c5582fff878ad60bf1c9fd4a07118
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496194"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687316"
 ---
 # <a name="hyperscale-service-tier"></a>Livello di servizio Hyperscale
 
@@ -82,7 +82,7 @@ A differenza dei motori di database tradizionali che centralizzano tutte le funz
 
 Il diagramma seguente illustra i diversi tipi di nodi in un database Hyperscale:
 
-![architettura](./media/sql-database-hyperscale/hyperscale-architecture.png)
+![architettura](./media/sql-database-hyperscale/hyperscale-architecture2.png)
 
 Un database con iperscalabilità contiene i diversi tipi di componenti seguenti:
 
@@ -104,7 +104,7 @@ Archiviazione di Azure contiene tutti i file di dati in un database. I server di
 
 ## <a name="backup-and-restore"></a>Backup e ripristino
 
-I backup sono basati su snapshot di file e quindi sono quasi istantanei. La separazione tra archiviazione e calcolo consente di eseguire il push dell'operazione di backup/ripristino al livello di archiviazione per ridurre il carico di elaborazione della replica di calcolo primaria. Di conseguenza, il backup del database non influisca sulle prestazioni del nodo di calcolo primario. Analogamente, i ripristini vengono eseguiti ripristinando gli snapshot di file e, di conseguenza, non sono le dimensioni dell'operazione sui dati. Il ripristino è un'operazione a tempo costante ed è possibile ripristinare anche database di più terabyte in pochi minuti anziché in ore o in giorni. La creazione di nuovi database tramite il ripristino di un backup esistente sfrutta anche questa funzionalità: la creazione di copie di database a scopo di sviluppo o test, anche di database di dimensioni terabyte, è fattibile in pochi minuti.
+I backup sono basati su snapshot di file e quindi sono quasi istantanei. La separazione tra archiviazione e calcolo consente di eseguire il push dell'operazione di backup/ripristino al livello di archiviazione per ridurre il carico di elaborazione della replica di calcolo primaria. Di conseguenza, il backup del database non influisca sulle prestazioni del nodo di calcolo primario. Analogamente, i ripristini vengono eseguiti ripristinando gli snapshot di file e, di conseguenza, non sono le dimensioni dell'operazione sui dati. Il ripristino è un'operazione a tempo costante ed è possibile ripristinare anche database di più terabyte in pochi minuti anziché in ore o in giorni. La creazione di nuovi database tramite il ripristino di un backup esistente sfrutta anche questa funzionalità: la creazione di copie di database nello stesso server logico a scopo di sviluppo o test, anche per i database con dimensioni di terabyte, è fattibile in pochi minuti.
 
 ## <a name="scale-and-performance-advantages"></a>Vantaggi di scalabilità e prestazioni
 

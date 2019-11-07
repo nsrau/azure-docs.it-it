@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8a2752302e5f6c3428139a0faa30ce347fc21f2
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 71aa999809ba3d3e32d38162dfaba869d9716031
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174918"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602712"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Creare un nuovo pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -64,7 +64,7 @@ Ecco i passaggi di alto livello per creare un nuovo pacchetto di accesso.
 1. Nel menu a sinistra fare clic su **Pacchetti di accesso**.
 
 1. Fare clic su **Nuovo pacchetto di accesso**.
-
+   
     ![Gestione entitlement nel portale di Azure](./media/entitlement-management-shared/access-packages-list.png)
 
 ## <a name="basics"></a>Nozioni di base
@@ -83,7 +83,7 @@ Nella scheda **nozioni di base** assegnare un nome al pacchetto di accesso e spe
 
     Il pacchetto di accesso che si sta creando e le eventuali risorse incluse verranno aggiunte al nuovo catalogo. È anche possibile aggiungere altri proprietari del catalogo in un secondo momento.
 
-1. Fare clic su **Next** (Avanti).
+1. Fare clic su **Avanti**.
 
 ## <a name="resource-roles"></a>Ruoli delle risorse
 
@@ -105,9 +105,9 @@ Nella scheda **ruoli risorsa** selezionare le risorse da includere nel pacchetto
 
     ![Accedere al pacchetto: selezione del ruolo delle risorse](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. Fare clic su **Next** (Avanti).
+1. Fare clic su **Avanti**.
 
-## <a name="requests"></a>Richieste
+## <a name="requests"></a>Requests
 
 Nella scheda **richieste** creare il primo criterio per specificare gli utenti che possono richiedere il pacchetto di accesso e anche le impostazioni di approvazione. Successivamente, è possibile creare altri criteri di richiesta per consentire a gruppi aggiuntivi di utenti di richiedere il pacchetto di accesso con le proprie impostazioni di approvazione.
 

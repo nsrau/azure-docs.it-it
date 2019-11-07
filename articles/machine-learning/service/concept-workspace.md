@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 9fbe4f34bb27d2de662f11dbdd047356ff3d3941
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4fe405d4027535eb6b0211f7a3f997194b8819aa
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497347"
+ms.locfileid: "73580757"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Che cos'è un'area di lavoro Azure Machine Learning?
 
@@ -32,7 +32,7 @@ Nel seguente diagramma viene illustrata una tassonomia dell'area di lavoro:
 
 Il diagramma mostra i componenti seguenti di un'area di lavoro:
 
-+ Un'area di lavoro può contenere [Azure Machine Learning istanze di calcolo](concept-compute-instance.md), risorse cloud configurate con l'ambiente Python necessario per eseguire Azure Machine Learning.
++ Un'area di lavoro può contenere Azure Machine Learning macchine virtuali notebook, risorse cloud configurate con l'ambiente Python necessario per eseguire Azure Machine Learning.
 + I [ruoli utente](how-to-assign-roles.md) consentono di condividere l'area di lavoro con altri utenti, team o progetti.
 + Le [destinazioni di calcolo](concept-azure-machine-learning-architecture.md#compute-targets) vengono usate per eseguire gli esperimenti.
 + Quando si crea l'area di lavoro, vengono create anche [le risorse associate](#resources) .
@@ -69,17 +69,14 @@ Le attività di Machine Learning leggono e/o scrivono elementi nell'area di lavo
 
 È inoltre possibile eseguire le attività di gestione dell'area di lavoro seguenti:
 
-| Attività di gestione dell'area di lavoro   | di Microsoft Azure              | Studio | SDK Python/R SDK       | Interfaccia della riga di comando        |
+| Attività di gestione dell'area di lavoro   | di Microsoft Azure              | Studio | SDK Python/R SDK       | CLI        |
 |---------------------------|---------|---------|------------|------------|
 | Creare un'area di lavoro        | **&check;**     | | **&check;** | **&check;** |
 | Gestisci l'accesso all'area di lavoro    | **&check;**   || |  **&check;**    |
 | Eseguire l'aggiornamento a Enterprise Edition    | **&check;** |  | |     |
 | Creare e gestire risorse di calcolo    |   | **&check;** | **&check;** |  **&check;**   |
-| Creare un'istanza di calcolo | **&check;**  | **&check;** | **&check;** |     |
+| Creare una VM notebook |   | **&check;** | |     |
 
-> [!NOTE]
-> Le istanze di calcolo sono disponibili solo per le aree di lavoro con un'area **Stati Uniti centro-settentrionali** o **Regno Unito meridionale**.
->Se l'area di lavoro si trova in un'altra area, è possibile continuare a creare e usare una [macchina virtuale del notebook](concept-compute-instance.md#notebookvm) .
 
 ## <a name='create-workspace'></a>Creare un'area di lavoro
 
@@ -101,7 +98,7 @@ Esistono diversi modi per creare un'area di lavoro:
 Quando si crea una nuova area di lavoro, vengono create automaticamente diverse risorse di Azure usate dall'area di lavoro:
 
 + [Azure container Registry](https://azure.microsoft.com/services/container-registry/): registra i contenitori Docker usati durante il training e quando si distribuisce un modello. Per ridurre al minimo i costi, il registro contenitori di contenitori viene **caricato Lazy** fino a quando non vengono create immagini di distribuzione
-+ [Account di archiviazione di Azure](https://azure.microsoft.com/services/storage/): viene usato come archivio dati predefinito per l'area di lavoro.  I notebook di Jupyter usati con l'istanza di calcolo Azure Machine Learning sono archiviati anche qui.
++ [Account di archiviazione di Azure](https://azure.microsoft.com/services/storage/): viene usato come archivio dati predefinito per l'area di lavoro.  I notebook di Jupyter usati con la macchina virtuale Azure Machine Learning notebook vengono archiviati anche qui.
 + [Applicazione Azure Insights](https://azure.microsoft.com/services/application-insights/): archivia le informazioni di monitoraggio relative ai modelli.
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): archivia i segreti usati dalle destinazioni di calcolo e altre informazioni riservate necessarie per l'area di lavoro.
 

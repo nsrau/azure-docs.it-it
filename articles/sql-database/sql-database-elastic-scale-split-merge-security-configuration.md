@@ -1,5 +1,5 @@
 ---
-title: Configurazione della sicurezza del servizio di divisione e unione | Documentazione Microsoft
+title: Configurazione della sicurezza del servizio di divisione e unione
 description: Configurare 409 certificati per la crittografia con il servizio di suddivisione/unione per la scalabilità elastica.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: ada794807f980854c203b56874e452713ecef6ea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 98d645fc76010d96bc016a63b4882979f3489698
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568357"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690136"
 ---
 # <a name="split-merge-security-configuration"></a>Configurazione della sicurezza del servizio di divisione e unione
 
@@ -47,7 +47,7 @@ Se tali opzioni non sono disponibili, è possibile generare **certificati autofi
     Se installato, passare a:
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Ottenere il WDK da [Windows 8.1: scaricare kit e strumenti](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Ottenere il WDK da [Windows 8.1: download di kit e strumenti](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Per configurare il certificato SSL
 
@@ -120,7 +120,7 @@ La configurazione predefinita nega qualunque accesso all'endpoint HTTP. Questa �
 La configurazione predefinita consente qualunque accesso all'endpoint HTTPS. Tale impostazione può essere limitata ulteriormente.
 
 ### <a name="changing-the-configuration"></a>Modifica della configurazione
-Il gruppo di regole di controllo di accesso che si applicano a e l'endpoint vengono configurati nella  **\<sezione EndpointAcls >** nel **file di configurazione del servizio**.
+Il gruppo di regole di controllo di accesso che si applicano a e l'endpoint vengono configurati nella sezione **\<EndpointAcls >** nel **file di configurazione del servizio**.
 
 ```xml
 <EndpointAcls>
@@ -129,7 +129,7 @@ Il gruppo di regole di controllo di accesso che si applicano a e l'endpoint veng
 </EndpointAcls>
 ```
 
-Le regole in un gruppo di controllo di accesso vengono configurate in un \<nome di AccessControl = "" > sezione del file di configurazione del servizio. 
+Le regole in un gruppo di controllo di accesso vengono configurate in una sezione di \<AccessControl nome = "" > del file di configurazione del servizio. 
 
 Il formato è illustrato nella documentazione relativa agli elenchi di controllo di accesso di rete.
 Ad esempio, per consentire l'accesso all'endpoint HTTPS solo per gli indirizzi IP compresi nell'intervallo da 100.100.0.0 a 100.100.255.255, le regole saranno simili alle seguenti:
@@ -460,7 +460,7 @@ In Esportazione guidata certificati:
 5. Selezionare "Colloca" tutti i certificati nel seguente archivio.
 6. Fare clic su **Sfoglia**.
 7. Selezionare l'archivio da usare.
-8. Fare clic su **Finish**.
+8. Fare clic su **Fine**.
    
    * Se è stato scelto l'archivio dell'autorità di certificazione radice attendibile, fare clic su **Sì**.
 9. Fare clic su **OK** in tutte le finestre di dialogo.

@@ -8,12 +8,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 4f1b8b116cf2a8411a90946dd5801dd1e541323c
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: bcdc6633980ec3684217c8c19b4799befe2af3a3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063963"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576864"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -248,10 +248,10 @@ Viene eseguita un'applicazione `flask` di esempio nel computer locale, in ascolt
 ```
 curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" localhost:8080
 ```
-Esaminando il [formato dell'intestazione del contesto di traccia](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format), si derivano le informazioni seguenti: `version`: `00` 
- `trace-id`: `4bf92f3577b34da6a3ce929d0e0e4736` 
- `parent-id/span-id`: `00f067aa0ba902b7` 
- 0: 1
+Esaminando il [formato dell'intestazione del contesto di traccia](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format), si derivano le informazioni seguenti: `version`: `00`
+`trace-id`: `4bf92f3577b34da6a3ce929d0e0e4736`
+`parent-id/span-id`: `00f067aa0ba902b7`
+`trace-flags`: `01`
 
 Se si esamina la voce della richiesta inviata a monitoraggio di Azure, è possibile visualizzare i campi popolati con le informazioni di intestazione della traccia. È possibile trovare questi dati in log (Analytics) in monitoraggio di Azure Application Insights risorsa.
 
@@ -334,25 +334,22 @@ Per correlare i dati di telemetria nell'applicazione di Spring boot asincrona, s
 
 Potrebbe a volte essere necessario personalizzare il modo in cui i nomi dei componenti vengono visualizzati nella [mappa delle applicazioni](../../azure-monitor/app/app-map.md). A questo scopo, è possibile impostare manualmente `cloud_RoleName` in uno dei modi seguenti:
 
+- A partire da Application Insights Java SDK 2.5.0, è possibile specificare il nome del ruolo Cloud aggiungendo `<RoleName>` al file `ApplicationInsights.xml`, ad esempio
+
+  ```XML
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+     <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+     <RoleName>** Your role name **</RoleName>
+     ...
+  </ApplicationInsights>
+  ```
+
 - Se si usa Spring Boot con l'utilità di avvio Spring Boot di Application Insights, l'unica modifica necessaria consiste nell'impostare il nome personalizzato per l'applicazione nel file application.properties.
 
   `spring.application.name=<name-of-app>`
 
   L'utilità di avvio Spring Boot assegna automaticamente `cloudRoleName` al valore immesso per la proprietà `spring.application.name`.
-
-- Se si usa `WebRequestTrackingFilter`, `WebAppNameContextInitializer` imposta automaticamente il nome dell'applicazione. Aggiungere il testo seguente al file di configurazione (ApplicationInsights.xml):
-
-  ```XML
-  <ContextInitializers>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
-  </ContextInitializers>
-  ```
-
-- Se si usa la classe contesto cloud:
-
-  ```Java
-  telemetryClient.getContext().getCloud().setRole("My Component Name");
-  ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

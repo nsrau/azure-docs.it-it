@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/29/2019
+ms.date: 11/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e20f90a510795080f4f2e1f9dbd6961e700baab0
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: d444ed21f3eb86975442f2176b8caa8dca6e0c3f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73061460"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602441"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -120,6 +120,7 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 
 ## <a name="change-log"></a>Registro modifiche
+- 11/04/2019: modifiche apportate alla configurazione di [pacemaker in SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md) per creare il cluster direttamente con la configurazione unicast  
 - 10/29/2019: rilascio della [connettività degli endpoint pubblici per le macchine virtuali con Load Balancer standard di Azure in scenari a disponibilità elevata di SAP](high-availability-guide-standard-load-balancer-outbound-connections.md)
 - 10/25/2019: modifiche in [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) e [SAP Hana con scalabilità orizzontale con nodo standby in macchine virtuali di Azure con Azure NetApp files su SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) per chiarire il protocollo NFS per il volume/Hana/Shared
 - 10/22/2019: modificare la [disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in SUSE Linux Enterprise Server per le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse), [disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in SUSE Linux Enterprise Server con Azure NetApp files per le applicazioni SAP ](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files), [Disponibilità elevata per NFS in macchine virtuali di azure in SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs), [configurazione di pacemaker in SUSE Linux Enterprise Server in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker), [disponibilità elevata di IBM DB2 LUW in macchine virtuali di Azure in SUSE Linux Enterprise Server con pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm), e [disponibilità elevata di SAP Hana in macchine virtuali di Azure in SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) per la protezione avanzata del rilevamento del servizio di bilanciamento del carico di Azure

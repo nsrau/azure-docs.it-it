@@ -9,20 +9,20 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 6467937e2aca08e234cb136c5f610503627921fb
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: d515982dc2937b660de75ee723cebe39b33bec7d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73042137"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580887"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
-Prima di potersi [connettere alle origini dati locali da app](../logic-apps/logic-apps-gateway-connection.md)per la logica di Azure, scaricare e installare il [gateway dati](https://aka.ms/on-premises-data-gateway-installer) locale in un computer locale. Il gateway funziona come un Bridge che fornisce il trasferimento rapido dei dati e la crittografia tra le origini dati in locale e le app per la logica. È possibile usare la stessa installazione del gateway con altri servizi cloud, ad esempio Power BI, Microsoft Flow, PowerApps e Azure Analysis Services. Per informazioni su come usare il gateway con questi servizi, vedere i seguenti articoli:
+Prima di potersi [connettere alle origini dati locali da app](../logic-apps/logic-apps-gateway-connection.md)per la logica di Azure, scaricare e installare il [gateway dati](https://aka.ms/on-premises-data-gateway-installer) locale in un computer locale. Il gateway funziona come un Bridge che fornisce il trasferimento rapido dei dati e la crittografia tra le origini dati in locale e le app per la logica. È possibile usare la stessa installazione del gateway con altri servizi cloud, ad esempio Power BI, Power automatici, Power Apps e Azure Analysis Services. Per informazioni su come usare il gateway con questi servizi, vedere i seguenti articoli:
 
 * [Gateway dati locale di Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Gateway dati locale di Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
-* [Gateway dati locale di Microsoft Flow](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Gateway dati locale di Microsoft Power Apps](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Power automatizzare il gateway dati locale](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Gateway dati locale di Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
 Questo articolo illustra come scaricare, installare e configurare il gateway dati locale in modo che sia possibile accedere alle origini dati locali da app per la logica di Azure. È anche possibile ottenere altre informazioni sul [funzionamento del gateway dati](#gateway-cloud-service) più avanti in questo argomento. Per altre informazioni sul gateway, vedere [che cos'è un gateway locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)?
@@ -105,7 +105,7 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 
    L'installazione del gateway può essere collegata a un solo account Azure.
 
-1. Selezionare **registra un nuovo gateway nel computer**  > **Avanti**. Questo passaggio registra l'installazione del gateway con il [servizio cloud gateway](#gateway-cloud-service).
+1. Selezionare **registra un nuovo gateway nel computer** > **Avanti**. Questo passaggio registra l'installazione del gateway con il [servizio cloud gateway](#gateway-cloud-service).
 
    ![Registrare il gateway nel computer locale](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
@@ -140,7 +140,7 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 
       ![Selezionare un'altra area per il servizio gateway](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
-1. Esaminare le informazioni nella finestra di conferma finale. Questo esempio usa lo stesso account per app per la logica, Power BI, PowerApps e Microsoft Flow, in modo che il gateway sia disponibile per tutti questi servizi. Quando si è pronti, selezionare **Chiudi**.
+1. Esaminare le informazioni nella finestra di conferma finale. Questo esempio usa lo stesso account per app per la logica, Power BI, Power Apps e Power automatizzate, in modo che il gateway sia disponibile per tutti questi servizi. Quando si è pronti, selezionare **Chiudi**.
 
    ![Confermare le informazioni sul gateway dati](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
@@ -179,7 +179,7 @@ Per modificare la posizione del gateway, spostare l'installazione del gateway in
 
 1. Dopo l'apertura del programma di installazione, accedere con lo stesso account Azure usato per installare il gateway.
 
-1. Selezionare **migrazione, ripristino o acquisizione di un gateway esistente**  > **Avanti**, ad esempio:
+1. Selezionare **migrazione, ripristino o acquisizione di un gateway esistente** > **Avanti**, ad esempio:
 
    ![Selezionare "Eseguire la migrazione, ripristinare o acquisire la proprietà di un gateway esistente"](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 

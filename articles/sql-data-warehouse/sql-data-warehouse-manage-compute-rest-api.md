@@ -1,6 +1,6 @@
 ---
-title: Sospendere, riprendere e ridimensionare con REST in Azure SQL Data Warehouse | Documentazione Microsoft
-description: Gestire la potenza di calcolo in SQL Data Warehouse con le API REST.
+title: Sospendere, riprendere e ridimensionare con le API REST
+description: Gestire la potenza di calcolo in Azure SQL Data Warehouse tramite le API REST.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: implement
 ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5b8652a0b08b426e708a909ff988e51eee9c0821
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f72b3fd1024a68a6f48d2e9e676fc7ca23bf2a4f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476070"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686050"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>API REST per Azure SQL Data Warehouse
 API REST per la gestione del calcolo in Azure SQL Data Warehouse.
@@ -36,7 +37,7 @@ Content-Type: application/json; charset=UTF-8
 
 ## <a name="pause-compute"></a>Sospendere il calcolo
 
-Per sospendere un database, usare l'API REST [Pause Database](/rest/api/sql/databases/pause) (Sospendere il database). L'esempio seguente sospende il database Database02 ospitato sul server Server01. Il server appartiene al gruppo di risorse di Azure ResourceGroup1.
+Per sospendere un database, usare l'API REST per [sospendere i database](/rest/api/sql/databases/pause). L'esempio seguente sospende il database Database02 ospitato sul server Server01. Il server appartiene al gruppo di risorse di Azure ResourceGroup1.
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/pause?api-version=2014-04-01-preview HTTP/1.1
@@ -53,22 +54,22 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 ## <a name="check-database-state"></a>Controllare lo stato del database
 
 > [!NOTE]
-> Controllo dello stato del database attualmente potrebbe restituire il ONLINE mentre il database viene completato il flusso di lavoro online, causando errori di connessione. Si potrebbe essere necessario aggiungere un ritardo di 2-3 minuti nel codice dell'applicazione se si utilizza questa chiamata all'API per attivare i tentativi di connessione.
+> Attualmente controllare lo stato del database potrebbe restituire ONLINE mentre il database sta completando il flusso di lavoro online, causando errori di connessione. Se si usa questa chiamata API per attivare i tentativi di connessione, potrebbe essere necessario aggiungere un ritardo da 2 a 3 minuti nel codice dell'applicazione.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1
 ```
 
-## <a name="get-maintenance-schedule"></a>Recupera pianificazione di manutenzione
-Controllare la pianificazione di manutenzione che è stata impostata per un data warehouse. 
+## <a name="get-maintenance-schedule"></a>Ottenere la pianificazione della manutenzione
+Controllare la pianificazione di manutenzione impostata per un data warehouse. 
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
 
 ```
 
-## <a name="set-maintenance-schedule"></a>Pianificazione di manutenzione di set
-Per impostare e aggiornare una pianificazione maintnenance in un data warehouse esistente.
+## <a name="set-maintenance-schedule"></a>Imposta pianificazione di manutenzione
+Per impostare e aggiornare una pianificazione di maintnenance in un data warehouse esistente.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

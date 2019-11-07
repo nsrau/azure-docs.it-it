@@ -1,5 +1,5 @@
 ---
-title: 'Connettersi ad Azure SQL Data Warehouse: SSMS | Documentazione Microsoft'
+title: Connettersi con SSMS
 description: Usare SQL Server Management Studio (SSMS) per connettersi ed eseguire query in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: b96896c0366c6fba2548480b166bdb9cf6ca692c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d5c903a24ea47cb152555330688dd0bc515c625b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575336"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692589"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Connettersi a SQL Data Warehouse con SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -36,7 +37,7 @@ Per eseguire questa esercitazione, è necessario:
 * SQL Server Management Studio (SSMS) installato. [Installare SSMS][Install SSMS] gratuitamente se non è già disponibile.
 * Il nome completo dell'istanza di SQL Server. Per trovarlo, vedere [Connect to Azure SQL Data Warehouse][Connect to SQL Data Warehouse](Connettersi ad Azure SQL Data Warehouse).
 
-## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Connettersi all'istanza di SQL Data Warehouse
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1. connettersi alla SQL Data Warehouse
 1. Aprire SQL Server Management Studio.
 2. Aprire Esplora oggetti. A questo scopo, selezionare **File** > **Connetti Esplora oggetti**.
    
@@ -53,13 +54,13 @@ Per eseguire questa esercitazione, è necessario:
    
     ![Esplorare AdventureWorksDW][3]
 
-## <a name="2-run-a-sample-query"></a>2. Eseguire una query di esempio
+## <a name="2-run-a-sample-query"></a>2. eseguire una query di esempio
 Ora che è stata stabilita una connessione al database, è possibile scrivere una query.
 
 1. Fare clic con il pulsante destro del mouse sul database in Esplora oggetti di SQL Server.
 2. Scegliere **Nuova query**. Verrà visualizzata una nuova finestra di query.
    
-    ![Nuova query][4]
+    ![Nuova Query][4]
 3. Copiare la query TSQL seguente nella finestra di query:
    
     ```sql

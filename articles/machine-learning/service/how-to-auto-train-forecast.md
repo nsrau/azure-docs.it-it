@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d9a879e92f78275f2366ccfc008068afbe208e5a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 276e741a9462c19a3cba9ad1f9ac44e2da7ef1d3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497385"
+ms.locfileid: "73580697"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione delle serie temporali
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -113,7 +113,7 @@ Per le attività di previsione, Machine Learning automatizzato USA operazioni di
 
 L'oggetto `AutoMLConfig` definisce le impostazioni e i dati necessari per un'attività automatica di machine learning. Analogamente a un problema di regressione, si definiscono parametri di training standard come il tipo di attività, il numero di iterazioni, i dati di training e il numero di convalide incrociate. Per le attività di previsione, è necessario impostare parametri aggiuntivi che interessano l'esperimento. La tabella seguente illustra ogni parametro e il relativo utilizzo.
 
-| Param | Description | Obbligatoria |
+| Param | Descrizione | Obbligatorio |
 |-------|-------|-------|
 |`time_column_name`|Utilizzato per specificare la colonna DateTime nei dati di input utilizzati per compilare la serie temporale e dedurre la relativa frequenza.|✓|
 |`grain_column_names`|Nome/i che definisce i singoli gruppi di serie nei dati di input. Se la granularità non è definita, si presuppone che il set di dati sia una serie temporale.||
@@ -142,7 +142,7 @@ time_series_settings = {
 
 Definendo il `grain_column_names` nel frammento di codice precedente, AutoML creerà due gruppi di serie temporali distinti, noti anche come più serie temporali. Se non è definito alcun oggetto Grain, AutoML presuppone che il set di dati sia una singola serie temporale. Per ulteriori informazioni sulle singole serie temporali, vedere [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
-A questo punto, creare un oggetto standard `AutoMLConfig`, specificando il tipo di attività `forecasting` e inviare l'esperimento. Al termine del modello, recuperare l'iterazione di esecuzione migliore.
+A questo punto, creare un oggetto `AutoMLConfig` standard, specificando il tipo di attività `forecasting` e inviare l'esperimento. Al termine del modello, recuperare l'iterazione di esecuzione migliore.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -181,7 +181,7 @@ Vedere il [notebook della domanda di energia](https://github.com/Azure/MachineLe
 
 Per sfruttare DNN per la previsione, è necessario impostare il parametro `enable_dnn` in AutoMLConfig su true. 
 
-Per usare DNN, è consigliabile usare un cluster di calcolo AML con SKU GPU e almeno 2 nodi come destinazione di calcolo. Per ulteriori informazioni, vedere la [documentazione di calcolo di AML](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute) . Per altre informazioni sulle dimensioni delle VM che includono GPU, vedere [dimensioni delle macchine virtuali ottimizzate per GPU](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-gpu) .
+Per usare DNN, è consigliabile usare un cluster di calcolo AML con SKU GPU e almeno 2 nodi come destinazione di calcolo. Per ulteriori informazioni, vedere la [documentazione di calcolo di AML](how-to-set-up-training-targets.md#amlcompute) . Per altre informazioni sulle dimensioni delle VM che includono GPU, vedere [dimensioni delle macchine virtuali ottimizzate per GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) .
 
 Per consentire un tempo sufficiente per il completamento del training DNN, è consigliabile impostare il timeout dell'esperimento su almeno un paio di ore.
 
@@ -208,7 +208,7 @@ predict_labels = fitted_model.predict(test_data)
 actual_labels = test_labels.flatten()
 ```
 
-In alternativa, è possibile utilizzare la funzione `forecast()` anziché `predict()`, che consentirà le specifiche di quando le stime devono essere avviate. Nell'esempio seguente vengono innanzitutto sostituiti tutti i valori di `y_pred` con `NaN`. In questo caso, l'origine della previsione sarà alla fine dei dati di training, come in genere quando si usa `predict()`. Tuttavia, se si sostituisce solo la seconda metà di `y_pred` con `NaN`, la funzione lascia i valori numerici nella prima metà non modificati, ma prevede i valori `NaN` nella seconda metà. La funzione restituisce i valori previsti e le funzionalità allineate.
+In alternativa, è possibile utilizzare la funzione `forecast()` anziché `predict()`, in modo da consentire le specifiche di quando le stime devono essere avviate. Nell'esempio seguente vengono innanzitutto sostituiti tutti i valori di `y_pred` con `NaN`. In questo caso, l'origine della previsione sarà alla fine dei dati di training, come in genere quando si usa `predict()`. Tuttavia, se si sostituisce solo la seconda metà di `y_pred` con `NaN`, la funzione lascia i valori numerici nella prima metà non modificati, ma prevede i valori `NaN` nella seconda metà. La funzione restituisce i valori previsti e le funzionalità allineate.
 
 È anche possibile usare il parametro `forecast_destination` nella funzione `forecast()` per prevedere i valori fino a una data specificata.
 

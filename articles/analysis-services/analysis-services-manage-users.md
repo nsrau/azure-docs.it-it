@@ -1,18 +1,18 @@
 ---
-title: Autenticazione e autorizzazioni utente in Azure Analysis Services | Microsoft Docs
-description: Informazioni sull'autenticazione e le autorizzazioni utente in Azure Analysis Services.
+title: Azure Analysis Services l'autenticazione e le autorizzazioni utente | Microsoft Docs
+description: Questo articolo descrive come Azure Analysis Services USA Azure Active Directory (Azure AD) per la gestione delle identità e l'autenticazione utente.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a48292b7600d8b9e400bf1e2d61aec313ce29f4b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4a054c3c042e18f1679acd75e5ba5ad74f66edff
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146866"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572757"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticazione e autorizzazioni utente
 
@@ -22,7 +22,7 @@ Azure Analysis Services supporta la [collaborazione B2B di Azure AD](../active-d
 
 ![Architettura dell'autenticazione di Azure Analysis Services](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Per connettersi a un server tutti gli strumenti e le applicazioni client usano una o più [librerie client](analysis-services-data-providers.md) di Analysis Services (AMO, MSOLAP, ADOMD). 
 
@@ -36,7 +36,7 @@ Power BI Desktop, Visual Studio e SSMS supportano Active Directory autenticazion
 
 Se si accede ad Azure con un account di Windows e l'autenticazione universale non è selezionata o disponibile (Excel), è richiesto [Active Directory Federation Services (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md). Con la federazione, Azure AD e gli utenti di Office 365 vengono autenticati usando credenziali locali e possono accedere alle risorse di Azure.
 
-### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio
+### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 
 I server di Azure Analysis Services supportano connessioni da [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e versioni successive usando l'autenticazione di Windows, l'autenticazione della password di Active Directory e l'autenticazione universale di Active Directory. In generale, è consigliabile usare l'autenticazione universale di Active Directory per i motivi indicati di seguito:
 
@@ -81,4 +81,4 @@ I ruoli di questo livello si applicano agli utenti o agli account che devono ese
 [Gestire l'accesso alle risorse tramite i gruppi di Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Gestire ruoli e utenti del database](analysis-services-database-users.md)  
 [Gestire gli amministratori di server](analysis-services-server-admins.md)  
-[Controllo di accesso in base al ruolo](../role-based-access-control/overview.md)  
+[Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md)  
