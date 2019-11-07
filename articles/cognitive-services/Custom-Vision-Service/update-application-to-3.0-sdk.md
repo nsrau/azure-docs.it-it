@@ -1,7 +1,7 @@
 ---
-title: Come eseguire la migrazione del progetto all'API 3,0
+title: Come aggiornare il progetto all'API 3,0
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come eseguire la migrazione di progetti Visione personalizzata dalla versione precedente dell'API all'API 3,0.
+description: Informazioni su come aggiornare i progetti Visione personalizzata dalla versione precedente dell'API all'API 3,0.
 services: cognitive-services
 author: areddish
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
-ms.openlocfilehash: 353fc0a2d8396def17b8e23d9a1c685c755349c5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c134f30b124113a23df0e73cd1bbc8209e335183
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560899"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647508"
 ---
-# <a name="migrate-to-the-30-api"></a>Eseguire la migrazione all'API 3,0
+# <a name="update-to-the-30-api"></a>Eseguire l'aggiornamento all'API 3,0
 
 Visione personalizzata ha ora raggiunto la disponibilità generale ed è stato sottoposto a un aggiornamento dell'API.
 Questo aggiornamento include alcune nuove funzionalità e, in particolare, alcune modifiche di rilievo:
@@ -52,13 +52,6 @@ Una volta eseguito il training di un'iterazione, è possibile renderla disponibi
 > È anche possibile ottenere queste informazioni dal [portale di Azure](https://portal.azure.com) passando alla risorsa di stima visione personalizzata e selezionando **Proprietà**.
 
 Una volta pubblicata l'iterazione, le app possono usarla per la stima specificando il nome nella chiamata dell'API di stima. Per rendere un'iterazione non disponibile per le chiamate di stima, usare l'API **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)** .
-
-## <a name="additional-export-options"></a>Opzioni di esportazione aggiuntive
-
-Con le API 3,0 verranno esposte due destinazioni di esportazione aggiuntive: ARM Architecture e Vision AI Developer Kit.
-
-* Per usare ARM, è sufficiente selezionare un dominio compatto, quindi scegliere DockerFile e quindi ARM come opzioni di esportazione.
-* Per Vision AI Dev Kit, il progetto deve essere creato con il dominio __generale (Compact)__ , oltre a specificare VAIDK nell'argomento piattaforme di esportazione di destinazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74033200bc365caf13035284108f2cf05eee7bbe
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e7eb3dbe3ce82b794a5ed530107781b634ceb32f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180751"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573849"
 ---
 # <a name="access-and-start-apps-from-the-my-apps-preview-portal"></a>Accedere e avviare app dal portale app personali (anteprima)
 
@@ -53,7 +53,7 @@ Se si dispone dell'autorizzazione per accedere e usare le app basate sul cloud d
 
 1. Accedere all'account aziendale o dell'Istituto di istruzione nel computer.
 
-2. Aprire un Web browser supportato e passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, è possibile che venga indicato di usare una pagina personalizzata per l'organizzazione, ad esempio `https://myapps.microsoft.com/contoso.com`.
+2. Aprire un Web browser supportato e passare a https://myapps.microsoft.como usare il collegamento fornito dall'organizzazione. Ad esempio, è possibile che venga indicato di usare una pagina personalizzata per l'organizzazione, ad esempio `https://myapps.microsoft.com/contoso.com`.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
@@ -63,7 +63,7 @@ Visualizzare e usare le app dell'organizzazione dall'app Intune Managed Browser 
 
 1. Nel dispositivo mobile scaricare e installare l'app Intune Managed Browser dall' [App Store di Apple](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) o dal [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
-2. Aprire l'app Intune Managed Browser, passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
+2. Aprire l'app Intune Managed Browser, passare a https://myapps.microsoft.como usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
@@ -73,7 +73,7 @@ Visualizzare e usare il portale **app personali** da un dispositivo iPhone o iPa
 
 1. Sul dispositivo mobile, avviare un'app Web browser, ad esempio Safari.
 
-2. Passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
+2. Passare a https://myapps.microsoft.como usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
@@ -83,7 +83,7 @@ Visualizzare e usare il portale **app personali** in un dispositivo Android.
 
 1. Sul dispositivo mobile, avviare un'app Web browser, ad esempio Google Chrome.
 
-2. Passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
+2. Passare a https://myapps.microsoft.como usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
@@ -108,8 +108,8 @@ Dopo aver ottenuto il portale **app personali** , è possibile:
 
 ## <a name="related-articles"></a>Articoli correlati
 
-- [Aggiornare il profilo e le informazioni sull'account](myprofile-portal-overview.md). Istruzioni su come aggiornare le informazioni personali visualizzate nel portale **My profile** (anteprima).
+- [Aggiornare il profilo e le informazioni sull'account](my-account-portal-overview.md). Istruzioni su come aggiornare le informazioni personali visualizzate nel portale **My profile** (anteprima).
 
-- [Gestione delle organizzazioni](myprofile-portal-organizations-page.md). Istruzioni su come visualizzare e gestire le informazioni relative all'organizzazione nella pagina **organizzazioni** del portale del **profilo personale** .
+- [Gestione delle organizzazioni](my-account-portal-organizations-page.md). Istruzioni su come visualizzare e gestire le informazioni relative all'organizzazione nella pagina **organizzazioni** del portale del **profilo personale** .
 
-- [Gestire i dispositivi connessi](myprofile-portal-devices-page.md). Istruzioni su come gestire i dispositivi a cui si è connessi con l'account aziendale o dell'Istituto di istruzione, nella pagina **dispositivi** del portale del **profilo personale** .
+- [Gestire i dispositivi connessi](my-account-portal-devices-page.md). Istruzioni su come gestire i dispositivi a cui si è connessi con l'account aziendale o dell'Istituto di istruzione, nella pagina **dispositivi** del portale del **profilo personale** .

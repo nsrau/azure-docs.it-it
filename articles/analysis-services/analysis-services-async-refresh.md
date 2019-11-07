@@ -1,18 +1,18 @@
 ---
 title: Aggiornamento asincrono per i modelli di Analysis Services di Azure | Microsoft Docs
-description: Informazioni su come codificare l'aggiornamento asincrono tramite l'API REST.
+description: Viene descritto come usare l'API REST di Azure Analysis Services per codificare l'aggiornamento asincrono dei dati del modello.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5fbb3f2cbc0e53ab1bc04d57b583802e26b92a60
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7c6fba10264939335cdef26f288973f8217f340b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147358"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573385"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Aggiornamento asincrono con l'API REST
 
@@ -56,7 +56,7 @@ Ad esempio, è possibile usare il verbo POST sulla raccolta Refreshes per esegui
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Tutte le chiamate devono essere autenticate con un token di Azure Active Directory (OAuth 2) valido nell'intestazione di autorizzazione e devono soddisfare i requisiti seguenti:
 
@@ -93,11 +93,11 @@ Il corpo dovrebbe essere simile al seguente:
 }
 ```
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parametri
 
 Non è necessario specificare parametri. Viene applicato il valore predefinito.
 
-| name             | Type  | Description  |Predefinito  |
+| Name             | Tipo  | Descrizione  |Default  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | Il tipo di elaborazione da eseguire. I tipi sono allineati con i tipi del [comando refresh](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) di TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Il tipo add non è supportato.      |   automatic      |
 | `CommitMode`     | Enum  | Determina se verrà eseguito il commit degli oggetti in batch o solo al termine. Le modalità comprendono: default, transactional, partialBatch.  |  transactional       |
@@ -211,9 +211,9 @@ Vedere [Creare un'entità servizio - Portale di Azure](../active-directory/devel
 3.  Eseguire l'esempio.
 
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Esempi](analysis-services-samples.md)   
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

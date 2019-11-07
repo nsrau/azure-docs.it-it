@@ -1,6 +1,6 @@
 ---
 title: Definire moduli R personalizzati
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Questo argomento descrive come creare e distribuire un R Studio personalizzato (classico). Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 92a6e0fec07c5e90c1e64a8c4a9e7470cf9fd634
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dba1b092d9a12f189ce7b4a207c362cad2bf8858
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493190"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619486"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Definire moduli R personalizzati per Azure Machine Learning Studio (versione classica)
 
@@ -284,16 +284,16 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
   * **allowedTypes** : filtra i tipi di colonna tra cui è possibile scegliere. I valori validi includono: 
     
     * Numeric
-    * boolean
+    * Booleano
     * Categorical
-    * Stringa
-    * Etichette
+    * String
+    * Etichetta
     * Funzionalità
-    * Punteggio
-    * Tutto
+    * Score
+    * Tutti
   * **default** : le selezioni predefinite valide per il selettore di colonna includono: 
     
-    * Nessuno
+    * Nessuna
     * NumericFeature
     * NumericLabel
     * NumericScore
@@ -313,7 +313,7 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
     * AllLabel
     * AllFeature
     * AllScore
-    * Tutto
+    * Tutti
 
 **DropDown**: elenco enumerato specificato dall'utente (elenco a discesa). Gli elementi dell'elenco a discesa vengono specificati all'interno dell'elemento **Properties** usando un elemento **Item**. L'**id** di ciascun elemento **Item** deve essere univoco e una variabile R valida. Il valore di **name** di un elemento **Item** rappresenta sia il testo visualizzato che il valore passato alla funzione R.
 

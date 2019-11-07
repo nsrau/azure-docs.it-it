@@ -1,5 +1,5 @@
 ---
-title: 'Esempio di finestra di progettazione #3: classificazione per stimare il rischio di credito'
+title: 'Finestra di progettazione: classificazione, stima reddito'
 titleSuffix: Azure Machine Learning
 description: Informazioni su come creare un classificatore di Machine Learning senza scrivere una singola riga di codice usando la finestra di progettazione (anteprima).
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 2709c2e0da154a8530175144070ad560c8921b85
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 383cbc11955598505730a4613c50536afac75f95
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515538"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647972"
 ---
 # <a name="sample-3---classification-with-feature-selection-income-prediction"></a>Esempio 3: classificazione con selezione delle caratteristiche: stima del reddito
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]

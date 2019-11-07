@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 856f00b17a5ee994f8864c5d46ce4d796d68d367
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: df2f22f91cbed17035485d25369965d3284dbaf7
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497014"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622399"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -254,7 +254,7 @@ Questi tipi sono attualmente supportati:
 * `pyspark`
 * Oggetto Python standard
 
-Per usare la generazione dello schema, includere il pacchetto di `inference-schema` nel file dell'ambiente conda.
+Per usare la generazione dello schema, includere il pacchetto di `inference-schema` nel file dell'ambiente conda. Per ulteriori informazioni su questo pacchetto, vedere [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema).
 
 ##### <a name="example-dependencies-file"></a>File delle dipendenze di esempio
 
@@ -608,9 +608,9 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 Per ulteriori informazioni, vedere la documentazione [AZ ml Model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
 
-### <a id="notebookvm"></a>Servizio Web dell'istanza di calcolo (sviluppo/test)
+### <a id="notebookvm"></a>Servizio Web notebook VM (sviluppo/test)
 
-Vedere [distribuire un modello per Azure Machine Learning istanza di calcolo](how-to-deploy-local-container-notebook-vm.md).
+Vedere [distribuire un modello in Azure Machine Learning macchina virtuale del notebook](how-to-deploy-local-container-notebook-vm.md).
 
 ### <a id="aci"></a>Istanze di contenitore di Azure (sviluppo/test)
 
@@ -999,10 +999,12 @@ Per eliminare un modello registrato, usare `model.delete()`.
 Per ulteriori informazioni, vedere la documentazione relativa a [WebService. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) e [Model. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## <a name="preview-no-code-model-deployment"></a>Anteprima Distribuzione del modello senza codice
+
 La distribuzione del modello senza codice è attualmente in anteprima e supporta i Framework di apprendimento automatico seguenti:
 
 ### <a name="tensorflow-savedmodel-format"></a>Formato Tensorflow SavedModel
-```
+
+```python
 from azureml.core import Model
 
 model = Model.register(workspace=ws,
@@ -1017,10 +1019,12 @@ service = Model.deploy(ws, service_name, [model])
 ```
 
 ### <a name="onnx-models"></a>Modelli ONNX
+
 La registrazione e la distribuzione del modello ONNX sono supportate per qualsiasi grafo di inferenza di ONNX. I passaggi di pre-elaborazione e postelaborazione non sono attualmente supportati.
 
 Di seguito è riportato un esempio di come registrare e distribuire un modello ONNX di MNIST:
-```
+
+```python
 from azureml.core import Model
 
 model = Model.register(workspace=ws,
@@ -1033,11 +1037,14 @@ model = Model.register(workspace=ws,
 service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
+
 ### <a name="scikit-learn-models"></a>Scikit-informazioni sui modelli
+
 Nessuna distribuzione del modello di codice è supportata per tutti i tipi di modello Scikit-learn predefiniti.
 
 Di seguito è riportato un esempio di come registrare e distribuire un modello sklearn senza codice aggiuntivo:
-```
+
+```python
 from azureml.core import Model
 from azureml.core.resource_configuration import ResourceConfiguration
 
@@ -1055,7 +1062,8 @@ service = Model.deploy(ws, service_name, [model])
 ```
 
 Nota: queste dipendenze sono incluse nel contenitore di inferenza sklearn predefinito:
-```
+
+```yaml
     - azureml-defaults
     - inference-schema[numpy-support]
     - scikit-learn
@@ -1063,6 +1071,7 @@ Nota: queste dipendenze sono incluse nel contenitore di inferenza sklearn predef
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Come distribuire un modello usando un'immagine Docker personalizzata](how-to-deploy-custom-docker-image.md)
 * [Risoluzione dei problemi di distribuzione](how-to-troubleshoot-deployment.md)
 * [Proteggere i servizi Web di Azure Machine Learning con SSL](how-to-secure-web-service.md)

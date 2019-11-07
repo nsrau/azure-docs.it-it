@@ -1,7 +1,7 @@
 ---
 title: Che cos'è un punteggio BLEU? - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: BLEU è una misura delle differenze tra una traduzione automatica e una o più traduzioni umane di riferimento della stessa frase di origine. L'algoritmo BLEU confronta espressioni consecutive della traduzione automatica con le espressioni consecutive che trova nella traduzione di riferimento e conta il numero di corrispondenze in modo ponderato.
+description: BLEU è una misura delle differenze tra traduzione automatica e traduzioni di riferimento create dall'uomo della stessa frase di origine.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: swmachan
-ms.openlocfilehash: 1993819ad227d7e9aa5ef899045e00447a6740b8
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 85c4ee27a828a05c64ca6cbf84bff438535328be
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595410"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647365"
 ---
 # <a name="what-is-a-bleu-score"></a>Che cos'è un punteggio BLEU?
 

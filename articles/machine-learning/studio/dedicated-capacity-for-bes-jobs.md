@@ -1,6 +1,6 @@
 ---
 title: Processi del servizio Azure Batch
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Panoramica dei servizi di Azure Batch per i processi di Machine Learning Studio (classico). L'elaborazione di pool di Batch consente di creare pool a cui è possibile inviare i processi batch.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 1de7ad10a54c34595f69a543843097cee1377067
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a0e829f61117df25f8643301a0acdadeafd7c267
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493030"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684807"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Servizio Azure Batch per i processi di Azure Machine Learning Studio (classico)
 
@@ -43,7 +43,7 @@ Creare i pool chiamando l'operazione di creazione dei pool per l'URL del servizi
 
 È possibile usare qualsiasi nuovo servizio Web basato su Resource Manager, ma tenere presente che la fatturazione per i processi viene addebitata in base al piano di fatturazione associato al servizio scelto. È consigliabile creare un servizio Web e un nuovo piano di fatturazione specifici per l'esecuzione dei processi di pool Batch.
 
-Per altre informazioni sulla creazione di servizi Web, vedere [Distribuire un servizio Web di Azure Machine Learning](publish-a-machine-learning-web-service.md).
+Per altre informazioni sulla creazione di servizi Web, vedere [Distribuire un servizio Web di Azure Machine Learning](deploy-a-machine-learning-web-service.md).
 
 Dopo avere creato un pool, si invia un processo BES usando l'URL delle richieste Batch per il servizio Web. È possibile scegliere di inviarlo a un pool o usare l'elaborazione batch classica. Per inviare un processo a un pool Batch, aggiungere al corpo della richiesta di invio del processo il parametro seguente:
 

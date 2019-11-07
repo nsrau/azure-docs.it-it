@@ -1,5 +1,5 @@
 ---
-title: Configurare il ripristino di emergenza per un'applicazione di SharePoint multilivello con Azure Site Recovery | Microsoft Docs
+title: Ripristino di emergenza per un'app SharePoint a più livelli con Azure Site Recovery
 description: Questo articolo descrive come configurare il ripristino di emergenza per un'applicazione di SharePoint multilivello usando le funzionalità di Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: e9b688d54049c21da3276a20e27dcc9ad3d4ceca
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: cc72cb4134e6492478805421e448df26a8dc4554
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231483"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622418"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurare il ripristino di emergenza per un'applicazione di SharePoint multilivello con Azure Site Recovery
 
@@ -62,10 +62,10 @@ Site Recovery è indipendente dall'applicazione e dovrebbe funzionare con qualsi
 
 **Scenario** | **In un sito secondario** | **In Azure**
 --- | --- | ---
-**Hyper-V** | Yes | Sì
-**VMware** | Yes | Sì
+**Hyper-V** | Sì | Sì
+**VMware** | Sì | Sì
 **Server fisico** | Sì | Sì
-**Azure** | ND | Yes
+**Azzurro** | ND | Sì
 
 
 ### <a name="things-to-keep-in-mind"></a>Aspetti da considerare

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 8f64b3381f22c31b58604477260b5dae4b84d19a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: df111d605b7c05bcb934771b6063f2be04770ea9
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988274"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606471"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Trasmettere dati come input in Analisi di flusso
 
@@ -48,7 +48,7 @@ Il timestamp `EventEnqueuedUtcTime` si riferisce all'arrivo di un evento nell'hu
 
 La tabella seguente descrive le proprietà disponibili nella pagina **Nuovo input** del portale di Azure per lo streaming dell'input dei dati da un hub eventi:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
 | **Alias di input** |Nome descrittivo che viene usato nella query del processo per fare riferimento a questo input. |
 | **Sottoscrizione** | Scegliere la sottoscrizione in cui esiste la risorsa di Hub eventi. | 
@@ -62,7 +62,7 @@ La tabella seguente descrive le proprietà disponibili nella pagina **Nuovo inpu
 
 Quando i dati provengono da un input del flusso di Hub eventi, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
 | **EventProcessedUtcTime** |Data e ora di elaborazione dell'evento in Analisi di flusso. |
 | **EventEnqueuedUtcTime** |Data e ora di ricezione dell'evento da parte di Hub eventi. |
@@ -96,7 +96,7 @@ Il timestamp predefinito degli eventi provenienti da un hub IoT in Analisi di fl
 
 La tabella seguente contiene la descrizione delle proprietà disponibili nella pagina **Nuovo input** del portale di Azure quando si configura un hub IoT come input del flusso.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
 | **Alias di input** | Nome descrittivo che viene usato nella query del processo per fare riferimento a questo input.|
 | **Sottoscrizione** | Scegliere la sottoscrizione in cui esiste la risorsa dell'hub IoT. | 
@@ -112,7 +112,7 @@ La tabella seguente contiene la descrizione delle proprietà disponibili nella p
 
 Quando si usano i dati di flusso provenienti da un hub IoT, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
 | **EventProcessedUtcTime** | Data e ora di elaborazione dell'evento. |
 | **EventEnqueuedUtcTime** | Data e ora di ricezione dell'evento da parte dell'hub IoT. |
@@ -129,7 +129,13 @@ Per gli scenari con grandi quantità di dati non strutturati da archiviare nel c
 
 L'elaborazione dei log è uno scenario di uso comune per l'uso degli input di archiviazione BLOB con Analisi di flusso. In questo scenario i file di dati di telemetria sono stati acquisiti da un sistema e devono essere analizzati ed elaborati per estrarre dati significativi.
 
-Il timestamp predefinito degli eventi dell'archiviazione BLOB in Analisi di flusso è il timestamp dell'ultima modifica del BLOB, ovvero `BlobLastModifiedUtcTime`. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Un processo di Analisi di flusso di Azure estrae i dati dall'input di Archiviazione BLOB di Azure ogni secondo se il file BLOB è disponibile. Se il file BLOB non è disponibile, è presente un backoff esponenziale con un ritardo massimo di 90 secondi.
+Il timestamp predefinito degli eventi dell'archiviazione BLOB in Analisi di flusso è il timestamp dell'ultima modifica del BLOB, ovvero `BlobLastModifiedUtcTime`. Se un BLOB viene caricato in un account di archiviazione a 13:00 e il processo di analisi di flusso di Azure viene avviato con l'opzione *ora* a 13:01, il BLOB non verrà selezionato perché l'ora modificata non rientra nel periodo di esecuzione del processo.
+
+Se un BLOB viene caricato in un contenitore di account di archiviazione a 13:00 e il processo di analisi di flusso di Azure viene avviato con l' *ora personalizzata* a 13:00 o versioni precedenti, il BLOB verrà prelevato quando l'ora modificata rientra nel periodo di esecuzione del processo.
+
+Se un processo di analisi di flusso di Azure viene avviato usando *ora* a 13:00 e un BLOB viene caricato nel contenitore dell'account di archiviazione a 13:01, analisi di flusso di Azure rileverà il BLOB.
+
+Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Un processo di Analisi di flusso di Azure estrae i dati dall'input di Archiviazione BLOB di Azure ogni secondo se il file BLOB è disponibile. Se il file BLOB non è disponibile, è presente un backoff esponenziale con un ritardo massimo di 90 secondi.
 
 Gli input in formato CSV richiedono una riga di intestazione per definire i campi per il set di dati e tutti i campi delle righe di intestazione devono essere univoci.
 
@@ -142,14 +148,14 @@ Il caricamento di un numero molto elevato di BLOB in una sola volta può impedir
 
 La tabella seguente contiene la descrizione delle proprietà disponibili nella pagina **Nuovo input** del portale di Azure quando si configura l'archiviazione BLOB come input del flusso.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
 | **Alias di input** | Nome descrittivo che viene usato nella query del processo per fare riferimento a questo input. |
 | **Sottoscrizione** | Scegliere la sottoscrizione in cui esiste la risorsa dell'hub IoT. | 
 | **Account di archiviazione** | Nome dell'account di archiviazione in cui si trovano i file BLOB. |
 | **Chiave dell'account di archiviazione** | Chiave privata associata all'account di archiviazione. Il valore di questa opzione viene inserito automaticamente, a meno che non si selezioni l'opzione per specificare le impostazioni dell'archiviazione BLOB manualmente. |
 | **Contenitore** | Contenitore per l'input del servizio BLOB. I contenitori forniscono un raggruppamento logico per gli oggetti BLOB archiviati nel servizio BLOB di Microsoft Azure. Quando si carica un oggetto BLOB nel servizio Archiviazione BLOB di Azure, è necessario specificare un contenitore per tale BLOB. È possibile scegliere il contenitore **Usa esistente** o **Crea nuovo** per creare un nuovo contenitore.|
-| **Modello percorso** (facoltativa) | Percorso del file usato per trovare gli oggetti BLOB nel contenitore specificato. All'interno del percorso è possibile specificare una o più istanze delle tre variabili seguenti: `{date}`, `{time}` o `{partition}`<br/><br/>Esempio 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Esempio 2: `cluster1/logs/{date}`<br/><br/>Il carattere `*` non è un valore consentito per il prefisso del percorso. Sono consentiti solo <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Caratteri BLOB di Azure</a> validi. Non includere i nomi di contenitori o di file. |
+| **Modello percorso** (facoltativa) | Percorso del file usato per trovare gli oggetti BLOB nel contenitore specificato. Se si desidera leggere i BLOB dalla radice del contenitore, non impostare un modello di percorso. All'interno del percorso è possibile specificare una o più istanze delle tre variabili seguenti: `{date}`, `{time}` o `{partition}`<br/><br/>Esempio 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Esempio 2: `cluster1/logs/{date}`<br/><br/>Il carattere `*` non è un valore consentito per il prefisso del percorso. Sono consentiti solo <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Caratteri BLOB di Azure</a> validi. Non includere i nomi di contenitori o di file. |
 | **Formato data** (facoltativa) | Formato della data in base al quale vengono organizzati i file, se si usa la variabile date nel percorso. Esempio: `YYYY/MM/DD` |
 | **Formato ora** (facoltativa) |  Formato dell'ora in base al quale vengono organizzati i file, se si usa la variabile time nel percorso. Al momento, l'unico valore supportato è `HH` per le ore. |
 | **Formato di serializzazione eventi** | Formato di serializzazione (JSON, CSV, avro o [other (protobuf, XML, proprietario...)](custom-deserializer.md)) del flusso di dati in ingresso.  Assicurarsi che il formato JSON sia allineato alla specifica e non includa uno 0 iniziale per i numeri decimali. |
@@ -158,7 +164,7 @@ La tabella seguente contiene la descrizione delle proprietà disponibili nella p
 
 Quando i dati provengono da un'origine di archiviazione BLOB, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
 | **BlobName** |Nome del BLOB di input da cui proviene l'evento. |
 | **EventProcessedUtcTime** |Data e ora di elaborazione dell'evento in Analisi di flusso. |

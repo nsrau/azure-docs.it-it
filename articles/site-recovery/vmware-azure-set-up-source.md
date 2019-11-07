@@ -1,5 +1,5 @@
 ---
-title: Configurare l'ambiente di origine per la replica da VMware in Azure con Azure Site Recovery | Microsoft Docs
+title: Configurare le impostazioni di origine per il ripristino di emergenza di VMware in Azure con Azure Site Recovery
 description: Questo articolo descrive come configurare l'ambiente locale per la replica di macchine virtuali VMware in Azure con Azure Site Recovery.
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: bf1ff4dfba105b6c90ab949217453e1db82d109d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791765"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622218"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurare l'ambiente di origine per la replica da VMware in Azure
 
@@ -32,7 +32,7 @@ Nell'articolo si presuppone che le seguenti procedure siano già state eseguite:
 1. In **Insiemi di credenziali dei servizi di ripristino** selezionare il nome dell'insieme di credenziali. In questo scenario viene usato **ContosoVMVault**.
 2. In **Attività iniziali** selezionare su Site Recovery. Selezionare quindi **Preparare l'infrastruttura**.
 3. In **Obiettivo di protezione** > **Dove si trovano le macchine virtuali** selezionare **Locale**.
-4. Nella casella **In quale destinazione si vuole eseguire la replica dei computer** selezionare **In Azure**.
+4. Per **In quale destinazione si vuole eseguire la replica dei computer?** selezionare **In Azure**.
 5. In **I computer sono virtuali** selezionare **Sì con VMware vSphere Hypervisor**. Selezionare **OK**.
 
 ## <a name="set-up-the-configuration-server"></a>Configurare il server di configurazione

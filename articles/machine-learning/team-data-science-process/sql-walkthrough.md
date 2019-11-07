@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 148d0c203248e4dcde5baaadc596d56e8b8ea17a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606524"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669391"
 ---
-# <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Server
+# <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Sever
 Questa esercitazione illustra la procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](https://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
 
 ## <a name="dataset"></a>Descrizione del set di dati relativo alle corse dei taxi di New York
@@ -46,15 +46,15 @@ La chiave univoca che consente di unire trip\_data e trip\_fare è composta dai 
 ## <a name="mltasks"></a>Esempi di attività di stima
 Verranno formulati tre problemi di stima, basati su *tip\_amount*, vale a dire:
 
-1. Classificazione binaria: consente di prevedere se è stata lasciata una mancia per una corsa oppure no, ovvero se un valore di *tip\_amount* superiore a $0 è un esempio positivo, mentre un valore di *tip\_amount* pari a $0 è un esempio negativo.
-2. Classificazione multiclasse: consente di stimare l'intervallo degli importi delle mance lasciate per la corsa. Il valore *tip\_amount* viene suddiviso in cinque bin o classi:
+1. Classificazione binaria: consente di prevedere se sia stata lasciata una mancia per la corsa oppure no, vale a dire se un *tip\_amount* superiore a $ 0 rappresenta un esempio positivo, mentre un *tip\_amount* pari a $ 0 rappresenta un esempio negativo.
+2. Classificazione multiclasse: consente di prevedere l'intervallo di mance lasciato per la corsa. Il valore *tip\_amount* viene suddiviso in cinque bin o classi:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. Attività di regressione: consente di stimare l'importo della mancia lasciata per una corsa.  
+3. Attività di regressione: consente di prevedere l'importo della mancia lasciata per una corsa.  
 
 ## <a name="setup"></a>Configurazione dell'ambiente di analisi scientifica dei dati Azure per l’analitica avanzata
 Come è possibile vedere nella guida di [pianificazione dell'ambiente](plan-your-environment.md) , sono disponibili diverse opzioni per utilizzare il set di dati Corse dei taxi di NYC in Azure:
@@ -79,7 +79,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure:
    > 
    > 
 
-In base alle dimensioni del set di dati, alla posizione dell'origine dati e all'ambiente di destinazione di Azure selezionato, questo scenario è simile allo [Scenario \#5: Set di dati di grandi dimensioni in file locali, con SQL Server in una macchina virtuale di Azure come destinazione](plan-sample-scenarios.md#largelocaltodb).
+In base alle dimensioni del set di dati, al percorso dell'origine dati e all'ambiente di destinazione Azure selezionato, questo scenario è simile allo [Scenario \#n.5: Set di dati di grandi dimensioni in file locali, con destinazione SQL Server nella macchina virtuale di Azure](plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Acquisizione dei dati da un'origine pubblica
 Per visualizzare il set di dati [Corse dei taxi di NYC](https://www.andresmh.com/nyctaxitrips/) dal relativo percorso pubblico, è possibile usare uno qualsiasi dei metodi descritti in [Spostamento dei dati da e verso l'archivio BLOB di Azure](move-azure-blob.md) e copiare i dati nella nuova macchina virtuale.
@@ -87,7 +87,7 @@ Per visualizzare il set di dati [Corse dei taxi di NYC](https://www.andresmh.com
 Per copiare i dati usando AzCopy:
 
 1. Accedere alla macchina virtuale (VM)
-2. Creare una nuova directory nel disco dati della macchina virtuale (Nota: non usare come disco dati il disco temporaneo fornito con la macchina virtuale).
+2. Creare una nuova directory nel disco dati della macchina virtuale (nota: non utilizzare come disco dati il disco temporaneo fornito con la macchina virtuale).
 3. In una finestra di prompt dei comandi, eseguire la seguente riga di comando Azcopy, sostituendo <path_to_data_folder> con la cartella dei dati creata al passaggio (2):
    
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -96,7 +96,7 @@ Per copiare i dati usando AzCopy:
 4. Decomprimere i file scaricati. Prendere nota della cartella in cui si trovano i dati non compressi. Il riferimento di questa cartella sarà <percorso\_a\_file\_dati\>.
 
 ## <a name="dbload"></a>Importazione in blocco dei dati nel database SQL Server
-È possibile migliorare le prestazioni relative al caricamento/trasferimento di grandi quantità di dati in un database SQL e le successive query usando *Tabelle e viste partizionate*. In questa sezione, verranno seguite le istruzioni fornite in [Importazione in blocco dei dati in parallelo tramite le tabelle delle partizioni di SQL](parallel-load-sql-partitioned-tables.md) per creare un nuovo database e caricare i dati nelle tabelle partizionate in parallelo.
+È possibile migliorare le prestazioni relative al caricamento/trasferimento di grandi quantità di dati in un database SQL e le successive query utilizzando *Partitioned Tables and Views*. In questa sezione, verranno seguite le istruzioni fornite in [Importazione in blocco dei dati in parallelo tramite le tabelle delle partizioni di SQL](parallel-load-sql-partitioned-tables.md) per creare un nuovo database e caricare i dati nelle tabelle partizionate in parallelo.
 
 1. Dopo aver effettuato l'accesso alla VM, avviare **SQL Server Management Studio**.
 2. Effettuare la connessione mediante Autenticazione di Windows.
@@ -150,8 +150,8 @@ In questo esercizio, verranno effettuate le seguenti operazioni:
 
 Una volta pronti a proseguire con Azure Machine Learning, è possibile effettuare una delle seguenti operazioni:  
 
-1. Salvare la query SQL finale per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Import Data][import-data] (Importa dati) in Azure Machine Learning, oppure
-2. Salvare in modo definitivo i dati campionati e compilati che si prevede di usare per la creazione di modelli in una nuova tabella di database e usare la nuova tabella nel modulo [Import Data][import-data] (Importa dati) in Azure Machine Learning.
+1. Salvare la query SQL finale per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Import Data (Importa dati][import-data] ) in Azure Machine Learning
+2. Salvare in modo permanente i dati campionati e progettati che si prevede di usare per la compilazione di modelli in una nuova tabella di database e usare la nuova tabella nel modulo [Import Data (Importa dati][import-data] ) in Azure Machine Learning.
 
 In questa sezione verrà salvata la query finale per estrarre e campionare i dati. Il secondo metodo viene illustrato nella sezione [Esplorazione dei dati e progettazione di funzionalità in IPython Notebook](#ipnb) .
 
@@ -172,14 +172,14 @@ In questo esempio viene identificata la licenza (numero del taxi) che ha eseguit
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Esplorazione: distribuzione delle corse per licenza e numero di patente
+#### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Esplorazione: distribuzione delle corse per licenza e hack_license
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
     GROUP BY medallion, hack_license
     HAVING COUNT(*) > 100
 
-#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Valutazione della qualità dei dati: verifica dei record con longitudine e/o latitudine errate
+#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Valutazione della qualità dei dati: verifica dei record con longitudine o latitudine errate
 In questo esempio viene esaminato se uno dei campi relativi alla longitudine o alla latitudine contiene un valore non valido (i gradi radianti devono essere compresi tra -90 e 90) o presenta le coordinate (0, 0).
 
     SELECT COUNT(*) FROM nyctaxi_trip
@@ -191,7 +191,7 @@ In questo esempio viene esaminato se uno dei campi relativi alla longitudine o a
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Esplorazione: distribuzione delle corse per cui è stata lasciata una mancia e e di quelle per le quali non è stata lasciata una mancia
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Esplorazione: distribuzione delle corse per le quali è stata lasciata una mancia e di quelle per le quali non è stata lasciata una mancia
 In questo esempio viene individuato il numero di corse per le quali è stata lasciata una mancia e il numero di corse per le quali non è stata lasciata una mancia in un determinato periodo (o nel set di dati completo, in caso di un anno intero). Questa distribuzione riflette la distribuzione delle etichette binarie che dovranno essere utilizzate in seguito per la creazione di modelli di classificazione binaria.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -233,7 +233,7 @@ In questo esempio, la longitudine e la latitudine del prelievo e dello scarico v
 Le query di esplorazione per la generazione delle etichette e la conversione geografica possono inoltre essere utilizzate per generare etichette/funzionalità se si rimuove la parte relativa al conteggio. Ulteriori esempi SQL di progettazione di funzionalità vengono forniti nella sezione [Esplorazione dei dati e progettazione di funzionalità in IPython Notebook](#ipnb) . È più efficiente eseguire le query di generazione di funzionalità sull'intero set di dati o su un subset di grandi dimensioni tramite query SQL che si eseguono direttamente sull'istanza di database SQL Server. Le query possono essere eseguite in **SQL Server Management Studio**, IPython Notebook o in qualsiasi strumento o ambiente di sviluppo in grado di accedere al database localmente o in remoto.
 
 #### <a name="preparing-data-for-model-building"></a>Preparazione dei dati per la creazione di modelli
-Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione casuale dell'1% dall'intero set di dati unito. La query può essere copiata e incollata direttamente nel modulo [Import Data][import-data] (Importa dati) di [Azure Machine Learning Studio](https://studio.azureml.net) per l'inserimento diretto dei dati dall'istanza del database SQL Server in Azure. La query esclude i record con le coordinate errate (0, 0).
+Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione casuale dell'1% dall'intero set di dati unito. Questa query può essere copiata e incollata direttamente nel modulo [Azure Machine Learning Studio](https://studio.azureml.net) [Import Data][import-data] per l'inserimento diretto dei dati dall'istanza di database SQL Server in Azure. La query esclude i record con le coordinate errate (0, 0).
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -264,8 +264,8 @@ La sequenza consigliata quando si utilizzano i Big Data è la seguente:
 
 Una volta pronti a proseguire con Azure Machine Learning, è possibile effettuare una delle seguenti operazioni:  
 
-1. Salvare la query SQL finale per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Import Data][import-data] (Importa dati) in Azure Machine Learning. Questo metodo è illustrato nella sezione [Creazione di modelli in Azure Machine Learning](#mlmodel) .    
-2. Salvare in modo definitivo i dati campionati e compilati che si prevede di usare per la creazione di modelli in una nuova tabella di database, quindi usare la nuova tabella nel modulo [Import Data][import-data] (Importa dati).
+1. Salvare la query SQL finale per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Import Data (Importa dati][import-data] ) in Azure Machine Learning. Questo metodo è illustrato nella sezione [Creazione di modelli in Azure Machine Learning](#mlmodel) .    
+2. Salvare in modo permanente i dati campionati e progettati che si prevede di usare per la compilazione di modelli in una nuova tabella di database, quindi usare la nuova tabella nel modulo [Import Data][import-data] .
 
 Di seguito vengono forniti alcuni esempi di esplorazione dei dati, visualizzazione dei dati e progettazione di funzionalità. Per ulteriori esempi, vedere il blocco di appunti di esempio SQL IPython nella cartella **Blocchi di appunti IPython di esempio** .
 
@@ -282,7 +282,7 @@ Inizializzare le impostazioni di connessione del database nelle seguenti variabi
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-#### <a name="report-number-of-rows-and-columns-in-table-nyctaxitrip"></a>Segnalazione del numero di righe e di colonne nella tabella nyctaxi_trip
+#### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a>Segnalazione del numero di righe e di colonne nella tabella nyctaxi_trip
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('nyctaxi_trip')
@@ -335,7 +335,7 @@ Successivamente si consulterà il box plot per la distanza delle corse, per visu
 
 ![Grafico n. 1][1]
 
-#### <a name="visualization-distribution-plot-example"></a>Visualizzazione: esempio di grafico di distribuzione
+#### <a name="visualization-distribution-plot-example"></a>Visualizzazione: esempio di tracciato di distribuzione
     fig = plt.figure()
     ax1 = fig.add_subplot(1,2,1)
     ax2 = fig.add_subplot(1,2,2)
@@ -344,7 +344,7 @@ Successivamente si consulterà il box plot per la distanza delle corse, per visu
 
 ![Grafico n. 2][2]
 
-#### <a name="visualization-bar-and-line-plots"></a>Visualizzazione: grafici a barre e linee
+#### <a name="visualization-bar-and-line-plots"></a>Visualizzazione: tracciati a barre e linee
 In questo esempio, la distanza delle corse viene suddivisa in cinque contenitori e vengono visualizzati i risultati di questa suddivisione.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -376,7 +376,7 @@ Allo stesso modo, è possibile verificare la relazione tra **rate\_code** e **tr
 ![Grafico n. 8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>Sottocampionamento dei dati in SQL
-Quando si preparano i dati per la creazione di modelli in [Azure Machine Learning Studio](https://studio.azureml.net), è possibile decidere la **query SQL da usare direttamente nel modulo Importa dati** o salvare in modo definitivo i dati compilati e campionati in una nuova tabella e poi usarla nel modulo [Importa dati][import-data] con un semplice **SELECT * FROM <nome\_della\_nuova\_tabella>** .
+Quando si preparano i dati per la compilazione di modelli in [Azure Machine Learning Studio](https://studio.azureml.net), è possibile decidere la **query SQL da usare direttamente nel modulo Importa dati** o salvare in modo permanente i dati progettati e campionati in una nuova tabella, che è possibile usare nell' [importazione Modulo dati][import-data] con una semplice **SELECT * FROM <\_nuova tabella\_\_nome >** .
 
 In questa sezione verrà creata una nuova tabella per contenere i dati campionati e compilati. Un esempio di query SQL diretta per la creazione di modelli viene fornita nella sezione [Esplorazione dei dati e progettazione di funzionalità in SQL Server](#dbexplore) .
 
@@ -456,7 +456,7 @@ Nell'esempio seguente, verranno generati due set di etichette da utilizzare per 
         cursor.execute(nyctaxi_one_percent_update_col)
         cursor.commit()
 
-#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Progettazione di caratteristiche: caratteristiche di conteggio per le colonne relative alle categorie
+#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Progettazione di funzionalità: funzionalità di conteggio per le colonne relative alle categorie
 In questo esempio un campo di categoria viene trasformato in un campo numerico mediante la sostituzione di ciascuna categoria con il conteggio delle relative occorrenze nei dati.
 
     nyctaxi_one_percent_insert_col = '''
@@ -486,7 +486,7 @@ In questo esempio un campo di categoria viene trasformato in un campo numerico m
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Progettazione di caratteristiche: caratteristiche di tipo contenitore per le colonne numeriche
+#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Progettazione di funzionalità: funzionalità di collocazione per le colonne numeriche
 In questo esempio, un campo numerico continuo viene trasformato in intervalli di categorie predefiniti, vale a dire che il campo numerico verrà trasformato in un campo di categoria.
 
     nyctaxi_one_percent_insert_col = '''
@@ -514,8 +514,8 @@ In questo esempio, un campo numerico continuo viene trasformato in intervalli di
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Progettazione di caratteristiche: estrazione di caratteristiche relative alle rappresentazioni decimali di latitudine/longitudine
-In questo esempio suddivide la rappresentazione decimale di un campo di latitudine o longitudine viene suddivisa in più campi area di diversa granularità, ad esempio, paese/area geografica, città, città, blocco e così via. Si noti che non viene eseguito il mapping dei nuovi campi geografici alle località effettive. Per informazioni sul mapping delle località con codice geografico, vedere [Servizi REST di Bing Mappe](https://msdn.microsoft.com/library/ff701710.aspx).
+#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Progettazione di funzionalità: funzionalità di estrazione della posizione dalla longitudine/latitudine decimale
+Questo esempio Mostra come suddividere la rappresentazione decimale di un campo Latitudine e/o Longitudine in più campi di area con una granularità diversa, ad esempio paese/area geografica, città, città, blocco e così via. Si noti che non viene eseguito il mapping dei nuovi campi geografici a percorsi effettivi. Per informazioni sul mapping delle località con codice geografico, vedere [Servizi REST di Bing Mappe](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent
@@ -546,9 +546,9 @@ In questo esempio suddivide la rappresentazione decimale di un campo di latitudi
 
 A questo punto è possibile procedere con la creazione e la distribuzione di modelli in [Azure Machine Learning](https://studio.azureml.net). I dati sono pronti per eventuali problemi di stima identificati in precedenza, in modo specifico:
 
-1. Classificazione binaria: consente di prevedere se per una corsa è stata lasciata o meno una mancia.
-2. Classificazione multiclasse: consente di stimare l'intervallo degli importi delle mance lasciate, in base alle classi definite in precedenza.
-3. Attività di regressione: consente di stimare l'importo della mancia lasciata per una corsa.  
+1. Classificazione binaria: consente di prevedere se per la corsa è stata lasciata o meno una mancia.
+2. Classificazione multiclasse: consente di prevedere l'intervallo di mance pagato, in base alle classi definite in precedenza.
+3. Attività di regressione: consente di prevedere l'importo della mancia lasciata per una corsa.  
 
 ## <a name="mlmodel"></a>Compilazione di modelli in Azure Machine Learning
 Per iniziare l'esercizio relativo alla creazione di modelli, accedere all'area di lavoro Azure Machine Learning. Se non è ancora disponibile un'area di lavoro di machine learning, vedere [Creare un'area di lavoro Azure Machine Learning](../studio/create-workspace.md).
@@ -572,7 +572,7 @@ Un tipico esperimento training consiste nelle seguenti operazioni:
 
 In questo esercizio, i dati sono già stati esplorati e compilati in SQL Server, ed è stata decisa la dimensione del campione da inserire in Azure Machine Learning. Per creare uno o più modelli di stima è stato deciso di effettuare le seguenti operazioni:
 
-1. Inserire i dati in Azure Machine Learning tramite il modulo [Import Data][import-data] (Importa dati), disponibile nella sezione **Data Input and Output** (Input e output dei dati). Per altre informazioni, vedere la pagina di riferimento sul modulo [Import Data][import-data] (Importa dati).
+1. Ottenere i dati da Azure Machine Learning usando il modulo [Import Data (Importa dati][import-data] ), disponibile nella sezione **input e output dei dati** . Per ulteriori informazioni, vedere la pagina di riferimento del modulo [Import Data][import-data] .
    
     ![Dati di importazione di Azure Machine Learning][17]
 2. Selezione di **Database SQL di Azure** come **Origine dati** nel pannello **Proprietà**.
@@ -588,12 +588,12 @@ Nella figura seguente viene fornito un esempio di un esperimento di classificazi
 > [!IMPORTANT]
 > Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell'**escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, con la classificazione binaria, usare l'etichetta **tipped** ed escludere i campi **tip\_class**, **tip\_amount** e **total\_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
 > 
-> Per escludere le colonne non necessarie e/o le perdite di destinazione, è possibile usare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) o [Edit Metadata][edit-metadata] (Modifica metadati). Per altre informazioni, vedere le pagine di riferimento per [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) ed [Edit Metadata][edit-metadata] (Modifica metadati).
+> Per escludere le colonne non necessarie e/o le perdite di destinazione, è possibile usare il modulo [selezionare le colonne nel set di dati][select-columns] o i [metadati di modifica][edit-metadata]. Per altre informazioni, vedere [selezionare le colonne nel set di dati][select-columns] e modificare le pagine di riferimento [dei metadati][edit-metadata] .
 > 
 > 
 
 ## <a name="mldeploy"></a>Distribuzione di modelli in Azure Machine Learning
-Quando il modello è pronto, è possibile distribuirlo in modo semplice come servizio Web direttamente dall'esperimento. Per ulteriori informazioni sulla distribuzione di servizi Web Azure Machine Learning, vedere [Distribuzione di un servizio Web Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
+Quando il modello è pronto, è possibile distribuirlo in modo semplice come servizio Web direttamente dall'esperimento. Per ulteriori informazioni sulla distribuzione di servizi Web Azure Machine Learning, vedere [Distribuzione di un servizio Web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 
 Per distribuire un nuovo servizio Web, è necessario effettuare le seguenti operazioni:
 
@@ -610,9 +610,9 @@ Azure Machine Learning tenterà di creare un esperimento di assegnazione di punt
 2. Identificazione di una **porta di input** logica per rappresentare lo schema di dati di input previsto.
 3. Identificazione di una **porta di output** logica per rappresentare lo schema di output del servizio Web previsto.
 
-Una volta creato l'esperimento di assegnazione del punteggio, esaminarlo e regolarlo in base alle esigenze. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, di solito vengono esclusi tutti i campi di input e inclusi soltanto **Scored Labels** (Etichette con punteggio) e **Scored Probabilities** (Probabilità con punteggio) nell'output, tramite il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati).
+Una volta creato l'esperimento di assegnazione del punteggio, esaminarlo e regolarlo in base alle esigenze. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, è comune escludere tutti i campi di input e includere solo le **etichette con punteggio** e le **probabilità con punteggio** nell'output usando il modulo [Select Columns in DataSet][select-columns] .
 
-Nella figura seguente viene fornito un esperimento di assegnazione di punteggio di esempio. Quando si è pronti per la distribuzione, fare clic sul pulsante **PUBBLICA SERVIZIO WEB** nella barra delle azioni inferiore.
+Nella figura di seguito viene fornito un esperimento di assegnazione di punteggio di esempio. Quando si è pronti per la distribuzione, fare clic sul pulsante **PUBBLICA SERVIZIO WEB** nella barra delle azioni inferiore.
 
 ![Pubblicazione di Azure Machine Learning][11]
 

@@ -1,5 +1,5 @@
 ---
-title: Determinare la dimensione di una rete virtuale/subnet esistente per Istanza gestita di database SQL di Azure | Microsoft Docs
+title: Istanza gestita di database SQL di Azure determinare le dimensioni di VNet/subnet
 description: Questo articolo descrive come calcolare le dimensioni della subnet in cui verranno distribuite le istanze gestite del database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
-ms.openlocfilehash: 167e243b1fe4ea5ba9403ac3ca1fcea42f02f59a
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: fb0d79a82553349d5dad547a2d78a460301cbd6d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273551"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688123"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Determinare le dimensioni di una subnet della rete virtuale per Istanza gestita di database SQL di Azure
 
@@ -39,7 +39,7 @@ Se si prevede di distribuire più istanze gestite all'interno della subnet ed è
 - Ogni istanza per utilizzo generico necessita di due indirizzi
 - Ogni istanza business critical richiede quattro indirizzi
 
-**Esempio**: si prevede di avere tre istanze gestite di utilizzo generico e due business critical. Questo significa che sono necessari 5 + 3 * 2 + 2 * 4 = 19 indirizzi IP. Poiché gli intervalli IP sono definiti in potenza di 2, è necessario l'intervallo IP di 32 (2^5) indirizzi IP. Pertanto è necessario riservare la subnet con subnet mask /27.
+**Esempio**: si prevede di avere tre istanze gestite di utilizzo generico e due di business critical. Questo significa che sono necessari 5 + 3 * 2 + 2 * 4 = 19 indirizzi IP. Poiché gli intervalli IP sono definiti in potenza di 2, è necessario l'intervallo IP di 32 (2^5) indirizzi IP. Pertanto è necessario riservare la subnet con subnet mask /27.
 
 > [!IMPORTANT]
 > Il calcolo visualizzato in precedenza diventa obsoleto con altri miglioramenti.

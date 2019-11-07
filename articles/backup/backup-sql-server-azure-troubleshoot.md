@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: c456dfec72f98dc4ae06f1d7d5d9fb461182d579
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: e4683547a7c305da3d3a3bc7a7d6a50f21ad46f2
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018988"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614388"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -29,10 +29,9 @@ Per configurare la protezione per un database di SQL Server in una macchina virt
 
 ### <a name="backup-type-unsupported"></a>Tipo di backup non supportato
 
-| severity | Descrizione | Possibili cause | Azione consigliata |
+| Gravità | Descrizione | Possibili cause | Azione consigliata |
 |---|---|---|---|
 | Avviso | Le impostazioni correnti per questo database non supportano determinati tipi di backup presenti nei criteri associati. | <li>Sul database master è possibile eseguire solo un'operazione di backup completo del database. Non è possibile eseguire il backup differenziale o il backup del log delle transazioni. </li> <li>Qualsiasi database nel modello di recupero con registrazione minima non consente il backup dei log delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato oppure il processo di backup non riuscirà per il backup ad hoc.
-
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -81,9 +80,9 @@ Per configurare la protezione per un database di SQL Server in una macchina virt
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il ripristino non è riuscito perché non è stato possibile portare offline il database. | Quando si esegue un ripristino, il database di destinazione deve essere portato offline. Backup di Azure non è in grado di portare offline questi dati. | Per restringere le cause principali, utilizzare i dettagli aggiuntivi disponibili nel menu portale di Azure Error. Per ulteriori informazioni, vedere la [documentazione SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
+| Il ripristino non è riuscito perché non è stato possibile portare offline il database. | Quando si esegue un ripristino, il database di destinazione deve essere portato offline. Backup di Azure non è in grado di portare offline questi dati. | Per restringere le cause principali, utilizzare i dettagli aggiuntivi disponibili nel menu portale di Azure Error. Per altre informazioni, vedere la [documentazione di SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
-###  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
+### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
@@ -93,8 +92,7 @@ Per configurare la protezione per un database di SQL Server in una macchina virt
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il backup del log usato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non è utilizzabile per l'arresto in un punto arbitrario nel tempo in base alle linee guida di SQL. | Quando un database è in modalità di recupero con registrazione minima delle operazioni bulk, i dati tra una transazione con registrazione minima delle operazioni bulk e la transazione di log successiva non possono essere recuperati. | Scegliere un momento diverso per il ripristino. [Altre informazioni](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
-
+| Il backup del log usato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non è utilizzabile per l'arresto in un punto arbitrario nel tempo in base alle linee guida di SQL. | Quando un database è in modalità di recupero con registrazione minima delle operazioni bulk, i dati tra una transazione con registrazione minima delle operazioni bulk e la transazione di log successiva non possono essere recuperati. | Scegliere un momento diverso per il ripristino. [Altre informazioni](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105)).
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -124,20 +122,19 @@ Per configurare la protezione per un database di SQL Server in una macchina virt
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-L'operazione è bloccata perché è stato raggiunto il limite per il numero di operazioni consentite nelle 24 ore. | Quando è stato raggiunto il limite massimo consentito per un'operazione in un intervallo di 24 ore, viene visualizzato questo errore. <br> Ad esempio:  Se è stato raggiunto il limite per il numero di processi di backup di configurazione che possono essere attivati al giorno e si tenta di configurare il backup su un nuovo elemento, verrà visualizzato questo errore. | In genere, la ripetizione dell'operazione dopo 24 ore risolve questo problema. Tuttavia, se il problema persiste, è possibile contattare il supporto tecnico Microsoft per assistenza.
+L'operazione è bloccata perché è stato raggiunto il limite per il numero di operazioni consentite in 24 ore. | Quando è stato raggiunto il limite massimo consentito per un'operazione in un intervallo di 24 ore, viene visualizzato questo errore. <br> Ad esempio, se è stato raggiunto il limite per il numero di processi di backup di configurazione che possono essere attivati al giorno e si tenta di configurare il backup su un nuovo elemento, verrà visualizzato questo errore. | In genere, la ripetizione dell'operazione dopo 24 ore risolve questo problema. Tuttavia, se il problema persiste, è possibile contattare il supporto tecnico Microsoft per assistenza.
 
 ### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-L'operazione è bloccata perché l'insieme di credenziali ha raggiunto il limite massimo per le operazioni consentite in un intervallo di 24 ore. | Quando è stato raggiunto il limite massimo consentito per un'operazione in un intervallo di 24 ore, viene visualizzato questo errore. Questo errore si verifica in genere in caso di operazioni su larga scala, ad esempio la modifica dei criteri o la protezione automatica. A differenza di quanto accade per CloudDosAbsoluteLimitReached, non è possibile risolvere questo stato in realtà, il servizio backup di Azure tenterà di ritentare le operazioni internamente per tutti gli elementi in questione.<br> Ad esempio:  Se si dispone di un numero elevato di origini dati protette con un criterio e si tenta di modificare tale criterio, verrà attivata la configurazione dei processi di protezione per ogni elemento protetto e talvolta potrebbe verificarsi il limite massimo consentito per tali operazioni al giorno.| Il servizio backup di Azure tenterà automaticamente di ripetere l'operazione dopo 24 ore. 
-
+L'operazione è bloccata perché l'insieme di credenziali ha raggiunto il limite massimo per le operazioni consentite in un intervallo di 24 ore. | Quando è stato raggiunto il limite massimo consentito per un'operazione in un intervallo di 24 ore, viene visualizzato questo errore. Questo errore si verifica in genere quando sono presenti operazioni su larga scala, ad esempio la modifica dei criteri o la protezione automatica. A differenza di quanto accade per CloudDosAbsoluteLimitReached, non è possibile risolvere questo stato in realtà, il servizio backup di Azure tenterà di ritentare le operazioni internamente per tutti gli elementi in questione.<br> Ad esempio, se si dispone di un numero elevato di origini dati protette con un criterio e si tenta di modificare tale criterio, verrà attivata la configurazione dei processi di protezione per ciascuno degli elementi protetti e talvolta potrebbe verificarsi il limite massimo consentito per tali operazioni al giorno.| Il servizio backup di Azure tenterà automaticamente di ripetere l'operazione dopo 24 ore.
 
 ## <a name="re-registration-failures"></a>Errori di ripetizione della registrazione
 
 Prima di attivare l'operazione di ripetizione della registrazione, verificare la presenza di uno o più dei seguenti sintomi:
 
-* Tutte le operazioni, ad esempio il backup, il ripristino e la configurazione del backup, hanno esito negativo nella macchina virtuale con uno dei codici di errore seguenti: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+* Tutte le operazioni, ad esempio il backup, il ripristino e la configurazione del backup, hanno esito negativo nella macchina virtuale con uno dei codici di errore seguenti: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent** , **WorkloadExtensionDidntDequeueMsg**.
 * L'area **stato backup** per l'elemento di backup **non è raggiungibile**. Escludere tutte le altre cause che possono generare lo stesso stato:
 
   * Mancanza di autorizzazioni per eseguire operazioni relative al backup nella macchina virtuale  
@@ -150,14 +147,14 @@ Prima di attivare l'operazione di ripetizione della registrazione, verificare la
 
 Questi sintomi possono verificarsi per uno o più dei seguenti motivi:
 
-* Un'estensione è stata eliminata o disinstallata dal portale. 
+* Un'estensione è stata eliminata o disinstallata dal portale.
 * Un'estensione è stata disinstallata dal **Pannello di controllo** nella macchina virtuale in **Disinstalla o modifica programma**.
 * La macchina virtuale è stata ripristinata di nuovo nel tempo tramite il ripristino del disco sul posto.
 * La macchina virtuale è stata arrestata per un periodo prolungato, quindi la configurazione dell'estensione è scaduta.
 * La macchina virtuale è stata eliminata e un'altra VM è stata creata con lo stesso nome e nello stesso gruppo di risorse della macchina virtuale eliminata.
 * Uno dei nodi del gruppo di disponibilità non ha ricevuto la configurazione del backup completo. Questo problema può verificarsi quando il gruppo di disponibilità viene registrato nell'insieme di credenziali o quando viene aggiunto un nuovo nodo.
 
-Negli scenari precedenti è consigliabile attivare un'operazione di ripetizione della registrazione nella macchina virtuale. Per il momento, questa opzione è disponibile solo tramite PowerShell.
+Negli scenari precedenti è consigliabile attivare un'operazione di ripetizione della registrazione nella macchina virtuale. Per istruzioni su come eseguire questa attività in PowerShell, vedere [qui](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) .
 
 ## <a name="size-limit-for-files"></a>Limite dimensioni per i file
 
@@ -175,7 +172,7 @@ Ora è possibile disporli nel formato seguente:
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
-Di seguito è riportato un esempio:
+Ad esempio:
 
 ```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
@@ -185,9 +182,10 @@ Se le dimensioni della stringa del contenuto superano 20.000 byte, i file di dat
 
 ### <a name="override-the-default-target-restore-file-path"></a>Esegui override del percorso predefinito del file di ripristino di destinazione
 
-È possibile eseguire l'override del percorso del file di ripristino di destinazione durante l'operazione di ripristino inserendo un file JSON che contiene il mapping del file di database al percorso di ripristino di destinazione. Creare un `database_name.json` file e inserirlo nel percorso *C:\Program Files\Azure carico di lavoro Backup\bin\plugins\SQL*.
+È possibile eseguire l'override del percorso del file di ripristino di destinazione durante l'operazione di ripristino inserendo un file JSON che contiene il mapping del file di database al percorso di ripristino di destinazione. Creare un file di `database_name.json` e posizionarlo nel percorso *C:\Program Files\Azure carico di lavoro Backup\bin\plugins\SQL*.
 
 Il contenuto del file deve essere nel formato seguente:
+
 ```json
 [
   {
@@ -203,7 +201,7 @@ Il contenuto del file deve essere nel formato seguente:
 ]
 ```
 
-Di seguito è riportato un esempio:
+Ad esempio:
 
 ```json
 [
@@ -227,7 +225,6 @@ SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"
   ```
-
 
 Questo file deve essere inserito prima di attivare l'operazione di ripristino.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery la risoluzione dei problemi e degli errori di connettività di rete da Azure ad Azure | Microsoft Docs
+title: Risolvere i problemi di connettività per il ripristino di emergenza da Azure ad Azure con Azure Site Recovery
 description: Risolvere gli errori e i problemi relativi alla replica di macchine virtuali di Azure per il ripristino di emergenza
 services: site-recovery
 author: asgang
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/05/2019
 ms.author: asgang
-ms.openlocfilehash: 8e1350a22554bab257e8c99954c2beaa357de2ff
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4995a4086c471a06fe859febfd2d1af7fbb22a76
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934531"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622444"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Risolvere i problemi di connettività di rete delle macchine virtuali da Azure ad Azure
 
@@ -30,7 +30,7 @@ login.microsoftonline.com | Richiesto per l'autorizzazione e l'autenticazione ne
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Connettività in uscita per gli intervalli IP o gli URL di Site Recovery (codice errore 151037 o 151072)
 
-## <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: Non è stato possibile registrare la macchina virtuale di Azure con Site Recovery (151195) </br>
+## <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: non è stato possibile registrare la macchina virtuale di Azure con Site Recovery (151195) </br>
 - **Causa possibile** </br>
   - Non è possibile stabilire la connessione per Site Recovery endpoint a causa di un errore di risoluzione DNS.
   - Questo problema si verifica più spesso durante la riprotezione dopo il failover della macchina virtuale, quando il server DNS non è raggiungibile dall'area di ripristino di emergenza.
@@ -73,7 +73,7 @@ In questo esempio viene illustrato come configurare le regole NSG per una macchi
 
 3. Creare regole HTTPS in uscita (443) per gli IP di Site Recovery che corrispondono alla località di destinazione:
 
-   **Location** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
+   **Posizione** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
     --- | --- | ---
    Stati Uniti centrali | 40.69.144.231 | 52.165.34.144
 
@@ -87,7 +87,7 @@ Queste regole sono necessarie in modo che la replica possa essere abilitata dall
 
 3. Creare regole HTTPS in uscita (443) per gli IP di Site Recovery che corrispondono alla località di origine:
 
-   **Location** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
+   **Posizione** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
     --- | --- | ---
    Stati Uniti centrali | 13.82.88.226 | 104.45.147.24
 ## <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: La configurazione di Site Recovery non è riuscita (151197)
@@ -98,7 +98,7 @@ Queste regole sono necessarie in modo che la replica possa essere abilitata dall
   - Azure Site Recovery deve accedere agli [intervalli IP di Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) a seconda dell'area. Assicurarsi che gli intervalli IP necessari siano accessibili dalla macchina virtuale.
 
 
-## <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: La replica di A2A non è riuscita quando il traffico di rete passa attraverso il server proxy locale (151072)
+## <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: replica di A2A non riuscita quando il traffico di rete passa attraverso il server proxy locale (151072)
 - **Causa possibile** </br>
   - Le impostazioni proxy personalizzate non sono valide e Azure Site Recovery agente del servizio Mobility non ha rilevato automaticamente le impostazioni proxy da Internet Explorer
 
@@ -112,7 +112,7 @@ Queste regole sono necessarie in modo che la replica possa essere abilitata dall
                 *[proxy]*</br>
                 *Address=http://1.2.3.4*</br>
                 *Port=567*</br>
-  4. Azure Site Recovery agente del servizio Mobility supporta solo ***proxy***non autenticati.
+  4. Azure Site Recovery agente del servizio Mobility supporta solo ***proxy non autenticati***.
 
 ### <a name="fix-the-problem"></a>Risolvere il problema
 Per consentire [gli URL richiesti](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) o gli [intervalli IP richiesti](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), attenersi alla procedura descritta nel [documento sulle linee guida](site-recovery-azure-to-azure-networking-guidance.md)per la rete.

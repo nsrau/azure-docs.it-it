@@ -8,14 +8,14 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: cfa8efe0b73811474b1e50a7d2fb1e9abe9045c6
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 88c4b2065576bd5bdcb29a266bd564c60b0e537c
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286504"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622700"
 ---
-# <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti su Azure Container Registry
+# <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti sul Registro Azure Container
 
 Questo articolo descrive le domande frequenti e i problemi noti relativi a Container Registry di Azure.
 
@@ -127,7 +127,7 @@ Per PowerShell:
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
-Nota: È possibile aggiungere `-y` nel comando Delete per ignorare la conferma.
+Nota: è possibile aggiungere `-y` nel comando Delete per ignorare la conferma.
 
 Per altre informazioni, vedere [eliminare immagini del contenitore in Azure container Registry](container-registry-delete.md).
 
@@ -188,7 +188,7 @@ az acr login -n MyRegistry
 
 Sì. Abilitare TLS usando un client Docker recente (versione 18.03.0 e successive). 
 
-### <a name="does-azure-container-registry-support-content-trust"></a>Azure Container Registry supporta l'attendibilità del contenuto?
+### <a name="does-azure-container-registry-support-content-trust"></a>Il Registro Azure Container supporta Content Trust?
 
 Sì, è possibile usare immagini attendibili in Azure Container Registry, perché [il notatore Docker](https://docs.docker.com/notary/getting_started/) è stato integrato e può essere abilitato. Per informazioni dettagliate, vedere [attendibilità del contenuto in Azure container Registry](container-registry-content-trust.md).
 
@@ -206,8 +206,8 @@ Si consiglia di verificare le chiavi pubbliche e i certificati dopo la verifica 
 
 ACR supporta [ruoli personalizzati](container-registry-roles.md) che forniscono diversi livelli di autorizzazioni. In particolare, i ruoli `AcrPull` e `AcrPush` consentono agli utenti di eseguire il pull e/o il push di immagini senza l'autorizzazione a gestire la risorsa del registro di sistema in Azure.
 
-* Portale di Azure: Il controllo di accesso (IAM) del registro di sistema > > aggiungere (selezionare `AcrPull` o `AcrPush` per il ruolo).
-* Interfaccia della riga di comando di Azure: Trovare l'ID risorsa del registro di sistema eseguendo il comando seguente:
+* Portale di Azure: > il controllo di accesso (IAM) del registro di sistema > Aggiungi (selezionare `AcrPull` o `AcrPush` per il ruolo).
+* INTERFACCIA della riga di comando di Azure: trovare l'ID risorsa del registro di sistema eseguendo il comando seguente:
 
   ```azurecli
   az acr show -n myRegistry
@@ -448,6 +448,8 @@ Configurare il proxy Docker per l'output del comando precedente e la porta 8888 
 
 - [Ricerca per categorie viene eseguito l'annullamento del batch?](#how-do-i-batch-cancel-runs)
 - [Ricerca per categorie includere la cartella. git nel comando AZ ACR Build?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
+- [Le attività supportano GitLab per i trigger di origine?](#does-tasks-support-gitlab-for-source-triggers)
+- [Quale servizio di gestione del repository Git supporta le attività?](#what-git-repository-management-service-does-tasks-support)
 
 ### <a name="how-do-i-batch-cancel-runs"></a>Ricerca per categorie viene eseguito l'annullamento del batch?
 
@@ -462,11 +464,30 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 Se si passa una cartella di origine locale al comando `az acr build`, per impostazione predefinita la cartella `.git` viene esclusa dal pacchetto caricato. È possibile creare un file `.dockerignore` con la seguente impostazione. Indica al comando di ripristinare tutti i file in `.git` nel pacchetto caricato. 
 
-```
+```sh
 !.git/**
 ```
 
 Questa impostazione si applica anche al comando `az acr run`.
+
+### <a name="does-tasks-support-gitlab-for-source-triggers"></a>Le attività supportano GitLab per i trigger di origine?
+
+Attualmente non è supportato GitLab per i trigger di origine.
+
+### <a name="what-git-repository-management-service-does-tasks-support"></a>Quale servizio di gestione del repository Git supporta le attività?
+
+| Servizio Git | Contesto di origine | Compilazione manuale | Compilazione automatica tramite trigger commit |
+|---|---|---|---|
+| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Sì | Sì |
+| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Sì | Sì |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Sì | No |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Sì | No |
+
+## <a name="run-error-message-troubleshooting"></a>Eseguire la risoluzione dei problemi del messaggio di errore
+
+| Messaggio di errore | Guida per la risoluzione dei problemi |
+|---|---|
+|Nessun accesso è stato configurato per la macchina virtuale, pertanto non è stata trovata alcuna sottoscrizione|Questo problema può verificarsi se si usa `az login --identity` nell'attività ACR. Si tratta di un errore temporaneo che si verifica quando l'assegnazione di ruolo dell'identità gestita non è stata propagata. Attendere alcuni secondi prima di riprovare.|
 
 ## <a name="cicd-integration"></a>Integrazione CI/CD
 

@@ -1,5 +1,5 @@
 ---
-title: La copia delta da un database usando una tabella di controllo con Azure Data Factory | Microsoft Docs
+title: Copia Delta da un database tramite una tabella di controllo con Azure Data Factory
 description: Informazioni su come usare un modello di soluzione per la copia incrementale solo delle righe nuove o aggiornate da un database con Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,42 +13,42 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/24/2018
-ms.openlocfilehash: c32592ce539eeb2dec71792e4a6eb31e7d904eff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9ab1d005cf71dbe03546ce5b6014f616a872f8d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60312434"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684219"
 ---
-# <a name="delta-copy-from-a-database-with-a-control-table"></a>Copia delta da un database con una tabella di controllo
+# <a name="delta-copy-from-a-database-with-a-control-table"></a>Copia Delta da un database con una tabella di controllo
 
-Questo articolo descrive un modello che è disponibile per il caricamento incrementale righe nuove o aggiornate da una tabella di database in Azure tramite una tabella di controllo del codice esterno che archivia un valore di limite massimo.
+Questo articolo descrive un modello disponibile per caricare in modo incrementale righe nuove o aggiornate da una tabella di database in Azure usando una tabella di controllo esterna che archivia un valore limite massimo.
 
-Questo modello richiede che lo schema del database di origine contiene una chiave di colonna o l'incremento di timestamp per identificare le righe nuove o aggiornate.
+Questo modello richiede che lo schema del database di origine contenga una colonna timestamp o una chiave di incremento per identificare le righe nuove o aggiornate.
 
 >[!NOTE]
-> Se si dispone di una colonna timestamp nel database di origine per identificare le righe nuove o aggiornate, ma non si desidera creare una tabella di controllo del codice esterno da utilizzare per la copia delta, è possibile usare la [dello strumento Copia dati di Azure Data Factory](copy-data-tool.md) per ottenere una pipeline. Tale strumento Usa un'ora pianificata trigger come una variabile per la lettura di nuove righe dal database di origine.
+> Se nel database di origine è presente una colonna timestamp per identificare le righe nuove o aggiornate, ma non si vuole creare una tabella di controllo esterna da usare per la copia Delta, è invece possibile usare lo [strumento Azure Data Factory copia dati](copy-data-tool.md) per ottenere una pipeline. Tale strumento utilizza un'ora pianificata del trigger come variabile per leggere le nuove righe dal database di origine.
 
 ## <a name="about-this-solution-template"></a>Informazioni sul modello di soluzione
 
-Questo modello prima di tutto recupera il valore del limite precedente e lo confronta con il valore del limite corrente. Successivamente, copia solo le modifiche dal database di origine, in base a un confronto tra i due valori del limite. Infine, archivia il nuovo valore limite massimo per una tabella di controllo del codice esterno per i dati differenziali successivo caricamento.
+Questo modello recupera innanzitutto il valore limite precedente e lo confronta con il valore limite corrente. In seguito, vengono copiate solo le modifiche dal database di origine, in base a un confronto tra i due valori di filigrana. Infine, archivia il nuovo valore limite massimo in una tabella di controllo esterna per il caricamento dei dati Delta alla prossima esecuzione.
 
 Il modello contiene quattro attività:
-- **Ricerca** recupera il valore limite massimo precedente, che viene archiviato in una tabella di controllo del codice esterno.
-- Un'altra **ricerca** attività recupera il valore di limite massimo corrente dal database di origine.
-- **Copia** solo le modifiche vengono copiate dal database di origine nell'archivio di destinazione. La query che identifica le modifiche nel database di origine è simile a ' selezionare * da Data_Source_Table dove TIMESTAMP_Column > "limite massimo ultimo" e TIMESTAMP_Column < = "limite massimo corrente" '.
-- **SqlServerStoredProcedure** scrive il valore di limite massimo corrente in una tabella di controllo del codice esterno per la copia delta successiva.
+- **Lookup** Recupera il vecchio valore limite massimo, che viene archiviato in una tabella di controllo esterna.
+- Un'altra attività di **ricerca** Recupera il valore del limite massimo corrente dal database di origine.
+- **Copia** solo le modifiche apportate al database di origine nell'archivio di destinazione. La query che identifica le modifiche nel database di origine è simile a' SELECT * FROM Data_Source_Table WHERE TIMESTAMP_Column > "Last High-Watermark" e TIMESTAMP_Column < = "Current High-Watermark" ".
+- **SqlServerStoredProcedure** scrive il valore di limite massimo corrente in una tabella di controllo esterna per la copia Delta la volta successiva.
 
 Il modello definisce cinque parametri:
-- *Data_Source_Table_Name* è la tabella nel database di origine che si desidera caricare i dati.
-- *Data_Source_WaterMarkColumn* è il nome della colonna nella tabella di origine che ha usato per identificare nuove o aggiornate le righe. Il tipo di questa colonna è in genere *data/ora*, *INT*, o simile.
-- *Data_Destination_Folder_Path* oppure *Data_Destination_Table_Name* è la posizione in cui i dati vengono copiati in archivio di destinazione.
-- *Control_Table_Table_Name* è la tabella di controllo del codice esterno che archivia il valore di limite massimo.
-- *Control_Table_Column_Name* è la colonna della tabella di controllo del codice esterno che archivia il valore di limite massimo.
+- *Data_Source_Table_Name* è la tabella nel database di origine da cui si desidera caricare i dati.
+- *Data_Source_WaterMarkColumn* è il nome della colonna nella tabella di origine utilizzata per identificare le righe nuove o aggiornate. Il tipo di questa colonna è in genere *DateTime*, *int*o similar.
+- *Data_Destination_Folder_Path* o *Data_Destination_Table_Name* è la posizione in cui vengono copiati i dati nell'archivio di destinazione.
+- *Control_Table_Table_Name* è la tabella di controllo esterna in cui è archiviato il valore limite massimo.
+- *Control_Table_Column_Name* è la colonna della tabella di controllo esterno che archivia il valore limite massimo.
 
 ## <a name="how-to-use-this-solution-template"></a>Come usare questo modello di soluzione
 
-1. Esplorare l'origine di tabella è che si desidera caricare e definire la colonna limite massimo che può essere utilizzata per identificare le righe nuove o aggiornate. Il tipo di questa colonna potrebbe essere *data/ora*, *INT*, o simile. Valore della colonna aumenta man mano che vengono aggiunte nuove righe. Dalla seguente esempio tabella di origine (data_source_table), è possibile usare la *LastModifytime* colonna come colonna limite massimo.
+1. Esplorare la tabella di origine che si desidera caricare e definire la colonna con limite massimo che può essere utilizzata per identificare le righe nuove o aggiornate. Il tipo di questa colonna potrebbe essere *DateTime*, *int*o simile. Il valore di questa colonna aumenta man mano che vengono aggiunte nuove righe. Dalla seguente tabella di origine di esempio (data_source_table), è possibile usare la colonna *LastModifytime* come colonna con limite massimo.
 
     ```sql
             PersonID    Name    LastModifytime
@@ -63,7 +63,7 @@ Il modello definisce cinque parametri:
             9   iiiiiiiii   2017-09-09 09:01:00.000
     ```
     
-2. Creare una tabella di controllo in SQL Server o Database SQL di Azure per archiviare il valore di limite massimo di caricamento di dati differenziale. Nell'esempio seguente, il nome della tabella di controllo è *watermarktable*. In questa tabella *WatermarkValue* è la colonna che archivia il valore di limite massimo e il relativo tipo è *datetime*.
+2. Creare una tabella di controllo in SQL Server o nel database SQL di Azure per archiviare il valore limite massimo per il caricamento di dati Delta. Nell'esempio seguente il nome della tabella dei controlli è *watermarktable*. In questa tabella, *WatermarkValue* è la colonna in cui è archiviato il valore limite massimo e il tipo è *DateTime*.
 
     ```sql
             create table watermarktable
@@ -74,7 +74,7 @@ Il modello definisce cinque parametri:
             VALUES ('1/1/2010 12:00:00 AM')
     ```
     
-3. Creare una stored procedure nella stessa istanza di SQL Server o Database SQL di Azure usato per creare la tabella di controllo. La stored procedure viene utilizzata per scrivere il nuovo valore limite massimo per la tabella di controllo del codice esterno per i dati differenziali successivo caricamento.
+3. Creare una stored procedure nella stessa SQL Server o nell'istanza del database SQL di Azure usata per creare la tabella di controllo. Il stored procedure viene usato per scrivere il nuovo valore limite massimo nella tabella del controllo esterno per il caricamento dei dati Delta alla prossima esecuzione.
 
     ```sql
             CREATE PROCEDURE update_watermark @LastModifiedtime datetime
@@ -88,43 +88,43 @@ Il modello definisce cinque parametri:
             END
     ```
     
-4. Andare alla **copia Delta dal Database** modello. Creare un **New** connessione al database di origine che si desidera copiare i dati da.
+4. Passare alla **copia Delta dal modello di database** . Consente di creare una **nuova** connessione al database di origine da cui si desidera copiare i dati.
 
     ![Creare una nuova connessione alla tabella di origine](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable4.png)
 
-5. Creare un **New** connessione all'archivio dati di destinazione che si desidera copiare i dati.
+5. Creare una **nuova** connessione all'archivio dati di destinazione in cui si desidera copiare i dati.
 
     ![Creare una nuova connessione alla tabella di destinazione](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable5.png)
 
-6. Creare un **New** connessione alla tabella di controllo del codice esterno e stored procedure che è stato creato nei passaggi 2 e 3.
+6. Creare una **nuova** connessione alla tabella di controllo esterno e stored procedure creata nei passaggi 2 e 3.
 
     ![Creare una nuova connessione all'archivio dati della tabella di controllo](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
-7. Selezionare **usare questo modello**.
+7. Selezionare **Usa questo modello**.
 
      ![Usa questo modello](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
     
-8. Verrà visualizzata la pipeline disponibile, come illustrato nell'esempio seguente:
+8. Viene visualizzata la pipeline disponibile, come illustrato nell'esempio seguente:
 
      ![Esaminare la pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-9. Selezionare **Stored Procedure**. Per la **nome Stored procedure**, scegliere **[update_watermark]** . Selezionare **parametro di importazione**, quindi selezionare **Aggiungi contenuto dinamico**.  
+9. Selezionare **stored procedure**. Per **Nome stored procedure**scegliere **[update_watermark]** . Selezionare **Importa parametro**, quindi selezionare **Aggiungi contenuto dinamico**.  
 
      ![Impostare l'attività stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png) 
 
-10. Scrivere il contenuto  **\@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}** , quindi selezionare **fine**.  
+10. Scrivere il contenuto **\@{Activity (' LookupCurrentWaterMark '). output. FirstRow. NewWatermarkValue}** , quindi selezionare **Finish (fine**).  
 
-     ![Scrivere il contenuto per i parametri della stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)      
+     ![Scrivere il contenuto per i parametri dell'stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)      
      
-11. Selezionare **eseguire il Debug**, immettere il **parametri**, quindi selezionare **fine**.
+11. Selezionare **debug**, immettere i **parametri**e quindi fare clic su **fine**.
 
-    ![Selezionare * * Debug * *](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+    ![Selezionare * * debug * *](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
 
-12. Vengono visualizzati risultati simili all'esempio seguente:
+12. Vengono visualizzati risultati simili a quelli dell'esempio seguente:
 
     ![Esaminare il risultato](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable12.png)
 
-13. È possibile creare nuove righe nella tabella di origine. Di seguito è linguaggio SQL di esempio per creare nuove righe:
+13. È possibile creare nuove righe nella tabella di origine. Ecco il linguaggio SQL di esempio per creare nuove righe:
 
     ```sql
             INSERT INTO data_source_table
@@ -133,17 +133,17 @@ Il modello definisce cinque parametri:
             INSERT INTO data_source_table
             VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
     ```
-14. Per eseguire di nuovo la pipeline, selezionare **eseguire il Debug**, immettere il **parametri**, quindi selezionare **fine**.
+14. Per eseguire di nuovo la pipeline, selezionare **debug**, immettere i **parametri**e quindi fare clic su **fine**.
 
-    ![Selezionare * * Debug * *](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+    ![Selezionare * * debug * *](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
 
-    Noterete che sono state copiate solo nuove righe alla destinazione.
+    Si noterà che nella destinazione sono state copiate solo le nuove righe.
 
-15. (Facoltativo) Se si seleziona SQL Data Warehouse come destinazione dei dati, è necessario fornire anche una connessione all'archiviazione Blob di Azure per la gestione temporanea, è richiesta da Polybase di SQL Data Warehouse. Assicurarsi che il contenitore è già stato creato nell'archivio Blob.
+15. Opzionale Se è stata selezionata l'opzione SQL Data Warehouse come destinazione dei dati, è necessario fornire anche una connessione all'archivio BLOB di Azure per la gestione temporanea, richiesta da SQL Data Warehouse polibase. Verificare che il contenitore sia già stato creato nell'archivio BLOB.
     
     ![Configurare PolyBase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Copia bulk da un database usando una tabella di controllo con Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
-- [Copiare i file da più contenitori con Azure Data Factory](solution-template-copy-files-multiple-containers.md)
+- [Eseguire una copia bulk da un database tramite una tabella di controllo con Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
+- [Copia i file da più contenitori con Azure Data Factory](solution-template-copy-files-multiple-containers.md)

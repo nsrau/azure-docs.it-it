@@ -11,12 +11,12 @@ ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bf87b1709c355faf6f06ff2d23b2c819f88750cd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b1070314767f280ec9d15390dc838fa80b5508e2
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475189"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643585"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accesso ai log di controllo di Azure AD B2C
 
@@ -31,14 +31,14 @@ Gli eventi del log di controllo vengono conservati per **sette giorni**. Se è n
 
 La categoria **B2C** nei log di controllo contiene i tipi di attività seguenti:
 
-|Tipo di attività |Description  |
+|Tipo di attività |Descrizione  |
 |---------|---------|
-|Authorization |Attività relative all'autorizzazione di un utente per accedere alle risorse B2C (ad esempio, un amministratore che accede a un elenco di criteri B2C).         |
+|Autorizzazione |Attività relative all'autorizzazione di un utente per accedere alle risorse B2C (ad esempio, un amministratore che accede a un elenco di criteri B2C).         |
 |Directory |Attività relative agli attributi di directory recuperate quando un amministratore accede utilizzando il portale di Azure. |
-|Richiesta | Operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) sulle applicazioni B2C. |
+|Applicazione | Operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) sulle applicazioni B2C. |
 |Chiave |Operazioni CRUD sulle chiavi archiviate in un contenitore di chiavi B2C. |
-|Gruppi |Operazioni CRUD sulle risorse B2C. Ad esempio, i criteri e i provider di identità.
-|Authentication |Convalida delle credenziali utente e del rilascio dei token.|
+|Risorsa |Operazioni CRUD sulle risorse B2C. Ad esempio, i criteri e i provider di identità.
+|Autenticazione |Convalida delle credenziali utente e del rilascio dei token.|
 
 Per le attività CRUD sugli oggetti utente, vedere la categoria **Directory principale**.
 
@@ -50,9 +50,9 @@ Questa immagine di esempio dalla portale di Azure Mostra i dati acquisiti quando
 
 Il pannello Dettagli attività contiene le informazioni rilevanti seguenti:
 
-|Sezione|Campo|Description|
+|Sezione|Campo|Descrizione|
 |-------|-----|-----------|
-| Attività | name | Quale attività ha avuto luogo. Ad esempio, *emettere un token ID per l'applicazione*, che conclude l'effettivo accesso dell'utente. |
+| Attività | Name | Quale attività ha avuto luogo. Ad esempio, *emettere un token ID per l'applicazione*, che conclude l'effettivo accesso dell'utente. |
 | Azione avviata da (attore) | ObjectId | **ID oggetto** dell'applicazione B2C a cui l'utente sta eseguendo l'accesso. Questo identificatore non è visibile nel portale di Azure, ma è accessibile tramite l'API Microsoft Graph. |
 | Azione avviata da (attore) | SPN | **ID applicazione** dell'applicazione B2C a cui l'utente sta eseguendo l'accesso. |
 | Destinazioni | ObjectId | **ID oggetto** dell'utente che sta effettuando l'accesso. |

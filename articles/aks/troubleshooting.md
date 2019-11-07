@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 2c25069ce5231a1f89027dea69579231f0fe4bcd
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 270dbb24d851645ff7a7f0bcf5f78bfb95bcd095
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72517088"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604737"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -34,9 +34,9 @@ Il numero massimo di pod per nodo è 110 per impostazione predefinita se si dist
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Viene visualizzato l'errore "insufficientSubnetSize" durante la distribuzione di un cluster del servizio Azure Kubernetes con funzionalità di rete avanzate. Cosa devo fare?
 
-Se si usa Azure CNI (funzionalità di rete avanzate), il servizio Azure Kubernetes prealloca gli indirizzi IP in base al valore "max-pods" per nodo configurato. Il numero di nodi in un cluster del servizio Azure Kubernetes può essere compreso tra 1 e 110. In base al numero massimo di pod per nodo configurato, le dimensioni della subnet devono essere maggiori del prodotto tra il numero di nodi e il numero massimo di pod per nodo. L'equazione di base seguente descrive questo requisito:
+Se si usa Azure CNI (Advanced Networking), AKS alloca gli indirizzi IP in base ai "Max-Pod" per ogni nodo configurato. In base ai pod massimi configurati per nodo, le dimensioni della subnet devono essere maggiori del prodotto del numero di nodi e dell'impostazione max pod per nodo. Nell'equazione seguente viene illustrato quanto segue:
 
-Dimensioni della subnet > numero di nodi del cluster (prendendo in considerazione i requisiti di scalabilità futuri) * numero massimo di pod per nodo.
+Dimensioni della subnet > numero di nodi nel cluster, prendendo in considerazione i requisiti di scalabilità futuri, * numero massimo di pod per ogni set di nodi.
 
 Per altre informazioni, vedere [Pianificare l'indirizzamento IP per il cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
@@ -118,7 +118,7 @@ Seguire i passaggi *prima di iniziare* nel documento appropriato per creare corr
 
 Le restrizioni di denominazione sono implementate sia dalla piattaforma Azure che da AKS. Se un nome di risorsa o un parametro interrompe una di queste restrizioni, viene restituito un errore in cui viene chiesto di fornire un input diverso. Si applicano le linee guida di denominazione comuni seguenti:
 
-* Il nome del gruppo di risorse *MC_* AKS combina il nome del gruppo di risorse e il nome della risorsa. La sintassi generata automaticamente di `MC_resourceGroupName_resourceName_AzureRegion` non deve essere maggiore di 80 caratteri. Se necessario, ridurre la lunghezza del nome del gruppo di risorse o del cluster AKS.
+* Il nome del gruppo di risorse *MC_* AKS combina il nome del gruppo di risorse e il nome della risorsa. La sintassi generata automaticamente da `MC_resourceGroupName_resourceName_AzureRegion` non deve essere maggiore di 80 caratteri. Se necessario, ridurre la lunghezza del nome del gruppo di risorse o del cluster AKS.
 * Il *dnsPrefix* deve iniziare e terminare con valori alfanumerici. I caratteri validi includono valori alfanumerici e trattini (-). Il *dnsPrefix* non può includere caratteri speciali, ad esempio un punto (.).
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Si ricevono errori durante il tentativo di creare, aggiornare, ridimensionare, eliminare o aggiornare il cluster. tale operazione non è consentita perché è in corso un'altra operazione.
@@ -144,7 +144,7 @@ Usare le soluzioni alternative seguenti:
 
 ## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>Si ricevono errori dopo la limitazione del traffico in uscita
 
-Quando si limita il traffico in uscita da un cluster AKS, sono disponibili le porte in uscita e le regole di rete [consigliate e facoltative](limit-egress-traffic.md) e le regole di dominio/FQDN/applicazione per AKS. Se le impostazioni sono in conflitto con una di queste regole, potrebbe non essere possibile eseguire determinati comandi di `kubectl`. È anche possibile che vengano visualizzati errori durante la creazione di un cluster AKS.
+Quando si limita il traffico in uscita da un cluster AKS, sono disponibili le porte in uscita e le regole di rete [consigliate e facoltative](limit-egress-traffic.md) e le regole di dominio/FQDN/applicazione per AKS. Se le impostazioni sono in conflitto con una di queste regole, potrebbe non essere possibile eseguire determinati comandi `kubectl`. È anche possibile che vengano visualizzati errori durante la creazione di un cluster AKS.
 
 Verificare che le impostazioni non siano in conflitto con le porte in uscita, le regole di rete e le regole di dominio FQDN/applicazione consigliate o facoltative.
 
@@ -172,14 +172,14 @@ Verificare che le impostazioni non siano in conflitto con le porte in uscita, le
 
 In Kubernetes versione 1,10, MountVolume. WaitForAttach potrebbe non riuscire con il rimontaggio del disco di Azure.
 
-In Linux potrebbe essere visualizzato un errore di formato DevicePath errato. ad esempio:
+In Linux potrebbe essere visualizzato un errore di formato DevicePath errato. Ad esempio:
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-In Windows, è possibile che venga visualizzato un errore di numero DevicePath (LUN) errato. ad esempio:
+In Windows, è possibile che venga visualizzato un errore di numero DevicePath (LUN) errato. Ad esempio:
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -225,7 +225,7 @@ spec:
   >[!NOTE]
   > Poiché GID e UID sono montati come radice o 0 per impostazione predefinita. Se gid o UID sono impostati come non radice, ad esempio 1000, Kubernetes utilizzerà `chown` per modificare tutte le directory e i file del disco. Questa operazione può richiedere molto tempo e può facilitare il montaggio del disco.
 
-* Usare `chown` in initContainers per impostare GID e UID. ad esempio:
+* Usare `chown` in initContainers per impostare GID e UID. Ad esempio:
 
 ```yaml
 initContainers:
@@ -239,7 +239,7 @@ initContainers:
 
 ### <a name="error-when-deleting-azure-disk-persistentvolumeclaim-in-use-by-a-pod"></a>Errore durante l'eliminazione di PersistentVolumeClaim del disco di Azure in uso da un pod
 
-Se si prova a eliminare un disco PersistentVolumeClaim di Azure che viene usato da un pod, potrebbe essere visualizzato un errore. ad esempio:
+Se si prova a eliminare un disco PersistentVolumeClaim di Azure che viene usato da un pod, potrebbe essere visualizzato un errore. Ad esempio:
 
 ```console
 $ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
@@ -295,7 +295,7 @@ Se si usa una versione di Kubernetes che non ha la correzione per questo problem
 
 ### <a name="azure-disk-waiting-to-detach-indefinitely"></a>Disco di Azure in attesa di scollegarsi per un periodo illimitato
 
-In alcuni casi, se un'operazione di scollegamento del disco di Azure non riesce al primo tentativo, l'operazione di scollegamento non verrà ritentata e rimarrà collegata alla VM del nodo originale. Questo errore può verificarsi quando si trasferisce un disco da un nodo a un altro. ad esempio:
+In alcuni casi, se un'operazione di scollegamento del disco di Azure non riesce al primo tentativo, l'operazione di scollegamento non verrà ritentata e rimarrà collegata alla VM del nodo originale. Questo errore può verificarsi quando si trasferisce un disco da un nodo a un altro. Ad esempio:
 
 ```console
 [Warning] AttachVolume.Attach failed for volume “pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9” : Attach volume “kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance “/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0” failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code=“ConflictingUserInput” Message=“Disk ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9’ cannot be attached as the disk is already owned by VM ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1’.”
@@ -468,13 +468,13 @@ Se la chiave dell'account di archiviazione è cambiata, è possibile che vengano
 
 È possibile attenuare il problema aggiornando manualmente il campo *azurestorageaccountkey* in Secret file di Azure con la chiave dell'account di archiviazione con codifica Base64.
 
-Per codificare la chiave dell'account di archiviazione in Base64, è possibile usare `base64`. ad esempio:
+Per codificare la chiave dell'account di archiviazione in Base64, è possibile usare `base64`. Ad esempio:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Per aggiornare il file Secret di Azure, usare `kubectl edit secret`. ad esempio:
+Per aggiornare il file Secret di Azure, usare `kubectl edit secret`. Ad esempio:
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret

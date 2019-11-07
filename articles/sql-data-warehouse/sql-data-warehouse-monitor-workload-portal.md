@@ -1,5 +1,5 @@
 ---
-title: Monitorare il carico di lavoro-portale di Azure | Microsoft Docs
+title: Monitorare il carico di lavoro-portale di Azure
 description: Monitorare Azure SQL Data Warehouse usando il portale di Azure
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 176762e0d1c007f924d779a1b77dd52c7ed56e01
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 73d837c34dd5a480cae08a41c89939414899052a
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981495"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645629"
 ---
 # <a name="monitor-workload---azure-portal"></a>Monitorare il carico di lavoro-portale di Azure
 
@@ -23,8 +23,8 @@ Questo articolo descrive come usare la portale di Azure per monitorare il carico
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Sottoscrizione di Azure: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-- Azure SQL Data Warehouse: Verranno raccolti i log per un SQL Data Warehouse. Se non si dispone di un SQL Data Warehouse sottoposti a provisioning, vedere le istruzioni in [creare una SQL data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
+- Sottoscrizione di Azure: se non è disponibile una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+- Azure SQL Data Warehouse: verranno raccolti i log per un SQL Data Warehouse. Se non si dispone di un SQL Data Warehouse sottoposti a provisioning, vedere le istruzioni in [creare una SQL data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
 
 ## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 
@@ -61,7 +61,7 @@ Passare all'area di lavoro Log Analytics in cui è possibile eseguire le operazi
 
 - Analizzare i log usando le query di log e salvare le query per il riutilizzo
 - Salva le query per il riutilizzo
-- Creare avvisi del log
+- Creare avvisi di log
 - Aggiungere i risultati della query a un dashboard
 
 Per informazioni dettagliate sulle funzionalità delle query di log, vedere la [documentazione](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language)seguente.

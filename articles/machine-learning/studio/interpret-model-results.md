@@ -1,6 +1,6 @@
 ---
 title: Interpretare i risultati dei modelli
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Come scegliere il set di parametri ottimale per un algoritmo usando e visualizzando gli output del modulo Score Model.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 07f446daafea8b866083933bb414b0f5ef04bb4d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cdeded35e1afb9313f2dd2c5842aef511ea0dd61
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492918"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621661"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretare i risultati del modello in Azure Machine Learning Studio (classico)
 In questo argomento viene illustrato come visualizzare e interpretare i risultati della stima in Azure Machine Learning Studio (classico). Dopo aver eseguito il training di un modello e averlo sottoposto a una stima, ossia dopo aver assegnato un punteggio a un modello, è necessario comprendere e interpretare il risultato di stima.
@@ -25,7 +25,7 @@ In questo argomento viene illustrato come visualizzare e interpretare i risultat
 Sono disponibili quattro tipi principali di modelli di apprendimento automatico nella versione classica di Azure Machine Learning Studio:
 
 * Classificazione
-* Clustering
+* clustering
 * regressione
 * sistemi di raccomandazione
 
@@ -174,7 +174,7 @@ Eseguendo il servizio Web si otterrà un risultato simile a quello della figura 
 
 Figura 14. Risultato del servizio Web del problema di regressione relativo al prezzo di un'automobile
 
-## <a name="clustering"></a>Clustering
+## <a name="clustering"></a>clustering
 **Esperimento di esempio**
 
 Per creare un esperimento di clustering verrà usato di nuovo il set di dati Iris. In questo caso è possibile escludere dal set di dati le etichette di classe, in modo che sia composto solo dalle caratteristiche e possa essere usato per il clustering. Verrà inoltre specificato che dovranno essere due i cluster da usare nel processo di training, ovvero i fiori verranno raggruppati in due classi. L'esperimento è illustrato nella figura 15.

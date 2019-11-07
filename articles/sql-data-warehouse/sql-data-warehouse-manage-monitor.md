@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio del carico di lavoro mediante DMV | Microsoft Docs
+title: Monitoraggio del carico di lavoro mediante DMV
 description: Informazioni sul monitoraggio del carico di lavoro mediante DMV.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,17 +10,17 @@ ms.subservice: manage
 ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 1d1af13eb54daf060f0172a0506370ca459f2ece
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: e1a754747ae5c0fb7c50653f4881b67a81e011ef
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018954"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645661"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitoraggio del carico di lavoro mediante DMV
 Questo articolo descrive come usare le viste a gestione dinamica (DMV) per monitorare il carico di lavoro. Questo include l'analisi dell'esecuzione di query in Azure SQL Data Warehouse.
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>autorizzazioni
 Per eseguire una query sulle DMV in questo articolo è necessaria l'autorizzazione VISUALIZZAZIONE STATO DEL DATABASE o CONTROLLO. In genere si consiglia di concedere l'autorizzazione VISUALIZZAZIONE STATO DEL DATABASE poiché è molto più restrittiva.
 
 ```sql
@@ -63,7 +63,7 @@ ORDER BY total_elapsed_time DESC;
 
 **Prendere nota dell'ID richiesta** della query che si desidera analizzare dai risultati della query precedente.
 
-Le query nello stato Suspended possono essere accodate a causa di un elevato numero di query in esecuzione attive. Queste query vengono visualizzate anche nella query di attesa [sys. dm _pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) con un tipo di UserConcurrencyResourceType. Per informazioni sui limiti di concorrenza, vedere [Livelli di prestazioni](performance-tiers.md) oppure [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md). L'attesa delle query può dipendere anche da altre motivazioni, come i blocchi degli oggetti.  Se la query è in attesa di una risorsa, vedere [Analisi delle query in attesa di risorse][Investigating queries waiting for resources] più avanti in questo articolo.
+Le query nello stato **suspended** possono essere accodate a causa di un elevato numero di query in esecuzione attive. Queste query vengono visualizzate anche nella query di attesa [sys. dm _pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) con un tipo di UserConcurrencyResourceType. Per informazioni sui limiti di concorrenza, vedere [Livelli di prestazioni](performance-tiers.md) oppure [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md). L'attesa delle query può dipendere anche da altre motivazioni, come i blocchi degli oggetti.  Se la query è in attesa di una risorsa, vedere [Analisi delle query in attesa di risorse][Investigating queries waiting for resources] più avanti in questo articolo.
 
 Per semplificare la ricerca di una query nella tabella [sys. dm _pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) , usare [Label][LABEL] per assegnare un commento alla query che può essere cercata nella vista sys. dm _pdw_exec_requests.
 
@@ -81,7 +81,7 @@ FROM    sys.dm_pdw_exec_requests
 WHERE   [label] = 'My Query';
 ```
 
-### <a name="step-2-investigate-the-query-plan"></a>PASSAGGIO 2: esaminare il piano di query
+### <a name="step-2-investigate-the-query-plan"></a>PASSAGGIO 2: Esaminare il piano di query
 Usare l'ID richiesta per recuperare il piano Distributed SQL (DSQL) della query da [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
 
 ```sql
@@ -100,7 +100,7 @@ Per altre informazioni su un singolo passaggio, fare riferimento alla colonna *o
 * Procedere al passaggio 3a per le **operazioni SQL**: OnOperation, RemoteOperation, ReturnOperation.
 * Procedere al passaggio 3b per le **operazioni di spostamento dati**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>PASSAGGIO 3a: esaminare SQL nei database distribuiti
+### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>PASSAGGIO 3a: Esaminare SQL nei database distribuiti
 Usare l'ID richiesta e l'indice dei passaggi per recuperare informazioni da [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests], che contiene informazioni sull'esecuzione del passaggio della query in tutti i database distribuiti.
 
 ```sql
@@ -120,7 +120,7 @@ Quando è in esecuzione il passaggio della query, è possibile usare [DBCC PDW_S
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>PASSAGGIO 3b: esaminare lo spostamento dei dati nei database distribuiti
+### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>PASSAGGIO 3b: Esaminare lo spostamento dei dati nei database distribuiti
 Usare l'ID richiesta e l'indice dei passaggi per recuperare informazioni sul passaggio di spostamento dei dati in esecuzione in ogni distribuzione da [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
 
 ```sql

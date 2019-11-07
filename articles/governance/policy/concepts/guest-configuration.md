@@ -3,25 +3,25 @@ title: Informazioni su come controllare il contenuto delle macchine virtuali
 description: Informazioni su come i criteri di Azure usano la configurazione Guest per controllare le impostazioni all'interno di una macchina di Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/20/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: efe929a6ea38a8df7ad9fe37a92c181e3d409b25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0e5592f629646db3132ffd65fd56b1a0d5d5be39
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464070"
+ms.locfileid: "73581438"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
-Oltre al controllo e alla [correzione](../how-to/remediate-resources.md) delle risorse di Azure, i criteri di Azure possono controllare le impostazioni all'interno di un computer. La convalida viene eseguita dall'estensione della configurazione guest e dal client. L'estensione, tramite il client, convalida impostazioni come:
+Oltre al controllo e alla [correzione](../how-to/remediate-resources.md) delle risorse di Azure, i criteri di Azure possono controllare le impostazioni all'interno di un computer. La convalida viene eseguita dall'estensione della configurazione guest e dal client. L'estensione, tramite il client, convalida le impostazioni come:
 
 - Configurazione del sistema operativo
 - Configurazione o presenza di applicazioni
 - Impostazioni dell'ambiente
 
-Al momento, Configurazione guest di Criteri di Azure controlla solo le impostazioni all'interno del computer. Non applica le configurazioni.
+A questo punto, la configurazione Guest di criteri di Azure controlla solo le impostazioni all'interno della macchina. Non applica le configurazioni.
 
 ## <a name="extension-and-client"></a>Estensione e client
 
@@ -75,14 +75,14 @@ Il client della configurazione guest verifica la presenza di nuovi contenuti ogn
 
 La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
 
-|Editore|name|Versioni|
+|Editore|Name|Versioni|
 |-|-|-|
 |Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 datacenter, 2019 Datacenter|
-|Microsoft|Client Windows|Windows 10|
+|Microsoft|Client Windows|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
+|Red Hat|Red Hat Enterprise Linux.|7.4, 7.5|
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
@@ -121,30 +121,27 @@ Criteri di Azure usa la proprietà **complianceStatus** dei provider di risorse 
 > [!NOTE]
 > Il criterio **DeployIfNotExists** è necessario affinché i criteri **AuditIfNotExists** restituiscano i risultati. Senza **DeployIfNotExists**, il criterio **AuditIfNotExists** Mostra le risorse "0 di 0" come stato.
 
-Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. L'iniziativa predefinita denominata *[Preview]: controlla le impostazioni di sicurezza delle password nei computer Linux e Windows* contiene 18 criteri. Esistono sei coppie **DeployIfNotExists** e **AuditIfNotExists** per Windows e tre coppie per Linux. La logica di [definizione dei criteri](definition-structure.md#policy-rule) convalida che viene valutato solo il sistema operativo di destinazione.
+Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. L'iniziativa predefinita denominata _\[Preview\]: controllare le impostazioni di sicurezza delle password nei computer Linux e Windows_ contiene 18 criteri. Esistono sei coppie **DeployIfNotExists** e **AuditIfNotExists** per Windows e tre coppie per Linux. La logica di [definizione dei criteri](definition-structure.md#policy-rule) convalida che viene valutato solo il sistema operativo di destinazione.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Controllo delle impostazioni del sistema operativo seguenti linee di base del settore
 
-Una delle iniziative disponibili in criteri di Azure consente di controllare le impostazioni del sistema operativo all'interno di macchine virtuali che seguono una "baseline" di Microsoft.  La definizione *[Anteprima]: controlla le VM Windows che non corrispondono alle impostazioni di base di sicurezza di Azure* include un set completo di regole di controllo basate sulle impostazioni di Active Directory Criteri di gruppo.
+Una delle iniziative disponibili in criteri di Azure consente di controllare le impostazioni del sistema operativo all'interno di macchine virtuali che seguono una "baseline" di Microsoft. La definizione _\[anteprima\]: controllare le macchine virtuali Windows che non corrispondono alle impostazioni di base di sicurezza di Azure_ include un set completo di regole di controllo basate sulle impostazioni di Active Directory Criteri di gruppo.
 
-La maggior parte delle impostazioni è disponibile come parametri.  Questa funzionalità consente di personalizzare gli elementi che verranno controllati per allineare i criteri ai requisiti dell'organizzazione o di eseguire il mapping dei criteri a informazioni di terze parti, ad esempio standard normativi del settore.
+La maggior parte delle impostazioni è disponibile come parametri. Questa funzionalità consente di personalizzare gli elementi controllati per allineare i criteri ai requisiti dell'organizzazione o per eseguire il mapping dei criteri a informazioni di terze parti, ad esempio standard normativi del settore.
 
-Alcuni parametri supportano un intervallo di valori interi.  È ad esempio possibile impostare il parametro validità massima password utilizzando un operatore di intervallo per offrire flessibilità ai proprietari dei computer.  È possibile controllare che l'impostazione di Criteri di gruppo effettiva che richiede all'utente di modificare le password non sia superiore a 70 giorni, ma non deve essere inferiore a 1 giorno.  Come descritto nella sezione info-Bubble per il parametro, per ottenere questo valore di controllo effettivo, impostare il valore su "1, 70".
+Alcuni parametri supportano un intervallo di valori interi. È ad esempio possibile impostare il parametro validità massima password utilizzando un operatore di intervallo per offrire flessibilità ai proprietari dei computer. È possibile controllare che l'impostazione Criteri di gruppo efficace che richiede agli utenti di modificare le password non sia superiore a 70 giorni, ma non deve essere inferiore a un giorno. Come descritto nella sezione info-Bubble per il parametro, per impostare il valore di controllo effettivo per i criteri di business, impostare il valore su "1, 70".
 
-Se si assegnano i criteri usando un modello Azure Resource Manager dployment, è possibile usare un file di parametri per gestire queste impostazioni dal controllo del codice sorgente.
-L'uso di uno strumento come Git per gestire le modifiche ai criteri di controllo con commenti a ogni archiviazione consente di documentare l'evidenza relativa ai motivi per cui un'assegnazione deve essere fatta eccezione per il valore previsto.
+Se si assegnano i criteri usando un modello di distribuzione di Azure Resource Manager, è possibile usare un file di parametri per gestire queste impostazioni dal controllo del codice sorgente. Usare uno strumento come Git per gestire le modifiche apportate ai criteri di controllo con commenti a ogni archiviazione per documentare il motivo per cui un'assegnazione deve essere un'eccezione al valore previsto.
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Applicazione di configurazioni con la configurazione Guest
 
-La funzionalità più recente di criteri di Azure consente di configurare le impostazioni all'interno dei computer.
-La definizione *configurare il fuso orario sui computer Windows* apporterà modifiche al computer configurando il fuso orario.
+La funzionalità più recente di criteri di Azure consente di configurare le impostazioni all'interno dei computer. La definizione _configurare il fuso orario sui computer Windows_ apporta modifiche al computer configurando il fuso orario.
 
-Quando si assegnano definizioni che iniziano con *Configure*, è necessario assegnare anche i *prerequisiti per la definizione di distribuzione per abilitare i criteri di configurazione Guest nelle macchine virtuali Windows.*
-Se si sceglie, è possibile combinare queste definizioni in un'iniziativa.
+Quando si assegnano definizioni che iniziano con _Configure_, è necessario assegnare anche i _prerequisiti per la definizione di distribuzione per abilitare i criteri di configurazione Guest nelle macchine virtuali Windows_. Se si sceglie, è possibile combinare queste definizioni in un'iniziativa.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Assegnazione di criteri a computer esterni ad Azure
 
-I criteri di controllo disponibili per la configurazione Guest includono il tipo di risorsa **Microsoft. HybridCompute/machines** .  Tutti i computer caricati in Azure Arc che rientrano nell'ambito dell'assegnazione verranno inclusi automaticamente.
+I criteri di controllo disponibili per la configurazione Guest includono il tipo di risorsa **Microsoft. HybridCompute/machines** . Tutti i computer caricati in [Azure Arc per i server](../../../azure-arc/servers/overview.md) che rientrano nell'ambito dell'assegnazione di criteri vengono inclusi automaticamente.
 
 ### <a name="multiple-assignments"></a>Più assegnazioni
 
@@ -152,8 +149,7 @@ I criteri di configurazione Guest attualmente supportano solo l'assegnazione del
 
 ## <a name="built-in-resource-modules"></a>Moduli di risorse predefiniti
 
-Quando si installa l'estensione di configurazione Guest, il modulo di PowerShell ' GuestConfiguration ' è incluso nella versione più recente dei moduli di risorse DSC. È possibile scaricare questo modulo dal PowerShell Gallery usando il collegamento "download manuale" della pagina del modulo [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/).
-Il formato del file ". nupkg" può essere rinominato in ". zip" per decomprimere ed esaminare.
+Quando si installa l'estensione di configurazione Guest, il modulo di PowerShell ' GuestConfiguration ' è incluso nella versione più recente dei moduli di risorse DSC. È possibile scaricare questo modulo dal PowerShell Gallery usando il collegamento "download manuale" della pagina del modulo [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/). Il formato del file ". nupkg" può essere rinominato in ". zip" per decomprimere ed esaminare.
 
 ## <a name="client-log-files"></a>File di log del client
 
@@ -163,7 +159,7 @@ Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindo
 
 Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
 
-Dove `<version>` fa riferimento al numero di versione corrente.
+Dove `<version>` si riferisce al numero di versione corrente.
 
 ### <a name="collecting-logs-remotely"></a>Raccolta di log in modalità remota
 

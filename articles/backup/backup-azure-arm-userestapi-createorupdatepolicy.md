@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 8b812ea053cb8e9da7cd3ef021ab6b74196d36ca
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 50cc327c69529e420837571fdd60c1b2a1364b10
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954958"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670128"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creare criteri di backup di Servizi di ripristino di Azure usando l'API REST
 
-I passaggi per creare un criterio di backup per un insieme di credenziali di Servizi di ripristino di Azure sono descritti nel [documento relativo all'API REST dei criteri](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate). Si userà questo documento come riferimento per creare un criterio di backup di macchine virtuali di Azure.
+I passaggi per creare un criterio di backup per un insieme di credenziali di Servizi di ripristino di Azure sono descritti nel [documento relativo all'API REST dei criteri](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate). Si userà questo documento come riferimento per creare un criterio di backup di macchine virtuali di Azure.
 
 ## <a name="backup-policy-essentials"></a>Informazioni di base sui criteri di backup
 
@@ -30,8 +30,8 @@ I passaggi per creare un criterio di backup per un insieme di credenziali di Ser
   - Condivisione file di Azure
 - Un criterio può essere assegnato a più risorse. Un criterio di backup di macchine virtuali di Azure può essere usato per proteggere più macchine virtuali di Azure.
 - Un criterio è costituito da due componenti
-  - Pianificazione Quando eseguire il backup
-  - Conservazione Per quanto tempo devono essere conservati i backup.
+  - Pianificazione: quando creare il backup
+  - Conservazione: per quanto tempo ogni backup deve essere conservato.
 - La pianificazione può essere "giornaliera" o "settimanale" rispetto a uno specifico punto temporale.
 - La conservazione può essere definita per punti di backup "giornalieri", "settimanali", "mensili" e "annuali".
 - "Settimanale" si riferisce a un backup eseguito in un determinato giorno della settimana, "mensile" indica un backup eseguito in un determinato giorno del mese e "annuale" fa riferimento a un backup eseguito in un determinato giorno dell'anno.
@@ -41,7 +41,7 @@ I passaggi per creare un criterio di backup per un insieme di credenziali di Ser
 Per creare o aggiornare un criterio di Backup di Azure, usare l'operazione *PUT* seguente
 
 ```http
-PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2016-12-01
+PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2019-05-13
 ```
 
 I parametri `{policyName}` e `{vaultName}` vengono forniti nell'URI. Informazioni aggiuntive vengono fornite nel corpo della richiesta.
@@ -50,12 +50,12 @@ I parametri `{policyName}` e `{vaultName}` vengono forniti nell'URI. Informazion
 
 Ad esempio, per creare un criterio per il backup di macchine virtuali di Azure, sono disponibili i componenti del corpo della richiesta indicati di seguito.
 
-|Name  |Obbligatoria  |Type  |Descrizione  |
+|Name  |Obbligatorio  |Tipo  |Descrizione  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Proprietà ProtectionPolicyResource        |
-|tags     |         | Object        |  Tag delle risorse       |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | Proprietà ProtectionPolicyResource        |
+|tags     |         | Oggetto        |  Tag delle risorse       |
 
-Per l'elenco completo delle definizioni nel corpo della richiesta, vedere il [documento relativo all'API REST dei criteri di backup](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
+Per l'elenco completo delle definizioni nel corpo della richiesta, vedere il [documento relativo all'API REST dei criteri di backup](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate).
 
 ### <a name="example-request-body"></a>Esempio di corpo della richiesta
 
@@ -152,16 +152,16 @@ Il criterio indica:
 > [!IMPORTANT]
 > I formati di ora per la pianificazione e la conservazione supportano solo DateTime. Non supportano il solo formato Time.
 
-## <a name="responses"></a>Responses
+## <a name="responses"></a>Risposte
 
-La creazione o l'aggiornamento dei criteri di backup è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
+La creazione o l'aggiornamento dei criteri di backup è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
-L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
+Restituisce due risposte: 202 (accettato) quando viene creata un'altra operazione, quindi 200 (OK) al termine dell'operazione.
 
-|Name  |Type  |Descrizione  |
+|Name  |Tipo  |Descrizione  |
 |---------|---------|---------|
-|200 - OK     |    [ProtectionPolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
-|202 - Accettato     |         |     Accettato    |
+|200 - OK     |    [ProtectionPolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#protectionpolicyresource)     |  OK       |
+|202 - Accettato     |         |     Accepted    |
 
 ### <a name="example-responses"></a>Risposte di esempio
 
@@ -181,14 +181,14 @@ x-ms-correlation-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
 x-ms-routing-request-id: SOUTHINDIA:20180521T073907Z:db785be0-bb20-4598-bc9f-70c9428b170b
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 07:39:06 GMT
-Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2016-06-01
+Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13
 X-Powered-By: ASP.NET
 ```
 
-Quindi tenere traccia dell'operazione risultante usando l'intestazione location o Azure-AsyncOperation con un semplice comando *GET*.
+Tenere quindi traccia dell'operazione risultante usando l'intestazione location o Azure-AsyncOperation con un semplice comando *GET*.
 
 ```http
-GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2016-06-01
+GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13
 ```
 
 Al termine dell'operazione, viene restituita la risposta 200 (OK) con il contenuto dei criteri nel corpo della risposta.

@@ -1,5 +1,5 @@
 ---
-title: Chiave primaria, chiave esterna e chiave univoca in Azure SQL Data Warehouse | Microsoft Docs
+title: Chiavi primarie, esterne e univoche
 description: Supporto di vincoli di tabella in Azure SQL Data Warehouse
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: b02f219e549f2206f71c08c9d465b2bc05a6d526
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8f3102425c6f984df0f50bc05eeb6f9a5e66d3dd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310295"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685484"
 ---
 # <a name="primary-key-foreign-key-and-unique-key-in-azure-sql-data-warehouse"></a>Chiave primaria, chiave esterna e chiave univoca in Azure SQL Data Warehouse
 
@@ -28,7 +29,7 @@ Azure SQL Data Warehouse supporta i vincoli di tabella seguenti:
 
 Il vincolo FOREIGN KEY non è supportato in Azure SQL Data Warehouse.  
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 La presenza di chiavi primarie e/o chiavi univoche consente data warehouse motore di generare un piano di esecuzione ottimale per una query.  Tutti i valori in una colonna chiave primaria o in una colonna vincolo univoca devono essere univoci. 
 
 Dopo aver creato una tabella con una chiave primaria o un vincolo UNIQUE in Azure data warehouse, gli utenti devono assicurarsi che tutti i valori di tali colonne siano univoci.  Una violazione di che può causare la restituzione di risultati non accurati nella query.  In questo esempio viene illustrato come una query può restituire risultati non accurati se la colonna PRIMARY KEY o unique constraint include valori duplicati.  

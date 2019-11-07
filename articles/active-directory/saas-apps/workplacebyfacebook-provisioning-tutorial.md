@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f040ff4c8e59f764676aa6fdd9460ec94641684a
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 7ee091d1c8f0f477354f6bb422d041278ec5668e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881790"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574256"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workplace by Facebook per il provisioning utenti automatico
 
@@ -30,7 +30,7 @@ L'obiettivo di questa esercitazione è descrivere le procedure da eseguire in Wo
 
 Per configurare l'integrazione di Azure AD con Workplace by Facebook, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD
+- Sottoscrizione di Azure AD.
 - Una sottoscrizione di Workplace by Facebook abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -43,7 +43,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 ## <a name="assigning-users-to-workplace-by-facebook"></a>Assegnazione di utenti a Workplace by Facebook
 
-Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle "assegnazioni". Nel contesto del provisioning automatico degli account utente vengono sincronizzati solo gli utenti e i gruppi che sono stati "assegnati" a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle "assegnazioni". Nel contesto del provisioning automatico degli account utente, vengono sincronizzati solo gli utenti e i gruppi che sono stati "assegnati" a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il servizio di provisioning, è necessario stabilire quali utenti e/o gruppi in Azure AD rappresentano gli utenti che devono accedere all'app Workplace by Facebook. Dopo aver stabilito questo, è possibile assegnare tali utenti all'app Workplace by Facebook seguendo le istruzioni riportate nell'articolo seguente:
 
@@ -64,7 +64,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 ### <a name="to-configure-user-account-provisioning-to-workplace-by-facebook-in-azure-ad"></a>Per configurare l'account utente eseguendo il provisioning a Workplace by Facebook in Azure AD:
 
-L'obiettivo di questa sezione è descrivere le modalità di abilitazione del provisioning utente per gli account utente di Active Directory in Workplace by Facebook.
+Questa sezione descrive come abilitare il provisioning degli account utente di Active Directory in Workplace by Facebook.
 
 Azure AD consente di sincronizzare automaticamente i dettagli dell'account degli utenti assegnati a Workplace by Facebook. La sincronizzazione automatica consente a Workplace by Facebook di ottenere i dati necessari per autorizzare gli utenti ad accedere, prima che questi tentino di eseguire l'accesso per la prima volta. Esegue anche il deprovisioning degli utenti da Workplace by Facebook una volta che l'accesso viene revocato in Azure AD.
 
@@ -82,7 +82,7 @@ Azure AD consente di sincronizzare automaticamente i dettagli dell'account degli
 
 6. Nel portale di Azure fare clic su **Connessione di test** per verificare che Azure AD possa connettersi all'app Workplace by Facebook. Se la connessione non riesce, verificare che l'account Workplace by Facebook abbia le autorizzazioni di amministratore di team.
 
-7. Immettere l'indirizzo e-mail di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo.
+7. Immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo.
 
 8. Fare clic su **Salva**.
 
@@ -99,7 +99,7 @@ Per altre informazioni su come configurare il provisioning automatico, vedere [h
 È ora possibile creare un account di test. Attendere 20 minuti per verificare che l'account sia stato sincronizzato con Workplace by Facebook.
 
 > [!NOTE]
-> Stiamo lavorando a stretto contatto con il team di Facebook per garantire che l'applicazione Azure AD sia approvata e soddisfi le nuove linee guida.   
+> Stiamo lavorando a stretto contatto con il team di Facebook per garantire che l'applicazione Azure AD sia approvata e soddisfi le nuove linee guida. L'area di lavoro per le scadenze di Facebook è il 16 dicembre e si prevede di soddisfarlo. Al momento non è previsto alcun lavoro per i clienti. Per il 28 febbraio 2020, i clienti dovranno passare alla nuova integrazione. Il post verrà pubblicato qui non appena il percorso di migrazione sarà disponibile.    
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

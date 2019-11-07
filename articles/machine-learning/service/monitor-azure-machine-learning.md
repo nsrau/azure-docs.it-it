@@ -9,16 +9,24 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/04/2019
-ms.openlocfilehash: dddc39a0b7b3c43f283750c95d4feaef2cf15b36
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: d9b7a433dd7392e83719f09815f736dbd85f9c7f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514277"
+ms.locfileid: "73582901"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Azure Machine Learning di monitoraggio
 
 Questo articolo descrive i dati di monitoraggio generati da Azure Machine Learning. Viene inoltre descritto come è possibile utilizzare Monitoraggio di Azure per analizzare i dati e definire gli avvisi.
+
+> [!TIP]
+> Le informazioni contenute in questo documento sono destinate principalmente agli amministratori, come descritto nel monitoraggio del servizio Azure Machine Learning. Se si è un esperto di dati o uno sviluppatore e si desidera monitorare le informazioni specifiche per le esecuzioni di training del modello, vedere i documenti seguenti:
+>
+> * [Avviare, monitorare e annullare le esecuzioni di training](how-to-manage-runs.md)
+> * [Metriche di log per le esecuzioni di training](how-to-track-experiments.md)
+> * [Tenere traccia di eexperiments con MLflow](how-to-use-mlflow.md)
+> * [Visualizzare le esecuzioni con TensorBoard](how-to-monitor-tensorboard.md)
 
 ## <a name="azure-monitor"></a>Monitoraggio di Azure
 

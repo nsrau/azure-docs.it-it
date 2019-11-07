@@ -2,17 +2,17 @@
 title: Architettura della rete virtuale di Azure HDInsight
 description: Informazioni sulle risorse disponibili quando si crea un cluster HDInsight in una rete virtuale di Azure.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: 340974201d62f97669db442f4a95439a6ac90a5e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.date: 10/31/2019
+ms.openlocfilehash: 0a1139f7bf1711a5f6d980e67a8a9027bfd3af52
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960603"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665329"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architettura della rete virtuale di Azure HDInsight
 
@@ -22,7 +22,7 @@ Questo articolo illustra le risorse presenti quando si distribuisce un cluster H
 
 I cluster Azure HDInsight hanno tipi diversi di macchine virtuali o nodi. Ogni tipo di nodo svolge un ruolo nel funzionamento del sistema. La tabella seguente riepiloga questi tipi di nodo e i relativi ruoli nel cluster.
 
-| Type | Descrizione |
+| Tipo | Descrizione |
 | --- | --- |
 | Nodo head |  Per tutti i tipi di cluster ad eccezione di Apache Storm, i nodi head ospitano i processi che gestiscono l'esecuzione dell'applicazione distribuita. Il nodo Head è anche il nodo in cui è possibile accedere tramite SSH ed eseguire le applicazioni che vengono quindi coordinate per l'esecuzione tra le risorse del cluster. Il numero di nodi head è fisso a due per tutti i tipi di cluster. |
 | Nodo ZooKeeper | Zookeeper coordina le attività tra i nodi che eseguono l'elaborazione dei dati. Il nodo head viene anche designato come leader e tiene traccia del nodo head che esegue un servizio master specifico. Il numero di nodi ZooKeeper è fisso a tre. |
@@ -45,7 +45,7 @@ La tabella seguente riepiloga i nove nodi del cluster creati quando HDInsight vi
 | Tipo di risorsa | Numero presente | Dettagli |
 | --- | --- | --- |
 |Nodo head | two |    |
-|Nodo Zookeeper | tre | |
+|Nodo Zookeeper | three | |
 |Nodo del ruolo di lavoro | two | Questo numero può variare in base alla configurazione del cluster e al ridimensionamento. Per Apache Kafka è necessario un minimo di tre nodi di lavoro.  |
 |Nodo gateway | two | I nodi del gateway sono macchine virtuali di Azure create in Azure, ma non sono visibili nella sottoscrizione. Se è necessario riavviare questi nodi, contattare il supporto tecnico. |
 
@@ -53,7 +53,7 @@ Le risorse di rete seguenti sono presenti automaticamente nella rete virtuale us
 
 | Risorsa di rete | Numero presente | Dettagli |
 | --- | --- | --- |
-|Servizio di bilanciamento del carico | tre | |
+|Bilanciamento del carico | three | |
 |Interfacce di rete | nove | Questo valore è basato su un normale cluster, in cui ogni nodo dispone di una propria interfaccia di rete. Le nove interfacce sono per i due nodi head, tre nodi Zookeeper, due nodi del ruolo di lavoro e due nodi gateway indicati nella tabella precedente. |
 |Indirizzi IP pubblici | two |    |
 
@@ -62,16 +62,16 @@ Le risorse di rete seguenti sono presenti automaticamente nella rete virtuale us
 È possibile accedere al cluster HDInsight in tre modi:
 
 - Un endpoint HTTPS esterno alla rete virtuale in `CLUSTERNAME.azurehdinsight.net`.
-- Un endpoint SSH per la connessione diretta a nodo Head all' `CLUSTERNAME-ssh.azurehdinsight.net`indirizzo.
-- Un endpoint HTTPS all'interno della rete `CLUSTERNAME-int.azurehdinsight.net`virtuale. Si noti "-int" in questo URL. Questo endpoint verrà risolto in un indirizzo IP privato nella rete virtuale e non sarà accessibile dalla rete Internet pubblica.
+- Un endpoint SSH per la connessione diretta a nodo head in `CLUSTERNAME-ssh.azurehdinsight.net`.
+- Un endpoint HTTPS all'interno della rete virtuale `CLUSTERNAME-int.azurehdinsight.net`. Si noti "-int" in questo URL. Questo endpoint verrà risolto in un indirizzo IP privato nella rete virtuale e non sarà accessibile dalla rete Internet pubblica.
 
 A questi tre endpoint viene assegnato un servizio di bilanciamento del carico.
 
 Gli indirizzi IP pubblici vengono anche forniti ai due endpoint che consentono la connessione dall'esterno della rete virtuale.
 
-1. Un indirizzo IP pubblico viene assegnato al servizio di bilanciamento del carico per il nome di dominio completo (FQDN) da usare per la connessione al cluster da `CLUSTERNAME.azurehdinsight.net`Internet.
-1. Il secondo indirizzo IP pubblico viene usato per il nome `CLUSTERNAME-ssh.azurehdinsight.net`di dominio solo SSH.
+1. Un indirizzo IP pubblico viene assegnato al servizio di bilanciamento del carico per il nome di dominio completo (FQDN) da usare per la connessione al cluster da Internet `CLUSTERNAME.azurehdinsight.net`.
+1. Il secondo indirizzo IP pubblico viene usato per il nome di dominio solo SSH `CLUSTERNAME-ssh.azurehdinsight.net`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Proteggere il traffico in ingresso nei cluster HDInsight in una rete virtuale con endpoint privato](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
+- [Proteggere il traffico in ingresso nei cluster HDInsight in una rete virtuale con endpoint privato](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
