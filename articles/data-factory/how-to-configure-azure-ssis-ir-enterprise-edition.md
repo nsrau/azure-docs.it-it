@@ -1,5 +1,5 @@
 ---
-title: Provisioning della Enterprise Edition per il Runtime di integrazione Azure-SSIS | Microsoft Docs
+title: 'Provisioning della Enterprise Edition per il Runtime di integrazione Azure-SSIS '
 description: Questo articolo descrive le funzionalità della Enterprise Edition del Runtime di integrazione Azure-SSIS e il provisioning di questa
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d2b06d044f68972ef72dd9b53401980e84ef779f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c9db18d416d508dd5a98cbacc14b7db6c075a55
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152436"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673964"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Provisioning della Enterprise Edition per il Runtime di integrazione Azure-SSIS
 

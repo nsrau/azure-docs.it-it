@@ -2,37 +2,37 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 10/06/2019
 ms.author: larryfr
-ms.openlocfilehash: b8913836baffdad200c198afa11475d617fe5d50
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0463dbd67f27f6664ab246ad56af9c6fb95c52ee
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68729346"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682123"
 ---
-Le voci nel `deploymentconfig.json` documento vengono mappate ai parametri per [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). La tabella seguente descrive il mapping tra le entità nel documento JSON e i parametri per il metodo:
+Le voci del documento `deploymentconfig.json` mappano i parametri per [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). La tabella seguente descrive il mapping tra le entità nel documento JSON e i parametri per il metodo:
 
 | Entità JSON | Parametro del metodo | Descrizione |
 | ----- | ----- | ----- |
 | `computeType` | ND | La destinazione di calcolo. Per AKS, il valore deve essere `aks`. |
 | `autoScaler` | ND | Contiene gli elementi di configurazione per la scalabilità automatica. Vedere la tabella scalabilità automatica. |
-| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Indica se abilitare la scalabilità automatica per il servizio Web. Se `numReplicas` ,;in = caso contrario ,`False`. `0` `True` |
-| &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Il numero minimo di contenitori da usare durante la scalabilità automatica di questo servizio Web. Impostazione predefinita `1`. |
-| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Numero massimo di contenitori da usare durante la scalabilità automatica di questo servizio Web. Impostazione predefinita `10`. |
-| &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Frequenza con cui il ridimensionatore automatico tenta di ridimensionare questo servizio Web. Impostazione predefinita `1`. |
-| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Utilizzo di destinazione (in percentuale di 100) che il ridimensionatore automatico deve tentare di gestire per questo servizio Web. Impostazione predefinita `70`. |
+| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Indica se abilitare la scalabilità automatica per il servizio Web. Se `numReplicas` = `0`, `True`; in caso contrario, `False`. |
+| &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Il numero minimo di contenitori da usare durante la scalabilità automatica di questo servizio Web. Impostazione predefinita, `1`. |
+| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Numero massimo di contenitori da usare durante la scalabilità automatica di questo servizio Web. Impostazione predefinita, `10`. |
+| &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Frequenza con cui il ridimensionatore automatico tenta di ridimensionare questo servizio Web. Impostazione predefinita, `1`. |
+| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Utilizzo di destinazione (in percentuale di 100) che il ridimensionatore automatico deve tentare di gestire per questo servizio Web. Impostazione predefinita, `70`. |
 | `dataCollection` | ND | Contiene elementi di configurazione per la raccolta di dati. |
-| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Indica se abilitare la raccolta dei dati del modello per il servizio Web. Impostazione predefinita `False`. |
-| `authEnabled` | `auth_enabled` | Indica se abilitare o meno l'autenticazione della chiave per il servizio Web. E non possono essere`True`. `authEnabled` `tokenAuthEnabled` Impostazione predefinita `True`. |
-| `tokenAuthEnabled` | `token_auth_enabled` | Indica se abilitare o meno l'autenticazione del token per il servizio Web. E non possono essere`True`. `authEnabled` `tokenAuthEnabled` Impostazione predefinita `False`. |
+| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Indica se abilitare la raccolta dei dati del modello per il servizio Web. Impostazione predefinita, `False`. |
+| `authEnabled` | `auth_enabled` | Indica se abilitare o meno l'autenticazione della chiave per il servizio Web. Non è possibile `True`sia `tokenAuthEnabled` che `authEnabled`. Impostazione predefinita, `True`. |
+| `tokenAuthEnabled` | `token_auth_enabled` | Indica se abilitare o meno l'autenticazione del token per il servizio Web. Non è possibile `True`sia `tokenAuthEnabled` che `authEnabled`. Impostazione predefinita, `False`. |
 | `containerResourceRequirements` | ND | Contenitore per le entità CPU e memoria. |
-| &emsp;&emsp;`cpu` | `cpu_cores` | Numero di core CPU da allocare per questo servizio Web. Impostazioni predefinite`0.1` |
+| &emsp;&emsp;`cpu` | `cpu_cores` | Numero di core CPU da allocare per questo servizio Web. Impostazioni predefinite, `0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | Quantità di memoria (in GB) da allocare per questo servizio Web. Default, `0.5` |
-| `appInsightsEnabled` | `enable_app_insights` | Indica se abilitare la registrazione Application Insights per il servizio Web. Impostazione predefinita `False`. |
-| `scoringTimeoutMs` | `scoring_timeout_ms` | Timeout da applicare per la valutazione delle chiamate al servizio Web. Impostazione predefinita `60000`. |
-| `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Numero massimo di richieste simultanee per nodo per questo servizio Web. Impostazione predefinita `1`. |
-| `maxQueueWaitMs` | `max_request_wait_time` | Tempo massimo di permanenza di una richiesta nella coda (in millisecondi) prima della restituzione di un errore 503. Impostazione predefinita `500`. |
+| `appInsightsEnabled` | `enable_app_insights` | Indica se abilitare la registrazione Application Insights per il servizio Web. Impostazione predefinita, `False`. |
+| `scoringTimeoutMs` | `scoring_timeout_ms` | Timeout da applicare per la valutazione delle chiamate al servizio Web. Impostazione predefinita, `60000`. |
+| `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Numero massimo di richieste simultanee per nodo per questo servizio Web. Impostazione predefinita, `1`. |
+| `maxQueueWaitMs` | `max_request_wait_time` | Tempo massimo di permanenza di una richiesta nella coda (in millisecondi) prima della restituzione di un errore 503. Impostazione predefinita, `500`. |
 | `numReplicas` | `num_replicas` | Numero di contenitori da allocare per questo servizio Web. Nessun valore predefinito. Se questo parametro non è impostato, il ridimensionamento automatico è abilitato per impostazione predefinita. |
 | `keys` | ND | Contiene elementi di configurazione per le chiavi. |
 | &emsp;&emsp;`primaryKey` | `primary_key` | Chiave di autenticazione primaria da usare per questo servizio Web |

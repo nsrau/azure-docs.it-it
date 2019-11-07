@@ -1,5 +1,5 @@
 ---
-title: Log di diagnostica delle prestazioni di Intelligent Insights - Database SQL di Azure | Microsoft Docs
+title: Log di diagnostica delle prestazioni Intelligent Insights-database SQL di Azure
 description: Intelligent Insights offre un log di diagnostica per i problemi di prestazioni del database SQL di Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: c25d37a4d1695ab94cc0667a13e36e4da640e12a
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 86381f5670f09b5e6a215793dc1ea4eab7ecbb8e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262142"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689708"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Usare il log di diagnostica delle prestazioni del database SQL di Azure generato da Intelligent Insights
 
@@ -101,7 +101,7 @@ La proprietà relativa all'impatto (Impact) indica quanto di un comportamento ri
 
 La sezione successiva del log di Intelligent Insights include informazioni sulle query specifiche che sono state interessate dai problemi di prestazioni rilevati. Queste informazioni vengono presentate come matrice di oggetti incorporati nella proprietà impact_s. La proprietà relativa all'impatto è costituita da entità e metriche. Le entità si riferiscono a una query specifica (Type: Query). L'hash di query univoco viene presentato come valore della proprietà (Value). Ognuna delle query fornite è inoltre seguita da una metrica e un valore che indica un problema di prestazioni rilevato.
 
-Nell'esempio di log seguente è possibile notare che la query con hash 0x9102EXZ4 ha mostrato un aumento della durata di esecuzione (Metric: DurationIncreaseSeconds). Il valore pari a 110 secondi indica che l'esecuzione di questa particolare query ha richiesto 110 secondi in più. È possibile rilevare più query in quanto questa specifica sezione del log può includere più voci di query.
+Nell'esempio di log seguente è possibile notare che la query con hash 0x9102EXZ4 ha mostrato un aumento della durata di esecuzione (metrica: DurationIncreaseSeconds). Il valore pari a 110 secondi indica che l'esecuzione di questa particolare query ha richiesto 110 secondi in più. È possibile rilevare più query in quanto questa specifica sezione del log può includere più voci di query.
 
 ```json
 "impact" : [{
@@ -113,7 +113,7 @@ Nell'esempio di log seguente è possibile notare che la query con hash 0x9102EXZ
 }]
 ```
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>Metriche
 
 L'unità di misura per ogni metrica segnalata viene indicata nella proprietà relativa alla metrica (metric) con i valori possibili: secondi, numero e percentuale. Il valore di una metrica misurata viene restituito nella proprietà relativa al valore (value).
 

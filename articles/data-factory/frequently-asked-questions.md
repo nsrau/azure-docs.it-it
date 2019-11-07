@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Factory: domande frequenti | Microsoft Docs'
+title: 'Azure Data Factory: domande frequenti '
 description: Risposte alle domande frequenti su Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -9,20 +9,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 7ebcf865ad23e75b2aa9070fe14fc3ee8f1397c7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2da12bbc760ff06ad0737ed9d48e12ea81260655
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481140"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674721"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 Questo articolo risponde ad alcune domande frequenti su Azure Data Factory.  
 
 ## <a name="what-is-azure-data-factory"></a>Che cos'è Azure Data Factory? 
-Data Factory è un servizio di integrazione dei dati completamente gestito e basato sul cloud che automatizza lo spostamento e la trasformazione dei dati. Analogamente a quanto avviene in uno stabilimento di produzione, in cui vengono usate attrezzature per trasformare le materie prime in prodotti finiti, Azure Data Factory orchestra i servizi esistenti che raccolgono i dati non elaborati e li trasforma in informazioni pronte per l'uso. 
+Data Factory è un servizio ETL completamente gestito basato sul cloud per l'integrazione dei dati che automatizza lo spostamento e la trasformazione dei dati. Analogamente a quanto avviene in uno stabilimento di produzione, in cui vengono usate attrezzature per trasformare le materie prime in prodotti finiti, Azure Data Factory orchestra i servizi esistenti che raccolgono i dati non elaborati e li trasforma in informazioni pronte per l'uso. 
 
-Usando Azure Data Factory, è possibile creare flussi di lavoro basati sui dati per spostare i dati tra archivi dati locali e cloud. È anche possibile elaborare e trasformare i dati usando servizi di calcolo come Azure HDInsight, Azure Data Lake Analytics e il runtime di integrazione di SQL Server Integration Services (SSIS). 
+Usando Azure Data Factory, è possibile creare flussi di lavoro basati sui dati per spostare i dati tra archivi dati locali e cloud. Ed è possibile elaborare e trasformare i dati con flussi di dati. ADF supporta anche motori di calcolo esterni per le trasformazioni codificate manualmente usando servizi di calcolo come Azure HDInsight, Azure Databricks e il runtime di integrazione di SQL Server Integration Services (SSIS). 
 
 Con Data Factory, è possibile eseguire l'elaborazione dei dati in un servizio cloud basato su Azure oppure nell'ambiente di calcolo self-hosted, ad esempio SSIS, SQL Server o Oracle. Dopo aver creato una pipeline che esegue l'azione necessaria, è possibile pianificarne l'esecuzione periodica (ad esempio, ogni ora, ogni giorno o ogni settimana), la pianificazione della finestra temporale o attivare la pipeline da un'occorrenza di evento. Per altre informazioni, vedere l'[introduzione ad Azure Data Factory](introduction.md).
 
@@ -108,6 +108,9 @@ Una sottoscrizione di Azure può includere una o più istanze di Azure Data Fact
 
 ### <a name="pipelines"></a>Pipeline
 Una data factory può comprendere una o più pipeline. Una pipeline è un raggruppamento logico di attività per eseguire un'unità di lavoro, L'insieme delle attività di una pipeline esegue un'operazione. Una pipeline, ad esempio, può contenere un gruppo di attività che inseriscono dati da un BLOB di Azure e quindi eseguono una query Hive in un cluster HDInsight per partizionare i dati. Il vantaggio è che è possibile usare una pipeline per gestire le attività come set invece che singolarmente. È possibile concatenare le attività in una pipeline per usarle in modo sequenziale o indipendentemente in parallelo.
+
+### <a name="data-flows"></a>Flussi di dati
+I flussi di dati sono oggetti compilati visivamente in Data Factory che trasformano i dati su larga scala nei servizi Spark back-end. Non è necessario comprendere gli elementi interni di programmazione o Spark. È sufficiente progettare l'intenzione di trasformazione dei dati usando grafici (mapping) o fogli di calcolo (litigi).
 
 ### <a name="activities"></a>attività
 Le attività rappresentano un passaggio di elaborazione in una pipeline. Ad esempio, è possibile usare un'attività di copia per copiare dati da un archivio dati a un altro archivio dati. Allo stesso modo, è possibile usare un'attività Hive che esegue una query Hive su un cluster Azure HDInsight per trasformare o analizzare i dati. Data Factory supporta tre tipi di attività: attività di spostamento dei dati, attività di trasformazione dei dati e attività di controllo.

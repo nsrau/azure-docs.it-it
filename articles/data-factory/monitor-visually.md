@@ -1,5 +1,5 @@
 ---
-title: Monitorare visivamente le data factory di Azure | Microsoft Docs
+title: Monitorare visivamente le data factory di Azure
 description: Informazioni su come monitorare visivamente le data factory di Azure
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: f7c27bde3806684045bc43f8ff99eefb14c8d04a
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7b79fd9c87e97e624cce567b57c1c65fefcc151e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029150"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684634"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Monitorare visivamente le data factory di Azure
 Azure Data Factory è un servizio di integrazione di dati basato sul cloud. È possibile usarlo per creare flussi di lavoro basati sui dati nel cloud per l'orchestrazione e l'automazione dello spostamento e della trasformazione dei dati. Con Azure Data Factory è possibile:
@@ -45,11 +45,11 @@ La visualizzazione elenco Mostra ogni esecuzione di pipeline per le pipeline Dat
 | Nome pipeline | Nome della pipeline |
 | Azioni | Singola azione disponibile per la visualizzazione delle esecuzioni di attività |
 | Inizio esecuzione | Data e ora di inizio dell'esecuzione della pipeline (MM/gg/aaaa, HH: MM: SS AM/PM) |
-| Duration | Durata dell'esecuzione (HH:MM:SS) |
+| Durata | Durata dell'esecuzione (HH:MM:SS) |
 | Attivato da | Trigger manuale o trigger pianificato |
 | Stato | **Operazione non riuscita**, **riuscita**o **in corso** |
 | Parametri | Parametri per l'esecuzione della pipeline (coppie nome/valore) |
-| Errore | Eventuale errore di esecuzione della pipeline |
+| Tipi di errore | Eventuale errore di esecuzione della pipeline |
 | ID esecuzione | ID dell'esecuzione pipeline |
 
 ![Visualizzazione elenco per il monitoraggio delle esecuzioni di pipeline](media/monitor-visually/pipeline-runs.png)
@@ -62,11 +62,11 @@ La visualizzazione elenco Mostra le esecuzioni di attività corrispondenti a ogn
 | Nome attività | Nome dell'attività all'interno della pipeline |
 | Tipo di attività | Tipo di attività, ad esempio **Copy**, **HDInsightSpark**o **HDInsightHive** |
 | Inizio esecuzione | Data e ora di inizio dell'esecuzione dell'attività (MM/gg/aaaa, HH: MM: SS AM/PM) |
-| Duration | Durata dell'esecuzione (HH:MM:SS) |
+| Durata | Durata dell'esecuzione (HH:MM:SS) |
 | Stato | **Operazione non riuscita**, **riuscita**o **in corso** |
 | Input | Matrice JSON che descrive gli input dell'attività |
 | Output | Matrice JSON che descrive gli output delle attività |
-| Errore | Errore di esecuzione dell'attività (se presente) |
+| Tipi di errore | Errore di esecuzione dell'attività (se presente) |
 
 ![Visualizzazione elenco per le esecuzioni delle attività di monitoraggio](media/monitor-visually/activity-runs.png)
 
@@ -90,7 +90,7 @@ La pipeline degli ordini viene eseguita in DESC/ASC in base all'ora di inizio de
 | --- | --- |
 | Nome pipeline | Nome della pipeline. Le opzioni includono filtri rapidi per le **ultime 24 ore**, **settimana scorsa**e **ultimi 30 giorni**. Oppure selezionare una data e un'ora personalizzate. |
 | Inizio esecuzione | Data e ora di inizio dell'esecuzione della pipeline. |
-| Stato dell'esecuzione | Filtra le esecuzioni in base allo stato: **Succeeded**, **failed**o **in corso**. |
+| Stato dell'esecuzione | Filtro eseguito in base allo stato: **riuscito**, **non riuscito**o **in corso**. |
 
 ![Opzioni per il filtro](media/monitor-visually/filter.png)
 

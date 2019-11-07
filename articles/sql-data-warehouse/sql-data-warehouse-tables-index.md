@@ -1,5 +1,5 @@
 ---
-title: Indicizzazione di tabelle in Azure SQL Data Warehouse | Microsoft Azure
+title: Indicizzazione di tabelle
 description: Raccomandazioni ed esempi per l'indicizzazione di tabelle in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,13 +10,13 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seoapril2019
-ms.openlocfilehash: 4d51bd6906a8299a25fe50ca817b1a2b6082ab91
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 079891824bf71caf1ebfa575833de650a55ed5be
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479848"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685446"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indicizzazione di tabelle in SQL Data Warehouse
 
@@ -171,7 +171,7 @@ Dopo avere eseguito la query, è possibile iniziare a esaminare i dati e analizz
 | [OPEN_rowgroup_rows_MAX] |Come sopra. |
 | [OPEN_rowgroup_rows_AVG] |Come sopra. |
 | [CLOSED_rowgroup_rows] |Esaminare le righe dei gruppi di righe chiusi come controllo di integrità. |
-| [CLOSED_rowgroup_count] |Il numero di gruppi di righe chiusi deve essere basso o pari a zero. I gruppi di righe chiusi possono essere convertiti in gruppi di righe compressi usando l'istruzione ALTER INDEX... Comando REORGANIZE. In genere questa operazione non è tuttavia richiesta. I gruppi chiusi vengono convertiti automaticamente in gruppi di righe columnstore dal processo in background del motore di tuple. |
+| [CLOSED_rowgroup_count] |Il numero di gruppi di righe chiusi deve essere basso o pari a zero. I gruppi di righe chiusi possono essere convertiti in gruppi di righe compressi utilizzando l'istruzione ALTER INDEX... Comando REORGANIZE. In genere questa operazione non è tuttavia richiesta. I gruppi chiusi vengono convertiti automaticamente in gruppi di righe columnstore dal processo in background del motore di tuple. |
 | [CLOSED_rowgroup_rows_MIN] |I gruppi di righe chiusi devono avere una velocità di riempimento molto elevata. Se la velocità di riempimento per un gruppo di righe chiuso è bassa, è necessario analizzare ulteriormente il columnstore. |
 | [CLOSED_rowgroup_rows_MAX] |Come sopra. |
 | [CLOSED_rowgroup_rows_AVG] |Come sopra. |

@@ -1,5 +1,5 @@
 ---
-title: Protezione delle macchine virtuali nel Centro sicurezza di Azure | Microsoft Docs
+title: Proteggi le tue macchine e le tue applicazioni nel centro sicurezza di Azure
 description: Questo documento illustra le raccomandazioni presenti nel Centro sicurezza che facilitano la protezione delle macchine virtuali, dei computer, delle app Web e degli ambienti di Servizio app di Azure.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 2317d0206e3fc4a342606d17c172ac42cbe82870
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 803e64c9df1b52a33a1b50714f77b005032bf200
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520681"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686350"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protezione delle macchine virtuali nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure, dei server non Azure e delle macchine virtuali. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari. Le raccomandazioni sono applicabili a diversi tipi di risorse di Azure, ovvero macchine virtuali (VM) e computer, applicazioni, risorse di rete, SQL, identità e accesso.
@@ -143,7 +143,7 @@ Esistono tre tipi di icone rappresentate in questo elenco:
 
 1. Selezionare un'applicazione Web. Viene aperta una visualizzazione di riepilogo con tre schede:
 
-   - **Consigli**: in base alle valutazioni non riuscite eseguite dal Centro sicurezza.
+   - **Suggerimenti**: basati sulle valutazioni eseguite dal centro sicurezza non riuscite.
    - **Valutazioni superate**: elenco di valutazioni superate eseguite dal Centro sicurezza.
    - **Valutazioni non disponibili**: elenco di valutazioni non eseguito a causa di un errore o poiché la raccomandazione non è rilevante per il Servizio app specifico
 
@@ -153,7 +153,7 @@ Esistono tre tipi di icone rappresentate in questo elenco:
 
 2. Selezionare una raccomandazione per ottenerne la descrizione e l'elenco delle risorse non integre, integre e non analizzate.
 
-   - Nella colonna **Valutazioni superate** è presente un elenco di valutazioni superate.  Il livello di gravità di tali valutazioni è sempre di colore verde.
+   - Nella colonna **Valutazioni superate** è presente un elenco di valutazioni superate. Il livello di gravità di tali valutazioni è sempre di colore verde.
 
    - Selezionare una valutazione superata dall'elenco per visualizzarne la descrizione e l'elenco di risorse non integre, integre e non analizzate. È presente una scheda per le risorse di tipo non integro, ma tale elenco è sempre vuoto perché la valutazione è superata.
 
@@ -198,7 +198,7 @@ Se si desidera impostare tutti i set di scalabilità esistenti affinché install
 |Risorse di calcolo (Batch)|5|Abilitare i log di diagnostica negli account Batch|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |Risorse di calcolo (Hub eventi)|5|I log di diagnostica nell'hub eventi devono essere abilitati|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |Risorse di calcolo (App per la logica)|5|Abilitare i log di diagnostica in App per la logica|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
-|Risorse di calcolo (Service Fabric)|15|Impostare la proprietà ClusterProtectionLevel su EncryptAndSign in Service Fabric|Service Fabric offre tre livelli di protezione (None, Sign ed EncryptAndSign) per la comunicazione da nodo a nodo mediante un certificato cluster primario.  Impostare il livello di protezione per garantire che tutti i messaggi da nodo a nodo vengano crittografati e firmati digitalmente. |
+|Risorse di calcolo (Service Fabric)|15|Impostare la proprietà ClusterProtectionLevel su EncryptAndSign in Service Fabric|Service Fabric offre tre livelli di protezione (None, Sign ed EncryptAndSign) per la comunicazione da nodo a nodo mediante un certificato cluster primario. Impostare il livello di protezione per garantire che tutti i messaggi da nodo a nodo vengano crittografati e firmati digitalmente. |
 |Risorse di calcolo (bus di servizio)|1|Rimuovere tutte le regole di autorizzazione ad eccezione di RootManageSharedAccessKey dallo spazio dei nomi del bus di servizio |I client del bus di servizio non devono usare un criterio di accesso a livello di spazio dei nomi che assicura l'accesso a tutte le code e gli argomenti in uno spazio dei nomi. Per allinearsi al modello di sicurezza con privilegi minimi, è opportuno creare criteri di accesso a livello di entità per code e argomenti per assicurare l'accesso solo all'entità specifica.|
 |Risorse di calcolo (Hub eventi)|1|Tutte le regole di autorizzazione eccetto RootManageSharedAccessKey devono essere rimosse dallo spazio dei nomi dell'hub eventi|I client di Hub eventi non devono usare un criterio di accesso a livello di spazio dei nomi che assicura l'accesso a tutte le code e gli argomenti in uno spazio dei nomi. Per allinearsi al modello di sicurezza con privilegi minimi, è opportuno creare criteri di accesso a livello di entità per code e argomenti per assicurare l'accesso solo all'entità specifica.|
 |Risorse di calcolo (Hub eventi)|5|È necessario definire le regole di autorizzazione nell'entità dell'hub eventi|Controllare regole di autorizzazione nell'entità di Hub eventi per concedere l'accesso con privilegi minimi.|
@@ -220,7 +220,7 @@ Se si desidera impostare tutti i set di scalabilità esistenti affinché install
 |Machine|15|Aggiungere un Web Application Firewall| Aggiungere una soluzione WAF (web application firewall) per proteggere le applicazioni Web. |
 |Machine|30|Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità|Le macchine virtuali per cui viene distribuita una soluzione di terze parti per la valutazione della vulnerabilità vengono costantemente controllate per individuare vulnerabilità del sistema operativo e delle applicazioni. Ogni volta che vengono individuate queste vulnerabilità, sono disponibili altre informazioni nell'ambito dell'indicazione.|
 |Machine|30|Installare una soluzione di valutazione della vulnerabilità nelle macchine virtuali|Installare una soluzione di valutazione della vulnerabilità nelle macchine virtuali|
-|Machine|1|È necessario eseguire la migrazione delle macchine virtuali a nuove risorse AzureRM|Usare Azure Resource Manager per le macchine virtuali per fornire funzionalità di sicurezza migliorate quali controllo di accesso (Controllo degli accessi in base al ruolo) più avanzato, controllo migliore, distribuzione e governance basate su Resource Manager, accesso alle identità gestite, accesso all'insieme di credenziali delle chiavi per i segreti, autenticazione basata su Azure AD e supporto di tag e gruppi di risorse per una gestione della sicurezza semplificata. |
+|Machine|1|È necessario eseguire la migrazione delle macchine virtuali a nuove risorse AzureRM|Usare Azure Resource Manager per le macchine virtuali per offrire miglioramenti alla sicurezza, ad esempio il controllo degli accessi più sicuro (RBAC), il controllo migliore, la distribuzione e la governance basati su Gestione risorse, l'accesso alle identità gestite, l'accesso a Key Vault per i segreti, Autenticazione basata su Azure AD e supporto per i tag e i gruppi di risorse per semplificare la gestione della sicurezza. |
 |Machine|30|Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità|Le macchine virtuali per cui viene distribuita una soluzione di terze parti per la valutazione della vulnerabilità vengono costantemente controllate per individuare vulnerabilità del sistema operativo e delle applicazioni. Ogni volta che vengono individuate queste vulnerabilità, sono disponibili altre informazioni nell'ambito dell'indicazione.|
 |Set di scalabilità di macchine virtuali |4|I log di diagnostica nei set di scalabilità di macchine virtuali devono essere abilitati|Abilitare i log e conservarli per un periodo massimo di un anno. In questo modo è possibile ricreare la traccia delle attività per scopi di analisi. Ciò è utile quando si verifica un evento imprevisto di sicurezza o la rete è compromessa.|
 |Set di scalabilità di macchine virtuali|35|Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte|Risolvere le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali per proteggerli da attacchi. |

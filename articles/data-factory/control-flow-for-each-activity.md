@@ -1,5 +1,5 @@
 ---
-title: Attività ForEach in Azure Data Factory | Microsoft Docs
+title: Attività ForEach in Azure Data Factory
 description: L'attività ForEach definisce un flusso di controllo ripetuto nella pipeline. Viene usata per eseguire l'iterazione di una raccolta e attività specifiche.
 services: data-factory
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 319f4e722184ce840d43b8f23e61711851a6d4a0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: b8f95f22553a3b4639b1aba6576ce844116ae20b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142472"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679885"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Attività ForEach in Azure Data Factory
-L'attività ForEach definisce un flusso di controllo ripetuto nella pipeline. Questa attività viene usata per eseguire l'iterazione di una raccolta e attività specifiche in un ciclo. L'implementazione di cicli di questa attività è simile alla struttura di esecuzione in ciclo Foreach nei linguaggi di programmazione.
+L'attività ForEach definisce un flusso di controllo ripetuto nella pipeline. Questa attività viene usata per eseguire l'iterazione di una raccolta e attività specifiche in un ciclo. L'implementazione di cicli di questa attività è simile alla struttura di esecuzione cicli Foreach nei linguaggi di programmazione.
 
 ## <a name="syntax"></a>Sintassi
 Le proprietà sono descritte più avanti in questo articolo. La proprietà items rappresenta la raccolta e ogni elemento della raccolta viene definito tramite `@item()`, come illustrato nella sintassi seguente:  
@@ -68,14 +68,14 @@ Le proprietà sono descritte più avanti in questo articolo. La proprietà items
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
+Proprietà | Descrizione | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
 name | Nome dell'attività ForEach. | String | Sì
 type | Deve essere impostato su **ForEach** | String | Sì
-isSequential | Specifica se il ciclo deve essere eseguito in sequenza o in parallelo.  È possibile eseguire un numero massimo di 20 iterazioni del ciclo simultanee in parallelo. Se si dispone ad esempio di un'iterazione di attività ForEach su un'attività di copia con 10 set di dati di origine e sink diversi con **isSequential** impostato su False, tutte le copie vengono eseguite simultaneamente. Il valore predefinito è False. <br/><br/> Se "isSequential" è impostato su False, assicurarsi che sia presente una configurazione corretta per usare più eseguibili. In caso contrario, questa proprietà deve essere usata con attenzione per evitare di incorrere in conflitti di scrittura. Per altre informazioni, vedere la sezione [Esecuzione parallela](#parallel-execution). | Boolean | No. Il valore predefinito è False.
+isSequential | Specifica se il ciclo deve essere eseguito in sequenza o in parallelo.  È possibile eseguire un numero massimo di 20 iterazioni del ciclo simultanee in parallelo. Se si dispone ad esempio di un'iterazione di attività ForEach su un'attività di copia con 10 set di dati di origine e sink diversi con **isSequential** impostato su False, tutte le copie vengono eseguite simultaneamente. Il valore predefinito è False. <br/><br/> Se "isSequential" è impostato su False, assicurarsi che sia presente una configurazione corretta per usare più eseguibili. In caso contrario, questa proprietà deve essere usata con attenzione per evitare di incorrere in conflitti di scrittura. Per altre informazioni, vedere la sezione [Esecuzione parallela](#parallel-execution). | Booleano | No. Il valore predefinito è False.
 batchCount | Numero di batch da usare per controllare il numero di esecuzione parallela (quando isSequential è impostato su Falso). | Valore intero (massimo 50) | No. Il valore predefinito è 20.
-Elementi | Un'espressione che restituisce una matrice JSON su cui eseguire un'iterazione. | Espressione (che restituisce una matrice JSON) | Yes
-Attività | Le attività da eseguire. | Elenco di attività | Yes
+Items | Un'espressione che restituisce una matrice JSON su cui eseguire un'iterazione. | Espressione (che restituisce una matrice JSON) | Sì
+attività | Le attività da eseguire. | Elenco di attività | Sì
 
 ## <a name="parallel-execution"></a>Esecuzione parallela
 Se **isSequential** è impostato su false, l'attività esegue le iterazioni in parallelo con un massimo di 20 iterazioni simultanee. Questa impostazione deve essere usata con cautela. Se le iterazioni simultanee scrivono nella stessa cartella, ma in file diversi, non ci sono problemi. Se le iterazioni simultanee scrivono contemporaneamente in esattamente lo stesso file, questo approccio causa un errore. 
@@ -84,7 +84,7 @@ Se **isSequential** è impostato su false, l'attività esegue le iterazioni in p
 Nell'attività ForEach, fornire una matrice di cui eseguire un'iterazione per la proprietà **items**." Usare `@item()` per eseguire l'iterazione su un'unica enumerazione nell'attività ForEach. Ad esempio, se **items** è una matrice: [1, 2, 3], `@item()` restituisce 1 nella prima iterazione, 2 nella seconda iterazione e 3 nella terza iterazione.
 
 ## <a name="iterating-over-a-single-activity"></a>Iterazione su una singola attività
-**Scenario:** copia dello stesso file di origine in BLOB di Azure in più file di destinazione nel BLOB di Azure.
+**Scenario:** copia dello stesso file di origine del BLOB di Azure in più file di destinazione nel BLOB di Azure.
 
 ### <a name="pipeline-definition"></a>Definizione della pipeline
 
@@ -236,7 +236,7 @@ Nell'attività ForEach, fornire una matrice di cui eseguire un'iterazione per la
 ```
 
 ### <a name="example"></a>Esempio
-**Scenario:** iterazione di una pipeline interna in un'attività ForEach con l'attività ExecutePipeline. La pipeline interna viene copiata con le definizioni dello schema parametrizzate.
+**Scenario:** iterazione su un oggetto InnerPipeline in un'attività ForEach con l'attività di ExecutePipeline. La pipeline interna viene copiata con le definizioni dello schema parametrizzate.
 
 #### <a name="master-pipeline-definition"></a>Definizione della pipeline master
 

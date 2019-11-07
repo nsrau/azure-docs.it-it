@@ -1,5 +1,5 @@
 ---
-title: Trasformazione aggregazione nel flusso di dati del mapping Azure Data Factory | Microsoft Docs
+title: Trasformazione aggregazione nel flusso di dati del mapping Azure Data Factory
 description: Informazioni su come aggregare i dati su larga scala in Azure Data Factory con la trasformazione aggregazione del flusso di dati di mapping.
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: add548a184440c408b8b74e131f2249b4f616ddc
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 3f21367c36ae31aa2115c109933a581bef464baf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514835"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676904"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Trasformazione aggregazione nel flusso di dati di mapping 
 
@@ -42,7 +42,7 @@ Ogni espressione di aggregazione deve contenere almeno una funzione di aggregazi
 
 Le trasformazioni di aggregazione sono simili alle query SELECT di aggregazione SQL. Le colonne che non sono incluse nella clausola Group by o funzioni di aggregazione non passano attraverso l'output della trasformazione aggregazione. Se si desidera includere altre colonne nell'output aggregato, effettuare uno dei seguenti metodi:
 
-* Per includere tale colonna aggiuntiva, utilizzare una funzione di aggregazione, ad esempio `last()` o `first()`.
+* Usare una funzione di aggregazione, ad esempio `last()` o `first()` per includere tale colonna aggiuntiva.
 * Aggiungere nuovamente le colonne al flusso di output usando il [modello self join](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
 
 ## <a name="data-flow-script"></a>Script del flusso di dati
@@ -68,7 +68,7 @@ Le trasformazioni di aggregazione sono simili alle query SELECT di aggregazione 
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente accetta un flusso in ingresso `MoviesYear` e raggruppa le righe per colonna `year`. La trasformazione crea una colonna di aggregazione `avgrating` che restituisce la media della colonna `Rating`. Questa trasformazione aggregazione è denominata `AvgComedyRatingsByYear`.
+L'esempio seguente accetta un flusso in ingresso `MoviesYear` e raggruppa le righe in base alla colonna `year`. La trasformazione crea una colonna di aggregazione `avgrating` che restituisce la media della colonna `Rating`. Questa trasformazione aggregazione è denominata `AvgComedyRatingsByYear`.
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 

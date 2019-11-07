@@ -1,5 +1,5 @@
 ---
-title: Usare PowerShell per caricare il Centro sicurezza di Azure e proteggere la rete | Microsoft Docs
+title: Eseguire l'onboarding nel centro sicurezza di Azure con PowerShell
 description: Questo documento fornisce indicazioni dettagliate sul processo di onboarding del Centro sicurezza di Azure tramite i cmdlet di PowerShell.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: 8e2f7b87efe89166175748cec310f24575b7f102
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b20b3c1e4216fe8065fbc8ac24c7d8097903fc5a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201215"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686361"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizzare l'onboarding del Centro sicurezza di Azure con PowerShell
 
@@ -31,13 +31,13 @@ Questo articolo fornisce uno script di PowerShell di esempio che può essere mod
 
 In questo esempio si abiliterà il Centro sicurezza per una sottoscrizione con ID d07c0080-170c-4c24-861d-9c817742786c. Inoltre, si applicheranno le impostazioni consigliate che forniscono un elevato livello di protezione mediante l'implementazione del livello Standard del Centro sicurezza, che offre funzionalità avanzate di protezione e rilevamento delle minacce:
 
-1. Impostare il [livello di protezione standard ASC](https://azure.microsoft.com/pricing/details/security-center/). 
+1. Impostare il [livello di protezione standard del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/). 
  
 2. Impostare l'area di lavoro Log Analytics a cui Microsoft Monitoring Agent invierà i dati che raccolti nelle VM associate alla sottoscrizione. In questo esempio si tratta di un'area di lavoro esistente definita dall'utente (myWorkspace).
 
 3. Attivare il provisioning automatico dell'agente del Centro sicurezza, che consente di [distribuire Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
 
-5. Impostare il [CISO dell'organizzazione come contatto di sicurezza per gli eventi significativi e gli avvisi ASC](security-center-provide-security-contact-details.md).
+5. Impostare ciso dell'organizzazione [come contatto di sicurezza per gli avvisi del Centro sicurezza e gli eventi rilevanti](security-center-provide-security-contact-details.md).
 
 6. Assegnare i [criteri di sicurezza predefiniti](tutorial-security-policy.md) del Centro sicurezza.
 
@@ -58,7 +58,7 @@ Prima di eseguire i cmdlet del Centro sicurezza, è necessario seguire questa pr
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security' 
 
-2.  Facoltativo: Impostare il livello di copertura (piano tariffario) delle sottoscrizioni (se non è definito, il piano tariffario è impostato su Gratuito):
+2.  (Facoltativo) Impostare il livello di copertura (piano tariffario) delle sottoscrizioni (se non è definito, il piano tariffario è impostato su Gratuito):
 
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
@@ -78,7 +78,7 @@ Prima di eseguire i cmdlet del Centro sicurezza, è necessario seguire questa pr
     > È consigliabile abilitare il provisioning automatico per assicurarsi che le macchine virtuali di Azure siano protette automaticamente dal Centro sicurezza di Azure.
     >
 
-5.  Facoltativo: È consigliabile definire i dettagli dei contatti di sicurezza per le sottoscrizioni caricate, che verranno usati come destinatari delle notifiche e degli avvisi generati dal Centro sicurezza:
+5.  (Facoltativo) È consigliabile definire i dettagli dei contatti di sicurezza per le sottoscrizioni caricate, che verranno usati come destinatari delle notifiche e degli avvisi generati dal Centro sicurezza:
 
         Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert 
 

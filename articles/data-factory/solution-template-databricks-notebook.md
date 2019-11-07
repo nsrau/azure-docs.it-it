@@ -1,5 +1,5 @@
 ---
-title: Trasformare i dati con Databricks in Azure Data Factory | Microsoft Docs
+title: Trasformare i dati con Databricks in Azure Data Factory
 description: Informazioni su come usare un modello di soluzione per trasformare i dati usando un notebook di Databricks in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 562ce675acc43002ce468d60f8a8c412410be86c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 471c1d9610fa346b0eac44c73fe02f4510bd2889
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395406"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684244"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Trasformare i dati con Databricks in Azure Data Factory
 
@@ -39,7 +39,7 @@ Per mantenere semplice questo modello, non viene creato un trigger pianificato. 
 
 2.  Verificare di avere un'**area di lavoro di Azure Databricks** o crearne una nuova.
 
-1.  **Importare il notebook per estrazione, trasformazione e caricamento**. Importare il notebook di trasformazione seguente nell'area di lavoro di Databricks. Non è necessario che si trovi nella stessa posizione indicata di seguito, ma è necessario ricordarsi il percorso scelto, che verrà usato più avanti. Importare il notebook dall'URL seguente, immettendo l'URL nel relativo campo: `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`. Selezionare **Importa**.
+1.  **Importare il notebook per estrazione, trasformazione e caricamento**. Importare il notebook di trasformazione seguente nell'area di lavoro di Databricks. Non deve trovarsi nella stessa posizione di seguito, ma ricordare il percorso scelto per un momento successivo. Importare il notebook dall'URL seguente immettendo questo URL nel campo URL: `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`. Selezionare **Importa**.
 
     ![2](media/solution-template-Databricks-notebook/Databricks-tutorial-image02.png)
 

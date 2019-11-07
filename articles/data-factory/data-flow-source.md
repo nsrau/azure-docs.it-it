@@ -1,17 +1,17 @@
 ---
-title: Trasformazione origine nel flusso di dati di mapping-Azure Data Factory | Microsoft Docs
+title: Trasformazione origine nel flusso di dati di mapping-Azure Data Factory
 description: Informazioni su come configurare una trasformazione di origine nel flusso di dati di mapping.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: fb11b785cecbd021c0b894754e31d226edfe72f2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5889d96057d4b028e8716e407819d17938f58b3c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73519300"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675943"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Trasformazione origine per il mapping del flusso di dati 
 

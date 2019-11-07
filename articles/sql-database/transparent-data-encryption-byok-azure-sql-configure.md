@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell e interfaccia della riga di comando: abilitare SQL Transparent Data Encryption con Azure Key Vault-Bring your own key-database SQL di Azure | Microsoft Docs'
+title: 'PowerShell e interfaccia della riga di comando: abilitare SQL Transparent Data Encryption con Azure Key Vault-Bring your own key-database SQL di Azure '
 description: Informazioni su come configurare un database SQL di Azure e Data Warehouse per iniziare a usare Transparent Data Encryption (TDE) per la crittografia dei dati inattivi tramite PowerShell o CLI.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: beeb5fa4f979ac457db8a779dd8f8f2e94ef87f5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 232f38b239090356ae3ad1a70b522188f6ab6a4f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163846"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686767"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e CLI: abilitare Transparent Data Encryption con la chiave gestita dal cliente da Azure Key Vault
 
@@ -175,7 +175,7 @@ Usare [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get
    -ResourceGroupName <SQLDatabaseResourceGroupName>   
    ```
  
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si verifica un problema, controllare quanto segue:
 - Se non è possibile trovare l'insieme di credenziali delle chiavi, assicurarsi di trovarsi nella sottoscrizione corretta usando il cmdlet [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) .

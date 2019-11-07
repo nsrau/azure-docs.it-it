@@ -1,5 +1,5 @@
 ---
-title: Fusi orari Istanza gestita di database SQL di Azure | Microsoft Docs "
+title: Fusi orari Istanza gestita di database SQL di Azure "
 description: Informazioni sulle specifiche del fuso orario di Istanza gestita di database SQL di Azure
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 09/03/2019
-ms.openlocfilehash: e81ae2fc563300402339fc40893fbbdbbd326dcd
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a578c626cd1edd4a3f7474e59c2e795be2e3c121
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233231"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687843"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fusi orari in Istanza gestita di database SQL di Azure
 
@@ -101,25 +101,25 @@ L'utilizzo dello stesso fuso orario in un'istanza primaria e secondaria in un gr
 
 | **ID fuso orario** | **Nome visualizzato del fuso orario** |
 | --- | --- |
-| Ora solare linea cambiamento data | (UTC-12.00) Linea cambiamento data internazionale (occidentale) |
+| Ora solare Dateline | (UTC-12.00) Linea cambiamento data internazionale (occidentale) |
 | UTC-11 | (UTC-11.00) Coordinated Universal Time-11 |
 | Ora solare Aleutine | (UTC-10.00) Isole Aleutine |
 | Ora solare Hawaii | (UTC-10.00) Hawaii |
-| Ora solare Marquesas | (UTC-09.30) Isole Marquesas |
+| Ora solare Marquess | (UTC-09.30) Isole Marquesas |
 | Ora solare Alaska | (UTC-09.00) Alaska |
 | UTC-09 | (UTC-09.00) Coordinated Universal Time-09 |
 | Ora solare Pacifico (Messico) | (UTC-08.00) Bassa California |
 | UTC-08 | (UTC-08.00) Coordinated Universal Time-08 |
 | Ora solare Pacifico | (UTC-08.00) Pacifico (USA e Canada) |
-| Ora solare fuso occidentale Stati Uniti | (UTC-07.00) Arizona |
+| Ora solare Stati Uniti della montagna | (UTC-07.00) Arizona |
 | Ora solare fuso occidentale (Messico) | (UTC-07.00) Chihuahua, La Paz, Mazatlan |
 | Ora solare fuso occidentale | (UTC-07.00) Fuso occidentale (USA e Canada) |
 | Ora solare America centrale | (UTC-06.00) America centrale |
 | Ora solare fuso centrale | (UTC-06.00) Fuso centrale (USA e Canada) |
-| Ora solare Isola di Pasqua | (UTC-06.00) Isola di Pasqua |
+| Ora solare isola di Pasqua | (UTC-06.00) Isola di Pasqua |
 | Ora solare fuso centrale (Messico) | (UTC-06.00) Guadalajara, Città del Messico, Monterrey |
 | Ora solare Canada centrale | (UTC-06.00) Saskatchewan |
-| Ora solare America del Sud Pacifico | (UTC-05.00) Bogotá, Lima, Quito, Rio Branco |
+| Ora solare SA Pacifico | (UTC-05.00) Bogotá, Lima, Quito, Rio Branco |
 | Ora solare fuso orientale (Messico) | (UTC-05.00) Chetumal |
 | Ora solare fuso orientale | (UTC-05.00) Fuso orientale (USA e Canada) |
 | Ora solare Haiti | (UTC-05.00) Haiti |
@@ -127,19 +127,19 @@ L'utilizzo dello stesso fuso orario in un'istanza primaria e secondaria in un gr
 | Ora solare Stati Uniti orientali | (UTC-05.00) Indiana (Est) |
 | Ora solare Turks e Caicos | (UTC-05:00) Turks e Caicos |
 | Ora solare Paraguay | (UTC-04.00) Asunción |
-| Ora solare costa atlantica | (UTC-04.00) Ora costa atlantica (Canada) |
+| Ora solare Atlantico | (UTC-04.00) Ora costa atlantica (Canada) |
 | Ora solare Venezuela | (UTC-04.00) Caracas |
 | Ora solare Brasile centrale | (UTC-04.00) Cuiaba |
-| Ora solare America del Sud occidentale | (UTC-04.00) Georgetown, La Paz, Manaus, San Juan |
-| Ora solare America del Sud Pacifico | (UTC-04.00) Santiago |
+| Ora solare Europa occidentale | (UTC-04.00) Georgetown, La Paz, Manaus, San Juan |
+| Ora solare Pacific SA | (UTC-04.00) Santiago |
 | Ora solare Terranova | (UTC-03.30) Terranova |
 | Ora solare Tocantins | (UTC-03.00) Araguaina |
 | E. Ora solare America del sud | (UTC-03.00) Brasilia |
-| Ora solare America del Sud orientale | (UTC-03.00) Caienna, Fortaleza |
+| Ora solare SA Eastern | (UTC-03.00) Caienna, Fortaleza |
 | Ora solare Argentina | (UTC-03.00) Buenos Aires |
 | Ora solare Groenlandia | (UTC-03.00) Groenlandia |
 | Ora solare Montevideo | (UTC-03.00) Montevideo |
-| Ora solare Magallanes | (UTC-03:00) Arene di punta |
+| Ora solare Masini | (UTC-03:00) Arene di punta |
 | Ora solare Saint-Pierre | (UTC-03.00) Saint Pierre e Miquelon |
 | Ora solare Bahia | (UTC-03.00) El Salvador |
 | UTC-02 | (UTC-02.00) Coordinated Universal Time-02 |
@@ -147,43 +147,43 @@ L'utilizzo dello stesso fuso orario in un'istanza primaria e secondaria in un gr
 | Ora solare Azzorre | (UTC-01.00) Azzorre |
 | Ora solare Cabo verde | (UTC-01.00) Is. di Cabo Verde |
 | UTC | (UTC) Coordinated Universal Time |
-| Ora solare di Greenwich | (UTC+00.00) Dublino, Edimburgo, Lisbona, Londra |
-| Ora solare di Greenwich | (UTC+00.00) Monrovia, Reykjavik |
+| Ora solare GMT | (UTC+00.00) Dublino, Edimburgo, Lisbona, Londra |
+| Ora solare Greenwich | (UTC+00.00) Monrovia, Reykjavik |
 | W. Ora solare Europa | (UTC+01.00) Amsterdam, Berlino, Berna, Roma, Stoccolma, Vienna |
-| Ora solare Europa Centrale | (UTC+01.00) Belgrado, Bratislava, Budapest, Lubiana, Praga |
-| Ora solare Bruxelles, Copenaghen, Madrid, Parigi | (UTC+01.00) Bruxelles, Copenaghen, Madrid, Parigi |
+| Ora solare Europa centrale | (UTC+01.00) Belgrado, Bratislava, Budapest, Lubiana, Praga |
+| Ora solare Romance | (UTC+01.00) Bruxelles, Copenaghen, Madrid, Parigi |
 | Ora solare Marocco | (UTC + 01:00) Casablanca |
-| Ora solare São Tomé | (UTC + 01:00) Sao Tome |
-| Ora solare Europa Centrale | (UTC+01.00) Sarajevo, Skopje, Varsavia, Zagabria |
+| Ora solare Sao Tome | (UTC + 01:00) Sao Tome |
+| Ora solare Europa centrale | (UTC+01.00) Sarajevo, Skopje, Varsavia, Zagabria |
 | W. Ora solare Africa centrale | (UTC+01.00) Africa centro-occidentale |
 | Ora solare Giordania | (UTC+02.00) Amman |
 | Ora solare GTB | (UTC+02.00) Atene, Bucarest |
-| Ora solare Medio Oriente | (UTC+02.00) Beirut |
+| Ora solare medio Oriente | (UTC+02.00) Beirut |
 | Ora solare Egitto | (UTC+02.00) Cairo |
 | E. Ora solare Europa | (UTC+02.00) Chisinau |
 | Ora solare Siria | (UTC+02.00) Damasco |
 | Ora solare Cisgiordania | (UTC+02.00) Hebron |
 | Ora solare Sudafrica | (UTC+02.00) Harare, Pretoria |
-| Ora solare FLE | (UTC+02.00) Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius |
+| Ora solare ora solare FLE | (UTC+02.00) Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius |
 | Ora solare Israele | (UTC+02.00) Gerusalemme |
 | Ora solare Kaliningrad | (UTC+02.00) Kaliningrad |
 | Ora solare Sudan | (UTC + 2.00 H) Khartoum |
 | Ora solare Libia | (UTC+02.00) Tripoli |
 | Ora solare Namibia | (UTC + 2.00 H) Windhoek |
-| Ora solare Arabia Saudita | (UTC+03.00) Baghdad |
+| Ora solare arabo | (UTC+03.00) Baghdad |
 | Ora solare Turchia | (UTC + 3.00 H) Istanbul |
-| Ora solare Arabia | (UTC+03.00) Kuwait, Riyadh |
+| Ora solare arabo | (UTC+03.00) Kuwait, Riyadh |
 | Ora solare Bielorussia | (UTC+03.00) Minsk |
 | Ora solare russo | (UTC + 3.00 H) Mosca, San Pietroburgo |
 | E. Ora solare Africa | (UTC+03.00) Nairobi |
 | Ora solare Iran | (UTC+03.30) Teheran |
-| Ora solare Emirati Arabi Uniti | (UTC+04.00) Abu Dhabi, Mascate |
+| Ora solare Arabia Saudita | (UTC+04.00) Abu Dhabi, Mascate |
 | Ora solare Astrakhan | (UTC+04.00) Astrakhan, Ulyanovsk |
 | Ora solare Azerbaigian | (UTC+04.00) Baku |
 | Tempo di Russia Zona 3 | (UTC+04.00) Izhevsk, Samara |
 | Ora solare Mauritius | (UTC+04.00) Port Louis |
 | Ora solare Saratov | (UTC + 4.00 H) Saratov |
-| Ora solare Georgia | (UTC+04.00) Tbilisi |
+| Ora solare georgiano | (UTC+04.00) Tbilisi |
 | Ora solare Volgograd | (UTC + 4.00 H) Volgograd |
 | Ora solare Caucaso | (UTC+04.00) Erevan |
 | Ora solare Afghanistan | (UTC+04.30) Kabul |
@@ -197,7 +197,7 @@ L'utilizzo dello stesso fuso orario in un'istanza primaria e secondaria in un gr
 | Ora solare Bangladesh | (UTC+06.00) Dacca |
 | Ora solare Omsk | (UTC + 6.00 H) Omsk |
 | Ora solare Myanmar | (UTC+06.30) Yangon (Rangoon) |
-| Ora solare Asia sud-orientale | (UTC+07.00) Bangkok, Hanoi, Giacarta |
+| Ora solare Asia sud-est | (UTC+07.00) Bangkok, Hanoi, Giacarta |
 | Ora solare Altai | (UTC+07.00) Barnaul, Gorno-Altaysk |
 | W. Ora solare Mongolia | (UTC+07.00) Hovd |
 | Ora solare Asia settentrionale | (UTC+07.00) Krasnoyarsk |
@@ -208,7 +208,7 @@ L'utilizzo dello stesso fuso orario in un'istanza primaria e secondaria in un gr
 | Ora solare Singapore | (UTC+08.00) Kuala Lumpur, Singapore |
 | W. Ora solare Australia | (UTC+08.00) Perth |
 | Ora solare Taipei | (UTC+08.00) Taipei |
-| Ora solare Ulan-Bator | (UTC+08.00) Ulan-Bator |
+| Ora solare Ulaanbaatar | (UTC+08.00) Ulan-Bator |
 | Ora solare centrale aus | (UTC+08.45) Eucla |
 | Ora solare Transbaikal | (UTC+09.00) Chita |
 | Ora solare Tokyo | (UTC+09.00) Osaka, Sapporo, Tokyo |
@@ -216,7 +216,7 @@ L'utilizzo dello stesso fuso orario in un'istanza primaria e secondaria in un gr
 | Ora solare Corea | (UTC+09.00) Seoul |
 | Ora solare Yakutsk | (UTC+09.00) Yakutsk |
 | CEN. Ora solare Australia | (UTC+09.30) Adelaide |
-| Ora solare Australia centrale | (UTC+09.30) Darwin |
+| Ora solare centrale AUS | (UTC+09.30) Darwin |
 | E. Ora solare Australia | (UTC+10.00) Brisbane |
 | Ora solare Australia orientale | (UTC+10.00) Canberra, Melbourne, Sydney |
 | Ora solare Pacifico occidentale | (UTC+10.00) Guam, Port Moresby |
@@ -233,15 +233,15 @@ L'utilizzo dello stesso fuso orario in un'istanza primaria e secondaria in un gr
 | Ora solare Nuova Zelanda | (UTC+12.00) Auckland, Wellington |
 | UTC + 12 | (UTC+12.00) Coordinated Universal Time+12 |
 | Ora solare Figi | (UTC+12.00) Figi |
-| Ora solare Kamchatka | (UTC+12.00) Petropavlovsk-Kamčatskij - Vecchio |
+| Ora solare Kamcatka | (UTC+12.00) Petropavlovsk-Kamčatskij - Vecchio |
 | Ora solare Isole Chatham | (UTC+12.45) Isole Chatham |
 | UTC + 13 | (UTC + 13.00) Ora UTC (Coordinated Universal Time) + 13 |
 | Ora solare Tonga | (UTC+13.00) Nuku'alofa |
 | Ora solare Samoa | (UTC+13.00) Samoa |
-| Ora solare Isole Line | (UTC+14.00) Isola di Kiritimati |
+| Ora solare isole line | (UTC+14.00) Isola di Kiritimati |
 
 ## <a name="see-also"></a>Vedere anche 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [sys. time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

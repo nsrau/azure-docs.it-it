@@ -1,5 +1,5 @@
 ---
-title: Formato ORC in Azure Data Factory | Microsoft Docs
+title: Formato ORC in Azure Data Factory
 description: In questo argomento viene descritto come gestire il formato ORC in Azure Data Factory.
 author: linda33wj
 manager: craigg
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: beff81b7e8d207a2173497d039b915b7614fc30e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a5125b53d960ddead063435666de5b26ce0bc291
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952277"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674754"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC in Azure Data Factory
 
@@ -26,10 +26,10 @@ Il formato ORC è supportato per i connettori seguenti: [Amazon S3](connector-am
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati ORC.
 
-| Proprietà         | Description                                                  | Obbligatoria |
+| Proprietà         | Descrizione                                                  | Obbligatorio |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | La proprietà Type del set di dati deve essere impostata su **ORC**. | SÌ      |
-| location         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location`. **Per informazioni dettagliate, vedere l'articolo connettore-> sezione Proprietà set di dati**. | SÌ      |
+| type             | La proprietà Type del set di dati deve essere impostata su **ORC**. | Sì      |
+| location         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location`. **Per informazioni dettagliate, vedere l'articolo connettore-> sezione Proprietà set di dati**. | Sì      |
 
 Di seguito è riportato un esempio di set di dati ORC nell'archivio BLOB di Azure:
 
@@ -68,18 +68,18 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate nella sezione ***\*origine\**** dell'attività di copia.
 
-| Proprietà      | Description                                                  | Obbligatoria |
+| Proprietà      | Descrizione                                                  | Obbligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **OrcSource**. | SÌ      |
+| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **OrcSource**. | Sì      |
 | storeSettings | Un gruppo di proprietà su come leggere i dati da un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di lettura supportate in `storeSettings`. **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
 
 ### <a name="orc-as-sink"></a>ORCO come sink
 
 Le proprietà seguenti sono supportate nella sezione ***\*sink\**** dell'attività di copia.
 
-| Proprietà      | Description                                                  | Obbligatoria |
+| Proprietà      | Descrizione                                                  | Obbligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **OrcSink**. | SÌ      |
+| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **OrcSink**. | Sì      |
 | storeSettings | Gruppo di proprietà su come scrivere dati in un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di scrittura supportate in `storeSettings`. **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
 
 ## <a name="using-self-hosted-integration-runtime"></a>Uso di Integration Runtime self-hosted

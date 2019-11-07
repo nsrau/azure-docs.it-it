@@ -1,5 +1,5 @@
 ---
-title: Usare i modelli di Resource Manager in Data Factory | Microsoft Docs
+title: Usare modelli di Gestione risorse in Data Factory
 description: Informazioni su come creare e usare modelli di Azure Resource Manager per la creazione di entità di Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d2360efe71327f02d5cb7d16cb8141f47c304b0c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: d9ee060b7d1f7a443357c7116c01e8aaf972e666
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164686"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682532"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usare modelli per creare entità di Azure Data Factory
 > [!NOTE]
@@ -37,8 +37,8 @@ I [modelli di Azure Resource Manager](../../azure-resource-manager/template-depl
 ## <a name="tutorials"></a>Esercitazioni
 Per istruzioni dettagliate sulla creazione di entità di Data Factory tramite i modelli di Resource Manager, vedere le esercitazioni seguenti:
 
-* [Esercitazione: Create a pipeline to copy data by using Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md) (Esercitazione: Creare una pipeline per copiare dati usando il modello di Azure Resource Manager)
-* [Esercitazione: Create a pipeline to process data by using Azure Resource Manager template](data-factory-build-your-first-pipeline.md) (Esercitazione: Creare una pipeline per elaborare dati usando il modello di Azure Resource Manager)
+* [Tutorial: Create a pipeline to copy data by using Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md) (Esercitazione: Creare una pipeline per copiare dati usando il modello di Azure Resource Manager)
+* [Tutorial: Create a pipeline to process data by using Azure Resource Manager template](data-factory-build-your-first-pipeline.md) (Esercitazione: Creare una pipeline per elaborare dati usando il modello di Azure Resource Manager)
 
 ## <a name="data-factory-templates-on-github"></a>Modelli di data factory in GitHub
 Vedere i modelli di avvio rapido di Azure in GitHub elencati di seguito:
@@ -231,7 +231,7 @@ Per informazioni dettagliate sulle proprietà JSON per la definizione di attivit
 Per le procedure consigliate sull'uso dei parametri, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md). In generale l'utilizzo dei parametri deve essere ridotto al minimo, soprattutto se è possibile usare variabili anziché parametri. Specificare i parametri solo negli scenari seguenti:
 
 * Le impostazioni variano a seconda dell'ambiente, ad esempio di sviluppo, test e produzione
-* Segreti (password)
+* Segreti (ad esempio password)
 
 Se è necessario eseguire il pull di segreti dall'[Insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-overview.md) quando si distribuiscono entità di Azure Data Factory tramite modelli, specificare l'**insieme di credenziali delle chiavi** e il **nome del segreto** come illustrato nell'esempio seguente:
 

@@ -1,5 +1,5 @@
 ---
-title: Copia ripetibile in Azure Data Factory | Microsoft Docs
+title: Copia ripetibile in Azure Data Factory
 description: Informazioni su come evitare duplicati, anche se una sezione che copia i dati viene eseguita più volte.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 20c916275acd6bb79675c592711b17b277c9fc78
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e4264bb198a0c167e33f35958079b0523303d29d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60605202"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682383"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Copia ripetibile in Azure Data Factory
 

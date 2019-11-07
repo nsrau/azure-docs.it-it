@@ -1,7 +1,7 @@
 ---
 title: Tipo di entità semplice-LUIS
 titleSuffix: Azure Cognitive Services
-description: Un'entità semplice è un'entità generica che descrive un singolo concetto e che viene appresa dal contesto basato su Machine Learning. Poiché le entità semplici sono in genere nomi quali nomi di società, nomi di prodotti o altre categorie di nomi, aggiungere un elenco di frasi quando si usa un'entità semplice per aumentare il segnale dei nomi usati.
+description: Un'entità semplice descrive un singolo concetto dal contesto acquisito dal computer. Aggiungere un elenco di frasi quando si usa un'entità semplice per migliorare i risultati.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2eb3ff847f9bfc162adfb281d2ac1fad6f8c5093
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 27eb4d827c1488b0d051505e62286fd66d6a286b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695121"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671509"
 ---
 # <a name="simple-entity"></a>Entità semplice 
 
@@ -88,7 +88,7 @@ This is the JSON if `verbose=true` is set in the query string:
 
 * * * 
 
-|Oggetto dati|Nome dell'entità|Value|
+|Oggetto dati|Nome dell'entità|Valore|
 |--|--|--|
 |Entità semplice|`Customer`|`bob jones`|
 

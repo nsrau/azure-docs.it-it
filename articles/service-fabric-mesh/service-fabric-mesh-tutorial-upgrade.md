@@ -1,6 +1,6 @@
 ---
 title: "Esercitazione: Aggiornare un'applicazione Azure Service Fabric Mesh | Microsoft Docs"
-description: Informazioni su come aggiornare un'applicazione Service Fabric tramite Visual Studio
+description: Questa esercitazione è la quarta parte di una serie e mostra come aggiornare un'applicazione Azure Service Fabric Mesh direttamente da Visual Studio.
 services: service-fabric-mesh
 documentationcenter: .net
 author: dkkapur
@@ -14,12 +14,12 @@ ms.workload: NA
 ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 20aa65f0a8e47485e71fd03d73ff144f5290bcb7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 81f155d5708a2fca2fc1145feb20af12d2fd151e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036086"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686209"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Esercitazione: Informazioni su come aggiornare un'applicazione Service Fabric tramite Visual Studio
 
@@ -47,29 +47,29 @@ Prima di iniziare questa esercitazione:
 
 ## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Aggiornare un servizio Service Fabric Mesh tramite Visual Studio
 
-Questo articolo illustra come aggiornare un microservizio all'interno di un'applicazione. In questo esempio, si modificherà il `WebFrontEnd` servizio per visualizzare una categoria di attività e si aumenterà la quantità di CPU fornita. Verrà quindi eseguito l'aggiornamento del servizio distribuito.
+Questo articolo illustra come aggiornare un microservizio all'interno di un'applicazione. In questo esempio, si modificherà il servizio `WebFrontEnd` per visualizzare una categoria di attività e si aumenterà la quantità di CPU fornita. Verrà quindi eseguito l'aggiornamento del servizio distribuito.
 
 ## <a name="modify-the-config"></a>Modificare la configurazione
 
 Quando si crea un'app mesh Service Fabric, Visual Studio aggiunge un file **Parameters. YAML** per ogni ambiente di distribuzione (cloud e locale). In questi file è possibile definire i parametri e i relativi valori a cui è possibile fare riferimento dai file mesh *. YAML, ad esempio Service. YAML o Network. yaml.  Visual Studio fornisce alcune variabili, ad esempio la quantità di CPU che il servizio può usare.
 
-Il `WebFrontEnd_cpu` parametro verrà aggiornato in modo da aggiornare le `1.5` risorse della CPU in anticipo che il servizio WebFrontEnd verrà usato più frequentemente.
+Il parametro `WebFrontEnd_cpu` verrà aggiornato per aggiornare le risorse della CPU in modo da `1.5` in previsione che il servizio **WebFrontEnd** verrà usato più frequentemente.
 
-1. Nel progetto **todolistapp** , in **ambienti** > **cloud**, aprire il file **Parameters. YAML** . Modificare il `WebFrontEnd_cpu`valore di in `1.5`. Il nome del parametro è preceduto dal nome `WebFrontEnd_` del servizio come procedura consigliata per distinguerlo dai parametri con lo stesso nome che si applicano a servizi diversi.
+1. Nel progetto **todolistapp** , in **ambienti** > **cloud**, aprire il file **Parameters. YAML** . Modificare il valore di `WebFrontEnd_cpu`, `1.5`. Il nome del parametro è preceduto dal nome del servizio `WebFrontEnd_` come procedura consigliata per distinguerlo da parametri con lo stesso nome che si applicano a servizi diversi.
 
     ```xml
     WebFrontEnd_cpu: 1.5
     ```
 
-2. Aprire il file **Service. YAML** del progetto WebFrontEnd nelle**risorse del servizio**WebFrontEnd. > 
+2. Aprire il file **Service. YAML** del progetto **WebFrontEnd** in **WebFrontEnd** > **risorse del servizio**.
 
-    Si noti che la `resources:` `cpu:` sezione in è impostata su `"[parameters('WebFrontEnd_cpu')]"`. Se il progetto viene compilato per il cloud `'WebFrontEnd_cpu` , il valore per verrà ricavato dal file dei parametri del**cloud** >  **environments** >  **. YAML** e sarà `1.5`. Se è in corso la compilazione del progetto per l'esecuzione in locale, il valore viene ricavato dal file**local** > **Parameters. YAML** degli **ambienti** > e sarà "0,5".
+    Si noti che nella sezione `resources:` `cpu:` è impostata su `"[parameters('WebFrontEnd_cpu')]"`. Se il progetto viene compilato per il cloud, il valore per `'WebFrontEnd_cpu` verrà ricavato dal file **environments** > **cloud** > **parameters. YAML** e sarà `1.5`. Se il progetto viene compilato per l'esecuzione in locale, il valore verrà ricavato dagli **ambienti** > file **local** > **Parameters. YAML** e sarà "0,5".
 
 > [!Tip]
 > Per impostazione predefinita, il file dei parametri che è un peer del file profile. YAML verrà usato per fornire i valori per il file profile. yaml.
 > Ad esempio, environments > Cloud > Parameters. YAML fornisce i valori dei parametri per gli ambienti > Cloud > profile. yaml.
 >
-> Per eseguire l'override, è possibile aggiungere il codice seguente al file profile. YAML:`parametersFilePath=”relative or full path to the parameters file”` Ad esempio,  o `parametersFilePath=”..\CommonParameters.yaml”`
+> Per eseguire l'override, è possibile aggiungere il codice seguente al file profile. YAML:`parametersFilePath=”relative or full path to the parameters file”` ad esempio `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` o `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Modificare il modello
 
@@ -135,7 +135,7 @@ Se si esegue un aggiornamento del codice o un aggiornamento della configurazione
 
 Verrà quindi visualizzata la finestra di dialogo **Pubblica applicazione di Service Fabric**.
 
-Usare l'elenco a discesa **profilo di destinazione** per selezionare il file profile. YAML da usare per questa distribuzione. Si sta aggiornando l'app nel cloud, quindi si seleziona **cloud. YAML** nell'elenco a discesa, che userà il `WebFrontEnd_cpu` valore 1,0 definito in tale file.
+Usare l'elenco a discesa **profilo di destinazione** per selezionare il file profile. YAML da usare per questa distribuzione. Si sta aggiornando l'app nel cloud, quindi si seleziona il file **cloud. YAML** nell'elenco a discesa, che userà il valore `WebFrontEnd_cpu` di 1,0 definito in tale file.
 
 ![Finestra di dialogo per la pubblicazione del progetto Service Fabric Mesh in Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 

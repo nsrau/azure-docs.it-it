@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da SAP BW usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da SAP BW usando Azure Data Factory
 description: Informazioni su come copiare dati da SAP Business Warehouse in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: e53cb822d1100b3d13a96c9f86aee6db420e4bb1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: c2dbacc2fd7906aaf22447dfb39c543206f05392
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089600"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680292"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-sap-business-warehouse-connector.md)
 > * [Versione corrente](connector-sap-business-warehouse.md)
 
@@ -66,7 +66,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di SAP Business Warehouse (BW) sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **SapBw** | Sì |
 | server | Nome del server in cui si trova l'istanza di SAP BW. | Sì |
@@ -124,7 +124,7 @@ Per copiare dati da SAP BW, impostare la proprietà Type del set di dati su **Sa
 }
 ```
 
-Se si usa `RelationalTable` un set di dati tipizzato, è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
+Se si usa `RelationalTable` DataSet tipizzato, è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
@@ -134,9 +134,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da SAP BW, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **SapBwSource** | Yes |
+| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **SapBwSource** | Sì |
 | query | Specifica la query MDX che consente di leggere i dati dall'istanza di SAP BW. | Sì |
 
 **Esempio:**
@@ -171,7 +171,7 @@ Per copiare dati da SAP BW, nella sezione **origine** dell'attività di copia so
 ]
 ```
 
-Se si usa `RelationalSource` l'origine tipizzata, questo è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
+Se si usa `RelationalSource` origine tipizzata, questo è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
 
 ## <a name="data-type-mapping-for-sap-bw"></a>Mapping dei tipi di dati per SAP BW
 
@@ -197,7 +197,7 @@ Quando si copiano dati da SAP BW, vengono usati i mapping seguenti tra i tipi di
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | String |
-| UNIT | String |
+| UNITÀ | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |

@@ -1,5 +1,5 @@
 ---
-title: Creare un runtime di integrazione SSIS di Azure in Azure Data Factory | Microsoft Docs
+title: Creare un runtime di integrazione SSIS di Azure in Azure Data Factory
 description: Informazioni su come creare un runtime di integrazione Azure-SSIS in Azure Data Factory in modo da rendere possibile distribuire ed eseguire pacchetti SSIS in Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ddc91a3317d362f6b56e486556f2edf6cdb85131
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ce688248a205981f4a4c60ad01231c0b8f6bae3d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326688"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73677366"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione SSIS di Azure in Azure Data Factory
 
@@ -26,7 +26,7 @@ Questo articolo illustra la procedura per eseguire il provisioning di un runtime
 - Esecuzione di pacchetti distribuiti nel catalogo SSIS (SSISDB) ospitato da un server di database SQL di Azure o da un'istanza gestita (modello di distribuzione del progetto).
 - Esecuzione di pacchetti distribuiti in file System, condivisioni file o File di Azure (modello di distribuzione del pacchetto). 
 
-Al termine del provisioning di un Azure-SSIS IR, è possibile usare strumenti familiari per distribuire ed eseguire i pacchetti in Azure. Questi strumenti includono SQL Server Data Tools, SQL Server Management Studio e strumenti da riga di comando come `dtinstall`, `dtutil` e `dtexec`.
+Al termine del provisioning di un Azure-SSIS IR, è possibile usare strumenti familiari per distribuire ed eseguire i pacchetti in Azure. Questi strumenti includono SQL Server Data Tools, SQL Server Management Studio e strumenti da riga di comando come `dtinstall`, `dtutil`e `dtexec`.
 
 L'esercitazione sul [provisioning Azure-SSIS IR](tutorial-create-azure-ssis-runtime-portal.md) illustra come creare una Azure-SSIS IR tramite il portale di Azure o l'app data factory. L'esercitazione illustra anche come usare facoltativamente un server di database SQL di Azure o un'istanza gestita per ospitare SSISDB. Questo articolo espande l'esercitazione e descrive come eseguire queste attività facoltative:
 
@@ -43,7 +43,7 @@ Questo articolo illustra come effettuare il provisioning di un Azure-SSIS IR usa
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - **Sottoscrizione di Azure**. Se non si ha già una sottoscrizione, è possibile creare un account di [valutazione gratuito](https://azure.microsoft.com/pricing/free-trial/) .
-- **Server di database SQL di Azure o istanza gestita (facoltativo)** . Se non si ha ancora un server di database, crearne uno nel portale di Azure prima di iniziare. Data Factory creerà a sua volta un'istanza di SSISDB in questo server di database. 
+- **Server di database SQL di Azure o istanza gestita (facoltativo)** . Se non si ha già un server di database, crearne uno nel portale di Azure prima di iniziare. Data Factory creerà a sua volta un'istanza di SSISDB in questo server di database. 
 
   È consigliabile creare il server di database nella stessa area di Azure del runtime di integrazione. Questa configurazione consente al runtime di integrazione di scrivere i log di esecuzione in SSISDB senza attraversare aree di Azure.
 
@@ -82,7 +82,7 @@ La tabella seguente confronta determinate funzionalità di un server di database
 
 In questa sezione si usa il portale di Azure, in particolare l'interfaccia utente Data Factory o l'app, per creare un Azure-SSIS IR.
 
-### <a name="create-a-data-factory"></a>Creare una data factory
+### <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
 
 Per creare la data factory tramite il portale di Azure, seguire le istruzioni dettagliate riportate in [creare un data factory tramite l'interfaccia utente](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory). Selezionare **Aggiungi al dashboard** durante questa operazione per consentire l'accesso rapido dopo la relativa creazione. 
 
@@ -341,7 +341,7 @@ Se il gruppo di risorse esiste già, non copiare questo codice nello script.
 New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
 ```
 
-### <a name="create-a-data-factory"></a>Creare una data factory
+### <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
 
 Eseguire questo comando per creare una data factory.
 
@@ -355,11 +355,11 @@ Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 
 Eseguire questo comando per creare un runtime di integrazione SSIS di Azure che esegue i pacchetti SSIS in Azure.
 
-Se non si utilizza SSISDB, è possibile omettere i parametri `CatalogServerEndpoint`, `CatalogPricingTier` e `CatalogAdminCredential`.
+Se non si utilizza SSISDB, è possibile omettere i parametri `CatalogServerEndpoint`, `CatalogPricingTier`e `CatalogAdminCredential`.
 
 Se non si usa un server di database SQL di Azure con gli endpoint del servizio rete virtuale o un'istanza gestita con un endpoint privato per ospitare SSISDB o se è necessario l'accesso ai dati locali, è possibile omettere i parametri `VNetId` e `Subnet` o passare valori vuoti per li. È anche possibile ometterli se si configura il runtime di integrazione self-hosted come proxy per la Azure-SSIS IR per accedere ai dati in locale. In caso contrario, non sarà possibile ometterli e passare i valori validi dalla configurazione della rete virtuale. Per ulteriori informazioni, vedere [aggiungere un Azure-SSIS IR a una rete virtuale](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
-Se si utilizza un'istanza gestita per ospitare SSISDB, è possibile omettere il parametro `CatalogPricingTier` o passare un valore vuoto. In caso contrario, non è possibile ometterlo e passare un valore valido dall'elenco dei piani tariffari supportati per il database SQL di Azure. Per altre informazioni, vedere [limiti delle risorse del database SQL](../sql-database/sql-database-resource-limits.md).
+Se si utilizza un'istanza gestita per ospitare SSISDB, è possibile omettere il parametro `CatalogPricingTier` o passarvi un valore vuoto. In caso contrario, non è possibile ometterlo e passare un valore valido dall'elenco dei piani tariffari supportati per il database SQL di Azure. Per altre informazioni, vedere [limiti delle risorse del database SQL](../sql-database/sql-database-resource-limits.md).
 
 Se si utilizza Azure AD autenticazione con l'identità gestita per la data factory per la connessione al server di database, è possibile omettere il parametro `CatalogAdminCredential`. È tuttavia necessario aggiungere l'identità gestita per la data factory in un gruppo Azure AD con le autorizzazioni di accesso al server di database. Per ulteriori informazioni, vedere [abilitare l'autenticazione Azure ad per un Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). In caso contrario, non è possibile ometterlo e passare un oggetto valido formato dal nome utente dell'amministratore del server e dalla password per l'autenticazione SQL.
 
@@ -636,7 +636,7 @@ In questa sezione si userà un modello di Azure Resource Manager per creare il r
     }
     ```
 
-2. Per distribuire il modello di Azure Resource Manager, eseguire il comando `New-AzResourceGroupDeployment`, come illustrato nell'esempio seguente. Nell'esempio, `ADFTutorialResourceGroup` è il nome del gruppo di risorse. `ADFTutorialARM.json` è il file che contiene la definizione JSON per il data factory e il Azure-SSIS IR.
+2. Per distribuire il modello di Azure Resource Manager, eseguire il comando `New-AzResourceGroupDeployment`, come illustrato nell'esempio seguente. Nell'esempio `ADFTutorialResourceGroup` è il nome del gruppo di risorse. `ADFTutorialARM.json` è il file che contiene la definizione JSON per il data factory e il Azure-SSIS IR.
 
     ```powershell
     New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
@@ -664,11 +664,11 @@ In questa sezione si userà un modello di Azure Resource Manager per creare il r
 
 Se si utilizza SSISDB, è possibile distribuirvi i pacchetti ed eseguirli nel Azure-SSIS IR utilizzando SQL Server Data Tools o SQL Server Management Studio strumenti. Questi strumenti si connettono al server di database tramite l'endpoint server: 
 
-- Per un server di database SQL di Azure con un endpoint privato, il formato dell'endpoint server è `<server name>.database.windows.net`.
-- Per un'istanza gestita con un endpoint privato, il formato dell'endpoint server è `<server name>.<dns prefix>.database.windows.net`.
+- Per un server di database SQL di Azure con un endpoint privato, viene `<server name>.database.windows.net`il formato dell'endpoint server.
+- Per un'istanza gestita con un endpoint privato, viene `<server name>.<dns prefix>.database.windows.net`il formato dell'endpoint server.
 - Per un'istanza gestita con un endpoint pubblico, il formato dell'endpoint server è `<server name>.public.<dns prefix>.database.windows.net,3342`. 
 
-Se non si utilizza SSISDB, è possibile distribuire i pacchetti in file System, condivisioni file o File di Azure. È quindi possibile eseguirli nel Azure-SSIS IR usando gli strumenti da riga di comando `dtinstall`, `dtutil` e `dtexec`. Per altre informazioni, vedere [Distribuire pacchetti SSIS](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server). 
+Se non si utilizza SSISDB, è possibile distribuire i pacchetti in file System, condivisioni file o File di Azure. È quindi possibile eseguirli nel Azure-SSIS IR usando gli strumenti da riga di comando `dtinstall`, `dtutil`e `dtexec`. Per altre informazioni, vedere [Distribuire pacchetti SSIS](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server). 
 
 In entrambi i casi, è anche possibile eseguire i pacchetti distribuiti nel Azure-SSIS IR usando l'attività Esegui pacchetto SSIS in pipeline Data Factory. Per altre informazioni, vedere [richiamare l'esecuzione del pacchetto SSIS come attività di data factory di primo livello](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
 

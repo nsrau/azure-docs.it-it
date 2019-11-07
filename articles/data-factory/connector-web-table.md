@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da Tabella Web usando Azure Data Factory | Documentazione Microsoft
+title: Copiare dati da una tabella Web usando Azure Data Factory
 description: Informazioni sul connettore Tabella Web del servizio Azure Data Factory, che consente di copiare dati da una tabella Web in archivi dati supportati da Data Factory come sink.
 services: data-factory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 164b61d624efbe1ed6127f1ed974b221f4e4d304
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: a13f3c2d2bbebd2cd6fa95bd7aa144722447ac9d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089159"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680052"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiare dati da Tabella Web usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-web-table-connector.md)
 > * [Versione corrente](connector-web-table.md)
 
@@ -57,11 +57,11 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Tabella Web sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Web** |Yes |
-| url | URL dell'origine Web |Sì |
-| authenticationType | Il valore consentito è: **Anonymous**. |Yes |
+| type | La proprietà type deve essere impostata su: **Web** |Sì |
+| URL | URL dell'origine Web |Sì |
+| authenticationType | Il valore consentito è: **Anonima**. |Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
 
 **Esempio:**
@@ -89,7 +89,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Tabella Web, impostare la proprietà type del set di dati su **WebTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **WebTable** | Sì |
 | path |URL relativo della risorsa che contiene la tabella. |No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
@@ -162,7 +162,7 @@ Per ottenere l'indice di una tabella che è necessario configurare nelle [propri
 2. Fare clic su **Nuova query** sulla barra degli strumenti, scegliere **Da altre origini** e fare clic su **Da Web**.
 
     ![Menu di Power Query](./media/copy-data-from-web-table/PowerQuery-Menu.png)
-3. Nella finestra di dialogo **Da Web** immettere l'**URL** che si intende usare nel codice JSON del servizio collegato (ad esempio, https://en.wikipedia.org/wiki/) insieme al percorso specificato per il set di dati (ad esempio, AFI%27s_100_Years...100_Movies) e fare clic su **OK**.
+3. Nella finestra di dialogo **Da Web** immettere l'**URL** che si intende usare nel servizio collegato JSON, ad esempio https://en.wikipedia.org/wiki/), insieme al percorso specificato per il set di dati, ad esempio AFI%27s_100_Years...100_Movies e fare clic su **OK**.
 
     ![Finestra di dialogo Da Web](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 

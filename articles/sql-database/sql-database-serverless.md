@@ -1,5 +1,5 @@
 ---
-title: Database SQL di Azure senza server | Microsoft Docs
+title: Database SQL di Azure serverless
 description: Questo articolo descrive il nuovo livello di calcolo serverless e lo confronta con il livello di calcolo con provisioning esistente
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: e8629baa3487795349844229b26d80321c1316ee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fcd79182e046d94f9e67acecebd5cf6a45f2706f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496255"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687395"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure serverless
 
@@ -174,8 +174,6 @@ La creazione di un nuovo database o lo trasferimento di un database esistente in
    |Min vcore|Dipende dal numero massimo di Vcore configurati. vedere [limiti delle risorse](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0,5 vCore|
    |Ritardo di sospensione automatica|Minimo: 60 minuti (1 ora)<br>Massimo: 10080 minuti (7 giorni)<br>Incrementi: 60 minuti<br>Disabilita la sospensione automatica: -1|60 minuti|
 
-> [!NOTE]
-> L'uso di T-SQL per spostare un database esistente in un database serverless o modificarne le dimensioni di calcolo non è attualmente supportato, ma è possibile effettuare queste operazioni tramite il portale di Azure o PowerShell.
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Crea nuovo database nel livello di calcolo senza server 
 
@@ -200,6 +198,17 @@ New-AzSqlDatabase `
   -AutoPauseDelayInMinutes 720
 ```
 
+#### <a name="use-transact-sql-t-sql"></a>Usare Transact-SQL (T-SQL)
+
+Nell'esempio seguente viene creato un nuovo database nel livello di calcolo senza server.
+
+```sql
+CREATE DATABASE testdb
+( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
+```
+
+Per informazioni dettagliate, vedere [create database](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
+
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Spostare il database dal livello di calcolo di cui è stato effettuato il provisioning nel livello di calcolo senza server
 
 #### <a name="use-powershell"></a>Usare PowerShell
@@ -218,6 +227,17 @@ Set-AzSqlDatabase `
   -MaxVcore 4 `
   -AutoPauseDelayInMinutes 1440
 ```
+
+#### <a name="use-transact-sql-t-sql"></a>Usare Transact-SQL (T-SQL)
+
+L'esempio seguente sposta un database dal livello di calcolo di cui è stato effettuato il provisioning nel livello di calcolo senza server. 
+
+```sql
+ALTER DATABASE testdb 
+MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
+```
+
+Per informazioni dettagliate, vedere [ALTER database](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
 
 ### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>Spostare il database dal livello di calcolo senza server al livello di calcolo con provisioning
 
@@ -323,6 +343,10 @@ Più precisamente, la fattura di calcolo in questo esempio viene calcolata come 
 |Totale vCore secondi fatturati per 24 ore||||50400 vCore secondi|
 
 Si supponga che il prezzo delle unità di calcolo sia $0,000073/vCore/secondo.  Il calcolo fatturato per questo periodo di 24 ore è il prodotto del prezzo unitario di calcolo e vCore secondi fatturati: $0.000073/vCore/secondo * 50400 vCore secondi = $3,68
+
+### <a name="azure-hybrid-benefit-and-reserved-capacity"></a>Vantaggio Azure Hybrid e capacità riservata
+
+Vantaggio Azure Hybrid (vantaggio Azure Hybrid) e gli sconti di capacità riservata non si applicano al livello di calcolo senza server.
 
 ## <a name="available-regions"></a>Aree disponibili
 

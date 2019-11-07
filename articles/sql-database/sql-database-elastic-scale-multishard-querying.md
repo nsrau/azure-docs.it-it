@@ -1,5 +1,5 @@
 ---
-title: Eseguire query su database SQL di Azure partizionati | Documentazione Microsoft
+title: Eseguire query su database SQL di Azure partizionati
 description: Eseguire query tra partizioni utilizzando la libreria client dei database elastici.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 471af9e1bc699ccaa8bc930ab930d6d40bbdc984
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 108da61323f61b009fbfdedac4cd345c6b87a7be
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568363"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690173"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Esecuzione di query su più partizioni tramite strumenti di database elastici
 
@@ -66,6 +66,6 @@ Un'attuale limitazione delle query su più partizioni è la mancanza di convalid
 
 ## <a name="multi-shard-queries-and-split-merge-operations"></a>Query su più partizioni e operazioni di suddivisione e unione
 
-Le query su più partizioni non verificano se gli shardlet presenti nel database interrogato sono oggetto di operazioni di divisione/unione in corso. Vedere [Scaling using the Elastic Database split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md) (Ridimensionamento con lo strumento di divisione e unione del database elastico). Questo può causare incoerenze se righe dello stesso shardlet compaiono per più database nella stessa query su più partizioni. Tenere presente queste limitazioni e completare le operazioni di suddivisione-unione in corso e le modifiche alla mappa partizioni prima dell'esecuzione di query su più partizioni.
+Le query su più partizioni non verificano se gli shardlet presenti nel database interrogato sono oggetto di operazioni di divisione/unione in corso. (Vedere [ridimensionamento con lo strumento di suddivisione-unione dei database elastici](sql-database-elastic-scale-overview-split-and-merge.md)). Questo può causare incoerenze laddove le righe dello stesso shardlet vengono visualizzate per più database nella stessa query su più partizioni. Tenere presente queste limitazioni e completare le operazioni di suddivisione-unione in corso e le modifiche alla mappa partizioni prima dell'esecuzione di query su più partizioni.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

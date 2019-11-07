@@ -1,5 +1,5 @@
 ---
-title: Gestire i dati cronologici nelle tabelle temporali con criteri di conservazione | Microsoft Docs
+title: Gestire i dati cronologici nelle tabelle temporali con criteri di conservazione
 description: Informazioni su come usare criteri di conservazione temporale per tenere sotto controllo i dati cronologici.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: 72022510676548fad79031d4334a2c95571fc16d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2568f3be96604856d5353f7f5f94926162880bfd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566382"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687006"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gestire i dati cronologici nelle tabelle temporali con criteri di conservazione
 
@@ -116,11 +116,11 @@ Un'ottima compressione dei dati e un'efficace pulizia per la conservazione fanno
 
 L'attività di pulizia per le tabelle con indice rowstore in cluster richiede che l'indice inizi con la colonna che corrisponde alla fine del periodo SYSTEM_TIME. Se questa colonna non esiste, non è possibile configurare un periodo di conservazione finito:
 
-*Msg 13765, Level 16, State 1 <br></br> L'impostazione del periodo di conservazione definito ha avuto esito negativo nella tabella temporale con controllo delle versioni del sistema 'temporalstagetestdb.dbo.WebsiteUserInfo' perché la tabella di cronologia 'temporalstagetestdb.dbo.WebsiteUserInfoHistory' non contiene l'indice in cluster richiesto. È consigliabile creare un columnstore cluster o indice B-tree a partire dalla colonna che corrisponde alla fine del periodo SYSTEM_TIME nella tabella di cronologia.*
+*Messaggio 13765, livello 16, stato 1 <br></br> l'impostazione del periodo di conservazione finito sulla tabella temporale ' temporalstagetestdb. dbo. WebsiteUserInfo ' con controllo delle versioni di sistema non riuscita perché la tabella di cronologia ' temporalstagetestdb. dbo. WebsiteUserInfoHistory ' non contiene l'indice cluster richiesto. Provare a creare un indice columnstore cluster o albero B a partire dalla colonna che corrisponde alla fine del periodo SYSTEM_TIME nella tabella di cronologia.*
 
 È importante notare che la tabella di cronologia predefinito già creata dal database SQL di Azure dispone già dell'indice in cluster, che è conforme a criteri di conservazione. Se si tenta di rimuovere l'indice in una tabella con periodo di conservazione definito, l'operazione ha esito negativo con l'errore seguente:
 
-*Msg 13766, Level 16, State 1 <br></br> Impossibile eliminare l'indice cluster 'WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory' perché è usato per la pulizia automatica dei dati obsoleti. Si consiglia di impostare HISTORY_RETENTION_PERIOD su INFINITE nella corrispondente tabella temporale con controllo delle versioni del sistema se è necessario eliminare l'indice.*
+*Messaggio 13766, livello 16, stato 1 <br></br> non è possibile eliminare l'indice cluster ' WebsiteUserInfoHistory. IX_WebsiteUserInfoHistory ' perché è usato per la pulizia automatica dei dati obsoleti. Se è necessario eliminare l'indice, è consigliabile impostare HISTORY_RETENTION_PERIOD su infinite nella tabella temporale con controllo delle versioni di sistema corrispondente.*
 
 La pulizia dell'indice columnstore in cluster funziona in modo ottimale se vengono inserite righe cronologiche in ordine crescente (ordinate in base alla fine della colonna del periodo); questo viene sempre applicato quando la tabella di cronologia viene popolata esclusivamente dal meccanismo SYSTEM_VERSIONIOING. Se le righe della tabella di cronologia non sono ordinate in base alla fine della colonna del periodo (ad esempio in caso di migrazione dei dati cronologici esistenti), è necessario ricreare un indice columnstore in cluster sull'indice rowstore B-tree ordinato in modo corretto, per ottenere prestazioni ottimali.
 

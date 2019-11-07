@@ -1,5 +1,5 @@
 ---
-title: Unità di data warehouse (DWU, Cdwu) in Azure sinapsi Analytics (in precedenza SQL DW) | Microsoft Docs
+title: Unità di data warehouse (DWU, Cdwu) in Azure sinapsi Analytics (in precedenza SQL DW)
 description: Raccomandazioni per la scelta del numero ideale di unità Data Warehouse (DWU, DWU a elevato utilizzo di calcolo) per ottimizzare prezzo e prestazioni e per come modificarne il numero.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,13 +10,13 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-mscustom: sqlfreshmay19
-ms.openlocfilehash: 32e75b78b8a5c304fc65a9c20d16fb85b4f8307b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f3415522a6ae80723500ba2d38867322fdef0dd7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475754"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685337"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unità Data Warehouse (DWU) e DWU a elevato utilizzo di calcolo (cDWU)
 
@@ -124,11 +124,11 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 Per modificare DWU o DWU a elevato utilizzo di calcolo:
 
-1. Aprire il [portale di Azure](https://portal.azure.com), aprire il database e quindi fare clic su **Ridimensiona**.
+1. Aprire il [portale di Azure](https://portal.azure.com), aprire il database e fare clic su **Scala**.
 
 2. In **Ridimensiona** spostare il dispositivo di scorrimento verso sinistra o destra per modificare l'impostazione delle DWU.
 
-3. Fare clic su **Salva** Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
+3. Fare clic su **Save**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -149,7 +149,7 @@ Con T-SQL è possibile visualizzare le impostazioni correnti per DWU o DWU a ele
 Per modificare le unità DWU o DWU a elevato utilizzo di calcolo:
 
 1. Connettersi al database master associato al server di database SQL logico.
-2. Usare l'istruzione T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW.
+2. Usare l'istruzione TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) . L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -215,4 +215,4 @@ Quando si avvia un'operazione di ridimensionamento, il sistema prima interrompe 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla gestione delle prestazioni, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md) e [Limiti di memoria e concorrenza](memory-and-concurrency-limits.md).
+Per altre informazioni sulla gestione delle prestazioni, vedere [classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md) e [limiti di memoria e concorrenza] memoria-concorrenza-limits.MD).

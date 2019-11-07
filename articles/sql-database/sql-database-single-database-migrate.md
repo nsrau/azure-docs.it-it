@@ -1,5 +1,5 @@
 ---
-title: Migrazione di un database SQL Server a un database singolo/in pool nel database SQL di Azure | Microsoft Docs
+title: SQL Server la migrazione di database a un database singolo o in pool nel database SQL di Azure
 description: Informazioni sulla migrazione del database SQL Server a un databsase singolo o a un pool elastico nel database SQL di Azure.
 keywords: migrazione di database, migrazione di database sql server, strumenti di migrazione del database, eseguire la migrazione di database, eseguire la migrazione di database sql
 services: sql-database
@@ -12,16 +12,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: a156d73c7eedcbdf7c703b946a26d46ca9129632
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67030d14670ccc51c89a04863f8b39ab6a9bb183
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566609"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687191"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migrazione di un database SQL Server al database SQL di Azure
 
-Questo articolo illustra i metodi principali per eseguire la migrazione di un database SQL Server 2005 o versione successiva a un database SQL di Azure singolo o in pool. Per informazioni sulla migrazione a Istanza gestita, vedere [Migrazione di istanze di SQL Server a Istanza gestita di database SQL di Azure](sql-database-managed-instance-migrate.md). Per informazioni sulla migrazione da altre piattaforme, vedere [Guida alla migrazione di database di Azure](https://datamigration.microsoft.com/).
+Questo articolo illustra i metodi principali per eseguire la migrazione di un database SQL Server 2005 o versione successiva a un database SQL di Azure singolo o in pool. Per informazioni sulla migrazione a Istanza gestita, vedere [Migrazione di istanze di SQL Server a Istanza gestita di database SQL di Azure](sql-database-managed-instance-migrate.md). Per informazioni sulla migrazione da altre piattaforme, vedere [Azure Database Migration Guide](https://datamigration.microsoft.com/) (Guida alla migrazione di database di Azure).
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Eseguire la migrazione a un database singolo o in pool
 
@@ -44,7 +44,7 @@ L'elenco seguente illustra un flusso di lavoro generico per eseguire la migrazio
 2. Preparare eventuali correzioni necessarie come script Transact-SQL.
 3. Creare una copia coerente a livello di transazione del database di origine di cui si esegue la migrazione o interrompere le nuove transazioni nel database di origine mentre è in corso la migrazione. Per questa seconda opzione è possibile disabilitare la connettività client o creare uno [snapshot del database](https://msdn.microsoft.com/library/ms175876.aspx). Dopo la migrazione, è possibile usare la replica transazionale per aggiornare i database migrati con le modifiche apportate dopo il punto limite definito per la migrazione. Vedere [Usare la replica transazionale](sql-database-single-database-migrate.md#method-2-use-transactional-replication).  
 4. Distribuire gli script Transact-SQL per applicare le correzioni alla copia del database.
-5. [Eseguire la migrazione](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) della copia del database in un nuovo database SQL di Microsoft Azure tramite Data Migration Assistant.
+5. [Eseguire la migrazione](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) della copia del database in un nuovo database SQL di Azure tramite Data Migration Assistant.
 
 > [!NOTE]
 > Anziché Data Migration Assistant, è possibile usare un file BACPAC. Vedere [Importare un file BACPAC in un nuovo database SQL di Azure](sql-database-import.md).
@@ -106,7 +106,7 @@ Suggerimenti e differenze per la migrazione al database SQL
 
 Esiste una vasta gamma di problemi di compatibilità che possono verificarsi, a seconda della versione del server SQL del database di origine e della complessità del database verso cui si esegue la migrazione. Le versioni precedenti di SQL Server presentano più problemi di compatibilità. Oltre a una ricerca mirata su Internet tramite i propri motori di ricerca preferiti, si consiglia di usare le risorse seguenti:
 
-- [Funzionalità del database di SQL Server non supportate nel database SQL di Microsoft Azure](sql-database-transact-sql-information.md)
+- [Funzionalità del database di SQL Server non supportate nel database SQL di Azure](sql-database-transact-sql-information.md)
 - [Funzionalità del motore di database sospese in SQL Server 2016](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
 - [Funzionalità del motore di database sospese in SQL Server 2014](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
 - [Funzionalità del motore di database sospese in SQL Server 2012](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)

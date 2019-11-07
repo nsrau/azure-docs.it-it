@@ -1,5 +1,5 @@
 ---
-title: Gestire la conservazione dei backup a lungo termine del database SQL di Azure | Microsoft Docs
+title: 'Gestire la conservazione a lungo termine dei backup del database SQL di Azure '
 description: Informazioni su come archiviare i backup automatizzati nella risorsa di archiviazione di SQL Azure e quindi ripristinarli
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 08/21/2019
-ms.openlocfilehash: b90e364442e46269fc949ef4aecd9a756cff5595
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 32eb021ecd584e0b1b734abb236f383a32b79131
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904629"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689543"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gestire la conservazione a lungo termine dei backup del database SQL di Azure
 
@@ -61,7 +61,7 @@ Visualizzare i backup conservati per un database specifico con i criteri di cons
 
 4. Selezionare il backup da cui si vuole eseguire il ripristino e quindi specificare il nome del nuovo database.
 
-   ![ripristino](./media/sql-database-long-term-retention/ltr-restore.png)
+   ![ripristinare](./media/sql-database-long-term-retention/ltr-restore.png)
 
 5. Fare clic su **OK** per ripristinare nel nuovo database il database dal backup presente nella risorsa di archiviazione di Azure SQL.
 

@@ -1,5 +1,5 @@
 ---
-title: Creare una rete virtuale per Istanza gestita di database SQL di Azure | Microsoft Docs
+title: Creare una rete virtuale per Istanza gestita di database SQL di Azure
 description: Questo articolo descrive come creare una rete virtuale in cui è possibile distribuire Istanza gestita di database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
-ms.openlocfilehash: 2fd4055f1a2ec7b5b29d1a303f1c9ac3260f4cca
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ae18671000a2bfd3bedef7805ba5db964fe0cf95
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958485"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688163"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Creare una rete virtuale per Istanza gestita di database SQL di Azure
 
@@ -45,7 +45,7 @@ Il modo più semplice per creare e configurare una rete virtuale è quello di us
 
 2. Selezionare il pulsante **Distribuisci in Azure**:
 
-   <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="https://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+   <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"><img src="https://azuredeploy.net/deploybutton.png" data-linktype="external"></a>
 
    Questo pulsante apre un modulo che è possibile usare per configurare l'ambiente di rete in cui distribuire Istanza gestita.
 

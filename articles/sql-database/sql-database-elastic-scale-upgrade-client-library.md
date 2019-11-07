@@ -1,5 +1,5 @@
 ---
-title: Eseguire l'aggiornamento alla libreria client dei database elastici | Documentazione Microsoft
+title: Eseguire l'aggiornamento alla libreria client dei database elastici più recente
 description: Usare NuGet per aggiornare la libreria client dei database elastici.
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 286fa60fef8de5240fb2ccd0f14ced0c4e38ff73
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: acf722268ae7ea5c8b444467f0b5c658d919096c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981362"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690121"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Aggiornare un'app in modo da usare la libreria client dei database elastici più recente
 
 Le nuove versioni della [libreria client dei database elastici](sql-database-elastic-database-client-library.md) sono disponibili tramite NuGet e l'interfaccia di gestione pacchetti NuGet in Visual Studio. Gli aggiornamenti contengono correzioni di bug e supporto delle nuove funzionalità della libreria client.
 
-**Per la versione più recente:** passare a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+**Per la versione più recente** , passare a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 Ricompilare l'applicazione con la nuova libreria e modificare i metadati Shard Map Manager esistenti archiviati nei database SQL di Azure in modo che supportino le nuove funzionalità.
 
@@ -38,11 +38,11 @@ Seguendo l'ordine di questi passaggi è possibile essere sicuri che le versioni 
 * (Visual Studio 2017) Nella parte superiore della finestra di dialogo selezionare **Aggiornamenti**. Selezionare il pacchetto da aggiornare, e fare clic sul pulsante **Aggiorna** .
 * Compilare e distribuire.
 
-**2. Aggiornare gli script.** Se si usano script **PowerShell** per gestire le partizioni, [scaricare la nuova versione della libreria](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) e copiarla nella directory da cui vengono eseguiti gli script.
+**2. aggiornare gli script.** Se si usano script **PowerShell** per gestire le partizioni, [scaricare la nuova versione della libreria](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) e copiarla nella directory da cui vengono eseguiti gli script.
 
-**3. Aggiornare il servizio di divisione e unione.** Se si usa il servizio di divisione e unione di scalabilità elastica per riorganizzare i dati delle partizioni, [scaricare e distribuire la versione più recente dello strumento](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). I passaggi dettagliati dell'aggiornamento per il servizio sono disponibili [qui](sql-database-elastic-scale-overview-split-and-merge.md).
+**3. aggiornare il servizio di suddivisione-Unione.** Se si usa il servizio di divisione e unione di scalabilità elastica per riorganizzare i dati delle partizioni, [scaricare e distribuire la versione più recente dello strumento](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). I passaggi dettagliati dell'aggiornamento per il servizio sono disponibili [qui](sql-database-elastic-scale-overview-split-and-merge.md).
 
-**4. Aggiornare i database di Gestore mappe partizioni**. Aggiornare i metadati che supportano le mappe delle partizioni nel database SQL di Azure.  Esistono due modi per eseguire questa operazione, tramite PowerShell o C#. Entrambe le opzioni sono mostrate di seguito.
+**4. aggiornare i database di gestione delle mappe**partizioni. Aggiornare i metadati che supportano le mappe delle partizioni nel database SQL di Azure.  Esistono due modi per eseguire questa operazione, tramite PowerShell o C#. Entrambe le opzioni sono mostrate di seguito.
 
 ***Opzione 1: aggiornare i metadati tramite PowerShell***
 
@@ -69,7 +69,7 @@ In alternativa, creare un'applicazione Visual Studio che apre ShardMapManager, s
 
 Tali tecniche di aggiornamento dei metadati possono essere applicate più volte senza creare problemi. Se, ad esempio, una versione client precedente crea inavvertitamente una partizione dopo che è già stato eseguito l'aggiornamento, è possibile eseguire nuovamente l'aggiornamento in tutte le partizioni per garantire che nell'infrastruttura sia presente la versione dei metadati più aggiornata.
 
-**Nota:**  le nuove versioni della libreria client pubblicate fino a oggi continuano a funzionare con le versioni precedenti dei metadati di Gestore mappe partizioni sul database SQL di Azure e viceversa.   Tuttavia, per sfruttare alcune delle nuove funzionalità nel client più recente, è necessario aggiornare i metadati.   Tenere presente che gli aggiornamenti dei metadati non influiscono sui dati utente o sui dati specifici dell'applicazione, solo gli oggetti creati e utilizzati da Gestore mappe partizioni.  E le applicazioni continuano a funzionare nel corso della sequenza di aggiornamento descritta in precedenza.
+**Nota:** le nuove versioni della libreria client pubblicate fino a oggi continuano a funzionare con le versioni precedenti dei metadati di Gestore mappe partizioni sul database SQL di Azure e viceversa.   Tuttavia, per sfruttare alcune delle nuove funzionalità nel client più recente, è necessario aggiornare i metadati.   Tenere presente che gli aggiornamenti dei metadati non influiscono sui dati utente o sui dati specifici dell'applicazione, solo gli oggetti creati e utilizzati da Gestore mappe partizioni.  E le applicazioni continuano a funzionare nel corso della sequenza di aggiornamento descritta in precedenza.
 
 ## <a name="elastic-database-client-version-history"></a>Cronologia delle versioni del client di database elastico
 

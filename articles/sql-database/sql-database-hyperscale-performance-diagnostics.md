@@ -1,5 +1,5 @@
 ---
-title: Database SQL di Azure-diagnostica delle prestazioni nel livello di servizio iperscalabile | Microsoft Docs
+title: Database SQL di Azure-diagnostica delle prestazioni nel livello di servizio di iperscalabilità
 description: Questo articolo descrive come risolvere i problemi di prestazioni di iperscalabilità nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: fa8b02cf5ee6f24bcc77aae057f41842da721981
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b8acdbc63098ae99355e8874f7c1585759e5fb7f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521143"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689857"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnostica per la risoluzione dei problemi delle prestazioni di scalabilità SQL
 

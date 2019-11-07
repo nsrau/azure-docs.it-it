@@ -1,5 +1,5 @@
 ---
-title: Copia i file nuovi e modificati da LastModifiedDate con Azure Data Factory | Microsoft Docs
+title: Copia i file nuovi e modificati da LastModifiedDate con Azure Data Factory
 description: Informazioni su come usare un modello di soluzione per copiare file nuovi e modificati da LastModifiedDate con Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
-ms.openlocfilehash: a2a8f0478d1ae4fb19cb911b02572145ff59839b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: aaa7114113d5f0330d2dc7d656b0d91963931512
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030066"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684224"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copia i file nuovi e modificati da LastModifiedDate con Azure Data Factory
 
@@ -61,7 +61,7 @@ Il modello definisce quattro parametri:
 
 6. Selezionare **debug**, scrivere il valore per i **parametri** e fare clic su **fine**.  Nell'immagine seguente vengono impostati i parametri come segue.
    - **FolderPath_Source** =  **/source/**
-   - **FolderPath_Destination** =  **/destination/**
+   - **FolderPath_Destination** =  **/Destination/**
    - **LastModified_From** =  **2019-02-01T00:00:00Z**
    - **LastModified_To** = **2019-03-01T00:00:00Z**
     

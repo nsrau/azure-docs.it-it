@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 31d7299b0c14b35aad7a29c875630d8a7fa4827e
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: d8d5ecd64ba689dc9cce342513702d8359038162
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200597"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682264"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Pianificazione della capacità per cluster HDInsight
 
@@ -31,13 +31,13 @@ Di seguito sono elencate alcune domande che consentono di pianificare correttame
 
 L'area di Azure determina il luogo in cui viene fisicamente eseguito il provisioning del cluster. Per ridurre al minimo la latenza di lettura e scrittura, è opportuno che il cluster si trovi vicino ai dati.
 
-HDInsight è disponibile in molte aree di Azure. Per trovare l'area più vicina, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=hdinsight/).
+HDInsight è disponibile in molte aree di Azure. Per trovare l'area più vicina, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=hdinsight).
 
 ## <a name="choose-storage-location-and-size"></a>Scegliere le dimensioni e la posizione di archiviazione
 
 ### <a name="location-of-default-storage"></a>Posizione della risorsa di archiviazione predefinita
 
-La risorsa di archiviazione predefinita, che può essere un account di Archiviazione di Azure o Azure Data Lake Storage, deve trovarsi nella stessa posizione del cluster. Archiviazione di Azure è disponibile in tutte le posizioni, Data Lake Storage Gen1 è disponibile in alcune aree, vedere la [disponibilità del data Lake storage](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage)corrente.
+La risorsa di archiviazione predefinita, che può essere un account di Archiviazione di Azure o Azure Data Lake Storage, deve trovarsi nella stessa posizione del cluster. Archiviazione di Azure è disponibile in tutte le posizioni, Data Lake Storage Gen1 è disponibile in alcune aree, vedere la [disponibilità del data Lake storage](https://azure.microsoft.com/global-infrastructure/services/?products=storage)corrente.
 
 ### <a name="location-of-existing-data"></a>Posizione dei dati esistenti
 
