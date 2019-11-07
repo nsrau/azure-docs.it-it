@@ -1,24 +1,25 @@
 ---
-title: Scheda di riferimento rapido per Azure SQL Data Warehouse | Microsoft Docs
-description: Collegamenti e procedure consigliate per compilare rapidamente soluzioni Azure SQL Data Warehouse.
+title: Scheda di riferimento rapido per Azure Synapse Analytics (in precedenza SQL Data Warehouse) | Microsoft Docs
+description: Collegamenti e procedure consigliate per compilare rapidamente soluzioni Azure Synapse Analytics (in precedenza SQL Data Warehouse).
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 08/23/2019
+ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1bbb0148e6f4be2afc777960afcda9c727328206
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: be5e8952ddfc6cb831b87f880bc281d6ceb2ba3d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195070"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492274"
 ---
-# <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Scheda di riferimento rapido per Azure SQL Data Warehouse
-Questa scheda di riferimento fornisce suggerimenti utili e procedure consigliate per creare rapidamente soluzioni Azure SQL Data Warehouse. Prima di iniziare, ottenere altre informazioni dettagliate su ogni passaggio leggendo [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns (Modelli e anti-modelli del carico di lavoro di Azure SQL Data Warehouse)](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns), che spiega cos'è e cosa non è SQL Data Warehouse.
+# <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Scheda di riferimento rapido per Azure Synapse Analytics (in precedenza SQL Data Warehouse)
+
+Questa scheda di riferimento fornisce suggerimenti utili e procedure consigliate per creare rapidamente soluzioni Azure Synapse. 
 
 Il grafico seguente illustra il processo di ideazione di un data warehouse:
 
@@ -35,7 +36,7 @@ Conoscere in anticipo il tipo di operazioni consente di ottimizzare la progettaz
 
 ## <a name="data-migration"></a>Migrazione dei dati
 
-Prima di tutto, caricare i dati in [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) o in archiviazione BLOB di Azure. Quindi usare PolyBase per caricare i dati in SQL Data Warehouse in una tabella di staging. Usare la configurazione seguente:
+Prima di tutto, caricare i dati in [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) o in Archiviazione BLOB di Azure. Quindi usare PolyBase per caricare i dati in tabelle di staging. Usare la configurazione seguente:
 
 | Progettazione | Recommendation |
 |:--- |:--- |
@@ -98,28 +99,28 @@ Sono disponibili altre informazioni sulle [partizioni].
 
 Se si intende caricare i dati in modo incrementale, è necessario assicurarsi di allocare le classi di risorse di dimensioni maggiori al caricamento dei dati.  Questa operazione è particolarmente importante quando si esegue il caricamento in tabelle con indici columnstore cluster.  Per altri dettagli, vedere le [classi di risorse](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management).  
 
-È consigliabile usare PolyBase e ADF V2 per automatizzare le pipeline di ELT in SQL Data Warehouse.
+È consigliabile usare PolyBase e ADF V2 per automatizzare le pipeline di ELT nel data warehouse.
 
 Per un grande batch di aggiornamenti nei dati cronologici, prendere in considerazione l'uso di [CTAS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) per scrivere i dati da mantenere in una tabella, invece di usare INSERT, UPDATE e DELETE.
 
 ## <a name="maintain-statistics"></a>Gestire le statistiche
- Finché le statistiche automatiche non saranno disponibili a livello generale, SQL Data Warehouse richiede la manutenzione manuale delle statistiche. È importante aggiornare le statistiche quando vengono apportate modifiche *significative* ai dati. Ciò consente di ottimizzare i piani di query. Se si ritiene che la gestione di tutte le statistiche richieda troppo tempo, scegliere in modo più selettivo le colonne con le statistiche. 
+ Finché le statistiche automatiche non saranno disponibili a livello generale, è necessaria la manutenzione manuale delle statistiche. È importante aggiornare le statistiche quando vengono apportate modifiche *significative* ai dati. Ciò consente di ottimizzare i piani di query. Se si ritiene che la gestione di tutte le statistiche richieda troppo tempo, scegliere in modo più selettivo le colonne con le statistiche. 
 
 È anche possibile definire la frequenza degli aggiornamenti. Potrebbe ad esempio essere consigliabile aggiornare le colonne di data, in cui potrebbero venire aggiunti nuovi valori su base giornaliera. Il massimo vantaggio è offerto dalle statistiche sulle colonne usate nei join, su quelle usate nella clausola WHERE e sulle colonne presenti in GROUP BY.
 
 Sono disponibili altre informazioni sulle [statistiche].
 
 ## <a name="resource-class"></a>classe di risorse
-SQL Data Warehouse usa i gruppi di risorse per allocare la memoria per le query. Se si necessita di maggiore memoria per migliorare la velocità di caricamento o delle query, è consigliabile allocare più classi di risorse. D'altra parte, l'uso di classi di risorse di dimensioni maggiori incide sulla concorrenza. È consigliabile prendere in considerazione questo aspetto prima di spostare tutti gli utenti in una classe di risorse di grandi dimensioni.
+I gruppi di risorse vengono usati come un modo per allocare memoria alle query. Se si necessita di maggiore memoria per migliorare la velocità di caricamento o delle query, è consigliabile allocare più classi di risorse. D'altra parte, l'uso di classi di risorse di dimensioni maggiori incide sulla concorrenza. È consigliabile prendere in considerazione questo aspetto prima di spostare tutti gli utenti in una classe di risorse di grandi dimensioni.
 
 Se si nota che le query richiedono troppo tempo, verificare che gli utenti non vengano eseguiti in classi di risorse di grandi dimensioni. Le classi di risorse estese usano molti slot di concorrenza e possono comportare l'accodamento di altre query.
 
-Infine, tramite Gen2 di SQL Data Warehouse, ogni classe di risorse ottiene 2,5 volte più memoria rispetto a Gen1.
+Infine, tramite la versione Gen2 del [pool SQL](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse), ogni classe di risorse ottiene 2,5 volte più memoria rispetto a Gen1.
 
 Sono disponibili altre informazioni su come lavorare con [classi di risorse e concorrenza].
 
 ## <a name="lower-your-cost"></a>Ridurre i costi
-Una funzionalità chiave di SQL Data Warehouse è la possibilità di [gestire risorse di calcolo](sql-data-warehouse-manage-compute-overview.md). È possibile sospendere Data Warehouse quando non è in uso, interrompendo così la fatturazione delle risorse di calcolo. È possibile ridimensionare le risorse per soddisfare le richieste di prestazioni. Per sospendere, usare il [portale di Azure](pause-and-resume-compute-portal.md) o [PowerShell](pause-and-resume-compute-powershell.md). Per ridimensionare, usare il [portale di Azure](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) o un'[API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+Una funzionalità chiave di Azure Synapse è la possibilità di [gestire le risorse di calcolo](sql-data-warehouse-manage-compute-overview.md). È possibile sospendere il pool SQL quando non è in uso, interrompendo così la fatturazione delle risorse di calcolo. È possibile ridimensionare le risorse per soddisfare le richieste di prestazioni. Per sospendere, usare il [portale di Azure](pause-and-resume-compute-portal.md) o [PowerShell](pause-and-resume-compute-powershell.md). Per ridimensionare, usare il [portale di Azure](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) o un'[API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Procedere ora al ridimensionamento automatico in corrispondenza del momento desiderato con Funzioni di Azure:
 
@@ -131,9 +132,9 @@ Procedere ora al ridimensionamento automatico in corrispondenza del momento desi
 
 È consigliabile prendere in considerazione il database SQL e Azure Analysis Services in un'architettura hub-spoke. Questa soluzione può fornire l'isolamento del carico di lavoro tra gruppi di utenti diversi, usando anche alcune funzionalità di protezione avanzate del database SQL e di Azure Analysis Services. Anche questo è un modo per fornire concorrenza illimitata agli utenti.
 
-Sono disponibili altre informazioni sulle [architetture tipiche che sfruttano i vantaggi di SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Sono disponibili altre informazioni sulle [architetture tipiche che sfruttano i vantaggi di Azure Synapse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
 
-Distribuire con un clic del mouse gli spoke nei database SQL da SQL Data Warehouse:
+Distribuire con un clic del mouse gli spoke nei database SQL dal pool SQL:
 
 <a href="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
