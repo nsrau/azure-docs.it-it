@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3c0b9ad774d336da9bc60d2ef9f7ff2645602b6c
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 2530fb0bd27cd98b702d804b0cb5a1dc60419f2f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259228"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490416"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure
 
@@ -29,14 +29,12 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Creare un insieme di credenziali
 
-1. Selezionare l'opzione **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure
-
-    ![Output dopo la creazione dell'istanza di Key Vault](./media/quick-create-portal/search-services.png)
+1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**.
 2. Nella casella di ricerca immettere **Key Vault**.
 3. Nell'elenco dei risultati scegliere **Key Vault**.
 4. Nella sezione Key Vault scegliere **Crea**.
 5. Nella pagina **Crea insieme di credenziali delle chiavi** specificare le informazioni seguenti:
-    - **Nome**: è necessario un nome univoco. Per questa guida introduttiva si usa **Contoso-vault2**. 
+    - **Nome**: è necessario un nome univoco. Per questo argomento di avvio rapido si usa **Contoso-vault2**. 
     - **Sottoscrizione** Scegliere una sottoscrizione.
     - In **Gruppo di risorse** scegliere **Crea nuovo** e immettere il nome del gruppo di risorse.
     - Scegliere un percorso nel menu a discesa **Percorso**.
@@ -56,7 +54,7 @@ A questo punto, l'account Azure è l'unico autorizzato a eseguire operazioni su 
 
 Per aggiungere un segreto all'insieme di credenziali, sono sufficienti un paio di passaggi aggiuntivi. In questo caso si aggiunge una password che può essere usata da un'applicazione. La password è denominata **ExamplePassword** e al suo interno viene archiviato il valore di **hVFkk965BuUv**.
 
-1. Nella pagina delle proprietà dell'istanza di Key Vault selezionare **Segreti**.
+1. Nella pagina delle proprietà di Key Vault selezionare **Segreti**.
 2. Fare clic su **Genera/Importa**.
 3. Nella schermata **Crea un segreto** selezionare i seguenti valori:
     - **Opzioni di caricamento**: manuale.
@@ -84,7 +82,7 @@ Quando non è più necessario, eliminare il gruppo di risorse per eliminare l'is
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido è stata creata un'istanza di Key Vault in cui è stato archiviato un segreto. Per altre informazioni sul servizio Key Vault e su come integrarlo nelle applicazioni, continuare con gli articoli seguenti.
+In questa esercitazione dell'avvio rapido è stata creata un'istanza di Key Vault in cui è stato archiviato un segreto. Per altre informazioni sul servizio Key Vault e su come integrarlo nelle applicazioni, continuare con gli articoli seguenti.
 
 - Leggere una [panoramica di Azure Key Vault](key-vault-overview.md)
 - Vedere la [Guida per gli sviluppatori per Azure Key Vault](key-vault-developers-guide.md)

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 90f83e3e6fa1910641b3e384460cf4aa14016c1a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 386229bc272a520ec8093c95bc861704ce9ea7eb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067336"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471446"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Creare un'app Web PHP in Azure
 
@@ -182,17 +182,19 @@ Al termine della distribuzione, tornare alla finestra del browser aperta nel pas
 
 ## <a name="manage-your-new-azure-app"></a>Gestire la nuova app Azure
 
-Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app Web creata.
+1. Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app Web creata. Cercare e selezionare **Servizi app**.
 
-Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Azure.
+    ![Cercare Servizi app, portale di Azure, creare un'app Web PHP](media/app-service-web-get-started-php/navigate-to-app-services-in-the-azure-portal.png)
 
-![Passaggio all'app di Azure nel portale](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
+2. Selezionare il nome dell'app Azure.
 
-Verrà visualizzata la pagina di panoramica dell'app Web. Qui è possibile eseguire attività di gestione di base come l'esplorazione, l'arresto, l'avvio, il riavvio e l'eliminazione dell'app.
+    ![Passaggio all'app di Azure nel portale](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-![Pagina del servizio app nel portale di Azure](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+    Verrà visualizzata la pagina **Panoramica** dell'app Web. Qui è possibile eseguire attività di gestione di base come **esplorazione**, **arresto**, **riavvio** ed **eliminazione**.
 
-Il menu a sinistra fornisce varie opzioni per la configurazione dell'app. 
+    ![Pagina del servizio app nel portale di Azure](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+
+    Il menu dell'app Web fornisce varie opzioni per la configurazione dell'app. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

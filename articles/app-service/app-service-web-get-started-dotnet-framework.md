@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 10/21/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 258e547c58016cb449c74b058d02f2a2e4d7d683
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 04dd7cb55f9a6d4ceb722606f0eb90792413e414
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792736"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471769"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Creare un'app Web del framework ASP.NET in Azure
 
@@ -131,9 +131,11 @@ Al termine del processo di pubblicazione, Visual Studio avvia un browser sull'UR
 
 ## <a name="manage-the-azure-app"></a>Gestire l'app Azure
 
-1. Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per visualizzare l'app Web.
+1. Per gestire l'app Web, passare al [portale di Azure](https://portal.azure.com), quindi cercare e selezionare **Servizi app**.
 
-2. Nel menu a sinistra scegliere **Servizi app** e quindi selezionare il nome dell'app Azure.
+   ![Selezionare Servizi app](./media/app-service-web-get-started-dotnet-framework/app-services.png)
+
+2. Nella pagina **Servizi app** selezionare il nome dell'app Web.
 
    ![Passaggio all'app di Azure nel portale](./media/app-service-web-get-started-dotnet-framework/access-portal-framework-vs2019.png)
 

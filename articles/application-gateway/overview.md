@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 725b284fa58296aea310f618c000e77d9a0fb4c9
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: b30b96e6ae931e0df41b60e16f04127e82a068ad
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146616"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469754"
 ---
 # <a name="what-is-azure-application-gateway"></a>Cos'è il gateway applicazione di Azure?
 
@@ -52,6 +52,13 @@ Web application firewall (WAF) è una funzionalità del gateway applicazione che
 Le applicazioni Web sono sempre più vittime di attacchi che sfruttano le più comuni vulnerabilità note. Per citarne alcuni, tra i più comuni troviamo gli attacchi SQL injection e gli attacchi di scripting intersito. Impedire questo tipo di attacchi nel codice dell'applicazione può essere un'operazione complessa e potrebbe richiedere una manutenzione rigorosa, l'applicazione di patch e il monitoraggio a più livelli della topologia dell'applicazione. Un Web application firewall centralizzato semplifica notevolmente la gestione della sicurezza e offre agli amministratori delle applicazioni migliori garanzie contro le minacce o le intrusioni. Una soluzione WAF è anche in grado di reagire più velocemente a una minaccia alla sicurezza tramite l'applicazione di patch su una vulnerabilità nota in una posizione centrale, anziché proteggere ogni singola applicazione Web. È possibile convertire facilmente i gateway applicazione esistenti in un gateway applicazione con Web application firewall.
 
 Per altre informazioni, vedere [Web application firewall (WAF) nel gateway applicazione](https://docs.microsoft.com/azure/application-gateway/waf-overview).
+
+## <a name="ingress-controller-for-aks"></a>Controller di ingresso per il servizio Azure Kubernetes
+Il controller di ingresso del gateway applicazione consente di usare il gateway applicazione come ingresso per un cluster del [servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/). 
+
+Il controller di ingresso viene eseguito come un pod nel cluster del servizio Azure Kubernetes, utilizza [risorse in ingresso Kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress/) e le converte in una configurazione del gateway applicazione che consente al gateway di bilanciare il carico del traffico indirizzato ai pod Kubernetes. Il controller di ingresso supporta solo lo SKU gateway applicazione V2. 
+
+Per altre informazioni, vedere [Controller di ingresso del gateway applicazione di Azure](ingress-controller-overview.md).
 
 ## <a name="url-based-routing"></a>Routing basato su URL
 
@@ -96,12 +103,6 @@ Il gateway applicazione offre il supporto nativo per i protocolli WebSocket e HT
 I protocolli WebSocket HTTP/2 consentono una comunicazione full duplex tra un server e un client su una connessione TCP con esecuzione prolungata. Questo consente una comunicazione più interattiva tra il server Web e il client che può essere bidirezionale senza necessità di polling che invece è richiesto nelle implementazioni basate su HTTP. A differenza del protocollo HTTP, questi protocolli presentano un sovraccarico ridotto e possono riutilizzare la stessa connessione TCP per più richieste/risposte garantendo così un uso più efficiente delle risorse. Questi protocolli sono progettati per usare le porte HTTP 80 e 443 tradizionali.
 
 Per altre informazioni, vedere [Supporto per WebSocket](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) e [supporto per HTTP/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
-
-## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Anteprima del controller di ingresso del servizio Azure Kubernetes 
-
-Il controller di ingresso del gateway applicazione viene eseguito come pod all'interno del cluster servizio Azure Kubernetes e consente al gateway applicazione di fungere da ingresso per un cluster servizio Azure Kubernetes. È supportato solo con il gateway applicazione v2.
-
-Per altre informazioni, vedere [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/) (Controller di ingresso del gateway applicazione di Azure).
 
 ## <a name="connection-draining"></a>Esaurimento delle connessioni
 

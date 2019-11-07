@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a863c8fe81a08f00385cb267bf360994918fe82
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9adf083f8e4c8c269b895dac87b4e4613ec1b023
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212115"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474372"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Avvio rapido: Reimpostazione della password self-service
 
@@ -33,7 +33,7 @@ In questa guida introduttiva vengono presentate le procedure per configurare la 
 
 [Visualizzare questo processo come video su YouTube](https://youtu.be/Pa0eyqjEjvQ)
 
-1. Nel tenant di Azure AD esistente selezionare **Reimpostazione password** nel **portale di Azure** in **Azure Active Directory**.
+1. Nel tenant di Azure AD esistente selezionare **Azure Active Directory** nel menu del portale di Azure o nella pagina **Home**. Selezionare quindi **Reimpostazione password**.
 
 2. Nella pagina **Proprietà** scegliere **Selezionato** in **Reimpostazione password self-service abilitata**.
     * In **Seleziona gruppo** scegliere il gruppo pilota creato nella sezione dei prerequisiti di questo articolo.

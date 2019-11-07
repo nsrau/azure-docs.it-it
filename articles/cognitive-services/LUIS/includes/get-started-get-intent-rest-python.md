@@ -6,57 +6,136 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/27/2019
+ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: e86d1e16e7c61f851a75ad97d2744b0daa009617
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 491d97411cec65d4f747495a6246b4c62d33e973
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838563"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499673"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [Python 3.6](https://www.python.org/downloads/) o versione successiva.
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
-
 ## <a name="get-luis-key"></a>Ottenere la chiave di LUIS
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
 ## <a name="get-intent--programmatically"></a>Ottenere la finalità a livello di codice
 
-È possibile usare Python per accedere agli stessi risultati illustrati nella finestra del browser nel passaggio precedente.
+Usare Python per eseguire query sull'[API](https://aka.ms/luis-apim-v3-prediction) GET dell'endpoint di previsione per ottenere il risultato della previsione.
 
-1. Copiare uno dei frammenti di codice seguenti in un file denominato `quickstart-call-endpoint.py`:
+1. Copiare uno dei frammenti di codice seguenti in un file denominato `predict.py`:
 
-    #### <a name="python-27tabp2"></a>[Python 2.7](#tab/P2)
+    ```python
+    ########### Python 3.6 #############
+    import requests
+    
+    try:
+    
+        key = 'YOUR-KEY'
+        endpoint = 'YOUR-ENDPOINT' # such as 'westus2.api.cognitive.microsoft.com' 
+        appId = 'df67dcdb-c37d-46af-88e1-8b97951ca1c2'
+        utterance = 'turn on all lights'
+    
+        headers = {
+        }
+    
+        params ={
+            'query': utterance,
+            'timezoneOffset': '0',
+            'verbose': 'true',
+            'show-all-intents': 'true',
+            'spellCheck': 'false',
+            'staging': 'false',
+            'subscription-key': key
+        }
+    
+        r = requests.get(f'https://{endpoint}/luis/prediction/v3.0/apps/{appId}/slots/production/predict',headers=headers, params=params)
+        print(r.json())
+    
+    except Exception as e:
+        print(f'{e}')
+    ```
 
-    [!code-python[Console app code that calls a LUIS endpoint for Python 2.7](~/samples-luis/documentation-samples/quickstarts/analyze-text/python/2.x/quickstart-call-endpoint-2-7.py)]    
+1. Sostituire i valori seguenti:
 
-    #### <a name="python-36tabp3"></a>[Python 3.6](#tab/P3)
+    * `YOUR-KEY` con la chiave di avvio
+    * `YOUR-ENDPOINT` con l'endpoint, ad esempio `westus2.api.cognitive.microsoft.com`
 
-    [!code-python[Console app code that calls a LUIS endpoint for Python 3.6](~/samples-luis/documentation-samples/quickstarts/analyze-text/python/3.x/quickstart-call-endpoint-3-6.py)]
+1. Installare le dipendenze con il comando della console seguente:
 
-    * * *
+    ```console
+    pip install requests
+    ```
 
-1. Sostituire il valore del campo `Ocp-Apim-Subscription-Key` con la chiave dell'endpoint LUIS.
+1. Eseguire lo script con il comando della console seguente:
 
-1. Installare le dipendenze con il comando `pip install requests`.
+    ```console
+    python predict.py
+    ``` 
 
-1. Eseguire lo script con il comando `python ./quickstart-call-endpoint.py`. Apparirà lo stesso codice JSON visualizzato in precedenza nella finestra del browser.
+1. Esaminare la risposta di previsione in formato JSON:
+
+    ```console
+    {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
+    ```
+
+    Risposta JSON formattata per migliorare la leggibilità: 
+
+    ```JSON
+    {
+        "query": "turn on all lights",
+        "prediction": {
+            "topIntent": "HomeAutomation.TurnOn",
+            "intents": {
+                "HomeAutomation.TurnOn": {
+                    "score": 0.5375382
+                },
+                "None": {
+                    "score": 0.08687421
+                },
+                "HomeAutomation.TurnOff": {
+                    "score": 0.0207554
+                }
+            },
+            "entities": {
+                "HomeAutomation.Operation": [
+                    "on"
+                ],
+                "$instance": {
+                    "HomeAutomation.Operation": [
+                        {
+                            "type": "HomeAutomation.Operation",
+                            "text": "on",
+                            "startIndex": 5,
+                            "length": 2,
+                            "score": 0.724984169,
+                            "modelTypeId": -1,
+                            "modelType": "Unknown",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    ```
 
 ## <a name="luis-keys"></a>Chiavi di LUIS
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine di questa guida introduttiva, chiudere il progetto di Visual Studio e rimuovere la directory del progetto dal file system. 
+Al termine di questo argomento di avvio rapido, eliminare il file dal file system. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Aggiungere espressioni ed eseguire il training con Python](../luis-get-started-python-add-utterance.md)
+> [Aggiungere espressioni ed eseguire il training con](../luis-get-started-python-add-utterance.md)

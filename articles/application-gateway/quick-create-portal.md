@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 07/17/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6d12b006583c004d12c50bda171c82397ff7949f
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 565620f477382ff81f854336dbee7bdb1ad06f01
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276613"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469721"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Portale di Azure
 
@@ -30,7 +30,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
 
 ## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
 
-1. Selezionare **Crea una risorsa** nel menu a sinistra del portale di Azure. Verrà visualizzata la finestra **Nuovo**.
+1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**. Verrà visualizzata la finestra **Nuovo**.
 
 2. Selezionare **Rete** e quindi **Gateway applicazione** nell'elenco **In primo piano**.
 
@@ -43,7 +43,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
 
      ![Creare il nuovo gateway applicazione: Nozioni di base](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
-2.  Per le comunicazioni tra le risorse create in Azure è necessaria una rete virtuale. È possibile creare una nuova rete virtuale oppure usarne una esistente. In questo esempio verrà creata una nuova rete virtuale in concomitanza con la creazione del gateway applicazione. Le istanze del gateway applicazione vengono create in subnet separate. In questo esempio vengono create due subnet: una per il gateway applicazione e l'altra per i server back-end.
+2. Per le comunicazioni tra le risorse create in Azure è necessaria una rete virtuale. È possibile creare una nuova rete virtuale oppure usarne una esistente. In questo esempio verrà creata una nuova rete virtuale in concomitanza con la creazione del gateway applicazione. Le istanze del gateway applicazione vengono create in subnet separate. In questo esempio vengono create due subnet: una per il gateway applicazione e l'altra per i server back-end.
 
     In **Configura rete virtuale** creare una nuova rete virtuale selezionando **Crea nuovo**. Nella finestra **Crea rete virtuale** visualizzata immettere i valori seguenti per creare la rete virtuale e due subnet:
 
@@ -135,7 +135,7 @@ A questo scopo, è necessario:
 
 ### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
-1. Nel portale di Azure fare clic su **Crea una risorsa**. Verrà visualizzata la finestra **Nuovo**.
+1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**. Verrà visualizzata la finestra **Nuovo**.
 2. Selezionare **Calcolo** e quindi selezionare **Windows Server 2016 Datacenter** nell'elenco **Più comuni**. Viene visualizzata la pagina **Creare una macchina virtuale**.<br>Il gateway applicazione può indirizzare il traffico a qualsiasi tipo di macchina virtuale usato nel pool back-end. In questo esempio si usa Windows Server 2016 Datacenter.
 3. Immettere questi valori nella scheda **Informazioni di base** per le seguenti impostazioni della macchina virtuale:
 
@@ -176,7 +176,7 @@ In questo esempio viene installato IIS nelle macchine virtuali solo per verifica
 
 ### <a name="add-backend-servers-to-backend-pool"></a>Aggiungere i server back-end al pool back-end
 
-1. Fare clic su **Tutte le risorse** e quindi selezionare **myAppGateway**.
+1. Nel menu del portale di Azure selezionare **Tutte le risorse** oppure cercare e selezionare *Tutte le risorse*. Selezionare quindi **myAppGateway**.
 
 2. Selezionare **Pool back-end** dal menu a sinistra.
 
@@ -205,7 +205,8 @@ Nonostante l'installazione di IIS non sia necessaria per creare il gateway appli
 Quando le risorse create con il gateway applicazione non sono più necessarie, rimuovere il gruppo di risorse. La rimozione del gruppo di risorse comporta anche la rimozione del gateway applicazione e di tutte le risorse correlate. 
 
 Per rimuovere il gruppo di risorse:
-1. Nel menu a sinistra del portale di Azure, selezionare **Gruppi di risorse**.
+
+1. Nel menu del portale di Azure selezionare **Gruppi di risorse** oppure cercare e selezionare *Gruppi di risorse*.
 2. Nella pagina **Gruppo di risorse** cercare **myResourceGroupAG** nell'elenco e selezionarlo.
 3. Nella pagina **Gruppo di risorse** selezionare **Elimina gruppo di risorse**.
 4. Immettere *myResourceGroupAG* in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e quindi selezionare **Elimina**

@@ -7,12 +7,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/10/2019
-ms.openlocfilehash: c9b72c90bc23cfac6f064445c4f6f98d05d7fe16
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: afc026ccb602538b0749fa294cee763efa3d27d0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331779"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73483227"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Guida introduttiva: Configurare la Data Science Virtual Machine per Windows
 
@@ -34,7 +34,7 @@ Per creare un'istanza di DSVM:
 
 1. Selezionare quindi il pulsante **Crea** nella parte inferiore.
 
-    [![](media/provision-vm/create-windows.png "Pulsante per creare un computer Windows")](media/provision-vm/create-windows-expanded.png#lightbox)
+    [![](media/provision-vm/create-windows.png "Button to create a Windows machine")](media/provision-vm/create-windows-expanded.png#lightbox)
 
 1. Si verrà reindirizzati al pannello "Crea macchina virtuale".
    ![Scheda Nozioni di base corrispondente alla macchina virtuale Windows](./media/provision-vm/review-create-windows.png)
@@ -72,7 +72,7 @@ Si è pronti per iniziare a usare gli strumenti installati e configurati nella V
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Esplorare gli strumenti disponibili nella DSVM aprendo il menu **Start**.
-* Per informazioni sul servizio Azure Machine Learning, leggere [Informazioni sul servizio Azure Machine Learning](../service/overview-what-is-azure-ml.md) e seguire le [esercitazioni](../index.yml).
+* Per informazioni su Azure Machine Learning, vedere [Informazioni su Azure Machine Learning](../service/overview-what-is-azure-ml.md) e seguire le [esercitazioni](../index.yml).
 * In Esplora File passare a C:\Programmi\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts per trovare esempi che usano la libreria RevoScaleR in R che supporta l'analisi dei dati a livello aziendale. 
 * Leggere l'articolo [Dieci cose da fare con una Data Science Virtual Machine](https://aka.ms/dsvmtenthings).
 * Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [Processo di analisi scientifica dei dati per i team](../team-data-science-process/index.yml).
