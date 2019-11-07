@@ -1,5 +1,5 @@
 ---
-title: Ripristinare un Azure SQL Data Warehouse esistente | Microsoft Docs
+title: Ripristinare un data warehouse esistente
 description: Guida alle procedure per il ripristino di un Azure SQL Data Warehouse esistente.
 services: sql-data-warehouse
 author: anumjs
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 7470dd96109823057a174d2ecf097583dcb51898
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: a73658510111df44c522d88ed5eceb7dcfa80d0d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575277"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685542"
 ---
 # <a name="restore-an-existing-azure-sql-data-warehouse"></a>Ripristinare un Azure SQL Data Warehouse esistente
 
@@ -98,7 +99,7 @@ $RestoredDatabase.status
 
     ![Punti di ripristino automatici](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 - [Ripristinare un data warehouse eliminato][Restore a deleted data warehouse]
 - [Eseguire il ripristino da un data warehouse di backup geografico][Restore from a geo-backup data warehouse]
  

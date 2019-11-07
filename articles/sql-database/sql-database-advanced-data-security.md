@@ -1,5 +1,5 @@
 ---
-title: Sicurezza dei dati avanzata - Database SQL di Azure | Microsoft Docs
+title: Sicurezza dei dati avanzata-database SQL di Azure
 description: Informazioni sulle funzionalità per l'individuazione e la classificazione di dati sensibili, per la gestione delle vulnerabilità dei database e per il rilevamento di attività anomale che potrebbero indicare una minaccia al database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: 40e556b5d0fe22629eeca9a088d10ea5fc9b95ac
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: ce9cfa7e4b08dac878de52ba9765bcc204ed8196
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965490"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691307"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Sicurezza dei dati avanzata per il database SQL di Azure
 
@@ -77,4 +77,4 @@ Dal riquadro del database di Sicurezza dei dati avanzata è possibile raggiunger
 - Altre informazioni su [Individuazione dati e classificazione](sql-database-data-discovery-and-classification.md) 
 - Altre informazioni su [Valutazione della vulnerabilità](sql-vulnerability-assessment.md) 
 - Altre informazioni su [Advanced Threat Protection](sql-database-threat-detection.md)
-- Altre informazioni su [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Altre informazioni sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)

@@ -1,5 +1,5 @@
 ---
-title: Tecnologie in memoria del database SQL di Azure | Documentazione Microsoft
+title: Tecnologie in memoria del database SQL di Azure
 description: Le tecnologie in memoria del database SQL di Azure migliorano notevolmente le prestazioni dei carichi di lavoro transazionali e analitici.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: 325dda3695e796bc0814954d3bd69b9b340133b8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7ee643c10c61368ee91692cbddf326ba488f81e6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567964"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689782"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Ottimizzare le prestazioni tramite le tecnologie in memoria nel database SQL
 
@@ -52,7 +52,7 @@ Di seguito sono riportati due esempi che mostrano come la tecnologia OLTP in mem
 
   - DTU significa *unità di transazione di database* e include una misurazione del consumo di risorse.
 - Il video seguente illustra un miglioramento significativo nell'uso delle risorse con un carico di lavoro di esempio: [In-Memory OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (Video su OLTP in memoria nel database SQL di Azure).
-  - Per altre informazioni, vedere il post di blog: [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) (Post di blog su OLTP nel database SQL di Azure)
+  - Per altre informazioni, vedere [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) (Post di blog su OLTP nel database SQL di Azure).
 
 > [!NOTE]  
 > Le tecnologie in memoria sono disponibili nei database SQL di Azure di livello Premium e Business Critical e nei pool elastici Premium.
@@ -88,12 +88,12 @@ La tecnologia OLTP in memoria fornisce operazioni di accesso ai dati estremament
 > [!Note]
 > La tecnologia OLTP in memoria è progettata per le strutture dei dati che possono risiedere completamente in memoria. Poiché non è possibile eseguire l'offload su disco dei dati in memoria, assicurarsi di usare un database che disponga di memoria sufficiente. Per altre informazioni, vedere [Limite su dimensioni dei dati e archiviazione per OLTP in memoria](#data-size-and-storage-cap-for-in-memory-oltp).
 
-Per le nozioni di base su OLTP in memoria: [Avvio rapido 1: Tecnologie OLTP in memoria per ottimizzare le prestazioni di T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
+Guida introduttiva di OLTP in memoria: avvio rapido [1: tecnologie OLTP in memoria per migliorare le prestazioni di T-SQL](https://msdn.microsoft.com/library/mt694156.aspx) (un altro articolo per iniziare)
 
 Video di approfondimento sulle tecnologie:
 
 - [OLTP in memoria nel database SQL di Azure](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB), che contiene una demo dei vantaggi in termini di prestazioni e i passaggi per riprodurre tali risultati manualmente
-- [Video su OLTP in memoria: che cos'è e come/quando usarlo](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
+- [Video OLTP in memoria: Che cos'è e come/quando usarlo](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
 
 Esiste un modo a livello di codice per capire se un determinato database supporta OLTP in memoria. È possibile eseguire la query Transact-SQL seguente:
 ```
@@ -140,7 +140,7 @@ Tuttavia, eseguire il downgrade del piano può avere un impatto negativo sul dat
 
 Prima di eseguire il downgrade del database al livello Standard o Basic, rimuovere tutti i tipi di tabella e le tabelle ottimizzate per la memoria, nonché tutti i moduli T-SQL compilati in modo nativo. 
 
-*Riduzione delle risorse nel piano Business Critical*: i dati nelle tabelle ottimizzate per la memoria devono essere contenuti nell'archiviazione OLTP in memoria associata al piano del database o dell'istanza gestita o disponibile nel pool elastico. Se si tenta di ridurre il piano tariffario o di spostare il database in un pool che non dispone di sufficiente spazio di archiviazione OLTP in memoria, l'operazione avrà esito negativo.
+*Ridimensionamento delle risorse nel livello business critical*: i dati nelle tabelle ottimizzate per la memoria devono rientrare nell'archiviazione OLTP in memoria associata al livello del database o istanza gestita oppure sono disponibili nel pool elastico. Se si tenta di ridurre il piano tariffario o di spostare il database in un pool che non dispone di sufficiente spazio di archiviazione OLTP in memoria, l'operazione avrà esito negativo.
 
 ## <a name="in-memory-columnstore"></a>Columnstore in memoria
 
@@ -155,7 +155,7 @@ Esistono due tipi di modelli di columnstore che è possibile usare per organizza
 
 Video di approfondimento sulla tecnologia:
 
-- [Indice columnstore: video sull'analisi in memoria da Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
+- [Indice ColumnStore: Video sull'analisi in memoria da Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Dimensioni dei dati e archiviazione per gli indici columnstore
 
@@ -180,7 +180,7 @@ Se dispone di un indice columnstore **cluster**, l'intera tabella non sarà più
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Avvio rapido 1: Tecnologie OLTP in memoria per ottimizzare le prestazioni di T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Guida introduttiva 1: tecnologie OLTP in memoria per migliorare le prestazioni di T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
 - [Usare OLTP in memoria in un'applicazione esistente del database SQL di Azure.](sql-database-in-memory-oltp-migration.md)
 - [Monitoraggio dell'archiviazione OLTP in memoria](sql-database-in-memory-oltp-monitoring.md) per OLTP in memoria.
 - [Provare le funzionalità in memoria nel database SQL di Azure](sql-database-in-memory-sample.md)

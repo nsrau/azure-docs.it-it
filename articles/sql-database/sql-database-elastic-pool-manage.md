@@ -1,5 +1,5 @@
 ---
-title: Gestire i pool elastici-database SQL di Azure | Microsoft Docs
+title: 'Gestire i pool elastici: database SQL di Azure'
 description: Creare e gestire pool elastici SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: ca00326d5704d3dd26027d90a3e48bfc52ec5653
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: ad8f076c65c852f338e380f1ad8fca4e5dcb79ba
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744452"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690473"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Gestire i pool elastici nel database SQL di Azure
 
@@ -42,7 +42,7 @@ Da qui è possibile eseguire una combinazione qualsiasi di modifiche tra quelle 
 > [!IMPORTANT]
 > Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
-Per creare e gestire i pool elastici e i database in pool del database SQL con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). Per creare e gestire i server di database SQL di Azure per un pool elastico, vedere [Creare e gestire server di database SQL di Azure](sql-database-servers.md). Per creare e gestire regole del firewall, vedere [Creare e gestire le regole del firewall con PowerShell](sql-database-firewall-configure.md#use-powershell-to-manage-server-level-ip-firewall-rules).
+Per creare e gestire i pool elastici e i database in pool del database SQL con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere l'articolo su come [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). Per creare e gestire i server di database SQL di Azure per un pool elastico, vedere [Creare e gestire server di database SQL di Azure](sql-database-servers.md). Per creare e gestire regole del firewall, vedere [Creare e gestire le regole del firewall con PowerShell](sql-database-firewall-configure.md#use-powershell-to-manage-server-level-ip-firewall-rules).
 
 > [!TIP]
 > Per gli script di esempio di PowerShell, vedere [Creare pool elastici e spostare i database tra i pool e al loro esterno usando PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) e [Usare PowerShell per il monitoraggio e il ridimensionamento di un pool elastico SQL nel database SQL di Azure](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -88,7 +88,7 @@ Per creare e spostare i database all'interno dei pool elastici esistenti o per r
 > Non è possibile creare, aggiornare o eliminare un pool elastico del database SQL di Azure con Transact-SQL. È possibile aggiungere o rimuovere i database da un pool elastico ed è possibile usare le DMV per restituire informazioni sui pool elastici esistenti.
 >
 
-| Comando | DESCRIZIONE |
+| Comando | Descrizione |
 | --- | --- |
 |[CREATE DATABASE (database SQL di Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Consente di creare un nuovo database in un pool esistente o in un database singolo. Per creare un nuovo database è necessario essere connessi al database master.|
 | [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Consente di spostare un database all'interno, all'esterno o tra pool elastici.|

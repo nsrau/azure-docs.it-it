@@ -1,5 +1,5 @@
 ---
-title: Gestire risorse di calcolo in Azure SQL Data Warehouse | Microsoft Docs
+title: Gestisci risorsa di calcolo
 description: Informazioni sulle funzionalità di scalabilità orizzontale per le prestazioni in Azure SQL Data Warehouse. Applicare la scalabilità orizzontale modificando le DWU o ridurre i costi tramite la sospensione delle funzioni di data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: f0935ccc4c4274bfab0c589ef158d4ea0bef455c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f93996d834ab805f2228543a833c4ce601042dc4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575334"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692622"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gestire le risorse di calcolo in Azure SQL Data Warehouse
 Informazioni sulla gestione delle risorse di calcolo in Azure SQL Data Warehouse. Ridurre i costi sospendendo il data warehouse o ridimensionare il data warehouse per soddisfare le esigenze in termini di prestazioni. 
@@ -109,7 +110,7 @@ Ogni operazione di scalabilità orizzontale, sospensione e ripresa può richiede
 Per verificare lo stato del data warehouse, vedere le guide introduttive a [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) oppure a [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state). È anche possibile verificare lo stato del data warehouse con un'[API REST](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>autorizzazioni
 
 Il ridimensionamento del database richiede le autorizzazioni descritte in [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse).  La sospensione e la ripresa richiedono l'autorizzazione [Collaboratore Database SQL](../role-based-access-control/built-in-roles.md#sql-db-contributor), in particolare Microsoft.Sql/servers/databases/action.
 

@@ -1,5 +1,5 @@
 ---
-title: Eventi estesi nel database SQL | Documentazione Microsoft
+title: Eventi estesi nel database SQL
 description: Vengono descritti gli eventi estesi (XEvent) in Database SQL di Azure e come le sessioni di eventi sono leggermente diverse da sessioni di eventi in Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: f9af487e2eb35e7dc94e1b70945d5c03ffdde2ba
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 64cfcd9451416a6eb35301268b285bd00cf0cad4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566073"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686770"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventi estesi nel database SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -31,14 +31,14 @@ In questo argomento viene illustrato come l'implementazione di eventi estesi nel
 
 Per altre informazioni sugli eventi estesi, per il database SQL di Azure e Microsoft SQL Server, vedere l'articolo:
 
-- [Avvio rapido: Eventi estesi in SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Quick Start: Extended events in SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Eventi estesi](https://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 In questo argomento si presuppone che si dispone già di una conoscenza di:
 
-- [Servizio Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+- [Servizio Database SQL di Azure](https://azure.microsoft.com/services/sql-database/)
 - [Eventi estesi](https://msdn.microsoft.com/library/bb630282.aspx) in Microsoft SQL Server.
 
 - La maggior parte della nostra documentazione sugli eventi estesi si applica sia a SQL Server che al database SQL.
@@ -81,7 +81,7 @@ Gli argomenti correlati forniscono due esempi di codice:
 
 La funzionalità degli eventi estesi è supportata da diverse [viste del catalogo](https://msdn.microsoft.com/library/ms174365.aspx). Le viste del catalogo indicano i *metadati o le definizioni* di sessioni di eventi create dall'utente nel database corrente. Le viste non restituiscono informazioni sulle istanze delle sessioni di eventi attivi.
 
-| Nome della<br/>vista del catalogo | DESCRIZIONE |
+| Nome della<br/>vista del catalogo | Descrizione |
 |:--- |:--- |
 | **sys.database_event_session_actions** |Restituisce una riga per ogni azione su ogni evento di una sessione di eventi. |
 | **sys.database_event_session_events** |Restituisce una riga per ogni evento in una sessione di eventi. |
@@ -95,7 +95,7 @@ In Microsoft SQL Server le viste del catalogo simili hanno nomi che includono *.
 
 Il database SQL di Azure include [viste a gestione dinamica (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) che supportano gli eventi estesi. Le DMV indicano le sessioni di eventi *attive* .
 
-| Nome della DMV | DESCRIZIONE |
+| Nome della DMV | Descrizione |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |Restituisce informazioni sulle azioni della sessione di eventi. |
 | **sys.dm_xe_database_session_events** |Restituisce informazioni sugli eventi della sessione. |
@@ -142,7 +142,7 @@ SELECT
 ```
 
 
-<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a> &nbsp;
+<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a>&nbsp;
 
 ## <a name="targets-for-your-sql-database-event-sessions"></a>Destinazioni per le sessioni di eventi del database SQL
 

@@ -1,5 +1,5 @@
 ---
-title: Usare i log di monitoraggio di Azure con un'app multi-tenant del database SQL | Microsoft Docs
+title: Usare i log di monitoraggio di Azure con un'app multi-tenant del database SQL
 description: Configurare e usare i log di monitoraggio di Azure con un'app SaaS multi-tenant del database SQL di Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: 6b9b2239cfdf0f214ed2f2b179978fe2828d1be3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d7b568424d5e33c19efc9d9d9c21d0023459b6c7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570504"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692141"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Configurare e usare i log di monitoraggio di Azure con un'app SaaS multi-tenant del database SQL
 
@@ -30,9 +30,9 @@ In questa esercitazione si apprenderà come:
 > * Installare e configurare i log di monitoraggio di Azure.
 > * Usare i log di monitoraggio di Azure per monitorare i pool e i database.
 
-Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
+Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
-* È stata distribuita l'app SaaS di database per tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione di database per tenant SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md).
+* È stata distribuita l'app di database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione di database per tenant SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md).
 * Azure PowerShell è installato. Per altre informazioni, vedere [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
 
 Vedere l'[esercitazione Monitoraggio e gestione delle prestazioni](saas-dbpertenant-performance-monitoring.md) per una trattazione di scenari e modelli SaaS, nonché dei loro effetti sui requisiti per una soluzione di monitoraggio.
@@ -58,7 +58,7 @@ Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics. Le ar
 
     a. Impostare **$DemoScenario = 2**, _generare un carico di intensità normale (circa 30 DTU)_ .
 
-    b. Per eseguire lo script, premere F5.
+    b. Premere F5 per eseguire lo script.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione del database per tenant SaaS Wingtip Tickets
 
@@ -69,7 +69,7 @@ Gli script e il codice sorgente dell'applicazione del database multi-tenant SaaS
 Monitoraggio di Azure è un servizio separato che deve essere configurato. Log di monitoraggio di Azure raccoglie dati di log, telemetria e metriche in un'area di lavoro Log Analytics. Come per altre risorse in Azure, è necessario creare un'area di lavoro Log Analytics. L'area di lavoro non deve essere necessariamente creata nello stesso gruppo di risorse delle applicazioni da monitorare, anche se spesso questa è la scelta più sensata. Per l'app Wingtip Tickets, usare un unico gruppo di risorse per garantire che l'area di lavoro venga eliminata con l'applicazione.
 
 1. In PowerShell ISE aprire *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*.
-1. Per eseguire lo script, premere F5.
+1. Premere F5 per eseguire lo script.
 
 A questo punto è possibile aprire i log di monitoraggio di Azure nel portale di Azure. Per raccogliere i dati di telemetria e visualizzarli nell'area di lavoro Log Analytics è necessario qualche minuto. Maggiore il tempo concesso al sistema per la raccolta di dati di diagnostica, più interessante sarà l'esperienza. 
 

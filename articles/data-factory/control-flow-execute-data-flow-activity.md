@@ -1,5 +1,5 @@
 ---
-title: Attività flusso di dati in Azure Data Factory | Microsoft Docs
+title: Attività flusso di dati in Azure Data Factory
 description: Come eseguire i flussi di dati dall'interno di una pipeline data factory.
 services: data-factory
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 10/07/2019
-ms.openlocfilehash: cbfa1acac34187263f8c4203e41bbe61d7e4c745
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5623907346ee3882ad53a27695336ba4bc449db8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030517"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679939"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Attività flusso di dati in Azure Data Factory
 
@@ -51,12 +51,12 @@ Utilizzare l'attività flusso di dati per trasformare e spostare i dati tramite 
 
 Proprietà | Descrizione | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-Dataflow | Riferimento al flusso di dati in esecuzione | DataFlowReference | Yes
-integrationRuntime | Ambiente di calcolo in cui viene eseguito il flusso di dati | IntegrationRuntimeReference | Yes
+Dataflow | Riferimento al flusso di dati in esecuzione | DataFlowReference | Sì
+integrationRuntime | Ambiente di calcolo in cui viene eseguito il flusso di dati | IntegrationRuntimeReference | Sì
 staging. linkedService | Se si usa un'origine o un sink di SQL DW, l'account di archiviazione usato per la gestione temporanea di base | LinkedServiceReference | Solo se il flusso di dati legge o scrive in SQL DW
-staging. folderPath | Se si usa un'origine o un sink di SQL DW, il percorso della cartella nell'account di archiviazione BLOB usato per la gestione temporanea di base | string | Solo se il flusso di dati legge o scrive in SQL DW
+staging. folderPath | Se si usa un'origine o un sink di SQL DW, il percorso della cartella nell'account di archiviazione BLOB usato per la gestione temporanea di base | String | Solo se il flusso di dati legge o scrive in SQL DW
 
-Esegui flusso di dati(media/data-flow/activity-data-flow.png "esecuzione") ![flusso di dati]
+![Esegui flusso di dati](media/data-flow/activity-data-flow.png "Esegui flusso di dati")
 
 ### <a name="data-flow-integration-runtime"></a>Runtime di integrazione del flusso di dati
 
@@ -79,19 +79,19 @@ Se si usa un Azure SQL Data Warehouse come sink o origine, è necessario sceglie
 
 Se il flusso di dati utilizza set di dati con parametri, impostare i valori dei parametri nella scheda **Impostazioni** .
 
-(media/data-flow/params.png "Parametri") di ![esecuzione dei parametri del flusso di dati]
+![Esegui parametri flusso di dati](media/data-flow/params.png "Parametri")
 
 ### <a name="parameterized-data-flows"></a>Flussi di dati con parametri
 
 Se il flusso di dati è parametrizzato, impostare i valori dinamici dei parametri del flusso di dati nella scheda **parametri** . È possibile utilizzare il linguaggio delle espressioni della pipeline di ADF (solo per i tipi di stringa) o il linguaggio delle espressioni del flusso di dati per assegnare valori di parametri dinamici o letterali. Per ulteriori informazioni, vedere [parametri del flusso di dati](parameters-data-flow.md).
 
-(media/data-flow/parameter-example.png "Esempio") di parametro dell' ![esempio di parametro flusso di dati]
+![Esempio di parametro di esecuzione del flusso di dati](media/data-flow/parameter-example.png "Esempio di parametro")
 
 ## <a name="pipeline-debug-of-data-flow-activity"></a>Debug della pipeline dell'attività flusso di dati
 
 Per eseguire una pipeline di debug eseguita con un'attività flusso di dati, è necessario attivare la modalità di debug del flusso di dati tramite il dispositivo di scorrimento **debug del flusso di dati** nella barra superiore. La modalità di debug consente di eseguire il flusso di dati in un cluster Spark attivo. Per altre informazioni, vedere [modalità di debug](concepts-data-flow-debug-mode.md).
 
-Pulsante debug ![pulsante](media/data-flow/debugbutton.png "debug")
+![Pulsante debug](media/data-flow/debugbutton.png "Pulsante debug")
 
 La pipeline di debug viene eseguita sul cluster di debug attivo, non sull'ambiente di Integration runtime specificato nelle impostazioni dell'attività flusso di dati. È possibile scegliere l'ambiente di calcolo di debug quando si avvia la modalità di debug.
 

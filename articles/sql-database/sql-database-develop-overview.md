@@ -1,5 +1,5 @@
 ---
-title: Panoramica dello sviluppo di applicazioni del database SQL | Documentazione Microsoft
+title: Panoramica dello sviluppo di applicazioni del database SQL
 description: Informazioni sulle librerie di connettività disponibili e procedure consigliate per applicazioni che si connettono al Database SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 02/07/2019
-ms.openlocfilehash: 42fc73b5557fba91cc132a0abe8561f0a72bbb64
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 58f823aad157657de5445b1010a405af01c70171
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568855"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690633"
 ---
 # <a name="sql-database-application-development-overview"></a>Panoramica dello sviluppo di applicazioni del database SQL
 
@@ -32,13 +32,13 @@ Questo articolo esamina le considerazioni di base di cui uno sviluppatore deve t
 
 È possibile sfruttare strumenti open source come [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) e [Visual Studio Code](https://code.visualstudio.com/). Inoltre, il database SQL di Azure interagisce con gli strumenti Microsoft come [Visual Studio](https://www.visualstudio.com/downloads/) e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). È anche possibile usare il portale di Azure, PowerShell e le API REST, per aumentare la produttività.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 L'accesso al database SQL di Azure è protetto con account di accesso e firewall. Il database SQL di Azure supporta utenti e account di accesso per l'autenticazione di SQL Server e [Azure Active Directory](sql-database-aad-authentication.md). Gli account di accesso di AAD sono disponibili solo nell'istanza gestita. 
 
 Altre informazioni sulla [gestione dell'accesso al database e degli account di accesso](sql-database-manage-logins.md).
 
-## <a name="connections"></a>connessioni
+## <a name="connections"></a>Connessioni
 
 Nella logica di connessione client sostituire il timeout predefinito affinché sia pari a 30 secondi. Il valore predefinito di 15 secondi è troppo breve per connessioni che dipendono da Internet.
 
@@ -54,8 +54,8 @@ Per altre informazioni sulle attività preliminari per gli eventi di manutenzion
 
 ## <a name="network-considerations"></a>Considerazioni sulla rete
 
-- Nel computer che ospita il programma client, verificare che il firewall consenta le comunicazioni TCP in uscita sulla porta 1433.  Altre informazioni: [Configurare le regole del firewall per il database SQL di Azure](sql-database-configure-firewall-settings.md).
-- Se il programma client si connette al database SQL mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire determinati intervalli di porte nella macchina virtuale. Altre informazioni: [Porte superiori a 1433 per ADO.NET 4.5 e il database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
+- Nel computer che ospita il programma client, verificare che il firewall consenta le comunicazioni TCP in uscita sulla porta 1433.  Altre informazioni: [Configurazione del firewall di un database SQL di Azure](sql-database-configure-firewall-settings.md).
+- Se il programma client si connette al database SQL mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire determinati intervalli di porte nella macchina virtuale. Altre informazioni: [Porte superiori a 1433 per ADO.NET 4.5 e database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Le connessioni client al database SQL di Azure talvolta ignorano il proxy e interagiscono direttamente con il database. Le porte diverse da 1433 diventano importanti. Per altre informazioni, vedere [Architettura della connettività del database SQL di Azure](sql-database-connectivity-architecture.md) e [Porte successive alla 1433 per ADO.NET 4.5 e database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Per la configurazione di rete per un'istanza gestita, vedere [configurazione di rete per le istanze gestite](sql-database-howto-managed-instance.md#network-configuration).
 

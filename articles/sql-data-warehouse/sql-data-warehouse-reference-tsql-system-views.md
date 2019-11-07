@@ -1,5 +1,5 @@
 ---
-title: Visualizzazioni di sistema - Azure SQL Data Warehouse | Microsoft Docs
+title: Viste di sistema
 description: Collegamenti alla documentazione per le visualizzazioni di sistema supportate in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: adb82d035d69003abada1685d64255eace6e9d88
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: a8073084007d3174b92995c16785c3f8bc82b642
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543621"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692548"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Visualizzazioni di sistema supportate in Azure SQL Data Warehouse
 Collegamenti alla documentazione per le istruzioni T-SQL supportate in Azure SQL Data Warehouse.
@@ -28,7 +29,7 @@ Collegamenti alla documentazione per le istruzioni T-SQL supportate in Azure SQL
 * [sys.pdw_loader_backup_runs](https://msdn.microsoft.com/library/mt203884.aspx)
 * [sys.pdw_materialized_view_column_distribution_properties](/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-column-distribution-properties-transact-sql?view=azure-sqldw-latest) (Preview)
 * [sys.pdw_materialized_view_distribution_properties](/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-distribution-properties-transact-sql?view=azure-sqldw-latest) (Preview)
-* [sys. PDW _materialized_view_mappings](/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-mappings-transact-sql?view=azure-sqldw-latest) Anteprima
+* [sys. PDW _materialized_view_mappings](/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-mappings-transact-sql?view=azure-sqldw-latest) (anteprima)
 * [sys.pdw_nodes_column_store_dictionaries](https://msdn.microsoft.com/library/mt203902.aspx)
 * [sys.pdw_nodes_column_store_row_groups](https://msdn.microsoft.com/library/mt203880.aspx)
 * [sys.pdw_nodes_column_store_segments](https://msdn.microsoft.com/library/mt203916.aspx)
@@ -40,9 +41,9 @@ Collegamenti alla documentazione per le istruzioni T-SQL supportate in Azure SQL
 * [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql)
 * [sys.pdw_table_distribution_properties](https://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](https://msdn.microsoft.com/library/mt203876.aspx)
-* [sys.resource_governor_workload_groups](/sql/relational-databases/system-catalog-views/sys-resource-governor-workload-groups-transact-sql)
-* [sys. workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql) Anteprima
-* [sys. workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql) Anteprima
+* [sys. resource_governor_workload_groups](/sql/relational-databases/system-catalog-views/sys-resource-governor-workload-groups-transact-sql)
+* [sys. workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql) (anteprima)
+* [sys. workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql) (anteprima)
 
 ## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>Viste a gestione dinamica (DMV) di SQL Data Warehouse
 * [sys.dm_pdw_dms_cores](https://msdn.microsoft.com/library/mt203911.aspx)

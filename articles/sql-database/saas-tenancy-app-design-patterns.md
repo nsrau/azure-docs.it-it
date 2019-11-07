@@ -1,5 +1,5 @@
 ---
-title: Criteri delle applicazioni SaaS multi-tenant - Database SQL di Azure | Microsoft Docs
+title: 'Modelli SaaS multi-tenant-database SQL di Azure '
 description: Informazioni sui requisiti e sui criteri comuni di architettura dei dati delle applicazioni di database SaaS (Software-as-a-Service) multi-tenant in esecuzione nell'ambiente cloud di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 8cbf0e45ac368f0d2dd1678984bd14392452e63a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ecbcf2cdfea2714e46d0c9cff4066befabddeeb8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570189"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691921"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Criteri di tenancy di database delle applicazioni SaaS multi-tenant
 
@@ -32,8 +32,8 @@ In cambio della tariffa di noleggio, ogni tenant ottiene l'accesso ai componenti
 
 Il termine *modello di tenancy* indica il modo in cui sono organizzati i dati dei tenant che vengono archiviati:
 
-- *Singola tenancy:* &nbsp; in ogni database sono archiviati i dati di un solo tenant.
-- *Multi-tenancy:* &nbsp; in ogni database sono archiviati i dati di più tenant diversi, con meccanismi per proteggere la privacy dei dati.
+- *A tenancy singolo:* &nbsp; in ogni database sono archiviati i dati di un solo tenant.
+- *A più tenancy:* &nbsp; in ogni database sono archiviati i dati di più tenant diversi, con meccanismi per proteggere la privacy dei dati.
 - Sono disponibili anche modelli di tenancy ibridi.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Come scegliere il modello di tenancy appropriato
@@ -46,16 +46,16 @@ In generale, il modello di tenancy non influisce sul funzionamento di un'applica
     - Archiviazione in modo aggregato.
     - Carico di lavoro.
 
-- **Isolamento dei tenant:** &nbsp; isolamento dei dati e prestazioni (se il carico di lavoro di un tenant influisce su altri).
+- **Isolamento del tenant:** &nbsp; isolamento dei dati e prestazioni (se il carico di lavoro di un tenant influisce su altri).
 
-- **Costo per singolo tenant:** &nbsp; Costi del database.
+- **Costo per tenant:** &nbsp; costi del database.
 
 - **Complessità di sviluppo:**
     - Modifiche allo schema.
     - Modifiche alle query (richieste dal modello).
 
 - **Complessità operativa:**
-    - Prestazioni di monitoraggio e gestione.
+    - Monitoraggio e gestione delle prestazioni.
     - Gestione degli schemi.
     - Ripristino di un tenant.
     - Ripristino di emergenza.
@@ -183,10 +183,10 @@ In questo modello ibrido i database a tenant singolo per i tenant con sottoscriz
 
 La tabella seguente riepiloga le differenze tra i modelli di tenancy principali.
 
-| Misurazione | App autonoma | Database per tenant | Multi-tenant partizionato |
+| Misura | App autonoma | Database per tenant | Multi-tenant partizionato |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Scalabilità | Medi<br />1-centinaia | Molto alta<br />1-centinaia di migliaia | Senza limitazioni<br />1-milioni |
-| Isolamento dei tenant | Molto alta | High | Basso, ad eccezione di eventuali tenant singoli (soli in un database multi-tenant). |
+| Scalabilità | Medio<br />1-centinaia | Molto alta<br />1-centinaia di migliaia | Illimitato<br />1-milioni |
+| Isolamento dei tenant | Molto alta | Alto | Basso, ad eccezione di eventuali tenant singoli (soli in un database multi-tenant). |
 | Costo di database per tenant | Alto; dimensionato per i picchi. | Basso; vengono usati i pool. | Minimo, per tenant di piccole dimensioni nei database multi-tenant. |
 | Monitoraggio e gestione delle prestazioni | Solo per singolo tenant | Aggregati + per singolo tenant | Aggregati, ma per singolo tenant solo per i database singoli. |
 | Complessità di sviluppo | Basso | Basso | Media, a causa del partizionamento orizzontale. |

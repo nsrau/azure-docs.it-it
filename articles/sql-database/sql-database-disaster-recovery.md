@@ -1,5 +1,5 @@
 ---
-title: Ripristino di emergenza del database SQL | Documentazione Microsoft
+title: Ripristino di emergenza del database SQL
 description: Informazioni su come ripristinare un database da un guasto o un'interruzione del servizio del data center a livello di area con le funzionalità di replica geografica attiva e ripristino geografico del database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/21/2019
-ms.openlocfilehash: 95814805d0bcb2532c09f4f68c6b8d97c3b8c6a5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bc4968541c29e3bf18eb4caca2abe648d17342a4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568827"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690594"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Ripristinare un database SQL di Azure o eseguire il failover in un database secondario
 
@@ -89,7 +89,7 @@ Se i tempi di inattività dell'applicazione non comportano una responsabilità a
 
 Se si esegue il ripristino da un'interruzione del servizio usando il ripristino geografico, è necessario assicurarsi che la connettività ai nuovi database sia configurata correttamente in modo da poter riprendere il normale funzionamento dell'applicazione. Di seguito è riportato un elenco di controllo di attività per fare in modo che il database ripristinato sia pronto per la produzione.
 
-### <a name="update-connection-strings"></a>Aggiorna stringhe di connessione
+### <a name="update-connection-strings"></a>Aggiornare le stringhe di connessione
 
 Poiché il database ripristinato si trova in un server diverso, è necessario aggiornare la stringa di connessione dell'applicazione in modo che punti a tale server.
 
@@ -97,7 +97,7 @@ Per altre informazioni sulla modifica delle stringhe di connessione, vedere il l
 
 ### <a name="configure-firewall-rules"></a>Configurare le regole firewall
 
-Verificare che le regole firewall configurate nel server e nel database corrispondano a quelle configurate nel server primario e nel database primario. Per altre informazioni, vedere [Procedura: configurare le impostazioni del firewall (Database SQL di Azure)](sql-database-configure-firewall-settings.md).
+Verificare che le regole firewall configurate nel server e nel database corrispondano a quelle configurate nel server primario e nel database primario. Per altre informazioni, vedere [Procedura: Configurare le impostazioni del firewall (Database SQL di Azure)](sql-database-configure-firewall-settings.md).
 
 ### <a name="configure-logins-and-database-users"></a>Configurare gli account di accesso e gli utenti del database
 
@@ -118,6 +118,6 @@ Se è necessario il controllo di accesso al database, occorre attivare il contro
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sui backup automatici del database SQL di Azure, vedere [Panoramica: Backup automatici del database SQL](sql-database-automated-backups.md)
-- Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere l'articolo relativo agli [scenari di continuità aziendale](sql-database-business-continuity.md)
+- Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md)
+- Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere [Scenari di continuità aziendale](sql-database-business-continuity.md)
 - Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)

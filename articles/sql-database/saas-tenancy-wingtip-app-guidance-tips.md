@@ -1,5 +1,5 @@
 ---
-title: Materiale sussidiario per l'esempio di app multi-tenant di database SQL - SaaS Wingtip | Microsoft Docs
+title: "Linee guida per l'esempio di app multi-tenant di database SQL-SaaS Wingtip "
 description: Illustra i passaggi e il materiale sussidiario per l'installazione e l'esecuzione dell'applicazione multi-tenant di esempio che usa Database SQL di Azure, nell'esempio Wingtip Tickets SaaS.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 6c14fd69521be85dbda5ec4ceda991dfdff54ae0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9258e1e8219300c47e77ea8164e54edd5855bb39
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570073"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691801"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Linee guida generali per l'uso delle app SaaS di esempio Wingtip Tickets
 
@@ -37,7 +37,7 @@ I contenuti eseguibili (script, DLL) possono essere bloccati da Windows quando s
 6. Fare clic su **OK**.
 7. Estrarre i file.
 
-Gli script si trovano nella cartella *...\\Learning Modules*.
+Gli script si trovano nella cartella *..\\Learning Modules*.
 
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Uso degli script di PowerShell per Wingtip Tickets
@@ -56,7 +56,7 @@ Impostando qui questi valori specifici della distribuzione, non sarà necessario
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Eseguire gli script premendo F5
 
-Vari script usano *$PSScriptRoot* per esplorare le cartelle e *$PSScriptRoot* viene valutato solo quando gli script vengono eseguiti premendo **F5**.  L'evidenziazione e l'esecuzione di una selezione (**F8**) può causare errori, quindi premere **F5** per l'esecuzione degli script.
+Vari script usano *$PSScriptRoot* per esplorare le cartelle e *$PSScriptRoot* viene valutato solo quando gli script vengono eseguiti premendo **F5**.  L'evidenziazione e l'esecuzione di una selezione (**F8**) può causare errori, quindi premere **F5** durante l'esecuzione degli script.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Eseguire gli script un'istruzione alla volta per esaminare l'implementazione
 
@@ -93,7 +93,7 @@ Per assicurare una connessione demo corretta, tutti i server hanno una [regola d
 
    ![server di catalogo](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Le credenziali della demo sono: Login = *Developer*, password = *P\@ssword1*
+3. Credenziali demo: login = *Developer*, password = *P\@ssword1*
 
     L'immagine seguente illustra l'accesso per il modello *Database per tenant*. 
     ![connessione](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

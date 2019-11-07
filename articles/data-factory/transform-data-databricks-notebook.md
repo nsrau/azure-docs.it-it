@@ -1,5 +1,5 @@
 ---
-title: Trasformare i dati con i notebook di Databricks - Azure | Microsoft Docs
+title: Trasformare i dati con il notebook di databricks-Azure
 description: Informazioni su come elaborare o trasformare i dati eseguendo un notebook di Databricks.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 23166a4a0110629674db6ccc9d225118264b3c15
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 685a7863af74bf90c819453b41078b48ab6d2045
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233070"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683920"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Trasformare i dati eseguendo un notebook di Databricks
 
@@ -61,9 +61,9 @@ La tabella seguente fornisce le descrizioni delle proprietà JSON usate nella de
 |---|---|---|
 |name|Nome dell'attività nella pipeline.|Sì|
 |description|Testo che descrive l'attività.|No|
-|type|Per l'attività dei notebook di Databricks il tipo di attività è DatabricksNotebook.|Yes|
+|type|Per l'attività dei notebook di Databricks il tipo di attività è DatabricksNotebook.|Sì|
 |linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione il notebook di Databricks. Per informazioni su questo servizio collegato, vedere l'articolo  [Servizi collegati di calcolo](compute-linked-services.md) .|Sì|
-|notebookPath|Percorso assoluto del notebook da eseguire nell'area di lavoro di Databricks. Questo percorso deve iniziare con una barra.|Yes|
+|notebookPath|Percorso assoluto del notebook da eseguire nell'area di lavoro di Databricks. Questo percorso deve iniziare con una barra.|Sì|
 |baseParameters|Matrice di coppie chiave-valore. I parametri base possono essere usati per ogni esecuzione attività. Se il notebook accetta un parametro non specificato, verrà usato il valore predefinito del notebook. Per altre informazioni sui parametri, vedere [Notebook di Databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|No|
 |libraries|Un elenco di librerie da installare nel cluster che eseguirà il processo. Può essere una matrice di \<stringa, oggetto>.|No|
 
@@ -120,7 +120,7 @@ In alcuni casi potrebbe essere necessario passare di nuovo alcuni valori dal not
 
 1. Nel notebook è possibile chiamare [dbutils. notebook. Exit ("returnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) e il corrispondente "returnValue" verrà restituito data factory.
 
-2. È possibile utilizzare l'output in data factory utilizzando un'espressione, ad `'@activity('databricks notebook activity name').output.runOutput'`esempio. 
+2. È possibile utilizzare l'output in data factory utilizzando un'espressione, ad esempio `'@activity('databricks notebook activity name').output.runOutput'`. 
 
    > [!IMPORTANT]
    > Se si passa un oggetto JSON, è possibile recuperare i valori accodando i nomi di proprietà. Esempio: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`

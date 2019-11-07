@@ -1,5 +1,5 @@
 ---
-title: Copiare dati nel/dal database SQL di Azure | Microsoft Docs
+title: Copiare dati da e verso il database SQL di Azure
 description: Informazioni su come copiare dati da e verso il database SQL di Azure mediante Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: efc7e255a8b3644d8b95bf461e49cd67b2219676
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 8d53d61991f191d2cd0636dba918e9499c4f5d2b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839533"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683097"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copiare dati da e nel database SQL di Azure con Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-azure-sql-connector.md)
 > * [Versione 2 (corrente)](../connector-azure-sql-database.md)
 
@@ -45,9 +45,9 @@ Il connettore per database SQL di Azure supporta l'autenticazione di base.
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un database SQL di Azure usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **Visual Studio**, **Azure PowerShell**, **modello Azure Resource Manager**, **API .NET**, e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -56,23 +56,23 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 3. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. Nell'esempio citato nel passaggio precedente, si crea un set di dati per specificare un contenitore BLOB e la cartella che contiene i dati di input. Si crea anche un altro set di dati per specificare la tabella SQL nel database SQL di Azure che contiene i dati copiati dall'archiviazione BLOB. Per le proprietà del set di dati specifiche per Azure Data Lake Store, vedere la sezione sulle [proprietà del set di dati](#dataset-properties).
 4. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. Nell'esempio indicato in precedenza si usa BlobSource come origine e SqlSink come sink per l'attività di copia. Analogamente, se si esegue la copia dal database SQL di Azure nell'archiviazione BLOB di Azure, si usa SqlSource e BlobSink nell'attività di copia. Per le proprietà dell'attività di copia specifiche per il database SQL di Azure, vedere la sezione sulle [proprietà dell'attività di copia](#copy-activity-properties). Per informazioni dettagliate su come usare un archivio dati come origine o come sink, fare clic sul collegamento nella sezione precedente per l'archivio dati.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory. Per esempi con definizioni JSON per entità di data factory utilizzate per copiare i dati da e verso un database SQL di Azure, vedere la sezione degli [esempi JSON](#json-examples-for-copying-data-to-and-from-sql-database) in questo articolo.
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory. Per esempi con definizioni JSON per entità di data factory utilizzate per copiare i dati da e verso un database SQL di Azure, vedere la sezione degli [esempi JSON](#json-examples-for-copying-data-to-and-from-sql-database) in questo articolo.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche di un database SQL di Azure:
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 Un servizio collegato SQL di Azure collega un database SQL di Azure alla data factory. La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato SQL di Azure.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **AzureSqlDatabase** |Yes |
-| connectionString |Specificare le informazioni necessarie per connettersi all'istanza di database SQL di Azure per la proprietà connectionString. È supportata solo l'autenticazione di base. |Yes |
+| type |La proprietà del tipo deve essere impostata su: **AzureSqlDatabase** |Sì |
+| connectionString |Specificare le informazioni necessarie per connettersi all'istanza di database SQL di Azure per la proprietà connectionString. È supportata solo l'autenticazione di base. |Sì |
 
 > [!IMPORTANT]
 > Configurare il [firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) e il server di database in modo da [consentire ai servizi di Azure di accedere al server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Se si copiano dati nel database SQL di Azure dall'esterno di Azure e da origini dati locali con gateway di data factory, configurare anche un intervallo di indirizzi IP appropriato per il computer che invia dati al database SQL di Azure.
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
-Per specificare un set di dati per rappresentare i dati di input o output in un database SQL di Azure, impostare la proprietà del tipo del set di dati su **AzureSqlTable**. Impostare la proprietà **linkedServiceName** del set di dati sul nome del servizio collegato SQL di Azure.
+Per specificare un set di dati per rappresentare i dati di input o outpui in un database SQL di Azure, impostare la proprietà del tipo del set di dati su **AzureSqlTable**. Impostare la proprietà **linkedServiceName** del set di dati sul nome del servizio collegato SQL di Azure.
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
@@ -95,7 +95,7 @@ Se si effettua il trasferimento dei dati da un database SQL di Azure, impostare 
 ### <a name="sqlsource"></a>SqlSource
 In caso di attività di copia con origine di tipo **SqlSource**, nella sezione **typeProperties** sono disponibili le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Esempio: `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |Nome della stored procedure che legge i dati dalla tabella di origine. |Nome della stored procedure. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. |No |
@@ -145,13 +145,13 @@ GO
 ### <a name="sqlsink"></a>SqlSink
 **SqlSink** supporta le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |Intervallo di tempo<br/><br/> Esempio: "00:30:00" (30 minuti). |N. |
-| writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. |Numero intero (numero di righe) |No (valore predefinito: 10.000) |
-| sqlWriterCleanupScript |Specificare una query da eseguire nell'attività di copia per pulire i dati di una sezione specifica. Per altre informazioni, vedere la [copia ripetibile](#repeatable-copy). |Istruzione di query. |N. |
-| sliceIdentifierColumnName |Specificare il nome di una colonna in cui inserire nell'attività di copia l'identificatore di sezione generato automaticamente che verrà usato per pulire i dati di una sezione specifica quando viene ripetuta l'esecuzione. Per altre informazioni, vedere la [copia ripetibile](#repeatable-copy). |Nome di colonna di una colonna con tipo di dati binario (32). |N. |
-| sqlWriterStoredProcedureName |Nome della stored procedure che definisce come applicare i dati di origine nella tabella di destinazione, ad esempio per eseguire upsert o trasformazioni usando logica di business personalizzata. <br/><br/>Si noti che questa stored procedure verrà **richiamata per batch**. Se si vuole eseguire una sola volta un'operazione che non ha nulla a che fare con i dati di origine, ad esempio un'eliminazione o un troncamento, usare la proprietà `sqlWriterCleanupScript`. |Nome della stored procedure. |N. |
+| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |timespan<br/><br/> Ad esempio: "00:30:00" (30 minuti). |No |
+| writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. |Numero intero (numero di righe) |No (valore predefinito: 10000) |
+| sqlWriterCleanupScript |Specificare una query da eseguire nell'attività di copia per pulire i dati di una sezione specifica. Per altre informazioni, vedere la [copia ripetibile](#repeatable-copy). |Istruzione di query. |No |
+| sliceIdentifierColumnName |Specificare il nome di una colonna in cui inserire nell'attività di copia l'identificatore di sezione generato automaticamente che verrà usato per pulire i dati di una sezione specifica quando viene ripetuta l'esecuzione. Per altre informazioni, vedere la [copia ripetibile](#repeatable-copy). |Nome di colonna di una colonna con tipo di dati binario (32). |No |
+| sqlWriterStoredProcedureName |Nome della stored procedure che definisce come applicare i dati di origine nella tabella di destinazione, ad esempio per eseguire upsert o trasformazioni usando logica di business personalizzata. <br/><br/>Si noti che questa stored procedure verrà **richiamata per batch**. Se si vuole eseguire una sola volta un'operazione che non ha nulla a che fare con i dati di origine, ad esempio un'eliminazione o un troncamento, usare la proprietà `sqlWriterCleanupScript`. |Nome della stored procedure. |No |
 | storedProcedureParameters |Parametri per la stored procedure. |Coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. |No |
 | sqlWriterTableType |Specificare il nome di un tipo di tabella da usare nella stored procedure. L'attività di copia rende i dati spostati disponibili in una tabella temporanea con questo tipo di tabella. Il codice della stored procedure può quindi unire i dati copiati con i dati esistenti. |Nome del tipo di tabella. |No |
 
@@ -173,9 +173,9 @@ GO
 ```
 
 ## <a name="json-examples-for-copying-data-to-and-from-sql-database"></a>Esempi JSON per la copia dei dati da e verso un database SQL
-Gli esempi seguenti forniscono le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) oppure [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tali esempi mostrano come copiare dati in e da un database SQL di Azure e un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Data factory di Azure.
+Gli esempi seguenti forniscono le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tali esempi mostrano come copiare dati in e da un database SQL di Azure e un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Data factory di Azure.
 
-### <a name="example-copy-data-from-azure-sql-database-to-azure-blob"></a>Esempio: Copiare dati da un database SQL di Azure SQL in BLOB di Azure
+### <a name="example-copy-data-from-azure-sql-database-to-azure-blob"></a>Esempio: Copiare i dati dal database SQL di Azure SQL nel BLOB di Azure
 L'esempio definisce le entità di Data Factory seguenti:
 
 1. Un servizio collegato di tipo [AzureSqlDatabase](#linked-service-properties).
@@ -252,7 +252,7 @@ Vedere la sezione sulle proprietà del tipo di set di dati SQL di Azure per l'el
 
 **Set di dati di output del BLOB di Azure:**
 
-I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: oraria, intervallo: 1). Il percorso della cartella per il BLOB viene valutato dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
+I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella per il BLOB viene valutato dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
 
 ```JSON
 {
@@ -367,7 +367,7 @@ Se non si specifica sqlReaderQuery o sqlReaderStoredProcedureName, le colonne de
 
 Vedere la sezione [SqlSource](#sqlsource) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) per l'elenco delle proprietà supportate da SqlSource e BlobSink.
 
-### <a name="example-copy-data-from-azure-blob-to-azure-sql-database"></a>Esempio: Copiare dati da BLOB di Azure in un database SQL di Azure
+### <a name="example-copy-data-from-azure-blob-to-azure-sql-database"></a>Esempio: Copiare i dati dal BLOB di Azure nel database SQL di Azure
 L'esempio definisce le entità di Data Factory seguenti:
 
 1. Un servizio collegato di tipo [AzureSqlDatabase](#linked-service-properties).
@@ -411,7 +411,7 @@ Vedere l'articolo [BLOB di Azure](data-factory-azure-blob-connector.md#azure-sto
 
 **Set di dati di input del BLOB di Azure:**
 
-I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: oraria, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti di anno, mese e giorno della data/ora di inizio e il nome file usa la parte relativa all'ora. L'impostazione di "external" su "true" comunica al servizio Data Factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
+I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, e giorno dell'ora di inizio e il nome del file usa la parte dell'ora di inizio relativa all'ora. L'impostazione di "external" su "true" comunica al servizio Data Factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
 
 ```JSON
 {
@@ -639,16 +639,16 @@ Quando si spostano dati da e verso il database SQL di Azure vengono usati i mapp
 | --- | --- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolean |
+| bit |Booleano |
 | char |String, Char[] |
 | date |DateTime |
-| Datetime |DateTime |
+| DateTime |DateTime |
 | datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
+| Datetimeoffset |Datetimeoffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| image |Byte[] |
+| immagine |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |

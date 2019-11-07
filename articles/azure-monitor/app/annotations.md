@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/01/2019
-ms.openlocfilehash: 9dbdd683a8545e0f8c573dfba60daa96ef5ff08d
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f9ab1f1ef2b64c07a3b0c8ddf93d6ef4293517db
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677864"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668105"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotazioni sui grafici delle metriche in Application Insights
 
@@ -53,6 +53,9 @@ Creare una chiave API separata per ogni modello di versione di Azure Pipelines.
 1. Selezionare **Aggiungi attività**, quindi selezionare l'attività **Application Insights annotazione versione** dal menu.
    
    ![Selezionare Aggiungi attività e selezionare Application Insights annotazione versione.](./media/annotations/3-add-task.png)
+
+   > [!NOTE]
+   > L'attività di annotazione versione supporta attualmente solo gli agenti basati su Windows. non verrà eseguito in Linux, macOS o altri tipi di agenti.
    
 1. In **ID applicazione**incollare l'ID Application Insights copiato dalla scheda **accesso API** .
    
@@ -68,7 +71,7 @@ Creare una chiave API separata per ogni modello di versione di Azure Pipelines.
    
 1. Nella finestra modello di rilascio, nella scheda **variabili** selezionare **Aggiungi** per creare una definizione di variabile per la nuova chiave API.
 
-1. In **nome**immettere `ApiKey` e in **valore**incollare la chiave API copiata dalla scheda **accesso API** .
+1. In **nome**immettere `ApiKey`e in **valore**incollare la chiave API copiata dalla scheda **accesso API** .
    
    ![Nella scheda variabili di Azure DevOps selezionare Aggiungi, denominare la variabile ApiKey e incollare la chiave API in valore.](./media/annotations/7-paste-api-key.png)
    

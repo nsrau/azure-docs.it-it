@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione di carichi di lavoro SSIS locali a SSIS in Azure Data Factory | Microsoft Docs
+title: Eseguire la migrazione di carichi di lavoro SSIS locali a SSIS in Azure Data Factory
 description: Eseguire la migrazione di carichi di lavoro SSIS locali a SSIS in ADF.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 3bf5ddebd59c95d00d0d3270f0e8e1a2d29b379a
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: e75e6bc78740ffb8aba0faa0ef95f4b13a8c56ef
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968471"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684419"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Eseguire la migrazione di carichi di lavoro SSIS locali a SSIS in ADF
 
@@ -27,7 +27,7 @@ Quando si esegue la migrazione dei carichi di lavoro del database da SQL Server 
 
 Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF) supporta l'esecuzione di pacchetti SSIS. Una volta eseguito il provisioning di Azure-SSIS IR, è possibile usare strumenti familiari, ad esempio SQL Server Data Tools (SSDT)/SQL Server Management Studio (SSMS) e utilità della riga di comando, ad esempio dtinstall/dtutil/dtexec, per distribuire ed eseguire i pacchetti in Azure. Per altre informazioni, vedere [Panoramica di Azure SSIS Lift-and-Shift](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 
-Questo articolo evidenzia il processo di migrazione dei carichi di lavoro ETL da SSIS locale a SSIS in ADF. Il processo di migrazione è costituito da due fasi: **Valutazione** e **migrazione**.
+Questo articolo evidenzia il processo di migrazione dei carichi di lavoro ETL da SSIS locale a SSIS in ADF. Il processo di migrazione è costituito da due fasi: **valutazione** e **migrazione**.
 
 ## <a name="assessment"></a>Valutazione
 
@@ -35,9 +35,9 @@ Per definire un piano di migrazione completo, una valutazione completa consente 
 
 Data Migration Assistant (DMA) è uno strumento scaricabile gratuitamente per questo scopo, che può essere installato ed eseguito localmente. È possibile creare un progetto di valutazione DMA di tipo **Integration Services** per valutare i pacchetti SSIS in batch e identificare i problemi di compatibilità presentati nelle categorie seguenti:
 
-- Blocchi migrazione: Si tratta di problemi di compatibilità che bloccano l'esecuzione dei pacchetti di origine della migrazione in Azure-SSIS IR. DMA fornisce indicazioni utili per risolvere questi problemi.
+- Blocchi di migrazione: si tratta di problemi di compatibilità che bloccano l'esecuzione dei pacchetti di origine della migrazione in Azure-SSIS IR. DMA fornisce indicazioni utili per risolvere questi problemi.
 
-- Problemi informativi: Si tratta di funzionalità parzialmente supportate o deprecate utilizzate nei pacchetti di origine. DMA fornisce un set completo di indicazioni, approcci alternativi disponibili in Azure e procedure di mitigazione per la risoluzione.
+- Problemi informativi: funzionalità parzialmente supportate o deprecate utilizzate nei pacchetti di origine. DMA fornisce un set completo di indicazioni, approcci alternativi disponibili in Azure e procedure di mitigazione per la risoluzione.
 
 ### <a name="four-storage-types-for-ssis-packages"></a>Quattro tipi di archiviazione per i pacchetti SSIS
 

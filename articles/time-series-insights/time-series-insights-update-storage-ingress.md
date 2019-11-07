@@ -8,37 +8,59 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b61e194bdea5fd8272ffc0fc9e16a2d80d3cf60
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: d0cdd78aaa2b58743e16a2e7cfe213a9daed85ff
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989698"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605891"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights
 
-Questo articolo descrive gli aggiornamenti per l'archiviazione dei dati e il traffico in ingresso per Azure Time Series Insights anteprima. Esamina la struttura di archiviazione sottostante, il formato dei file e la proprietà Time Series ID. Viene inoltre illustrato il processo di ingresso, la velocità effettiva e le limitazioni sottostanti.
+Questo articolo descrive gli aggiornamenti per l'archiviazione dei dati e il traffico in ingresso per Azure Time Series Insights anteprima. Esamina la struttura di archiviazione sottostante, il formato dei file e la proprietà Time Series ID. Viene inoltre illustrato il processo di ingresso sottostante, le procedure consigliate e le limitazioni dell'anteprima corrente.
 
 ## <a name="data-ingress"></a>Dati in ingresso
 
-In Time Series Insights anteprima i criteri di ingresso dei dati determinano la posizione in cui i dati possono essere originati e il formato dei dati.
-
-[Panoramica del modello Time Series![](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
+L'ambiente di Azure Time Series Insights contiene un motore di inserimento per la raccolta, l'elaborazione e l'archiviazione di dati di serie temporali. Quando si pianifica l'ambiente, è necessario tenere in considerazione alcune considerazioni per garantire che tutti i dati in ingresso vengano elaborati e per ottenere scalabilità in ingresso elevata e ridurre al minimo la latenza di inserimento (il tempo impiegato da TSI per leggere ed elaborare i dati dall'evento origine). In Time Series Insights anteprima i criteri di ingresso dei dati determinano la posizione in cui i dati possono essere originati e il formato dei dati.
 
 ### <a name="ingress-policies"></a>Criteri di ingresso
 
-Time Series Insights anteprima supporta le stesse origini eventi attualmente supportate da Time Series Insights:
+Time Series Insights anteprima supporta le origini eventi seguenti:
 
 - [Hub IoT Azure](../iot-hub/about-iot-hub.md)
 - [Hub eventi di Azure](../event-hubs/event-hubs-about.md)
 
 Time Series Insights anteprima supporta un massimo di due origini evento per ogni istanza.
   
-Azure Time Series Insights supporta il formato JSON inviato tramite l'hub Azure o hub eventi di Azure. Per ottimizzare i dati JSON, vedere la pagina relativa [alla forma di JSON](./time-series-insights-send-events.md#supported-json-shapes).
+Azure Time Series Insights supporta il formato JSON inviato tramite l'hub Azure o hub eventi di Azure.
 
-### <a name="data-storage"></a>Archiviazione dati
+> [!WARNING] 
+> Quando si aggiunge una nuova origine evento all'ambiente di Time Series Insights anteprima, a seconda del numero di eventi attualmente presenti nell'hub o nell'hub eventi, è possibile che si verifichi una latenza di inserimento iniziale elevata. Quando i dati vengono inseriti, è necessario aspettarsi che questa latenza elevata sia secondaria, ma se l'esperienza indica altrimenti contattaci inviando un ticket di supporto tramite la portale di Azure.
+
+## <a name="ingress-best-practices"></a>Procedure consigliate per il traffico in ingresso
+
+Si consiglia di utilizzare le seguenti procedure consigliate:
+
+* Configurare Time Series Insights e un hub o hub eventi nella stessa area. In questo modo si riduce la latenza di inserimento causata dalla rete.
+* Pianificare le esigenze di scalabilità calcolando la velocità di inserimento prevista e verificando che rientri nella tariffa supportata indicata di seguito
+* Informazioni su come ottimizzare e modellare i dati JSON, nonché le limitazioni correnti in anteprima, leggendo [come definire il formato JSON per l'ingresso e la query](./time-series-insights-update-how-to-shape-events.md).
+
+### <a name="ingress-scale-and-limitations-in-preview"></a>Scalabilità in ingresso e limitazioni in anteprima
+
+Per impostazione predefinita, Time Series Insights anteprima supporta una scala di ingresso iniziale di un massimo di 1 megabyte al secondo (MB/s) per ogni ambiente. Se necessario, è disponibile fino a 16 MB/s, se necessario, contattaci inviando un ticket di supporto nel portale di Azure se necessario. Inoltre, è previsto un limite per partizione di 0,5 MB/s. Questa operazione ha implicazioni per i clienti che usano l'hub Internet in modo specifico, data l'affinità tra un dispositivo dell'hub Internet e una partizione. Negli scenari in cui un dispositivo gateway invia messaggi all'hub usando il proprio ID dispositivo e la stringa di connessione, sussiste il rischio di raggiungere il limite di 0,5 MB/s, dato che i messaggi arriveranno in una singola partizione, anche se il payload dell'evento specifica Servizi terminal diversi ID. In generale, la velocità in ingresso viene considerata come un fattore del numero di dispositivi nell'organizzazione, della frequenza di emissione degli eventi e delle dimensioni di un evento. Quando si calcola la velocità di inserimento, gli utenti dell'hub Internet devono usare il numero di connessioni Hub in uso, anziché i dispositivi totali nell'organizzazione. Il supporto per una scalabilità di livello avanzato è in fase di sviluppo. Questa documentazione verrà aggiornata per riflettere tali miglioramenti. 
+
+> [!WARNING]
+> Per gli ambienti che usano l'hub Internet come origine eventi, calcolare la velocità di inserimento usando il numero di dispositivi hub in uso.
+
+Per ulteriori informazioni sulle unità di velocità effettiva e sulle partizioni, vedere i collegamenti seguenti:
+
+* [Scalabilità dell'hub Internet](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
+* [Scalabilità dell'hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
+* [Partizioni dell'hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
+
+### <a name="data-storage"></a>Archiviazione dei dati
 
 Quando si crea un ambiente con SKU con pagamento in base al consumo Time Series Insights anteprima, si creano due risorse di Azure:
 
@@ -53,19 +75,11 @@ Time Series Insights anteprima Salva i dati dell'archivio a freddo nell'archivio
 > Il proprietario dell'account di archiviazione BLOB di Azure in cui risiedono i dati dell'archivio freddo ha accesso completo a tutti i dati dell'account. Questo accesso include le autorizzazioni di scrittura ed eliminazione. Non modificare o eliminare i dati scritti da Time Series Insights Preview, perché ciò può causare la perdita di dati.
 
 ### <a name="data-availability"></a>Disponibilità dei dati
+
 Time Series Insights Visualizza in anteprima le partizioni e indicizza i dati per ottenere prestazioni ottimali delle query. I dati diventano disponibili per eseguire una query dopo l'indicizzazione. La quantità di dati da inserire può influire sulla disponibilità.
 
 > [!IMPORTANT]
-> La versione di disponibilità generale (GA) di Time Series Insights renderà i dati disponibili in 60 secondi dopo la lettura dall'origine evento. Durante l'anteprima, è possibile che si verifichi un periodo di tempo più lungo prima che i dati diventino disponibili. Se si verifica una latenza significativa superiore a 60 secondi, contattare Microsoft.
-
-### <a name="scale"></a>Scalare
-
-Per impostazione predefinita, Time Series Insights anteprima supporta una scala di ingresso iniziale di un massimo di 1 megabyte al secondo (MB/s) per ogni ambiente. Se necessario, è disponibile una velocità effettiva massima di 16 MB/s. Se è necessario un supporto avanzato per la scalabilità, contattare Microsoft.
-
-È possibile ottenere altre funzionalità di ingresso e scalabilità per l'origine evento:
-
-* [Hub IoT](../iot-hub/iot-hub-scaling.md)
-* [Hub eventi](../event-hubs/event-hubs-scalability.md)
+> La prossima versione di disponibilità generale (GA) di Time Series Insights renderà i dati disponibili in 60 secondi dopo la lettura dall'origine evento. Durante l'anteprima è possibile che si verifichi un periodo di tempo più lungo prima che i dati diventino disponibili. Se si verifica una latenza significativa superiore a 60 secondi, inviare un ticket di supporto tramite la portale di Azure.
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
 

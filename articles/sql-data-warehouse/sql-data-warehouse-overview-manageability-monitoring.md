@@ -1,6 +1,6 @@
 ---
-title: Gestione e monitoraggio di SQL Data Warehouse - Panoramica | Microsoft Docs
-description: Panoramica del monitoraggio e gestione per l'uso delle risorse, attività di log e query, elementi consigliati e protezione dei dati (backup e ripristino).
+title: Gestione e monitoraggio-Panoramica
+description: Panoramica del monitoraggio e della gestibilità per l'utilizzo delle risorse, l'attività di log e query, le raccomandazioni e la protezione dei dati (backup e ripristino) in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e9fb06b8ba34566689f769ca9a69328eee37e3c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 3bacd77f49f97bd98a5e1bee844bc80c595f5cbe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60747575"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685610"
 ---
 # <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Gestione e monitoraggio con Azure SQL Data Warehouse
 
@@ -23,12 +24,12 @@ Esaminare gli strumenti disponibili per gestire e monitorare SQL Data Warehouse.
 
 ## <a name="overview"></a>Panoramica
 
-* [Informazioni sulla gestione del calcolo e l'elasticità][manage compute]
-* [Comprendere quali metriche e log sono disponibili nel portale di Azure][resource utilization]
+* [Informazioni sulla gestione e sull'elasticità di calcolo][manage compute]
+* [Informazioni sulle metriche e sui log disponibili nella portale di Azure][resource utilization]
 * [Informazioni sulle funzionalità di backup e ripristino][data protection]
-* [Informazioni sull'intelligenza incorporata ed elementi consigliati][recommendations]
+* [Informazioni sulle funzionalità di intelligence e consigli predefinite][recommendations]
 * [Informazioni sui periodi di manutenzione e sulle funzionalità disponibili per ridurre al minimo i tempi di inattività del data warehouse][maintenance]
-* [Guida alla risoluzione dei problemi comuni][troubleshoot]
+* [Informazioni aggiuntive comuni sulla risoluzione dei problemi][troubleshoot]
 
 
 ## <a name="next-steps"></a>Passaggi successivi

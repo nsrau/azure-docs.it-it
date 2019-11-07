@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da Greenplum usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da Greenplum usando Azure Data Factory
 description: Informazioni su come copiare dati da Greenplum in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: f23a8784044ddb362f5872ee19e9ca723b0cd456
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 92d07cd4783838c1e9167d5cc1863aedfe6cc464
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092070"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680894"
 ---
 # <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Copiare dati da Greenplum usando Azure Data Factory
 
@@ -48,9 +48,9 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato Greenplum sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Greenplum** | Sì |
+| type | La proprietà type deve essere impostata su **Greenplum** | Sì |
 | connectionString | Una stringa di connessione ODBC per la connessione a Greenplum. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password in Azure Key Vault ed eseguire lo spostamento forzato dei dati della configurazione `pwd` all'esterno della stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
@@ -110,12 +110,12 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Greenplum, impostare la proprietà type del set di dati su **GreenplumTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **GreenplumTable** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **GreenplumTable** | Sì |
 | schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
 | table | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
-| tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e`table` per il nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
+| tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e `table` per un nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -142,9 +142,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Greenplum, impostare il tipo di origine nell'attività di copia su **GreenplumSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **GreenplumSource** | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **GreenplumSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

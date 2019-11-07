@@ -1,5 +1,5 @@
 ---
-title: Guida alle procedure per i pool di istanze del database SQL di Azure (anteprima) | Microsoft Docs
+title: Guida alle procedure per i pool di istanze del database SQL di Azure (anteprima)
 description: Questo articolo descrive come creare e gestire i pool di istanze del database SQL di Azure (anteprima).
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 5862a54c92de7395ce42865ae32d453e926048d8
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 461de4da35905ed860fb2ed9d2c655b55b777683
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70294269"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689742"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Guida alle procedure per pool di istanze del database SQL di Azure (anteprima)
 
@@ -28,20 +28,20 @@ La tabella seguente illustra le operazioni disponibili correlate ai pool di ista
 
 |Comando|Portale di Azure|PowerShell|
 |:---|:---|:---|
-|Crea pool di istanze|No|Yes|
+|Creare il pool di istanze|No|Sì|
 |Aggiornare il pool di istanze (numero limitato di proprietà)|No |Sì |
 |Controllare l'utilizzo e le proprietà del pool di istanze|No|Sì |
 |Elimina pool di istanze|No|Sì|
-|Crea istanza gestita all'interno del pool di istanze|No|Yes|
-|Aggiornare l'utilizzo delle risorse dell'istanza gestita|Sì |Yes|
-|Controllare l'utilizzo e le proprietà delle istanze gestite|Yes|Sì|
-|Elimina istanza gestita dal pool|Sì|Yes|
-|Creare un database nell'istanza gestita posizionata nel pool|Sì|Yes|
-|Eliminare un database da un'istanza gestita|Yes|Yes|
+|Crea istanza gestita all'interno del pool di istanze|No|Sì|
+|Aggiornare l'utilizzo delle risorse dell'istanza gestita|Sì |Sì|
+|Controllare l'utilizzo e le proprietà delle istanze gestite|Sì|Sì|
+|Elimina istanza gestita dal pool|Sì|Sì|
+|Creare un database nell'istanza gestita posizionata nel pool|Sì|Sì|
+|Eliminare un database da un'istanza gestita|Sì|Sì|
 
 [Comandi di PowerShell](https://docs.microsoft.com/powershell/module/az.sql/) disponibili
 
-|Cmdlet |DESCRIZIONE |
+|Cmdlet |Descrizione |
 |:---|:---|
 |[New-AzSqlInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | Crea un pool di istanze del database SQL di Azure. |
 |[Get-AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Restituisce informazioni sul pool di istanze di SQL Azure. |
@@ -92,7 +92,7 @@ Ai pool di istanze si applicano le restrizioni seguenti:
 
 - Solo per utilizzo generico e quinta generazione sono disponibili in anteprima pubblica.
 - Il nome del pool può contenere solo lettere minuscole, numeri e trattini e non può iniziare con un trattino.
-- Per ottenere l'ID subnet, usare `Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork`.
+- Per ottenere l'ID della subnet, usare `Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork`.
 - Se si desidera utilizzare vantaggio Azure Hybrid (Vantaggio Azure Hybrid), viene applicato a livello di pool di istanze. È possibile impostare il tipo di licenza durante la creazione del pool o aggiornarlo in qualsiasi momento dopo la creazione.
 
 > [!IMPORTANT]

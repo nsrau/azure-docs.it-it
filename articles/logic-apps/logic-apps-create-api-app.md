@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: e5dc913d682088296f84fb6bd7595a09d9d3fe7b
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 0d73f40c77c1b73a52522eafdb3c093b691d3e14
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609862"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583466"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creare API personalizzate che è possibile chiamare da App per la logica di Azure
 
@@ -53,7 +53,7 @@ Le API personalizzate consentono di chiamare API che non sono connettori e forni
 * Vengono visualizzati con icone insieme ai connettori gestiti da Microsoft in Progettazione app per la logica.
 * Sono disponibili solo per gli autori dei connettori e degli utenti di app per la logica che hanno lo stesso tenant di Azure Active Directory e la stessa sottoscrizione di Azure nell'area in cui vengono distribuite le app per la logica.
 
-È anche possibile designare connettori registrati per la certificazione Microsoft. Questo processo verifica che i connettori registrati soddisfino i criteri per l'uso pubblico e rende i connettori disponibili per gli utenti in Microsoft Flow e Microsoft PowerApps.
+È anche possibile designare connettori registrati per la certificazione Microsoft. Questo processo verifica che i connettori registrati soddisfino i criteri per l'uso pubblico e li renda disponibili per gli utenti in Power Automate e Microsoft Power Apps.
 
 Per altre informazioni sui connettori personalizzati, vedere 
 
@@ -106,7 +106,7 @@ Questi sono i passaggi specifici che l'API deve seguire, descritti dalla prospet
    
    * *Obbligatoria*: un'intestazione `location` che specifica il percorso assoluto a un URL in cui il motore App per la logica può controllare lo stato del processo dell'API
 
-   * *Facoltativo*: un'intestazione `retry-after` che specifica il numero di secondi che il motore deve attendere prima di controllare l'URL `location` per lo stato del processo. 
+   * *Facoltativa*: un'intestazione `retry-after` che specifica il numero di secondi che il motore deve attendere prima di controllare l'URL `location` per lo stato del processo. 
 
      Per impostazione predefinita, il motore esegue il controllo ogni 20 secondi. Per specificare un intervallo diverso, includere l'intestazione `retry-after` e il numero di secondi fino al polling successivo.
 
@@ -136,7 +136,7 @@ Per questo modello, configurare due endpoint sul controller: `subscribe` e `unsu
 
 *  Endpoint `subscribe`: quando l'esecuzione raggiunge l'azione dell'API nel flusso di lavoro, il motore App per la logica chiama l'endpoint `subscribe`. Questo passaggio fa sì che l'app per la logica crei un URL di callback, che viene archiviato dall'API, e quindi attenda il callback dell'API quando il lavoro viene completato. L'API quindi richiama con un HTTP POST all'URL e passa eventuali contenuti e intestazioni come input all'app per la logica.
 
-* Endpoint `unsubscribe`: se l'esecuzione dell'app per la logica viene annullata, il motore App per la logica chiama l'endpoint `unsubscribe`. L'API può quindi annullare la registrazione dell'URL di callback e arrestare i processi in base alle esigenze.
+* Endpoint `unsubscribe`: se l'esecuzione dell'app per la logica è stata annullata, il motore App per la logica chiama l'endpoint `unsubscribe`. L'API può quindi annullare la registrazione dell'URL di callback e arrestare i processi in base alle esigenze.
 
 ![Modello di azione webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
@@ -222,7 +222,7 @@ Dopo aver configurato l'autenticazione, configurare la distribuzione per le API.
 
 Per rendere disponibili le API personalizzate per altri utenti di App per la logica in Azure, è necessario incrementare la sicurezza e registrarle come connettori di App per la logica. Per altre informazioni, vedere [Panoramica dei connettori personalizzati](../logic-apps/custom-connector-overview.md). 
 
-Per rendere le API personalizzate disponibili a tutti gli utenti in App per la logica, Microsoft Flow e Microsoft PowerApps, è necessario incrementare la sicurezza, registrare le API come connettori di App per la logica e designare i connettori per il [programma Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
+Per rendere disponibili le API personalizzate a tutti gli utenti di app per la logica, Power automatizzate e Microsoft Power Apps è necessario aggiungere sicurezza, registrare le API come connettori di app per la logica e designare i connettori per il [programma Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
 ## <a name="get-support"></a>Supporto
 

@@ -3,18 +3,18 @@ title: Usare Azure Media Clipper nel portale | Microsoft Docs
 description: Creare clip con Azure Media Clipper dal portale di Azure
 services: media-services
 keywords: clip;clip secondarie;codifica;file multimediali
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 8c88caefb0909da55de87116a23fa520c1679cc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec43fa469547dcd6481c0c6781c438f42ab4e2bd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465848"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684998"
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Creare clip con Azure Media Clipper nel portale  
 
@@ -36,7 +36,7 @@ I [filtri manifesto dinamico](https://azure.microsoft.com/blog/dynamic-manifest/
 
 Per creare un filtro manifesto dinamico, accedere alla scheda **Asset** e selezionare l'asset desiderato. Selezionare il pulsante **Clip secondaria** per il menu superiore. Selezionare il filtro manifesto dinamico come modalità di ritaglio nel menu delle impostazioni avanzate. È possibile quindi seguire lo stesso processo per generare una clip di cui è stato eseguito il rendering per la creazione del filtro. I filtri possono essere creati solo da un singolo asset.
 
-L'immagine seguente illustra Clipper in modalità filtro manifesto dinamico nel portale di Azure: ![Azure Media Clipper in modalità filtro manifesto dinamico nel portale di Azure](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
+L'immagine seguente illustra Clipper in modalità di filtro manifesto dinamico nel portale di Azure: ![Azure Media Clipper in modalità filtro manifesto dinamico nel portale di Azure](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
 
 ## <a name="submitting-clipping-jobs"></a>Invio di processi di ritaglio
 Al termine della composizione della clip, selezionare il pulsante per l'invio del processo per avviare il processo di ritaglio o la chiamata del manifesto dinamico corrispondente.

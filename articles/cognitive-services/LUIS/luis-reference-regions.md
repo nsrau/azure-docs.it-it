@@ -1,7 +1,7 @@
 ---
 title: Aree di pubblicazione & endpoint-LUIS
 titleSuffix: Azure Cognitive Services
-description: 3 le aree di creazione e i rispettivi portali supportano tutte le numerose aree di pubblicazione. La regione in cui si pubblica l'app LUIS corrisponde alla regione o alla posizione specificata nel portale di Azure quando si crea una chiave endpoint LUIS di Azure. Quando si pubblica un'app, LUIS genera automaticamente un URL endpoint per la regione associata alla chiave.
+description: L'area specificata nella portale di Azure è la stessa in cui verrà pubblicata l'app LUIS e viene generato un URL dell'endpoint per la stessa area.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: diberry
-ms.openlocfilehash: f859047caf64d27ef63783ecd42f12fc9b79b4fd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fe4436afe56e631ae308b70ae35b1fb4a7c32e11
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933356"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669177"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Creazione e pubblicazione di aree e chiavi associate
 
@@ -38,7 +38,7 @@ Per le aree di creazione sono state [associate aree di failover](https://docs.mi
 <a name="regions-and-azure-resources"></a>
 
 ## <a name="publishing-regions-and-azure-resources"></a>Aree di pubblicazione e risorse di Azure
-L'app è pubblicata in tutte le regioni associate alle risorse LUIS aggiunte nel portale di LUIS. Per un'app creata in [www.Luis.ai][www.luis.ai], ad esempio, se si crea una risorsa Luis o cognitive Service in westus e la si [aggiunge all'app come risorsa](luis-how-to-azure-subscription.md), l'app viene pubblicata in tale area. 
+L'app è pubblicata in tutte le regioni associate alle risorse LUIS aggiunte nel portale di LUIS. Per un'app creata in [www.Luis.ai][www.luis.ai], ad esempio, se si crea una risorsa Luis o cognitive Service in **westus** e la si [aggiunge all'app come risorsa](luis-how-to-azure-subscription.md), l'app viene pubblicata in tale area. 
 
 ## <a name="public-apps"></a>App pubbliche
 Un'app pubblica viene pubblicata in tutte le regioni in modo che un utente con una chiave di risorsa LUIS basata su regione possa accedere all'app in qualsiasi regione associata la propria chiave di risorsa.
@@ -53,7 +53,7 @@ Le app LUIS create in https://www.luis.ai possono essere pubblicate in tutti gli
 
 ## <a name="publishing-to-europe"></a>Pubblicazione in Europa
 
-Per pubblicare nelle regioni europee, creare le app LUIS solo in https://eu.luis.ai. Se si tenta di pubblicare in qualsiasi altra regione usando una chiave nella regione europea, viene visualizzato un messaggio di avviso. Usare invece https://eu.luis.ai. Le app Luis create [https://eu.luis.ai][eu.luis.ai] in non vengono migrate automaticamente ad altre aree. Esportare e importare l'app LUIS per eseguirne la migrazione.
+Per pubblicare nelle regioni europee, creare le app LUIS solo in https://eu.luis.ai. Se si tenta di pubblicare in qualsiasi altra regione usando una chiave nella regione europea, viene visualizzato un messaggio di avviso. Usare invece https://eu.luis.ai. Le app LUIS create in [https://eu.luis.ai][eu.luis.ai] non vengono migrate automaticamente ad altre aree. Esportare e importare l'app LUIS per eseguirne la migrazione.
 
 ## <a name="europe-publishing-regions"></a>Aree di pubblicazione Europa
 
@@ -66,7 +66,7 @@ Per pubblicare nelle regioni europee, creare le app LUIS solo in https://eu.luis
 
 ## <a name="publishing-to-australia"></a>Pubblicazione in Australia
 
-Per pubblicare nelle regioni australiane, creare le app LUIS solo in https://au.luis.ai. Se si tenta di pubblicare in qualsiasi altra regione usando una chiave nella regione australiana, viene visualizzato un messaggio di avviso. Usare invece https://au.luis.ai. Le app Luis create [https://au.luis.ai][au.luis.ai] in non vengono migrate automaticamente ad altre aree. Esportare e importare l'app LUIS per eseguirne la migrazione.
+Per pubblicare nelle regioni australiane, creare le app LUIS solo in https://au.luis.ai. Se si tenta di pubblicare in qualsiasi altra regione usando una chiave nella regione australiana, viene visualizzato un messaggio di avviso. Usare invece https://au.luis.ai. Le app LUIS create in [https://au.luis.ai][au.luis.ai] non vengono migrate automaticamente ad altre aree. Esportare e importare l'app LUIS per eseguirne la migrazione.
 
 ## <a name="australia-publishing-regions"></a>Aree di pubblicazione dell'Australia
 
@@ -76,7 +76,7 @@ Per pubblicare nelle regioni australiane, creare le app LUIS solo in https://au.
 
 ## <a name="publishing-to-other-regions"></a>Pubblicazione in altre aree
 
-Per eseguire la pubblicazione in altre aree, è possibile creare app [https://www.luis.ai](https://www.luis.ai) Luis solo all'indirizzo. 
+Per pubblicare in altre aree, è possibile creare app LUIS solo in [https://www.luis.ai](https://www.luis.ai) . 
 
 ## <a name="other-publishing-regions"></a>Altre aree di pubblicazione
 
@@ -88,10 +88,10 @@ Per eseguire la pubblicazione in altre aree, è possibile creare app [https://ww
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Giappone orientale<br>`japaneast`     |   https://japaneast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Giappone occidentale<br>`japanwest`     |   https://japanwest.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Corea del Sud centrale<br>`koreacentral`     |   https://koreacentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Asia sud-orientale<br>`southeastasia`     |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Asia sudorientale<br>`southeastasia`     |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | America del Nord |`westus`<br>[www.luis.ai][www.luis.ai] | Canada centrale<br>`canadacentral`     |   https://canadacentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | America del Nord |`westus`<br>[www.luis.ai][www.luis.ai] | Stati Uniti centrali<br>`centralus`     |   https://centralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| America del Nord |`westus`<br>[www.luis.ai][www.luis.ai] | East US<br>`eastus`      |  https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| America del Nord |`westus`<br>[www.luis.ai][www.luis.ai] | Stati Uniti orientali<br>`eastus`      |  https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | America del Nord | `westus`<br>[www.luis.ai][www.luis.ai] | Stati Uniti orientali 2<br>`eastus2`     |  https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | America del Nord | `westus`<br>[www.luis.ai][www.luis.ai] | Stati Uniti centro-settentrionali<br>`northcentralus`  |  https://northcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
 | America del Nord | `westus`<br>[www.luis.ai][www.luis.ai] | Stati Uniti centro-meridionali<br>`southcentralus`  |  https://southcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
@@ -113,7 +113,7 @@ La tabella seguente illustra i parametri indicati con parentesi graffe `{}` nell
 
 |Parametro|Scopo|
 |--|--|
-|Area|Area di Azure - per la creazione e la pubblicazione sono disponibili aree diverse|
+|region|Area di Azure - per la creazione e la pubblicazione sono disponibili aree diverse|
 |appID|ID dell'app LUIS usato nella route dell'URL e disponibile nel dashboard dell'app|
 |q|testo dell'espressione inviato dall'applicazione client, ad esempio chatbot|
 

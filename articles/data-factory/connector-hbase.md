@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da HBase usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da HBase usando Azure Data Factory
 description: Informazioni su come copiare dati da HBase in archivi dati sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 56d2750257748ab69a2f42385441b1ce12805d34
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4768a3fbe30cf338628be44cb003e8aab527c946
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090284"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680884"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copiare dati da HBase usando Azure Data Factory 
 
@@ -48,14 +48,14 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato HBase sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **HBase** | Sì |
-| host | Indirizzo IP o nome host del server HBase, cioè.  `[clustername].azurehdinsight.net`, )`192.168.222.160`  | Sì |
+| host | Indirizzo IP o nome host del server HBase, cioè.  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Sì |
 | port | Porta TCP che l'istanza di HBase usa per l'ascolto delle connessioni client. Il valore predefinito è 9090. Se ci si connette a Azure HDInsights, specificare la porta come 443. | No |
 | httpPath | URL parziale corrispondente al server HBase, ad esempio `/hbaserest0` quando si usa un cluster HDInsights. | No |
-| authenticationType | Meccanismo di autenticazione da usare per la connessione al server HBase. <br/>I valori consentiti sono i seguenti: **Anonymous**, **Basic** | Sì |
-| userName | Nome utente usato per connettersi all'istanza di HBase.  | No |
+| authenticationType | Meccanismo di autenticazione da usare per la connessione al server HBase. <br/>I valori consentiti sono: **Anonima**, **Di base** | Sì |
+| Nome utente | Nome utente usato per connettersi all'istanza di HBase.  | No |
 | password | Password corrispondente al nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | enableSsl | Specifica se le connessioni al server sono crittografate tramite SSL. Il valore predefinito è False.  | No |
 | trustedCertPath | Percorso completo del file PEM contenente i certificati CA attendibili per la verifica del server in caso di connessione tramite SSL. È possibile impostare questa proprietà solo quando si usa SSL nel runtime di integrazione self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
@@ -129,9 +129,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da HBase, impostare la proprietà type del set di dati su **HBaseObject**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **HBaseObject** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **HBaseObject** | Sì |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -159,9 +159,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da HBase, impostare il tipo di origine nell'attività di copia su **HBaseSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **HBaseSource** | Yes |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **HBaseSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

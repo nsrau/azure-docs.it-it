@@ -1,5 +1,5 @@
 ---
-title: Crittografare credenziali in Azure Data Factory | Microsoft Docs
+title: Crittografare le credenziali in Azure Data Factory
 description: Altre informazioni su come crittografare e archiviare le credenziali per gli archivi dati locali in un computer con il runtime di integrazione self-hosted.
 services: data-factory
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 8e705a4430f6ccee847dc7d41ef80456a6dc4ea5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41e353931fb2d9fe26c0a6bd73d5085495ad7b78
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155139"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675050"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Crittografare le informazioni sulle credenziali per gli archivi dati locali in Azure Data Factory
 È possibile crittografare e archiviare le credenziali per gli archivi dati locali (servizi collegati con informazioni riservate) in un computer con il runtime di integrazione self-hosted. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Si passa un file di definizione JSON con le credenziali per il <br/>[**Nuovo AzDataFactoryV2LinkedServiceEncryptedCredential** ](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) cmdlet per generare un file di definizione JSON di output con le credenziali crittografate. Quindi, è possibile utilizzare la definizione JSON aggiornata per creare i servizi collegati.
+Si passa un file di definizione JSON con le credenziali per il <br/>Cmdlet [**New-AzDataFactoryV2LinkedServiceEncryptedCredential**](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) per produrre un file di definizione JSON di output con le credenziali crittografate. Quindi, è possibile utilizzare la definizione JSON aggiornata per creare i servizi collegati.
 
 ## <a name="author-sql-server-linked-service"></a>Servizio collegato di SQL Server autore
 Creare un file JSON denominato **SqlServerLinkedService.json** in qualsiasi cartella con il seguente contenuto:  
@@ -51,7 +51,7 @@ Sostituire `<servername>`, `<databasename>`, `<username>` e `<password>` con i v
 ```
 
 ## <a name="encrypt-credentials"></a>Crittografare le credenziali
-Per crittografare i dati sensibili dal payload JSON in un runtime di integrazione self-hosted locale, eseguire **New-AzDataFactoryV2LinkedServiceEncryptedCredential**e passare il payload JSON. Questo cmdlet assicura che le credenziali vengano crittografate utilizzando DPAPI e archiviate nel nodo del runtime di integrazione self-hosted in locale. Il payload di output contenente il riferimento alle credenziali crittografato può essere reindirizzato a un altro file JSON (in questo caso 'Encryptedlinkedservice').
+Per crittografare i dati sensibili dal payload JSON in un runtime di integrazione self-hosted locale, eseguire **New-AzDataFactoryV2LinkedServiceEncryptedCredential**e passare il payload JSON. Questo cmdlet assicura che le credenziali vengano crittografate utilizzando DPAPI e archiviate nel nodo del runtime di integrazione self-hosted in locale. Il payload di output contenente il riferimento crittografato alla credenziale può essere reindirizzato a un altro file JSON (in questo caso ' encryptedLinkedService. JSON ').
 
 ```powershell
 New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
