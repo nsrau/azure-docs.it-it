@@ -1,5 +1,5 @@
 ---
-title: Push dei dati nell'indice di Ricerca con Azure Data Factory | Documentazione Microsoft
+title: Eseguire il push dei dati nell'indice di ricerca usando Data Factory
 description: Informazioni su come eseguire il push dei dati nell'indice di Ricerca di Azure con Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 30a5bc9c5f0b7d1443e7ca2a16d9f0e0d1120dd8
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 09b891ba753291511bb1f203b7ac4437e6b2c542
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836636"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683100"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Push dei dati in un indice di Ricerca di Azure con Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-azure-search-connector.md)
 > * [Versione 2 (corrente)](../connector-azure-search.md)
 
@@ -38,9 +38,9 @@ Gateway di gestione dati consente di connettere le origini dati locali ai serviz
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con un'attività di copia che esegue il push dei dati da un archivio dati di origine all'indice di Ricerca di Azure usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **Visual Studio**, **Azure PowerShell**, **modello Azure Resource Manager**, **API .NET**, e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -48,7 +48,7 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
 3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per entità di Data Factory usate per copiare dati in un indice di Ricerca di Azure, vedere la sezione [Esempio di JSON: Copiare dati da un'istanza di SQL Server locale in un indice di Ricerca di Azure](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) di questo articolo.
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory.  Per un esempio con definizioni JSON per entità di data factory utilizzate per copiare dati nell'indice di Ricerca di Azure, vedere la sezione [Esempio JSON: Copiare dati da un'istanza di SQL Server locale all'indice di Ricerca di Azure](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) di questo articolo.
 
 Le sezioni seguenti riportano le informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche dell'indice di Ricerca di Azure:
 
@@ -56,17 +56,17 @@ Le sezioni seguenti riportano le informazioni dettagliate sulle proprietà JSON 
 
 La tabella seguente include le descrizioni degli elementi JSON specifici del servizio collegato Ricerca di Azure.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- |
-| type | La proprietà type deve essere impostata su: **AzureSearch**. | Sì |
-| url | URL del servizio Ricerca di Azure. | Sì |
+| type | La proprietà type deve essere impostata su **AzureSearch**. | Sì |
+| URL | URL del servizio Ricerca di Azure. | Sì |
 | key | Chiave amministratore del servizio Ricerca di Azure. | Sì |
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo [Set di dati in Azure Data Factory](data-factory-create-datasets.md) . Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati. La sezione **typeProperties** è diversa per ogni tipo di set di dati. Le proprietà della sezione typeProperties per un set di dati di tipo **AzureSearchIndex** sono le seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- |
 | type | La proprietà type deve essere impostata su **AzureSearchIndex**.| Sì |
 | indexName | Nome dell'indice di Ricerca di Azure. Il servizio Data Factory non crea l'indice. L'indice deve essere presente in Ricerca di Azure. | Sì |
@@ -77,9 +77,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per l'attività di copia, quando il sink è del tipo **AzureSearchIndexSink**, nella sezione typeProperties sono disponibili le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).| Merge (impostazione predefinita)<br/>Caricamento| No |
+| WriteBehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).| Merge (impostazione predefinita)<br/>Carica| No |
 | WriteBatchSize | Consente di caricare dati nell'indice di Ricerca di Azure quando le dimensioni del buffer raggiungono il valore indicato da writeBatchSize. Per informazioni dettagliate, vedere la [proprietà WriteBatchSize](#writebatchsize-property). | Da 1 a 1000. Il valore predefinito è 1000. | No |
 
 ### <a name="writebehavior-property"></a>Proprietà WriteBehavior
@@ -104,12 +104,12 @@ La tabella seguente indica se un tipo di dati di Ricerca di Azure è supportato 
 | Int32 | S |
 | Int64 | S |
 | Double | S |
-| Boolean | S |
+| Booleano | S |
 | DataTimeOffset | S |
 | String Array | N |
 | GeographyPoint | N |
 
-## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Esempio di JSON: Copiare dati da un'istanza di SQL Server locale in un indice di Ricerca di Azure
+## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Esempio JSON: Copiare dati da un'istanza di SQL Server locale all'indice di Ricerca di Azure
 
 L'esempio seguente mostra:
 
@@ -117,7 +117,7 @@ L'esempio seguente mostra:
 2. Un servizio collegato di tipo [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties).
 3. Un [set di dati](data-factory-create-datasets.md) di tipo [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties).
 4. Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureSearchIndex](#dataset-properties).
-4. Una [pipeline](data-factory-create-pipelines.md) con un'attività di copia che usa [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) e [AzureSearchIndexSink](#copy-activity-properties).
+4. Una [pipeline](data-factory-create-pipelines.md) con un'attività di copia che utilizza [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) e [AzureSearchIndexSink](#copy-activity-properties).
 
 Nell'esempio i dati della serie temporale vengono copiati ogni ora da un database di SQL Server locale in un indice di Ricerca di Azure. Le proprietà JSON usate in questo esempio sono descritte nelle sezioni riportate dopo gli esempi.
 
@@ -207,7 +207,7 @@ Nell'esempio i dati vengono copiati in un indice di Ricerca di Azure denominato 
 
 **Attività di copia in una pipeline con un'origine SQL e il sink dell'indice di Ricerca di Azure:**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline il tipo **source** è impostato su **SqlSource** e il tipo **sink** è impostato su **AzureSearchIndexSink**. La query SQL specificata per la proprietà **SqlReaderQuery** consente di selezionare i dati da copiare nell'ultima ora.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo **source** è impostato su **SqlSource** e il tipo **sink** è impostato su **AzureSearchIndexSink**. La query SQL specificata per la proprietà **SqlReaderQuery** consente di selezionare i dati da copiare nell'ultima ora.
 
 ```JSON
 {

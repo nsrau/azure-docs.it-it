@@ -1,6 +1,6 @@
 ---
-title: Kickstart gli esperimenti dagli esempi
-titleSuffix: Azure Machine Learning Studio (classic)
+title: Esperimenti Kickstart da esempi
+titleSuffix: ML Studio (classic) Azure
 description: Informazioni su come usare gli esperimenti di esempio di machine learning per creare nuovi esperimenti con Azure AI Gallery e Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: 547cd7c97ddf7aa08ef94f6aeea82e16119c7135
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa23612070a5b0c1a33c2effb9cd9e533ca5eada
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496771"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670651"
 ---
 # <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Creare esperimenti di Azure Machine Learning Studio (classico) dagli esempi funzionanti in Azure AI Gallery
 
@@ -59,4 +59,4 @@ Viene creato un nuovo esperimento nell'area di lavoro di Machine Learning Studio
 ## <a name="next-steps"></a>Passaggi successivi
 * [Importare dati da diverse origini](import-data.md)
 * [Esercitazione con guida rapida per il linguaggio di programmazione R per Machine Learning](r-quickstart.md)
-* [Distribuire un servizio Web di Machine Learning](publish-a-machine-learning-web-service.md)
+* [Distribuire un servizio Web di Machine Learning](deploy-a-machine-learning-web-service.md)

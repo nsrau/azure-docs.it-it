@@ -1,5 +1,5 @@
 ---
-title: Replica transazionale con database SQL di Azure | Microsoft Docs
+title: Replica transazionale con il database SQL di Azure "
 description: Informazioni sull'uso della replica transazionale di SQL Server con database singoli, in pool e dell'istanza nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: 86bd479eff48a7feb42557eb1d175345728f0a69
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 016b4f2ee191443cf608af18d1be6a94b6d53a39
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879064"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687823"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replica transazionale con database singoli, in pool e dell'istanza nel database SQL di Azure
 
@@ -49,12 +49,12 @@ Il **database di distribuzione** è un'istanza o un server che raccoglie le modi
 
 Il **sottoscrittore** è un'istanza o un server che riceve le modifiche apportate nel server di pubblicazione. I sottoscrittori possono essere database singoli, in pool e dell'istanza del database SQL di Azure o di database SQL Server. Un sottoscrittore in un database singolo o in pool deve essere configurato come sottoscrittore push. 
 
-| Role | Database singoli e in pool | Database dell'istanza |
+| Ruolo | Database singoli e in pool | Database dell'istanza |
 | :----| :------------- | :--------------- |
 | **Autore** | No | Sì | 
 | **Database di distribuzione** | No | Sì|
 | **Sottoscrittore pull** | No | Sì|
-| **Sottoscrittore push**| Sì | Yes|
+| **Sottoscrittore push**| Sì | Sì|
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
@@ -103,10 +103,10 @@ Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-dat
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>Confrontare la sincronizzazione dati con la replica transazionale
 
-| | Sincronizzazione dati | Replica transazionale |
+| | Sincronizzazione dei dati | Replica transazionale |
 |---|---|---|
 | Vantaggi | - Supporto attivo/attivo<br/>- Bidirezionale tra database locali e database SQL di Azure | - Latenza inferiore<br/>- Coerenza delle transazioni<br/>- Riutilizzo topologia esistente dopo la migrazione |
-| Svantaggi | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | - Impossibilità di pubblicare da database singolo o in pool di Database SQL di Azure<br/>- Alti costi di manutenzione |
+| Svantaggi: | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | - Impossibilità di pubblicare da database singolo o in pool di Database SQL di Azure<br/>- Alti costi di manutenzione |
 | | | |
 
 ## <a name="common-configurations"></a>Configurazioni comuni

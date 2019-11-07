@@ -1,6 +1,6 @@
 ---
-title: Ripetere il training e distribuire un servizio Web
-titleSuffix: Azure Machine Learning Studio (classic)
+title: Rieseguire il training di un servizio Web
+titleSuffix: ML Studio (classic) Azure
 description: Informazioni su come aggiornare un servizio Web per l'uso di un modello di apprendimento automatico appena sottoposto a training in Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 55b054ffe55430ea106c72cdd91fdfba3a457cf5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e35ab4b3a45edd5a1172bc3a07d7c31abd2135f7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73483000"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684781"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Ripetere il training e distribuire un modello di Machine Learning
 
 La ripetizione del training è un modo per garantire che i modelli di Machine Learning rimangano accurati e si basino sui dati più rilevanti disponibili. Questo articolo illustra come ripetere il training e distribuire un modello di machine learning come nuovo servizio Web in studio (classico). Se si sta cercando di ripetere il training di un servizio Web classico, [vedere questo articolo delle procedure](retrain-classic-web-service.md).
 
-Questo articolo presuppone che si disponga già di un servizio Web predittivo distribuito. Se non si dispone già di un servizio Web predittivo, vedere [qui per informazioni su come distribuire un servizio Web di studio (classico).](publish-a-machine-learning-web-service.md)
+Questo articolo presuppone che si disponga già di un servizio Web predittivo distribuito. Se non si dispone già di un servizio Web predittivo, vedere [qui per informazioni su come distribuire un servizio Web di studio (classico).](deploy-a-machine-learning-web-service.md)
 
 È possibile seguire questa procedura per ripetere il training e distribuire un nuovo servizio Web di Machine Learning:
 

@@ -1,6 +1,6 @@
 ---
-title: Classificazione di Azure SQL Data Warehouse | Microsoft Docs
-description: Linee guida per l'uso di classificazione per gestire la concorrenza, priorità e risorse di calcolo per le query in Azure SQL Data Warehouse.
+title: Classificazione del carico di lavoro
+description: Linee guida per l'uso della classificazione per gestire le risorse di concorrenza, importanza e calcolo per le query in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -10,62 +10,63 @@ ms.subservice: workload-management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4988d284bed46a918f85eec8d7b4a5b89fc6549e
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 15ca4b9fe3c40b7bf49d86464858747642e3cb5a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588498"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685377"
 ---
-# <a name="azure-sql-data-warehouse-workload-classification"></a>Classificazione del carico di lavoro di Azure SQL Data Warehouse
+# <a name="azure-sql-data-warehouse-workload-classification"></a>Classificazione del carico di lavoro Azure SQL Data Warehouse
 
-Questo articolo illustra il processo di classificazione del carico di lavoro di SQL Data Warehouse di assegnazione di una classe di risorse e l'importanza alle richieste in ingresso.
+Questo articolo illustra il processo di classificazione del carico di lavoro SQL Data Warehouse per l'assegnazione di una classe di risorse e l'importanza alle richieste in ingresso.
 
-## <a name="classification"></a>classificazione
+## <a name="classification"></a>Classificazione
 
 > [!Video https://www.youtube.com/embed/QcCRBAhoXpM]
 
-Classificazione di gestione del carico di lavoro consente di essere applicato alle richieste tramite l'assegnazione di criteri di carico di lavoro [le classi di risorse](resource-classes-for-workload-management.md#what-are-resource-classes) e [importanza](sql-data-warehouse-workload-importance.md).
+Classificazione di gestione del carico di lavoro consente di applicare i criteri del carico di lavoro alle richieste tramite l'assegnazione di [classi di risorse](resource-classes-for-workload-management.md#what-are-resource-classes) e [importanza](sql-data-warehouse-workload-importance.md).
 
-Sebbene esistano diversi modi per classificare i carichi di lavoro di data warehousing, la classificazione più semplice e più comune è carico ed eseguire query. Si caricano dati con istruzioni delete, update e insert.  I dati usando istruzioni SELECT è eseguire una query. Una soluzione di data warehousing avrà spesso un criterio di carico di lavoro per l'attività di caricamento, ad esempio l'assegnazione di una classe di risorse superiore con più risorse. È stato possibile applicare un criterio del carico di lavoro diverse a query, ad esempio minore importanza rispetto per caricare le attività.
+Sebbene esistano molti modi per classificare i carichi di lavoro di data warehouse, la classificazione più semplice e più comune è il caricamento e la query. I dati vengono caricati con le istruzioni INSERT, Update e DELETE.  Si esegue una query sui dati usando Selects. Una soluzione di data warehousing avrà spesso un criterio del carico di lavoro per l'attività di caricamento, ad esempio l'assegnazione di una classe di risorse superiore con più risorse. Un criterio del carico di lavoro diverso può essere applicato alle query, ad esempio un'importanza inferiore rispetto alle attività di caricamento.
 
-È anche possibile subclassify carichi di lavoro di carico e query. Sottoclassificazione offre maggiore controllo dei carichi di lavoro. Ad esempio, i carichi di lavoro di query può includere gli aggiornamenti del cubo, le query dashboard o query ad-hoc. È possibile classificare ciascuno di questi carichi di lavoro di query con diverse classi di risorse o le impostazioni di priorità. Caricamento può trarre vantaggio da sottoclassificazione. Trasformazioni di grandi dimensioni possono essere assegnate a classi di risorse più grandi. Un'importanza superiore è utilizzabile per verificare che i dati di vendita chiave siano caricatore prima i dati meteo o un feed di dati basati su social network.
+È anche possibile sottoclassificare i carichi di lavoro di query e di carico. La sottoclassificazione offre un maggiore controllo sui carichi di lavoro. I carichi di lavoro di query possono ad esempio essere costituiti da aggiornamenti del cubo, query del dashboard o query ad hoc. È possibile classificare ognuno di questi carichi di lavoro di query con diverse classi di risorse o impostazioni di importanza. Il carico può anche trarre vantaggio dalla sottoclassificazione. Le trasformazioni di grandi dimensioni possono essere assegnate a classi di risorse più grandi. È possibile usare una maggiore importanza per garantire che i dati delle vendite chiave siano loader prima dei dati meteorologici o di un feed di dati di social networking.
 
-Non tutte le istruzioni sono classificate come non richiedono risorse né necessario importanza per influenzare l'esecuzione.  I comandi DBCC, istruzioni BEGIN, COMMIT e ROLLBACK TRANSACTION non vengono classificate.
+Non tutte le istruzioni sono classificate poiché non richiedono risorse o hanno importanza per influenzare l'esecuzione.  Le istruzioni DBCC Command, BEGIN, COMMIT e ROLLBACK TRANSACTION non sono classificate.
 
 ## <a name="classification-process"></a>Processo di classificazione
 
-Classificazione in SQL Data Warehouse avviene oggi stesso, ovvero assegnando utenti a un ruolo che dispone di una classe di risorse corrispondente assegnata con [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). La possibilità di caratterizzare le richieste di là di un account di accesso a una classe di risorse è limitata con questa funzionalità. Un metodo più completo per la classificazione è ora disponibile con la [CLASSIFICATORE del carico di lavoro creare](/sql/t-sql/statements/create-workload-classifier-transact-sql) sintassi.  Con questa sintassi, gli utenti di SQL Data Warehouse possono assegnare priorità e una classe di risorse alle richieste.  
+La classificazione in SQL Data Warehouse viene eseguita oggi assegnando gli utenti a un ruolo a cui è assegnata una classe di risorse corrispondente usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). La possibilità di caratterizzare le richieste oltre un accesso a una classe di risorse è limitata a questa funzionalità. Un metodo più completo per la classificazione è ora disponibile con la sintassi di [creazione del classificatore del carico di lavoro](/sql/t-sql/statements/create-workload-classifier-transact-sql) .  Con questa sintassi, SQL Data Warehouse gli utenti possono assegnare importanza e una classe di risorse alle richieste.  
 
 > [!NOTE]
-> Classificazione viene valutata in una singola richiesta. Più richieste in una singola sessione possono essere classificate in modo diverso.
+> La classificazione viene valutata in base alle singole richieste. Più richieste in una singola sessione possono essere classificate in modo diverso.
 
-## <a name="classification-precedence"></a>Precedenza di classificazione
+## <a name="classification-precedence"></a>Precedenza classificazione
 
-Come parte del processo di classificazione, la precedenza è in grado di determinare quale classe di risorse viene assegnata. Classificazione in base a un utente del database ha la precedenza sull'appartenenza al ruolo. Se si crea un classificatore che viene eseguito il mapping utente del database di UserA alla classe di risorse di mediumrc. Quindi, eseguire il mapping del database RoleA (di cui l'utente a è un membro) per la classe di risorse largerc. La funzione di classificazione che esegue il mapping utente del database per la classe di risorse mediumrc avrà la precedenza tramite la funzione di classificazione che esegue il mapping del database RoleA per la classe di risorse largerc.
+Come parte del processo di classificazione, per determinare quale classe di risorse è stata assegnata è disponibile la precedenza. La classificazione basata su un utente del database ha la precedenza sull'appartenenza ai ruoli. Se si crea un classificatore che esegue il mapping dell'utente del database utente a alla classe di risorse mediumrc. Eseguire quindi il mapping del ruolo del database rolea, di cui l'UtenteA è membro, alla classe di risorse largerc. Il classificatore che esegue il mapping dell'utente del database alla classe di risorse mediumrc avrà la precedenza sul classificatore che esegue il mapping del ruolo del database rolea alla classe di risorse largerc.
 
-Se un utente è membro di più ruoli con diverse classi di risorse assegnato o una corrispondenza con più di classificatori, l'utente ha l'assegnazione della classe di risorse più elevato.  Questo comportamento è coerente con il comportamento di assegnazione classe di risorse esistente.
+Se un utente è membro di più ruoli con classi di risorse diverse assegnate o corrispondenti in più classificatori, all'utente viene assegnata l'assegnazione della classe di risorse più elevata.  Questo comportamento è coerente con il comportamento di assegnazione della classe di risorse esistente.
 
 ## <a name="system-classifiers"></a>Classificatori di sistema
 
-Classificazione del carico di lavoro dispone di classificatori di carico di lavoro di sistema. I classificatori di sistema di eseguire il mapping le appartenenze ai ruoli di classe risorsa esistente per le allocazioni di risorse di classe di risorse con priorità normale. Classificatori di sistema non possono essere eliminati. Per visualizzare i classificatori di sistema, è possibile eseguire la seguente query:
+Classificazione del carico di lavoro con classificatori del carico di lavoro. I classificatori di sistema mappano le appartenenze ai ruoli della classe di risorse esistenti alle allocazioni di risorse della classe di risorse con priorità normale. I classificatori di sistema non possono essere eliminati. Per visualizzare i classificatori di sistema, è possibile eseguire la query seguente:
 
 ```sql
 SELECT * FROM sys.workload_management_workload_classifiers where classifier_id <= 12
 ```
 
-## <a name="mixing-resource-class-assignments-with-classifiers"></a>La combinazione di assegnazioni di classe con classificatori risorsa
+## <a name="mixing-resource-class-assignments-with-classifiers"></a>Combinazione di assegnazioni di classi di risorse con classificatori
 
-Classificatori di sistema creati per tuo conto forniscono un percorso semplice per eseguire la migrazione alla classificazione del carico di lavoro. Usa mapping dei ruoli di classe di risorse con la precedenza di classificazione, può causare errata classificazione come iniziare a creare nuovi classificatori con priorità.
+I classificatori di sistema creati per conto dell'utente forniscono un percorso semplice per eseguire la migrazione alla classificazione del carico di lavoro. L'uso di mapping dei ruoli della classe di risorse con precedenza della classificazione può causare una classificazione errata quando si inizia a creare nuovi classificatori con importanza.
 
 Si consideri lo scenario seguente:
 
-- Un data warehouse esistente dispone di un utente del database che dbauser assegnato al ruolo di classe della risorsa largerc. L'assegnazione della classe di risorse è stata eseguita con sp_addrolemember.
+- Un data warehouse esistente dispone di un utente di database DBAUser assegnato al ruolo della classe di risorse largerc. L'assegnazione della classe di risorse è stata eseguita con sp_addrolemember.
 - Il data warehouse è ora aggiornato con la gestione del carico di lavoro.
-- Per testare la nuova sintassi di classificazione, il ruolo del database DBARole (ovvero DBAUser un membro di), dispone di un classificatore creato per la loro esecuzione del mapping mediumrc e priorità alta.
-- Quando DBAUser accede e si esegue una query, la query verrà assegnata a largerc. Poiché un utente ha la precedenza su un'appartenenza a ruoli.
+- Per testare la nuova sintassi di classificazione, il ruolo del database DBARole (di cui è membro DBAUser), dispone di un classificatore creato per il mapping a mediumrc e a priorità alta.
+- Quando DBAUser accede ed esegue una query, la query verrà assegnata a largerc. Poiché un utente ha la precedenza rispetto a un'appartenenza a un ruolo.
 
-Per semplificare la risoluzione dei problemi di errata classificazione, è consigliabile che rimuoverlo mapping dei ruoli di classe di risorse durante la creazione di classificatori di carico di lavoro.  Il codice seguente restituisce la risorsa esistente le appartenenze ai ruoli di classe.  Eseguire [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) per ogni nome di membro restituito dalla classe di risorse corrispondente.
+Per semplificare la risoluzione dei problemi di classificazione, è consigliabile rimuovere i mapping dei ruoli della classe di risorse durante la creazione dei classificatori del carico di lavoro.  Il codice seguente restituisce le appartenenze ai ruoli della classe di risorse esistenti.  Eseguire [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) per ogni nome di membro restituito dalla classe di risorse corrispondente.
 
 ```sql
 SELECT  r.name AS [Resource Class]
@@ -81,7 +82,7 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulla creazione di un classificatore, vedere la [CLASSIFICATORE di carico di lavoro CREATE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
-- Vedere la Guida introduttiva su come creare un classificatore di carico di lavoro [crea un classificatore di carico di lavoro](quickstart-create-a-workload-classifier-tsql.md).
-- Vedere gli articoli sulle procedure per [configurare il carico di lavoro importanza](sql-data-warehouse-how-to-configure-workload-importance.md) e su come [gestire e monitorare la gestione del carico di lavoro](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Per ulteriori informazioni sulla creazione di un classificatore, vedere la pagina relativa alla creazione di un [classificatore del carico di lavoro (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Vedere la Guida introduttiva su come creare un classificatore del carico di lavoro [creare un classificatore del carico di lavoro](quickstart-create-a-workload-classifier-tsql.md).
+- Vedere gli articoli sulle procedure per [configurare l'importanza del carico di lavoro](sql-data-warehouse-how-to-configure-workload-importance.md) e come [gestire e monitorare la gestione del carico di lavoro](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 - Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) per visualizzare le query e la loro priorità.

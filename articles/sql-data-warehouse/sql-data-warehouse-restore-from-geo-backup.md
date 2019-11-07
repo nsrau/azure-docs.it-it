@@ -1,5 +1,5 @@
 ---
-title: Ripristinare un Azure SQL Data Warehouse da un backup geografico | Microsoft Docs
+title: Ripristinare un data warehouse da un backup geografico
 description: Guida alle procedure per il ripristino geografico di un Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 768646522c2589c302fd7a58031d4ebdb7fcdc12
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 69eb1221686da61868df8b06ed80664ae76d1627
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68426655"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685512"
 ---
 # <a name="geo-restore-azure-sql-data-warehouse"></a>Ripristino geografico Azure SQL Data Warehouse
 
@@ -79,15 +80,15 @@ Attenersi alla procedura descritta di seguito per ripristinare un Azure SQL Data
 1. Fare clic su **+ Crea una risorsa** e cercare SQL data warehouse e fare clic su **Crea**.
 
     ![Nuovo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
-1. Inserire le informazioni richieste nella scheda nozioni di **base** e **fare clic su Avanti: Impostazioni**aggiuntive.
+1. Inserire le informazioni richieste nella scheda **nozioni di base** e fare clic su **Avanti: impostazioni aggiuntive**.
 
-    ![Generale](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+    ![Nozioni di base](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 1. Per **Usa parametro dati esistente** selezionare **backup** e selezionare il backup appropriato dalle opzioni Scorri verso il basso. Fare clic su **Verifica + crea**.
  
    ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 2. Una volta ripristinato il data warehouse, verificare che lo **stato** sia online.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 - [Ripristinare un data warehouse esistente][Restore an existing data warehouse]
 - [Ripristinare un data warehouse eliminato][Restore a deleted data warehouse]
 

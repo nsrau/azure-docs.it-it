@@ -1,5 +1,5 @@
 ---
-title: Attività di impostazione della variabile in Azure Data Factory | Microsoft Docs
+title: Attività di impostazione della variabile in Azure Data Factory
 description: Informazioni su come usare l'attività di impostazione della variabile per configurare il valore di una variabile esistente definita in una pipeline di Data Factory
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: cfe6dd63234a7750fe01614d6f1b38bb7cce1adb
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 2589e56d3170b235f31d07f902eb75c749e8573f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142434"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679292"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Attività di impostazione della variabile in Azure Data Factory
 
@@ -29,9 +29,9 @@ Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
 name | Nome dell'attività nella pipeline | Sì
 description | Testo che descrive l'attività | no
-type | Il tipo di attività è SetVariable | sì
-value | Valore letterale stringa o valore di oggetto espressione usato per impostare la variabile specificata | sì
-variableName | Nome della variabile che verrà impostata da questa attività | sì
+type | Il tipo di attività è SetVariable | Sì
+value | Valore letterale stringa o valore di oggetto espressione usato per impostare la variabile specificata | Sì
+variableName | Nome della variabile che verrà impostata da questa attività | Sì
 
 
 ## <a name="next-steps"></a>Passaggi successivi

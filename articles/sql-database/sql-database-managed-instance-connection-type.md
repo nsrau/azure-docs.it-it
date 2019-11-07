@@ -1,5 +1,5 @@
 ---
-title: Tipi di connessione istanza gestita di database SQL di Azure | Microsoft Docs
+title: Tipi di connessione istanza gestita di database SQL di Azure
 description: Informazioni sui tipi di connessione istanza gestita
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
-ms.openlocfilehash: 4ebd81f9c04bd739f1c18f636094040882b5ce36
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: c810f1f07587c84a5900460d4a865b0de16ae208
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001770"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688224"
 ---
 # <a name="azure-sql-database-managed-instance-connection-types"></a>Tipi di connessione istanza gestita di database SQL di Azure
 
@@ -24,7 +24,7 @@ Questo articolo illustra il modo in cui i client si connettono all'istanza gesti
 
 Istanza gestita di database SQL di Azure supporta i due tipi di connessione seguenti:
 
-- **Redirect (scelta consigliata):** i client stabiliscono connessioni dirette al nodo che ospita il database. Per abilitare la connettività tramite reindirizzamento, è necessario aprire i firewall e i gruppi di sicurezza di rete (NSG) per consentire l'accesso alle porte 1433 e 11000-11999. I pacchetti passano direttamente al database e, di conseguenza, sono disponibili miglioramenti delle prestazioni di latenza e velocità effettiva tramite reindirizzamento sul proxy.
+- **Reindirizzamento (scelta consigliata):** i client stabiliscono connessioni dirette al nodo che ospita il database. Per abilitare la connettività tramite reindirizzamento, è necessario aprire i firewall e i gruppi di sicurezza di rete (NSG) per consentire l'accesso alle porte 1433 e 11000-11999. I pacchetti passano direttamente al database e, di conseguenza, sono disponibili miglioramenti delle prestazioni di latenza e velocità effettiva tramite reindirizzamento sul proxy.
 - **Proxy (impostazione predefinita):** In questa modalità tutte le connessioni utilizzano un componente del gateway proxy. Per abilitare la connettività, è necessario aprire solo la porta 1433 per le reti private e la porta 3342 per la connessione pubblica. Se si sceglie questa modalità, è possibile che si riscontri un aumento della latenza e una riduzione della velocità effettiva, a seconda della natura del carico di lavoro. Se si preferisce la minor latenza e la maggiore velocità effettiva possibili, quindi, si consiglia di scegliere i criteri di connessione tramite reindirizzamento anziché tramite proxy.
 
 ## <a name="redirect-connection-type"></a>Tipo di connessione Reindirizzamento

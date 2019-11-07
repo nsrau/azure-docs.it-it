@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da QuickBooks Online tramite Azure Data Factory (anteprima) | Microsoft Docs
+title: Copiare dati da QuickBooks Online tramite Azure Data Factory (anteprima)
 description: Informazioni su come copiare dati da QuickBooks Online in archivi dati sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 44bfae58badd6aa6b05763dff094475f82fb2e18
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: dd8044c6c2e87262f80a53eaa52114c82b71de50
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089699"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680429"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copiare dati da QuickBooks Online tramite Azure Data Factory (anteprima)
 
@@ -49,13 +49,13 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato QuickBooks sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **QuickBooks** | Yes |
-| endpoint | Endpoint del server QuickBooks Online, ovvero quickbooks.api.intuit.com  | Yes |
+| type | La proprietà type deve essere impostata su: **QuickBooks** | Sì |
+| endpoint | Endpoint del server QuickBooks Online, ovvero quickbooks.api.intuit.com  | Sì |
 | companyId | ID azienda dell'azienda QuickBooks da autorizzare. Per informazioni su come trovare l'ID dell'azienda, vedere [How do I find my Company ID?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551) (Come è possibile trovare l'ID dell'azienda?). | Sì |
 | consumerKey | Chiave utente per l'autenticazione OAuth 1.0. | Sì |
-| consumerSecret | Segreto utente per l'autenticazione OAuth 1.0. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| consumerSecret | Segreto utente per l'autenticazione OAuth 1.0. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | accessToken | Token di accesso per l'autenticazione OAuth 1.0. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | accessTokenSecret | Segreto del token di accesso per l'autenticazione OAuth 1.0. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
@@ -95,9 +95,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da QuickBooks Online, impostare la proprietà type del set di dati su **QuickBooksObject**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **QuickBooksObject** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **QuickBooksObject** | Sì |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -125,9 +125,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da QuickBooks Online, impostare il tipo di origine nell'attività di copia su **QuickBooksSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **QuickBooksSource** | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **QuickBooksSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

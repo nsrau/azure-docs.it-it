@@ -1,5 +1,5 @@
 ---
-title: Codice del file evento XEvent per il database SQL | Documentazione Microsoft
+title: Codice del file evento XEvent per il database SQL
 description: Fornisce PowerShell e Transact-SQL per un esempio di codice in due fasi che illustra la destinazione del file evento in un evento esteso in Database SQL di Azure. Archiviazione di Azure è una parte necessaria di questo scenario.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
-ms.openlocfilehash: f0994f92444da338b18447eb1b248c74df9aa2d2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ea5c90433a4d2928e5fb88df149631c80df9dacf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566106"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686826"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Codice di destinazione del file evento per eventi estesi nel database SQL
 
@@ -53,7 +53,7 @@ Questo argomento presenta un esempio di codice in due fasi:
   
   * I moduli forniscono comandi come- **New-AzStorageAccount**.
 
-## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: codice di PowerShell per il contenitore di archiviazione di Azure
+## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: Codice di PowerShell per il contenitore di archiviazione di Azure
 
 Questo PowerShell è la fase 1 dell'esempio di codice in due fasi.
 
@@ -233,7 +233,7 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 
 Prendere nota dei valori nominati che lo script di PowerShell stampa alla fine. È necessario modificare tali valori nello script Transact-SQL che segue come fase 2.
 
-## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fase 2: codice Transact-SQL che utilizza il contenitore di Archiviazione di Azure
+## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fase 2: Codice Transact-SQL che utilizza il contenitore di Archiviazione di Azure
 
 * Nella fase 1 di questo esempio di codice è stato eseguito uno script di PowerShell per creare un contenitore di Archiviazione di Azure.
 * Successivamente nella fase 2, lo script Transact-SQL deve utilizzare il contenitore.
@@ -463,9 +463,9 @@ GO
 
 ## <a name="output"></a>Output
 
-Al termine dell'esecuzione dello script Transact-SQL, fare clic su una cella sotto l'intestazione della colonna **event_data_XML**. Viene visualizzato un  **\<elemento > evento** che mostra un'istruzione Update.
+Al termine dell'esecuzione dello script Transact-SQL, fare clic su una cella sotto l'intestazione della colonna **event_data_XML**. Viene visualizzato un **\<evento >** elemento che mostra un'istruzione Update.
 
-Di seguito è riportato un  **\<evento >** elemento generato durante il test:
+Di seguito è riportato un **\<evento >** elemento generato durante il test:
 
 
 ```xml
@@ -534,8 +534,8 @@ Per ulteriori informazioni sugli account e i contenitori nel servizio Archiviazi
 * [Come usare l'archiviazione BLOB da .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [Denominazione e riferimento a contenitori, BLOB e metadati](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [Lavorare con il contenitore radice](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-* [Lezione 1: creare criteri di accesso archiviati e la firma di accesso condiviso in un contenitore di Azure](https://msdn.microsoft.com/library/dn466430.aspx)
-  * [Lezione 2: creare una credenziale di SQL Server usando una firma di accesso condiviso](https://msdn.microsoft.com/library/dn466435.aspx)
+* [Lezione 1: Creare criteri di accesso archiviati e la firma di accesso condiviso in un contenitore di Azure](https://msdn.microsoft.com/library/dn466430.aspx)
+  * [Lezione 2: Creare una credenziale di SQL Server usando una firma di accesso condiviso](https://msdn.microsoft.com/library/dn466435.aspx)
 * [Eventi estesi per Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!--

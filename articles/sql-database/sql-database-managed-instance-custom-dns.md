@@ -1,5 +1,5 @@
 ---
-title: DNS personalizzato di Istanza gestita di database SQL di Azure | Microsoft Docs
+title: DNS personalizzato Istanza gestita di database SQL di Azure
 description: Questo argomento descrive le opzioni di configurazione di un DNS personalizzato con un'istanza gestita di database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 07/17/2019
-ms.openlocfilehash: 9b15ebc40e99c1cd454396ccde5cca6b1a46abbc
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b44c2b1fdf27f285868c5681c38fe3ffa6e5e86d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244755"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688159"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurazione di un DNS personalizzato per Istanza gestita di database SQL di Azure
 
@@ -25,7 +25,7 @@ Istanza gestita di database SQL di Azure deve essere distribuita in una [rete vi
 Poiché Istanza gestita usa lo stesso DNS per i propri interventi interni, configurare il server DNS personalizzato in modo che possa risolvere i nomi di dominio pubblici.
 
 > [!IMPORTANT]
-> Usare sempre un nome di dominio completo (FQDN) per il server di posta elettronica, l'istanza di SQL Server e per altri servizi, anche se si trovano all'interno della zona DNS privata. Ad esempio, utilizzare `smtp.contoso.com` per il server di posta elettronica perché `smtp` non verrà risolto correttamente. Per creare un server collegato o una replica che fa riferimento a macchine virtuali SQL all'interno della stessa rete virtuale è necessario anche un nome di dominio completo e un suffisso DNS predefinito. Ad esempio `SQLVM.internal.cloudapp.net`. Per altre informazioni, vedere [risoluzione dei nomi che usa il proprio server DNS](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
+> Usare sempre un nome di dominio completo (FQDN) per il server di posta elettronica, l'istanza di SQL Server e per altri servizi, anche se si trovano all'interno della zona DNS privata. Ad esempio, utilizzare `smtp.contoso.com` per il server di posta elettronica perché `smtp` non verrà risolto correttamente. Per creare un server collegato o una replica che fa riferimento a macchine virtuali SQL all'interno della stessa rete virtuale è necessario anche un nome di dominio completo e un suffisso DNS predefinito. Ad esempio, `SQLVM.internal.cloudapp.net`. Per altre informazioni, vedere [risoluzione dei nomi che usa il proprio server DNS](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
 
 > [!IMPORTANT]
 > L'aggiornamento di server DNS della rete virtuale non influirà immediatamente Istanza gestita. Istanza gestita configurazione DNS viene aggiornata dopo la scadenza del lease DHCP o dopo la upgarade della piattaforma, a seconda di quale si verifica per primo. **Si consiglia agli utenti di impostare la configurazione DNS della rete virtuale prima di creare la prima Istanza gestita.**

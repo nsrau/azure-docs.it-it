@@ -1,5 +1,5 @@
 ---
-title: Trasformare i dati usando un flusso di dati di mapping in Azure Data Factory | Microsoft Docs
+title: Trasformare i dati usando un flusso di dati di mapping in Azure Data Factory
 description: In questa esercitazione vengono fornite istruzioni dettagliate per l'utilizzo di Azure Data Factory per trasformare i dati con il flusso di dati di mapping
 author: djpmsft
 ms.author: daperlov
@@ -7,12 +7,12 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 5b618798c74393f3e7d89cfc69c67ba831356ce4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 886e6e659dee2a898167054c5d76bc3977f27e11
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72385547"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683637"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Trasformare i dati usando il mapping dei flussi di dati
 
@@ -35,7 +35,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
 Il file che si sta trasformando in questa esercitazione è MoviesDB. csv, disponibile [qui](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Per recuperare il file da GitHub, copiare il contenuto in un editor di testo di propria scelta per salvarlo localmente come file con estensione CSV. Per caricare il file nell'account di archiviazione, vedere [caricare BLOB con il portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Gli esempi faranno riferimento a un contenitore denominato "Sample-Data".
 
-## <a name="create-a-data-factory"></a>Creare una data factory
+## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
 
 In questo passaggio si crea una data factory e si apre l'Data Factory UX per creare una pipeline nell'data factory. 
 
@@ -59,7 +59,7 @@ In questo passaggio si crea una data factory e si apre l'Data Factory UX per cre
     Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-overview.md). 
 6. In **Versione** selezionare **V2**.
 7. In **Località** selezionare una località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dal data factory possono trovarsi in altre aree.
-8. Selezionare **Create** (Crea). 
+8. Selezionare **Crea**. 
 9. Al termine della creazione, la relativa notifica verrà visualizzata nel centro notifiche. Selezionare **Vai alla risorsa** per passare alla pagina della data factory.
 10. Selezionare **Crea e monitora** per avviare l'interfaccia utente di Data Factory in una scheda separata.
 
@@ -115,7 +115,7 @@ Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di d
     ![Area di disegno del flusso di dati](media/tutorial-data-flow/dataflow5.png)
 1. Assegnare un nome alla trasformazione filtro **FilterYears**. Fare clic sulla casella espressione accanto a applica **filtro** per aprire Generatore di espressioni. Qui si specificherà la condizione di filtro. 
     
-    ![Filtra](media/tutorial-data-flow/filter1.png)
+    ![Filtro](media/tutorial-data-flow/filter1.png)
 1. Il generatore di espressioni del flusso di dati consente di compilare in modo interattivo espressioni da usare in diverse trasformazioni. Le espressioni possono includere funzioni predefinite, colonne dello schema di input e parametri definiti dall'utente. Per ulteriori informazioni su come compilare espressioni, vedere [Generatore di espressioni del flusso di dati](concepts-data-flow-expression-builder.md).
     
     In questa esercitazione si vogliono filtrare i film di genere Comedy che hanno avuto come risultato tra gli anni 1910 e 2000. Come Year è attualmente una stringa, è necessario convertirla in un Integer usando la funzione ```toInteger()```. Utilizzare gli operatori maggiore di o uguale a (> =) e minore o uguale a (< =) per confrontare i valori letterali anno 1910 e 200-. Unire queste espressioni con l'operatore and (& &). L'espressione viene visualizzata come segue:
@@ -128,13 +128,13 @@ Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di d
 
     Se si dispone di un cluster di debug attivo, è possibile verificare la logica facendo clic su **Aggiorna** per visualizzare l'output delle espressioni rispetto agli input utilizzati. Esiste più di una risposta giusta su come eseguire questa logica usando il linguaggio delle espressioni del flusso di dati.
     
-    ![Filtra](media/tutorial-data-flow/filter2.png)
+    ![Filtro](media/tutorial-data-flow/filter2.png)
 
     Al termine dell'espressione, fare clic su **Salva e fine** .
 
 1. Recuperare un' **anteprima dei dati** per verificare che il filtro funzioni correttamente.
     
-    ![Filtra](media/tutorial-data-flow/filter3.png)
+    ![Filtro](media/tutorial-data-flow/filter3.png)
 1. La trasformazione successiva che verrà aggiunta è una trasformazione **aggregazione** nel **modificatore dello schema**.
     
     ![Aggregazione](media/tutorial-data-flow/agg1.png)
@@ -184,10 +184,10 @@ A questo punto è stata completata la creazione del flusso di dati. Si è pronti
     ![Pipeline](media/tutorial-data-flow/pipeline2.png)
 1. Nel riquadro monitoraggio è possibile visualizzare il numero di righe e il tempo impiegato in ogni passaggio della trasformazione.
     
-    ![Monitorare](media/tutorial-data-flow/pipeline3.png)
+    ![Monitoraggio](media/tutorial-data-flow/pipeline3.png)
 1. Fare clic su una trasformazione per ottenere informazioni dettagliate sulle colonne e il partizionamento dei dati.
     
-    ![Monitorare](media/tutorial-data-flow/pipeline4.png)
+    ![Monitoraggio](media/tutorial-data-flow/pipeline4.png)
 
 Se questa esercitazione è stata eseguita correttamente, è necessario avere scritto 83 righe e 2 colonne nella cartella del sink. È possibile verificare che i dati siano corretti controllando l'archivio BLOB.
 

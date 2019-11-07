@@ -1,5 +1,5 @@
 ---
-title: Pipeline e attività in Azure Data Factory | Microsoft Docs
+title: Pipeline e attività in Azure Data Factory
 description: Informazioni sulle pipeline e le attività in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: cb776b28a8c06784a2aa41e42429a3f183254138
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: bed81633b27d5d0f89cb7e3d7a6e0975de4b6772
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984213"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681450"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-create-pipelines.md)
 > * [Versione corrente](concepts-pipelines-activities.md)
 
@@ -53,7 +53,7 @@ Attività di trasformazione dei dati | Ambiente di calcolo
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Attività di Machine Learning: Esecuzione batch e Aggiorna risorsa](transform-data-using-machine-learning.md) | Azure VM
+[Attività di Machine Learning: esecuzione batch e aggiornamento risorse](transform-data-using-machine-learning.md) | Macchina virtuale di Azure
 [Stored procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse o SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics.
 [Codice personalizzato](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -66,13 +66,13 @@ Per altre informazioni, vedere l'articolo [Attività di trasformazione dei dati]
 ## <a name="control-activities"></a>Attività di controllo
 Sono supportate le seguenti attività del flusso di controllo:
 
-Attività di controllo | DESCRIZIONE
+Attività di controllo | Descrizione
 ---------------- | -----------
 [Attività ExecutePipeline](control-flow-execute-pipeline-activity.md) | L'attività di esecuzione pipeline consente a una pipeline di Data Factory di richiamare un'altra pipeline.
-[ForEachActivity](control-flow-for-each-activity.md) | L'attività ForEach definisce un flusso di controllo ripetuto nella pipeline. Questa attività viene usata per eseguire l'iterazione su una raccolta ed esegue attività specificate in un ciclo. L'implementazione di cicli di questa attività è simile alla struttura di esecuzione cicli Foreach nei linguaggi di programmazione.
+[ForEachActivity](control-flow-for-each-activity.md) | L'attività ForEach definisce un flusso di controllo ripetuto nella pipeline. Questa attività viene usata per eseguire l'iterazione di una raccolta e attività specifiche in un ciclo. L'implementazione di cicli di questa attività è simile alla struttura di esecuzione cicli Foreach nei linguaggi di programmazione.
 [WebActivity](control-flow-web-activity.md) | L'attività Web può essere usata per chiamare un endpoint REST personalizzato da una pipeline di Data Factory. È possibile passare set di dati e servizi collegati in modo che l'attività possa usarli e accedervi.
-[Attività di ricerca](control-flow-lookup-activity.md) | L'attività di ricerca può essere usata per la lettura o la ricerca di un nome/valore di record/tabella da qualsiasi origine esterna. Questo output può essere referenziato ulteriormente dalle attività successive.
-[Attività GetMetadata](control-flow-get-metadata-activity.md) | Questa attività può essere usata per recuperare i metadati di tutti i dati in Azure Data Factory.
+[Attività Lookup](control-flow-lookup-activity.md) | L'attività Lookup può essere usata per la lettura o la ricerca di un record/nome di tabella/valore da qualsiasi origine esterna. Questo output può essere referenziato ulteriormente dalle attività successive.
+[Attività Get Metadata](control-flow-get-metadata-activity.md) | Questa attività può essere usata per recuperare i metadati di tutti i dati in Azure Data Factory.
 [Attività Until](control-flow-until-activity.md) | Implementa il ciclo Do-Until che è simile alla struttura di esecuzione cicli Do-Until nei linguaggi di programmazione. Esegue infatti un set di attività in un ciclo finché la condizione associata con l'attività restituisce true. È possibile specificare un valore di timeout per l'attività Until in Data Factory.
 [Attività della condizione If](control-flow-if-condition-activity.md) | Può essere usata per creare un ramo in base alla condizione che il valore restituito sia true o false. L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguaggi di programmazione. Valuta un set di attività se la condizione restituisce `true` e un altro set di attività se la condizione restituisce `false`.
 [Attività Wait](control-flow-wait-activity.md) | Quando si usa un'attività Wait in una pipeline, la pipeline attende per il periodo di tempo specificato prima di proseguire con l'esecuzione delle attività successive.
@@ -95,15 +95,15 @@ Ecco come una pipeline viene definita in formato JSON:
 }
 ```
 
-Tag | Descrizione | Type | Obbligatoria
+Tag | Descrizione | Tipo | Obbligatorio
 --- | ----------- | ---- | --------
 name | Nome della pipeline. Specificare un nome che rappresenti l'azione eseguita dalla pipeline. <br/><ul><li>Numero massimo di caratteri: 140</li><li>Deve iniziare con una lettera, numero o un carattere di sottolineatura (\_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\"</li></ul> | String | Sì
 description | Specificare il testo descrittivo che illustra lo scopo della pipeline. | String | No
-activities | Nella sezione delle **attività** possono essere definite una o più attività. Vedere la sezione relativa al formato [JSON delle attività](#activity-json) per informazioni dettagliate sull'elemento JSON delle attività. | Array | Sì
-parameters | La sezione **parameters** può avere uno o più parametri definiti all'interno della pipeline, assicurando la flessibilità per il riutilizzo della pipeline. | List | No
+attività | Nella sezione delle **attività** possono essere definite una o più attività. Vedere la sezione relativa al formato [JSON delle attività](#activity-json) per informazioni dettagliate sull'elemento JSON delle attività. | Array | Sì
+Parametri | La sezione **parameters** può avere uno o più parametri definiti all'interno della pipeline, assicurando la flessibilità per il riutilizzo della pipeline. | Elenco | No
 
 ## <a name="activity-json"></a>Attività JSON
-Nella sezione delle **attività** possono essere definite una o più attività. Esistono due principali tipi di attività: attività di esecuzione e di controllo.
+Nella sezione delle **attività** possono essere definite una o più attività. Esistono due tipi principali di attività: attività di esecuzione e di controllo.
 
 ### <a name="execution-activities"></a>Attività di esecuzione
 Includono le [attività di spostamento dei dati](#data-movement-activities) e di [ trasformazione dei dati](#data-transformation-activities). Presentano la seguente struttura di primo livello:
@@ -132,13 +132,13 @@ Tag | Descrizione | Obbligatorio
 --- | ----------- | ---------
 name | Nome dell'attività. Specificare un nome che rappresenti l'azione eseguita dall'attività. <br/><ul><li>Numero massimo di caratteri: 55</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (\_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Sì</li></ul>
 description | Testo descrittivo per il tipo o lo scopo dell'attività | Sì
-type | Tipo di attività. Per informazioni sui diversi tipi di attività, vedere le sezioni [Attività di spostamento dei dati](#data-movement-activities), [Attività di trasformazione dei dati](#data-transformation-activities) e [Attività di controllo](#control-activities). | Yes
+type | Tipo di attività. Per informazioni sui diversi tipi di attività, vedere le sezioni [Attività di spostamento dei dati](#data-movement-activities), [Attività di trasformazione dei dati](#data-transformation-activities) e [Attività di controllo](#control-activities). | Sì
 linkedServiceName | Nome del servizio collegato usato dall'attività.<br/><br/>Per un'attività può essere necessario specificare il servizio collegato che collega all'ambiente di calcolo richiesto. | Sì per l'attività HDInsight, l'attività di assegnazione di punteggio Batch di Azure Machine Learning e l'attività stored procedure. <br/><br/>No per tutto il resto
 typeProperties | Le proprietà nella sezione typeProperties dipendono da ogni tipo di attività. Per visualizzare le proprietà del tipo per un'attività, fare clic sui collegamenti all'attività nella sezione precedente. | No
 policy | Criteri che influiscono sul comportamento di runtime dell'attività. Questa proprietà include il comportamento di timeout e ripetizione. Se queste impostazioni non vengono specificate, vengono usati i valori predefiniti. Per altre informazioni, vedere la sezione [Criteri di attività](#activity-policy). | No
 dependsOn | Questa proprietà viene usata per definire le dipendenze delle attività e come le attività successive dipendono dalle attività precedenti. Per altre informazioni, vedere [Dipendenza delle attività](#activity-dependency). | No
 
-### <a name="activity-policy"></a>Criteri attività
+### <a name="activity-policy"></a>Criteri di attività
 Criteri che influiscono sul comportamento runtime di un'attività, offrendo le opzioni di configurabilità. I criteri delle attività sono disponibili solo per le attività di esecuzione.
 
 ### <a name="activity-policy-json-definition"></a>Definizione JSON dei criteri di attività
@@ -169,12 +169,12 @@ Criteri che influiscono sul comportamento runtime di un'attività, offrendo le o
 }
 ```
 
-Nome JSON | Descrizione | Valori consentiti | Obbligatoria
+Nome JSON | Descrizione | Valori consentiti | Obbligatorio
 --------- | ----------- | -------------- | --------
-timeout | Specifica il timeout per l'attività da eseguire. | Timespan | No. Il timeout predefinito è 7 giorni.
+timeout | Specifica il timeout per l'attività da eseguire. | TimeSpan | No. Il timeout predefinito è 7 giorni.
 retry | Numero massimo di tentativi | Integer | No. Il valore predefinito è 0
 retryIntervalInSeconds | Il ritardo tra tentativi di ripetizione espresso in secondi | Integer | No. Il valore predefinito è 30 secondi
-secureOutput | Se impostato su true, l'output dall'attività viene considerato protetto e non viene registrato per il monitoraggio. | Boolean | No. Il valore predefinito è false.
+secureOutput | Se impostato su true, l'output dall'attività viene considerato protetto e non viene registrato per il monitoraggio. | Booleano | No. Il valore predefinito è false.
 
 ### <a name="control-activity"></a>Attività di controllo
 Le attività di controllo presentano la seguente struttura di primo livello:
@@ -197,21 +197,21 @@ Tag | Descrizione | Obbligatorio
 --- | ----------- | --------
 name | Nome dell'attività. Specificare un nome che rappresenti l'azione eseguita dall'attività.<br/><ul><li>Numero massimo di caratteri: 55</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (\_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Sì</li><ul>
 description | Testo descrittivo per il tipo o lo scopo dell'attività | Sì
-type | Tipo di attività. Per informazioni sui diversi tipi di attività, vedere le sezioni [Attività di spostamento dei dati](#data-movement-activities), [Attività di trasformazione dei dati](#data-transformation-activities) e [Attività di controllo](#control-activities). | Yes
+type | Tipo di attività. Per informazioni sui diversi tipi di attività, vedere le sezioni [Attività di spostamento dei dati](#data-movement-activities), [Attività di trasformazione dei dati](#data-transformation-activities) e [Attività di controllo](#control-activities). | Sì
 typeProperties | Le proprietà nella sezione typeProperties dipendono da ogni tipo di attività. Per visualizzare le proprietà del tipo per un'attività, fare clic sui collegamenti all'attività nella sezione precedente. | No
 dependsOn | Questa proprietà viene usata per definire la dipendenza delle attività e come le attività successive dipendono dalle attività precedenti. Per altre informazioni, vedere la [Dipendenza delle attività](#activity-dependency). | No
 
-### <a name="activity-dependency"></a>Dipendenza di attività
+### <a name="activity-dependency"></a>Dipendenza delle attività
 La dipendenza delle attività definisce in che modo le attività successive dipendono dalle attività precedenti, determinando la condizione dell'eventuale esecuzione dell'attività successiva. Un'attività può dipendere da una o più attività precedenti con condizioni di dipendenza diverse.
 
-Le diverse condizioni di dipendenza sono: Succeeded, Failed, Skipped, Completed.
+Le diverse condizioni di dipendenza sono: Succeeded (esito positivo), Failed (esito negativo), Skipped (operazione ignorata), Completed (operazione completata).
 
 Ad esempio, se una pipeline dispone di un'attività A-> attività B, i diversi scenari possibili sono:
 
-- L'attività B ha una condizione di dipendenza dall'attività A di tipo **succeeded**: l'attività B viene eseguita solo se lo stato finale dell'attività A è succeeded.
-- L'attività B ha una condizione di dipendenza dall'attività A di tipo **failed**: l'attività B viene eseguita solo se lo stato finale dell'attività A è failed.
-- L'attività B ha una condizione di dipendenza dall'attività A di tipo **completed**: l'attività B viene eseguita se lo stato finale dell'attività A è succeeded o failed.
-- L'attività B ha una condizione di dipendenza dall'attività A di tipo **skipped**: l'attività B viene eseguita se lo stato finale dell'attività A è skipped. Lo stato skipped (operazione ignorata) si verifica nello scenario Attività X -> Attività Y -> Attività Z, in cui ogni attività viene eseguita solo se l'attività precedente ha esito positivo. Se l'attività X ha esito negativo, lo stato dell'attività Y è "skipped" perché non viene mai eseguita. Analogamente, anche lo stato dell'attività Z è "skipped".
+- L'attività B ha una condizione di dipendenza dall'attività A con **succeeded**: l'attività B viene eseguita solo se lo stato finale dell'attività A è con esito positivo.
+- L'attività B ha una condizione di dipendenza dall'attività A con **failed**: l'attività B viene eseguita solo se lo stato finale dell'attività A è con esito negativo.
+- L'attività B ha una condizione di dipendenza dall'attività A con **completed**: l'attività B viene eseguita solo se lo stato finale dell'attività A è con esito positivo o negativo.
+- L'attività B ha una condizione di dipendenza dall'attività A con **skipped**: l'attività B viene eseguita se lo stato finale dell'attività A è di operazione ignorata. Lo stato skipped (operazione ignorata) si verifica nello scenario Attività X -> Attività Y -> Attività Z, in cui ogni attività viene eseguita solo se l'attività precedente ha esito positivo. Se l'attività X ha esito negativo, lo stato dell'attività Y è "skipped" perché non viene mai eseguita. Analogamente, anche lo stato dell'attività Z è "skipped".
 
 #### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Esempio: l'attività 2 dipende dall'esito positivo dell'attività 1
 

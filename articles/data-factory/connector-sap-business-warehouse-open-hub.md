@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da SAP Business Warehouse tramite Open Hub usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da SAP Business Warehouse tramite Open Hub usando Azure Data Factory
 description: Informazioni su come copiare dati da SAP Business Warehouse (BW) tramite Open Hub in archivi dati sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a35246aff99ec78e665e3be4afd47409959bef63
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: f4ee4ec40aeecdb902be3cf93beb9ee25350e262
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089732"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680316"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse tramite Open Hub usando Azure Data Factory
 
@@ -46,16 +46,16 @@ In particolare, il connettore SAP Business Warehouse Open Hub supporta:
 
 Il [servizio SAP BW Open Hub](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) consente di estrarre in modo efficiente dati da SAP BW. Il diagramma seguente mostra uno dei flussi tipici che i clienti possono osservare nel proprio sistema SAP, con flusso di dati da SAP ECC -> PSA -> DSO -> Cubo.
 
-SAP BW Open Hub Destination (OHD) definisce la destinazione di inoltro dei dati SAP. Qualsiasi oggetto supportato da SAP Trasferimento dati Process (DTP) può essere usato come origini dati Open Hub, ad esempio DSO, InfoCube, DataSource e così via. Il tipo di Open Hub Destination, ovvero la posizione in cui vengono archiviati i dati inoltrati, può essere costituito da tabelle di database (locali o remote) e da file flat. Questo connettore SAP BW Open Hub supporta la copia dei dati dalla tabella locale OHD in BW. Se si usano altri tipi, è possibile connettersi direttamente al database o al file system usando altri connettori.
+SAP BW Open Hub Destination (OHD) definisce la destinazione di inoltro dei dati SAP. Qualsiasi oggetto supportato da SAP Trasferimento dati Process (DTP) può essere usato come origini dati Open Hub, ad esempio DSO, InfoCube, DataSource e così via. Tipo di destinazione dell'hub aperto, in cui sono archiviati i dati inoltrati, possono essere tabelle di database (locale o remota) e file flat. Questo connettore SAP BW Open Hub supporta la copia dei dati dalla tabella locale OHD in BW. Se si usano altri tipi, è possibile connettersi direttamente al database o al file system usando altri connettori.
 
 ![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
 ## <a name="delta-extraction-flow"></a>Flusso di estrazione Delta
 
-ADF SAP BW connettore Hub aperto offre due proprietà facoltative `excludeLastRequest` : `baseRequestId` e che può essere usato per gestire il carico Delta dall'hub aperto. 
+ADF SAP BW connettore Hub aperto offre due proprietà facoltative: `excludeLastRequest` e `baseRequestId` che possono essere usate per gestire il carico Delta dall'hub aperto. 
 
-- **excludeLastRequestId**: Se escludere i record dell'ultima richiesta. Il valore predefinito è true. 
-- **baseRequestId**: L'ID della richiesta per il caricamento differenziale. Una volta impostato, verranno recuperati solo i dati con RequestId superiori al valore di questa proprietà. 
+- **excludeLastRequestId**: indica se escludere i record dell'ultima richiesta. Il valore predefinito è true. 
+- **baseRequestId**: ID della richiesta per il caricamento Delta. Una volta impostato, verranno recuperati solo i dati con RequestId superiori al valore di questa proprietà. 
 
 In generale, l'estrazione da SAP InfoProviders a Azure Data Factory (ADF) è costituita da due passaggi: 
 
@@ -104,13 +104,13 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di SAP Business Warehouse Open Hub sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **SapOpenHub** | Sì |
+| type | La proprietà Type deve essere impostata su: **SapOpenHub** | Sì |
 | server | Nome del server in cui si trova l'istanza di SAP BW. | Sì |
 | systemNumber | Numero del sistema SAP BW.<br/>Valore consentito: numero decimale a due cifre rappresentato come stringa. | Sì |
 | clientId | ID del client nel sistema SAP BW.<br/>Valore consentito: numero decimale a tre cifre rappresentato come stringa. | Sì |
-| language | Lingua usata dal sistema SAP. | No (valore predefinito: **EN**)|
+| Lingua | Lingua usata dal sistema SAP. | No (valore predefinito: **EN**)|
 | userName | Nome dell'utente che ha accesso al server SAP. | Sì |
 | password | Password per l'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
@@ -146,12 +146,12 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da e in SAP BW Open Hub, impostare la proprietà type del set di dati su **SapOpenHubTable**. Sono supportate le proprietà seguenti.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **SapOpenHubTable**.  | Sì |
 | openHubDestinationName | Il nome di Open Hub Destination da cui copiare i dati. | Sì |
 
-Se è stato impostato `excludeLastRequest` e `baseRequestId` nel set di dati, è ancora supportato così com'è, mentre si consiglia di usare il nuovo modello in origine attività in futuro.
+Se si imposta `excludeLastRequest` e `baseRequestId` nel set di dati, è ancora supportata così com'è, mentre si consiglia di usare il nuovo modello in origine attività in futuro.
 
 **Esempio:**
 
@@ -180,7 +180,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da SAP BW Hub aperto, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **SapOpenHubSource**. | Sì |
 | excludeLastRequest | Se escludere i record dell'ultima richiesta. | No (il valore predefinito è **true**) |
@@ -189,7 +189,7 @@ Per copiare dati da SAP BW Hub aperto, nella sezione **origine** dell'attività 
 >[!TIP]
 >Se ad esempio la tabella Open Hub contiene solo dati generati in base a ID di richiesta singola, si esegue sempre il caricamento completo e si sovrascrivono i dati esistenti nella tabella oppure si esegue DTP una sola volta per il test, ricordarsi di deselezionare l'opzione "excludeLastRequest" per la copia dei dati.
 
-Per velocizzare il caricamento dei dati, è possibile [`parallelCopies`](copy-activity-performance.md#parallel-copy) impostare l'attività di copia in modo da caricare i dati da SAP BW Hub aperto in parallelo. Se, ad esempio, si `parallelCopies` imposta su quattro, Data Factory esegue contemporaneamente quattro chiamate RFC e ogni chiamata RFC recupera una parte di dati dalla SAP BW tabella Hub aperta partizionata in base all'ID richiesta e all'ID pacchetto. Questa condizione si applica quando il numero di ID richiesta di DTP univoco + ID pacchetto è maggiore del `parallelCopies`valore di. Quando si copiano dati in un archivio dati basato su file, viene anche riordinato di scrivere in una cartella come più file (specificare solo il nome della cartella), nel qual caso le prestazioni sono migliori rispetto alla scrittura in un singolo file.
+Per velocizzare il caricamento dei dati, è possibile impostare [`parallelCopies`](copy-activity-performance.md#parallel-copy) sull'attività di copia per caricare i dati da SAP BW Hub aperto in parallelo. Se, ad esempio, si imposta `parallelCopies` su quattro, Data Factory esegue contemporaneamente quattro chiamate RFC e ogni chiamata RFC recupera una parte di dati dalla SAP BW tabella dell'hub aperta partizionata in base all'ID richiesta e all'ID del pacchetto di impaginazione. Questa condizione si applica quando il numero di ID richiesta di DTP univoco + ID pacchetto è maggiore del valore di `parallelCopies`. Quando si copiano dati in un archivio dati basato su file, viene anche riordinato di scrivere in una cartella come più file (specificare solo il nome della cartella), nel qual caso le prestazioni sono migliori rispetto alla scrittura in un singolo file.
 
 **Esempio:**
 
@@ -230,13 +230,13 @@ Quando si copiano dati da SAP BW Open Hub, vengono usati i mapping seguenti tra 
 
 | Tipo SAP ABAP | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
-| C (String) | string |
+| C (String) | String |
 | I (integer) | Int32 |
 | F (Float) | Double |
-| D (Date) | string |
-| T (Time) | string |
+| D (Date) | String |
+| T (Time) | String |
 | P (BCD Packed, Currency, Decimal, Qty) | Decimal |
-| N (Numc) | string |
+| N (Numc) | String |
 | X (Binary e Raw) | String |
 
 ## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca

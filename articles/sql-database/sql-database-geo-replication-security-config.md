@@ -1,5 +1,5 @@
 ---
-title: Configurare la sicurezza del database SQL di Azure per il ripristino di emergenza | Documentazione Microsoft
+title: Configurare la sicurezza del database SQL di Azure per il ripristino di emergenza
 description: Informazioni sulle considerazioni sulla configurazione e la gestione della sicurezza dopo il ripristino di un database o il failover in un server secondario.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 4d4939b7a0179216d11f594ce12f384276d15e05
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3c08ba1a37d7b0d16042d6496c27e0de8d070b75
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568124"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689977"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurare e gestire la sicurezza dei database SQL di Azure per il ripristino geografico o il failover
 
@@ -48,7 +48,7 @@ La preparazione dell'accesso utente a un database secondario con replica geograf
 
 La configurazione degli account di accesso nel server di destinazione prevede i tre passaggi seguenti:
 
-#### <a name="1-determine-logins-with-access-to-the-primary-database"></a>1. Determinare gli account di accesso che possono accedere al database primario
+#### <a name="1-determine-logins-with-access-to-the-primary-database"></a>1. determinare gli account di accesso con accesso al database primario
 
 Il primo passaggio della procedura consiste nel determinare quali account di accesso devono essere duplicati nel server di destinazione. A questo scopo, è necessario usare una coppia di istruzioni SELECT, una nel database master logico nel server di origine e una nel database primario stesso.
 
@@ -64,7 +64,7 @@ Solo un membro del ruolo del database db_owner, l'utente dbo o l'amministratore 
     FROM [sys].[database_principals]
     WHERE [type_desc] = 'SQL_USER'
 
-#### <a name="2-find-the-sid-for-the-logins-identified-in-step-1"></a>2. Trovare il SID degli account di accesso identificati nel passaggio 1
+#### <a name="2-find-the-sid-for-the-logins-identified-in-step-1"></a>2. trovare il SID per gli account di accesso identificati nel passaggio 1
 
 Confrontando l'output delle query illustrate nella sezione precedente e trovando una corrispondenza per i SID, è possibile eseguire il mapping dell'account di accesso del server all'utente del database. Gli account di accesso che hanno un utente del database con un SID corrispondente hanno anche l'accesso utente a quel database come entità utente.
 
@@ -77,7 +77,7 @@ La query seguente può essere usata per visualizzare tutte le entità utente e i
 > [!NOTE]
 > Gli utenti **INFORMATION_SCHEMA** e **sys** avranno SID *NULL*, mentre il SID **guest** è **0x00**. Il SID **dbo** può iniziare con *0x01060000000001648000000000048454* se il database è stato creato dall'amministratore del server invece che da un membro di **DbManager**.
 
-#### <a name="3-create-the-logins-on-the-target-server"></a>3. Creare gli account di accesso nel server di destinazione
+#### <a name="3-create-the-logins-on-the-target-server"></a>3. creare gli account di accesso nel server di destinazione
 
 L'ultimo passaggio consiste nel generare gli account di accesso con i SID appropriati nel server o nei server di destinazione. La sintassi di base è la seguente.
 

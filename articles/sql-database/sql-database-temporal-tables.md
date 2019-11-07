@@ -1,5 +1,5 @@
 ---
-title: Introduzione alle tabelle temporali nel database SQL di Azure | Microsoft Docs
+title: Introduzione alle tabelle temporali nel database SQL di Azure
 description: Informazioni introduttive sull'uso delle tabelle temporali nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: 39c19661a71a8b466aa6ff25be9e895189dfbfb3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 44a5589357301f979bb094579626e1c02e582846
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566367"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686976"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introduzione alle tabelle temporali nel database SQL di Azure
 

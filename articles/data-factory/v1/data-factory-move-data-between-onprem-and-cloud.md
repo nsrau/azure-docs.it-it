@@ -1,5 +1,5 @@
 ---
-title: Spostare dati con Gateway di gestione dati | Microsoft Docs
+title: Spostare i dati Gestione dati Gateway
 description: Configurare un gateway dati per spostare dati tra origini locali e il cloud. Usare Gateway di gestione dati in Azure Data Factory per spostare dati.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 4eb881992b7e40e0a9d67bd2cee94f1f09958e9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52bce71abd6ecf30b5a3661c2e6033537357db3a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825987"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682485"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Spostare dati tra origini locali e il cloud con Gateway di gestione dati
 > [!NOTE]
@@ -32,7 +32,7 @@ Questo articolo offre una panoramica sull'integrazione tra archivi dati locali e
 > [!IMPORTANT]
 > Leggere l'articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per i dettagli sul Gateway di gestione dati. 
 
-Questa procedura dettagliata illustra come creare un'istanza di Data Factory con una pipeline che sposta i dati da un database di **SQL Server** locale a un archivio BLOB di Azure. Come parte della procedura dettagliata, viene installato e configurato il gateway di gestione dati nel computer.
+Questa procedura dettagliata illustra come creare un'istanza di Data Factory con una pipeline che sposta i dati da un database di **SQL Server** locale a un archivio BLOB di Azure. Come parte della procedura dettagliata, viene installato e configurato il Gateway di gestione dati nel computer.
 
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>Procedura dettagliata: Copiare i dati locali nel cloud
 In questa procedura dettagliata si eseguiranno i passaggi seguenti: 
@@ -62,7 +62,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
     ![Aggiungi a schermata iniziale](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
    > [!IMPORTANT]
-   > È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore **Il nome "ADFTutorialOnPremDF" per la data factory non è disponibile**, cambiare il nome della data factory (ad esempio, nomeutenteADFTutorialOnPremDF) e provare di nuovo a crearla. Durante l'esecuzione dei passaggi rimanenti in questa esercitazione usare questo nome anziché ADFTutorialOnPremDF.
+   > È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato un errore simile a **Nome "ADFTutorialOnPremDF" per la data factory non disponibile**, cambiare il nome della data factory (ad esempio, nomeutenteADFTutorialOnPremDF) e provare di nuovo a crearla. Durante l'esecuzione dei passaggi rimanenti in questa esercitazione usare questo nome anziché ADFTutorialOnPremDF.
    >
    > Il nome della data factory può essere registrato come nome **DNS** in futuro e quindi divenire visibile pubblicamente.
    >
@@ -83,7 +83,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
 1. Nella pagina **Data Factory** fare clic sul riquadro **Creare e distribuire** per avviare l'**Editor** per la data factory.
 
     ![Riquadro Creare e distribuire](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
-2. Nell'editor di Data Factory fare clic su **... Altro** sulla barra degli strumenti e quindi fare clic su **Nuovo gateway dati**. In alternativa, è possibile fare clic con il pulsante destro del mouse su **Gateway dati** nella visualizzazione ad albero e fare clic su **Nuovo gateway dati**.
+2. Nell'editor di Data Factory fare clic su **... Ulteriori informazioni** sulla barra degli strumenti e quindi fare clic su **nuovo gateway dati**. In alternativa, è possibile fare clic con il pulsante destro del mouse su **Gateway dati** nella visualizzazione ad albero e fare clic su **Nuovo gateway dati**.
 
    ![Nuovo gateway di dati nella barra degli strumenti](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
 3. Nella pagina **Crea** immettere **adftutorialgateway** per il **nome** e fare clic su **OK**.     
@@ -91,7 +91,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
     ![Pagina per la creazione del gateway](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
 
     > [!NOTE]
-    > In questa procedura dettagliata si crea il gateway logico con un solo nodo, ossia un computer Windows locale. È possibile scalare orizzontalmente un gateway di gestione dati mediante l'associazione di più computer locali con il gateway. È possibile aumentare le prestazioni aumentando il numero di processi di spostamento di dati eseguibili contemporaneamente in un nodo. Questa funzionalità è disponibile anche per un gateway logico con un singolo nodo. Per informazioni dettagliate, vedere l'articolo [Scaling data management gateway in Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md) (Gateway di gestione dati - Disponibilità elevata e scalabilità (anteprima).  
+    > In questa procedura dettagliata si crea il gateway logico con un solo nodo, ossia un computer Windows locale. È possibile scalare orizzontalmente un gateway di gestione dati mediante l'associazione di più computer locali con il gateway. È possibile aumentare le prestazioni aumentando il numero di processi di spostamento di dati eseguibili contemporaneamente in un nodo. Questa funzionalità è disponibile anche per un gateway logico con un singolo nodo. Per informazioni dettagliate, vedere l'articolo [Ridimensionamento del gateway di gestione dati in Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md).  
 4. Nella pagina **Configura** fare clic su **Installa direttamente nel computer**. Con questa azione viene scaricato il pacchetto di installazione per il gateway, che viene installato, configurato e registrato nel computer.  
 
    > [!NOTE]
@@ -105,7 +105,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
 
     ![Gateway - Pagina Configura](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
-    Si tratta del metodo più semplice (con un clic) per scaricare, installare, configurare e registrare il gateway in un unico passaggio. È possibile vedere l'applicazione **Gateway di gestione dati di Microsoft Configuration Manager** installata nel computer. È anche possibile trovare il file eseguibile **ConfigManager.exe** nella cartella: **C:\Programmi\Microsoft Data Management Gateway\2.0\Shared**.
+    Si tratta del metodo più semplice (con un clic) per scaricare, installare, configurare e registrare il gateway in un unico passaggio. È possibile vedere l'applicazione **Gateway di gestione dati di Microsoft Configuration Manager** installata nel computer. È anche possibile trovare l'eseguibile **ConfigManager.exe** nella cartella: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**.
 
     È anche possibile scaricare e installare manualmente il gateway usando i collegamenti nella pagina e registrarlo usando la chiave visualizzata nella casella di testo **NUOVA CHIAVE**.
 
@@ -118,7 +118,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
 5. Attendere qualche minuto o finché non viene visualizzato il messaggio di notifica seguente:
 
     ![Installazione del gateway riuscita](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
-6. Avviare l'applicazione **Gateway di gestione dati di Configuration Manager** nel computer. Nella finestra **Cerca** digitare **Gateway di gestione dati** per accedere a questa utilità. È anche possibile trovare il file eseguibile **ConfigManager.exe** nella cartella: **C:\Programmi\Microsoft Data Management Gateway\2.0\Shared**
+6. Avviare l'applicazione **Gateway di gestione dati di Configuration Manager** nel computer. Nella finestra **Cerca** digitare **Gateway di gestione dati** per accedere a questa utilità. È anche possibile trovare l'eseguibile **ConfigManager.exe** nella cartella: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
     ![Gestione configurazione di gateway](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 7. Verificare che venga visualizzato il messaggio `adftutorialgateway is connected to the cloud service`. La barra di stato visualizza **Connesso al servizio cloud** insieme a un **segno di spunta verde**.
@@ -130,7 +130,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
    * **Pianificare gli aggiornamenti** in modo che vengano installati in un preciso momento della giornata.
    * Visualizzare la data dell'**ultimo aggiornamento** del gateway.
    * Specificare l'ora in cui è possibile installare un aggiornamento per il gateway.
-8. Passare alla scheda **Impostazioni** . Il certificato specificato nella sezione **Certificato** viene usato per crittografare e decrittografare le credenziali per l'archivio dati locale specificato nel portale (facoltativo). Fare clic su **Modifica** per usare il proprio certificato. Per impostazione predefinita, il gateway usa il certificato generato automaticamente dal servizio Data Factory.
+8. Passare alla scheda **Impostazioni** . Il certificato specificato nella sezione **certificato** viene usato per crittografare/decrittografare le credenziali per l'archivio dati locale specificato nel portale. Fare clic su **Modifica** per usare il proprio certificato. Per impostazione predefinita, il gateway usa il certificato generato automaticamente dal servizio Data Factory.
 
     ![Configurazione certificati del gateway](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
@@ -211,7 +211,7 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
 
 ### <a name="create-input-dataset"></a>Creare set di dati di input
 
-1. Nell'**editor di Data Factory** fare clic su **... Altro**, fare clic su **Nuovo set di dati** sulla barra dei comandi e quindi su **Tabella SQL Server**.
+1. Nell' **editor di data factory**fare clic su **... Altro**, fare clic su **nuovo set di dati** sulla barra dei comandi e quindi su **SQL Server tabella**.
 2. Sostituire lo script JSON nel riquadro a destra con il testo seguente:
 
     ```JSON   
@@ -280,7 +280,7 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
    * **folderPath** è impostato su **adftutorial/outfromonpremdf** dove outfromonpremdf è la cartella nel contenitore adftutorial. Se non esiste ancora, creare il contenitore **adftutorial** .
    * L'oggetto **availability** è impostato su **hourly**. L'oggetto **frequency** è impostato su **hour** e l'oggetto **interval** è impostato su **1**.  Il servizio Data Factory genera una sezione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure.
 
-   Se non si specifica un **fileName** per un' **tabella di output**, il file generati nel **folderPath** vengono denominati nel formato seguente: `Data.<Guid>.txt` (ad esempio:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Se non si specifica un **nome file** per una **tabella di output**, i file generati in **folderPath** vengono denominati nel formato seguente: `Data.<Guid>.txt` (ad esempio: data. 0a405f8a-93ff-4C6F-B3BE-f69616f1df7a. txt.).
 
    Per impostare **folderPath** e **fileName** dinamicamente in base all'ora **SliceStart**, usare la proprietà partitionedBy. Nell'esempio seguente folderPath usa Year, Month e Day dall'oggetto SliceStart (ora di inizio della sezione elaborata), mentre fileName usa Hour dall'oggetto SliceStart. Ad esempio, se una sezione viene generata per 2014-10-20T08:00:00, folderName è impostato su wikidatagateway/wikisampledataout/2014/10/20 e fileName è impostato su 08.csv.
 
@@ -303,7 +303,7 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
 ## <a name="create-pipeline"></a>Creare una pipeline
 In questo passaggio viene creata una **pipeline** con un'**attività di copia** che usa **EmpOnPremSQLTable** come input e **OutputBlobTable** come output.
 
-1. Nell'editor di Data Factory fare clic su **... Altro** e quindi su **Nuova pipeline**.
+1. In Data Factory Editor fare clic su **... Altro**e fare clic su **nuova pipeline**.
 2. Sostituire lo script JSON nel riquadro a destra con il testo seguente:    
 
     ```JSON   
@@ -359,10 +359,10 @@ In questo passaggio viene creata una **pipeline** con un'**attività di copia** 
 
    * Nella sezione delle attività esiste una sola attività con **type** impostato su **Copy**.
    * **Input** for per l'attività è impostato su **EmpOnPremSQLTable** e **output** per l'attività è impostato su **OutputBlobTable**.
-   * Nel **typeProperties** sezione **SqlSource** viene specificato come il **tipo di origine** e **BlobSink** viene specificato come il **tipo di sink**.
+   * Nella sezione **typeProperties** , **sqlSource** viene specificato come tipo di **origine** e **BlobSink** viene specificato come tipo di **sink**.
    * La query SQL `select * from emp` è specificata per la proprietà **sqlReaderQuery** di **SqlSource**.
 
-   Per la data e ora di inizio è necessario usare il [formato ISO](https://en.wikipedia.org/wiki/ISO_8601), Ad esempio:  2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione viene usato.
+   Per la data e ora di inizio è necessario usare il [formato ISO](https://en.wikipedia.org/wiki/ISO_8601), ad esempio 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione viene usato.
 
    Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9/9/9999** come valore per la proprietà **end**.
 
@@ -372,7 +372,7 @@ In questo passaggio viene creata una **pipeline** con un'**attività di copia** 
 3. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire la set di dati (la tabella è un set di dati rettangolare). Verificare che la pipeline venga visualizzata nella visualizzazione albero sotto il nodo **Pipeline**.  
 4. Ora fare clic su **X** due volte per chiudere la pagina e tornare alla pagina **Data Factory** per **ADFTutorialOnPremDF**.
 
-**Congratulazioni** Una data factory di Azure, i servizi collegati, i set di dati e una pipeline sono stati creati correttamente e la pipeline è stata pianificata.
+**Congratulazioni.** Una data factory di Azure, i servizi collegati, i set di dati e una pipeline sono stati creati correttamente e la pipeline è stata pianificata.
 
 #### <a name="view-the-data-factory-in-a-diagram-view"></a>Visualizzare la data factory in una vista diagramma
 1. Nel **portale di Azure** fare clic sul riquadro **Diagramma** nella home page per l'istanza della data factory **ADFTutorialOnPremDF**. :
@@ -409,7 +409,7 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 8. (Facoltativo) Fare clic su **Pipeline** e su **ADFTutorialOnPremDF**, quindi eseguire il drill-through delle tabelle di input (**utilizzate**) o dei set di dati di output (**generati**).
 9. Usare strumenti come [Microsoft Storage Explorer](https://storageexplorer.com/) per verificare che venga creato un BLOB/file ogni ora.
 
-   ![Esplora archivi Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+   ![Azure Storage Explorer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Leggere l’articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per tutti i dettagli sul gateway di gestione dati.

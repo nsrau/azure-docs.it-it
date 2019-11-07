@@ -1,5 +1,5 @@
 ---
-title: Ritiro del livello di servizio Premium RS del database SQL di Azure | Microsoft Docs
+title: Ritiro del livello di servizio di Azure database SQL Premium RS
 description: Il livello di servizio Premium RS verrà ritirato e il relativo supporto non sarà più disponibile - Vedere le opzioni per la migrazione.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/07/2019
-ms.openlocfilehash: d2637618ea9e2a0a0d0369eddce01fae073be221
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 688fd3fdefb54fc25d5236277c85dd4262df5f34
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566628"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687233"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Ritiro del livello di servizio Premium RS (anteprima) del database SQL di Azure - Opzioni per la migrazione
 
@@ -26,7 +26,7 @@ Di seguito sono riportate le destinazioni di migrazione e le opzioni di prezzo p
 
 - Livelli di servizio vCore
 
-  Livelli di servizio **Utilizzo generico** e **Business critical** nel [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). Questi due livelli di servizio sono in disponibilità generale. Il modello di acquisto basato su vCore offre anche il livello di servizio di iperscalabilità che si adatta alle esigenze del carico di lavoro con scalabilità automatica fino a 100 TB per database. Il livello di servizio Hyperscale garantisce prestazioni I/O paragonabili a quelle del livello di servizio Premium nel [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) a un prezzo più vicino a quello del livello di servizio Premium RS.
+  Livelli di servizio **Utilizzo generico** e **Business critical** nel [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). Questi due livelli di servizio sono in disponibilità generale. Il modello di acquisto basato su vCore offre anche il livello di servizio di **iperscalabilità** che si adatta alle esigenze del carico di lavoro con scalabilità automatica fino a 100 TB per database. Il livello di servizio Hyperscale garantisce prestazioni I/O paragonabili a quelle del livello di servizio Premium nel [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) a un prezzo più vicino a quello del livello di servizio Premium RS.
 - Prezzi di sviluppo/test
 
   I [prezzi di sviluppo/test](https://azure.microsoft.com/pricing/dev-test/) consentono un risparmio fino al 55% rispetto ai prezzi con licenza inclusa per la sottoscrizione di Visual Studio.

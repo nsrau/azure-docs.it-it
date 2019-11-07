@@ -1,5 +1,5 @@
 ---
-title: Limiti delle risorse del server di database SQL di Azure | Microsoft Docs
+title: Limiti delle risorse del server di database SQL di Azure
 description: Questo articolo offre una panoramica dei limiti delle risorse del server di database SQL di Azure per database singoli e pool elastici. Offre anche informazioni su cosa accade quando tali limiti delle risorse vengono raggiunti o superati.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 04/18/2019
-ms.openlocfilehash: 175f694cbe46f871349136c9ce91888b6de48d21
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b358e69df1df579e91a9098c120c7e6b4e3f2ead
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566855"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687493"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limiti delle risorse del database SQL per il server di database SQL di Azure
 
@@ -44,14 +44,14 @@ Questo articolo offre una panoramica dei limiti delle risorse del database SQL p
 > - Latenza in aumento nelle query in esecuzione nel database master.  Ciò include le visualizzazioni delle statistiche di utilizzo delle risorse, ad esempio sys.resource_stats.
 > - Latenza in aumento nelle operazioni di gestione e nel portale di esecuzione del rendering dei punti di visualizzazione che coinvolgono l'enumerazione dei database nel server.
 
-### <a name="storage-size"></a>Dimensioni archiviazione
+### <a name="storage-size"></a>Dimensioni della risorsa di archiviazione
 - Per i database singoli rources, vedere i limiti [delle risorse basate su DTU](sql-database-dtu-resource-limits-single-databases.md) o i [limiti delle risorse basate su vCore](sql-database-vcore-resource-limits-single-databases.md) per i limiti delle dimensioni di archiviazione per ogni piano tariffario.
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>Cosa accade quando vengono raggiunti i limiti delle risorse del database?
 
 ### <a name="compute-dtus-and-edtus--vcores"></a>Elaborazione (DTU ed eDTU/vCore)
 
-Quando l'uso delle risorse di elaborazione del database (misurato in base a DTU ed eDTU o VCore) diventa elevato, la latenza delle query aumenta e può anche verificarsi un timeout. In queste condizioni le query possono essere messe in coda dal servizio e vengono rese disponibili alcune risorse per l'esecuzione.
+Quando l'utilizzo del calcolo del database (misurato da DTU e edtu, o VCore) diventa elevato, la latenza delle query aumenta e può addirittura timeout. In queste condizioni, le query possono essere accodate dal servizio e vengono fornite le risorse per l'esecuzione perché la risorsa diventa disponibile.
 In caso di uso elevato di risorse di elaborazione, le opzioni di mitigazione includono:
 
 - Aumento delle dimensioni di calcolo del database o del pool elastico per mettere a disposizione del database un numero maggiore di risorse del computer. Vedere [Ridimensionare le risorse del database singolo](sql-database-single-database-scale.md) e [Ridimensionare le risorse del pool elastico](sql-database-elastic-pool-scale.md).

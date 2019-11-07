@@ -1,5 +1,5 @@
 ---
-title: Determinazione dei prezzi di Azure Data Factory ed esempi | Microsoft Docs
+title: Informazioni sui prezzi Azure Data Factory tramite esempi
 description: Questo articolo spiega e illustra il modello di determinazione dei prezzi di Azure Data Factory con esempi dettagliati
 documentationcenter: ''
 author: djpmsft
@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.openlocfilehash: 168d977b9dc0ea6117796cf98a8562f168258d28
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c42946733ee49ed6acf2c8deadf850208e003339
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387450"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684531"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Determinazione dei prezzi di Data Factory ed esempi
 
@@ -161,7 +161,7 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
 - Operazioni di Data Factory = **$ 0,0001**
   - Lettura/scrittura = 10\*00001 = $ 0,0001 [1 L/S = $ 0,50/50000 = 0,00001]
   - Monitoraggio = 2\*000005 = $ 0,00001 [1 monitoraggio = $ 0,25/50000 = 0,000005]
-- Orchestrazione pipeline &amp; esecuzione = **$0,301**
+- Esecuzione &amp; orchestrazione pipeline = **$0,301**
   - Esecuzioni di attività = 001\*2 = 0,002 [1 esecuzione = $ 1/1000 = 0,001]
   - Attività flusso di dati = $0,299 propagate per 20 minuti (tempo di esecuzione di 10 minuti + TTL di 10 minuti). $0.112/hour in Azure Integration Runtime con 8 core calcolo generale
 

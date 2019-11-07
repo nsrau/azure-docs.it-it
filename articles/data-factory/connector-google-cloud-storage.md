@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da Google Cloud Storage usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da Google Cloud Storage usando Azure Data Factory
 description: Informazioni su come copiare dati da Google Cloud Storage in archivi dati di sink supportati usando Azure Data Factory.
 services: data-factory
 author: linda33wj
@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: e65a082d4c79b36b25ae3b9c27b8bb3a5ceb9b9d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4eedf54f3824adfb92ee22e5338325ccc5de3f75
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935593"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680910"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Copiare dati da Google Cloud Storage usando Azure Data Factory
 
@@ -52,7 +52,7 @@ Per copiare i dati da Google Cloud Storage, assicurarsi di avere le autorizzazio
 - **Per l'esecuzione di attività di copia**: `s3:GetObject` e `s3:GetObjectVersion` per operazioni di oggetti.
 - **Per la creazione di GUI di Data Factory**: `s3:ListAllMyBuckets` e `s3:ListBucket`/`s3:GetBucketLocation` per le operazioni di bucket sono inoltre necessarie le autorizzazioni per operazioni come la connessione di test e l'esplorazione/navigazione dei percorsi dei file. Se non si vuole concedere queste autorizzazioni, ignorare la connessione di test nella pagina di creazione del servizio collegato e specificare il percorso direttamente nelle impostazioni del set di dati.
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)] 
 
@@ -62,13 +62,13 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato Google Cloud Storage sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà Type deve essere impostata su **GoogleCloudStorage**. | SÌ |
-| accessKeyId | ID della chiave di accesso segreta. Per trovare la chiave di accesso e il segreto, vedere [prerequisiti](#prerequisites). |SÌ |
-| secretAccessKey | La stessa chiave di accesso segreta. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |SÌ |
-| serviceUrl | Specificare l'endpoint S3 personalizzato come **`https://storage.googleapis.com`** . | SÌ |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| type | La proprietà Type deve essere impostata su **GoogleCloudStorage**. | Sì |
+| accessKeyId | ID della chiave di accesso segreta. Per trovare la chiave di accesso e il segreto, vedere [prerequisiti](#prerequisites). |Sì |
+| secretAccessKey | La stessa chiave di accesso segreta. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
+| serviceUrl | Specificare l'endpoint S3 personalizzato come **`https://storage.googleapis.com`** . | Sì |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 Di seguito è fornito un esempio:
 
@@ -99,10 +99,10 @@ Di seguito è fornito un esempio:
 
 Le proprietà seguenti sono supportate per Google Cloud storage in `location` impostazioni nel set di dati basato sul formato:
 
-| Proprietà   | Description                                                  | Obbligatoria |
+| Proprietà   | Descrizione                                                  | Obbligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | La proprietà Type in `location` nel set di dati deve essere impostata su **AmazonS3Location**. | SÌ      |
-| bucketName | Il nome del bucket S3.                                          | SÌ      |
+| type       | La proprietà Type in `location` nel set di dati deve essere impostata su **AmazonS3Location**. | Sì      |
+| bucketName | Il nome del bucket S3.                                          | Sì      |
 | folderPath | Percorso della cartella nel bucket specificato. Se si vuole usare il carattere jolly per filtrare la cartella, ignorare questa impostazione e specificare nelle impostazioni dell'origine dell'attività. | No       |
 | fileName   | Nome del file nel bucket specificato + folderPath. Se si vuole usare il carattere jolly per filtrare i file, ignorare questa impostazione e specificare nelle impostazioni dell'origine dell'attività. | No       |
 
@@ -138,9 +138,9 @@ Le proprietà seguenti sono supportate per Google Cloud storage in `location` im
 >[!NOTE]
 >Il modello di set di dati seguente è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato nella sezione precedente in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **AmazonS3Object** |SÌ |
+| type | La proprietà type del set di dati deve essere impostata su: **AmazonS3Object** |Sì |
 | bucketName | Il nome del bucket S3. Il filtro con caratteri jolly non è supportato. |Sì per l'attività Copy/Lookup, no per l'attività GetMetadata |
 | key | Il **nome o il filtro con caratteri jolly** della chiave dell'oggetto S3 nel bucket specificato. Si applica solo se la proprietà "prefix" non è specificata. <br/><br/>Il filtro con caratteri jolly è supportato sia per la parte della cartella che per la parte del nome file. I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo).<br/>- Esempio 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Esempio 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). Usare `^` per applicare una sequenza di escape se il nome effettivo del file o della cartella include caratteri jolly o tale carattere escape. |No |
 | prefix | Il prefisso per la chiave dell'oggetto S3. Vengono selezionati gli oggetti le cui chiavi iniziano con questo prefisso. Si applica solo se la proprietà "key" non è specificata. |No |
@@ -193,13 +193,13 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate per Google Cloud storage in `storeSettings` impostazioni in origine copia basata sul formato:
 
-| Proprietà                 | Description                                                  | Obbligatoria                                                    |
+| Proprietà                 | Descrizione                                                  | Obbligatorio                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AmazonS3ReadSetting**. | SÌ                                                         |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AmazonS3ReadSetting**. | Sì                                                         |
 | ricorsiva                | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. I valori consentiti sono **true** (predefinito) e **false**. | No                                                          |
 | prefix                   | Prefisso per la chiave dell'oggetto S3 nel bucket specificato configurato nel set di dati per filtrare gli oggetti di origine. Vengono selezionati gli oggetti le cui chiavi iniziano con questo prefisso. Si applica solo quando non si specificano le proprietà `wildcardFolderPath` e `wildcardFileName`. |                                                             |
 | wildcardFolderPath       | Percorso della cartella con caratteri jolly nel bucket specificato configurati nel set di dati per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                                          |
-| wildcardFileName         | Nome file con caratteri jolly nel bucket specificato + folderPath/wildcardFolderPath per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì se `fileName` nel set di dati e `prefix` non sono specificati |
+| wildcardFileName         | Nome file con caratteri jolly nel bucket specificato + folderPath/wildcardFolderPath per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì se non sono stati specificati `fileName` nel set di dati e `prefix` |
 | modifiedDatetimeStart    | Filtro file basato sull'attributo: data Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br> Le proprietà possono essere NULL, a indicare che al set di dati non viene applicato alcun filtro di attributo di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime. | No                                                          |
 | modifiedDatetimeEnd      | Come sopra.                                               | No                                                          |
 | maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No                                                          |
@@ -250,9 +250,9 @@ Le proprietà seguenti sono supportate per Google Cloud storage in `storeSetting
 >[!NOTE]
 >Il modello di origine della copia seguente è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato in precedenza e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **FileSystemSource** |SÌ |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **FileSystemSource** |Sì |
 | ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che se recursive è impostata su true e il sink è un archivio basato su file, la cartella o la sottocartella vuota non verrà copiata o creata nel sink.<br/>I valori consentiti sono: **true** (predefinito), **false** | No |
 | maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 

@@ -1,5 +1,5 @@
 ---
-title: Suggerimenti sull'ottimizzazione delle prestazioni del database SQL di Azure | Microsoft Docs
+title: Linee guida per l'ottimizzazione delle prestazioni del database SQL di Azure
 description: Informazioni su come usare le raccomandazioni per ottimizzare le prestazioni delle query del database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 4ea5d6c734659d36822f62237a42a8fbe332c996
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 971b35838f370f31d6e2d2da06dfdbced2fafb02
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567113"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687685"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ottimizzazione manuale delle prestazioni delle query in Database SQL di Azure
 

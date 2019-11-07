@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione del database da un'istanza di SQL Server a un'istanza gestita di database SQL di Azure | Microsoft Docs
+title: Eseguire la migrazione del database da un'istanza di SQL Server a un'istanza gestita di database SQL di Azure
 description: Informazioni su come eseguire la migrazione di un database da un'istanza di SQL Server a un'istanza gestita di database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: f877306170b45d65a52a4c76afd7f064e83f240a
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 228b22d9d283fe8c23cbf7a82036b7f3782cbf25
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937298"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688004"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrazione di un'istanza di SQL Server a un'istanza gestita di database SQL di Azure
 
@@ -30,7 +30,7 @@ A livello generale, il processo di migrazione del database è simile a quello in
 ![Processo di migrazione](./media/sql-database-managed-instance-migration/migration-process.png)
 
 - [Valutare la compatibilità delle istanze gestite](#assess-managed-instance-compatibility) in cui è necessario assicurarsi che non ci siano problemi di blocco che possono impedire le migrazioni.
-  - Questo passaggio include anche la creazione di baseline per le [prestazioni](#create-performance-baseline) per determinare l'utilizzo delle risorse nell'istanza di SQL Server di origine. Questo passaggio è necessario se si vuole distribuire o distribuire correttamente Istanza gestita e verificare che le prestazioni dopo la migrazione non siano interessate.
+  - Questo passaggio include anche la creazione di [baseline](#create-performance-baseline) per le prestazioni per determinare l'utilizzo delle risorse nell'istanza di SQL Server di origine. Questo passaggio è necessario se si vuole distribuire o distribuire correttamente Istanza gestita e verificare che le prestazioni dopo la migrazione non siano interessate.
 - [Scegliere le opzioni di connettività dell'app](sql-database-managed-instance-connect-app.md)
 - [Eseguire la distribuzione in un'istanza gestita di dimensioni ottimali in](#deploy-to-an-optimally-sized-managed-instance) cui si scelgono caratteristiche tecniche (numero di Vcore, quantità di memoria) e livello di prestazioni (business critical, per utilizzo generico) del istanza gestita.
 - [Selezionare il metodo di migrazione e migrare](#select-migration-method-and-migrate) il percorso in cui si esegue la migrazione dei database tramite migrazione offline (backup/ripristino nativo, importazione/esportazione di database) o migrazione in linea (servizio migrazione dati, replica transazionale).
@@ -45,7 +45,7 @@ Per prima cosa, determinare se l'istanza gestita è compatibile con i requisiti 
 
 Per rilevare i potenziali problemi di compatibilità che influirebbero sulle funzionalità dei database nel database SQL di Azure, usare [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview). DMA non supporta ancora un'istanza gestita come destinazione della migrazione, ma è consigliabile eseguire una valutazione rispetto al database SQL di Azure e confrontare attentamente l'elenco dei problemi di compatibilità e parità di funzionalità segnalati con la documentazione del prodotto. Vedere [Funzionalità di database SQL di Azure](sql-database-features.md) per controllare se sono stati segnalati problemi di blocco non presenti nell'istanza gestita poiché la maggior parte dei problemi che impediscono la migrazione al database SQL di Azure è stata risolta con l'istanza gestita. Nelle istanze gestite, ad esempio, sono disponibili funzionalità come le query tra database, le transazioni tra database nella stessa istanza, il server collegato per altre origini SQL, CLR, le tabelle temporanee globali, le viste a livello di istanza, Service Broker e così via.
 
-Se sono presenti problemi che causano un blocco che non sono stati risolti con l'opzione di distribuzione dell'istanza gestita, può essere necessario prendere in considerazione un'opzione alternativa, ad esempio [SQL Server in macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Ecco alcuni esempi:
+Se sono presenti problemi che causano un blocco che non sono stati risolti con l'opzione di distribuzione dell'istanza gestita, può essere necessario prendere in considerazione un'opzione alternativa, ad esempio [SQL Server in macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Di seguito sono riportati alcuni esempi:
 
 - Se è necessario l'accesso diretto al sistema operativo o al file system, ad esempio per installare agenti personalizzati o di terze parti nella stessa macchina virtuale con SQL Server.
 - Se è presente una stretta dipendenza da funzionalità non ancora supportate, come FileStream/FileTable, PolyBase e le transazioni tra istanze.
@@ -127,7 +127,7 @@ Il diagramma seguente offre una panoramica di alto livello del processo:
 
 La tabella seguente contiene altre informazioni sul metodo che è possibile usare a seconda della versione di SQL Server di origine eseguita:
 
-|Procedi|Versione e motore SQL|Metodo di backup/ripristino|
+|Passaggio|Versione e motore SQL|Metodo di backup/ripristino|
 |---|---|---|
 |Inserire il backup in Archiviazione di Azure|Precedente SQL 2012 SP1 CU2|Caricamento diretto del file con estensione bak in Archiviazione di Azure|
 ||2012 SP1 CU2 - 2016|Backup diretto con sintassi [con credenziali](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) deprecata|
@@ -169,7 +169,7 @@ Di conseguenza, è consigliabile confrontare i parametri delle prestazioni con l
 Il risultato del confronto delle prestazioni potrebbe essere:
 - Le prestazioni dei carichi di lavoro su Istanza gestita sono allineate o migliori rispetto alle prestazioni del carico di lavoro in SQL Server In questo caso è stato confermato che la migrazione è stata completata correttamente.
 - La maggior parte dei parametri delle prestazioni e delle query nel carico di lavoro funziona correttamente, con alcune eccezioni con prestazioni ridotte. In questo caso, è necessario identificare le differenze e la loro importanza. Se sono presenti alcune query importanti con prestazioni ridotte, è necessario esaminare i piani SQL sottostanti modificati o le query che raggiungono alcuni limiti di risorse. In questo caso la mitigazione può essere l'applicazione di alcuni suggerimenti sulle query critiche, ad esempio il livello di compatibilità modificato, lo strumento di stima della cardinalità legacy, direttamente o utilizzando guide di piano, ricompilare o creare statistiche e indici che potrebbero influire sui piani. 
-- La maggior parte delle query è più lenta in Istanza gestita rispetto al SQL Server di origine. In questo caso, provare a identificare le cause principali della differenza, ad esempio il raggiungimento di [un limite di risorse]( sql-database-managed-instance-resource-limits.md#service-tier-characteristics) , ad esempio i limiti di i/o, il limite di memoria, il limite di frequenza dei log delle Se non sono previsti limiti per le risorse che possono causare la differenza, provare a modificare il livello di compatibilità del database o modificare le impostazioni del database, ad esempio la stima della cardinalità legacy e riavviare il test. Esaminare le raccomandazioni fornite dalle viste Istanza gestita o Query Store per identificare le query che hanno reimpostato le prestazioni.
+- La maggior parte delle query è più lenta in Istanza gestita rispetto al SQL Server di origine. In questo caso, provare a identificare le cause principali della differenza, ad esempio il [raggiungimento di un limite di risorse]( sql-database-managed-instance-resource-limits.md#service-tier-characteristics) , ad esempio i limiti di i/o, il limite di memoria, il limite di frequenza dei log delle Se non sono previsti limiti per le risorse che possono causare la differenza, provare a modificare il livello di compatibilità del database o modificare le impostazioni del database, ad esempio la stima della cardinalità legacy e riavviare il test. Esaminare le raccomandazioni fornite dalle viste Istanza gestita o Query Store per identificare le query che hanno reimpostato le prestazioni.
 
 > [!IMPORTANT]
 > Istanza gestita dispone di funzionalità predefinite di correzione automatica dei piani abilitata per impostazione predefinita. Questa funzionalità garantisce che le query che hanno funzionato correttamente nell'Incolla non peggiorano in futuro. Verificare che questa funzionalità sia abilitata e che il carico di lavoro sia stato eseguito abbastanza a lungo con le impostazioni precedenti prima di modificare le nuove impostazioni per consentire Istanza gestita di ottenere informazioni sulle prestazioni e sui piani di base.
@@ -181,7 +181,7 @@ Apportare la modifica dei parametri o aggiornare i livelli di servizio per conve
 Istanza gestita offre numerosi strumenti avanzati per il monitoraggio e la risoluzione dei problemi ed è consigliabile usarli per monitorare le prestazioni dell'istanza. Alcuni dei parametri che devono essere monitorati sono:
 - Utilizzo della CPU nell'istanza di per determinare il numero di vcore di cui è stato effettuato il provisioning è la corrispondenza giusta per il carico di lavoro.
 - Permanenza presunta delle pagine nel Istanza gestita per determinare [se è necessaria memoria aggiuntiva](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
-- Le statistiche di `INSTANCE_LOG_GOVERNOR` attesa `PAGEIOLATCH` come o che indicano se si verificano problemi di i/o di archiviazione, soprattutto nel livello per utilizzo generico in cui potrebbe essere necessario pre-allocare i file per ottenere migliori prestazioni di i/o.
+- Le statistiche di attesa, ad esempio `INSTANCE_LOG_GOVERNOR` o `PAGEIOLATCH`, che indicano la presenza di problemi di i/o di archiviazione, soprattutto sul livello per utilizzo generico in cui potrebbe essere necessario pre-allocare i file per ottenere prestazioni di i/o migliori.
 
 ## <a name="leverage-advanced-paas-features"></a>Sfruttare le funzionalità avanzate di PaaS
 

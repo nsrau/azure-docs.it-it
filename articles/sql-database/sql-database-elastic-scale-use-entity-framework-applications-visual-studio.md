@@ -1,5 +1,5 @@
 ---
-title: Uso della libreria client dei database elastici con Entity Framework | Documentazione Microsoft
+title: Uso della libreria client dei database elastici con Entity Framework
 description: Usare la libreria client del database elastico e Entity Framework per la codifica di database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
-ms.openlocfilehash: 8ae264f7da84336d5f786d2ff060aa89bbe75837
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a6ed6eb2596663dd276fe580c9f2574163589b1d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568307"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690116"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Libreria client dei database elastici con Entity Framework
 
@@ -204,7 +204,7 @@ Gli esempi di codice precedenti illustrano le riscritture del costruttore predef
 
 La gestione automatica dello schema è una funzionalità disponibile in Entity Framework. Nel contesto di applicazioni che usano gli strumenti dei database elastici è desiderabile mantenere questa funzionalità per il provisioning automatico dello schema alle nuove partizioni quando si aggiungono database all'applicazione partizionata. Il caso di utilizzo principale è l'aumento della capacità al livello dati per le applicazioni partizionate mediante Entity Framework. L'uso delle le funzionalità di Entity Framework per la gestione dello schema riduce le attività di amministrazione di database necessarie per un'applicazione partizionata basata su Entity Framework. 
 
-La distribuzione dello schema tramite migrazioni di Entity Framework funziona al meglio con le **connessioni non aperte**. Si tratta di uno scenario diverso rispetto al routing dipendente dai dati, che usa la connessione aperta fornita dall'API client dei database elastici. Un'altra differenza è il requisito di coerenza: sebbene sia opportuno garantire la coerenza per tutte le connessioni di routing dipendente dai dati per la protezione dalle modifiche simultanee alla mappa partizioni, questo non rappresenta un problema nel caso della distribuzione iniziale dello schema in un nuovo database non ancora registrato nella mappa partizioni e non ancora allocato per contenere shardlet. Per questi scenari è pertanto possibile usare le normali connessioni di database anziché il routing dipendente dai dati.  
+La distribuzione dello schema tramite migrazioni di Entity Framework funziona al meglio con le **connessioni non aperte**. Si tratta di uno scenario diverso rispetto al routing dipendente dai dati, che usa la connessione aperta fornita dall'API client dei database elastici. Un’altra differenza è il requisito di coerenza: sebbene sia opportuno garantire la coerenza per tutte le connessioni di routing dipendente dai dati per la protezione dalle modifiche simultanee alla mappa partizioni, questo non rappresenta un problema nel caso della distribuzione iniziale dello schema in un nuovo database non ancora registrato nella mappa partizioni e non ancora allocato per contenere shardlet. Per questi scenari è pertanto possibile usare le normali connessioni di database anziché il routing dipendente dai dati.  
 
 Questo conduce a un approccio in cui la distribuzione dello schema tramite migrazioni di Entity Framework è strettamente legata alla registrazione del nuovo database come partizione nella mappa partizioni dell'applicazione. L'approccio è basato sui seguenti prerequisiti: 
 

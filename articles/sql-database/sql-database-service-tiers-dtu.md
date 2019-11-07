@@ -1,5 +1,5 @@
 ---
-title: Livelli di servizio del database SQL di Azure - Modello di acquisto basato su DTU | Microsoft Docs
+title: 'Livelli di servizio del database SQL di Azure-modello di acquisto basato su DTU '
 description: Informazioni sui livelli di servizio nel modello di acquisto basato su DTU per database singoli e in pool per offrire dimensioni di calcolo e di archiviazione.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: e735d8832912f5b512b7cfe015ca47efbe641da7
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 43f4f9e0d1e5f33dde32e5274dddf9d17776db21
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72000438"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687311"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Livelli di servizio nel modello di acquisto basato su DTU
 
@@ -36,7 +36,7 @@ La scelta di un livello di servizio dipende soprattutto dai requisiti in termini
 |Carico di lavoro di destinazione|Sviluppo e produzione|Sviluppo e produzione|Sviluppo e produzione|
 |Contratto di servizio relativo al tempo di attività|99,99%|99,99%|99,99%|
 |Conservazione del backup massima|7 giorni|35 giorni|35 giorni|
-|CPU|Low|Basso, medio, elevato|Medio, elevato|
+|CPU|Basso|Basso, medio, elevato|Medio, elevato|
 |Velocità effettiva di I/O (approssimativa) |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
 |Latenza di I/O (approssimativa)|5 ms (lettura), 10 ms (scrittura)|5 ms (lettura), 10 ms (scrittura)|2 ms (lettura/scrittura)|
 |Indicizzazione ColumnStore |N/D|S3 e superiore|Supportato|
@@ -52,7 +52,7 @@ Le dimensioni di calcolo per i database singoli sono espresse in unità di trans
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
-| Dimensioni massime archiviazione | 2 GB | 1 TB | 4 TB  |
+| Dimensioni massime di archiviazione | 2 GB | 1 TB | 4 TB  |
 | DTU massime | 5 | 3000 | 4000 | 
 |||||
 
@@ -71,7 +71,7 @@ Le dimensioni di calcolo per i database singoli sono espresse in unità di trans
 |||||
 
 > [!IMPORTANT]
-> Nel livello Premium è attualmente disponibile uno spazio di archiviazione superiore a 1 TB in tutte le aree tranne Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Stati Uniti centro-occidentali, aree US DoD e US Government (area centrale). In queste aree la quantità massima di spazio di archiviazione nel livello Premium è limitata a 1 TB.  Per altre informazioni, vedere le [limitazioni correnti di P11 e P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> Più di 1 TB di spazio di archiviazione nel livello Premium è attualmente disponibile in tutte le aree, ad eccezione di: Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Stati Uniti centro-occidentali, US DoD aree e Stati Uniti centrali. In queste aree la quantità massima di spazio di archiviazione nel livello Premium è limitata a 1 TB.  Per altre informazioni, vedere le [limitazioni correnti di P11 e P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
 
@@ -112,14 +112,14 @@ Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato n
 | Operazioni aggiornamento intense |UPDATE, principalmente non in memoria, lettura/scrittura |
 | Operazioni inserimento leggere |INSERT, in memoria, lettura/scrittura |
 | Operazioni inserimento intense |INSERT, principalmente non in memoria, lettura/scrittura |
-| Eliminazione |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
+| Elimina |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
 | Operazioni CPU intense |SELECT, in memoria, carico CPU relativamente pesante, sola lettura |
 
 ### <a name="workload-mix"></a>Combinazione di carichi di lavoro
 
 Le transazioni vengono selezionate casualmente da una distribuzione ponderata con la seguente combinazione globale. La combinazione globale presenta un rapporto di lettura/scrittura di circa 2:1.
 
-| Tipo transazione | % di combinazione |
+| Tipo di transazione | % di combinazione |
 | --- | --- |
 | Operazioni lettura leggere |35 |
 | Operazioni lettura medie |20 |
@@ -128,7 +128,7 @@ Le transazioni vengono selezionate casualmente da una distribuzione ponderata co
 | Operazioni aggiornamento intense |3 |
 | Operazioni inserimento leggere |3 |
 | Operazioni inserimento intense |2 |
-| Eliminazione |2 |
+| Elimina |2 |
 | Operazioni CPU intense |10 |
 
 ### <a name="users-and-pacing"></a>Utenti e velocità
@@ -155,7 +155,7 @@ Ad esempio, un database con fattore di scala pari a 500 (SF=500) avrà 100 utent
 
 Per l'esecuzione di un benchmark valido è necessaria una durata della misurazione in condizioni stabili di almeno un'ora.
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>Metriche
 
 La metrica di base del benchmark è rappresentata dalla velocità effettiva e dal tempo di risposta.
 

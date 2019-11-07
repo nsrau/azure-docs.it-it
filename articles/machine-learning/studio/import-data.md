@@ -1,6 +1,6 @@
 ---
-title: Importare dati da diverse origini dati
-titleSuffix: Azure Machine Learning Studio (classic)
+title: Importare dati di training
+titleSuffix: ML Studio (classic) Azure
 description: Come importare i dati in Azure Machine Learning Studio (classico) da varie origini dati. Informazioni sui tipi di dati e i formati di dati supportati.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 6e84f5c8cab6323234b81126ad3e8b1299e10171
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 453efc1129ad9ef2a8b68a571c98e3f5620a671f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492892"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684783"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importare i dati di training in Azure Machine Learning Studio (classico) da varie origini dati
 
@@ -64,12 +64,12 @@ Se si importano dati come il formato TSV o CSV che non include questi metadati, 
 
 I tipi di dati seguenti sono riconosciuti dalla versione classica di studio:
 
-* Stringa
+* String
 * Integer
-* DOUBLE
-* boolean
-* Data e ora
-* Intervallo di tempo
+* Double
+* Booleano
+* DateTime
+* TimeSpan
 
 Studio usa un tipo di dati interno denominato ***tabella dati*** per passare i dati tra i moduli. È possibile convertire in modo esplicito i dati in formato tabella dati usando il modulo [Convert to DataSet][convert-to-dataset] .
 
@@ -156,7 +156,7 @@ Le origini dati online supportate vengono illustrate nella tabella seguente. Que
 ### <a name="supported-online-data-sources"></a>Origini dati online supportate
 La versione classica del modulo Azure Machine Learning Studio **Import Data** supporta le origini dati seguenti:
 
-| origine dati | Description | parameters |
+| Origine dati | Descrizione | Parametri |
 | --- | --- | --- |
 | URL Web tramite HTTP |Legge i dati nei formati CSV (Comma-Separated Values), TSV (Tab-Separated Values), ARFF (Attribute-Relation File Format) e SVM-light (Support Vector Machines), da qualsiasi URL Web che usa HTTP. |<b>URL</b>: specifica il nome completo del file, inclusi l'URL del sito e il nome file, con qualsiasi estensione. <br/><br/><b>Formato dati</b>: specifica uno dei formati di dati supportati, ovvero CSV, TSV, ARFF o SVM-light. Se i dati includono una riga di intestazione, la riga verrà usata per assegnare i nomi di colonna. |
 | Hadoop/HDFS |Legge i dati dall'archivio distribuito in Hadoop. Specificare i dati desiderati usando HiveQL, un linguaggio di query analogo a SQL. HiveQL può essere usato anche per aggregare i dati ed eseguire il filtro dei dati prima di aggiungere i dati alla versione classica di studio. |<b>Hive database query</b> (Query di database Hive): specifica la query Hive usata per generare i dati.<br/><br/><b>HCatalog server URI</b> (URI del server HCatalog): specifica il nome del cluster usando il formato *&lt;nome del cluster&gt;.azurehdinsight.net.*<br/><br/><b>Hadoop user account name</b> (Nome dell'account utente Hadoop): specifica il nome dell'account utente Hadoop usato per il provisioning del cluster.<br/><br/><b>Hadoop user account password</b> (Password dell'account utente Hadoop): specifica le credenziali usate durante il provisioning del cluster. Per altre informazioni, vedere [Creare cluster Hadoop basati su Windows in HDInsight](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).<br/><br/><b>Location of output data</b> (Posizione dei dati di output): specifica se i dati vengono archiviati in Hadoop Distributed File System (HDFS) o in Azure. <br/><ul>Se si archiviano i dati di output in HDFS, specificare l'URI del server HDFS. Assicurarsi di usare il nome del cluster HDInsight senza il prefisso HTTPS://. <br/><br/>Se si archiviano i dati di output in Azure, sarà necessario specificare il nome dell'account di archiviazione di Azure, la chiave di accesso alle risorse di archiviazione e il nome del contenitore di archiviazione.</ul> |

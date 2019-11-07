@@ -1,21 +1,21 @@
 ---
-title: "Backup di Azure: Eseguire il backup di macchine virtuali di Azure con l'API REST"
+title: "Backup di Azure: eseguire il backup di macchine virtuali di Azure con l'API REST"
 description: Gestire le operazioni di backup delle macchine virtuali di Azure con l'API REST
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
-keywords: API REST, backup di macchine virtuali di Azure; ripristino di macchine virtuali di Azure;
+keywords: API REST, backup di macchine virtuali di Azure, ripristino di macchine virtuali di Azure;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 701972c32f3e80682e2a20d04b02bcd555532e08
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 837401256aa264a527e2323b055713f4bd8e8d1c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954989"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671676"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
 
@@ -41,16 +41,16 @@ Per l'URI di POST sono presenti i parametri `{subscriptionId}`, `{vaultName}`, `
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Responses
+#### <a name="responses"></a>Risposte
 
-L'operazione di aggiornamento è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
+L'operazione di aggiornamento è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
-L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
+L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|NOME  |Type  |Descrizione  |
+|Name  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |204 No Content (Nessun contenuto)     |         |  OK senza alcun contenuto restituito      |
-|202 - Accettato     |         |     Accettato    |
+|202 - Accettato     |         |     Accepted    |
 
 ##### <a name="example-responses"></a>Risposte di esempio
 
@@ -106,11 +106,11 @@ Questa è un'operazione *GET*.
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter=backupManagementType eq 'AzureIaasVM'
 ```
 
-All'URI di *GET* sono associati tutti i parametri obbligatori. Non è necessario alcun corpo della richiesta aggiuntivo.
+All'URI *GET* sono associati tutti i parametri obbligatori. Non è necessario alcun corpo della richiesta aggiuntivo.
 
 ##### <a name="responses-1"></a>Risposte
 
-|NOME  |Type  |DESCRIZIONE  |
+|Name  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
@@ -179,14 +179,14 @@ https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaul
 Gli elementi `{containerName}` e `{protectedItemName}` sono come creati in precedenza. Il valore di `{fabricName}` è "Azure". Per questo esempio, la situazione è quindi la seguente:
 
 ```http
-PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
+PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
 #### <a name="create-the-request-body"></a>Creare il corpo della richiesta
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per creare un elemento protetto.
 
-|NOME  |Type  |Descrizione  |
+|Name  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Proprietà delle risorse ProtectedItem         |
 
@@ -208,16 +208,16 @@ Il corpo della richiesta seguente definisce le proprietà necessarie per creare 
 
 `{sourceResourceId}` è l'elemento `{virtualMachineId}` citato in precedenza per dalla [risposta per l'elenco di elementi che è possibile proteggere](#example-responses-1).
 
-#### <a name="responses"></a>Responses
+#### <a name="responses"></a>Risposte
 
-La creazione di un elemento protetto è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
+La creazione di un elemento protetto è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
-L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
+L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|NOME  |Type  |DESCRIZIONE  |
+|Name  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
-|202 - Accettato     |         |     Accettato    |
+|202 - Accettato     |         |     Accepted    |
 
 ##### <a name="example-responses"></a>Risposte di esempio
 
@@ -227,7 +227,7 @@ Dopo aver inviato la richiesta *PUT* per la creazione o l'aggiornamento dell'ele
 HTTP/1.1 202 Accepted
 Pragma: no-cache
 Retry-After: 60
-Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2016-12-01
+Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
 X-Content-Type-Options: nosniff
 x-ms-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
 x-ms-client-request-id: e1f94eef-9b2d-45c4-85b8-151e12b07d03; e1f94eef-9b2d-45c4-85b8-151e12b07d03
@@ -237,7 +237,7 @@ x-ms-correlation-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
 x-ms-routing-request-id: SOUTHINDIA:20180521T073907Z:db785be0-bb20-4598-bc9f-70c9428b170b
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 07:39:06 GMT
-Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2016-12-01
+Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
 X-Powered-By: ASP.NET
 ```
 
@@ -293,14 +293,14 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 Gli elementi `{containerName}` e `{protectedItemName}` sono come creati [in precedenza](#responses-1). Il valore di `{fabricName}` è "Azure". Per questo esempio, la situazione è quindi la seguente:
 
 ```http
-POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2016-12-01
+POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2019-05-13
 ```
 
 ### <a name="create-the-request-body"></a>Creare il corpo della richiesta
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare un backup su richiesta.
 
-|NOME  |Type  |DESCRIZIONE  |
+|Name  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Proprietà BackupRequestResource         |
 
@@ -319,15 +319,15 @@ Il corpo della richiesta seguente definisce le proprietà necessarie per attivar
 }
 ```
 
-### <a name="responses"></a>Responses
+### <a name="responses"></a>Risposte
 
-L'attivazione di un backup su richiesta è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
+L'attivazione di un backup su richiesta è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
-L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
+L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Name  |Type  |DESCRIZIONE  |
+|Name  |Tipo  |Descrizione  |
 |---------|---------|---------|
-|202 - Accettato     |         |     Accettato    |
+|202 - Accettato     |         |     Accepted    |
 
 ##### <a name="example-responses-3"></a>Risposte di esempio
 
@@ -337,7 +337,7 @@ Dopo aver inviato la richiesta *POST* per un backup su richiesta, la risposta in
 HTTP/1.1 202 Accepted
 Pragma: no-cache
 Retry-After: 60
-Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testVaultRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/b8daecaa-f8f5-44ed-9f18-491a9e9ba01f?api-version=2016-12-01
+Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testVaultRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/b8daecaa-f8f5-44ed-9f18-491a9e9ba01f?api-version=2019-05-13
 X-Content-Type-Options: nosniff
 x-ms-request-id: 7885ca75-c7c6-43fb-a38c-c0cc437d8810
 x-ms-client-request-id: 7df8e874-1d66-4f81-8e91-da2fe054811d; 7df8e874-1d66-4f81-8e91-da2fe054811d
@@ -354,7 +354,7 @@ X-Powered-By: ASP.NET
 Tenere quindi traccia dell'operazione risultante usando l'intestazione location o Azure-AsyncOperation con un semplice comando *GET*.
 
 ```http
-GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2016-12-01
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
 ```
 
 Al termine dell'operazione, viene restituita la risposta 200 (OK) con l'ID del processo di backup risultante nel corpo della risposta.
@@ -393,7 +393,7 @@ Poiché il processo di backup è un'operazione con esecuzione prolungata, ne dev
 
 ### <a name="changing-the-policy-of-protection"></a>Modifica dei criteri di protezione
 
-Per modificare i criteri con cui la macchina virtuale è protetta, è possibile usare lo stesso formato usato per [l'abilitazione della protezione](#enabling-protection-for-the-azure-vm). È sufficiente fornire il nuovo ID criteri nel [corpo della richiesta](#example-request-body) e inviare la richiesta. Ad esempio:  Per modificare i criteri di testVM da' DefaultPolicy ' a' ProdPolicy ', specificare l'ID ' ProdPolicy ' nel corpo della richiesta.
+Per modificare i criteri con cui la macchina virtuale è protetta, è possibile usare lo stesso formato usato per [l'abilitazione della protezione](#enabling-protection-for-the-azure-vm). È sufficiente fornire il nuovo ID criteri nel [corpo della richiesta](#example-request-body) e inviare la richiesta. Ad esempio: per modificare i criteri di testVM da' DefaultPolicy ' a' ProdPolicy ', specificare l'ID ' ProdPolicy ' nel corpo della richiesta.
 
 ```http
 {
@@ -430,25 +430,25 @@ Per rimuovere la protezione in una macchina virtuale protetta ed eliminare anche
 L'arresto della protezione e l'eliminazione dei dati sono operazioni *DELETE*.
 
 ```http
-DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2016-12-01
+DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
 Gli elementi `{containerName}` e `{protectedItemName}` sono come creati [in precedenza](#responses-1). `{fabricName}` è "Azure". Per questo esempio, la situazione è quindi la seguente:
 
 ```http
-DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
+DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
 ### <a name="responses-2"></a>Risposte
 
-L'operazione *DELETE* applicata alla protezione è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
+L'operazione *DELETE* applicata alla protezione è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
-L'operazione restituisce due risposte: 202 (accettato) quando viene creata un'altra operazione e quindi 204 (nocontent) quando tale operazione viene completata.
+L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un'altra operazione e 204 (nessun contenuto restituito) quando tale operazione viene completata.
 
-|Name  |Type  |Descrizione  |
+|Name  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |204 NoContent (Nessun contenuto)     |         |  Nessun contenuto restituito       |
-|202 - Accettato     |         |     Accettato    |
+|202 - Accettato     |         |     Accepted    |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

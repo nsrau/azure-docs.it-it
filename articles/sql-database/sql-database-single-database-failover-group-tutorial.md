@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: aggiungere un database singolo di database SQL di Azure a un gruppo di failover | Microsoft Docs'
+title: 'Esercitazione: aggiungere un database singolo di database SQL di Azure a un gruppo di failover '
 description: Aggiungere un database singolo di database SQL di Azure a un gruppo di failover usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 106351487980d2f76e9122bc7423114e65593b15
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 022faa04db6f9699d5d80918087c62c69b0fb5fe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933216"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687292"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Esercitazione: aggiungere un database singolo di database SQL di Azure a un gruppo di failover
 
@@ -29,7 +29,7 @@ Configurare un gruppo di failover per un database singolo di database SQL di Azu
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 Per completare questa esercitazione, accertarsi di avere: 
 
 - Una sottoscrizione di Azure. [Creare un account gratuito](https://azure.microsoft.com/free/) se non ne è già disponibile uno.
@@ -42,7 +42,7 @@ Per completare l'esercitazione, verificare che siano disponibili gli elementi se
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 Per completare l'esercitazione, verificare che siano disponibili gli elementi seguenti:
 
 - Una sottoscrizione di Azure. [Creare un account gratuito](https://azure.microsoft.com/free/) se non ne è già disponibile uno.
@@ -57,7 +57,7 @@ Per completare l'esercitazione, verificare che siano disponibili gli elementi se
 ## <a name="2---create-the-failover-group"></a>2-creare il gruppo di failover 
 In questo passaggio verrà creato un gruppo di [failover](sql-database-auto-failover-group.md) tra un server SQL di Azure esistente e un nuovo server SQL di Azure in un'altra area. Aggiungere quindi il database di esempio al gruppo di failover. 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 Creare il gruppo di failover e aggiungervi il database singolo usando il portale di Azure. 
 
 1. Selezionare **Azure SQL** nel menu a sinistra nel [portale di Azure](https://portal.azure.com). Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare Azure SQL nella casella di ricerca. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro. 
@@ -166,7 +166,7 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Ottiene uno o più database SQL. |
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Aggiunge uno o più database SQL di Azure a un gruppo di failover. |
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 Creare il gruppo di failover e aggiungervi il singolo database usando AZ CLI. 
 
    > [!NOTE]
@@ -228,7 +228,7 @@ Questa parte dell'esercitazione usa i cmdlet AZ CLI seguenti:
 ## <a name="3---test-failover"></a>3-failover di test 
 In questo passaggio si verificherà un errore nel gruppo di failover nel server secondario e quindi si eseguirà il failback utilizzando il portale di Azure. 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 Failover di test con il portale di Azure. 
 
 1. Selezionare **Azure SQL** nel menu a sinistra nel [portale di Azure](https://portal.azure.com). Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare Azure SQL nella casella di ricerca. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro. 
@@ -313,7 +313,7 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 
 
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 Failover di test con l'interfaccia della riga di comando AZ. 
 
 Verificare il server secondario:
@@ -376,7 +376,7 @@ Questa parte dell'esercitazione usa i cmdlet AZ CLI seguenti:
 ## <a name="clean-up-resources"></a>Pulire le risorse 
 Pulire le risorse eliminando il gruppo di risorse. 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 Eliminare il gruppo di risorse usando il portale di Azure. 
 
 1. Passare al gruppo di risorse nel [portale di Azure](https://portal.azure.com).
@@ -404,7 +404,7 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Rimuove un gruppo di risorse | 
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Eliminare il gruppo di risorse usando AZ CLI. 
 
@@ -450,7 +450,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Esegue il failover di un gruppo di failover del database SQL di Azure. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Rimuove un gruppo di risorse | 
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 [!code-azurecli-interactive[main](../../cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh "Add single database to a failover group")]
 
@@ -468,7 +468,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Imposta il server primario del gruppo di failover eseguendo il failover di tutti i database dal server primario corrente. | 
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 Non sono disponibili script per la portale di Azure. 
  
 ---

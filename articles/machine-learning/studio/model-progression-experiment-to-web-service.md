@@ -1,6 +1,6 @@
 ---
 title: Come un modello diventa un servizio Web
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Panoramica dei meccanismi di avanzamento del modello di Azure Machine Learning Studio (classico) da un esperimento di sviluppo a un servizio Web.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: c82e636b06d33140ca6dae606d39855084aac04d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 24a2c31271d123d6378732bd9f85f6341a78d65c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496839"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671242"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Come un modello di Machine Learning Studio (classico) avanza da un esperimento a un servizio Web
 Azure Machine Learning Studio (classico) fornisce un'area di disegno interattiva che consente di sviluppare, eseguire, testare ed eseguire l'iterazione di un ***esperimento*** che rappresenta un modello di analisi predittiva. Sono disponibili diversi moduli che consentono di:
@@ -108,7 +108,7 @@ Per apportare modifiche all'esperimento predittivo originale, ad esempio selezio
 Per altri dettagli sul processo di sviluppo di un esperimento, vedere gli articoli seguenti:
 
 * conversione dell'esperimento: [come preparare il modello per la distribuzione in Azure Machine Learning Studio (classico)](convert-training-experiment-to-scoring-experiment.md)
-* Distribuzione del servizio Web: [Distribuire un servizio Web di Azure Machine Learning](publish-a-machine-learning-web-service.md)
+* Distribuzione del servizio Web: [Distribuire un servizio Web di Azure Machine Learning](deploy-a-machine-learning-web-service.md)
 * Ripetizione del training del modello: [Ripetere il training dei modelli di Machine Learning a livello di codice](/azure/machine-learning/studio/retrain-machine-learning-model)
 
 Per esempi dell'intero processo, vedere:

@@ -1,5 +1,5 @@
 ---
-title: Strumento Copia dati di Azure Data Factory | Microsoft Docs
+title: Strumento Copia dati Azure Data Factory
 description: Contiene informazioni sullo strumento Copia dati nell'interfaccia utente di Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
-ms.openlocfilehash: 144a991eb911fa6a337b6711515bd5760456fc10
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: b5c93213199cac399487f949a3a8cb04c2d9addb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996393"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678325"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Strumento Copia dati di Azure Data Factory
 Lo strumento Copia dati di Azure Data Factory semplifica e ottimizza l'inserimento di dati in un data lake, che è in genere il primo passaggio in uno scenario di integrazione dei dati end-to-end.  In questo modo è possibile risparmiare tempo, soprattutto quando si usa Azure Data Factory per inserire per la prima volta i dati da un'origine. Questi sono alcuni dei vantaggi offerti dallo strumento:
