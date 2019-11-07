@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 34b814e854a1576fcf55d14ddc5ac213d8f87070
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: de8858b1b47e36a4d8b86f317f7471118fa4a772
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945152"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "73519498"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Guida introduttiva: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per .NET
 
@@ -24,6 +24,7 @@ Questo articolo fornisce informazioni e codice di esempio utili per iniziare a u
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Qualsiasi edizione di [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Ottenere Custom Vision SDK e il codice di esempio
 
@@ -40,33 +41,34 @@ Questo progetto di Visual Studio crea un nuovo progetto di Visione personalizzat
 
 ## <a name="understand-the-code"></a>Informazioni sul codice
 
-Aprire il file _Program.cs_ ed esaminare il codice. Inserire le chiavi di sottoscrizione nelle definizioni appropriate nel metodo **Main**.
+Aprire il file _Program.cs_ ed esaminare il codice. [Creare variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per le chiavi di training e di stima denominate rispettivamente `CUSTOM_VISION_TRAINING_KEY` e `CUSTOM_VISION_PREDICTION_KEY`. Lo script eseguirà la ricerca.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=18-27)]
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_keys)]
 
-Il parametro Endpoint deve puntare all'area in cui è stato creato il gruppo di risorse di Azure contenente le risorse di Servizio visione artificiale personalizzato. Per questo esempio si presuppone l'area Stati Uniti centro-meridionali e si procede come segue:
+Inoltre, ottenere l'URL dell'endpoint dalla pagina Impostazioni del sito Visione personalizzata. Salvarlo in una variabile di ambiente denominata `CUSTOM_VISION_ENDPOINT`. Lo script salva un riferimento nella radice della classe.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_endpoint)]
 
 ### <a name="create-a-new-custom-vision-service-project"></a>Creare un nuovo progetto di Servizio visione artificiale personalizzato
 
 Il frammento di codice successivo crea un progetto di rilevamento di oggetti. Il progetto creato verrà visualizzato nel [sito Web di Visione personalizzata](https://customvision.ai/) visitato in precedenza. Per specificare altre opzioni quando si crea il progetto, come illustrato in [Creare un rilevatore](get-started-build-detector.md) nella guida al portale Web, vedere il metodo [CreateProject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.createproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_CreateProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_String_System_String_System_Nullable_System_Guid__System_String_System_Collections_Generic_IList_System_String__).  
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=29-35)]
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_create)]
+
 
 ### <a name="add-tags-to-the-project"></a>Aggiungere tag al progetto
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=37-39)]
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_tags)]
 
 ### <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
 
 Quando si aggiungono tag alle immagini nei progetti di rilevamento degli oggetti, è necessario specificare l'area di ogni oggetto contrassegnato usando coordinate normalizzate. Il codice seguente associa ognuna delle immagini di esempio alla relativa area contrassegnata.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=41-84)]
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_upload_regions)]
 
 Quindi, questa mappa di associazioni viene usata per caricare ogni immagine di esempio con le relative coordinate di area. È possibile caricare fino a 64 immagini in un singolo batch.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=86-104)]
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_upload)]
 
 A questo punto, tutte le immagini di esempio sono state caricate e ognuna ha un tag (**fork** oppure **scissors**, forchetta o forbici) e un rettangolo di pixel associato al tag.
 
@@ -74,50 +76,23 @@ A questo punto, tutte le immagini di esempio sono state caricate e ognuna ha un 
 
 Questo codice crea la prima iterazione di training nel progetto.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=106-117)]
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_train)]
 
 ### <a name="publish-the-current-iteration"></a>Pubblicare l'iterazione corrente
 
 Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
 
-```csharp
-// The iteration is now trained. Publish it to the prediction end point.
-var publishedModelName = "treeClassModel";
-var predictionResourceId = "<target prediction resource ID>";
-trainingApi.PublishIteration(project.Id, iteration.Id, publishedModelName, predictionResourceId);
-Console.WriteLine("Done!\n");
-```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_publish)]
 
 ### <a name="create-a-prediction-endpoint"></a>Creare un endpoint di stima
 
-```csharp
-// Create a prediction endpoint, passing in the obtained prediction key
-CustomVisionPredictionClient endpoint = new CustomVisionPredictionClient()
-{
-        ApiKey = predictionKey,
-        Endpoint = SouthCentralUsEndpoint
-};
-```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_prediction_endpoint)]
 
 ### <a name="use-the-prediction-endpoint"></a>Usare l'endpoint di stima
 
 Questa parte dello script carica l'immagine di test, esegue query sull'endpoint del modello e restituisce i dati di stima nella console.
 
-```csharp
-// Make a prediction against the new project
-Console.WriteLine("Making a prediction:");
-var imageFile = Path.Combine("Images", "test", "test_image.jpg");
-using (var stream = File.OpenRead(imageFile))
-{
-        var result = endpoint.DetectImage(project.Id, publishedModelName, stream);
-
-        // Loop over each prediction and write out the results
-        foreach (var c in result.Predictions)
-        {
-                Console.WriteLine($"\t{c.TagName}: {c.Probability:P1} [ {c.BoundingBox.Left}, {c.BoundingBox.Top}, {c.BoundingBox.Width}, {c.BoundingBox.Height} ]");
-        }
-}
-```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_prediction)]
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 

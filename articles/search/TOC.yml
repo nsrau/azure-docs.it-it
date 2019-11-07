@@ -195,6 +195,8 @@
           href: search-blob-storage-integration.md
         - name: Configurare un indicizzatore BLOB
           href: search-howto-indexing-azure-blob-storage.md
+        - name: Configurare un indicizzatore di Azure Data Lake Storage Gen2.
+          href: search-howto-index-azure-data-lake-storage.md
         - name: Indicizzare BLOB uno-a-molti
           href: search-howto-index-one-to-many-blobs.md
         - name: Indicizzare i BLOB CSV

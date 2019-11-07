@@ -9,15 +9,17 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/03/2019
-ms.openlocfilehash: c78a45cedbeb5cfa0f0cc7c5c976fceb36f1da2a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 11/04/2019
+ms.openlocfilehash: b5b3ca127aba62b39bd7236412d4c6a542347db3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173298"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476168"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Esercitazione: Eseguire il training del primo modello di Machine Learning
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questa esercitazione è la **seconda di una serie in due parti**. Nell'esercitazione precedente [si è creata un'area di lavoro e si è scelto un ambiente di sviluppo](tutorial-1st-experiment-sdk-setup.md). In questa esercitazione si apprenderanno gli schemi progettuali di base in Azure Machine Learning e si eseguirà il training di un semplice modello scikit-learn basato sul set di dati diabetes. Al termine dell'esercitazione, si avrà la conoscenza pratica dell'SDK necessaria per passare allo sviluppo di esperimenti e flussi di lavoro più complessi.
 
@@ -37,7 +39,7 @@ In questa parte dell'esercitazione si eseguirà il codice nel notebook di Jupyte
 
 ## <a name="open-the-notebook"></a>Aprire il notebook
 
-1. Effettuare l'accesso alla [pagina di destinazione dell'area di lavoro](https://ml.azure.com/).
+1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com/).
 
 1. Aprire il file **tutorial-1st-experiment-sdk-train.ipynb** nella cartella, come illustrato nella [prima parte](tutorial-1st-experiment-sdk-setup.md#open).
 
@@ -62,7 +64,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-Creare quindi un esperimento nell'area di lavoro. Un esperimento è un'altra risorsa cloud fondamentale che rappresenta una raccolta di prove, ossia singole esecuzioni del modello. In questa esercitazione si userà l'esperimento per creare le esecuzioni e tenere traccia del training del modello nel portale di Azure. I parametri includono il riferimento all'area di lavoro e la stringa del nome dell'esperimento.
+Creare quindi un esperimento nell'area di lavoro. Un esperimento è un'altra risorsa cloud fondamentale che rappresenta una raccolta di prove, ossia singole esecuzioni del modello. In questa esercitazione si userà l'esperimento per creare le esecuzioni e tenere traccia del training del modello in Azure Machine Learning Studio. I parametri includono il riferimento all'area di lavoro e la stringa del nome dell'esperimento.
 
 
 ```python
@@ -72,15 +74,17 @@ experiment = Experiment(workspace=ws, name="diabetes-experiment")
 
 ## <a name="load-data-and-prepare-for-training"></a>Caricare i dati e preparare il training
 
-Per questa esercitazione si userà il set di dati diabetes, un set di dati pre-normalizzato incluso in scikit-learn. Questo set di dati usa caratteristiche come età, sesso e BMI per prevedere lo stato di avanzamento del diabete. Caricare i dati dalla funzione statica `load_diabetes()` e dividerli in set di training e di test con `train_test_split()`. Questa funzione separa i dati affinché il modello contenga dati non visibili da usare per i test dopo il training.
+Per questa esercitazione si usa il set di dati sul diabete, che usa caratteristiche come età, sesso e BMI per prevedere lo stato di avanzamento del diabete. Caricare i dati dalla classe del [set di dati aperti di Azure](https://azure.microsoft.com/services/open-datasets/) e dividerli in set di training e di test con `train_test_split()`. Questa funzione separa i dati affinché il modello contenga dati non visibili da usare per i test dopo il training.
 
 
 ```python
-from sklearn.datasets import load_diabetes
+from azureml.opendatasets import Diabetes
 from sklearn.model_selection import train_test_split
 
-X, y = load_diabetes(return_X_y = True)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=66)
+x_df = Diabetes.get_tabular_dataset().to_pandas_dataframe().dropna()
+y_df = x_df.pop("Y")
+
+X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=66)
 ```
 
 ## <a name="train-a-model"></a>Eseguire il training di un modello
@@ -193,19 +197,9 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 Se si intende eseguire altre esercitazioni su Azure Machine Learning, non completare questa sezione.
 
-### <a name="stop-the-notebook-vm"></a>Arrestare la macchina virtuale per notebook
+### <a name="stop-the-compute-instance"></a>Arrestare l'istanza di calcolo
 
-Se si è usato un server notebook cloud, per ridurre i costi arrestare la macchina virtuale per notebook quando non viene usata.
-
-1. Nell'area di lavoro selezionare **Macchine virtuali per notebook**.
-
-   ![Arrestare il server di macchine virtuali](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
-
-1. Selezionare la macchina virtuale dall'elenco.
-
-1. Selezionare **Arresta**.
-
-1. Quando si è pronti a usare di nuovo il server, selezionare **Avvia**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>Eliminare tutto
 

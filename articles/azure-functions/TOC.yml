@@ -53,6 +53,8 @@
       href: functions-create-function-linux-custom-image.md
     - name: Funzioni nel dispositivo IoT Edge
       href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Java con Azure Cosmos DB e Hub eventi
+      href: functions-event-hub-cosmos-db.md
 - name: Esempi
   items:
     - name: Azure Serverless Community Library
@@ -244,6 +246,8 @@
           href: install-update-binding-extensions-manual.md
         - name: Disabilitare una funzione
           href: disable-function.md
+        - name: Ripristino di emergenza geografico
+          href: functions-geo-disaster-recovery.md
     - name: Monitorare
       items:
         - name: Funzioni di Monitoraggio
@@ -275,8 +279,6 @@
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Fare riferimento a segreti da Key Vault
           href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
-        - name: Ripristino di emergenza geografico
-          href: functions-geo-disaster-recovery.md
     - name: Integrare
       items:
         - name: Aggiungere associazioni

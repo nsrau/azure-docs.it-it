@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6987c6f1191b0dfc7b78b14e77a5d6a0ab369f57
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: e46bc9e4fbb2b573338b8be43c38e658ebde05a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782614"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468042"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure
 
@@ -43,7 +43,7 @@ Per completare questa esercitazione:
 Creare l'insieme di credenziali in tutte le aree, ad eccezione dell'area di origine.
 
 1. Accedere a [portale di Azure](https://portal.azure.com) > **Servizi di ripristino**.
-2. Fare clic su **Crea una risorsa** > **Strumenti di gestione** > **Backup e Site Recovery (OMS)** .
+2. Nel menu del portale di Azure o nella pagina **Home** selezionare **Crea una risorsa**. Selezionare quindi **Strumenti di gestione** > **Backup e Site Recovery**.
 3. In **Nome**specificare un nome descrittivo per identificare l'insieme di credenziali. Se è disponibile più di una sottoscrizione, selezionare quella appropriata.
 4. Creare un gruppo di risorse o selezionarne uno esistente. Specificare un'area di Azure. Per verificare le aree supportate, vedere la sezione relativa alla disponibilità a livello geografico in [Prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. Per accedere rapidamente all'insieme di credenziali dal dashboard, fare clic su **Aggiungi al dashboard** e quindi su **Crea**.

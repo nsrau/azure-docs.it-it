@@ -31,6 +31,8 @@
       href: publish-marketplace-app.md
     - name: Creare l'applicazione gestita con il provider personalizzato
       href: tutorial-create-managed-app-with-custom-provider.md
+    - name: Onboarding delle risorse con provider personalizzati
+      href: tutorial-custom-providers-resource-onboarding.md
 - name: Esempi
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -45,6 +47,10 @@
       href: custom-providers-overview.md
     - name: Artefatto di definizione delle visualizzazioni
       href: concepts-view-definition.md
+    - name: Artefatto di definizione dei ruoli
+      href: concepts-custom-role-definition.md
+    - name: Onboarding delle risorse
+      href: concepts-custom-providers-resourceonboarding.md
 - name: Guide alle procedure
   items:
     - name: Provider personalizzati

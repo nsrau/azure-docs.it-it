@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Documentazione di Azure Data Box - Trasferimento online
-summary: Usare i dispositivi Azure Data Box Gateway e Azure Data Box Edge per eseguire trasferimenti di dati a elevate prestazioni tramite la rete. Scegliere Data Box Gateway per inviare dati per l'archiviazione nel cloud, il ripristino di emergenza o l'elaborazione dei dati su scala cloud. Usare Data Box Edge per filtrare, analizzare e trasformare i dati prima dello spostamento in Azure.
+title: Documentazione di Azure Stack Edge e Data Box Gateway - Trasferimento online
+summary: Usare i dispositivi Azure Data Box Gateway e Azure Stack Edge per eseguire trasferimenti di dati a elevate prestazioni tramite la rete. Scegliere Data Box Gateway per inviare dati per l'archiviazione nel cloud, il ripristino di emergenza o l'elaborazione dei dati su scala cloud. Usare Azure Stack Edge per filtrare, analizzare e trasformare i dati prima dello spostamento in Azure. Azure Data Box Edge stato recentemente rinominato in Azure Stack Edge.
 metadata:
-  title: Documentazione di Azure Data Box - Trasferimento online
-  description: Documentazione di Data Box Gateway e Data Box Edge per il trasferimento di dati a elevate prestazioni in Azure tramite la rete.
+  title: Documentazione di Azure Stack Edge e Data Box Gateway - Trasferimento online
+  description: Documentazione di Data Box Gateway e Azure Stack Edge (Data Box Edge rinominato) per il trasferimento di dati a elevate prestazioni in Azure tramite la rete.
   services: databox
   ms.service: databox
   ms.subservice: edge
@@ -11,21 +11,21 @@ metadata:
   ms.collection: collection
   author: alkohli
   ms.author: alkohli
-  ms.date: 08/15/2019
-  ms.openlocfilehash: f1b3c4f8473807b7bbffa2b40f1d3a89b6acff5a
-  ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 61cda4ccab69396c13581598f399104b0a4fb181
+  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 08/23/2019
-  ms.locfileid: "70012874"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73570109"
 landingContent:
-- title: Informazioni sulla famiglia di prodotti Data Box
+- title: Informazioni su Azure Stack Edge e Data Box Gateway
   linkLists:
   - linkListType: overview
     links:
     - text: Che cos'è Data Box Gateway?
       url: data-box-gateway-overview.md
-    - text: Informazioni su Data Box Edge
+    - text: Che cos'è Azure Stack Edge?
       url: data-box-edge-overview.md
   - linkListType: architecture
     links:
@@ -43,11 +43,11 @@ landingContent:
     links:
     - text: Requisiti di Data Box Gateway
       url: data-box-gateway-system-requirements.md
-    - text: Requisiti di Data Box Edge
+    - text: Requisiti di Azure Stack Edge
       url: data-box-edge-system-requirements.md
     - text: Limiti di Data Box Gateway
       url: data-box-gateway-limits.md
-    - text: Limiti di Data Box Edge
+    - text: Limiti di Azure Stack Edge
       url: data-box-edge-limits.md
 - title: Distribuire
   linkLists:
@@ -55,7 +55,7 @@ landingContent:
     links:
     - text: Data Box Gateway
       url: data-box-gateway-deploy-prep.md
-    - text: Data Box Edge
+    - text: Azure Stack Edge
       url: data-box-edge-deploy-prep.md
 - title: Sviluppo
   linkLists:
@@ -65,7 +65,7 @@ landingContent:
       url: data-box-edge-create-iot-edge-module.md
   - linkListType: download
     links:
-    - text: Esempi - C# per Data Box Edge
+    - text: Esempi - C# per Azure Stack Edge
       url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
 - title: Gestisci
   linkLists:
@@ -73,7 +73,7 @@ landingContent:
     links:
     - text: Condivisioni di Data Box Gateway
       url: data-box-gateway-manage-shares.md
-    - text: Condivisioni di Data Box Edge
+    - text: Condivisioni di Azure Stack Edge
       url: data-box-edge-manage-shares.md
     - text: Calcolo Edge
       url: data-box-edge-manage-compute.md
@@ -85,11 +85,11 @@ landingContent:
     links:
     - text: Data Box Gateway
       url: data-box-gateway-troubleshoot.md
-    - text: Data Box Edge
+    - text: Azure Stack Edge
       url: data-box-edge-troubleshoot.md
     - text: Moduli di calcolo Edge
       url: data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules
-    - text: Restituire o sostituire Data Box Edge
+    - text: Restituire o sostituire Azure Stack Edge
       url: data-box-edge-return-device.md
     - text: Aprire il ticket di supporto
       url: data-box-edge-contact-microsoft-support.md

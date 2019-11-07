@@ -7,16 +7,16 @@ ms.custom: include file
 ms.topic: include
 author: sgilley
 ms.author: sgilley
-ms.date: 10/16/2019
-ms.openlocfilehash: 0071b0df2c2e173eced1722372f88b1de2708afa
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 5a66212122745d0f4426e48e9487e9d674cec53f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692254"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489935"
 ---
 >[!IMPORTANT]
->È possibile usare le risorse create come prerequisiti per altre esercitazioni e procedure dettagliate relative al servizio Azure Machine Learning.
+>È possibile usare le risorse create come prerequisiti per altre esercitazioni e procedure dettagliate relative ad Azure Machine Learning.
 
 ### <a name="delete-everything"></a>Eliminare tutto
 
@@ -32,7 +32,7 @@ Se non si prevede di usare le risorse create, eliminare l'intero gruppo di risor
 
 1. Selezionare **Elimina gruppo di risorse**.
 
-Se si elimina il gruppo di risorse, vengono eliminate anche tutte le risorse create nell'interfaccia visiva grafica.  
+Se si elimina il gruppo di risorse, vengono eliminate anche tutte le risorse create nella finestra di progettazione.  
 
 ### <a name="delete-only-the-compute-target"></a>Eliminare solo la destinazione di calcolo
 
@@ -48,6 +48,12 @@ La destinazione di calcolo creata qui *viene ridimensionata automaticamente* a z
 
 ### <a name="delete-individual-assets"></a>Eliminare singole risorse
 
-Nell'interfaccia visiva grafica in cui è stato creato l'esperimento, eliminare le singole risorse selezionandole e quindi selezionando il pulsante **Elimina**. La registrazione dei set di dati nell'area di lavoro può essere annullata selezionando ogni set di dati e quindi **Annulla registrazione**.
+Nella finestra di progettazione in cui è stato creato l'esperimento eliminare le singole risorse selezionandole e quindi selezionando il pulsante **Elimina**.
 
 ![Eliminare gli asset](./media/aml-ui-cleanup/delete-asset.png)
+
+La registrazione dei set di dati nell'area di lavoro può essere annullata selezionando ogni set di dati e quindi **Annulla registrazione**.
+
+![Annulla registrazione del set di dati](./media/aml-ui-cleanup/unregister-dataset.png)
+
+

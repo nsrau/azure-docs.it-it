@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: b2c3fd9b59b371330e37dceb52b2e89b3db6c48e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 02a4ccc1bd7c18c36a7203f7d81cce8923ecf59a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390150"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499247"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
@@ -125,7 +125,7 @@ Lo sconto per la prenotazione si applica solo alle risorse associate a sottoscri
 
 ## <a name="when-the-reservation-term-expires"></a>Quando il periodo di prenotazione termina
 
-Al termine del periodo di prenotazione, lo sconto per la fatturazione scade. Le macchine virtuali, i database SQL, Azure Cosmos DB o altre risorse verranno fatturate al prezzo con pagamento in base al consumo. Le prenotazioni di Azure non vengono rinnovate automaticamente. Per continuare a usufruire dello sconto sulla fatturazione è necessario acquistare una nuova prenotazione per i servizi e il software idonei.
+La fine del periodo di prenotazione comporta anche la scadenza dello sconto sulla fatturazione e a quel punto le risorse vengono fatturate al prezzo in base al consumo. Per impostazione predefinita, le prenotazioni non sono configurate per il rinnovo automatico. È possibile scegliere di abilitare il rinnovo automatico di una prenotazione selezionando l'opzione nelle relative impostazioni. Con il rinnovo automatico, alla scadenza della prenotazione esistente ne viene acquistata una sostitutiva. Per impostazione predefinita, la prenotazione sostitutiva ha gli stessi attributi di quella in scadenza. Facoltativamente, è possibile cambiare la frequenza di fatturazione, il periodo o la quantità nelle impostazioni del rinnovo. Qualsiasi utente con accesso di proprietario per la prenotazione e per la sottoscrizione usata per la fatturazione può configurare il rinnovo.  
 
 ## <a name="discount-applies-to-different-sizes"></a>Lo sconto si applica a dimensioni diverse
 

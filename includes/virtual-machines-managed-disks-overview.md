@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: fc5a974273cbc0398e9fee7b60b424a46ef5dd30
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: f041381534dfe59036ce1b9d91792f9e78d0dace
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949723"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523112"
 ---
 ## <a name="benefits-of-managed-disks"></a>Vantaggi dei dischi gestiti
 
@@ -51,11 +51,11 @@ Per assegnare autorizzazioni specifiche per un disco gestito a uno o più utenti
 
 ## <a name="encryption"></a>Crittografia
 
-Con i dischi gestiti vengono offerti due tipi diversi di crittografia. Il primo è la crittografia del servizio di archiviazione e viene eseguito dal servizio di archiviazione. Il secondo è Crittografia dischi di Azure, che è possibile abilitare nei dischi del sistema operativo e in quelli dei dati per le VM.
+Con i dischi gestiti vengono offerti due tipi diversi di crittografia. Il primo è la crittografia lato server e viene eseguito dal servizio di archiviazione. Il secondo è Crittografia dischi di Azure, che è possibile abilitare nei dischi del sistema operativo e in quelli dei dati per le VM.
 
-### <a name="storage-service-encryption-sse"></a>Crittografia del servizio di archiviazione di Azure (SSE)
+### <a name="server-side-encryption"></a>Modello di crittografia lato server
 
-La [crittografia del servizio di archiviazione di Azure](../articles/storage/common/storage-service-encryption.md) fornisce la crittografia inattiva e salvaguarda i dati, in modo da soddisfare i criteri di sicurezza e conformità dell'organizzazione. La crittografia del servizio di archiviazione è abilitata per impostazione predefinita per tutti i dischi gestiti, gli snapshot e le immagini in tutte le aree in cui i dischi gestiti sono disponibili. Visitare la [pagina Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) per altri dettagli.
+La [crittografia lato server](../articles/storage/common/storage-service-encryption.md) fornisce la crittografia dei dati inattivi e li salvaguarda per soddisfare i criteri di sicurezza e conformità dell'organizzazione. La crittografia lato server è abilitata per impostazione predefinita per tutti i dischi gestiti, gli snapshot e le immagini in tutte le aree in cui i dischi gestiti sono disponibili. Visitare la [pagina Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) per altri dettagli.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -85,12 +85,12 @@ Ogni macchina virtuale contiene un disco temporaneo che non è un disco gestito.
 
 Uno snapshot del disco gestito è una copia completa di sola lettura coerente con l'arresto anomalo del sistema di un disco gestito che viene archiviata come disco gestito Standard per impostazione predefinita. Gli snapshot permettono di eseguire il backup dei dischi gestiti in qualsiasi momento. Questi snapshot esistono indipendentemente dal disco di origine e possono essere usati per creare nuove istanze di dischi gestiti. 
 
-Gli snapshot vengono fatturati in base alle dimensioni usate. Ad esempio, se si crea uno snapshot di un disco gestito con una capacità di provisioning di 64 GiB e una dimensione di dati effettivamente usata di 10 GiB, viene addebitato solo lo snapshot relativo alla dimensione di dati usata di 10 GiB. È possibile visualizzare le dimensioni usate degli snapshot esaminando il [report sull'utilizzo di Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Se ad esempio le dimensioni dei dati usati di uno snapshot sono 10 GiB, il report sull'utilizzo visualizzerà 10 GiB/(31 giorni x 24 ore) = 0,013441 GiB come quantità utilizzata.
+Gli snapshot vengono fatturati in base alle dimensioni usate. Ad esempio, se si crea uno snapshot di un disco gestito con una capacità di provisioning di 64 GiB e una dimensione di dati effettivamente usata di 10 GiB, viene addebitato solo lo snapshot relativo alla dimensione di dati usata di 10 GiB. È possibile visualizzare le dimensioni usate degli snapshot esaminando il [report sull'utilizzo di Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Se ad esempio le dimensioni dei dati usati di uno snapshot sono 10 GiB, il report sull'utilizzo **giornaliero** mostrerà 10 GiB/(31 giorni) = 0,3226 come quantità utilizzata.
 
-Per altre informazioni su come creare snapshot con dischi gestiti, vedere le risorse seguenti:
+Per altre informazioni su come creare snapshot per i dischi gestiti, vedere le risorse seguenti:
 
-* [Creare una copia del disco rigido virtuale archiviato come disco gestito usando gli snapshot in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Creare una copia del disco rigido virtuale archiviato come disco gestito usando gli snapshot in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Creare uno snapshot di un disco gestito in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Creare uno snapshot di un disco gestito in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Immagini
 

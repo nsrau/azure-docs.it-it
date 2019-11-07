@@ -10,14 +10,17 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: ff666437790a1e32dde83f9e3be90b4c62637181
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 6888c53122e649d6a0e91f8ece30101f051c08e8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307737"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488763"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Avvio rapido: Creare una nuova app nel portale LUIS
+
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 Questo argomento di avvio rapido illustra come creare una nuova app nel [portale LUIS](https://www.luis.ai). Creare prima le parti fondamentali di un'app, le **finalità** e le **entità**. Testare quindi l'app specificando un'espressione utente di esempio nel pannello di test interattivo per ottenere la finalità stimata.
 
@@ -27,7 +30,7 @@ La creazione di un'app è gratuita e non richiede una sottoscrizione di Azure. Q
 
 ## <a name="create-an-app"></a>Creare un'app
 
-1. Selezionare **Create new app** (Crea nuova app) nella barra degli strumenti contestuale.
+1. Selezionare **+ Crea** sulla barra degli strumenti contestuale.
 
    [![Creare una nuova app nel portale LUIS](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
 

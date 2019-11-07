@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 748c51e74db20ac101dc2dff0d924567acded114
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 4acf6e4df978ffee6e0f8320bafbb64994aa0639
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703229"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495288"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Avvio rapido: Usare l'app di domotica predefinita
 
@@ -31,34 +31,30 @@ Per questo articolo è necessario un account LUIS gratuito, creato nel portale L
 ## <a name="create-a-new-app"></a>Creare una nuova app
 È possibile creare e gestire le applicazioni in **My Apps** (App personali). 
 
-1. Selezionare **Create new app** (Crea nuova app).
+1. Nell'elenco App personali del portale LUIS selezionare **+Crea**.
 
-    [![Screenshot dell'elenco di app](media/luis-quickstart-new-app/app-list.png "Screenshot dell'elenco di app")](media/luis-quickstart-new-app/app-list.png)
+    ![Nell'elenco App personali del portale LUIS selezionare "+Crea".](./media/create-app-in-portal.png)
 
-1. Nella finestra di dialogo assegnare all'applicazione il nome "Home Automation".
+1. Nella finestra di dialogo, assegnare all'applicazione il nome `Home Automation` e selezionare **Operazione completata**. LUIS crea l'app.
 
-    [![Screenshot della finestra di dialogo popup Crea nuova app](media/luis-quickstart-new-app/create-new-app-dialog.png "Screenshot della finestra di dialogo popup Crea nuova app")](media/luis-quickstart-new-app/create-new-app-dialog.png)
-
-1. Scegliere le impostazioni cultura dell'applicazione. Per questa app Home Automation scegliere English (Inglese). Al termine selezionare **Done** (Fine). Viene creata l'app Home Automation. 
+    ![Nella finestra di dialogo assegnare all'applicazione il nome "Home Automation".](./media/create-new-app-details.png)
 
     >[!NOTE]
     >Le impostazioni cultura non possono essere modificate dopo la creazione dell'applicazione. 
 
 ## <a name="add-prebuilt-domain"></a>Aggiungi dominio predefinito
 
-Selezionare **Prebuilt domains** (Domini predefiniti) nel riquadro di spostamento a sinistra e quindi cercare "Home". Selezionare **Add domain** (Aggiungi dominio).
+Selezionare **Domini predefiniti** quindi cercare **HomeAutomation**. Selezionare **Add domain** (Aggiungi dominio) nella scheda HomeAutomation.
 
-[![Screenshot del dominio di domotica chiamato nel menu Prebuilt domains (Domini predefiniti)](media/luis-quickstart-new-app/home-automation.png "Screenshot del dominio di domotica chiamato nel menu Prebuilt domains (Domini predefiniti)")](media/luis-quickstart-new-app/home-automation.png)
+![Selezionare "Domini predefiniti" quindi cercare "HomeAutomation". Selezionare "Add domain" (Aggiungi dominio) nella scheda HomeAutomation.](media/luis-quickstart-new-app/home-automation.png)
 
 Dopo che il dominio è stato aggiunto, nella casella del dominio predefinito viene visualizzato un pulsante **Remove domain** (Rimuovi dominio).
 
-[![Screenshot del dominio di domotica con il pulsante di rimozione](media/luis-quickstart-new-app/remove-domain.png "Screenshot del dominio di domotica con il pulsante di rimozione")](media/luis-quickstart-new-app/remove-domain.png)
-
 ## <a name="intents-and-entities"></a>Finalità ed entità
 
-Selezionare **Intents** (Finalità) nel riquadro di spostamento a sinistra per esaminare le finalità del dominio HomeAutomation. Per ogni finalità sono definite espressioni di esempio.
+Selezionare **Finalità** per esaminare le finalità del dominio HomeAutomation. Le finalità del dominio predefinite contengono espressioni di esempio.
 
-![Elenco di screenshot della finalità HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Elenco di screenshot della finalità HomeAutomation")]
+![Screenshot dell'elenco di finalità di HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot dell'elenco di finalità di HomeAutomation")
 
 > [!NOTE]
 > **None** (Nessuna) è una finalità fornita da tutte le app LUIS. Viene usata per gestire le espressioni che non corrispondono alle funzionalità offerte dall'app. 
@@ -72,7 +68,7 @@ Selezionare la finalità **HomeAutomation.TurnOff**. È possibile vedere che la 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-your-app"></a>Test dell'app
-Dopo aver eseguito il training dell'app, è possibile eseguirne il test. Selezionare **Test** nella barra di spostamento superiore. Digitare un'espressione di test, ad esempio "Turn off the lights" nel riquadro di test interattivo e premere INVIO. 
+Dopo aver eseguito il training dell'app, è possibile eseguirne il test. Selezionare **Test**. Digitare un'espressione di test, ad esempio `Turn off the lights` nel riquadro di test interattivo e premere INVIO. 
 
 ```
 Turn off the lights
@@ -82,12 +78,11 @@ Verificare che la finalità con il punteggio più elevato corrisponda a quella p
 
 In questo esempio `Turn off the lights` viene correttamente identificata come la finalità con il punteggio più elevato per **HomeAutomation.TurnOff**.
 
-[![Screenshot del pannello Test con le espressioni evidenziate](media/luis-quickstart-new-app/test.png "Screenshot del pannello Test con le espressioni evidenziate")](media/luis-quickstart-new-app/test.png)
-
-
-Selezionare **Inspect** (Esamina) per esaminare altre informazioni sulla previsione.
-
 ![Screenshot del pannello Test con l'espressione evidenziata](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
+
+Selezionare **Inspect** (Esamina) per esaminare altre informazioni sulla stima.
+
+![Screenshot del pannello di test con le informazioni di ispezione](media/luis-quickstart-new-app/test.png)
 
 Selezionare nuovamente **Test** per comprimere il riquadro di test. 
 
@@ -95,75 +90,96 @@ Selezionare nuovamente **Test** per comprimere il riquadro di test.
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)]
 
-## <a name="query-the-v2-api-prediction-endpoint"></a>Eseguire le query sull'endpoint di previsione dell'API V2
+<a name="query-the-v2-api-prediction-endpoint"></a>
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
+## <a name="query-the-v3-api-prediction-endpoint"></a>Eseguire le query sull'endpoint di stima dell'API V3
 
-1. Andare alla fine dell'URL nell'indirizzo e immettere `turn off the living room light`, quindi premere Invio. 
+[!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)] 
 
-    #### <a name="v2-prediction-endpointtabv2"></a>[Endpoint di previsione V2](#tab/V2)
+1. Nella barra degli indirizzi del browser, per la stringa di query, verificare che le barre nome e valore seguenti siano presenti nell'URL. Se non sono presenti nella stringa di query, aggiungerle:
 
-    `https://<region>.api.cognitive.microsoft.com/luis/**v2.0**/apps/<appID>?subscription-key=<YOUR_KEY>&**q=<user-utterance-text>**`
+    |Coppia nome/valore|
+    |--|
+    |`verbose=true`|
+    |`show-all-intents=true`|
 
-    Il browser mostra la versione dell'**API V2** della risposta JSON dell'endpoint HTTP.
-
-    ```json
-    {
-      "query": "turn off the lights",
-      "topScoringIntent": {
-        "intent": "HomeAutomation.TurnOff",
-        "score": 0.995867
-      },
-      "entities": [
-        {
-          "entity": "lights",
-          "type": "HomeAutomation.DeviceType",
-          "startIndex": 13,
-          "endIndex": 18,
-          "resolution": {
-            "values": [
-              "light"
-            ]
-          }
-        }
-      ]
-    }
-    ```
-    
-    #### <a name="v3-prediction-endpointtabv3"></a>[Endpoint di previsione V3](#tab/V3)
-
-    Per una [query dell'API V3](luis-migration-api-v3.md), nel browser modificare la richiesta HTTPS del metodo GET, sostituendo i valori tra parentesi acute con valori personalizzati.     
-
-    `https://<region>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/<appID>/**slots**/**production**/**predict**?subscription-key=<YOUR_KEY>&**query=<user-utterance-text>**`
+1. Nella barra degli indirizzi del browser andare alla fine dell'URL e immettere `turn off the living room light` per il valore di _query_, quindi premere INVIO.
 
     ```json
     {
-        "query": "turn off the lights",
+        "query": "turn off the living room light",
         "prediction": {
-            "normalizedQuery": "turn off the lights",
             "topIntent": "HomeAutomation.TurnOff",
             "intents": {
                 "HomeAutomation.TurnOff": {
-                    "score": 0.99649024
+                    "score": 0.967174649
                 }
             },
             "entities": {
+                "HomeAutomation.Location": [
+                    "living room"
+                ],
+                "HomeAutomation.DeviceName": [
+                    [
+                        "living room light"
+                    ]
+                ],
                 "HomeAutomation.DeviceType": [
                     [
                         "light"
                     ]
-                ]
+                ],
+                "$instance": {
+                    "HomeAutomation.Location": [
+                        {
+                            "type": "HomeAutomation.Location",
+                            "text": "living room",
+                            "startIndex": 13,
+                            "length": 11,
+                            "score": 0.9494325,
+                            "modelTypeId": 1,
+                            "modelType": "Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ],
+                    "HomeAutomation.DeviceName": [
+                        {
+                            "type": "HomeAutomation.DeviceName",
+                            "text": "living room light",
+                            "startIndex": 13,
+                            "length": 17,
+                            "modelTypeId": 5,
+                            "modelType": "List Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ],
+                    "HomeAutomation.DeviceType": [
+                        {
+                            "type": "HomeAutomation.DeviceType",
+                            "text": "light",
+                            "startIndex": 25,
+                            "length": 5,
+                            "modelTypeId": 5,
+                            "modelType": "List Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
             }
         }
     }
     ```
 
-
     Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
     
-    * * * 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

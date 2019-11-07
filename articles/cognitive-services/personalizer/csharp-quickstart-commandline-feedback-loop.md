@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: 4308ed6d00bd3900986f08a93a686f0d7d00bcfb
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: b86a8df86b7f9b8a5936752a5f0413aa863ae85f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515603"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490803"
 ---
 # <a name="quickstart-personalizer-client-library-for-net"></a>Guida introduttiva: Libreria client di Personalizza esperienze per .NET
 
@@ -38,29 +38,28 @@ Introduzione alla libreria client di Personalizza esperienze per .NET. Seguire q
 Per usare questo avvio rapido, è necessario eseguire diversi passaggi:
 
 * Nel portale di Azure creare una risorsa di Personalizza esperienze
-* Nella pagina **Impostazioni** della risorsa di Personalizza esperienze nel portale di Azure modificare la frequenza di aggiornamento del modello
+* Nella pagina **Configurazione** della risorsa di Personalizza esperienze nel portale di Azure cambiare la frequenza di aggiornamento del modello
 * In un editor di codice creare un file di codice e modificarlo
 * Dalla riga di comando o dal terminale installare l'SDK dalla riga di comando
 * Dalla riga di comando o dal terminale eseguire il file di codice
 
 ## <a name="create-a-personalizer-azure-resource"></a>Creare una risorsa di Azure di Personalizza esperienze
 
-I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per Personalizza esperienze usando il [portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) nel computer locale. È anche possibile:
+Creare una risorsa per Personalizza esperienze usando il [portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) nel computer locale. È anche possibile:
 
 * Ottenere un [codice della versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services), valido per 7 giorni. Dopo aver eseguito l'iscrizione, sarà disponibile sul [sito Web di Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Visualizzare questa risorsa nel [portale di Azure](https://portal.azure.com/).
 
-<!-- rename TBD_KEY to something meaningful for your service, like TEXT_ANALYTICS_KEY -->
 Dopo aver ottenuto una chiave dalla sottoscrizione di valutazione o dalla risorsa, creare due [variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
 * `PERSONALIZER_RESOURCE_KEY` per la chiave della risorsa.
 * `PERSONALIZER_RESOURCE_ENDPOINT` per l'endpoint della risorsa.
 
-Nella portale di Azure i valori della chiave e dell'endpoint sono disponibili nella pagina **Avvio rapido**.
+Nel portale di Azure i valori della chiave e dell'endpoint sono disponibili nella pagina **Avvio rapido**.
 
 ## <a name="change-the-model-update-frequency"></a>Modificare la frequenza di aggiornamento del modello
 
-Nella pagina **Impostazioni** della risorsa di Personalizza esperienze nel portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. In questo modo il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
+Nella pagina **Configurazione** della risorsa di Personalizza esperienze nel portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. Con questa breve durata il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
 
 ![Modificare la frequenza di aggiornamento del modello](./media/settings/configure-model-update-frequency-settings.png)
 

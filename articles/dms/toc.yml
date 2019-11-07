@@ -8,6 +8,8 @@
   items:
     - name: Creare un servizio - Portale
       href: quickstart-create-data-migration-service-portal.md
+    - name: Creare un servizio in modalità ibrida - Portale
+      href: quickstart-create-data-migration-service-hybrid-portal.md
 - name: Esercitazioni
   items:
     - name: Eseguire la migrazione offline di SQL Server al database SQL di Azure (database singolo)

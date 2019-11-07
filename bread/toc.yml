@@ -711,9 +711,12 @@
     - name: StorSimple
       tocHref: /azure/storsimple/
       topicHref: /azure/storsimple/
-    - name: Analisi dei flussi
+    - name: Analisi di flusso
       tocHref: /azure/stream-analytics/
       topicHref: /azure/stream-analytics/
+    - name: Analizzatore Internet
+      tocHref: /azure/internet-analyzer/
+      topicHref: /azure/internet-analyzer/
     - name: Gestione traffico
       tocHref: /azure/traffic-manager/
       topicHref: /azure/traffic-manager/

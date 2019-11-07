@@ -502,6 +502,8 @@
           href: sql-database-elastic-pool-failover-group-tutorial.md
         - name: Configurare la sicurezza
           href: sql-database-security-tutorial.md
+        - name: Flusso di dati con Analisi di flusso
+          href: sql-database-stream-analytics.md
     - name: Concetti
       items:
         - name: Risorse del database singolo

@@ -7,15 +7,15 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 0c5541d7a80c3b6157ccadd979412163122ca8a2
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 9e6206e6f7e09ebe03659eb6e515a9b26d3469bd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300743"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475938"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Che cos'è Collegamento privato di Azure? (Anteprima)
-Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Database SQL e Archiviazione di Azure, e ai servizi di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È anche possibile creare un proprio [servizio Collegamento privato](private-link-service-overview.md) nella rete virtuale e distribuirlo privatamente ai clienti. Collegamento privato di Azure offre un'esperienza di configurazione e utilizzo coerente per i servizi PaaS di Azure, i servizi di proprietà dei clienti e quelli condivisi dei partner.
+Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Archiviazione di Azure, Azure Cosmos DB e Database SQL, e ai servizi di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È anche possibile creare un proprio [servizio Collegamento privato](private-link-service-overview.md) nella rete virtuale e distribuirlo privatamente ai clienti. Collegamento privato di Azure offre un'esperienza di configurazione e utilizzo coerente per i servizi PaaS di Azure, i servizi di proprietà dei clienti e quelli condivisi dei partner.
 
 > [!IMPORTANT]
 > L'anteprima pubblica viene messa a disposizione senza contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Per informazioni sulle limitazioni note, vedere [Endpoint privato](private-endpoint-overview.md#limitations) e [Servizio Collegamento privato](private-link-service-overview.md#limitations).
@@ -45,8 +45,9 @@ Collegamento privato di Azure offre i vantaggi descritti di seguito.
 |  | Azure Data Lake Storage Gen2        |  Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti centro-occidentali       | Anteprima         |
 |  |  database SQL di Azure         | Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti centro-meridionali, Stati Uniti orientali, Stati Uniti centro-settentrionali      |   Anteprima      |
 ||Azure SQL Data Warehouse| Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti centro-meridionali, Stati Uniti orientali, Stati Uniti centro-settentrionali |Anteprima|
+||Azure Cosmos DB| Stati Uniti centro-occidentali; Stati Uniti occidentali; Stati Uniti orientali; Stati Uniti centro-settentrionali; Stati Uniti orientali 2; Stati Uniti occidentali 2 |Anteprima|
 
-Per le notifiche più aggiornate, vedere la [pagina degli aggiornamenti relativi a Rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network). 
+Per le notifiche più aggiornate, vedere la [pagina degli aggiornamenti relativi a Rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
@@ -71,6 +72,7 @@ Per informazioni sui limiti, vedere [Limiti di Collegamento privato di Azure](..
 - [Creare un endpoint privato per il server di database SQL con PowerShell ](create-private-endpoint-powershell.md)
 - [Creare un endpoint privato per il server di database SQL con l'interfaccia della riga di comando ](create-private-endpoint-cli.md)
 - [Creare un endpoint privato per l'account di archiviazione con il portale ](create-private-endpoint-storage-portal.md)
+- [Creare un endpoint privato per l'account Azure Cosmos con il portale ](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Creare un servizio Collegamento privato con Azure PowerShell](create-private-link-service-powershell.md)
 
 

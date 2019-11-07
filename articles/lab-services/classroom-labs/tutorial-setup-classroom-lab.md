@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: fe40eb27b07304aba48be4a47fb22168cb60434c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5bf8aea05855d81e88face1dd507f0006cc19cab
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332241"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73483887"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -112,10 +112,10 @@ Creare un evento pianificato per il lab in modo che le VM al suo interno vengano
 
     ![Pulsante Aggiungi pianificazione nella pagina Pianificazioni](../media/how-to-create-schedules/add-schedule-button.png)
 2. Verificare che per **Event type** (Tipo di evento) sia selezionata l'opzione **Standard**. Selezionare **Start only** (Solo avvio) per specificare solo l'ora di avvio per le VM. Selezionare **Stop only** (Solo arresto) per specificare solo l'ora di arresto per le VM. 
-7. Nella sezione **Repeat** (Ripeti) selezionare la pianificazione corrente. 
+3. Nella sezione **Repeat** (Ripeti) selezionare la pianificazione corrente. 
 
     ![Pulsante Aggiungi pianificazione nella pagina Pianificazioni](../media/how-to-create-schedules/select-current-schedule.png)
-5. Nella finestra di dialogo **Repeat** (Ripeti) procedere come segue:
+4. Selezionando la pianificazione, viene visualizzata la finestra di dialogo **Repeat** (Ripeti). In questa finestra di dialogo eseguire la procedura seguente:
     1. Verificare che il campo **Repeat** (Ripeti) sia impostato su **every week** (ogni settimana). 
     3. Specificare la **data di inizio**.
     4. Specificare l'**ora di avvio** in cui si vuole che vengano avviate le VM.
@@ -124,10 +124,8 @@ Creare un evento pianificato per il lab in modo che le VM al suo interno vengano
     2. Selezionare i giorni in cui la pianificazione deve essere effettiva. Nell'esempio seguente sono selezionati i giorni compresi tra lunedì e giovedì. 
     8. Selezionare **Salva**. 
 
-        ![Impostare la pianificazione ripetuta](../media/how-to-create-schedules/set-repeat-schedule.png)
-
-3. Ora nella pagina **Add scheduled event** (Aggiungi evento pianificato) immettere una descrizione per la pianificazione in **Notes (optional)** (Note - facoltativo). 
-4. Nella pagina **Add scheduled event** (Aggiungi evento pianificato) selezionare **Save** (Salva). 
+5. Ora nella pagina **Add scheduled event** (Aggiungi evento pianificato) immettere una descrizione per la pianificazione in **Notes (optional)** (Note - facoltativo). 
+6. Nella pagina **Add scheduled event** (Aggiungi evento pianificato) selezionare **Save** (Salva). 
 
     ![Pianificazione settimanale](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentazione di Visione personalizzata
-summary: Visione personalizzata è un servizio cognitivo che consente di compilare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano classi) alle immagini, in base alle relative caratteristiche visive.
+summary: Visione personalizzata consente di creare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano classi) alle immagini, in base alle relative caratteristiche visive.
 metadata:
   title: 'Documentazione di Visione personalizzata: guide introduttive, esercitazioni, informazioni di riferimento sulle API - Servizi cognitivi di Azure | Microsoft Docs'
-  description: Visione personalizzata è un servizio cognitivo che consente di compilare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano classi) alle immagini, in base alle relative caratteristiche visive.
+  description: Visione personalizzata consente di creare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano classi) alle immagini, in base alle relative caratteristiche visive.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: custom-vision
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 21e4c324b947cb863614f50bb2ee0bfe09246372
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: 2ef22176b64638dc43a4a45096cf072a7c79931e
+  ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72931645"
+  ms.lasthandoff: 11/06/2019
+  ms.locfileid: "73647584"
 landingContent:
 - title: Informazioni su Visione personalizzata
   linkLists:
@@ -80,7 +80,7 @@ landingContent:
       url: test-your-model.md
     - text: Migliorare il modello
       url: getting-started-improving-your-classifier.md
-    - text: Usare i tag consigliati
+    - text: Usare Smart Labeler
       url: suggested-tags.md
 - title: Esportare i modelli
   linkLists:

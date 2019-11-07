@@ -97,6 +97,8 @@
           href: stream-analytics-power-bi-dashboard.md
         - name: Arrestare o eliminare un processo
           href: stream-analytics-clean-up-your-job.md
+        - name: Copiare o eseguire il backup di un processo
+          href: copy-job.md
         - name: Associare processi per l'affidabilità
           href: stream-analytics-job-reliability.md
         - name: Eseguire l'autenticazione con un'identità gestita - Output di ADLS Gen1

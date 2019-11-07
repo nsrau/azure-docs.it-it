@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
 ms.date: 09/09/2019
-ms.openlocfilehash: 831ebbd3f85ffa9b78ac3e97a6ec68a8c41bceb5
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 0035495d9dd3b82b65aa3b4a7b1d918c73288df8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845287"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496136"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Guida introduttiva: Creare un database singolo nel database SQL di Azure usando il portale di Azure, PowerShell e l'interfaccia della riga di comando di Azure
 
@@ -28,7 +28,7 @@ Per tutti i passaggi di questa guida introduttiva, accedere al [portale di Azure
 
 ## <a name="create-a-single-database"></a>Creare un database singolo
 
-Un database singolo può essere creato al livello di elaborazione con provisioning o serverless (anteprima).
+Un database singolo può essere creato nel livello di calcolo con provisioning o serverless.
 
 - A un database singolo nel livello di elaborazione con provisioning viene preassegnata una quantità fissa di risorse di elaborazione, incluse CPU e memoria, usando uno dei due [modelli di acquisto](sql-database-purchase-models.md).
 - Un database singolo nel livello di elaborazione serverless dispone di una gamma di risorse di elaborazione, comprendenti la CPU e la memoria che vengono ridimensionate automaticamente, ed è disponibile solo nei [modelli di acquisto basati su vCore](sql-database-service-tiers-vcore.md).

@@ -5,7 +5,7 @@
   items:
     - name: Informazioni sulla gestione di app cloud e sull'accesso Single Sign-On
       href: what-is-application-management.md
-    - name: Informazioni sul provisioning utenti automatico
+    - name: Che cos'è il provisioning di applicazioni?
       href: user-provisioning.md
     - name: Informazioni sul proxy dell'applicazione per app locali
       href: what-is-application-proxy.md
@@ -17,7 +17,7 @@
       href: view-applications-portal.md
 - name: Esercitazioni
   items:
-    - name: Esercitazioni per app SaaS
+    - name: 'App della raccolta integrata (ad esempio ServiceNow, Salesforce, Dropbox)'
       href: /azure/active-directory/saas-apps/
     - name: Aggiungere un'app locale con proxy dell'applicazione
       href: application-proxy-add-on-premises-application.md
@@ -66,12 +66,12 @@
               href: howto-saml-token-encryption.md
             - name: Portali degli utenti finali
               href: end-user-experiences.md
-    - name: Provisioning utenti automatico
+    - name: Provisioning di applicazioni (SCIM)
       items:
-        - name: Pianificare una distribuzione automatica del provisioning utenti
-          href: plan-auto-user-provisioning.md
         - name: Provisioning automatico nelle app abilitate per SCIM
           href: use-scim-to-provision-users-and-groups.md
+        - name: Pianificare una distribuzione automatica del provisioning utenti
+          href: plan-auto-user-provisioning.md
     - name: Proxy dell'applicazione per app locali
       items:
         - name: Proxy dell'applicazione
@@ -223,23 +223,21 @@
                   href: access-panel-extension-problem-installing.md
                 - name: Errore durante l'uso dell'accesso alle app self-service
                   href: access-panel-troubleshoot-self-service-access.md
-    - name: Provisioning utenti automatico
+    - name: Provisioning di applicazioni (SCIM)
       items:
         - name: Configura provisioning utenti
           items:
-            - name: Provisioning utenti per le app della raccolta
+            - name: Provisioning manuale o automatico
               href: application-provisioning-config-how-to.md
-            - name: Abilitare il provisioning utenti automatico per app multi-tenant
-              href: isv-automatic-provisioning-multi-tenant-apps.md
             - name: Configurare il provisioning automatico degli utenti
               href: configure-automatic-user-provisioning-portal.md
-            - name: Personalizzare gli attributi dell'applicazione
+            - name: Personalizzare i mapping degli attributi
               href: Customize-application-attributes.md
-            - name: Filtri per la definizione dell'ambito
+            - name: Definire l'ambito di utenti o gruppi di cui effettuare il provisioning
               href: define-conditional-rules-for-provisioning-user-accounts.md
             - name: Ignorare l'eliminazione per gli utenti fuori ambito
               href: skip-out-of-scope-deletions.md
-            - name: Verificare lo stato del provisioning
+            - name: Monitorare lo stato e le prestazioni del provisioning
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
             - name: Creare report sul provisioning utenti automatico
               href: check-status-user-account-provisioning.md
@@ -249,20 +247,20 @@
           items:
             - name: Risolvere i problemi del provisioning utenti
               href: application-provisioning-config-problem.md
-            - name: Stato di quarantena
+            - name: Problema di autorizzazione (non è possibile salvare le credenziali di amministratore)
+              href: application-provisioning-config-problem-storage-limit.md
+            - name: Utenti senza provisioning
+              href: application-provisioning-config-problem-no-users-provisioned.md
+            - name: Provisioning di utenti errati
+              href: application-provisioning-config-problem-wrong-users-provisioned.md
+            - name: Processo di provisioning in quarantena
               href: application-provisioning-quarantine-status.md
+            - name: Attributo di origine mancante
+              href: user-provisioning-sync-attributes-for-mapping.md
+            - name: Processo di provisioning lento
+              href: application-provisioning-when-will-provisioning-finish.md
             - name: Log di provisioning
               href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Sincronizzare un attributo per il mapping - App della raccolta
-              href: user-provisioning-sync-attributes-for-mapping.md
-            - name: Tempo necessario eccessivo - App della raccolta
-              href: application-provisioning-when-will-provisioning-finish.md
-            - name: Problema di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti nell'app della raccolta
-              href: application-provisioning-config-problem-storage-limit.md
-            - name: Utenti senza provisioning - App della raccolta
-              href: application-provisioning-config-problem-no-users-provisioned.md
-            - name: Provisioning di utenti errati - App della raccolta
-              href: application-provisioning-config-problem-wrong-users-provisioned.md
     - name: Proxy dell'applicazione per app locali
       items:
         - name: Configurare i connettori
@@ -357,10 +355,12 @@
               href: application-proxy-understand-cors-issues.md
 - name: riferimento
   items:
-    - name: Provisioning utenti automatico
+    - name: Provisioning di applicazioni (SCIM)
       items:
         - name: Scrivere espressioni per il mapping degli attributi
           href: functions-for-customizing-application-data.md
+        - name: Scelta di un metodo di provisioning
+          href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: Agente provisioning di Microsoft Azure AD Connect
       items:
         - name: Cronologia delle versioni dell'agente di provisioning

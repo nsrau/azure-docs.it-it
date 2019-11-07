@@ -1,6 +1,6 @@
 ---
-title: Esercitazione sulla progettazione di un database multi-tenant con Database di Azure per PostgreSQL - Hyperscale (Citus) (anteprima)
-description: Questa esercitazione illustra come creare, popolare ed eseguire query su tabelle distribuite in Database di Azure per PostgreSQL Hyperscale (Citus) (anteprima).
+title: Esercitazione sulla progettazione di un database multi-tenant con Database di Azure per PostgreSQL - Hyperscale (Citus)
+description: Questa esercitazione illustra come creare, popolare ed eseguire query su tabelle distribuite in Database di Azure per PostgreSQL - Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,16 +9,16 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: ba20a048faecc9e37a2bfbe750de0fbeba88d538
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 130c3e9f5abb24ffcc4e0c4ad6b96af5fca62090
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70163992"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496547"
 ---
-# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Esercitazione: Progettare un database multi-tenant con Database di Azure per PostgreSQL - Hyperscale (Citus) (anteprima)
+# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Esercitazione: Progettare un database multi-tenant con Database di Azure per PostgreSQL - Hyperscale (Citus)
 
-In questa esercitazione si usa Database di Azure per PostgreSQL - Hyperscale (Citus) (anteprima) per imparare a:
+In questa esercitazione si usa Database di Azure per PostgreSQL - Hyperscale (Citus) per imparare a:
 
 > [!div class="checklist"]
 > * Creare un gruppo di server Hyperscale (Citus)
@@ -35,7 +35,7 @@ In questa esercitazione si usa Database di Azure per PostgreSQL - Hyperscale (Ci
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Usare l'utilità psql per creare uno schema
 
-Una volta connessi a Database di Azure per PostgreSQL - Hyperscale (Citus) (anteprima) tramite psql, è possibile completare alcune attività di base. Questa esercitazione illustra come creare un'app Web che consente agli inserzionisti di tenere traccia delle proprie campagne pubblicitarie.
+Una volta connessi a Database di Azure per PostgreSQL - Hyperscale (Citus) tramite psql, è possibile completare alcune attività di base. Questa esercitazione illustra come creare un'app Web che consente agli inserzionisti di tenere traccia delle proprie campagne pubblicitarie.
 
 Poiché l'app può essere usata da più aziende, si creeranno una tabella in cui includere le aziende e un'altra tabella per le campagne pubblicitarie. Nella console di psql eseguire questi comandi:
 

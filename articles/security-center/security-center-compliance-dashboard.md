@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/30/2019
+ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 20842997c5df81835024a6f458cd863b4e4d78b0
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 2961474e84930cf548a1ef23b19fcd1be443b151
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202438"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520917"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Esercitazione: Migliorare la conformità alle normative
 ---
 
-Il Centro sicurezza di Azure consente di semplificare il processo per soddisfare i requisiti di conformità alle normative con il dashboard Conformità alle normative. Nel dashboard, il Centro sicurezza offre informazioni dettagliate sul comportamento di conformità in base a valutazioni continue dell'ambiente Azure. Le valutazioni eseguite dal Centro sicurezza analizzano i fattori di rischio nell'ambiente cloud ibrido in base alle procedure consigliate per la sicurezza. Tali valutazioni sono associate ai controlli di conformità di un set di standard supportato. Nel dashboard Conformità alle normative viene visualizzato chiaramente lo stato di tutte queste valutazioni all'interno dell'ambiente, nel contesto di una normativa o uno standard specifico. Quando si interviene in base alle raccomandazioni riducendo i fattori di rischio nell'ambiente, il comportamento di conformità visualizzato risulta migliorato.
+Il Centro sicurezza di Azure consente di semplificare il processo per soddisfare i requisiti di conformità alle normative con il **dashboard Conformità alle normative**. Nel dashboard, il Centro sicurezza offre informazioni dettagliate sul comportamento di conformità in base a valutazioni continue dell'ambiente Azure. Il Centro sicurezza analizza i fattori di rischio nell'ambiente cloud ibrido in base alle procedure di sicurezza consigliate. Tali valutazioni sono associate ai controlli di conformità di un set di standard supportato. Nel dashboard Conformità alle normative può essere visualizzato lo stato di tutte queste valutazioni all'interno dell'ambiente, nel contesto di una normativa o uno standard specifico. Quando si interviene in base alle raccomandazioni riducendo i fattori di rischio nell'ambiente, il comportamento di conformità risulta migliorato.
 
 In questa esercitazione si apprenderà come:
 
@@ -45,20 +45,18 @@ Il Centro sicurezza valuta continuamente la configurazione delle risorse per ide
 La visualizzazione del dashboard Conformità alle normative consente di concentrare l'attenzione sulle lacune nella conformità a uno standard o una normativa importante per l'utente. Questa visualizzazione mirata permette anche il monitoraggio continuo nel tempo del punteggio di conformità all'interno di ambienti cloud e ibridi dinamici.
 
 >[!NOTE]
-> Attualmente sono supportati gli standard normativi seguenti: Azure CIS, PCI DSS 3.2, ISO 27001 e SOC TSP. Altri standard verranno inclusi nello sviluppo futuro del dashboard.
+> Per impostazione predefinita, il Centro sicurezza supporta gli standard normativi seguenti: Azure CIS, PCI DSS 3.2, ISO 27001 e SOC TSP. 
+>
+> La funzionalità [pacchetti di conformità dinamici (anteprima)](update-regulatory-compliance-packages.md) consente di aggiornare gli standard mostrati nel dashboard Conformità alle normative ai nuovi pacchetti *dinamici*. È anche possibile usare la stessa funzionalità di anteprima per aggiungere nuovi pacchetti di conformità e monitorare la conformità con gli standard aggiuntivi. 
+
 1.  Nel menu principale del Centro sicurezza selezionare **Conformità alle normative** in **CRITERI E CONFORMITÀ**. <br>
 Nella parte superiore della schermata verrà visualizzato un dashboard con una panoramica dello stato di conformità al set delle normative di conformità supportate. È possibile visualizzare il punteggio di conformità complessivo e il numero di valutazioni superate e non superate associate a ogni standard.
 
     ![Descrizione dei computer: affidabilità elevata](./media/security-center-compliance-dashboard/compliance-dashboard.png)
 
-
-2.  Selezionare la scheda di uno standard di conformità che interessa. Verrà visualizzato l'elenco di tutti i controlli per tale standard. Per i controlli applicabili, è possibile visualizzare i dettagli delle valutazioni superate e non superate associate al controllo. Alcuni controlli sono disattivati. A tali controlli non è associata alcuna valutazione del Centro sicurezza. È necessario analizzarne i requisiti ed eseguirne autonomamente la valutazione nel proprio ambiente. Alcuni potrebbero essere correlati ai processi e non essere di tipo tecnico.
+2.  Selezionare la scheda di uno standard di conformità che interessa. Verrà visualizzato l'elenco di tutti i controlli per tale standard. Per i controlli applicabili, è possibile visualizzare i dettagli delle valutazioni superate e non superate associate al controllo. Alcuni controlli sono disattivati. A tali controlli non è associata alcuna valutazione del Centro sicurezza. Verificare i requisiti ed eseguirne autonomamente la valutazione nel proprio ambiente. Alcuni potrebbero essere correlati ai processi e non essere di tipo tecnico.
 
     ![Scheda relativa alla conformità](./media/security-center-compliance-dashboard/compliance-pci.png)
-
-3. Selezionare la scheda **Tutti** per visualizzare tutte le raccomandazioni del Centro sicurezza rilevanti e gli standard associati. Tale visualizzazione può essere utile per identificare tutti i diversi standard interessati da una determinata raccomandazione. <br> È possibile usare questa visualizzazione per classificare in ordine di priorità le raccomandazioni da risolvere. Se per la raccomandazione **Abilitare MFA per gli account con autorizzazioni di proprietario per la sottoscrizione** viene visualizzato un esito negativo per più risorse e tale raccomandazione è associata a più standard, ad esempio, risolverla avrà un impatto elevato sul punteggio di conformità complessivo.
-
-    ![Impatto sul punteggio di conformità](./media/security-center-compliance-dashboard/compliance-all-tabs.png)
 
 1. Per generare e scaricare un report PDF che riepiloga lo stato di conformità corrente per uno specifico standard, fare clic su **Scarica report**.
 
@@ -72,15 +70,17 @@ In base alle informazioni riportate nel dashboard Conformità alle normative, è
 
 1.  Fare clic su una qualsiasi delle valutazioni non superate riportate nel dashboard per visualizzare i dettagli relativi alla raccomandazione. Ogni raccomandazione include una serie di passaggi di correzione da seguire per risolvere il problema.
 
-2.  È possibile selezionare una determinata risorsa per visualizzare altri dettagli e risolvere la relativa raccomandazione. <br>Nella scheda dello standard **Azure CIS**, ad esempio, si può fare clic sulla raccomandazione **Richiedi il trasferimento sicuro nell'account di archiviazione**.
+1.  È possibile selezionare una determinata risorsa per visualizzare altri dettagli e risolvere la relativa raccomandazione. <br>Nella scheda dello standard **Azure CIS**, ad esempio, si può fare clic sulla raccomandazione **Richiedi il trasferimento sicuro nell'account di archiviazione**.
 
     ![Raccomandazione sulla conformità](./media/security-center-compliance-dashboard/compliance-recommendation.png)
 
-3. Facendo clic sulle informazioni della raccomandazione e selezionando una risorsa non integra, si accede direttamente all'esperienza per abilitare il **trasferimento sicuro** per l'account di archiviazione nel portale di Azure.<br>Per altre informazioni su come applicare le raccomandazioni, leggere l'articolo [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
+1. Facendo clic sulle informazioni della raccomandazione e selezionando una risorsa non integra, si accede direttamente all'esperienza per abilitare il **trasferimento sicuro** per l'account di archiviazione nel portale di Azure.
+
+    Per altre informazioni su come applicare le raccomandazioni, leggere l'articolo [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
 
     ![Raccomandazione sulla conformità](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
 
-4.  Dopo l'intervento per la risoluzione delle raccomandazioni, l'impatto sarà visibile nel report del dashboard relativo alla conformità tramite il miglioramento del punteggio di conformità.
+1.  Dopo l'intervento per la risoluzione delle raccomandazioni, l'impatto sarà visibile nel report del dashboard relativo alla conformità tramite il miglioramento del punteggio di conformità.
 
     > [!NOTE]
     > Dato che le valutazioni vengono eseguite a intervalli di circa 12 ore, l'impatto sui dati di conformità sarà visibile solo dopo l'esecuzione delle valutazioni.
@@ -95,12 +95,14 @@ In questa esercitazione si è appreso come usare il dashboard Conformità alle n
 
 Il dashboard Conformità alle normative può semplificare notevolmente il processo di conformità e ridurre in modo significativo il tempo necessario per raccogliere prove della conformità dell'ambiente ibrido e Azure in uso.
 
-Per altre informazioni sul Centro sicurezza, vedere:
+Per altre informazioni, vedere:
 
--   [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
+-   [Aggiornare i pacchetti di conformità dinamici nel dashboard Conformità alle normative (anteprima)](update-regulatory-compliance-packages.md): informazioni su questa funzionalità di anteprima che consente di aggiornare gli standard mostrati nel dashboard Conformità alle normative ai nuovi pacchetti *dinamici*. È anche possibile usare la stessa funzionalità di anteprima per aggiungere nuovi pacchetti di conformità e monitorare la conformità con gli standard aggiuntivi. 
+
+-   [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
 
 -   [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni su come usare le raccomandazioni del Centro sicurezza di Azure per proteggere le risorse di Azure.
 
 -   [Migliorare il punteggio di sicurezza nel Centro sicurezza di Azure](security-center-secure-score.md): informazioni su come classificare in ordine di priorità le raccomandazioni sulla sicurezza per ottenere il massimo miglioramento del comportamento di sicurezza.
 
--   [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
+-   [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.

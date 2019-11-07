@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
-ms.openlocfilehash: b8628d60110818fe64e5b09b400a1396213147b6
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 46d78ca9f82017e1a11642af6e5dcdc68e239c8a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980780"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498267"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Panoramica del servizio Criteri di Azure
 
@@ -48,12 +48,11 @@ Il processo di creazione e implementazione dei criteri in Criteri di Azure ha in
 
 In Criteri di Azure sono disponibili diversi criteri predefiniti. Ad esempio:
 
-- **Richiedere SQL Server 12.0**: Verifica che tutte le istanze di SQL Server usino la versione 12.0. L'effetto consiste nel rifiutare tutti i server che non soddisfano tali criteri.
 - **SKU degli account di archiviazione consentiti**: Determina se un account di archiviazione in distribuzione si trova all'interno di un set di dimensioni di SKU. L'effetto consiste nel rifiutare tutti gli account di archiviazione che non rispettano il set di dimensioni di SKU definite.
 - **Tipi di risorsa consentiti**: Definisce i tipi di risorsa che è possibile distribuire. L'effetto consiste nel rifiutare tutte le risorse non incluse nell'elenco definito.
 - **Aree consentite**: Limita le aree disponibili per le nuove risorse. L'effetto viene usato per imporre i requisiti di conformità geografica.
 - **SKU delle macchine virtuali consentiti**: Specifica un set di SKU di macchine virtuali che è possibile distribuire.
-- **Applica tag e relativo valore predefinito**: Applica un tag obbligatorio e il relativo valore predefinito quando non viene specificato nella richiesta di distribuzione.
+- **Aggiungi un tag alle risorse**: Applica un tag obbligatorio e il relativo valore predefinito quando non viene specificato nella richiesta di distribuzione.
 - **Imponi tag e relativo valore**: Impone un tag obbligatorio e il relativo valore a una risorsa.
 - **Tipi di risorsa non consentiti**: Impedisce la distribuzione di un tipo di risorsa.
 

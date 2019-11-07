@@ -84,6 +84,14 @@
               href: entitlement-management-request-access.md
     - name: Verifiche di accesso
       items:
+        - name: Pacchetti di accesso
+          items:
+            - name: Creare una verifica di accesso
+              href: entitlement-management-access-reviews-create.md
+            - name: Verificare l'accesso
+              href: entitlement-management-access-reviews-review-access.md
+            - name: Verificare l'accesso personale
+              href: entitlement-management-access-reviews-self-review.md
         - name: Gruppi e app
           items:
             - name: Creare una verifica di accesso

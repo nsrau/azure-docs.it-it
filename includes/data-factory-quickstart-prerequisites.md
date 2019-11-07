@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 0a2bf306ccfa3a4a4fc80d0d55493f284185bba9
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 26793c91c85ba4cc33a07358ab8ff318becb325f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648511"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490691"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -42,8 +42,10 @@ In questa guida introduttiva si usa un account di archiviazione di Azure per uti
 Per questa guida introduttiva è necessario avere il nome dell'account di archiviazione di Azure. La procedura seguente illustra i passaggi per recuperare il nome dell'account di archiviazione: 
 
 1. In un Web browser passare al [portale di Azure](https://portal.azure.com) e accedere usando il nome utente e la password di Azure.
-2. Selezionare **Tutti i servizi** > **Archiviazione** > **Account di archiviazione**.
+2. Dal menu del portale di Azure scegliere **Tutti i servizi**, quindi selezionare **Archiviazione** > **Account di archiviazione**. È anche possibile cercare e selezionare *Account di archiviazione* in qualsiasi pagina.
 3. Nella pagina **Account di archiviazione** filtrare gli account di archiviazione, se necessario, quindi selezionare il proprio account di archiviazione. 
+
+È anche possibile cercare e selezionare *Account di archiviazione* in qualsiasi pagina.
 
 #### <a name="create-a-blob-container"></a>Creare un contenitore BLOB
 In questa sezione viene creato un contenitore BLOB denominato **adftutorial** nell'archivio BLOB di Azure.
@@ -64,7 +66,12 @@ Jane, Doe
 
 Salvare il file nella cartella **C:\ADFv2QuickStartPSH**. Se la cartella non esiste, crearla. Tornare al portale di Azure e seguire questa procedura:
 
-1. Dal punto in cui ci si trovava nella pagina *\<Nome account>*  - **BLOB** selezionare **adftutorial** nell'elenco aggiornato dei contenitori. Se la finestra è stata chiusa o ci si è spostati su un'altra pagina, accedere nuovamente al [portale di Azure](https://portal.azure.com), selezionare **Tutti i servizi** > **Archiviazione** > **Account di archiviazione**, selezionare l'account di archiviazione e quindi selezionare **BLOB** > **adftutorial**.
+1. Dal punto in cui ci si trovava nella pagina *\<Nome account>*  - **BLOB** selezionare **adftutorial** nell'elenco aggiornato dei contenitori.
+
+   1. Se la finestra è stata chiusa o è passata a un'altra pagina, accedere nuovamente al [portale di Azure](https://portal.azure.com).
+   1. Dal menu del portale di Azure scegliere **Tutti i servizi**, quindi selezionare **Archiviazione** > **Account di archiviazione**. È anche possibile cercare e selezionare *Account di archiviazione* in qualsiasi pagina.
+   1. Selezionare l'account di archiviazione, quindi **BLOB** > **adftutorial**.
+
 2. Nella barra degli strumenti della pagina del contenitore **adftutorial** selezionare **Carica**.
 3. Nella pagina **Carica BLOB** selezionare la casella **File**, quindi individuare e selezionare il file **emp.txt**.
 4. Espandere l'intestazione **Avanzate**. La pagina viene ora visualizzata come illustrato di seguito:

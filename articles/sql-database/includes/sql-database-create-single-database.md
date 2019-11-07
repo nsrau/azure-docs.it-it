@@ -3,14 +3,14 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 07/31/2019
+ms.date: 11/04/2019
 ms.author: mathoma
-ms.openlocfilehash: ff5505c2cb35d088565773e8d0ba01e8abb4b8c3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0fad326107fa101cbba869311724710bd3f5307b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933259"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496172"
 ---
 In questo passaggio si creerà un database singolo di Database SQL di Azure. 
 
@@ -55,12 +55,12 @@ Creare il gruppo di risorse e il database singolo usando il portale di Azure.
 
      ![Dettagli del database SQL](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
-   - Selezionare **Provisioning effettuato** e **Gen5**.
+   - Selezionare **Provisioning effettuato**.
 
      ![Gen4 con provisioning](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
-   - Rivedere le impostazioni per **Numero massimo vCore**, **Numero minimo vCore**, **Ritardo di sospensione automatica** e **Dimensioni massime dati**. Modificare tali impostazioni in base alle esigenze.
-   - Accettare le condizioni preliminari e fare clic su **OK**.
+   - Esaminare le impostazioni di **vCore** e **Dimensioni massime dati**. Modificare tali impostazioni in base alle esigenze. 
+     - Se si vuole, è anche possibile selezionare **Cambia la configurazione** per cambiare la generazione dell'hardware.
    - Selezionare **Applica**.
 
 5. Selezionare la scheda **Impostazioni aggiuntive**. 

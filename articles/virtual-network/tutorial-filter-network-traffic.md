@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: 2d0519abdf25a6fc8373f9d1a3a7232a9783d316
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: a700cc83c6bd34f5f726b9cc1c97bd7e1476963b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984897"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519285"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Esercitazione: Filtrare il traffico di rete con un gruppo di sicurezza di rete usando il portale di Azure
 
@@ -41,7 +41,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-1. Selezionare **+ Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
+1. Nel menu del portale di Azure o nella pagina **Home** selezionare **Crea una risorsa**. 
 2. Selezionare **Rete** e quindi **Rete virtuale**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea**:
 
@@ -59,7 +59,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 Un gruppo di sicurezza delle applicazioni consente di raggruppare i server con funzioni simili, ad esempio i server Web.
 
-1. Selezionare **+ Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
+1. Nel menu del portale di Azure o nella pagina **Home** selezionare **Crea una risorsa**. 
 2. Nella casella **Cerca nel Marketplace** immettere *Gruppo di sicurezza delle applicazioni*. Quando **Gruppo di sicurezza delle applicazioni** viene visualizzato nei risultati della ricerca, selezionarlo, selezionare ancora **Gruppo di sicurezza delle applicazioni** in **Tutto** e quindi selezionare **Crea**.
 3. Immettere o selezionare le informazioni seguenti e quindi selezionare **Crea**:
 
@@ -81,7 +81,7 @@ Un gruppo di sicurezza delle applicazioni consente di raggruppare i server con f
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
-1. Selezionare **+ Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
+1. Nel menu del portale di Azure o nella pagina **Home** selezionare **Crea una risorsa**. 
 2. Selezionare **Rete** e quindi selezionare **Gruppo di sicurezza di rete**.
 3. Immettere o selezionare le informazioni seguenti e quindi selezionare **Crea**:
 
@@ -138,7 +138,7 @@ Creare due VM nella rete virtuale.
 
 ### <a name="create-the-first-vm"></a>Creare la prima VM
 
-1. Selezionare **+ Crea una risorsa** visualizzato nell'angolo in alto a sinistra del portale di Azure.
+1. Nel menu del portale di Azure o nella pagina **Home** selezionare **Crea una risorsa**. 
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**.
 3. Immettere o selezionare le informazioni seguenti e accettare le impostazioni predefinite delle opzioni rimanenti:
 

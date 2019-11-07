@@ -9,15 +9,17 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/05/2019
-ms.openlocfilehash: 3fe25f0f8297a7b743ed5f522e8a35deb165a039
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.date: 11/04/2019
+ms.openlocfilehash: f693a80726c9185bbd75d5fb99eb7e5f3ccad987
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695622"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493486"
 ---
 # <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Creare e usare una pipeline di Azure Machine Learning per l'assegnazione di punteggi in batch
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In questa esercitazione si usa una pipeline di Azure Machine Learning per eseguire un processo di assegnazione di punteggi in batch. Questo esempio usa il modello Tensorflow di rete neurale convoluzionale [Inception-V3](https://arxiv.org/abs/1512.00567), già sottoposto a training, per classificare le immagini senza etichetta. Dopo aver creato e pubblicato una pipeline, configurare un endpoint REST da usare per attivare la pipeline da qualsiasi libreria HTTP in qualsiasi piattaforma.
 
@@ -463,7 +465,7 @@ df.head(10)
 
 ## <a name="publish-and-run-from-a-rest-endpoint"></a>Pubblicare ed eseguire la pipeline da un endpoint REST
 
-Eseguire il codice seguente per pubblicare la pipeline nell'area di lavoro. Nell'area di lavoro nel portale di Azure è possibile visualizzare i metadati della pipeline, incluse la cronologia di esecuzione e le durate. È anche possibile eseguire la pipeline manualmente dal portale.
+Eseguire il codice seguente per pubblicare la pipeline nell'area di lavoro. Nell'area di lavoro in Azure Machine Learning Studio è possibile visualizzare i metadati della pipeline, incluse la cronologia di esecuzione e le durate. È anche possibile eseguire la pipeline manualmente da Machine Learning Studio.
 
 La pubblicazione della pipeline consente a un endpoint REST di eseguire di nuovo la pipeline da qualsiasi libreria HTTP in qualsiasi piattaforma.
 
@@ -487,7 +489,7 @@ interactive_auth = InteractiveLoginAuthentication()
 auth_header = interactive_auth.get_authentication_header()
 ```
 
-Ottenere l'URL REST dalla proprietà `endpoint` dell'oggetto pipeline pubblicato. È possibile trovare l'URL REST anche nell'area di lavoro nel portale di Azure. 
+Ottenere l'URL REST dalla proprietà `endpoint` dell'oggetto pipeline pubblicato. È possibile trovare l'URL REST anche nell'area di lavoro in Azure Machine Learning Studio. 
 
 Creare una richiesta HTTP POST all'endpoint. Specificare l'intestazione di autenticazione nella richiesta. Aggiungere un oggetto payload JSON con il nome dell'esperimento e il parametro batch_size. Come accennato in precedenza nell'esercitazione, `param_batch_size` viene passato allo script `batch_scoring.py` perché è stato definito come oggetto `PipelineParameter` nella configurazione del passaggio.
 
@@ -520,14 +522,9 @@ RunDetails(published_pipeline_run).show()
 
 Se si intende eseguire altre esercitazioni su Azure Machine Learning, non completare questa sezione.
 
-### <a name="stop-the-notebook-vm"></a>Arrestare la macchina virtuale per notebook
+### <a name="stop-the-compute-instance"></a>Arrestare l'istanza di calcolo
 
-Se è stato usato un server notebook sul cloud, per ridurre i costi arrestare la macchina virtuale quando non è in uso:
-
-1. Nell'area di lavoro selezionare **Macchine virtuali per notebook**.
-1. Nell'elenco di macchine virtuali selezionare quella da arrestare.
-1. Selezionare **Arresta**.
-1. Quando si è pronti a usare di nuovo il server, selezionare **Avvia**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>Eliminare tutto
 

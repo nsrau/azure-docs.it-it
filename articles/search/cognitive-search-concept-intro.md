@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 27578e50c56a9c7dac3d74b88e14d0f8fbe9d402
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 97622df578b6c1357601b32a22c806e9eef77c96
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784982"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466865"
 ---
-# <a name="introduction-to-ai-enrichment-in-azure-cognitive-search"></a>Introduzione all'arricchimento tramite intelligenza artificiale in Ricerca cognitiva di Azure
+# <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introduzione all'intelligenza artificiale nella ricerca cognitiva di Azure
 
-L'arricchimento tramite intelligenza artificiale è una funzionalità dell'indicizzazione di Ricerca cognitiva di Azure usata per estrarre il testo da immagini, BLOB e altre origini dati non strutturate, arricchendo il contenuto per renderlo maggiormente ricercabile in un indice o un archivio conoscenze. Estrazione e arricchimento vengono implementati tramite *competenze cognitive* associate a una pipeline di indicizzazione. Gli errori delle competenze cognitive rientrano nelle categorie seguenti: 
+L'arricchimento tramite intelligenza artificiale è una funzionalità dell'indicizzazione di Ricerca cognitiva di Azure usata per estrarre il testo da immagini, BLOB e altre origini dati non strutturate, arricchendo il contenuto per renderlo maggiormente ricercabile in un indice o un archivio conoscenze. Estrazione e arricchimento vengono implementati tramite *competenze cognitive* associate a una pipeline di indicizzazione. Le competenze cognitive predefinite del servizio rientrano nelle categorie seguenti: 
 
 + Le competenze di **elaborazione in linguaggio naturale** includono il [riconoscimento di entità](cognitive-search-skill-entity-recognition.md), il [rilevamento della lingua](cognitive-search-skill-language-detection.md), l'[estrazione delle frasi chiave](cognitive-search-skill-keyphrases.md), la modifica del testo e il [rilevamento delle valutazioni](cognitive-search-skill-sentiment.md). Con queste competenze, il testo non strutturato può assumere nuove forme, eseguendone il mapping come campi ricercabili e filtrabili in un indice.
 
@@ -36,6 +36,12 @@ Il linguaggio naturale e l'elaborazione delle immagini vengono applicati durante
 
 ## <a name="when-to-use-cognitive-skills"></a>Quando usare le competenze cognitive
 
+È consigliabile usare le competenze cognitive predefinite se il contenuto non elaborato è un testo non strutturato, un contenuto di immagini o un contenuto che richiede il rilevamento e la traduzione della lingua. L'applicazione di intelligenza artificiale attraverso le competenze cognitive predefinite può sbloccare questo contenuto, aumentandone il valore e l'utilità nelle app di ricerca e data science. 
+
+Inoltre, è consigliabile aggiungere una competenza personalizzata se si dispone di codice open source interno o di terze parti da integrare nella pipeline. I modelli di classificazione che identificano le caratteristiche salienti di vari tipi di documenti rientrano in questa categoria, ma è anche possibile usare qualsiasi pacchetto che aggiunga valore al contenuto.
+
+### <a name="more-about-built-in-skills"></a>Altre informazioni sulle competenze predefinite
+
 Un set di competenze assemblato usando competenze predefinite è particolarmente indicato per gli scenari di applicazione seguenti:
 
 + Documenti analizzati (JPEG) che si vogliono rendere disponibili per la ricerca full-text. È possibile collegare una competenza di riconoscimento ottico dei caratteri (OCR) per identificare, estrarre e inserire testo da file JPEG.
@@ -49,6 +55,8 @@ Un set di competenze assemblato usando competenze predefinite è particolarmente
   I BLOB in particolare contengono spesso un corpo di contenuto di grandi dimensioni che viene compresso in un singolo "campo". Collegando competenze di elaborazione di immagini e linguaggio naturale all'indicizzatore, è possibile creare nuove informazioni ancora esistenti nel contenuto non elaborato ma non altrimenti visualizzate come campi distinti. Alcune competenze cognitive predefinite che possono essere utili: estrazione di frasi chiave, analisi del sentiment e riconoscimento di entità (persone, organizzazioni e località).
 
   Inoltre, le competenze predefinite possono essere usate anche per ristrutturare il contenuto tramite operazioni di divisione, unione e modellazione del testo.
+
+### <a name="more-about-custom-skills"></a>Altre informazioni sulle competenze personalizzate
 
 Le competenze personalizzate possono supportare scenari più complessi, ad esempio il riconoscimento di moduli o il rilevamento di entità personalizzate tramite un modello fornito e inserito nell'[interfaccia Web di competenze personalizzate](cognitive-search-custom-skill-interface.md). Alcuni esempi di competenze personalizzate includono [Riconoscimento modulo](/azure/cognitive-services/form-recognizer/overview), l'integrazione dell'[API Ricerca entità Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) e il [riconoscimento di entità personalizzate](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 

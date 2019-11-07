@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione 3: Distribuire il modello di rischio di credito'
-titleSuffix: Azure Machine Learning Studio
-description: Esercitazione dettagliata che mostra come creare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning Studio. Questa esercitazione è la terza di una serie in tre parti. Mostra come distribuire un modello come servizio Web.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Esercitazione dettagliata che mostra come creare una soluzione di analisi predittiva per la valutazione del rischio di credito nella versione classica Azure Machine Learning Studio. Questa esercitazione è la terza di una serie in tre parti. Mostra come distribuire un modello come servizio Web.
 keywords: rischio di credito, soluzione di analisi predittiva, valutazione del rischio, distribuire, servizio Web
 author: sdgilley
 ms.author: sgilley
@@ -10,24 +10,24 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6cdccd54546296c85864f1588b71109ed8b8f79f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 34b0e783b3655aba52cc3d40957b63dd3b0e03b9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620515"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492530"
 ---
-# <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Esercitazione 3: Distribuire il modello di rischio di credito - Azure Machine Learning Studio
+# <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Esercitazione 3: Distribuire il modello di rischio di credito - Azure Machine Learning Studio (versione classica)
 
-In questa esercitazione si esamina il processo di sviluppo di una soluzione di analisi predittiva. Si svilupperà un modello semplice in Machine Learning Studio.  Il modello verrà quindi distribuito come servizio Web di Azure Machine Learning.  Questo modello distribuito può creare previsioni usando nuovi dati. Questa esercitazione è la **terza di una serie in tre parti**.
+In questa esercitazione si esamina il processo di sviluppo di una soluzione di analisi predittiva. Si svilupperà un modello semplice in Machine Learning Studio (versione classica).  Il modello verrà quindi distribuito come servizio Web di Azure Machine Learning.  Questo modello distribuito può creare previsioni usando nuovi dati. Questa esercitazione è la **terza di una serie in tre parti**.
 
 Si supponga di dover prevedere il rischio di credito di un soggetto in base alle informazioni fornite in una richiesta di credito.  
 
-La valutazione del rischio di credito è un problema complesso che verrà tuttavia semplificato con questa esercitazione. Verrà usata come esempio di come è possibile creare una soluzione di analisi predittiva con Microsoft Azure Machine Learning Studio. Per questa soluzione si useranno Azure Machine Learning Studio e un servizio Web di Machine Learning. 
+La valutazione del rischio di credito è un problema complesso che verrà tuttavia semplificato con questa esercitazione. Verrà usata come esempio di come è possibile creare una soluzione di analisi predittiva con Microsoft Azure Machine Learning Studio (versione classica). Per questa soluzione si userà la versione classica di Azure Machine Learning Studio e un servizio Web di Machine Learning. 
 
 In questa esercitazione in tre parti si inizia con dati sul rischio di credito disponibili pubblicamente.  Verrà quindi sviluppato e sottoposto a training un modello predittivo.  Il modello verrà infine distribuito come servizio Web.
 
-Nelle [prima parte dell'esercitazione](tutorial-part1-credit-risk.md) è stata creata un'area di lavoro di Machine Learning Studio, sono stati caricati i dati ed è stato creato un esperimento.
+Nella [prima parte dell'esercitazione](tutorial-part1-credit-risk.md) è stata creata un'area di lavoro di Machine Learning Studio (versione classica), sono stati caricati i dati ed è stato creato un esperimento.
 
 Nella [seconda parte dell'esercitazione](tutorial-part2-credit-risk-train.md) sono stati eseguiti il training e la valutazione dei modelli.
 
@@ -39,8 +39,6 @@ In questa parte dell'esercitazione verranno eseguite queste operazioni:
 > * Testare il servizio Web
 > * Gestire il servizio Web
 > * Accedere al servizio Web
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -91,15 +89,15 @@ Per preparare questo modello per la distribuzione, è necessario convertire l'es
 È possibile eseguire questa procedura manualmente, ma i tre passaggi possono essere effettuati facendo clic su **Configura servizio Web** nella parte inferiore del canvas dell'esperimento e selezionando l'opzione **Predictive Web Service** (Servizio Web predittivo).
 
 > [!TIP]
-> Per informazioni dettagliate cosa accade quando si converte un esperimento di training in un esperimento predittivo, vedere l'articolo relativo alla [preparazione del modello per la distribuzione in Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md).
+> Per informazioni dettagliate cosa accade quando si converte un esperimento di training in un esperimento predittivo, vedere l'articolo relativo alla [preparazione del modello per la distribuzione in Azure Machine Learning Studio (versione classica)](convert-training-experiment-to-scoring-experiment.md).
 
 Quando si fa clic su **Set Up Web Service**(Configura servizio Web), vengono eseguite diverse operazioni:
 
 * Il modello di cui è stato eseguito il training viene convertito in un singolo modulo **Trained Model** e archiviato nella tavolozza dei moduli a sinistra dell'area di disegno dell'esperimento e sarà disponibile in **Trained Models**.
 * Vengono rimossi i moduli usati per il training, in particolare:
-  * [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree]
-  * [Train Model][train-model]
-  * [Split Data][split]
+  * [Albero delle decisioni incrementato a due classi][two-class-boosted-decision-tree]
+  * [Eseguire il training del modello][train-model]
+  * [Dividere dati][split]
   * Il secondo modulo [Execute R Script][execute-r-script] usato per i dati di test
 * Il modello con training salvato viene aggiunto nuovamente all'esperimento
 * Vengono aggiunti i moduli **Web service input** (Input servizio Web) e **Output servizio Web**; queste informazioni identificano dove verranno immessi i dati dell'utente nel modello e i dati che verranno restituiti quando si accede al servizio Web
@@ -109,7 +107,7 @@ Quando si fa clic su **Set Up Web Service**(Configura servizio Web), vengono ese
 
 Con questo particolare esperimento è necessario effettuare un'operazione aggiuntiva.
 Sono stati aggiungi due moduli [Execute R Script][execute-r-script] per fornire una funzione di ponderazione per i dati. Si tratta semplicemente di un espediente necessario per il training e il test ed è quindi possibile estrarre i moduli nel modello finale.
-Machine Learning Studio ha rimosso un modulo [Execute R Script][execute-r-script] durante la rimozione del modulo [Split Data][split]. È possibile rimuovere l'altro modulo e connettere [Metadata Editor][metadata-editor] direttamente a [Score Model][score-model].    
+Machine Learning Studio (versione classica) ha rimosso un modulo [Execute R Script][execute-r-script] durante la rimozione del modulo [Split Data][split]. È possibile rimuovere l'altro modulo e connettere [Metadata Editor][metadata-editor] direttamente a [Score Model][score-model].    
 
 L'esperimento dovrebbe risultare simile al seguente:  
 
@@ -130,7 +128,7 @@ Eseguire l'esperimento un'ultima volta, facendo clic su **Run** (Esegui). Se si 
 È possibile distribuire l'esperimento come servizio Web classico o come nuovo servizio Web basato su Azure Resource Manager.
 
 ### <a name="deploy-as-a-classic-web-service"></a>Distribuire l'esperimento come servizio Web classico
-Per distribuire un servizio Web classico derivato dall'esperimento, fare clic su **Distribuisci servizio Web** sotto l'area di disegno e selezionare **Distribuisci servizio Web - Nuovo**. Machine Learning Studio distribuisce l'esperimento come servizio Web e apre il dashboard del servizio. Da questa pagina è possibile tornare all'esperimento (**View snapshot** (Visualizza snapshot) o **View latest** (Visualizza più recente)) ed eseguire un semplice test del servizio Web. Vedere **Testare il servizio Web** di seguito. Qui sono anche disponibili informazioni per la creazione di applicazioni in grado di accedere al servizio Web. Altre informazioni sono disponibili nella sezione successiva di questa esercitazione.
+Per distribuire un servizio Web classico derivato dall'esperimento, fare clic su **Distribuisci servizio Web** sotto l'area di disegno e selezionare **Distribuisci servizio Web - Nuovo**. Machine Learning Studio (versione classica) distribuisce l'esperimento come servizio Web e apre il dashboard del servizio. Da questa pagina è possibile tornare all'esperimento (**View snapshot** (Visualizza snapshot) o **View latest** (Visualizza più recente)) ed eseguire un semplice test del servizio Web. Vedere **Testare il servizio Web** di seguito. Qui sono anche disponibili informazioni per la creazione di applicazioni in grado di accedere al servizio Web. Altre informazioni sono disponibili nella sezione successiva di questa esercitazione.
 
 ![Dashboard del servizio Web](./media/tutorial-part3-credit-risk-deploy/publish6.png)
 
@@ -147,7 +145,7 @@ Per distribuire un servizio Web classico derivato dall'esperimento, fare clic su
 
 Per distribuire un nuovo servizio Web derivato dall'esperimento:
 
-1. Fare clic su **Deploy Web Service** (Distribuisci servizio Web) sotto l'area di disegno e selezionare **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]). Machine Learning Studio visualizza la pagina **Deploy Experiment** (Distribuisci esperimento) dei servizi Web di Azure Machine Learning.
+1. Fare clic su **Deploy Web Service** (Distribuisci servizio Web) sotto l'area di disegno e selezionare **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]). Machine Learning Studio (versione classica) visualizza la pagina **Deploy Experiment** (Distribuisci esperimento) dei servizi Web di Azure Machine Learning.
 
 1. Immettere un nome per il servizio Web. 
 
@@ -168,25 +166,25 @@ Per testare il servizio Web, selezionare la scheda **Test**. Vedere **Testare il
 
 ## <a name="test-the-web-service"></a>Testare il servizio Web
 
-Quando viene eseguito l'accesso al servizio Web, i dati dell'utente vengono inseriti mediante il modulo **Web service input** (Input servizio Web)e trasferiti nel modulo [Score Model][score-model] (Modello punteggio), in cui viene assegnato un punteggio. In considerazione del modo in cui l'esperimento predittivo è configurato, il modello presuppone che i dati abbiano lo stesso formato del set di dati del rischio di credito originale.
+Quando viene eseguito l'accesso al servizio Web, i dati dell'utente vengono inseriti mediante il modulo **Web service input** e trasferiti nel modulo [Score Model][score-model], in cui viene assegnato un punteggio. In considerazione del modo in cui l'esperimento predittivo è configurato, il modello presuppone che i dati abbiano lo stesso formato del set di dati del rischio di credito originale.
 I risultati vengono quindi restituiti all'utente dal servizio Web tramite il modulo **Output servizio Web**.
 
 > [!TIP]
-> In considerazione del modo in cui l'esperimento predittivo è configurato, vengono restituiti tutti i risultati del modulo [Score Model][score-model]. Ciò include tutti i dati di input, il valore del rischio di credito e il valore di probabilità del punteggio. Ma è possibile restituire un elemento diverso se si desidera, ad esempio, si potrebbe restituire solo il valore di rischio di credito. A tale scopo, inserire un modulo [Select Columns][select-columns] (Colonne selezionate) tra [Score Model][score-model] (Modello punteggio) e **Output servizio Web** per eliminare le colonne che il servizio Web non deve restituire. 
+> In considerazione del modo in cui l'esperimento predittivo è configurato, vengono restituiti tutti i risultati del modulo [Score Model][score-model]. Ciò include tutti i dati di input, il valore del rischio di credito e il valore di probabilità del punteggio. Ma è possibile restituire un elemento diverso se si desidera, ad esempio, si potrebbe restituire solo il valore di rischio di credito. A tale scopo, inserire un modulo [Select Columns][select-columns] tra [Score Model][score-model] e **Output servizio Web** per eliminare le colonne che il servizio Web non deve restituire. 
 > 
 > 
 
-È possibile testare il servizio Web in **Machine Learning Studio** o nel portale dei **servizi Web di Azure Machine Learning**.
+È possibile testare il servizio Web in **Machine Learning Studio (versione classica)** o nel portale dei **servizi Web di Azure Machine Learning**.
 È possibile testare un nuovo servizio Web solo dal portale dei **servizi Web di Azure Machine Learning**.
 
 > [!TIP]
-> Quando il test viene eseguito nel portale dei servizi Web di Azure Machine Learning, è possibile fare in modo che il portali crei dati di esempio da usare per testare il servizio di richiesta-risposta. Nella pagina **Configura** selezionare "Sì" per la richiesta di **dati di esempio abilitati?**. Quando si apre la scheda Richiesta-risposta della pagina **Test**, il portale compila i dati di esempio prelevati dal set di dati del rischio di credito originale.
+> Quando il test viene eseguito nel portale dei servizi Web di Azure Machine Learning, è possibile fare in modo che il portali crei dati di esempio da usare per testare il servizio di richiesta-risposta. Nella pagina **Configura** selezionare "Sì" per la richiesta di **dati di esempio abilitati?** . Quando si apre la scheda Richiesta-risposta della pagina **Test**, il portale compila i dati di esempio prelevati dal set di dati del rischio di credito originale.
 
 ### <a name="test-a-classic-web-service"></a>Testare un servizio Web classico
 
-È possibile testare un servizio Web classico in Machine Learning Studio o nel portale dei servizi Web di Azure Machine Learning. 
+È possibile testare il servizio Web in Machine Learning Studio (versione classica) o nel portale dei servizi Web di Azure Machine Learning. 
 
-#### <a name="test-in-machine-learning-studio"></a>Testare in Machine Learning Studio
+#### <a name="test-in-machine-learning-studio-classic"></a>Testare in Machine Learning Studio (versione classica)
 
 1. Nella pagina **DASHBOARD** del servizio Web fare clic sul pulsante **Test** in **Default Endpoint** (Endpoint predefinito). Viene visualizzata una finestra di dialogo che richiede i dati di input per il servizio. Sono le stesse colonne visualizzate nel set di dati del rischio di credito originale.  
 

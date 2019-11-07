@@ -1,17 +1,28 @@
 ---
 author: mmacy
 ms.service: active-directory-b2c
+ms.subservice: B2C
 ms.topic: include
-ms.date: 10/02/2019
+ms.date: 10/16/2019
 ms.author: marsma
-ms.openlocfilehash: 1937e56c8ea4c7f2c4a488e34cb056c32a830724
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
-ms.translationtype: MT
+ms.openlocfilehash: 279254cb214a812209d43baad695953b5a248778
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802076"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474877"
 ---
-1. In **accesso all'API**selezionare **chiavi**.
-1. Immettere una descrizione per la chiave nella casella **Descrizione chiave** . Ad esempio, la *chiave di gestione*.
-1. Selezionare una **durata** di validità e quindi fare clic su **Salva**.
-1. Registrare il **valore**della chiave. Usare questo valore per la configurazione in un passaggio successivo.
+#### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
+
+1. In **ACCESSO ALL'API**, selezionare **Chiavi**.
+1. Immettere una descrizione per la chiave nella casella **Descrizione della chiave**. Ad esempio, *clientsecret1*.
+1. Selezionare una validità **Durata** quindi selezionare **Salva**.
+1. Registrare il **VALUE** della chiave. Usare questo valore per la configurazione in un passaggio successivo.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
+
+1. In **Gestisci**, selezionare **Certificati e segreti**.
+1. Selezionare **Nuovo segreto client**.
+1. Immettere una descrizione per il segreto client nella casella **Descrizione**. Ad esempio, *clientsecret1*.
+1. In **Scadenza**selezionare una durata per la quale il segreto è valido, quindi selezionare **Aggiungi**.
+1. Registrare il **VALUE** del segreto. Usare questo valore per la configurazione in un passaggio successivo.

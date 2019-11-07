@@ -47,10 +47,10 @@
           href: quickstart-scale-compute-tsql.md
     - name: Gestione del carico di lavoro
       items:
-        - name: Creare un classificatore del carico di lavoro
+        - name: Creare isolamento dei carichi di lavoro
           items:
             - name: T-SQL
-              href: quickstart-create-a-workload-classifier-tsql.md
+              href: quickstart-configure-workload-isolation-tsql.md
 - name: Concetti
   items:
     - name: Security
@@ -213,14 +213,18 @@
           href: sql-data-warehouse-develop-label.md
     - name: Gestione del carico di lavoro
       items:
-        - name: Classi di risorse e gestione del carico di lavoro
-          href: resource-classes-for-workload-management.md
+        - name: Panoramica
+          href: sql-data-warehouse-workload-management.md
         - name: Classificazione del carico di lavoro
           href: sql-data-warehouse-workload-classification.md
         - name: Priorità del carico di lavoro
           href: sql-data-warehouse-workload-importance.md
+        - name: Isolamento dei carichi di lavoro
+          href: sql-data-warehouse-workload-isolation.md
         - name: Limiti di concorrenza e memoria
-          href: memory-and-concurrency-limits.md
+          href: memory-concurrency-limits.md
+        - name: Classi di risorse
+          href: resource-classes-for-workload-management.md
     - name: Gestibilità e monitoraggio
       items:
         - name: Panoramica
@@ -303,6 +307,8 @@
           href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
         - name: Configurare la priorità del carico di lavoro
           href: sql-data-warehouse-how-to-configure-workload-importance.md
+        - name: Convertire le classi di risorse in gruppi di carichi di lavoro
+          href: sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md
     - name: Gestire e monitorare
       items:
         - name: Aggiornamento a Gen2

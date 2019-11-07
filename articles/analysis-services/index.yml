@@ -2,7 +2,7 @@
 title: Documentazione di Azure Analysis Services
 summary: Informazioni su come impostare la modellazione dei dati con Analysis Services nel cloud. Nella documentazione viene illustrato come creare una soluzione di Business Intelligence aziendale usando modelli di dati tabulari.
 metadata:
-  title: Documentazione di Azure Analysis Services - Concetti, guide pratiche, esercitazioni e informazioni di riferimento sulle API
+  title: Documentazione di Azure Analysis Services | Microsoft Docs
   description: Azure Analysis Services è una piattaforma distribuita come servizio (PaaS) completamente gestita che fornisce modelli di dati di livello aziendale nel cloud.
   ms.service: analysis-services
   ms.topic: landing-page
@@ -10,13 +10,13 @@ metadata:
   author: minewiskan
   ms.author: owend
   manager: mtillman
-  ms.date: 08/28/2019
-  ms.openlocfilehash: 5dfa0e502eb069a7d1a9dc4ef2310ae722ff4bb9
-  ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+  ms.date: 10/30/2019
+  ms.openlocfilehash: db43da63ab9382d71c812c97dcef6048b89a9626
+  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 08/29/2019
-  ms.locfileid: "70143017"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73572201"
 landingContent:
 - title: Informazioni su Azure Analysis Services
   linkLists:
@@ -30,7 +30,7 @@ landingContent:
     links:
     - text: Creare un server - Portale
       url: analysis-services-create-server.md
-    - text: Creare un server - PowerShell
+    - text: 'creare un server: PowerShell'
       url: analysis-services-create-powershell.md
     - text: Configurare il firewall del server - Portale
       url: analysis-services-qs-firewall.md

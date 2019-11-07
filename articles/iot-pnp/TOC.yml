@@ -7,10 +7,14 @@
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Usare un modello di funzionalità di dispositivo per creare un dispositivo
+    - name: Creare un dispositivo - Windows
       href: quickstart-create-pnp-device.md
-    - name: Connettere un dispositivo all'hub IoT
+    - name: Creare un dispositivo - Linux
+      href: quickstart-create-pnp-device-linux.md
+    - name: Connettere un dispositivo all'hub IoT - Windows
       href: quickstart-connect-pnp-device.md
+    - name: Connettere un dispositivo all'hub IoT - Linux
+      href: quickstart-connect-pnp-device-linux.md
     - name: Connettere un dispositivo a IoT Central
       href: ../iot-central/core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: Connettersi a un dispositivo nella soluzione

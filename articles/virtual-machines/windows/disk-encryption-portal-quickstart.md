@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: bde0c483eacec7fb8e076530bba594eb33a32a12
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 2590b9851b654990795f111e76f6cc5ea6c96723
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553445"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491948"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Guida introduttiva: Creare e crittografare una macchina virtuale Windows con il portale di Azure
 
@@ -55,8 +55,8 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Nella pagina Nuovo, in Più comuni, selezionare **Windows Server 2016 Datacenter**.
 1. Nella scheda **Informazioni di base**, in **Dettagli progetto**, verificare che sia selezionata la sottoscrizione corretta.
-1. Per **Gruppo di risorse** selezionare il gruppo di risorse creato in precedenza durante la creazione dell'insieme di credenziali delle chiavi, ad esempio **myResourceGroup**
-1. Per **Nome macchina virtuale** immettere *MyVM* e scegliere 
+1. Per **Gruppo di risorse** selezionare il gruppo di risorse creato in precedenza durante la creazione dell'insieme di credenziali delle chiavi, ad esempio **myResourceGroup**.
+1. Per **Nome macchina virtuale** immettere *MyVM*.
 1. Per **Area** selezionare la stessa area usata in precedenza durante la creazione dell'insieme di credenziali delle chiavi, ad esempio **Stati Uniti orientali**.
 1. Assicurarsi che l'opzione **Dimensioni** sia impostata su *D2s Standard v3*.
 1. In **Account amministratore** selezionare **Password**. Immettere un nome utente e una password.

@@ -8,22 +8,18 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3204387a8e0920d2a7196edbad229bf811a9ba0a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: cd118def8b9caf97f26aaa5ad5dc1f6fb015316d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958634"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469284"
 ---
-1. Aprire il portale di Azure da [https://portal.azure.com](https://portal.azure.com)
+1. Scegliere **Crea una risorsa** dal menu del portale di Azure.
 
-1. Selezionare il pulsante **Crea una risorsa**
+    ![Aggiungere una risorsa tramite il menu portale di Azure](./media/functions-create-function-app-portal/create-function-app-resource.png)
 
-    ![Crea risorsa](./media/functions-create-function-app-portal/function-app-create-resource.png)
-
-1. Selezionare **Calcolo** > **App per le funzioni**.
-
-    ![Creare un'app per le funzioni nel portale di Azure](./media/functions-create-function-app-portal/function-app-create-start.png)
+1. Nella pagina **Nuovo**, selezionare **Calcolo** > **App per le funzioni**.
 
 1. Usare le impostazioni dell'app per le funzioni come indicato nella tabella sottostante l'immagine.
 

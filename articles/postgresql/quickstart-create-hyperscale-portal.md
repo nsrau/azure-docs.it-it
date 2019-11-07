@@ -1,6 +1,6 @@
 ---
-title: Avvio rapido per Database di Azure per PostgreSQL – Hyperscale (Citus) (anteprima)
-description: Avvio rapido per creare ed eseguire query su tabelle distribuite in Database di Azure per PostgreSQL Hyperscale (Citus) (anteprima).
+title: Avvio rapido per Database di Azure per PostgreSQL - Hyperscale (Citus)
+description: Avvio rapido per creare ed eseguire query su tabelle distribuite in Database di Azure per PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,16 +8,16 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: fe981167249e24a43a8cb14c51c9b7c1eb081225
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 6b5bfbf16e76cbf90a5536332d8e3bf1035f983a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70164025"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500083"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Guida introduttiva: Creare un database di Azure per PostgreSQL - Hyperscale (Citus) (anteprima) nel portale di Azure
+# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Guida introduttiva: Creare un database di Azure per PostgreSQL - Hyperscale (Citus) nel portale di Azure
 
-Il database di Azure per PostgreSQL è un servizio gestito usato per eseguire, gestire e ridimensionare database PostgreSQL a disponibilità elevata nel cloud. Questo argomento di avvio rapido illustra come creare un gruppo di server Database di Azure per PostgreSQL - Hyperscale (Citus) (anteprima) con il portale di Azure. Verranno esplorati i dati distribuiti: le tabelle di partizionamento orizzontale tra i nodi, l'inserimento di dati di esempio e l'esecuzione di query su più nodi.
+Il database di Azure per PostgreSQL è un servizio gestito usato per eseguire, gestire e ridimensionare database PostgreSQL a disponibilità elevata nel cloud. Questo argomento di avvio rapido illustra come creare un gruppo di server Database di Azure per PostgreSQL - Hyperscale (Citus) con il portale di Azure. Verranno esplorati i dati distribuiti: le tabelle di partizionamento orizzontale tra i nodi, l'inserimento di dati di esempio e l'esecuzione di query su più nodi.
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 

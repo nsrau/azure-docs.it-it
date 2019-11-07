@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 08/09/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 0c33c0832590fdfd4fe78a1645ef1b0e3e391163
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: bf4b79dbb3da15605dc4362b5f0578a457886316
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200579"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581362"
 ---
 # <a name="overview-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Panoramica dell'esempio di progetto CIS Microsoft Azure Foundations Benchmark
 
@@ -19,16 +19,16 @@ L'esempio di progetto CIS Microsoft Azure Foundations Benchmark fornisce misure 
 
 ## <a name="recommendation-mapping"></a>Mapping di raccomandazioni
 
-La sezione relativa al mapping di raccomandazioni fornisce informazioni dettagliate sui criteri inclusi in questo progetto e sul modo in cui questi criteri soddisfano varie raccomandazioni di CIS Microsoft Azure Foundations Benchmark.
-Le risorse assegnate a un'architettura vengono valutate da Criteri di Azure per rilevare la mancata conformità ai criteri assegnati. Per altre informazioni, vedere [Criteri di Azure](../../../policy/overview.md).
+La sezione relativa al mapping di raccomandazioni fornisce informazioni dettagliate sui criteri inclusi in questo progetto e sul modo in cui questi criteri soddisfano varie raccomandazioni di CIS Microsoft Azure Foundations Benchmark v1.1.0. Le risorse assegnate a un'architettura vengono valutate da Criteri di Azure per rilevare la mancata conformità ai criteri assegnati. Per altre informazioni, vedere [Criteri di Azure](../../../policy/overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 È stata esaminata la panoramica dell'esempio di progetto CIS Microsoft Azure Foundations Benchmark.
-Vedere quindi l'articolo seguente per informazioni sul mapping di raccomandazioni:
+Vedere quindi gli articoli seguenti per informazioni sul mapping di raccomandazioni:
 
 > [!div class="nextstepaction"]
 > [Progetto CIS Microsoft Azure Foundations Benchmark - Mapping di raccomandazioni](./control-mapping.md)
+> [Progetto CIS Microsoft Azure Foundations Benchmark - Procedura di distribuzione](./deploy.md)
 
 Altri articoli sui progetti e su come usarli:
 

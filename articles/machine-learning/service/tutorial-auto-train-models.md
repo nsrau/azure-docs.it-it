@@ -9,15 +9,16 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 08/21/2019
-ms.openlocfilehash: f08f2f07137e518925ee4dbe9b128e100be870c9
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.date: 11/04/2019
+ms.openlocfilehash: a7bd735a808532ed0e61cf42dca2d7a797092487
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003985"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493696"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Esercitazione: Usare il servizio Machine Learning automatizzato per stimare le tariffe dei taxi
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In questa esercitazione si userà il machine learning automatizzato in Azure Machine Learning per creare un modello di regressione per prevedere i prezzi delle corse in taxi di New York City. Questo processo accetta impostazioni di configurazione e dati di training ed esegue automaticamente iterazioni di combinazioni di metodi di normalizzazione/standardizzazione delle caratteristiche, impostazioni di iperparametri e modelli diversi per ottenere il modello ottimale.
 
@@ -891,14 +892,15 @@ Per eseguire il training automatico di un modello, eseguire queste operazioni:
 
 ### <a name="define-training-settings"></a>Definire le impostazioni di training
 
-Definire le impostazioni del modello e dei parametri dell'esperimento per il training. Visualizzare l'elenco completo delle [impostazioni](how-to-configure-auto-train.md). L'invio dell'esperimento con queste impostazioni predefinite richiederà circa 5-10 minuti; per abbreviare il tempo di invio, ridurre il parametro `iterations`.
+Definire le impostazioni del modello e dei parametri dell'esperimento per il training. Visualizzare l'elenco completo delle [impostazioni](how-to-configure-auto-train.md). L'invio dell'esperimento con queste impostazioni predefinite richiederà circa 5-20 minuti. Se si vuole abbreviare il tempo di esecuzione, ridurre il parametro `experiment_timeout_minutes`.
 
 |Proprietà| Valore in questa esercitazione |DESCRIZIONE|
 |----|----|---|
 |**iteration_timeout_minutes**|2|Limite di tempo in minuti per ogni iterazione. Ridurre questo valore per diminuire il runtime totale.|
-|**iterations**|20|Numero di iterazioni. In ogni iterazione, viene eseguito il training di un nuovo modello di machine learning con i dati. Questo è il valore principale che influisce sul runtime totale.|
+|**experiment_timeout_minutes**|20|Quantità massima di tempo, in minuti, che tutte le iterazioni combinate possono impiegare prima che l'esperimento venga terminato.|
+|**enable_early_stopping**|True|Flag che abilita la terminazione anticipata se il punteggio non sta migliorando a breve termine.|
 |**primary_metric**| spearman_correlation | Metrica che si vuole ottimizzare. Verrà scelto il modello più appropriato in base a questa metrica.|
-|**preprocess**| True | Usando **True**, l'esperimento può pre-elaborare i dati di input (gestendo i dati mancanti, convertendo il testo in valori numerici, e così via)|
+|**featurization**| auto | Usando **auto**, l'esperimento può pre-elaborare i dati di input (gestendo i dati mancanti, convertendo il testo in valori numerici e così via)|
 |**verbosity**| logging.INFO | Controlla il livello di dettaglio della registrazione.|
 |**n_cross_validations**|5|Numero di divisioni di convalida incrociata da eseguire quando i dati di convalida non sono specificati.|
 
@@ -907,9 +909,10 @@ import logging
 
 automl_settings = {
     "iteration_timeout_minutes": 2,
-    "iterations": 20,
+    "experiment_timeout_minutes": 20,
+    "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',
-    "preprocess": True,
+    "featurization": 'auto',
     "verbosity": logging.INFO,
     "n_cross_validations": 5
 }
@@ -1059,14 +1062,9 @@ Il processo di sviluppo del modello di Machine Learning tradizionale richiede ri
 
 Se si intende eseguire altre esercitazioni su Azure Machine Learning, non completare questa sezione.
 
-### <a name="stop-the-notebook-vm"></a>Arrestare la macchina virtuale per notebook
+### <a name="stop-the-compute-instance"></a>Arrestare l'istanza di calcolo
 
-Se si è usato un server notebook cloud, per ridurre i costi arrestare la macchina virtuale per notebook quando non viene usata.
-
-1. Nell'area di lavoro selezionare **Macchine virtuali per notebook**.
-1. Selezionare la macchina virtuale dall'elenco.
-1. Selezionare **Arresta**.
-1. Quando si è pronti a usare di nuovo il server, selezionare **Avvia**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>Eliminare tutto
 

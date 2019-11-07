@@ -1,19 +1,19 @@
 ---
-title: "Esercitazione: Condividere all'esterno dell'organizzazione - Condivisione dati di Azure (anteprima)"
-description: Esercitazione - Condividere dati con clienti e partner usando Condivisione dati di Azure (anteprima)
+title: "Esercitazione: Condividere all'esterno dell'organizzazione - Condivisione dati di Azure"
+description: Esercitazione - Condividere dati con clienti e partner usando Condivisione dati di Azure
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: f7df46a6a6f149ef0228fda8c967469a25dc3d50
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 4ef9256404b0d0d4d6379e4f5a76c0d41a38c7cd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327408"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499309"
 ---
-# <a name="tutorial-share-your-data-using-azure-data-share-preview"></a>Esercitazione: Condividere dati con Condivisione dati di Azure (anteprima)
+# <a name="tutorial-share-data-using-azure-data-share"></a>Esercitazione: Condividere dati con Condivisione dati di Azure  
 
 Questa esercitazione illustra come configurare una nuova condivisione dati di Azure e iniziare a condividere i dati con clienti e partner all'esterno dell'organizzazione di Azure. 
 
@@ -28,9 +28,28 @@ In questa esercitazione si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* Account di archiviazione di Azure: se non se ne ha già uno, è possibile creare un [account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
-* L'autorizzazione per aggiungere l'assegnazione di ruolo all'account di archiviazione, inclusa nell'autorizzazione*Microsoft.Authorization/role assignments/write*. Questa autorizzazione è presente nel ruolo proprietario. 
 * Indirizzo di posta elettronica per l'accesso ad Azure dei destinatari (gli alias di posta elettronica non funzionano).
+
+### <a name="share-from-a-storage-account"></a>Condividere da un account di archiviazione:
+
+* Un account di Archiviazione di Azure: se non se ne ha già uno, è possibile creare un [account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+* L'autorizzazione per aggiungere l'assegnazione di ruolo all'account di archiviazione, inclusa nell'autorizzazione*Microsoft.Authorization/role assignments/write*. Questa autorizzazione è presente nel ruolo proprietario. 
+
+### <a name="share-from-a-sql-based-source"></a>Condividere da un'origine basata su SQL:
+
+* Un database o un data warehouse SQL di Azure con tabelle e visualizzazioni da condividere.
+* Autorizzazione per la condivisione dati che deve accedere al data warehouse. A tale scopo, seguire questa procedura: 
+    1. Impostarsi come amministratore di Azure Active Directory per il server.
+    1. Connettersi al database SQL di Azure o ad Azure SQL Data Warehouse con Azure Active Directory.
+    1. Usare l'Editor di query (anteprima) per eseguire lo script seguente in modo da aggiungere l'identità del servizio gestita di Condivisione dati come db_owner. È necessario connettersi usando Active Directory e non l'autenticazione di SQL Server. 
+    
+```sql
+    create user <share_acct_name> from external provider;     
+    exec sp_addrolemember db_owner, <share_acct_name>; 
+```                   
+Si noti che *<share_acc_name>* è il nome del proprio account di Condivisione dati. Se ancora non si è provveduto a creare un tale account, è possibile tornare a questo prerequisito in un secondo momento.  
+
+* Accesso del firewall di SQL Server dell'indirizzo IP client: A tale scopo, seguire questa procedura: 1. Passare a *Firewall e reti virtuali* 1. Fare clic sull'interruttore di **attivazione** per consentire l'accesso ai servizi di Azure. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -44,7 +63,7 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
 1. Cercare *Condivisione dati*.
 
-1. Selezionare Condivisione dati (anteprima) e quindi **Crea**.
+1. Selezionare Condivisione dati e quindi **Crea**.
 
 1. Compilare i dettagli di base della risorsa di condivisione dati di Azure con le informazioni seguenti. 
 
@@ -72,31 +91,31 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
 1. Immettere i dettagli della condivisione dati. Specificare un nome, una descrizione del contenuto della condivisione e le condizioni per l'utilizzo (facoltativo). 
 
-    ![EnterShareDetails](./media/enter-share-details.png "Immettere i dettagli della condivisione") 
+    ![Immettere i dettagli della condivisione](./media/enter-share-details.png "Immettere i dettagli della condivisione") 
 
 1. Selezionare **Continua**
 
 1. Per aggiungere set di dati alla condivisione dati, selezionare **Add Datasets** (Aggiungi set di dati). 
 
-    ![Datasets](./media/datasets.png "Set di dati")
+    ![Set di dati](./media/datasets.png "Set di dati")
 
 1. Selezionare il tipo di set di dati da aggiungere. 
 
-    ![AddDatasets](./media/add-datasets.png "Aggiungere i set di dati")    
+    ![Aggiungere i set di dati](./media/add-datasets.png "Aggiungere i set di dati")    
 
 1. Passare all'oggetto che si vuole condividere e selezionare "Add Datasets" (Aggiungi set di dati). 
 
-    ![SelectDatasets](./media/select-datasets.png "Selezionare i set di dati")    
+    ![Selezionare i set di dati](./media/select-datasets.png "Selezionare i set di dati")    
 
 1. Nella scheda Destinatari immettere l'indirizzo di posta elettronica del consumer di dati selezionando "+ Aggiungi il destinatario". 
 
-    ![AddRecipients](./media/add-recipient.png "Aggiungere i destinatari") 
+    ![Aggiungere i destinatari](./media/add-recipient.png "Aggiungere destinatari") 
 
 1. Selezionare **Continua**
 
 1. Se si vuole consentire al consumer di dati di ottenere gli aggiornamenti incrementali dei dati, abilitare la pianificazione degli snapshot. 
 
-    ![EnableSnapshots](./media/enable-snapshots.png "Abilitare gli snapshot") 
+    ![Abilitare gli snapshot](./media/enable-snapshots.png "Abilitare gli snapshot") 
 
 1. Selezionare un'ora di inizio e un intervallo di ricorrenza. 
 

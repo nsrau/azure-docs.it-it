@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 07/24/2019
+ms.date: 10/14/2019
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9b3d18a7f59415b27b1a70067c9a8a610140ca25
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: f6a417e33ac9c60c978d8638539a1e5a0772a034
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672934"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475074"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>Esercitazione: Abilitare l'autenticazione in un'applicazione a pagina singola con Azure Active Directory B2C (Azure AD B2C)
 
@@ -48,6 +48,10 @@ In più, nell'ambiente di sviluppo locale devono anche essere installati gli ele
 
 Nella seconda esercitazione completata come parte dei prerequisiti è stata registrata un'applicazione Web in Azure AD B2C. Per consentire la comunicazione con l'esempio nell'esercitazione, è necessario aggiungere un URI di reindirizzamento all'applicazione in Azure AD B2C.
 
+Per aggiornare l'applicazione, è possibile usare l'esperienza **Applicazioni** corrente o la nuova esperienza **Registrazioni app (anteprima)** unificata. [Altre informazioni sull'esperienza di anteprima](http://aka.ms/b2cappregintro).
+
+#### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
+
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 1. Selezionare **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
@@ -55,6 +59,19 @@ Nella seconda esercitazione completata come parte dei prerequisiti è stata regi
 1. In **URL di risposta** aggiungere `http://localhost:6420`.
 1. Selezionare **Salva**.
 1. Nella pagina delle proprietà, registrare l' **ID applicazione**. Si userà l'ID dell'app in un passaggio successivo quando si aggiorna il codice nell'applicazione Web a pagina singola.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
+1. Selezionare **Registrazioni app (anteprima)** , la scheda **Applicazioni di cui si è proprietari** e quindi l'applicazione *webapp1*.
+1. Selezionare **Autenticazione** e quindi **Prova la nuova esperienza** (se visibile).
+1. In **Web** selezionare il collegamento **Aggiungi un URI**, immettere `http://localhost:6420` e quindi scegliere **Salva**.
+1. Selezionare **Panoramica**.
+1. Prendere nota del valore di **ID applicazione (client)** che verrà usato in un passaggio successivo quando si aggiorna il codice nell'applicazione Web a pagina singola.
+
+* * *
 
 ## <a name="get-the-sample-code"></a>Scaricare il codice di esempio
 
@@ -115,13 +132,16 @@ L'esempio supporta l'iscrizione, l'accesso, la modifica del profilo e la reimpos
 
 ### <a name="sign-up-using-an-email-address"></a>Iscriversi usando un indirizzo di posta elettronica
 
+> [!WARNING]
+> Dopo l'iscrizione o l'accesso, è possibile che venga visualizzato un [errore di autorizzazioni insufficienti](#error-insufficient-permissions). Si tratta di un errore previsto, dovuto all'implementazione corrente dell'esempio di codice. Questo problema verrà risolto in una versione futura dell'esempio di codice e di conseguenza l'avviso non verrà più visualizzato.
+
 1. Selezionare **Accedi** per avviare il flusso utente *B2C_1_signupsignin1* specificato in un passaggio precedente.
 1. Azure AD B2C presenta una pagina di accesso con un collegamento di iscrizione. Non avendo ancora un account, selezionare il collegamento **Iscriversi adesso**.
 1. Il flusso di lavoro per l'iscrizione presenta una pagina per raccogliere e verificare l'identità dell'utente usando un indirizzo e-mail. Il flusso di lavoro per l'iscrizione raccoglie anche la password dell'utente e gli attributi richiesti definiti nel flusso utente.
 
     Usare un indirizzo e-mail valido ed eseguire la convalida usando un codice di verifica. Impostare una password. Immettere i valori per gli attributi richiesti.
 
-    ![Pagina di iscrizione visualizzata dal flusso utente di accesso/iscrizione](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
+    ![Pagina di iscrizione visualizzata dal flusso utente di accesso/iscrizione](./media/active-directory-b2c-tutorials-spa/azure-ad-b2c-sign-up-workflow.png)
 
 1. Selezionare **Crea** per creare un account locale nella directory di Azure AD B2C.
 
@@ -131,7 +151,7 @@ Quando si seleziona **Crea**, la pagina di iscrizione si chiude e viene nuovamen
 
 ### <a name="error-insufficient-permissions"></a>Errore: autorizzazioni insufficienti
 
-Dopo l'accesso, l'app visualizza l'errore "Autorizzazioni insufficienti": si tratta di un **comportamento previsto**:
+Dopo l'accesso, l'app potrebbe visualizzare un errore di autorizzazioni insufficienti:
 
 ```Output
 ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.

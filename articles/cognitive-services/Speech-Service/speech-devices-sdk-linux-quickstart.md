@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 3ee39f4cf0c78850b0128fc5e497f2b2aee57bbc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5c881551648e8fc6078405e34fa3280723009b20
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559069"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490969"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>Guida introduttiva: Eseguire l'app di esempio Speech Devices SDK su Linux
 
@@ -113,14 +113,14 @@ Se si prevede di usare la finalità è necessaria una sottoscrizione al [servizi
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. La parola di attivazione (parola chiave) predefinita è "Computer". È anche possibile provare una delle altre parole di attivazione disponibili, come "Machine" o "Assistant". I file di risorse per queste parole di attivazione alternative sono disponibili nella cartella keyword di Speech Devices SDK. `/home/wcaltest/JRE-Sample-Release/keyword/Computer`, ad esempio, contiene i file usati per la parola di attivazione "Computer".
+1. La parola chiave predefinita è "Computer". È anche possibile provare una delle altre parole chiave disponibili, come "Machine" o "Assistant". I file di risorse per queste parole chiave alternative sono disponibili nella cartella keyword di Speech Devices SDK. `/home/wcaltest/JRE-Sample-Release/keyword/Computer`, ad esempio, contiene i file usati per la parola chiave "Computer".
 
    > [!TIP]
-   > È anche possibile [creare una parola di attivazione personalizzata](speech-devices-sdk-create-kws.md).
+   > È anche possibile [creare una parola chiave personalizzata](speech-devices-sdk-create-kws.md).
 
-    Per usare una nuova parola di attivazione, aggiornare le due righe seguenti in `FunctionsList.java` e copiare il pacchetto di parole di attivazione nell'app. Ad esempio, per usare la parola di attivazione "Machine" del pacchetto di parole di attivazione `kws-machine.zip`:
+    Per usare una nuova parola chiave, aggiornare le due righe seguenti in `FunctionsList.java` e copiare il pacchetto di parole chiave nell'app. Ad esempio, per usare la parola chiave 'Machine' del pacchetto di parole chiave `kws-machine.zip`:
 
-   * Copiare il pacchetto di parole di attivazione nella cartella del progetto **target/classes**.
+   * Copiare il pacchetto di parole chiave nella cartella del progetto **target/classes**.
 
    * Aggiornare `FunctionsList.java` con la parola chiave e il nome del pacchetto:
 

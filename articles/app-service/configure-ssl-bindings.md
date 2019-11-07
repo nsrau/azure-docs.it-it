@@ -22,7 +22,7 @@ ms.locfileid: "73509055"
 ---
 # <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>Proteggere un nome DNS personalizzato con un'associazione SSL nel Servizio app di Azure
 
-Questo articolo illustra come proteggere il [dominio personalizzato](app-service-web-tutorial-custom-domain.md) nel [Servizio app di Azure](https://docs.microsoft.com/azure/app-service/) o [app per le funzioni](https://docs.microsoft.com/azure/azure-functions/) creando un'associazione di certificati. Al termine, sarà possibile accedere Servizio app di Azure all'endpoint `https://` per nome DNS personalizzato, ad esempio `https://www.contoso.com`. 
+Questo articolo illustra come proteggere il [dominio personalizzato](app-service-web-tutorial-custom-domain.md) nel [Servizio app di Azure](https://docs.microsoft.com/azure/app-service/) o [app per le funzioni](https://docs.microsoft.com/azure/azure-functions/) creando un'associazione di certificati. Al termine, sarà possibile accedere Servizio app di Azure all'endpoint `https://` per nome DNS personalizzato (ad esempio `https://www.contoso.com`). 
 
 ![App Web con certificato SSL personalizzato](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
@@ -61,10 +61,10 @@ Seguire anche questa procedura:
 
 Nel menu a sinistra nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> scegliere **Servizi app** >  **\<nome app>** .
 
-Dalla barra di spostamento a sinistra dell'app avviare la finestra di dialogo **associazione TLS/SSL** tramite:
+Dalla barra di spostamento a sinistra dell'app avviare la finestra di dialogo **Associazione TLS/SSL** tramite:
 
-- Selezione di **domini personalizzati** > **Aggiungi associazione**
-- Selezione di **impostazioni TLS/SSL** > **Aggiungi associazione TLS/SSL**
+- Selezione di **Domini personalizzati** > **Aggiungi associazione**
+- Selezione di **Impostazioni TLS/SSL** > **Aggiungi associazione TLS/SSL**
 
 ![Aggiungere il binding al dominio](./media/configure-ssl-bindings/secure-domain-launch.png)
 
@@ -90,9 +90,9 @@ Usare la tabella seguente per informazioni sulla configurazione dell'associazion
 |-|-|
 | Dominio personalizzato | Nome di dominio per cui aggiungere l'associazione SSL. |
 | Identificazione personale del certificato privato | Certificato da associare. |
-| Tipo TLS/SSL | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** : è possibile aggiungere più associazioni SSL SNI. Questa opzione consente di usare più certificati SSL per proteggere più domini nello stesso indirizzo IP. La maggior parte dei browser moderni (tra cui Internet Explorer, Chrome, Firefox e Opera) supporta SNI. Per altre informazioni vedere [Indicazione nome server](https://wikipedia.org/wiki/Server_Name_Indication).</li><li>**IP SSL**: è possibile aggiungere una sola associazione IP SSL. Questa opzione consente di usare solo un certificato SSL per proteggere un indirizzo IP pubblico dedicato. Dopo aver configurato l'associazione, seguire i passaggi descritti in [Eseguire un nuovo mapping di un record per IP SSL](#remap-a-record-for-ip-ssl).<br/>IP SSL è supportato solo nei livelli Produzione o Isolato. </li></ul> |
+| Tipo TLS/SSL | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** : è possibile aggiungere più associazioni SSL SNI. Questa opzione consente di usare più certificati SSL per proteggere più domini nello stesso indirizzo IP. La maggior parte dei browser moderni (tra cui Internet Explorer, Chrome, Firefox e Opera) supporta SNI (per altre informazioni vedere [Indicazione nome server](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP SSL**: è possibile aggiungere una sola associazione IP SSL. Questa opzione consente di usare solo un certificato SSL per proteggere un indirizzo IP pubblico dedicato. Dopo aver configurato l'associazione, seguire i passaggi descritti in [Eseguire un nuovo mapping di un record per IP SSL](#remap-a-record-for-ip-ssl).<br/>IP SSL è supportato solo nei livelli Produzione o Isolato. </li></ul> |
 
-Al termine dell'operazione, lo stato SSL del dominio personalizzato viene modificato in Protetto**.
+Al termine dell'operazione, lo stato SSL del dominio personalizzato viene modificato in **Protetto**.
 
 ![Associazione SSL completata](./media/configure-ssl-bindings/secure-domain-finished.png)
 

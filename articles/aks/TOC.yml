@@ -345,6 +345,8 @@
           maintainContext: true
         - name: Avvio con il Centro distribuzione
           href: deployment-center-launcher.md
+        - name: Azioni di GitHub per Kubernetes
+          href: ../aks/kubernetes-action.md
     - name: Risolvere problemi
       items:
         - name: Problemi comuni

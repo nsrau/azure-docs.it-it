@@ -34,6 +34,8 @@
       href: vpn-over-expressroute.md
     - name: Connettere un gateway di rete virtuale a una rete WAN virtuale
       href: connect-virtual-network-gateway-vwan.md
+    - name: Configurare il peering di reti virtuali globale
+      href: global-peering-vnet.md
     - name: Configurare criteri IPSec personalizzati
       href: virtual-wan-custom-ipsec-portal.md
     - name: Configurare i certificati per VPN utente

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: ee647668e8b5826706e8d9bb8a82acaf53fd3d8c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: f7667ce99ceaa713332ad9419ffab9d57aa0f075
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515198"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494460"
 ---
 # <a name="quickstart-personalizer-client-library-for-nodejs"></a>Guida introduttiva: Libreria client di Personalizza esperienze per Node.js
 
@@ -39,7 +39,7 @@ Iniziare a usare la libreria client di Personalizza esperienze per Node.js. Segu
 Per usare questo avvio rapido, è necessario eseguire diversi passaggi:
 
 * Nel portale di Azure creare una risorsa di Personalizza esperienze
-* Nella pagina **Impostazioni** della risorsa di Personalizza esperienze nel portale di Azure modificare la frequenza di aggiornamento del modello
+* Nella pagina **Configurazione** della risorsa di Personalizza esperienze nel portale di Azure cambiare la frequenza di aggiornamento del modello
 * In un editor di codice creare un file di codice e modificarlo
 * Dalla riga di comando o dal terminale installare l'SDK dalla riga di comando
 * Dalla riga di comando o dal terminale eseguire il file di codice
@@ -90,7 +90,7 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 
 ## <a name="change-the-model-update-frequency"></a>Modificare la frequenza di aggiornamento del modello
 
-Nella pagina **Impostazioni** della risorsa di Personalizza esperienze nel portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. In questo modo il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
+Nella pagina **Configurazione** della risorsa di Personalizza esperienze nel portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. In questo modo il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
 
 ![Modificare la frequenza di aggiornamento del modello](./media/settings/configure-model-update-frequency-settings.png)
 

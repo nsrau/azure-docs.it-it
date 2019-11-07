@@ -1,19 +1,19 @@
 ---
 title: Creare un archivio conoscenze nel portale di Azure
 titleSuffix: Azure Cognitive Search
-description: Usare la procedura guidata Importa dati per creare un archivio conoscenze per rendere persistente il contenuto arricchito. Connettersi a un archivio conoscenze per l'analisi da altre app o inviare contenuto arricchito ai processi downstream.
+description: Usare l'Importazione guidata dati per creare un archivio conoscenze da usare per persistente il contenuto arricchito. Connettersi a un archivio conoscenze per l'analisi da altre app o inviare contenuto arricchito ai processi downstream.
 author: lisaleib
 manager: nitinme
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: d714e913d5e03233ed3ffcaaebca6eb989a56bd7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 16dd63e22182dedb4af97c2ef6238e6628778467
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790040"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485171"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Guida introduttiva: Creare un archivio conoscenze di Ricerca cognitiva di Azure nel portale di Azure
 
@@ -35,7 +35,7 @@ Questa guida di avvio rapido usa Ricerca cognitiva di Azure, Archiviazione BLOB 
 
 Poiché il carico di lavoro è molto ridotto, Servizi cognitivi lavora dietro le quinte per offrire un'elaborazione gratuita per un massimo di 20 transazioni al giorno quando vengono richiamate da Ricerca cognitiva di Azure. Se i usano i dati di esempio forniti, è possibile evitare di creare o collegare una risorsa di Servizi cognitivi.
 
-1. [Download HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). Questi dati corrispondono ai dati delle recensioni di hotel salvati in un file CSV (generato da Kaggle.com) e contengono 19 commenti dei clienti su un unico hotel. 
+1. [Download HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Questi dati corrispondono ai dati delle recensioni di hotel salvati in un file CSV (generato da Kaggle.com) e contengono 19 commenti dei clienti su un unico hotel. 
 
 1. [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) o [trovare un account esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) nella sottoscrizione corrente. Si userà l'archiviazione di Azure sia per il contenuto non elaborato da importare che per l'archivio conoscenze che rappresenta il risultato finale.
 
@@ -55,7 +55,7 @@ Poiché il carico di lavoro è molto ridotto, Servizi cognitivi lavora dietro le
 
     ![Creazione del contenitore BLOB di Azure](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Creazione del contenitore BLOB di Azure")
 
-1. Questa risorsa è quasi terminata, ma prima di chiudere le pagine, fare clic sul collegamento nel riquadro di spostamento sinistro per aprire la pagina **Chiavi di accesso**. Ottenere una stringa di connessione per recuperare i dati dall'archiviazione BLOB. Una stringa di connessione è simile all'esempio seguente: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+<!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. Get a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
 
 1. [Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella stessa sottoscrizione. È possibile usare un servizio gratuito per questo avvio rapido.
 

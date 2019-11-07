@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 08a18dc115990ad7d44a8b20412e07995c9af390
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 07b47374484cf954b1fc4279c93dddcc6cec7e61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069498"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470564"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Creare e usare un ambiente del servizio app con bilanciamento del carico interno 
 
@@ -31,7 +31,7 @@ Questo articolo illustra come creare un ambiente del servizio app ILB. Per una p
 
 ## <a name="overview"></a>Panoramica 
 
-È possibile distribuire un Ambiente del servizio app con un endpoint accessibile da Internet o con un indirizzo IP nella rete virtuale. Per impostare l'indirizzo IP su un indirizzo di rete virtuale, è necessario distribuire l'ambiente del servizio app con un bilanciamento del carico interno (ILB). Per la distribuzione dell'ambiente del servizio app con un bilanciamento del carico interno, è necessario fornire il nome dell'ambiente del servizio app. Il nome dell'ambiente del servizio app viene usato nel suffisso di dominio per le app nell'ambiente del servizio app.  Il suffisso di dominio per l'ambiente del servizio app ILB è &lt;nome ambiente del servizio app&gt;.appservicewebsites.net. Le app create in un ambiente del servizio app ILB non vengono inserite nel DNS pubblico. 
+È possibile distribuire un Ambiente del servizio app con un endpoint accessibile da Internet o con un indirizzo IP nella rete virtuale. Per impostare l'indirizzo IP su un indirizzo di rete virtuale, è necessario distribuire l'ambiente del servizio app con un bilanciamento del carico interno (ILB). Per la distribuzione dell'ambiente del servizio app con un bilanciamento del carico interno, è necessario fornire il nome dell'ambiente del servizio app. Il nome dell'ambiente del servizio app viene usato nel suffisso di dominio per le app nell'ambiente del servizio app.  Il suffisso di dominio per l'ambiente del servizio app ILB è &lt;nome ambiente del servizio app&gt;.appserviceenvironment.net. Le app create in un ambiente del servizio app ILB non vengono inserite nel DNS pubblico. 
 
 Nelle versioni precedenti dell'ambiente del servizio app ILB è necessario fornire un suffisso di dominio e un certificato predefinito per le connessioni HTTPS. Il suffisso di dominio e il certificato predefinito non vengono più raccolti al momento della creazione dell'ambiente del servizio app ILB. Ora, quando si crea un ambiente del servizio app ILB, il certificato predefinito viene fornito da Microsoft e considerato attendibile dal browser. È ancora possibile impostare nomi di dominio personalizzati per le app nell'ambiente del servizio app e impostare certificati su tali nomi di dominio personalizzati. 
 
@@ -107,9 +107,10 @@ Quando si usa un indirizzo VIP esterno, il DNS viene gestito da Azure. Qualsiasi
 Per configurare il DNS:
 
 - creare una zona per *&lt;nome ambiente del servizio app&gt;.appserviceenvironment.net*
-- creare un record A in tale zona che punti * all'indirizzo IP del servizio ILB 
+- creare un record A in tale zona che punti * all'indirizzo IP del servizio ILB
+- creare un record A in tale zona che punti @ all'indirizzo IP del servizio ILB
 - creare una zona in *&lt;nome ambiente del servizio app&gt;.appserviceenvironment.net* denominata SCM
-- creare un record A nella zona che punti all'indirizzo IP del servizio ILB
+- creare un record A nella zona che punti * all'indirizzo IP del servizio ILB
 
 ## <a name="publish-with-an-ilb-ase"></a>Pubblicare con un ambiente del servizio app ILB
 
@@ -156,7 +157,7 @@ Gli ambienti del servizio app con bilanciamento del carico interno creati prima 
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

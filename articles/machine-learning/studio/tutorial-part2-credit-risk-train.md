@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione 2: Eseguire il training di modelli di rischio di credito'
-titleSuffix: Azure Machine Learning Studio
-description: Esercitazione dettagliata che mostra come creare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning Studio. Questa esercitazione è la seconda di una serie in tre parti. Illustra come eseguire il training e la valutazione dei modelli.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Esercitazione dettagliata che mostra come creare una soluzione di analisi predittiva per la valutazione del rischio di credito nella versione classica di Azure Machine Learning Studio. Questa esercitazione è la seconda di una serie in tre parti. Illustra come eseguire il training e la valutazione dei modelli.
 keywords: rischio di credito, soluzione di analisi predittiva, valutazione del rischio
 author: sdgilley
 ms.author: sgilley
@@ -10,24 +10,24 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 45407e183c70fe67e6bd59e3fd86a50a31844c47
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: ce3661a75d35ab39b7e8b551cc0b84b57a76e032
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453481"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492555"
 ---
-# <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio"></a>Esercitazione 2: Eseguire il training di modelli di rischio di credito - Azure Machine Learning Studio
+# <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Esercitazione 2: Eseguire il training di modelli di rischio di credito - Azure Machine Learning Studio (versione classica)
 
-In questa esercitazione si esamina il processo di sviluppo di una soluzione di analisi predittiva. Si svilupperà un modello semplice in Machine Learning Studio.  Il modello verrà quindi distribuito come servizio Web di Azure Machine Learning.  Questo modello distribuito può creare previsioni usando nuovi dati. Questa esercitazione è la **seconda di una serie in tre parti**.
+In questa esercitazione si esamina il processo di sviluppo di una soluzione di analisi predittiva. Si svilupperà un modello semplice nella versione classica di Machine Learning Studio.  Il modello verrà quindi distribuito come servizio Web di Azure Machine Learning.  Questo modello distribuito può creare previsioni usando nuovi dati. Questa esercitazione è la **seconda di una serie in tre parti**.
 
 Si supponga di dover prevedere il rischio di credito di un soggetto in base alle informazioni fornite in una richiesta di credito.  
 
-La valutazione del rischio di credito è un problema complesso che verrà tuttavia semplificato con questa esercitazione. Verrà usata come esempio di come è possibile creare una soluzione di analisi predittiva con Microsoft Azure Machine Learning Studio. Per questa soluzione si useranno Azure Machine Learning Studio e un servizio Web di Machine Learning.  
+La valutazione del rischio di credito è un problema complesso che verrà tuttavia semplificato con questa esercitazione. Verrà usata come esempio di come è possibile creare una soluzione di analisi predittiva con Microsoft Azure Machine Learning Studio (versione classica). Per questa soluzione si userà la versione classica di Azure Machine Learning Studio e un servizio Web di Machine Learning.  
 
 In questa esercitazione in tre parti si inizia con dati sul rischio di credito disponibili pubblicamente.  Verrà quindi sviluppato e sottoposto a training un modello predittivo.  Il modello verrà infine distribuito come servizio Web.
 
-Nelle [prima parte dell'esercitazione](tutorial-part1-credit-risk.md) è stata creata un'area di lavoro di Machine Learning Studio, sono stati caricati i dati ed è stato creato un esperimento.
+Nella [prima parte dell'esercitazione](tutorial-part1-credit-risk.md) è stata creata un'area di lavoro di Machine Learning Studio (versione classica), sono stati caricati i dati ed è stato creato un esperimento.
 
 In questa parte dell'esercitazione verranno eseguite queste operazioni:
  
@@ -38,23 +38,20 @@ In questa parte dell'esercitazione verranno eseguite queste operazioni:
 
 Nella [terza parte dell'esercitazione](tutorial-part3-credit-risk-deploy.md) si distribuirà il modello come servizio Web.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 Completare la [prima parte dell'esercitazione](tutorial-part1-credit-risk.md).
 
 ## <a name="train"></a>Eseguire il training di più modelli
 
-Uno dei vantaggi che offre Azure Machine Learning Studio per la creazione di modelli di Machine Learning è la possibilità di valutare più tipi di modelli contemporaneamente in un singolo esperimento e confrontare i risultati. Questo tipo di esperimento consente di trovare la soluzione migliore per il problema che si desidera risolvere.
+Uno dei vantaggi che offre la versione classica di Azure Machine Learning Studio per la creazione di modelli di Machine Learning è la possibilità di valutare più tipi di modelli contemporaneamente in un singolo esperimento e confrontare i risultati. Questo tipo di esperimento consente di trovare la soluzione migliore per il problema che si desidera risolvere.
 
 Nell'esperimento sviluppato in questa esercitazione verranno creati due tipi diversi di modello, quindi ne verranno confrontati i punteggi risultanti per decidere quale algoritmo usare nell'esperimento finale.  
 
-Sono disponibili diversi modelli tra cui scegliere. Per visualizzare i modelli disponibili, espandere il nodo **Machine Learning** nella tavolozza dei moduli, espandere **Initialize Model** (Inizializza modello) e quindi i nodi al suo interno. Ai fini di questo esperimento, verranno selezionati i moduli [Two-Class Support Vector Machine (SVM)][two-class-support-vector-machine] (Macchina a vettori di supporto a due classi) e [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Albero delle decisioni con boosting a due classi).
+Sono disponibili diversi modelli tra cui scegliere. Per visualizzare i modelli disponibili, espandere il nodo **Machine Learning** nella tavolozza dei moduli, espandere **Initialize Model** (Inizializza modello) e quindi i nodi al suo interno. Ai fini di questo esperimento, verranno selezionati i moduli [Two-Class Support Vector Machine][two-class-support-vector-machine] (Macchina a vettori di supporto a due classi), o SVM, e [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Albero delle decisioni con boosting a due classi).
 
 > [!TIP]
-> Per ottenere informazioni sul tipo di algoritmo di Machine Learning più adatto per risolvere un problema specifico, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning Studio](algorithm-choice.md).
+> Per ottenere informazioni sul tipo di algoritmo di Machine Learning più adatto per risolvere un problema specifico, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning Studio (versione classica)](algorithm-choice.md).
 > 
 > 
 
@@ -64,16 +61,16 @@ In questo esperimento verranno aggiunti il modulo [Two-Class Boosted Decision Tr
 
 Prima di tutto verrà configurato il modello di albero delle decisioni con boosting.
 
-1. Trovare il modulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Albero delle decisioni con boosting a due classi) nella tavolozza dei moduli e trascinarlo nell'area di disegno.
+1. Trovare il modulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Albero delle decisioni con boosting a due classi) nel pannello dei moduli e trascinarlo nel canvas.
 
-1. Trovare il modulo [Train Model][train-model] (Training modello), trascinarlo nell'area di disegno, quindi connettere l'output del modulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Albero delle decisioni con boosting a due classi) alla porta di input sinistra del modulo [Train Model][train-model] (Training modello).
+1. Trovare il modulo [Train Model][train-model] (Training modello), trascinarlo nel canvas, quindi connettere l'output del modulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Albero delle decisioni con boosting a due classi) alla porta di input sinistra del modulo [Train Model][train-model] (Training modello).
    
    Il modulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Albero delle decisioni con boosting a due classi) inizializza il modello generico e [Train Model][train-model] (Training modello) usa i dati di training per il training del modello. 
 
-1. Connettere l'output sinistro del modulo [Execute R Script][execute-r-script] sinistro alla porta di input destra del modulo [Train Model][train-model] (Training modello). In questa esercitazione [sono stati usati i dati provenienti dal lato sinistro](#train) del modulo Split Data (Divisione dati) per il training.
+1. Connettere l'output sinistro del modulo [Execute R Script][execute-r-script] (Esecuzione script R) sinistro alla porta di input destra del modulo [Train Model][train-model] (Training modello). In questa esercitazione sono stati [usati i dati provenienti dal lato sinistro](#train) del modulo Split Data (Divisione dati) per il training.
    
    > [!TIP]
-   > Due degli input e uno degli output del modulo [Execute R Script][execute-r-script] (Esegui script R) non sono necessari per questo esperimento, pertanto potranno rimanere scollegati. 
+   > Due degli input e uno degli output del modulo [Execute R Script][execute-r-script] (Esecuzione script R) non sono necessari per questo esperimento, pertanto potranno rimanere scollegati. 
    > 
    > 
 
@@ -83,9 +80,9 @@ Questa parte dell'esperimento avrà ora un aspetto analogo al seguente:
 
 A questo punto è necessario indicare al modulo [Train Model][train-model] (Training modello) che il modello dovrà stimare il valore del rischio di credito.
 
-1. Selezionare il modulo [Train Model][train-model] (Training modello). Nel riquadro **Proprietà**, fare clic su **Launch column selector** (Avvia selettore colonne).
+1. Selezionare il modulo [Train Model][train-model]. Nel riquadro **Proprietà**, fare clic su **Launch column selector** (Avvia selettore colonne).
 
-1. Nella finestra di dialogo **Select a single column** (Selezionare una singola colonna), digitare "rischio di credito" nel campo di ricerca in **Colonne disponibili**, selezionare "Rischio di credito" di seguito e fare clic sul pulsante freccia destra (**>**) per spostare "Rischio di credito" su **Colonne selezionate**. 
+1. Nella finestra di dialogo **Select a single column** (Selezionare una singola colonna), digitare "rischio di credito" nel campo di ricerca in **Colonne disponibili**, selezionare "Rischio di credito" di seguito e fare clic sul pulsante freccia destra ( **>** ) per spostare "Rischio di credito" su **Colonne selezionate**. 
 
     ![Selezionare la colonna Rischio di credito per il modulo "Train Model" (Training modello)](./media/tutorial-part2-credit-risk-train/train-model-select-column.png)
 
@@ -99,15 +96,15 @@ Innanzitutto, una breve spiegazione di SVM. Gli alberi delle decisioni con boost
 
 Per configurare il modello SVM, procedere come segue:
 
-1. Trovare il modulo [Two-Class Support Vector Machine][two-class-support-vector-machine] (Macchina a vettori di supporto a due classi) nella tavolozza dei moduli e trascinarlo nell'area di disegno.
+1. Trovare il modulo [Two-Class Support Vector Machine][two-class-support-vector-machine] (Macchina a vettori di supporto a due classi) nel pannello dei moduli e trascinarlo nel canvas.
 
-1. Fare clic con il pulsante destro del mouse sul modulo [Train Model][train-model] (Training modello), scegliere **Copia**, quindi fare clic con il pulsante destro del mouse sull'area di disegno e scegliere **Incolla**. La copia del modulo [Train Model][train-model] (Training modello) presenta la stessa selezione di colonne dell'originale.
+1. Fare clic con il pulsante destro del mouse sul modulo [Train Model][train-model] (Training modello), scegliere **Copia**, quindi fare clic con il pulsante destro del mouse sul canvas e scegliere **Incolla**. La copia del modulo [Train Model][train-model] (Training modello) presenta la stessa selezione di colonne dell'originale.
 
 1. Connettere l'output del modulo [Two-Class Support Vector Machine][two-class-support-vector-machine] (Macchina a vettori di supporto a due classi) alla porta di input sinistra del secondo modulo [Train Model][train-model] (Training modello).
 
-1. Trovare il modulo [Normalize Data][normalize-data] (Normalizza dati) e trascinarlo nell'area di disegno.
+1. Trovare il modulo [Normalize Data][normalize-data] (Normalizza dati) e trascinarlo nel canvas.
 
-1. Connettere l'output sinistro del modulo [Execute R Script][execute-r-script] (Esegui script R) sinistro all'input di questo modulo (si noti che la porta di output di un modulo potrebbe essere connessa a più di un modulo).
+1. Connettere l'output sinistro del modulo [Execute R Script][execute-r-script] (Esecuzione script R) sinistro all'input di questo modulo (si noti che la porta di output di un modulo potrebbe essere connessa a più di un modulo).
 
 1. Connettere la porta di output sinistra del modulo [Normalize Data][normalize-data] (Normalizza dati) alla porta di input destra del secondo modulo [Train Model][train-model] (Training modello).
 
@@ -128,19 +125,19 @@ Ora configurare il modulo [Normalize Data][normalize-data] (Normalizza dati):
     ![Selezionare le colonne per il modulo Normalize Data (Normalizza dati)](./media/tutorial-part2-credit-risk-train/normalize-data-select-column.png)
 
 
-Il modulo [Normalize Data][normalize-data] (Normalizza dati) è ora impostato per eseguire una trasformazione tanh su tutte le colonne numeriche, a eccezione della colonna Rischi di credito.  
+Il modulo [Normalize Data][normalize-data] (Normalizza dati) è ora impostato per eseguire una trasformazione Tanh su tutte le colonne numeriche, a eccezione della colonna del rischio di credito.  
 
 ## <a name="score-and-evaluate-the-models"></a>Classificare e valutare i modelli
 
-Verranno usati i dati di test separati dal modulo [Split Data][split] (Divisione dati) per assegnare il punteggio ai moduli sottoposti a training. Sarà quindi possibile confrontare i risultati dei due modelli per stabilire quale ha generato i risultati migliori.  
+Si useranno i dati di test che sono stati separati dal modulo [Split Data][split] (Divisione dati) per assegnare il punteggio ai moduli sottoposti a training. Sarà quindi possibile confrontare i risultati dei due modelli per stabilire quale ha generato i risultati migliori.  
 
 ### <a name="add-the-score-model-modules"></a>Aggiungere i moduli Score Model (Punteggio modello)
 
-1. Trovare il modulo [Score Model][score-model] (Punteggio modello) e trascinarlo nell'area di disegno.
+1. Trovare il modulo [Score Model][score-model] (Punteggio modello) e trascinarlo nel canvas.
 
 1. Connettere il modulo [Train Model][train-model] (Training modello) connesso al modulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Albero delle decisioni con boosting a due classi) alla porta di input sinistra del modulo [Score Model][score-model] (Punteggio modello).
 
-1. Connettere il modulo [Execute R Script][execute-r-script] (Esegui script R) alla porta di input destra del modulo [Score Model][score-model] (Punteggio modello).
+1. Connettere il modulo [Execute R Script][execute-r-script] (Esecuzione script R) destro alla porta di input destra del modulo [Score Model][score-model] (Punteggio modello).
 
     ![Modulo Score Model (Punteggio modello) connesso](./media/tutorial-part2-credit-risk-train/score-model-connected.png)
 
@@ -149,22 +146,22 @@ Verranno usati i dati di test separati dal modulo [Split Data][split] (Divisione
 
 1. Copiare e incollare il modulo [Score Model][score-model] (Punteggio modello) per creare una seconda copia.
 
-1. Connettere l'output del modello SVM (vale a dire la porta di output del modulo [Train Model][train-model] (Training modello) connessa al modulo [Two-Class Support Vector Machine][two-class-support-vector-machine] (Macchina a vettori di supporto a due classi) alla porta di input del secondo modulo [Score Model][score-model] (Punteggio modello).
+1. Connettere l'output del modello SVM, vale a dire la porta di output del modulo [Train Model][train-model] (Training modello) connessa al modulo [Two-Class Support Vector Machine][two-class-support-vector-machine] (Macchina a vettori di supporto a due classi), alla porta di input del secondo modulo [Score Model][score-model] (Punteggio modello).
 
-1. Per il modello SVM è necessario eseguire la stessa trasformazione sui dati di test eseguita in precedenza sui dati di training. Pertanto, copiare e incollare il modulo [Normalize Data][normalize-data] (Normalizza dati) per creare una seconda copia e connetterla al modulo [Execute R Script][execute-r-script] (Esegui script R).
+1. Per il modello SVM è necessario eseguire la stessa trasformazione sui dati di test eseguita in precedenza sui dati di training. Pertanto, copiare e incollare il modulo [Normalize Data][normalize-data] (Normalizza dati) per creare una seconda copia e connetterla al modulo [Execute R Script][execute-r-script] (Esecuzione script R) destro.
 
-1. Connettere l'output sinistra del secondo modulo [Normalize Data][normalize-data] (Normalizza dati) alla porta di input destra del secondo modulo [Score Model][score-model] (Punteggio modello).
+1. Connettere l'output sinistro del secondo modulo [Normalize Data][normalize-data] (Normalizza dati) alla porta di input destra del secondo modulo [Score Model][score-model] (Punteggio modello).
 
     ![Entrambi i moduli Score Model (Punteggio modello) connessi](./media/tutorial-part2-credit-risk-train/both-score-models-added.png)
 
 
 ### <a name="add-the-evaluate-model-module"></a>Aggiungere il modulo Evaluate Model (Modello di valutazione)
 
-Per valutare i due risultati di punteggio e confrontarli, viene usato il modulo [Evaluate Model][evaluate-model] (Modello di valutazione).  
+Per valutare i due risultati di punteggio e confrontarli, viene usato il modulo [Evaluate Model][evaluate-model] (Valutazione modello).  
 
-1. Trovare il modulo [Evaluate Model][evaluate-model] (Modello di valutazione) e trascinarlo nell'area di disegno.
+1. Trovare il modulo [Evaluate Model][evaluate-model] (Valutazione modello) e trascinarlo nel canvas.
 
-1. Connettere la porta di output del modulo [Score Model][score-model] (Punteggio modello) associata al modello di albero delle decisioni con boosting alla porta di input sinistra del modulo [Evaluate Model][evaluate-model] (Modello di valutazione).
+1. Connettere la porta di output del modulo [Score Model][score-model] (Punteggio modello) associata al modello di albero delle decisioni con boosting alla porta di input sinistra del modulo [Evaluate Model][evaluate-model] (Valutazione modello).
 
 1. Connettere l'altro modulo [Score Model][score-model] (Punteggio modello) alla porta di input destra.  
 
@@ -180,20 +177,20 @@ L'esperimento avrà ora un aspetto analogo al seguente:
 ![Valutazione di entrambi i modelli](./media/tutorial-part2-credit-risk-train/final-experiment.png)
 
 
-Per verificare i risultati, fare clic sulla porta di output del modulo [Evaluate Model][evaluate-model] (Modello di valutazione) e selezionare **Visualize** (Visualizza).  
+Per verificare i risultati, fare clic sulla porta di output del modulo [Evaluate Model][evaluate-model] (Valutazione modello) e selezionare **Visualize** (Visualizza).  
 
-Il modulo [Evaluate Model][evaluate-model] (Modello di valutazione) produce un paio di curve e metriche che consentono di confrontare i risultati dei due modelli classificati. È possibile visualizzare i risultati come curve ROC (Receiver Operator Characteristic), curve precisione/recupero o curve di accuratezza. Altri dati visualizzati includono una matrice di confusione, valori cumulativi per l'area nella curva (AUC) e altra metrica. È possibile modificare il valore soglia spostando il dispositivo di scorrimento a sinistra o a destra e vedere come ciò influisce sul set della metrica.  
+Il modulo [Evaluate Model][evaluate-model] (Valutazione modello) produce una coppia di curve e metriche che consentono di confrontare i risultati dei due modelli classificati. È possibile visualizzare i risultati come curve ROC (Receiver Operator Characteristic), curve precisione/recupero o curve di accuratezza. Altri dati visualizzati includono una matrice di confusione, valori cumulativi per l'area nella curva (AUC) e altra metrica. È possibile modificare il valore soglia spostando il dispositivo di scorrimento a sinistra o a destra e vedere come ciò influisce sul set della metrica.  
 
-A destra del grafico fare clic su **Scored dataset** (Set di dati con punteggio) o **Scored dataset to compare** (Set di dati con punteggio da confrontare) per evidenziare la curva associata e visualizzare le metriche associate più sotto. Nella legenda per le curve, "Scored dataset" (Set di dati con punteggio) corrisponde alla porta di input sinistra del modulo [Evaluate Model][evaluate-model] (Modello di valutazione). In questo caso si tratta del modello di albero delle decisioni con boosting. "Scored dataset to compare" corrisponde alla porta di input destra, in questo caso il modello di macchina a vettori di supporto. Quando si fa clic su una di queste etichette, viene evidenziata la curva per il modello e viene visualizzata la metrica corrispondente, come mostrato dalla grafica seguente.  
+A destra del grafico fare clic su **Scored dataset** (Set di dati con punteggio) o **Scored dataset to compare** (Set di dati con punteggio da confrontare) per evidenziare la curva associata e visualizzare le metriche associate più sotto. Nella legenda per le curve, "Scored dataset" (Set di dati con punteggio) corrisponde alla porta di input sinistra del modulo [Evaluate Model][evaluate-model] (Valutazione modello). In questo caso si tratta del modello di albero delle decisioni con boosting. "Scored dataset to compare" corrisponde alla porta di input destra, in questo caso il modello di macchina a vettori di supporto. Quando si fa clic su una di queste etichette, viene evidenziata la curva per il modello e viene visualizzata la metrica corrispondente, come mostrato dalla grafica seguente.  
 
 ![ROC curves for models](./media/tutorial-part2-credit-risk-train/roc-curves.png)
 
 Esaminando questi valori, è possibile decidere quale sia il modello che più si avvicina ai risultati previsti. È possibile tornare indietro ed eseguire l'iterazione dell'esperimento modificando i valori di parametro dei vari modelli. 
 
 La scienza e l'arte di interpretare questi risultati e di ottimizzare le prestazioni del modello non rientrano nell'ambito di questa esercitazione. Per ulteriori informazioni, è possibile leggere gli articoli seguenti:
-- [Come valutare le prestazioni del modello in Azure Machine Learning Studio](evaluate-model-performance.md)
-- [Scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning Studio](algorithm-parameters-optimize.md)
-- [Interpretare i risultati dei modelli in Azure Machine Learning Studio](interpret-model-results.md)
+- [Come valutare le prestazioni del modello in Azure Machine Learning Studio (versione classica)](evaluate-model-performance.md)
+- [Scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning Studio (versione classica)](algorithm-parameters-optimize.md)
+- [Interpretare i risultati dei modelli in Azure Machine Learning Studio (versione classica)](interpret-model-results.md)
 
 > [!TIP]
 > Ogni volta che si esegue l'esperimento, viene conservato un record dell'iterazione nella cronologia di esecuzione. È possibile visualizzare le iterazioni e tornare a una qualsiasi di esse facendo clic su **VISUALIZZA CRONOLOGIA ESECUZIONI** sotto l'area di disegno. È anche possibile fare clic su **Prior Run** (Esecuzione precedente) nel riquadro **Properties** (Proprietà) per tornare all'iterazione immediatamente precedente a quella aperta.
@@ -201,7 +198,7 @@ La scienza e l'arte di interpretare questi risultati e di ottimizzare le prestaz
 > È possibile eseguire una copia di qualsiasi interazione dell'esperimento facendo clic su **SALVA CON NOME** sotto l'area di disegno. 
 > Usare le proprietà **Summary** (Riepilogo) e **Description** (Descrizione) dell'esperimento per tenere traccia dei tentativi eseguiti nelle iterazioni dell'esperimento.
 > 
-> Per altre informazioni, vedere [Gestire iterazioni dell'esperimento in Azure Machine Learning Studio](manage-experiment-iterations.md).  
+> Per altre informazioni, vedere [Gestire iterazioni dell'esperimento in Azure Machine Learning Studio (versione classica)](manage-experiment-iterations.md).  
 > 
 > 
 

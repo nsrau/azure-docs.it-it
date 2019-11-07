@@ -13,20 +13,16 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: d4605ad448916d788fd0a7089835a9ad3828697e
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 4b21d6aa95a38df402cf7a2640467c7a060a7f49
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980414"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496381"
 ---
 # <a name="connect-data-sources"></a>Connettere le origini dati
-
-
-
-
 
 Per eseguire l'onboarding di Azure Sentinel, è necessario innanzitutto connettersi alle origini dati. Azure Sentinel include numerosi connettori predefiniti per l'integrazione in tempo reale con le soluzioni Microsoft, comprese le soluzioni Microsoft Threat Protection e origini Microsoft 365, tra cui Office 365, Azure AD, Azure ATP, Microsoft Cloud App Security e altre ancora. Inoltre, sono presenti connettori predefiniti a soluzioni non Microsoft, per l'ecosistema di sicurezza allargato. Per connettere le origini dati con Azure Sentinel è anche possibile usare Common Event Format, Syslog o API REST.  
 
@@ -62,7 +58,9 @@ Azure Sentinel supporta i metodi di connessione dati seguenti:
 - **Soluzioni esterne tramite API**: alcune origini dati vengono connesse tramite le API fornite dall'origine dati connessa. In genere, la maggior parte delle tecnologie di sicurezza fornisce un set di API tramite cui è possibile recuperare i registri eventi. Le API si connettono ad Azure Sentinel e raccolgono tipi di dati specifici da inviare ad Azure Log Analytics. Le appliance connesse tramite API includono:
     - [Barracuda](connect-barracuda.md)
     - [Symantec](connect-symantec.md)
-- **Soluzioni esterne tramite agente**: Azure Sentinel può essere connesso a tutte le altre origini dati in grado di eseguire lo streaming dei log in tempo reale usando il protocollo Syslog, tramite un agente. <br>La maggior parte delle appliance usa il protocollo Syslog per inviare messaggi di evento che includono il log stesso e dati sul log. Il formato dei log varia, ma la maggior parte delle appliance supporta lo standard CEF (Common Event Format). <br>L'agente di Azure Sentinel, che si basa sull'agente di Log Analytics, converte i log CEF in un formato che può essere inserito in Log Analytics. A seconda del tipo di appliance, l'agente è installato direttamente nell'appliance oppure in un server Linux dedicato. L'agente per Linux riceve gli eventi dal daemon Syslog tramite UDP, ma se è previsto che un computer Linux raccolga un numero elevato di eventi Syslog, questi vengono inviati tramite TCP dal daemon Syslog all'agente e quindi dall'agente a Log Analytics.
+    - [Citrix Analytics (Security)](connect-citrix-analytics.md)
+
+- **Soluzioni esterne tramite agente**: Azure Sentinel può essere connesso a tutte le altre origini dati in grado di eseguire lo streaming dei log in tempo reale usando il protocollo Syslog, tramite un agente. <br>La maggior parte delle appliance usa il protocollo Syslog per inviare messaggi di evento che includono il log stesso e dati sul log. Il formato dei log varia, ma la maggior parte delle appliance supporta la formattazione basata su CEF (Common Event Format) per i dati dei log. <br>L'agente di Azure Sentinel, che si basa sull'agente di Log Analytics, converte i log CEF in un formato che può essere inserito in Log Analytics. A seconda del tipo di appliance, l'agente è installato direttamente nell'appliance oppure in un server Linux dedicato. L'agente per Linux riceve gli eventi dal daemon Syslog tramite UDP, ma se è previsto che un computer Linux raccolga un numero elevato di eventi Syslog, questi vengono inviati tramite TCP dal daemon Syslog all'agente e quindi dall'agente a Log Analytics.
     - Firewall, proxy ed endpoint:
         - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)
@@ -71,6 +69,10 @@ Azure Sentinel supporta i metodi di connessione dati seguenti:
         - [Palo Alto](connect-paloalto.md)
         - [Altre appliance CEF](connect-common-event-format.md)
         - [Altre appliance Syslog](connect-syslog.md)
+        - [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
+        - [ExtraHop Reveal(x)](connect-extrahop.md)
+        - [One Identity Safeguard](connect-one-identity.md)
+        - [Trend Micro Deep Security](connect-trend-micro.md)
     - Soluzioni DLP
     - [Provider di intelligence sulle minacce](connect-threat-intelligence.md)
     - [Computer DNS](connect-dns.md) -agente installato direttamente nel computer DNS
