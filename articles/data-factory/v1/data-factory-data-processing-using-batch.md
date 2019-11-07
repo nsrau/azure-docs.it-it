@@ -1,5 +1,5 @@
 ---
-title: Process large-scale datasets by using Data Factory and Batch (Elaborare set di dati su larga scala con Data Factory e Batch) | Microsoft Docs
+title: Elaborare set di dati su larga scala con Data Factory e Batch
 description: Descrive come elaborare elevate quantità di dati in una pipeline di Azure Data Factory usando la funzionalità di elaborazione parallela di Azure Batch.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: fe015e2ffa371c0c31f7f5f43c433d44f3ca3c42
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 611c2a36cac5a589ecd6f9063f5f1bc325860ef6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140050"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682673"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
 > [!NOTE]
@@ -84,7 +84,7 @@ Nell'elenco seguente vengono presentati i passaggi di base del processo. La solu
 ## <a name="implementation-of-the-sample-solution"></a>Implementazione della soluzione di esempio
 La soluzione di esempio è volutamente semplice. È progettata per illustrare come usare Data Factory e Batch insieme ai set di dati di processo. La soluzione conta semplicemente il numero di occorrenze del termine di ricerca ("Microsoft") nei file di input organizzati in una serie temporale. Restituisce quindi il numero in file di output.
 
-**Tempo:** se si ha familiarità con le nozioni di base di Azure, Azure Data Factory e Azure Batch e sono stati completati i prerequisiti elencati di seguito, il completamento di questa soluzione richiede da una a due ore.
+**Tempo**: se si ha familiarità con le nozioni di base di Azure, di Data Factory e di Batch e sono stati completati i prerequisiti elencati di seguito, si stima che il completamento di questa soluzione richieda 1-2 ore.
 
 ### <a name="prerequisites"></a>Prerequisiti
 #### <a name="azure-subscription"></a>Sottoscrizione di Azure
@@ -121,7 +121,7 @@ Creare un pool di Batch con almeno 2 nodi di calcolo.
 
    f. Fare clic su **OK** per creare il pool.
 
-#### <a name="azure-storage-explorer"></a>Esplora archivi Azure
+#### <a name="azure-storage-explorer"></a>Azure Storage Explorer
 Usare [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) o [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (di ClumsyLeaf Software) per controllare e modificare i dati nei progetti di Archiviazione. È anche possibile esaminare e modificare i dati nei log delle applicazioni ospitate nel cloud.
 
 1. Creare un contenitore denominato **mycontainer** con accesso privato (nessun accesso anonimo).
@@ -186,7 +186,7 @@ public IDictionary<string, string> Execute(
 
    d. Selezionare la **libreria di classi** dall'elenco relativo ai tipi di progetto visualizzato a destra.
 
-   e. Immettere **MyDotNetActivity** for the **Nome**.
+   e. Immettere **MyDotNetActivity** per **Nome**.
 
    f. Selezionare **C:\\ADF** per **Percorso**. Creare la cartella **ADF** se non esiste già.
 
@@ -930,11 +930,11 @@ Il debug è costituito da alcune tecniche di base.
 #### <a name="extend-the-sample"></a>Estendere l'esempio
 È possibile estendere questo esempio per ottenere altre informazioni sulle funzionalità di Data Factory e di Batch. Ad esempio, per elaborare le sezioni in un intervallo di tempo diverso, seguire questa procedura:
 
-1. Aggiungere le sottocartelle seguenti in `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 e 2015-11-16-09. Posizionare i file di input in queste cartelle. Modificare l'ora di fine per la pipeline da `2015-11-16T05:00:00Z` a `2015-11-16T10:00:00Z`. Nella vista **Diagramma** fare doppio clic su **InputDataset** e verificare che le sezioni di input siano pronte. Fare doppio clic su **OuptutDataset** per visualizzare lo stato delle sezioni di output. Se lo stato è **Pronto**, controllare i file di output nella cartella di output.
+1. Aggiungere le sottocartelle seguenti in `inputfolder`: 2015-11-16-05, 2015-11-16-06, 07 201-11-16, 2011-11-16-08 e 2015-11-16-09. Posizionare i file di input in queste cartelle. Modificare l'ora di fine per la pipeline da `2015-11-16T05:00:00Z` a `2015-11-16T10:00:00Z`. Nella vista **Diagramma** fare doppio clic su **InputDataset** e verificare che le sezioni di input siano pronte. Fare doppio clic su **OuptutDataset** per visualizzare lo stato delle sezioni di output. Se lo stato è **Pronto**, controllare i file di output nella cartella di output.
 
-1. Aumentare o diminuire l'impostazione **concurrency** per comprenderne gli effetti sulle prestazioni della soluzione, in particolare l'elaborazione che si verifica in Batch. Per altre informazioni sull'impostazione **concurrency**, vedere "Passaggio 4: Creare ed eseguire la pipeline con un'attività personalizzata".
+1. Aumentare o diminuire l'impostazione **concurrency** per comprenderne gli effetti sulle prestazioni della soluzione, in particolare l'elaborazione che si verifica in Batch. Per altre informazioni sull'impostazione **concurrency**, vedere "Passaggio 4: creare ed eseguire la pipeline con un'attività personalizzata."
 
-1. Creare un pool con un **numero massimo di attività per ogni VM**più alto o più basso. Aggiornare il servizio collegato di Batch nella soluzione data factory per usare il nuovo pool creato. Per altre informazioni sull'impostazione **Numero massimo di attività per ogni macchina virtuale**, vedere "Passaggio 4: Creare ed eseguire la pipeline con un'attività personalizzata".
+1. Creare un pool con un **numero massimo di attività per ogni VM**più alto o più basso. Aggiornare il servizio collegato di Batch nella soluzione data factory per usare il nuovo pool creato. Per altre informazioni sull'impostazione del **Numero massimo di attività per ogni macchina virtuale**, vedere "Passaggio 4: creare ed eseguire la pipeline con un'attività personalizzata."
 
 1. Creare un pool di Batch con la funzionalità **scalabilità automatica**. Il ridimensionamento automatico dei nodi di calcolo in un pool di Batch è una regolazione dinamica della potenza di elaborazione usata dall'applicazione. 
 
@@ -962,7 +962,7 @@ Dopo l'elaborazione dei dati, è possibile usarli con strumenti online come Powe
 * [Esplorare un set di dati in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
 * [Introduzione a Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 * [Aggiornamento dei dati in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
-* [Azure e Power BI: panoramica di base](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
+* [Azure e Power BI - Panoramica di base](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Riferimenti
 * [Data factory di Azure](https://azure.microsoft.com/documentation/services/data-factory/)

@@ -1,5 +1,5 @@
 ---
-title: Ottenere l'attività dei metadati in Azure Data Factory | Microsoft Docs
+title: Ottenere l'attività dei metadati in Azure Data Factory
 description: Informazioni su come usare l'attività Ottieni metadati in una pipeline Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 081d7219407decac5dd36a06f289436aa0da627b
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: e891f6675920e7bb90d2a6d007676cdd65f19917
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061539"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679897"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Ottenere l'attività dei metadati in Azure Data Factory
 
@@ -32,7 +32,7 @@ La funzionalità seguente è disponibile nel flusso di controllo:
 - Per eseguire la convalida, è possibile utilizzare l'output dell'attività Ottieni metadati nelle espressioni condizionali.
 - È possibile attivare una pipeline quando una condizione viene soddisfatta tramite do until loop.
 
-## <a name="capabilities"></a>Funzionalità
+## <a name="capabilities"></a>Capabilities
 
 L'attività Ottieni metadati accetta un set di dati come input e restituisce informazioni sui metadati come output. Attualmente sono supportati i seguenti connettori e i metadati recuperabili corrispondenti. Le dimensioni massime dei metadati restituiti sono pari a 1 MB.
 
@@ -43,7 +43,7 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 
 **Archiviazione file**
 
-| Connettore/Metadati | itemName<br>(file/cartella) | itemType<br>(file/cartella) | size<br>(file) | creato<br>(file/cartella) | LastModified<br>(file/cartella) |childItems<br>(cartella) |contentMD5<br>(file) | structure<br/>(file) | columnCount<br>(file) | esiste<br>(file/cartella) |
+| Connettore/Metadati | itemName<br>(file/cartella) | itemType<br>(file/cartella) | size<br>(file) | created<br>(file/cartella) | LastModified<br>(file/cartella) |childItems<br>(cartella) |contentMD5<br>(file) | structure<br/>(file) | columnCount<br>(file) | exists<br>(file/cartella) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
@@ -56,11 +56,11 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 
 - Per Amazon S3 e Google Cloud Storage, `lastModified` si applica al bucket e alla chiave ma non alla cartella virtuale e `exists` si applica al bucket e alla chiave, ma non al prefisso o alla cartella virtuale.
-- Per l'archiviazione BLOB di `lastModified` Azure, si applica al contenitore e al BLOB, ma non alla cartella virtuale.
+- Per l'archiviazione BLOB di Azure, `lastModified` si applica al contenitore e al BLOB, ma non alla cartella virtuale.
 
 **Database relazionale**
 
-| Connettore/Metadati | structure | columnCount | esiste |
+| Connettore/Metadati | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
 | [Database SQL di Azure](connector-azure-sql-database.md) | √ | √ | √ |
 | [Istanza gestita di Database SQL di Azure](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
@@ -74,21 +74,21 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 | Tipo di metadati | Descrizione |
 |:--- |:--- |
 | itemName | Nome del file o della cartella. |
-| itemType | Tipo di file o di cartella. Il valore restituito `File` è `Folder`o. |
+| itemType | Tipo di file o di cartella. Il valore restituito è `File` o `Folder`. |
 | size | Dimensioni del file, in byte. Applicabile solo ai file. |
-| creato | Data/ora di creazione del file o della cartella. |
+| created | Data/ora di creazione del file o della cartella. |
 | LastModified | Data/ora dell'ultima modifica del file o della cartella. |
 | childItems | Elenco di sottocartelle e file nella cartella specificata. Applicabile solo alle cartelle. Il valore restituito è un elenco del nome e del tipo di ogni elemento figlio. |
 | contentMD5 | MD5 del file. Applicabile solo ai file. |
 | structure | Struttura dei dati del file o della tabella di database relazionale. Il valore restituito è un elenco di nomi di colonna e di colonne. |
 | columnCount | Numero di colonne nel file o nella tabella relazionale. |
-| esiste| Indica se esiste un file, una cartella o una tabella. Si noti che `exists` se è specificato nell'elenco dei campi Get Metadata, l'attività non avrà esito negativo anche se il file, la cartella o la tabella non esiste. `exists: false` Viene invece restituito nell'output. |
+| exists| Indica se esiste un file, una cartella o una tabella. Si noti che se `exists` viene specificato nell'elenco dei campi di Get Metadata, l'attività non avrà esito negativo anche se il file, la cartella o la tabella non esiste. Viene invece restituito `exists: false` nell'output. |
 
 >[!TIP]
->Quando si desidera convalidare l'esistenza di un file, una cartella o una `exists` tabella, specificare nell'elenco dei campi attività Ottieni metadati. È quindi possibile controllare il `exists: true/false` risultato nell'output dell'attività. Se `exists` non è specificato nell'elenco dei campi, l'attività Ottieni metadati avrà esito negativo se l'oggetto non viene trovato.
+>Quando si desidera convalidare l'esistenza di un file, una cartella o una tabella, specificare `exists` nell'elenco dei campi attività Ottieni metadati. È quindi possibile controllare il risultato della `exists: true/false` nell'output dell'attività. Se `exists` non è specificato nell'elenco dei campi, l'attività Ottieni metadati avrà esito negativo se l'oggetto non viene trovato.
 
 >[!NOTE]
->Quando si ottengono metadati da archivi di file e `modifiedDatetimeStart` si `modifiedDatetimeEnd`configura o `childItems` , nell'output includerà solo i file nel percorso specificato con l'ora dell'Ultima modifica nell'intervallo specificato. In non includerà gli elementi nelle sottocartelle.
+>Quando si ottengono metadati da archivi di file e si configurano `modifiedDatetimeStart` o `modifiedDatetimeEnd`, il `childItems` nell'output includerà solo i file nel percorso specificato con l'ora dell'Ultima modifica compresa nell'intervallo specificato. In non includerà gli elementi nelle sottocartelle.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -134,14 +134,14 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 
 Attualmente, l'attività Ottieni metadati può restituire i seguenti tipi di informazioni sui metadati:
 
-Proprietà | Descrizione | Obbligatoria
+Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
 fieldList | Tipi di informazioni sui metadati necessari. Per informazioni dettagliate sui metadati supportati, vedere la sezione opzioni per i [metadati](#metadata-options) di questo articolo. | Sì 
 dataset | Set di dati di riferimento i cui metadati devono essere recuperati dall'attività Recupera metadati. Vedere la sezione [funzionalità](#capabilities) per informazioni sui connettori supportati. Per informazioni dettagliate sulla sintassi dei set di dati, vedere gli argomenti del connettore specifici. | Sì
 formatSettings | Applicare quando si usa il tipo di formato DataSet. | No
 storeSettings | Applicare quando si usa il tipo di formato DataSet. | No
 
-## <a name="sample-output"></a>Esempio di output
+## <a name="sample-output"></a>Output di esempio
 
 I risultati di Get Metadata vengono visualizzati nell'output dell'attività. Di seguito sono riportati due esempi che mostrano opzioni di metadati estese. Per usare i risultati in un'attività successiva, usare questo modello: `@{activity('MyGetMetadataActivity').output.itemName}`.
 

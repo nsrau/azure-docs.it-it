@@ -1,5 +1,5 @@
 ---
-title: Copiare i dati facilmente con la Copia guidata - Azure | Documentazione Microsoft
+title: Copiare facilmente i dati con la copia guidata-Azure
 description: Informazioni su come usare Copia guidata di Data Factory per copiare i dati da origini dati supportate nei sink.
 services: data-factory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 90f78428601d7b039d00d39c1ca8339ab3ace9ba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 88e5603405ad5594b06674aaf6cbb2c4d23b754c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487934"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682781"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copiare o spostare facilmente i dati con Copia guidata di Azure Data Factory
 > [!NOTE]
@@ -40,7 +40,7 @@ Questa procedura guidata consente di spostare facilmente i dati da un'ampia gamm
 > 
 > 
 
-La procedura guidata è totalmente pensata per i Big Data. È semplice ed efficiente creare pipeline di Data Factory che spostano centinaia di cartelle, file o tabelle con la procedura guidata per copiare i dati. La procedura guidata supporta le tre funzionalità seguenti: anteprima automatica dei dati, mapping e acquisizione dello schema e filtro dei dati. 
+La procedura guidata è totalmente pensata per i Big Data. È semplice ed efficiente creare pipeline di Data Factory che spostano centinaia di cartelle, file o tabelle con la procedura guidata per copiare i dati. La procedura guidata supporta le tre funzionalità seguenti: anteprima automatica dei dati, acquisizione dello schema e mapping e filtro dei dati. 
 
 ## <a name="automatic-data-preview"></a>Anteprima automatica dei dati
 La copia guidata consente di esaminare parte dei dati dall'origine dati selezionata per confermare che si tratti esattamente dei dati che si desidera copiare. in più, se l'origine dati è in un file di testo, la copia guidata analizza il file di testo per apprendere automaticamente lo schema e i delimitatori di riga e colonna. 
@@ -72,7 +72,7 @@ Si supponga di avere cartelle di input nel formato seguente:
     2016/03/01/03
     ...
 
-Fare clic sul pulsante **Esplora** per **File o cartella**, passare a una di queste cartelle, ad esempio 2016->03->01->02, e fare clic su **Scegli**. Nella casella di testo dovrebbe essere visualizzato `2016/03/01/02`. Sostituire **2016** con **{year}** , **03** con **{month}** , **01** con **{day}** e **02** con **{hour}** , poi premere Tab. Dovrebbero essere visualizzati elenchi a discesa da cui selezionare il formato per queste quattro variabili:
+Fare clic sul pulsante **Esplora** per **File o cartella**, passare a una di queste cartelle, ad esempio 2016->03->01->02, e fare clic su **Scegli**. Nella casella di testo dovrebbe essere visualizzato `2016/03/01/02`. A questo punto, sostituire **2016** con **{year}** , **03** con **{Month}** , **01** con **{Day}** e **02** con **{hour}** e premere TAB. Verranno visualizzati gli elenchi a discesa per selezionare il formato per le quattro variabili seguenti:
 
 ![Uso di variabili di sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
@@ -93,5 +93,5 @@ Un'operazione di copia eseguita una sola volta permette di spostare dati da un'o
 ![Proprietà di pianificazione](./media/data-factory-copy-wizard/scheduling-properties.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per una procedura dettagliata sull'uso di Copia guidata di Data Factory per creare una pipeline con l'attività di copia, vedere [Esercitazione: Creare una pipeline usando la copia guidata](data-factory-copy-data-wizard-tutorial.md).
+Per una procedura dettagliata sull'uso di Copia guidata di Data Factory per creare una pipeline con l'attività di copia, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md).
 

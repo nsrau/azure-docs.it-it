@@ -1,5 +1,5 @@
 ---
-title: Attività di copia in Azure Data Factory | Microsoft Docs
+title: Attività di copia in Azure Data Factory
 description: Informazioni sull'attività di copia in Azure Data Factory. È possibile usarlo per copiare dati da un archivio dati di origine supportato in un archivio dati sink supportato.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 8af5673ff0ffef7306a13eceda86f879b5b31413
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: b88983b4941143e5323ee795908cb332bdd79817
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060685"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678407"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -57,7 +57,7 @@ L'attività di copia può inoltre leggere e scrivere nei file nei formati seguen
 - JSON
 - Avro
 - ORC
-- Parquet
+- PARQUET
 
 L'attività di copia può comprimere e decomprimere i file con questi codec: 
 - Gzip
@@ -139,14 +139,14 @@ Il modello seguente di un'attività di copia contiene un elenco completo delle p
 
 #### <a name="syntax-details"></a>Dettagli sintassi
 
-| Proprietà | DESCRIZIONE | Obbligatorio? |
+| Proprietà | Descrizione | Obbligatorio? |
 |:--- |:--- |:--- |
-| type | Per un'attività di copia, impostare su`Copy` | Sì |
+| type | Per un'attività di copia, impostare su `Copy` | Sì |
 | inputs | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta solo un singolo input. | Sì |
 | outputs | Specificare il set di dati creato che punta ai dati del sink. L'attività di copia supporta solo un singolo output. | Sì |
-| typeProperties | Specificare le proprietà per configurare l'attività di copia. | Yes |
-| source | Specificare il tipo di origine della copia e le proprietà corrispondenti per il recupero dei dati.<br/><br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | Yes |
-| sink | Specificare il tipo di sink di copia e le proprietà corrispondenti per la scrittura dei dati.<br/><br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | Yes |
+| typeProperties | Specificare le proprietà per configurare l'attività di copia. | Sì |
+| una sezione source | Specificare il tipo di origine della copia e le proprietà corrispondenti per il recupero dei dati.<br/><br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
+| sink | Specificare il tipo di sink di copia e le proprietà corrispondenti per la scrittura dei dati.<br/><br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
 | translator | Specificare il mapping esplicito di colonne da origine a sink. Questa proprietà si applica quando il comportamento di copia predefinito non soddisfa le proprie esigenze.<br/><br/>Per ulteriori informazioni, vedere [mapping dello schema nell'attività di copia](copy-activity-schema-and-type-mapping.md). | No |
 | dataIntegrationUnits | Specificare una misura che rappresenta la quantità di energia utilizzata dal [runtime di integrazione di Azure](concepts-integration-runtime.md) per la copia dei dati. Queste unità erano precedentemente note come unità di spostamento dati cloud (spostamento dati). <br/><br/>Per ulteriori informazioni, vedere [Data Integration Unit](copy-activity-performance.md#data-integration-units). | No |
 | parallelCopies | Specificare il parallelismo che si desidera venga utilizzato dall'attività di copia durante la lettura dei dati dall'origine e la scrittura dei dati nel sink.<br/><br/>Per ulteriori informazioni, vedere [copia parallela](copy-activity-performance.md#parallel-copy). | No |
@@ -172,17 +172,17 @@ Selezionare il pulsante **Dettagli** nella colonna **azioni** per visualizzare i
 >[!TIP]
 >In alcuni scenari verranno visualizzati anche i suggerimenti per l' **ottimizzazione delle prestazioni** nella parte superiore della pagina di monitoraggio della copia. Questi suggerimenti indicano i colli di bottiglia identificati e forniscono informazioni sugli elementi da modificare per aumentare la velocità effettiva della copia. Per un esempio, vedere la sezione [prestazioni e ottimizzazione](#performance-and-tuning) di questo articolo.
 
-**Esempio: Copia da Amazon S3 a Azure Data Lake Store**
+**Esempio: copiare da Amazon S3 a Azure Data Lake Store**
 ![monitorare i dettagli dell'esecuzione dell'attività](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
 
-**Esempio: Copiare il database SQL di Azure in Azure SQL data warehouse con i dettagli**dell'esecuzione dell'attività di monitoraggio copia
-![di staging](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
+**Esempio: copiare dal database SQL di Azure a Azure SQL data warehouse con la copia** di staging
+i dettagli dell'esecuzione dell'attività ![monitor](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
 
 ### <a name="monitor-programmatically"></a>Monitorare a livello di codice
 
-I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle prestazioni vengono restituiti anche nella sezione**output** del **risultato** > dell'esecuzione dell'attività di copia. Di seguito è riportato un elenco completo delle proprietà che possono essere restituite. Verranno visualizzate solo le proprietà applicabili allo scenario di copia. Per informazioni su come monitorare le esecuzioni delle attività, vedere [monitorare un'esecuzione della pipeline](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
+I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle prestazioni vengono restituiti anche nella sezione **Risultati esecuzione attività di copia** > **output** . Di seguito è riportato un elenco completo delle proprietà che possono essere restituite. Verranno visualizzate solo le proprietà applicabili allo scenario di copia. Per informazioni su come monitorare le esecuzioni delle attività, vedere [monitorare un'esecuzione della pipeline](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
-| Nome proprietà  | DESCRIZIONE | Unità |
+| Nome proprietà  | Descrizione | Unità |
 |:--- |:--- |:--- |
 | dataRead | Quantità di dati letti dall'origine. | Valore Int64, in byte |
 | dataWritten | Quantità di dati scritti nel sink. | Valore Int64, in byte |
@@ -192,19 +192,19 @@ I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle pr
 | sinkPeakConnections | Numero massimo di connessioni simultanee stabilite nell'archivio dati sink durante l'esecuzione dell'attività di copia. | Valore Int64 (senza unità) |
 | rowsRead | Numero di righe lette dall'origine (non applicabile per la copia binaria). | Valore Int64 (senza unità) |
 | rowsCopied | Numero di righe copiate nel sink (non applicabile per la copia binaria). | Valore Int64 (senza unità) |
-| rowsSkipped | Numero di righe non compatibili ignorate. È possibile abilitare le righe incompatibili da ignorare `enableSkipIncompatibleRow` impostando su true. | Valore Int64 (senza unità) |
+| rowsSkipped | Numero di righe non compatibili ignorate. È possibile abilitare l'omissione di righe incompatibili impostando `enableSkipIncompatibleRow` su true. | Valore Int64 (senza unità) |
 | copyDuration | Durata dell'esecuzione della copia. | Valore Int32, in secondi |
 | throughput | Frequenza di trasferimento dei dati. | Numero a virgola mobile, in KBps |
 | sourcePeakConnections | Numero massimo di connessioni simultanee stabilite nell'archivio dati di origine durante l'esecuzione dell'attività di copia. | Valore Int32 (nessuna unità) |
 | sinkPeakConnections| Numero massimo di connessioni simultanee stabilite nell'archivio dati sink durante l'esecuzione dell'attività di copia.| Valore Int32 (nessuna unità) |
-| sqlDwPolyBase | Indica se la polibase viene utilizzata quando i dati vengono copiati in SQL Data Warehouse. | Boolean |
-| redshiftUnload | Indica se lo SCARICAmento viene utilizzato quando i dati vengono copiati da spostamento verso il suo | Boolean |
-| hdfsDistcp | Indica se DistCp viene usato quando i dati vengono copiati da HDFS. | Boolean |
-| effectiveIntegrationRuntime | Runtime di integrazione (IR) o Runtime usati per potenziare l'esecuzione dell'attività, nel formato `<IR name> (<region if it's Azure IR>)`. | Testo (stringa) |
+| sqlDwPolyBase | Indica se la polibase viene utilizzata quando i dati vengono copiati in SQL Data Warehouse. | Booleano |
+| redshiftUnload | Indica se lo SCARICAmento viene utilizzato quando i dati vengono copiati da spostamento verso il suo | Booleano |
+| hdfsDistcp | Indica se DistCp viene usato quando i dati vengono copiati da HDFS. | Booleano |
+| effectiveIntegrationRuntime | Runtime di integrazione (IR) o Runtime usati per l'esecuzione dell'attività, nel formato `<IR name> (<region if it's Azure IR>)`. | Testo (stringa) |
 | usedDataIntegrationUnits | Le unità di integrazione dati effettive durante la copia. | Valore Int32 |
 | usedParallelCopies | Proprietà parallelCopies effettiva durante la copia. | Valore Int32 |
-| redirectRowPath | Percorso del log delle righe incompatibili ignorate nell'archivio BLOB configurato nella `redirectIncompatibleRowSettings` proprietà. Vedere [tolleranza di errore](#fault-tolerance) più avanti in questo articolo. | Testo (stringa) |
-| executionDetails | Ulteriori dettagli sulle fasi dell'attività di copia e sui passaggi, le durate, le configurazioni e così via corrispondenti. Non è consigliabile analizzare questa sezione perché potrebbe cambiare.<br/><br/>Data Factory segnala anche le durate (in secondi) dedicate alle varie fasi `detailedDurations`in. Le durate di questi passaggi sono esclusive. Vengono visualizzate solo le durate valide per l'esecuzione dell'attività di copia specificata:<br/>**Durata** dell'Accodamento (`queuingDuration`): Quantità di tempo prima che l'attività di copia venga effettivamente avviata nel runtime di integrazione. Se si usa un runtime di integrazione self-hosted e questo valore è elevato, controllare la capacità e l'utilizzo di IR e aumentare o ridurre le prestazioni in base al carico di lavoro. <br/>**Durata dello script di pre-copia** (`preCopyScriptDuration`): Tempo trascorso tra il momento in cui l'attività di copia inizia nell'IR e quando l'attività di copia termina l'esecuzione dello script di pre-copia nell'archivio dati sink. Si applica quando si configura lo script di pre-copia. <br/>**Tempo per il primo byte** (`timeToFirstByte`): Tempo trascorso tra la fine del passaggio precedente e l'ora in cui il runtime di integrazione riceve il primo byte dall'archivio dati di origine. Si applica alle origini non basate su file. Se questo valore è elevato, controllare e ottimizzare la query o il server.<br/>**Durata trasferimento** (`transferDuration`): Tempo trascorso tra la fine del passaggio precedente e l'ora in cui il runtime di integrazione trasferisce tutti i dati dall'origine al sink. | Array |
+| redirectRowPath | Percorso del log delle righe non compatibili ignorate nell'archivio BLOB configurato nella proprietà `redirectIncompatibleRowSettings`. Vedere [tolleranza di errore](#fault-tolerance) più avanti in questo articolo. | Testo (stringa) |
+| executionDetails | Ulteriori dettagli sulle fasi dell'attività di copia e sui passaggi, le durate, le configurazioni e così via corrispondenti. Non è consigliabile analizzare questa sezione perché potrebbe cambiare.<br/><br/>Data Factory segnala anche le durate (in secondi) dedicate alle varie fasi della `detailedDurations`. Le durate di questi passaggi sono esclusive. Vengono visualizzate solo le durate valide per l'esecuzione dell'attività di copia specificata:<br/>**Durata di Accodamento** (`queuingDuration`): quantità di tempo prima che l'attività di copia venga effettivamente avviata nel runtime di integrazione. Se si usa un runtime di integrazione self-hosted e questo valore è elevato, controllare la capacità e l'utilizzo di IR e aumentare o ridurre le prestazioni in base al carico di lavoro. <br/>**Durata dello script di pre-copia** (`preCopyScriptDuration`): tempo trascorso tra il momento in cui l'attività di copia inizia nell'IR e quando l'attività di copia termina l'esecuzione dello script di pre-copia nell'archivio dati sink. Si applica quando si configura lo script di pre-copia. <br/>**Tempo per il primo byte** (`timeToFirstByte`): tempo trascorso tra la fine del passaggio precedente e l'ora in cui il runtime di integrazione riceve il primo byte dall'archivio dati di origine. Si applica alle origini non basate su file. Se questo valore è elevato, controllare e ottimizzare la query o il server.<br/>**Durata trasferimento** (`transferDuration`): tempo trascorso tra la fine del passaggio precedente e l'ora in cui il runtime di integrazione trasferisce tutti i dati dall'origine al sink. | Array |
 | perfRecommendation | Copia suggerimenti per l'ottimizzazione delle prestazioni. Per informazioni dettagliate, vedere [prestazioni e ottimizzazione](#performance-and-tuning) . | Array |
 
 ```json
@@ -266,14 +266,14 @@ La [Guida alla scalabilità e alle prestazioni dell'attività di copia](copy-act
 
 In alcuni scenari, quando si esegue un'attività di copia in Data Factory, verranno visualizzati i suggerimenti per l' **ottimizzazione delle prestazioni** nella parte superiore della [pagina Monitoraggio attività di copia](#monitor-visually), come illustrato nell'esempio seguente. I suggerimenti indicano il collo di bottiglia identificato per l'esecuzione della copia specificata. Forniscono anche informazioni sugli elementi da modificare per aumentare la velocità effettiva della copia. I suggerimenti per l'ottimizzazione delle prestazioni offrono attualmente suggerimenti come l'uso di polibase quando si copiano dati in Azure SQL Data Warehouse, aumentando Azure Cosmos DB ur o il database SQL di Azure DTU quando la risorsa sul lato archivio dati è il collo di bottiglia e la rimozione copie di gestione temporanea non necessarie.
 
-**Esempio: Copiare nel database SQL di Azure, con un suggerimento per l'ottimizzazione delle prestazioni**
+**Esempio: copiare nel database SQL di Azure con un suggerimento per l'ottimizzazione delle prestazioni**
 
 In questo esempio, durante l'esecuzione di una copia, Data Factory tiene traccia di un elevato utilizzo di DTU nel database SQL di Azure sink. Questa condizione rallenta le operazioni di scrittura. Il suggerimento consiste nell'aumentare la DTU nel livello del database SQL di Azure:
 
 ![Monitoraggio della copia con suggerimenti per l'ottimizzazione delle prestazioni](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## <a name="incremental-copy"></a>Copia incrementale
-Data Factory consente di copiare in modo incrementale i dati differenziali da un archivio dati di origine a un archivio dati sink. Per informazioni dettagliate, [vedere Esercitazione: Copiare i dati](tutorial-incremental-copy-overview.md)in modo incrementale.
+Data Factory consente di copiare in modo incrementale i dati differenziali da un archivio dati di origine a un archivio dati sink. Per informazioni dettagliate, vedere [esercitazione: copiare i dati in modo incrementale](tutorial-incremental-copy-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere le guide rapide, le esercitazioni e gli esempi seguenti:

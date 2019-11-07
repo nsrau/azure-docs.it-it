@@ -1,5 +1,5 @@
 ---
-title: Facilità di gestione e monitoraggio di SQL Data Warehouse di Azure - Attività di query, utilizzo delle risorse | Microsoft Docs
+title: Gestibilità e monitoraggio-attività di query, utilizzo delle risorse
 description: Informazioni sulle funzionalità disponibili per gestire e monitorare Azure SQL Data Warehouse. Usare il portale di Azure e Dynamic Management View (DMV, viste a gestione dinamica) per comprendere l'attività di query e l'utilizzo delle risorse del data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,28 +10,29 @@ ms.subservice: manage
 ms.date: 08/09/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 786ae1f18d52c6763b60f5019ecfe365f1cd540a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 1a210e2622212ed59dfa12f9f9a108c6ffe08714
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71334093"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692904"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Monitoraggio dell'attività di query e dell'utilizzo delle risorse in Azure SQL Data Warehouse
 Azure SQL Data Warehouse offre una ricca esperienza di monitoraggio nel portale di Azure per esplorare informazioni dettagliate sul carico di lavoro del data warehouse. Il portale di Azure è lo strumento consigliato per il monitoraggio del data warehouse, in quanto fornisce periodi di conservazione, avvisi, raccomandazioni, grafici personalizzabili, nonché dashboard di metriche e log configurabili. Il portale consente anche di eseguire l'integrazione con altri servizi di monitoraggio di Azure, come Operations Management Suite (OMS) e monitoraggio di Azure (log), per offrire un'esperienza di monitoraggio olistica solo per i data warehouse ma anche per l'intera analisi di Azure piattaforma per un'esperienza di monitoraggio integrata. Questa documentazione descrive le funzionalità di monitoraggio disponibili per ottimizzare e gestire la piattaforma analitica con SQL Data Warehouse. 
 
-## <a name="resource-utilization"></a>Utilizzo risorse 
+## <a name="resource-utilization"></a>Utilizzo delle risorse 
 Le metriche seguenti sono disponibili nel portale di Azure per SQL Data Warehouse. Tali metriche vengono rilevate tramite il [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
 
 
-| Nome metrica             | Descrizione                                                  | Tipo di aggregazione |
+| Nome della metrica             | Descrizione                                                  | Tipo di aggregazione |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
 | Percentuale CPU          | Utilizzo della CPU in tutti i nodi per il data warehouse      | Massima          |
-| Percentuale I/O dati      | Utilizzo di I/O in tutti i nodi per il data warehouse       | Massima          |
+| Percentuale di I/O di dati      | Utilizzo di I/O in tutti i nodi per il data warehouse       | Massima          |
 | Percentuale di memoria       | Utilizzo della memoria (SQL Server) in tutti i nodi per il data warehouse | Massima          |
 | Connessioni riuscite  | Numero di connessioni ai dati riuscite                 | Totale            |
 | Connessioni non riuscite      | Numero di connessioni al data warehouse non riuscite           | Totale            |
-| Bloccato dal firewall     | Numero di accessi al data warehouse bloccati     | Totale            |
+| Blocco da parte del firewall     | Numero di accessi al data warehouse bloccati     | Totale            |
 | Limite DWU               | Obiettivo del livello di servizio del data warehouse                | Massima          |
 | Percentuale DWU          | Valore massimo tra percentuale di CPU e percentuale di I/O        | Massima          |
 | Uso DWU                | Limite DWU * percentuale DWU                                   | Massima          |
@@ -45,7 +46,7 @@ Le metriche seguenti sono disponibili nel portale di Azure per SQL Data Warehous
 > - La percentuale di memoria riflette l'uso anche se il data warehouse è in stato di inattività, ma non riflette il consumo di memoria del carico di lavoro attivo. Usare e tenere traccia di questa metrica insieme ad altri (tempdb, cache Gen2) per prendere una decisione olistica su se il ridimensionamento per la capacità aggiuntiva della cache aumenterà le prestazioni del carico di lavoro per soddisfare i requisiti.
 
 
-## <a name="query-activity"></a>Attività di query
+## <a name="query-activity"></a>Attività query
 Per un'esperienza programmatica durante il monitoraggio di SQL Data Warehouse tramite T-SQL, il servizio fornisce un set di viste a gestione dinamica (DMV). Queste viste sono utili durante la risoluzione dei problemi e l'identificazione dei colli di bottiglia nelle prestazioni con il carico di lavoro.
 
 Per visualizzare l'elenco delle viste a gestione dinamica fornite da SQL Data Warehouse, fare riferimento a questa [documentazione](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 

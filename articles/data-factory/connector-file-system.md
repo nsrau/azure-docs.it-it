@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da e in un file system usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da/in un file system usando Azure Data Factory
 description: Informazioni su come copiare dati da un file system in archivi dati di sink supportati o da archivi dati di sink supportati in un file system usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 39e1099f1700e9ade412bb4cb81bc38e814ecfae
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a9770edd4e15263ed0ba10ea3dc99f704f078d38
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935649"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681005"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copiare dati da e in un file system usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-onprem-file-system-connector.md)
 > * [Versione corrente](connector-file-system.md)
 
@@ -45,7 +45,7 @@ In particolare, il connettore file system supporta:
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -55,20 +55,20 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato del file system sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **FileServer**. | SÌ |
-| host | Specifica il percorso radice della cartella da copiare. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere [Servizio collegato di esempio e definizioni del set di dati](#sample-linked-service-and-dataset-definitions) . | SÌ |
-| userid | Specificare l'ID dell'utente che ha accesso al server. | SÌ |
-| password | Specificare la password per l'utente (userid). Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| type | La proprietà type deve essere impostata su: **FileServer**. | Sì |
+| host | Specifica il percorso radice della cartella da copiare. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere [Servizio collegato di esempio e definizioni del set di dati](#sample-linked-service-and-dataset-definitions) . | Sì |
+| userid | Specificare l'ID dell'utente che ha accesso al server. | Sì |
+| password | Specificare la password per l'utente (userid). Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Servizio collegato di esempio e definizioni del set di dati
 
 | Scenario | "host" nella definizione del servizio collegato | "folderPath" nella definizione del set di dati |
 |:--- |:--- |:--- |
-| Cartella locale nel computer del runtime di integrazione: <br/><br/>Esempi: D:\\\* o D:\cartella\sottocartella\\\* |In JSON: `D:\\`<br/>Nell'interfaccia utente: `D:\` |In JSON: `.\\` o `folder\\subfolder`<br>Nell'interfaccia utente: `.\` o `folder\subfolder` |
-| Cartella condivisa remota: <br/><br/>Esempi: \\\\myserver\\share\\\* o \\\\myserver\\share\\cartella\\sottocartella\\\* |In JSON: `\\\\myserver\\share`<br/>Nell'interfaccia utente: `\\myserver\share` |In JSON: `.\\` o `folder\\subfolder`<br/>Nell'interfaccia utente: `.\` o `folder\subfolder` |
+| Cartella locale nel computer del runtime di integrazione: <br/><br/>Esempi: D:\\\* o D:\cartella\sottocartella\\* |In JSON: `D:\\`<br/>Nell'interfaccia utente: `D:\` |In JSON: `.\\` o `folder\\subfolder`<br>Nell'interfaccia utente: `.\` o `folder\subfolder` |
+| Cartella condivisa remota: <br/><br/>Esempi: \\\\myserver\\share\\\* o \\\\myserver\\share\\cartella\\sottocartella\\* |In JSON: `\\\\myserver\\share`<br/>Nell'interfaccia utente: `\\myserver\share` |In JSON: `.\\` o `folder\\subfolder`<br/>Nell'interfaccia utente: `.\` o `folder\subfolder` |
 
 >[!NOTE]
 >Quando si crea tramite interfaccia utente, non è necessario immettere la doppia barra rovesciata (`\\`) per i caratteri di escape come con JSON, basta specificare la barra rovesciata singola.
@@ -104,9 +104,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate per file system in impostazioni `location` nel set di dati basato sul formato:
 
-| Proprietà   | Description                                                  | Obbligatoria |
+| Proprietà   | Descrizione                                                  | Obbligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | La proprietà Type in `location` nel set di dati deve essere impostata su **FileServerLocation**. | SÌ      |
+| type       | La proprietà Type in `location` nel set di dati deve essere impostata su **FileServerLocation**. | Sì      |
 | folderPath | Percorso della cartella. Se si vuole usare il carattere jolly per filtrare la cartella, ignorare questa impostazione e specificare nelle impostazioni dell'origine dell'attività. | No       |
 | fileName   | Nome del file sotto il folderPath specificato. Se si vuole usare il carattere jolly per filtrare i file, ignorare questa impostazione e specificare nelle impostazioni dell'origine dell'attività. | No       |
 
@@ -141,9 +141,9 @@ Le proprietà seguenti sono supportate per file system in impostazioni `location
 >[!NOTE]
 >Il modello di set di dati seguente è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato nella sezione precedente in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **FileShare** |SÌ |
+| type | La proprietà type del set di dati deve essere impostata su: **FileShare** |Sì |
 | folderPath | Percorso della cartella. I filtri con caratteri jolly sono supportati, i caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Usare `^` per applicare una sequenza di escape se il nome effettivo della cartella include caratteri jolly o tale carattere di escape. <br/><br/>Esempi: cartellaradice/sottocartella/. Vedere altri esempi in [Servizio collegato di esempio e definizioni del set di dati](#sample-linked-service-and-dataset-definitions) e [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). |No |
 | fileName | **Filtro con nome o carattere jolly** per i file nell'elemento "folderPath" specificato. Se non si specifica alcun valore per questa proprietà, il set di dati punta a tutti i file nella cartella. <br/><br/>Per un filtro, i caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo).<br/>- Esempio 1: `"fileName": "*.csv"`<br/>- Esempio 2: `"fileName": "???20180427.txt"`<br/>Usare `^` per il carattere escape se il nome effettivo del file include caratteri jolly o escape.<br/><br/>Quando fileName non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, l'attività di copia genera automaticamente il nome del file con il modello seguente: "*Data. [ GUID ID esecuzione attività]. [GUID se FlattenHierarchy]. [format se configurato]. [compressione se configurata]* ", ad esempio" Data. 0a405f8a-93ff-4C6F-B3BE-f69616f1df7a. txt. gz "; Se si copia da un'origine tabulare usando il nome della tabella anziché la query, il modello del nome è " *[nome tabella]. [ formato]. [compressione se configurata]* ", ad esempio" MyTable. csv ". |No |
 | modifiedDatetimeStart | Filtro file basato sull'attributo: data Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br/><br/> Tenere presente che le prestazioni complessive dello spostamento dei dati saranno influenzate dall'abilitazione di questa impostazione quando si desidera eseguire il filtro file da grandi quantità di file. <br/><br/> Le proprietà possono essere NULL che significa che al set di dati non verrà applicato alcun filtro di attributi di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime.| No |
@@ -197,9 +197,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate per file system in impostazioni `storeSettings` in origine copia basata sul formato:
 
-| Proprietà                 | Description                                                  | Obbligatoria                                      |
+| Proprietà                 | Descrizione                                                  | Obbligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | La proprietà Type in `storeSettings` deve essere impostata su **FileServerReadSetting**. | SÌ                                           |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **FileServerReadSetting**. | Sì                                           |
 | ricorsiva                | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. I valori consentiti sono **true** (predefinito) e **false**. | No                                            |
 | wildcardFolderPath       | Percorso della cartella con caratteri jolly per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
 | wildcardFileName         | Nome file con caratteri jolly sotto il folderPath/wildcardFolderPath specificato per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). [Tenere presente che l'impostazione del nome file verrà sovraregolata] | Sì se `fileName` non è specificato nel DataSet |
@@ -253,9 +253,9 @@ Le proprietà seguenti sono supportate per file system in impostazioni `storeSet
 >[!NOTE]
 >Il modello di origine della copia seguente è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato in precedenza e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **FileSystemSource** |SÌ |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **FileSystemSource** |Sì |
 | ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che se recursive è impostata su true e il sink è un archivio basato su file, la cartella o la sottocartella vuota non verrà copiata o creata nel sink.<br/>I valori consentiti sono: **true** (predefinito), **false** | No |
 | maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 
@@ -297,9 +297,9 @@ Le proprietà seguenti sono supportate per file system in impostazioni `storeSet
 
 Le proprietà seguenti sono supportate per file system in impostazioni `storeSettings` nel sink di copia basato sul formato:
 
-| Proprietà                 | Description                                                  | Obbligatoria |
+| Proprietà                 | Descrizione                                                  | Obbligatorio |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | La proprietà Type in `storeSettings` deve essere impostata su **FileServerWriteSetting**. | SÌ      |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **FileServerWriteSetting**. | Sì      |
 | copyBehavior             | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (predefinito)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se si specifica il nome di file, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No       |
 | maxConcurrentConnections | Numero di connessioni per la connessione all'archivio dati contemporaneamente. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No       |
 
@@ -343,9 +343,9 @@ Le proprietà seguenti sono supportate per file system in impostazioni `storeSet
 >[!NOTE]
 >Il modello di sink di copia seguente è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato in precedenza e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type del sink dell'attività di copia deve essere impostata su: **FileSystemSink** |SÌ |
+| type | La proprietà type del sink dell'attività di copia deve essere impostata su: **FileSystemSink** |Sì |
 | copyBehavior | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (predefinito)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome del file, il nome del file Unito sarà il nome specificato; in caso contrario, verrebbe generato automaticamente il nome del file. | No |
 | maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 

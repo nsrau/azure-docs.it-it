@@ -1,5 +1,5 @@
 ---
-title: Creare report in database cloud con scalabilità orizzontale (partizionamento orizzontale) | Documentazione Microsoft
+title: Creare report in database cloud con scalabilità orizzontale (partizionamento orizzontale)
 description: Usare query di database tra database per creare report tra più database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
-ms.openlocfilehash: 4e896fae0d8459629c58dfd0bbdfbb32b90b1cac
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 1adc7757edc6d5abc50ed31ea2227711db60fcfe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264243"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690422"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Creare report in database cloud con numero maggiore di istanze (anteprima)
 
@@ -114,7 +114,7 @@ Si noterà che la query di aggregare i risultati di tutte le partizioni e produc
 3. Fare clic su **Da altre origini** e quindi su **Da SQL Server**.
 
    ![Importazione di Excel da altre origini][5]
-4. In **Connessione guidata dati** digitare le credenziali di accesso e il nome del server. Quindi fare clic su **Next**.
+4. In **Connessione guidata dati** digitare le credenziali di accesso e il nome del server. Quindi fare clic su **Avanti**.
 5. Nella finestra di dialogo **Selezionare il database contenente i dati desiderati** selezionare il database **ElasticDBQuery**.
 6. Selezionare la tabella **Customers** nella visualizzazione elenco e fare clic su **Avanti**. Fare clic su **Fine**.
 7. Nel modulo **Importa dati** in **Specificare come visualizzare i dati nella cartella di lavoro** selezionare **Tabella** e fare clic su **OK**.

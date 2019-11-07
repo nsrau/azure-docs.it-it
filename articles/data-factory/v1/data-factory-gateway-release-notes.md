@@ -1,5 +1,5 @@
 ---
-title: Note sulla versione del gateway di gestione dati | Microsoft Docs
+title: Note sulla versione di Gateway di gestione dati
 description: Note sulla versione di Gateway di gestione dati
 services: data-factory
 author: nabhishek
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb89ed08b05f9a8f271ceee400bc609881e7048d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486465"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682577"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Note sulla versione di Gateway di gestione dati
 > [!NOTE]
@@ -49,7 +49,7 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
 ### <a name="enhancements-"></a>Miglioramenti
 -   È possibile aggiungere le voci DNS per aggiungere il bus di servizio all'elenco elementi consentiti, invece di inserire in tale elenco tutti gli indirizzi IP di Azure IP dal firewall (se necessario). Altri dettagli sono disponibili qui.
 -   È ora possibile copiare i dati in/da un singolo BLOB in blocchi fino a 4,75 TB, che corrisponde alle dimensioni massime supportate per i BLOB in blocchi. Il limite precedente era di 195 GB.
--   Corretto: problema relativo all'esaurimento della memoria durante la decompressione di alcuni file di piccole dimensioni durante l'attività di copia.
+-   Corretto: problema relativo alla memoria esaurita durante la decompressione di alcuni file di piccole dimensioni durante l'attività di copia.
 -   Corretto: problema relativo all'indice non compreso nell'intervallo durante la copia da Document DB a un'istanza locale di SQL Server con funzionalità di idempotenza.
 -   Corretto: lo script di pulizia di SQL non funziona con l'istanza locale di SQL Server dalla Copia guidata.
 -   Corretto: il nome di colonna con uno spazio finale non funziona nell'attività di copia.

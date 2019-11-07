@@ -1,5 +1,5 @@
 ---
-title: Copiare un database SQL di Azure | Documentazione Microsoft
+title: Copiare un database SQL di Azure
 description: Creare una copia coerente a livello transazionale di un database SQL di Azure esistente nello stesso server o su un altro server.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 09/04/2019
-ms.openlocfilehash: de56e66046bb61ac31c1842ae6ce7a9c6720760d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d49896d8088ae1352cb2785d061cde6c8647cb89
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934211"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690812"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Creare una copia coerente a livello transazionale di un database SQL di Azure
 
@@ -86,16 +86,16 @@ Per annullare una copia del database, è necessario avere i seguenti ruoli
    
 Per gestire la copia del database con portale di Azure, sono necessarie anche le autorizzazioni seguenti:
 
-&nbsp;&nbsp; Microsoft.resources/subscriptions/&nbsp; Resources/Read   
-&nbsp;&nbsp; Microsoft.resources/subscriptions/&nbsp; Resources/Write   
-&nbsp;&nbsp; Microsoft.Resources&nbsp; /distribuzioni/lettura   
-&nbsp;&nbsp; Microsoft.Resources&nbsp; /Deployments/Write   
-&nbsp;&nbsp; Microsoft.resources/Distributions&nbsp; /operationstatuses/Read    
+&nbsp; &nbsp; &nbsp; Microsoft. resources/subscriptions/resources/Read   
+&nbsp; &nbsp; &nbsp; Microsoft. resources/subscriptions/resources/Write   
+&nbsp; &nbsp; &nbsp; Microsoft. resources/Deployments/Read   
+&nbsp; &nbsp; &nbsp; Microsoft. resources/Deployments/Write   
+&nbsp; &nbsp; &nbsp; Microsoft. resources/Distributions/operationstatuses/Read    
 
 Se si desidera visualizzare le operazioni in distribuzioni nel gruppo di risorse nel portale, le operazioni tra più provider di risorse, incluse le operazioni SQL, sono necessari i ruoli RBAC aggiuntivi: 
 
-&nbsp;&nbsp; Microsoft.resources/subscriptions/ResourceGroups/distribuzioni&nbsp; /operazioni/lettura   
-&nbsp;&nbsp; Microsoft.resources/subscriptions/ResourceGroups/Distributions&nbsp; /operationstatuses/Read
+&nbsp; &nbsp; &nbsp; Microsoft. resources/subscriptions/ResourceGroups/Deployments/Operations/Read   
+&nbsp; &nbsp; &nbsp; Microsoft. resources/subscriptions/ResourceGroups/Distributions/operationstatuses/Read
 
 
 

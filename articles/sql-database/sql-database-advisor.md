@@ -1,5 +1,5 @@
 ---
-title: Raccomandazioni per le prestazioni - Database SQL di Azure | Microsoft Docs
+title: Raccomandazioni per le prestazioni-database SQL di Azure
 description: Il database SQL di Azure offre raccomandazioni per i database SQL esistenti che consentono di migliorare le prestazioni correnti delle query.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 08def3ac2fd94f01586bc690d867c04758b8856b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: de6ddd8886f8cadafa57724a5d5e33a3ba4e3c74
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569521"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691240"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Raccomandazioni per le prestazioni per il database SQL
 
@@ -76,7 +76,7 @@ Con "Problemi dello schema" si indica una classe di errori di sintassi in SQL Se
 
 Le raccomandazioni relative alla "correzione di problemi di schema" vengono visualizzate quando il servizio di database SQL di Azure rileva un'anomalia nel numero di errori SQL correlati al database SQL. La tabella seguente illustra gli errori correlati ai problemi di schema:
 
-| Codice errore di SQL | Messaggio |
+| Codice di errore SQL | Message |
 | --- | --- |
 | 201 |La procedura o funzione ' *' richiede il parametro '* ', che non è stato specificato. |
 | 207 |Il nome di colonna '*' non è valido. |

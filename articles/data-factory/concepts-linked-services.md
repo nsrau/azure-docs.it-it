@@ -1,5 +1,5 @@
 ---
-title: Servizi collegati in Azure Data Factory | Microsoft Docs
+title: Servizi collegati in Azure Data Factory
 description: Informazioni sui servizi collegati in Data Factory. I servizi collegati collegano archivi calcolo o dati a una data factory.
 services: data-factory
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 80e9cee0d973dc8575e9645c537b6b69fbeef700
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9dd81484d8afab66fcb76f8fccdea348ef6a34c4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137110"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681496"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Servizi collegati in Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-create-datasets.md)
 > * [Versione corrente](concepts-datasets-linked-services.md)
 
@@ -34,7 +34,7 @@ Un **set di dati** è una visualizzazione dati denominata che punta o fa riferim
 
 Prima di creare un set di dati, è necessario creare un **servizio collegato** per collegare l'archivio dati alla data factory. I servizi collegati sono molto simili a stringhe di connessione e definiscono le informazioni necessarie per la connessione di Data Factory a risorse esterne. In altre parole, il set di dati rappresenta la struttura dei dati all'interno degli archivi dati collegati e il servizio collegato definisce la connessione all'origine dati. Il servizio collegato Archiviazione di Azure,ad esempio, collega l'account di archiviazione alla data factory. Un set di dati BLOB di Azure rappresenta il contenitore BLOB e la cartella all'interno dell'account di archiviazione di Azure che contiene i BLOB di input da elaborare.
 
-Di seguito è riportato uno scenario di esempio. Per copiare i dati da un'archiviazione BLOB a un database SQL, si creano due servizi collegati: Archiviazione di Azure e database SQL di Azure. Si creano quindi due set di dati: un set di dati BLOB di Azure, che si riferisce al servizio collegato Archiviazione di Azure, e un set di dati della tabella SQL di Azure, che si riferisce al servizio collegato Database SQL di Azure. I servizi collegati Archiviazione di Azure e Database SQL di Azure contengono stringhe di connessione usate da Data Factory in fase di runtime per connettersi rispettivamente all'archiviazione di Azure e al database SQL di Azure. Il set di dati BLOB di Azure specifica il contenitore e una cartella BLOB che contengono i BLOB di input presenti nell'archiviazione BLOB di Azure. Il set di dati della tabella SQL di Azure specifica la tabella SQL del database SQL in cui verranno copiati i dati.
+Di seguito è riportato uno scenario di esempio. Per copiare i dati da un'archiviazione BLOB a un Database SQL, si creano due servizi collegati: Archiviazione di Azure e Database SQL di Azure. Quindi, si creano due set di dati: un set di dati BLOB di Azure, che si riferisce al servizio collegato Archiviazione di Azure, e un set di dati della tabella SQL di Azure, che si riferisce al servizio collegato Database SQL di Azure. I servizi collegati Archiviazione di Azure e Database SQL di Azure contengono stringhe di connessione usate da Data Factory in fase di runtime per connettersi rispettivamente all'archiviazione di Azure e al database SQL di Azure. Il set di dati BLOB di Azure specifica il contenitore e una cartella BLOB che contengono i BLOB di input presenti nell'archiviazione BLOB di Azure. Il set di dati della tabella SQL di Azure specifica la tabella SQL del database SQL in cui verranno copiati i dati.
 
 Nel diagramma seguente viene illustrata la relazione tra pipeline, attività, set di dati e il servizio collegato in Data Factory:
 
@@ -64,7 +64,7 @@ La tabella seguente descrive le proprietà nel codice JSON precedente:
 Proprietà | Descrizione | Obbligatorio |
 -------- | ----------- | -------- |
 name | Nome del servizio collegato. Vedere [Azure Data Factory - Regole di denominazione](naming-rules.md). |  Sì |
-type | Tipo di servizio collegato. Ad esempio:  AzureStorage (archivio dati) o AzureBatch (calcolo). Vedere la descrizione di typeProperties. | Sì |
+type | Tipo di servizio collegato. Ad esempio: AzureStorage (archivio dati) o AzureBatch (calcolo). Vedere la descrizione di typeProperties. | Sì |
 typeProperties | Le proprietà del tipo sono diverse per ogni archivio dati o calcolo. <br/><br/> Per i tipi di archivio dati supportati e le relative proprietà del tipo, vedere la tabella [Tipo di set di dati](concepts-datasets-linked-services.md#dataset-type) in questo articolo. Vedere l'articolo sul connettore dell'archivio dati per informazioni sulle proprietà del tipo specifiche di un archivio dati. <br/><br/> Per i tipi di calcolo supportati e le relative proprietà del tipo, vedere [Servizi collegati di calcolo](compute-linked-services.md). | Sì |
 connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No
 
@@ -103,7 +103,7 @@ Gli [ambienti di calcolo](compute-linked-services.md) di riferimento sono suppor
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere le esercitazioni seguenti per istruzioni dettagliate sulla creazione di pipeline e set di dati tramite uno di questi strumenti o SDK.
 
-- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md) (Avvio rapido: Creare una data factory tramite .NET)
+- [Avvio rapido: Creare una data factory usando .NET](quickstart-create-data-factory-dot-net.md)
 - [Quickstart: create a data factory using PowerShell](quickstart-create-data-factory-powershell.md) (Avvio rapido: Creare una data factory tramite PowerShell)
 - [Quickstart: create a data factory using REST API](quickstart-create-data-factory-rest-api.md) (Avvio rapido: Creare una data factory tramite API REST)
 - [Guida introduttiva: creare un data factory usando portale di Azure](quickstart-create-data-factory-portal.md)

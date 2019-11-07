@@ -1,5 +1,5 @@
 ---
-title: Caricare dati da un file CSV al database SQL di Azure (bcp) | Microsoft Docs
+title: Caricare dati da un file CSV nel database SQL di Azure (BCP)
 description: Per dati di piccole dimensioni, usa bcp per importare dati nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: b3dff4e100d3859978667ad0df7d895a24ca8a8d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d9c4a6293fe2c52870e61488713455ac6c2ed4a1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567823"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689558"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Caricare dati da CSV in un database SQL di Azure (file flat)
 
@@ -38,7 +38,7 @@ Per seguire la procedura descritta in questo articolo, sono necessari:
 
 Se si prova a eseguire questa esercitazione con dati personalizzati, è necessario che i dati usino la codifica ASCII o UTF-16, perché bcp non supporta UTF-8. 
 
-## <a name="1-create-a-destination-table"></a>1. Creare una tabella di destinazione
+## <a name="1-create-a-destination-table"></a>1. creare una tabella di destinazione
 
 Definire una tabella nel database SQL come tabella di destinazione. Le colonne della tabella devono corrispondere ai dati in ogni riga del file di dati.
 
@@ -57,7 +57,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## <a name="2-create-a-source-data-file"></a>2. Creare un file di dati di origine
+## <a name="2-create-a-source-data-file"></a>2. creare un file di dati di origine
 
 Aprire il Blocco note, copiare le righe di dati seguenti in un nuovo file di testo e quindi salvare il file nella directory temporanea locale, C:\Temp\DimDate2.txt. I dati hanno formato ASCII.
 
@@ -82,7 +82,7 @@ Aprire il Blocco note, copiare le righe di dati seguenti in un nuovo file di tes
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t , 
 ```
 
-## <a name="3-load-the-data"></a>3. Caricare i dati
+## <a name="3-load-the-data"></a>3. caricare i dati
 
 Per caricare i dati, aprire un prompt dei comandi ed eseguire il comando seguente, sostituendo i valori per nome server, nome database, nome utente e password con le informazioni personalizzate.
 

@@ -1,5 +1,5 @@
 ---
-title: Chiamare una stored procedure da un'attività di copia di Azure Data Factory | Documentazione Microsoft
+title: Richiama stored procedure da Azure Data Factory attività di copia
 description: Informazioni su come chiamare una stored procedure nel Database SQL di Azure o in SQL Server da un'attività di copia di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 35e9347039a7b9939ab4d2719f9738429dec168c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c5bb7ab4e8932c9568293620352435c7259d810
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824253"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682499"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Chiamare una stored procedure da un'attività di copia in Azure Data Factory
 > [!NOTE]

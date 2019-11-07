@@ -1,5 +1,5 @@
 ---
-title: Integrazione e recapito continui in Azure Data Factory | Microsoft Docs
+title: Integrazione e recapito continui in Azure Data Factory
 description: Informazioni su come usare l'integrazione e il recapito continui per spostare le pipeline di Data Factory da un ambiente (sviluppo, test, produzione) a un altro.
 services: data-factory
 documentationcenter: ''
@@ -11,18 +11,18 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: ff1d34852890a8d5005153ebdfa2fa0f9749d129
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7c5c1e91e97087bf28b03629659e5194f67c22b3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030613"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680036"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integrazione e recapito continui (CI/CD) in Azure Data Factory
 
 ## <a name="overview"></a>Panoramica
 
-L'integrazione continua è la procedura che permette di testare ogni modifica apportata alla base di codici automaticamente e quanto prima possibile. Il recapito continuo segue i test effettuati durante l'integrazione continua ed esegue il push delle modifiche in un sistema di gestione temporanea o di produzione.
+L'integrazione continua è la procedura che permette di testare ogni modifica apportata alla base di codici automaticamente e quanto prima possibile. Il recapito continuo segue i test che si verificano durante l'integrazione continua e inserisce le modifiche in un sistema di gestione temporanea o di produzione.
 
 In Azure Data Factory, il recapito & di integrazione continua significa lo sviluppo di pipeline di Data Factory da un ambiente (sviluppo, test, produzione) a un altro. Per eseguire l'integrazione continua & il recapito, è possibile usare l'integrazione di Data Factory UX con i modelli di Azure Resource Manager. Il Data Factory UX può generare un modello di Gestione risorse dall'elenco a discesa **modello ARM** . Quando si seleziona **Export ARM template** (Esporta modello di Azure Resource Manager), il portale genera il modello di Resource Manager per la data factory e un file di configurazione che include tutte le stringhe di connessioni e altri parametri. Quindi, è necessario creare un file di configurazione per ogni ambiente (sviluppo, test, produzione). Il file di modello di Resource Manager principale rimane lo stesso per tutti gli ambienti.
 
@@ -335,14 +335,14 @@ In queste condizioni, per eseguire l'override del modello di parametrizzazione p
 
 Di seguito sono riportate alcune linee guida da usare quando si crea il file di parametri personalizzati. Il file è costituito da una sezione per ogni tipo di entità: trigger, pipeline, servizio collegato, set di dati, Runtime di integrazione e così via.
 * Immettere il percorso della proprietà nel tipo di entità pertinente.
-* Quando si imposta un nome di proprietà su' \*'', si indica che si desidera parametrizzare tutte le proprietà al suo interno (solo per il primo livello, non in modo ricorsivo). È anche possibile fornire eventuali eccezioni a questo.
-* Quando si imposta il valore di una proprietà come stringa, si indica che si vuole parametrizzare la proprietà. Usare il formato @ no__t-0.
-   *  `<action>` @ no__t-1can è uno dei caratteri seguenti:
-      * `=` @ no__t-1means mantiene il valore corrente come valore predefinito per il parametro.
-      * `-` @ no__t-1means non mantiene il valore predefinito per il parametro.
-      * `|` @ no__t-1is un caso speciale per i segreti Azure Key Vault per le stringhe di connessione o le chiavi.
-   * `<name>` @ no__t-1is il nome del parametro. Se è vuota, prende il nome della proprietà. Se il valore inizia con un carattere `-`, il nome viene abbreviato. Ad esempio, `AzureStorage1_properties_typeProperties_connectionString` verrebbe abbreviato in `AzureStorage1_connectionString`.
-   * `<stype>` @ no__t-1is il tipo di parametro. Se @ no__t-0 @ no__t-1is è vuoto, il tipo predefinito è `string`. Valori supportati: `string`, `bool`, `number`, `object` e `securestring`.
+* Quando si imposta un nome di proprietà su'\*'', si indica che si desidera parametrizzare tutte le proprietà al suo interno (solo per il primo livello, non in modo ricorsivo). È anche possibile fornire eventuali eccezioni a questo.
+* Quando si imposta il valore di una proprietà come stringa, si indica che si vuole parametrizzare la proprietà. Usare il formato `<action>:<name>:<stype>`.
+   *  `<action>` può essere uno dei seguenti caratteri:
+      * `=` significa che il valore corrente viene mantenuto come valore predefinito per il parametro.
+      * `-` significa che non si mantiene il valore predefinito per il parametro.
+      * `|` è un caso speciale per i segreti da Azure Key Vault per le stringhe di connessione o le chiavi.
+   * `<name>` è il nome del parametro. Se è vuota, prende il nome della proprietà. Se il valore inizia con un carattere `-`, il nome viene abbreviato. Ad esempio, `AzureStorage1_properties_typeProperties_connectionString` verrebbe abbreviato in `AzureStorage1_connectionString`.
+   * `<stype>` è il tipo di parametro. Se `<stype>` è vuoto, il tipo predefinito è `string`. Valori supportati: `string`, `bool`, `number`, `object` e `securestring`.
 * Quando si specifica una matrice nel file di definizione, si indica che la proprietà corrispondente nel modello è una matrice. Data Factory esegue l'iterazione di tutti gli oggetti nella matrice utilizzando la definizione specificata nell'oggetto Integration Runtime della matrice. Il secondo oggetto, una stringa, diventa il nome della proprietà, che viene usato come nome per il parametro per ogni iterazione.
 * Non è possibile avere una definizione specifica per un'istanza di risorsa. Qualsiasi definizione viene applicata a tutte le risorse di quel tipo.
 * Per impostazione predefinita, vengono parametrizzate tutte le stringhe protette, ad esempio Key Vault segreti e stringhe protette, ad esempio stringhe di connessione, chiavi e token.
@@ -423,8 +423,8 @@ Di seguito è riportata una spiegazione del modo in cui viene costruito il model
 
 #### <a name="triggers"></a>Trigger
 
-* In `typeProperties`, due proprietà sono parametrizzate. Il primo è `maxConcurrency`, che è specificato per avere un valore predefinito e è di tipo @ no__t-1. Il nome del parametro predefinito è `<entityName>_properties_typeProperties_maxConcurrency`.
-* Anche la proprietà `recurrence` è parametrizzata. Al suo interno, tutte le proprietà a tale livello vengono specificate per essere parametrizzate come stringhe, con i valori predefiniti e i nomi di parametro. Un'eccezione è rappresentata dalla proprietà `interval`, che è parametrizzata come tipo di numero e con il nome del parametro con suffisso `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Analogamente, la proprietà `freq` è una stringa e viene parametrizzata come stringa. Tuttavia, la proprietà `freq` è parametrizzata senza un valore predefinito. Il nome viene abbreviato e viene suffissato. Ad esempio `<entityName>_freq`.
+* In `typeProperties`, due proprietà sono parametrizzate. Il primo è `maxConcurrency`, che è specificato per avere un valore predefinito ed è di tipo`string`. Il nome del parametro predefinito è `<entityName>_properties_typeProperties_maxConcurrency`.
+* Anche la proprietà `recurrence` è parametrizzata. Al suo interno, tutte le proprietà a tale livello vengono specificate per essere parametrizzate come stringhe, con i valori predefiniti e i nomi di parametro. Un'eccezione è rappresentata dalla proprietà `interval`, che è parametrizzata come tipo di numero e con il nome del parametro con suffisso `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Analogamente, la proprietà `freq` è una stringa e viene parametrizzata come stringa. Tuttavia, la proprietà `freq` è parametrizzata senza un valore predefinito. Il nome viene abbreviato e viene suffissato. Ad esempio, `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
@@ -434,7 +434,7 @@ Di seguito è riportata una spiegazione del modo in cui viene costruito il model
 
 #### <a name="datasets"></a>Set di dati
 
-* Sebbene la personalizzazione specifica del tipo sia disponibile per i set di impostazioni, è possibile fornire la configurazione senza avere una configurazione @no__t a livello di livello 0. Nell'esempio precedente, vengono parametrizzate tutte le proprietà del set di dati in `typeProperties`.
+* Sebbene la personalizzazione specifica del tipo sia disponibile per i set di data, è possibile specificare la configurazione senza una configurazione a livello di \*. Nell'esempio precedente, vengono parametrizzate tutte le proprietà del set di dati in `typeProperties`.
 
 ### <a name="default-parameterization-template"></a>Modello di parametrizzazione predefinito
 

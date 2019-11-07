@@ -7,22 +7,22 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ba35999d5a7193ba691b14005dc8271120ac2be7
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ec7eb1eba2bc029d592560b39cde20e93e5afcd6
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933220"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614671"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Agenti di orchestrazione singleton in Funzioni permanenti (Funzioni di Azure)
 
-Per i processi in background è spesso necessario garantire che venga eseguita solo un'istanza di un particolare agente di orchestrazione alla volta. In [Funzioni permanenti](durable-functions-overview.md) è possibile assegnare uno specifico ID di istanza a un agente di orchestrazione quando lo si crea.
+Per i processi in background, è spesso necessario assicurarsi che venga eseguita una sola istanza di un determinato agente di orchestrazione alla volta. È possibile garantire questo tipo di comportamento singleton in [Durable Functions](durable-functions-overview.md) assegnando un ID istanza specifico a un agente di orchestrazione durante la creazione.
 
 ## <a name="singleton-example"></a>Esempio di singleton
 
-Gli esempi C# e JavaScript seguenti illustrano una funzione di attivazione HTTP che crea un'orchestrazione di processo in background singleton. Il codice garantisce l'esistenza di una sola istanza per un ID istanza specificato.
+Nell'esempio seguente viene illustrata una funzione trigger HTTP che crea un'orchestrazione di processi in background singleton. Il codice garantisce l'esistenza di una sola istanza per un ID istanza specificato.
 
 ### <a name="c"></a>C#
 
@@ -30,7 +30,7 @@ Gli esempi C# e JavaScript seguenti illustrano una funzione di attivazione HTTP 
 [FunctionName("HttpStartSingle")]
 public static async Task<HttpResponseMessage> RunSingle(
     [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}/{instanceId}")] HttpRequestMessage req,
-    [OrchestrationClient] DurableOrchestrationClient starter,
+    [DurableClient] IDurableOrchestrationClient starter,
     string functionName,
     string instanceId,
     ILogger log)
@@ -55,7 +55,10 @@ public static async Task<HttpResponseMessage> RunSingle(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+> [!NOTE]
+> Il codice C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `OrchestrationClient` attributo anziché l'attributo `DurableClient` ed è necessario usare il tipo di parametro `DurableOrchestrationClient` anziché `IDurableOrchestrationClient`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+
+### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
 
 Ecco il file function.json:
 ```json
@@ -111,12 +114,12 @@ module.exports = async function(context, req) {
 };
 ```
 
-Per impostazione predefinita, gli ID delle istanze sono GUID generati in modo casuale. In questo caso, l'ID istanza viene passato ai dati della route dall'URL. Il codice chiama [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) (C#) o `getStatus` (JavaScript) per verificare se un'istanza con l'ID specificato è già in esecuzione. In caso contrario, viene creata un'istanza con tale ID.
+Per impostazione predefinita, gli ID delle istanze sono GUID generati in modo casuale. Nell'esempio precedente, tuttavia, l'ID istanza viene passato nei dati della route dall'URL. Il codice chiama `GetStatusAsync`(C#) o `getStatus` (JavaScript) per verificare se un'istanza con l'ID specificato è già in esecuzione. Se tale istanza non è in esecuzione, viene creata una nuova istanza con tale ID.
 
 > [!NOTE]
 > In questo esempio c'è una possibile race condition. Se due istanze di **HttpStartSingle** vengono eseguite contemporaneamente, entrambe le chiamate di funzione segnaleranno l'esito positivo, ma verrà effettivamente avviata solo un'istanza dell'orchestrazione. A seconda dei requisiti, questo potrebbe avere effetti indesiderati. Per questo motivo è importante assicurarsi che due richieste non possano eseguire questa funzione trigger contemporaneamente.
 
-I dettagli di implementazione della funzione dell'agente di orchestrazione non sono rilevanti. Può trattarsi di una funzione di agente di orchestrazione regolare che viene avviata e completata oppure può essere eseguita in modo permanente (si tratta di un'[orchestrazione perenne](durable-functions-eternal-orchestrations.md)). L'aspetto importante è che in esecuzione un'unica istanza alla volta.
+I dettagli di implementazione della funzione dell'agente di orchestrazione non sono realmente importanti. Può trattarsi di una funzione di agente di orchestrazione regolare che viene avviata e completata oppure può essere eseguita in modo permanente (si tratta di un'[orchestrazione perenne](durable-functions-eternal-orchestrations.md)). L'aspetto importante è che in esecuzione un'unica istanza alla volta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

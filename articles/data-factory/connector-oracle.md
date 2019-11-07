@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da e in Oracle usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da e verso Oracle usando Azure Data Factory
 description: Informazioni su come copiare dati da archivi di origine supportati in un database Oracle o da Oracle in archivi di sink supportati, usando Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 24ff711fcd27d59c555a53a910065e19f7298131
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d8cbc7410f2b2bd525148cee9dc5b8ddbb756dff
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931068"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680512"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-onprem-oracle-connector.md)
 > * [Versione corrente](connector-oracle.md)
 
@@ -57,7 +57,7 @@ In particolare, questo connettore Oracle supporta:
 
 Il runtime di integrazione fornisce un driver Oracle incorporato. Non è pertanto necessario installare manualmente un driver quando si copiano dati da e in Oracle.
 
-## <a name="get-started"></a>Inizia oggi stesso
+## <a name="get-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -67,10 +67,10 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate pe
 
 Il servizio collegato Oracle supporta le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **Oracle**. | SÌ |
-| connectionString | Specifica le informazioni necessarie per la connessione all'istanza del database Oracle. <br/>Contrassegnare questo campo come `SecureString` per archiviarlo in modo sicuro nel Data Factory. È anche possibile inserire una password in Azure Key Vault ed estrarre la configurazione `password` dalla stringa di connessione. Per informazioni dettagliate, vedere gli esempi seguenti e [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) . <br><br>**Tipo di connessione supportato**: è possibile usare l'**ID di sicurezza Oracle** o il **nome del servizio Oracle** per identificare il database:<br>- Se si usa il SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Se si usa il nome del servizio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | SÌ |
+| type | La proprietà type deve essere impostata su **Oracle**. | Sì |
+| connectionString | Specifica le informazioni necessarie per la connessione all'istanza del database Oracle. <br/>Contrassegnare questo campo come `SecureString` per archiviarlo in modo sicuro nel Data Factory. È anche possibile inserire una password in Azure Key Vault ed estrarre la configurazione `password` dalla stringa di connessione. Per informazioni dettagliate, vedere gli esempi seguenti e [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) . <br><br>**Tipo di connessione supportato**: è possibile usare l'**ID di sicurezza Oracle** o il **nome del servizio Oracle** per identificare il database:<br>- Se si usa il SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Se si usa il nome del servizio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No |
 
 >[!TIP]
@@ -78,7 +78,7 @@ Il servizio collegato Oracle supporta le proprietà seguenti:
 
 Ulteriori proprietà di connessione che è possibile impostare nella stringa di connessione in base al caso:
 
-| Proprietà | Description | Valori consentiti |
+| Proprietà | Descrizione | Valori consentiti |
 |:--- |:--- |:--- |
 | ArraySize |Numero di byte che il connettore può recuperare in una singola rete round trip. Ad esempio, `ArraySize=‭10485760‬`.<br/><br/>I valori più grandi aumentano la velocità effettiva riducendo il numero di volte in cui recuperare i dati attraverso la rete. I valori più piccoli aumentano il tempo di risposta, poiché si verificano meno ritardi in attesa del server per la trasmissione dei dati. | Numero intero compreso tra 1 e 4294967296 (4 GB). Il valore predefinito è `60000`. Il valore 1 non definisce il numero di byte, ma indica l'allocazione dello spazio per esattamente una riga di dati. |
 
@@ -121,7 +121,7 @@ Per abilitare la crittografia sulla connessione di Oracle, sono disponibili due 
         ```
 
     3.  Inserire il file di `truststore` nel computer IR indipendente. Inserire, ad esempio, il file in C:\MyTrustStoreFile.
-    4.  In Azure Data Factory configurare la stringa di connessione Oracle con `EncryptionMethod=1` e il valore di`TrustStorePassword`/`TrustStore`corrispondente. Ad esempio `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
+    4.  In Azure Data Factory configurare la stringa di connessione Oracle con `EncryptionMethod=1` e il valore di `TrustStorePassword`/`TrustStore`corrispondente. Ad esempio, `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
 
 **Esempio:**
 
@@ -174,13 +174,13 @@ Per abilitare la crittografia sulla connessione di Oracle, sono disponibili due 
 ```
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Questa sezione presenta un elenco delle proprietà supportate dal set di dati Oracle. Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere [DataSets](concepts-datasets-linked-services.md). 
+Questa sezione presenta un elenco delle proprietà supportate dal set di dati Oracle. Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere [Datasets](concepts-datasets-linked-services.md). 
 
 Per copiare dati da e in Oracle, impostare la proprietà Type del set di dati su `OracleTable`. Sono supportate le proprietà seguenti.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su `OracleTable`. | SÌ |
+| type | La proprietà Type del set di dati deve essere impostata su `OracleTable`. | Sì |
 | schema | Nome dello schema. |No per l'origine, Sì per il sink  |
 | table | Nome della tabella o della vista. |No per l'origine, Sì per il sink  |
 | tableName | Nome della tabella o della vista con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Per il nuovo carico di lavoro, usare `schema` e `table`. | No per l'origine, Sì per il sink |
@@ -217,9 +217,9 @@ Questa sezione presenta un elenco delle proprietà supportate dall'origine e dal
 
 Per copiare dati da Oracle, impostare il tipo di origine nell'attività di copia su `OracleSource`. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su `OracleSource`. | SÌ |
+| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su `OracleSource`. | Sì |
 | oracleReaderQuery | Usare la query SQL personalizzata per leggere i dati. Un esempio è `"SELECT * FROM MyTable"`.<br>Quando si Abilita il caricamento partizionato, è necessario associare tutti i parametri di partizione predefiniti corrispondenti nella query. Per esempi, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
 | partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per caricare dati da Oracle. <br>I valori consentiti sono: **None** (impostazione predefinita), **PhysicalPartitionsOfTable** e **DynamicRange**.<br>Quando è abilitata un'opzione di partizione (ovvero non `None`), il grado di parallelismo per caricare simultaneamente i dati da un database Oracle è controllato dall'impostazione [`parallelCopies`](copy-activity-performance.md#parallel-copy) sull'attività di copia. | No |
 | partitionSettings | Consente di specificare il gruppo di impostazioni per il partizionamento dei dati. <br>Applicare quando l'opzione partition non è `None`. | No |
@@ -264,9 +264,9 @@ Per copiare dati da Oracle, impostare il tipo di origine nell'attività di copia
 
 Per copiare dati in Oracle, impostare il tipo di sink nell'attività di copia su `OracleSink`. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà Type del sink dell'attività di copia deve essere impostata su `OracleSink`. | SÌ |
+| type | La proprietà Type del sink dell'attività di copia deve essere impostata su `OracleSink`. | Sì |
 | writeBatchSize | Inserisce i dati nella tabella SQL quando la dimensione del buffer raggiunge `writeBatchSize`.<br/>I valori consentiti sono integer (numero di righe). |No (il valore predefinito è 10.000) |
 | writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono un intervallo di tempo. Ad esempio "00:30:00" (30 minuti). | No |
 | preCopyScript | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in Oracle a ogni esecuzione. È possibile usare questa proprietà per pulire i dati precaricati. | No |
@@ -358,25 +358,25 @@ Quando si copiano dati da e in Oracle, vengono applicati i mapping seguenti. Per
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(supportato solo in Oracle 10g e versioni successive) |
-| CHAR |Stringa |
-| CLOB |Stringa |
-| DATE |Data e ora |
+| CHAR |String |
+| CLOB |String |
+| DATE |DateTime |
 | FLOAT |Decimal, String (se la precisione > 28) |
 | INTEGER |Decimal, String (se la precisione > 28) |
-| LONG |Stringa |
+| LONG |String |
 | LONG RAW |Byte[] |
-| NCHAR |Stringa |
-| NCLOB |Stringa |
+| NCHAR |String |
+| NCLOB |String |
 | NUMBER |Decimal, String (se la precisione > 28) |
-| NVARCHAR2 |Stringa |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |Stringa |
-| TIMESTAMP |Data e ora |
-| TIMESTAMP WITH LOCAL TIME ZONE |Stringa |
-| TIMESTAMP WITH TIME ZONE |Stringa |
-| UNSIGNED INTEGER |Numero |
-| VARCHAR2 |Stringa |
-| XML |Stringa |
+| ROWID |String |
+| TIMESTAMP |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |String |
+| TIMESTAMP WITH TIME ZONE |String |
+| UNSIGNED INTEGER |Number |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > I tipi di dati INTERVAL YEAR TO MONTH e INTERVAL DAY TO SECOND non sono supportati.

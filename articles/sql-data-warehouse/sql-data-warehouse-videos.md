@@ -1,6 +1,6 @@
 ---
-title: Video - Azure SQL Data Warehouse | Microsoft Docs
-description: Include collegamenti a vari elenchi di riproduzione video per Azure SQL Data Warehouse.
+title: Video
+description: Collegamenti a diverse playlist video per Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -10,18 +10,19 @@ ms.subservice: manage
 ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 52f61f606ddf28c23eb3f72ff91c68a47b667ea1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 5d01ff2eb74844997eb1640123e4af59abe2340b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595444"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692431"
 ---
-# <a name="azure-sql-data-warehouse---videos"></a>Azure SQL Data Warehouse - video
+# <a name="azure-sql-data-warehouse---videos"></a>Azure SQL Data Warehouse-video
 
-Guarda i video più recenti di Azure SQL Data Warehouse per apprendere le nuove funzionalità e miglioramenti delle prestazioni. 
+Per informazioni sulle nuove funzionalità e sui miglioramenti delle prestazioni, guardare i video più recenti Azure SQL Data Warehouse. 
 
-Per iniziare, selezionare il video di panoramica seguente per scoprire i nuovi aggiornamenti in Azure SQL Data Warehouse. Inoltre, vengono fornite come modelli di Data Warehouse moderno consente di affrontare scenari del mondo reale, ad esempio criminalità informatica.
+Per iniziare, selezionare il video di panoramica seguente per informazioni sui nuovi aggiornamenti da Azure SQL Data Warehouse. Inoltre, informazioni su come usare i modelli di data warehouse moderni per affrontare scenari reali, ad esempio il crimine informatico.
 </br>
 
 <a href="https://www.youtube.com/watch?v=7MDCWgxPnVY&list=PLXtHYVsvn_b_v4EKljH6dGo9qJ7JjItWL&index=2">
@@ -30,8 +31,8 @@ Per iniziare, selezionare il video di panoramica seguente per scoprire i nuovi a
   </div>
 </a>
 
-Altri video che descrive le funzionalità specifiche possono essere visualizzati in: 
-- [YouTube: Analitica avanzata con Azure](https://www.youtube.com/playlist?list=PLLasX02E8BPClOvjNV9bXk3LUuf3nQiS2)
-- [Video di Azure](https://azure.microsoft.com/resources/videos/index/?services=sql-data-warehouse)
+È possibile visualizzare altri video che descrivono funzionalità specifiche in: 
+- [YouTube: analisi avanzata con Azure](https://www.youtube.com/playlist?list=PLLasX02E8BPClOvjNV9bXk3LUuf3nQiS2)
+- [Video su Azure](https://azure.microsoft.com/resources/videos/index/?services=sql-data-warehouse)
 
 

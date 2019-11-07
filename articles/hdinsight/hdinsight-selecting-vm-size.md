@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: d93c3599bb4a52a03d4ac436ca664ce6be1c55b9
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200827"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682214"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Selezione delle dimensioni di macchina virtuale corrette per il cluster HDInsight di Azure
 
@@ -38,14 +38,14 @@ Il tipo e le dimensioni della macchina virtuale variano in base alla potenza di 
 
 Le famiglie di macchine virtuali in Azure sono ottimizzate per adattarsi a diversi casi d'uso. Nella tabella seguente è possibile trovare alcuni dei casi d'uso più comuni e le famiglie di VM corrispondenti.
 
-| Type                     | Dimensioni           |    Description       |
+| Tipo                     | Dimensioni           |    Descrizione       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [A livello di voce](../virtual-machines/linux/sizes-general.md)          | A, AV2  | Sono disponibili configurazioni di memoria e prestazioni della CPU più adatte per carichi di lavoro a livello di voce quali sviluppo e test. Sono economiche e offrono una soluzione a basso costo per iniziare a usare Azure. |
 | [Utilizzo generico](../virtual-machines/linux/sizes-general.md)          | D, DSv2, dv2  | Rapporto equilibrato tra CPU e memoria. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. |
 | [Ottimizzate per il calcolo](../virtual-machines/linux/sizes-compute.md)        | F           | Rapporto elevato tra CPU e memoria. Soluzione idonea per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni.        |
 | [Ottimizzate per la memoria](../virtual-machines/linux/sizes-memory.md)         | Esv3, EV3  | Rapporto elevato tra memoria e CPU. Soluzione ideale per server di database relazionali, cache medio-grandi e analisi in memoria.                 |
 
-- Per informazioni sui prezzi delle istanze di VM disponibili nelle aree HDInsight supportate, vedere [prezzi di HDInsight](https://azure.microsoft.com/en-us/pricing/details/hdinsight/).
+- Per informazioni sui prezzi delle istanze di VM disponibili nelle aree HDInsight supportate, vedere [prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="cost-saving-vm-types-for-light-workloads"></a>Risparmio sui costi dei tipi di VM per carichi di lavoro leggeri
 
@@ -55,10 +55,10 @@ La tabella seguente descrive i tipi di cluster e i tipi di nodo che possono esse
 
 | Tipo di cluster | Versione | Nodo del ruolo di lavoro | Nodo head | Nodo Zookeeper |
 |---|---|---|---|---|
-| Spark | Tutto | F4 e versioni successive | no | no |
-| Hadoop | Tutto | F4 e versioni successive | no | no |
-| Kafka | Tutto | F4 e versioni successive | no | no |
-| hbase | Tutto | F4 e versioni successive | no | no |
+| Spark | Tutti | F4 e versioni successive | no | no |
+| Hadoop | Tutti | F4 e versioni successive | no | no |
+| Kafka | Tutti | F4 e versioni successive | no | no |
+| HBase | Tutti | F4 e versioni successive | no | no |
 | LLAP | disabled | no | no | no |
 | Storm | disabled | no | no | no |
 | Servizio ML | SOLO HDI 3,6 | F4 e versioni successive | no | no |

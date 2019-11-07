@@ -1,5 +1,5 @@
 ---
-title: Spostare dati da Cassandra con Data Factory | Documentazione Microsoft
+title: Spostare i dati da Cassandra usando Data Factory
 description: Informazioni su come spostare dati da un database Cassandra locale mediante Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b098aaf2df5e04983aa53563d5e0203f3287b42
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 4edd4d663e02601a97474c5d3a54adaa6b7fd27d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839957"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682436"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Spostare dati da un database Cassandra locale mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-onprem-cassandra-connector.md)
 > * [Versione 2 (corrente)](../connector-cassandra.md)
 
@@ -48,8 +48,8 @@ Quando si installa il gateway, viene installato automaticamente un driver Micros
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API.
 
-- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
-- Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **Visual Studio**, **Azure PowerShell**, **modello Azure Resource Manager**, **API .NET**, e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+- È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -57,20 +57,20 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
 3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory. Per un esempio con definizioni JSON per entità di data factory usate per copiare dati da un archivio dati Cassandra locale, vedere la sezione [Esempio di JSON: Copiare dati da Cassandra a BLOB di Azure](#json-example-copy-data-from-cassandra-to-azure-blob) di questo articolo.
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory. Per un esempio con le definizioni JSON per le entità di Data Factory utilizzate per copiare dati da un archivio dati Cassandra locale, vedere la sezione [Esempio JSON: Copiare dati da Cassandra a BLOB di Azure](#json-example-copy-data-from-cassandra-to-azure-blob) di questo articolo.
 
 Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità della Data Factory specifiche di un archivio dati Cassandra:
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato Cassandra.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su: **OnPremisesCassandra** |Sì |
 | host |Uno o più indirizzi IP o nomi host di server Cassandra.<br/><br/>Specificare un elenco delimitato da virgole degli indirizzi IP o nomi host per la connessione a tutti i server contemporaneamente. |Sì |
-| port |La porta TCP che il server Cassandra usa per ascoltare le connessioni client. |No (valore predefinito: 9042) |
+| port |La porta TCP che il server Cassandra usa per ascoltare le connessioni client. |No, valore predefinito: 9042 |
 | authenticationType |Di base o anonima |Sì |
-| username |Specificare il nome utente per l'account utente. |Sì, se authenticationType è impostato su Basic. |
+| Nome utente |Specificare il nome utente per l'account utente. |Sì, se authenticationType è impostato su Basic. |
 | password |Specifica la password per l'account utente. |Sì, se authenticationType è impostato su Basic. |
 | gatewayName |Il nome del gateway che viene usato per connettersi al database Cassandra locale. |Sì |
 | encryptedCredential |Credenziali crittografate dal gateway. |No |
@@ -95,18 +95,18 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 
 In caso di origine di tipo **CassandraSource**, nella sezione typeProperties sono disponibili le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |Query SQL-92 o query CQL. Vedere il [riferimento a CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Quando si usa una query SQL, specificare **nome keyspace.nome tabella** per indicare la tabella su cui eseguire la query. |No (se tableName e keyspace sul set di dati sono definiti). |
 | consistencyLevel |Il livello di coerenza specifica quante repliche devono rispondere a una richiesta di lettura prima della restituzione dei dati all'applicazione client. Cassandra controlla il numero di repliche specificato perché i dati soddisfino la richiesta di lettura. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Per informazioni dettagliate, vedere [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) (Configurazione della coerenza dei dati). |No. Il valore predefinito è ONE. |
 
-## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>Esempio di JSON: Copiare dati da Cassandra a BLOB di Azure
-In questo esempio fornisce le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) oppure [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustra come copiare dati da un database Cassandra locale a un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
+## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>Esempio JSON: Copiare i dati da Cassandra a BLOB di Azure
+Questo esempio fornisce le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustra come copiare dati da un database Cassandra locale a un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
 
 > [!IMPORTANT]
 > Questo esempio fornisce frammenti di codice JSON. Non include istruzioni dettagliate per la creazione della data factory. Le istruzioni dettagliate sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md) .
 
-L'esempio include le entità di Data Factory seguenti:
+L'esempio include le entità di Data factory seguenti:
 
 * Un servizio collegato di tipo [OnPremisesCassandra](#linked-service-properties).
 * Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -183,7 +183,7 @@ Impostando **external** su **true** si comunica al servizio Data Factory che il 
 
 **Set di dati di output del BLOB di Azure:**
 
-I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: oraria, intervallo: 1).
+I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1).
 
 ```json
 {
@@ -265,9 +265,9 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere le [proprie
 | ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| Boolean |Boolean |
-| Decimal |Decimal |
-| Double |Double |
+| BOOLEAN |Booleano |
+| DECIMAL |Decimal |
+| DOUBLE |Double |
 | FLOAT |Single |
 | INET |String |
 | INT |Int32 |
@@ -300,7 +300,7 @@ Le tabelle virtuali fanno riferimento ai dati nella tabella reale, consentendo a
 ### <a name="example"></a>Esempio
 Ad esempio, "ExampleTable" è una tabella di un database Cassandra contenente una colonna chiave primaria integer denominata "pk_int", una colonna testo denominata value, una colonna elenco, una colonna mappa e una colonna set (denominata "StringSet").
 
-| pk_int | Value | Elenco | Mappa | StringSet |
+| pk_int | Valore | Elenco | Mappa | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"valore di esempio 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"valore di esempio 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
@@ -309,14 +309,14 @@ Il driver genera più tabelle virtuali per rappresentare questa singola tabella.
 
 La prima tabella virtuale è la tabella di base denominata "ExampleTable", illustrata nella tabella di seguito. La tabella di base contiene gli stessi dati della tabella di database originale, tranne le raccolte, che vengono omesse da questa tabella ed espanse in altre tabelle virtuali.
 
-| pk_int | Value |
+| pk_int | Valore |
 | --- | --- |
 | 1 |"valore di esempio 1" |
 | 3 |"valore di esempio 3" |
 
 Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i dati dalle colonne elenco, mappa e StringSet. Le colonne con nomi che terminano con “_index” o “_key” indicano la posizione dei dati all'interno dell'elenco o della mappa originale. Le colonne con nomi che terminano con “_value” contengono i dati espansi dalla raccolta.
 
-#### <a name="table-exampletablevtlist"></a>Tabella “ExampleTable_vt_List”:
+#### <a name="table-exampletable_vt_list"></a>Tabella “ExampleTable_vt_List”:
 | pk_int | List_index | List_value |
 | --- | --- | --- |
 | 1 |0 |1 |
@@ -327,20 +327,20 @@ Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i d
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-#### <a name="table-exampletablevtmap"></a>Tabella “ExampleTable_vt_Map”:
+#### <a name="table-exampletable_vt_map"></a>Tabella “ExampleTable_vt_Map”:
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |Una |
+| 1 |S1 |A |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-#### <a name="table-exampletablevtstringset"></a>Tabella “ExampleTable_vt_StringSet”:
+#### <a name="table-exampletable_vt_stringset"></a>Tabella “ExampleTable_vt_StringSet”:
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |Una |
+| 1 |A |
 | 1 |b |
 | 1 |C |
-| 3 |Una |
+| 3 |A |
 | 3 |E |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink

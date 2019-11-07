@@ -1,5 +1,5 @@
 ---
-title: Istanza gestita di database SQL-ripristino temporizzato | Microsoft Docs
+title: Istanza gestita di database SQL-ripristino temporizzato
 description: Ripristinare un database SQL in un'istanza gestita a un momento precedente.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 61249d8ac21c3bb698deb92e5f46a8998205ced9
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 44f99b6a5201e91e37ace0f5aa4c5c2eb8e3b1db
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529672"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687978"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Ripristinare un database SQL in un'istanza gestita a un momento precedente
 
@@ -48,15 +48,15 @@ La tabella seguente illustra gli scenari di ripristino temporizzato per le istan
 
 |           |Ripristinare il database esistente nella stessa istanza gestita| Ripristinare il database esistente in un'altra istanza gestita|Ripristinare il database eliminato nella stessa istanza gestita|Ripristinare il database eliminato in un'altra istanza gestita|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure portal**| SÌ|No |No|No|
-|**interfaccia della riga di comando di Azure**|SÌ |SÌ |No|No|
-|**PowerShell**| SÌ|SÌ |SÌ|SÌ|
+|**Portale di Azure**| Sì|No |No|No|
+|**Interfaccia della riga di comando di Azure**|Sì |Sì |No|No|
+|**PowerShell**| Sì|Sì |Sì|Sì|
 
 ## <a name="restore-an-existing-database"></a>Ripristinare un database esistente
 
 Ripristinare un database esistente nella stessa istanza usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Per ripristinare un database a un'altra istanza, usare PowerShell o l'interfaccia della riga di comando di Azure in modo da poter specificare le proprietà per l'istanza gestita e il gruppo di risorse di destinazione. Se non si specificano questi parametri, per impostazione predefinita il database verrà ripristinato nell'istanza esistente. Il portale di Azure attualmente non supporta il ripristino in un'altra istanza.
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 2. Passare all'istanza gestita e selezionare il database che si desidera ripristinare.
@@ -110,7 +110,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
 
 Per informazioni dettagliate, vedere [Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Se l'interfaccia della riga di comando di Azure non è ancora installata, vedere [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -197,7 +197,7 @@ Per connettersi al database nell'istanza gestita, utilizzare uno dei metodi segu
 - [Da punto a sito](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [Endpoint pubblico](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 Nella portale di Azure selezionare il database dall'istanza gestita e quindi selezionare **Elimina**.
 
@@ -215,7 +215,7 @@ $databaseName = "<Source database>"
 Remove-AzSqlInstanceDatabase -Name $databaseName -InstanceName $managedInstanceName -ResourceGroupName $resourceGroupName
 ```
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Usare il comando dell'interfaccia della riga di comando di Azure seguente per eliminare un database esistente da un'istanza gestita:
 

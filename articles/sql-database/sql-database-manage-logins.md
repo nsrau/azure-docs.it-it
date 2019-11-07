@@ -1,5 +1,5 @@
 ---
-title: Account di accesso e utenti SQL di Azure | Documentazione Microsoft
+title: Account di accesso e utenti SQL di Azure
 description: Informazioni sulla gestione della sicurezza del database SQL e di SQL Data Warehouse, in particolare la modalità di gestione dell'accesso al database e la sicurezza degli account di accesso tramite l'account delle entità di sicurezza a livello di server.
 keywords: sicurezza del database sql, gestione della sicurezza del database, sicurezza degli account di accesso, sicurezza del database, accesso al database
 services: sql-database
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/26/2019
-ms.openlocfilehash: 9dae1e3864f5f1cf745bfe9b0872f15f61471a1c
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 501df95b80bd651020fa044970f6bc701959a6a5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014496"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689487"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controllo e concessione dell'accesso al database SQL e a SQL Data Warehouse
 
@@ -97,7 +97,7 @@ Uno di questi ruoli amministrativi è il ruolo **dbmanager**. I membri di questo
 
    Per migliorare le prestazioni, gli account di accesso (entità a livello di server) vengono temporaneamente memorizzati nella cache a livello di database. Per aggiornare la cache di autenticazione, vedere [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
-3. Nel database `master` creare un utente con l'istruzione [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). L'utente può essere un utente di database indipendente con autenticazione di Azure Active Directory (se l'ambiente è stato configurato per l'autenticazione di Azure AD), un utente di database indipendente con autenticazione di SQL Server oppure un utente con autenticazione di SQL Server basato su un account di accesso con autenticazione di SQL Server (creato nel passaggio precedente). Istruzioni di esempio:
+3. Nel database `master` creare un utente con l'istruzione [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). L'utente può essere un utente del database indipendente dall'autenticazione di Azure Active Directory (se l'ambiente è stato configurato per l'autenticazione Azure AD) o un utente del database indipendente dall'autenticazione SQL Server oppure un utente di autenticazione SQL Server basato su un SQL Server account di accesso con autenticazione (creato nel passaggio precedente). Istruzioni di esempio:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -125,7 +125,7 @@ L'altro ruolo amministrativo è il ruolo di gestione degli account di accesso. I
 
 ## <a name="non-administrator-users"></a>Utenti non amministratori
 
-Per gli account non amministratore non è in genere necessario l'accesso al database master. Creare utenti di database indipendente a livello di database con l'istruzione [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) . L'utente può essere un utente di database indipendente con autenticazione di Azure Active Directory (se l'ambiente è stato configurato per l'autenticazione di Azure AD), un utente di database indipendente con autenticazione di SQL Server oppure un utente con autenticazione di SQL Server basato su un account di accesso con autenticazione di SQL Server (creato nel passaggio precedente). Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx). 
+Per gli account non amministratore non è in genere necessario l'accesso al database master. Creare utenti di database indipendente a livello di database con l'istruzione [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) . L'utente può essere un utente del database indipendente dall'autenticazione di Azure Active Directory (se l'ambiente è stato configurato per l'autenticazione Azure AD) o un utente del database indipendente dall'autenticazione SQL Server oppure un utente di autenticazione SQL Server basato su un SQL Server account di accesso con autenticazione (creato nel passaggio precedente). Per altre informazioni, vedere [utenti di database indipendente: rendere](https://msdn.microsoft.com/library/ff929188.aspx)portabile un database. 
 
 Per creare utenti, connettersi al database ed eseguire istruzioni simili ai seguenti esempi:
 
@@ -177,7 +177,7 @@ In una gestione efficiente degli accessi vengono usate autorizzazioni assegnate 
 
 I ruoli del database possono essere ruoli predefiniti come **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** e **db_denydatareader**. Per concedere autorizzazioni complete a un numero limitato di utenti viene usato comunemente **db_owner**. Gli altri ruoli predefiniti del database sono utili per ottenere rapidamente un database semplice nello sviluppo, ma non sono consigliabili per la maggior parte dei database di produzione. Il ruolo predefinito del database **db_datareader**, ad esempio, concede l'accesso in lettura a tutte le tabelle del database, che in genere è più di quanto strettamente necessario. È preferibile usare l'istruzione [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) per creare ruoli del database definiti dall'utente e concedere con attenzione a ogni ruolo le autorizzazioni minime necessarie per le esigenze aziendali. Quando un utente è membro di più ruoli, vengono aggregate le autorizzazioni di tutti.
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>autorizzazioni
 
 Nel database SQL possono essere concesse o negate singolarmente oltre 100 autorizzazioni. Molte di queste autorizzazioni sono annidate. L'autorizzazione `UPDATE` per uno schema, ad esempio, include l'autorizzazione `UPDATE` per ogni tabella all'interno di tale schema. Come nella maggior parte dei sistemi di autorizzazioni, la negazione di un'autorizzazione determina l'override di una concessione. A causa dell'annidamento e del numero delle autorizzazioni, progettare un sistema di autorizzazioni appropriato per proteggere correttamente il database può richiedere un attento studio. Per iniziare, vedere l'elenco di autorizzazioni in [Autorizzazioni (Motore di database)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) e la [grafica in formato di poster](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png) relativa alle autorizzazioni.
 

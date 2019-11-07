@@ -1,5 +1,5 @@
 ---
-title: Trasformazione EXISTS nel flusso di dati del mapping Azure Data Factory | Microsoft Docs
+title: Trasformazione EXISTS nel flusso di dati del mapping Azure Data Factory
 description: Verificare la presenza di righe esistenti utilizzando la trasformazione EXISTS nel flusso di dati di mapping Azure Data Factory
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 79bdfc84310686b2648e12d73d783de049e9d2fa
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: a477eba246c4ebcfbd32e92f1fd30c301ea1cc5b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596504"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676740"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Trasformazione EXISTS nel flusso di dati di mapping
 
@@ -54,7 +54,7 @@ Per creare un'espressione in formato libero che contenga operatori diversi da "e
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente è una trasformazione exists denominata `checkForChanges` che accetta il flusso sinistro `NameNorm2` e il flusso destro `TypeConversions`.  La condizione EXISTS è l'espressione `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` che restituisce true se le colonne `EMPID` e `Region` in ogni flusso corrispondono. Mentre viene verificata l'esistenza, `negate` è false. Non è abilitata alcuna trasmissione nella scheda Optimize, in modo `broadcast` `'none'` valore.
+L'esempio seguente è una trasformazione exists denominata `checkForChanges` che accetta il flusso sinistro `NameNorm2` e il flusso destro `TypeConversions`.  La condizione EXISTS è l'espressione `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` che restituisce true se le colonne `EMPID` e `Region` in ogni flusso corrispondono. Mentre viene verificata l'esistenza, `negate` è false. Non è abilitata alcuna trasmissione nella scheda Optimize, in modo `broadcast` `'none'`valore.
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 

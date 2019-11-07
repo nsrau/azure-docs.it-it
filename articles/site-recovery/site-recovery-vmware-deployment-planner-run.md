@@ -1,5 +1,5 @@
 ---
-title: Eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure | Microsoft Docs
+title: Eseguire la Deployment Planner per il ripristino di emergenza di VMware con Azure Site Recovery
 description: Questo articolo descrive come eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 3a6c9e50804db573395984b8ba38838eb15b0792
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 611213f6cf0f51a8b6c6f7f89a795b2daa94a38a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61276736"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693200"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -95,7 +95,7 @@ Per impostazione predefinita, lo strumento è configurato per profilare, generan
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Per profilare, ad esempio, 1500 VM con le impostazioni predefinite, creare due file VMList.txt, uno con l'elenco di 1000 VM e l'altro di 500 VM. Eseguire le due istanze di Azure Site Recovery Deployment Planner, una con VMList1.txt e l'altra con VMList2.txt. È possibile usare lo stesso percorso di directory per archiviare i dati di profilatura delle VM di entrambi i file VMList.
+Per profilare, ad esempio, 1500 VM con le impostazioni predefinite, creare due file VMList.txt, uno con l'elenco di 1000 VM e l'altro di 500 VM. Eseguire le due istanze di Azure Site Recovery Deployment Planner, una con VMList1. txt e l'altra con VMList2. txt. È possibile usare lo stesso percorso di directory per archiviare i dati di profilatura delle VM di entrambi i file VMList.
 
 È stato osservato che in base alla configurazione hardware, in particolare alle dimensioni della RAM del server da cui viene eseguito lo strumento per generare il report, l'operazione può non riuscire a causa di memoria insufficiente. Se l'hardware è appropriato, è possibile modificare MaxVMsSupported in base a un valore maggiore.  
 
@@ -113,7 +113,7 @@ Il comando di profilatura genera diversi file nella directory della profilatura.
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
-#### <a name="example-2-profile-vms-for-15-days"></a>Esempio 2 Profilare le VM per 15 giorni
+#### <a name="example-2-profile-vms-for-15-days"></a>Esempio 2: Profilare le VM per 15 giorni
 
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfDaysToProfile  15  -User vCenterUser1
@@ -139,7 +139,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 Lo strumento genera un file di Microsoft Excel con attivazione macro (file XLSM) come output del report, con il riepilogo di tutte le indicazioni di distribuzione. Il report è denominato `DeploymentPlannerReport_<unique numeric identifier>.xlsm` e inserito nella directory specificata.
 
 >[!NOTE]
->Generazione di report richiede un PC Windows o Windows Server con Excel 2013 o versione successiva. Il separatore decimale in questo computer deve essere configurato come "." per generare le stime dei costi. Nel caso in cui è stato impostato "," come separatore decimale, passare a "Modifica data, ora o formati numerici" nel Pannello di controllo e passare a "Impostazioni aggiuntive" per modificare il separatore delle migliaia a".".
+>Per la generazione di report è necessario un PC Windows o Windows Server con Excel 2013 o versione successiva. Il simbolo decimale in questo computer deve essere configurato come "." per produrre le stime dei costi. Se è stato configurato "," come simbolo decimale, passare a "modifica data, ora o formati numerici" nel pannello di controllo e passare a "impostazioni aggiuntive" per modificare il simbolo decimale in ".".
 
 Al termine della profilatura, è possibile eseguire lo strumento in modalità di generazione di report. La tabella seguente contiene un elenco dei parametri obbligatori e facoltativi dello strumento per l'esecuzione in modalità di generazione di report.
 
@@ -174,12 +174,12 @@ Per impostazione predefinita, lo strumento è configurato per profilare, generan
 <add key="MaxVmsSupported" value="1000"/>
 ```
 
-#### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Esempio 1: Generare un report con i valori predefiniti quando i dati profilati si trovano nell'unità locale
+#### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Esempio 1: Generare un report con valori predefiniti quando i dati profilati si trovano nell'unità locale
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Esempio 2 Generare un report quando i dati profilati si trovano in un server remoto
+#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Esempio 2: Generare un report quando i dati profilati si trovano in un server remoto
 È consigliabile avere l'accesso in lettura/scrittura alla directory remota.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
@@ -241,7 +241,7 @@ Si supponga, ad esempio, che attualmente la VM sia idonea per un account di repl
 Il report di Microsoft Excel generato contiene le informazioni seguenti:
 
 * [Riepilogo ambiente locale](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
-* [Indicazioni](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
+* [Raccomandazioni](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
 * [Selezione host di archiviazione delle VM](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [VM compatibili](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
 * [VM incompatibili](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
@@ -249,7 +249,7 @@ Il report di Microsoft Excel generato contiene le informazioni seguenti:
 
 ![Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)
 
-## <a name="get-throughput"></a>Misurare la velocità effettiva
+## <a name="get-throughput"></a>Misurazione della velocità effettiva
 
 Per stimare la velocità effettiva che Site Recovery può ottenere dall'ambiente locale ad Azure durante la replica, eseguire lo strumento in modalità GetThroughput. Lo strumento calcola la velocità effettiva dal server in cui è in esecuzione. Idealmente, questo server è basato sulle linee guida di ridimensionamento del server di configurazione. Se i componenti dell'infrastruttura di Site Recovery sono già stati distribuiti in locale, eseguire lo strumento nel server di configurazione.
 

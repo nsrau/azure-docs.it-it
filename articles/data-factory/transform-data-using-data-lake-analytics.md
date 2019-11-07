@@ -1,5 +1,5 @@
 ---
-title: Trasformare dati usando lo script U-SQL - Azure | Documentazione Microsoft
+title: Trasformare i dati con lo script U-SQL-Azure
 description: Informazioni su come elaborare o trasformare i dati eseguendo gli script U-SQL nel servizio di calcolo di Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: d5b074fcf182bcc9bf4dc17ba21215d27e13cbdd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53fb6773becff9f76c9658171965fbd148e94bc8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60888436"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683866"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Trasformare i dati eseguendo script U-SQL in Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-usql-activity.md)
 > * [Versione corrente](transform-data-using-data-lake-analytics.md)
 
@@ -36,8 +36,8 @@ La tabella seguente fornisce le descrizioni delle proprietà generiche usate nel
 
 | Proprietà                 | Descrizione                              | Obbligatorio                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | La proprietà type deve essere impostata su: **AzureDataLakeAnalytics**. | Yes                                      |
-| **accountName**          | Nome dell'account di Azure Data Lake Analytics.  | Yes                                      |
+| **type**                 | La proprietà type deve essere impostata su **AzureDataLakeAnalytics**. | Sì                                      |
+| **accountName**          | Nome dell'account di Azure Data Lake Analytics.  | Sì                                      |
 | **dataLakeAnalyticsUri** | URI di Azure Data Lake Analytics.           | No                                       |
 | **subscriptionId**       | ID sottoscrizione di Azure                    | No                                       |
 | **resourceGroupName**    | Nome del gruppo di risorse di Azure                | No                                       |
@@ -57,9 +57,9 @@ Usare l'autenticazione basata su entità servizio specificando le proprietà seg
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Specificare l'ID client dell'applicazione.     | Sì      |
 | **servicePrincipalKey** | Specificare la chiave dell'applicazione.           | Sì      |
-| **tenant**              | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Yes      |
+| **tenant**              | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì      |
 
-**Esempio: autenticazione di un'entità servizio**
+**Esempio: autenticazione basata su entità servizio**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -119,17 +119,17 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 
 | Proprietà            | Descrizione                              | Obbligatorio |
 | :------------------ | :--------------------------------------- | :------- |
-| name                | Nome dell'attività nella pipeline     | Yes      |
+| name                | Nome dell'attività nella pipeline     | Sì      |
 | description         | Testo che descrive l'attività.  | No       |
-| type                | Per l'attività U-SQL di Data Lake Analytics, il tipo corrisponde a **DataLakeAnalyticsU-SQL**. | Yes      |
-| linkedServiceName   | Servizio collegato ad Azure Data Lake Analytics. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  |Yes       |
-| scriptPath          | Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. | Yes      |
-| scriptLinkedService | Servizio collegato che collega alla data factory l'archivio **Azure Data Lake Store** o **Archiviazione di Azure** contenente lo script | Yes      |
-| degreeOfParallelism | Il numero massimo di nodi usati contemporaneamente per eseguire il processo. | N.       |
-| priorità            | Determina quali processi rispetto a tutti gli altri disponibili nella coda devono essere selezionati per essere eseguiti per primi. Più è basso il numero, maggiore sarà la priorità. | N.       |
-| parameters          | Parametri da passare allo script U-SQL.    | No       |
+| type                | Per l'attività U-SQL di Data Lake Analytics, il tipo corrisponde a **DataLakeAnalyticsU-SQL**. | Sì      |
+| linkedServiceName   | Servizio collegato ad Azure Data Lake Analytics. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  |Sì       |
+| scriptPath          | Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. | Sì      |
+| scriptLinkedService | Servizio collegato che collega alla data factory l'archivio **Azure Data Lake Store** o **Archiviazione di Azure** contenente lo script | Sì      |
+| degreeOfParallelism | Il numero massimo di nodi usati contemporaneamente per eseguire il processo. | No       |
+| priority            | Determina quali processi rispetto a tutti gli altri disponibili nella coda devono essere selezionati per essere eseguiti per primi. Più è basso il numero, maggiore sarà la priorità. | No       |
+| Parametri          | Parametri da passare allo script U-SQL.    | No       |
 | runtimeVersion      | Versione di runtime del motore di U-SQL da usare. | No       |
-| compilationMode     | <p>Modalità di compilazione di U-SQL. Deve essere uno dei valori seguenti: **Semantic:** esegue solo controlli semantici e i controlli di integrità necessari. **Full:** esegue la compilazione completa, inclusi il controllo della sintassi, l'ottimizzazione, la generazione di codice e così via. **SingleBox:** esegue la compilazione completa, con TargetType impostato su SingleBox. Se per questa proprietà non si specifica alcun valore, il server determina la modalità di compilazione ottimale. | No |
+| compilationMode     | <p>Modalità di compilazione di U-SQL. Deve corrispondere a uno dei valori seguenti: **Semantic:** consente di eseguire solo controlli semantici e i controlli di integrità necessari. **Full:** consente di eseguire una compilazione completa, inclusi il controllo della sintassi, l'ottimizzazione, la generazione di codice e così via. **SingleBox:** consente di eseguire una compilazione completa usando SingleBox come impostazione di TargetType. Se per questa proprietà non si specifica alcun valore, il server determina la modalità di compilazione ottimale. | No |
 
 Per la definizione dello script, vedere [SearchLogProcessing.txt](#sample-u-sql-script). 
 
@@ -162,7 +162,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Nel precedente esempio di script, l'input e output dello script è definito  **\@nelle** e  **\@out** parametri. I valori per  **\@nelle** e  **\@out** parametri nello script U-SQL vengono passati in modo dinamico da Data Factory usando la sezione "parameters". 
+Nell'esempio di script precedente, l'input e l'output dello script sono definiti in **\@in** e **\@parametri out** . I valori per **\@in** e **\@parametri out** nello script U-SQL vengono passati in modo dinamico da data factory usando la sezione "Parameters". 
 
 È possibile specificare anche altre proprietà come degreeOfParallelism e priorità nella definizione della pipeline per i processi in esecuzione sul servizio Azure Data Lake Analytics.
 
@@ -188,7 +188,7 @@ Nell'esempio di definizione di pipeline i parametri in e out vengono assegnati c
 In questo caso, i file di input vengono prelevati dalla cartella /datalake/input e i file di output vengono generati nella cartella /datalake/output. I nomi dei file sono dinamici in base all'ora di inizio della finestra passata quando viene attivata la pipeline.  
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione dei dati: 
+Vedere gli articoli seguenti che illustrano come trasformare i dati in altri modi: 
 
 * [Attività Hive](transform-data-using-hadoop-hive.md)
 * [Attività Pig](transform-data-using-hadoop-pig.md)

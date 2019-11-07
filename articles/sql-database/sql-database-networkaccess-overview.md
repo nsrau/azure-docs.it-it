@@ -1,5 +1,5 @@
 ---
-title: Controlli di accesso alla rete del database SQL di Azure e data warehouse | Microsoft Docs
+title: Controlli di accesso alla rete del database SQL di Azure e data warehouse
 description: Panoramica dei controlli di accesso alla rete per il database SQL di Azure e data warehouse per gestire l'accesso e configurare un database singolo o in pool.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: b2c1f01e53cfe41b72e3e079059c66e4e2409012
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: deee668c3597047a5d5f0fd153626916c3fd8517
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703265"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687709"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controlli di accesso alla rete del database SQL di Azure e data warehouse
 
@@ -81,14 +81,14 @@ Quando si esplorano le regole del firewall di rete virtuale, tenere presenti le 
 
 **Rete virtuale:** È possibile avere reti virtuali associate alla sottoscrizione di Azure 
 
-**Subnet:** una rete virtuale contiene una o più **subnet**. Le macchine virtuali (VM) di Azure esistenti vengono assegnate a subnet. Una subnet può contenere varie VM o altri nodi di calcolo. I nodi di calcolo esterni alla rete virtuale non possono accedervi, a meno che non si configuri la sicurezza in modo da consentirne l'accesso.
+**Subnet:** una rete virtuale contiene **subnet**. Le macchine virtuali (VM) di Azure esistenti vengono assegnate a subnet. Una subnet può contenere varie VM o altri nodi di calcolo. I nodi di calcolo esterni alla rete virtuale non possono accedervi, a meno che non si configuri la sicurezza in modo da consentirne l'accesso.
 
-**Endpoint servizio di rete virtuale:** Un [endpoint servizio rete virtuale] [VM-Virtual-Network-Service-Endpoints-Overview-649D] è una subnet i cui valori di proprietà includono uno o più nomi formali di tipi di servizi di Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL.
+**Endpoint servizio rete virtuale:** Un [endpoint servizio rete virtuale] [VM-Virtual-Network-Service-Endpoints-Overview-649D] è una subnet i cui valori di proprietà includono uno o più nomi formali di tipi di servizi di Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL.
 
 **Regola di rete virtuale:** una regola di rete virtuale per il server di database SQL è una subnet presente nell'elenco di controllo di accesso (ACL) del server di database SQL. Per essere nell'elenco ACL del database SQL, la subnet deve contenere il nome del tipo **Microsoft.Sql**. Una regola di rete virtuale indica al server di database SQL di accettare le comunicazioni da ogni nodo che si trova nella subnet.
 
 
-## <a name="ip-vs-virtual-network-firewall-rules"></a>Confronto tra IP e Regole del firewall della rete virtuale
+## <a name="ip-vs-virtual-network-firewall-rules"></a>Regole del firewall di rete virtuale e IP
 
 Il firewall SQL Server di Azure consente di specificare gli intervalli di indirizzi IP da cui le comunicazioni vengono accettate nel database SQL. Questo approccio è ideale per gli indirizzi IP stabili esterni alla rete privata di Azure, Tuttavia, le macchine virtuali (VM) nella rete privata di Azure sono configurate con indirizzi IP *dinamici* . Gli indirizzi IP dinamici possono cambiare quando la macchina virtuale viene riavviata e, a sua volta, invalida la regola del firewall basata su IP. Sarebbe inutile specificare un indirizzo IP dinamico in una regola del firewall, in un ambiente di produzione.
 
@@ -107,7 +107,7 @@ Le regole della rete virtuale sono un'alternativa più semplice per definire e g
 
 - Per informazioni sulla connessione a un database SQL di Azure da applicazioni open source o di terze parti, vedere [esempi di codice di avvio rapido del client per il database SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 
-- Per altre informazioni sulle porte aggiuntive che può essere necessario aprire, vedere la sezione **Esterno rispetto all'interno** di [Porte successive alla 1433 per ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md)
+- Per informazioni sulle porte aggiuntive che si possono dover aprire vedere la sezione **Esterno rispetto all'interno** di [Porte successive alla 1433 per ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 - Per una panoramica della connettività del database SQL di Azure, vedere [architettura di connettività SQL di Azure](sql-database-connectivity-architecture.md)
 

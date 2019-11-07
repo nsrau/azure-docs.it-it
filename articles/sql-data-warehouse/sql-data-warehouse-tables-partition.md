@@ -1,5 +1,5 @@
 ---
-title: Tabelle di partizionamento in Azure SQL Data Warehouse | Microsoft Docs
+title: Tabelle di partizionamento
 description: Raccomandazioni ed esempi per l'uso di partizioni della tabella in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 6791ff2f2a9719a19d2c9abc4ff480435de7bb00
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 7ec313094a9ebc05f966e0c49f44284909ca778f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477098"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685413"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Tabelle di partizionamento in SQL Data Warehouse
 Raccomandazioni ed esempi per l'uso di partizioni della tabella in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
@@ -70,7 +71,7 @@ WITH
 ## <a name="migrating-partitioning-from-sql-server"></a>Migrazione del partizionamento da SQL Server
 Per eseguire la migrazione delle definizioni delle partizioni di SQL Server a SQL Data Warehouse, è necessario semplicemente:
 
-- Eliminare lo [schema di partizione](/sql/t-sql/statements/create-partition-scheme-transact-sql)di SQL Server.
+- Eliminare lo [schema di partizione](/sql/t-sql/statements/create-partition-scheme-transact-sql) di SQL Server.
 - Aggiungere la definizione di [funzione di partizione](/sql/t-sql/statements/create-partition-function-transact-sql) all'istruzione CREATE TABLE.
 
 Se si sta migrando una tabella con partizionamento da un'istanza di SQL Server, l'SQL di seguito è utile per calcolare il numero di righe in ogni partizione. È necessario tenere presente che se viene usata la stessa granularità di partizionamento in SQL Data Warehouse, il numero di righe per partizione diminuisce di un fattore pari a 60.  
@@ -226,7 +227,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Caricare nuovi dati in partizioni che contengono dati in un unico passaggio
-Il caricamento dei dati nelle partizioni con cambio di partizione è un modo pratico per organizzare i nuovi dati in una tabella che non è visibile agli utenti nel passaggio dei nuovi dati.  Per gestire la contesa di blocco associata al cambio di partizione, è possibile che si tratti di una sfida sui sistemi occupati.  Per cancellare i dati esistenti in una partizione, un `ALTER TABLE` utilizzato per disattivare i dati.  Quindi, `ALTER TABLE` era necessario un altro per attivare i nuovi dati.  In SQL data warehouse, l' `TRUNCATE_TARGET` opzione è supportata `ALTER TABLE` nel comando.  Con `TRUNCATE_TARGET` il`ALTER TABLE` comando sovrascrive i dati esistenti nella partizione con nuovi dati.  Di seguito è riportato un esempio `CTAS` che usa per creare una nuova tabella con i dati esistenti, inserire nuovi dati, quindi riportare tutti i dati nella tabella di destinazione, sovrascrivendo i dati esistenti.
+Il caricamento dei dati nelle partizioni con cambio di partizione è un modo pratico per organizzare i nuovi dati in una tabella che non è visibile agli utenti nel passaggio dei nuovi dati.  Per gestire la contesa di blocco associata al cambio di partizione, è possibile che si tratti di una sfida sui sistemi occupati.  Per cancellare i dati esistenti in una partizione, un `ALTER TABLE` usato per disattivare i dati.  Quindi, era necessario un altro `ALTER TABLE` per attivare i nuovi dati.  In SQL Data Warehouse, l'opzione `TRUNCATE_TARGET` è supportata nel comando `ALTER TABLE`.  Con `TRUNCATE_TARGET` il comando `ALTER TABLE` sovrascrive i dati esistenti nella partizione con nuovi dati.  Di seguito è riportato un esempio che usa `CTAS` per creare una nuova tabella con i dati esistenti, inserire nuovi dati, quindi riportare tutti i dati nella tabella di destinazione, sovrascrivendo i dati esistenti.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

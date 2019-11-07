@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da e in un file system con Azure Data Factory | Microsoft Docs
+title: Copiare i dati da e verso un file system usando Azure Data Factory
 description: Informazioni su come copiare i dati da e in un file system locale usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: eea0b930ab26e3f4d816fed69ccf8e987e6d33c7
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 32649b1e13b49979af3ad5042054e1ee8917227a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881342"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682458"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copiare dati da e in un file system locale usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-onprem-file-system-connector.md)
 > * [Versione 2 (corrente)](../connector-file-system.md)
 
@@ -53,9 +53,9 @@ Per usare una condivisione di file Linux, installare [Samba](https://www.samba.o
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un file system usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -64,14 +64,14 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 3. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. Nell'esempio citato nel passaggio precedente, si crea un set di dati per specificare un contenitore BLOB e la cartella che contiene i dati di input. Si crea anche un altro set di dati per specificare la cartella e il nome file (facoltativo) nel file system. Per le proprietà del set di dati specifiche del file system locale, vedere la sezione sulle [proprietà del set di dati](#dataset-properties).
 4. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. Nell'esempio indicato in precedenza si usa BlobSource come origine e FileSystemSink come sink per l'attività di copia. Analogamente, se si effettua la copia dal file system locale all'archivio BLOB di Azure, si usa FileSystemSource e BlobSink nell'attività di copia. Per le proprietà dell'attività di copia specifiche del file system locale, vedere la sezione sulle [proprietà dell'attività di copia](#copy-activity-properties). Per informazioni dettagliate su come usare un archivio dati come origine o come sink, fare clic sul collegamento nella sezione precedente per l'archivio dati.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per esempi con definizioni JSON per entità di data factory utilizzate per copiare i dati da e verso un file system, vedere la sezione degli [esempi JSON](#json-examples-for-copying-data-to-and-from-file-system) in questo articolo.
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory.  Per esempi con definizioni JSON per entità di data factory utilizzate per copiare i dati da e verso un file system, vedere la sezione degli [esempi JSON](#json-examples-for-copying-data-to-and-from-file-system) in questo articolo.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche di un file system:
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 È possibile collegare un file system locale a una data factory di Azure con il servizio collegato del **file server locale**. La tabella seguente include le descrizioni degli elementi JSON specifici del servizio collegato del file server locale.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | type |Verificare che la proprietà type sia impostata su **OnPremisesFileServer**. |Sì |
 | host |Specifica il percorso radice della cartella da copiare. Usare il carattere di escape '\' per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere [Servizio collegato di esempio e definizioni del set di dati](#sample-linked-service-and-dataset-definitions) . |Sì |
@@ -131,11 +131,11 @@ La sezione typeProperties è diversa per ogni tipo di set di dati e fornisce inf
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | folderPath |Specifica il percorso secondario della cartella. Usare il carattere di escape '\' per i caratteri speciali nella stringa. Il filtro con caratteri jolly non è supportato. Per ottenere alcuni esempi, vedere [Servizio collegato di esempio e definizioni del set di dati](#sample-linked-service-and-dataset-definitions) .<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |Sì |
-| fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando **fileName** non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, il nome del file generato avrà il formato seguente: <br/><br/>`Data.<Guid>.txt` (Esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |N. |
-| fileFilter |Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <br/><br/>I valori consentiti sono: `*` (più caratteri) e `?` (carattere singolo).<br/><br/>Esempio 1: "fileFilter": "*. log"<br/>Esempio 2: "fileFilter": 2014-1-?.txt"<br/><br/>Si noti che fileFilter è applicabile per un set di dati di input FileShare. |N. |
-| partitionedBy |È possibile usare partitionedBy per specificare un valore folderPath/fileName dinamico per i dati di una serie temporale. Un esempio è folderPath con parametri per ogni ora di dati. |N. |
-| format | Sono supportati i formati di file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
-| compression | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono: **Optimal** (Ottimale) e **Fastest** (Più veloce). vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |N. |
+| fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando **fileName** non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, il nome del file generato avrà il formato seguente: <br/><br/>`Data.<Guid>.txt` Esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| fileFilter |Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <br/><br/>I valori consentiti sono: `*` (più caratteri) e `?` (carattere singolo).<br/><br/>Esempio 1: "fileFilter": "*. log"<br/>Esempio 2: "fileFilter": 2014 - 1-?. txt"<br/><br/>Si noti che fileFilter è applicabile per un set di dati di input FileShare. |No |
+| partitionedBy |È possibile usare partitionedBy per specificare un valore folderPath/fileName dinamico per i dati di una serie temporale. Un esempio è folderPath con parametri per ogni ora di dati. |No |
+| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono **Ottimale** e **Più veloce**. vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 > [!NOTE]
 > Non è possibile usare fileName e fileFilter contemporaneamente.
@@ -180,15 +180,15 @@ Per l'attività di copia variano in base ai tipi di origine e sink. Se si effett
 
 **FileSystemSource** supporta le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| recursive |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |N. |
+| ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |No |
 
 **FileSystemSink** supporta le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| copyBehavior |Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. |**PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/>**FlattenHierarchy:** tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente.<br/><br/>**MergeFiles:** unisce tutti i file della cartella di origine in un solo file. Se il nome file/BLOB viene specificato, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome file generato automaticamente. |N. |
+| copyBehavior |Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. |**PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/>**FlattenHierarchy**: tutti i file della cartella di origine vengono creati nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente.<br/><br/>**MergeFiles**: unisce tutti i file della cartella di origine in un solo file. Se il nome file/BLOB viene specificato, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome file generato automaticamente. |No |
 
 ### <a name="recursive-and-copybehavior-examples"></a>esempi ricorsivi e copyBehavior
 Questa sezione descrive il comportamento derivante dell'operazione di copia per diverse combinazioni di valori ricorsivi e delle proprietà copyBehavior.
@@ -322,7 +322,7 @@ L'impostazione di `"external": "true"` comunica a Data Factory che il set di dat
 
 **Set di dati di ouput di Archiviazione BLOB di Azure**
 
-I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: oraria, intervallo: 1). Il percorso della cartella per il BLOB viene valutato dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
+I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella per il BLOB viene valutato dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
 
 ```JSON
 {

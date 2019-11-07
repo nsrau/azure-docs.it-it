@@ -6,18 +6,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: beae89b3f8e21e2f56a1dbf2090b7a612ed5cab0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: f36b167b6ddacadb8c5aef8a4609be13834bf174
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815105"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606764"
 ---
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>Gestire Azure Cosmos DB API Cassandra risorse tramite modelli Azure Resource Manager
 
+Questo articolo descrive come eseguire diverse operazioni per automatizzare la gestione degli account Azure Cosmos DB, dei database e dei contenitori usando i modelli Azure Resource Manager. Questo articolo contiene esempi solo per gli account API SQL, per trovare esempi per altri account di tipo API vedere: usare Gestione risorse modelli con l'API Azure Cosmos DB per [SQL](manage-sql-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), articoli di [tabella](manage-table-with-resource-manager.md) .
+
 ## Creare un account Azure Cosmos, spazio di spazio e tabella<a id="create-resource"></a>
 
-Creare Azure Cosmos DB risorse usando un modello di Azure Resource Manager. Questo modello creerà un account Azure Cosmos per API Cassandra con due tabelle che condividono la velocità effettiva 400 ur/s a livello di spazio dei nomi. Copiare il modello e distribuirlo come illustrato di seguito oppure visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra/) e distribuire dal portale di Azure. È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il `--template-file` parametro.
+Creare Azure Cosmos DB risorse usando un modello di Azure Resource Manager. Questo modello creerà un account Azure Cosmos per API Cassandra con due tabelle che condividono la velocità effettiva 400 ur/s a livello di spazio dei nomi. Copiare il modello e distribuirlo come illustrato di seguito oppure visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra/) e distribuire dal portale di Azure. È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il parametro `--template-file`.
 
 > [!NOTE]
 > I nomi degli account devono essere minuscoli e < 31 caratteri.
@@ -48,11 +50,11 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-Il `az cosmosdb show` comando Mostra l'account Azure Cosmos appena creato dopo che è stato effettuato il provisioning. Se si sceglie di usare una versione installata localmente dell'interfaccia della riga di comando di Azure invece di usare CloudShell, vedere l'articolo dell' [interfaccia della riga di comando di Azure (CLI)](/cli/azure/) .
+Il comando `az cosmosdb show` Mostra l'account Azure Cosmos appena creato dopo che è stato effettuato il provisioning. Se si sceglie di usare una versione installata localmente dell'interfaccia della riga di comando di Azure invece di usare CloudShell, vedere l'articolo dell' [interfaccia della riga di comando di Azure (CLI)](/cli/azure/) .
 
 ## Aggiornare la velocità effettiva (UR/sec) in uno spazio<a id="keyspace-ru-update"></a>
 
-Il modello seguente aggiornerà la velocità effettiva di uno spazio. Copiare il modello e distribuirlo come illustrato di seguito oppure visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra-keyspace-ru-update/) e distribuire dal portale di Azure. È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il `--template-file` parametro.
+Il modello seguente aggiornerà la velocità effettiva di uno spazio. Copiare il modello e distribuirlo come illustrato di seguito oppure visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra-keyspace-ru-update/) e distribuire dal portale di Azure. È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il parametro `--template-file`.
 
 [!code-json[cosmosdb-cassandra-keyspace-ru-update](~/quickstart-templates/101-cosmosdb-cassandra-keyspace-ru-update/azuredeploy.json)]
 
@@ -73,7 +75,7 @@ az group deployment create --resource-group $resourceGroupName \
 
 ## Aggiornamento della velocità effettiva (UR/sec) in una tabella<a id="table-ru-update"></a>
 
-Nel modello seguente viene aggiornata la velocità effettiva di una tabella. Copiare il modello e distribuirlo come illustrato di seguito oppure visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra-table-ru-update/) e distribuire dal portale di Azure. È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il `--template-file` parametro.
+Nel modello seguente viene aggiornata la velocità effettiva di una tabella. Copiare il modello e distribuirlo come illustrato di seguito oppure visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra-table-ru-update/) e distribuire dal portale di Azure. È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il parametro `--template-file`.
 
 [!code-json[cosmosdb-cassandra-table-ru-update](~/quickstart-templates/101-cosmosdb-cassandra-table-ru-update/azuredeploy.json)]
 
@@ -93,7 +95,7 @@ az group deployment create --resource-group $resourceGroupName \
    --parameters accountName=$accountName keyspaceName=$keyspaceName tableName=$tableName throughput=$throughput
 ```
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Altre risorse:
 
