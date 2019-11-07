@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/28/2019
   ms.author: aahi
-  ms.openlocfilehash: 3e7126b4f98ecc7729afd5abd003caffc2644d75
-  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.openlocfilehash: b0618f5bd0ed9deb1241dd3ff752a49686ca9073
+  ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73580133"
+  ms.lasthandoff: 11/07/2019
+  ms.locfileid: "73746130"
 landingContent:
 - title: Informazioni sull'API Suggerimenti automatici Bing
   linkLists:
@@ -50,7 +50,7 @@ landingContent:
     - text: Uso dei termini suggeriti
       url: concepts/get-suggestions.md
     - text: Invio di richieste all'API
-      url: quickstarts/csharp.md
+      url: concepts/sending-requests.md
 - title: riferimento
   linkLists:
   - linkListType: reference
@@ -65,3 +65,5 @@ landingContent:
       url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable
     - text: Go SDK
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
+    - text: Node.js SDK
+      url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-autosuggest/?view=azure-node-latest
