@@ -41,9 +41,9 @@ In questa esercitazione si apprenderà come:
 
 Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti:
 
-* Si ha un rete virtuale a cui ci si vuole connettere. Verificare che nessuna delle subnet della rete locale possa sovrapporsi alle reti virtuali a cui ci si vuole connettere. Per creare una rete virtuale nel portale di Azure, vedere l'[argomento di avvio rapido](../virtual-network/quick-create-portal.md).
+* Si ha una rete virtuale a cui ci si vuole connettere. Verificare che nessuna delle subnet della rete locale possa sovrapporsi alle reti virtuali a cui ci si vuole connettere. Per creare una rete virtuale nel portale di Azure, vedere l'[Avvio rapido](../virtual-network/quick-create-portal.md).
 
-* La rete virtuale non presenta nessun gateway di rete virtuale. Se la rete virtuale presenta un gateway (VPN o ExpressRoute) è necessario rimuovere tutti i gateway. Questa configurazione richiede che le reti virtuali siano invece connesse al gateway dell'hub rete WAN virtuale.
+* La rete virtuale non presenta alcun gateway di rete virtuale. Se la rete virtuale presenta un gateway (VPN o ExpressRoute) è necessario rimuovere tutti i gateway. Questa configurazione richiede che le reti virtuali siano invece connesse al gateway dell'hub della rete WAN virtuale.
 
 * Ottenere un intervallo di indirizzi IP per l'area dell'hub. L'hub è una rete virtuale che viene creata e usata dalla rete WAN virtuale. L'intervallo di indirizzi specificati per l'hub non può sovrapporsi ad alcuna delle reti virtuali esistenti a cui ci si connette. Inoltre non può sovrapporsi agli intervalli di indirizzi a cui ci si connette in locale. Se non si ha familiarità con gli intervalli degli indirizzi IP disponibili nella configurazione della rete locale, coordinarsi con qualcuno che possa fornire tali dettagli.
 
@@ -75,7 +75,7 @@ Un hub è una rete virtuale che può contenere gateway per funzionalità da sito
 
 ## <a name="site"></a>Creare un sito
 
-A questo punto è possibile creare i siti che corrispondono alle posizioni fisiche. Creare il numero di siti necessari, corrispondenti alle località fisiche. Ad esempio, se esiste una succursale a New York, una a Londra e una a Milano, creare tre siti separati. Questi siti contengono gli endpoint di dispositivo VPN locali. È possibile creare fino a 1000 siti per ciascun hub virtuale in una rete WAN virtuale. Se sono presenti più hub, è possibile crearne 1000 per ognuno di questi hub. Se è presente un dispositivo CPE partner di rete WAN virtuale (link all'interno), consultare le informazioni relative all'automazione in Azure. In genere l'automazione implica una semplice esperienza di clic per esportare le informazioni branch su larga scala in Azure e configurare la connettività dal CPE al gateway VPN rete WAN virtuale di Azure. Di seguito è riportato un collegamento alle linee guida di automazione da Azure ai partner CPE.
+A questo punto è possibile creare i siti che corrispondono alle posizioni fisiche. Creare il numero di siti necessari, corrispondenti alle località fisiche. Ad esempio, se esiste una succursale a New York, una a Londra e una a Milano, creare tre siti separati. Questi siti contengono gli endpoint di dispositivo VPN locali. È possibile creare fino a 1000 siti per ciascun hub virtuale in una rete WAN virtuale. Se sono presenti più hub, è possibile crearne 1000 per ognuno di questi hub. Se è presente un dispositivo CPE partner di rete WAN virtuale (link all'interno), consultare le informazioni relative all'automazione in Azure. In genere l'automazione implica una semplice esperienza di clic per esportare le informazioni branch su larga scala in Azure e configurare la connettività dal CPE al gateway VPN della rete WAN virtuale di Azure. Di seguito è riportato un collegamento alle linee guida di automazione da Azure ai partner CPE.
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 

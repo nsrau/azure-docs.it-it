@@ -70,11 +70,11 @@ Anteprima di Gestione firewall di Azure presenta i problemi noti seguenti:
 
 |Problema  |DESCRIZIONE  |Mitigazione  |
 |---------|---------|---------|
-|Le reti virtuali centrali create manualmente non sono supportate|Attualmente, Gestione firewall di Azure supporta le reti create con hub virtuali. Non è ancora supportato l'uso di reti virtuali dell'hub create manualmente.|Per il momento, usare Gestione firewall di Azure con reti hub-spoke create con hub virtuali<br>Analisi in corso al momento.
-|Limitazioni relative al filtro di terze parti|Il filtro del traffico V2I con provider di terze parti non è supportato con Firewall di Azure B2V e V2V.|Analisi in corso al momento.|
-|La suddivisione del traffico non è supportata al momento|Office 365 e la suddivisione del traffico PaaS pubblico di Azure non sono supportati al momento. Di conseguenza, se si seleziona un provider di terze parti per V2I o B2I, vengono inviati tramite il servizio partner anche tutti i PaaS pubblici di Azure e il traffico di Office 365.|Al momento c'è un'analisi in corso relativamente alla suddivisione del traffico nell'hub.
+|Le reti virtuali centrali create manualmente non sono supportate|Attualmente, Gestione firewall di Azure supporta le reti create con hub virtuali. Non è ancora supportato l'uso di reti virtuali dell'hub create manualmente.|Per il momento, usare Gestione firewall di Azure con reti hub-spoke create con hub virtuali<br>Analisi momentaneamente in corso.
+|Limitazioni relative al filtro di terze parti|Il filtro del traffico V2I con provider di terze parti non è supportato con Firewall di Azure B2V e V2V.|Analisi momentaneamente in corso.|
+|La suddivisione del traffico non è supportata al momento|Office 365 e la suddivisione del traffico PaaS pubblico di Azure non sono supportati al momento. Di conseguenza, se si seleziona un provider di terze parti per V2I o B2I, vengono inviati tramite il servizio partner anche tutti i PaaS pubblici di Azure e il traffico di Office 365.|Al momento è in corso un'analisi della suddivisione del traffico nell'hub.
 |Un hub per ciascun'area|Non è possibile disporre di più di un hub per area|Creare più reti WAN virtuali in un'area.|
-|I criteri di base devono trovarsi nella stessa area dei criteri locali|Creare tutti i criteri locali nella stessa area dei criteri di base. È comunque possibile applicare un criterio creato in un'area in un hub protetto di un'altra area.|Analisi in corso al momento.|
+|I criteri di base devono trovarsi nella stessa area dei criteri locali|Creare tutti i criteri locali nella stessa area dei criteri di base. È comunque possibile applicare un criterio creato in un'area in un hub protetto di un'altra area.|Analisi momentaneamente in corso.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -34,9 +34,9 @@ In questa esercitazione si apprenderà come:
 
 Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti:
 
-* Si ha un rete locale a cui ci si vuole collegare. Verificare che nessuna delle subnet della rete locale possa sovrapporsi alle reti virtuali a cui ci si vuole connettere. Per creare una rete virtuale nel portale di Azure, vedere l'[argomento di avvio rapido](../virtual-network/quick-create-portal.md).
+* Si ha un rete locale a cui ci si vuole collegare. Verificare che nessuna delle subnet della rete locale possa sovrapporsi alle reti virtuali a cui ci si vuole connettere. Per creare una rete virtuale nel portale di Azure, vedere l'[Avvio rapido](../virtual-network/quick-create-portal.md).
 
-* La rete virtuale non presenta nessun gateway di rete virtuale. Se la rete virtuale presenta un gateway (VPN o ExpressRoute) è necessario rimuovere tutti i gateway. Questa configurazione richiede che le reti virtuali siano invece connesse al gateway dell'hub rete WAN virtuale.
+* La rete virtuale non presenta alcun gateway di rete virtuale. Se la rete virtuale presenta un gateway (VPN o ExpressRoute) è necessario rimuovere tutti i gateway. Questa configurazione richiede che le reti virtuali siano invece connesse al gateway dell'hub rete WAN virtuale.
 
 * Ottenere un intervallo di indirizzi IP per l'area dell'hub. L'hub è una rete virtuale che viene creata e usata dalla rete WAN virtuale. L'intervallo di indirizzi specificati per l'hub non può sovrapporsi ad alcuna delle reti virtuali esistenti a cui ci si connette. Inoltre non può sovrapporsi agli intervalli di indirizzi a cui ci si connette in locale. Se non si ha familiarità con gli intervalli degli indirizzi IP disponibili nella configurazione della rete locale, coordinarsi con qualcuno che possa fornire tali dettagli.
 
@@ -57,7 +57,7 @@ In un browser passare al [portale di Azure](https://portal.azure.com) e accedere
    * **Posizione gruppo di risorse** - Scegliere una posizione per le risorse nell'elenco a discesa. Una rete WAN è una risorsa globale e non si trova in un'area specifica. Tuttavia, è necessario selezionare un'area per poter gestire e individuare più facilmente la risorsa WAN creata.
    * **Nome** - Digitare il nome da usare per la rete WAN.
    * **Tipo** - Selezionare **Standard**. Non è possibile creare un gateway ExpressRoute tramite lo SKU Basic.
-4. Dopo aver completato i campi, selezionare**Rivedi e crea**.
+4. Dopo aver completato i campi, selezionare **Rivedi e crea**.
 5. Al termine della convalida, selezionare **Crea** per creare la rete WAN virtuale.
 
 ## <a name="hub"></a>Creare un hub virtuale e un gateway
@@ -103,11 +103,11 @@ In questa sezione si crea la connessione di peering tra l'hub e una rete virtual
 
 ## <a name="connectcircuit"></a>Connettere il circuito al gateway hub
 
-Una volta creato il gateway, è possibile connettervi un [circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Si noti che i circuiti Premium di ExpressRoute che si trovano in posizioni supportate da ExpressRoute a copertura globale, possono connettersi a un gateway ExpressRoute rete WAN virtuale.
+Una volta creato il gateway, è possibile connettervi un [circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Si noti che i circuiti Premium di ExpressRoute che si trovano in posizioni supportate da ExpressRoute a copertura globale, possono connettersi a un gateway ExpressRoute della rete WAN virtuale.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Per la connessione del circuito al gateway hub
 
-Nel portale passare alla pagina **Hub virtuale-> Connettività > ExpressRoute**. Se nella sottoscrizione si ha accesso a un circuito ExpressRoute, viene visualizzato il circuito che si vuole usare nell'elenco dei circuiti. Se non vengono visualizzati circuiti, ma questi sono stati specificati con una chiave di autorizzazione e un URI del circuito peer, è possibile riscattare e connettere un circuito. Vedere [Connettersi riscattando una chiave di autorizzazione](#authkey).
+Nel portale passare alla pagina **Hub virtuale -> Connettività -> ExpressRoute**. Se nella sottoscrizione si ha accesso a un circuito ExpressRoute, viene visualizzato il circuito che si vuole usare nell'elenco dei circuiti. Se non vengono visualizzati circuiti, ma questi sono stati specificati con una chiave di autorizzazione e un URI del circuito peer, è possibile riscattare e connettere un circuito. Vedere [Connettersi riscattando una chiave di autorizzazione](#authkey).
 
 1. Selezionare il circuito.
 2. Selezionare **Connetti circuito/i**.
@@ -121,7 +121,7 @@ Usare chiave di autorizzazione e URI del circuito specificati per la connessione
 1. Nella pagina ExpressRoute fare clic su **+Riscatta la chiave di autorizzazione**
 
    ![redeem](./media/virtual-wan-expressroute-portal/redeem.png "redeem")
-2. Nella pagina Riscatta la chiave di autorizzazione, inserire i valori.
+2. Nella pagina Riscatta la chiave di autorizzazione inserire i valori.
 
    ![riscatta coppie chiave-valore](./media/virtual-wan-expressroute-portal/redeemkey2.png "riscatta coppie chiave-valore")
 3. Selezionare **Aggiungi** per aggiungere la chiave.
@@ -129,7 +129,7 @@ Usare chiave di autorizzazione e URI del circuito specificati per la connessione
 
 ## <a name="to-test-connectivity"></a>Per testare la connettività
 
-Una volta stabilita la connessione al circuito, lo stato della connessione dell'hub indicherà "questo hub", il che implica che la connessione viene stabilita verso l'hub gateway ExpressRoute. Attendere circa 5 minuti prima di testare la connettività da un client dietro il circuito ExpressRoute, come ad esempio una macchina virtuale nella rete virtuale creata in precedenza.
+Dopo aver stabilito la connessione al circuito, lo stato della connessione dell'hub indicherà "questo hub", il che implica che la connessione viene stabilita verso l'hub gateway ExpressRoute. Attendere circa 5 minuti prima di testare la connettività da un client dietro il circuito ExpressRoute, come ad esempio una macchina virtuale nella rete virtuale creata in precedenza.
 
 Se i siti sono connessi a un gateway VPN rete WAN virtuale nello stesso hub gateway ExpressRoute, è possibile avere connettività bidirezionale tra gli endpoint VPN ed ExpressRoute. È supportato il routing dinamico (BGP). L'ASN dei gateway nell'hub è fisso e non può essere modificato in questo momento.
 
