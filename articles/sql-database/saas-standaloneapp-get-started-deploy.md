@@ -1,5 +1,5 @@
 ---
-title: Esercitazione sulle app SaaS a singolo tenant - Database SQL di Azure | Microsoft Docs
+title: Esercitazione su SaaS a tenant singolo-database SQL di Azure
 description: Distribuire ed esplorare un'applicazione SaaS autonoma a singolo tenant che usa il database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 11/07/2018
-ms.openlocfilehash: 2e6b18e53358cad1bfe89e8c0ae7fbacec24d179
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: df9c3913851055f1bb477264cf5a7486f79b56b0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570214"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691970"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuire ed esplorare un'applicazione autonoma a singolo tenant che usa il database SQL di Azure
 
@@ -55,7 +55,7 @@ Distribuire l'app per i tre tenant specificati:
     > Alcune impostazioni di autenticazione e per i firewall server sono intenzionalmente non protette a scopo dimostrativo. **Creare un nuovo gruppo di risorse** per ogni distribuzione di applicazione.  Non usare un gruppo di risorse esistente. Non utilizzare l'applicazione o le risorse che crea per la produzione. Eliminare tutti i gruppi di risorse quando non è più necessario usare le applicazioni, per interrompere la fatturazione correlata.
 
     È consigliabile usare solo lettere minuscole, numeri e trattini nei nomi delle risorse.
-    * Per **Gruppo di risorse** selezionare Crea nuovo e quindi specificare un valore in minuscolo in Nome. **Wingtip-sa -\<venueName\>-\<user\>**  è il modello consigliato.  \<Per\>LocationName, sostituire il nome del luogo senza spazi. Per \<User\>, sostituire il valore dell'utente riportato di seguito.  Utilizzando questo modello, i possibili nomi dei gruppi di risorse sono *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
+    * Per **Gruppo di risorse** selezionare Crea nuovo e quindi specificare un valore in minuscolo in Nome. **Wingtip-sa -\<venueName\>-\<user\>**  è il modello consigliato.  Per \<venuename\>, sostituire il nome del luogo senza spazi. Per \<\>utente, sostituire il valore dell'utente riportato di seguito.  Utilizzando questo modello, i possibili nomi dei gruppi di risorse sono *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
     * Selezionare un **percorso** nell'elenco a discesa.
 
     * Per **User** è consigliabile un valore breve, ad esempio le iniziali seguite da una cifra, ad esempio *af1*.
@@ -75,27 +75,27 @@ L'app illustra le sedi che ospitano gli eventi.  Le sedi sono i tenant dell'appl
 
 1. Aprire la pagina degli eventi per ognuno dei tre tenant in schede separate del browser:
 
-   - http://events.contosoconcerthall.&lt ;utente&gt;.trafficmanager.net
-   - http://events.dogwooddojo.&lt ;utente&gt;.trafficmanager.net
-   - http://events.fabrikamjazzclub.&lt ;utente&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt;utente&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt;utente&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt;utente&gt;.trafficmanager.net
 
      In ogni URL sostituire &lt;user&gt; con il valore relativo all'utente della distribuzione specifica.
 
-   ![Eventi](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
+   ![Events](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Per controllare la distribuzione delle richieste in ingresso, l'app usa [*Gestione traffico di Microsoft Azure*](../traffic-manager/traffic-manager-overview.md). Ogni istanza dell'app specifica del tenant include il nome del tenant come parte del nome di dominio nell'URL. Gli URL di tutti i tenant includono valori di **User** specifici. Gli URL hanno il formato seguente:
-- http://events.&lt ;nomeluogo&gt;.&lt; utente&gt;.trafficmanager.net
+- http://events.&lt;nomeluogo&gt;.&lt;utente&gt;.trafficmanager.net
 
 La **posizione** del database di ogni tenant è inclusa nelle impostazioni dell'app distribuita corrispondente.
 
 In un ambiente di produzione si crea in genere un record CNAME DNS per [*configurare un dominio Internet aziendale in modo che faccia riferimento*](../traffic-manager/traffic-manager-point-internet-domain.md) all'URL del profilo di Gestione traffico.
 
 
-## <a name="explore-the-servers-and-tenant-databases"></a>Esplorare i server e i database tenant
+## <a name="explore-the-servers-and-tenant-databases"></a>Esplorare i server e i database del tenant
 
 È possibile esaminare alcune risorse distribuite:
 
-1. Nel [portale di Azure](https://portal.azure.com) passare all'elenco dei gruppi di risorse.
+1. Nel [portale di Azure](https://portal.azure.com) passare all'elenco di gruppi di risorse.
 2. Dovrebbero essere visualizzati i tre gruppi di risorse del tenant.
 3. Aprire il gruppo di risorse **wingtip-sa-fabrikam-&lt;user&gt;** , che contiene le risorse per la distribuzione di Fabrikam Jazz Club.  Il server **fabrikamjazzclub-&lt;user&gt;** contiene il database **fabrikamjazzclub**.
 
@@ -125,6 +125,6 @@ In questa esercitazione si è appreso:
 > * Informazioni su server e database che costituiscono l'app
 > * Come eliminare le risorse di esempio per interrompere la fatturazione correlata
 
-Successivamente, provare l'esercitazione sul provisioning [e il catalogo](saas-standaloneapp-provision-and-catalog.md) in cui verrà illustrato l'uso di un catalogo di tenant che Abilita una gamma di scenari tra tenant come la gestione dello schema e l'analisi dei tenant.
+Successivamente, provare l'esercitazione sul [provisioning e il catalogo](saas-standaloneapp-provision-and-catalog.md) in cui verrà illustrato l'uso di un catalogo di tenant che Abilita una gamma di scenari tra tenant come la gestione dello schema e l'analisi dei tenant.
  
 

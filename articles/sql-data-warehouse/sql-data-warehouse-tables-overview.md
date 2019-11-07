@@ -1,5 +1,5 @@
 ---
-title: Progettazione di tabelle - Azure SQL Data Warehouse | Microsoft Docs
+title: Progettazione di tabelle
 description: Introduzione alla progettazione di tabelle in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 55da4e3dc9c7f1c1f86a649a654ce41ef59ad839
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 9220d3adb31005551b6358034207f1071065b1a7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310108"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692392"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Progettazione di tabelle in Azure SQL Data Warehouse
 
@@ -42,7 +43,7 @@ Per visualizzare l'organizzazione delle tabelle in SQL Data Warehouse, è possib
 
 | Tabella WideWorldImportersDW  | Tipo di tabella | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
-| City | Dimensione | wwi.DimCity |
+| city | Dimensione | wwi.DimCity |
 | Ordine | Fact | wwi.FactOrder |
 
 
@@ -92,7 +93,7 @@ La categoria della tabella spesso determina l'opzione appropriata per la distrib
 |:---------------|:--------------------|
 | Fact           | Usare la distribuzione hash con indice columnstore cluster. Le prestazioni aumentano quando si crea un join tra due tabelle hash nella stessa colonna di distribuzione. |
 | Dimensione      | Usare le tabelle replicate per le tabelle di dimensioni più piccole. Se le tabelle sono troppo grandi per essere archiviate in ogni nodo di calcolo, usare le tabelle con distribuzione hash. |
-| Gestione temporanea        | Usare una tabella round robin per la tabella di staging. Il carico con un'istruzione CTAS è veloce. Una volta che i dati sono presenti nella tabella di staging, usare INSERT... Selezionare questa finestra per spostare i dati nelle tabelle di produzione. |
+| Staging        | Usare una tabella round robin per la tabella di staging. Il carico con un'istruzione CTAS è veloce. Una volta che i dati sono presenti nella tabella di staging, usare INSERT... Selezionare questa finestra per spostare i dati nelle tabelle di produzione. |
 
 ## <a name="table-partitions"></a>Partizioni della tabella
 Una tabella partizionata archivia ed esegue operazioni sulle righe di tabella in base agli intervalli di dati. Una tabella può, ad esempio, essere partizionata in base ai giorni, ai mesi o agli anni. È possibile migliorare le prestazioni delle query tramite l'eliminazione della partizione, che limita l'analisi di una query ai dati all'interno di una partizione. È inoltre possibile gestire i dati tramite la commutazione tra partizioni. Poiché i dati in SQL Data Warehouse sono già distribuiti, un numero eccessivo di partizioni può rallentare le prestazioni delle query. Per altre informazioni, vedere [Indicazioni sul partizionamento](sql-data-warehouse-tables-partition.md).  Quando la partizione passa a partizioni di tabella non vuote, provare a usare l'opzione TRUNCATE_TARGET nell'istruzione [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) se i dati esistenti devono essere troncati. Il codice seguente passa i dati giornalieri trasformati in SalesFact sovrascrivendo i dati esistenti. 
@@ -115,7 +116,7 @@ La chiave primaria è supportata solo se vengono usati entrambi non CLUSTER e no
 ## <a name="commands-for-creating-tables"></a>Comandi per la creazione di tabelle
 È possibile creare una tabella come nuova tabella vuota. È inoltre possibile creare e popolare una tabella con i risultati di un'istruzione SELECT. Di seguito sono riportati i comandi T-SQL per la creazione di una tabella.
 
-| Istruzione T-SQL | DESCRIZIONE |
+| Istruzione T-SQL | Descrizione |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Crea una tabella vuota definendo tutte le opzioni e le colonne della tabella. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | Crea una tabella esterna. La definizione della tabella viene archiviata in SQL Data Warehouse. I dati della tabella vengono archiviati nell'archivio BLOB di Azure o in Azure Data Lake Store. |

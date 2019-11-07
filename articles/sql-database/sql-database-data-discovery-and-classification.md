@@ -1,5 +1,5 @@
 ---
-title: Classificazione & per il database SQL di Azure e SQL Data Warehouse Data Discovery | Microsoft Docs
+title: Classificazione & individuazione dati del database SQL di Azure e SQL Data Warehouse
 description: Classificazione & di database SQL di Azure e individuazione dati
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: b85793223e23aa3d668d6f86494da3ee78c43e91
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 9bcb8ce69a65892109702f0f0a409310945b6781
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009984"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690780"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Classificazione & individuazione dati del database SQL di Azure e SQL Data Warehouse
 
-Individuazione dati & classificazione offre funzionalità avanzate incorporate nel database SQL di **Azure per l'individuazione,** la &  **classificazione**, l' **assegnazione di etichette**per la**protezione** dei dati sensibili nei database.
+Individuazione dati & classificazione offre funzionalità avanzate incorporate nel database SQL di **Azure per l'individuazione,** la **classificazione**, l' **assegnazione di etichette** & la **protezione** dei dati sensibili nei database.
 
 L'individuazione e la classificazione dei dati più sensibili (dati commerciali, finanziari e relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
 
@@ -87,7 +87,7 @@ Una volta definiti i criteri a livello di tenant, è possibile continuare con la
 
 4. Per scaricare un report in formato Excel, fare clic sull'opzione **Esporta** nel menu superiore della finestra.
 
-   ![Esporta in Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
+   ![Eseguire l'esportazione in Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
 
 5. <a id="step-5"></a>Per iniziare la classificazione dei dati, fare clic sulla scheda **Classificazione** nella parte superiore della finestra.
 
@@ -144,8 +144,8 @@ Un aspetto importante del paradigma di Information Protection è la possibilità
 
 - [Crea o aggiorna](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) : crea o aggiorna l'etichetta di riservatezza di una determinata colonna
 - [Eliminazione](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): elimina l'etichetta Riservatezza di una colonna specifica
-- [Disabilita Raccomandazione: Disabilita](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/disablerecommendation) le raccomandazioni di riservatezza in una colonna specifica
-- [Abilita raccomandazione](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/enablerecommendation) : Abilita le raccomandazioni di riservatezza in una determinata colonna (le indicazioni sono abilitate per impostazione predefinita in tutte le colonne)
+- [Disabilita Raccomandazione: Disabilita](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation) le raccomandazioni di riservatezza in una colonna specifica
+- [Abilita raccomandazione](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation) : Abilita le raccomandazioni di riservatezza in una determinata colonna (le indicazioni sono abilitate per impostazione predefinita in tutte le colonne)
 - [Recupero](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): ottiene l'etichetta Riservatezza di una colonna specifica
 - [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - (Elenca elementi correnti per database): consente di ottenere le etichette Riservatezza correnti di un database specifico
 
@@ -169,9 +169,9 @@ Un aspetto importante del paradigma di Information Protection è la possibilità
 - [Remove-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
 - [Get-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>autorizzazioni
 
-I ruoli predefiniti seguenti possono leggere la classificazione dei dati di un database SQL di Azure: `Owner` `Contributor`, `Reader` `SQL Security Manager` , e `User Access Administrator`.
+I ruoli predefiniti seguenti possono leggere la classificazione dei dati di un database SQL di Azure: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` e `User Access Administrator`.
 
 I ruoli predefiniti seguenti possono modificare la classificazione dei dati di un database SQL di Azure: `Owner`, `Contributor`, `SQL Security Manager`.
 
@@ -179,7 +179,7 @@ Scopri di più su [RBAC per le risorse di Azure](https://docs.microsoft.com/azur
 
 ## <a id="subheading-5"></a>Passaggi successivi
 
-- Altre informazioni su [Advanced data security](sql-database-advanced-data-security.md) (Sicurezza dei dati avanzata).
+- Altre informazioni su [Sicurezza dei dati avanzata](sql-database-advanced-data-security.md).
 - Valutare l'opportunità di configurare [il servizio di controllo del database SQL di Azure](sql-database-auditing.md) per il monitoraggio e il controllo dell'accesso ai dati sensibili classificati.
 
 <!--Anchors-->

@@ -1,5 +1,5 @@
 ---
-title: Ottimizzazione delle prestazioni con Azure SQL Data Warehouse viste materializzate | Microsoft Docs
+title: Ottimizzazione delle prestazioni con viste materializzate
 description: Raccomandazioni e considerazioni che è necessario tenere presente quando si usano viste materializzate per migliorare le prestazioni delle query.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 593841ac95c4c6f17f33a8d35d6b3f83a6db1124
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c1cfd3b4c365a04c3d4704f37e4ed4177fa74619
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338903"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692977"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Ottimizzazione delle prestazioni con viste materializzate 
 Le viste materializzate in Azure SQL Data Warehouse forniscono un metodo di manutenzione basso per le query analitiche complesse per ottenere prestazioni rapide senza alcuna modifica di query. Questo articolo illustra le linee guida generali sull'uso delle viste materializzate.
@@ -32,13 +33,13 @@ La maggior parte dei requisiti di una vista standard è ancora applicabile a una
 
 
 
-| Confronto                     | visualizzazione                                         | Vista materializzata             
+| Confronto                     | Visualizza                                         | Vista materializzata             
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------| 
 |Visualizzare la definizione                 | Archiviato in data warehouse di Azure.              | Archiviato in data warehouse di Azure.    
 |Visualizza contenuto                    | Generato ogni volta che viene utilizzata la visualizzazione.   | Pre-elaborati e archiviati in Azure data warehouse durante la creazione della visualizzazione. Aggiornato quando i dati vengono aggiunti alle tabelle sottostanti.                                             
 |Aggiornamento dati                    | Sempre aggiornato                               | Sempre aggiornato                          
-|Velocità di recupero dei dati di visualizzazione da query complesse     | Lento                                         | Veloce  
-|Risorse di archiviazione extra                   | No                                           | Yes                             
+|Velocità di recupero dei dati di visualizzazione da query complesse     | Lento                                         | Rapidità  
+|Risorse di archiviazione extra                   | No                                           | Sì                             
 |Sintassi                          | CREA VISTA                                  | CREA VISTA MATERIALIZZATA COME SELEZIONE           
      
 ## <a name="benefits-of-using-materialized-views"></a>Vantaggi dell'utilizzo di viste materializzate
@@ -106,7 +107,7 @@ Opzioni per ridurre il numero di viste materializzate:
 
 - Eliminare le viste materializzate che hanno un utilizzo ridotto o che non sono più necessarie.  Una vista materializzata disabilitata non viene mantenuta, ma comporta comunque un costo di archiviazione.  
 
-- Combinare viste materializzate create sulla stessa tabella di base o analoghe anche se i dati non si sovrappongono.  La pettinatura di viste materializzate può comportare una visualizzazione di dimensioni maggiori rispetto alla somma delle visualizzazioni separate, tuttavia il costo di manutenzione della vista dovrebbe ridursi.  Esempio:
+- Combinare viste materializzate create sulla stessa tabella di base o analoghe anche se i dati non si sovrappongono.  La pettinatura di viste materializzate può comportare una visualizzazione di dimensioni maggiori rispetto alla somma delle visualizzazioni separate, tuttavia il costo di manutenzione della vista dovrebbe ridursi.  Ad esempio:
 
 ```sql
 

@@ -1,5 +1,5 @@
 ---
-title: Concessione dell'accesso al database SQL di Azure e ad Azure SQL Data Warehouse | Microsoft Docs
+title: Concessione dell'accesso al database SQL di Azure e SQL Data Warehouse
 description: Informazioni sulla concessione dell'accesso al database SQL di Microsoft Azure e ad Azure SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 1292dbf43b5246fe3da95ead4d5d9113b4bc84f9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c115cd7e4d531bfdc7ddbacd4f6eff2a892ea3c3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569026"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690763"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Controllo di accesso per il database SQL di Azure e SQL Data Warehouse
 
@@ -33,7 +33,7 @@ Il servizio Database SQL di Azure è disponibile solo tramite la porta TCP 1433.
 
 Come parte del processo di connessione, le connessioni da macchine virtuali di Azure vengono reindirizzate a un indirizzo IP diverso e a una porta, univoca per ogni ruolo di lavoro. Il numero di porta è compreso nell'intervallo che va da 11000 a 11999. Per altre informazioni sulle porte TCP, vedere [Porte superiori a 1433 per ADO.NET 4.5 e il database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Il database SQL supporta due tipi di autenticazione:
 
@@ -50,7 +50,7 @@ Il motore di Database chiude le connessioni che rimangono inattive per più di 3
 
 È consigliabile usare un account dedicato per l'autenticazione dell'applicazione. In questo modo è possibile limitare le autorizzazioni concesse all'applicazione e ridurre i rischi di attività dannose, nel caso in cui il codice dell'applicazione sia vulnerabile ad attacchi SQL injection. L'approccio consigliato consiste nel creare un [utente di database indipendente](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable), consentendo così l'autenticazione dell'app direttamente nel database. 
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>Autorizzazione
 
 Per autorizzazione si intendono le operazioni che l'utente può eseguire in un database SQL di Azure, che sono controllate dalle [appartenenze ai ruoli](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) del database e dalle [autorizzazioni a livello di oggetto](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) dell'account utente. Come procedura consigliata, è opportuno concedere agli utenti i privilegi minimi necessari. L'account di amministrazione del server a cui ci si sta connettendo è un membro del ruolo db_owner, che è autorizzato a eseguire qualsiasi operazione all'interno del database. Salvare questo account per la distribuzione degli aggiornamenti allo schema e altre operazioni di gestione. Utilizzare l'account "ApplicationUser" con autorizzazioni più limitate per la connessione dall'applicazione al database con i privilegi minimi richiesti dall'applicazione. Per altre informazioni, vedere l'articolo su come [gestire gli account di accesso](sql-database-manage-logins.md).
 

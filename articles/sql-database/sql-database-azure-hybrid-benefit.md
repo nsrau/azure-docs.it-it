@@ -1,5 +1,5 @@
 ---
-title: Database SQL di Azure-Vantaggio Azure Hybrid | Microsoft Docs
+title: Database SQL di Azure-Vantaggio Azure Hybrid
 description: Usare licenze di SQL Server esistenti per gli sconti del database SQL.
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 10/08/2019
-ms.openlocfilehash: cb5caf65a3083cfb5700432573cfddcfb7c6385f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9a09f7aec4966c02ccfa2101f4359c510ae8b111
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515889"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691095"
 ---
 # <a name="azure-hybrid-benefit"></a>Vantaggio Azure Hybrid
 
@@ -45,7 +45,7 @@ Con Vantaggio Azure Hybrid è possibile scegliere di pagare solo per l'infrastru
 
 - Per impostare o aggiornare il tipo di licenza usando l'API REST:
 
-  - [Database: crea o aggiorna](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
+  - [Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
   - [Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)
   - [Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
   - [Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)

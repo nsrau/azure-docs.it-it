@@ -11,18 +11,20 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: 08f78e4945b612a92d372c832490c380d3749811
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0cab6eb38459a632f1e7bd1a21e6a7251d33f683
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487523"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647408"
 ---
 # <a name="machine-learned-features"></a>Funzionalità acquisite dal computer 
 
 In Machine Learning, una *funzionalità* è un tratto di distinzione o un attributo di dati che il sistema osserva & apprende. In Language Understanding (LUIS), una funzionalità descrive e spiega cosa è significativo sugli Intent ed entità.
 
-## <a name="features-in-language-understanding"></a>Funzionalità di Language Understanding
+Nel [portale di anteprima Luis](https://preview.luis.ai)le funzionalità sono _descrittori_ perché vengono usate per _descrivere_ lo scopo o l'entità.  
+
+## <a name="features-_descriptors_-in-language-understanding"></a>Funzionalità (_descrittori_) in Language Understanding
 
 Le funzionalità, note anche come descrittori, descrivono gli indizi per aiutare Language Understanding identificare le espressioni di esempio. Funzionalità incluse: 
 

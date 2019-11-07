@@ -1,5 +1,5 @@
 ---
-title: Guida pratica sulle notifiche tramite posta elettronica per l'ottimizzazione automatica - Database SQL di Azure | Microsoft Docs
+title: Guida alla procedura di ottimizzazione automatica delle notifiche tramite posta elettronica-database SQL di Azure
 description: Abilitare le notifiche tramite posta elettronica per l'ottimizzazione automatica delle query del database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: df9390c00c34fce82de8cc17efb5cc3bce2e4e3d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e1478ab6abc9705a67f2d47bc076d3c2fe54ccd4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569440"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691138"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifiche tramite posta elettronica per l'ottimizzazione automatica
 

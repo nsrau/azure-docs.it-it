@@ -1,5 +1,5 @@
 ---
-title: Ottimizzazione delle transazioni per Azure SQL Data Warehouse | Microsoft Docs
+title: Ottimizzazione delle transazioni
 description: Informazioni su come ottimizzare le prestazioni del codice transazionale in Azure SQL Data Warehouse riducendo al contempo il rischio di rollback di lunga durata.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2299c526dd63eb8e8772661ee8fae66153fc36c3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: b8b8be9467ade870e57355be91b0de329b0f6217
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479667"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692870"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Ottimizzazione delle transazioni in Azure SQL Data Warehouse
 Informazioni su come ottimizzare le prestazioni del codice transazionale in Azure SQL Data Warehouse riducendo al contempo il rischio di rollback di lunga durata.
@@ -67,7 +68,7 @@ CTAS e INSERT...SELECT sono entrambe operazioni di caricamento bulk. Tuttavia, e
 
 | Indice primario | Scenario di caricamento | Modalità di registrazione |
 | --- | --- | --- |
-| Heap |Any |**Minima** |
+| Heap |Qualsiasi |**Minima** |
 | Indice cluster |Tabella di destinazione vuota |**Minima** |
 | Indice cluster |Le righe caricate non si sovrappongono alle pagine esistenti nella destinazione |**Minima** |
 | Indice cluster |Le righe caricate si sovrappongono alle pagine esistenti nella destinazione |Completa |
@@ -407,7 +408,7 @@ END
 Azure SQL Data Warehouse permette di [sospendere, riprendere e ridimensionare](sql-data-warehouse-manage-compute-overview.md) il data warehouse su richiesta. Quando si sospende o si ridimensiona SQL Data Warehouse è importante sapere che le eventuali transazioni in corso vengono interrotte immediatamente, con il conseguente rollback delle transazioni aperte. Se il carico di lavoro ha avviato una modifica dei dati a esecuzione prolungata e incompleta prima dell'operazione di sospensione o ridimensionamento, occorre annullare l'operazione. Questo può influire sul tempo necessario a sospendere o ridimensionare il database di Azure SQL Data Warehouse. 
 
 > [!IMPORTANT]
-> `UPDATE` e `DELETE` sono operazioni con registrazione completa e qualsiasi operazione di annullamento o ripristino può richiedere molto più tempo rispetto alle operazioni con registrazione minima equivalenti. 
+> Sia `UPDATE` che `DELETE` sono operazioni con registrazione completa e qualsiasi operazione di annullamento o ripristino può richiedere molto più tempo rispetto alle operazioni con registrazione minima equivalenti. 
 > 
 > 
 
@@ -417,5 +418,5 @@ Lo scenario migliore sarebbe consentire il completamento delle transazioni di mo
 * Suddividere l'operazione in blocchi e lavorare su un subset delle righe
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere [Transazioni in SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) per ulteriori informazioni su limiti transazionali e livelli di isolamento.  Per una panoramica delle altre procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Vedere [Transazioni in SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) per altre informazioni su limiti transazionali e livelli di isolamento.  Per una panoramica sulle procedure consigliate, vedere l'articolo [Procedure consigliate per SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

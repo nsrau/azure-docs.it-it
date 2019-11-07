@@ -1,5 +1,5 @@
 ---
-title: Creazione e aggiornamento delle statistiche in Azure SQL Data Warehouse | Documentazione Microsoft
+title: Creazione e aggiornamento delle statistiche
 description: Suggerimenti ed esempi per la creazione e l'aggiornamento delle statistiche di ottimizzazione delle query nelle tabelle in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,13 +10,13 @@ ms.subservice: development
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seoapril2019
-ms.openlocfilehash: 00643e303b3352ce9ce39e5a27fd8b42246aac51
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c995358fc0135a1f9b504b57b23ecb3f6b41d6da
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479157"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692403"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Statistiche tabella in Azure SQL Data Warehouse
 
@@ -46,7 +46,7 @@ SET AUTO_CREATE_STATISTICS ON
 
 Queste istruzioni attiveranno la creazione automatica delle statistiche:
 
-- SELEZIONA
+- SELECT
 - INSERT SELECT
 - CTAS
 - AGGIORNAMENTO
@@ -71,13 +71,13 @@ Table_name è il nome della tabella che contiene le statistiche da visualizzare.
 
 ## <a name="updating-statistics"></a>Aggiornamento delle statistiche
 
-Una procedura consigliata consiste nell'aggiornare le statistiche sulle colonne data ogni giorno quando vengono aggiunte nuove date. Ogni volta che vengono caricate nuove righe nel data warehouse, vengono aggiunte nuove date di caricamento o date di transazione. Queste righe modificano la distribuzione dei dati e rendono le statistiche obsolete. Viceversa, potrebbe non essere mai necessario aggiornare le statistiche relative a una colonna Country/Region in una tabella Customer, perché la distribuzione dei valori in genere non cambia. Supponendo che la distribuzione sia costante tra i clienti, l'aggiunta di nuove righe alla variazione di tabella non modificherà la distribuzione dei dati. Tuttavia, se il data warehouse contiene solo un paese e si importano i dati da un nuovo paese/area geografica, causando l'archiviazione di dati da più paesi o aree geografiche, è necessario aggiornare le statistiche nella colonna paese/area geografica.
+Una procedura consigliata consiste nell'aggiornare le statistiche sulle colonne data ogni giorno quando vengono aggiunte nuove date. Ogni volta che vengono caricate nuove righe nel data warehouse, vengono aggiunte nuove date di caricamento o date di transazione. In questo modo si modifica la distribuzione dei dati e le statistiche non si aggiornano. Viceversa, potrebbe non essere mai necessario aggiornare le statistiche relative a una colonna Country/Region in una tabella Customer, perché la distribuzione dei valori in genere non cambia. Supponendo che la distribuzione sia costante tra i clienti, l'aggiunta di nuove righe alla variazione di tabella non modificherà la distribuzione dei dati. Tuttavia, se il data warehouse contiene solo un paese e si importano i dati da un nuovo paese/area geografica, causando l'archiviazione di dati da più paesi o aree geografiche, è necessario aggiornare le statistiche nella colonna paese/area geografica.
 
 Di seguito sono forniti alcuni elementi consigliati per l'aggiornamento delle statistiche:
 
 |||
 |-|-|
-| **Frequenza degli aggiornamenti delle statistiche**  | Conservativa: Ogni giorno </br> Dopo il caricamento o la trasformazione dei dati |
+| **Frequenza degli aggiornamenti delle statistiche**  | Conservativa: giornaliera </br> Dopo il caricamento o la trasformazione dei dati |
 | **Campionamento** |  Meno di 1 miliardo righe, usare il campionamento predefinito (20%). </br> Con più di 1 miliardo righe, usare il campionamento del due%. |
 
 Quando si risolvono i problemi di una query è essenziale verificare prima di tutto che **le statistiche siano aggiornate**.
@@ -116,7 +116,7 @@ WHERE
     st.[user_created] = 1;
 ```
 
-Le **colonne data** in un data warehouse, ad esempio, richiedono solitamente aggiornamenti frequenti delle statistiche. Ogni volta che vengono caricate nuove righe nel data warehouse, vengono aggiunte nuove date di caricamento o date di transazione. Queste righe modificano la distribuzione dei dati e rendono le statistiche obsolete. Al contrario, è possibile che non sia mai necessario aggiornare le statistiche relative alla colonna del sesso in una tabella clienti. Supponendo che la distribuzione sia costante tra i clienti, l'aggiunta di nuove righe alla variazione di tabella non modificherà la distribuzione dei dati. Se tuttavia il data warehouse contiene solo un sesso e un nuovo requisito ha come risultato più sessi, allora sarà necessario aggiornare le statistiche relative alla colonna del sesso.
+Le **colonne data** in un data warehouse, ad esempio, richiedono solitamente aggiornamenti frequenti delle statistiche. Ogni volta che vengono caricate nuove righe nel data warehouse, vengono aggiunte nuove date di caricamento o date di transazione. In questo modo si modifica la distribuzione dei dati e le statistiche non si aggiornano. Al contrario, è possibile che non sia mai necessario aggiornare le statistiche relative alla colonna del sesso in una tabella clienti. Supponendo che la distribuzione sia costante tra i clienti, l'aggiunta di nuove righe alla variazione di tabella non modificherà la distribuzione dei dati. Se tuttavia il data warehouse contiene solo un sesso e un nuovo requisito ha come risultato più sessi, allora sarà necessario aggiornare le statistiche relative alla colonna del sesso.
 
 Per ulteriori informazioni, vedere indicazioni su [Statistiche](/sql/relational-databases/statistics/statistics).
 
@@ -210,7 +210,7 @@ Per creare un oggetto statistiche a più colonne, è sufficiente usare gli esemp
 > [!NOTE]
 > L'istogramma, che viene usato per stimare il numero di righe nei risultato della query, è disponibile solo per la prima colonna elencata nella definizione dell'oggetto statistiche.
 
-In questo esempio l'istogramma è disponibile su *product\_category*. Le statistiche sulle colonne vengono calcolate su *product\_category* e *product\_sub_category*:
+In questo esempio l'istogramma è disponibile su *product\_category*. Le statistiche tra le colonne vengono calcolate su *product\_category* e *product\_sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
@@ -352,7 +352,7 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 
 Per creare statistiche campionate su tutte le colonne
 
-## <a name="examples-update-statistics"></a>Esempi: Aggiornare le statistiche
+## <a name="examples-update-statistics"></a>Esempi: aggiornare le statistiche
 
 Per aggiornare le statistiche, è possibile eseguire le operazioni seguenti:
 
@@ -406,7 +406,7 @@ Esistono diverse visualizzazioni e funzioni di sistema che consentono di trovare
 
 Queste visualizzazioni di sistema forniscono informazioni sulle statistiche:
 
-| Vista del catalogo | DESCRIZIONE |
+| Vista del catalogo | Descrizione |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Una riga per ogni colonna. |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Una riga per ogni oggetto del database. |
@@ -465,7 +465,7 @@ AND     st.[user_created] = 1
 ;
 ```
 
-## <a name="dbcc-showstatistics-examples"></a>Esempi di DBCC SHOW_STATISTICS()
+## <a name="dbcc-show_statistics-examples"></a>Esempi di DBCC SHOW_STATISTICS()
 
 DBCC SHOW_STATISTICS() mostra i dati inclusi in un oggetto statistiche. Questi dati sono costituiti da tre parti:
 
@@ -489,7 +489,7 @@ Ad esempio:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### <a name="show-one-or-more-parts-of-dbcc-showstatistics"></a>Mostrare una o più parti di DBCC SHOW_STATISTICS()
+### <a name="show-one-or-more-parts-of-dbcc-show_statistics"></a>Mostrare una o più parti di DBCC SHOW_STATISTICS()
 
 Se si è interessati a visualizzare solo parti specifiche, usare la clausola `WITH` e specificare le parti da visualizzare:
 
@@ -503,7 +503,7 @@ Ad esempio:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## <a name="dbcc-showstatistics-differences"></a>Differenze di DBCC SHOW_STATISTICS()
+## <a name="dbcc-show_statistics-differences"></a>Differenze di DBCC SHOW_STATISTICS()
 
 DBCC SHOW_STATISTICS() viene implementato in modo più rigoroso in SQL Data Warehouse rispetto a SQL Server:
 

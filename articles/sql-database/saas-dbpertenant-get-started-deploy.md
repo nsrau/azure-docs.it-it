@@ -1,5 +1,5 @@
 ---
-title: Esercitazione sul modello SaaS di un database per ogni tenant - Database SQL di Azure | Microsoft Docs
+title: Esercitazione su SaaS di database per tenant-database SQL di Azure
 description: Distribuire ed esplorare l'applicazione SaaS multi-tenant Wingtip Tickets, che illustra il modello di database per tenant e altri modelli SaaS usando il database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: d5f64f0a9abfa736c1db0e562b6f18ecfc1f6de5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: b271c4bbf942bee70c4995ee04ec370591d4f67d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023824"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692180"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuire ed esplorare un'app SaaS multi-tenant che usa il modello di database per tenant con il database SQL
 
@@ -51,7 +51,7 @@ Nei passaggi di questa sezione si specifica un valore utente che viene usato per
 
 Scegliere ora i nomi e annotarli.
 
-### <a name="steps"></a>Passaggi
+### <a name="steps"></a>Passi
 
 1. Per aprire il modello di distribuzione dell'applicazione SaaS di database per tenant Wingtip Tickets nel portale di Azure, fare clic sul pulsante **Distribuisci in Azure**.
 
@@ -63,7 +63,7 @@ Scegliere ora i nomi e annotarli.
     > Alcune impostazioni di autenticazione e per i firewall server sono intenzionalmente non protette a scopo dimostrativo. È consigliabile creare un nuovo gruppo di risorse. Non usare gruppi di risorse, server o pool esistenti. Non usare questa applicazione, gli script o eventuali risorse distribuite per la produzione. Eliminare questo gruppo di risorse quando non è più necessario usare l'applicazione per interrompere la fatturazione correlata.
 
     - **Gruppo di risorse**: selezionare **Crea nuovo** e specificare il nome univoco scelto in precedenza per il gruppo di risorse.
-    - **Località**: selezionare una località dall'elenco a discesa.
+    - **Percorso**: selezionare un percorso dall'elenco a discesa.
     - **Utente**: usare il valore del nome utente scelto in precedenza.
 
 1. Distribuire l'applicazione.
@@ -202,7 +202,7 @@ La distribuzione iniziale crea tre tenant di esempio. Si creerà ora un altro te
 3. Per eseguire lo script, premere F5. Per il momento lasciare invariati i valori predefiniti.
 
    > [!NOTE]
-   > Molti script dell'applicazione SaaS Wingtip usano *$PSScriptRoot* per esplorare le cartelle per chiamare funzioni in altri script. Questa variabile viene valutata solo quando viene eseguito lo script completo premendo F5. Se si evidenzia e si esegue una selezione con F8 possono verificarsi errori. Per eseguire gli script, premere F5.
+   > Molti script dell'applicazione SaaS Wingtip usano *$PSScriptRoot* per esplorare le cartelle per chiamare funzioni in altri script. Questa variabile viene valutata solo quando viene eseguito lo script completo premendo F5. L'evidenziazione e l'esecuzione di una selezione con F8 possono causare errori. Per eseguire gli script, premere F5.
 
 Per il nuovo database tenant sono state eseguite le operazioni seguenti:
 

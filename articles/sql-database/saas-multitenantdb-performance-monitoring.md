@@ -1,5 +1,5 @@
 ---
-title: Monitorare le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant | Microsoft Docs
+title: Monitorare le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant
 description: Monitorare e gestire le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 50fab6afe837ad409f05dbb0f3a8a44d089a894e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 03487c7e0e5fd08b6c93f81b733ab5ec1afb5605
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570326"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692030"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant
 
@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 > * Aumentare le prestazioni del database in risposta al carico maggiore
 > * Eseguire il provisioning di un tenant in un database a tenant singolo
 
-Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
+Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
 * È stata distribuita l'app SaaS di database multi-tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database multi-tenant Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
@@ -149,7 +149,7 @@ I database rimango online e pienamente disponibili durante l'intero processo. Il
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Effettuare il provisioning di un nuovo tenant in un database autonomo 
 
-Il modello multi-tenant partizionato consente di scegliere se effettuare il provisioning di un nuovo tenant in un database multi-tenant, insieme ad altri tenant, oppure in un database autonomo. Nel secondo caso, è possibile sfruttare i vantaggi offerti dall'isolamento del tenant nel database separato e quindi gestire le prestazioni del tenant, eseguirne il ripristino e così via in modo indipendente dagli altri. Può ad esempio essere utile inserire i clienti standard o i sottoscrittori di una prova gratuita in un database multi-tenant e i clienti premium in singoli database.  Anche se vengono creati database isolati a tenant singolo, è possibile gestirli collettivamente in un pool elastico per ottimizzare i costi delle risorse.
+Il modello multi-tenant partizionato consente di scegliere se effettuare il provisioning di un nuovo tenant in un database multi-tenant, insieme ad altri tenant, oppure in un database autonomo. Effettuando il provisioning di un tenant in un database specifico, questo beneficia dell'isolamento inerente al database separato, consentendo di gestire le prestazioni del tenant in modo indipendente dagli altri, ripristinare il tenant in modo indipendente dagli altri e così via. Ad esempio, è possibile scegliere di inserire i clienti standard o di valutazione gratuita in un database multi-tenant e i clienti Premium in singoli database.  Anche se vengono creati database isolati a tenant singolo, è possibile gestirli collettivamente in un pool elastico per ottimizzare i costi delle risorse.
 
 Se si è già effettuato il provisioning di un nuovo tenant in un database autonomo, ignorare i passaggi successivi.
 

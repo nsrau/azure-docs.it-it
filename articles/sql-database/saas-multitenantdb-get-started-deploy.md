@@ -1,5 +1,5 @@
 ---
-title: Distribuire un'applicazione SaaS di database multi-tenant partizionato che usa il database SQL di Azure | Microsoft Docs
+title: "Distribuire un'app SaaS con database multi-tenant partizionato che usa il database SQL di Azure "
 description: Distribuire ed esplorare l'applicazione SaaS di database multi-tenant partizionato Wingtip Tickets che illustra i modelli SaaS usando il database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
 ms.date: 10/16/2018
-ms.openlocfilehash: 2ddb1fe40507da5caa218f73284a1095035df951
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: aa61c9af2e8fbfbe1caeaffb6231afe5b8be6f3c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570379"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692054"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Distribuire ed esplorare un'applicazione multi-tenant partizionata
 
@@ -48,7 +48,7 @@ Chiunque può scaricare il C# codice sorgente di e PowerShell per Wingtip Ticket
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
+Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
 - È stata installata la versione più recente di Azure PowerShell. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell][link-azure-get-started-powershell-41q].
 
@@ -57,12 +57,12 @@ Per completare questa esercitazione, verificare che i prerequisiti seguenti sian
 ### <a name="plan-the-names"></a>Pianificare i nomi
 
 Nei passaggi di questa sezione si forniscono un valore *utente* usato per assicurare che i nomi delle risorse siano univoci a livello globale e un nome per il *gruppo di risorse* contenente tutte le risorse create da una distribuzione dell'app. Per un utente di nome *Ann Finley* si consiglia:
-- *Utente:* **AF1** *(Le iniziali, più una cifra.   Usare un valore diverso, ad esempio af2, se si distribuisce l'app una seconda volta.*
-- *Gruppo di risorse:* **wingtip-mt-af1** *: wingtip-mt indica che si tratta dell'app multi-tenant partizionata. L'aggiunta del nome utente af1 correla il nome del gruppo di risorse con i nomi delle risorse in esso contenute.*
+- *Utente:* **AF1**  *(le iniziali, più una cifra. Usare un valore diverso (ad esempio, AF2) se si distribuisce l'app una seconda volta.*
+- *Gruppo di risorse:* **Wingtip-mt-AF1** *(Wingtip-mt indica che si tratta dell'app multi-tenant partizionata. l'aggiunta del nome utente AF1 mette in correlazione il nome del gruppo di risorse con i nomi delle risorse in esso contenute.)*
 
 Scegliere ora i nomi e annotarli. 
 
-### <a name="steps"></a>Passaggi
+### <a name="steps"></a>Passi
 
 1. Fare clic sul pulsante azzurro **Distribuisci in Azure** illustrato di seguito.
    - Verrà aperto il portale di Azure con il modello di distribuzione SaaS Wingtip Tickets.
@@ -115,7 +115,7 @@ Prima di eseguire qualsiasi script, impostare i valori *gruppo di risorse* e *ut
 
 I valori impostati in questo file vengono usati da tutti gli script ed è quindi importante che siano precisi. Se si ridistribuisce l'app, è necessario scegliere valori diversi per l'utente e il gruppo di risorse. Aggiornare quindi di nuovo il file UserConfig.psm1 con i nuovi valori.
 
-## <a name="run-the-application"></a>Esecuzione dell'applicazione
+## <a name="run-the-application"></a>Eseguire l'applicazione
 
 Nell'app Wingtip Tickets i tenant sono sedi. Una sede può essere una sala concerti, un club sportivo o qualsiasi altro luogo in cui vengono ospitati eventi. Le sedi vengono registrate nell'app come clienti e viene generato un identificatore di tenant per ogni sede. Per ogni sede sono elencati gli eventi imminenti in Wingtip Tickets per consentire al pubblico di acquistare i biglietti.
 
@@ -124,19 +124,19 @@ Ogni sede è associata a un'app Web personalizzata in cui sono elencati i relati
 In una pagina Web centrale **Events Hub** (Hub eventi) sono elencati i collegamenti ai tenant nella distribuzione specifica. Attenersi alla seguente procedura per provare la pagina Web **Events Hub** (Hub eventi) e un'app Web singola:
 
 1. Aprire la pagina **Events Hub** (Hub eventi) nel Web browser:
-   - http://events.wingtip-mt.&lt ;utente&gt;.trafficmanager.net &nbsp;  *Sostituire &lt; utente&gt; con il valore corrispondente all'utente della distribuzione.*
+   - http://events.wingtip-mt.&lt;utente&gt;.trafficmanager.net &nbsp;  *Sostituire &lt;utente&gt; con il valore corrispondente all'utente della distribuzione.*
 
      ![Hub eventi](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. Fare clic su **Fabrikam Jazz Club** in **Events Hub** (Hub eventi).
 
-   ![Eventi](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
+   ![Events](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
 ### <a name="azure-traffic-manager"></a>Gestione traffico di Azure
 
 Per controllare la distribuzione delle richieste in ingresso, l'app usa [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md). La pagina degli eventi per ogni tenant include il nome del tenant nell'URL. Ogni URL include anche il valore di utente specifico. Ogni URL rispetta il formato indicato usando la procedura seguente:
 
-- http://events.wingtip-mt.&lt ;utente&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;utente&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. L'app degli eventi analizza il nome del tenant nell'URL. Il nome del tenant è *fabrikamjazzclub* nell'URL di esempio precedente.
 2. L'app esegue quindi l'hash del nome del tenant per creare una chiave di accesso a un catalogo usando il [gestore delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
@@ -203,11 +203,11 @@ Successivamente si effettua il provisioning di un altro tenant, questa volta in 
 
 3. Aggiornare la pagina dell'**hub eventi** per includere i due nuovi tenant nell'elenco.
 
-## <a name="explore-the-servers-and-tenant-databases"></a>Esplorare i server e i database tenant
+## <a name="explore-the-servers-and-tenant-databases"></a>Esplorare i server e i database del tenant
 
 Ora si esamineranno alcune delle risorse distribuite:
 
-1. Nel [portale di Azure](https://portal.azure.com) passare all'elenco dei gruppi di risorse. Aprire il gruppo di risorse creato al momento della distribuzione dell'applicazione.
+1. Nel [portale di Azure](https://portal.azure.com) passare all'elenco di gruppi di risorse. Aprire il gruppo di risorse creato al momento della distribuzione dell'applicazione.
 
    ![gruppo di risorse](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 

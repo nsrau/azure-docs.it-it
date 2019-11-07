@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate per la sincronizzazione dati SQL di Azure | Microsoft Docs
+title: 'Procedure consigliate per Azure sincronizzazione dati SQL '
 description: Informazioni sulle procedure consigliate per la configurazione e l'esecuzione della sincronizzazione dati SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 01962770c011a0107abd4e035c25d6c0d45fa0a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 728ac8ab42573e1cab30eaf12dd38a6d33b97aac
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569381"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691071"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Procedure consigliate per la sincronizzazione dati SQL 
 
@@ -41,7 +41,7 @@ Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati
 
 -   **Per la configurazione della sincronizzazione**. Create/Alter Table; Alter Database; Create Procedure; Select/ Alter Schema; Create User-Defined Type.
 
--   **Per la sincronizzazione continua**. Select/Insert/Update/Delete su tabelle selezionate per la sincronizzazione e su tabelle di rilevamento e metadati di sincronizzazione; Execute su stored procedure create dal servizio; Execute su tipi di tabella definiti dagli utenti.
+-   **Per la sincronizzazione continua**. SELECT/INSERT/UPDATE/DELETE per le tabelle selezionate per la sincronizzazione e su tabelle di rilevamento e metadati di sincronizzazione; Autorizzazione Execute per le stored procedure create dal servizio. Autorizzazione Execute per i tipi di tabella definiti dall'utente.
 
 -   **Per il deprovisioning**. Alter su tabelle che fanno parte della sincronizzazione; Select/Delete su tabelle di metadati di sincronizzazione; Control su tabelle di rilevamento della sincronizzazione, stored procedure e tipi di tabelle definiti dall'utente.
 
@@ -94,7 +94,7 @@ Per quanto riguarda il provisioning automatico, la sincronizzazione dati SQL pre
 -   Non viene eseguito il provisioning dei trigger esistenti nelle tabelle di origine.  
 -   Non vengono create viste e stored procedure nel database di destinazione.
 -   Le azioni ON UPDATE CASCADE e ON DELETE CASCADE su vincoli di chiave esterna non vengono ricreate nelle tabelle di destinazione.
--   Se si hanno colonne decimali o numeriche con una precisione superiore a 28, la sincronizzazione dati SQL può riscontrare un problema di overflow di conversione durante la sincronizzazione. È consigliabile limitare la precisione delle colonne decimali o numeriche a un valore inferiore o uguale a 28.
+-   Se sono presenti colonne decimali o numeriche con una precisione maggiore di 28, sincronizzazione dati SQL possibile che si verifichi un errore di overflow della conversione durante la sincronizzazione. È consigliabile limitare la precisione delle colonne decimali o numeriche a 28 o meno.
 
 #### <a name="recommendations"></a>Consigli
 
@@ -128,7 +128,7 @@ Quando si crea un gruppo di sincronizzazione, iniziare con dati in un solo datab
 
 Se i database si trovano in data center diversi, ogni riga deve spostarsi da un data center a un altro, con il conseguente aumento dei costi della sincronizzazione iniziale.
 
-#### <a name="recommendation"></a>Recommendation
+#### <a name="recommendation"></a>Raccomandazione
 
 Se possibile, iniziare con i dati in un unico database del gruppo di sincronizzazione.
 
@@ -157,7 +157,7 @@ Si verifica un ciclo di sincronizzazione quando all'interno di un gruppo di sinc
 > [!NOTE]
 > Queste modifiche non verranno mai propagate. L'unico modo per risolvere il problema è ricreare il gruppo di sincronizzazione.
 
-#### <a name="recommendation"></a>Recommendation
+#### <a name="recommendation"></a>Raccomandazione
 
 Monitorare regolarmente l'integrità del database e del gruppo di sincronizzazione attraverso l'interfaccia del portale e del log.
 
@@ -223,7 +223,7 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 
 -   Panoramica: [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md)
 -   Configurare la sincronizzazione dati
-    - Nel portale - [Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale](sql-database-get-started-sql-data-sync.md)
+    - Nel portale: [Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale](sql-database-get-started-sql-data-sync.md)
     - Con PowerShell
         -  [Usare PowerShell per sincronizzare più database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Usare PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)

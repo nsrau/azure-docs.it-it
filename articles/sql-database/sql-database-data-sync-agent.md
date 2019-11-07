@@ -1,5 +1,5 @@
 ---
-title: Agente di sincronizzazione dei dati per la sincronizzazione dati SQL Azure | Microsoft Docs
+title: Agente di sincronizzazione dei dati per la sincronizzazione dati SQL Azure
 description: Informazioni su come installare ed eseguire l'agente di sincronizzazione dei dati per la sincronizzazione dati SQL di Azure per sincronizzare i dati con i database SQL Server in locale
 services: sql-database
 ms.service: sql-database
@@ -11,19 +11,19 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 13a59a9b536a25897d7c545b6fb466c1192cb545
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 097c8547093a13f73f1ae5facdc0f7e6c75c071d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177706"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690794"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Agente di sincronizzazione dei dati per la sincronizzazione dati SQL Azure
 
 Sincronizzare i dati con i database SQL Server locali installando e configurando l'agente di sincronizzazione dati per sincronizzazione dati SQL di Azure. Per altre informazioni sui sincronizzazione dati SQL, vedere [sincronizzare i dati tra più database cloud e locali con sincronizzazione dati SQL](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> Al momento la sincronizzazione dati SQL di Azure **non** supporta Istanza gestita di database SQL di Azure.
+> Al momento, la sincronizzazione dati SQL di Azure **non** supporta Istanza gestita di database SQL di Azure.
 
 ## <a name="download-and-install"></a>Download e installazione
 
@@ -37,7 +37,7 @@ Per installare automaticamente l'agente di sincronizzazione dei dati dal prompt 
 
 - Se si specifica `LocalSystem` come valore di **SERVICEACCOUNT**, usare l'autenticazione di SQL Server quando si configura l'agente per la connessione a SQL Server locale.
 
-- Se come valore di **SERVICEACCOUNT** si specifica un account utente di dominio o un account utente locale, è anche necessario specificare la password con l'argomento **SERVICEPASSWORD**. Ad esempio `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
+- Se come valore di **SERVICEACCOUNT** si specifica un account utente di dominio o un account utente locale, è anche necessario specificare la password con l'argomento **SERVICEPASSWORD**. Ad esempio, `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
 
 ```cmd
 msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
@@ -273,7 +273,7 @@ SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key generate
 SqlDataSyncAgentCommand.exe -action registerdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
 ```
 
-#### <a name="examples"></a>esempi
+#### <a name="examples"></a>Esempi
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -databaseName testdb -authentication sql -username <user name> -password <password> -encryption true
@@ -306,7 +306,7 @@ SqlDataSyncAgentCommand.exe -action "unregisterdatabase" -serverName localhost -
 SqlDataSyncAgentCommand.exe -action updatecredential -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
 ```
 
-#### <a name="examples"></a>esempi
+#### <a name="examples"></a>Esempi
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -databaseName testdb -authentication sql -username <user name> -password <password> -encryption true

@@ -1,7 +1,7 @@
 ---
-title: 'Esempio di progettazione #7: classificare le revisioni'
+title: Revisione&#58; del libro classificazione di progettazione
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare un modello di machine learning per classificare le revisioni del libro in categorie diverse.
+description: Creare un modello di Machine Learning classificare le revisioni del libro in categorie diverse.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 6f9a2327953177f29ba7a1f5948d24c7df428c09
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 949ddc847a6011d460f2a3685008d12e64868767
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515447"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647133"
 ---
 # <a name="sample-7---text-classification-predict-company-category"></a>Esempio 7-classificazione del testo: stimare la categoria aziendale 
 

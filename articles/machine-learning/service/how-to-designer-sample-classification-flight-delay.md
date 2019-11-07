@@ -1,5 +1,5 @@
 ---
-title: 'Esempio di finestra di progettazione #6: classificazione per stimare i ritardi dei voli'
+title: 'Finestra di progettazione: classificazione, stima dei ritardi dei voli'
 titleSuffix: Azure Machine Learning
 description: Questo articolo illustra come creare un modello di apprendimento automatico per stimare i ritardi dei voli usando la finestra di progettazione con trascinamento della selezione e il codice R personalizzato.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 4b21ebffe8959809acc71fc09aff7e58873e10b8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 10b3b78b4878eeddf2f786fda90ab9709e4bd2b4
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515525"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647188"
 ---
 # <a name="sample-6---classification-predict-flight-delays-using-r"></a>Esempio 6-Classificazione: prevedere i ritardi dei voli usando R
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]

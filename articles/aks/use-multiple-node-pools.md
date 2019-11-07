@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 8a78c854e9c842915700d4a20c1a57e4f1594a2e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 3495d62c7447ba50d9ffe48e68b15dbe36867ac9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472446"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73662586"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
 
@@ -33,19 +33,20 @@ Quando si creano e si gestiscono cluster AKS che supportano più pool di nodi, s
 
 * Non è possibile eliminare il pool di nodi predefinito (primo).
 * Non è possibile usare il componente aggiuntivo routing applicazione HTTP.
+* Il cluster AKS deve usare il servizio di bilanciamento del carico SKU standard per usare più pool di nodi. la funzionalità non è supportata con i bilanciamenti del carico SKU Basic.
+* Il cluster AKS deve usare i set di scalabilità di macchine virtuali per i nodi.
 * Non è possibile aggiungere o eliminare pool di nodi usando un modello di Gestione risorse esistente come per la maggior parte delle operazioni. Usare invece [un modello di gestione risorse separato](#manage-node-pools-using-a-resource-manager-template) per apportare modifiche ai pool di nodi in un cluster AKS.
 * Il nome di un pool di nodi deve iniziare con una lettera minuscola e può contenere solo caratteri alfanumerici. Per i pool di nodi Linux la lunghezza deve essere compresa tra 1 e 12 caratteri, per i pool di nodi Windows la lunghezza deve essere compresa tra 1 e 6 caratteri.
 * Il cluster AKS può avere un massimo di otto pool di nodi.
 * Il cluster AKS può avere un massimo di 400 nodi tra questi otto pool di nodi.
 * Tutti i pool di nodi devono trovarsi nella stessa subnet.
-* Il cluster AKS deve usare i set di scalabilità di macchine virtuali per i nodi.
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
 Per iniziare, creare un cluster AKS con un pool a nodo singolo. L'esempio seguente usa il comando [AZ Group create][az-group-create] per creare un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* . Un cluster AKS denominato *myAKSCluster* viene quindi creato usando il comando [AZ AKS create][az-aks-create] . Viene usata una *versione--kubernetes-Version* di *1.13.10* per illustrare come aggiornare un pool di nodi in un passaggio successivo. È possibile specificare qualsiasi [versione di Kubernetes supportata][supported-versions].
 
 > [!NOTE]
-> Lo SKU *Basic* Load balanacer non è supportato quando si usano più pool di nodi. Per impostazione predefinita, i cluster AKS vengono creati con lo SKU loadbalacer *standard* .
+> Lo SKU *Basic* Load balanacer non è supportato quando si usano più pool di nodi. Per impostazione predefinita, i cluster AKS vengono creati con lo SKU del servizio di bilanciamento del carico *standard* dall'interfaccia della riga di comando di Azure e portale di Azure.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -190,7 +191,7 @@ Come procedura consigliata, è consigliabile aggiornare tutti i pool di nodi in 
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Aggiornare un piano di controllo cluster con più pool di nodi
 
 > [!NOTE]
-> Kubernetes usa lo schema di controllo delle versioni [semantico](https://semver.org/) standard. Il numero di versione è espresso come *x. y. z*, dove *x* è la versione principale, *y* è la versione secondaria e *z* è la versione della patch. Ad esempio, nella versione *1.12.6*, 1 è la versione principale, 12 è la versione secondaria e 6 è la versione della patch. La versione Kubernetes del piano di controllo e del pool di nodi iniziale viene impostata durante la creazione del cluster. Tutti i pool di nodi aggiuntivi hanno la versione Kubernetes impostata quando vengono aggiunti al cluster. Le versioni di Kubernetes possono essere diverse tra i pool di nodi, nonché tra un pool di nodi e il piano di controllo, ma sono valide le restrizioni seguenti:
+> Kubernetes usa lo schema di controllo delle versioni [semantico standard](https://semver.org/). Il numero di versione è espresso come *x. y. z*, dove *x* è la versione principale, *y* è la versione secondaria e *z* è la versione della patch. Ad esempio, nella versione *1.12.6*, 1 è la versione principale, 12 è la versione secondaria e 6 è la versione della patch. La versione Kubernetes del piano di controllo e del pool di nodi iniziale viene impostata durante la creazione del cluster. Tutti i pool di nodi aggiuntivi hanno la versione Kubernetes impostata quando vengono aggiunti al cluster. Le versioni di Kubernetes possono essere diverse tra i pool di nodi, nonché tra un pool di nodi e il piano di controllo, ma sono valide le restrizioni seguenti:
 > 
 > * La versione del pool di nodi deve avere la stessa versione principale del piano di controllo.
 > * La versione del pool di nodi può essere una versione secondaria minore della versione del piano di controllo.
@@ -547,20 +548,7 @@ I nodi AKS non richiedono indirizzi IP pubblici per la comunicazione. Tuttavia, 
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-Al termine della registrazione, distribuire un modello di Azure Resource Manager seguendo le stesse istruzioni riportate [sopra](#manage-node-pools-using-a-resource-manager-template) e aggiungendo la seguente proprietà del valore booleano "enableNodePublicIP" in agentPoolProfiles. Impostarlo su `true` come per impostazione predefinita viene impostato come `false` se non è specificato. Si tratta di una proprietà solo in fase di creazione e richiede una versione API minima di 2019-06-01. Questo può essere applicato ai pool di nodi di Linux e Windows.
-
-```
-"agentPoolProfiles":[  
-    {  
-      "maxPods": 30,
-      "osDiskSizeGB": 0,
-      "agentCount": 3,
-      "agentVmSize": "Standard_DS2_v2",
-      "osType": "Linux",
-      "vnetSubnetId": "[parameters('vnetSubnetId')]",
-      "enableNodePublicIP":true
-    }
-```
+Al termine della registrazione, distribuire un modello di Azure Resource Manager seguendo le stesse istruzioni [indicate sopra](#manage-node-pools-using-a-resource-manager-template) e aggiungere la proprietà valore booleano `enableNodePublicIP` a agentPoolProfiles. Impostare il valore su `true` come per impostazione predefinita viene impostato come `false` se non è specificato. Si tratta di una proprietà solo in fase di creazione e richiede una versione API minima di 2019-06-01. Questo può essere applicato ai pool di nodi di Linux e Windows.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -1,5 +1,5 @@
 ---
-title: Eseguire query di reporting ad hoc su più database SQL di Azure | Microsoft Docs
+title: Eseguire query di Reporting ad hoc su più database SQL di Azure
 description: Eseguire query di reporting ad hoc su più database SQL in un esempio di app multi-tenant.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 10/30/2018
-ms.openlocfilehash: 0a6b45db3c8b4071b591ca2b5fc604b986598c0c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3d345e222dac98a63400dd2661ce92674f2534f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570354"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692077"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Eseguire query di reporting ad hoc su più database SQL di Azure
 
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà:
 > * Come eseguire query distribuite su tutti i database tenant
 
 
-Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
+Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
 * È stata distribuita l'app SaaS di database multi-tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database multi-tenant Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
@@ -58,7 +58,7 @@ Gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant 
 
 Per eseguire query su un set di dati più interessante, creare i dati di vendita dei biglietti eseguendo il generatore di biglietti.
 
-1. In *PowerShell ISE* aprire lo script ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocReporting.ps1* e impostare i valori seguenti:
+1. In *PowerShell ISE* aprire lo script ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalytics.ps1* e impostare i valori seguenti:
    * **$DemoScenario** = 1, **Acquistare biglietti per gli eventi in tutte le sedi**.
 2. Premere **F5** per eseguire lo script e generare i dati di vendita dei biglietti. Durante l'esecuzione dello script, è possibile continuare la procedura in questa esercitazione. I dati sui biglietti vengono recuperati nella sezione *Eseguire query distribuite ad hoc*, quindi attendere che il generatore di biglietti completi le operazioni.
 
@@ -150,7 +150,7 @@ In questa esercitazione si è appreso come:
 > * Eseguire query distribuite su tutti i database tenant
 > * Distribuire un database di reporting ad hoc e aggiungervi lo schema per eseguire query distribuite.
 
-Eseguire ora l'[esercitazione sull'analisi dei tenant](saas-multitenantdb-tenant-analytics.md) per esaminare l'estrazione dei dati in un database di analisi separato per elaborazioni analitiche più complesse.
+Provare ora l'[esercitazione sull'analisi dei tenant](saas-multitenantdb-tenant-analytics.md) per esplorare l'estrazione dei dati in un database di analisi separato per elaborazioni analitiche più complesse.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

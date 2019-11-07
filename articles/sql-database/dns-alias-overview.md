@@ -1,5 +1,5 @@
 ---
-title: Alias DNS per il database SQL di Azure | Microsoft Docs
+title: Alias DNS per il database SQL di Azure
 description: Le applicazioni possono connettersi a un alias per il nome del server di database SQL di Azure. Nel frattempo, è possibile modificare il database SQL a cui l'alias fa riferimento in qualsiasi momento, per semplificare i test e così via.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: 5d37b41fa7b51871f9ce1b21c62de1f9ab7f3b82
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: c3681e882fea3e8e36472c8e540db0255cd654bb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058569"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692277"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias DNS per il database SQL di Azure
 
@@ -55,8 +55,8 @@ In seguito a un ripristino di emergenza, il server di database SQL potrebbe veni
 
 Le proprietà seguenti si applicano a ogni alias DNS per il server di database SQL:
 
-- *Nome univoco*: ogni nome di alias creato è univoco tra tutti i server di database SQL di Azure, proprio come avviene per i nomi dei server.
-- *Server obbligatorio:* è possibile creare un alias DNS solo se fa riferimento a un solo server, che deve esistere già. Un alias aggiornato deve sempre fare riferimento a un solo server esistente.
+- *Nome univoco:* ogni nome di alias creato è univoco tra tutti i server di database SQL di Azure, proprio come avviene per i nomi dei server.
+- *Server necessario:* è possibile creare un alias DNS solo se fa riferimento a un solo server, che deve esistere già. Un alias aggiornato deve sempre fare riferimento a un solo server esistente.
   - Quando si elimina un server di database SQL, Azure System elimina anche tutti gli alias DNS che fanno riferimento al server.
 - *Nessuna associazione alle aree:* gli alias DNS non sono associati a un'area. Qualsiasi alias DNS può essere aggiornato per fare riferimento a un server di database SQL di Azure che si trova in qualsiasi area geografica.
   - Quando si aggiorna un alias per fare riferimento a un altro server, tuttavia, entrambi i server devono trovarsi nella stessa *sottoscrizione* di Azure.
@@ -92,10 +92,10 @@ Un esempio di codice relativo ai cmdlet di PowerShell usati per gestire gli alia
 
 I cmdlet usati nell'esempio di codice sono i seguenti:
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): crea un nuovo alias DNS nel sistema del servizio del database SQL di Azure. L'alias fa riferimento al server di database SQL di Azure 1.
+- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): crea un nuovo alias DNS nel sistema del servizio di database SQL di Azure. L'alias fa riferimento al server di database SQL di Azure 1.
 - [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): ottiene ed elenca tutti gli alias DNS assegnati al server di database SQL 1.
-- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): modifica il nome del server a cui l'alias fa riferimento dal server 1 al server di database SQL 2.
-- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): rimuove l'alias DNS dal server di database SQL 2, usando il nome dell'alias.
+- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): modifica il nome del server a cui l'alias è configurato per fare riferimento, dal server 1 al server di database SQL 2.
+- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): rimuovere l'alias DNS dal server di database SQL 2 usando il nome dell'alias.
 
 ## <a name="limitations-during-preview"></a>Limitazioni durante la fase di anteprima
 
@@ -104,7 +104,7 @@ Attualmente l'alias DNS ha le limitazioni seguenti:
 - *Ritardo fino a 2 minuti:* per l'aggiornamento o la rimozione di un alias DNS sono necessari fino a 2 minuti.
   - Indipendentemente da qualsiasi breve ritardo, l'alias smette immediatamente di reindirizzare le connessioni client al server legacy.
 - *Ricerca DNS:* per il momento, l'unico modo autorevole per controllare a quale server fa riferimento un alias DNS specifico consiste nell'eseguire una [ricerca DNS](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
-- _Il controllo tabelle non è supportato:_ non è possibile usare un alias DNS in un server di database SQL di Azure con il *controllo tabelle* abilitato in un database.
+- Il _controllo tabelle non è supportato:_ Non è possibile usare un alias DNS in un server di database SQL di Azure in cui è abilitato il *controllo delle tabelle* in un database.
   - Il controllo tabelle è deprecato.
   - È consigliabile passare al [controllo BLOB](sql-database-auditing.md).
 

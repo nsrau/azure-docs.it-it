@@ -1,5 +1,5 @@
 ---
-title: Configurare la replica in un database dell'istanza gestita di database SQL di Azure | Microsoft Docs
+title: "Configurare la replica in un database dell'istanza gestita di database SQL di Azure "
 description: Informazioni sulla configurazione della replica transazionale in un database dell'istanza gestita di database SQL di Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: b940be1d1b68e4e2a41e3f8353cb54fdb51bb886
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 21275ce7716ffc394c1e7445c3f6836f09b44c87
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338744"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692172"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurare la replica in un database dell'istanza gestita di database SQL di Azure
 
@@ -41,7 +41,7 @@ La configurazione di un'istanza gestita per fungere da server di pubblicazione e
 - Che l'istanza gestita del server di pubblicazione si trovi nella stessa rete virtuale del server di distribuzione e nel Sottoscrittore oppure che sia stato stabilito il [peering vNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) tra le reti virtuali di tutte e tre le entità. 
 - Per la connettività viene usata l'autenticazione SQL tra i partecipanti alla replica.
 - Una condivisione di account di archiviazione di Azure per la directory di lavoro della replica.
-- La porta 445 (TCP in uscita) è aperta nelle regole di sicurezza di NSG per le istanze gestite per accedere alla condivisione file di Azure.  Se si verifica l'errore "non è stato possibile connettersi al nome dell'account di archiviazione di Azure \<storage > con errore del sistema operativo 53", sarà necessario aggiungere una regola in uscita al NSG della subnet SQL Istanza gestita appropriata.
+- La porta 445 (TCP in uscita) è aperta nelle regole di sicurezza di NSG per le istanze gestite per accedere alla condivisione file di Azure.  Se viene visualizzato l'errore "Impossibile connettersi al nome dell'account di archiviazione di archiviazione di Azure \<> con errore del sistema operativo 53", sarà necessario aggiungere una regola in uscita alla NSG della subnet SQL Istanza gestita appropriata.
 
 
  > [!NOTE]
@@ -154,7 +154,7 @@ GO
 
 ## <a name="7---configure-publisher-to-use-distributor"></a>7-configurare Publisher per l'utilizzo del server di distribuzione 
 
-Nell'istanza gestita del server di pubblicazione `sql-mi-pub`, modificare l'esecuzione della query in modalità [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) ed eseguire il codice seguente per registrare il nuovo server di distribuzione nel server di pubblicazione. 
+Nell'istanza gestita del server di pubblicazione `sql-mi-pub`modificare l'esecuzione della query in modalità [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) ed eseguire il codice seguente per registrare il nuovo server di distribuzione nel server di pubblicazione. 
 
 ```sql
 :setvar username loginUsedToAccessSourceManagedInstance

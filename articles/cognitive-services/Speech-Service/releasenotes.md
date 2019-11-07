@@ -11,14 +11,38 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 353e0478172ed03cde848d8c5127d2ee41724963
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b40df5878d08b222d145531bfdad1e30b2fe989d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481249"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647392"
 ---
 # <a name="release-notes"></a>Note sulla versione
+
+## <a name="speech-sdk-180-2019-november-release"></a>Speech SDK 1.8.0:2019-versione di novembre
+
+**Nuove funzionalità**
+*   Aggiunta di un'API FromHost () per semplificare l'uso con i contenitori locali e i cloud sovrani.
+*   Aggiunta Rilevamento lingua di origine automatica per il riconoscimento vocale (in C++Java e)
+*   È stato aggiunto l'oggetto SourceLanguageConfig per il riconoscimento vocale, usato per specificare le lingue di C++origine previste (in Java e)
+*   Aggiunta del supporto di KeywordRecognizer in Windows (UWP), Android e iOS tramite i pacchetti NuGet e Unity
+*   Aggiunta dell'API Java per la conversazione remota per eseguire la trascrizione in batch asincroni.
+
+**Modifiche di rilievo**
+*   Funzionalità del trascrittore di conversazione spostate nello spazio dei nomi Microsoft. CognitiveServices. Speech. trascrizione.
+*   Parte dei metodi del trascrittore di conversazione viene spostata in una nuova classe di conversazione.
+*   Supporto eliminato per iOS a 32 bit (ARMv7 e x86) 
+
+**Correzioni di bug**
+*   Correzione dell'arresto anomalo se viene usato KeywordRecognizer locale senza una chiave di sottoscrizione del servizio vocale valida
+
+**Esempi**
+*   Esempio di Novell per KeywordRecognizer
+*   Esempio di Unity per KeywordRecognizer
+*   C++e esempi Java per l'origine automatica Rilevamento lingua.
+
+
 ## <a name="speech-sdk-170-2019-september-release"></a>Speech SDK 1.7.0:2019-versione di settembre
 
 **Nuove funzionalità**
@@ -37,7 +61,6 @@ ms.locfileid: "73481249"
 *   Correzione di un problema con UUID non univoco in alcune proprietà di connessione
 *   Correzione di alcuni avvisi sugli identificatori di supporto di valori null nelle associazioni Swift (potrebbe richiedere modifiche minime al codice)
 *   Correzione di un bug che causava la chiusura non corretta delle connessioni WebSocket in un carico di rete
-*   iOS: supporto eliminato per l'architettura arm7s
 *   È stato risolto un problema in Android che a volte produce ID di impressione duplicati usati da DialogServiceConnector
 *   Miglioramenti alla stabilità delle connessioni tra interazioni a più turni e segnalazione di errori (tramite eventi annullati) quando si verificano con DialogServiceConnector
 *   L'avvio della sessione DialogServiceConnector ora fornirà correttamente gli eventi, incluso quando si chiama ListenOnceAsync () durante un StartKeywordRecognitionAsync attivo ()

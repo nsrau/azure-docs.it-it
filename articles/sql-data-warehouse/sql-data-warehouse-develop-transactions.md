@@ -1,5 +1,5 @@
 ---
-title: Uso delle transazioni in Azure SQL Data Warehouse | Microsoft Docs
+title: Utilizzo di transazioni
 description: Suggerimenti per l'implementazione di transazioni in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,17 +10,18 @@ ms.subservice: development
 ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f00f8a25d0abf3af6d76b372b44145546a79879
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 09fc0f7cee38f799322a1914848a5176e9a223a1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479599"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692781"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>Uso delle transazioni in SQL Data Warehouse
 Suggerimenti per l'implementazione di transazioni in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 
-## <a name="what-to-expect"></a>Impatto di questa modifica
+## <a name="what-to-expect"></a>Cosa aspettarsi
 Come si può immaginare, SQL Data Warehouse supporta le transazioni come parte del carico di lavoro del data warehouse. Tuttavia, per garantire che le prestazioni di SQL Data Warehouse siano mantenute al massimo livello, alcune funzionalità sono limitate rispetto a SQL Server. Questo articolo evidenzia le differenze ed elenca le altre. 
 
 ## <a name="transaction-isolation-levels"></a>Livelli di isolamento delle transazioni
@@ -175,7 +176,7 @@ A questo punto si osserva il comportamento previsto. L'errore della transazione 
 
 Ciò dimostra che il ROLLBACK della transazione doveva essere eseguito prima della lettura delle informazioni sull'errore nel blocco CATCH.
 
-## <a name="errorline-function"></a>Funzione Error_Line()
+## <a name="error_line-function"></a>Funzione Error_Line()
 È importante sottolineare anche che SQL Data Warehouse non implementa né supporta la funzione ERROR_LINE(). Se è contenuta nel codice sarà necessario rimuoverla per renderlo compatibile con SQL Data Warehouse. Anziché implementare una funzionalità equivalente, usare etichette di query nel codice. Per altri dettagli, vedere l'articolo [LABEL](sql-data-warehouse-develop-label.md).
 
 ## <a name="using-throw-and-raiserror"></a>Uso di THROW e RAISERROR
@@ -198,5 +199,5 @@ Ecco quali sono:
 * Nessun supporto per DDL come CREATE TABLE all'interno di una transazione definita dall'utente
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'ottimizzazione delle transazioni, vedere [Ottimizzazione delle transazioni per SQL Data Warehouse](sql-data-warehouse-develop-best-practices-transactions.md). Per altre informazioni sulle procedure consigliate per SQL Data Warehouse, vedere [Procedure consigliate per SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Per altre informazioni sull'ottimizzazione delle transazioni, vedere [Procedure consigliate per le transazioni](sql-data-warehouse-develop-best-practices-transactions.md). Per altre informazioni sulle procedure consigliate per SQL Data Warehouse, vedere [Procedure consigliate per Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

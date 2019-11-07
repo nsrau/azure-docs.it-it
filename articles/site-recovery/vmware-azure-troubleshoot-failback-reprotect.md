@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi relativi al failback in un'istanza locale durante il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery | Microsoft Docs
+title: Risolvere i problemi di failback nel ripristino di emergenza delle macchine virtuali VMware con Azure Site Recovery
 description: Questo articolo descrive le soluzioni agli errori di failback e riprotezione che possono verificarsi durante il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery.
 author: rajani-janaki-ram
 manager: gauravd
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b597ecb67ab30c8617029fe741af1014444a9b70
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565600"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693159"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Risolvere i problemi di failback da Azure all'ambiente locale
 
@@ -56,7 +56,7 @@ Per risolvere il problema:
 
 Per risolvere il problema:
 
-Per riproteggere la macchina virtuale sottoposta a failover, la machina virtuale di Azure deve essere eseguita in modo che il servizio Mobility venga registrato con il server di configurazione locale e possa avviare la replica mediante la comunicazione con il server di elaborazione. Se la macchina si trova in una rete non corretta o non è in esecuzione (non risponde o arrestato), il server di configurazione non riesce a raggiungere il servizio Mobility nella macchina virtuale per avviare la riprotezione.
+Per riproteggere la macchina virtuale sottoposta a failover, la machina virtuale di Azure deve essere eseguita in modo che il servizio Mobility venga registrato con il server di configurazione locale e possa avviare la replica mediante la comunicazione con il server di elaborazione. Se il computer si trova in una rete non corretta o non è in esecuzione (non risponde o non è stato arrestato), il server di configurazione non riesce a raggiungere il servizio Mobility nella macchina virtuale per avviare la riprotezione.
 
 * Riavviare la macchina virtuale in modo che possa a ristabilire la comunicazione in locale.
 * Riavviare il processo di riprotezione dopo l'avvio della macchina virtuale di Azure.

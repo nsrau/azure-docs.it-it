@@ -1,5 +1,5 @@
 ---
-title: Effettuare il provisioning di nuovi tenant in un'app multi-tenant che usa il database SQL di Azure | Microsoft Docs
+title: Effettuare il provisioning di nuovi tenant in un'app multi-tenant che usa il database SQL di Azure
 description: Informazioni su come effettuare il provisioning di nuovi tenant e catalogarli in un'app SaaS multi-tenant del database SQL di Azure
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: b5a996fe6be5aa839b78b6693accac9b1000cef8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f0f1ebd8b2ef719a9556b6b20f6685d1da493263
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570435"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692120"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Effettuare il provisioning di nuovi tenant e registrarli nel catalogo
 
 In questa esercitazione si apprenderà come effettuare il provisioning dei modelli SaaS e catalogarli. Si apprenderà inoltre come questi modelli sono implementati nell'applicazione SaaS di database per tenant Wingtip Tickets. L'esercitazione illustra come creare e inizializzare nuovi database tenant e come registrarli nel catalogo dei tenant dell'applicazione. Il catalogo è un database che gestisce il mapping tra i molti tenant dell'applicazione SaaS e i relativi dati. Il catalogo svolge un ruolo importante indirizzando al database corretto le richieste dell'applicazione e quelle di gestione.
 
-In questa esercitazione si imparerà a:
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > 
@@ -30,9 +30,9 @@ In questa esercitazione si imparerà a:
 > * Effettuare il provisioning di un batch di tenant aggiuntivi.
 
 
-Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
+Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
-* È stata distribuita l'app SaaS di database per tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database per tenant Wingtip Tickets](saas-dbpertenant-get-started-deploy.md).
+* È stata distribuita l'app di database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database per tenant Wingtip Tickets](saas-dbpertenant-get-started-deploy.md).
 * Azure PowerShell è installato. Per altre informazioni, vedere [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>Introduzione al modello di catalogazione SaaS
@@ -87,7 +87,7 @@ Per comprendere come l'applicazione Wingtip Tickets implementa il provisioning d
 
    ![Punto di interruzione](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
-3. Per eseguire lo script, premere F5.
+3. Premere F5 per eseguire lo script.
 
 4. Quando l'esecuzione dello script si arresta in corrispondenza del punto di interruzione, premere F11 per eseguire l'istruzione del codice.
 
@@ -138,7 +138,7 @@ Questo esercizio descrive come effettuare il provisioning di un batch di 17 tena
 1. In PowerShell ISE aprire ...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1*. Modificare il parametro *$DemoScenario* impostandolo su 3:
 
    * **$DemoScenario** = **3** *Provisioning di un batch di tenant*.
-2. Per eseguire lo script, premere F5.
+2. Premere F5 per eseguire lo script.
 
 Lo script distribuisce un batch di altri tenant e usa un [modello di Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md) che controlla il batch e delega il provisioning di ogni database a un modello collegato. L'uso dei modelli in questo modo consente ad Azure Resource Manager di gestire il processo di provisioning per lo script. I modelli effettuano il provisioning dei database in parallelo e, se necessario, gestiscono i tentativi. Lo script è idempotent, pertanto, se non riesce o si interrompe per qualsiasi motivo, eseguirlo nuovamente.
 

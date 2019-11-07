@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 10/22/2019
+ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: dcbe535bb92f7755980929956093b0f0121ef41b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 20ff7d2cb6c185f574494871a986e1bce63536ba
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476447"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619965"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Usare l'estensione CLI per Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -93,6 +93,9 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
 
+    > [!TIP]
+    > Questo comando crea un'area di lavoro Basic Edition. Per creare un'area di lavoro aziendale, usare l'opzione `--sku enterprise` con il comando `az ml workspace create`. Per ulteriori informazioni sulle edizioni di Azure Machine Learning, vedere [che cos'è Azure Machine Learning](overview-what-is-azure-ml.md#sku).
+
     Per ulteriori informazioni, vedere [AZ ml Workspace create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
 
 + Alleghi la configurazione di un'area di lavoro a una cartella per abilitare la consapevolezza contestuale CLI.
@@ -101,7 +104,7 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
 
-    Questo comando crea un `.azureml` sottodirectory che contiene i file di ambiente runconfig e conda di esempio. Contiene anche un file di `config.json` usato per comunicare con l'area di lavoro di Azure Machine Learning.
+    Questo comando crea una sottodirectory `.azureml` che contiene i file dell'ambiente runconfig e conda di esempio. Contiene anche un file `config.json` usato per comunicare con l'area di lavoro di Azure Machine Learning.
 
     Per ulteriori informazioni, vedere [AZ ml Folder Connetti](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
 

@@ -1,5 +1,5 @@
 ---
-title: Eseguire query di analisi su database SQL di Azure | Microsoft Docs
+title: 'Eseguire query di analisi su database SQL di Azure '
 description: Query di analisi su più tenant con dati estratti da diversi database SQL di Azure in un'app multi-tenant.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 09/19/2018
-ms.openlocfilehash: b36911d274a3afb3582d60ea7e85b5afd5f52ece
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2044e72697526a1c757fa13aeffb85260a9b821e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570298"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691993"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analisi su più tenant con dati estratti in un'app multi-tenant
  
@@ -91,9 +91,9 @@ Nei passaggi seguenti si distribuiscono l'archivio di analisi, denominato **tena
 2. Impostare la variabile $DemoScenario nello script in base all'archivio di analisi scelto. Ai fini dell'apprendimento, è consigliabile un database SQL senza columnstore.
     - Per usare un database SQL senza columnstore, impostare **$DemoScenario** = **2**
     - Per usare un database SQL con columnstore, impostare **$DemoScenario** = **3**  
-3. Premere **F5** per eseguire lo script demo (che chiama lo script *deploy-\<TenantAnalytics XX >. ps1* ) che crea l'archivio di analisi dei tenant. 
+3. Premere **F5** per eseguire lo script demo (che chiama lo script *Deploy-TenantAnalytics\<XX >. ps1* ) che crea l'archivio di analisi dei tenant. 
 
-Ora che l'applicazione è stata distribuita e compilata con dati del tenant interessanti, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettere **tenants1\<-\> mt-User** e **Catalog\<-mt-user\>** server che usano login = *Developer*, password *=\@P ssword1*.
+Ora che l'applicazione è stata distribuita e compilata con dati del tenant interessanti, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettere **tenants1-mt-\<utente\>** e **Catalog-mt-\<utente\>** server usando Login = *Developer*, password = *P\@ssword1*.
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -181,7 +181,7 @@ Seguire questa procedura per connettersi a Power BI e importare le viste create 
 
 6. Nel riquadro **Strumento di navigazione** selezionare le tabelle dello schema star fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates nel database di analisi. Selezionare quindi **Carica**. 
 
-Congratulazioni! Il caricamento dei dati in Power BI è stato completato. È ora possibile iniziare a esplorare visualizzazioni interessanti per ottenere informazioni dettagliate sui tenant. Successivamente verrà illustrato in dettaglio come l'analisi consenta al team aziendale di Wingtip Tickets di offrire raccomandazioni basate sui dati che saranno utili per ottimizzare il modello aziendale e l'esperienza dei clienti.
+Congratulazioni. Il caricamento dei dati in Power BI è stato completato. È ora possibile iniziare a esplorare visualizzazioni interessanti per ottenere informazioni dettagliate sui tenant. Successivamente verrà illustrato in dettaglio come l'analisi consenta al team aziendale di Wingtip Tickets di offrire raccomandazioni basate sui dati che saranno utili per ottimizzare il modello aziendale e l'esperienza dei clienti.
 
 Per iniziare, si analizzano i dati relativi alle vendite di biglietti per individuare la variazione nell'utilizzo tra le diverse sedi. Selezionare le opzioni seguenti in Power BI per tracciare un grafico a barre del numero totale di biglietti venduti da ogni sede. A causa della variazione casuale nel generatore di biglietti, i risultati effettivi potrebbero essere diversi.
  
@@ -227,7 +227,7 @@ Sono state osservate le tendenze nei dati dei tenant dell'applicazione di databa
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > - Distribuire un database di analisi dei tenant con tabelle predefinite di uno schema star
@@ -236,7 +236,7 @@ In questa esercitazione si è appreso come:
 > - Eseguire query su un database di analisi 
 > - Usare Power BI per la visualizzazione dei dati per osservare le tendenze nei dati dei tenant 
 
-Congratulazioni!
+Congratulazioni.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

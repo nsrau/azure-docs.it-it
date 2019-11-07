@@ -1,5 +1,5 @@
 ---
-title: Ripristinare un Azure SQL Data Warehouse eliminato | Microsoft Docs
+title: Ripristinare un data warehouse eliminato
 description: Guida per il ripristino di un Azure SQL Data Warehouse eliminato.
 services: sql-data-warehouse
 author: anumjs
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 376a50a79858aee34aa71d172ca5836646a6651d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.custom: seo-lt-2019
+ms.openlocfilehash: cb09b4808bd6d59d2f70e85d204ab8451d501cee
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68426629"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692604"
 ---
 # <a name="restore-a-deleted-azure-sql-data-warehouse"></a>Ripristinare un Azure SQL Data Warehouse eliminato
 
@@ -84,7 +85,7 @@ $RestoredDatabase.status
 
     ![Specificare il nome del database](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 - [Ripristinare un data warehouse esistente][Restore an existing data warehouse]
 - [Eseguire il ripristino da un data warehouse di backup geografico][Restore from a geo-backup data warehouse]
 

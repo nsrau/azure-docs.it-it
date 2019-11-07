@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: b882b8ee08c38b6313558916ab46f80ce9dd5130
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: f0e4540f3f5ab3fdbb5953cbf100c5fdc2b2542a
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129344"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621999"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Funzionalità di sicurezza che consentono di proteggere i carichi di lavoro cloud che usano backup di Azure
 
@@ -70,6 +70,29 @@ Questo diagramma di flusso Mostra i diversi passaggi e Stati di un elemento di b
 
 Per ulteriori informazioni, vedere la sezione [domande frequenti](backup-azure-security-feature-cloud.md#frequently-asked-questions) più avanti.
 
+## <a name="disabling-soft-delete"></a>Disabilitazione dell'eliminazione temporanea
+
+L'eliminazione temporanea è abilitata per impostazione predefinita negli insiemi di credenziali appena creati. Se la funzionalità di sicurezza eliminazione temporanea è disabilitata, i dati di backup non saranno protetti da eliminazioni accidentali o dannose. Senza la funzionalità di eliminazione temporanea, tutte le eliminazioni di elementi protetti comporteranno la rimozione immediata, senza la possibilità di eseguire il ripristino. Poiché i dati di backup nello stato "eliminazione temporanea" non comportano alcun costo per il cliente, la disabilitazione di questa funzionalità non è consigliata. L'unica circostanza in cui è consigliabile disabilitare l'eliminazione temporanea è se si prevede di trasferire gli elementi protetti in un nuovo insieme di credenziali e non è possibile attendere i 14 giorni necessari prima dell'eliminazione e della riprotezione (ad esempio in un ambiente di test).
+
+### <a name="prerequisites-for-disabling-soft-delete"></a>Prerequisiti per la disabilitazione dell'eliminazione temporanea
+
+- L'abilitazione o la disabilitazione dell'eliminazione temporanea per gli insiemi di credenziali (senza elementi protetti) può essere eseguita solo portale di Azure. Si applica a:
+  - Insiemi di credenziali appena creati che non contengono elementi protetti
+  - Insiemi di credenziali esistenti i cui elementi protetti sono stati eliminati e scaduti (oltre il periodo di conservazione fisso di 14 giorni)
+- Se la funzionalità di eliminazione temporanea è disabilitata per l'insieme di credenziali, è possibile riabilitarla, ma non è possibile annullare tale scelta e disabilitarla di nuovo se l'insieme di credenziali contiene elementi protetti.
+- Non è possibile disabilitare l'eliminazione temporanea per gli insiemi di credenziali che contengono elementi o elementi protetti in uno stato di eliminazione temporanea. Se necessario, seguire questa procedura:
+  - Arrestare la protezione dei dati eliminati per tutti gli elementi protetti.
+  - Attendere la scadenza dei 14 giorni di conservazione della sicurezza.
+  - Disabilitare l'eliminazione temporanea.
+
+Per disabilitare l'eliminazione temporanea, verificare che i prerequisiti siano soddisfatti, quindi seguire questa procedura:
+
+1. Nel portale di Azure passare all'insieme di credenziali, quindi passare a **impostazioni** -> **Proprietà**.
+2. Nel riquadro Proprietà selezionare impostazioni di **sicurezza** -> **Aggiorna**.
+3. Nel riquadro impostazioni di sicurezza, in eliminazione temporanea, selezionare **Disabilita**.
+
+![Disabilitare l'eliminazione temporanea](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+
 ## <a name="other-security-features"></a>Altre funzionalità di sicurezza
 
 ### <a name="storage-side-encryption"></a>Crittografia lato archiviazione
@@ -78,17 +101,17 @@ Archiviazione di Azure crittografa automaticamente i dati in modo permanente nel
 
 In Azure, i dati in transito tra archiviazione di Azure e l'insieme di credenziali sono protetti da HTTPS. Questi dati rimangono all'interno della rete backbone di Azure.
 
-Per altre informazioni, vedere [crittografia di archiviazione di Azure per dati](https://docs.microsoft.com/en-in/azure/storage/common/storage-service-encryption)inattivi.
+Per altre informazioni, vedere [crittografia di archiviazione di Azure per dati](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)inattivi.
 
 ### <a name="vm-encryption"></a>Crittografia VM
 
-È possibile eseguire il backup e il ripristino di macchine virtuali di Azure (VM) Windows o Linux con dischi crittografati tramite il servizio backup di Azure. Per istruzioni, vedere backup [e ripristino di macchine virtuali crittografate con backup di Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
+È possibile eseguire il backup e il ripristino di macchine virtuali di Azure (VM) Windows o Linux con dischi crittografati tramite il servizio backup di Azure. Per istruzioni, vedere backup [e ripristino di macchine virtuali crittografate con backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
 ### <a name="protection-of-azure-backup-recovery-points"></a>Protezione dei punti di ripristino di backup di Azure
 
 Gli account di archiviazione usati dagli insiemi di credenziali dei servizi di ripristino sono isolati e non è possibile accedervi dagli utenti per eventuali scopi dannosi. L'accesso è consentito solo tramite le operazioni di gestione di backup di Azure, ad esempio il ripristino. Queste operazioni di gestione sono controllate tramite il controllo degli accessi in base al ruolo (RBAC).
 
-Per altre informazioni, vedere [usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di backup di Azure](https://docs.microsoft.com/en-us/azure/backup/backup-rbac-rs-vault).
+Per altre informazioni, vedere [usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di backup di Azure](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -101,30 +124,30 @@ No, viene compilata e abilitata per impostazione predefinita per tutti gli insie
 #### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>È possibile configurare il numero di giorni per cui i dati verranno conservati nello stato di eliminazione temporanea dopo il completamento dell'operazione di eliminazione?
 
 No, viene fissato a 14 giorni di conservazione aggiuntiva dopo l'operazione di eliminazione.
- 
+
 #### <a name="do-i-need-to-pay-the-cost-for-this-additional-14-day-retention"></a>È necessario pagare il costo per questa conservazione aggiuntiva di 14 giorni?
 
 No, questo periodo di conservazione aggiuntivo di 14 giorni è gratuito come parte della funzionalità di eliminazione temporanea.
- 
+
 #### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-delete-state"></a>È possibile eseguire un'operazione di ripristino quando i dati sono in stato di eliminazione temporanea?
 
 No, è necessario annullare l'eliminazione della risorsa eliminata temporaneamente per poter eseguire il ripristino. L'operazione di annullamento dell'eliminazione riporterà la risorsa nello **stato di arresto della protezione con Mantieni dati** in cui è possibile eseguire il ripristino in qualsiasi momento. Il Garbage Collector rimane in pausa in questo stato.
- 
+
 #### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>Gli snapshot seguiranno lo stesso ciclo di vita dei punti di ripristino nell'insieme di credenziali?
 
 Sì.
- 
+
 #### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Come è possibile attivare di nuovo i backup pianificati per una risorsa eliminata temporaneamente?
 
 L'annullamento dell'eliminazione seguito dall'operazione di ripresa proteggerà di nuovo la risorsa. L'operazione di ripresa associa un criterio di backup per attivare i backup pianificati con il periodo di memorizzazione selezionato. Inoltre, il Garbage Collector viene eseguito non appena l'operazione di ripresa viene completata. Se si desidera eseguire un ripristino da un punto di ripristino che supera la data di scadenza, è consigliabile eseguire l'operazione prima di attivare l'operazione di ripresa.
- 
+
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>È possibile eliminare l'insieme di credenziali se sono presenti elementi eliminati temporaneamente nell'insieme di credenziali?
 
 Non è possibile eliminare l'insieme di credenziali di servizi di ripristino se sono presenti elementi di backup nello stato di eliminazione temporanea nell'insieme di credenziali. Gli elementi eliminati temporaneamente vengono eliminati definitivamente dopo 14 giorni dall'operazione di eliminazione. È possibile eliminare l'insieme di credenziali solo dopo che tutti gli elementi eliminati temporaneamente sono stati eliminati.  
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>È possibile eliminare i dati prima del periodo di eliminazione temporanea di 14 giorni dopo l'eliminazione?
 
-No. Non è possibile forzare l'eliminazione degli elementi eliminati temporaneamente, che vengono eliminati automaticamente dopo 14 giorni. Questa funzionalità di sicurezza è abilitata per salvaguardare i dati di backup da eliminazioni accidentali o dannose.  È necessario attendere 14 giorni prima di eseguire qualsiasi altra azione nella macchina virtuale.  Gli elementi eliminati temporaneamente non verranno addebitati.  Se è necessario proteggere nuovamente le VM contrassegnate per l'eliminazione temporanea entro 14 giorni in un nuovo insieme di credenziali, contattare il supporto tecnico Microsoft.
+No. Non è possibile forzare l'eliminazione degli elementi eliminati temporaneamente, che vengono eliminati automaticamente dopo 14 giorni. Questa funzionalità di sicurezza è abilitata per salvaguardare i dati di backup da eliminazioni accidentali o dannose.  È necessario attendere 14 giorni prima di eseguire qualsiasi altra azione nella macchina virtuale.  Gli elementi eliminati temporaneamente non verranno addebitati.  Se è necessario proteggere nuovamente le VM contrassegnate per l'eliminazione temporanea entro 14 giorni da un nuovo insieme di credenziali, contattare il supporto tecnico Microsoft.
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>È possibile eseguire operazioni di eliminazione temporanea in PowerShell o nell'interfaccia della riga di comando?
 
@@ -136,4 +159,4 @@ No. L'eliminazione temporanea è attualmente supportata solo per le macchine vir
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere informazioni sui [controlli di sicurezza per backup di Azure](backup-security-controls.md).
+- Vedere informazioni sui [controlli di sicurezza per backup di Azure](backup-security-controls.md).

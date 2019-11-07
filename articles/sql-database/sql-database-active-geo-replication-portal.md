@@ -1,5 +1,5 @@
 ---
-title: 'Portale di Azure: replica geografica di database SQL | Microsoft Docs'
+title: 'Portale di Azure: replica geografica del database SQL '
 description: Configurare la replica geografica per un database singolo o in pool nel database SQL di Azure usando il portale di Azure e avviare il failover
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 049122b97a26e63188142dd5494927c2ae71d852
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 2a9d627cb2b51d0d7d0b07052f18a8dbe1dc2f19
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103221"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691326"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurare la replica geografica attiva per il database SQL di Azure nel portale di Azure e avviare il failover
 
@@ -28,7 +28,7 @@ Per informazioni sui gruppi di failover automatico con database singoli e in poo
 
 Per configurare la replica geografica attiva tramite il portale di Azure, è necessaria la risorsa seguente:
 
-* Un database SQL di Azure: il database primario che si vuole replicare in una area geografica diversa.
+* Un database SQL di Azure logico: il database primario che si vuole replicare in una area geografica diversa.
 
 > [!Note]
 > Con il portale di Azure è possibile creare solo un database secondario nella stessa sottoscrizione del database primario. Se il database secondario deve trovarsi in una sottoscrizione diversa, usare [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) (Creare database API REST) oppure [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
@@ -79,7 +79,7 @@ Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibil
 > [!NOTE]
 > Questo comando è progettato per il ripristino rapido del database in caso di interruzione del servizio e attiva il failover senza sincronizzazione dei dati (failover forzato).  Se il database primario è online sta eseguendo il commit di transazioni al momento dell'esecuzione del comando, può verificarsi la perdita di dati.
 
-## <a name="remove-secondary-database"></a>Rimuovere un database secondario
+## <a name="remove-secondary-database"></a>Rimuovere il database secondario
 
 Questa operazione interrompe in modo permanente la replica al database secondario e modifica il ruolo del database secondario in un database di lettura/scrittura normale. Se la connettività al database secondario viene interrotta il comando ha esito positivo ma il database secondario non diventa un database di lettura-scrittura fino a quando la connettività non verrà ripristinata.  
 

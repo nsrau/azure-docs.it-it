@@ -1,21 +1,22 @@
 ---
-title: Sicurezza a livello di colonna di Azure SQL Data Warehouse | Microsoft Docs
+title: Sicurezza a livello di colonna
 description: La sicurezza a livello di colonna (CLS) consente ai clienti di controllare l'accesso alle colonne della tabella del database in base al contesto di esecuzione o dell'appartenenza ai gruppi dell'utente. CLS semplifica la progettazione e la codifica della sicurezza nell'applicazione. CLS consente di implementare le limitazioni per l'accesso alle colonne.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 04/02/2019
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: aa91bd586e064239d0e05c754427947963c9ee3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 605dfadaf4cd1686b124b120151e6a88a43f1a68
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61082813"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693076"
 ---
 # <a name="column-level-security"></a>Sicurezza a livello di colonna
 La sicurezza a livello di colonna (CLS) consente ai clienti di controllare l'accesso alle colonne della tabella del database in base al contesto di esecuzione o dell'appartenenza ai gruppi dell'utente.
@@ -76,7 +77,7 @@ Msg 230, Level 14, State 1, Line 12
 The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'.
 ```
 
-## <a name="use-cases"></a>Casi d'uso
+## <a name="use-cases"></a>Casi di utilizzo
 Alcuni esempi di come viene usato CLS:
 - Una società di servizi finanziari consente solo agli account manager di accedere ai numeri di previdenza sociale (SSN), ai numeri di telefono e ad altre informazioni personali (PII).
 - Un fornitore di assistenza sanitaria consente solo a medici e infermieri di avere accesso a cartelle cliniche sensibili mentre non consente ai membri del reparto contabilità di visualizzare questi dati.

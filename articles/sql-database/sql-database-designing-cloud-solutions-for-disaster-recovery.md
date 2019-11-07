@@ -1,5 +1,5 @@
 ---
-title: Progettare servizi disponibili a livello globale con il database SQL di Azure | Microsoft Docs
+title: Progettare servizi disponibili a livello globale con il database SQL di Azure
 description: Informazioni sulla progettazione di applicazioni per servizi a disponibilità elevata con database SQL di Azure.
 keywords: ripristino di emergenza cloud, soluzioni di ripristino di emergenza, backup dei dati delle app, replica geografica, pianificazione della continuità aziendale
 services: sql-database
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: a79fa40568502a73194e467de2227d54931d0100
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 034d696fd8c9aae826d0bbc7e4d028cefad09840
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568949"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690714"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Progettazione di servizi disponibili a livello globale con il database SQL di Azure
 
@@ -110,7 +110,7 @@ In questo scenario, l'applicazione presenta le caratteristiche seguenti:
 * L'accesso in scrittura ai dati deve essere supportato nella stessa area geografica per la maggior parte degli utenti
 * La latenza di lettura è di importanza critica per l'esperienza degli utenti finali
 
-Per soddisfare questi requisiti, è necessario garantire che il dispositivo utente si connetta **sempre** all'applicazione distribuita nella stessa area geografica per le operazioni di sola lettura, come l'esplorazione dei dati, l'analisi e così via. Le operazioni OLTP vengono invece elaborate nella stessa area geografica **nella maggior parte dei casi**. Ad esempio, le operazioni OLTP potrebbero essere elaborate nella stessa area geografica in orario diurno e in un'altra area geografica durante gli orari di minore attività. Se l'attività degli utenti finali si verifica prevalentemente nelle ore lavorative, è possibile garantire prestazioni ottimali per quasi tutti gli utenti nella maggior parte dei casi. Il diagramma seguente illustra questa topologia.
+Per soddisfare questi requisiti, è necessario garantire che il dispositivo utente si connetta **sempre** all'applicazione distribuita nella stessa area geografica per le operazioni di sola lettura, ad esempio l'esplorazione dei dati, l'analisi e così via. Le operazioni OLTP, invece, vengono elaborate nella stessa area geografica nella **maggior parte dei casi**. Ad esempio, le operazioni OLTP potrebbero essere elaborate nella stessa area geografica in orario diurno e in un'altra area geografica durante gli orari di minore attività. Se l'attività degli utenti finali si verifica prevalentemente nelle ore lavorative, è possibile garantire prestazioni ottimali per quasi tutti gli utenti nella maggior parte dei casi. Il diagramma seguente illustra questa topologia.
 
 Le risorse dell'applicazione dovranno essere distribuite in ogni area geografica in cui si ha un'elevata esigenza di utilizzo. Se l'applicazione viene usata attivamente in Stati Uniti, Unione Europea e Asia sud-orientale, ad esempio, dovrà essere distribuita in tutte queste aree geografiche. Il database primario dovrà essere trasferito automaticamente da un'area geografica alla successiva al termine dell'orario lavorativo. Questo metodo è detto "follow the sun". Il carico di lavoro OLTP si connette sempre al database tramite il listener di lettura/scrittura **&lt;nome-gruppo-failover&gt;.database.windows.net** (1). Il carico di lavoro di sola lettura si connette direttamente al database locale usando l'endpoint server di database **&lt;nome-server&gt;.database.windows.net** (2). Gestione traffico viene configurato con il [metodo di routing per prestazioni](../traffic-manager/traffic-manager-configure-performance-routing-method.md), che assicura la connessione del dispositivo dell'utente finale al servizio Web nell'area più vicina. La configurazione di Gestione traffico dovrà includere l'abilitazione del monitoraggio degli endpoint per ogni endpoint servizio Web (3).
 
@@ -148,7 +148,7 @@ Esistono tuttavia alcuni **svantaggi**:
 * Un'interruzione a livello di area determina una latenza superiore nell'area geografica. I carichi di lavoro sia di lettura/scrittura che di sola lettura vengono gestiti dall'applicazione in una diversa area geografica.
 * I carichi di lavoro di sola lettura devono connettersi a un diverso endpoint in ogni area.
 
-## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Pianificazione della continuità aziendale: scegliere una progettazione di applicazioni per il ripristino di emergenza cloud
+## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Pianificazione della continuità aziendale: Scegliere una progettazione di applicazioni per il ripristino di emergenza cloud
 
 La strategia di ripristino di emergenza cloud specifica può combinare o estendere questi modelli di progettazione per soddisfare al meglio le esigenze dell'applicazione.  Come accennato in precedenza, la strategia scelta si basa sul contratto di servizio che si vuole offrire ai clienti e sulla topologia di distribuzione dell'applicazione. Per facilitare la decisione, la tabella seguente confronta le opzioni in base all'obiettivo del punto di ripristino (RPO) e al tempo di recupero stimato (ERT).
 

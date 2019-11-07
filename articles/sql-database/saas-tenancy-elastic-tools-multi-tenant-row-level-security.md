@@ -1,5 +1,5 @@
 ---
-title: Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga | Microsoft Docs
+title: 'App multi-tenant con strumenti di database elastico e RLS '
 description: Usare gli strumenti di database elastici insieme alla sicurezza a livello di riga per compilare un'applicazione con un livello dati altamente scalabile.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 996d4e2ba62c06992b0433fd255800ba8cea0af3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4d3f25a6e234c3d3dfd878aaae68cf58684f2fac
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570175"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691854"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga
 
@@ -56,7 +56,7 @@ Si noti che poiché RLS non è stata ancora abilitata nei database di partiziona
 1. **Livello applicazione**: modificare il codice dell'applicazione per impostare sempre il TenantId corrente in SESSION\_CONTEXT dopo l'apertura di una connessione. Il progetto di esempio imposta il TenantId in questo modo.
 2. **Livello dati**: creare criteri di sicurezza a livello di riga in ogni database di partizionamento per filtrare le righe in base al TenantId archiviato in SESSION\_CONTEXT. Creare criteri per ogni database di partizionamento; in caso contrario, le righe nelle partizioni multi-tenant non verranno filtrate.
 
-## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Livello applicazione: impostare TenantId in SESSION\_CONTEXT
+## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. livello applicazione: impostare TenantId nel contesto\_sessione
 
 Per prima cosa, connettersi a un database di partizionamento tramite le API di routing dipendente dai dati della libreria client dei database elastici. L'applicazione deve comunque indicare al database quale TenantId userà la connessione, mentre il TenantId indica ai criteri di sicurezza a livello di riga quali righe dovranno essere escluse in quanto appartenenti ad altri tenant. Archiviare il TenantId corrente in [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) della connessione.
 
@@ -212,7 +212,7 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ```
 
-## <a name="2-data-tier-create-row-level-security-policy"></a>2. Livello dati: creare criteri di sicurezza a livello di riga
+## <a name="2-data-tier-create-row-level-security-policy"></a>2. livello dati: creare criteri di sicurezza a livello di riga
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Creare i criteri di sicurezza per filtrare le righe accessibili a ogni tenant
 
@@ -340,8 +340,8 @@ GO
 
 ### <a name="maintenance"></a>Manutenzione
 
-- **Aggiunta di nuove partizioni**: eseguire lo script T-SQL per abilitare Sicurezza a livello di riga in tutte le nuove partizioni. In caso contrario, le query su tali partizioni non verranno filtrate.
-- **Aggiunta di nuove tabelle**: aggiungere un predicato FILTER e BLOCK ai criteri di sicurezza in tutte le partizioni ogni volta che si crea una nuova tabella. In caso contrario, le query sulla nuova tabella non verranno filtrate. Questa operazione può essere automatizzata tramite un trigger DDL, come descritto nel [blog relativo all'applicazione automatica della sicurezza a livello di riga alle tabelle create di recente](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Aggiunta di nuove partizioni**: eseguire lo script T-SQL per abilitare RLS in tutte le nuove partizioni. In caso contrario, le query su tali partizioni non verranno filtrate.
+- **Aggiunta di nuove tabelle**: aggiungere un predicato di FILTRO e di BLOCCO ai criteri di sicurezza in tutte le partizioni ogni volta che si crea una nuova tabella. In caso contrario, le query sulla nuova tabella non verranno filtrate. Questa operazione può essere automatizzata tramite un trigger DDL, come descritto nel [blog relativo all'applicazione automatica della sicurezza a livello di riga alle tabelle create di recente](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Riepilogo
 

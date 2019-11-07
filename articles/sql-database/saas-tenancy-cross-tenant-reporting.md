@@ -1,5 +1,5 @@
 ---
-title: Eseguire query di reporting su più database SQL di Azure | Microsoft Docs
+title: Eseguire query di Reporting su più database SQL di Azure
 description: Reporting tra tenant tramite query distribuite.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: billgib,ayolubek
 ms.date: 01/25/2019
-ms.openlocfilehash: fa8dbbbb09fbdc14049e168afe6eb4810ccc8254
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f9af2af7893bd908988ee45476ce14a56f9768a9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570248"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691898"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Reporting tra tenant tramite query distribuite
 
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà:
 > * In che modo le viste globali in ogni database consentono l'esecuzione di query efficienti tra i tenant
 
 
-Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
+Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
 
 * È stata distribuita l'app del database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Deploy and explore the Wingtip Tickets SaaS Database Per Tenant application](saas-dbpertenant-get-started-deploy.md) (Distribuire ed esplorare l'applicazione del database per tenant SaaS Wingtip Tickets)
@@ -92,7 +92,7 @@ Per esaminare la definizione della vista *Venues*:
 
 1. In **Esplora oggetti** espandere **contosoconcerthall** > **Viste**:
 
-   ![visualizzazioni](media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![Viste](media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Fare clic con il pulsante destro del mouse su **dbo.Venues**.
 3. Selezionare **Crea script per vista** > **CREATE in** > **Nuova finestra editor di query**.
@@ -185,7 +185,7 @@ In questa esercitazione si è appreso come:
 > * Distribuire un database di reporting e definire lo schema necessario per eseguire query distribuite.
 
 
-Eseguire ora l'[esercitazione sull'analisi dei tenant](saas-tenancy-tenant-analytics.md) per esaminare l'estrazione dei dati in un database di analisi separato per elaborazioni analitiche più complesse.
+Provare ora l'[esercitazione sull'analisi dei tenant](saas-tenancy-tenant-analytics.md) per esplorare l'estrazione dei dati in un database di analisi separato per elaborazioni analitiche più complesse.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

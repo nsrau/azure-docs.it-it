@@ -1,21 +1,22 @@
 ---
-title: 'Esercitazione: Gestire le risorse di calcolo con Funzioni di Azure in Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Esercitazione: gestire le risorse di calcolo con funzioni di Azure'
 description: Come usare Funzioni di Azure per gestire il calcolo di un data warehouse.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 04/27/2018
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: bc350ed092c063dcc7eca479f064114be9eb28f5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61083862"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693013"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Usare Funzioni di Azure per gestire le risorse di calcolo in Azure SQL Data Warehouse
 
@@ -64,7 +65,7 @@ Al termine della distribuzione del modello, dovrebbero essere presenti tre nuove
    {second} {minute} {hour} {day} {month} {day-of-week}
    ```
 
-   Ad esempio, *"0 30 9 * * 1-5"* corrisponde a un trigger alle 9.30 di ogni giorno feriale. Per altre informazioni, vedere gli [esempi di pianificazione][schedule examples] di Funzioni di Azure.
+   Ad esempio, *"0 30 9 * * 1-5"* corrisponde a un trigger alle 9.30 di ogni giorno feriale. Per altre informazioni, vedere esempi di [pianificazione][schedule examples]di funzioni di Azure.
 
 
 ## <a name="change-the-time-of-the-scale-operation"></a>Modificare la data e l'ora dell'operazione di ridimensionamento
@@ -92,7 +93,7 @@ Attualmente, le funzioni attivate per impostazione predefinita sono *DWScaleDown
 3. Passare alle schede *Integrazione* per i rispettivi trigger per modificarne la pianificazione.
 
    > [!NOTE]
-   > La differenza funzionale fra i trigger di ridimensionamento e i trigger di sospensione o ripresa è data dal messaggio inviato alla coda. Per altre informazioni, vedere [Aggiungere una nuova funzione trigger][Add a new trigger function].
+   > La differenza funzionale fra i trigger di ridimensionamento e i trigger di sospensione o ripresa è data dal messaggio inviato alla coda. Per altre informazioni, vedere [aggiungere una nuova funzione trigger][Add a new trigger function].
 
 
 ## <a name="add-a-new-trigger-function"></a>Aggiungere una nuova funzione trigger

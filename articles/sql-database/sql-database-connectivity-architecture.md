@@ -1,5 +1,5 @@
 ---
-title: Architettura di connettività del database SQL di Azure e SQL Data Warehouse | Microsoft Docs
+title: Architettura di connettività del database SQL di Azure e SQL Data Warehouse
 description: Questo documento illustra l'architettura di connettività SQL di Azure per le connessioni di database da Azure o all'esterno di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: f26eb44dd407e379d0bf3291eb890d2e451c919e
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: d414276e081407af8ea21ebcbd96909d34455a22
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72807924"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690858"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 
@@ -76,7 +76,7 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 | Cina settentrionale          | 139.219.15.17      |
 | Cina settentrionale 2        | 40.73.50.0         |
 | Asia orientale            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| Stati Uniti Orientali              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| Stati Uniti orientali              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | Stati Uniti orientali 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
 | Francia centrale       | 40.79.137.0, 40.79.129.1 |
 | Germania centrale      | 51.4.144.100       |
@@ -86,8 +86,8 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 | India occidentale           | 104.211.160.80     |
 | Giappone orientale           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
 | Giappone occidentale           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
-| Corea centrale        | 52.231.32.42       |
-| Corea meridionale          | 52.231.200.86      |
+| Corea del Sud centrale        | 52.231.32.42       |
+| Corea del Sud meridionale          | 52.231.200.86      |
 | Stati Uniti centro-settentrionali     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Europa settentrionale         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | Sudafrica settentrionale   | 102.133.152.0      |

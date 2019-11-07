@@ -1,5 +1,5 @@
 ---
-title: Introduzione al controllo del database SQL di Azure | Microsoft Docs
+title: Introduzione al servizio di controllo del database SQL di Azure
 description: Usare il controllo del database SQL di Azure per tenere traccia degli eventi del database in un log di controllo.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 1171a3b6d38fe04a4213513e934be258d79a1aa0
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 9a154e677a7308553bbef16837efae39006d3dae
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045198"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691204"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -110,7 +110,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 
     ![Hub eventi](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
-9. Fare clic su **Salva**
+9. Fare clic su **Save**.
 10. Per personalizzare gli eventi controllati, è possibile usare i [cmdlet PowerShell](#subheading-7) o l'[API REST](#subheading-9).
 11. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](sql-database-threat-detection-get-started.md).
 

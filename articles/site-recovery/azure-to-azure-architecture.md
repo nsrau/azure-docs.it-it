@@ -1,19 +1,19 @@
 ---
-title: Architettura della replica da Azure ad Azure in Azure Site Recovery | Microsoft Docs
-description: Questo articolo offre una panoramica dell'architettura e dei componenti usati per configurare il ripristino di emergenza di macchine virtuali di Azure tra diverse aree di Azure con il servizio Azure Site Recovery.
+title: Architettura del ripristino di emergenza da Azure ad Azure in Azure Site Recovery
+description: Panoramica dell'architettura usata quando si configura il ripristino di emergenza tra aree di Azure per le macchine virtuali di Azure, usando il servizio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: d415f303976ae454cb99f07e8d6e15e338e24d7d
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: e83c14e5ce337e8a3c4c119acc2397b98afd5b56
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231458"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621118"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Azure ad Azure
 
@@ -145,7 +145,7 @@ Si noti che i dettagli relativi ai requisiti di connettività di rete sono dispo
 
 **Regola** |  **Dettagli** | **Tag di servizio**
 --- | --- | --- 
-Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono agli account di archiviazione nell'area di origine. | Archiviazione. \<Region-Name >.
+Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono agli account di archiviazione nell'area di origine. | Archiviazione.\<nome-area >.
 Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono ad Azure Active Directory (Azure AD).<br/><br/> Se in futuro vengono aggiunti indirizzi di Azure AD, è necessario creare nuove regole di gruppo di sicurezza di rete (NSG).  | AzureActiveDirectory
 Consenti HTTPS in uscita: porta 443 | Consente l'accesso agli [endpoint di Site Recovery](https://aka.ms/site-recovery-public-ips) che corrispondono alla posizione di destinazione. 
 
@@ -153,7 +153,7 @@ Consenti HTTPS in uscita: porta 443 | Consente l'accesso agli [endpoint di Site 
 
 **Regola** |  **Dettagli** | **Tag di servizio**
 --- | --- | --- 
-Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono agli account di archiviazione nell'area di destinazione. | Archiviazione. \<Region-Name >.
+Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono agli account di archiviazione nell'area di destinazione. | Archiviazione.\<nome-area >.
 Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono ad Azure AD.<br/><br/> Se in futuro vengono aggiunti indirizzi di Azure AD, è necessario creare nuove regole NSG.  | AzureActiveDirectory
 Consenti HTTPS in uscita: porta 443 | Consente l'accesso agli [endpoint di Site Recovery](https://aka.ms/site-recovery-public-ips) che corrispondono alla posizione di origine. 
 
