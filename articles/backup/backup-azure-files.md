@@ -7,18 +7,20 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 44a2b0feab19d042de58359a7ea13814415e6c9e
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 5fc9463d5f5ea15f08378d4a0245174a366fa2b9
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129559"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747474"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Eseguire il backup e il ripristino di condivisioni file di Azure
+
 Questo articolo illustra come usare il portale di Azure per eseguire il backup e il ripristino delle [condivisioni file di Azure](../storage/files/storage-files-introduction.md).
 
 Questa guida illustra come eseguire queste operazioni:
 > [!div class="checklist"]
+>
 > * Configurare un insieme di credenziali di Servizi di ripristino per eseguire il backup di file di Azure
 > * Eseguire un processo di backup su richiesta per creare un punto di ripristino
 > * Ripristinare uno o più file da un punto di ripristino
@@ -27,22 +29,24 @@ Questa guida illustra come eseguire queste operazioni:
 > * Eliminare i dati di backup
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Prima di eseguire il backup di una condivisione file di Azure, assicurarsi che la condivisione si trovi in uno dei [tipi di account di archiviazione supportati](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Dopo questa verifica è possibile proteggere le condivisioni file.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitazioni per il backup delle condivisioni file di Azure durante l'anteprima
+
 Il backup per le condivisioni file di Azure è disponibile in anteprima. Le condivisioni file di Azure sono supportate negli account di archiviazione per utilizzo generico sia v1 che v2. Gli scenari di backup seguenti non sono supportati nelle condivisioni file di Azure:
-- Il supporto per il backup delle condivisioni file di Azure negli account di archiviazione con replica di [archiviazione con ridondanza della zona](../storage/common/storage-redundancy-zrs.md) (ZRS) è attualmente limitato a [queste aree](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-).
-- Per la protezione di File di Azure con Backup di Azure non è disponibile l'interfaccia della riga di comando.
-- Backup di Azure supporta attualmente la configurazione di backup pianificati una volta al giorno per le condivisioni file di Azure.
-- Il numero massimo di backup pianificati al giorno è uno.
-- Il numero massimo di backup su richiesta al giorno è quattro.
-- Usare i [blocchi delle risorse](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) nell'account di archiviazione per impedire l'eliminazione accidentale dei backup nell'insieme di credenziali di Servizi di ripristino.
-- Non eliminare gli snapshot creati da Backup di Azure. L'eliminazione degli snapshot può comportare la perdita di punti di ripristino e/o errori di ripristino.
-- Non eliminare le condivisioni file protette mediante Backup di Azure. La soluzione corrente implica l'eliminazione di tutti gli snapshot creati da Backup di Azure dopo l'eliminazione della condivisione file, causando la perdita di tutti i punti di ripristino.
 
-
+* Il supporto per il backup delle condivisioni file di Azure negli account di archiviazione con replica di [archiviazione con ridondanza della zona](../storage/common/storage-redundancy-zrs.md) (ZRS) è attualmente limitato a [queste aree](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares).
+* Per la protezione di File di Azure con Backup di Azure non è disponibile l'interfaccia della riga di comando.
+* Backup di Azure supporta attualmente la configurazione di backup pianificati una volta al giorno per le condivisioni file di Azure.
+* Il numero massimo di backup pianificati al giorno è uno.
+* Il numero massimo di backup su richiesta al giorno è quattro.
+* Usare i [blocchi delle risorse](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) nell'account di archiviazione per impedire l'eliminazione accidentale dei backup nell'insieme di credenziali di Servizi di ripristino.
+* Non eliminare gli snapshot creati da Backup di Azure. L'eliminazione degli snapshot può comportare la perdita di punti di ripristino e/o errori di ripristino.
+* Non eliminare le condivisioni file protette mediante Backup di Azure. La soluzione corrente implica l'eliminazione di tutti gli snapshot creati da Backup di Azure dopo l'eliminazione della condivisione file, causando la perdita di tutti i punti di ripristino.
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Configurazione del backup per una condivisione file di Azure
+
 In questa esercitazione si presuppone che sia già disponibile una condivisione file di Azure. Per eseguire il backup della condivisione file di Azure:
 
 1. Creare un insieme di credenziali di Servizi di ripristino nella stessa area della condivisione file. Se è già disponibile un insieme di credenziali, aprire la pagina Panoramica correlata e fare clic su **Backup**.
@@ -74,6 +78,7 @@ In questa esercitazione si presuppone che sia già disponibile una condivisione 
     Dopo aver stabilito un criterio di backup verrà creato uno snapshot delle condivisioni file all'orario pianificato e il punto di ripristino verrà conservato per il periodo scelto.
 
 ## <a name="create-an-on-demand-backup"></a>Creare un backup su richiesta
+
 A volte si vuole generare uno snapshot di backup, o punto di ripristino, fuori dall'orario pianificato nel criterio di backup. Un momento comune per la generazione di un backup su richiesta è subito dopo aver configurato il criterio di backup. A seconda della pianificazione indicata nel criterio di backup, possono volerci ore o giorni prima che venga creato uno snapshot. Per proteggere i dati fino a quando non si attiva il criterio di backup, avviare un backup su richiesta. La creazione di un backup su richiesta è spesso necessaria prima di apportare modifiche pianificate alle condivisioni file.
 
 ### <a name="to-create-an-on-demand-backup"></a>Per creare un backup su richiesta
@@ -97,11 +102,13 @@ A volte si vuole generare uno snapshot di backup, o punto di ripristino, fuori d
 5. Fare clic su **OK** per confermare il processo di backup su richiesta.
 
 ## <a name="restore-from-backup-of-azure-file-share"></a>Eseguire il ripristino da un backup di condivisioni file di Azure
+
 Se è necessario ripristinare un'intera condivisione file oppure singoli file o cartelle da un punto di ripristino, passare all'elemento di backup come descritto dettagliatamente nella sezione precedente. Scegliere **Ripristina condivisione** per ripristinare un'intera condivisione file da un punto di ripristino. Dall'elenco dei punti di ripristino visualizzati, selezionarne uno per sovrascrivere la condivisione file corrente oppure ripristinarlo in un'altra condivisione file della stessa area.
 
    ![Fare clic su Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-file-shares/select-restore-location.png)
 
 ## <a name="restore-individual-files-or-folders-from-backup-of-azure-file-shares"></a>Ripristinare singoli file o cartelle dal backup di condivisioni file di Azure
+
 Backup di Azure consente di individuare un punto di ripristino nel portale di Azure. Per ripristinare un file o una cartella, fare clic su Recupero file nella pagina Elemento di backup e scegliere un punto di ripristino dall'elenco. Selezionare la destinazione del ripristino e quindi fare clic su **Seleziona file** per individuare il punto di ripristino. Selezionare il file o la cartella e fare clic su **Ripristina**.
 
    ![Fare clic su Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-file-shares/restore-individual-files-folders.png)
@@ -109,11 +116,12 @@ Backup di Azure consente di individuare un punto di ripristino nel portale di Az
 ## <a name="manage-azure-file-share-backups"></a>Gestire i backup di condivisioni file di Azure
 
 Nella pagina **Processi di backup** è possibile eseguire diverse attività di gestione per i backup di condivisioni file di Azure, tra cui:
-- [Monitorare i processi](backup-azure-files.md#monitor-jobs)
-- [Creare nuovi criteri](backup-azure-files.md#create-a-new-policy)
-- [Interrompere la protezione in una condivisione file](backup-azure-files.md#stop-protecting-an-azure-file-share)
-- [Riprendere la protezione in una condivisione file](backup-azure-files.md#resume-protection-for-azure-file-share)
-- [Eliminare i dati di backup](backup-azure-files.md#delete-backup-data)
+
+* [Monitorare i processi](backup-azure-files.md#monitor-jobs)
+* [Creare nuovi criteri](backup-azure-files.md#create-a-new-policy)
+* [Interrompere la protezione in una condivisione file](backup-azure-files.md#stop-protecting-an-azure-file-share)
+* [Riprendere la protezione in una condivisione file](backup-azure-files.md#resume-protection-for-azure-file-share)
+* [Eliminare i dati di backup](backup-azure-files.md#delete-backup-data)
 
 ### <a name="monitor-jobs"></a>Monitorare i processi
 
@@ -121,7 +129,7 @@ Nella pagina **Processi di backup** è possibile eseguire diverse attività di g
 
 Per aprire la pagina **Processi di backup**:
 
-- Aprire l'insieme di credenziali di Servizi di ripristino che si vuole monitorare e nel relativo menu fare clic su **Processi** e quindi su **Processi di backup**.
+* Aprire l'insieme di credenziali di Servizi di ripristino che si vuole monitorare e nel relativo menu fare clic su **Processi** e quindi su **Processi di backup**.
 
    ![Selezionare il processo da monitorare](./media/backup-file-shares/open-backup-jobs.png)
 
@@ -135,7 +143,7 @@ Per aprire la pagina **Processi di backup**:
 
 Per visualizzare i criteri di backup esistenti:
 
-- Aprire l'insieme di credenziali di Servizi di ripristino desiderato e nel relativo menu fare clic su **Criteri di backup**. Verranno elencati tutti i criteri di backup.
+* Aprire l'insieme di credenziali di Servizi di ripristino desiderato e nel relativo menu fare clic su **Criteri di backup**. Verranno elencati tutti i criteri di backup.
 
    ![Selezionare il processo da monitorare](./media/backup-file-shares/list-of-backup-policies.png)
 
@@ -154,8 +162,8 @@ Per creare un nuovo criterio di backup:
 
 Se si sceglie di interrompere la protezione di una condivisione file di Azure, viene chiesto se si vogliono conservare i punti di ripristino. Per interrompere la protezione di condivisioni file di Azure è possibile procedere in due modi:
 
-- Arrestare tutti i processi di backup futuri ed eliminare tutti i punti di ripristino oppure
-- Interrompere tutti i processi di backup futuri mantenendo però i punti di ripristino
+* Arrestare tutti i processi di backup futuri ed eliminare tutti i punti di ripristino oppure
+* Interrompere tutti i processi di backup futuri mantenendo però i punti di ripristino
 
 Può essere associato un costo alla conservazione dei punti di ripristino nella risorsa di archiviazione, dato che verranno conservati gli snapshot sottostanti creati da Backup di Azure. Il vantaggio offerto dalla conservazione dei punti di ripristino è tuttavia la possibilità di ripristinare eventualmente la condivisione file in un secondo momento. Per informazioni sul costo associato alla conservazione dei punti di ripristino, vedere i dettagli dei prezzi. Se si sceglie di eliminare tutti i punti di ripristino, non sarà possibile ripristinare la condivisione file.
 
@@ -194,6 +202,8 @@ Per riprendere la protezione della condivisione file, passare all'elemento di ba
 Nella procedura seguente si presuppone che il processo di backup per la condivisione file sia stato interrotto. Dopo aver interrotto il processo di backup, nel dashboard dell'elemento di backup sono disponibili le opzioni Riprendi backup ed Elimina dati di backup. Fare clic su Elimina dati di backup e immettere il nome della condivisione file per confermare l'eliminazione. L'aggiunta di un motivo o commento per l'eliminazione è facoltativa.
 
 ## <a name="see-also"></a>Vedere anche
+
 Per altre informazioni sulle condivisioni file di Azure, vedere
-- [Domande frequenti sul backup di condivisioni file di Azure](backup-azure-files-faq.md)
-- [Risolvere i problemi del backup delle condivisioni file di Azure](troubleshoot-azure-files.md)
+
+* [Domande frequenti sul backup di condivisioni file di Azure](backup-azure-files-faq.md)
+* [Risolvere i problemi del backup delle condivisioni file di Azure](troubleshoot-azure-files.md)
