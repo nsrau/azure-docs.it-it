@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: 327bc40e5989cc3bca148f415113de32b19a7022
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 325278ee0222070ce7c02c1d72961f0431284677
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500122"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670536"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>Che cos'è Machine Learning Studio (versione classica)?
 
@@ -107,7 +107,7 @@ Un modulo può avere un set di parametri che è possibile usare per configurare 
 Per altre informazioni di riferimento sull'ampia raccolta di algoritmi di Machine Learning disponibili, vedere [Come scegliere gli algoritmi per Microsoft Azure Machine Learning Studio (versione classica)](algorithm-choice.md).
 
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Distribuzione di un servizio Web di analisi predittiva
-Quando il modello di analisi predittiva è pronto, è possibile distribuirlo come servizio Web direttamente da Machine Learning Studio (versione classica). Per altre informazioni su questo processo, vedere [Distribuire un servizio Web di Azure Machine Learning](publish-a-machine-learning-web-service.md).
+Quando il modello di analisi predittiva è pronto, è possibile distribuirlo come servizio Web direttamente da Machine Learning Studio (versione classica). Per altre informazioni su questo processo, vedere [Distribuire un servizio Web di Azure Machine Learning](deploy-a-machine-learning-web-service.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile ottenere informazioni di base sulle analisi predittive e sull'apprendimento automatico tramite una[guida introduttiva dettagliata](create-experiment.md) e gli [esempi](sample-experiments.md).

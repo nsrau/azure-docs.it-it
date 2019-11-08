@@ -1,6 +1,6 @@
 ---
 title: 'Domande frequenti: backup di macchine virtuali di Azure con backup di Azure'
-description: Risposte alle domande comuni sul backup di macchine virtuali di Azure con backup di Azure.
+description: In questo articolo vengono fornite le risposte alle domande comuni sul backup di macchine virtuali di Azure con il servizio backup di Azure.
 ms.reviewer: sogup
 author: dcurwin
 manager: carmonm
@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: d93225186fe5b16300a3138d67dd40c66d56976e
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: ad5e715de2f3467d4530759cbb2acec0358e5597
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968398"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747274"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
 
 Questo articolo risponde a domande comuni sul backup di macchine virtuali di Azure con il servizio [backup di Azure](backup-introduction-to-azure-backup.md) .
 
-## <a name="backup"></a>Eseguire il backup
+## <a name="backup"></a>Backup
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Quali immagini di macchina virtuale possono essere abilitate per il backup durante la creazione?
 
@@ -97,7 +97,7 @@ Il backup pianificato verrà attivato entro 2 ore dall'ora del backup pianificat
 
 Il criterio di backup della macchina virtuale di Azure supporta un periodo di conservazione minimo di sette giorni fino a 9999 giorni. Qualsiasi modifica a un criterio di backup di VM esistente con meno di sette giorni richiederà un aggiornamento per soddisfare il periodo di mantenimento dati minimo di sette giorni.
 
-## <a name="restore"></a>Ripristinare
+## <a name="restore"></a>Ripristino
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>In che modo si decide se è opportuno ripristinare solo i dischi oppure una macchina virtuale completa?
 

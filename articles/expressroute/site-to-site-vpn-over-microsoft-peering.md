@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: f35ed65b25d469b524e7174affecb45ad7c4735c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d26210ab226f8e907aa845d51dca94f59badd6a3
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115732"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748095"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurare una VPN da sito a sito tramite peering ExpressRoute Microsoft
 
@@ -24,7 +24,7 @@ Questo articolo illustra come configurare una connettività crittografata protet
 >
 >
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="architecture"></a>Architettura
 
@@ -53,7 +53,7 @@ I tunnel VPN tramite peering Microsoft possono essere terminati tramite gateway 
 6. (Facoltativo) Configurare firewall/filtri sul dispositivo VPN locale.
 7. Test e convalida delle comunicazioni IPsec tramite il circuito ExpressRoute.
 
-## <a name="peering"></a>1. Configurare il peering Microsoft
+## <a name="peering"></a>1. configurare il peering Microsoft
 
 Per configurare una connessione VPN da sito a sito tramite ExpressRoute è necessario sfruttare il peering ExpressRoute Microsoft.
 
@@ -65,9 +65,9 @@ Dopo avere configurato il circuito e il peering Microsoft sarà possibile visual
 
 ![circuito](./media/site-to-site-vpn-over-microsoft-peering/ExpressRouteCkt.png)
 
-## <a name="routefilter"></a>2. Configurare i filtri della route
+## <a name="routefilter"></a>2. configurare i filtri di route
 
-Un filtro di route consente di identificare i servizi da usare tramite il peering Microsoft del circuito di ExpressRoute. Si tratta fondamentalmente di un elenco di tutti i valori di community BGP consentiti. 
+Un filtro di route consente di identificare i servizi da usare tramite il peering Microsoft del circuito di ExpressRoute. Si tratta essenzialmente di un elenco di tutti i valori di community BGP consentiti. 
 
 ![filtro della route](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
@@ -91,7 +91,7 @@ In questo esempio viene usato un comando Cisco IOS-XE. Nell'esempio sono usati u
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-L'output parziale seguente mostra che sono stati ricevuti 68 prefissi dal router adiacente \*adiacente*.243.229.34 con ASN 12076 (MSEE):
+L'output parziale seguente mostra che sono stati ricevuti 68 prefissi dal router adiacente \*. 243.229.34 con ASN 12076 (MSEE):
 
 ```
 ...
@@ -112,7 +112,7 @@ Per confermare la ricezione del set di prefissi corretto è possibile effettuare
 Get-AzBgpServiceCommunity
 ```
 
-## <a name="vpngateway"></a>3. Configurare il gateway VPN e i tunnel IPsec
+## <a name="vpngateway"></a>3. configurare il gateway VPN e i tunnel IPsec
 
 In questa sezione vengono creati i tunnel VPN IPsec tra il gateway VPN di Azure e il dispositivo VPN locale. Gli esempi usano dispositivi VPN Cisco Router per servizio Cloud (CSR1000).
 
@@ -354,7 +354,7 @@ L'azione finale dello script crea tunnel IPsec tra il gateway VPN di Azure e il 
   }
 ```
 
-## <a name="device"></a>4. Configurare un dispositivo VPN locale
+## <a name="device"></a>4. configurare il dispositivo VPN locale
 
 Il gateway VPN di Azure è compatibile con molti dispositivi VPN di fornitori diversi. Per informazioni sulla configurazione e i dispositivi idonei all'uso con gateway VPN, vedere [Informazioni sui dispositivi VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
@@ -475,11 +475,11 @@ ip route 10.2.0.229 255.255.255.255 Tunnel1
 !
 ```
 
-## <a name="firewalls"></a>5. Configurare filtri e firewall di dispositivi VPN (facoltativo)
+## <a name="firewalls"></a>5. configurare i firewall e i filtri del dispositivo VPN (facoltativo)
 
 Configurare firewall e filtri in base alle esigenze.
 
-## <a name="testipsec"></a>6. Test e convalida di tunnel IPsec
+## <a name="testipsec"></a>6. testare e convalidare il tunnel IPsec
 
 Lo stato dei tunnel IPsec può essere verificato nel gateway VPN di Azure tramite comandi Powershell:
 

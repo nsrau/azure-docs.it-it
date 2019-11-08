@@ -1,17 +1,17 @@
 ---
 title: Come eseguire il dump e il ripristino nel database di Azure per PostgreSQL-server singolo
-description: Viene descritto come estrarre un database PostgreSQL in un file dump ed eseguire il ripristino da un file creato da pg_dump in database di Azure per PostgreSQL-server singolo.
+description: Viene descritto come estrarre un database PostgreSQL in un file dump ed eseguire il ripristino da un file creato da pg_dump nel database di Azure per PostgreSQL-server singolo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 55e802aa1f7bdf0d67d1a9c3f020d255afdc8130
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4291db0bb1edbc366c42febed992a7c27d46eb15
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261910"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796745"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Eseguire la migrazione del database PostgreSQL usando dump e ripristino
 È possibile usare [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) per estrarre un database PostgreSQL in un file di dump e [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) per ripristinare il database PostgreSQL da un file di archivio creato da pg_dump.
@@ -34,7 +34,7 @@ pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb -f testdb
 ```
 
 
-## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pg_restore"></a>Ripristinare i dati nel database di Azure per PostrgeSQL di destinazione usando pg_restore
+## <a name="restore-the-data-into-the-target-azure-database-for-postgresql-using-pg_restore"></a>Ripristinare i dati nel database di Azure di destinazione per PostgreSQL usando pg_restore
 Dopo avere creato il database di destinazione, è possibile usare il comando pg_restore e il parametro -d, --dbname per ripristinare i dati nel database di destinazione dal file di dump.
 ```bash
 pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
@@ -61,7 +61,7 @@ Un modo per eseguire la migrazione di un database PostgreSQL esistente al serviz
 >
 
 ### <a name="for-the-backup"></a>Per il backup
-- Eseguire il backup con lo switch -Fc in modo che sia possibile eseguire il ripristino in parallelo per renderlo più rapido. Esempio:
+- Eseguire il backup con lo switch -Fc in modo che sia possibile eseguire il ripristino in parallelo per renderlo più rapido. Ad esempio:
 
     ```
     pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName -f Z:\Data\Backups\MyDatabaseBackup.dump
@@ -72,7 +72,7 @@ Un modo per eseguire la migrazione di un database PostgreSQL esistente al serviz
 
 - Deve essere già eseguito per impostazione predefinita, ma aprire il file di dump per verificare che le istruzioni CREATE INDEX siano effettuate dopo l'inserimento dei dati. In caso contrario, spostare le istruzioni CREATE INDEX dopo aver inserito i dati.
 
-- Ripristinare con gli switch -Fc e -j *#* per parallelizzare il ripristino. *#* è il numero di core nel server di destinazione. È anche possibile provare con *#* impostato su due volte il numero di core del server di destinazione per verificare l'impatto. Esempio:
+- Ripristinare con gli switch -Fc e -j *#* per parallelizzare il ripristino. *#* è il numero di core nel server di destinazione. È anche possibile provare con *#* impostato su due volte il numero di core del server di destinazione per verificare l'impatto. Ad esempio:
 
     ```
     pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump

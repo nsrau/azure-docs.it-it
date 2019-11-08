@@ -1,6 +1,6 @@
 ---
 title: Eseguire il backup di carichi di lavoro di SQL Server in Azure Stack
-description: Usare il server di Backup di Azure per proteggere il carico di lavoro di SQL Server in Azure Stack.
+description: Questo articolo illustra come configurare Backup di Microsoft Azure Server (MAB) per proteggere i database di SQL Server in Azure Stack.
 ms.reviewer: adigan
 author: dcurwin
 manager: carmonm
@@ -8,14 +8,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: dacurwin
-ms.openlocfilehash: ab65a1bf371ff8581f347403b49fafed6697374c
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 28d4ad1a94cea6f21d1fe75483357d8788524b88
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210239"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747215"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Eseguire il backup di SQL Server in Azure Stack
+
 Usare questo articolo per configurare il server di Backup di Microsoft Azure (MABS) per proteggere i database di SQL Server in Azure Stack.
 
 La gestione delle operazioni di backup del database SQL server in Azure e di ripristino da Azure prevede tre passaggi:
@@ -29,11 +30,12 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 [Installare e preparare il server di Backup di Azure](backup-mabs-install-azure-stack.md).
 
 ## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Creare un criterio di backup per proteggere i database SQL Server in Azure.
+
 1. Nell'interfaccia utente del server di Backup di Azure fare clic sull'area di lavoro **Protezione**.
 
 2. Nella barra degli strumenti, fare clic su **Nuovo** per creare un nuovo gruppo di protezione.
 
-    ![Creare un gruppo di protezione](./media/backup-azure-backup-sql/protection-group.png)
+    ![Creazione di un gruppo di protezione](./media/backup-azure-backup-sql/protection-group.png)
 
     Il server di Backup di Azure avvia la procedura guidata Crea nuovo gruppo protezione dati, che guida l'utente nei passaggi necessari per creare un **gruppo protezione dati**. Fare clic su **Avanti**.
 
@@ -68,7 +70,7 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 
     ![Metodo di replica iniziale](./media/backup-azure-backup-sql/pg-manual.png)
 
-    La copia di backup iniziale richiede il trasferimento dell'intera origine dati (database SQL Server) dal server di produzione (macchina SQL Server) al server di Backup di Azure. Tali dati potrebbero essere di grandi dimensioni e trasferimento dei dati sulla rete potrebbe superare la larghezza di banda. Per questo motivo, è possibile scegliere di trasferire il backup iniziale: **manualmente** (usando supporti rimovibili) per evitare la congestione della larghezza di banda o **automaticamente attraverso la rete** (a un orario specificato).
+    La copia di backup iniziale richiede il trasferimento dell'intera origine dati (database SQL Server) dal server di produzione (macchina SQL Server) al server di Backup di Azure. Tali dati potrebbero essere di grandi dimensioni e trasferimento dei dati sulla rete potrebbe superare la larghezza di banda. Per questo motivo, l'utente può scegliere di trasferire il backup iniziale: **manualmente** (usando supporti rimovibili) per evitare la congestione della larghezza di banda o **automaticamente attraverso la rete** (ad un orario specificato).
 
     Una volta completato il backup iniziale, quelli successivi saranno backup incrementali della copia di backup iniziale. I backup incrementali tendono a essere di piccole dimensioni e facilmente trasferibili sulla rete.
 
@@ -99,7 +101,7 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 
     ![Criteri di conservazione](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
-    In questo esempio:
+    Esempio:
 
     * I backup vengono eseguiti una volta al giorno alle 12.00 PM e alle 8.00 PM (parte in basso della schermata) e vengono conservati per 180 giorni.
     * Il backup di sabato alle ore 12:00 P.M. viene conservato per 104 settimane
@@ -112,6 +114,7 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
     ![Creazione di un gruppo di protezione in corso](./media/backup-azure-backup-sql/pg-summary.png)
 
 ## <a name="on-demand-backup-of-a-sql-server-database"></a>Backup su richiesta di un database SQL Server
+
 Mentre nei passaggi precedenti sono stati creati i criteri di backup, un "punto di ripristino" viene creato solo quando si verifica il primo backup. Anziché attendere l'avvio dell'Utilità di pianificazione, i passaggi seguenti attivano la creazione manuale di un punto di ripristino.
 
 1. Prima di creare il punto di ripristino, attendere finché nello stato del gruppo di protezione non viene visualizzato **OK** per il database.
@@ -128,6 +131,7 @@ Mentre nei passaggi precedenti sono stati creati i criteri di backup, un "punto 
     ![Console di monitoraggio](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## <a name="recover-a-sql-server-database-from-azure"></a>Ripristinare un database SQL Server da Azure
+
 I passaggi seguenti sono necessari per ripristinare un'entità protetta (database SQL Server) da Azure.
 
 1. Aprire la console di gestione del server di Backup di Azure. Passare all'area di lavoro **Recupero** dove appaiono i server protetti. Passare al database necessario (in questo caso ReportServer$MSDPM2012). Selezionare un orario di inizio del **recupero**, specificato come punto **online**.
@@ -152,7 +156,7 @@ I passaggi seguenti sono necessari per ripristinare un'entità protetta (databas
 
     Al termine del ripristino, il database ripristinato sarà coerente con l'applicazione.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Vedere l'articolo [Eseguire il backup di file e applicazioni in Azure Stack](backup-mabs-files-applications-azure-stack.md).
 Vedere l'articolo [Backup SharePoint on Azure Stack](backup-mabs-sharepoint-azure-stack.md) (Backup di SharePoint in Azure Stack).

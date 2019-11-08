@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: e4f1797d600a226eb152a464efe4da8ddbdb6207
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ff50d972ad9590fb70dbcf67e21f8b5dc8c32fad
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606246"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748050"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a endpoint diversi
 
@@ -57,7 +57,7 @@ L'hub Internet delle cose raggruppa i messaggi e scrive i dati nella risorsa di 
 
 È possibile usare qualsiasi convenzione di denominazione. È tuttavia necessario usare tutti i token elencati. L'hub IoT scriverà in un BLOB vuoto se non sono presenti dati da scrivere.
 
-È consigliabile elencare i contenitori di archiviazione e quindi scorrerli per assicurarsi che tutti i contenitori vengano letti senza creare presupposti della partizione. L'intervallo di partizione potrebbe potenzialmente cambiare durante un [failover avviato da Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover)o un [failover manuale](iot-hub-ha-dr.md#manual-failover) dell'hub IoT. È possibile usare l' [API List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) per enumerare l'elenco di BLOB. Per informazioni, vedere l'esempio seguente.
+È consigliabile elencare i BLOB o i file e quindi scorrerli per assicurarsi che tutti i BLOB o i file vengano letti senza creare presupposti della partizione. L'intervallo di partizione potrebbe potenzialmente cambiare durante un [failover avviato da Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover)o un [failover manuale](iot-hub-ha-dr.md#manual-failover) dell'hub IoT. È possibile usare l' [API List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) per enumerare l'elenco di BLOB o [elencare ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) per l'elenco di file. Per informazioni, vedere l'esempio seguente.
 
 ```csharp
 public void ListBlobsInContainer(string containerName, string iothub)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/05/2019
 ms.author: memildin
-ms.openlocfilehash: d705174f46ba38f37ae8cce9839c2d1f63ab6bf8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6b6acb0ae1452795fe02906779b920e4b41f9a55
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664264"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748402"
 ---
 # <a name="threat-detection-for-cloud-native-computing-in-azure-security-center"></a>Rilevamento delle minacce per il cloud native Computing nel centro sicurezza di Azure
 
@@ -66,7 +66,7 @@ Le minacce vengono rilevate a livelli diversi:
     >[!NOTE]
     > Se si sceglie di non installare gli agenti negli host, si riceverà solo un subset dei vantaggi e degli avvisi di rilevamento delle minacce. Verranno comunque ricevuti gli avvisi relativi all'analisi di rete e alle comunicazioni con server dannosi.
 
-* Per il **livello del cluster AKS**, il monitoraggio del rilevamento delle minacce è basato sull'analisi dei log di controllo di Kubernetes. Per abilitare questo monitoraggio senza **agente** , aggiungere l'opzione Kubernetes alla sottoscrizione dalla pagina **Impostazioni & prezzi** (vedere i [prezzi](security-center-pricing.md)). Per generare avvisi a questo livello, il Centro sicurezza monitora i servizi gestiti da AKS usando i log recuperati da AKS. Esempi di eventi a questo livello includono dashboard Kubernetes esposti, creazione di ruoli con privilegi elevati e creazione di montaggi sensibili. 
+* Per il **livello del cluster AKS**, il monitoraggio del rilevamento delle minacce è basato sull'analisi dei log di controllo di Kubernetes. Per abilitare questo monitoraggio senza **agente** , aggiungere l'opzione Kubernetes alla sottoscrizione dalla pagina **Impostazioni & prezzi** (vedere i [prezzi](security-center-pricing.md)). Per generare avvisi a questo livello, il Centro sicurezza monitora i servizi gestiti da AKS usando i log recuperati da AKS. Esempi di eventi a questo livello includono dashboard Kubernetes esposti, creazione di ruoli con privilegi elevati e creazione di montaggi sensibili.
 
     >[!NOTE]
     > Il Centro sicurezza genera avvisi di rilevamento per le azioni e le distribuzioni del servizio Kubernetes di Azure che si verificano dopo che l'opzione Kubernetes è stata abilitata nelle impostazioni della sottoscrizione. 

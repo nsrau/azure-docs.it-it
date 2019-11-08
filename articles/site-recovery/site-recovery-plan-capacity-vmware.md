@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 9a77b3982d8aed6ae694c32baecd7ae194c51724
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bf1b34295d827124198206e743bc21d5f7eb904
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924840"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747895"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Pianificare la capacità e la scalabilità per il ripristino di emergenza di VMware in Azure
 
@@ -28,7 +28,7 @@ Site Recovery Deployment Planner fornisce un report con informazioni complete su
 
 Componente | Dettagli
 --- | ---
-**Replica** | **Frequenza massima di modifica giornaliera**: un computer protetto può usare un solo server di elaborazione. Un singolo server di elaborazione può gestire fino a 2 TB di frequenza di modifica giornaliera. La massima frequenza di modifica dei dati giornaliera supportata per una macchina protetta è quindi di 2 TB.<br /><br /> **Velocità effettiva massima:** una macchina replicata può appartenere a un account di archiviazione in Azure. Un account di Archiviazione di Azure standard può gestire fino a un massimo di 20.000 richieste al secondo. È consigliabile limitare il numero di operazioni di input/output al secondo (IOPS) a 20.000 in una macchina di origine. Se, ad esempio, si ha un computer di origine con 5 dischi e ogni disco genera 120 IOPS (dimensione pari a 8 K) nella macchina di origine, il computer di origine rientra nel limite di Azure di 500 IOPS per disco. Il numero di account di archiviazione necessari è uguale al numero complessivo di IOPS della macchina di origine diviso per 20.000.
+**Replica** | **Frequenza di modifica giornaliera massima**: una macchina protetta può usare un solo server di elaborazione. Un singolo server di elaborazione può gestire fino a 2 TB di frequenza di modifica giornaliera. La massima frequenza di modifica dei dati giornaliera supportata per una macchina protetta è quindi di 2 TB.<br /><br /> **Velocità effettiva massima**: una macchina replicata può appartenere a un account di archiviazione in Azure. Un account di Archiviazione di Azure standard può gestire fino a un massimo di 20.000 richieste al secondo. È consigliabile limitare il numero di operazioni di input/output al secondo (IOPS) a 20.000 in una macchina di origine. Se, ad esempio, si ha un computer di origine con 5 dischi e ogni disco genera 120 IOPS (dimensione pari a 8 K) nella macchina di origine, il computer di origine rientra nel limite di Azure di 500 IOPS per disco. Il numero di account di archiviazione necessari è uguale al numero complessivo di IOPS della macchina di origine diviso per 20.000.
 **Server di configurazione** | Il server di configurazione deve essere in grado di gestire la capacità di frequenza di modifica giornaliera in tutti i carichi di lavoro in esecuzione nei computer protetti. La macchina di configurazione deve avere una larghezza di banda sufficiente per eseguire la replica continua dei dati in Archiviazione di Azure.<br /><br /> Come procedura consigliata, il server di configurazione deve trovarsi nella stessa rete e nello stesso segmento LAN dei computer da proteggere. È possibile inserire il server di configurazione in una rete diversa, ma i computer da proteggere devono avere visibilità di rete L3.<br /><br /> Le dimensioni consigliate per il server di configurazione sono riepilogate nella tabella riportata nella sezione successiva.
 **Server di elaborazione** | Per impostazione predefinita, il primo server di elaborazione viene installato nel server di configurazione. È possibile distribuire altri server di elaborazione per ridimensionare l'ambiente. <br /><br /> Il server di elaborazione riceve i dati di replica dai computer protetti. Il server di elaborazione ottimizza i dati tramite la memorizzazione nella cache, la compressione e la crittografia. Quindi il server di elaborazione invia i dati ad Azure. La macchina del server di elaborazione deve avere risorse sufficienti per eseguire queste attività.<br /><br /> Il server di elaborazione usa una cache basata su disco. Usare un disco della cache separato di almeno 600 GB per gestire le modifiche ai dati archiviate in caso di colli di bottiglia o interruzioni della rete.
 
@@ -41,7 +41,7 @@ CPU | Memoria | Dimensione disco cache | Frequenza di modifica dei dati | Comput
 8 vCPU (2 socket * 4 core \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB o inferiore | Per replicare meno di 100 computer.
 12 vCPU (2 socket * 6 core \@ 2,5 GHz) | 18 GB | 600 GB | Da 501 GB a 1 TB | Per replicare da 100 a 150 computer.
 16 vCPU (2 socket * 8 core \@ 2,5 GHz) | 32 GB | 1 TB | >1 TB-2 TB | Per replicare da 151 a 200 computer.
-Distribuire un altro server di configurazione tramite il [modello OVF](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). | | | | Distribuire un nuovo server di configurazione se si esegue la replica di più di 200 computer.
+Distribuire un altro server di configurazione tramite il [modello OVF](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). | | | | Distribuire un nuovo server di configurazione se si esegue la replica di più di 200 computer.
 Distribuire un altro [server di elaborazione](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | Più di 2 TB| Distribuire un nuovo server di elaborazione scale-out se la frequenza di modifica dei dati giornaliera complessiva è maggiore di 2 TB.
 
 In queste configurazioni:
@@ -53,7 +53,7 @@ In queste configurazioni:
 
 Il server di elaborazione è il componente che gestisce la replica dei dati in Azure Site Recovery. Se la frequenza di modifica giornaliera è superiore a 2 TB, è necessario aggiungere altri server di elaborazione scale-out per gestire il carico di replica. Per la scalabilità orizzontale è possibile:
 
-* Aumentare il numero di server di configurazione eseguendo la distribuzione tramite il [modello OVF](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). Ad esempio, è possibile proteggere fino a 400 computer con due server di configurazione.
+* Aumentare il numero di server di configurazione eseguendo la distribuzione tramite il [modello OVF](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). Ad esempio, è possibile proteggere fino a 400 computer con due server di configurazione.
 * Aggiungere [server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md#download-installation-file). Usare i server di elaborazione scale-out per gestire il traffico di replica al posto del server di configurazione o in aggiunta.
 
 La tabella seguente descrive questo scenario:
@@ -77,14 +77,14 @@ Il modo in cui i server vengono ridimensionati dipende dalle preferenze per il m
 
 Dopo aver usato [Site Recovery Deployment Planner](site-recovery-deployment-planner.md) per calcolare la larghezza di banda necessaria per la replica (la replica iniziale e successivamente il delta), sono disponibili due opzioni per controllare la quantità di larghezza di banda usata per la replica:
 
-* **Limitazione della larghezza di banda**: il traffico VMware che viene replicato in Azure passa attraverso un server di elaborazione specifico. È possibile limitare la larghezza di banda nei computer in esecuzione come server di elaborazione.
-* **Influenza della larghezza di banda**: È possibile influire sulla larghezza di banda usata per la replica tramite una coppia di chiavi del Registro di sistema:
+* **Limitare la larghezza di banda**: il traffico VMware che viene replicato in Azure passa attraverso un server di elaborazione specifico. È possibile limitare la larghezza di banda nei computer in esecuzione come server di elaborazione.
+* **Influire sulla larghezza di banda**: è possibile influire sulla larghezza di banda usata per la replica usando un paio di chiavi del registro di sistema:
   * Il valore del Registro di sistema **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** specifica il numero di thread usati per il trasferimento dati di un disco, durante la replica iniziale o differenziale. Un valore più elevato aumenta la larghezza di banda di rete usata per la replica.
   * Il valore del Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** specifica il numero di thread usati per il trasferimento dati durante il failback.
 
-### <a name="throttle-bandwidth"></a>Limitazione della larghezza di banda
+### <a name="throttle-bandwidth"></a>Limitare la larghezza di banda
 
-1. Aprire lo snap-in MMC di Azure Backup nel computer usato come server di elaborazione. Per impostazione predefinita, un collegamento per il Backup è disponibile sul desktop o nella cartella seguente: C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure\bin.
+1. Aprire lo snap-in MMC di Azure Backup nel computer usato come server di elaborazione. Per impostazione predefinita, un collegamento per il backup è disponibile sul desktop o nella cartella seguente: c:\Programmi\Microsoft Azure Recovery Services Agent\bin.
 2. Nello snap-in selezionare **Modifica proprietà**.
 
     ![Screenshot dello snap-in di MMC di Azure Backup per modificare le proprietà](./media/site-recovery-vmware-to-azure/throttle1.png)
@@ -114,13 +114,13 @@ Prima di configurare l'infrastruttura di Azure Site Recovery è necessario acced
 1. Per misurare questi parametri, eseguire Site Recovery Deployment Planner nel proprio ambiente. Per linee guida utili, consultare [Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure](site-recovery-deployment-planner.md).
 2. Distribuire un server di configurazione che soddisfi le [dimensioni consigliate per il server di configurazione](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server). Se il carico di lavoro di produzione è superiore a 650 macchine virtuali, distribuire un altro server di configurazione.
 3. In base alla frequenza di modifica dei dati giornaliera misurata, distribuire i [server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md#download-installation-file) seguendo le [linee guida sulle dimensioni](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
-4. Se si prevede che la modifica dei dati tariffa per una macchina virtuale del disco superare i 2 MBps, assicurarsi di usare managed disks premium. Site Recovery Deployment Planner viene eseguito per un periodo di tempo specifico. I picchi della frequenza di modifica dei dati in altri momenti potrebbero non comparire nel report.
+4. Se si prevede che la frequenza di modifica dei dati per una macchina virtuale disco superi 2 MBps, assicurarsi di usare Managed disks Premium. Site Recovery Deployment Planner viene eseguito per un periodo di tempo specifico. I picchi della frequenza di modifica dei dati in altri momenti potrebbero non comparire nel report.
 5. [Impostare la larghezza di banda di rete](site-recovery-plan-capacity-vmware.md#control-network-bandwidth) a seconda dell'RPO che si desidera ottenere.
 6. Al termine della configurazione dell'infrastruttura abilitare il ripristino di emergenza per il carico di lavoro. Per informazioni sulla procedura, consultare [Configurare l'ambiente di origine per la replica da VMware in Azure](vmware-azure-set-up-source.md).
 
 ## <a name="deploy-additional-process-servers"></a>Distribuire server di elaborazione aggiuntivi
 
-Se si amplia la distribuzione a oltre 200 computer di origine oppure la varianza totale giornaliera è superiore a 2 TB, sono necessari server di elaborazione aggiuntivi per gestire il volume di traffico. Sono state migliorate del prodotto nella versione 9.24 fornire [elaborare avvisi server](vmware-physical-azure-monitor-process-server.md#process-server-alerts) sui casi in cui configurare un server di elaborazione scale-out. [Configurare il server di elaborazione](vmware-azure-set-up-process-server-scale.md) per proteggere le nuove macchine di origine oppure [bilanciare il carico](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
+Se si amplia la distribuzione a oltre 200 computer di origine oppure la varianza totale giornaliera è superiore a 2 TB, sono necessari server di elaborazione aggiuntivi per gestire il volume di traffico. Il prodotto è stato migliorato nella versione 9,24 per fornire [avvisi del server di elaborazione](vmware-physical-azure-monitor-process-server.md#process-server-alerts) su quando configurare un server di elaborazione con scalabilità orizzontale. [Configurare il server di elaborazione](vmware-azure-set-up-process-server-scale.md) per proteggere i nuovi computer di origine o [bilanciare il carico](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Eseguire la migrazione dei computer per usare il nuovo server di elaborazione
 

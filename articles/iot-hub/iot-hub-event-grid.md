@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: f411771fbf39a99642506253fc025d6b29840423
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7d5a232d92c37a94ff427a3bf203f6f20764060e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648649"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748590"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni
 
@@ -23,7 +23,7 @@ L'hub IoT di Azure si integra con Griglia di eventi di Azure per poter inviare l
 
 ![Architettura di Griglia di eventi di Azure](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
-## <a name="regional-availability"></a>Disponibilità a livello di area
+## <a name="regional-availability"></a>Disponibilità internazionale
 
 L'integrazione di Griglia di eventi è disponibile per gli hub IoT situati nelle aree in cui Griglia di eventi è supportata. Tutti gli eventi dispositivo tranne gli eventi di telemetria del dispositivo sono disponibili a livello generale. L'evento di telemetria del dispositivo è in anteprima pubblica ed è disponibile in tutte le aree, ad eccezione degli Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale, [Azure per enti pubblici](/azure/azure-government/documentation-government-welcome), [Azure Cina 21ViaNet](/azure/china)e [Azure Germania](https://azure.microsoft.com/global-infrastructure/germany/). Per l'elenco aggiornato delle aree, vedere [Introduzione a Griglia di eventi di Azure](../event-grid/overview.md).
 
@@ -37,7 +37,7 @@ L'hub IoT pubblica i tipi di eventi seguenti:
 | Microsoft.Devices.DeviceDeleted | Pubblicato quando un dispositivo viene eliminato da un hub IoT. |
 | Microsoft.Devices.DeviceConnected | Pubblicato quando un dispositivo è connesso a un hub IoT. |
 | Microsoft.Devices.DeviceDisconnected | Pubblicato quando un dispositivo è disconnesso da un hub IoT. |
-| Microsoft.Devices.DeviceTelemetry | Pubblicato quando un messaggio di telemetria del dispositivo viene inviato a un hub Internet |
+| Microsoft. Devices. DeviceTelemetry | Pubblicato quando un messaggio di telemetria del dispositivo viene inviato a un hub Internet |
 
 Usare il portale di Azure o l'interfaccia della riga di comando di Azure per configurare gli eventi da pubblicare da ogni hub IoT. Per un esempio, provare l'esercitazione [Send email notifications about Azure IoT Hub events using Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md) (Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando App per la logica).
 
@@ -204,4 +204,4 @@ Le applicazioni che gestiscono gli eventi dell'hub IoT devono seguire queste pro
 
 * [Compare the differences between routing IoT Hub events and messages (Confrontare le differenze tra il routing degli eventi dell'hub IoT e quello dei messaggi)](iot-hub-event-grid-routing-comparison.md)
 
-* [Informazioni su come usare gli eventi di telemetria degli oggetti Internet per implementare l'analisi spaziale delle cose usando le mappe di Azure e il routing messaggi dell'hub](../azure-maps/tutorial-iot-hub-maps.md#filter-events-using-iot-hub-message-routing)
+* [Informazioni su come usare gli eventi di telemetria degli oggetti Internet per implementare l'analisi spaziale delle cose usando mappe di Azure](../azure-maps/tutorial-iot-hub-maps.md#create-an-azure-function-and-add-an-event-grid-subscription)

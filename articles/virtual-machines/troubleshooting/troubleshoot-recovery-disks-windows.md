@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 9c7bc316900c9e1422289c76b2c3d05924130312
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 00f6e763006cbb8e5a2724536664291e0381e42f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602513"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749659"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Risolvere i problemi relativi a una macchina virtuale Windows collegando il disco del sistema operativo a una macchina virtuale di ripristino usando Azure PowerShell
 Se nella macchina virtuale (VM) Windows in Azure viene rilevato un errore di avvio o del disco, potrebbe essere necessario eseguire alcuni passaggi per la risoluzione dei problemi sul disco stesso. Un esempio comune è un aggiornamento di un'applicazione non riuscito che impedisce il corretto avvio della VM. Questo articolo illustra come usare Azure PowerShell per connettere il disco a un'altra VM Windows per risolvere eventuali errori e quindi riparare la VM originale. 
@@ -25,7 +25,7 @@ Se nella macchina virtuale (VM) Windows in Azure viene rilevato un errore di avv
 > [!Important]
 > Gli script in questo articolo si applicano solo alle VM che usano [Managed Disks](../windows/managed-disks-overview.md). 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="recovery-process-overview"></a>Panoramica del processo di ripristino
 È ora possibile usare Azure PowerShell per modificare il disco del sistema operativo per una VM. Non è più necessario eliminare e ricreare la VM.

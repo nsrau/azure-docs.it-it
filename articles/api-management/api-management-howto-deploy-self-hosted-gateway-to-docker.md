@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: bfb012116f74e451f9479c8c65057e5c8405bbb4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc7e0f7e4e0e80a030a437bc4f0f13360595f32e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513783"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747700"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Distribuire un gateway self-hosted di gestione API di Azure a Docker
 
@@ -31,6 +31,9 @@ Questo articolo illustra la procedura per la distribuzione del gateway di gestio
 - Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 - Creare un ambiente docker. [Docker per desktop](https://www.docker.com/products/docker-desktop) è un'opzione efficace per scopi di sviluppo e valutazione. Vedere la [documentazione di Docker](https://docs.docker.com) per informazioni su tutte le edizioni di Docker, sulle funzionalità e sulla documentazione completa su Docker.
 - [Effettuare il provisioning di una risorsa gateway nell'istanza di gestione API](api-management-howto-provision-self-hosted-gateway.md)
+
+> [!NOTE]
+> Il gateway self-hosted è incluso in un contenitore Docker basato su Linux.
 
 ## <a name="deploy-the-self-hosted-gateway-to-docker"></a>Distribuire il gateway self-hosted in Docker
 
@@ -63,4 +66,5 @@ CONTAINER ID        IMAGE                                                 COMMAN
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sul gateway self-hosted, vedere [Panoramica del gateway self-hosted di gestione API di Azure](self-hosted-gateway-overview.md)
+* Per altre informazioni sul gateway self-hosted, vedere [Panoramica del gateway self-hosted di gestione API di Azure](self-hosted-gateway-overview.md).
+* [Configurare il nome di dominio personalizzato per il gateway self-hosted](api-management-howto-configure-custom-domain-gateway.md).

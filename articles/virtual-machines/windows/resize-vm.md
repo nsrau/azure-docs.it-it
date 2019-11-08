@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 9537744787df7fc6c470bc1ee6862ad3f2991ae9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1f5f8f3a315b894ab8bc972d36008b5bce85d8e7
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088734"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749252"
 ---
 # <a name="resize-a-windows-vm"></a>Ridimensionare una VM Windows
 
@@ -29,7 +29,7 @@ Dopo aver creato una macchina virtuale (VM), è possibile scalarla in verticale 
 
 Se la macchina virtuale usa l'archiviazione Premium, per ottenere il supporto per questo tipo di archiviazione assicurarsi di aver scelto una versione **s** delle dimensioni, ad esempio, Standard_E4**s**_v3 anziché Standard_E4_v3.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Ridimensionare una VM Windows non inclusa in un set di disponibilità
 
@@ -54,7 +54,7 @@ $vm.HardwareProfile.VmSize = "<newVMsize>"
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-Se la dimensione voluta non è nell'elenco, eseguire i comandi seguenti per deallocare la VM, ridimensionarla e quindi riavviarla. **Sostituire\<newVMsize >** con le dimensioni desiderate.
+Se la dimensione voluta non è nell'elenco, eseguire i comandi seguenti per deallocare la VM, ridimensionarla e quindi riavviarla. Sostituire **\<newVMsize >** con le dimensioni desiderate.
    
 ```powershell
 Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force
@@ -124,5 +124,5 @@ $vmIds = $as.VirtualMachinesReferences
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per una maggiore scalabilità, eseguire più istanze di VM e la scalabilità orizzontale. Per altre informazioni, vedere [Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
+Per una maggiore scalabilità, eseguire più istanze di VM e scalare in orizzontale. Per altre informazioni, vedere [ridimensionare automaticamente i computer Windows in un set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
 

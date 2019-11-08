@@ -1,6 +1,6 @@
 ---
 title: "Backup di Azure: ripristinare le macchine virtuali di Azure con l'API REST"
-description: Gestire le operazioni di ripristino delle macchine virtuali di Backup di Azure con l'API REST
+description: Questo articolo illustra come gestire le operazioni di ripristino del backup delle macchine virtuali di Azure usando l'API REST.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: bdbceec2f1d0a900ffdb392d8a0505ce11419036
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 364b6ab589cc0fa50953a71d55adeccc79462eed
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954899"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747524"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Ripristinare le macchine virtuali di Azure con l'API REST
 
-Dopo aver completato il backup di una macchina virtuale di Azure usando Backup di Azure, è possibile ripristinare intere macchine virtuali di Azure oppure dischi o file dalla stessa copia di backup. Questo articolo descrive come ripristinare una macchina virtuale di Azure oppure dischi tramite l'API REST.
+Una volta completato il backup di una macchina virtuale di Azure con backup di Azure, è possibile ripristinare intere macchine virtuali o dischi o file di Azure dalla stessa copia di backup. Questo articolo descrive come ripristinare una macchina virtuale di Azure oppure dischi tramite l'API REST.
 
 Per qualsiasi operazione di ripristino, è necessario identificare innanzitutto il punto di ripristino pertinente.
 
@@ -35,9 +35,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 All'URI *GET* sono associati tutti i parametri obbligatori. Non è necessario un corpo della richiesta aggiuntivo.
 
-### <a name="responses"></a>Responses
+### <a name="responses"></a>Risposte
 
-|NOME  |Type  |DESCRIZIONE  |
+|Name  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -137,7 +137,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare il ripristino di un disco da un backup di macchine virtuali di Azure.
 
-|NOME  |Type  |DESCRIZIONE  |
+|Name  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -165,15 +165,15 @@ Il corpo della richiesta seguente definisce le proprietà necessarie per attivar
 }
 ```
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 
-L'attivazione di un disco di ripristino è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
+L'attivazione di un disco di ripristino è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
-L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
+L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Name  |Type  |Descrizione  |
+|Name  |Tipo  |Descrizione  |
 |---------|---------|---------|
-|202 - Accettato     |         |     Accettato    |
+|202 - Accettato     |         |     Accepted    |
 
 #### <a name="example-responses"></a>Risposte di esempio
 

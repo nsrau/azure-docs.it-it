@@ -1,5 +1,5 @@
 ---
-title: 'Creare e modificare un circuito ExpressRoute - PowerShell: Azure | Microsoft Docs'
+title: 'Creare e modificare un circuito ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Creazione, provisioning, verifica, aggiornamento, eliminazione e deprovisioning di un circuito ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -9,12 +9,12 @@ ms.date: 02/20/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 2ff22a3c0087ff7e24517f792ba9abacbae76e3a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 9d0df2d9eda861a06e2952ff1623fb4ad5160e81
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846633"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748323"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Creare e modificare un circuito ExpressRoute mediante PowerShell
 > [!div class="op_single_selector"]
@@ -23,7 +23,7 @@ ms.locfileid: "67846633"
 > * [Interfaccia della riga di comando di Azure](howto-circuit-cli.md)
 > * [Modello di Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> * [PowerShell (classic)](expressroute-howto-circuit-classic.md) (PowerShell (classico))
+> * [PowerShell (classico)](expressroute-howto-circuit-classic.md)
 >
 
 Questo articolo include informazioni utili per creare un circuito ExpressRoute di Azure usando cmdlet di PowerShell e il modello di distribuzione di Azure Resource Manager. È anche possibile controllare lo stato, aggiornare, eliminare o effettuare il deprovisioning di un circuito.
@@ -34,16 +34,16 @@ Prima di iniziare la configurazione, verificare i [prerequisiti](expressroute-pr
 
 ### <a name="working-with-azure-powershell"></a>Uso di Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="create"></a>Creare un circuito ExpressRoute ed eseguirne il provisioning
-### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Accedere al proprio account Azure e selezionare la sottoscrizione
+### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. accedere al proprio account Azure e selezionare la sottoscrizione
 
 [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
-### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Ottenere l'elenco dei provider, delle località e delle larghezze di banda supportate
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. ottenere l'elenco dei provider, delle posizioni e delle larghezze di banda supportate
 Prima di creare un circuito ExpressRoute, è necessario avere l'elenco delle località, delle opzioni di larghezza di banda e dei provider di connettività supportati.
 
 Il cmdlet **Get-AzExpressRouteServiceProvider** di PowerShell restituisce queste informazioni, che verranno usate nei passaggi successivi:
@@ -60,7 +60,7 @@ Verificare se sia presente anche il proprio provider di connettività. Prendere 
 
 È ora possibile creare un circuito ExpressRoute.
 
-### <a name="3-create-an-expressroute-circuit"></a>3. Creare un circuito ExpressRoute
+### <a name="3-create-an-expressroute-circuit"></a>3. creare un circuito ExpressRoute
 Se non si ha già un gruppo di risorse, è necessario crearne uno prima di creare il circuito ExpressRoute. A questo scopo, eseguire il comando seguente:
 
 ```azurepowershell-interactive
@@ -90,7 +90,7 @@ get-help New-AzExpressRouteCircuit -detailed
 ```
 
 
-### <a name="4-list-all-expressroute-circuits"></a>4. Elencare tutti i circuiti ExpressRoute
+### <a name="4-list-all-expressroute-circuits"></a>4. elencare tutti i circuiti ExpressRoute
 Per ottenere un elenco di tutti i circuiti ExpressRoute creati, eseguire il comando **Get-AzExpressRouteCircuit** :
 
 ```azurepowershell-interactive
@@ -153,7 +153,7 @@ La risposta sarà simile all'esempio di seguito:
     Peerings                         : []
 
 
-### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Inviare la chiave di servizio al provider di connettività per il provisioning
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. inviare la chiave di servizio al provider di connettività per il provisioning
 *ServiceProviderProvisioningState* offre informazioni sullo stato di provisioning corrente sul lato provider del servizio. Status indica lo stato sul lato Microsoft. Per altre informazioni sullo stato di provisioning dei circuiti, vedere l'articolo [Flussi di lavoro](expressroute-workflows.md#expressroute-circuit-provisioning-states) .
 
 Quando si crea un nuovo circuito ExpressRoute, il circuito ha lo stato seguente:
@@ -173,7 +173,7 @@ Per poterlo usare, un circuito ExpressRoute deve avere lo stato seguente:
     ServiceProviderProvisioningState : Provisioned
     CircuitProvisioningState         : Enabled
 
-### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Controllare periodicamente lo stato e la condizione della chiave del circuito
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. controllare periodicamente lo stato e lo stato della chiave del circuito
 La verifica dello stato e della condizione della chiave del circuito comunicano all'utente quando il provider ha abilitato il circuito. Dopo la configurazione del circuito, lo stato di *ServiceProviderProvisioningState* visualizzato è *Provisioned*, come illustrato nell'esempio seguente:
 
 ```azurepowershell-interactive
@@ -205,7 +205,7 @@ La risposta sarà simile all'esempio di seguito:
     ServiceKey                       : **************************************
     Peerings                         : []
 
-### <a name="7-create-your-routing-configuration"></a>7. Creare la configurazione di routing
+### <a name="7-create-your-routing-configuration"></a>7. creare la configurazione di routing
 Per istruzioni dettagliate, vedere l'articolo relativo alla [configurazione del routing per un circuito ExpressRoute](expressroute-howto-routing-arm.md) per creare e modificare i peering del circuito.
 
 > [!IMPORTANT]
