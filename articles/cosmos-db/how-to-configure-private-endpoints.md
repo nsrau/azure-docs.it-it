@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 6602a47a9d1d34b04f37c6b65a3c3f84cd60c845
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
-ms.translationtype: HT
+ms.openlocfilehash: 34b54459629560ba80e6a38d10edbab32ea44778
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796094"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820162"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account-preview"></a>Configurare il collegamento privato di Azure per un account Azure Cosmos (anteprima)
 
@@ -330,9 +330,9 @@ Una volta distribuito il modello, gli indirizzi IP privati vengono riservati all
 
 ## <a name="configure-custom-dns"></a>Configurare un valore DNS personalizzato
 
-Durante l'anteprima del collegamento privato, è necessario usare un DNS privato all'interno della subnet in cui è stato creato l'endpoint privato. E configurare gli endpoint in modo che ogni indirizzo IP privato venga mappato a una voce DNS (vedere la proprietà "FQDN" nella risposta riportata sopra).
+È necessario usare un DNS privato all'interno della subnet in cui è stato creato l'endpoint privato. E configurare gli endpoint in modo che ogni indirizzo IP privato venga mappato a una voce DNS (vedere la proprietà "FQDN" nella risposta riportata sopra).
 
-Quando si crea l'endpoint privato, è possibile integrarlo con una zona DNS privata in Azure. Se si sceglie di non integrare l'endpoint privato con la zona DNS privata in Azure e si usa invece un DNS personalizzato, è necessario configurare il DNS per aggiungere un nuovo record DNS per l'indirizzo IP privato corrispondente alla nuova area.
+Quando si crea l'endpoint privato, è possibile integrarlo con una zona DNS privata in Azure. Se si sceglie di non integrare l'endpoint privato con la zona DNS privata in Azure e si usa invece un DNS personalizzato, è necessario configurare il DNS per aggiungere i record DNS per tutti gli indirizzi IP privati riservati per l'endpoint privato.
 
 ## <a name="firewall-configuration-with-private-link"></a>Configurazione del firewall con collegamento privato
 
@@ -374,19 +374,19 @@ I record DNS nella zona DNS privata non vengono rimossi automaticamente quando v
 
 Quando si usa il collegamento privato con un account Azure Cosmos, si applicano le limitazioni seguenti:
 
+* Il supporto dei collegamenti privati per gli account Azure Cosmos e reti virtuali è disponibile solo in aree specifiche. Per un elenco delle aree supportate, vedere la sezione [aree disponibili](../private-link/private-link-overview.md#availability) nell'articolo relativo al collegamento privato. **Per poter creare un endpoint privato, è necessario che l'account VNET e Azure Cosmos si trovino nelle aree supportate**.
+
 * Quando si usano i collegamenti privati con l'account Azure Cosmos usando la connessione in modalità diretta, è possibile usare solo il protocollo TCP. Il protocollo HTTP non è ancora supportato
 
 * Quando si usa l'API di Azure Cosmos DB per gli account MongoDB, l'endpoint privato è supportato solo per gli account nel server versione 3,6, ovvero gli account che usano l'endpoint nel formato `*.mongo.cosmos.azure.com`. Il collegamento privato non è supportato per gli account nella versione Server 3,2, ovvero gli account che usano l'endpoint nel formato `*.documents.azure.com`. Per usare il collegamento privato, è necessario eseguire la migrazione degli account precedenti alla nuova versione.
 
 * Quando si usa l'API Azure Cosmos DB per gli account MongoDB con collegamento privato, non è possibile usare strumenti quali Robo 3T, studio 3T, Mangusta e così via. L'endpoint può avere un supporto di collegamento privato solo se viene specificato il parametro appName =<account name>. Ad esempio: replicaSet = globaldb & appName = mydbaccountname. Poiché questi strumenti non passano il nome dell'app nella stringa di connessione al servizio, non è possibile usare il collegamento privato. Tuttavia, è comunque possibile accedere a questi account con driver SDK con la versione 3,6.
 
-* Il supporto dei collegamenti privati per gli account Azure Cosmos e reti virtuali è disponibile solo in aree specifiche. Per un elenco delle aree supportate, vedere la sezione [aree disponibili](../private-link/private-link-overview.md#availability) nell'articolo relativo al collegamento privato. **Per poter creare un endpoint privato, è necessario che l'account VNET e Azure Cosmos si trovino nelle aree supportate**.
-
 * Una rete virtuale non può essere spostata o eliminata se contiene un collegamento privato.
 
 * Non è possibile eliminare un account Azure Cosmos se è collegato a un endpoint privato.
 
-* Non è possibile eseguire il failover di un account Azure Cosmos in un'area di cui non è stato eseguito il mapping a tutti gli endpoint privati collegati. Per altre informazioni, vedere Aggiunta o rimozione di aree nella sezione precedente.
+* Non è possibile eseguire il failover di un account Azure Cosmos in un'area di cui non è stato eseguito il mapping a tutti gli endpoint privati collegati all'account. Per altre informazioni, vedere Aggiunta o rimozione di aree nella sezione precedente.
 
 * A un amministratore di rete deve essere concessa almeno l'autorizzazione "*/PrivateEndpointConnectionsApproval" nell'ambito dell'account Azure Cosmos da parte di un amministratore per creare endpoint privati approvati automaticamente.
 

@@ -44,5 +44,5 @@
       href: azure-maps.md
     - name: Rete CDN di Azure
       href: azure-cdn.md
-    - name: Ricerca di Azure
+    - name: Ricerca cognitiva di Azure
       href: azure-search.md

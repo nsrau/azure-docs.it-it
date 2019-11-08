@@ -1,30 +1,30 @@
 ---
-title: Collaborazione B2B domande frequenti - Azure Active Directory | Microsoft Docs
+title: Domande frequenti su collaborazione B2B-Azure Active Directory | Microsoft Docs
 description: Ottenere risposte alle domande frequenti su Collaborazione B2B di Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 04/10/2019
+ms.date: 11/07/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 523f1adc94870f79d198366059f33ad52f5dad68
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 2fd72aea9087b03dcd5c6072676e8f98e7cfc1ee
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293079"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816456"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Domande frequenti su Collaborazione B2B di Azure Active Directory
 
 Le domande frequenti, o FAQ, sulla collaborazione business-to-business, o B2B, di Azure Active Directory, ovvero Azure AD, vengono aggiornate periodicamente in modo da includere nuovi argomenti.
 
 ### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>È possibile personalizzare la pagina di accesso in modo che sia più intuitiva per gli utenti guest di Collaborazione B2B?
-Assolutamente sì. Vedere il [post del blog su questa funzionalità](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Per altre informazioni su come personalizzare la pagina di accesso dell'organizzazione, vedere [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](../fundamentals/customize-branding.md).
+vantaggi. Vedere il [post del blog su questa funzionalità](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Per altre informazioni su come personalizzare la pagina di accesso dell'organizzazione, vedere [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](../fundamentals/customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Gli utenti di Collaborazione B2B possono accedere a SharePoint Online e a OneDrive?
 Sì. Tuttavia, la possibilità di cercare gli utenti guest esistenti in SharePoint Online tramite la selezione utenti è **disattivata** per impostazione predefinita. Per attivare l'opzione di ricercare degli utenti guest esistenti, impostare **ShowPeoplePickerSuggestionsForGuestUsers** a **On**. È possibile attivare questa impostazione a livello di tenant o a livello di raccolta siti. È possibile modificare questa impostazione tramite i cmdlet Set-SPOTenant e SPOSite Set. Con questi cmdlet, i membri possono cercare tutti gli utenti guest esistenti nella directory. Le modifiche nell'ambito tenant non influiscono sui siti di SharePoint Online di cui si è già effettuato il provisioning.
@@ -42,30 +42,36 @@ Sì. Gli utenti guest possono reimpostare il metodo di autenticazione a più fat
 L'organizzazione che emette l'invito esegue l'autenticazione a più fattori. L'organizzazione che emette l'invito deve assicurarsi che l'organizzazione abbia un numero sufficiente di licenze per i propri utenti B2B che usano l'autenticazione a più fattori.
 
 ### <a name="what-if-a-partner-organization-already-has-multi-factor-authentication-set-up-can-we-trust-their-multi-factor-authentication-and-not-use-our-own-multi-factor-authentication"></a>Che cosa accade se un'organizzazione partner ha già configurato l'autenticazione a più fattori? È possibile considerare attendibile l'autenticazione a più fattori già presente e non usare la nuova autenticazione a più fattori?
-Questa funzionalità non è attualmente supportata. Se l'accesso alle risorse dell'organizzazione richiede l'autenticazione a più fattori, l'organizzazione partner dovrà registrarsi per l'autenticazione a più fattori nel (l'invito) dell'organizzazione.
+Questa funzionalità non è attualmente supportata. Se l'accesso alle risorse dell'organizzazione richiede l'autenticazione a più fattori, è necessario che l'organizzazione partner effettui la registrazione per l'autenticazione a più fattori nell'organizzazione (invito).
 
 ### <a name="how-can-i-use-delayed-invitations"></a>Come si usano gli inviti posticipati?
 Un'organizzazione può vole aggiungere gli utenti di Collaborazione B2B, effettuarne il provisioning alle applicazioni che richiedono il provisioning e quindi inviare gli inviti. È possibile usare l'API di invito di Collaborazione B2B per personalizzare il flusso di lavoro di onboarding.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>È possibile creare utenti guest visibili nell'elenco indirizzi globale di Exchange?
-Sì. Oggetti guest non sono visibili nell'elenco di indirizzi globale dell'organizzazione (EIG) per impostazione predefinita, ma è possibile usare Azure Active Directory PowerShell per renderli visibili. Vedere [è possibile creare oggetti guest visibile nell'elenco indirizzi globale?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list)
+Sì. Per impostazione predefinita, gli oggetti Guest non sono visibili nell'elenco indirizzi globale (GAL) dell'organizzazione, ma è possibile usare Azure Active Directory PowerShell per renderli visibili. Vedere è [possibile rendere visibili gli oggetti Guest nell'elenco indirizzi globale?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>È possibile fare in modo che un utente guest diventi amministratore con limitazioni?
 Certo. Per altre informazioni, vedere [Aggiunta di utenti guest a un ruolo](add-guest-to-role.md).
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>Collaborazione B2B di Azure AD consente agli utenti di B2B di accedere al portale di Azure?
-A meno che un utente è assegnato il ruolo di amministratore con limitazioni, gli utenti di collaborazione B2B non richiedono l'accesso al portale di Azure. Tuttavia, gli utenti di collaborazione B2B che vengono assegnati il ruolo di amministratore con limitazioni possono accedere al portale. Se un utente guest a cui non è assegnato nessuno di questi ruoli di amministratore accede al portale, l'utente potrebbe riuscire ad accedere a determinate parti dell'esperienza. Il ruolo di utente guest ha determinate autorizzazioni nella directory.
+A meno che a un utente non venga assegnato il ruolo di amministratore con limitazioni, gli utenti di collaborazione B2B non richiederanno l'accesso al portale di Azure. Tuttavia, gli utenti di collaborazione B2B a cui viene assegnato il ruolo di amministratore con limitazioni possono accedere al portale. Se un utente guest a cui non è assegnato nessuno di questi ruoli di amministratore accede al portale, l'utente potrebbe riuscire ad accedere a determinate parti dell'esperienza. Il ruolo di utente guest ha determinate autorizzazioni nella directory.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>È possibile bloccare l'accesso al portale di Azure per gli utenti guest?
-Sì. Quando si configura questo criterio, prestare attenzione e non bloccare accidentalmente l'accesso ai membri e agli amministratori.
-Per bloccare l'accesso dell'utente guest per la [portale di Azure](https://portal.azure.com), usare un criterio di accesso condizionale nell'API del modello di distribuzione classica di Azure:
-1. Modificare il gruppo **All Users** (Tutti gli utenti) in modo che contenga solo i membri.
-   ![Screenshot che mostra il gruppo di tutti gli utenti in cui UserType non è uguale Guest](media/faq/modify-all-users-group.png)
-2. Creare un gruppo dinamico che contenga utenti guest.
-   ![Screenshot che illustra un nuovo gruppo di tutti gli utenti Guest](media/faq/group-with-guest-users.png)
-3. Configurare un criterio di accesso condizionale per impedire agli utenti guest l'accesso al portale, come illustrato nel video seguente:
-  
-   > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
+
+È possibile usarlo. È possibile creare un criterio di accesso condizionale che impedisce a tutti gli utenti guest ed esterni di accedere al portale di Azure. Quando si configura questo criterio, prestare attenzione e non bloccare accidentalmente l'accesso ai membri e agli amministratori.
+
+1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore della sicurezza o amministratore dell'accesso condizionale.
+2. Nel portale di Azure selezionare **Azure Active Directory**. 
+3. In **Gestisci**selezionare **sicurezza**.
+4. In **Proteggi**selezionare **accesso condizionale**. Selezionare **Nuovi criteri**.
+5. Nella casella di testo **nome** della **nuova** pagina immettere un nome per il criterio, ad esempio "impedisce ai guest di accedere al portale".
+6. In **Assegnazioni** selezionare **Utenti e gruppi**.
+7. Nella scheda **Includi** scegliere **Seleziona utenti e gruppi**, quindi selezionare **tutti gli utenti guest ed External (anteprima)** .
+9. Selezionare **Operazione completata**.
+10. Nella sezione **assegnazioni** della **nuova** pagina selezionare **app Cloud o azioni**.
+11. Nella pagina **app o azioni cloud** scegliere **Seleziona app**, quindi scegliere **Seleziona**.
+12. Nella pagina **Seleziona** scegliere **Gestione di Microsoft Azure** e quindi scegliere **Seleziona**.
+13. Nella pagina **app o azioni cloud** selezionare **fine**.
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>La Collaborazione B2B di Azure AD supporta l'autenticazione a più fattori e gli account di posta elettronica degli utenti?
 Sì. Sia l'autenticazione a più fattori che gli account di posta elettronica degli utenti sono supportati per la Collaborazione B2B di Azure AD.
@@ -108,7 +114,7 @@ Se il partner ha un tenant di Azure AD federato all'infrastruttura di autenticaz
 Le differenze tra la collaborazione B2B e la collaborazione business-to-consumer, ovvero B2C, verranno rimosse in termini di identità supportate. L'identità usata non è un buon motivo per decidere se usare B2C o B2B. Per informazioni sulla scelta dell'opzione di collaborazione, vedere [Confrontare Collaborazione B2B e B2C di Azure Active Directory](compare-with-b2c.md).
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Quali applicazioni e servizi supportano gli utenti guest di Azure B2B?
-Tutte le applicazioni di integrate in AD Azure possono supportare gli utenti guest B2B di Azure, ma devono usare un endpoint configurato come un tenant per autenticare gli utenti guest. Potrebbe anche essere necessario [personalizzare le attestazioni](claims-mapping.md) nel token SAML rilasciato quando un utente guest esegue l'autenticazione all'app. 
+Tutte le applicazioni integrate Azure AD possono supportare gli utenti Guest B2B di Azure, ma devono usare un endpoint configurato come tenant per l'autenticazione degli utenti guest. Potrebbe anche essere necessario [personalizzare le attestazioni](claims-mapping.md) nel token SAML rilasciato quando un utente guest esegue l'autenticazione all'app. 
 
 ### <a name="can-we-force-multi-factor-authentication-for-b2b-guest-users-if-our-partners-dont-have-multi-factor-authentication"></a>Se i partner non dispongono dell' autenticazione a più fattori, è possibile imporla per gli utenti guest di B2B?
 Sì. Per altre informazioni, vedere [accesso condizionale per gli utenti di collaborazione B2B](conditional-access.md).

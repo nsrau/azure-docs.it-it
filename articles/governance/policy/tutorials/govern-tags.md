@@ -6,16 +6,16 @@ ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-ms.openlocfilehash: 79219b9405f76e7044a4d403b37ba2f1545dfbea
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 780dbf02fbdb0a607f29c710da9a6320a8626f7b
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510005"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643764"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Esercitazione: Gestire la governance dei tag con Criteri di Azure
 
-I [tag](../../../azure-resource-manager/resource-group-using-tags.md) sono una parte cruciale dell'organizzazione delle risorse di Azure in una tassonomia. Quando si seguono le [procedure consigliate per la gestione dei tag](/azure/architecture/cloud-adoption/ready/considerations/name-and-tag#metadata-tags), questi possono costituire la base per l'applicazione dei criteri aziendali con Criteri di Azure o con il [monitoraggio dei costi con Gestione costi](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+I [tag](../../../azure-resource-manager/resource-group-using-tags.md) sono una parte cruciale dell'organizzazione delle risorse di Azure in una tassonomia. Quando si seguono le [procedure consigliate per la gestione dei tag](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), questi possono costituire la base per l'applicazione dei criteri aziendali con Criteri di Azure o con il [monitoraggio dei costi con Gestione costi](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
 Indipendentemente da come o perché si usano i tag, è importante che sia possibile aggiungere, modificare e rimuovere rapidamente questi tag nelle risorse di Azure.
 
 L'effetto [Modify](../concepts/effects.md#modify) di Criteri di Azure è progettato per semplificare la governance dei tag, indipendentemente dalla fase di governance delle risorse in cui ci si trova. **Modify** è utile quando:

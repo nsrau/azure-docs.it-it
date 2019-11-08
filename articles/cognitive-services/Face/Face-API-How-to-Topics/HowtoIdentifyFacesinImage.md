@@ -1,7 +1,7 @@
 ---
 title: 'Esempio: Identificare i visi nelle immagini - API Viso'
 titleSuffix: Azure Cognitive Services
-description: Usare l'API Viso per identificare visi nelle immagini.
+description: Questa guida illustra come identificare visi sconosciuti tramite oggetti PersonGroup creati anticipatamente da persone note.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: c21647e3fbbc38e905a6d6ec116551004da20d5c
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 10ab11669569b16293ccf9b8777190cf271e5795
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300524"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744313"
 ---
 # <a name="example-identify-faces-in-images"></a>Esempio: Identificare i visi nelle immagini
 

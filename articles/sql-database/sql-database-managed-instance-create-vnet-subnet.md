@@ -1,5 +1,5 @@
 ---
-title: Creare una rete virtuale per Istanza gestita di database SQL di Azure
+title: Creare una rete virtuale per l'istanza gestita
 description: Questo articolo descrive come creare una rete virtuale in cui è possibile distribuire Istanza gestita di database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
-ms.openlocfilehash: ae18671000a2bfd3bedef7805ba5db964fe0cf95
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9f115d51657993562642391a235de79420aa434a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688163"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823368"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Creare una rete virtuale per Istanza gestita di database SQL di Azure
 

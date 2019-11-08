@@ -4,15 +4,16 @@ description: Di seguito viene illustrato come eseguire l'onboarding nel programm
 services: Azure Marketplace, Cloud Partner Portal
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/12/2019
 ms.author: evansma
-ms.openlocfilehash: 349998b53378d00b6524f94578aa11642321d691
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 4a47886176b704cc3bc36cc9fa85d1d3faee4c58
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182551"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819159"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guida all'onboarding di Microsoft Business Applications Independent Software Vendor (ISV) Connect Program
 
@@ -50,7 +51,7 @@ Per ulteriori informazioni, vedere la pagina relativa [alla migrazione degli acc
 La partecipazione al programma richiede la revisione e l'accettazione del *Business Applications addendum*.
 
 > [!NOTE]
-> Questo passaggio richiede un ruolo *proprietario* o *Manager* nel centro per i partner per l'account per la firma di contratti legali. Se è stata completata la migrazione dell'account portale Cloud Partner attivando l' [account del centro](#set-up-your-microsoft-partner-center-account) per i partner nel passaggio precedente, anche le autorizzazioni sono state migrate al centro per i partner.
+> Questo passaggio richiede un ruolo *proprietario* o *Manager* nel centro per i partner per l'account per la firma di contratti legali. Se è stata completata la migrazione dell'account portale Cloud Partner [attivando l'account del centro](#set-up-your-microsoft-partner-center-account) per i partner nel passaggio precedente, anche le autorizzazioni sono state migrate al centro per i partner.
 
 1. Accedere al [Dashboard del centro per i partner](https://partner.microsoft.com/dashboard/account/agreements) e accedere al centro per i partner come richiesto.
 

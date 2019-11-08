@@ -4,15 +4,16 @@ description: Come usare gli SKU privati per gestire la disponibilità dell'offer
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: pabutler
-ms.openlocfilehash: 940b50cf4a04abacd4d7be2104dd97fb8b3db736
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: eb6eac5eafaeea239bfaf9cf2aface3db659dd57
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883127"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818824"
 ---
 <a name="private-skus-and-plans"></a>SKU e piani privati
 ============
@@ -98,7 +99,7 @@ Se si usa l'API e non si vuole mantenere un file CSV, è possibile gestire diret
 
 ###  <a name="managing-subscriptions-with-the-api"></a>Gestione delle sottoscrizioni con l'API
 
-È possibile usare l'API per caricare un volume CSV o gestire i destinatari direttamente (senza usare un volume CSV). In generale, è sufficiente recuperare l'offerta, aggiornare l' `restrictedAudience` oggetto, quindi inviare di nuovo le modifiche all'offerta per aggiungere o rimuovere i membri del gruppo di destinatari.
+È possibile usare l'API per caricare un volume CSV o gestire i destinatari direttamente (senza usare un volume CSV). In generale, è sufficiente recuperare l'offerta, aggiornare l'oggetto `restrictedAudience`, quindi inviare di nuovo le modifiche all'offerta per aggiungere o rimuovere i membri del gruppo di destinatari.
 
 Di seguito viene illustrato come aggiornare l'elenco di destinatari a livello di codice:
 
@@ -126,7 +127,7 @@ Di seguito viene illustrato come aggiornare l'elenco di destinatari a livello di
 
     Per ogni oggetto audience con restrizioni:
 
-    a. Scaricare il contenuto di `restrictedAudience.uploadedCsvUri`. Il contenuto è semplicemente un file CSV con intestazioni. Esempio:
+    a. Scaricare il contenuto del `restrictedAudience.uploadedCsvUri`. Il contenuto è semplicemente un file CSV con intestazioni. Ad esempio:
 
         type,id,description
         subscriptionId,541a269f-3df2-486e-8fe3-c8f9dcf28205,sub1
@@ -136,7 +137,7 @@ Di seguito viene illustrato come aggiornare l'elenco di destinatari a livello di
 
     c. Caricare il file CSV aggiornato in un percorso, ad esempio [archiviazione BLOB di Azure](../../storage/blobs/storage-blobs-overview.md) o [OneDrive](https://onedrive.live.com), e creare un collegamento di sola lettura al file. Questo sarà il nuovo *SasUrl*.
 
-    d. Aggiornare la `restrictedAudience.uploadedCsvUri` chiave con il nuovo *SasUrl*.
+    d. Aggiornare la chiave di `restrictedAudience.uploadedCsvUri` con il nuovo *SasUrl*.
 
     **Se è stato immesso manualmente l'elenco originale di sottoscrizioni per l'offerta privata dall'portale Cloud Partner:**
 
@@ -156,7 +157,7 @@ Di seguito viene illustrato come aggiornare l'elenco di destinatari a livello di
         ]}
     ```
 
-    a. Per ogni oggetto audience con restrizioni, aggiungere o eliminare le voci `restrictedAudience.manualEntries` nell'elenco in base alle esigenze.
+    a. Per ogni oggetto audience con restrizioni, aggiungere o eliminare le voci nell'elenco `restrictedAudience.manualEntries` in base alle esigenze.
 
 4. Al termine dell'aggiornamento di tutti gli oggetti *restrictedAudience* per ogni SKU dell'offerta privata, [aggiornare l'offerta](cloud-partner-portal-api-creating-offer.md):
 

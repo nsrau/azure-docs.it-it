@@ -1,5 +1,5 @@
 ---
-title: Come configurare il database SQL di Azure
+title: Configurare e gestire
 description: Informazioni su come configurare e gestire il database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: ccdeb883dc9cf2cba499e45e25ff4706bb120463
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5773ea37585bb5c63736aaa4432243dc1d41f7bc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689869"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811190"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Come usare il database SQL di Azure
 

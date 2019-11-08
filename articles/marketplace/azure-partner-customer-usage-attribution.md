@@ -4,15 +4,16 @@ description: Panoramica su come tenere traccia dell'uso da parte dei clienti per
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 9/23/2019
 ms.author: pabutler
-ms.openlocfilehash: c077b93b887482dda5ae127bb3dbaec71b2ea11b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c84f5538d2f553a713b52aa795a10acddac9aff8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260090"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819880"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'uso da parte dei clienti e dei partner di Azure
 
@@ -22,9 +23,9 @@ Microsoft offre ora un metodo per aiutare i partner a monitorare meglio l'uso di
 
 I partner Microsoft possono associare l'utilizzo di Azure a qualsiasi risorsa Azure fornita per conto di un cliente. È possibile creare l'associazione tramite Azure Marketplace, il repository Quickstart, i repository privati GitHub e il coinvolgimento individuale dei clienti. L'attribuzione dell'utilizzo del cliente supporta tre opzioni di distribuzione:
 
-- Modelli di Azure Resource Manager: I partner possono usare modelli di Gestione risorse per distribuire i servizi di Azure per eseguire il software del partner. I partner possono creare i modelli di Resource Manager che definiscono l'infrastruttura e la configurazione della soluzione Azure. Un modello di Resource Manager consente a partner e rispettivi clienti di distribuire la propria soluzione per tutto il suo ciclo di vita. È possibile essere certi che le risorse vengano distribuite in uno stato coerente.
-- API di Azure Resource Manager: I partner possono chiamare le API di Gestione risorse direttamente per distribuire un modello di Gestione risorse o per generare le chiamate API per la fornitura diretta di servizi Azure.
-- Terraform I partner possono usare l'agente di orchestrazione del cloud, ad esempio la bonifica, per distribuire un modello di Gestione risorse o distribuire direttamente i servizi
+- Modelli di Azure Resource Manager: i partner possono usare i modelli Gestione risorse per distribuire i servizi di Azure per eseguire il software del partner. I partner possono creare i modelli di Resource Manager che definiscono l'infrastruttura e la configurazione della soluzione Azure. Un modello di Resource Manager consente a partner e rispettivi clienti di distribuire la propria soluzione per tutto il suo ciclo di vita. È possibile essere certi che le risorse vengano distribuite in uno stato coerente.
+- API di Azure Resource Manager: i partner possono chiamare le API di Resource Manager direttamente per distribuire un modello di Resource Manager o per generare le chiamate API per la fornitura diretta di servizi Azure.
+- Bonifica: i partner possono usare l'agente di orchestrazione cloud, ad esempio la bonifica, per distribuire un modello di Gestione risorse o distribuire direttamente i servizi di Azure
 
 L'attribuzione dell'utilizzo dei clienti riguarda la nuova distribuzione e non supporta l'assegnazione di tag alle risorse esistenti che sono già state distribuite.
 
@@ -34,13 +35,13 @@ L'attribuzione dell'utilizzo del cliente è necessaria per [applicazione Azure](
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-resource-manager-templates"></a>Usare i modelli di Resource Manager
-Molte soluzioni dei partner vengono distribuite nella sottoscrizione del cliente usando i modelli di Resource Manager. Se si dispone di un modello di Gestione risorse disponibile in Azure Marketplace, su GitHub o come guida introduttiva, il processo di modifica del modello per consentire l'attribuzione dell'utilizzo dei clienti dovrebbe essere semplice.
+Molte soluzioni partner vengono distribuite nella sottoscrizione di un cliente usando modelli di Gestione risorse. Se si dispone di un modello di Gestione risorse disponibile in Azure Marketplace, su GitHub o come guida introduttiva, il processo di modifica del modello per consentire l'attribuzione dell'utilizzo dei clienti dovrebbe essere semplice.
 
 Per altre informazioni sulla creazione e sulla pubblicazione di modelli di soluzione, vedere
 
 * [Creare e distribuire il primo modello di Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 * [Offerta di applicazione Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
-* Video: [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) (Creazione di modelli di soluzione e applicazioni gestite per Azure Marketplace).
+* Video: [creazione di modelli di soluzioni e applicazioni gestite per Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
 ## <a name="add-a-guid-to-your-template"></a>Aggiungere un GUID al modello
@@ -101,7 +102,7 @@ Per abilitare l'attribuzione dell'utilizzo del cliente, quando si progettano le 
 
 #### <a name="example-the-python-sdk"></a>Esempio: Python SDK
 
-Per Python, usare l’attributo **config**. È possibile aggiungere l’attributo solo a un agente utente. Di seguito è riportato un esempio:
+Per Python, usare l’attributo **config**. È possibile aggiungere l’attributo solo a un agente utente. Ad esempio:
 
 ![Aggiungere l'attributo a un agente utente](media/marketplace-publishers-guide/python-for-lu.PNG)
 
@@ -127,9 +128,9 @@ Per ulteriori informazioni, vedere [Azure SDK per go](https://docs.microsoft.com
 
 ## <a name="use-terraform"></a>USA bonifica
 
-Il supporto per la bonifica è disponibile tramite la versione 1.21.0 del provider [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019)di Azure:.  Questo supporto si applica a tutti i partner che distribuiscono la propria soluzione tramite bonifica e tutte le risorse distribuite e a consumo dal provider di Azure (versione 1.21.0 o successiva).
+Il supporto per la bonifica è disponibile tramite la versione 1.21.0 del provider di Azure: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Questo supporto si applica a tutti i partner che distribuiscono la propria soluzione tramite bonifica e tutte le risorse distribuite e a consumo dal provider di Azure (versione 1.21.0 o successiva).
 
-Il provider di Azure per la bonifica ha aggiunto un nuovo campo facoltativo denominato [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) , in cui è possibile specificare il GUID di rilevamento usato per la soluzione. Il valore di questo campo può anche essere originato dalla variabile di ambiente *ARM_PARTNER_ID* .
+Il provider di Azure per la bonifica ha aggiunto un nuovo campo facoltativo denominato [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) , che consente di specificare il GUID di rilevamento usato per la soluzione. Il valore di questo campo può anche essere originato dalla variabile di ambiente *ARM_PARTNER_ID* .
 
 ```
 provider "azurerm" {
@@ -137,7 +138,7 @@ provider "azurerm" {
           client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           ……
           # new stuff for ISV attribution
-          partner_id = “xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
+          partner_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
 ```
 I partner che desiderano ottenere la distribuzione tramite la bonifica registrata dall'attribuzione dell'utilizzo dei clienti devono eseguire le operazioni seguenti:
 
@@ -250,11 +251,11 @@ Durante la distribuzione di questo modello, Microsoft è in grado di identificar
 
 Durante la distribuzione del software \<PARTNER>, Microsoft è in grado di identificare l'installazione del software del \<PARTNER> con le risorse di Azure distribuite. Microsoft è in grado di correlare le risorse di Azure usate per supportare il software. Microsoft raccoglie queste informazioni per fornire l'esperienza utente migliore con i propri prodotti e per il funzionamento delle proprie attività aziendali. Questi dati verranno raccolti e disciplinati dalle informative sulla privacy di Microsoft, che sono reperibili all’indirizzo https://www.microsoft.com/trustcenter.
 
-## <a name="get-support"></a>Supporto tecnico
+## <a name="get-support"></a>Supporto
 
 Sono disponibili due canali di supporto in base ai problemi riscontrati.
 
-Se si verificano problemi nel centro per i partner, ad esempio per visualizzare il report di attribuzione dell'utilizzo del cliente o per accedere, creare una richiesta di supporto con il team di supporto di partner Center:[https://partner.microsoft.com/support](https://partner.microsoft.com/support)
+Se si verificano problemi nel centro per i partner, ad esempio per visualizzare il report di attribuzione dell'utilizzo del cliente o per accedere, creare una richiesta di supporto con il team di supporto di partner Center qui: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
@@ -273,7 +274,7 @@ Se è necessaria assistenza per l'onboarding del Marketplace e/o l'attribuzione 
 
 1. Fare clic su **Avvia richiesta**.
 
-1. Nella pagina successiva, immettere i valori richiesti. Selezionare **continuare**.
+1. Nella pagina successiva, immettere i valori richiesti. Selezionare **Continua**.
 
 1. Nella pagina successiva, immettere i valori richiesti.
 
@@ -288,7 +289,7 @@ Per comprendere e incorporare l'attribuzione dell'utilizzo dei clienti, è inolt
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Come inviare una richiesta di consultazione tecnica
 
-1. Visitare [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney)il.
+1. Visitare [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney).
 1. Selezionare infrastruttura e gestione cloud. per visualizzare il percorso tecnico, viene aperta una nuova pagina.
 1. In servizi di distribuzione fare clic sul pulsante Invia una richiesta
 1. Accedere usando il servizio MSA (account MPN) o AAD (account dashboard partner); in base alle credenziali di accesso, si aprirà un modulo di richiesta online:
@@ -297,13 +298,13 @@ Per comprendere e incorporare l'attribuzione dell'utilizzo dei clienti, è inolt
     * Immettere un titolo e la descrizione del problema (fornire il maggior dettaglio possibile).
 1. Fare clic su Invia
 
-Vedere le istruzioni dettagliate con le schermate disponibili all'indirizzo [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions).
+Vedere le istruzioni dettagliate con screenshot in [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions).
 
 ### <a name="whats-next"></a>Passaggi successivi
 
 Si verrà contattati da un consulente tecnico Microsoft partner per configurare una chiamata per definire l'ambito delle proprie esigenze.
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>domande frequenti
 
 **Qual è il vantaggio dell'aggiunta di GUID al modello?**
 
@@ -331,7 +332,7 @@ Il form per il generatore di GUID di Archiviazione di Azure garantisce la genera
 
 **Posso usare un VHD privato e personalizzato per un'offerta di modello di soluzione in Azure Marketplace?**
 
-No, non è possibile. L'immagine della macchina virtuale deve provenire da Azure Marketplace, vedere [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines):.
+No, non è possibile. L'immagine della macchina virtuale deve provenire da Azure Marketplace, vedere: [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines).
 
 È possibile creare un'offerta di macchina virtuale in Marketplace usando il disco rigido virtuale personalizzato e contrassegnarla come privata in modo che non possa essere visualizzata da nessuno. Quindi, fare riferimento a questa macchina virtuale nel modello di soluzione.
 

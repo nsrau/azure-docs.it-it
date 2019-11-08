@@ -4,15 +4,16 @@ description: L'API recupera lo stato corrente dell'offerta.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ce546d79497f462f6c262de738036d7e3a30226
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935446"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819672"
 ---
 <a name="retrieve-offer-status"></a>Recupero dello stato dell'offerta 
 =====================
@@ -28,24 +29,24 @@ Recupera lo stato corrente dell'offerta.
 |  -------------  |  ------------------------------------------  |  ------------  |
 |  publisherId    | Identificatore dell'editore, per esempio `Contoso`  |     String     |
 |  offerId        | GUID che identifica in modo univoco l'offerta      |     String     |
-|  api-version    | Ultima versione dell'API                        |     Date       |
+|  api-version    | Ultima versione dell'API                        |     Data       |
 |  |  |
 
 
 <a name="header"></a>Intestazione
 ------
 
-|  Name           |  Value               |
+|  Name           |  Valore               |
 |  -------------  | -------------------  |
 |  Content-Type   |  `application/json`  |
-|  Authorization  | `Bearer YOUR_TOKEN`  |
+|  Autorizzazione  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
 
 <a name="body-example"></a>Esempio di corpo
 ------------
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 
 ``` json
   {
@@ -124,15 +125,15 @@ Recupera lo stato corrente dell'offerta.
 
 |  **Nome**             |    **Descrizione**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
-|  status               | Lo stato dell'offerta. Per l'elenco di valori possibili, vedere [Stato dell'offerta](#offer-status) di seguito: |
-|  del cloud al dispositivo             | Matrice di messaggi associati all'offerta                                                    |
+|  status               | Lo stato dell'offerta. Per l'elenco di valori possibili, vedere lo [Stato dell'offerta](#offer-status) qui sotto. |
+|  messages             | Matrice di messaggi associati all'offerta                                                    |
 |  steps                | Matrice dei passaggi di pubblicazione di un'offerta                      |
 |  estimatedTimeFrame   | Stima del tempo necessario per completare questo passaggio, in formato descrittivo                       |
 |  id                   | Identificatore del passaggio                                                                         |
 |  stepName             | Nome del passaggio                                                                               |
 |  description          | Descrizione del passaggio                                                                        |
 |  status               | Stato del passaggio. Per l'elenco di valori possibili, vedere [Stato del passaggio](#step-status) di seguito:    |
-|  del cloud al dispositivo             | Matrice di messaggi correlati al passaggio                                                          |
+|  messages             | Matrice di messaggi correlati al passaggio                                                          |
 |  processPercentage    | Percentuale di completamento del passaggio                                                              |
 |  previewLinks         | *Non attualmente implementato*                                                                    |
 |  liveLinks            | *Non attualmente implementato*                                                                    |
@@ -158,9 +159,9 @@ Recupera lo stato corrente dell'offerta.
 |  NotStarted                  | L'offerta è nuova e non è stata attivata.                            |
 |  WaitingForPublisherReview   | L'offerta è in attesa di approvazione da parte dell'editore.                 |
 |  In esecuzione                     | Invio dell'offerta in corso.                     |
-|  Succeeded                   | Invio dell'offerta completato.               |
+|  Operazione completata                   | Invio dell'offerta completato.               |
 |  Cancellati                    | Invio dell'offerta annullato.                           |
-|  Failed                      | Invio dell'offerta non riuscito.                                 |
+|  Operazione non riuscita                      | Invio dell'offerta non riuscito.                                 |
 |  |  |
 
 

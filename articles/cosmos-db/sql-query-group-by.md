@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: tisande
-ms.openlocfilehash: d92e24836a0eb5757de9bbdb516be290456deb7f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e41e81457421bfe27e3c0313fc06e39e6df4cdce
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333261"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819096"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Clausola GROUP BY in Azure Cosmos DB
 
 La clausola GROUP BY divide i risultati della query in base ai valori di una o più proprietà specificate.
 
 > [!NOTE]
-> Azure Cosmos DB supporta attualmente GROUP BY in [.NET SDK 3,3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.3.0) o versione successiva.
-> Il supporto per altri SDK del linguaggio e il portale di Azure non è attualmente disponibile ma è pianificato.
+> Azure Cosmos DB supporta attualmente GROUP BY in .NET SDK 3,3 e versioni successive, oltre a JavaScript SDK 3,4 e versioni successive.
+> Il supporto per altri linguaggi SDK non è attualmente disponibile ma è pianificato.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -53,7 +53,7 @@ La clausola GROUP BY divide i risultati della query in base ai valori di una o p
 - Sottoquery
 - Funzioni di sistema aggregate (sono consentite solo nella clausola SELECT)
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 In questi esempi viene usato il set di dati nutrizionale disponibile tramite il [Playground per le query Azure Cosmos DB](https://www.documentdb.com/sql/demo).
 
@@ -173,6 +173,6 @@ I risultati sono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione](sql-query-getting-started.md)
+- [Attività iniziali](sql-query-getting-started.md)
 - [Clausola SELECT](sql-query-select.md)
 - [Funzioni di aggregazione](sql-query-aggregates.md)

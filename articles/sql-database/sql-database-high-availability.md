@@ -1,5 +1,5 @@
 ---
-title: Disponibilità elevata-servizio database SQL di Azure
+title: Disponibilità elevata
 description: Informazioni sulle funzionalità di disponibilità elevata del servizio di database SQL di Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: b34590ca275b6e7254af7820fdc1a03655351cea
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 86a3fd7c67dc2e544a1510dc910951452c32245d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689949"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811356"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Disponibilità elevata e database SQL di Azure
 

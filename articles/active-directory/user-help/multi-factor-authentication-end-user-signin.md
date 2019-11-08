@@ -1,7 +1,6 @@
 ---
-title: Azure MFA Accedi con la verifica in due passaggi - Azure Active Directory | Microsoft Docs
-description: Questa pagina offre indicazioni su dove trovare le istruzioni per visualizzare i diversi metodi di accesso disponibili con Azure MFA.
-keywords: autenticazione utente, esperienza di accesso con telefono cellulare, accesso con telefono dell'ufficio
+title: Accedere con la verifica a due fattori-Azure AD
+description: Informazioni su come accedere all'account aziendale o dell'Istituto di istruzione usando i vari metodi di verifica a due fattori.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -15,14 +14,15 @@ ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1350b2d86e18f213d99f1c27d64e371451f5f9b7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: de080a613c69dd6f48f548c4ba89b2728e8c5e1d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60334442"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820433"
 ---
-# <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Esperienza di accesso con Azure Multi-Factor Authentication
+# <a name="sign-in-to-your-work-or-school-account-using-two-factor-verification"></a>Accedere all'account aziendale o dell'Istituto di istruzione usando la verifica a due fattori
+
 > [!NOTE]
 > Lo scopo di questo articolo è di illustrare un'esperienza di accesso tipico. Per informazioni sull’accesso o per la risoluzione dei problemi, vedere [Problemi con Multi-Factor Authentication di Azure](multi-factor-authentication-end-user-troubleshoot.md).
 

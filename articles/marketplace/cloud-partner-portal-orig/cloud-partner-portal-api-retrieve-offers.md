@@ -1,18 +1,19 @@
 ---
-title: Recuperare offre un'API | Azure Marketplace
+title: API di recupero offerte | Azure Marketplace
 description: L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del server di pubblicazione.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 67109c3605ea96123ff41cb88d5ac328a09991e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c94c03a63936be2b086085a1e52064dedf214b0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935338"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819606"
 ---
 <a name="retrieve-offers"></a>Recuperare le offerte
 ===============
@@ -28,7 +29,7 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 | **Nome**         |  **Descrizione**                         |  **Tipo di dati** |
 | -------------    |  ------------------------------------    |  -----------   |
 |  publisherId     | Identificatore dell'editore, per esempio `contoso` |   String    |
-|  api-version     | Ultima versione dell'API                    |    Date        |
+|  api-version     | Ultima versione dell'API                    |    Data        |
 |  |  |
 
 
@@ -38,14 +39,14 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 |  **Nome**        |         **Valore**       |
 |  --------------- |       ----------------  |
 |  Content-Type    | `application/json`      |
-|  Authorization   | `Bearer YOUR_TOKEN`     |
+|  Autorizzazione   | `Bearer YOUR_TOKEN`     |
 |  |  |
 
 
 <a name="body-example"></a>Esempio di corpo
 ------------
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 
 ``` json
   200 OK 
@@ -70,7 +71,7 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 |  -------------  |      --------------------------------------------------------------------------------------------------------------    |
 |  offerTypeId    | Identifica il tipo di offerta                                                                                           |
 |  publisherId    | Identificatore univoco dell'editore                                                                      |
-|  status         | Stato dell'offerta. Per l'elenco di valori possibili, vedere [Stato dell'offerta](#offer-status) di seguito:                         |
+|  status         | Stato dell'offerta. Per l'elenco di valori possibili, vedere lo [Stato dell'offerta](#offer-status) qui sotto.                         |
 |  id             | GUID che identifica in modo univoco l'offerta, nello spazio dei nomi del server di pubblicazione.                                                    |
 |  version        | Versione corrente dell'offerta. La proprietà della versione non può essere modificata dal client. Viene incrementata dopo ogni pubblicazione. |
 |  Definizione     | Contiene la visualizzazione del riepilogo della definizione stessa del carico di lavoro. Per ottenere una definizione dettagliata, usare l'API per il [recupero di un'offerta specifica](./cloud-partner-portal-api-retrieve-specific-offer.md). |
@@ -97,7 +98,7 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 |  NotStarted                  | L'offerta è nuova, ma non è stata attivata.                 |
 |  WaitingForPublisherReview   | L'offerta è in attesa di approvazione da parte dell'editore.         |
 |  In esecuzione                     | Invio dell'offerta in corso.             |
-|  Succeeded                   | Invio dell'offerta completato.       |
+|  Operazione completata                   | Invio dell'offerta completato.       |
 |  Cancellati                    | Invio dell'offerta annullato.                   |
-|  Failed                      | Invio dell'offerta non riuscito.                         |
+|  Operazione non riuscita                      | Invio dell'offerta non riuscito.                         |
 |  |  |

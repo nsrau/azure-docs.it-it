@@ -1,5 +1,5 @@
 ---
-title: 'Modelli di acquisto del database SQL di Azure '
+title: Modelli di acquisto
 description: Informazioni sui modelli di acquisto disponibili per il database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: 48537ec4c62410565d32350b1e3a11bbc7a2ca6e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: be223245c634b8e38dc5e4c89df4c265c22c0b57
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687566"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821257"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Scegliere tra i modelli di acquisto vCore e DTU
 
@@ -125,7 +125,7 @@ A un pool viene assegnato un numero definito di eDTU per un prezzo prestabilito.
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Determinare il numero di DTU necessarie per un carico di lavoro
 
-Se si vuole eseguire la migrazione di un carico di lavoro locale o SQL Server macchina virtuale esistente al database SQL di Azure, usare il [calcolatore DTU](https://dtucalculator.azurewebsites.net/) per approssimare il numero di DTU necessari. Per un carico di lavoro del database SQL di Azure esistente, usare [informazioni dettagliate sulle prestazioni delle query](sql-database-query-performance.md) per comprendere l'utilizzo delle risorse del database (DTU) e ottenere informazioni più dettagliate per l'ottimizzazione del carico di lavoro. La vista a gestione dinamica (DMV) [sys. dm _db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) consente di visualizzare l'utilizzo delle risorse nell'ultima ora. La vista del catalogo [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) Visualizza l'utilizzo delle risorse negli ultimi 14 giorni, ma con una fedeltà inferiore di medie di cinque minuti.
+Se si vuole eseguire la migrazione di un carico di lavoro locale o SQL Server macchina virtuale esistente al database SQL di Azure, usare il [calcolatore DTU](https://dtucalculator.azurewebsites.net/) per approssimare il numero di DTU necessari. Per un carico di lavoro del database SQL di Azure esistente, usare [informazioni dettagliate sulle prestazioni delle query](sql-database-query-performance.md) per comprendere l'utilizzo delle risorse del database (DTU) e ottenere informazioni più dettagliate per l'ottimizzazione del carico di lavoro. La vista a gestione dinamica (DMV) [sys. dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) consente di visualizzare l'utilizzo delle risorse nell'ultima ora. La vista del catalogo [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) Visualizza l'utilizzo delle risorse negli ultimi 14 giorni, ma con una fedeltà inferiore di medie di cinque minuti.
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Carichi di lavoro che traggono vantaggio da un pool elastico di risorse
 

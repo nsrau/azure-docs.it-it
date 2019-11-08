@@ -1,19 +1,20 @@
 ---
-title: Preparazione del pacchetto di AppSource | Azure Marketplace
+title: Preparazione pacchetto AppSource | Azure Marketplace
 description: Questo articolo descrive come preparare e compilare pacchetti AppSource.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: ff822e87bfec5daa161172c0d47975eb06cc2808
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c6b78e62afb43562910c872d31e2c9f564040da
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935636"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73806106"
 ---
 # <a name="appsource-package-preparation"></a>Preparazione di pacchetti AppSource
 
@@ -33,8 +34,8 @@ Il pacchetto per Package Deployer è una parte del pacchetto AppSource.
 
 Per creare un pacchetto per Package Deployer, usare le istruzioni seguenti: [https://msdn.microsoft.com/library/dn688182.aspx](https://msdn.microsoft.com/library/dn688182.aspx). Al termine dell'esercitazione, il pacchetto sarà costituito dagli asset seguenti:
 
-1. Cartella del pacchetto: contiene tutte le soluzioni, i dati di configurazione, i file flat e il contenuto del pacchetto. _Nota: Nell'esempio seguente si presuppone che la cartella del pacchetto viene chiamata "PkgFolder"_
-2. DLL: L'assembly contiene codice personalizzato per il pacchetto. _Nota: Nell'esempio seguente si presuppone che questo file è denominato "MicrosoftSample.dll."_
+1. Cartella del pacchetto: contiene tutte le soluzioni, i dati di configurazione, i file flat e il contenuto del pacchetto. _Nota: nell'esempio seguente si presuppone che la cartella del pacchetto sia chiamata "PkgFolder"._
+2. Dll: l'assembly che contiene il codice personalizzato del pacchetto. _Nota: nell'esempio seguente si presuppone che il file sia chiamato "MicrosoftSample.dll"._
 
 A questo punto è necessario creare un file denominato "**Content_Types.xml**", che elenca tutte le estensioni degli asset che fanno parte del pacchetto. Di seguito è indicato il codice di esempio del file.
 
@@ -111,13 +112,13 @@ Di seguito è indicato il codice di esempio del file input.xml. Vedere le defini
 |SolutionAnchorName |Nome del file della soluzione con estensione zip in Package Deployer, che viene usato per il nome visualizzato e la descrizione degli asset della soluzione.|
 | StartDate| Data a partire dalla quale il pacchetto della soluzione è disponibile. Il formato è MM/GG/AAAA.|
 |EndDate|Data a partire dalla quale il pacchetto della soluzione non è più disponibile. Il formato è MM/GG/AAAA. |
-|SupportedCountries |Si tratta di un elenco delimitato da virgole di paesi/aree geografiche che dovrebbe essere visualizzato questo pacchetto. Contattare i servizi online per un elenco di tutti i codici paese correnti. Al momento, di stesura di questo articolo l'elenco è stato: ALWAYS ENCRYPTED, AL, AM, AO, AR, AT, AUSTRALIA, AZ, BA, BB, BD, ESSERE, BG, ORARIO DI UFFICIO, BM, BN, BO, BR, DA, CA, CH, INTEGRAZIONE CONTINUA, CL, CM, COAMMINISTRATORE, CR, CV, CW, CY, CZ, DE, DK,, DZ, CE, EE, AD ESEMPIO, ES, FI, FR, GB, GE, GH, LG, GT, HK , HN, RISORSE UMANE, HU, ID, INTERNET EXPLORER, LIVELLO DI INTEGRITÀ, IN, IQ, È, LO, JM, JO, JP, KE, KG, KN, COREA, KW, KY, KZ, BILANCIAMENTO DEL CARICO, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, MESE, SERVER DI DESTINAZIONE MASTER, MU, MX, MY, NG, NI, NL, NO, NZ, OM, PA, PE, PH , CHIAVE PRIMARIA, PL, DELLA RICHIESTA PULL, PS, PT, PY, CONTROLLO QUALITÀ, RO, RS, UR, RW, SA, SA, SG, SISTEMA INTERNAZIONALE DI MISURA, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, STATI UNITI, UY, UZ, VE, VI, VN, ZA, ZW |
+|SupportedCountries |Si tratta di un elenco delimitato da virgole di paesi/aree geografiche che dovrebbero visualizzare questo pacchetto. Contattare i servizi online per un elenco di tutti i codici paese correnti. Al momento della stesura del presente articolo, l'elenco è il seguente: AE,AL,AM,AO,AR,AT,AU,AZ,BA,BB,BD,BE,BG,BH,BM,BN,BO,BR,BY,CA,CH,CI,CL,CM,CO,CR,CV,CW,CY,CZ,DE,DK,DO,DZ,EC,EE,EG,ES,FI,FR,GB,GE,GH,GR,GT,HK,HN,HR,HU,ID,IE,IL,IN,IQ,IS,IT,JM,JO,JP,KE,KG,KN,KR,KW,KY,KZ,LB,LK,LT,LU,LV,LY,MA,MC,MD,ME,MK,MN,MO,MT,MU,MX,MY,NG,NI,NL,NO,NZ,OM,PA,PE,PH,PK,PL,PR,PS,PT,PY,QA,RO,RS,RU,RW,SA,SE,SG,SI,SK,SN,SV,TH,TM,TN,TR,TT,TW,UA,US,UY,UZ,VE,VI,VN,ZA,ZW |
 |LearnMoreLink | URL della pagina che contiene altre informazioni sul pacchetto. |
 |Locales|Un'istanza di questo nodo per ogni lingua dell'esperienza utente che si vuole supportare nell'esperienza utente della soluzione preferita. Questo nodo contiene elementi figlio che descrivono le impostazioni locali, il logo e i termini di ogni lingua.|
-|Impostazioni locali: PackageLocale.Code|Identificatore delle impostazioni locali della lingua di questo nodo. Esempio: L'inglese degli Stati Uniti è 1033|
-|Impostazioni locali: PackageLocale.IsDefault|Indica che questa è la lingua predefinita. Viene usata come lingua di fallback se quella dell'esperienza utente scelta dal cliente non è disponibile.|
-|Impostazioni locali: Logo|Logo che si vuole usare per questo pacchetto. Le dimensioni dell'icona sono 32x32. Sono consentiti i formati PNG e JPG.|
-|Le impostazioni locali: condizioni: PackageTerm.File|Nome file del documento HTML che contiene le condizioni di licenza.|
+|Locales: PackageLocale.Code|Identificatore delle impostazioni locali della lingua di questo nodo. Esempio: Inglese (Stati Uniti) corrisponde a 1033.|
+|Locales: PackageLocale.IsDefault|Indica che questa è la lingua predefinita. Viene usata come lingua di fallback se quella dell'esperienza utente scelta dal cliente non è disponibile.|
+|Locales: Logo|Logo che si vuole usare per questo pacchetto. Le dimensioni dell'icona sono 32x32. Sono consentiti i formati PNG e JPG.|
+|Locales:Terms: PackageTerm.File|Nome file del documento HTML che contiene le condizioni di licenza.|
 
 Ecco dove viene visualizzato il logo:
 

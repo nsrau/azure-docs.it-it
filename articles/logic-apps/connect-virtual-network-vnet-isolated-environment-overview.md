@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: adb89c04a83bbfbd5bddd5c23b0fa88019a88991
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 11/08/2019
+ms.openlocfilehash: da68cfe504332ed6641c52322f0df0d2efd95997
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721375"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820661"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accedere alle risorse di Rete virtuale di Azure da App per la logica di Azure usando ambienti del servizio di integrazione (ISE)
 
@@ -108,8 +108,8 @@ Per i sistemi locali connessi a una rete virtuale di Azure, inserire ISE in tale
 
 * Connettore con etichetta ISE per quel sistema
 
-  > [!IMPORTANT]
-  > Per usare l'autenticazione di Windows con il connettore SQL Server, è necessario usare il [gateway dati locale](../logic-apps/logic-apps-gateway-install.md). Il connettore SQL Server non supporta l'autenticazione di Windows per un'app per la logica in ISE.
+  > [!NOTE]
+  > Per usare l'autenticazione di Windows con il connettore SQL Server in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), usare la versione non ISE del connettore con il [gateway dati locale](../logic-apps/logic-apps-gateway-install.md). La versione con etichetta ISE non supporta l'autenticazione di Windows.
 
 * Connettore personalizzato
 
