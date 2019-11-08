@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: e096982c7bbf4f06b96ef4e3918ca1caa9d481a0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 599417131f228c95168641c54ffbb947e3682f7b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169078"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750018"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Usare Criteri di Azure per limitare l'installazione di estensioni in macchine virtuali Windows
 
@@ -26,7 +26,7 @@ Se si vuole impedire l'uso o l'installazione di determinate estensioni nelle mac
 
 Questa esercitazione usa Azure PowerShell all'interno di Cloud Shell, che viene costantemente aggiornato alla versione più recente. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="create-a-rules-file"></a>Creare un file delle regole
 
@@ -99,7 +99,7 @@ Al termine premere **CTRL + O** e quindi **INVIO** per salvare il file. Premere 
 
 ## <a name="create-the-policy"></a>Creare i criteri
 
-Una definizione di criteri è un oggetto usato per archiviare la configurazione che si desidera usare. La definizione di criteri usa i file di regole e parametri per definire i criteri. Creare una definizione di criteri usando il cmdlet [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition).
+Una definizione di criteri è un oggetto usato per archiviare la configurazione che si desidera usare. La definizione dei criteri usa i file delle regole e dei parametri per definire i criteri. Creare una definizione di criteri usando il cmdlet [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition).
 
  Le regole e i parametri dei criteri sono file creati e archiviati come file con estensione JSON in Cloud Shell.
 
@@ -141,7 +141,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>Testare i criteri
 
-Per testare i criteri, provare a usare l'estensione di accesso alla macchina virtuale. Il comando seguente avrà esito negativo e presenterà il messaggio "Set-AzVMAccessExtension: Resource 'myVMAccess' was disallowed by policy." (Set-AzureRmVMAccessExtension: la risorsa "myVMAccess" non è stata autorizzata dai criteri.)
+Per testare i criteri, provare a usare l'estensione di accesso alla macchina virtuale. Il codice seguente dovrebbe avere esito negativo con il messaggio "set-AzVMAccessExtension: la risorsa ' myVMAccess ' non è consentita dai criteri".
 
 ```azurepowershell-interactive
 Set-AzVMAccessExtension `

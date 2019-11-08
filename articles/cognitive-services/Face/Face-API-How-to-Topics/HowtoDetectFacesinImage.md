@@ -1,7 +1,7 @@
 ---
 title: Rilevare visi in un'immagine-API Viso
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come usare i vari dati restituiti dalla funzionalità di rilevamento viso.
+description: Questa guida illustra come usare il rilevamento viso per estrarre attributi come Gender, Age o pose da un'immagine specifica.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 07089def3290d6d64919ad2551de7584646cc681
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9b66231d995ffb6980ce36852115c571cd102681
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306626"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744274"
 ---
 # <a name="get-face-detection-data"></a>Ottenere i dati di rilevamento viso
 
@@ -144,8 +144,8 @@ Per ulteriori informazioni su ogni attributo, vedere la Guida concettuale relati
 
 In questa guida si è appreso come usare le varie funzionalità del rilevamento dei volti. Integrare quindi le funzionalità nell'app seguendo un'esercitazione approfondita.
 
-- [Esercitazione: Creare un'app WPF per visualizzare i dati relativi ai visi in un'immagine](../Tutorials/FaceAPIinCSharpTutorial.md)
-- [Esercitazione: Creare un'app Android per rilevare e incorniciare i visi in un'immagine](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+- [Esercitazione: creare un'app WPF per visualizzare i dati relativi ai visi in un'immagine](../Tutorials/FaceAPIinCSharpTutorial.md)
+- [Esercitazione: creare un'app Android per rilevare e incorniciare i visi in un'immagine](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 
 ## <a name="related-topics"></a>Argomenti correlati
 

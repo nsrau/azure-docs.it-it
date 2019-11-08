@@ -7,25 +7,25 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: fa6b005be91f47f5976dace7fd1e76f6ea7e0b29
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 274697d555974f286c2c71f26280640077c11f81
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698854"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749559"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Aggiornare il tipo di archiviazione di un disco gestito
 
-Sono disponibili quattro tipi di disco di Azure Managed disks: Azure ultra SSD (anteprima), unità SSD Premium, unità SSD standard e HDD standard. È possibile passare tra i tre tipi di disco GA (unità SSD Premium, unità SSD standard e HDD standard) in base alle esigenze di prestazioni. Non si è ancora in grado di passare da o a un SSD Ultra, è necessario distribuirne uno nuovo.
+Sono disponibili quattro tipi di dischi di Azure Managed disks: Azure ultra SSD (anteprima), unità SSD Premium, unità SSD standard e HDD standard. È possibile passare tra i tre tipi di disco GA (unità SSD Premium, unità SSD standard e HDD standard) in base alle esigenze di prestazioni. Non si è ancora in grado di passare da o a un SSD Ultra, è necessario distribuirne uno nuovo.
 
 Questa funzionalità non è supportata per i dischi non gestiti. Tuttavia, è possibile [convertire facilmente un disco non gestito in un disco gestito](convert-unmanaged-to-managed-disks.md) per poter passare da un tipo di disco all'altra.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Poiché la conversione richiede un riavvio della macchina virtuale (VM), è consigliabile pianificare la migrazione dell'archiviazione su disco durante una finestra di manutenzione preesistente.
-* Se il disco non è gestito, convertirlo [in un disco gestito, in](convert-unmanaged-to-managed-disks.md) modo da poter passare tra le opzioni di archiviazione.
+* Se il disco non è gestito, [convertirlo in un disco gestito, in](convert-unmanaged-to-managed-disks.md) modo da poter passare tra le opzioni di archiviazione.
 
 ## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>Passa a tutti i dischi gestiti di una macchina virtuale tra Premium e standard
 
@@ -111,7 +111,7 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 
 ## <a name="convert-managed-disks-from-standard-to-premium-in-the-azure-portal"></a>Convertire i dischi gestiti da standard a Premium nella portale di Azure
 
-Attenersi ai passaggi riportati di seguito.
+A tale scopo, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare la VM dall'elenco di **macchine virtuali** nel portale.

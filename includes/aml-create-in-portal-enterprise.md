@@ -9,24 +9,24 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 10/04/2019
-ms.openlocfilehash: 8b333dbd043ea0a0fe6fb1042e255e7e9c07ade5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c1f4b3d60c0b8af96d851ce54c2aac57c76335a7
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493401"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73633688"
 ---
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando le credenziali della sottoscrizione di Azure. 
 
 1. Nell'angolo in alto a sinistra del portale di Azure selezionare **+ Crea una risorsa**.
 
-      ![Creare una nuova risorsa](media/aml-create-in-portal/portal-create-resource.png)
+      ![Creare una nuova risorsa](media/aml-create-in-portal/create-workspace.gif)
 
-1. Usare la barra di ricerca per trovare **Area di lavoro del servizio Machine Learning**.
+1. Usare la barra di ricerca per trovare **Machine Learning**.
 
-1. Selezionare **Area di lavoro del servizio Machine Learning**.
+1. Selezionare **Machine Learning**.
 
-1. Nel riquadro **Area di lavoro del servizio Machine Learning** selezionare **Crea** per iniziare.
+1. Nel riquadro **Machine Learning** selezionare **Crea** per iniziare.
 
 1. Specificare le informazioni seguenti per configurare la nuova area di lavoro:
 

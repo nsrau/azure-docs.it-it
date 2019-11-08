@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 82910bf5c42629c2d4f077ad6df2adbfc9dcf021
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d7d4d7b331198982f7c5513d23420bdde9455c66
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989983"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796657"
 ---
 # <a name="table-design-patterns"></a>Modelli di progettazione tabella
 Questo articolo descrive alcuni modelli adatti all'uso con le soluzioni di servizio tabelle. Fornisce inoltre informazioni su come risolvere alcuni dei problemi e dei compromessi illustrati negli altri articoli sulla progettazione dell'archiviazione tabelle. Il diagramma seguente contiene un riepilogo delle relazioni tra i diversi modelli:  
@@ -140,7 +140,7 @@ Le transazioni ETG consentono l'esecuzione di transazioni atomiche tra più enti
 * Entità archiviate in due partizioni diverse nella stessa tabella, in tabelle diverse o in account di archiviazione diversi.  
 * Un'entità archiviata nel servizio tabelle e un BLOB archiviato nel servizio BLOB.  
 * Un'entità archiviata nel servizio tabelle e un file in un file system.  
-* Un'entità archiviata nel servizio tabelle, ma indicizzata mediante Ricerca di Azure.  
+* Un'entità archiviata nel servizio tabelle è stata ancora indicizzata con il servizio Azure ricerca cognitiva.  
 
 ### <a name="solution"></a>Soluzione
 Usando le code di Azure, è possibile implementare una soluzione che offre coerenza finale tra due o più partizioni o sistemi di archiviazione.
@@ -207,7 +207,7 @@ Per la seconda opzione, usare entità di indice che archiviano i dati seguenti:
 
 ![Entità di indice dipendente](media/storage-table-design-guide/storage-table-design-IMAGE14.png)
 
-La proprietà employeeids contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in **RowKey**.  
+La proprietà **employeeids** contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in **RowKey**.  
 
 I passaggi seguenti illustrano il processo da seguire per aggiungere un nuovo dipendente se si usa la seconda opzione. In questo esempio viene aggiunto un dipendente con ID 000152 e un cognome Jones nel reparto vendite:  
 
@@ -223,14 +223,14 @@ I passaggi seguenti illustrano il processo da seguire per cercare tutti i dipend
 2. Analizzare l'elenco di ID dipendente nel campo EmployeeIDs.  
 3. Se sono necessarie informazioni aggiuntive su ognuno dei dipendenti (ad esempio gli indirizzi e-mail), recuperare ognuna delle entità dipendente usando il valore **PartitionKey** "Sales" e i valori **RowKey** dall'elenco dei dipendenti ottenuti nel passaggio 2.  
 
-<u>Opzione 3:</u> creare entità di indice in una tabella o in una partizione separata  
+<u>Opzione 3:</u> creare entità di indice in una tabella o una partizione separata  
 
 Per la terza opzione, usare entità di indice che archiviano i dati seguenti:  
 
 ![Entità di indice dipendente in una partizione distinta](media/storage-table-design-guide/storage-table-design-IMAGE15.png)
 
 
-La proprietà employeeids contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in **RowKey**.  
+La proprietà **employeeids** contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in **RowKey**.  
 
 Con la terza opzione non è possibile usare transazioni ETG per mantenere la coerenza, in quanto le entità di indice si trovano in una partizione separata rispetto alle entità dipendente. Verificare che le entità di indice siano coerenti con le entità Employee.  
 
@@ -588,7 +588,7 @@ using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Azure.Cosmos.Table.Queryable;
 ```
 
-EmployeeTable è un oggetto CloudTable che implementa un metodo CreateQuery\<ITableEntity > () che restituisce\<un > TableQuery ITableEntity. Gli oggetti di questo tipo implementano un oggetto IQueryable e consentono l'utilizzo di espressioni di query LINQ e della sintassi della notazione del punto.
+EmployeeTable è un oggetto CloudTable che implementa un metodo CreateQuery\<ITableEntity > () che restituisce un TableQuery\<ITableEntity >. Gli oggetti di questo tipo implementano un oggetto IQueryable e consentono l'utilizzo di espressioni di query LINQ e della sintassi della notazione del punto.
 
 Il recupero di più entità e l'ottenimento mediante la specifica di una query con una clausola **where** . Per evitare un'analisi di tabella, è consigliabile includere sempre il valore **PartitionKey** nella clausola where e, se possibile, il valore **RowKey** per evitare analisi di tabelle e partizioni. Il servizio tabelle supporta un set limitato di operatori di confronto (maggiore di, maggiore di o uguale a, minore di, minore di o uguale a e non uguale a) da usare per determinare la clausola where. 
 
@@ -741,7 +741,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo di risoluzione</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -761,7 +761,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo di risoluzione</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -779,7 +779,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <td>
 <table>
 <tr>
-<th>Nome del reparto</th>
+<th>DepartmentName</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -798,7 +798,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo di risoluzione</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -834,7 +834,7 @@ Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Times
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo di risoluzione</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -856,7 +856,7 @@ Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Times
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo di risoluzione</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -876,7 +876,7 @@ Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Times
 <table>
 <tr>
 <th>EntityType</th>
-<th>Nome del reparto</th>
+<th>DepartmentName</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -897,7 +897,7 @@ Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Times
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo di risoluzione</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>

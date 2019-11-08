@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 76110fa04441540875e65c8bc056fc21555c5db6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 74ef55fe9a0a6603bd43d68b6b8557dce1bca921
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102274"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749137"
 ---
 # <a name="create-a-snapshot"></a>Creare uno snapshot
 
@@ -37,13 +37,13 @@ Se si prevede di usare lo snapshot per creare una nuova macchina virtuale, è co
 6. Selezionare una **località** per il data center di Azure.  
 7. Per **Disco di origine**, selezionare il disco gestito di cui creare lo snapshot.
 8. Selezionare il **tipo di account** da usare per archiviare lo snapshot. Selezionare **Standard_HDD** a meno che non sia necessario archiviare lo snapshot su un disco a prestazioni elevate.
-9. Selezionare **Create**.
+9. Selezionare **Crea**.
 
 ## <a name="use-powershell"></a>Usare PowerShell
 
 La procedura seguente mostra come copiare il disco rigido virtuale, creare la configurazione di snapshot e fare uno snapshot del disco tramite il cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot). 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 1. Impostare alcuni parametri: 
 

@@ -1,18 +1,18 @@
 ---
 title: Eseguire il backup di una macchina virtuale di Azure dalle impostazioni della macchina virtuale con backup di Azure
-description: Informazioni su come eseguire il backup di una macchina virtuale di Azure con il servizio Backup di Azure
+description: Questo articolo illustra come eseguire il backup di una singola macchina virtuale di Azure o di più macchine virtuali di Azure con il servizio backup di Azure.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: cfbec94a2922995eed546d526c1f469e2ea54118
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 232c027ef60a031df53f2439586a0ae459ab67d5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969041"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747246"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Eseguire il backup di una macchina virtuale di Azure dalle impostazioni della macchina virtuale
 

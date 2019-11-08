@@ -1,6 +1,6 @@
 ---
 title: "Backup di Azure: Creare criteri di backup usando l'API REST"
-description: Gestire i criteri di backup (pianificazione e conservazione) usando l'API REST
+description: In questo articolo si apprenderà come creare e gestire i criteri di backup (pianificazione e conservazione) usando l'API REST.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 50cc327c69529e420837571fdd60c1b2a1364b10
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7d44f99a9f2a5bfb3d3a04fe5355f7b1dc13c404
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73670128"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747598"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creare criteri di backup di Servizi di ripristino di Azure usando l'API REST
 

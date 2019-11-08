@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: raynew
-ms.openlocfilehash: 90b1250009e6efdb2f8cb9351fe270c8324cc77a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: e752d52d0f792d39f417031c26d923fce07ccdf8
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715475"
+ms.locfileid: "73747991"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matrice di supporto Azure Migrate
 
@@ -51,7 +51,7 @@ Migrazione server di Azure Migrate | ND | Eseguire la migrazione di [VM VMware](
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Valutare ed eseguire la migrazione di macchine virtuali VMware, macchine virtuali Hyper-V, server fisici e carichi di lavoro del cloud pubblico. |  Eseguire la migrazione di macchine virtuali VMware, macchine virtuali Hyper-V, server fisici e carichi di lavoro di cloud pubblico.
 [Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Valutare le macchine virtuali VMware, le VM Hyper-V, i server fisici, i carichi di lavoro del cloud pubblico.| ND
 [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Valutare i database SQL Server locali. | ND
-[Servizio Migrazione del database](https://docs.microsoft.com/azure/dms/dms-overview) | Eseguire la migrazione di SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. | ND
+[Servizio Migrazione del database](https://docs.microsoft.com/azure/dms/dms-overview) | ND | Eseguire la migrazione di SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Valutazione di Virtual Desktop Infrastructure (VDI) | ND
 [Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | Valutare le macchine virtuali VMWare, le VM Hyper-V, le VM Xen, i computer fisici, le workstation (incluso VDI), i carichi di lavoro del cloud pubblico | ND
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | ND | Eseguire la migrazione di macchine virtuali VMWare, VM Hyper-V, VM Xen, VM KVM, computer fisici, carichi di lavoro del cloud pubblico 

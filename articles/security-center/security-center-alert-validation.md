@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: d3ea0adb4adf88e557ca360799836555cb90078e
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 709ac3a9f5e7cf0bd13a6e387f0b80caf2608fe0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520935"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748455"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Convalida avvisi (file di test EICAR) nel centro sicurezza di Azure
 Questo documento illustra come verificare che il sistema sia configurato correttamente per gli avvisi del Centro sicurezza di Azure.
@@ -33,7 +33,7 @@ Per altre informazioni, vedere [avvisi di sicurezza nel centro sicurezza](securi
 * [Linux](#validate-linux)
 * [Kubernetes](#validate-kubernetes)
 
-## Convalidare gli avvisi nella macchina virtuale Windows<a name="validate-windows"></a>
+## Convalidare gli avvisi per le macchine virtuali Windows<a name="validate-windows"></a>
 
 Dopo aver installato l'agente del Centro sicurezza nel computer, attenersi alla seguente procedura dal computer in cui si vuole essere la risorsa attaccata dell'avviso:
 
@@ -46,10 +46,10 @@ Dopo aver installato l'agente del Centro sicurezza nel computer, attenersi alla 
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## Convalidare gli avvisi nella VM Linux<a name="validate-linux"></a>
+## Convalidare gli avvisi nelle VM Linux<a name="validate-linux"></a>
 
 Dopo aver installato l'agente del Centro sicurezza nel computer, attenersi alla seguente procedura dal computer in cui si vuole essere la risorsa attaccata dell'avviso:
-1. Copiare un file eseguibile in un percorso appropriato e rinominarlo in **./asc_alerttest_662jfi039n**, ad esempio:
+1. Copiare un eseguibile in un percorso appropriato e rinominarlo in **./asc_alerttest_662jfi039n**, ad esempio:
 
     ```cp /bin/echo ./asc_alerttest_662jfi039n```
 

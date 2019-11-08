@@ -1,5 +1,5 @@
 ---
-title: 'Reimpostare un circuito con errore - ExpressRoute: PowerShell: Azure | Microsoft Docs'
+title: 'Reimpostare un circuito ExpressRoute non riuscito: PowerShell: Azure | Microsoft Docs'
 description: Questo articolo illustra come reimpostare un circuito ExpressRoute in stato di errore.
 services: expressroute
 author: anzaman
@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: anzaman
 ms.custom: seodec18
-ms.openlocfilehash: f6fd8e5f0e5730e55fa5bbe13f74be796dd6a4cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: deeb1c65cae7e3a5b42230dbda1ad8efa717ba0b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115848"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748098"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>Reimpostare un circuito ExpressRoute con un errore
 
 Quando un'operazione su un circuito ExpressRoute non viene completata correttamente, il circuito può entrare in uno stato di errore. Questo articolo illustra come reimpostare un circuito ExpressRoute con un errore.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="reset-a-circuit"></a>Reimpostare un circuito
 

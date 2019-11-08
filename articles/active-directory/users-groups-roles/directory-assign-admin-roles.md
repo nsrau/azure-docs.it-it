@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 10/28/2019
+ms.date: 11/06/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea38317868d183bd02958398b51ef906eb78e799
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e1e4fe4c06833302ac3ef9794981ee4a47fa454b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177036"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747763"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -74,13 +74,13 @@ Gli utenti con questo ruolo possono impostare o reimpostare le credenziali non p
 * Lettore di report
 
 > [!IMPORTANT]
-> gli utenti con questo ruolo possono modificare le credenziali di utenti che possono avere accesso a dati sensibili, informazioni private o configurazioni critiche sia all'interno che all'esterno di Azure Active Directory. La modifica delle credenziali di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. ad esempio:
-
-* Proprietari di Registrazione dell'applicazione e Applicazione aziendale, che possono gestire le credenziali delle applicazioni di loro proprietà. Tali applicazioni potrebbero avere autorizzazioni con privilegi in Azure Active Directory e altrove non concesse agli amministratori dell'autenticazione. Attraverso questo percorso, un amministratore di autenticazione potrebbe essere in grado di assumere l'identità del proprietario di un'applicazione e quindi di assumere ulteriormente l'identità di un'applicazione con privilegi aggiornando le credenziali per l'applicazione.
-* Proprietari di sottoscrizioni Azure, che potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche di Azure.
-* Proprietari di gruppi di sicurezza e di gruppi di Office 365, che possono gestire l'appartenenza al gruppo. Tali gruppi potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche in Azure Active Directory o altrove.
-* Amministratori in altri servizi all'esterno di Azure Active Directory, ad esempio Exchange Online, Centro sicurezza e conformità di Office e sistemi di gestione delle risorse umane.
-* Non amministratori come dirigenti, addetti degli uffici legali e dipendenti delle risorse umane che possono avere accesso a dati sensibili o informazioni riservate.
+> gli utenti con questo ruolo possono modificare le credenziali di utenti che possono avere accesso a dati sensibili, informazioni private o configurazioni critiche sia all'interno che all'esterno di Azure Active Directory. La modifica delle credenziali di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Ad esempio:
+>
+>- Proprietari di Registrazione dell'applicazione e Applicazione aziendale, che possono gestire le credenziali delle applicazioni di loro proprietà. Tali applicazioni potrebbero avere autorizzazioni con privilegi in Azure Active Directory e altrove non concesse agli amministratori dell'autenticazione. Attraverso questo percorso, un amministratore di autenticazione potrebbe essere in grado di assumere l'identità del proprietario di un'applicazione e quindi di assumere ulteriormente l'identità di un'applicazione con privilegi aggiornando le credenziali per l'applicazione.
+>- Proprietari di sottoscrizioni Azure, che potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche di Azure.
+>- Proprietari di gruppi di sicurezza e di gruppi di Office 365, che possono gestire l'appartenenza al gruppo. Tali gruppi potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche in Azure Active Directory o altrove.
+>- Amministratori in altri servizi all'esterno di Azure Active Directory, ad esempio Exchange Online, Centro sicurezza e conformità di Office e sistemi di gestione delle risorse umane.
+>- Non amministratori come dirigenti, addetti degli uffici legali e dipendenti delle risorse umane che possono avere accesso a dati sensibili o informazioni riservate.
 
 ### <a name="azure-devops-administratorazure-devops-administrator-permissions"></a>[Amministratore di Azure DevOps](#azure-devops-administrator-permissions)
 
@@ -139,7 +139,7 @@ In ingresso | Operazione consentita
 [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Monitorare, assegnare e verificare le attività di conformità alle normative dell'organizzazione
 [Centro sicurezza e conformità di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gestire la governance dei dati<br>Eseguire analisi sui dati e di carattere legale<br>Gestire le richieste di soggetti interessati<br><br>Questo ruolo ha le stesse autorizzazioni dell' [amministratore di conformità RoleGroup](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) in Office 365 Centro sicurezza e conformità il controllo degli accessi in base al ruolo.
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Visualizzare tutti i dati di controllo di Intune
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Disporre di autorizzazioni di sola lettura e gestire gli avvisi<br>Creare e modificare i criteri di file e consentire azioni di governance sui file<br> Visualizzare tutti i report predefiniti in Gestione dati
+[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Disporre di autorizzazioni di sola lettura e gestire gli avvisi<br>Creare e modificare i criteri di file e consentire azioni di governance sui file<br>Visualizzare tutti i report predefiniti in Gestione dati
 
 ### <a name="compliance-data-administratorcompliance-data-administrator-permissions"></a>[Amministratore dati di conformità](#compliance-data-administrator-permissions)
 
@@ -151,7 +151,7 @@ In ingresso | Operazione consentita
 [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Monitorare, assegnare e verificare le attività di conformità alle normative dell'organizzazione
 [Centro sicurezza e conformità di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gestire la governance dei dati<br>Eseguire analisi sui dati e di carattere legale<br>Gestire le richieste di soggetti interessati<br><br>Questo ruolo ha le stesse autorizzazioni dell' [amministratore dei dati di conformità RoleGroup](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) in Office 365 Centro sicurezza e conformità il controllo degli accessi in base al ruolo.
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Visualizzare tutti i dati di controllo di Intune
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Disporre di autorizzazioni di sola lettura e gestire gli avvisi<br>Creare e modificare i criteri di file e consentire azioni di governance sui file<br> Visualizzare tutti i report predefiniti in Gestione dati
+[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Disporre di autorizzazioni di sola lettura e gestire gli avvisi<br>Creare e modificare i criteri di file e consentire azioni di governance sui file<br>Visualizzare tutti i report predefiniti in Gestione dati
 
 ### <a name="conditional-access-administratorconditional-access-administrator-permissions"></a>[Amministratore di accesso condizionale](#conditional-access-administrator-permissions)
 
@@ -161,7 +161,7 @@ Gli utenti con questo ruolo hanno la possibilità di gestire Azure Active Direct
 
 ### <a name="customer-lockbox-access-approvercustomer-lockbox-access-approver-permissions"></a>[Responsabile approvazione accesso Customer Lockbox](#customer-lockbox-access-approver-permissions)
 
-Gestisce [Customer Lockbox richieste](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) all'interno dell'organizzazione. Gli utenti con questo ruolo ricevono notifiche di posta elettronica per le richieste Customer Lockbox e possono approvare e rifiutare le richieste dall'interfaccia di amministrazione di Microsoft 365. Possono anche attivare o disattivare la funzionalità Customer Lockbox. Solo gli amministratori globali possono reimpostare le password degli utenti assegnati a questo ruolo.
+gestisce le [richieste Customer Lockbox](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) nell'organizzazione. Gli utenti con questo ruolo ricevono notifiche di posta elettronica per le richieste Customer Lockbox e possono approvare e rifiutare le richieste dall'interfaccia di amministrazione di Microsoft 365. Possono anche attivare o disattivare la funzionalità Customer Lockbox. Solo gli amministratori globali possono reimpostare le password degli utenti assegnati a questo ruolo.
 
 ### <a name="desktop-analytics-administratordesktop-analytics-administrator-permissions"></a>[Amministratore di analisi desktop](#desktop-analytics-administrator-permissions)
 
@@ -170,7 +170,7 @@ Gli utenti con questo ruolo possono gestire l'analisi del desktop e la personali
 
 ### <a name="device-administratordevice-administrators-permissions"></a>[Amministratore del dispositivo](#device-administrators-permissions)
 
-Questo ruolo è disponibile per l'assegnazione solo come amministratore locale aggiuntivo nelle [impostazioni del dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Gli utenti con questo ruolo diventano amministratori del computer locale in tutti i dispositivi Windows 10 aggiunti ad Azure Active Directory. Non possono gestire gli oggetti di dispositivi in Azure Active Directory.
+questo ruolo è disponibile per l'assegnazione solo come amministratore locale aggiuntivo in [Impostazioni dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Gli utenti con questo ruolo diventano amministratori del computer locale in tutti i dispositivi Windows 10 aggiunti ad Azure Active Directory. Non possono gestire gli oggetti di dispositivi in Azure Active Directory.
 
 ### <a name="directory-readersdirectory-readers-permissions"></a>[Lettori di directory](#directory-readers-permissions)
 
@@ -185,7 +185,7 @@ Non usare. Questo ruolo viene assegnato automaticamente al servizio Azure AD Con
 
 ### <a name="directory-writersdirectory-writers-permissions"></a>[Writer di directory](#directory-writers-permissions)
 
-Si tratta di un ruolo legacy che deve essere assegnato alle applicazioni che non supportano il [Framework di consenso](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Non deve essere assegnato agli utenti.
+si tratta di un ruolo legacy che deve essere assegnato alle applicazioni che non supportano il [framework di consenso](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Non deve essere assegnato agli utenti.
 
 ### <a name="dynamics-365-administrator--crm-administratorcrm-service-administrator-permissions"></a>[Amministratore di Dynamics 365/amministratore CRM](#crm-service-administrator-permissions)
 
@@ -224,14 +224,14 @@ Gli utenti con questo ruolo possono leggere le impostazioni e le informazioni am
 > [!NOTE]
 > Il ruolo di lettore globale presenta alcune limitazioni in questo momento:
 >
->* Interfaccia di amministrazione di SharePoint: il centro di amministrazione di SharePoint non supporta il ruolo di lettore globale. ' SharePoint ' non verrà visualizzato nel riquadro sinistro in centri di amministrazione in Microsoft 365 interfaccia di [Amministrazione](https://admin.microsoft.com/Adminportal/Home#/homepage).
->* Interfaccia di [amministrazione di OneDrive](https://admin.onedrive.com/) : l'interfaccia di amministrazione di OneDrive non supporta il ruolo di lettore globale.
->* [Azure ad portale](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -lettore globale non è in grado di leggere la modalità di provisioning di un'app aziendale.
->* Interfaccia di [amministrazione di M365](https://admin.microsoft.com/Adminportal/Home#/homepage) : Impossibile leggere le richieste dell'archivio clienti. Non è possibile trovare la scheda **richieste di archivio archivi clienti** in **supporto** nel riquadro sinistro dell'interfaccia di amministrazione di M365.
->* [Centro sicurezza M365](https://security.microsoft.com/homepage) : il lettore globale non è in grado di leggere le etichette di riservatezza e conservazione. Non sono disponibili le **etichette di riservatezza**, le **etichette di conservazione**e le schede di **analisi etichette** nel riquadro sinistro del Centro sicurezza M365.
->* Interfaccia di [amministrazione dei team](https://admin.teams.microsoft.com) : il lettore globale non è in grado di leggere il ciclo **di vita**dei **Team**, i **report di analisi &** , la **gestione dei dispositivi Phone**
->* [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) non supporta il ruolo di lettore globale.
->* [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) -Global Reader è supportato solo per la [creazione di report centrali](https://docs.microsoft.com/azure/information-protection/reports-aip) e quando il tenant non si trova nella [piattaforma di etichettatura unificata](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
+>- Interfaccia di amministrazione di SharePoint: il centro di amministrazione di SharePoint non supporta il ruolo di lettore globale. ' SharePoint ' non verrà visualizzato nel riquadro sinistro in centri di amministrazione in Microsoft 365 interfaccia di [Amministrazione](https://admin.microsoft.com/Adminportal/Home#/homepage).
+>- Interfaccia di [amministrazione di OneDrive](https://admin.onedrive.com/) : l'interfaccia di amministrazione di OneDrive non supporta il ruolo di lettore globale.
+>- [Azure ad portale](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -lettore globale non è in grado di leggere la modalità di provisioning di un'app aziendale.
+>- Interfaccia di [amministrazione di M365](https://admin.microsoft.com/Adminportal/Home#/homepage) : Impossibile leggere le richieste dell'archivio clienti. Non è possibile trovare la scheda **richieste di archivio archivi clienti** in **supporto** nel riquadro sinistro dell'interfaccia di amministrazione di M365.
+>- [Centro sicurezza M365](https://security.microsoft.com/homepage) : il lettore globale non è in grado di leggere le etichette di riservatezza e conservazione. Non sono disponibili le **etichette di riservatezza**, le **etichette di conservazione**e le schede di **analisi etichette** nel riquadro sinistro del Centro sicurezza M365.
+>- Interfaccia di [amministrazione dei team](https://admin.teams.microsoft.com) : il lettore globale non è in grado di leggere il ciclo **di vita**dei **Team**, i **report di analisi &** , la **gestione dei dispositivi Phone**
+>- [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) non supporta il ruolo di lettore globale.
+>- [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) -Global Reader è supportato solo [per la creazione di report centrali](https://docs.microsoft.com/azure/information-protection/reports-aip) e quando l'organizzazione Azure ad non si trova nella [piattaforma di etichettatura unificata](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
 > Queste funzionalità sono attualmente in fase di sviluppo.
 >
@@ -242,7 +242,7 @@ Gli utenti con questo ruolo possono creare o gestire gruppi e le relative impost
 
 ### <a name="guest-inviterguest-inviter-permissions"></a>[Invito Guest](#guest-inviter-permissions)
 
-Gli utenti con questo ruolo possono gestire gli inviti agli utenti guest di Azure Active Directory B2B quando l'impostazione utente **può invitare** utente è impostata su No. Altre informazioni sulla collaborazione B2B in [Informazioni su Collaborazione B2B di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Il ruolo non include altre autorizzazioni.
+gli utenti con questo ruolo possono gestire gli inviti per gli utenti guest di Azure Active Directory B2B quando il valore dell'impostazione utente **I membri possono invitare** è No. Altre informazioni sulla collaborazione B2B in [Informazioni su Collaborazione B2B di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Il ruolo non include altre autorizzazioni.
 
 ### <a name="helpdesk-administratorhelpdesk-administrator-permissions"></a>[Amministratore helpdesk](#helpdesk-administrator-permissions)
 
@@ -255,18 +255,17 @@ gli utenti con questo ruolo possono modificare le password, invalidare i token d
 * Lettore di report
 
 > [!IMPORTANT]
-> gli utenti con questo ruolo possono modificare le password di utenti che possono accedere a dati sensibili, informazioni riservate o configurazioni critiche sia dall'interno che dall'esterno di Azure Active Directory. Modificare la password di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. ad esempio:
-
-* Proprietari di Registrazione dell'applicazione e Applicazione aziendale, che possono gestire le credenziali delle applicazioni di loro proprietà. Tali applicazioni potrebbero disporre di autorizzazioni con privilegi in Azure Active Directory e altrove non concesse agli utenti con ruolo di Amministratore supporto tecnico. Ciò significa che un Amministratore supporto tecnico potrebbe assumere l'identità del proprietario di un'applicazione e quindi quella di un'applicazione con privilegi aggiornando le credenziali dell'applicazione.
-* Proprietari di sottoscrizioni Azure, che potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche di Azure.
-* Proprietari di gruppi di sicurezza e di gruppi di Office 365, che possono gestire l'appartenenza al gruppo. Tali gruppi potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche in Azure Active Directory o altrove.
-* Amministratori in altri servizi all'esterno di Azure Active Directory, ad esempio Exchange Online, Centro sicurezza e conformità di Office e sistemi di gestione delle risorse umane.
-* Non amministratori come dirigenti, addetti degli uffici legali e dipendenti delle risorse umane che possono avere accesso a dati sensibili o informazioni riservate.
-
-> [!NOTE]
-> La delega delle autorizzazioni amministrative su subset di utenti e l'applicazione di criteri a un subset di utenti è possibile con le [unità amministrative (anteprima)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+> gli utenti con questo ruolo possono modificare le password di utenti che possono accedere a dati sensibili, informazioni riservate o configurazioni critiche sia dall'interno che dall'esterno di Azure Active Directory. Modificare la password di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Ad esempio:
 >
-> Questo ruolo è stato precedentemente chiamato "amministratore password" nel [portale di Azure](https://portal.azure.com/). Il nome è stato modificato in "helpdesk Administrator" in modo che corrisponda al nome in Azure AD PowerShell, Azure AD API Graph e Microsoft Graph API.
+>- Proprietari di Registrazione dell'applicazione e Applicazione aziendale, che possono gestire le credenziali delle applicazioni di loro proprietà. Tali applicazioni potrebbero disporre di autorizzazioni con privilegi in Azure Active Directory e altrove non concesse agli utenti con ruolo di Amministratore supporto tecnico. Ciò significa che un Amministratore supporto tecnico potrebbe assumere l'identità del proprietario di un'applicazione e quindi quella di un'applicazione con privilegi aggiornando le credenziali dell'applicazione.
+>- Proprietari della sottoscrizione di Azure, che potrebbero avere accesso a informazioni riservate o private o a una configurazione critica in Azure.
+>- Proprietari di gruppi di sicurezza e di gruppi di Office 365, che possono gestire l'appartenenza al gruppo. Tali gruppi potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche in Azure Active Directory o altrove.
+>- Amministratori in altri servizi all'esterno di Azure Active Directory, ad esempio Exchange Online, Centro sicurezza e conformità di Office e sistemi di gestione delle risorse umane.
+>- Non amministratori come dirigenti, addetti degli uffici legali e dipendenti delle risorse umane che possono avere accesso a dati sensibili o informazioni riservate.
+
+La delega delle autorizzazioni amministrative su subset di utenti e l'applicazione di criteri a un subset di utenti è possibile con le [unità amministrative (ora in anteprima pubblica)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+
+Questo ruolo è stato precedentemente chiamato "amministratore password" nel [portale di Azure](https://portal.azure.com/). Il nome dell'amministratore del supporto tecnico in Azure AD ora corrisponde al nome in Azure AD PowerShell, Azure AD API Graph e l'API di Microsoft Graph.
 
 ### <a name="intune-administratorintune-service-administrator-permissions"></a>[Amministratore di Intune](#intune-service-administrator-permissions)
 
@@ -289,7 +288,7 @@ Gli utenti con questo ruolo possono monitorare tutte le notifiche nel centro mes
 
 ### <a name="message-center-readermessage-center-reader-permissions"></a>[Lettore del centro messaggi](#message-center-reader-permissions)
 
-Gli utenti con questo ruolo possono monitorare le notifiche e gli aggiornamenti di integrità consultivi nel [centro messaggi di Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) per la propria organizzazione in servizi configurati, ad esempio Exchange, Intune e Microsoft teams. Il Ruolo con autorizzazioni di lettura per il Centro messaggi riceve settimanalmente digest di posta elettronica di post, aggiornamenti e può condividere i post del centro messaggi in Office 365. In Azure AD, gli utenti assegnati a questo ruolo avranno solo l'accesso di sola lettura ai servizi di Azure AD, ad esempio utenti e gruppi. Questo ruolo non ha accesso alle funzionalità per visualizzare, creare o gestire i ticket di supporto.
+gli utenti in questo ruolo possono monitorare le notifiche e gli aggiornamenti dello stato di integrità nel [Centro messaggi di Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) per la propria organizzazione sui servizi configurati, ad esempio Exchange, Intune e Microsoft Teams. Il Ruolo con autorizzazioni di lettura per il Centro messaggi riceve settimanalmente digest di posta elettronica di post, aggiornamenti e può condividere i post del centro messaggi in Office 365. In Azure AD, gli utenti assegnati a questo ruolo avranno solo l'accesso di sola lettura ai servizi di Azure AD, ad esempio utenti e gruppi. Questo ruolo non ha accesso alle funzionalità per visualizzare, creare o gestire i ticket di supporto.
 
 ### <a name="office-apps-administratoroffice-apps-administrator-permissions"></a>[Amministratore delle app di Office](#office-apps-administrator-permissions)
 
@@ -436,16 +435,16 @@ Gli utenti con questo ruolo possono creare utenti e gestire tutti gli aspetti de
 | --- | --- |
 |Autorizzazioni generiche|<p>Creare utenti e gruppi</p><p>Creare e gestire visualizzazioni utente</p><p>Gestire ticket di supporto di Office<p>Aggiornare i criteri di scadenza delle password|
 |<p>Su tutti gli utenti, inclusi tutti gli amministratori</p>|<p>Gestire licenze</p><p>Gestire tutte le proprietà utente, ad eccezione del Nome dell'entità utente</p>
-|Solo sugli utenti non amministratori o in uno dei seguenti ruoli di amministratore con limitazioni:<ul><li>Ruoli con autorizzazioni di lettura nella directory<li>Mittente dell'invito guest<li>Amministratore del supporto tecnico<li>Ruolo con autorizzazioni di lettura per il Centro messaggi<li>Lettore di report<li>Amministratore utenti|<p>Eliminare e ripristinare</p><p>Disattivare e attivare</p><p>Invalidare i token di aggiornamento</p><p>Gestire tutte le proprietà utente, incluso il Nome dell'entità utente</p><p>Reimposta password</p><p>Aggiornare le chiavi dispositivo (FIDO)</p>|
+|Solo sugli utenti non amministratori o in uno dei seguenti ruoli di amministratore con limitazioni:<ul><li>Ruoli con autorizzazioni di lettura nella directory<li>Mittente dell'invito guest<li>Amministratore del supporto tecnico<li>Ruolo con autorizzazioni di lettura per il Centro messaggi<li>Lettore di report<li>Amministratore utenti|<p>Eliminare e ripristinare</p><p>Disattivare e attivare</p><p>Invalidare i token di aggiornamento</p><p>Gestire tutte le proprietà utente, incluso il Nome dell'entità utente</p><p>Reimpostazione delle password</p><p>Aggiornare le chiavi dispositivo (FIDO)</p>|
 
 > [!IMPORTANT]
-> gli utenti con questo ruolo possono modificare le password di utenti che possono accedere a dati sensibili, informazioni riservate o configurazioni critiche sia dall'interno che dall'esterno di Azure Active Directory. Modificare la password di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. ad esempio:
-
-* Proprietari di Registrazione dell'applicazione e Applicazione aziendale, che possono gestire le credenziali delle applicazioni di loro proprietà. Tali applicazioni potrebbero avere autorizzazioni con privilegi in Azure Active Directory e altrove non concesse agli utenti con ruolo di amministratore degli utenti. Ciò significa che un amministratore degli utenti potrebbe assumere l'identità del proprietario di un'applicazione e quindi quella di un'applicazione con privilegi aggiornando le credenziali dell'applicazione.
-* Proprietari di sottoscrizioni Azure, che potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche di Azure.
-* Proprietari di gruppi di sicurezza e di gruppi di Office 365, che possono gestire l'appartenenza al gruppo. Tali gruppi potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche in Azure Active Directory o altrove.
-* Amministratori in altri servizi all'esterno di Azure Active Directory, ad esempio Exchange Online, Centro sicurezza e conformità di Office e sistemi di gestione delle risorse umane.
-* Non amministratori come dirigenti, addetti degli uffici legali e dipendenti delle risorse umane che possono avere accesso a dati sensibili o informazioni riservate.
+> gli utenti con questo ruolo possono modificare le password di utenti che possono accedere a dati sensibili, informazioni riservate o configurazioni critiche sia dall'interno che dall'esterno di Azure Active Directory. Modificare la password di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Ad esempio:
+>
+>- Proprietari di Registrazione dell'applicazione e Applicazione aziendale, che possono gestire le credenziali delle applicazioni di loro proprietà. Tali applicazioni potrebbero avere autorizzazioni con privilegi in Azure Active Directory e altrove non concesse agli utenti con ruolo di amministratore degli utenti. Ciò significa che un amministratore degli utenti potrebbe assumere l'identità del proprietario di un'applicazione e quindi quella di un'applicazione con privilegi aggiornando le credenziali dell'applicazione.
+>- Proprietari di sottoscrizioni Azure, che potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche di Azure.
+>- Proprietari di gruppi di sicurezza e di gruppi di Office 365, che possono gestire l'appartenenza al gruppo. Tali gruppi potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche in Azure Active Directory o altrove.
+>- Amministratori in altri servizi all'esterno di Azure Active Directory, ad esempio Exchange Online, Centro sicurezza e conformità di Office e sistemi di gestione delle risorse umane.
+>- Non amministratori come dirigenti, addetti degli uffici legali e dipendenti delle risorse umane che possono avere accesso a dati sensibili o informazioni riservate.
 
 ## <a name="role-permissions"></a>Autorizzazioni dei ruoli
 
@@ -511,10 +510,10 @@ Può creare registrazioni di applicazioni indipendentemente dall'impostazione 'G
 
 | **Actions** | **Descrizione** |
 | --- | --- |
-| Microsoft. directory/applicazioni/createAsOwner | Creare applicazioni in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato verrà conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
-| Microsoft. directory/appRoleAssignments/createAsOwner | Creare appRoleAssignments in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato verrà conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
-| Microsoft. directory/oAuth2PermissionGrants/createAsOwner | Creare oAuth2PermissionGrants in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato verrà conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
-| Microsoft. directory/entità servizio/createAsOwner | Creare servicePrincipals in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato verrà conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
+| Microsoft. directory/applicazioni/createAsOwner | Creare applicazioni in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato viene conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
+| Microsoft. directory/appRoleAssignments/createAsOwner | Creare appRoleAssignments in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato viene conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
+| Microsoft. directory/oAuth2PermissionGrants/createAsOwner | Creare oAuth2PermissionGrants in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato viene conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
+| Microsoft. directory/entità servizio/createAsOwner | Creare servicePrincipals in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato viene conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
 
 ### <a name="authentication-administrator-permissions"></a>Autorizzazioni di amministratore di autenticazione
 
@@ -950,7 +949,7 @@ Può leggere e scrivere le informazioni base della directory. Per concedere l'ac
 | **Actions** | **Descrizione** |
 | --- | --- |
 | Microsoft. Directory/gruppi/crea | Creare gruppi in Azure Active Directory. |
-| Microsoft. Directory/gruppi/createAsOwner | Creare gruppi in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato verrà conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
+| Microsoft. Directory/gruppi/createAsOwner | Creare gruppi in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato viene conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
 | Microsoft. directory/groups/appRoleAssignments/Update | Aggiornare la proprietà groups.appRoleAssignments in Azure Active Directory. |
 | Microsoft. directory/groups/Basic/Update | Aggiornare le proprietà di base sui gruppi in Azure Active Directory. |
 | Microsoft. Directory/gruppi/membri/aggiornamento | Aggiornare la proprietà groups.members in Azure Active Directory. |
@@ -1076,7 +1075,7 @@ Può gestire tutti gli aspetti di gruppi e impostazioni di gruppo, ad esempio i 
 | Microsoft. Directory/gruppi/Basic/lettura | Eseguire la lettura delle proprietà standard nei gruppi in Azure Active Directory.  |
 | Microsoft. directory/groups/Basic/Update | Aggiornare le proprietà di base sui gruppi in Azure Active Directory. |
 | Microsoft. Directory/gruppi/crea | Creare gruppi in Azure Active Directory. |
-| Microsoft. Directory/gruppi/createAsOwner | Creare gruppi in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato verrà conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
+| Microsoft. Directory/gruppi/createAsOwner | Creare gruppi in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato viene conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
 | Microsoft. Directory/gruppi/Delete | Eliminare gruppi in Azure Active Directory. |
 | Microsoft. directory/groups/hiddenMembers/Read | Eseguire la lettura della proprietà groups.hiddenMembers in Azure Active Directory. |
 | Microsoft. Directory/gruppi/membri/aggiornamento | Aggiornare la proprietà groups.members in Azure Active Directory. |
@@ -1144,7 +1143,7 @@ Può gestire tutti gli aspetti del prodotto Intune.
 | Microsoft. directory/groups/appRoleAssignments/Update | Aggiornare la proprietà groups.appRoleAssignments in Azure Active Directory. |
 | Microsoft. directory/groups/Basic/Update | Aggiornare le proprietà di base sui gruppi in Azure Active Directory. |
 | Microsoft. Directory/gruppi/crea | Creare gruppi in Azure Active Directory. |
-| Microsoft. Directory/gruppi/createAsOwner | Creare gruppi in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato verrà conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
+| Microsoft. Directory/gruppi/createAsOwner | Creare gruppi in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato viene conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
 | Microsoft. Directory/gruppi/Delete | Eliminare gruppi in Azure Active Directory. |
 | Microsoft. directory/groups/hiddenMembers/Read | Eseguire la lettura della proprietà groups.hiddenMembers in Azure Active Directory. |
 | Microsoft. Directory/gruppi/membri/aggiornamento | Aggiornare la proprietà groups.members in Azure Active Directory. |
@@ -1266,7 +1265,7 @@ Non usare: non destinato all'uso generale.
 | Microsoft. directory/contatti/Crea | Creare contatti in Azure Active Directory. |
 | Microsoft. Directory/Contatti/Elimina | Eliminare contatti in Azure Active Directory. |
 | Microsoft. Directory/gruppi/crea | Creare gruppi in Azure Active Directory. |
-| Microsoft. Directory/gruppi/createAsOwner | Creare gruppi in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato verrà conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
+| Microsoft. Directory/gruppi/createAsOwner | Creare gruppi in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato viene conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
 | Microsoft. Directory/gruppi/membri/aggiornamento | Aggiornare la proprietà groups.members in Azure Active Directory. |
 | Microsoft. Directory/gruppi/proprietari/aggiornamento | Aggiornare la proprietà groups.owners in Azure Active Directory. |
 | Microsoft. Directory/Users/appRoleAssignments/Update | Aggiornare la proprietà users.appRoleAssignments in Azure Active Directory. |
@@ -1627,7 +1626,7 @@ Può gestire tutti gli aspetti di utenti e gruppi, inclusa la reimpostazione del
 | Microsoft. directory/groups/appRoleAssignments/Update | Aggiornare la proprietà groups.appRoleAssignments in Azure Active Directory. |
 | Microsoft. directory/groups/Basic/Update | Aggiornare le proprietà di base sui gruppi in Azure Active Directory. |
 | Microsoft. Directory/gruppi/crea | Creare gruppi in Azure Active Directory. |
-| Microsoft. Directory/gruppi/createAsOwner | Creare gruppi in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato verrà conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
+| Microsoft. Directory/gruppi/createAsOwner | Creare gruppi in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato viene conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
 | Microsoft. Directory/gruppi/Delete | Eliminare gruppi in Azure Active Directory. |
 | Microsoft. directory/groups/hiddenMembers/Read | Eseguire la lettura della proprietà groups.hiddenMembers in Azure Active Directory. |
 | Microsoft. Directory/gruppi/membri/aggiornamento | Aggiornare la proprietà groups.members in Azure Active Directory. |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: fd5014de622c37950c15006c2cc4dcbbb27ef8e1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2ae9a1419232cca051f7cab4e9bd8c70f885df73
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101116"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749039"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS in VM di Azure in Red Hat Enterprise Linux per SAP NetWeaver
 
@@ -86,7 +86,7 @@ Per ottenere la disponibilità elevata, SAP NetWeaver richiede l'archiviazione c
 ### <a name="deploy-linux-via-azure-template"></a>Distribuire Linux tramite un modello di Azure
 
 Azure Marketplace contiene un'immagine per Red Hat Enterprise Linux che è possibile usare per distribuire nuove macchine virtuali.
-È possibile usare uno dei modelli di avvio rapido di GitHub per distribuire tutte le risorse necessarie. Il modello consente di distribuire le macchine virtuali, il set di disponibilità e così via. Per distribuire il modello, seguire questi passaggi:
+È possibile usare uno dei modelli di avvio rapido di GitHub per distribuire tutte le risorse necessarie. Il modello distribuisce le macchine virtuali, il set di disponibilità e così via. Per distribuire il modello, attenersi alla procedura seguente:
 
 1. Aprire il [modello di file server SAP][template-file-server] nella portale di Azure
 1. Immettere i parametri seguenti
@@ -98,14 +98,14 @@ Azure Marketplace contiene un'immagine per Red Hat Enterprise Linux che è possi
    4. Nome utente, password amministratore o chiave SSH  
       Verrà creato un nuovo utente con cui è possibile accedere alla macchina
    5. Subnet ID  
-      Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere è simile al seguente: /subscriptions/ **&lt;ID sottoscrizione&gt;** /resourceGroups/ **&lt;nome gruppo risorse&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nome rete virtuale&gt;** /subnets/ **&lt;nome subnet&gt;**
+      Se si vuole implementare la macchina virtuale in una rete virtuale esistente per cui è stata definita la subnet a cui assegnare la macchina virtuale, denominare l'ID di tale subnet. L'ID in genere è simile al seguente: /subscriptions/ **&lt;ID sottoscrizione&gt;** /resourceGroups/ **&lt;nome gruppo risorse&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nome rete virtuale&gt;** /subnets/ **&lt;nome subnet&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuire Linux manualmente tramite il portale di Azure
 
-Prima di tutto è necessario creare le macchine virtuali per questo cluster. Successivamente, creare un servizio di bilanciamento del carico e usare le macchine virtuali nei pool back-end.
+Prima di tutto è necessario creare le macchine virtuali per questo cluster. Successivamente, creare un servizio di bilanciamento del carico e usare le macchine virtuali nei pool back-end. Si consiglia [Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
 
 1. Creare un gruppo di risorse
-1. Crea rete virtuale
+1. Creare una rete virtuale
 1. Creare un set di disponibilità  
    Impostare il numero massimo di domini di aggiornamento
 1. Creare la macchina virtuale 1  

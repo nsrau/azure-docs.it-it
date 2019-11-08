@@ -1,6 +1,6 @@
 ---
-title: 'Backup di Azure: Monitorare i carichi di lavoro protetti di backup di Azure'
-description: Monitorare i carichi di lavoro di backup di Azure usando portale di Azure
+title: 'Backup di Azure: monitorare i carichi di lavoro protetti di backup di Azure'
+description: Questo articolo illustra le funzionalità di monitoraggio e notifica per i carichi di lavoro di backup di Azure usando il portale di Azure.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: bae05e890ef76ada9f775293c673cb8baa82c8bf
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f1dc1c7fe6aa5e8d20504427679052f68612f65e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954572"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747364"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitoraggio dei carichi di lavoro di backup di Azure
 
@@ -31,10 +31,10 @@ I processi vengono generati quando vengono eseguite operazioni quali la configur
 
 I processi dalle seguenti soluzioni di backup di Azure sono illustrati di seguito:
 
-  - Backup di macchine virtuali di Azure
-  - Backup di file di Azure
-  - Backup del carico di lavoro di Azure, ad esempio SQL
-  - Agente di Backup di Azure (MAB)
+- Backup di macchine virtuali di Azure
+- Backup di file di Azure
+- Backup del carico di lavoro di Azure, ad esempio SQL
+- Agente di Backup di Azure (MAB)
 
 I processi da System Center Data Protection Manager (SC-DPM), server di Backup di Microsoft Azure (MAB) non vengono visualizzati.
 
@@ -46,37 +46,40 @@ I processi da System Center Data Protection Manager (SC-DPM), server di Backup d
 Gli avvisi sono essenzialmente scenari in cui gli utenti vengono informati in modo che possano intraprendere le azioni rilevanti. La sezione **avvisi di backup** Mostra gli avvisi generati dal servizio backup di Azure. Questi avvisi sono definiti dal servizio e l'utente non può creare avvisi personalizzati.
 
 ### <a name="alert-scenarios"></a>Scenari di avviso
+
 Gli scenari seguenti sono definiti dal servizio come scenari di avviso.
 
-  - Errori di backup/ripristino
-  - Backup completato con avvisi per l'agente di Backup di Azure (MAB)
-  - Arrestare la protezione con Mantieni dati/arresta la protezione con Elimina dati
+- Errori di backup/ripristino
+- Backup completato con avvisi per l'agente di Backup di Azure (MAB)
+- Arrestare la protezione con Mantieni dati/arresta la protezione con Elimina dati
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Eccezioni quando non viene generato un avviso
+
 Quando un avviso non viene generato in caso di errore, si verificano alcune eccezioni:
 
-  - L'utente ha annullato esplicitamente il processo in esecuzione
-  - Il processo ha esito negativo perché è in corso un altro processo di backup (non è necessario agire da qui perché è sufficiente attendere il completamento del processo precedente)
-  - Il processo di backup della VM non riesce perché la macchina virtuale di Azure di cui è stato eseguito il backup non esiste più
+- L'utente ha annullato esplicitamente il processo in esecuzione
+- Il processo ha esito negativo perché è in corso un altro processo di backup (non è necessario agire da qui perché è sufficiente attendere il completamento del processo precedente)
+- Il processo di backup della VM non riesce perché la macchina virtuale di Azure di cui è stato eseguito il backup non esiste più
 
 Le eccezioni sopra riportate sono progettate dal comprendere che il risultato di queste operazioni (principalmente attivato dall'utente) viene visualizzato immediatamente nei client Portal/PS/CLI. Di conseguenza, l'utente è immediatamente consapevole e non necessita di una notifica.
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Gli avvisi delle seguenti soluzioni di backup di Azure sono illustrati di seguito:
 
-  - Backup di macchine virtuali di Azure
-  - Backup di File di Azure
-  - Backup del carico di lavoro di Azure, ad esempio SQL
-  - Agente di Backup di Azure (MAB)
+- Backup di macchine virtuali di Azure
+- Backup di File di Azure
+- Backup del carico di lavoro di Azure, ad esempio SQL
+- Agente di Backup di Azure (MAB)
 
 > [!NOTE]
 > Gli avvisi di System Center Data Protection Manager (SC-DPM), server di Backup di Microsoft Azure (MAB) non vengono visualizzati qui.
 
 ### <a name="alert-types"></a>Tipi di avviso
+
 In base alla gravità dell'avviso, gli avvisi possono essere definiti in tre tipi:
 
-  - **Critica**: In linea di principio, qualsiasi errore di backup o ripristino (pianificato o attivato dall'utente) provocherebbe la generazione di un avviso e verrebbe visualizzato come avviso critico e anche da operazioni distruttive come l'eliminazione del backup.
-  - **Avviso**: Se l'operazione di backup ha esito positivo ma con pochi avvisi, vengono elencati come avvisi di avviso.
-  - **Informazioni**: A partire da oggi, il servizio backup di Azure non genera alcun avviso informativo.
+- **Critico**: in linea di principio, qualsiasi errore di backup o ripristino (pianificato o attivato dall'utente) provocherebbe la generazione di un avviso e verrebbe visualizzato come un avviso critico e anche per operazioni distruttive come l'eliminazione del backup.
+- **Avviso**: se l'operazione di backup ha esito positivo ma con pochi avvisi, questi vengono elencati come avvisi di avviso.
+- **Informativo**: a partire da oggi, il servizio backup di Azure non genera alcun avviso informativo.
 
 ## <a name="notification-for-backup-alerts"></a>Notifica per gli avvisi di backup
 
@@ -96,16 +99,14 @@ Se la frequenza è stata impostata su un digest orario e un avviso viene generat
 
 > [!NOTE]
 >
-> * Se viene eseguita un'operazione distruttiva, ad esempio **Arresta la protezione con l'eliminazione dei dati** , viene generato un avviso e viene inviato un messaggio di posta elettronica ai proprietari, agli amministratori e ai coamministratori della sottoscrizione anche se le notifiche non sono configurate per l'insieme di credenziali del servizio di ripristino.
-> * Per configurare la notifica per i processi riusciti, utilizzare [log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+> - Se viene eseguita un'operazione distruttiva, ad esempio **Arresta la protezione con l'eliminazione dei dati** , viene generato un avviso e viene inviato un messaggio di posta elettronica ai proprietari, agli amministratori e ai coamministratori della sottoscrizione anche se le notifiche non sono configurate per l'insieme di credenziali del servizio di ripristino.
+> - Per configurare la notifica per i processi riusciti, utilizzare [log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## <a name="inactivating-alerts"></a>Inattivazione degli avvisi
 
-Per disattivare o risolvere un avviso attivo, è possibile fare clic sulla voce di elenco corrispondente all'avviso che si desidera disattivare. Verrà visualizzata una schermata in cui sono visualizzate informazioni dettagliate sull'avviso, con un pulsante di disattivazione nella parte superiore. Se si fa clic su questo pulsante, lo stato dell'avviso verrà modificato in "inactive". È anche possibile disattivare un avviso semplicemente facendo clic con il pulsante destro del mouse sull'elemento dell'elenco corrispondente a tale avviso e selezionando "Disattiva".
+Per disattivare o risolvere un avviso attivo, è possibile fare clic sulla voce di elenco corrispondente all'avviso che si desidera disattivare. Verrà visualizzata una schermata in cui sono visualizzate informazioni dettagliate sull'avviso, con un pulsante di disattivazione nella parte superiore. Se si fa clic su questo pulsante, lo stato dell'avviso verrà modificato in "inactive". È anche possibile disattivare un avviso facendo clic con il pulsante destro del mouse sull'elemento dell'elenco corrispondente a tale avviso e selezionando "Disattiva".
 
 ![Inattivazione avviso di insieme di credenziali RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

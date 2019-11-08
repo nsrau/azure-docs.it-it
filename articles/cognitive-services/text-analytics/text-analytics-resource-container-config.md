@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: f1c42002343de1dd3b3ef6b9c9e35f458db925f4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 8a39327275dca43ddb6ce0e46a3e3bb51ec4555b
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051102"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795299"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurare i contenitori docker di Analisi del testo
 
@@ -35,7 +35,7 @@ L'impostazione `ApiKey` specifica la chiave di risorsa di Azure utilizzata per t
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-* Portale di Azure: Gestione delle risorse **analisi del testo** , in **chiavi**
+* Portale di Azure: **analisi del testo** gestione delle risorse, in **chiavi**
 
 ## <a name="applicationinsights-setting"></a>Impostazione ApplicationInsights
 
@@ -47,11 +47,11 @@ L'impostazione `Billing` specifica l'URI dell'endpoint della risorsa di _Analisi
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-* Portale di Azure: **Analisi del testo** Panoramica, con etichetta`Endpoint`
+* Portale di Azure: Panoramica **analisi del testo** , con etichetta `Endpoint`
 
-|Obbligatoria| Name | Tipo di dati | DESCRIZIONE |
+|Obbligatorio| Name | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
-|Sì| `Billing` | String | URI dell'endpoint di fatturazione obbligatorio |
+|Sì| `Billing` | String | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -77,7 +77,7 @@ Il contenitore Analisi del testo non usa montaggi di input o output per archivia
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](how-tos/text-analytics-how-to-install-containers.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni utilizzate dall'account del servizio docker e le autorizzazioni del percorso di montaggio dell'host. 
 
-|Facoltativo| Name | Tipo di dati | DESCRIZIONE |
+|Facoltativo| Name | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
 |Non consentito| `Input` | String | I contenitori di Analisi del testo non la usano.|
 |Facoltativo| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -86,19 +86,19 @@ La sintassi esatta della posizione di montaggio host varia a seconda del sistema
 
 Gli esempi seguenti usano le impostazioni di configurazione per illustrare come scrivere e usare i comandi `docker run`.  Quando è in esecuzione, il contenitore continua l'esecuzione finché non lo si [arresta](how-tos/text-analytics-how-to-install-containers.md#stop-the-container).
 
-* **Carattere di continuazione di riga**: I comandi di Docker nelle sezioni seguenti usano la barra rovesciata, `\`, come carattere di continuazione di riga. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host. 
-* **Ordine degli argomenti**: Non modificare l'ordine degli argomenti se non si ha dimestichezza con i contenitori docker.
+* **Carattere di continuazione di riga**: i comandi di Docker nelle sezioni seguenti usano la barra rovesciata `\`come carattere di continuazione di riga. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host. 
+* **Ordine**degli argomenti: non modificare l'ordine degli argomenti a meno che non si abbia familiarità con i contenitori docker.
 
 Sostituire {_nome_argomento_} con i propri valori:
 
-| Segnaposto | Value | Formato o esempio |
+| Placeholder | Valore | Formato o esempio |
 |-------------|-------|---|
-| **{API_KEY}** | Chiave dell'endpoint della `Text Analytics` risorsa disponibile nella pagina chiavi di Azure. `Text Analytics` |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | Il valore dell'endpoint di fatturazione è disponibile nella `Text Analytics` pagina Panoramica di Azure.| Vedere [raccolta di parametri obbligatori](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters) per esempi espliciti. |
+| **{API_KEY}** | Chiave dell'endpoint della risorsa `Text Analytics` disponibile nella pagina chiavi di `Text Analytics` di Azure. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | Il valore dell'endpoint di fatturazione è disponibile nella pagina Panoramica di Azure `Text Analytics`.| Vedere [raccolta di parametri obbligatori](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters) per esempi espliciti. |
 
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](how-tos/text-analytics-how-to-install-containers.md#billing).
-> Il valore APIKEY è la **chiave** della pagina chiavi `Text Analytics` di risorsa di Azure. 
+> Il valore ApiKey è la **chiave** della pagina delle chiavi delle risorse di Azure `Text Analytics`. 
 
 #### <a name="key-phrase-extractiontabkeyphrase"></a>[Estrazione frasi chiave](#tab/keyphrase)
 

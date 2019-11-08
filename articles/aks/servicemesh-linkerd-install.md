@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: ec8250f6cdb44af3c99c1d34d1f14fbd2209aac0
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: f70052a62152a20f808c1e491a663d1406fbd407
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530095"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747719"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Installare Linkerd nel servizio Azure Kubernetes (AKS)
 
@@ -23,7 +23,7 @@ Questo articolo illustra come installare Linkerd. Il file binario client `linker
 > [!NOTE]
 > Queste istruzioni fanno riferimento a Linkerd Version `stable-2.6.0`.
 >
-> Il `stable-2.6.x` Linkerd può essere eseguito su `1.13+` versioni di Kubernetes. È possibile trovare altre versioni stabili e perimetrali di Linkerd in [GitHub-Linkerd Releases][linkerd-github-releases].
+> Il `stable-2.6.x` Linkerd può essere eseguito su `1.13+`versioni di Kubernetes. È possibile trovare altre versioni stabili e perimetrali di Linkerd in [GitHub-Linkerd Releases][linkerd-github-releases].
 
 In questo articolo viene spiegato come:
 
@@ -248,7 +248,7 @@ Opening Linkerd dashboard in the default browser
 > [!WARNING]
 > L'eliminazione di Linkerd da un sistema in esecuzione può causare problemi correlati al traffico tra i servizi. Assicurarsi di aver fatto in modo che il sistema continui a funzionare correttamente senza Linkerd prima di procedere.
 
-Prima di tutto è necessario rimuovere i proxy del piano dati. Rimuovere le [annotazioni][linkerd-automatic-proxy-injection] automatiche di inserimento del proxy dagli spazi dei nomi del carico di lavoro ed eseguire il Rolling delle distribuzioni I carichi di lavoro non devono più avere alcun componente del piano dati associato.
+Prima di tutto è necessario rimuovere i proxy del piano dati. Rimuovere le [annotazioni][linkerd-automatic-proxy-injection] automatiche di proxy Injection dagli spazi dei nomi del carico di lavoro e implementare le distribuzioni del carico di lavoro. I carichi di lavoro non devono più avere alcun componente del piano dati associato.
 
 Infine, rimuovere il piano di controllo come segue:
 

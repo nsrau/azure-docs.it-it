@@ -1,31 +1,31 @@
 ---
 title: Come configurare un contenitore per l'API del rilevatore di anomalie
 titleSuffix: Azure Cognitive Services
-description: L'ambiente di runtime del contenitore API del rilevamento anomalie `docker run` viene configurato usando gli argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative.
+description: L'ambiente di runtime del contenitore API del rilevamento anomalie viene configurato usando gli argomenti del comando `docker run`. Questo contenitore ha diverse impostazioni necessarie e alcune impostazioni facoltative.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: 4a961080bc124e53a8c5fe4dcc5f3cd6f21e9e5c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f7e04a16fa35d492b8e5e6c53a05220e8b96a38a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102563"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795841"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurare i contenitori di Rilevamento anomalie
 
-L' ambiente di runtime del contenitore del rilevatore `docker run` di anomalie viene configurato utilizzando gli argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione. 
+L'ambiente di runtime del contenitore del **rilevatore di anomalie** viene configurato utilizzando gli argomenti del comando `docker run`. Questo contenitore ha diverse impostazioni necessarie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione. 
 
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 
 Questo contenitore ha le impostazioni di configurazione seguenti:
 
-|Obbligatoria|Impostazione|Scopo|
+|Obbligatorio|Impostazione|Scopo|
 |--|--|--|
 |Sì|[ApiKey](#apikey-configuration-setting)|Si usa per rilevare le informazioni di fatturazione.|
 |No|[ApplicationInsights](#applicationinsights-setting)|Consente di aggiungere al contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights).|
@@ -41,11 +41,11 @@ Questo contenitore ha le impostazioni di configurazione seguenti:
 
 ## <a name="apikey-configuration-setting"></a>Impostazione di configurazione ApiKey
 
-L'impostazione `ApiKey` specifica la chiave di risorsa di Azure utilizzata per tenere traccia delle informazioni di fatturazione per il contenitore. È necessario specificare un valore per APIKEY e il valore deve essere una chiave valida per la risorsa del rilevatore di anomalie specificata per l' [`Billing`](#billing-configuration-setting) impostazione di configurazione.
+L'impostazione `ApiKey` specifica la chiave di risorsa di Azure utilizzata per tenere traccia delle informazioni di fatturazione per il contenitore. È necessario specificare un valore per ApiKey e il valore deve essere una chiave valida per la risorsa del _rilevatore di anomalie_ specificata per l'impostazione di configurazione [`Billing`](#billing-configuration-setting) .
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-* Portale di Azure: **Rilevamento anomalie** Gestione delle risorse, in **chiavi**
+* Portale di Azure: gestione delle risorse **del rilevatore di anomalie** in **chiavi**
 
 ## <a name="applicationinsights-setting"></a>Impostazione ApplicationInsights
 
@@ -53,15 +53,15 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 ## <a name="billing-configuration-setting"></a>Impostazione di configurazione Billing
 
-L' `Billing` impostazione specifica l'URI dell'endpoint della risorsa del rilevatore di anomalie in Azure usato per misurare le informazioni di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e il valore deve essere un URI di endpoint valido per una risorsa del rilevatore di anomalie in Azure.
+L'impostazione `Billing` specifica l'URI dell'endpoint della risorsa del _rilevatore di anomalie_ in Azure usato per misurare le informazioni di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e il valore deve essere un URI di endpoint valido per una risorsa del _rilevatore di anomalie_ in Azure.
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-* Portale di Azure: **Rilevamento anomalie** Panoramica, con etichetta`Endpoint`
+* Portale di Azure: Panoramica **del rilevatore di anomalie** , con etichetta `Endpoint`
 
-|Obbligatoria| Name | Tipo di dati | Descrizione |
+|Obbligatorio| Name | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
-|Sì| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
+|Sì| `Billing` | String | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](anomaly-detector-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -88,7 +88,7 @@ I contenitori dei rilevatori di anomalie non utilizzano montaggi di input o outp
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](anomaly-detector-container-howto.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni utilizzate dall'account del servizio Docker e le autorizzazioni del percorso di montaggio dell'host. 
 
-|Facoltativo| Name | Tipo di dati | DESCRIZIONE |
+|Facoltativo| Name | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
 |Non consentito| `Input` | String | I contenitori dei rilevatori di anomalie non lo usano.|
 |Facoltativo| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -97,15 +97,15 @@ La sintassi esatta della posizione di montaggio host varia a seconda del sistema
 
 Gli esempi seguenti usano le impostazioni di configurazione per illustrare come scrivere e usare i comandi `docker run`.  Quando è in esecuzione, il contenitore continua l'esecuzione finché non lo si [arresta](anomaly-detector-container-howto.md#stop-the-container).
 
-* **Carattere di continuazione di riga**: I comandi di Docker nelle sezioni seguenti usano la barra rovesciata, `\`, come carattere di continuazione di riga per una shell Bash. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host. Ad esempio, il carattere di continuazione di riga per windows è un accento circonflesso, `^`. Sostituire la barra rovesciata con l'accento circonflesso. 
-* **Ordine degli argomenti**: Non modificare l'ordine degli argomenti se non si ha dimestichezza con i contenitori Docker.
+* **Carattere di continuazione di riga**: i comandi di Docker nelle sezioni seguenti usano la barra rovesciata, `\`, come un carattere di continuazione di riga per una shell bash. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host. Ad esempio, il carattere di continuazione di riga per windows è un accento circonflesso, `^`. Sostituire la barra rovesciata con l'accento circonflesso. 
+* **Ordine**degli argomenti: non modificare l'ordine degli argomenti a meno che non si abbia familiarità con i contenitori docker.
 
-Sostituire il valore tra parentesi quadre, `{}`, con valori personalizzati:
+Sostituire il valore tra parentesi quadre, `{}`con valori personalizzati:
 
-| Segnaposto | Value | Formato o esempio |
+| Placeholder | Valore | Formato o esempio |
 |-------------|-------|---|
-| **{API_KEY}** | Chiave dell'endpoint della `Anomaly Detector` risorsa nella pagina chiavi di Azure. `Anomaly Detector` | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | Il valore dell'endpoint di fatturazione è disponibile nella `Anomaly Detector` pagina Panoramica di Azure.| Vedere [raccolta di parametri obbligatori](anomaly-detector-container-howto.md#gathering-required-parameters) per esempi espliciti. |
+| **{API_KEY}** | Chiave dell'endpoint della risorsa `Anomaly Detector` nella pagina chiavi di `Anomaly Detector` di Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Il valore dell'endpoint di fatturazione è disponibile nella pagina Panoramica di Azure `Anomaly Detector`.| Vedere [raccolta di parametri obbligatori](anomaly-detector-container-howto.md#gathering-required-parameters) per esempi espliciti. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 

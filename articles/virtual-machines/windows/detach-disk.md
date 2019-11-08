@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: efbb6ccef9096ed89f6ccd16f8d3b37c9a97b278
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: de33ed80055c26870a29b4c4393a9072ec8dda5e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103222"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749481"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Come scollegare un disco dati da una macchina virtuale di Windows
 
@@ -31,7 +31,7 @@ Quando un disco dati collegato a una macchina virtuale non è più necessario, �
 
 Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla stessa macchina virtuale o collegarlo a una nuova.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="detach-a-data-disk-using-powershell"></a>Scollegare un disco dati tramite PowerShell
 

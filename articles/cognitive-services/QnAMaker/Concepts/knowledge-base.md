@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 78fc9fe34eb3463021dae69990fe1d30668d453f
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 355556e98300ecad6aa3141f0f4ab14b834cd91e
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300516"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794892"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Che cos'è una Knowledge base QnA Maker?
 
@@ -24,9 +24,9 @@ Una QnA Maker Knowledge base è costituita da un set di coppie di domande e risp
 
 ## <a name="key-knowledge-base-concepts"></a>Concetti chiave della knowledge base
 
-* **Domande**: Una domanda contiene testo che meglio rappresenta una query utente. 
-* **Risposte**: Una risposta è la risposta che viene restituita quando una query utente corrisponde alla domanda associata.  
-* **Metadati**: I metadati sono tag associati a una coppia di QnA e sono rappresentati come coppie chiave-valore. I tag di metadati vengono usati per filtrare le coppie di QnA e limitano il set su cui viene eseguita la query corrispondente.
+* **Domande**: una domanda contiene testo che meglio rappresenta una query utente. 
+* **Risposte**: una risposta è la risposta che viene restituita quando una query utente corrisponde alla domanda associata.  
+* **Metadati**: i metadati sono tag associati a una coppia di QnA e sono rappresentati come coppie chiave-valore. I tag di metadati vengono usati per filtrare le coppie di QnA e limitano il set su cui viene eseguita la query corrispondente.
 
 Una singola QnA, rappresentata da un ID numerico di QnA, ha diverse varianti di una domanda ed eseguono il mapping di una sola risposta. Ogni coppia di questo tipo può inoltre avere più campi di metadati associati, ovvero una chiave e un valore.
 
@@ -48,14 +48,14 @@ La Knowledge base con formazione e [pubblicazione](/azure/cognitive-services/qna
 
 Il processo è illustrato nella tabella seguente.
 
-|Procedi|Scopo|
+|Passaggio|Scopo|
 |--|--|
 |1|L'applicazione client invia la query utente all' [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
 |2|QnA Maker pre-elabora la query utente con rilevamento della lingua, ortografia e Word breaker.|
 |3|Questa pre-elaborazione viene eseguita per modificare la query utente per ottenere risultati di ricerca migliori.|
-|4|Questa query modificata viene inviata all'indice di ricerca di Azure, che `top` riceve il numero di risultati. Se la risposta corretta non è presente in questi risultati, aumentare leggermente `top` il valore di. In genere, il valore 10 per `top` funziona nel 90% delle query.|
-|5|QnA Maker applica conteggi avanzati per determinare la correttezza dei risultati recuperati di ricerca di Azure per la query utente. |
-|6|Il modello di classificazione con training usa il punteggio della funzionalità, dal passaggio 5, per classificare i risultati di ricerca di Azure.|
+|4|Questa query modificata viene inviata a un indice di ricerca cognitiva di Azure, che riceve il numero `top` di risultati. Se la risposta corretta non è presente in questi risultati, aumentare leggermente il valore di `top`. In genere, il valore 10 per `top` funziona nel 90% delle query.|
+|5|QnA Maker applica conteggi avanzati per determinare la correttezza dei risultati della ricerca recuperati per la query utente. |
+|6|Il modello di classificazione con training usa il punteggio della funzionalità, dal passaggio 5, per classificare i risultati del ricerca cognitiva di Azure.|
 |7|I nuovi risultati vengono restituiti all'applicazione client in ordine di rango.|
 |||
 
@@ -66,7 +66,7 @@ Quando si pubblica la Knowledge base, il servizio crea un endpoint HTTP basato s
 
 ### <a name="the-user-query-request-to-generate-an-answer"></a>Richiesta di query utente per generare una risposta
 
-Una query utente è la domanda che l'utente finale chiede alla Knowledge base, ad esempio `How do I add a collaborator to my app?`. La query è spesso in un formato di linguaggio naturale o alcune parole chiave che rappresentano la domanda, ad `help with collaborators`esempio. La query viene inviata alla Knowledge base da una richiesta HTTP nell'applicazione client.
+Una query utente è la domanda che l'utente finale chiede alla Knowledge base, ad esempio `How do I add a collaborator to my app?`. La query è spesso in un formato di linguaggio naturale o alcune parole chiave che rappresentano la domanda, ad esempio `help with collaborators`. La query viene inviata alla Knowledge base da una richiesta HTTP nell'applicazione client.
 
 ```json
 {
@@ -89,7 +89,7 @@ Usare il [contesto di conversazione](../how-to/metadata-generateanswer-usage.md#
 
 ### <a name="the-response-from-a-call-to-generate-an-answer"></a>Risposta da una chiamata per generare una risposta
 
-La risposta HTTP è la risposta recuperata dalla Knowledge base, in base alla corrispondenza migliore per una query utente specificata. La risposta include la risposta e il Punteggio di stima. Se è stata richiesta più di una risposta top con la `top` proprietà, si ottiene più di una risposta top, ognuno con un punteggio. 
+La risposta HTTP è la risposta recuperata dalla Knowledge base, in base alla corrispondenza migliore per una query utente specificata. La risposta include la risposta e il Punteggio di stima. Se è stata richiesta più di una risposta top con la proprietà `top`, si ottiene più di una risposta top, ognuno con un punteggio. 
 
 ```json
 {
@@ -136,9 +136,9 @@ La *Knowledge base pubblicata* è la versione usata nel bot o nell'applicazione 
 [Panoramica di QnA Maker](../Overview/overview.md)
 
 Creare e modificare una Knowledge base con: 
-* [API REST](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase)
-* [.NET SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
+* [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)
+* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
 
 Generare una risposta con: 
-* [API REST](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
-* [.NET SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)
+* [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
+* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)

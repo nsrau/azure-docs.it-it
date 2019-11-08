@@ -1,7 +1,7 @@
 ---
 title: Supporto per le lingue - API Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Di seguito un elenco delle lingue naturali supportate dall'API Content Moderator.
+description: Questo è un elenco di linguaggi naturali supportati dall'API di servizi cognitivi di Azure Content Moderator.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: b4e6a5ca2dc19671dab3087c0a182925ac8f9a1b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 9574af31c881589668c462099cae46d9e83b454b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755325"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744373"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Supporto per le lingue dell'API Content Moderator
 
@@ -30,10 +30,10 @@ ms.locfileid: "72755325"
 | Arabo (Romanizzato)   | Afrikaans   | Arabo   | Arabo |
 | Balinese | Albanese | Cinese (semplificato)    | Danese |
 | Bengalese | Amharico | Cinese (tradizionale)     | Olandese |
-| Buginese | Arabo | Ceco                     | Italiano |
+| Buginese | Arabo | Ceco                     | Inglese |
 | Buhid: | Armeno | Danese                     | Finlandese |
 | Caria | Assamese | Olandese                     | Francese |
-| Cinese (semplificato) | Azerbaigiano | Italiano  | Greco, moderno |
+| Cinese (semplificato) | Azerbaigiano | Inglese  | Greco, moderno |
 | Cinese (tradizionale) | Bangla - Bangladesh | Finlandese  | Italiano |
 | Churc (Slavo) | Bangla - India | Francese     | Coreano |
 | Copto | Basco | Tedesco                      | Norvegese |
@@ -46,14 +46,14 @@ ms.locfileid: "72755325"
 | Tedesco | Curdo sorani | Polacco        | Turco |
 | Greco | Cherokee | Portoghese | |
 | Haitiano | Cinese (semplificato) | Rumeno | |
-| Ebraico | Cinese (tradizionale) - Hong Kong | Russo | |
+| Ebraico | Cinese (tradizionale) - Hong Kong RAS | Russo | |
 | Hindi | Cinese (tradizionale) - Taiwan | Serbo (alfabeto cirillico) | |
 | Hmong | Croato | Serbo (alfabeto latino) | |
 | Ungherese | Ceco | Slovacco | |
 | Italiano | Danese | Spagnolo | |
 | Giapponese | Dari | Svedese | |
 | Coreano | Olandese | Turco | |
-| Curdo (paesi arabi) | Italiano | | |
+| Curdo (paesi arabi) | Inglese | | |
 | Curdo (Latino) | Estone | | |
 | Lepcha | Filippino | | |
 | Limbu | Finlandese | | |

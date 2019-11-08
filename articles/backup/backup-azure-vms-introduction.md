@@ -1,18 +1,18 @@
 ---
 title: Informazioni sul backup di macchine virtuali di Azure
-description: Informazioni sul backup di macchine virtuali di Azure e su alcune procedure consigliate.
+description: Questo articolo illustra come il servizio backup di Azure esegue il backup delle macchine virtuali di Azure e come seguire le procedure consigliate.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: db3e4b8a8abea4718f5779790906bf45591d221c
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: e22c4c24e83be0f89b306eed0eb1d80bdd9387e1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018699"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747209"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Panoramica del backup delle macchine virtuali di Azure
 
@@ -34,10 +34,10 @@ Ecco come backup di Azure completa un backup per le macchine virtuali di Azure:
     - Il backup viene ottimizzato eseguendo il backup di ogni disco della macchina virtuale in parallelo.
     - Per ogni disco di cui viene eseguito il backup, backup di Azure legge i blocchi sul disco e identifica e trasferisce solo i blocchi di dati modificati (il Delta) rispetto al backup precedente.
     - I dati dello snapshot potrebbero non essere copiati immediatamente nell'insieme di credenziali. Questa operazione potrebbe richiedere alcune ore nei momenti di picco. Il tempo totale di backup per una macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
- 1. Le modifiche apportate a una macchina virtuale Windows dopo l'abilitazione di backup di Azure sono:
-    -   Microsoft Visual C++ 2013 Redistributable (x64)-12.0.40660 è installato nella macchina virtuale
-    -   Il tipo di avvio del servizio Copia Shadow del volume (VSS) è stato modificato in automatico da manuale
-    -   Il servizio Windows IaaSVmProvider è stato aggiunto
+1. Le modifiche apportate a una macchina virtuale Windows dopo l'abilitazione di backup di Azure sono:
+    - Microsoft Visual C++ 2013 Redistributable (x64)-12.0.40660 è installato nella macchina virtuale
+    - Il tipo di avvio del servizio Copia Shadow del volume (VSS) è stato modificato in automatico da manuale
+    - Il servizio Windows IaaSVmProvider è stato aggiunto
 
 1. Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e viene creato un punto di ripristino.
 
@@ -54,7 +54,7 @@ Quando si esegue il backup di macchine virtuali di Azure con Backup di Azure, vi
 
 Per le macchine virtuali di Azure gestite e non gestite, il backup supporta le macchine virtuali crittografate solo con BEKs o le VM crittografate con BEKs insieme a KEKs.
 
-I BEKs (segreti) e KEKs (chiavi) di cui è stato eseguito il backup sono crittografati. Possono essere letti e usati solo quando vengono ripristinati nell'insieme di credenziali delle chiavi da parte di utenti autorizzati. Né utenti non autorizzati né Azure possono leggere o usare chiavi o segreti sottoposti a backup.
+I BEKs (segreti) e KEKs (chiavi) di cui è stato eseguito il backup sono crittografati. Possono essere letti e usati solo quando vengono ripristinati nell'insieme di credenziali delle chiavi da parte di utenti autorizzati. Né utenti non autorizzati, né Azure, possono leggere o usare chiavi o segreti sottoposti a backup.
 
 Viene anche eseguito il backup di BEKs. Quindi, se i BEKs vengono persi, gli utenti autorizzati possono ripristinare il BEKs nell'insieme di credenziali delle chiavi e recuperare le macchine virtuali crittografate. Solo gli utenti con il livello di autorizzazione necessario possono eseguire il backup e il ripristino di VM crittografate, chiavi e segreti.
 
@@ -64,7 +64,7 @@ Backup di Azure acquisisce gli snapshot in base alla pianificazione del backup.
 
 - **Macchine virtuali Windows:** Per le macchine virtuali Windows, il servizio di backup coordina con VSS per eseguire uno snapshot coerente con l'app dei dischi delle macchine virtuali.
 
-  - Per impostazione predefinita, Backup di Azure esegue backup VSS completi. [Altre informazioni](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)
+  - Per impostazione predefinita, Backup di Azure esegue backup VSS completi. [Altre informazioni](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
   - Per modificare l'impostazione in modo che backup di Azure accetti backup di copia VSS, impostare la chiave del registro di sistema seguente da un prompt dei comandi:
 
     **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent"/v USEVSSCOPYBACKUP/t REG_SZ/d TRUE/f**
@@ -81,8 +81,8 @@ La tabella seguente illustra i diversi tipi di coerenza degli snapshot:
 
 **Snapshot** | **Dettagli** | **Ripristino** | **Considerazioni**
 --- | --- | --- | ---
-**Coerenza con le applicazioni** | Il backup coerenti con le app acquisiscono contenuto in memoria e operazioni di I/O in sospeso. Gli snapshot coerenti con l'app usano un VSS writer (o script pre/post per Linux) per assicurare la coerenza dei dati dell'app prima che venga eseguito un backup. | Quando si esegue il ripristino di una macchina virtuale con uno snapshot coerente con l'app, la macchina virtuale viene avviata. Non si verificano problemi di perdita o danneggiamento dei dati. Le app vengono avviate in uno stato coerente. | Windows: tutti i VSS writer sono riusciti correttamente<br/><br/> Linux: gli script pre/post sono stati configurati e sono riusciti correttamente
-**Coerente con il file System** | I backup coerenti con il file System garantiscono la coerenza eseguendo uno snapshot di tutti i file nello stesso momento.<br/><br/> | Quando si esegue il ripristino di una macchina virtuale con uno snapshot coerente con il file System, viene avviata la macchina virtuale. Non si verificano problemi di perdita o danneggiamento dei dati. Le app devono implementare uno specifico meccanismo di correzione per assicurarsi che i dati ripristinati siano coerenti. | Windows: alcuni VSS writer non sono riusciti <br/><br/> Linux: Impostazione predefinita (se gli script pre/post non sono configurati o non riusciti)
+**Coerenza con le applicazioni** | Il backup coerenti con le app acquisiscono contenuto in memoria e operazioni di I/O in sospeso. Gli snapshot coerenti con l'app usano un VSS writer (o script pre/post per Linux) per assicurare la coerenza dei dati dell'app prima che venga eseguito un backup. | Quando si esegue il ripristino di una macchina virtuale con uno snapshot coerente con l'app, la macchina virtuale viene avviata. Non si verificano problemi di perdita o danneggiamento dei dati. Le app vengono avviate in uno stato coerente. | Windows: tutti i writer VSS sono riusciti<br/><br/> Linux: gli script pre/post sono configurati e sono riusciti
+**Coerente con il file System** | I backup coerenti con il file System garantiscono la coerenza eseguendo uno snapshot di tutti i file nello stesso momento.<br/><br/> | Quando si esegue il ripristino di una macchina virtuale con uno snapshot coerente con il file System, viene avviata la macchina virtuale. Non si verificano problemi di perdita o danneggiamento dei dati. Le app devono implementare uno specifico meccanismo di correzione per assicurarsi che i dati ripristinati siano coerenti. | Windows: alcuni writer VSS non sono riusciti <br/><br/> Linux: predefinito (se gli script pre/post non sono configurati o non sono riusciti)
 **Coerenza con l'arresto anomalo del sistema** | Gli snapshot coerenti con l'arresto anomalo del sistema si verificano in genere se una macchina virtuale di Azure si arresta al momento del backup. Solo i dati già esistenti sul disco al momento del backup vengono acquisiti e sottoposti a backup.<br/><br/> Un punto di ripristino coerente con l'arresto anomalo del sistema non garantisce la coerenza dei dati per il sistema operativo o l'app. | Sebbene non esistano garanzie, la macchina virtuale viene in genere avviata e quindi avvia un controllo del disco per correggere gli errori di danneggiamento. Tutti i dati in memoria o le operazioni di scrittura che non sono stati trasferiti sul disco prima dell'arresto anomalo vengono persi. Le app implementano una propria procedura di verifica dei dati. Ad esempio, un'app di database può utilizzare il log delle transazioni per la verifica. Se il log delle transazioni contiene voci che non sono presenti nel database, il software del database esegue il rollback delle transazioni fino a quando i dati non sono coerenti. | Macchina virtuale in stato di arresto
 
 ## <a name="backup-and-restore-considerations"></a>Considerazioni su backup e ripristino
@@ -132,7 +132,7 @@ Ad esempio, è consigliabile usare una macchina virtuale di dimensioni a2 con du
 
 **Disco** | **Dimensioni massime** | **Dati effettivi presenti**
 --- | --- | ---
-Disco sistema operativo | 4095 GB | 17 GB
+Disco del sistema operativo | 4095 GB | 17 GB
 Disco locale/temporaneo | 135 GB | 5 GB (non incluso per il backup)
 Disco dati 1 | 4095 GB | 30 GB
 Disco dati 2 | 4095 GB | 0 GB
@@ -140,11 +140,12 @@ Disco dati 2 | 4095 GB | 0 GB
 In questo caso, la dimensione effettiva della macchina virtuale è 17 GB + 30 GB + 0 GB = 47 GB. Questa dimensione dell'istanza protetta (47 GB) diventa la base per la fattura mensile. Con la crescita della quantità di dati nella macchina virtuale, le dimensioni dell'istanza protetta utilizzate per la fatturazione cambiano.
 
 <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
-## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Anteprima pubblica: Backup della macchina virtuale con dimensioni del disco fino a 30 TB
+
+## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Anteprima pubblica: backup di macchine virtuali con dimensioni del disco fino a 30 TB
 
 Backup di Azure supporta ora l'anteprima pubblica di Managed Disks di [Azure](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) di dimensioni maggiori e più potenti fino a 30 TB. Questa versione di anteprima offre supporto a livello di produzione per le macchine virtuali gestite.
 
-I backup per le macchine virtuali con le dimensioni di ogni disco fino a 30TB e un massimo di 256TB combinati per tutti i dischi in una macchina virtuale dovrebbero funzionare senza alcun effetto sui backup esistenti. Non è necessaria alcuna azione da parte dell'utente per ottenere i backup in esecuzione per i dischi di grandi dimensioni, se la macchina virtuale è già configurata con backup di Azure.
+I backup per le macchine virtuali con ogni dimensione di disco fino a 30 TB e un massimo di 256 TB combinati per tutti i dischi in una macchina virtuale dovrebbero funzionare senza alcun effetto sui backup esistenti. Non è necessaria alcuna azione da parte dell'utente per ottenere i backup in esecuzione per i dischi di grandi dimensioni, se la macchina virtuale è già configurata con backup di Azure.
 
 Il backup di tutte le macchine virtuali di Azure con dischi di grandi dimensioni con backup configurato deve essere completato.
 

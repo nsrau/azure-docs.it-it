@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 8270d17d998b27a067eb91a517a7c5fdfd23becd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f6f3a4be21eee6a9e07a4ae11a530dd9dd50c81c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101858"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749155"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Come assegnare un tag a una macchina virtuale Windows in Azure
 Questo articolo descrive diversi modi per contrassegnare una macchina virtuale Windows in Azure tramite il modello di distribuzione Resource Manager. I tag sono coppie chiave/valore definite dall'utente che possono essere inserite direttamente in una risorsa o un gruppo di risorse. Attualmente, Azure supporta fino a 15 tag per ogni risorsa e gruppo di risorse. I tag possono essere posizionati su una risorsa al momento della creazione o aggiunti a una risorsa esistente. Si noti che i tag sono supportati solo per le risorse create tramite il modello di distribuzione Resource Manager. Se si desidera assegnare un tag a una macchina virtuale Linux, vedere l'articolo relativo a [come assegnare un tag a una macchina virtuale Linux in Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -29,7 +29,7 @@ Questo articolo descrive diversi modi per contrassegnare una macchina virtuale W
 ## <a name="tagging-with-powershell"></a>Assegnazione di tag tramite PowerShell
 Per creare, aggiungere ed eliminare i tag tramite PowerShell, è prima necessario configurare l’ [ambiente PowerShell con Gestione risorse di Azure][PowerShell environment with Azure Resource Manager]. Dopo aver completato l'installazione, è possibile inserire tag su risorse di calcolo, rete e archiviazione al momento della creazione o dopo la creazione della risorsa tramite PowerShell. Questo articolo si concentrerà su come visualizzare o modificare tag inseriti nelle macchine virtuali.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 Per prima cosa, spostarsi su una macchina virtuale tramite il `Get-AzVM` cmdlet.
 

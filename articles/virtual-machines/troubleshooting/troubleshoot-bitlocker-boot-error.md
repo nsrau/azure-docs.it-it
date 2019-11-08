@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: b0b8528a8eaf5cab22bb2482bd60e760d8bf5e3d
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058098"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749677"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Problemi di avvio di BitLocker in una macchina virtuale di Azure
 
  Questo articolo descrive i potenziali problemi di BitLocker che possono verificarsi all'avvio di una macchina virtuale Windows in Microsoft Azure.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="symptom"></a>Sintomo
 
@@ -31,7 +31,7 @@ ms.locfileid: "71058098"
 
 - Collegare l'unità USB contenente la chiave BitLocker
 
-- Il tuo account è bloccato. Immettere la chiave di ripristino per continuare (layout tastiera: US) Troppi tentativi di accesso con informazioni errate. Il PC è stato bloccato per proteggere la privacy dell'utente. Per recuperare la chiave di ripristino, visitare https://windows.microsoft.com/recoverykeyfaq da un altro PC o dispositivo mobile. Nel caso sia necessario, l'ID della chiave è XXXXXXX. In alternativa, è possibile ripristinare le impostazioni di fabbrica del PC.
+- Il tuo account è bloccato. Immetti la chiave di ripristino per continuare (Layout di tastiera: US) Troppi tentativi di accesso con informazioni errate. Il PC è stato bloccato per proteggere la privacy dell'utente. Per recuperare la chiave di ripristino, visitare https://windows.microsoft.com/recoverykeyfaq da un altro PC o dispositivo mobile. Nel caso sia necessario, l'ID della chiave è XXXXXXX. In alternativa, è possibile ripristinare le impostazioni di fabbrica del PC.
 
 - Digitare la password per sbloccare l'unità [ ] Premere INS per visualizzare la password durante la digitazione.
 - Immetti la chiave di ripristino Carica la chiave di ripristino da un dispositivo USB.
@@ -271,15 +271,15 @@ In uno scenario con chiave di crittografia della chiave, seguire questa procedur
                     manage-bde -off F:
 ## <a name="script-troubleshooting"></a>Risoluzione dei problemi relativi agli script
 
-**Errore: Non è stato possibile caricare il file o l'assembly**
+**Errore: Impossibile caricare il file o l'assembly**
 
 Questo errore si verifica perché i percorsi degli assembly ADAL sono errati. Se il modulo AZ è installato solo per l'utente corrente, gli assembly ADAL verranno posizionati in `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
 
-È anche possibile cercare `Az.Accounts` la cartella per trovare il percorso corretto.
+Per trovare il percorso corretto, è anche possibile cercare `Az.Accounts` cartella.
 
 **Errore: Get-AzKeyVaultSecret o Get-AzKeyVaultSecret non è riconosciuto come nome di un cmdlet**
 
-Se si usa il vecchio modulo AZ PowerShell, è necessario modificare i due comandi in `Get-AzureKeyVaultSecret` e. `Get-AzureKeyVaultSecret`
+Se si usa il vecchio modulo AZ PowerShell, è necessario modificare i due comandi per `Get-AzureKeyVaultSecret` e `Get-AzureKeyVaultSecret`.
 
 **Esempi di parametri**
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: ac1572a75a3310afb9d0e0a34c6751ed12d839f9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 24ed7b75dfa8cb09c530a3f4a896aa9ff9aa92b5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102428"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749171"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Caricare un disco rigido virtuale generalizzato in Azure e creare una nuova macchina virtuale
 
@@ -30,7 +30,7 @@ Se si vuole creare una VM da un disco rigido virtuale specializzato in un accoun
 
 In questo argomento viene illustrato l'uso degli account di archiviazione, ma si consiglia di passare all'uso di dischi gestiti. Per una procedura dettagliata completa su come preparare, caricare e creare una nuova macchina virtuale mediante dischi gestiti, vedere [Creare una nuova macchina virtuale da un disco rigido virtuale generalizzato e caricato in Azure usando Managed Disks](upload-generalized-managed.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="prepare-the-vm"></a>Preparare la macchina virtuale
 
@@ -40,7 +40,7 @@ Tutte le informazioni sull'account personale sono state rimosse da un'immagine d
   * Generalizzare la macchina virtuale con Sysprep
 
 ### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Generalizzare una macchina virtuale Windows mediante Sysprep
-Questa sezione illustra come generalizzare la macchina virtuale di Windows da usare come immagine. Sysprep rimuove anche tutte le informazioni sull'account personale e prepara la VM da usare come immagine. Per altre informazioni su Sysprep, vedere [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx) (Introduzione all'uso di Sysprep).
+Questa sezione illustra come generalizzare la macchina virtuale di Windows da usare come immagine. Sysprep rimuove anche tutte le informazioni sull'account personale e prepara la VM da usare come immagine. Per altre informazioni su Sysprep, vedere [Come usare Sysprep: Introduzione](https://technet.microsoft.com/library/bb457073.aspx).
 
 Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da Sysprep. Per ulteriori informazioni, vedere [Supporto Sysprep per i ruoli server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
@@ -148,7 +148,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 L'esecuzione del comando potrebbe richiedere del tempo, a seconda della connessione di rete e delle dimensioni del file VHD.
 
 
-## <a name="create-a-new-vm"></a>Creare una nuova VM 
+## <a name="create-a-new-vm"></a>Creare una nuova macchina virtuale 
 
 È ora possibile usare il disco rigido virtuale caricato per creare una nuova macchina virtuale. 
 
@@ -224,7 +224,7 @@ $vnet = Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
 ### <a name="create-the-vm"></a>Creare la VM
-Lo script di PowerShell seguente illustra come impostare le configurazioni della macchina virtuale e usare l'immagine della VM caricata come origine per la nuova installazione.
+Lo script PowerShell seguente illustra come impostare le configurazioni della macchina virtuale e usare l'immagine della VM caricata come origine per la nuova installazione.
 
 
 
