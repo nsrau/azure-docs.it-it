@@ -1,5 +1,5 @@
 ---
-title: 'Recupero di tabelle ARP - Risoluzione dei problemi - ExpressRoute: Azure| Microsoft Docs'
+title: 'Ottenere le tabelle ARP-risoluzione dei problemi-ExpressRoute: Azure | Microsoft Docs'
 description: Questa pagina fornisce istruzioni su come ottenere tabelle ARP tabelle per un circuito ExpressRoute
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e35020923405ec072ac9c42093752ec5a9290824
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66151576"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748154"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Recupero di tabelle ARP nel modello di distribuzione Resource Manager
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Questo articolo illustra i passaggi per apprendere le tabelle ARP per il circuit
 > 
 > 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="address-resolution-protocol-arp-and-arp-tables"></a>ARP (Address Resolution Protocol) e tabelle ARP
 ARP (Address Resolution Protocol) è un protocollo di livello 2 definito in [RFC 826](https://tools.ietf.org/html/rfc826). Il protocollo ARP viene usato per mappare l'indirizzo Ethernet (indirizzo MAC) con un indirizzo IP.
@@ -61,7 +61,7 @@ Prima di procedere, verificare che siano presenti gli elementi seguenti:
 * È necessario disporre del modulo PowerShell più recente per Azure (versione 1.50 o successiva).
 
 > [!NOTE]
-> Se layer 3 viene fornito dal provider di servizi e le tabelle ARP sono mostrate nel portale/output riportato di seguito, aggiornare la configurazione del circuito utilizzando il pulsante di aggiornamento nel portale. Questa operazione applicherà la configurazione di routing corretta nel circuito. 
+> Se il provider di servizi fornisce il livello 3 e le tabelle ARP sono vuote nel portale o nell'output riportato di seguito, aggiornare la configurazione del circuito usando il pulsante Aggiorna del portale. Questa operazione applicherà la configurazione di routing corretta nel circuito. 
 >
 >
 
@@ -148,7 +148,7 @@ La tabella ARP di un peer può essere usata per determinare la connettività e l
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Tabella ARP quando il lato locale/provider di connettività presenta problemi
-Se si verificano problemi con la sessione locale o provider di connettività su che si può vedere che verrà visualizzata una sola voce nella tabella ARP o l'indirizzo MAC locale venga visualizzato incompleto. Viene mostrato il mapping tra gli indirizzi MAC e IP usati sul lato Microsoft. 
+Se si verificano problemi con il provider locale o di connettività, è possibile che venga visualizzata una sola voce nella tabella ARP o che l'indirizzo MAC locale visualizzi incompleto. Viene mostrato il mapping tra gli indirizzi MAC e IP usati sul lato Microsoft. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    
@@ -173,7 +173,7 @@ oppure
 * Se sono presenti problemi sul lato Microsoft, non verrà visualizzata la tabella ARP illustrata per il peering. 
 * Aprire un ticket di assistenza al [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Specificare che si è riscontrato un problema di connettività di livello 2. 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * Convalidare le configurazioni di livello 3 per il circuito ExpressRoute
   * Ottenere un riepilogo del routing per determinare lo stato delle sessioni BGP 
   * Ottenere la tabella del routing per stabilire i prefissi pubblicati in ExpressRoute

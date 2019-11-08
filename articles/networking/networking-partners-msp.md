@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 089d54a2aae288511a283dfb28b03efa34c33b53
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
-ms.translationtype: MT
+ms.openlocfilehash: 83c3c72ad189720b8f0aa554b7804b55f3488b83
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715433"
+ms.locfileid: "73747960"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Informazioni sui partner MSP di rete di Azure
 
@@ -28,7 +28,7 @@ I clienti possono acquistare offerte di servizi gestiti da MSP in Azure Marketpl
 
 Usare i collegamenti in questa sezione per altre informazioni sui servizi di rete cloud gestiti offerti dai partner MSP di rete di Azure. Se il partner di servizi di rete cloud non è elencato nella sezione seguente, chiedere al provider di contattarci. È possibile contattare Microsoft inviando un messaggio di posta elettronica a ManagedVirtualWAN@microsoft.com. 
 
-| **MSP** | **Servizi di trasformazione rete cloud** | **ExpressRoute gestito** | **Rete WAN virtuale gestita** | **Firewall gestito** |**Calcolo Edge rete gestito** |
+| **MSP** | **Servizi di trasformazione rete cloud** | **ExpressRoute gestito** | **Rete WAN virtuale gestita** | **Servizi di sicurezza di rete gestiti** |**Calcolo Edge rete gestito** |
 | ---| ---| ---| ---| ---| ---|
 |[Amdocs](https://www.amdocs.com/)|||||Sì|
 |[Gruppo ANS UK](https://www.ans.co.uk/)|Sì|Sì||||

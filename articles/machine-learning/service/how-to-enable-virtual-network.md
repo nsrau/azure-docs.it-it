@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/25/2019
-ms.openlocfilehash: 2559a3cbd786c737b316a860e9c75434c6c719a4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e5dee838df2a60bf2038f2c7d2b1cc5958354d29
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576566"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796758"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteggere i processi di sperimentazione e inferenza di Azure ML in una rete virtuale di Azure
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,7 @@ Per usare un account di archiviazione di Azure per l'area di lavoro in una rete 
     - In __reti virtuali__selezionare il collegamento __Aggiungi rete virtuale esistente__ . Questa azione aggiunge la rete virtuale in cui risiede il calcolo (vedere il passaggio 1).
 
         > [!IMPORTANT]
-        > L'account di archiviazione deve trovarsi nella stessa rete virtuale delle macchine virtuali o dei cluster del notebook usati per il training o l'inferenza.
+        > L'account di archiviazione deve trovarsi nella stessa rete virtuale dei cluster usati per il training o l'inferenza.
 
     - Selezionare la casella __di controllo Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione__ .
 
@@ -108,7 +108,7 @@ Per usare Azure Machine Learning funzionalità di sperimentazione con Azure Key 
 
 ## <a name="use-a-machine-learning-compute"></a>Usare un ambiente di calcolo di Machine Learning
 
-Per usare una VM Azure Machine Learning notebook o un cluster di calcolo in una rete virtuale, è necessario soddisfare i requisiti di rete seguenti:
+Per usare un cluster di calcolo Azure Machine Learning in una rete virtuale, è necessario soddisfare i requisiti di rete seguenti:
 
 > [!div class="checklist"]
 > * La rete virtuale deve trovarsi nella stessa area e nella stessa sottoscrizione dell'area di lavoro Azure Machine Learning.
@@ -246,27 +246,6 @@ Al termine del processo di creazione, è necessario eseguire il training del mod
 
 <a id="vmorhdi"></a>
 
-### <a name="create-a-compute-instance-in-a-virtual-network"></a>Creare un'istanza di calcolo in una rete virtuale
-
-Creare un'istanza di calcolo Azure Machine Learning in una rete virtuale. Per creare un'istanza di calcolo, procedere come segue:
-
-1. In Workspace Studio selezionare **calcolo** nel riquadro sinistro.
-
-1. Nella scheda istanze di calcolo selezionare **nuovo** per avviare la creazione di una nuova istanza di calcolo.
-
-1. Impostare i campi nome calcolo e dimensioni macchina virtuale e abilitare/disabilitare l'accesso SSH.
-
-1. Per configurare questa istanza di calcolo per l'uso di una rete virtuale, eseguire le operazioni seguenti:
-
-    a. Selezionare **Impostazioni avanzate**.
-
-    b. Nell'elenco a discesa **gruppo di risorse** selezionare il gruppo di risorse che contiene la rete virtuale.
-
-    c. Nell'elenco a discesa  **rete virtuale** selezionare la rete virtuale che contiene la subnet.
-
-    d. Nell'elenco a discesa **subnet** selezionare la subnet da usare.
-
-1. Selezionare **Crea** per eseguire il provisioning di un'istanza di calcolo all'interno di una rete virtuale.
 
 ## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>Usare una macchina virtuale o un cluster HDInsight
 

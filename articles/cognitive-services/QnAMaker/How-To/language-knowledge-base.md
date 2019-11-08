@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: 849c919950c57a1df3b0fb76021de6e10254c7b4
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: a818d84bf3df712190ccc6c1721c26933a9fbcdb
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286398"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73793930"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Supporto per le lingue dei contenuti della Knowledge Base per QnA Maker
 
@@ -38,9 +38,9 @@ La selezione della lingua fa parte dei passaggi per creare la prima Knowledge ba
 ![Screenshot del portale di QnA Maker della selezione della lingua per la prima Knowledge base](../media/language-support/select-language-when-creating-knowledge-base.png)
 
 ## <a name="query-matching-and-relevance"></a>Query corrispondente e pertinenza
-QnA Maker dipende dagli [analizzatori del linguaggio di ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/language-support) per fornire i risultati. 
+QnA Maker dipende dagli [analizzatori del linguaggio ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/language-support) per fornire i risultati. 
 
-Le funzionalità di Ricerca di Azure sono all'altezza per le lingue supportate, ma QnA Maker ha un'utilità di classificazione aggiuntiva superiore ai risultati delle ricerche di Azure. In questo modello di classificazione vengono usate alcune funzionalità speciali basate su parole e semantiche nei linguaggi seguenti. 
+Sebbene le funzionalità di ricerca cognitiva di Azure siano in par per le lingue supportate, QnA Maker dispone di un rango aggiuntivo che si trova sopra i risultati di ricerca di Azure. In questo modello di classificazione vengono usate alcune funzionalità speciali basate su parole e semantiche nei linguaggi seguenti. 
 
 |Lingue con rango aggiuntivo|
 |--|

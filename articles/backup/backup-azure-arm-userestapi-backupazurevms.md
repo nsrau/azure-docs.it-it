@@ -1,6 +1,6 @@
 ---
 title: "Backup di Azure: eseguire il backup di macchine virtuali di Azure con l'API REST"
-description: Gestire le operazioni di backup delle macchine virtuali di Azure con l'API REST
+description: Questo articolo illustra come configurare, avviare e gestire le operazioni di backup del backup delle macchine virtuali di Azure usando l'API REST.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 837401256aa264a527e2323b055713f4bd8e8d1c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 901ae66281e1d68474304a4f5456a0163fcb6f2a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671676"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747605"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
 
@@ -108,13 +108,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 All'URI *GET* sono associati tutti i parametri obbligatori. Non è necessario alcun corpo della richiesta aggiuntivo.
 
-##### <a name="responses-1"></a>Risposte
+#### <a name="responses-1"></a>Risposte
 
 |Name  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-##### <a name="example-responses-1"></a>Risposte di esempio
+#### <a name="example-responses-1"></a>Risposte di esempio
 
 Dopo che la richiesta *GET* è stata inviata, viene restituita una risposta 200 (OK).
 
@@ -329,7 +329,7 @@ L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un
 |---------|---------|---------|
 |202 - Accettato     |         |     Accepted    |
 
-##### <a name="example-responses-3"></a>Risposte di esempio
+#### <a name="example-responses-3"></a>Risposte di esempio
 
 Dopo aver inviato la richiesta *POST* per un backup su richiesta, la risposta iniziale è 202 (accettazione) con un'intestazione location o Azure-async.
 

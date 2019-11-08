@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 71e4b62ddcb3f144b49b99e6ba95a47971d3f4bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 12e9367ca9e330806af4c7cc5db626edddff5c25
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476948"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795240"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo, l'elenco verrà espanso e aggiornato per coprire più servizi.
@@ -48,6 +48,7 @@ Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze n
 * [Automazione](#automation-limits)
 * [Cache Redis di Azure](#azure-cache-for-redis-limits)
 * [servizi cloud di Azure](#azure-cloud-services-limits)
+* [ricerca cognitiva di Azure](#azure-cognitive-search-limits)
 * [Servizi cognitivi di Azure](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Database di Azure per MySQL](#azure-database-for-mysql)
@@ -60,7 +61,6 @@ Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze n
 * [Mappe di Azure](#azure-maps-limits)
 * [Monitoraggio di Azure](#azure-monitor-limits)
 * [Criteri di Azure](#azure-policy-limits)
-* [Ricerca di Azure](#azure-search-limits)
 * [Servizio Azure SignalR](#azure-signalr-service-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
@@ -270,7 +270,7 @@ Per i limiti del Database di Azure per MySQL, vedere [Limiti di Database di Azur
 ### <a name="azure-database-for-postgresql"></a>Database di Azure per PostgreSQL
 Per i limiti del Database di Azure per PostgreSQL, vedere [Limiti di Database di Azure per PostgreSQL](postgresql/concepts-limits.md).
 
-### <a name="azure-search-limits"></a>Limiti di ricerca di Azure
+### <a name="azure-cognitive-search-limits"></a>Limiti di Azure ricerca cognitiva
 I piano tariffari determinano la capacità e i limiti del servizio di ricerca. Sono disponibili i piani seguenti:
 
 * Il servizio multi-tenant **gratuito** , condiviso con altri Sottoscrittori di Azure, è destinato a progetti di valutazione e di sviluppo di piccole dimensioni.
@@ -285,7 +285,7 @@ I piano tariffari determinano la capacità e i limiti del servizio di ricerca. S
 
 [!INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
-Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei documenti, query al secondo, chiavi, richieste e risposte, vedere [Limiti dei servizi in Ricerca di Azure](search/search-limits-quotas-capacity.md).
+Per altre informazioni sui limiti a un livello più granulare, ad esempio le dimensioni del documento, le query al secondo, le chiavi, le richieste e le risposte, vedere [limiti dei servizi in Azure ricerca cognitiva](search/search-limits-quotas-capacity.md).
 
 ### <a name="media-services-limits"></a>Limiti relativi a Servizi multimediali
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]

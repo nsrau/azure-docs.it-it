@@ -5,31 +5,37 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 11/05/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: ee8ff3529524a63ca2e54a64327570197f363538
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: bc4ac68cb415a43ac34d36afc2adc30307e6d37c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67180511"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795233"
 ---
 | Risorsa | Basic | Standard | Premium |
 |---|---|---|---|
 | Archiviazione<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
 | Dimensioni massime livello immagine | GiB 200 | GiB 200 | GiB 200 |
-| Operazioni di lettura al minuto<sup>2, 3</sup> | 1\.000 | 3,000 | 10,000 |
+| Operazioni di lettura al minuto<sup>2, 3</sup> | 1\.000 | 3,000 | 10.000 |
 | Operazioni di scrittura al minuto<sup>2, 4</sup> | 100 | 500 | 2\.000 |
 | MBps di larghezza di banda per il download<sup>2</sup> | 30 | 60 | 100 |
 | MBps di larghezza di banda per l'upload<sup>2</sup> | 10 | 20 | 50 |
-| webhooks | 2 | 10 | 100 |
+| Webhook | 2 | 10 | 100 |
 | Replica geografica | N/D | N/D | [Supportato][geo-replication] |
 | Attendibilità del contenuto | N/D | N/D | [Supportato][content-trust] |
+| Accesso alla rete virtuale | N/D | N/D | [Anteprima][vnet] |
+| Autorizzazioni con ambito repository | N/D | N/D | [Anteprima][token]|
+| Token &bull; | N/D | N/D | 20.000 |
+| Mappe ambito &bull; | N/D | N/D | 20.000 |
+| &bull; repository per ambito mappa | N/D | N/D | 500 |
+
 
 <sup>1</sup> I limiti di archiviazione specificati sono la quantità di spazio di archiviazione *incluso* per ogni livello. Viene addebitata una tariffa giornaliera aggiuntiva per GiB di archiviazione di immagini oltre questi limiti. Per informazioni sulla frequenza, vedere [prezzi di Azure container Registry][pricing].
 
-<sup>2</sup> *Operazioni lettura*, *operazioni scrittura*e *Bandwidth* sono stime minime. Azure Container Registry si impegna a migliorare le prestazioni in quanto richiede l'utilizzo.
+<sup>2</sup>*operazioni lettura*, *operazioni scrittura*e *Bandwidth* sono stime minime. Azure Container Registry si impegna a migliorare le prestazioni in quanto richiede l'utilizzo.
 
 <sup>3</sup> Una [Docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) si traduce in più operazioni di lettura in base al numero di livelli nell'immagine, più il recupero del manifesto.
 
@@ -41,3 +47,5 @@ ms.locfileid: "67180511"
 <!-- LINKS - Internal -->
 [geo-replication]: ../articles/container-registry/container-registry-geo-replication.md
 [content-trust]: ../articles/container-registry/container-registry-content-trust.md
+[vnet]: ../articles/container-registry/container-registry-vnet.md
+[token]: ../articles/container-registry/container-registry-repository-scoped-permissions.md
