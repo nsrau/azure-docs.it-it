@@ -6,7 +6,7 @@ documentationcenter: ''
 author: v-miegge
 manager: dcscontentpm
 editor: ''
-tags: ''
+tags: virtual-machines
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 56e420f9641638bfa79ff077be73132b00b934ab
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 49fdfde402938ce8d0ee1b141a47e68c99c502e7
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71132091"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796212"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Riparare una macchina virtuale Linux usando i comandi di riparazione della macchina virtuale di Azure
 
@@ -54,13 +54,13 @@ Per ulteriori documentazione e istruzioni, vedere [AZ VM Repair](https://docs.mi
 
    Se si preferisce installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessaria l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire ``az --version`` per trovare la versione. Per installare o aggiornare l'interfaccia della riga di comando di Azure, vedere [installare l'interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli)della riga di comando di Azure.
 
-2. Se è la prima volta che si usano i comandi `az vm repair`, aggiungere l'estensione CLI per la riparazione della VM.
+2. Se è la prima volta che si usano i comandi di `az vm repair`, aggiungere l'estensione CLI per la riparazione della VM.
 
    ```azurecli-interactive
    az extension add -n vm-repair
    ```
 
-   Se in precedenza sono stati usati i comandi `az vm repair`, applicare tutti gli aggiornamenti all'estensione per la riparazione delle macchine virtuali.
+   Se in precedenza sono stati usati i comandi di `az vm repair`, applicare tutti gli aggiornamenti all'estensione per la riparazione della VM.
 
    ```azurecli-interactive
    az extension update -n vm-repair

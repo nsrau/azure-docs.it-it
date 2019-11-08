@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: 15739b735b67e29ed07521d31857f1b176447487
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4e09a476398134d92b4492c68ed4ebebc468f272
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491047"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796186"
 ---
 # <a name="configure-speech-service-containers"></a>Configurare i contenitori di servizi vocali
 
@@ -52,7 +52,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 |Obbligatorio| Name | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
-|Sì| `Billing` | String | URI dell'endpoint di fatturazione. Per ulteriori informazioni sull'URI di fatturazione, vedere [raccolta dei parametri obbligatori](speech-container-howto.md#gathering-required-parameters). |
+|Sì| `Billing` | String | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](speech-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 

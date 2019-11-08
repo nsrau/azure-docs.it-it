@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 045fb54956e78e826b06dc1c56c29e1c7bd430bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dec43a4d7eb5a9546fcd77cce972b93542ea3b10
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513419"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795947"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Installare un controller di ingresso del gateway applicazione (AGIC) usando un gateway applicazione esistente
 
@@ -246,7 +246,7 @@ Il file zip scaricato avrà modelli JSON, bash e script PowerShell che è possib
 ### <a name="example-scenario"></a>Scenario di esempio
 Viene ora esaminato un gateway applicazione immaginaria, che gestisce il traffico per due siti Web:
   - `dev.contoso.com` ospitato su un nuovo AKS, usando il gateway applicazione e AGIC
-  - `prod.contoso.com` ospitato in un [set di scalabilità di macchine Azure virutal](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
+  - `prod.contoso.com` ospitato in un [set di scalabilità di macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
 
 Con le impostazioni predefinite, AGIC presuppone il 100% della proprietà del gateway applicazione a cui fa riferimento. AGIC sovrascrive tutta la configurazione del gateway applicazione. Se dovessimo creare manualmente un listener per `prod.contoso.com` (sul gateway applicazione), senza definirlo nell'ingresso Kubernetes, AGIC eliminerà la configurazione `prod.contoso.com` in pochi secondi.
 
@@ -323,7 +323,7 @@ Ampliare le autorizzazioni di AGIC con:
     ```
 
 ### <a name="enable-for-an-existing-agic-installation"></a>Abilita per un'installazione di AGIC esistente
-Si supponga di avere già un AKS funzionante, un gateway applicazione e un AGIC configurato nel cluster. Si dispone di un ingresso per la `prod.contosor.com` e il traffico viene eseguito correttamente da AKS. Si vuole aggiungere `staging.contoso.com` al gateway applicazione esistente, ma è necessario ospitarlo in una [macchina virtuale](https://azure.microsoft.com/services/virtual-machines/). Verrà riusato il gateway applicazione esistente e verranno configurati manualmente un listener e i pool back-end per `staging.contoso.com`. Tuttavia, la modifica manuale della configurazione del gateway applicazione (tramite il [portale](https://portal.azure.com), le [API ARM](https://docs.microsoft.com/rest/api/resources/) o la [bonifica](https://www.terraform.io/)) potrebbe essere in conflitto con i presupposti di AGIC di proprietà completa. Subito dopo l'applicazione delle modifiche, AGIC li sovrascriverà o li eliminerà.
+Si supponga di avere già un AKS funzionante, un gateway applicazione e un AGIC configurato nel cluster. Si dispone di un ingresso per la `prod.contosor.com` e il traffico viene eseguito correttamente da AKS. Si vuole aggiungere `staging.contoso.com` al gateway applicazione esistente, ma è necessario ospitarlo in una [macchina virtuale](https://azure.microsoft.com/services/virtual-machines/). Verrà riutilizzato il gateway applicazione esistente e verranno configurati manualmente un listener e i pool back-end per `staging.contoso.com`. Tuttavia, la modifica manuale della configurazione del gateway applicazione (tramite il [portale](https://portal.azure.com), le [API ARM](https://docs.microsoft.com/rest/api/resources/) o la [bonifica](https://www.terraform.io/)) potrebbe essere in conflitto con i presupposti di AGIC di proprietà completa. Subito dopo l'applicazione delle modifiche, AGIC li sovrascriverà o li eliminerà.
 
 È possibile impedire a AGIC di apportare modifiche a un subset di configurazione.
 

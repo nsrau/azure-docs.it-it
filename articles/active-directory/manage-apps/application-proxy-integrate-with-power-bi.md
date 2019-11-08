@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2148d6ea869a87571008c1f84c5b1000d4030bbb
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 845ffda22cae9464870786cc5997b9f5521c03e1
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175940"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795635"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Abilitare l'accesso remoto a Power BI mobile con Azure AD proxy di applicazione
 
@@ -82,7 +82,7 @@ Per altre informazioni, vedere [delega vincolata Kerberos per Single Sign-on all
 A questo punto si è pronti per configurare Azure AD proxy di applicazione.
 
 1. Pubblicare i servizi di report tramite il proxy di applicazione con le impostazioni seguenti. Per istruzioni dettagliate su come pubblicare un'applicazione tramite il proxy di applicazione, vedere [pubblicazione di applicazioni con Azure ad proxy di applicazione](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
-   - **URL interno**: immettere l'URL del server di report che il connettore può raggiungere nella rete aziendale. Verificare che l'URL sia raggiungibile dal server in cui è installato il connettore. Una procedura consigliata consiste nell'usare un dominio di primo livello, ad esempio `https://servername/` per evitare problemi con i sottopercorsi (ad esempio, `https://servername/reports/` e `https://servername/reportserver/`) non pubblicati tramite il proxy di applicazione.
+   - **URL interno**: immettere l'URL del server di report che il connettore può raggiungere nella rete aziendale. Verificare che l'URL sia raggiungibile dal server in cui è installato il connettore. Una procedura consigliata consiste nell'usare un dominio di primo livello, ad esempio `https://servername/` per evitare problemi con i sottopercorsi pubblicati tramite il proxy di applicazione. Ad esempio, usare `https://servername/` e non `https://servername/reports/` o `https://servername/reportserver/`.
      > [!NOTE]
      > Si consiglia di utilizzare una connessione HTTPS sicura al server di report. Per informazioni su come, vedere [configurare connessioni SSL in un server di report in modalità nativa](https://docs.microsoft.com/sql/reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server?view=sql-server-2017) .
    - **URL esterno**: immettere l'URL pubblico a cui si connetterà Power bi app per dispositivi mobili. Ad esempio, potrebbe essere simile `https://reports.contoso.com` se viene utilizzato un dominio personalizzato. Per usare un dominio personalizzato, caricare un certificato per il dominio e puntare un record DNS al dominio msappproxy.net predefinito per l'applicazione. Per i passaggi dettagliati, vedere [utilizzo di domini personalizzati nel proxy di applicazione Azure ad](application-proxy-configure-custom-domain.md).
@@ -153,7 +153,7 @@ Prima che l'app per dispositivi mobili Power BI possa connettersi e accedere a s
 7. Fare clic su **Concedi consenso amministratore** per concedere l'autorizzazione di accesso all'applicazione.
 8. Configurare i criteri di Intune desiderati facendo riferimento a [come creare e assegnare criteri di protezione delle app](https://docs.microsoft.com/intune/app-protection-policies).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se l'applicazione restituisce una pagina di errore dopo aver tentato di caricare un report per più di pochi minuti, potrebbe essere necessario modificare l'impostazione del timeout. Per impostazione predefinita, il proxy di applicazione supporta le applicazioni che richiedono fino a 85 secondi per rispondere a una richiesta. Per estendere questa impostazione a 180 secondi, selezionare il timeout di back-end a **Long** nella pagina delle impostazioni del proxy dell'applicazione per l'applicazione. Per suggerimenti su come creare report veloci e affidabili, vedere [Power bi segnala le procedure consigliate](https://docs.microsoft.com/power-bi/power-bi-reports-performance).
 
