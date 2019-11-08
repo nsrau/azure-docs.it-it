@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: dc8b2a00882abc2e88b357d5778eaf96ec71b1bd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 763a45446771f7b13178e22b0f7a35bd68bfc8bd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687580"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821272"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Set di dati pubblici per test e prototipi
 
@@ -42,7 +42,7 @@ In questo elenco di set di dati pubblici è possibile trovare dati da usare per 
 | [Dati relativi ai taxi di New York City](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "I record relativi alle corse dei taxi includono campi contenenti data e ora di partenza e di arrivo, luogo di partenza e di arrivo, distanze delle corse, dettaglio delle tariffe, tipi di tariffa, tipi di pagamento e numero di passeggeri segnalato dal tassista". | I set di dati sono disponibili in file CSV per singolo mese. |
 | [Set di dati di Microsoft Research: analisi scientifica dei dati per la ricerca](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Più set di dati riguardanti l'interazione uomo-computer, audio/video, data mining/recupero informazioni, posizione geospaziale, elaborazione del linguaggio naturale e robotica/visione artificiale. | I set di dati sono disponibili in vari formati, compressi per il download. |
 | [Dati pubblici su genomi](https://www.completegenomics.com/public-data/) | "Un set di dati eterogeneo di tutti i genomi umani è disponibile gratuitamente per l'uso pubblico per migliorare gli studi genomici..." Il provider, genomica completa, è un'azienda a scopo di lucro privata. | I set di dati, dopo l'estrazione, sono in formato di testo UNIX. Sono disponibili anche strumenti di analisi. |
-| [Dati di Open Science Data Cloud](https://www.opensciencedatacloud.org/) | "Open Science Data Cloud offre alla comunità scientifica risorse per l'archiviazione, la condivisione e l'analisi di set di dati scientifici a livello di terabyte e petabyte".| I set di dati sono disponibili in vari formati. |
+| [Dati di Open Science Data Cloud](https://www.opensciencedatacloud.org/projects/) | "Open Science Data Cloud offre alla comunità scientifica risorse per l'archiviazione, la condivisione e l'analisi di set di dati scientifici a livello di terabyte e petabyte".| I set di dati sono disponibili in vari formati. |
 | [Dati sul clima globale: WorldClim](https://worldclim.org/) | "WorldClim è un set di livelli di dati sul clima globale a griglia con risoluzione spaziale di circa 1 km2. Questi dati possono essere usati per la mappatura e la modellazione spaziale". | I file contengono dati geospaziali. Per altre informazioni, vedere [Data format](https://worldclim.org/formats1) (Formato dei dati). |
 | [Dati sulla società umana: The GDELT Project](https://www.gdeltproject.org/data.html) | "The GDELT Project è il database aperto relativo alla società umana più grande e completo e con la risoluzione più elevata che sia mai stato creato". | I file di dati non elaborati sono disponibili in formato CSV. |
 | [Dati di stima dei clic per annunci pubblicitari per l'apprendimento automatico di Criteo](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "Il più grande set di dati per l'apprendimento automatico mai rilasciato al pubblico". Per altre informazioni, vedere [Criteo's 1 TB Click Prediction Dataset](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/) (Set di dati di stima dei clic di 1 TB di Criteo). | |

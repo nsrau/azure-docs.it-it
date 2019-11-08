@@ -1,5 +1,5 @@
 ---
-title: Configurare un gruppo di failover per il database SQL di Azure
+title: Configurare un gruppo di failover
 description: Informazioni su come configurare un gruppo di failover automatico per un database singolo di database SQL di Azure, un pool elastico e un'istanza gestita usando il portale di Azure, AZ CLI e PowerShell.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 626677ef9444e0ad99fd3678e23bdeec62fd920c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fb9ee2378679c420a7675856ec95e60f6ae1d14f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933382"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827143"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurare un gruppo di failover per il database SQL di Azure
 
@@ -33,7 +33,7 @@ Considerare i prerequisiti seguenti:
 
 ### <a name="create-failover-group"></a>Crea gruppo di failover
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 Creare il gruppo di failover e aggiungervi il database singolo usando il portale di Azure.
 
 1. Selezionare **Azure SQL** nel menu a sinistra nel [portale di Azure](https://portal.azure.com). Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare Azure SQL nella casella di ricerca. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro. 
@@ -106,7 +106,7 @@ Creare il gruppo di failover e aggiungervi il database singolo usando PowerShell
 
 Testare il failover del gruppo di failover usando il portale di Azure o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 Testare il failover del gruppo di failover usando il portale di Azure. 
 
@@ -196,7 +196,7 @@ Considerare i prerequisiti seguenti:
 
 Creare il gruppo di failover per il pool elastico usando il portale di Azure o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 Creare il gruppo di failover e aggiungervi il pool elastico usando il portale di Azure.
 
 1. Selezionare **Azure SQL** nel menu a sinistra nel [portale di Azure](https://portal.azure.com). Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare Azure SQL nella casella di ricerca. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro. 
@@ -267,7 +267,7 @@ Creare il gruppo di failover e aggiungervi il pool elastico usando PowerShell.
 
 Failover di test del pool elastico usando il portale di Azure o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 Eseguire il failover del gruppo di failover sul server secondario e quindi eseguire il failback utilizzando il portale di Azure. 
 
@@ -346,7 +346,7 @@ Considerare i prerequisiti seguenti:
 
 Creare il gateway di rete virtuale primario con il portale di Azure o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 Creare il gateway di rete virtuale primario usando il portale di Azure. 
 
@@ -363,7 +363,7 @@ Creare il gateway di rete virtuale primario usando il portale di Azure.
 
    La tabella seguente mostra i valori necessari per il gateway per l'istanza gestita primaria:
  
-    | **Campo** | Value |
+    | **Campo** | Valore |
     | --- | --- |
     | **Sottoscrizione** |  Sottoscrizione in cui si trova l'istanza gestita primaria. |
     | **Nome** | Nome del gateway di rete virtuale. | 
@@ -371,7 +371,7 @@ Creare il gateway di rete virtuale primario usando il portale di Azure.
     | **Tipo di gateway** | Selezionare **VPN**. |
     | **Tipo di VPN** | Seleziona **basato su Route** |
     | **SKU**| Lasciare il valore predefinito `VpnGw1`. |
-    | **Località**| Il percorso in cui si trova l'istanza gestita secondaria e la rete virtuale secondaria.   |
+    | **Posizione**| Il percorso in cui si trova l'istanza gestita secondaria e la rete virtuale secondaria.   |
     | **Rete virtuale**| Selezionare la rete virtuale per l'istanza gestita secondaria. |
     | **Indirizzo IP pubblico**| Selezionare **Crea nuovo**. |
     | **Nome dell'indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP. |
@@ -419,12 +419,12 @@ Creare il gateway di rete virtuale primario usando PowerShell.
 
 Creare il gateway di rete virtuale secondario usando il portale di Azure o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 Ripetere i passaggi nella sezione precedente per creare la subnet della rete virtuale e il gateway per l'istanza gestita secondaria. Compilare i campi obbligatori per configurare il gateway per l'istanza gestita secondaria. 
 
    La tabella seguente mostra i valori necessari per il gateway per l'istanza gestita secondaria:
 
-   | **Campo** | Value |
+   | **Campo** | Valore |
    | --- | --- |
    | **Sottoscrizione** |  Sottoscrizione in cui si trova l'istanza gestita secondaria. |
    | **Nome** | Nome del gateway di rete virtuale, ad esempio `secondary-mi-gateway`. | 
@@ -432,7 +432,7 @@ Ripetere i passaggi nella sezione precedente per creare la subnet della rete vir
    | **Tipo di gateway** | Selezionare **VPN**. |
    | **Tipo di VPN** | Seleziona **basato su Route** |
    | **SKU**| Lasciare il valore predefinito `VpnGw1`. |
-   | **Località**| Il percorso in cui si trova l'istanza gestita secondaria e la rete virtuale secondaria.   |
+   | **Posizione**| Il percorso in cui si trova l'istanza gestita secondaria e la rete virtuale secondaria.   |
    | **Rete virtuale**| Selezionare la rete virtuale creata nella sezione 2, ad esempio `vnet-sql-mi-secondary`. |
    | **Indirizzo IP pubblico**| Selezionare **Crea nuovo**. |
    | **Nome dell'indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `secondary-gateway-IP`. |
@@ -481,7 +481,7 @@ Creare connessioni tra i due gateway usando il portale di Azure o PowerShell.
 
 La chiave condivisa utilizzata per entrambe le connessioni deve essere la stessa per ogni connessione. 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 Creare connessioni tra i due gateway usando il portale di Azure. 
 
 1. Selezionare **Crea una risorsa** dal [portale di Azure](https://portal.azure.com).
@@ -539,7 +539,7 @@ Creare connessioni tra i due gateway usando PowerShell.
 ### <a name="create-the-failover-group"></a>Creare il gruppo di failover 
 Creare il gruppo di failover per le istanze gestite usando il portale di Azure o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 Creare il gruppo di failover per le istanze gestite utilizzando portale di Azure. 
 
@@ -581,7 +581,7 @@ Creare il gruppo di failover per le istanze gestite usando PowerShell.
 
 Testare il failover del gruppo di failover usando il portale di Azure o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 Testare il failover del gruppo di failover usando il portale di Azure. 
 

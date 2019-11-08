@@ -4,15 +4,16 @@ description: Presentazione delle opportunità offerte da Azure Marketplace e Mic
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: cd6b09a1130e50fae7bd83579a0f176af0b5b9cd
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: fba9c481ad9b3da1eb0dd5d8a4ff2499240a8cfa
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962614"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826489"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guida alla pubblicazione per Azure Marketplace e AppSource
 
@@ -30,7 +31,7 @@ Questa guida include gli argomenti seguenti:
 
 Questa guida contiene informazioni sia tecniche che aziendali sui passaggi che è necessario eseguire prima di pubblicare inserzioni relative ad applicazioni e servizi. Per visualizzare le diverse sezioni della guida e passare direttamente agli argomenti di proprio interesse, usare il sommario.
 
-Per eventuali domande su Azure Marketplace e AppSource, inviare un messaggio da **Tipo di problema** > **Marketplace Onboarding**.  Il Team Marketplace Publisher Onboarding sarà lieto di offrire il proprio supporto. 
+Per eventuali domande su Azure Marketplace e AppSource, inviare un messaggio da **Tipo di problema** > **Marketplace Onboarding**.  Il team di caricamento dell'editore del Marketplace sarà lieto di aiutarti. 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Vantaggi della partecipazione a Marketplace 
 
@@ -56,7 +57,7 @@ Eseguire l'upselling e il cross-selling delle soluzioni risolvendo i problemi de
 
 Le nuove inserzioni in Marketplace possono usufruire di un'ampia gamma di vantaggi gratuiti pensati per consentire ai partner di far crescere la propria azienda in Marketplace. Tali vantaggi sono classificabili nelle seguenti categorie: 
 
-*   Tecnica: tutto il necessario per preparare l'applicazione per il lancio, dal supporto tecnico alla progettazione dell'applicazione, alla progettazione dell'architettura fino ai crediti di Azure per sviluppo e test. 
+*   Tecnica: tutto il che necessario per preparare l'applicazione per il lancio, dal supporto tecnico alla progettazione dell'applicazione, alla progettazione dell'architettura fino ai crediti di Azure per sviluppo e test. 
 
 *   Co-marketing: tutto il necessario per lanciare l'offerta. È possibile accedere gratuitamente alle nozioni fondamentali di Microsoft Go-to-Market per lanciare e promuovere la propria soluzione. Si può anche risultare idonei a partecipare ad altre campagne di marketing Microsoft e godere dell'opportunità di apparire in primo piano in Marketplace.
 

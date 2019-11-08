@@ -1,5 +1,5 @@
 ---
-title: Creare un database singolo - Database SQL di Azure | Microsoft Docs
+title: Creare un database singolo
 description: Informazioni su come creare un database singolo ed eseguire query nel database SQL di Azure usando il portale di Azure, PowerShell e l'interfaccia della riga di comando di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
 ms.date: 09/09/2019
-ms.openlocfilehash: 0035495d9dd3b82b65aa3b4a7b1d918c73288df8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 482fc3f08fb986908efcab83a82338ced36ee689
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496136"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821016"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Guida introduttiva: Creare un database singolo nel database SQL di Azure usando il portale di Azure, PowerShell e l'interfaccia della riga di comando di Azure
 

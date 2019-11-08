@@ -1,22 +1,22 @@
 ---
-title: 'Guida introduttiva: libreria client di archiviazione BLOB di Azure per Java SDK V8'
-description: Si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). Usare quindi la libreria client di archiviazione di Azure per Java SDK V8 per caricare un BLOB in archiviazione di Azure, scaricare un BLOB ed elencare i BLOB in un contenitore.
+title: 'Guida introduttiva: libreria client di archiviazione BLOB di Azure V8 per Java'
+description: Si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). Usare quindi la libreria client di archiviazione di Azure V8 per Java per caricare un BLOB in archiviazione di Azure, scaricare un BLOB ed elencare i BLOB in un contenitore.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 10/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 404599ade960d43ef2cb86777fb41701ce96e11b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a6c4380e44d705e551bc96746a809c57aa02ac5b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609125"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825381"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-for-java-sdk-v8"></a>Guida introduttiva: libreria client di archiviazione BLOB di Azure per Java SDK V8
+# <a name="quickstart-azure-blob-storage-client-library-v8-for-java"></a>Guida introduttiva: libreria client di archiviazione BLOB di Azure V8 per Java
 
-Introduzione alla libreria client di archiviazione BLOB di Azure per Java. Archiviazione BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati.
+Introduzione alla libreria client di archiviazione BLOB di Azure V8 per Java. Archiviazione BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati.
 
 Usare la libreria client di archiviazione BLOB di Azure per Java per:
 

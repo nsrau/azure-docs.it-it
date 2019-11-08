@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: c28469e15841e2675c20868b74cf044159c4e9ca
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 2962f6c5032ba317f9eb8f10c2abddb566aad904
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259183"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825513"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Come gestire l'account del Marketplace commerciale nel centro per i partner 
 
@@ -48,14 +49,14 @@ Le impostazioni dell'account si trovano nell'angolo superiore destro del [Dashbo
 ![Menu delle impostazioni dell'account nel centro per i partner](./media/dashboard-developer-settings.png)
 
 All'interno **delle impostazioni dell'account**, sarà possibile visualizzare:
-- **Dettagli account**: Stato dell'account e del tipo di account
-- **ID editore**: ID venditore, ID utente, ID editore, tenant Azure AD e così via.
-- **Informazioni contatto**: Nome visualizzato dell'editore, nome contatto del venditore, indirizzo di posta elettronica, telefono e indirizzo
-- **Dettagli finanziari**: Stato dell'account, del profilo fiscale e del pagamento
-- **Dispositivi**: Qualsiasi dispositivo di test associato all'account
-- **GUID di rilevamento**: Qualsiasi GUID di rilevamento associato all'account
+- **Dettagli account**: tipo di account e stato dell'account
+- ID **editore**: ID venditore, ID utente, ID editore, tenant Azure ad e così via.
+- **Informazioni di contatto**: nome visualizzato dell'editore, nome contatto del venditore, indirizzo di posta elettronica, telefono e indirizzo
+- **Dettagli finanziari**: account di pagamento, profilo fiscale e stato di mantenimento dei pagamenti
+- **Dispositivi**: qualsiasi dispositivo di test associato all'account
+- **GUID di rilevamento**: qualsiasi GUID di rilevamento associato all'account
 
-### <a name="account-details"></a>Dettagli dell'account
+### <a name="account-details"></a>Dettagli account
 
 Nella sezione dettagli account è possibile visualizzare le informazioni di base, ad esempio il **tipo di account** (società o utente singolo) e lo stato di **Verifica** dell'account. Durante il processo di verifica dell'account, queste impostazioni visualizzeranno ogni passaggio necessario, tra cui verifica della posta elettronica, verifica dell'utilizzo e verifica dell'attività. Se necessario, è anche possibile aggiornare la posta elettronica e inviare nuovamente la verifica. 
 
@@ -63,7 +64,7 @@ Nella sezione dettagli account è possibile visualizzare le informazioni di base
 
 Nella sezione ID editore è possibile visualizzare l'ID **venditore**, l' **ID MPN**e l' **ID editore**. Questi valori vengono assegnati da Microsoft per identificare in modo univoco l'account sviluppatore e non possono essere modificati.
 
-### <a name="contact-info"></a>Informazioni contatto
+### <a name="contact-info"></a>Informazioni di contatto
 
 Nella sezione informazioni di contatto è possibile visualizzare il **nome visualizzato dell'editore**, le **informazioni di contatto del venditore** (il nome del contatto, la posta elettronica, il numero di telefono e l'indirizzo del venditore della società) e il **responsabile approvazione della società** (nome, indirizzo di posta elettronica e numero di telefono del utente con autorità per approvare le decisioni per l'azienda. 
 
@@ -83,8 +84,8 @@ Per configurare l'account di pagamento, è necessario **associare l'account Micr
 3. Per completare la configurazione dell'account di pagamento, accedere completamente al centro per i partner, quindi accedere nuovamente con l'account Microsoft, anziché con l'account aziendale. 
 
 Ora che l'account Microsoft è associato, per aggiungere un account di pagamento, sarà necessario:
-- **Scegliere un metodo di pagamento**: Conto bancario o PayPal
-- **Aggiungere le informazioni di pagamento**: Ciò può includere la scelta di un tipo di account (controllo o risparmio), l'immissione del nome del titolare dell'account, il numero di account, il numero di routing, l'indirizzo di fatturazione, il numero di telefono o l'indirizzo di posta elettronica PayPal. \* Per altre informazioni sull'uso di PayPal come metodo di pagamento dell'account e per sapere se è supportato nell'area del mercato, vedere [informazioni su PayPal](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+- **Scegliere un metodo di pagamento**: conto bancario o PayPal
+- **Aggiungere le informazioni di pagamento**: è possibile scegliere un tipo di account (controllo o risparmio), immettere il nome del titolare dell'account, il numero di account, il numero di routing, l'indirizzo di fatturazione, il numero di telefono o l'indirizzo di posta elettronica PayPal. \* Per altre informazioni sull'uso di PayPal come metodo di pagamento dell'account e per sapere se è supportato nell'area del mercato, vedere [informazioni su PayPal](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
 > [!IMPORTANT]
 > La modifica dell'account per il pagamento può ritardare i pagamenti per un massimo di un ciclo di pagamento. Questo ritardo si verifica perché è necessario verificare la modifica dell'account, proprio come quando si configura prima l'account di pagamento. Dopo aver verificato l'account, verrà comunque pagato per l'intero importo. Ii pagamenti in scadenza per il ciclo pagamento corrente saranno aggiunti a quello successivo.  
@@ -124,7 +125,7 @@ Dopo aver impostato lo stato di mantenimento dei pagamenti **su on**, tutti i pa
 
 ### <a name="devices"></a>Dispositivi
 
-Le impostazioni di gestione del dispositivo si applicano solo alla pubblicazione UWP. [Altre informazioni](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info)
+Le impostazioni di gestione del dispositivo si applicano solo alla pubblicazione UWP. [Altre informazioni](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
 
 ### <a name="tracking-guids"></a>GUID di rilevamento
 
@@ -149,7 +150,7 @@ Per altre informazioni, vedere le [domande frequenti su come tenere traccia dell
 
 Il centro per i partner utilizza [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure ad) per l'accesso e la gestione di account multiutente. Il Azure AD dell'organizzazione viene automaticamente associato all'account del centro per i partner come parte del processo di registrazione. 
 
-## <a name="manage-users"></a>Gestisci utenti
+## <a name="manage-users"></a>Gestire gli utenti
 
 La sezione **utenti** del centro per i partner (in **Impostazioni account**) consente di usare Azure ad per gestire gli utenti, i gruppi e le applicazioni Azure ad che hanno accesso all'account del centro per i partner. Per gestire gli utenti, è necessario aver eseguito l'accesso con l' [account](./company-work-accounts.md) aziendale (il tenant Azure ad associato). Per gestire gli utenti all'interno di un account aziendale o tenant diverso, è necessario disconnettersi e quindi accedere di nuovo come utente con autorizzazioni di **gestione** per tale account di lavoro/tenant. 
 
@@ -223,7 +224,7 @@ Se è necessario modificare la password di uno degli utenti, è possibile farlo 
 3.  Verrà visualizzata una pagina di conferma che mostra le informazioni di accesso per l'utente, inclusa una password temporanea. Assicurarsi di stampare o copiare queste informazioni e di fornirle all'utente, perché non sarà possibile accedere alla password temporanea dopo aver lasciato questa pagina.
 
 
-## <a name="manage-groups"></a>Gestisci i gruppi
+## <a name="manage-groups"></a>Gestire i gruppi
 
 I gruppi consentono di controllare contemporaneamente più ruoli utente e autorizzazioni.
 
@@ -339,9 +340,9 @@ Per creare un nuovo tenant di Azure AD con l'account del centro per i partner:
 
 1.  Nella pagina **tenant** (in **Impostazioni account**) selezionare **Crea un nuovo tenant Azure ad**.
 2. Immettere le informazioni sulla directory per la nuova Azure AD:
-    - **Nome di dominio**: Nome univoco che verrà usato per il dominio Azure AD, insieme a ". onmicrosoft.com". Ad esempio, se è stato immesso "example", il dominio Azure AD sarà "example.onmicrosoft.com".
-    - **Indirizzo di posta elettronica di contatto**: Un indirizzo di posta elettronica in cui è possibile contattare l'utente per l'account, se necessario.
-    - **Informazioni sull'account utente dell'amministratore globale**: Il nome, il cognome, il nome utente e la password che si desidera utilizzare per il nuovo account amministratore globale.
+    - **Nome di dominio**: nome univoco che verrà usato per il dominio Azure ad, insieme a ". onmicrosoft.com". Ad esempio, se è stato immesso "example", il dominio Azure AD sarà "example.onmicrosoft.com".
+    - **Email di contatto**: indirizzo di posta elettronica in cui è possibile contattare l'utente per l'account, se necessario.
+    - **Informazioni sull'account utente dell'amministratore globale**: il nome, il cognome, il nome utente e la password che si desidera utilizzare per il nuovo account amministratore globale.
 3. Selezionare **Crea** per confermare il nuovo dominio e le informazioni sull'account.
 4. Accedere con il nuovo nome utente e la password dell'amministratore globale di Azure AD per iniziare ad [aggiungere e gestire gli utenti](#manage-users).
 
@@ -357,7 +358,7 @@ Quando si rimuove un tenant, tutti gli utenti aggiunti all'account del centro pe
 > Non è possibile rimuovere un tenant se è stato eseguito l'accesso al centro per i partner usando un account nello stesso tenant. Per rimuovere un tenant, è necessario accedere al centro per i partner come **responsabile** di un altro tenant associato all'account. Se è presente un solo tenant associato all'account, il tenant può essere rimosso solo dopo aver eseguito l'accesso con la account Microsoft che ha aperto l'account.
 
 
-## <a name="agreements"></a>Accordi
+## <a name="agreements"></a>Contratti
 
 La sezione **contratti** di centro per i partner (in **Impostazioni account**) consente di visualizzare un elenco dei contratti di pubblicazione autorizzati. Questi contratti sono elencati in base al nome e al numero di versione, inclusa la data di accettazione e il nome dell'utente che ha accettato l'accordo. 
 

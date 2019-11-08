@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio e ottimizzazione delle prestazioni-database SQL di Azure
+title: Monitoraggio e ottimizzazione delle prestazioni
 description: Suggerimenti per l'ottimizzazione delle prestazioni nel database SQL di Azure tramite valutazione e miglioramento.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: c11112963ec82a0e53df156048495e7b5141bcb7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e77af00dc3352af3265da90685e58b34c96bee81
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687758"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825154"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoraggio e ottimizzazione delle prestazioni
 
@@ -34,7 +34,7 @@ Per assicurarsi che un database venga eseguito senza problemi, è necessario:
 
 Per monitorare le prestazioni di un database SQL in Azure, iniziare monitorando le risorse usate in relazione al livello di prestazioni del database scelto. Monitorare le risorse seguenti:
  - **Utilizzo CPU**: verificare se il database sta raggiungendo il 100% dell'utilizzo della CPU per un lungo periodo di tempo. Un utilizzo elevato della CPU potrebbe indicare che è necessario identificare e ottimizzare le query che utilizzano la potenza di calcolo maggiore. Un utilizzo elevato della CPU potrebbe indicare anche che l'istanza o il database deve essere aggiornato a un livello di servizio superiore. 
- - **Statistiche di attesa**: utilizzare [sys. dm _os_wait_stats (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) per determinare il tempo di attesa delle query. Le query possono essere in attesa di risorse, attese di accodamento o attese esterne. 
+ - **Statistiche di attesa**: utilizzare [sys. dm_os_wait_stats (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) per determinare il tempo di attesa delle query. Le query possono essere in attesa di risorse, attese di accodamento o attese esterne. 
  - **Utilizzo**i/o: verificare se il database sta raggiungendo i limiti di i/o dell'archiviazione sottostante.
  - **Utilizzo memoria**: la quantità di memoria disponibile per il database o l'istanza è proporzionale al numero di vcore. Verificare che la memoria sia sufficiente per il carico di lavoro. La permanenza presunta della pagina è uno dei parametri che possono indicare la velocità con cui le pagine vengono rimosse dalla memoria.
 
@@ -91,11 +91,11 @@ Se si rileva un problema di prestazioni correlato all'esecuzione, l'obiettivo co
 - Usare il [portale di Azure](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal) per monitorare l'utilizzo della percentuale di CPU.
 - Usare il [DMV](sql-database-monitoring-with-dmvs.md)seguente:
 
-  - La DMV [sys. dm _db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) restituisce CPU, i/O e utilizzo di memoria per un database SQL. È presente una riga per ogni intervallo di 15 secondi, anche se non è presente alcuna attività nel database. I dati cronologici vengono conservati per un'ora.
+  - La DMV [sys. dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) restituisce il consumo di CPU, i/O e memoria per un database SQL. È presente una riga per ogni intervallo di 15 secondi, anche se non è presente alcuna attività nel database. I dati cronologici vengono conservati per un'ora.
   - La DMV [sys. resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) restituisce i dati di archiviazione e di utilizzo della CPU per il database SQL di Azure. I dati vengono raccolti e aggregati in intervalli di cinque minuti.
 
 > [!IMPORTANT]
-> Per risolvere i problemi di utilizzo della CPU per le query T-SQL che usano sys. dm _db_resource_stats e sys. resource_stats DMV, vedere [identificare i problemi di prestazioni della CPU](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
+> Per risolvere i problemi di utilizzo della CPU per le query T-SQL che usano sys. dm_db_resource_stats e sys. resource_stats DMV, vedere [identificare i problemi di prestazioni della CPU](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
 
 ### <a name="ParamSniffing"></a>Query con problemi di PSP
 
@@ -108,7 +108,7 @@ Diverse soluzioni alternative possono mitigare i problemi relativi a PSP. Per og
 - Usare l'hint per la query [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) a ogni esecuzione di query. Questa soluzione alternativa offre tempi di compilazione ridotti e una maggiore quantità di CPU per una migliore qualità del piano. L'opzione `RECOMPILE` non è spesso possibile per i carichi di lavoro che richiedono una velocità effettiva elevata.
 - Utilizzare l'hint per la query [Option (Optimize for...)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) per eseguire l'override del valore del parametro effettivo con un valore di parametro tipico che produce un piano sufficientemente adatto per la maggior parte delle possibilità di valore del parametro. Questa opzione richiede una buona conoscenza dei valori di parametro ottimali e delle caratteristiche del piano associate.
 - Utilizzare l'hint per la query [Option (Optimize for Unknown)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) per eseguire l'override del valore del parametro effettivo e utilizzare invece la media del vettore di densità. È anche possibile eseguire questa operazione acquisendo i valori dei parametri in ingresso nelle variabili locali e quindi usando le variabili locali all'interno dei predicati invece di usare i parametri stessi. Per questa correzione, la densità media deve essere *sufficientemente adeguata*.
-- Disabilitare completamente lo sniffing dei parametri usando l'hint per la query [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) .
+- Disabilitare interamente lo sniffing dei parametri utilizzando l'hint per la query [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) .
 - Utilizzare l'hint per la query [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) per impedire ricompilazioni nella cache. Questa soluzione si basa sul presupposto che il piano comune sufficientemente valido sia quello nella cache. È anche possibile disabilitare gli aggiornamenti automatici delle statistiche per ridurre le probabilità che venga eliminato il piano valido e che verrà compilato un nuovo piano non valido.
 - Forzare il piano in modo esplicito utilizzando l'hint per la query [use Plan](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) riscrivendo la query e aggiungendo l'hint nel testo della query. In alternativa, impostare un piano specifico utilizzando Query Store o abilitando l' [ottimizzazione automatica](sql-database-automatic-tuning.md).
 - Sostituire la procedura singola con un set annidato di procedure, ognuna delle quali può essere usata in base alla logica condizionale e ai valori dei parametri associati.
@@ -181,7 +181,7 @@ Una ricompilazione (o una nuova compilazione dopo la rimozione della cache) può
 
 - **Statistiche diverse**: le statistiche associate agli oggetti a cui si fa riferimento potrebbero essere state modificate o potrebbero essere materialmente diverse dalle statistiche del sistema originale.  Se le statistiche cambiano e viene eseguita una ricompilazione, il Query Optimizer utilizza le statistiche a partire da quando sono state modificate. Le frequenze e le distribuzioni dei dati delle statistiche rivedute potrebbero essere diverse da quelle della compilazione originale.  Queste modifiche vengono usate per creare stime della cardinalità. (Le*stime della cardinalità* sono il numero di righe che dovrebbero essere propagate attraverso l'albero delle query logiche). Le modifiche alle stime della cardinalità possono comportare la scelta di operatori fisici diversi e gli ordini di operazioni associati.  Anche le modifiche minime alle statistiche possono generare un piano di esecuzione delle query modificato.
 
-- Modifica del **livello di compatibilità del database o della versione di stima della cardinalità**: le modifiche apportate al livello di compatibilità del database possono consentire nuove strategie e funzionalità che potrebbero generare un piano di esecuzione di query diverso.  Oltre al livello di compatibilità del database, un flag di traccia disabilitato o abilitato 4199 o uno stato modificato della configurazione con ambito database QUERY_OPTIMIZER_HOTFIXES può anche influenzare le scelte del piano di esecuzione delle query in fase di compilazione.  I flag di traccia 9481 (Force legacy CE) e 2312 (Force default CE) influiscono anche sul piano. 
+- Modifica del **livello di compatibilità del database o della versione di stima della cardinalità**: le modifiche apportate al livello di compatibilità del database possono consentire nuove strategie e funzionalità che potrebbero generare un piano di esecuzione di query diverso.  Oltre al livello di compatibilità del database, un flag di traccia disabilitato o abilitato 4199 o uno stato modificato della configurazione con ambito database QUERY_OPTIMIZER_HOTFIXES possono anche influenzare le scelte del piano di esecuzione delle query in fase di compilazione.  I flag di traccia 9481 (Force legacy CE) e 2312 (Force default CE) influiscono anche sul piano. 
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>Risolvere le query problematiche o fornire altre risorse
 
@@ -216,15 +216,15 @@ Se si è certi che il problema di prestazioni non è correlato all'utilizzo elev
 Questi metodi vengono comunemente usati per mostrare le categorie principali dei tipi di attesa:
 
 - Usare [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) per trovare le statistiche di attesa per ogni query nel tempo. In Query Store, i pi di attesa vengono combinati in categorie di attesa. È possibile trovare il mapping delle categorie di attesa ai tipi di attesa in [sys. query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
-- Utilizzare [sys. dm _db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) per restituire informazioni su tutte le attese rilevate dai thread eseguiti durante l'operazione. È possibile usare questa visualizzazione aggregata per diagnosticare problemi di prestazioni con il database SQL di Azure e anche con query e batch specifici.
-- Utilizzare [sys. dm _os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) per restituire informazioni sulla coda di attività in attesa di una risorsa.
+- Utilizzare [sys. dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) per restituire informazioni su tutte le attese rilevate dai thread eseguiti durante l'operazione. È possibile usare questa visualizzazione aggregata per diagnosticare problemi di prestazioni con il database SQL di Azure e anche con query e batch specifici.
+- Utilizzare [sys. dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) per restituire informazioni sulla coda di attività in attesa di una risorsa.
 
 Negli scenari con CPU elevata, Query Store e le statistiche di attesa potrebbero non riflettere l'utilizzo della CPU se:
 
 - Le query con utilizzo elevato di CPU sono ancora in esecuzione.
 - Le query con utilizzo elevato della CPU venivano eseguite quando si verificava un failover.
 
-DMV che tengono traccia delle statistiche di attesa e Query Store visualizzano i risultati solo per le query completate correttamente e scadute. Non visualizzano i dati per le istruzioni attualmente in esecuzione fino al completamento delle istruzioni. Utilizzare la vista a gestione dinamica [sys. dm _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per tenere traccia delle query attualmente in esecuzione e del tempo di lavoro associato.
+DMV che tengono traccia delle statistiche di attesa e Query Store visualizzano i risultati solo per le query completate correttamente e scadute. Non visualizzano i dati per le istruzioni attualmente in esecuzione fino al completamento delle istruzioni. Utilizzare la vista a gestione dinamica [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per tenere traccia delle query attualmente in esecuzione e del tempo di lavoro associato.
 
 Il grafico vicino all'inizio di questo articolo mostra che le attese più comuni sono:
 
@@ -239,7 +239,7 @@ Il grafico vicino all'inizio di questo articolo mostra che le attese più comuni
 > - [Identificare i problemi di prestazioni di IO](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identificare le attese di concessione di memoria](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
 > - [TigerToolbox attese e latch](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
-> - [TigerToolbox usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
+> - [Usp_whatsup TigerToolbox](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
 ## <a name="improve-database-performance-with-more-resources"></a>Migliorare le prestazioni del database con più risorse
 

@@ -1,6 +1,6 @@
 ---
 title: Funzionalità della soluzione Fabbrica connessa - Azure | Microsoft Docs
-description: Panoramica delle funzionalità della soluzione Factory connessa preconfigurata.
+description: Questo articolo descrive una panoramica delle funzionalità della soluzione preconfigurata di Connected Factory, ad esempio il dashboard cloud, le regole e gli avvisi.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
-ms.openlocfilehash: 2a11640959a8c7fdd0d238aba92698eb47934969
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c868aa0f1c2449ccf163523c9ded25a31d1d84c4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080456"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820102"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>Informazioni sull'acceleratore di soluzioni IoT Connected Factory
 
@@ -33,7 +33,7 @@ La soluzione Fabbrica connessa include le funzionalità seguenti:
 
 ## <a name="remote-management"></a>Gestione remota
 
-- Configura le risorse OPC UA dal dashboard cloud (chiamata di metodi, lettura e scrittura di dati).
+- Configurare le risorse OPC UA dal dashboard cloud (chiamata di metodi, lettura e scrittura di dati).
 - Pubblicare e annullare la pubblicazione di dati di telemetria dalle risorse OPC UA da un dashboard cloud.
 
 ## <a name="cloud-dashboard"></a>Dashboard cloud
@@ -65,4 +65,4 @@ La soluzione Fabbrica connessa include le funzionalità seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'acceleratore di soluzione di Connected Factory, vedere la Guida introduttiva [provare a una soluzione basata sul cloud per gestire i dispositivi IoT industriali](quickstart-connected-factory-deploy.md).
+Per altre informazioni sull'acceleratore della soluzione di Connected Factory, vedere la Guida introduttiva [provare a usare una soluzione basata su cloud per gestire i dispositivi industriali](quickstart-connected-factory-deploy.md).

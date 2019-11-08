@@ -5,15 +5,16 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 5b23a5e93dcbb9c13243240bda760a16d108d731
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6826657a4af74276e363acd585e80d101cc1459
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938467"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73828149"
 ---
 <a name="what-is-test-drive"></a>Informazioni sul test drive
 ===================
@@ -47,9 +48,9 @@ Qui di seguito, un esempio di come viene visualizzata un'offerta quando è richi
 
 Indipendentemente dalla complessità dell'applicazione, il test drive Microsoft consente al cliente di provare il prodotto in un ambiente reale. Oggi, sono disponibili tre tipi di test drive, ognuno basato sul tipo di prodotto, scenario e marketplace.
 
-- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** : Un test drive di Azure Resource Manager è un modello di distribuzione che contiene tutte le risorse di Azure che includono una soluzione compilata dall'editore. I prodotti che rientrano in questo scenario usano solo risorse di Azure.
-- **[App per la logica](./logic-app-test-drive.md)** : Una versione di Test di App per la logica è un modello di distribuzione che deve includere tutte le architetture delle soluzioni complesse. Tutte le applicazioni di Dynamics e i prodotti personalizzati dovrebbero usare questo tipo di test drive.
-- **Power BI**: Un'unità di Power BI Test è semplicemente un collegamento a un dashboard personalizzato compilato incorporato. Questo tipo di test drive dovrebbe essere usato per qualsiasi prodotto per il quale si vuole offrire un oggetto visivo Power BI interattivo.
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** : un test drive di Azure Resource Manager è un modello di distribuzione che contiene tutte le risorse di Azure che includono una soluzione compilata dall'editore. I prodotti che rientrano in questo scenario usano solo risorse di Azure.
+- **[App per la logica](./logic-app-test-drive.md)** : un test drive di app per la logica è un modello di distribuzione progettato per includere tutte le architetture di soluzioni complesse. Tutte le applicazioni di Dynamics e i prodotti personalizzati dovrebbero usare questo tipo di test drive.
+- **Power BI**: un test drive di Power BI non è altro che un collegamento incorporato a un dashboard personalizzato. Questo tipo di test drive dovrebbe essere usato per qualsiasi prodotto per il quale si vuole offrire un oggetto visivo Power BI interattivo.
     È sufficiente caricare l'URL di Power BI incorporato qui.
 
 <a name="what-goes-on-in-the-background"></a>Elementi pubblicati sullo sfondo

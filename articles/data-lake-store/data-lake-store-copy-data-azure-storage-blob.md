@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: be66fd51b37c0e62b2b757a88ee1db9319b2093a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ecd27c1be0fa6b4f13415cc21a57fcdaaf962de
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60878835"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824576"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copiare i dati da BLOB di Archiviazione di Azure ad Azure Data Lake Storage Gen1
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "60878835"
 >
 >
 
-Azure Data Lake Storage Gen1 offre uno strumento da riga di comando, [AdlCopy](https://aka.ms/downloadadlcopy), per copiare dati dalle origini seguenti:
+Azure Data Lake Storage Gen1 offre uno strumento da riga di comando, [AdlCopy](https://www.microsoft.com/download/details.aspx?id=50358), per copiare dati dalle origini seguenti:
 
 * Dai BLOB di Archiviazione di Azure a Data Lake Storage Gen1. Non è possibile usare lo strumento AdlCopy per copiare dati da Data Lake Storage Gen1 ai BLOB di Archiviazione di Azure.
 * Tra due account Azure Data Lake Storage Gen1.
@@ -39,11 +39,11 @@ Azure Data Lake Storage Gen1 offre uno strumento da riga di comando, [AdlCopy](h
 ## <a name="prerequisites"></a>Prerequisiti
 Per eseguire le procedure descritte nell'articolo è necessario:
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **BLOB di Archiviazione di Azure** con alcuni dati.
 * **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, consultare [Introduzione ad Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Un account di Azure Data Lake Analytics (facoltativo)** . Per istruzioni su come creare un account di Data Lake Analytics, vedere [Introduzione ad Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
-* **Lo strumento AdlCopy**. Installare lo strumento AdlCopy da [https://aka.ms/downloadadlcopy](https://aka.ms/downloadadlcopy).
+* **Lo strumento AdlCopy**. Installare lo [strumento AdlCopy](https://www.microsoft.com/download/details.aspx?id=50358).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>Sintassi dello strumento AdlCopy
 Usare la sintassi seguente per usare lo strumento AdlCopy
@@ -54,12 +54,12 @@ I parametri nella sintassi sono descritti di seguito:
 
 | Opzione | Descrizione |
 | --- | --- |
-| `Source` |Specifica il percorso dei dati di origine nel BLOB di Archiviazione di Azure. L'origine può essere un contenitore BLOB, un BLOB o un altro account Data Lake Storage Gen1. |
+| Source |Specifica il percorso dei dati di origine nel BLOB di Archiviazione di Azure. L'origine può essere un contenitore BLOB, un BLOB o un altro account Data Lake Storage Gen1. |
 | Dest |Specifica la destinazione di Data Lake Storage Gen1 in cui eseguire la copia. |
 | SourceKey |Specifica la chiave di accesso alle risorse di archiviazione per l'origine BLOB di Archiviazione di Azure. La chiave è necessaria solo se l'origine è un contenitore BLOB o un BLOB. |
 | Account |**Facoltativo**. Scegliere questa opzione se si vuole usare l'account di Analisi Azure Data Lake per eseguire il processo di copia. Se si usa l'opzione /Account nella sintassi ma non si specifica un account di Analisi Data Lake, AdlCopy usa un account predefinito per eseguire il processo. Inoltre, se si sceglie questa opzione, è necessario aggiungere l'origine (BLOB di Archiviazione di Azure) e la destinazione (Azure Data Lake Storage Gen1) come origini dati per l'account di Data Lake Analytics. |
 | Unità |Specifica il numero di unità di Analisi Data Lake che verranno usate per il processo di copia. Questa opzione è obbligatoria se si usa l'opzione **/Account** per specificare l'account di Analisi Data Lake. |
-| Pattern |Specifica un modello regex che indica quali BLOB o file copiare. AdlCopy usa la corrispondenza tra maiuscole e minuscole. La copia di tutti gli elementi è il criterio predefinito usato quando non viene specificato alcun modello. Non è consentito specificare più criteri file. |
+| Modello |Specifica un modello regex che indica quali BLOB o file copiare. AdlCopy usa la corrispondenza tra maiuscole e minuscole. La copia di tutti gli elementi è il criterio predefinito usato quando non viene specificato alcun modello. Non è consentito specificare più criteri file. |
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>Usare AdlCopy (come file autonomo) per copiare i dati da un BLOB di Archiviazione di Azure
 1. Aprire un prompt dei comandi e passare alla directory in cui è installato AdlCopy, in genere `%HOMEPATH%\Documents\adlcopy`.
@@ -92,7 +92,7 @@ I parametri nella sintassi sono descritti di seguito:
 
 ### <a name="performance-considerations"></a>Considerazioni sulle prestazioni
 
-Quando si esegue una copia da un account di Archiviazione BLOB di Azure, è possibile che alcune operazioni siano limitate nell'ambito dell'archiviazione BLOB. In questo caso le prestazioni del processo di copia diminuiranno. Per altre informazioni sui limiti di Archiviazione BLOB di Azure, vedere i limiti di Archiviazione di Azure in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
+Quando si esegue una copia da un account di Archiviazione BLOB di Azure, è possibile che alcune operazioni siano limitate nell'ambito dell'archiviazione BLOB. In questo modo le prestazioni del processo di copia diminuiranno. Per altre informazioni sui limiti di Archiviazione BLOB di Azure, vedere i limiti di Archiviazione di Azure in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-another-data-lake-storage-gen1-account"></a>Usare AdlCopy (come file autonomo) per copiare i dati da un altro account di Data Lake Storage Gen1
 È anche possibile usare AdlCopy per copiare dati tra due account Data Lake Storage Gen1.
@@ -129,7 +129,7 @@ Quando si usa AdlCopy come strumento autonomo, la copia viene eseguita su risors
 ## <a name="use-adlcopy-with-data-lake-analytics-account-to-copy-data"></a>Usare AdlCopy (con un account Data Lake Analytics) per copiare i dati
 È anche possibile usare l'account di Data Lake Analytics per eseguire il processo AdlCopy per copiare dati da BLOB di Archiviazione di Azure a Data Lake Storage Gen1. In genere si sceglie questa opzione quando i dati da spostare sono nell'ordine di gigabyte e terabyte e si vuole una velocità effettiva delle prestazioni migliore e prevedibile.
 
-Per usare l'account Data Lake Analytics con AdlCopy per eseguire la copia da un BLOB di Archiviazione di Azure, l'origine (BLOB di Archiviazione di Azure) deve essere aggiunta come origine dati per l'account Data Lake Analytics. Per istruzioni sull'aggiunta di origini dati aggiuntive all'account di Data Lake Analytics, vedere [Gestire Analisi Data Lake tramite il portale di Azure](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-data-sources).
+Per usare l'account Data Lake Analytics con AdlCopy per eseguire la copia da un BLOB di Archiviazione di Azure, l'origine (BLOB di Archiviazione di Azure) deve essere aggiunta come origine dati per l'account Data Lake Analytics. Per istruzioni sull'aggiunta di origini dati aggiuntive all'account di Analisi Data Lake, vedere [Gestire Analisi Data Lake tramite il portale di Azure](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-data-sources).
 
 > [!NOTE]
 > Se si esegue la copia da un account Azure Data Lake Storage Gen1 come origine tramite un account Data Lake Analytics, non è necessario associare l'account Data Lake Storage Gen1 all'account Data Lake Analytics. È necessario associare l'archivio di origine con l'account Data Lake Analytics solo quando l'origine è un account di Archiviazione di Azure.
@@ -156,7 +156,7 @@ Quando si copiano dati nell'ordine di terabyte, l'uso di AdlCopy con il proprio 
 Questa sezione descrive come usare AdlCopy per copiare i dati da un'origine (nell'esempio di seguito un BLOB di Archiviazione di Azure) a un account Data Lake Storage Gen1 di destinazione tramite la corrispondenza dei modelli. Ad esempio, è possibile usare la procedura seguente per copiare tutti i file con estensione csv dal BLOB di origine alla destinazione.
 
 1. Aprire un prompt dei comandi e passare alla directory in cui è installato AdlCopy, in genere `%HOMEPATH%\Documents\adlcopy`.
-2. Eseguire il comando seguente per copiare tutti i file con estensione *.csv da un BLOB specifico del contenitore di origine a una cartella di Data Lake Storage Gen1:
+2. Eseguire il comando seguente per copiare tutti i file con estensione csv da un BLOB specifico del contenitore di origine a una cartella di Data Lake Storage Gen1:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
 

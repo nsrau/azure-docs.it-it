@@ -1,5 +1,5 @@
 ---
-title: Accesso condizionale - Database SQL di Azure e Azure SQL Data Warehouse | Microsoft Docs
+title: Accesso condizionale
 description: Informazioni su come configurare l'accesso condizionale per il database SQL di Azure e Azure SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 03/29/2019
-ms.openlocfilehash: 1b7000138c4dfc42b774969c1b971d969064b78f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b8c0dbe03e47d32d8194408663973f07a07b1b9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569306"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827157"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Accesso condizionale (MFA) con il database SQL di Azure e Azure SQL Data Warehouse  
 
@@ -33,7 +33,7 @@ La procedura seguente mostra come configurare il database SQL per applicare un c
 
 ## <a name="configure-ca-for-azure-sql-dbdw"></a>Configurare l'autorità di certificazione per il database SQL di Azure o Azure SQL Data Warehouse  
 1. Accedere al portale, selezionare **Azure Active Directory**e quindi selezionare **accesso condizionale**. Per altre informazioni, vedere [Documentazione tecnica sull'accesso condizionale di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
-   ![Pannello accesso condizionale](./media/sql-database-conditional-access/conditional-access-blade.png) 
+   pannello accesso condizionale ![](./media/sql-database-conditional-access/conditional-access-blade.png) 
      
 2. Nel pannello **Accesso condizionale - Criteri** fare clic su **Nuovo criterio**, specificare un nome e quindi fare clic su **Configura regole**.  
 3. In **assegnazioni**selezionare **utenti e gruppi**, **selezionare utenti e gruppi**, quindi selezionare l'utente o il gruppo per l'accesso condizionale. Fare clic su **Seleziona** e quindi su **Fatto** per accettare la selezione.  

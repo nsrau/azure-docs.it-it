@@ -1,6 +1,6 @@
 ---
 title: Come distribuire un modulo OPC gemelle in un progetto Azure esistente | Microsoft Docs
-description: Come distribuire un dispositivo OPC gemello a un progetto esistente.
+description: Questo articolo descrive come distribuire un dispositivo OPC gemello a un progetto esistente. È anche possibile scoprire come risolvere i problemi di distribuzione.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 74b502a37081c729c5e33a0db7dc7f26cb44774b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: b971ec13c71ccfd7d28ae6987593d09201b9b764
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972273"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824127"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Distribuire un dispositivo OPC gemello a un progetto esistente
 
@@ -52,7 +52,7 @@ cd azure-iiot-components
 
    L'output include l'URL dell'endpoint pubblico. 
 
-3. Dopo aver completato lo script, selezionare se si desidera salvare il `.env` file.  È necessario il `.env` file dell'ambiente se si desidera connettersi all'endpoint cloud utilizzando strumenti come la console di o distribuire moduli per lo sviluppo e il debug.
+3. Una volta completato lo script, selezionare se si desidera salvare il file di `.env`.  È necessario il file dell'ambiente `.env` se si desidera connettersi all'endpoint cloud utilizzando strumenti come la console di o distribuire moduli per lo sviluppo e il debug.
 
 ## <a name="troubleshooting-deployment-failures"></a>Risoluzione degli errori di distribuzione
 

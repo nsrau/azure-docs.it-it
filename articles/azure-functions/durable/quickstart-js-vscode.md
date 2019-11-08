@@ -11,16 +11,18 @@ ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: glenga
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: b47e828f3b8d760594cb04ba40ceaa7248050c52
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 1a1586124a1cfb05f2b7c4e9c3b0070170447b96
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933480"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614586"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creare la prima funzione durevole in JavaScript
 
 *Durable Functions* è un'estensione di [Funzioni di Azure](../functions-overview.md) che consente di scrivere funzioni con stato in un ambiente senza server. L'estensione gestisce automaticamente lo stato, i checkpoint e i riavvii.
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 Questo articolo spiega come l'estensione di Funzioni di Azure in Visual Studio Code per creare e testare una funzione durevole "hello world" in locale.  Questa funzione orchestrerà e concatenerà le chiamate ad altre funzioni. Il codice della funzione verrà quindi pubblicato in Azure.
 

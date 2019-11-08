@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 804ef04f0066a8b8dd9df82aef03fcfc32d7cb43
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5d980cefa5aa953a3fb9683adb589bf202e73250
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343747"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826288"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Creare uno spazio dei nomi con l'hub eventi e abilitare l'acquisizione usando un modello
 
@@ -29,15 +29,15 @@ Questo articolo illustra anche come specificare l'acquisizione degli eventi in B
 
 Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager][Authoring Azure Resource Manager templates]. Per la sintassi e le proprietà JSON da usare in un modello, vedere i [tipi di risorsa Microsoft.EventHub](/azure/templates/microsoft.eventhub/allversions).
 
-Per altre informazioni su procedure e modelli relativi alle convenzioni di denominazione, vedere l'articolo relativo alle [convenzioni di denominazione delle risorse Azure][Azure Resources naming conventions].
+Per altre informazioni su modelli e procedure per le convenzioni di denominazione delle risorse di Azure, vedere [convenzioni di denominazione delle risorse di Azure][Azure Resources naming conventions].
 
 Per i modelli completi, fare clic sui collegamenti a GitHub seguenti:
 
-- [Modello per hub eventi e abilitazione dell'acquisizione in un archivio][Event Hub and enable Capture to Storage template] 
-- [Modello per hub eventi e abilitazione dell'acquisizione in Azure Data Lake Store][Event Hub and enable Capture to Azure Data Lake Store template]
+- [Hub eventi e abilitare l'acquisizione in un modello di archiviazione][Event Hub and enable Capture to Storage template] 
+- [Hub eventi e abilitare l'acquisizione per Azure Data Lake Store modello][Event Hub and enable Capture to Azure Data Lake Store template]
 
 > [!NOTE]
-> Per verificare gli ultimi modelli, vedere la raccolta [Modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare Hub eventi.
+> Per verificare gli ultimi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare Hub eventi.
 > 
 > 
 
@@ -439,6 +439,6 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
-[Azure Resources naming conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
+[Azure Resources naming conventions]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 [Event hub and enable Capture to Storage template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture
 [Event hub and enable Capture to Azure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls

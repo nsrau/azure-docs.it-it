@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2b8553c4c4b27e70eb5e4aeff447da9526c4ed1e
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d38b11b8fc4351c6b074ccfdf47df06a71e0a0a4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598285"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823961"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Eseguire la migrazione da Media Indexer e Media Indexer 2 a Video Indexer
 
 Il processore di contenuti multimediali [Azure Media Indexer](media-services-index-content.md) verrà ritirato il 1 ° ottobre del 2020. I processori di contenuti multimediali [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) verranno ritirati il 1 ° gennaio 2020.  [Servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questi processori di contenuti multimediali legacy.
 
-Servizi multimediali di Azure Video Indexer si basa su Analisi Servizi multimediali di Azure, ricerca di Azure, servizi cognitivi, ad esempio API Viso, Microsoft Translator, il API Visione artificiale e il servizio Riconoscimento vocale personalizzato. Consente di estrarre informazioni dettagliate dai video tramite i modelli audio e video di Video Indexer. Per informazioni sugli scenari in cui è possibile usare Video Indexer, sulle funzionalità offerte e su come iniziare, vedere [video Indexer modelli video e audio](../video-indexer/video-indexer-overview.md). 
+Servizi multimediali di Azure Video Indexer si basa su Analisi Servizi multimediali di Azure, ricerca cognitiva di Azure, servizi cognitivi, ad esempio il API Viso, Microsoft Translator, il API Visione artificiale e il servizio Riconoscimento vocale personalizzato. Consente di estrarre informazioni dettagliate dai video tramite i modelli audio e video di Video Indexer. Per informazioni sugli scenari in cui è possibile usare Video Indexer, sulle funzionalità offerte e su come iniziare, vedere [video Indexer modelli video e audio](../video-indexer/video-indexer-overview.md). 
 
 È possibile estrarre informazioni dettagliate dai file video e audio usando i [set di impostazioni di Azure Media Services V3 Analyzer](../latest/analyzing-video-audio-files-concept.md) o direttamente usando le [API video Indexer](https://api-portal.videoindexer.ai/). Attualmente esiste una sovrapposizione tra le funzionalità offerte dalle API Video Indexer e le API di servizi multimediali V3.
 
@@ -50,7 +50,7 @@ L'API di servizi multimediali di Azure v3 consente di estrarre informazioni dett
 
 **AudioAnalyzerPreset** consente di estrarre informazioni dettagliate sui contenuti audio da un file audio o video. L'output include un file VTT o TTML per la trascrizione audio e un file JSON (con tutte le informazioni aggiuntive sull'audio). Le informazioni dettagliate includono parole chiave, indicizzazione del parlante e analisi dei sentimenti vocali. AudioAnalyzerPreset supporta anche il rilevamento della lingua per lingue specifiche. Per informazioni dettagliate, vedere [trasformazioni](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset).
 
-### <a name="get-started"></a>Inizia oggi stesso
+### <a name="get-started"></a>Introduzione
 
 Per iniziare, vedere:
 
@@ -77,7 +77,7 @@ Di seguito sono riportate alcune differenze note:
 * I file BLOB di indicizzazione audio (AIB) non saranno più supportati. Questa funzionalità era specifica per la tecnologia dell'indicizzatore 1 e non è più disponibile.  
 * Servizi cognitivi (Speech Services) non supporta l'estrazione di parole chiave. Tuttavia, Video Indexer e Media Services V3 AudioAnalyzerPreset offrono un set più solido di parole chiave in formato di file JSON. 
 
-## <a name="need-help"></a>Opzioni per
+## <a name="need-help"></a>Richiesta di assistenza
 
 È possibile aprire un ticket di supporto passando alla [nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: d4a16fc3d4c29b1e270fa088af75d287a81180c0
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 04dcdbe6854a386f7edaa04aa9c2912789122a31
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552072"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827448"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 
@@ -69,7 +69,7 @@ Circonus è una piattaforma di monitoraggio e analisi di microservizi per la dis
 
 Unire e automatizzare il cloud con una piattaforma creata per risparmiare tempo e denaro. CloudHealth offre visibilità, ottimizzazione intuitiva e procedure di governance solidissime per la gestione del cloud. La piattaforma CloudHealth consente alle aziende e ai MSPs di massimizzare il ritorno sugli investimenti nel cloud. e di prendere decisioni informate su costi, utilizzo, prestazioni e sicurezza.
 
-[Ulteriori informazioni.][cloudhealth-doc]
+[Altre informazioni.][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -95,7 +95,7 @@ Dynatrace OneAgent si integra con Servizi app e con le VM di Azure per mezzo dei
 
 [Passare alla documentazione.][dynatrace-doc]
 
-## <a name="elastic"></a>Elasticità
+## <a name="elastic"></a>Elastic
 
 ![Logo elastico](./media/partners/elastic.png)
 
@@ -267,5 +267,5 @@ Turbonomic offre l'automazione dei carichi di lavoro per cloud ibridi, ottimizza
 [solarwinds-doc]: https://www.solarwinds.com/topics/azure-monitoring "Documentazione di SolarWinds."
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Documentazione di Splunk."
 [sumologic-doc]: https://www.sumologic.com/azure "Documentazione di SumoLogic."
-[turbonomic-doc]: https://turbonomic.com/solutions/technologies/azure-cloud/ "Documentazione di Turbonomic."
+[turbonomic-doc]: https://turbonomic.com/ "Documentazione di Turbonomic."
 

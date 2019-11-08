@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted: database SQL-Azure Key Vault '
+title: Always Encrypted Azure Key Vault
 description: Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia dei dati usando la procedura guidata Always Encrypted di SQL Server Management Studio.
 keywords: crittografia dei dati, chiave di crittografia, crittografia del cloud
 services: sql-database
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 7ba19f3f3e03c414d651082898976c5bd17e89c9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4fa4c461a3bcf5921be74eab9259fd07cc6b5f61
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691261"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826441"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: Proteggere i dati sensibili e archiviare le chiavi di crittografia in Azure Key Vault
 

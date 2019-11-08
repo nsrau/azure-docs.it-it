@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 35e6c61a8e8537035d70323c85dfc7a76f87cbcd
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 36ca95191e0e6422bd93360b98243393acad8147
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869560"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825484"
 ---
 # <a name="marketplace-metering-service-apis"></a>API del servizio di misurazione di Marketplace
 
@@ -20,7 +21,7 @@ L'API dell'evento Usage consente di generare eventi di utilizzo per un'entità a
 
 ## <a name="usage-event"></a>Evento di utilizzo
 
-**POST**:`https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**Post**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -34,7 +35,7 @@ L'API dell'evento Usage consente di generare eventi di utilizzo per un'entità a
 | ------------------ | ---------------------------- |
 | `x-ms-requestid`     | Valore stringa univoco per il rilevamento della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
 | `x-ms-correlationid` | Valore stringa univoco per l'operazione nel client. Questo parametro mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta. |
-| `authorization`   | [Ottenere il token Web JSON (JWT) bearer token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Nota: Quando si esegue la richiesta HTTP, `Bearer` anteporre al token ottenuto dal collegamento a cui si fa riferimento. |
+| `authorization`   | [Ottenere il token Web JSON (JWT) bearer token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Nota: quando si esegue la richiesta HTTP, il prefisso `Bearer` al token ottenuto dal collegamento a cui si fa riferimento. |
 
 *Richiesta:*
 
@@ -48,7 +49,7 @@ L'API dell'evento Usage consente di generare eventi di utilizzo per un'entità a
 }
 ```
 
-### <a name="responses"></a>Responses
+### <a name="responses"></a>Risposte
 
 Codice: 200<br>
 OK 
@@ -95,7 +96,7 @@ Richiesta non valida, dati mancanti o non validi forniti o scaduti
 ```
 
 Codice: 409<br>
-Conflitto, quando si riceve la chiamata di utilizzo per l'ID della risorsa di utilizzo e l'utilizzo effettivo, che esiste già. La risposta `additionalInfo` conterrà il campo che contiene informazioni sul messaggio accettato.
+Conflitto, quando si riceve la chiamata di utilizzo per l'ID della risorsa di utilizzo e l'utilizzo effettivo, che esiste già. La risposta conterrà `additionalInfo` campo che contiene informazioni sul messaggio accettato.
 
 ```json
 {
@@ -120,7 +121,7 @@ L'API dell'evento utilizzo batch consente di generare eventi di utilizzo per pi�
 >[!Note]
 >È possibile registrare più offerte SaaS nel Marketplace commerciale di Microsoft. Ogni offerta SaaS registrata ha un'applicazione Azure AD univoca registrata a scopo di autenticazione e autorizzazione. Gli eventi generati in batch devono appartenere a offerte con la stessa applicazione Azure AD al momento della registrazione dell'offerta.
 
-**POST:** `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
+**Post:** `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -134,7 +135,7 @@ L'API dell'evento utilizzo batch consente di generare eventi di utilizzo per pi�
 | ------------------ | ------ |
 | `x-ms-requestid`     | Valore stringa univoco per il rilevamento della richiesta dal client, preferibilmente un GUID. Se questo valore non viene specificato, ne verrà generato uno e specificato nelle intestazioni della risposta. |
 | `x-ms-correlationid` | Valore stringa univoco per l'operazione nel client. Questo parametro mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se questo valore non viene specificato, ne verrà generato uno e specificato nelle intestazioni della risposta. |
-| `authorization`      | [Ottenere il token Web JSON (JWT) bearer token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Nota: Quando si esegue la richiesta HTTP, `Bearer` anteporre al token ottenuto dal collegamento a cui si fa riferimento.  |
+| `authorization`      | [Ottenere il token Web JSON (JWT) bearer token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Nota: quando si esegue la richiesta HTTP, il prefisso `Bearer` al token ottenuto dal collegamento a cui si fa riferimento.  |
 
 *Richiesta:*
 ```json
@@ -157,7 +158,7 @@ L'API dell'evento utilizzo batch consente di generare eventi di utilizzo per pi�
   ]
 }
 ```
-### <a name="responses"></a>Responses
+### <a name="responses"></a>Risposte
 
 Codice: 200<br>
 OK
@@ -192,9 +193,9 @@ OK
 }
 ```
 
-Descrizione del codice di stato a cui `BatchUsageEvent` si fa riferimento nella risposta API:
+Descrizione del codice di stato a cui viene fatto riferimento nella risposta `BatchUsageEvent` API:
 
-| status code  | Descrizione |
+| Codice di stato  | Descrizione |
 | ---------- | -------------------- |
 | `Accepted` | Codice accettato. |
 | `Expired` | Utilizzo scaduto. |

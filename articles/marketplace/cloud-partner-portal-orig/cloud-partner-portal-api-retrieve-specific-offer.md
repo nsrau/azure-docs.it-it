@@ -1,18 +1,19 @@
 ---
-title: Recuperare un'API specifica offerta | Azure Marketplace
+title: Recuperare un'API offerta specifica | Azure Marketplace
 description: API recupera l'offerta specificata all'interno dello spazio dei nomi del server di pubblicazione.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: bb6bbd457ff372ad46091f49cf4ae7e4b34b3d83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 030fb221b9227acf9c5dcda8797b106e51f56d64
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935430"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827357"
 ---
 <a name="retrieve-a-specific-offer"></a>Recuperare un'offerta specifica
 =========================
@@ -44,7 +45,7 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 | offerId     | Guid che identifica in modo univoco l'offerta.                                                 | String        |
 | version     | Versione dell'offerta in corso di recupero. Per impostazione predefinita, viene recuperata la versione più recente dell'offerta. | Integer       |
 | slotId      | Lo slot da cui deve essere recuperata l'offerta, può essere uno dei seguenti:      <br/>  - `Draft` (impostazione predefinita) recupera la versione dell'offerta attualmente in bozza.  <br/>  -  `Preview` recupera la versione dell'offerta attualmente in anteprima.     <br/>  -  `Production` recupera la versione dell'offerta attualmente in produzione.          |      enum |
-| api-version | Ultima versione dell'API                                                                    | Date          |
+| api-version | Ultima versione dell'API                                                                    | Data          |
 |  |  |  |
 
 
@@ -54,14 +55,14 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 |  **Nome**          |   **Valore**            |
 |  ---------------   |  --------------        |
 |  Content-Type      | `application/json`     |
-|  Authorization     | `Bearer YOUR_TOKEN`    |
+|  Autorizzazione     | `Bearer YOUR_TOKEN`    |
 |  |  |
 
 
 <a name="body-example"></a>Esempio di corpo
 ------------
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 
 ``` json
 {
@@ -172,8 +173,8 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 |  -------------  |   -----------------------------------------------------------------------------------------------------                         |
 |  offerTypeId    | Identifica il tipo di offerta                                                                                                    |
 |  publisherId    | Identificatore univoco della pubblicazione                                                                                              |
-|  status         | Stato dell'offerta. Per l'elenco di valori possibili, vedere [Stato dell'offerta](#offer-status) di seguito:                                  |
-|  ID             | GUID che identifica in modo univoco l'offerta                                                                                         |
+|  status         | Stato dell'offerta. Per l'elenco di valori possibili, vedere lo [Stato dell'offerta](#offer-status) qui sotto.                                  |
+|  id             | GUID che identifica in modo univoco l'offerta                                                                                         |
 |  version        | Versione corrente dell'offerta. La proprietà della versione non può essere modificata dal client. Viene incrementata dopo ogni pubblicazione.    |
 |  Definizione     | Definizione effettiva del carico di lavoro                                                                                               |
 |  changedTime    | Ora UTC dell'ultima modifica dell'offerta                                                                                   |
@@ -199,7 +200,7 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 |  NotStarted                 | L'offerta è nuova, ma non è stata attivata.              |
 |  WaitingForPublisherReview  | L'offerta è in attesa di approvazione da parte dell'editore.      |
 |  In esecuzione                    | Invio dell'offerta in corso.          |
-|  Succeeded                  | Invio dell'offerta completato.    |
+|  Operazione completata                  | Invio dell'offerta completato.    |
 |  Cancellati                   | Invio dell'offerta annullato.                |
-|  Failed                     | Invio dell'offerta non riuscito.                      |
+|  Operazione non riuscita                     | Invio dell'offerta non riuscito.                      |
 |  |  |

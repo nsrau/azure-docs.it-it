@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 77659fdf93947cfbaa0daa322dccf4e9cb1a41fa
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 3911d4e780e993fdd1c2945b34cd683d47fb884a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844724"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827284"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Usare il modulo servizi di mappe di Azure
 
@@ -23,7 +23,7 @@ Azure Maps Web SDK fornisce un *modulo dei servizi*. Questo modulo è una librer
 
 1. Creare un nuovo file HTML.
 1. Caricare il modulo servizi di mappe di Azure. È possibile caricarlo in uno dei due modi seguenti:
-    - Usare la versione di rete per la distribuzione di contenuti di Azure ospitata a livello globale del modulo servizi di Azure maps. Aggiungere un riferimento allo script all' `<head>` elemento del file:
+    - Usare la versione di rete per la distribuzione di contenuti di Azure ospitata a livello globale del modulo servizi di Azure maps. Aggiungere un riferimento allo script all'elemento `<head>` del file:
 
         ```html
         <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
@@ -33,7 +33,7 @@ Azure Maps Web SDK fornisce un *modulo dei servizi*. Questo modulo è una librer
     
         > **NPM installare Azure-Maps-REST**
     
-        Aggiungere quindi un riferimento allo script all' `<head>` elemento del file:
+        Aggiungere quindi un riferimento allo script all'elemento `<head>` del file:
 
          ```html
         <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
@@ -124,7 +124,7 @@ Azure Maps Web SDK fornisce un *modulo dei servizi*. Questo modulo è una librer
 
     Per altre informazioni, vedere [autenticazione con mappe di Azure](azure-maps-authentication.md).
 
-1. Il codice seguente usa il client URL del servizio di ricerca di Azure appena creato per la geocodifica di un indirizzo: "1 Microsoft Way, Redmond, WA". Il codice usa la `searchAddress` funzione e Visualizza i risultati come tabella nel corpo della pagina.
+1. Il codice seguente usa il client dell'URL del servizio di ricerca di Azure Maps appena creato per la geocodifica di un indirizzo: "1 Microsoft Way, Redmond, WA". Il codice usa la funzione `searchAddress` e Visualizza i risultati come tabella nel corpo della pagina.
 
     ```javascript
     // Search for "1 microsoft way, redmond, wa".
@@ -160,7 +160,7 @@ Azure Maps Web SDK fornisce un *modulo dei servizi*. Questo modulo è una librer
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Uso del modulo Services" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere la penna <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>usando il modulo Servizi</a> di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+Vedere la penna <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>usando il modulo Services</a> di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passaggi successivi

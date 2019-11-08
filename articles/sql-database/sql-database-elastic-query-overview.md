@@ -1,5 +1,5 @@
 ---
-title: Panoramica delle query elastiche del database SQL di Azure
+title: Panoramica delle query elastiche
 description: La query elastica consente di eseguire una query Transact-SQL che si estende in più database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 07/01/2019
-ms.openlocfilehash: 08c191742425c448618db255491c709130df33a1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9566ac7169144d984f9200734c99eb10368b3142
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690357"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823747"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Panoramica delle query elastiche del database SQL di Azure (anteprima)
 

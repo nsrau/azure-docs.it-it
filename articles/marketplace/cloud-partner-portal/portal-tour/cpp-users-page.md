@@ -1,18 +1,19 @@
 ---
 title: Pagina utenti per Azure Marketplace
-description: Panoramica della pagina utenti nel portale per Cloud Partner per Azure Marketplace.
+description: Panoramica della pagina utenti nella portale Cloud Partner per Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 1c420a275efa4bb45ba952a04faafe25e30d64ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5ba95f139963dcf10f7c97ed614ec8f4cf899d2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943449"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821442"
 ---
 # <a name="users-page"></a>Pagina Users (Utenti)
 

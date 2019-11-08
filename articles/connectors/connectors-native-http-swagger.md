@@ -8,14 +8,14 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 663ef16511269dd61a6567d6570f3445b7da6447
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 030401623a61e7fcff40187f522309255482647f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804250"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824810"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Chiamare gli endpoint REST usando app per la logica di Azure
 
@@ -25,7 +25,7 @@ Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il c
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* URL del file spavalderia che descrive l'endpoint REST di destinazione
+* URL per il file spavalderia (non OpenAPI) che descrive l'endpoint REST di destinazione
 
   In genere, l'endpoint REST deve soddisfare questo criterio per il funzionamento del connettore:
 
@@ -37,7 +37,7 @@ Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il c
 
   Gli esempi in questo argomento usano la [API viso di servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/face/overview), che richiede un [account di servizi cognitivi e una chiave di accesso](../cognitive-services/cognitive-services-apis-create-account.md).
 
-* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 * App per la logica da cui si vuole chiamare l'endpoint di destinazione. Per iniziare con il trigger HTTP + spavalderia, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare l'azione HTTP + spavalderia, avviare l'app per la logica con tutti i trigger desiderati. Questo esempio usa il trigger HTTP + spavalderia come primo passaggio.
 
@@ -125,7 +125,7 @@ Questa azione predefinita esegue una richiesta HTTP all'URL per il file spavalde
 
 1. Abilitare ora CORS per il BLOB. Scegliere **CORS**dal menu dell'account di archiviazione. Nella scheda **servizio BLOB** specificare questi valori e quindi selezionare **Salva**.
 
-   | Proprietà | Value |
+   | Proprietà | Valore |
    |----------|-------|
    | **Origini consentite** | `*` |
    | **Metodi consentiti** | `GET`, `HEAD`, `PUT` |
@@ -148,19 +148,19 @@ Questa azione predefinita esegue una richiesta HTTP all'URL per il file spavalde
 
 Di seguito sono riportate altre informazioni sugli output di un trigger o un'azione HTTP + spavalderia. La chiamata HTTP + spavalderia restituisce queste informazioni:
 
-| Nome proprietà | Type | Description |
+| Nome proprietà | Tipo | Descrizione |
 |---------------|------|-------------|
-| Headers | object | Intestazioni della richiesta |
-| body | object | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
+| headers | oggetto | Intestazioni della richiesta |
+| body | oggetto | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
 | Codice di stato | int | Codice di stato della richiesta |
 |||
 
-| Codice di stato | Description |
+| Codice di stato | Descrizione |
 |-------------|-------------|
 | 200 | OK |
 | 202 | Accepted |
 | 400 | Richiesta non valida |
-| 401 | Non autorizzato |
+| 401 | Non autorizzata |
 | 403 | Accesso negato |
 | 404 | Non trovato |
 | 500 | Errore interno del server. Si è verificato un errore sconosciuto. |

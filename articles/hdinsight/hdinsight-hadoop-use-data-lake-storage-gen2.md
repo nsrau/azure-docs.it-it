@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: f6bee53268ea99e99d79e218eaf7a5ae9fcb1d05
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: d8e23188aa07b1b271c3adc7c5550b18c0c60977
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104473"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827697"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 
@@ -39,9 +39,9 @@ Creare un'identità gestita assegnata dall'utente, se non è già disponibile.
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. In alto a sinistra fare clic su **Crea una risorsa**.
 1. Nella casella di ricerca digitare **User assegnata** e fare clic su **identità gestita assegnata dall'utente**.
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Create**.
 1. Immettere un nome per l'identità gestita, selezionare la sottoscrizione, il gruppo di risorse e la località corretti.
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Create**.
 
 Per altre informazioni sul funzionamento delle identità gestite in Azure HDInsight, vedere [identità gestite in Azure HDInsight](hdinsight-managed-identities.md).
 
@@ -54,16 +54,16 @@ Creare un account di archiviazione di Azure Data Lake Storage Gen2.
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. In alto a sinistra fare clic su **Crea una risorsa**.
 1. Nella casella di ricerca digitare **storage** e fare clic su **account di archiviazione**.
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Create**.
 1. Nella schermata **Crea account di archiviazione** :
     1. Selezionare la sottoscrizione e il gruppo di risorse corretti.
-    1. Immettere un nome per l'account Data Lake Storage Gen2. Per altre informazioni sulle convenzioni di denominazione degli account di archiviazione vedere [convenzioni di denominazione per le risorse di Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage).
+    1. Immettere un nome per l'account Data Lake Storage Gen2. Per altre informazioni sulle convenzioni di denominazione degli account di archiviazione vedere [convenzioni di denominazione per le risorse di Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage).
     1. Fare clic sulla scheda **Avanzate** .
     1. Fare clic su **abilitato** accanto a **spazio dei nomi gerarchico** in **Data Lake storage Gen2**.
     1. Fare clic su **Rivedi e crea**.
     1. Fare clic su **Crea**
 
-Per altre informazioni sulle altre opzioni durante la creazione dell'account di [archiviazione, vedere Guida introduttiva: Creare un account di archiviazione di Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+Per altre informazioni sulle altre opzioni durante la creazione dell'account di archiviazione, vedere [Guida introduttiva: creare un account di archiviazione Azure Data Lake storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 ![Screenshot che mostra la creazione dell'account di archiviazione nel portale di Azure](./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
 
@@ -100,7 +100,7 @@ Assegnare l'identità gestita al ruolo di **proprietario dei dati del BLOB di ar
 
 È possibile [scaricare un file modello di esempio](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) e [scaricare un file di parametri di esempio](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Prima di usare il modello e il frammento di codice dell'interfaccia della riga di comando di Azure, sostituire i segnaposto seguenti con i valori corretti:
 
-| Segnaposto | DESCRIZIONE |
+| Placeholder | Descrizione |
 |---|---|
 | `<SUBSCRIPTION_ID>` | ID della sottoscrizione di Azure |
 | `<RESOURCEGROUPNAME>` | Il gruppo di risorse in cui si vuole creare il nuovo cluster e l'account di archiviazione. |
@@ -116,7 +116,7 @@ Il frammento di codice seguente esegue i passaggi iniziali seguenti:
 1. Consente di creare un nuovo gruppo di risorse per le nuove attività di distribuzione. 
 1. Crea un'identità gestita assegnata dall'utente.
 1. Aggiunge un'estensione all'interfaccia della riga di comando di Azure per usare le funzionalità per Data Lake Storage Gen2.
-1. Crea un nuovo account data Lake storage Gen2 usando il `--hierarchical-namespace true` flag. 
+1. Consente di creare un nuovo account Data Lake Storage Gen2 utilizzando il flag di `--hierarchical-namespace true`. 
 
 ```azurecli
 az login

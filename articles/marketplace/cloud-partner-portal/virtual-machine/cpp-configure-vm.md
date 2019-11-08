@@ -4,15 +4,16 @@ description: Illustra come ridimensionare, aggiornare e generalizzare una macchi
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 1270dff0bcb8de117247a454ab9c144250cfb17c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: ce7fe49b07dc250a9f56ff73229e347b997f0cc0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880351"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824486"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurare la macchina virtuale ospitata in Azure
 
@@ -22,7 +23,7 @@ Questo articolo illustra come ridimensionare, aggiornare e generalizzare una mac
 ## <a name="sizing-the-vhds"></a>Ridimensionamento dei dischi rigidi virtuali
 
 <!--TD: Check if the following assertion is true. I didn't understand the original content. -->
-Se è stata selezionata una delle macchine virtuali preconfigurate con un sistema operativo e, facoltativamente, altri servizi, è già stata selezionata una dimensione standard di VM di Azure, come descritto nella [scheda SKU macchina virtuale](./cpp-skus-tab.md).  Avviare una soluzione con un sistema operativo preconfigurato è l'approccio consigliato.  Se tuttavia si intende installare un sistema operativo manualmente, è necessario ridimensionare il disco rigido virtuale principale nell'immagine di macchina virtuale:
+Se è stata selezionata una delle macchine virtuali preconfigurate con un sistema operativo e, facoltativamente, altri servizi, è già stata selezionata una dimensione standard di VM di Azure, come descritto nella [scheda SKU macchina virtuale](./cpp-skus-tab.md).  L'approccio consigliato è quello di avviare la soluzione con un sistema operativo preconfigurato.  Se tuttavia si intende installare un sistema operativo manualmente, è necessario ridimensionare il disco rigido virtuale principale nell'immagine di macchina virtuale:
 
 - Per Windows, il disco rigido virtuale del sistema operativo deve essere creato come disco rigido virtuale con formato fisso da 127-128 GB. 
 - Per Linux, questo disco rigido virtuale deve essere creato come disco rigido virtuale con formato fisso da 30-50 GB.
@@ -43,7 +44,7 @@ Per le distribuzioni Linux, gli aggiornamenti vengono in genere scaricati e inst
 
 ## <a name="perform-additional-security-checks"></a>Eseguire controlli di sicurezza aggiuntivi
 
-È necessario mantenere un livello di sicurezza elevato per le immagini delle soluzioni in Azure Marketplace.  L'articolo seguente semplifica questo obiettivo offrendo un elenco di configurazioni e procedure di sicurezza a cui attenersi: [Raccomandazioni sulla sicurezza per le immagini di Azure Marketplace](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  Alcune di queste indicazioni sono destinate specificamente a immagini basate su Linux, ma la maggior parte si applica a qualsiasi immagine di macchina virtuale. 
+È necessario mantenere un livello di sicurezza elevato per le immagini delle soluzioni in Azure Marketplace.  L'articolo [Raccomandazioni sulla sicurezza per le immagini di Azure Marketplace](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images) semplifica questo obiettivo offrendo un elenco di configurazioni e procedure di sicurezza a cui attenersi.  Alcune di queste indicazioni sono destinate specificamente a immagini basate su Linux, ma la maggior parte si applica a qualsiasi immagine di macchina virtuale. 
 
 
 ## <a name="perform-custom-configuration-and-scheduled-tasks"></a>Eseguire una configurazione personalizzata e attività pianificate

@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 3302402ae791ac17b8ac09ab91b061a558eb7c75
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: c010b1acbf1b8f0a05ffda05bddfd8a9145dee8d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390353"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825434"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Esercitazione: Compilare un'applicazione a disponibilità elevata con l'archivio BLOB
 
@@ -79,7 +79,7 @@ Seguire questa procedura per creare un account di archiviazione con ridondanza g
    | **Prestazioni** | Standard | Standard è sufficiente per lo scenario di esempio. |
    | **Replica**| Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS). | È necessario ai fini dell'esempio. |
    |**Sottoscrizione** | sottoscrizione in uso |Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.azure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup |Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   |**ResourceGroup** | myResourceGroup |Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
    |**Posizione** | Stati Uniti orientali | Scegliere un paese. |
 
 ![Creare un account di archiviazione](media/storage-create-geo-redundant-storage/createragrsstracct.png)

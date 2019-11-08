@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 5ba2255cfe0d5c4220ec2215ac837649af1ba896
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4593ee875f98e2c9f2f9406f8b9d4146e06a573d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521168"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825439"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio
 
@@ -59,7 +59,7 @@ Il livello di accesso sporadico presenta costi di archiviazione più bassi e cos
 
 ## <a name="archive-access-tier"></a>Livello di accesso archivio
 
-Il livello di accesso dell'archivio ha il costo di archiviazione più basso. Ma offre costi di recupero dei dati più elevati rispetto ai livelli ad accesso frequente e sporadico. Il recupero dei dati nel livello archivio può richiedere diverse ore. I dati devono essere presenti nel livello di archiviazione per almeno 180 giorni o essere soggetti a un addebito per l'eliminazione anticipata.
+Il livello di accesso dell'archivio ha il costo di archiviazione più basso. Ma offre costi di recupero dei dati più elevati rispetto ai livelli ad accesso frequente e sporadico. Il recupero dei dati nel livello archivio può richiedere diverse ore. I dati devono rimanere nel livello di archiviazione per almeno 180 giorni oppure essere soggetti a un addebito per l'eliminazione anticipata.
 
 Mentre un BLOB si trova nell'archiviazione dell'archivio, i dati BLOB sono offline e non possono essere letti, copiati, sovrascritti o modificati. Non è possibile creare snapshot di un BLOB nella risorsa di archiviazione dell'archivio. I metadati del BLOB rimangono tuttavia online e disponibili ed è quindi possibile visualizzare il BLOB e le relative proprietà. Per i BLOB nell'archivio, le uniche operazioni valide sono GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier e DeleteBlob.
 

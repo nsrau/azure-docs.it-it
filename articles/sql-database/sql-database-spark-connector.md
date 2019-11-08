@@ -1,5 +1,5 @@
 ---
-title: Connettore Spark con database SQL di Azure e SQL Server | Documentazione Microsoft
+title: Connettore Spark con database SQL di Azure e SQL Server
 description: Informazioni su come usare il connettore Spark per Database SQL di Azure e SQL Server
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: efa31e72811b83c00c1b2ee4a5d1a42fc7089630
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d398019b62078da6943cb98cbafc3ac39640513f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163179"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820865"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Consente di accelerare il processo di big data analytics in tempo reale con connettore Spark per database SQL di Azure e SQL Server
 
 Il connettore Spark per database SQL di Azure e SQL Server consente ai database SQL, tra cui database SQL di Azure e SQL Server, come origine dati in entrata o come sink di dati in uscita per i processi di Spark. È possibile utilizzare dati transazionali in tempo reale nel processo di big data analytics e mantenere i risultati per query ad hoc o per la generazione di report. Rispetto al connettore JDBC incorporato, questo connettore offre la possibilità di inserire dati in grandi quantità nei database SQL. È possibile ottenere eccezionali prestazioni di inserimento di una riga alla volta con una velocità maggiore di 10 o 20 volte. Il connettore Spark per Database SQL di Azure e SQL Server supporta anche l’autenticazione AAD. Consente la connessione sicura al database SQL di Azure da Azure Databricks utilizzando il proprio account AAD. Fornisce interfacce simili al connettore JDBC incorporato. È facile eseguire la migrazione dei processi Spark esistenti per l'utilizzo di questo nuovo connettore.
 
-## <a name="download"></a>Download
+## <a name="download"></a>Scaricare
 Per iniziare, scaricare il connettore Spark per database SQL dal repository [repository azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) in GitHub.
 
 ## <a name="official-supported-versions"></a>Versioni supportate ufficialmente
@@ -33,7 +33,7 @@ Per iniziare, scaricare il connettore Spark per database SQL dal repository [rep
 | Scala                                |2.10 o versione successiva            |
 | Microsoft JDBC Driver per SQL Server |6.2 o versione successiva             |
 | Microsoft SQL Server                 |SQL Server 2008 o versione successiva |
-| database SQL di Azure                   |Supportato                |
+| Database SQL di Azure                   |Supportato                |
 
 Il connettore Spark per database SQL di Azure e SQL Server utilizza Microsoft JDBC Driver per SQL Server per trasferire dati tra i nodi di lavoro Spark e i database SQL:
  

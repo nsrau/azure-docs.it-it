@@ -1,5 +1,5 @@
 ---
-title: 'Modelli SaaS multi-tenant-database SQL di Azure '
+title: Modelli SaaS multi-tenant
 description: Informazioni sui requisiti e sui criteri comuni di architettura dei dati delle applicazioni di database SaaS (Software-as-a-Service) multi-tenant in esecuzione nell'ambiente cloud di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: ecbcf2cdfea2714e46d0c9cff4066befabddeeb8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ad7bd660ee685b490fb79c7e63fd3c5fce557977
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691921"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822067"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Criteri di tenancy di database delle applicazioni SaaS multi-tenant
 

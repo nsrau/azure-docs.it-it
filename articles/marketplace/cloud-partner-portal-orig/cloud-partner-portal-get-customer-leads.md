@@ -1,18 +1,19 @@
 ---
-title: Configurare i lead | Azure Marketplace
+title: Configurare i lead dei clienti | Azure Marketplace
 description: Configurare i lead relativi ai clienti nel portale Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: c3e483a33d986eff767b3529e30208319ad90b23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 312e172321c25248f1b0801bdbccf71762319989
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64934993"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818823"
 ---
 <a name="get-customer-leads"></a>Ottenere lead
 ==================
@@ -65,7 +66,7 @@ Ogni lead ricevuto durante il processo di acquisizione del cliente presenta dati
 
 Il formato per un'origine lead è **Origine**-**Azione** |  **Offerta**
 
-**Origini**: "AzureMarketplace", "AzurePortal", "Versione di test Explorer" e "AppSource (SPZA)"
+**Origini**: "AzureMarketplace", "AzurePortal", "TestDrive" e "AppSource (SPZA)"
 
 **Azioni**:
 - "INS": Installazione. Questa azione si trova in Azure Marketplace o AppSource quando un cliente acquista il prodotto.
@@ -76,19 +77,19 @@ Il formato per un'origine lead è **Origine**-**Azione** |  **Offerta**
 
 **Offerte**
 
-Gli esempi seguenti illustrano gli identificatori univoci che vengono assegnati a un server di pubblicazione e una specifica offerta: checkpoint.check-punto-r77-10sg-byol, bitnami.openedxcypress e 56-91e6-3ed0b622145a docusign.3701c77e-1cfa - 4c.
+Negli esempi seguenti vengono illustrati gli identificatori univoci assegnati a un server di pubblicazione e un'offerta specifica: Checkpoint. Check-Point-R77-10sg-BYOL, Bitnami. openedxcypress e DocuSign. 3701c77e-1cfa-4c56-91e6-3ed0b622145a.
 
 
 ### <a name="customer-info"></a>Informazioni sui clienti
 
 I campi nell'esempio seguente mostrano le informazioni sul cliente contenute in un lead.
-- FirstName: John
+- Nome: John
 - Cognome: Smith
 - E-mail: jsmith\@microsoft.com
-- Numero di telefono: 1234567890
+- Telefono: 1234567890
 - Paese: Stati Uniti
-- Aziendale: Microsoft
-- Titolo: CTO
+- Azienda: Microsoft
+- Posizione: CTO
 
 >[!Note]
 >Non tutti i dati dell'esempio precedente sono sempre disponibili per ogni lead.

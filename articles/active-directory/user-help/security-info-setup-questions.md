@@ -1,5 +1,5 @@
 ---
-title: Configurare le informazioni di sicurezza (anteprima) per l'uso delle domande di sicurezza - Azure Active Directory | Microsoft Docs
+title: 'Configurare le informazioni di sicurezza (anteprima) per le domande di sicurezza: Azure AD'
 description: Come configurare le informazioni di sicurezza per verificare l'identità usando le domande di sicurezza predefinite.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74ca733c02fe4bbabce410824151fedbf8d2e71e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c2513b52c347db428b5ac0236a2561e5d4f1cdd2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160979"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820314"
 ---
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>Configurare le informazioni di sicurezza (anteprima) per l'uso di domande di sicurezza
 
@@ -36,13 +36,13 @@ Se vengono usate le domande di sicurezza, è consigliabile combinare questo meto
 > [!Note]
 > Le domande di sicurezza vengono archiviate privatamente e in modo sicuro in un oggetto utente nella directory e gli utenti possono rispondere a tali domande solo durante la registrazione. All'amministratore non è consentito leggere o modificare le domande e le risposte di un utente.
 >
-> Se l'opzione relativa alle domande di sicurezza non viene visualizzata, è possibile che l'organizzazione non consenta di usare le domande di sicurezza per la verifica. In questo caso è necessario scegliere un altro metodo oppure contattare l'amministratore per ottenere assistenza.
+> Se l'opzione relativa alle domande di sicurezza non viene visualizzata, è possibile che l'organizzazione non consenta di usare le domande di sicurezza per la verifica. In questo caso, è necessario scegliere un altro metodo oppure contattare l'amministratore per ottenere assistenza.
 >
 > Gli account amministratore non sono autorizzati a utilizzare le domande di sicurezza come metodo di reimpostazione della password. Se si è connessi come account a livello di amministratore, queste opzioni non verranno visualizzate.
 
 ### <a name="to-set-up-your-security-questions"></a>Per configurare le domande di sicurezza
 
-1. Accedere all'account aziendale o dell'istituto di istruzione, quindi andare alla pagina https://myprofile.microsoft.com/.
+1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
 
     ![Pagina Profilo personale con i collegamenti evidenziati delle Informazioni di sicurezza](media/security-info/securityinfo-myprofile-page.png)
 
@@ -56,7 +56,7 @@ Se vengono usate le domande di sicurezza, è consigliabile combinare questo meto
 
 4. Nella pagina **Domande di sicurezza** scegliere le domande di sicurezza, rispondere e quindi selezionare **Salva**.
 
-    ![Aggiungere il numero di telefono e scegliere chiamate telefoniche](media/security-info/securityinfo-myprofile-securityquestions.png)
+    ![Aggiungere il numero di telefono e scegliere le chiamate telefoniche](media/security-info/securityinfo-myprofile-securityquestions.png)
 
     Le informazioni di sicurezza vengono aggiornate ed è possibile usare le domande di sicurezza per verificare l'identità quando si usa la reimpostazione della password.
 
@@ -77,11 +77,11 @@ Per non usare più le domande di sicurezza come metodo di gestione delle informa
 
 ## <a name="additional-security-info-methods"></a>Opzioni aggiuntive per le informazioni di sicurezza
 
-In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, tra cui:
+In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, Queste opzioni includono:
 
 - **App di autenticazione.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
 
-- **Mobile device text.** (SMS su dispositivo mobile) Immettere il numero del dispositivo mobile per ricevere via SMS un codice da usare per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un SMS, vedere [Configurare le informazioni di sicurezza per l'invio di SMS](security-info-setup-text-msg.md).
+- **SMS su dispositivo mobile.** Immettere il numero del dispositivo mobile per ricevere via SMS un codice da usare per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un SMS, vedere [Configurare le informazioni di sicurezza per l'invio di SMS](security-info-setup-text-msg.md).
 
 - **Chiamata sul dispositivo mobile o sul telefono dell'ufficio.** Immettere il numero del dispositivo mobile per ricevere una chiamata per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un numero di telefono, vedere [Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche](security-info-setup-phone-number.md).
 

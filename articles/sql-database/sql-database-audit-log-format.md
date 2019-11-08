@@ -1,5 +1,5 @@
 ---
-title: Formato del log di controllo del database SQL
+title: Formato del log di controllo
 description: Informazioni sul modo in cui sono strutturati i log di controllo del database SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 5befd15beba6a5c8071a6f5a01e34dc109fd118a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 389404f59b5a0cba1acd7aa097ddd3dd929d8082
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691208"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822001"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato del log di controllo del database SQL
 
@@ -60,7 +60,7 @@ Gli eventi di controllo vengono scritti nell'area di lavoro Log Analytics defini
 | database_principal_name | database_principal_name_s | Nome del contesto utente del database in cui viene eseguita l'azione | sysname | stringa |
 | duration_milliseconds | duration_milliseconds_d | Durata esecuzione query in millisecondi | bigint | int |
 | event_time | event_time_t | Data e ora in cui viene attivata l'azione controllabile | datetime2 | datetime |
-| HOST_NAME | N/D | Nome host client | stringa | N/D |
+| host_name | N/D | Nome host client | stringa | N/D |
 | is_column_permission | is_column_permission_s | Flag che indica se si tratta di un'autorizzazione a livello di colonna. 1 = true, 0 = false | bit | stringa |
 | N/D | is_server_level_audit_s | Flag che indica se il controllo è a livello di server | N/D | stringa |
 | ID object_ | object_id_d | ID dell'entità in cui si è verificato il controllo. Sono inclusi gli oggetti server, i database, gli oggetti di database e gli oggetti dello schema. 0 se l'entità è il server stesso o se il controllo non viene eseguito a livello di oggetto | int | int |
@@ -85,8 +85,8 @@ Gli eventi di controllo vengono scritti nell'area di lavoro Log Analytics defini
 | target_server_principal_name | target_server_principal_name_s | Account di accesso di destinazione dell'azione. NULL se non applicabile | sysname | stringa |
 | target_server_principal_sid | target_server_principal_sid_s | SID dell'account di accesso di destinazione. NULL se non applicabile | varbinary | stringa |
 | transaction_id | transaction_id_d | Solo SQL Server (a partire da 2016)-0 per il database SQL di Azure | bigint | int |
-| user_defined_event_id | user_defined_event_id_d | ID evento definito dall'utente passato come argomento a sp_audit_write. NULL per gli eventi di sistema (impostazione predefinita) e diverso da zero per l'evento definito dall'utente. Per ulteriori informazioni, vedere [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
-| user_defined_information | user_defined_information_s | Informazioni definite dall'utente passate come argomento a sp_audit_write. NULL per gli eventi di sistema (impostazione predefinita) e diverso da zero per l'evento definito dall'utente. Per ulteriori informazioni, vedere [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar (4000) | stringa |
+| user_defined_event_id | user_defined_event_id_d | ID evento definito dall'utente passato come argomento per sp_audit_write. NULL per gli eventi di sistema (impostazione predefinita) e diverso da zero per l'evento definito dall'utente. Per ulteriori informazioni, vedere [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
+| user_defined_information | user_defined_information_s | Informazioni definite dall'utente passate come argomento per sp_audit_write. NULL per gli eventi di sistema (impostazione predefinita) e diverso da zero per l'evento definito dall'utente. Per ulteriori informazioni, vedere [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar (4000) | stringa |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

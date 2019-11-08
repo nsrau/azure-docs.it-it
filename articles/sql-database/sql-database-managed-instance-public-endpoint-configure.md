@@ -1,5 +1,5 @@
 ---
-title: Configurare l'endpoint pubblico-istanza gestita di database SQL di Azure
+title: Configurare un'istanza gestita di endpoint pubblico
 description: Informazioni su come configurare un endpoint pubblico per l'istanza gestita
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: 6f953e4c549619a30564bdb061e98761474174c3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a35176770a3100a288ad3da52cd89870e0110f63
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687973"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73828023"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurare l'endpoint pubblico nell'istanza gestita di database SQL di Azure
 
@@ -100,7 +100,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Intervalli di porte di destinazione**     |3342         |Porta di destinazione dell'ambito su 3342, ovvero l'endpoint TDS pubblico dell'istanza gestita |
     |**Protocollo**     |TCP         |Istanza gestita usa il protocollo TCP per TDS |
     |**Azione**     |Consenti         |Consentire il traffico in ingresso verso l'istanza gestita tramite l'endpoint pubblico |
-    |**Priorità**     |1300         |Verificare che questa regola abbia una priorità più alta rispetto alla regola **deny_all_inbound** |
+    |**Priorità**     |1300         |Verificare che questa regola abbia una priorità più alta rispetto alla regola di **deny_all_inbound** |
 
     ![mi-NSG-Rules. png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)
 

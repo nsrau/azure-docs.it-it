@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: ccab7e59eaa925df4ba46447cef458111dc7e60a
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: c4f51adbcaa5e5b750169f53a1333544365fd4f3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869573"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825503"
 ---
 # <a name="marketplace-metering-service-apis---faq"></a>API del servizio di misurazione di Marketplace - domande frequenti
 
@@ -47,7 +48,7 @@ Tutti gli eventi di utilizzo emessi alla piattaforma Marketplace non verranno ac
 
 ### <a name="can-you-get-a-list-of-all-saas-subscriptions-including-active-and-unsubscribed-subscriptions"></a>È possibile ottenere un elenco di tutte le sottoscrizioni SaaS, incluse le sottoscrizioni attive e non sottoscritte?
 
-Sì, quando si chiama l' `GET /saas/subscriptions` API include un elenco di tutte le sottoscrizioni Saas. Il campo stato nella risposta per ogni sottoscrizione SaaS acquisisce se la sottoscrizione è attiva o non sottoscritta. La chiamata alle sottoscrizioni List restituisce al massimo 100 sottoscrizioni al momento.
+Sì, quando si chiama l'API `GET /saas/subscriptions` include un elenco di tutte le sottoscrizioni SaaS. Il campo stato nella risposta per ogni sottoscrizione SaaS acquisisce se la sottoscrizione è attiva o non sottoscritta. La chiamata alle sottoscrizioni List restituisce al massimo 100 sottoscrizioni al momento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

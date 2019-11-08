@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti sull'acceleratore di soluzioni di monitoraggio remoto - Azure | Microsoft Docs
-description: Domande frequenti sull'acceleratore di soluzioni di monitoraggio remoto
+description: Questo articolo risponde alle domande frequenti relative agli acceleratori della soluzione di monitoraggio remoto.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 746d21c7ff4d5b939eea7690193ac07425b4001c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c410ac7f41adb623a7198320a1edced097778569
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447912"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826247"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Domande frequenti sull'acceleratore di soluzioni di monitoraggio remoto
 

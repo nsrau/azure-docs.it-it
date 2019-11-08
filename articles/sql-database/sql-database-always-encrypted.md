@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted: database SQL di Azure-archivio certificati di Windows '
+title: Always Encrypted-archivio certificati Windows
 description: Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia del database usando la procedura guidata Always Encrypted di SQL Server Management Studio (SSMS). Descrive anche l'archiviazione delle chiavi di crittografia nell'archivio certificati di Windows.
 keywords: crittografia dati, crittografia sql, crittografia database, dati sensibili, crittografia sempre attiva
 services: sql-database
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 03/08/2019
-ms.openlocfilehash: e19055f83ef9b943d5ac0068d38b4f58a2b3b17c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 82c3c3274a8a9d66019ce906ee7be47cedac7470
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691237"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822052"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: proteggere i dati sensibili e archiviare le chiavi di crittografia nell'archivio certificati di Windows
 

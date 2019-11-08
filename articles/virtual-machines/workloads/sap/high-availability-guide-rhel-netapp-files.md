@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/14/2019
+ms.date: 11/07/2019
 ms.author: radeltch
-ms.openlocfilehash: 98a12e6892ac8710ae2195cd2c29df43b4c65aba
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 333bc12c475cedbd98480e3b596bcc7ad4e30ecc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71706290"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824922"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Disponibilità elevata di macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux con Azure NetApp Files per le applicazioni SAP
 
@@ -50,7 +50,7 @@ ms.locfileid: "71706290"
 [glusterfs-ha]:high-availability-guide-rhel-glusterfs.md
 
 Questo articolo descrive come distribuire le macchine virtuali, configurare le macchine virtuali, installare il Framework del cluster e installare un sistema SAP NetWeaver 7,50 a disponibilità elevata usando [Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).
-Nelle configurazioni di esempio, nei comandi di installazione e così via L'istanza di ASC è il numero 00, l'istanza ERS è il numero 01, l'istanza dell'applicazione primaria (PAS) è 02 e l'istanza dell'applicazione (AAS) è 03. Viene usato l'ID del sistema SAP QAS. 
+Nelle configurazioni di esempio, i comandi di installazione e così via. L'istanza di ASC è il numero 00, l'istanza ERS è il numero 01, l'istanza dell'applicazione primaria (PAS) è 02 e l'istanza dell'applicazione (AAS) è 03. Viene usato l'ID del sistema SAP QAS. 
 
 Il livello del database non è illustrato in dettaglio in questo articolo.  
 
@@ -95,7 +95,7 @@ A questo punto è possibile ottenere la disponibilità elevata di SAP NetWeaver 
 
 ![Panoramica della disponibilità elevata di SAP NetWeaver](./media/high-availability-guide-rhel/high-availability-guide-rhel-anf.png)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA usano un nome host virtuale e indirizzi IP virtuali. Per usare un indirizzo IP virtuale in Azure, occorre il bilanciamento del carico. L'elenco seguente mostra la configurazione del servizio di bilanciamento del carico con IP front-end distinti per (A) SCS e ERS.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA usano un nome host virtuale e indirizzi IP virtuali. Per usare un indirizzo IP virtuale in Azure, occorre il bilanciamento del carico. È consigliabile usare [Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). L'elenco seguente mostra la configurazione del servizio di bilanciamento del carico con IP front-end distinti per (A) SCS e ERS.
 
 > [!IMPORTANT]
 > Il clustering a più SID di SAP ASC/ERS con Red Hat Linux come sistema operativo guest nelle macchine virtuali di Azure **non è supportato**. Il clustering a più SID descrive l'installazione di più istanze di SAP ASC/ERS con SID diversi in un cluster pacemaker.
@@ -109,6 +109,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA 
 * Porta probe
   * Porta 620<strong>&lt;nr&gt;</strong>
 * Regole di bilanciamento del carico
+  * Se si usa Load Balancer Standard, selezionare **porte a disponibilità elevata**
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
@@ -126,6 +127,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA 
 * Porta probe
   * Porta 621<strong>&lt;nr&gt;</strong>
 * Regole di bilanciamento del carico
+  * Se si usa Load Balancer Standard, selezionare **porte a disponibilità elevata**
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
@@ -180,7 +182,42 @@ In questo esempio, le risorse sono state distribuite manualmente tramite il [por
 
 Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le macchine virtuali. Successivamente, creare un servizio di bilanciamento del carico e usare le macchine virtuali nei pool back-end.
 
-1. Creare un servizio di bilanciamento del carico (interno)  
+1. Creare un servizio di bilanciamento del carico (interno, standard):  
+   1. Creare gli indirizzi IP front-end
+      1. Indirizzo IP 192.168.14.9 per ASC
+         1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
+         1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio front- **end. QAS. ASC**)
+         1. Impostare l'assegnazione su statico e immettere l'indirizzo IP (ad esempio **192.168.14.9**)
+         1. Fare clic su OK.
+      1. Indirizzo IP 192.168.14.10 per ASC ERS
+         * Ripetere i passaggi precedenti in "a" per creare un indirizzo IP per ERS, ad esempio **192.168.14.10** e front- **end. QAS. ERS**)
+   1. Creare i pool back-end
+      1. Creare un pool back-end per ASCS
+         1. Aprire il servizio di bilanciamento del carico, selezionare Pool back-end e fare clic su Aggiungi
+         1. Immettere il nome del nuovo pool back-end, ad esempio **back-end. QAS**)
+         1. Fare clic su Aggiungi una macchina virtuale.
+         1. Selezionare macchina virtuale. 
+         1. Selezionare le macchine virtuali del cluster (A) SCS e i relativi indirizzi IP.
+         1. Fare clic su Aggiungi.
+   1. Creare i probe di integrità
+      1. Porta 620**00** per ASCS
+         1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
+         1. Immettere il nome del nuovo probe di integrità, ad esempio **integrità. QAS. ASC**)
+         1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
+         1. Fare clic su OK.
+      1. Porta 621**01** per ASC ERS
+            * Ripetere i passaggi precedenti in "c" per creare un probe di integrità per ERS, ad esempio 621**01** e **Health. QAS. ERS**)
+   1. Regole di bilanciamento del carico
+      1. Regole di bilanciamento del carico per ASC
+         1. Aprire il servizio di bilanciamento del carico, selezionare regole di bilanciamento del carico e fare clic su Aggiungi.
+         1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **lb. QAS. ASC**)
+         1. Selezionare l'indirizzo IP front-end per ASC, il pool back-end e il probe di integrità creati in precedenza, ad esempio front- **end. QAS. ASC**, **back-end. QAS** e **Health. QAS. ASC**)
+         1. Selezionare le **porte a disponibilità elevata**
+         1. Aumentare il timeout di inattività a 30 minuti
+         1. **Assicurarsi di abilitare l'indirizzo IP mobile**
+         1. Fare clic su OK.
+         * Ripetere i passaggi precedenti per creare regole di bilanciamento del carico per ERS, ad esempio **lb. QAS. ERS**)
+1. In alternativa, se lo scenario richiede il servizio di bilanciamento del carico di base (interno), seguire questa procedura:  
    1. Creare gli indirizzi IP front-end
       1. Indirizzo IP 192.168.14.9 per ASC
          1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
@@ -219,9 +256,11 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le 
       1. Porte aggiuntive per ASCS ERS
          * Ripetere i passaggi precedenti in "d" per le porte 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 e TCP per ASC ERS
 
+> [!Note]
+> Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del servizio di bilanciamento del carico di Azure standard (nessun indirizzo IP pubblico), non vi sarà connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [connettività degli endpoint pubblici per le macchine virtuali con Azure Load Balancer standard negli scenari di disponibilità elevata di SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
-> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. TCP _timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Creare un cluster Pacemaker
 
@@ -559,7 +598,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
     ```
 
    SAP ha introdotto il supporto per l'accodamento del server 2, inclusa la replica, a partire da SAP NW 7,52. A partire dalla piattaforma ABAP 1809, il server di Accodamento 2 viene installato per impostazione predefinita. Vedere la nota SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) per il supporto del server di Accodamento 2.
-   Se si usa l'architettura di Accodamento server 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), installare l'agente risorse Resource-Agents-SAP-4.1.1 -12. EL7. x86_64 o versione successiva e definire le risorse come segue:
+   Se si usa l'architettura di Accodamento server 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), installare l'agente risorse Resource-Agents-SAP-4.1.1 -12. el7. x86_64 o versione successiva e definire le risorse come segue:
 
     ```
     sudo pcs property set maintenance-mode=true
@@ -945,7 +984,7 @@ Per installare il server applicazioni SAP, seguire questi passaggi.
    [root@anftstsapcl1 ~]# pgrep ms.sapQAS | xargs kill -9
    ```
 
-   Se si uccide il server di messaggi una sola volta, il server verrà riavviato da `sapstart`. Terminandolo un numero di volte sufficiente, Pacemaker sposterà infine l'istanza ASCS in un altro nodo. Eseguire i comandi seguenti come radice per pulire lo stato della risorsa dell'istanza ASCS ed ERS dopo il test.
+   Se si uccide il server di messaggi una sola volta, questo verrà riavviato da `sapstart`. Terminandolo un numero di volte sufficiente, Pacemaker sposterà infine l'istanza ASCS in un altro nodo. Eseguire i comandi seguenti come radice per pulire lo stato della risorsa dell'istanza ASCS ed ERS dopo il test.
 
    ```
    [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
@@ -1039,7 +1078,7 @@ Per installare il server applicazioni SAP, seguire questi passaggi.
    [root@anftstsapcl2 ~]# pgrep er.sapQAS | xargs kill -9
    ```
 
-   Se si esegue il comando solo una volta `sapstart` , il processo viene riavviato. Se viene eseguito abbastanza spesso, `sapstart` il processo non verrà riavviato e lo stato della risorsa sarà interrotto. Eseguire i comandi seguenti come radice per pulire lo stato della risorsa dell'istanza ERS dopo il test.
+   Se il comando viene eseguito solo una volta, `sapstart` riavvierà il processo. Se viene eseguito abbastanza spesso, `sapstart` non riavvierà il processo e lo stato della risorsa sarà interrotto. Eseguire i comandi seguenti come radice per pulire lo stato della risorsa dell'istanza ERS dopo il test.
 
    ```
    [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ERS01

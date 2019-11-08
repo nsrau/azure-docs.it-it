@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: da6fee7158344d331c6c2a68f0fab1b13cc3a291
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9eb283f538759f9591add4b04462de151f2cb014
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934107"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825583"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -44,7 +45,7 @@ Esempio: test-offer-1
 
 <br>Esempio: offerta di test 1&#8482;
 
-Selezionare **Create** (Crea).  Viene creata una pagina di **Panoramica dell'offerta** per questa offerta.  
+Selezionare **Crea**.  Viene creata una pagina di **Panoramica dell'offerta** per questa offerta.  
 
 <!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
@@ -58,8 +59,8 @@ La pagina **Panoramica dell'offerta** include:
 
 - Il menu **Panoramica dell'offerta** contiene un elenco di collegamenti per l'esecuzione di operazioni su questa offerta. Questo elenco di operazioni verrà modificato in base alla selezione effettuata per l'offerta.  
     - Se l'offerta è una bozza di eliminazione 
-    - Se l'offerta è Live-stop sell offer 
-    - Se l'offerta è in anteprima – Go-Live 
+    - Se l'offerta è un'offerta di vendita Live-stop 
+    - Se l'offerta è in anteprima-Go-Live 
     - Se la disconnessione del server di pubblicazione non è stata completata, Annulla pubblicazione
 
 ## <a name="offer-setup"></a>Installazione dell'offerta
@@ -129,7 +130,7 @@ Elencare l'offerta ai clienti con un collegamento a una versione di valutazione 
 > [!NOTE]
 > I token che l'applicazione riceverà tramite il collegamento alla versione di valutazione può essere usato solo per ottenere informazioni sugli utenti tramite Azure AD per automatizzare la creazione di account nell'app. Gli account Microsoft (MSA) non sono supportati per l'autenticazione con questo token.
 
-##### <a name="contact-me"></a>Contattami
+##### <a name="contact-me"></a>Contact me (Contattami)
 Raccogliere le informazioni di contatto del cliente connettendosi al sistema CRM (Customer Relationship Management). Al cliente verrà richiesta l'autorizzazione a condividere le informazioni. Queste informazioni sui clienti, insieme al nome dell'offerta, all'ID e all'origine del Marketplace in cui è stata trovata l'offerta, verranno inviate al sistema CRM configurato. Per ulteriori informazioni sulla configurazione del CRM, vedere [Connect Lead Management](#connect-lead-management). 
 
 ## <a name="example-marketplace-offer-listing"></a>Elenco di offerte del Marketplace di esempio
@@ -169,7 +170,7 @@ Abilitando test drive, verrà richiesto di configurare un ambiente dimostrativo 
 
 Ricordarsi di **salvare** prima di procedere alla sezione successiva.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>Proprietà
 La scheda **Proprietà** richiede di definire le categorie e i settori usati per raggruppare l'offerta nei Marketplace, i contratti legali che supportano l'offerta e la versione dell'app. 
 
 Selezionare **Salva** dopo aver completato questi campi. 
@@ -249,7 +250,7 @@ Per rendere più accattivante la descrizione dell'offerta, è possibile usare i 
     <p> Questo è il primo paragrafo. </p>
     <p> Questo è il secondo paragrafo. </p>
 
-1. Se si desidera aggiungere un **elenco puntato di elementi**, inserire il testo all'interno dei tag `<li>` indicati di seguito. È possibile copiare e incollare più elementi puntati (elementi tra i tag `<li>` e `</li>`) all'interno dei tag `<ul>` e `</ul>`. Assicurarsi di aggiungere il `<ul></ul>`. 
+1. Se si desidera aggiungere un **elenco puntato di elementi**, inserire il testo all'interno dei tag `<li>` di seguito. È possibile copiare e incollare più elementi puntati (elementi tra i tag `<li>` e `</li>`) all'interno dei tag `<ul>` e `</ul>`. Assicurarsi di aggiungere il `<ul></ul>`. 
 
     **Esempio**:
 
@@ -307,7 +308,7 @@ Per rendere più accattivante la descrizione dell'offerta, è possibile usare i 
 - **Materiali di marketing del programma CSP** (facoltativo): è necessario fornire un collegamento ai materiali di marketing se si sceglie di estendere l'offerta al programma [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . CSP estende l'offerta a una gamma più ampia di clienti qualificati, permettendo ai partner CSP di aggregare, commercializzare e rivendere l'offerta. Questi rivenditori dovranno avere accesso ai materiali per il marketing dell'offerta. Per ulteriori informazioni, vedere la pagina relativa ai [Servizi go-to-Market](https://partner.microsoft.com/reach-customers/gtm).
 - **Collegamenti utili** (facoltativo): documenti online supplementari facoltativi sull'app o sui servizi correlati elencati fornendo un **titolo** e un **URL**. Aggiungere altri collegamenti utili facendo clic su **+ Aggiungi URL**.
 
-#### <a name="contact-information"></a>Informazioni di contatto
+#### <a name="contact-information"></a>Informazioni contatto
 
 - **Contatti**: per ogni contatto del cliente, fornire un **nome** di dipendente, un **numero di telefono**e un indirizzo di **posta elettronica** .  (Questi *non verranno* visualizzati pubblicamente). Per il gruppo di **contatti di supporto** è necessario anche un **URL di supporto** .  (Queste informazioni *verranno* visualizzate pubblicamente).
 
@@ -367,8 +368,8 @@ Al termine della creazione, vengono visualizzati i nomi dei piani, gli ID, i mod
 
 Le **azioni** disponibili nella **Panoramica del piano** variano a seconda dello stato corrente del piano e possono includere:
 
-- Se lo stato del piano è **bozza** – Elimina bozza
-- Se lo stato del piano è **Live** -stop sell plan o Sync private audience
+- Se lo stato del piano **è bozza-eliminazione bozza**
+- Se lo stato del piano è il piano di vendita **Live** -stop o la sincronizzazione di un pubblico privato
 
 **Crea nuovo piano** (almeno un piano per coloro che scelgono di vendere tramite Microsoft)
 
@@ -437,7 +438,7 @@ Selezionare la frequenza con cui i clienti devono pagare il prezzo elencato. È 
 - **Prezzo**: USD al mese o USD all'anno
 
 I prezzi impostati nella valuta locale (USD = Stati Uniti dollaro) vengono convertiti nella valuta locale di tutti i mercati selezionati usando i tassi di cambio correnti disponibili durante l'installazione. Convalidare questi prezzi prima della pubblicazione esportando il foglio di calcolo dei prezzi e esaminando il prezzo in ogni mercato. Se si desidera impostare prezzi personalizzati in un singolo mercato, modificare e importare il foglio di calcolo dei prezzi. L'utente è responsabile della convalida dei prezzi ed è proprietario di queste impostazioni.
-*\*You deve innanzitutto salvare le modifiche ai prezzi per consentire l'esportazione dei dati dei prezzi.*
+*\*È innanzitutto necessario salvare le modifiche ai prezzi per consentire l'esportazione dei dati dei prezzi.*
 
 Esaminare attentamente i prezzi prima della pubblicazione, in quanto esistono alcune restrizioni su cosa può cambiare dopo la pubblicazione di un piano:
 
@@ -485,7 +486,7 @@ Se è la prima volta che si pubblica questa offerta, è possibile:
 - Vedere lo stato di completamento di ogni sezione dell'offerta.
     - *Non avviato* : indica che la sezione non è stata toccata e deve essere completata.
     - *Incompleto* : indica che la sezione contiene errori che devono essere corretti o che sono necessarie altre informazioni. Tornare alla sezione o aggiornarla.
-    - *Completato* : indica che la sezione è completa, sono stati forniti tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere in uno stato completo prima di poter inviare l'offerta.
+    - *Complete* : indica che la sezione è completa, sono stati forniti tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere in uno stato completo prima di poter inviare l'offerta.
 - Fornire istruzioni di test al team di certificazione per assicurarsi che l'app venga testata correttamente, oltre a eventuali note supplementari utili per comprendere l'app.
 - Inviare l'offerta per la pubblicazione selezionando **Invia**. Verrà inviato un messaggio di posta elettronica per informare l'utente quando sarà disponibile una versione di anteprima dell'offerta da rivedere e approvare. È necessario tornare al centro per i partner e selezionare **Go-Live** per l'offerta per pubblicare l'offerta al pubblico (o se un'offerta privata, per i destinatari privati).
 

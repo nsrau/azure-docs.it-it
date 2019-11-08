@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 66c28039f9126ed9e3f56c3ac15b1b3d82279b64
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 1643a1e309ecc2bcfc440e3553fcffef54cfb038
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036366"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824637"
 ---
 # <a name="saas-offer-creation-checklist"></a>Elenco di controllo per la creazione di offerte SaaS
 
@@ -42,8 +43,8 @@ Le prime informazioni che verrà richiesto di fornire sono un ID e un alias per 
 
 | **Nome campo**    | **Note**   |  
 | :---------------- | :-----------| 
-| ID offerta  | Obbligatorio, non può essere modificato dopo la creazione. Massimo 50 caratteri e devono essere costituiti solo da lettere minuscole, caratteri alfanumerici, trattini o caratteri di sottolineatura. |
-| Alias offerta  | Richiesto. |
+| Offer ID (ID offerta)  | Obbligatorio, non può essere modificato dopo la creazione. Massimo 50 caratteri e devono essere costituiti solo da lettere minuscole, caratteri alfanumerici, trattini o caratteri di sottolineatura. |
+| Alias offerta  | Obbligatorio. |
 
 ## <a name="offer-setup-page"></a>Pagina installazione offerta
 
@@ -51,14 +52,14 @@ Nella pagina installazione offerta è possibile scegliere tra diversi canali e v
 
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------|  
-| Si vuole vendere tramite Microsoft?  | Richiesto. Valore predefinito: Sì |
-| In che modo si desidera che i potenziali clienti interagiscano con l'elenco delle offerte? (Chiamata all'azione)  | Obbligatorio se non si vendono tramite Microsoft. Valore predefinito: Versione di valutazione gratuita, opzioni: "Richiedi ora", "versione di valutazione gratuita", "contattami". |
+| Si vuole vendere tramite Microsoft?  | Obbligatorio. Impostazione predefinita: Sì |
+| In che modo si desidera che i potenziali clienti interagiscano con l'elenco delle offerte? (Chiamata all'azione)  | Obbligatorio se non si vendono tramite Microsoft. Impostazione predefinita: versione di valutazione gratuita, opzioni: "Ottieni ora", "versione di valutazione gratuita", "contattami". |
 | URL della versione di valutazione  | Obbligatorio se è selezionata l'opzione "versione di valutazione gratuita", come il modo in cui i clienti devono interagire con l'elenco delle offerte. |
 | URL offerta  | Obbligatorio se è selezionata l'opzione "Ottieni ora", poiché il modo in cui i clienti devono interagire con l'elenco delle offerte |
-| Canali  | facoltativo. Valore predefinito: Non è stato scelto il canale CSP (Reseller).  |
-| Test Drive | facoltativo. Valore predefinito: Nessuna test drive abilitata.  |
-| Type of Test Drive (Tipo di test drive) | Obbligatorio se è abilitato un test drive. Valore predefinito: Nessuna selezione. Opzioni: Azure Resource Manager, Dynamics 365 for business Central, Dynamics 365 per Customer Engagement, Dynamics 365 per Operations, app per la logica, Power BI.  |
-| Gestione dei lead: connettersi a un sistema CRM | Obbligatorio se si vendono tramite Microsoft o se le offerte sono elencate come "Contattatemi". Impostazione predefinita: non è connesso alcun sistema CRM. Opzioni CRM: Tabella di Azure, BLOB di Azure, Dynamics CRM Online, HTTPs ' endpoint, Marketo, Salesforce  |
+| Canali  | facoltativo. Impostazione predefinita: non è stato scelto il canale CSP (Reseller).  |
+| Test drive | facoltativo. Impostazione predefinita: nessuna test drive abilitata.  |
+| Type of Test Drive (Tipo di test drive) | Obbligatorio se è abilitato un test drive. Impostazione predefinita: nessuna selezione. Opzioni: Azure Resource Manager, Dynamics 365 for business Central, Dynamics 365 per Customer Engagement, Dynamics 365 per Operations, app per la logica, Power BI.  |
+| Gestione dei lead: connettersi a un sistema CRM | Obbligatorio se si vendono tramite Microsoft o se le offerte sono elencate come "Contattatemi". Impostazione predefinita: non è connesso alcun sistema CRM. Opzioni CRM: tabella di Azure, BLOB di Azure, Dynamics CRM Online, HTTPs ' endpoint, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Pagina Proprietà
 
@@ -66,9 +67,9 @@ La pagina delle proprietà consente di definire le categorie e i settori usati p
 
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------|  
-| Categoria e sottocategoria | Obbligatorio 1 e max 3. Valore predefinito: Nessuna selezione. |
-| Settori e sottosettori | facoltativo. Max 2 industrie L1 e max 2 sottosettori in ogni settore L1, valore predefinito: Nessuna selezione |
-| Versione dell'app  | facoltativo. Valore predefinito: No. |
+| Categoria e sottocategoria | Obbligatorio 1 e max 3. Impostazione predefinita: nessuna selezione. |
+| Settori e sottosettori | facoltativo. Max 2 industrie L1 e max 2 sottosettori in ogni settore L1, valore predefinito: nessuna selezione |
+| Versione dell'app  | facoltativo. Impostazione predefinita: None. |
 | USA contratto standard  | facoltativo. Impostazione predefinita: non selezionata.  | |
 | Condizioni per l'utilizzo  | Obbligatorio se il contratto standard non è selezionato.  |
 
@@ -80,19 +81,19 @@ Nella pagina di presentazione viene fornito il testo e le immagini che i clienti
 | :---------------- | :-----------| 
 | Name  | Obbligatorio, massimo 50 caratteri. |
 | Riepilogo  | Obbligatorio, massimo 100 caratteri. | 
-| DESCRIZIONE  | Obbligatorio, massimo 3000 caratteri. |
+| Descrizione  | Obbligatorio, massimo 3000 caratteri. |
 | Getting Started Instructions (Istruzioni per le attività iniziali)  | Obbligatorio, massimo 3000 caratteri. |
 | Getting Started Instructions (Istruzioni per le attività iniziali)  | Obbligatorio, massimo 3000 caratteri. |
 | Search Keywords (Parole chiave di ricerca)  | Parole chiave facoltative, consigliate e max 3. |
-| URL informativa sulla privacy  | Richiesto. |
+| URL informativa sulla privacy  | Obbligatorio. |
 | URL dei materiali di marketing del programma CSP  | facoltativo. |
 | Titolo dei collegamenti utili + URL  | facoltativo. |
 | Titolo e file di supporto per documenti  | Obbligatorio, minimo 1 e massimo 3. Deve essere un formato di file PDF. |
-| Screenshot  | Obbligatorio, minimo 1 screenshot e max 5; quattro o più consigliati. Deve essere 1280 X 720 in formato PNG. |
-| Logo dello Store (Small, medium, large, Wide, Hero)  | Small (48 X 48) e Large (216 X 216) obbligatorio; altre dimensioni facoltative ma consigliate: Media (90 x 90), Wide (255 x 115), Hero (815 x 290). Deve essere in formato PNG. |
+| Screenshots (Schermate)  | Obbligatorio, minimo 1 screenshot e max 5; quattro o più consigliati. Deve essere 1280 X 720 in formato PNG. |
+| Logo dello Store (Small, medium, large, Wide, Hero)  | Small (48 X 48) e Large (216 X 216) obbligatorio; altre dimensioni facoltative ma consigliate: media (90 x 90), Wide (255 x 115), Hero (815 x 290). Deve essere in formato PNG. |
 | Nome video + URL + anteprima  | Video facoltativi, consigliati, massimo 4. L'anteprima deve essere 1280 x 720 in formato PNG. Il video deve essere ospitato in YouTube o Vimeo. |
 | Contatti (programma CSP, progettazione, supporto)  | È necessario un contatto tecnico e di supporto (nome, indirizzo di posta elettronica e numero di telefono); Il contatto del programma CSP è facoltativo ma consigliato. |
-| URL del supporto  | Richiesto. |
+| URL del supporto  | Obbligatorio. |
 
 ## <a name="preview-page"></a>Pagina anteprima
 
@@ -120,7 +121,7 @@ Le prime informazioni da fornire sono un nome e un ID per il piano. Questa pagin
 | **Nome campo**    | **Note**   |  
 | :---------------- | :-----------| 
 | ID piano  | Obbligatorio se si vendono tramite Microsoft. Non può essere modificato dopo la creazione. Massimo 50 caratteri e devono essere costituiti solo da lettere minuscole, caratteri alfanumerici, trattini o caratteri di sottolineatura. |
-| Nome piano  | Obbligatorio se si vendono tramite Microsoft. Deve essere univoco in tutti i piani dell'offerta. Massimo 50 caratteri. |
+| Plan Name  | Obbligatorio se si vendono tramite Microsoft. Deve essere univoco in tutti i piani dell'offerta. Massimo 50 caratteri. |
 
 ## <a name="plan-listing-page"></a>Pagina di elenco del piano
 
@@ -128,7 +129,7 @@ La pagina di presentazione del piano è la posizione in cui si fornisce il testo
 
 | **Nome campo**    | **Note**   |  
 | :---------------- | :-----------| 
-| Descrizione piano   | Obbligatorio se si vendono tramite Microsoft. Massimo 500 caratteri. | |
+| Descrizione del piano   | Obbligatorio se si vendono tramite Microsoft. Massimo 500 caratteri. | |
 
 ## <a name="plan-pricing--availability-page"></a>Pianificare i prezzi & pagina di disponibilità
 
@@ -137,11 +138,11 @@ Nella pagina piano prezzi e disponibilità è possibile definire le caratteristi
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------| 
 | Disponibilità del mercato  | Obbligatorio, minimo 1 e massimo 141. |
-| Modello di determinazione prezzi  | Richiesto. Valore predefinito: Frequenza fissa. Opzioni: Frequenza fissa, per utente. |
+| Modello di prezzi  | Obbligatorio. Impostazione predefinita: frequenza fissa. Opzioni: frequenza fissa, per utente. |
 | Numero minimo e massimo di postazioni  | Facoltativo, disponibile solo se è selezionato il modello di determinazione prezzi basato sul posto. |
-| Termine fatturazione  | Richiesto. Valore predefinito: Mensile. Opzioni: Mensile, annuale. |
+| Termine fatturazione  | Obbligatorio. Impostazione predefinita: mensile. Opzioni: mensile, annuale. |
 | Prezzo  | USD necessari al mese, se è stato selezionato un termine di fatturazione mensile; o USD all'anno se è stato selezionato un termine di fatturazione annuale. |
-| Pianificare i destinatari  | facoltativo. Valore predefinito: Piano pubblico. Opzioni: Pubblico, privato in base all'ID tenant |
+| Pianificare i destinatari  | facoltativo. Impostazione predefinita: piano pubblico. Opzioni: pubblico, privato in base all'ID tenant |
 | Destinatari del piano limitato (ID tenant + Descrizione)  | Obbligatorio se è stato selezionato un piano privato. Min 1 e Max 10 ID tenant se immessi manualmente. Max 20000 se importazione file CSV. |
 
 ## <a name="test-drive-listing-page"></a>Pagina di elenco di test drive
@@ -150,8 +151,8 @@ Disponibile solo se si sceglie di offrire un test drive per l'offerta. Definire 
 
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------| 
-| Descrizione  | Richiesto. |
-| Nome manuale utente + file  | Obbligatorio, massimo 1 doc. Deve essere in formato PDF. |
+| Descrizione  | Obbligatorio. |
+| Nome manuale utente + file  | Obbligatorio, massimo 1 doc. deve essere in formato PDF. |
 | Nome del video, URL + anteprima  | Facoltativo, consigliato. L'anteprima deve essere 533 x 324 in formato JPGP o PNG. Il video deve essere ospitato in YouTube o Vimeo. |
 
 ## <a name="review-and-publish-page"></a>Pagina Revisione e pubblicazione

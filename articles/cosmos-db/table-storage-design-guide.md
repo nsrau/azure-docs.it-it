@@ -1,6 +1,6 @@
 ---
 title: Progettare tabelle di Azure Cosmos DB per supportare ridimensionamento e prestazioni
-description: 'Guida alla progettazione di tabelle di Archiviazione di Azure: Progettazione di tabelle scalabili ed efficienti in Azure Cosmos DB e in Tabella di archiviazione di Azure'
+description: 'Guida alla progettazione di tabelle di archiviazione di Azure: progettazione di tabelle scalabili ed efficienti in Azure Cosmos DB e nella tabella di archiviazione di Azure'
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 0812828f8d7c0be38fb03c06f4a10019e2ed153c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 499ac3a394339ebb07c36abeaaa761de22927941
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447289"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827781"
 ---
-# <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guida alla progettazione di tabelle di Archiviazione di Azure: progettazione di tabelle scalabili ed efficienti
+# <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guida alla progettazione della tabella di archiviazione di Azure: Progettazione scalabile e Tabelle ad alte prestazioni
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
@@ -132,7 +132,7 @@ Il nome account, il nome tabella e **PartitionKey** insieme identificano la part
 
 Nel servizio tabelle, un solo nodo gestisce una o più partizioni complete e il servizio scala bilanciando dinamicamente il carico delle partizioni tra i nodi. Se un nodo è in condizioni di carico, il servizio tabelle può *dividere* in più nodi l'intervallo di partizioni gestite da quel nodo. Quando il traffico diminuisce, il servizio può *unire* nuovamente in un solo nodo gli intervalli di partizioni dai nodi inattivi.  
 
-Per altre informazioni sui dettagli interni del servizio tabelle, in particolare sulla gestione delle partizioni con il servizio tabelle, vedere il documento [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta).  
+Per altre informazioni sui dettagli interni del servizio tabelle, in particolare sulla gestione delle partizioni con il servizio tabelle, vedere il documento relativo all’ [Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
 ### <a name="entity-group-transactions"></a>Transazioni dei gruppi di entità
 Nel servizio tabelle, le transazioni di gruppi di entità (EGT, Entity Group Transaction) sono il solo meccanismo predefinito per eseguire aggiornamenti atomici tra più entità. In alcuni documenti, le transazioni EGT sono chiamate anche *transazioni batch*. Le transazioni EGT possono agire solo su entità archiviate nella stessa partizione (ovvero che condividono la stessa chiave di partizione in una determinata tabella), quindi, ogni volta che è necessario un comportamento transazionale atomico tra più entità, bisogna assicurarsi che tali entità siano nella stessa partizione. Per questo motivo spesso si tengono tipi diversi di entità nella stessa tabella (e partizione) e non si usa una tabella per ogni tipo di entità. Una sola EGT può agire al massimo su 100 entità.  Se si inviano più EGT simultanee per l'elaborazione, è importante garantire che tali EGT non vengano applicate a entità che sono comuni tra EGT, altrimenti l'elaborazione potrebbe subire ritardi.
@@ -200,12 +200,12 @@ I seguenti esempi presuppongono che nel servizio tabelle vengano archiviate enti
 
 | *Nome colonna* | *Tipo di dati* |
 | --- | --- |
-| **PartitionKey** (nome del reparto) |string |
+| **PartitionKey** (nome del reparto) |String |
 | **RowKey** (ID dipendente) |String |
 | **FirstName** |String |
 | **LastName** |String |
 | **Age** |Integer |
-| **EmailAddress** |string |
+| **EmailAddress** |String |
 
 La sezione precedente Panoramica del servizio tabelle di Azure descrive alcune funzionalità chiave del servizio tabelle di Azure che influiscono direttamente sulla progettazione della query. Se ne possono ricavare le seguenti linee guida generali per la progettazione di query del servizio tabelle. La sintassi del filtro usata negli esempi riportati sotto proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx) (Query su entità).  
 
@@ -213,7 +213,7 @@ La sezione precedente Panoramica del servizio tabelle di Azure descrive alcune f
 * La seconda miglior ricerca è la ***query di intervallo***, che usa **PartitionKey** e applica il filtro a un intervallo di valori **RowKey** per restituire più di un'entità. Il valore **PartitionKey** identifica una partizione specifica e i valori **RowKey** identificano un subset delle entità in quella partizione. Ad esempio, $filter=PartitionKey eq 'Sales' e RowKey ge 'S' e RowKey lt 'T'  
 * La terza miglior ricerca è l'***analisi della partizione***, che usa **PartitionKey** e applica un filtro in base a un'altra proprietà non chiave e che potrebbe restituire più di un'entità. Il valore **PartitionKey** identifica una partizione specifica e i valori della proprietà selezionano un subset delle entità in quella partizione. Ad esempio: $filter=PartitionKey eq 'Sales' e LastName eq 'Smith'  
 * Una ***scansione di tabella*** non include **PartitionKey** ed è inefficiente perché cerca le entità corrispondenti in tutte le partizioni della tabella, una alla volta. Una scansione di tabella viene eseguita indipendentemente dal fatto che il filtro usi **RowKey**o meno. Ad esempio: $filter = LastName eq 'Jones'  
-* Le query di archiviazione tabelle di Azure che restituiscono più entità le ordinano in base a **PartitionKey** e **RowKey**. Per non dover riordinare le entità nel client, scegliere un valore **RowKey** che definisca l'ordinamento più comune. Risultati della query restituiti dall'API Table di Azure in Azure Cosmos DB non sono ordinati per chiave di riga o chiave di partizione. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+* Le query di archiviazione tabelle di Azure che restituiscono più entità le ordinano in base a **PartitionKey** e **RowKey**. Per non dover riordinare le entità nel client, scegliere un valore **RowKey** che definisca l'ordinamento più comune. I risultati della query restituiti dal API Tabella di Azure in Azure Cosmos DB non sono ordinati in base alla chiave di partizione o alla chiave di riga. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Se si usa "**or**" per specificare un filtro basato su valori **RowKey**, si ottiene un'analisi della partizione che non viene considerata come query di intervallo. Pertanto, è consigliabile evitare query che utilizzano filtri ad esempio: $filter = PartitionKey eq "Sales" e (RowKey '121' o RowKey eq '322')  
 
@@ -255,7 +255,7 @@ Molte progettazioni devono soddisfare alcuni requisiti per abilitare la ricerca 
 I risultati della query restituiti dal servizio tabelle sono disposti in ordine crescente per **PartitionKey** e poi per **RowKey**.
 
 > [!NOTE]
-> Risultati della query restituiti dall'API Table di Azure in Azure Cosmos DB non sono ordinati per chiave di riga o chiave di partizione. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> I risultati della query restituiti dal API Tabella di Azure in Azure Cosmos DB non sono ordinati in base alla chiave di partizione o alla chiave di riga. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Le chiavi della tabella di Archiviazione di Azure sono valori stringa e, per essere certi che i valori numerici siano ordinati correttamente, è consigliabile convertirli in una lunghezza fissa aggiungendo degli zeri se necessario. Se, ad esempio, il valore dell'ID dipendente usato come **RowKey** è un valore intero, è consigliabile convertire l'ID dipendente **123** in **00000123**. 
 
@@ -303,7 +303,7 @@ I seguenti modelli nella sezione [Modelli di progettazione tabelle](#table-desig
 ## <a name="encrypting-table-data"></a>Crittografia dei dati di tabella
 La libreria client di Archiviazione di Azure per .NET supporta la crittografia di proprietà di entità stringa per le operazioni di inserimento e sostituzione. Le stringhe crittografate vengono archiviate nel servizio come proprietà binarie e vengono convertite nuovamente in stringhe dopo la decrittografia.    
 
-Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare le proprietà da crittografare. Questa operazione può essere eseguita specificando un attributo [EncryptProperty] \(per le entità POCO che derivano da TableEntity) o un resolver di crittografia nelle opzioni di richiesta. Un resolver di crittografia è un delegato che accetta una chiave di partizione, una chiave di riga e un nome di proprietà e restituisce un valore booleano che indica se tale proprietà deve essere crittografata. Durante la crittografia, la libreria client utilizzerà queste informazioni per decidere se una proprietà deve essere crittografata durante la scrittura in rete. Il delegato fornisce inoltre la possibilità di logica per la modalità di crittografia delle proprietà. (Ad esempio, se X, quindi crittografa la proprietà A; in caso contrario crittografa le proprietà A e B). Non è necessario fornire queste informazioni durante la lettura o la query su entità.
+Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare le proprietà da crittografare. Questa operazione può essere eseguita specificando un attributo [EncryptProperty] \(per le entità POCO che derivano da TableEntity) o un resolver di crittografia nelle opzioni di richiesta. Un resolver di crittografia è un delegato che accetta una chiave di partizione, una chiave di riga e un nome di proprietà e restituisce un valore booleano che indica se tale proprietà deve essere crittografata. Durante la crittografia, la libreria client utilizzerà queste informazioni per decidere se una proprietà deve essere crittografata durante la scrittura in rete. Il delegato fornisce inoltre la possibilità di logica per la modalità di crittografia delle proprietà. (Ad esempio, se X, quindi crittografare la proprietà A; in caso contrario, crittografare le proprietà A e B). Non è necessario fornire queste informazioni durante la lettura o l'esecuzione di query sulle entità.
 
 L’unione non è attualmente supportata. Poiché un subset di proprietà potrebbe essere stato crittografato in precedenza utilizzando una chiave diversa, la semplice unione delle nuove proprietà e l’aggiornamento dei metadati comportano la perdita di dati. L'unione richiede chiamate a servizi aggiuntivi per la lettura dell’entità preesistente dal servizio o l’utilizzo di una nuova chiave per ogni proprietà, entrambe operazioni non idonee per motivi di prestazioni.     
 
@@ -428,7 +428,7 @@ Il servizio tabelle indicizza automaticamente le entità usando i valori **Parti
 Se si desidera poter trovare un'entità dipendente anche in base al valore di un'altra proprietà, ad esempio l'indirizzo di posta elettronica, è necessario usare un'analisi della partizione meno efficiente per trovare una corrispondenza. Il motivo è che il servizio tabelle non fornisce indici secondari. Inoltre, non esiste un'opzione per richiedere un elenco di dipendenti ordinato in modo diverso rispetto all'ordine **RowKey** .  
 
 #### <a name="solution"></a>Soluzione
-Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia un valore **RowKey** diverso. Se si archivia un'entità con le strutture riportate di seguito, è possibile recuperare in modo efficiente entità dipendente in base all'id dipendente o all’indirizzo di posta elettronica. I valori di prefisso per **RowKey**, "empid_" e "email_", consentono di eseguire query per un singolo dipendente o un intervallo di dipendenti usando un intervallo di indirizzi e-mail o ID dipendente.  
+Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia un valore **RowKey** diverso. Se si archivia un'entità con le strutture mostrate di seguito, è possibile recuperare in modo efficiente le entità Employee in base all'indirizzo di posta elettronica o all'ID dipendente. I valori di prefisso per **RowKey**, "empid_" e "email_" consentono di eseguire una query per un singolo dipendente o per un intervallo di dipendenti usando un intervallo di indirizzi di posta elettronica o ID dipendente.  
 
 ![Entità dipendente con valori RowKey diversi][7]
 
@@ -482,7 +482,7 @@ Se si desidera poter trovare un'entità dipendente anche in base al valore di un
 Si prevede un volume elevato di transazioni su queste entità e si vuole ridurre al minimo il rischio che il servizio tabelle limiti la velocità del client.  
 
 #### <a name="solution"></a>Soluzione
-Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia valori **PartitionKey** e **RowKey** diversi. Se si archivia un'entità con le strutture riportate di seguito, è possibile recuperare in modo efficiente entità dipendente in base all'id dipendente o all’indirizzo di posta elettronica. I valori di prefisso per **PartitionKey**, "empid_" e "email_", consentono di identificare l'indice da usare per una query.  
+Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia valori **PartitionKey** e **RowKey** diversi. Se si archivia un'entità con le strutture mostrate di seguito, è possibile recuperare in modo efficiente le entità Employee in base all'indirizzo di posta elettronica o all'ID dipendente. I valori di prefisso per **PartitionKey**, "empid_" e "email_" consentono di identificare l'indice che si desidera utilizzare per una query.  
 
 ![Entità dipendente con indice primario ed entità dipendente con indice secondario][10]
 
@@ -531,7 +531,7 @@ Le transazioni ETG consentono l'esecuzione di transazioni atomiche tra più enti
 * Entità archiviate in due partizioni diverse nella stessa tabella, in tabelle diverse o in account di archiviazione diversi.  
 * Un'entità archiviata nel servizio tabelle e un BLOB archiviato nel servizio BLOB.  
 * Un'entità archiviata nel servizio tabelle e un file in un file system.  
-* Un'entità archiviata nel servizio tabelle, ma indicizzata mediante Ricerca di Azure.  
+* Un archivio di entità nel servizio tabelle è stato ancora indicizzato usando il servizio Azure ricerca cognitiva.  
 
 #### <a name="solution"></a>Soluzione
 Usando le code di Azure, è possibile implementare una soluzione che offre coerenza finale tra due o più partizioni o sistemi di archiviazione.
@@ -614,7 +614,7 @@ I passaggi seguenti illustrano il processo da seguire per cercare tutti i dipend
 2. Analizzare l'elenco di ID dipendente nel campo EmployeeIDs.  
 3. Se sono necessarie informazioni aggiuntive su ognuno dei dipendenti (ad esempio gli indirizzi e-mail), recuperare ognuna delle entità dipendente usando il valore **PartitionKey** "Sales" e i valori **RowKey** dall'elenco dei dipendenti ottenuti nel passaggio 2.  
 
-<u>Opzione 3:</u> creare entità di indice in una tabella o in una partizione separata  
+<u>Opzione 3:</u> creare entità di indice in una tabella o una partizione separata  
 
 Per la terza opzione, usare entità di indice che archiviano i dati seguenti:  
 
@@ -723,7 +723,7 @@ Per l'implementazione di questo modello possono risultare utili i modelli e le i
 recupera le *e* ntità aggiunte più di recente a una partizione in base a un valore **RowKey** che usa un ordinamento inverso di data e ora.  
 
 > [!NOTE]
-> Risultati della query restituiti dall'API Table di Azure in Azure Cosmos DB non sono ordinati per chiave di partizione o chiave di riga. Di conseguenza, questo modello è adatto per l'archiviazione tabelle di Azure e non per Azure Cosmos DB. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> I risultati della query restituiti dal API Tabella di Azure in Azure Cosmos DB non sono ordinati in base alla chiave di partizione o alla chiave di riga. Di conseguenza, questo modello è adatto per l'archiviazione tabelle di Azure e non per Azure Cosmos DB. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### <a name="context-and-problem"></a>Contesto e problema
 Un requisito comune è poter recuperare le entità create più di recente, ad esempio le ultime dieci note di rimborso spese inviate da un dipendente. Le query sulle tabelle supportano un'operazione di query **$top** per restituire le prime *n* entità di un set. Non esiste un'operazione di query equivalente per la restituzione delle ultime n entità di un set.  
@@ -1516,9 +1516,9 @@ In questo esempio asincrono è possibile visualizzare le modifiche seguenti dall
 L'applicazione client può chiamare più metodi asincroni come questo e ogni chiamata al metodo verrà eseguita su un thread separato.  
 
 ### <a name="credits"></a>Credits
-Un particolare ringraziamento ai membri seguenti del team di Azure per il loro contributo: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah e Serdar Ozler, nonché Tom Hollander di Microsoft DX. 
+Vorremmo ringraziare i membri seguenti del team di Azure per il loro contributo: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah, Serdar Ozler e Tom Hollander di Microsoft DX. 
 
-Un grazie anche ai Microsoft MVP seguenti per i preziosi commenti forniti durante i cicli di revisione: Igor Papirov ed Edward Bakker.
+I nostri ringraziamenti vanno anche ai Microsoft MVP seguenti per i preziosi commenti forniti durante i cicli di revisione: Igor Papirov e Edward Bakker.
 
 [1]: ./media/storage-table-design-guide/storage-table-design-IMAGE01.png
 [2]: ./media/storage-table-design-guide/storage-table-design-IMAGE02.png

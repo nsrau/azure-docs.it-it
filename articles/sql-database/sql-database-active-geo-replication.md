@@ -1,5 +1,5 @@
 ---
-title: Replica geografica attiva-database SQL di Azure
+title: Replica geografica attiva
 description: Usare la replica geografica attiva per creare database secondari leggibili di singoli database nello stesso data center oppure in uno diverso (area).
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 74cbb9fa5a00b287746afd92fe74f50bfa19110b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 33697fd8d3b0c6faea423026e1462834c6b1ef4c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691311"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822650"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creazione e uso della replica geografica attiva
 
@@ -120,7 +120,7 @@ I database primari e secondari devono avere lo stesso livello di servizio. È an
 > Non è possibile garantire la RPO pubblicata = 5 sec, a meno che il database secondario non sia configurato con le stesse dimensioni di calcolo del database primario. 
 
 
-Se si decide di creare il database secondario con dimensioni di calcolo inferiori, il grafico della percentuale IO del log nel portale di Azure costituisce un buon metodo per stimare le dimensioni di calcolo minime del database secondario necessarie per sostenere il carico della replica. Ad esempio, se il database primario è P6 (1000 DTU) e la percentuale IO del log è del 50%, il database secondario deve essere almeno P4 (500 DTU). È anche possibile recuperare i dati di I/O del log usando la vista di database [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) o [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  La limitazione viene segnalata come stato di attesa HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO nelle viste di database [sys. dm _exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys. dm _os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) . 
+Se si decide di creare il database secondario con dimensioni di calcolo inferiori, il grafico della percentuale IO del log nel portale di Azure costituisce un buon metodo per stimare le dimensioni di calcolo minime del database secondario necessarie per sostenere il carico della replica. Ad esempio, se il database primario è P6 (1000 DTU) e la percentuale IO del log è del 50%, il database secondario deve essere almeno P4 (500 DTU). È anche possibile recuperare i dati di I/O del log usando la vista di database [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) o [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  La limitazione viene segnalata come HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO stato di attesa nelle viste di database [sys. dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) . 
 
 Per altre informazioni sulle dimensioni di calcolo del database SQL, vedere [Quali sono i livelli di servizio del database SQL di Azure?](sql-database-purchase-models.md).
 
@@ -150,12 +150,12 @@ A causa della latenza elevata delle reti WAN, per la copia continua viene usato 
 
 ## <a name="monitoring-geo-replication-lag"></a>Monitoraggio del ritardo della replica geografica
 
-Per monitorare il ritardo rispetto a RPO, utilizzare la colonna *replication_lag_sec* di [sys. dm _geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) nel database primario. Mostra un ritardo in secondi tra le transazioni di cui è stato eseguito il commit nel database primario e rese permanente sul database secondario. Ad esempio, Se il valore del ritardo è di 1 secondo, significa che se il database primario è influenzato da un'interruzione in questo momento e viene avviato il failover, 1 secondo delle transizioni più recenti non verrà salvato. 
+Per monitorare il ritardo rispetto a RPO, utilizzare *replication_lag_sec* colonna di [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) nel database primario. Mostra un ritardo in secondi tra le transazioni di cui è stato eseguito il commit nel database primario e rese permanente sul database secondario. Ad esempio, Se il valore del ritardo è di 1 secondo, significa che se il database primario è influenzato da un'interruzione in questo momento e viene avviato il failover, 1 secondo delle transizioni più recenti non verrà salvato. 
 
-Per misurare il ritardo rispetto alle modifiche apportate al database primario che sono state applicate al database secondario, ovvero disponibili per la lettura dalla replica secondaria, confrontare l'ora di *last_commit* nel database secondario con lo stesso valore nel database primario.
+Per misurare il ritardo rispetto alle modifiche apportate al database primario che sono state applicate al database secondario, ovvero disponibili per la lettura dalla replica secondaria, confrontare *last_commit* tempo nel database secondario con lo stesso valore nel database primario.
 
 > [!NOTE]
-> A volte *replication_lag_sec* sul database primario ha un valore null, il che significa che il database primario non conosce attualmente la distanza del database secondario.   Questo problema si verifica in genere dopo il riavvio del processo e deve essere una condizione temporanea. Si consiglia di avvisare l'applicazione se *replication_lag_sec* restituisce null per un periodo di tempo prolungato. Indica che il database secondario non è in grado di comunicare con il database primario a causa di un errore di connettività permanente. Esistono anche condizioni che possono causare la differenza tra il tempo *last_commit* nel database secondario e il database primario per diventare grande. Ad esempio, Se un commit viene eseguito sul database primario dopo un lungo periodo di assenza di modifiche, la differenza passerà a un valore elevato prima di tornare rapidamente a 0. Si consideri una condizione di errore quando la differenza tra questi due valori rimane grande per molto tempo.
+> A volte *replication_lag_sec* nel database primario ha un valore null, il che significa che il database primario non conosce attualmente la distanza del database secondario.   Questo problema si verifica in genere dopo il riavvio del processo e deve essere una condizione temporanea. Si consiglia di avvisare l'applicazione se il *replication_lag_sec* restituisce null per un periodo di tempo prolungato. Indica che il database secondario non è in grado di comunicare con il database primario a causa di un errore di connettività permanente. Esistono anche condizioni che possono causare la differenza tra *last_commit* tempo nel database secondario e nel database primario per diventare di grandi dimensioni. Ad esempio, Se un commit viene eseguito sul database primario dopo un lungo periodo di assenza di modifiche, la differenza passerà a un valore elevato prima di tornare rapidamente a 0. Si consideri una condizione di errore quando la differenza tra questi due valori rimane grande per molto tempo.
 
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Gestione a livello di codice della replica geografica attiva

@@ -10,13 +10,13 @@ ms.reviewer: klam; LADocs
 manager: carmonm
 ms.topic: conceptual
 tags: connectors
-ms.date: 11/06/2019
-ms.openlocfilehash: ed30ba305ec990256625052cb92f1b7524c826e2
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 11/08/2019
+ms.openlocfilehash: a6367e5897e9bd548550b099c0bd2e6186845d6d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720965"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826313"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatizzare i flussi di lavoro per SQL Server o il database SQL di Azure usando app per la logica di Azure
 
@@ -44,10 +44,11 @@ Se non si ha familiarità con le app per la logica, leggere [Informazioni su App
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
-* Prima di poter connettere le app per la logica ai sistemi locali, ad esempio SQL Server, è necessario [configurare un gateway dati locale](../logic-apps/logic-apps-gateway-install.md). In questo modo, è possibile selezionare il gateway quando si crea la connessione SQL per l'app per la logica.
+* Il [gateway dati](../logic-apps/logic-apps-gateway-install.md) locale installato in un computer locale e una risorsa del [gateway dati di Azure creata nel portale di Azure](../logic-apps/logic-apps-gateway-connection.md) per questi scenari:
 
-  > [!IMPORTANT]
-  > Per usare l'autenticazione di Windows con questo connettore, è necessario usare il gateway dati locale. Questo connettore non supporta l'autenticazione di Windows per un'app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+  * Le app per la logica non vengono eseguite in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+
+  * Le *app per la logica vengono eseguite* in un ambiente del servizio di integrazione, ma è necessario usare l'autenticazione di Windows per la connessione SQL Server. Per questo scenario, usare la versione non ISE del connettore SQL Server insieme al gateway dati perché la versione di ISE non supporta l'autenticazione di Windows.
 
 * L'app per la logica da cui accedere al database SQL. Per avviare l'app per la logica con un trigger SQL, è necessario un'[app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

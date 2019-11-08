@@ -4,15 +4,16 @@ description: I termini e le condizioni di Microsoft Commercial Marketplace si ap
 services: Azure, Marketplace, AppSource, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: v-qiwe
-ms.openlocfilehash: edee3224e32fd853ca2de836f5c4dc0e5e87a100
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 2b63120ae3c9f9a6e7689b68af2f80e94514f6d5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543588"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827917"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Condizioni e criteri del Marketplace commerciale
 

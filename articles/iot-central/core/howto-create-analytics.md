@@ -1,6 +1,6 @@
 ---
 title: Analizzare i dati dei dispositivi nell'applicazione Azure IoT Central | Microsoft Docs
-description: Analizzare i dati dei dispositivi nell'applicazione Azure IoT Central.
+description: Questo articolo descrive come analizzare i dati del dispositivo nell'applicazione IoT Central di Azure usando query e visualizzazioni.
 author: lmasieri
 ms.author: lmasieri
 ms.date: 06/09/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 35c085c74cb6713f52d551a188758a7427a93576
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a467e0e6e8967cf963ad099f83de6718330aa43f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954032"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827986"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Come usare le analisi per analizzare i dati dei dispositivi
 

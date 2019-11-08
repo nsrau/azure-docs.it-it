@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 771a20ccf1c34958308d58dafb6fb01e36bb408a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: HT
+ms.openlocfilehash: c20fc2142718d3cc49d4b80c6a5e22e26a350335
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749018"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824870"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -94,7 +94,7 @@ Il server NFS usa un nome host virtuale dedicato e indirizzi IP virtuali per ogn
 * Porta probe
   * Porta 61000 per NW1
   * Porta 61001 per NW2
-* Regole Loadbalancing (se si usa il servizio di bilanciamento del carico Basic)
+* Regole di bilanciamento del carico (se si usa il servizio di bilanciamento del carico Basic)
   * TCP 2049 per NW1
   * UDP 2049 per NW1
   * TCP 2049 per NW2
@@ -114,7 +114,7 @@ Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP 
    1. Prefisso della risorsa  
       Immettere il prefisso che si vuole usare. Il valore viene usato come prefisso per le risorse distribuite.
    2. Numero sistema SAP  
-      Immettere il numero di sistemi SAP che useranno il file server. Verrà distribuita la quantità necessaria di configurazioni front-end, regole di bilanciamento del carico, porte probe, dischi e così via.
+      Immettere il numero di sistemi SAP che useranno il file server. Verrà distribuita la quantità richiesta di configurazioni front-end, le regole di bilanciamento del carico, le porte Probe, i dischi e così via.
    3. Tipo di sistema operativo  
       Selezionare una delle distribuzioni Linux. Per questo esempio, selezionare SLES 12
    4. Nome utente e password amministratore  
@@ -165,7 +165,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
          1. Porta 61001 per NW2
             * Ripetere i passaggi precedenti per creare un probe di integrità per NW2
       1. Regole di bilanciamento del carico
-         1. Aprire il servizio di bilanciamento del carico, selezionare Regole di bilanciamento del carico e fare clic su Aggiungi
+         1. Aprire il servizio di bilanciamento del carico, selezionare regole di bilanciamento del carico e fare clic su Aggiungi.
          1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **NW1-lb**
          1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza, ad esempio **NW1-frontend**. **NW1-back-end** e **NW1-HP**
          1. Selezionare **porte a disponibilità elevata**.
@@ -216,8 +216,11 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
          1. UDP 2049 per NW2
             * Ripetere i passaggi precedenti per la porta 2049 e UDP per NW2
 
+> [!Note]
+> Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del servizio di bilanciamento del carico di Azure standard (nessun indirizzo IP pubblico), non vi sarà connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [connettività degli endpoint pubblici per le macchine virtuali con Azure Load Balancer standard negli scenari di disponibilità elevata di SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+
 > [!IMPORTANT]
-> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. TCP _timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Creare un cluster Pacemaker
 

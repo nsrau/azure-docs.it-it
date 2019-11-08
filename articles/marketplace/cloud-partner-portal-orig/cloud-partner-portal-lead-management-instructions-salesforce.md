@@ -4,15 +4,16 @@ description: Configurare la gestione dei lead in Salesforce per i clienti di Azu
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 0be5cd84e9ed8314584b5cea064b5c0241db1ab5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa1bfdcd172b17f88f6acf14a9d9b80e13767da8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935111"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827698"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configurare la gestione dei clienti potenziali per Salesforce
 
@@ -31,4 +32,4 @@ Questo articolo descrive come configurare il sistema Salesforce per gestire i cl
 5. In **Crea modulo Web a lead** selezionare **Genera** ![Generazione in Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png)
 
 6. Copiare l'OID nell'esempio e salvarlo. Incollare l'OID nel campo dell'**identificatore oggetto** del portale Cloud Partner.
-![Get Salesforce OID](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)
+![di OID Get Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)

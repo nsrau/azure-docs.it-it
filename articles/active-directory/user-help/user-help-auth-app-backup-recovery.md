@@ -1,5 +1,5 @@
 ---
-title: Eseguire il backup e il ripristino con l'app Microsoft Authenticator - Azure Active Directory | Microsoft Docs
+title: Eseguire il backup e il ripristino con l'app Microsoft Authenticator-Azure AD
 description: Informazioni su come eseguire il backup e il ripristino delle credenziali dell'account usando l'app Microsoft Authenticator.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 08/22/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b4e45fbe6533832765e90e5cf244f0dcbcf0b72
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 2404dd443c1e3ede1d3ad5a81888e9f805edb810
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035125"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820255"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Eseguire il backup e il ripristino delle credenziali dell'account con l'app Microsoft Authenticator
 

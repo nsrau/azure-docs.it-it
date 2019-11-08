@@ -1,18 +1,19 @@
 ---
-title: Pagina di tutti i server di pubblicazione per Azure Marketplace
-description: Panoramica di tutti i server di pubblicazione nel portale per Cloud Partner per Azure Marketplace.
+title: Pagina tutti i Publisher per Azure Marketplace
+description: Panoramica di tutti i Publisher nell'portale Cloud Partner per Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pabutler
-ms.openlocfilehash: ab42757d91244c0661a6acd02e4e5ebe891929a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c713beaafb47b2e6481ef9358b206dbc2b2e2cf1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64941992"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821568"
 ---
 # <a name="all-publishers-page"></a>Pagina Tutti gli autori
 

@@ -1,22 +1,22 @@
 ---
-title: Effettuare il provisioning di nuovi tenant in un'app multi-tenant che usa il database SQL di Azure
+title: Effettuare il provisioning di nuovi tenant in un'app multi-tenant
 description: Informazioni su come effettuare il provisioning di nuovi tenant e catalogarli in un'app SaaS multi-tenant del database SQL di Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: f0f1ebd8b2ef719a9556b6b20f6685d1da493263
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cd5b45093be6d7cc8745013f18c897251f89f454
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692120"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822200"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Effettuare il provisioning di nuovi tenant e registrarli nel catalogo
 

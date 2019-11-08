@@ -4,15 +4,16 @@ description: Configurare la gestione dei lead nell'archiviazione tabelle di Azur
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: pabutler
-ms.openlocfilehash: a53ed93813215655c4a165faa0bce36d9249e8e6
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 21105d72ccd288faf0fed58019e67afe2e1c9d01
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227894"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825279"
 ---
 # <a name="lead-management-instructions-for-table-storage"></a>Istruzioni relative alla gestione dei lead per l'archiviazione tabelle
 
@@ -31,7 +32,7 @@ Questo articolo descrive come configurare l'archiviazione tabelle di Azure per g
 
     Per altre informazioni sugli account di archiviazione, vedere [Esercitazioni introduttive](https://docs.microsoft.com/azure/storage/). Per informazioni sui prezzi, vedere [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-1. Attendere che venga eseguito il provisioning dell'account di archiviazione, che in genere richiede alcuni minuti. Quindi, accedere all'account dal home page della portale di Azure: Selezionare **Visualizza tutte le risorse** o **tutte le risorse** nel riquadro di spostamento.
+1. Attendere che venga eseguito il provisioning dell'account di archiviazione, che in genere richiede alcuni minuti. Quindi, accedere all'account dal home page della portale di Azure: selezionare **Visualizza tutte le risorse** o tutte le **risorse** nel riquadro di spostamento.
 
     ![Accedere all'account di archiviazione di Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
 
@@ -65,7 +66,7 @@ Questo esempio illustra come creare un flusso di base. Il flusso invia automatic
 
 1. Nella pagina di ricerca dei trigger e dei connettori, selezionare **Trigger**.
 1. In **Trigger**, selezionare **Ricorrenza**.
-1. Nella finestra ricorrenza Mantieni l'impostazione predefinita **1** per **intervallo**. Dall'elenco a discesa **Frequency (frequenza** ) selezionare **hour (ora**).
+1. Nella finestra **ricorrenza** Mantieni l'impostazione predefinita **1** per **intervallo**. Dall'elenco a discesa **Frequency (frequenza** ) selezionare **hour (ora**).
 
    >[!NOTE] 
    >Questo esempio usa un intervallo di un'ora. È tuttavia possibile selezionare un intervallo e una frequenza più adatti alle proprie esigenze aziendali.
@@ -84,7 +85,7 @@ Questo esempio illustra come creare un flusso di base. Il flusso invia automatic
     ![Impostare l'intervallo di tempo di Get paste](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getpast-time.png)
 
     >[!TIP] 
-    >È possibile controllare il flusso in qualsiasi momento per verificare che ogni passaggio sia configurato correttamente: Selezionare **controllo di flusso** dalla barra dei menu di Microsoft Flow.
+    >È possibile controllare il flusso in qualsiasi momento per verificare che ogni passaggio sia configurato correttamente: selezionare **controllo del flusso** dalla barra dei menu di Microsoft Flow.
 
 Nel prossimo set di passaggi, ci si connette alla tabella di archiviazione e si configura la logica di elaborazione per gestire i nuovi lead.
 
@@ -96,7 +97,7 @@ Nel prossimo set di passaggi, ci si connette alla tabella di archiviazione e si 
 
      ![Scegliere un valore personalizzato come nome della tabella di Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **Query di filtro**: Quando si seleziona questo campo, l'icona **Ottieni ora precedente** viene visualizzata in una finestra popup. Selezionare **ora precedente** per usare questo valore come timestamp per filtrare la query. In alternativa, è possibile incollare la funzione seguente nel campo:
+   - **Query di filtro**: quando si seleziona questo campo, l'icona **Ottieni ora precedente** viene visualizzata in una finestra popup. Selezionare **ora precedente** per usare questo valore come timestamp per filtrare la query. In alternativa, è possibile incollare la funzione seguente nel campo:
    
       `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
 
@@ -111,7 +112,7 @@ Nel prossimo set di passaggi, ci si connette alla tabella di archiviazione e si 
      ![Aggiungere un controllo Condition](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
 
 1. Nella finestra **condizione** selezionare **Scegli un valore**, quindi selezionare **espressione** nella finestra popup.
-1. Incollare `length(body('Get_entities')?['value'])` il campo ***FX*** . Selezionare **OK** per aggiungere questa funzione. 
+1. Incollare `length(body('Get_entities')?['value'])` nel campo ***FX*** . Selezionare **OK** per aggiungere questa funzione. 
 
 
 
@@ -132,19 +133,19 @@ Nel prossimo set di passaggi, ci si connette alla tabella di archiviazione e si 
    1. Nella finestra **Invia un messaggio di posta elettronica** immettere le informazioni nei campi seguenti:
 
       - **A**: un indirizzo di posta elettronica per tutti gli utenti che riceveranno la notifica.
-      - **Subject**: oggetto per il messaggio di posta elettronica. Ad esempio:  *Nuovi lead!*
-      - **Body**: il testo che si vuole includere in ogni messaggio di posta elettronica (facoltativo). Incollare `body('Get_entities')?['value']` anche come funzione per inserire informazioni sui lead.
+      - **Subject**: oggetto per il messaggio di posta elettronica. Ad esempio: *nuovi lead!*
+      - **Body**: il testo che si vuole includere in ogni messaggio di posta elettronica (facoltativo). Incollare anche `body('Get_entities')?['value']` come funzione per inserire informazioni sui lead.
 
         >[!NOTE] 
         >È possibile inserire punti dati statici o dinamici aggiuntivi nel corpo del messaggio di posta elettronica.
 
       ![Configurare la posta elettronica per notifiche sui clienti potenziali](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
 
-1. Selezionare **Salva** per salvare il flusso. Microsoft Flow la verificherà automaticamente per individuare eventuali errori. Se non sono presenti errori, il flusso verrà avviato dopo il salvataggio.
+1. Selezionare **Salva** per salvare il flusso. Microsoft Flow la verificherà automaticamente per individuare eventuali errori. Se non sono presenti errori, l'esecuzione del flusso viene avviata dopo il salvataggio.
 
     La figura seguente illustra un esempio di come dovrebbe apparire il flusso finale.
 
-    [![Sequenza di flusso finale](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
+    [![sequenza di flusso finale](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
 
     *Selezionare l'immagine per ingrandirla.*
 

@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/20/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: 93674574bceb24b75b9af36708ddfe7e77ebf0fe
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: c6adda618282370b291ea2037ebee959628c9e93
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565827"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73578948"
 ---
 # <a name="create-a-signalr-service"></a>Servizio Azure SignalR 
 
@@ -27,15 +27,37 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="sample-script"></a>Script di esempio
 
-Questo script usa l'estensione *signalr* per l'interfaccia della riga di comando di Azure. Eseguire il comando seguente per installare l'estensione *signalr* per l'interfaccia della riga di comando di Azure prima di usare questo script di esempio:
-
-```azurecli-interactive
-az extension add -n signalr
-```
-
 Questo script crea una nuova risorsa servizio SignalR e un nuovo gruppo di risorse. 
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-signalr/create-signalr-service-and-group/create-signalr-service-and-group.sh "Creates a new Azure SignalR Service resource and resource group")]
+```azurecli-interactive
+#!/bin/bash
+
+# Generate a unique suffix for the service name
+let randomNum=$RANDOM*$RANDOM
+
+# Generate a unique service and group name with the suffix
+SignalRName=SignalRTestSvc$randomNum
+#resource name must be lowercase
+mySignalRSvcName=${SignalRName,,}
+myResourceGroupName=$SignalRName"Group"
+
+# Create resource group 
+az group create --name $myResourceGroupName --location eastus
+
+# Create the Azure SignalR Service resource
+az signalr create \
+  --name $mySignalRSvcName \
+  --resource-group $myResourceGroupName \
+  --sku Standard_S1 \
+  --unit-count 1 \
+  --service-mode Default
+
+# Get the SignalR primary connection string 
+primaryConnectionString=$(az signalr key list --name $mySignalRSvcName \
+  --resource-group $myResourceGroupName --query primaryConnectionString -o tsv)
+
+echo "$primaryConnectionString"
+```
 
 Annotare il nome effettivo generato per il nuovo gruppo di risorse. Il nome del gruppo di risorse viene usato quando si vuole eliminare tutte le risorse di gruppo.
 

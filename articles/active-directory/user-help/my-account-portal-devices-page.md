@@ -1,5 +1,5 @@
 ---
-title: Gestire i dispositivi connessi dal portale account personale-Azure Active Directory | Microsoft Docs
+title: Gestire i dispositivi connessi nel portale account personale-Azure AD
 description: Come visualizzare e disabilitare i dispositivi connessi dalla pagina dispositivi del portale account personale.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a3ccbe133ed37476766c24cbc10d48dcffb5a72
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3c0eb691abaabf09ae8f89354e1fdb6f18cf8e5b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587797"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73804266"
 ---
 # <a name="manage-your-connected-devices-from-the-my-account-portal"></a>Gestire i dispositivi connessi dal portale account personale
 

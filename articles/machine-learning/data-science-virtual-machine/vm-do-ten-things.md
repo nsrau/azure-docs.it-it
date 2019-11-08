@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 75a685dc90db9133ee9bc5d52d046246270ea32a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dc8a870d692108f3a33b89a1c3826d421dfd1f63
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497618"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824389"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati di Windows
 
@@ -441,7 +441,7 @@ Dopo che la query è stata inviata al server, un diagramma mostra lo stato del p
 
 Dopo l'inserimento del set di dati in Azure Data Lake, è possibile usare il [linguaggio U-SQL](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) per eseguire query ed esplorare i dati. Il linguaggio U-SQL è simile a T-SQL, ma combina alcune funzionalità C# di in modo che gli utenti possano scrivere moduli personalizzati e funzioni definite dall'utente. È possibile usare gli script del passaggio precedente.
 
-Dopo che la query è stata inviata al server, tripdata_summary. CSV viene visualizzato in Azure Data Lake Explorer. È possibile visualizzare in anteprima i dati facendo clic con il pulsante destro del mouse sul file.
+Dopo l'invio della query al server tripdata_summary. CSV viene visualizzato in Azure Data Lake Explorer. È possibile visualizzare in anteprima i dati facendo clic con il pulsante destro del mouse sul file.
 
 ![Screenshot del file CSV in Esplora Data Lake](./media/vm-do-ten-things/USQL_create_summary.png)
 
@@ -826,7 +826,7 @@ Usare i seguenti passaggi dei prerequisiti per accedere a Azure Cosmos DB da DSV
 
 1. Il Azure Cosmos DB Python SDK è già installato in DSVM. Per aggiornarlo, eseguire ```pip install pydocumentdb --upgrade``` da un prompt dei comandi.
 2. Creare un account e un database Azure Cosmos DB dal [portale di Azure](https://portal.azure.com).
-3. Scaricare lo strumento di migrazione dei dati Azure Cosmos DB dall' [area download Microsoft](https://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) ed estrarlo in una directory di propria scelta.
+3. Scaricare lo strumento di migrazione dei dati Azure Cosmos DB dall' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=53595) ed estrarlo in una directory di propria scelta.
 4. Importare i dati JSON (Volcano Data) archiviati in un [BLOB pubblico](https://cahandson.blob.core.windows.net/samples/volcano.json) in Azure Cosmos DB con i parametri di comando seguenti per lo strumento di migrazione. Usare dtui. exe dalla directory in cui è stato installato il Azure Cosmos DB strumento di migrazione dati. Immettere il percorso di origine e di destinazione con questi parametri:
    
     `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`

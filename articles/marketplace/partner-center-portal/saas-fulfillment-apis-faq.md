@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: b324d3b9dca710dca6f5f99ad50ce4d973a42d2a
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 2f8aa41604ac176181252fb7b30cdeb2f039d10f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869547"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822886"
 ---
 # <a name="saas-fulfillment-apis---faq"></a>API di evasione ordini SaaS - domande frequenti
 
@@ -50,7 +51,7 @@ Per ulteriori informazioni sul contratto API per la gestione di scenari Transact
 
 ### <a name="how-do-you-know-the-saas-offer-to-which-the-user-subscribes-in-azure"></a>Come si conosce l'offerta SaaS a cui l'utente sottoscrive Azure?
 
-La risposta all' `Resolve` API include le informazioni sull'offerta e sul piano associate alla sottoscrizione Saas.
+La risposta all'API `Resolve` include le informazioni sull'offerta e sul piano associate alla sottoscrizione SaaS.
 
 ### <a name="how-can-the-azure-user-change-the-plan-associated-with-this-azure-subscription"></a>In che modo l'utente di Azure può modificare il piano associato a questa sottoscrizione di Azure?
 

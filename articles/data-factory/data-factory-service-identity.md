@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 437d1e13bfb0831bb3ece26f761cef4f5e2e0c6f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d8f65bef669e21af96ffe86319602ca5d1eea2c1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676996"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822723"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identità gestita per Data Factory
 
@@ -26,7 +26,7 @@ Questo articolo consente di comprendere l'identità gestita per Data Factory (no
 
 ## <a name="overview"></a>Panoramica
 
-Quando si crea una data factory, è possibile creare un'identità gestita insieme alla creazione della factory. L'identità gestita è un'applicazione gestita registrata nella directory delle attività di Azure e rappresenta questo data factory specifico.
+Quando si crea una data factory, è possibile creare un'identità gestita insieme alla creazione della factory. L'identità gestita è un'applicazione gestita registrata per Azure Active Directory e rappresenta questo data factory specifico.
 
 L'identità gestita per Data Factory avvantaggia le funzionalità seguenti:
 

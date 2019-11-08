@@ -1,5 +1,5 @@
 ---
-title: Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL di Azure
+title: Come usare l'invio in batch per migliorare le prestazioni dell'applicazione
 description: Questo argomento dimostra che le operazioni di database in batch migliorano significativamente la velocità e la scalabilità delle applicazioni di database SQL di Azure. Anche se le tecniche di invio in batch funzionano con qualsiasi database SQL, questo articolo è incentrato su Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 3d18f5b77d08a55bd06656a72cbc02c040b6f127
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 175ba6b4e65b4a6e276dbfb586e210027a6cd9b3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566243"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822414"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL
 
@@ -167,7 +167,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Nell'esempio precedente, l'oggetto **SqlCommand** inserisce righe da un parametro con valori di tabella,  **\@TestTvp**. L'oggetto **DataTable** creato in precedenza viene assegnato a questo parametro con il metodo **SqlCommand.Parameters.Add**. L'invio in batch delle operazioni di inserimento in una singola chiamata migliora sensibilmente le prestazioni rispetto alle operazioni di inserimento sequenziali.
+Nell'esempio precedente, l'oggetto **SqlCommand** inserisce righe da un parametro con valori di tabella, **\@TestTvp**. L'oggetto **DataTable** creato in precedenza viene assegnato a questo parametro con il metodo **SqlCommand.Parameters.Add**. L'invio in batch delle operazioni di inserimento in una singola chiamata migliora sensibilmente le prestazioni rispetto alle operazioni di inserimento sequenziali.
 
 Per migliorare ulteriormente l'esempio precedente, usare una stored procedure anziché un comando basato su testo. Il comando Transact-SQL seguente crea una stored procedure che accetta il parametro con valori di tabella **SimpleTestTableType** .
 
@@ -325,7 +325,7 @@ Considerando questo compromesso, valutare con attenzione i tipi di operazioni da
 
 I test non hanno in genere evidenziato vantaggi correlati alla suddivisione di batch di grandi dimensioni in blocchi più piccoli. In effetti, questa suddivisione ha causato spesso prestazioni inferiori rispetto all'invio di un singolo batch di grandi dimensioni. Si consideri ad esempio uno scenario che prevede l'inserimento di 1000 righe. La tabella seguente mostra il tempo necessario per usare parametri con valori di tabella per l'inserimento di 1000 righe divise in batch più piccoli.
 
-| Dimensioni batch | Iterazioni | Parametri con valori di tabella (ms) |
+| Dimensioni dei batch | Iterazioni | Parametri con valori di tabella (ms) |
 | --- | --- | --- |
 | 1000 |1 |347 |
 | 500 |2 |355 |
@@ -496,7 +496,7 @@ CONSTRAINT [PrimaryKey_PurchaseOrder]
 PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
 ```
 
-Ogni ordine contiene uno o più acquisti di prodotti. Tali informazioni vengono acquisite nella tabella PurchaseOrderDetail. L'istruzione Transact-SQL seguente crea la tabella PurchaseOrder con cinque colonne: OrderID, OrderDetailID, ProductID, UnitPrice e OrderQty.
+Ogni ordine contiene uno o più acquisti di prodotti. Tali informazioni vengono acquisite nella tabella PurchaseOrderDetail. L'istruzione Transact-SQL seguente crea la tabella PurchaseOrderDetail con cinque colonne: OrderID, OrderDetailID, ProductID, UnitPrice e OrderQty.
 
 ```sql
 CREATE TABLE [dbo].[PurchaseOrderDetail](

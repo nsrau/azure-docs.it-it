@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: a244e4f7ac406fecd4c053b39a5e9a9cb6ecab2c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 54b59cfecbbba6b71cf301aa4872892825d4b675
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105504"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827920"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Fatturazione a consumo con il servizio di misurazione del Marketplace
 
@@ -73,7 +74,7 @@ Le dimensioni di fatturazione vengono condivise tra tutti i piani per un'offerta
 Gli attributi che definiscono la dimensione sono condivisi tra tutti i piani per un'offerta.  Prima di pubblicare l'offerta, una modifica apportata a questi attributi dal contesto di qualsiasi piano influirà sulla definizione della dimensione in tutti i piani.  Dopo la pubblicazione dell'offerta, questi attributi non saranno più modificabili.  Questi attributi sono:
 
 * Identificatore
-* NOME
+* Name
 * Unità di misura
 
 Gli altri attributi di una dimensione sono specifici di ogni piano e possono avere valori diversi dal piano al piano.  Prima di pubblicare il piano è possibile modificare questi valori e solo questo piano sarà interessato.  Una volta pubblicato il piano, questi attributi non saranno più modificabili.  Questi attributi sono:

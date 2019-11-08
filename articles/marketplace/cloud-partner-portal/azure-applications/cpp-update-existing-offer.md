@@ -1,18 +1,19 @@
 ---
-title: Aggiornare un'offerta di applicazione di Azure esistente | Azure Marketplace
+title: Aggiornare un'offerta di applicazione Azure esistente | Azure Marketplace
 description: Come aggiornare un'offerta esistente di applicazioni Azure in Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pabutler
-ms.openlocfilehash: a36df757e3a2682af641101ed82583a0cd293e0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6854e445ea63639866e9e39a6afc725237bbc8fe
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942811"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826104"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>Aggiornare un'offerta esistente di applicazioni Azure
 
@@ -66,11 +67,11 @@ Per aggiornare i metadati del marketplace associati all'offerta, seguire questa 
 
 1. Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/).
 2. In **Tutte le offerte** trovare l'offerta che si vuole aggiornare.
-3. Andare alla scheda **Marketplace**. Usare le istruzioni nell'articolo [Pubblicare l'offerta di un'applicazione Azure](./cpp-publish-offer.md) per apportare modifiche ai metadati.
+3. Passare alla scheda **Marketplace** . per apportare modifiche ai metadati, seguire le istruzioni riportate nell' [offerta pubblicare un'applicazione Azure](./cpp-publish-offer.md) .
 4. Selezionare **Pubblica** per avviare il flusso di lavoro per pubblicare le modifiche.
  
 >[!Note]
->Cloud Solution Provider (CSP) partner canale acconsentire esplicitamente a questo punto è disponibile.  Vedi [Cloud Solution Provider](../../cloud-solution-providers.md) per altre informazioni sul marketing dell'offerta tramite Microsoft CSP partner canali.
+>Il consenso esplicito del canale partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [provider di soluzioni cloud](../../cloud-solution-providers.md) .
 
 ## <a name="deleting-an-existing-offer"></a>Eliminazione di un'offerta esistente
 

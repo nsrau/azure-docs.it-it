@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: e4ada412547360f97e869d3312b65d869fa3df48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff705eabde111b5ebac1e2d714e3ece221c36e90
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413723"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819296"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Ripristino del backup in Azure Service Fabric
 
@@ -27,23 +27,23 @@ I servizi Reliable con stato e Reliable Actors in Azure Service Fabric possono m
 
 Ad esempio, è possibile configurare un servizio in modo che esegua il backup dei suoi dati come misura di protezione dalle situazioni seguenti:
 
-- **Ripristino di emergenza**: Perdita definitiva di un intero cluster di Service Fabric.
-- **Perdita di dati**: Perdita definitiva della maggior parte delle repliche di una partizione del servizio.
-- **Perdita di dati**: eliminazione accidentale o danneggiamento del servizio. Ad esempio, un amministratore elimina accidentalmente il servizio.
-- **Danneggiamento dei dati**: la presenza di bug nel servizio provoca il danneggiamento dei dati. Ad esempio, i dati si possono danneggiare quando un aggiornamento del codice di servizio scrive dati non corretti in una raccolta affidabile. In tal caso potrebbe essere necessario ripristinare uno stato precedente sia per il codice che per i dati.
+- **Caso di ripristino di emergenza**: perdita definitiva di un intero cluster Service Fabric.
+- **Caso di perdita di dati**: perdita definitiva della maggior parte delle repliche di una partizione del servizio.
+- **Caso di perdita di dati**: eliminazione accidentale o danneggiamento del servizio. Ad esempio, un amministratore elimina accidentalmente il servizio.
+- **Caso di danneggiamento dei dati**: i bug nel servizio causano il danneggiamento dei dati. Ad esempio, i dati si possono danneggiare quando un aggiornamento del codice di servizio scrive dati non corretti in una raccolta affidabile. In tal caso potrebbe essere necessario ripristinare uno stato precedente sia per il codice che per i dati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Per attivare un ripristino, il _servizio di analisi degli errori_ deve essere abilitato per il cluster.
 - Il _servizio di ripristino backup_ ha creato il backup.
 - Il ripristino può essere attivato solo in una partizione.
-- Installare il modulo di Microsoft.ServiceFabric.Powershell.Http (In anteprima) per effettuare chiamate di configurazione.
+- Installare il modulo Microsoft. ServiceFabric. PowerShell. http [in anteprima] per eseguire chiamate di configurazione.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-- Assicurarsi che i Cluster è connesso utilizzando il `Connect-SFCluster` comando prima di apportare qualsiasi richiesta di configurazione usando Microsoft.ServiceFabric.Powershell.Http modulo.
+- Verificare che il cluster sia connesso usando il comando `Connect-SFCluster` prima di eseguire qualsiasi richiesta di configurazione usando il modulo Microsoft. ServiceFabric. PowerShell. http.
 
 ```powershell
 
@@ -65,14 +65,14 @@ In caso di perdita di un intero cluster di Service Fabric, è possibile recupera
 
 Per l'esempio seguente supponiamo che il cluster andato perso sia lo stesso a cui si fa riferimento in [Abilita i backup periodici per servizio Reliable con stato e Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). In questo caso, l'app `SampleApp` viene distribuita con i criteri di backup abilitati e i backup sono configurati in Archiviazione di Azure.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell Usa modulo Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell con il modulo Microsoft. ServiceFabric. PowerShell. http
 
 ```powershell
 Get-SFBackupsFromBackupLocation -Application -ApplicationName 'fabric:/SampleApp' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Chiamata REST con Powershell
+#### <a name="rest-call-using-powershell"></a>Chiamata REST con PowerShell
 
 Eseguire uno script di PowerShell per usare l'API REST per restituire un elenco dei backup creati per tutte le partizioni all'interno dell'applicazione `SampleApp`. Per elencare i backup disponibili, l'API deve disporre delle informazioni di archiviazione dei backup.
 
@@ -165,7 +165,7 @@ Se l'ID partizione nel cluster alternativo è `1c42c47f-439e-4e09-98b9-88b8f6080
 
 Per il _partizionamento denominato_, il valore del nome viene confrontato per identificare la partizione di destinazione nel cluster alternativo.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell Usa modulo Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell con il modulo Microsoft. ServiceFabric. PowerShell. http
 
 ```powershell
 
@@ -173,7 +173,7 @@ Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -Backup
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Chiamata REST con Powershell
+#### <a name="rest-call-using-powershell"></a>Chiamata REST con PowerShell
 
 Occorre richiedere il ripristino sulla partizione del cluster di backup usando l'[API di ripristino](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition) seguente:
 
@@ -199,7 +199,18 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 È possibile monitorare lo stato di un ripristino con TrackRestoreProgress.
 
-### <a name="data-restore-for-data-corruptiondata-loss"></a>Ripristino dati in caso di _danneggiamento_/_perdita dei dati_
+### <a name="using-service-fabric-explorer"></a>Utilizzo di Service Fabric Explorer
+È possibile attivare un ripristino da Service Fabric Explorer. Verificare che la modalità avanzata sia stata abilitata nelle impostazioni Service Fabric Explorer.
+1. Selezionare le partizioni desiderate e fare clic su azioni. 
+2. Selezionare Attiva ripristino della partizione e immettere le informazioni per Azure:
+
+    ![Attiva ripristino partizione][2]
+
+    o FileShare:
+
+    ![Attiva ripristino partizione FileShare][3]
+
+### <a name="data-restore-for-_data-corruption__data-loss_"></a>Ripristino dati in caso di _danneggiamento_/_perdita dei dati_
 
 In caso di _perdita dei dati_ o _danneggiamento dei dati_, per le partizioni sottoposte a backup del servizio Reliable con stato e Reliable Actors il ripristino può essere eseguito in uno qualsiasi dei backup scelti.
 
@@ -226,14 +237,14 @@ FailureError            :
 Per l'API di ripristino, specificare i dettagli _BackupId_ e _BackupLocation_. Poiché per il cluster è abilitato il backup, il _servizio di ripristino del backup_ di Service Fabric identifica la posizione di archiviazione corretta in base ai criteri di backup associati.
 
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell Usa modulo Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell con il modulo Microsoft. ServiceFabric. PowerShell. http
 
 ```powershell
 Restore-SFPartition  -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Chiamata REST con Powershell
+#### <a name="rest-call-using-powershell"></a>Chiamata REST con PowerShell
 
 ```powershell
 $RestorePartitionReference = @{
@@ -253,13 +264,13 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 Una partizione di un servizio Reliable con stato o Reliable Actors accetta solo una richiesta di ripristino alla volta. Una partizione accetta solo un'altra richiesta dopo il completamento della richiesta di ripristino corrente. Più richieste di ripristino possono essere attivate contemporaneamente in partizioni diverse.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell Usa modulo Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell con il modulo Microsoft. ServiceFabric. PowerShell. http
 
 ```powershell
     Get-SFPartitionRestoreProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 ```
 
-#### <a name="rest-call-using-powershell"></a>Chiamata REST con Powershell
+#### <a name="rest-call-using-powershell"></a>Chiamata REST con PowerShell
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4"
@@ -272,14 +283,14 @@ $restoreResponse | Format-List
 
 La richiesta di ripristino procede nell'ordine seguente:
 
-1. **Accettato**: lo stato del ripristino _Accettato_ indica che la partizione richiesta è stata attivata con i parametri di richiesta corretti.
+1. **Accettato**: uno stato di ripristino _accettato_ indica che la partizione richiesta è stata attivata con i parametri di richiesta corretti.
     ```
     RestoreState  : Accepted
     TimeStampUtc  : 0001-01-01T00:00:00Z
     RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
     RestoredLsn   : 3552
     ```
-2. **In corso**: lo stato del ripristino _In corso_ indica che è in corso un ripristino nella partizione con il backup indicato nella richiesta. La partizione segnala lo stato _dataloss_ (perdita di dati).
+2. In **corso**: uno stato di ripristino in _corso_ indica che è in corso un ripristino nella partizione con il backup indicato nella richiesta. La partizione segnala lo stato _dataloss_ (perdita di dati).
     ```
     RestoreState  : RestoreInProgress
     TimeStampUtc  : 0001-01-01T00:00:00Z
@@ -287,8 +298,8 @@ La richiesta di ripristino procede nell'ordine seguente:
     RestoredLsn   : 3552
     ```
     
-3. **Operazione riuscita**, **Operazione non riuscita** o **Timeout**: un ripristino richiesto può essere completato in uno degli stati seguenti. Il significato e la risposta di ogni stato sono riportati di seguito:
-    - **Operazione riuscita**: lo stato _Operazione riuscita_ indica che lo stato della partizione è stato ripristinato. La partizione indica gli stati _RestoredEpoch_ e _RestoredLSN_, oltre all'ora in formato UTC.
+3. **Esito positivo**, **negativo**o **timeout**: un ripristino richiesto può essere completato in uno degli Stati seguenti. Il significato e la risposta di ogni stato sono riportati di seguito:
+    - **Success**: uno stato di ripristino con _esito positivo_ indica uno stato di partizione recuperato. La partizione indica gli stati _RestoredEpoch_ e _RestoredLSN_, oltre all'ora in formato UTC.
 
         ```
         RestoreState  : Success
@@ -296,7 +307,7 @@ La richiesta di ripristino procede nell'ordine seguente:
         RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
         RestoredLsn   : 3552
         ```        
-    - **Operazione non riuscita**: lo stato del ripristino _Operazione non riuscita_ indica che la richiesta di ripristino ha avuto esito negativo. La causa dell'errore viene indicata.
+    - **Errore**: uno stato di ripristino dell' _errore_ indica l'errore della richiesta di ripristino. La causa dell'errore viene indicata.
 
         ```
         RestoreState  : Failure
@@ -304,7 +315,7 @@ La richiesta di ripristino procede nell'ordine seguente:
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    - **Timeout**: lo stato del ripristino _Timeout_ indica che si è verificato il timeout della richiesta. Creare una nuova richiesta di ripristino con un valore di [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) maggiore. Il timeout predefinito è 10 minuti. Verificare che la partizione non sia nello stato di perdita dei dati prima di richiedere di nuovo il ripristino.
+    - **Timeout**: uno stato di ripristino del _timeout_ indica che la richiesta ha il timeout. Creare una nuova richiesta di ripristino con un valore di [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) maggiore. Il timeout predefinito è 10 minuti. Verificare che la partizione non sia nello stato di perdita dei dati prima di richiedere di nuovo il ripristino.
      
         ```
         RestoreState  : Timeout
@@ -324,3 +335,6 @@ La richiesta di ripristino procede nell'ordine seguente:
 ## <a name="next-steps"></a>Passaggi successivi
 - [Informazioni sulla configurazione del backup periodico](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Informazioni di riferimento sull'API REST di ripristino backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+
+[2]: ./media/service-fabric-backuprestoreservice/restore-partition-backup.png
+[3]: ./media/service-fabric-backuprestoreservice/restore-partition-fileshare.png

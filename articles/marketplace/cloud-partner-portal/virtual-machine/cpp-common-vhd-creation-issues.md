@@ -4,16 +4,17 @@ description: Domande frequenti sulla creazione di dischi rigidi virtuali e sui p
 services: Azure Marketplace
 author: HannibalSII
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/02/2018
 ms.author: hascipio
 ms.reviewer: v-divte; v-miclar
-ms.openlocfilehash: bb7e62138dbefdd8ff4933ef10602986a5da2bf6
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1d4224d8f1f735ecef3d4551e3032b916e81dc3c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875007"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826624"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Domande frequenti sui problemi comuni che si verificano durante la creazione di dischi rigidi virtuali
 
@@ -67,14 +68,14 @@ Sì, se ospitate in Azure.  Azure assegna un identificatore univoco denominato I
 
 ## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>In una macchina virtuale com'è possibile gestire l'estensione di script personalizzato nell'attività di avvio?
 
-L'articolo seguente descrive come usare l'estensione di script personalizzata con il modulo Azure PowerShell e i modelli di Azure Resource Manager e inoltre illustra i passaggi per la risoluzione dei problemi nei sistemi Windows: [Estensione script personalizzata per Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+L'articolo seguente descrive in dettaglio come usare l'estensione di script personalizzato usando il modulo Azure PowerShell e i modelli di Azure Resource Manager, nonché le operazioni di risoluzione dei problemi in Windows: [Estensione di script personalizzati per Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
 
 
 ## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Le applicazioni o i servizi a 32 bit sono supportati in Azure Marketplace?
 
 Generalmente, no.  I sistemi operativi supportati e i servizi standard per le macchine virtuali di Azure sono tutti a 64 bit.  Dal punto di vista tecnico, tuttavia, la maggior parte dei sistemi operativi a 64 bit supporta l'esecuzione di versioni a 32 bit delle applicazioni per la compatibilità con le versioni precedenti.  L'uso delle applicazioni a 32 bit come parte della soluzione di macchina virtuale, tuttavia, non è supportato e pertanto è *vivamente sconsigliato*.  Ricompilare quindi l'applicazione come un progetto a 64 bit.
 
-Per altre informazioni, vedere i seguenti articoli:
+Per altre informazioni, vedere gli articoli seguenti:
 - [Running 32-bit applications](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications) (Applicazioni a 32 bit in esecuzione)
 - [Support for 32-bit operating systems in Azure virtual machines](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines) (Supporto per sistemi operativi a 32 bit nelle macchine virtuali di Azure)
 - [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) (Supporto software di server Microsoft per macchine virtuali di Microsoft Azure)

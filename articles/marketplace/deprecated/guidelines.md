@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 57eeb9b6ac6eb826e2b371e6ff4dfd71f8cef49c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 371f36e13c244439a583cbeb7ff06c6a1283d272
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258985"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825943"
 ---
 # <a name="guidelines"></a>Indicazioni  
 
@@ -29,7 +30,7 @@ Se più di una persona richiede l'accesso allo stesso ID Microsoft usato per cre
 
 >[!IMPORTANT]
 >Per autorizzare più utenti ad accedere all'account Microsoft Developer Center (Dev Center), Microsoft consiglia di usare Azure Active Directory (Azure AD) per assegnare ruoli ai singoli utenti. Ogni utente può accedere all'account usando le credenziali di Azure AD. Creare l'ID Microsoft tramite un indirizzo di posta elettronica in un dominio registrato per l'azienda, Microsoft suggerisce di non assegnare l'indirizzo di posta elettronica a un singolo utente. Un esempio è `windowsapps@fabrikam.com`.  
->*   Per altre informazioni, visitare il [problema: ID di Microsoft in Azure AD federato dominio](#issue-microsoft-id-in-an-azure-ad-federated-domain) sezione.  
+>*   Per altre informazioni, vedere la sezione [Problema: ID Microsoft in un dominio federato di Azure AD](#issue-microsoft-id-in-an-azure-ad-federated-domain).  
 
 *   Limitare l'accesso a questo ID Microsoft al minor numero possibile di sviluppatori. 
 *   Impostare una lista di distribuzione (DL) di posta elettronica aziendale che include tutti gli utenti che devono accedere all'account Dev Center. Aggiungere l'indirizzo di posta elettronica della lista di distribuzione alle informazioni di protezione. La lista di distribuzione consente a tutti i dipendenti nella lista di ricevere codici di sicurezza quando richiesto e di gestire le informazioni di protezione per l'ID Microsoft. Se non è possibile impostare una lista di distribuzione, il proprietario del singolo account di posta elettronica deve accedere e condividere il codice di sicurezza quando richiesto.  
@@ -45,7 +46,7 @@ L'accesso all'account Dev Center deve avvenire principalmente da computer attend
 
 ---
 
-#### <a name="issue-microsoft-id-in-an-azure-ad-federated-domain"></a>Problema: ID di Microsoft in un dominio federato AD Azure  
+#### <a name="issue-microsoft-id-in-an-azure-ad-federated-domain"></a>Problema: ID Microsoft in un dominio federato di Azure AD  
 L'account aziendale può essere federato tramite Azure Active Directory (Azure AD). Se si prova a creare un ID Microsoft tramite un indirizzo di posta elettronica aziendale federato con Azure AD, viene visualizzato un errore. Se si visualizza un errore, è consigliabile rivolgersi al team IT per verificare che l'account è federato con Azure AD. L'indirizzo di posta elettronica federato con Azure AD è un problema noto e Microsoft si sta occupando di risolverlo.  
 *   Per altre informazioni su Azure AD, visitare la pagina Documentazione di Azure Active Directory disponibile all'indirizzo [docs.microsoft.com/azure/active-directory](https://docs.microsoft.com/azure/active-directory).
 

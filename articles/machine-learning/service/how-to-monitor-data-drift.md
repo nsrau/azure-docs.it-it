@@ -1,7 +1,7 @@
 ---
-title: Rilevare la tendenza dei dati (anteprima) nelle distribuzioni AKS
+title: Rilevare la tendenza dei dati nelle distribuzioni AKS
 titleSuffix: Azure Machine Learning
-description: Rilevare la tendenza dei dati nei modelli distribuiti del servizio Kubernetes di Azure in Azure Machine Learning.
+description: Rilevare la tendenza dei dati (anteprima) nei modelli distribuiti del servizio Kubernetes di Azure in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b1c22d9badc58360b0355bb4ef89017db27f06
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
-ms.translationtype: HT
+ms.openlocfilehash: 9ac1c5cb25d6b2ad396c2caed74942988a723a0e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796730"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824263"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Rilevare la tendenza dei dati (anteprima) nei modelli distribuiti in Azure Kubernetes Service (AKS)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -98,7 +98,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## <a name="submit-a-datadriftdetector-run"></a>Inviare un'esecuzione DataDriftDetector
 
-Con l'oggetto `DataDriftDetector` configurato, è possibile inviare un'operazione di [spostamento dei dati](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) in una data specificata per il modello. Come parte dell'esecuzione, abilitare gli avvisi DataDriftDetector impostando il parametro `drift_threshold`. Se il valore di [datadrift_coefficient](#metrics) è superiore al `drift_threshold`specificato, viene inviato un messaggio di posta elettronica.
+Con l'oggetto `DataDriftDetector` configurato, è possibile inviare un'operazione di [spostamento dei dati](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) in una data specificata per il modello. Come parte dell'esecuzione, abilitare gli avvisi DataDriftDetector impostando il parametro `drift_threshold`. Se il [datadrift_coefficient](#metrics) si trova al di sopra della `drift_threshold`specificata, viene inviato un messaggio di posta elettronica.
 
 ```python
 # adhoc run today
@@ -152,7 +152,7 @@ drift_figures = datadrift.show(with_details=True)
 
 ## <a name="schedule-data-drift-scans"></a>Pianifica analisi della deviazione dati 
 
-Quando si Abilita il rilevamento della tendenza dei dati, viene eseguito un DataDriftDetector alla frequenza pianificata specificata. Se il datadrift_coefficient raggiunge il `drift_threshold`specificato, viene inviato un messaggio di posta elettronica con ogni esecuzione pianificata. 
+Quando si Abilita il rilevamento della tendenza dei dati, viene eseguito un DataDriftDetector alla frequenza pianificata specificata. Se il datadrift_coefficient raggiunge la `drift_threshold`specificata, viene inviato un messaggio di posta elettronica con ogni esecuzione pianificata. 
 
 ```python
 datadrift.enable_schedule()

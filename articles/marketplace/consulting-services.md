@@ -4,20 +4,21 @@ description: Questo articolo illustra i criteri di idoneità e i requisiti di pu
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: e23a83ab3a5b110f74ab4ac203dfc020e8920c24
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: d56b83c8bd9a71ac30112f9e77a97ed8ab61a137
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285993"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825979"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servizi di consulenza per Azure Marketplace e AppSource
 I Servizi di consulenza in Azure Marketplace e AppSource consentono ai partner Microsoft di connettere i clienti con servizi per supportare ed estendere l'uso di Azure e gli obiettivi aziendali. 
 
-Azure Marketplace e AppSource supportano l'inserzione delle offerte di servizi di consulenza dei partner integratori di sistemi di Microsoft, con l'obiettivo di offrire servizi di consulenza di qualità che permettano ai clienti di trovare i servizi professionali di cui hanno bisogno. I clienti potranno quindi valutare e distribuire le soluzioni e l'implementazione più appropriate per realizzare i propri obiettivi di business.  
+Azure Marketplace e AppSource supportano l'elenco di offerte di servizi di consulenza dei partner integratori di sistemi di Microsoft, l'obiettivo di offrire servizi di consulenza di qualità per consentire ai clienti di connettersi ai servizi di esperti di cui hanno bisogno. I clienti potranno quindi valutare e distribuire le soluzioni e l'implementazione più appropriate per realizzare i propri obiettivi di business.  
 
 Queste offerte dei servizi di consulenza sono impegni specifici del cliente. Gli editori hanno la possibilità di determinare il tipo di inserzione con ambito e durata predefiniti, a prezzo fisso o gratuito, e un'agenda dei risultati finali predefiniti per il cliente. I lead vengono ricevuti tramite una notifica nel sistema CRM del partner e l'obiettivo è di rispondere ai clienti entro 48 ore. 
 
@@ -30,7 +31,7 @@ Le vetrine del marketplace sono organizzate in base a gruppi di destinatari e pr
 |Pertinenza delle soluzioni     |Applicazioni tecniche create per o in Azure|Applicazioni aziendali che sfruttano/estendono D365, Power BI, Office 365, Azure. (applicazioni completate per componente aggiuntivo)|
 |Opzioni di pubblicazione     |Contattaci, versione di valutazione, transazioni o servizi per Azure|Contattami, versione di valutazione o servizi per Dynamics 365 e Power BI|
 |In Esperienza di prodotto      |Portale di gestione di Azure|Office 365, Dynamics 365, app client di Office| 
-|Altro      |Pubblicazione locale tramite Azure Stack, servizi di consulenza per Azure, servizi gestiti per Azure|Servizi di consulenza per Dynamics e Power BI|
+|Altri      |Pubblicazione locale tramite Azure Stack, servizi di consulenza per Azure, servizi gestiti per Azure|Servizi di consulenza per Dynamics e Power BI|
 
 Le offerte di servizi di consulenza basate su Microsoft Dynamics 365 e Power BI sono idonee per l'elenco Microsoft AppSource. Per altre informazioni, vedere [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) (Linee guida all'inserzione di servizi di consulenza in Microsoft AppSource). 
 
@@ -123,19 +124,19 @@ L'inserzione dell'offerta del servizio di consulenza in Azure Marketplace e AppS
 ## <a name="offer-listings-and-content-review-criteria"></a>Presentazioni delle offerte e criteri di revisione del contenuto
 Le offerte devono essere di uno dei cinque tipi di servizi seguenti (è possibile elencarne più di uno): 
 
-* **Valutazione:** valutazione dell'ambiente di un cliente per determinare l'applicabilità di una soluzione e fornire una stima dei costi e delle tempistiche. 
-* **Briefing:** introduzione a una soluzione o a un servizio di consulenza per suscitare l'interesse del cliente con framework, demo ed esempi di clienti. 
-* **Implementazione**: installazione completa che fornisce una soluzione perfettamente funzionante. È consigliabile limitarla alle soluzioni implementabili in non più di due settimane. 
+* **Valutazione**: valutazione dell'ambiente di un cliente per determinare l'applicabilità di una soluzione e fornire una stima dei costi e delle tempistiche. 
+* **Briefing**: introduzione a una soluzione o a un servizio di consulenza per suscitare l'interesse del cliente con framework, demo ed esempi di clienti. 
+* **Implementazione:** installazione completa che fornisce una soluzione perfettamente funzionante. È consigliabile limitarla alle soluzioni implementabili in non più di due settimane. 
 * **Modello di verifica:** implementazione di ambito limitato per determinare se una soluzione soddisfa i requisiti del cliente. 
-* **Workshop:** impegno interattivo condotto presso la sede di un cliente. Può includere training, briefing, valutazioni o demo basati sui dati o sull'ambiente del cliente. 
+* **Workshop**: impegno interattivo condotto in una sede del cliente. Può comportare training, briefing, valutazioni o demo basate sui dati o sull'ambiente del cliente. 
 
-**Nota:** Fatta eccezione per il tipo di servizio *Briefing*, i servizi di consulenza possono essere offerti di persona (ovvero in loco presso la sede di un cliente o la struttura di un partner) o virtualmente (ovvero tramite teleconferenza, conferenza Web o implementazione remota). I briefing devono essere offerti di persona.
+**Nota:** Ad eccezione del tipo di servizio *briefing* , i servizi di consulenza possono essere offerti di persona (ovvero in sede presso la sede del cliente o la struttura di un partner) o virtualmente, ovvero tramite teleconferenza, conferenza Web o implementazione remota. I briefing devono essere offerti di persona.
 
 Dopo aver configurato gli elementi obbligatori elencati sopra, il team di revisione del contenuto verificherà che la descrizione dell'offerta sia completa e offra sufficienti informazioni ai destinatari. 
 
 #### <a name="listing-title"></a>Titolo offerta
 
-Il campo del titolo ha un limite di 50 caratteri e deve trasmettere la durata e il tipo di servizio dell'offerta per sfruttare al massimo l'ottimizzazione motore di ricerca. Il formato da seguire è il seguente: NOME: TIPO DI DURATA
+Il campo del titolo ha un limite di 50 caratteri e deve trasmettere la durata e il tipo di servizio dell'offerta per sfruttare al massimo l'ottimizzazione motore di ricerca. Il formato da seguire è NOME: TIPO DI DURATA
 
 Esempi:
 
@@ -144,7 +145,7 @@ Esempi:
 |---------|---------|
 |Introduzione ad Azure IoT nel settore della produzione    |   IoT nel settore della produzione: valutazione di 2 giorni      |
 |Workshop sui toaster intelligenti        |  Toaster intelligenti: workshop di 1 settimana       |
-|  Modello di verifica della migrazione a SQL    | Migrazione a SQL: modello di verifica di 3 giorni        |
+|  Modello di verifica della migrazione a SQL    | Migrazione a SQL: modello di verifica di 3 settimane        |
 
 #### <a name="listing-summaries-and-descriptions"></a>Riepiloghi e descrizioni delle offerte
 

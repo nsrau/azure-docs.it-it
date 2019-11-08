@@ -1,22 +1,22 @@
 ---
-title: Eseguire la migrazione del database da un'istanza di SQL Server a un'istanza gestita di database SQL di Azure
+title: Eseguire la migrazione da SQL Server a istanza gestita
 description: Informazioni su come eseguire la migrazione di un database da un'istanza di SQL Server a un'istanza gestita di database SQL di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 228b22d9d283fe8c23cbf7a82036b7f3782cbf25
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 802dfa7e3b2d0b9deac957662ac1e7604d085fd9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688004"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73828084"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrazione di un'istanza di SQL Server a un'istanza gestita di database SQL di Azure
 
@@ -68,7 +68,7 @@ La linea di base delle prestazioni è un set di parametri, ad esempio utilizzo m
 Di seguito sono elencati alcuni parametri che è necessario misurare nell'istanza di SQL Server: 
 - [Monitorare l'utilizzo della CPU nell'istanza di SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) e registrare l'utilizzo medio e massimo della CPU.
 - [Monitorare l'utilizzo della memoria nell'istanza di SQL Server](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) e determinare la quantità di memoria utilizzata da componenti diversi, ad esempio pool di buffer, cache dei piani, pool di archivio colonne, [OLTP in memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)e così via. Inoltre, è necessario trovare i valori medi e massimi del contatore delle prestazioni della memoria presunta delle pagine.
-- Monitorare l'utilizzo di i/o su disco nell'istanza di SQL Server di origine utilizzando i [contatori delle prestazioni](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage)o della vista [sys. dm _io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) .
+- Monitorare l'utilizzo di i/o su disco nell'istanza di SQL Server di origine utilizzando [sys. dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) vista o i [contatori delle prestazioni](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Monitorare il carico di lavoro e le prestazioni delle query o l'istanza di SQL Server esaminando viste a gestione dinamica o Query Store se si esegue la migrazione da SQL Server versione 2016 +. Identificare la durata media e l'utilizzo della CPU delle query più importanti nel carico di lavoro per confrontarle con le query in esecuzione nel Istanza gestita.
 
 > [!Note]

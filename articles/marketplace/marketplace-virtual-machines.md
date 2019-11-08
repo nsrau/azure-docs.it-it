@@ -4,15 +4,16 @@ description: Questo articolo descrive i requisiti per pubblicare una macchina vi
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: ccb6fc9c522e8d05d0184fc5e248d070efb9921d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f2047501b6c57b2bb98ff7e3c56498417644324
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937730"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818984"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guida alla pubblicazione di offerte di macchine virtuali
 
@@ -26,7 +27,7 @@ Sono offerte di transazioni che vengono distribuite e fatturate attraverso il Ma
 
 |Requisiti  |Dettagli  |
 |---------|---------|
-|Periodo di valutazione gratuita ed esperienza di valutazione     |   I clienti possono provare l'app gratuitamente per un periodo di tempo limitato. I clienti non devono pagare costi di licenza o di sottoscrizione per l'offerta. I clienti non devono pagare il prodotto o il servizio proprietario di Microsoft sottostante. Tutte le opzioni di valutazione sono distribuite nella sottoscrizione di Azure. L'utente ha il controllo esclusivo dell'ottimizzazione dei costi e della gestione. È possibile scegliere una versione di valutazione gratuita o una demo interattiva. Indipendentemente dall'opzione selezionata, per la prova gratuita è necessario concedere ai clienti un periodo prestabilito di tempo per provare l'offerta senza costi aggiuntivi.|
+|Periodo di prova gratuita ed esperienza della versione di valutazione     |   I clienti possono provare l'app gratuitamente per un periodo di tempo limitato. I clienti non devono pagare costi di licenza o di sottoscrizione per l'offerta. I clienti non devono pagare il prodotto o il servizio proprietario di Microsoft sottostante. Tutte le opzioni di valutazione sono distribuite nella sottoscrizione di Azure. L'utente ha il controllo esclusivo dell'ottimizzazione dei costi e della gestione. È possibile scegliere una versione di valutazione gratuita o una demo interattiva. Indipendentemente dall'opzione selezionata, per la prova gratuita è necessario concedere ai clienti un periodo prestabilito di tempo per provare l'offerta senza costi aggiuntivi.|
 |Soluzione pronta all'uso e facilmente configurabile    |  L'app deve essere semplice e rapida da configurare e installare.       |
 |Disponibilità/Tempo di attività    |    L'app o la piattaforma SaaS deve avere un tempo di attività pari ad almeno il 99,9%.     |
 |Azure Active Directory     |    L'offerta deve consentire l'accesso Single Sign-On (SSO) federato di Azure Active Directory (accesso SSO federato di Azure AD) con il consenso abilitato.     |
@@ -62,7 +63,7 @@ Usare il tipo di offerta per le macchine virtuali quando si distribuisce un'appl
 | Disco rigido virtuale (VHD) compatibile con Azure | Le macchine virtuali devono essere compilate in Windows o Linux. <ul> <li>Per altre informazioni sulla creazione di un disco rigido virtuale Linux, vedere [Distribuzioni di Linux approvate in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Per altre informazioni sulla creazione di un disco rigido virtuale Windows, [vedere Creare un disco rigido virtuale compatibile con Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
 >[!Note]
->Cloud Solution Provider (CSP) partner canale acconsentire esplicitamente a questo punto è disponibile.  Vedi [Cloud Solution Provider](./cloud-solution-providers.md) per altre informazioni sul marketing dell'offerta tramite Microsoft CSP partner canali.
+>Il consenso esplicito del canale partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [provider di soluzioni cloud](./cloud-solution-providers.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

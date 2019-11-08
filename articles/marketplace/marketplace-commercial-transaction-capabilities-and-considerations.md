@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
 author: yijenj
 manager: nuno costa
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: f6f409c42c7ffa5639315e71ff565f9c672e227c
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 9aa41e63c275737874d57ba016e297a64f3eb124
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279749"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823010"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funzionalità e considerazioni sulle transazioni del Marketplace commerciale
 
@@ -40,7 +41,7 @@ Oltre alle opzioni di pubblicazione dell'elenco e della versione di valutazione,
 
 Quando si usa l'opzione di pubblicazione Transact, Microsoft consente la vendita di software di terze parti e la distribuzione di alcuni tipi di offerta alla sottoscrizione di Azure del cliente. Quando si seleziona un modello di fatturazione e un tipo di offerta, l'autore deve considerare la fatturazione dei costi dell'infrastruttura e i costi di licenza software dell'editore.
 
-L'opzione di pubblicazione Transact è attualmente supportata per i tipi di offerta seguenti: Macchine virtuali, applicazioni Azure e app SaaS.
+L'opzione di pubblicazione Transact è attualmente supportata per i tipi di offerta seguenti: macchine virtuali, applicazioni Azure e app SaaS.
 
 
 ![[Gestione di offerte aziendali in Azure Marketplace]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
@@ -49,7 +50,7 @@ L'opzione di pubblicazione Transact è attualmente supportata per i tipi di offe
 
 **Per macchine virtuali e applicazioni Azure**
 
-Per le macchine virtuali e le applicazioni Azure, i costi di utilizzo dell'infrastruttura di Azure vengono fatturati alla sottoscrizione di Azure del cliente.  Nella fattura del cliente i costi di utilizzo dell'infrastruttura vengono addebitati e visualizzati separatamente dai costi di licenza del provider software.
+Per le macchine virtuali e le applicazioni Azure, le tariffe di utilizzo dell'infrastruttura di Azure vengono fatturate alla sottoscrizione di Azure del cliente.  I prezzi per l'utilizzo dell'infrastruttura vengono addebitati e presentati separatamente rispetto ai costi di licenza del provider software per la fattura del cliente.
 
 **Per le app SaaS**
 
@@ -57,7 +58,7 @@ Per le app SaaS, l'editore deve contabilizzare i costi di utilizzo dell'infrastr
 
 ## <a name="transact-billing-models"></a>Modelli di fatturazione delle transazioni
 
-A seconda dell'opzione usata per le transazioni, i costi di licenza software dell'editore possono essere presentati come indicato di seguito:  
+A seconda dell'opzione di transazione utilizzata, i costi di licenza software dell'editore possono essere presentati come segue:  
 
 * Gratuito: non sono previsti addebiti per le licenze software. 
 
@@ -65,7 +66,7 @@ A seconda dell'opzione usata per le transazioni, i costi di licenza software del
 
 * Pagamento in base al consumo: i costi di licenza software vengono presentati come tariffa oraria, per singolo core (vCPU), basata sull'infrastruttura di Azure usata. Si applica solo alle macchine virtuali e alle applicazioni Azure.
 
-* • Prezzi della sottoscrizione: I costi di licenza software vengono presentati come una tariffa mensile o annuale, una tariffa ricorrente fatturata come tariffa fissa o per postazione. Si applica solo alle app SaaS e alle applicazioni di Azure (app gestite).
+* • Prezzi per le sottoscrizioni: le tariffe per le licenze software sono presentate come tariffe mensili o annuali, spese ricorrenti fatturate come tariffe forfettarie o per postazione. Si applica solo alle app SaaS e alle app gestite da Azure.
 
 * Versione di valutazione gratuita del software: non sono previsti addebiti per le licenze software per 30 o 90 giorni.
 
@@ -141,8 +142,8 @@ Questa opzione deve essere configurata per la vendita tramite Microsoft e può e
 
 |Microsoft addebita  | $ 100,00 al mese  |
 |---------|---------|
-|Microsoft paga l'80% del costo della licenza <br> \*Microsoft paga il 90% del costo della licenza per qualsiasi app SaaS qualificata   |   $ 80,00 al mese <br> \*$90,00 al mese    |
-|Microsoft trattiene il 20% del costo della licenza <br> \*Microsoft mantiene il 10% del costo della licenza per le app SaaS qualificate.  |  $ 20,00 al mese <br> \*$10,00     |
+|Microsoft paga l'80% del costo della licenza <br> \* Microsoft paga il 90% del costo della licenza per qualsiasi app SaaS qualificata   |   $ 80,00 al mese <br> \* $90,00 al mese    |
+|Microsoft trattiene il 20% del costo della licenza <br> \* Microsoft mantiene il 10% del costo della licenza per le app SaaS qualificate.  |  $ 20,00 al mese <br> \* $10,00     |
 
 * **Costo del servizio Marketplace ridotto:** Per determinati prodotti SaaS pubblicati sul Marketplace commerciale, Microsoft ridurrà il costo del servizio Marketplace dal 20% (come descritto nel contratto Microsoft Publisher) al 10%.  Affinché il prodotto sia idoneo, è necessario che almeno uno dei prodotti sia designato da Microsoft come indirizzo di co-selling IP predisposto o co-selling IP con priorità. Per ricevere la tariffa per il servizio Marketplace ridotta per il mese, è necessario che l'idoneità soddisfi almeno cinque (5) giorni lavorativi prima della fine del mese di calendario precedente. Una tariffa ridotta del servizio Marketplace non si applica alle macchine virtuali, alle app gestite o ad altri prodotti resi disponibili tramite il Marketplace commerciale.  Questa tariffa per il servizio Marketplace ridotta sarà disponibile per le offerte qualificate, con i costi di licenza raccolti da Microsoft tra il 1 ° maggio 2019 e il 30 giugno 2020.  Dopo tale periodo di tempo, la tariffa del servizio Marketplace tornerà al valore normale.
 
@@ -150,11 +151,11 @@ Questa opzione deve essere configurata per la vendita tramite Microsoft e può e
 
 **Fatturazione e pagamento**
 
-L'editore può usare il metodo di fatturazione preferito del cliente per far pervenire i costi di licenza software con pagamento in base al consumo o in abbonamento.
+Il server di pubblicazione può utilizzare il metodo di fatturazione preferito del cliente per recapitare i costi di licenza software consumo o sottoscrizione.
 
 **Enterprise Agreement** 
 
-Se il metodo di fatturazione preferito del cliente è il contratto Microsoft Enterprise Agreement, le tariffe della licenza software verranno fatturate usando questo metodo di fatturazione come costo dettagliato, separato da eventuali costi di utilizzo specifici di Azure.
+Se il metodo di fatturazione preferito del cliente è la Enterprise Agreement Microsoft, i costi delle licenze software verranno fatturati usando questo metodo di fatturazione come costo dettagliato, separato da eventuali costi di utilizzo specifici di Azure.
 
 **Carte di credito e fattura mensile** 
 
@@ -162,13 +163,13 @@ I clienti possono anche pagare con una carta di credito e una fattura mensile. I
 
 Se ad esempio il cliente effettua un acquisto con la carta di credito:
 
-|Descrizione    |    Date  |
+|Descrizione    |    Data  |
 |----------|----------|
 |Periodo dell'ordine   | 15 ago 2018 - 30 ago 2018 |
 |Fine periodo (mese)   | 30 ago 2018 |
 |Data di fatturazione | 1 set 2018 |
 |Data pagamento cliente | 1 set 2018 |
-|Periodo deposito (solo carte di credito, 30 giorni) | 1 set 2018 - 30 set 2018 |
+|Periodo deposito (solo carte di credito, 30 giorni) | 1 settembre 2018-30 settembre, 2018 |
 |Inizio periodo riscossione | 1 set 2018 |
 |Fine periodo riscossione (massimo 30 giorni) | 30 set 2018 |
 |Data calcolo proventi (il giorno 15 di ogni mese) | 1 ott 2018 |
@@ -176,7 +177,7 @@ Se ad esempio il cliente effettua un acquisto con la carta di credito:
 
 Se il cliente effettua un acquisto con un contratto Enterprise Agreement:
 
-| Descrizione |    Date  |
+| Descrizione |    Data  |
 |----------|----------|
 |Periodo dell'ordine | 15 ago 2018 - 30 ago 2018 |
 |Fine periodo (trimestre) | 30 set 2018 |
@@ -231,9 +232,9 @@ L'opzione di pubblicazione delle transazioni è disponibile solo per l'uso con i
 
 **Macchina virtuale** 
 
-Scegliere tra i modelli di determinazione prezzi Gratuito, Bring Your Own License o con pagamento in base al consumo e indicarli come SKU definiti a livello di offerta. Nella fattura di Azure del cliente Microsoft indica i costi della licenza del software dell'editore separatamente dai costi dell'infrastruttura di Azure sottostante. I costi dell'infrastruttura di Azure sono determinati dall'uso del software dell'editore.
+Scegliere tra i modelli di determinazione prezzi Gratuito, Bring Your Own License o con pagamento in base al consumo e indicarli come SKU definiti a livello di offerta. Nella fattura di Azure del cliente, Microsoft presenta i costi delle licenze software dell'editore separatamente dalle tariffe di infrastruttura di Azure sottostanti. I costi dell'infrastruttura di Azure sono determinati dall'uso del software dell'editore.
 
-**Applicazioni di Azure: modello di soluzione o app gestita** 
+**Applicazioni Azure: modello di soluzione o app gestita** 
 
 È necessario effettuare il provisioning di una o più macchine virtuali e calcolare la somma dei prezzi delle macchine virtuali. Per le app gestite in un singolo piano, come modello di determinazione prezzi è possibile selezionare una sottoscrizione a tariffa fissa mensile invece dei prezzi delle macchine virtuali. In alcuni casi, le spese di utilizzo dell'infrastruttura di Azure vengono passate al cliente separatamente dai costi delle licenze software, ma con lo stesso rendiconto di fatturazione. Tuttavia, se si configura un'offerta di app gestita per gli addebiti per l'infrastruttura ISV, le risorse di Azure vengono fatturate all'editore e il cliente riceve una tariffa fissa che include il costo dell'infrastruttura, le licenze software e i servizi di gestione.
 

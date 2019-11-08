@@ -1,5 +1,5 @@
 ---
-title: Database SQL di Azure-ottimizzazione automatica
+title: Panoramica dell'ottimizzazione automatica
 description: Il database SQL di Azure analizza le query SQL e si adatta automaticamente al carico di lavoro dell'utente.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: bfac5a0eba68469d912efd02699624e1335e40e5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 179bb5c9d718a556b829af8f860cb284597835aa
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691118"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821900"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ottimizzazione automatica nel database SQL di Azure
 
