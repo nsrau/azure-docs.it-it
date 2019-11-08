@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 03ac9f878f0869ef33d22f50c6bdba4276bd4d3c
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 32219eeaee7980b685ac3453c6af3beff716abe2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048261"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824080"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurare la sicurezza X.509 nell'hub IoT di Azure
 
@@ -37,13 +37,13 @@ Per ottenere i certificati, è possibile scegliere uno dei modi seguenti:
 
 * Creare certificati X. 509 personalizzati usando uno strumento di terze parti, ad esempio [openssl](https://www.openssl.org/). Questa tecnica è ottimale a scopo di test e sviluppo. Vedere [Gestione dei certificati CA di prova per esempi e certificazioni](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) per informazioni sulla generazione di certificati CA di prova tramite PowerShell o Bash. Nella parte restante di questa esercitazione vengono usati i certificati CA di prova generati seguendo le istruzioni riportate in [Gestione dei certificati CA di prova per esempi e certificazioni](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
-* Generare un [certificato della CA intermedia X. 509](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) firmato da un certificato CA radice esistente e caricarlo nell'hub. Una volta caricato e verificato il certificato intermedio, come indicato di seguito, è possibile usarlo al posto di un certificato CA radice indicato di seguito. È possibile usare strumenti come OpenSSL ([openssl req](https://www.openssl.org/docs/manmaster/man1/openssl-req.html) e [openssl ca](https://www.openssl.org/docs/manmaster/man1/openssl-ca.html)) per generare e firmare un certificato CA intermedio.
+* Generare un [certificato della CA intermedia X. 509](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) firmato da un certificato CA radice esistente e caricarlo nell'hub. Una volta caricato e verificato il certificato intermedio, come indicato di seguito, è possibile usarlo al posto di un certificato CA radice indicato di seguito. È possibile usare strumenti come OpenSSL ([openssl req](https://www.openssl.org/docs/man1.1.0/man1/req.html) e [openssl ca](https://www.openssl.org/docs/man1.1.0/man1/ca.html)) per generare e firmare un certificato CA intermedio.
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>Registrare i certificati della CA X.509 nell'hub IoT
 
 Questi passaggi illustrano come aggiungere una nuova autorità di certificazione all'hub IoT tramite il portale.
 
-1. Nella portale di Azure passare all'hub Internet e selezionare **Impostazioni** > **certificati** per l'hub.
+1. Nella portale di Azure passare all'hub Internet e selezionare **impostazioni** > **certificati** per l'hub.
 
 1. Selezionare **Aggiungi** per aggiungere un nuovo certificato.
 
@@ -69,7 +69,7 @@ Questi passaggi illustrano come aggiungere una nuova autorità di certificazione
 
 ## <a name="create-an-x509-device-for-your-iot-hub"></a>Creare un dispositivo X.509 per l'hub IoT
 
-1. Nella portale di Azure passare all'hub Internet e quindi selezionare **esploratori** > **dispositivi**.
+1. Nella portale di Azure passare all'hub Internet e quindi selezionare **esploratori** > **dispositivi**Internet.
 
 1. Selezionare **nuovo** per aggiungere un nuovo dispositivo.
 
@@ -140,7 +140,7 @@ In seguito verrà illustrato come creare un'applicazione C# per simulare il disp
     }
     ```
 
-1. Aggiungere infine le righe di codice seguenti alla funzione **Main** , sostituendo i segnaposto _Device-ID_, _il nome---_ ----- ------------------------------------
+1. Aggiungere infine le righe di codice seguenti alla funzione **Main** , sostituendo i segnaposto _Device-ID_, _il nome---_ -----------------------------------------
 
     ```CSharp
     try

@@ -10,12 +10,12 @@ ms.reviewer: divswa, klam, LADocs
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: 33c6007ebc429bb0d95d702ae9b90f9ac411a88c
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: a48ba0d2d691314a1ca7c91ac7ae27b62fbb379b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695200"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825249"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -27,7 +27,7 @@ Per automatizzare le attività che monitorano, creano, inviano e ricevono file i
 * Leggere contenuti e metadati dei file.
 * Estrarre archivi nella cartella.
 
-È possibile usare trigger che monitorano eventi sul server SFTP e rendere disponibile l'output per altre azioni. È possibile usare azioni che eseguono varie attività sul server SFTP. Si può anche fare in modo che altre azioni dell'app per la logica usino l'output delle azioni SFTP. Se ad esempio si recuperano regolarmente file dal server SFTP, è possibile inviare avvisi su tali file e sul relativo contenuto tramite posta elettronica usando il connettore Outlook di Office 365 o Outlook.com. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+È possibile usare trigger che monitorano eventi sul server SFTP e rendere l'output disponibile per altre azioni. È possibile usare azioni che eseguono varie attività sul server SFTP. Si può anche fare in modo che altre azioni dell'app per la logica usino l'output delle azioni SFTP. Se ad esempio si recuperano regolarmente file dal server SFTP, è possibile inviare avvisi su tali file e sul relativo contenuto tramite posta elettronica usando il connettore Outlook di Office 365 o Outlook.com. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sezione [confrontare SFTP-SSH rispetto a SFTP](#comparison) più avanti in questo argomento.
 
@@ -49,7 +49,7 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
 
 * Usa la [libreria SSH.NET](https://github.com/sshnet/SSH.NET), una libreria SSH (open source Secure Shell) che supporta .NET.
 
-* Per impostazione predefinita, le azioni SFTP-SSH possono leggere o scrivere file di *1 GB o di dimensioni inferiori* , ma solo in blocchi di *15 MB* alla volta. Per gestire file di dimensioni superiori a 15 MB, le azioni SFTP-SSH possono usare la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, l'azione copia file supporta solo file da 15 MB perché tale azione non supporta la suddivisione in blocchi dei messaggi. I trigger SFTP-SSH non supportano la suddivisione in blocchi.
+* Per impostazione predefinita, le azioni SFTP-SSH possono leggere o scrivere file di *1 GB o di dimensioni inferiori* , ma solo in blocchi di *15 MB* alla volta. Per gestire file di dimensioni superiori a 15 MB, le azioni SFTP-SSH possono usare la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). Per caricare file di grandi dimensioni, sono necessarie anche le autorizzazioni di lettura e scrittura. Tuttavia, l'azione copia file supporta solo file da 15 MB perché tale azione non supporta la suddivisione in blocchi dei messaggi. I trigger SFTP-SSH non supportano la suddivisione in blocchi.
 
 * Fornisce l'azione **Crea cartella** che crea una cartella nel percorso specificato nel server SFTP.
 
@@ -61,13 +61,13 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* L'indirizzo del server SFTP e le credenziali dell'account che consentono all'app per la logica di accedere all'account SFTP. È anche necessario accedere a una chiave privata SSH e alla password della chiave privata SSH.
+* L'indirizzo del server SFTP e le credenziali dell'account che consentono all'app per la logica di accedere all'account SFTP. È anche necessario accedere a una chiave privata SSH e alla password della chiave privata SSH. Per utilizzare la suddivisione in blocchi durante il caricamento di file di grandi dimensioni, è necessario disporre delle autorizzazioni di lettura e scrittura.
 
   > [!IMPORTANT]
   >
   > Il connettore SFTP-SSH supporta *solo* questi formati di chiave privata, algoritmi e impronte digitali:
   >
-  > * **Formati di chiave privata**: Chiavi RSA (Rivet Shamir Adleman) e DSA (Digital Signature Algorithm) nei formati OpenSSH e ssh.com. Se la chiave privata è in formato di file PuTTy (con estensione PPK), [convertire prima la chiave nel formato di file OpenSSH (con estensione PEM)](#convert-to-openssh).
+  > * **Formati di chiave privata**: chiavi RSA (Rivet Shamir Adleman) e DSA (Digital Signature Algorithm) nei formati OpenSSH e SSH.com. Se la chiave privata è in formato di file PuTTy (con estensione PPK), [convertire prima la chiave nel formato di file OpenSSH (con estensione PEM)](#convert-to-openssh).
   >
   > * **Algoritmi di crittografia**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
   >
@@ -82,12 +82,12 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
 
 ## <a name="how-sftp-ssh-triggers-work"></a>Funzionamento del trigger SFTP-SSH
 
-I trigger SFTP-SSH funzionano eseguendo il polling del file system SFTP e cercando eventuali file modificati dopo l'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
+I trigger SFTP-SSH funzionano eseguendo il polling del file system SFTP e cercando eventuali file modificati dopo l'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando il file viene modificato. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
 
 | Client SFTP | Azione |
 |-------------|--------|
 | Winscp | Passare a **Opzioni** > **Preferenze** > **Trasferimento** > **Modifica** > **Mantieni data/ora** > **Disabilitare l'opzione** |
-| FileZilla | Passare a **Trasferimento** > **Preserva data e ora dei file trasferiti** > **Disabilitare l'opzione** |
+| FileZilla | Passare a **Trasferisci** > **Preserve timestamps of transferred files** (Mantieni timestamp dei file trasferiti)  > **Disattiva** |
 |||
 
 Quando un trigger rileva un nuovo file, controlla che sia completo e non parzialmente scritto. Ad esempio, un file potrebbe avere delle modifiche in corso nel momento in cui il trigger controlla il file server. Per evitare la restituzione di un file scritto parzialmente, il trigger prende nota del timestamp del file che contiene le modifiche recenti ma non restituisce immediatamente il file. Il trigger restituisce il file solo durante il nuovo polling del server. In alcuni casi, questo comportamento potrebbe causare un ritardo fino a un massimo del doppio dell'intervallo di polling del trigger.
@@ -108,7 +108,7 @@ Se la chiave privata è in formato PuTTy, che usa l'estensione del nome di file.
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   Esempio:
+   Ad esempio:
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -168,15 +168,15 @@ Se la chiave privata è in formato PuTTy, che usa l'estensione del nome di file.
 
 <a name="file-added-modified"></a>
 
-### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>Trigger SFTP - SSH: When a file is added or modified (Quando un file viene aggiunto o modificato)
+### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>Trigger SFTP-SSH: Quando viene aggiunto o modificato un file
 
 Questo trigger avvia il flusso di lavoro di un'app per la logica quando viene aggiunto o modificato un file in un server SFTP. È ad esempio possibile aggiungere una condizione che controlla il contenuto del file e lo recupera in base al fatto che soddisfi una condizione specificata. Si può quindi aggiungere un'azione che recupera il contenuto del file e lo inserisce in una cartella del server SFTP.
 
-**Esempio riguardante un'organizzazione**: usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti. Si può quindi usare un'azione SFTP come **Ottieni contenuto file** per recuperare il contenuto dell'ordine, elaborarlo ulteriormente e archiviarlo nel database degli ordini.
+**Esempio riguardante un'organizzazione**: si potrebbe usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti. Si può quindi usare un'azione SFTP come **Ottieni contenuto file** per recuperare il contenuto dell'ordine, elaborarlo ulteriormente e archiviarlo nel database degli ordini.
 
 <a name="get-content"></a>
 
-### <a name="sftp---ssh-action-get-content-using-path"></a>Azione SFTP - SSH: Ottieni contenuto di file tramite percorso
+### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP-azione SSH: Ottieni contenuto tramite il percorso
 
 Questa operazione recupera il contenuto da un file in un server SFTP. Ad esempio, è possibile aggiungere il trigger dell'esempio precedente e una condizione che il contenuto del file deve soddisfare. Se la condizione è true, è possibile eseguire l'azione che recupera il contenuto.
 

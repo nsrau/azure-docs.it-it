@@ -4,15 +4,16 @@ description: Configurare la gestione dei lead per Marketo per i clienti di Azure
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: evansma
-ms.openlocfilehash: 9470a593f5db564689a0b26601a201874c215aa2
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8d13e8c3aeabf6d3fdea80ffddbae47b80adc139
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902091"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812128"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Configurare la gestione dei lead in Marketo
 
@@ -54,7 +55,7 @@ Questo articolo descrive come configurare il sistema CRM di Marketo per elaborar
 
     **Un altro modo per individuare questi valori**
 
-    - L'ID server si trova nell'URL dell'istanza di Marketo, ad esempio "`serverID.marketo.com`".
+    - L'ID del server si trova nell'URL dell'istanza di Marketo, ad esempio, "`serverID.marketo.com`".
     - Per ottenere l'ID munching della sottoscrizione, passare al menu admin > Munchkin nel campo "ID account Munchkin" o dalla prima parte del sottodominio host dell'API REST di Marketo: `https://{Munchkin ID}.mktorest.com`.
     - ID modulo è l'ID del modulo di codice di incorporamento creato nel passaggio 7 per indirizzare i lead dal Marketplace.
 
@@ -67,11 +68,11 @@ Quando si è pronti per configurare le informazioni di gestione dei lead per l'o
 
     ![Gestione dei lead-connessione](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
 
-1. Nella finestra popup Dettagli connessione selezionare Marketo per la destinazione principale.
+1. Nella finestra popup Dettagli connessione selezionare **Marketo** per la destinazione principale.
 
     ![Scegliere una destinazione principale](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
 
-4. Specificare l'ID del **Server**, l' **ID dell'account munching**e l'ID del **modulo**.
+4. Specificare l'ID del **Server**, l' **ID dell'account munching**e l' **ID del modulo**.
 
     >[!Note]
     >È necessario completare la configurazione del resto dell'offerta e pubblicarla prima di poter ricevere i lead per l'offerta. 

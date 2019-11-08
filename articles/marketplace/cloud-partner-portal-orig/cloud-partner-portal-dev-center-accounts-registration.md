@@ -1,18 +1,19 @@
 ---
-title: Creare un account Microsoft Developer | Azure Marketplace
+title: Creare un account per sviluppatore Microsoft | Azure Marketplace
 description: Requisiti e procedure per la creazione di un account di Microsoft Developer.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 4fde5d81fb97bec23fdb46ff53b05874c88d9d67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 522caa53123ad5ccb8076839d2dfa7dc1236b022
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935854"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818416"
 ---
 <a name="create-a-microsoft-developer-account"></a>Creare un account di Microsoft Developer
 ====================================
@@ -99,7 +100,7 @@ Microsoft Developer Center viene usato per registrare le informazioni della soci
    ![Selezionare un paese o un'area geografica](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >"Di origine della vendita" paesi/aree geografiche: Per vendere i propri servizi in Azure Marketplace, l'entità registrata deve trovarsi in uno degli approvati "di origine della vendita" paesi/aree geografiche nell'elenco a discesa. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Per altre informazioni, vedere i criteri di partecipazione a Microsoft Azure Marketplace.
+    >Paesi/aree di vendita: per vendere i servizi in Azure Marketplace, è necessario che l'entità registrata si trovi in uno dei paesi o delle aree di vendita approvate visualizzate nell'elenco a discesa. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Per altre informazioni, vedere i criteri di partecipazione a Microsoft Azure Marketplace.
 
 5. Selezionare **Società** come "Tipo di account" e quindi selezionare **Avanti**.
 
@@ -169,7 +170,7 @@ Per poter pubblicare offerte commerciali per l'acquisto, è necessario aggiunger
 1.  Accedere a [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) con l'account Microsoft, se necessario.
 2.  Selezionare **Profilo fiscale** nel menu a sinistra.
 3.  Nella pagina **Configura modulo per la tassazione**:
-    - Selezionare il paese o l'area geografica in cui si ha la residenza permanente.
+    - Selezionare il paese o la regione in cui si ha la residenza permanente.
     - Selezionare il paese o regione di cui si ha la cittadinanza principale.
     - Selezionare **Avanti**.
 4.  Immettere i dettagli fiscali e quindi selezionare **Avanti**.

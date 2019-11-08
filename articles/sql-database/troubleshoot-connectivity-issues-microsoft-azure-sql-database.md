@@ -1,19 +1,20 @@
 ---
-title: Risoluzione dei problemi di connettività con database SQL di Microsoft Azure | Microsoft Docs
+title: Risoluzione dei problemi di connettività
 description: Viene descritto come risolvere i problemi di connettività nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
 ms.topic: troubleshooting
+ms.custom: seo-lt-2019
 author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-ms.openlocfilehash: 9de6d85e1fc54d60f999cfa18665067b3998a432
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 20988296b5eac7152c53abd6d238043288feacc8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390673"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807279"
 ---
 # <a name="troubleshooting-connectivity-issues-with-microsoft-azure-sql-database"></a>Risoluzione dei problemi di connettività con database SQL di Microsoft Azure
 
@@ -28,9 +29,9 @@ Quando la connessione al database SQL di Azure non riesce, vengono visualizzati 
 Per risolvere il problema:
 
 1. Controllare il [Dashboard del servizio Microsoft Azure](https://status.azure.com/status) per eventuali interruzioni note. 
-2. Se non sono presenti interruzioni note, accedere al [sito Web di supporto Microsoft Azure](http://azure.microsoft.com/support/options) per aprire un caso di supporto.
+2. Se non sono presenti interruzioni note, accedere al [sito Web di supporto Microsoft Azure](https://azure.microsoft.com/support/options) per aprire un caso di supporto.
 
-Per ulteriori informazioni, vedere [la pagina relativa alla risoluzione dei problemi relativi all'errore "database sul server non attualmente disponibile"](https://docs.microsoft.com/azure/sql-database/sql-database-troubleshoot-common-connection-issues#troubleshoot-transient-errors).
+Per ulteriori informazioni, vedere [la pagina relativa alla risoluzione dei problemi relativi all'errore "database sul server non attualmente disponibile"](sql-database-troubleshoot-common-connection-issues.md#troubleshoot-transient-errors).
 
 ## <a name="a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server"></a>Si è verificato un errore specifico dell'istanza o relativo alla rete durante il tentativo di stabilire una connessione a SQL Server
 
@@ -165,7 +166,7 @@ I timeout di connessione si verificano perché l'applicazione non è in grado di
 
 ## <a name="transient-errors-errors-40197-40545"></a>Errori temporanei (errori 40197, 40545)
 
-### <a name="error-40197-the-service-has-encountered-an-error-processing-your-request-please-try-again-error-code--code-"></a>Errore 40197: si è verificato un errore durante l'elaborazione della richiesta da parte del servizio. Riprovare in seguito. Codice di errore < codice >
+### <a name="error-40197-the-service-has-encountered-an-error-processing-your-request-please-try-again-error-code--code-"></a>Errore 40197: si è verificato un errore durante l'elaborazione della richiesta da parte del servizio. Riprova più tardi. Codice di errore < codice >
 
 Questo problema si verifica a causa di un errore temporaneo rilevato durante una riconfigurazione o un failover nel back-end.
 
@@ -188,7 +189,7 @@ Per risolvere questo problema, provare con uno dei metodi seguenti:
   > [!NOTE]
   > Si tratta di un approccio minimalista che potrebbe non risolvere il problema.
 
-  1. Eseguire la query SQL seguente per controllare la vista [sys. dm _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per visualizzare le richieste di blocco:
+  1. Eseguire la query SQL seguente per controllare la vista [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per visualizzare tutte le richieste di blocco:
 
              ```
              SELECT * FROM dm_exec_requests
@@ -197,7 +198,7 @@ Per risolvere questo problema, provare con uno dei metodi seguenti:
   2. Determinare il **buffer di input** per il blocco Head.
   3. Ottimizzare la query del blocco Head.
 
-    Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina relativa all'esecuzione di una [query nel cloud](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+    Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina relativa all'esecuzione di una [query nel cloud](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 * Se il database raggiunge costantemente il limite nonostante l'indirizzamento delle query di blocco e con esecuzione prolungata, provare a eseguire l'aggiornamento a una delle nuove edizioni di anteprima, ad esempio [standard o Premium Edition](https://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -265,7 +266,7 @@ I passaggi seguenti possono essere utili per aggirare il problema o fornire opzi
 
 Se si verifica ripetutamente questo errore, provare a risolvere il problema attenendosi alla procedura seguente: 
 
-1. Controllare la vista sys. dm _exec_requests per visualizzare tutte le sessioni aperte con un valore elevato per la colonna total_elapsed_time. Eseguire questo controllo eseguendo lo script SQL seguente:
+1. Controllare la vista sys. dm_exec_requests per visualizzare tutte le sessioni aperte con un valore elevato per la colonna total_elapsed_time. Eseguire questo controllo eseguendo lo script SQL seguente:
 
    ```
    SELECT * FROM dm_exec_requests
@@ -275,7 +276,7 @@ Se si verifica ripetutamente questo errore, provare a risolvere il problema atte
 
 Prendere in considerazione anche l'invio in batch delle query. Per informazioni sull'invio in batch, vedere [come usare l'invio in batch per migliorare le prestazioni delle applicazioni del database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
 
-Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina relativa all'esecuzione di una [query nel cloud](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina relativa all'esecuzione di una [query nel cloud](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Errore 40551: la sessione è stata terminata a causa di un utilizzo eccessivo di TEMPDB
 
@@ -311,7 +312,7 @@ Per risolvere il problema, procedere con i metodi seguenti:
 
 Per risolvere il problema, provare a ottimizzare la query.
 
-Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina relativa all'esecuzione di una [query nel cloud](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina relativa all'esecuzione di una [query nel cloud](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 
 ### <a name="cannot-open-database-master-requested-by-the-login-the-login-failed"></a>Impossibile aprire il database "Master" richiesto dall'account di accesso. Accesso non riuscito.
@@ -336,7 +337,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-Quando l'eccezione viene attivata dai problemi di query, si noterà uno stack di chiamate simile al seguente (si noti il riferimento alla classe **SqlCommand** ). In questa situazione, [ottimizzare le query](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+Quando l'eccezione viene attivata dai problemi di query, si noterà uno stack di chiamate simile al seguente (si noti il riferimento alla classe **SqlCommand** ). In questa situazione, [ottimizzare le query](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()
@@ -364,7 +365,7 @@ Vedere [ottenere SQL Server informazioni di connessione](https://docs.microsoft.
 
 5. Come procedura consigliata, assicurarsi che la logica di ripetizione dei tentativi sia attiva. Per altre informazioni sulla logica di ripetizione dei tentativi, vedere [risolvere gli errori temporanei e gli errori di connessione al database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues).
 
-Se questi passaggi non consentono di risolvere il problema, provare a raccogliere più dati e quindi contattare il supporto tecnico. Se l'applicazione è un servizio cloud, abilitare la registrazione. Questo passaggio restituisce l'indicatore di data e ora UTC dell'errore. Inoltre, SQL Azure restituisce l'ID traccia. Il [servizio supporto tecnico clienti Microsoft](http://azure.microsoft.com/support/options/) può utilizzare queste informazioni. 
+Se questi passaggi non consentono di risolvere il problema, provare a raccogliere più dati e quindi contattare il supporto tecnico. Se l'applicazione è un servizio cloud, abilitare la registrazione. Questo passaggio restituisce l'indicatore di data e ora UTC dell'errore. Inoltre, SQL Azure restituisce l'ID traccia. Il [servizio supporto tecnico clienti Microsoft](https://azure.microsoft.com/support/options/) può utilizzare queste informazioni. 
 
 Per altre informazioni su come abilitare la registrazione, vedere [abilitare la registrazione diagnostica per le app nel servizio app Azure](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/).
 

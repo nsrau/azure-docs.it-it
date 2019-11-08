@@ -1,18 +1,19 @@
 ---
-title: Recuperare le operazioni API | Azure Marketplace
+title: API per il recupero delle operazioni | Azure Marketplace
 description: Recupera tutte le operazioni relative all'offerta o per ottenere una particolare operazione per l'operationId specificato.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 1fbcc1d50dbc4488c4123be64e85de612233ccc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3eb77744d61322ca0aed20bb2b3f486cc02ac70
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935770"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819604"
 ---
 <a name="retrieve-operations"></a>Recuperare le operazioni
 ===================
@@ -37,7 +38,7 @@ Recupera tutte le operazioni relative all'offerta o per ottenere una particolare
 |  offerId           |  Identificatore dell'offerta                                                                                              |  String       |
 |  operationId       |  GUID che identifica in modo univoco l'operazione sull'offerta. L'oprationId può essere recuperato tramite questa API e viene inoltre restituito nell'intestazione HTTP della risposta per tutte le operazioni a esecuzione prolungata, ad esempio l'API [Pubblica offerta](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
 |  filteredStatus    | Parametro di query facoltativo usato per filtrare in base allo stato (ad esempio `running`) nella raccolta restituita da questa API.  |   String |
-|  api-version       | Ultima versione dell'API                                                                                           |    Date      |
+|  api-version       | Ultima versione dell'API                                                                                           |    Data      |
 |  |  |  |
 
 
@@ -47,14 +48,14 @@ Recupera tutte le operazioni relative all'offerta o per ottenere una particolare
 |  **Nome**          |  **Valore**           |
 |  ---------------   | -------------------- |
 |  Content-Type      | `application/json`   |
-|  Authorization     | `Bearer YOUR_TOKEN`  |
+|  Autorizzazione     | `Bearer YOUR_TOKEN`  |
 |  |  |
 
 
 <a name="body-example"></a>Esempio di corpo
 ------------
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 
 #### <a name="get-operations"></a>Operazioni GET
 

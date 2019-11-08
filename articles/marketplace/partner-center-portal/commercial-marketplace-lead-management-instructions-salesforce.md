@@ -4,15 +4,16 @@ description: Configurare la gestione dei lead in Salesforce per i clienti di Azu
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: evansma
-ms.openlocfilehash: d941a7902dd374a931147bdaa8f015c46268ee8a
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: bdd3bb50fc69083c73eb01a84bf0fb0db82a8a65
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69901987"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812148"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configurare la gestione dei clienti potenziali per Salesforce
 
@@ -30,18 +31,18 @@ Questo articolo descrive come configurare il sistema Salesforce per elaborare i 
 
 3. Se si usa l'esperienza classica di Salesforce:
     1. Selezionare **installazione** dalla Home page di Salesforce.
-    ![Configurazione classica di Salesforce](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-setup.png)
+    installazione classica di ![Salesforce](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-setup.png)
 
     1. Dalla pagina di installazione, spostarsi nel menu di spostamento a sinistra per **creare > > lead > da Web a lead**.
-    ![Web-to-lead di Salesforce classico](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
+    ![](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png) da Web a lead di Salesforce classico
 
 Le altre istruzioni sono identiche indipendentemente dall'esperienza di Salesforce in uso.
 
 4. Nella **pagina installazione Web-lead**selezionare il pulsante **Crea modulo Web-to-lead** .
 5. Nell'impostazione di **Web a lead** selezionare **Crea modulo Web a lead**.
-    ![Configurazione di Salesforce-Web-to-lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-3.png)
+    Installazione di ![Salesforce-Web-to-lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-3.png)
 
-6. Nella finestra **di creazione di un modulo Web a lead**assicurarsi che `the Include reCAPTCHA in HTML` l'impostazione sia deselezionata e selezionare **genera**. 
+6. Nella pagina **creare un modulo Web a lead**verificare che `the Include reCAPTCHA in HTML` impostazione sia deselezionata e selezionare **genera**. 
     ![Salesforce-creare un modulo Web a lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-4.png)
 
 7. Verrà visualizzato un testo HTML. Cercare il testo "OID" e copiare il **valore OID** dal testo HTML (solo il testo tra virgolette) e salvarlo. Questo valore verrà incollato nel campo **identificatore organizzazione** del portale di pubblicazione.
@@ -55,9 +56,9 @@ Quando si è pronti per configurare le informazioni di gestione dei lead per l'o
 
 1. Passare alla pagina di **configurazione dell'offerta** per l'offerta.
 1. Selezionare **Connetti** nella sezione gestione dei lead.
-    ![Gestione dei lead-connessione](./media/commercial-marketplace-lead-management-instructions-salesforce/lead-management-connect.png)
+    gestione dei lead di ![-connessione](./media/commercial-marketplace-lead-management-instructions-salesforce/lead-management-connect.png)
 
-1. Nella finestra popup Dettagli connessione selezionare **Salesforce** per la **destinazione lead** e incollare il `oid` modulo from web-to-lead creato seguendo i passaggi precedenti nel campo **identificatore organizzazione** .
+1. Nella finestra popup Dettagli connessione selezionare **Salesforce** per la **destinazione lead** e incollare il `oid` dal modulo Web a lead creato seguendo i passaggi precedenti nel campo **identificatore organizzazione** .
 
 1. Selezionare **Salva**. 
 

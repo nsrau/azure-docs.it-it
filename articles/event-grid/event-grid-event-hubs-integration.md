@@ -1,19 +1,19 @@
 ---
-title: 'Inviare i dati di Hub eventi di Azure al data warehouse: Griglia di eventi'
-description: Descrive come usare Griglia di eventi e Hub eventi di Azure per eseguire la migrazione dei dati in un SQL Data Warehouse. Usa una Funzione di Azure per recuperare un file di Acquisizione.
+title: 'Esercitazione: Inviare i dati di Hub eventi di Azure al data warehouse: Griglia di eventi'
+description: 'Esercitazione: Descrive come usare Griglia di eventi e Hub eventi di Azure per eseguire la migrazione dei dati in un SQL Data Warehouse. Usa una Funzione di Azure per recuperare un file di Acquisizione.'
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/13/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 1ae7a18660d2a7324bc5897d6b3952da42b6c4b2
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 6f5bd129b175210cd5b9415a65b8db06d904e24d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603447"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718192"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Esercitazione: Trasmettere Big Data a un data warehouse
 [Griglia di eventi](overview.md) di Azure è un servizio intelligente di routing di eventi che consente di rispondere alle notifiche (eventi) inviate da applicazioni e servizi. Per esempio, può attivare una Funzione di Azure per elaborare i dati di Hub eventi che sono stati acquisiti in un archivio BLOB di Azure o Azure Data Lake Store ed eseguire la migrazione dei dati su altri repository di dati. Questo [esempio di integrazione di Hub eventi e di Griglia di eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra come usare Hub eventi con Griglia di eventi per migrare facilmente i dati di Hub eventi acquisiti da una risorsa di archiviazione BLOB a un SQL Data Warehouse.
@@ -87,7 +87,7 @@ In questo passaggio, implementare l'infrastruttura necessaria con un [modello di
     1. Specificare un nome per il **gruppo di risorse**
     2. Premere **INVIO**. 
 
-        Di seguito è fornito un esempio: 
+        Di seguito è fornito un esempio:
     
         ```azurecli
         user@Azure:~$ az group create -l eastus -n ehubegridgrp

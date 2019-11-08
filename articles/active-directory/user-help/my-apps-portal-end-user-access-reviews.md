@@ -1,5 +1,5 @@
 ---
-title: Eseguire una verifica di accesso dal portale app personali-Azure Active Directory | Microsoft Docs
+title: Eseguire una verifica di accesso dal portale app personali-Azure AD
 description: Informazioni su come visualizzare e gestire l'accesso alla sicurezza per le app e i gruppi dell'organizzazione.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6681720fc7c0fe04c99bf7957be14865c663dd67
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bf803027aac7c62ea500d1af104ae3234fadf8b5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383158"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73804036"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Eseguire una verifica di accesso dal portale app personali
 
@@ -40,7 +40,7 @@ Se l'amministratore ha concesso l'autorizzazione per eseguire le proprie verific
 
 1. Accedere all'account aziendale o dell'istituto di istruzione.
 
-2. Aprire il Web browser e passare a https://myapps.microsoft.com oppure usare il collegamento fornito dall'organizzazione. Ad esempio, è possibile che si venga indirizzati a una pagina personalizzata dell'organizzazione, https://myapps.microsoft.com/contoso.com ad esempio.
+2. Aprire il Web browser e passare a https://myapps.microsoft.como usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
@@ -59,7 +59,7 @@ Se l'amministratore ha concesso l'autorizzazione per eseguire le proprie verific
     >[!Note]
     >Se si è un amministratore e si è autorizzati a esaminare l'accesso dell'organizzazione a gruppi e app, verrà visualizzata una pagina diversa. Per altre informazioni su come rivedere i gruppi o le app per l'organizzazione, vedere [esaminare l'accesso a gruppi o applicazioni in Azure ad verifiche di accesso](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review).
 
-6. Selezionare **Sì** per impedire l'accesso.
+6. Selezionare **Sì** **per impedire** l'accesso.
 
     Se si seleziona **Sì**, potrebbe essere necessario specificare una giustificazione nella casella **motivo** .
 

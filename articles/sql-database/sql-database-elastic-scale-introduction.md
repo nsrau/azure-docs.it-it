@@ -1,5 +1,5 @@
 ---
-title: Aumentare il numero di istanze con il database SQL di Azure
+title: Aumento del numero di istanze
 description: Gli sviluppatori di Software come Servizio (Saas) possono facilmente creare database elastici e scalabili nel cloud utilizzando questi strumenti
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 56556576dffd4e022f919af89459d92e48c6c895
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3e30e54eb18eb5d487da6821d285109b1a22297f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690250"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823607"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Aumentare il numero di istanze con il database SQL di Azure
 È possibile aumentare facilmente il numero di istante dei database SQL di Azure con gli strumenti dei **database elastici** . Questi strumenti e funzionalità consentono di usare le risorse di database di **Database SQL di Azure** per creare soluzioni per carichi di lavoro transazionali e soprattutto applicazioni SaaS (Software as a Service). Le funzionalità dei database elastici sono costituite dai seguenti elementi:

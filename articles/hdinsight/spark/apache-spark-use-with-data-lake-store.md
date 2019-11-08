@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7c60fdfd4d8e579c24da3c43501e4437806becc6
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: f7a6ab954aff1bcc2e3dae3fc035db4b136ccbbe
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241726"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818173"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Usare il cluster HDInsight Spark per analizzare i dati in Azure Data Lake Storage Gen1
 
@@ -30,7 +30,7 @@ In questo articolo si usa [Jupyter notebook](https://jupyter.org/) disponibile c
 > [!NOTE]  
 > Non è necessario eseguire questo passaggio se è stato creato il cluster HDInsight con Data Lake Storage come spazio di archiviazione predefinito. Il processo di creazione del cluster aggiunge alcuni dati di esempio nell'account di Data Lake Storage specificato durante la creazione del cluster. Passare alla sezione Usare il cluster HDInsight Spark con Data Lake Storage.
 
-Se è stato creato un cluster HDInsight con Data Lake Storage come risorsa di archiviazione aggiuntiva e un BLOB del servizio di archiviazione di Azure come risorsa di archiviazione predefinita, è necessario copiare prima di tutto alcuni dati di esempio nell'account Data Lake Storage. È possibile usare i dati di esempio dal BLOB di Archiviazione di Azure associati al cluster HDInsight. Per farlo, è possibile usare lo [strumento ADLCopy](https://aka.ms/downloadadlcopy) . Scaricare e installare lo strumento dal collegamento.
+Se è stato creato un cluster HDInsight con Data Lake Storage come risorsa di archiviazione aggiuntiva e un BLOB del servizio di archiviazione di Azure come risorsa di archiviazione predefinita, è necessario copiare prima di tutto alcuni dati di esempio nell'account Data Lake Storage. È possibile usare i dati di esempio dal BLOB di Archiviazione di Azure associati al cluster HDInsight. Per farlo, è possibile usare lo [strumento ADLCopy](https://www.microsoft.com/download/details.aspx?id=50358) . Scaricare e installare lo strumento dal collegamento.
 
 1. Aprire un prompt dei comandi e passare alla directory in cui è installato AdlCopy, in genere `%HOMEPATH%\Documents\adlcopy`.
 

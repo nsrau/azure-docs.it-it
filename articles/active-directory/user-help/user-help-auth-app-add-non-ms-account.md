@@ -1,5 +1,5 @@
 ---
-title: Aggiungere gli account non Microsoft all'app Microsoft Authenticator - Azure Active Directory | Microsoft Docs
+title: Aggiungere un non account Microsoft a un'app Authenticator-Azure AD
 description: Come aggiungere gli account non Microsoft, ad esempio per Google, Facebook o GitHub, all'app Microsoft Authenticator per la verifica a due fattori.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1521d2b3d47667466636a1ac15f107826e40942
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 62d866e9bf543577887ee99173a52202fcfec632
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942938"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803673"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Aggiungere gli account non Microsoft
 
@@ -35,7 +35,7 @@ In generale, per tutti gli account personali, è necessario:
 2. Aggiungere l'account all'app Microsoft Authenticator. Potrebbe essere necessario eseguire una scansione di un codice a matrice come parte di questo processo.
 
     >[!Note]
-    >Se è la prima volta che si configura l'app Microsoft Authenticator, è possibile che venga visualizzato un messaggio che chiede se consentire all'app di accedere alla fotocamera (iOS) o per consentire all'app di scattare foto e registrare video (Android). È necessario selezionare **Consenti** , in modo che l'app Authenticator possa accedere alla fotocamera per scattare un'immagine del codice a matrice nel passaggio successivo. Se non si consente la fotocamera, è comunque possibile configurare l'app Authenticator, ma è necessario aggiungere manualmente le informazioni sul codice. Per informazioni su come aggiungere manualmente il codice, vedere vedere [aggiungere manualmente un account all'app](user-help-auth-app-add-account-manual.md).
+    >Se si configura l'app Microsoft Authenticator per la prima volta, è possibile che venga visualizzato un messaggio in cui viene richiesto se consentire all'app di accedere alla fotocamera (iOS) o se consentire all'app di scattare foto e registrare video (Android). Selezionare **Consenti** per consentire all'app Authenticator di accedere alla fotocamera per scattare una foto del codice a matrice nel passaggio successivo. Se non si consente l'accesso alla fotocamera, è comunque possibile configurare l'app Authenticator, ma sarà necessario aggiungere le informazioni sul codice manualmente. Per altre informazioni su come aggiungere manualmente un codice, vedere [Aggiungere manualmente un account all'app](user-help-auth-app-add-account-manual.md).
 
 Viene fornito il processo per gli account di Facebook, Google, GitHub e Amazon, ma il processo è lo stesso anche per qualsiasi altra app, ad esempio Instagram, Netflix o Adobe.
 
@@ -75,7 +75,7 @@ Per aggiungere l'account Google attivare la verifica a due fattori e quindi aggi
     >[!NOTE]
     >Per altre informazioni sulla verifica a due fattori e l'account Google, vedere [Attivare la verifica in due passaggi](https://support.google.com/accounts/answer/185839) e [Ulteriori informazioni sulla verifica in due passaggi](https://www.google.com/landing/2step/help.html).
 
-## <a name="add-your-facebook-account"></a>Aggiungere il proprio account Facebook
+## <a name="add-your-facebook-account"></a>Accedere al proprio account Facebook
 
 Per aggiungere l'account Facebook attivare la verifica a due fattori e quindi aggiungere l'account all'app.
 
@@ -187,7 +187,7 @@ Aggiungere l'account Amazon attivando la verifica a due fattori e quindi aggiung
 
 10. Nella pagina **Aggiungi un metodo di verifica di sicurezza** sul computer digitare il codice di verifica a sei cifre fornito dal metodo di verifica di sicurezza per l'account di Amazon e quindi selezionare **Verifica il codice e continua**.
 
-11. Nella pagina **quasi finito** decidere se rendere il computer un dispositivo attendibile, quindi selezionare **ottenuto. Attiva la verifica in due passaggi**.
+11. Nella pagina **quasi finito** decidere se rendere il computer un dispositivo attendibile, quindi selezionare **ottenuto. Attivare la verifica in due passaggi**.
 
     Viene visualizzata la pagina **Impostazioni di sicurezza avanzate**, che mostra i dettagli aggiornati della verifica a due fattori.
 

@@ -1,5 +1,5 @@
 ---
-title: Aggiornare le informazioni sui gruppi dal portale app personali-Azure Active Directory | Microsoft Docs
+title: Aggiornare le informazioni sui gruppi nel portale app personali-Azure AD
 description: Informazioni su come visualizzare e aggiornare le informazioni relative ai gruppi, tra cui la visualizzazione dei gruppi di cui si è proprietari, la creazione di nuovi gruppi, la visualizzazione dei gruppi a cui si è già membri e l'Unione di tutti i gruppi di cui non si fa già parte.
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a11b43d040dec838de350c23614ae42b6756ec6e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: aa251ee361af12ecf3fef3c7cd437fa06c1cea52
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383176"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803928"
 ---
-# <a name="update-your-groups-info-from-the-my-apps-portal"></a>Aggiornare le informazioni sui gruppi dal portale app personali
+# <a name="update-your-groups-info-on-the-my-apps-portal"></a>Aggiornare le informazioni sui gruppi nel portale app personali
 
 È possibile usare l'account aziendale o dell'istituto di istruzione con il portale **App personali** basato sul Web per visualizzare e avviare molte delle app dell'organizzazione basate sul cloud, per aggiornare alcune informazioni dell'account e del profilo, per visualizzare le informazioni sui **gruppi** e per eseguire **verifiche di accesso** per le app e i gruppi. Se non si ha accesso al portale **App personali**, è necessario contattare il supporto tecnico per l'autorizzazione.
 
@@ -41,7 +41,7 @@ Se l'amministratore ha concesso l'autorizzazione per visualizzare il riquadro **
 
 1. Accedere all'account aziendale o dell'istituto di istruzione.
 
-2. Aprire il Web browser e passare a https://myapps.microsoft.com oppure usare il collegamento fornito dall'organizzazione. Ad esempio, è possibile che si venga indirizzati a una pagina personalizzata dell'organizzazione, https://myapps.microsoft.com/contoso.com ad esempio.
+2. Aprire il Web browser e passare a https://myapps.microsoft.como usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
@@ -69,7 +69,7 @@ Se l'amministratore ha concesso l'autorizzazione per visualizzare il riquadro **
 
     - **Aggiungere un gruppo.** Aggiungere un gruppo esistente, per cui non si è già membri, dai **gruppi che sono in** area. Per i passaggi specifici, vedere il [join di un gruppo esistente](#join-an-existing-group).
 
-## <a name="create-a-new-group"></a>Crea un nuovo gruppo
+## <a name="create-a-new-group"></a>Creare un nuovo gruppo
 
 1. Nella pagina **gruppi** selezionare **Crea un gruppo** dall'area gruppi di **cui** si è proprietari.
 
@@ -91,7 +91,7 @@ Se l'amministratore ha concesso l'autorizzazione per visualizzare il riquadro **
 
     - **Criteri di gruppo.** Scegliere questa opzione per consentire a tutti di partecipare al gruppo o consentire solo al proprietario del gruppo di aggiungere membri.
 
-3. Selezionare **Create**.
+3. Selezionare **Crea**.
 
     Il nuovo gruppo verrà creato con il proprietario e verrà visualizzato nell'elenco dei **gruppi personali** . Poiché si è il proprietario, questo gruppo viene visualizzato anche nell'elenco **gruppi i** .
 
@@ -101,7 +101,7 @@ Dopo aver creato un gruppo, è possibile modificarne i dettagli, incluso l'aggio
 
 ### <a name="to-edit-your-details"></a>Per modificare i dettagli
 
-1. Selezionare il gruppo che si desidera modificare dalla pagina **gruppi** e quindi selezionare **Modifica dettagli** nella *&lt;pagina group_name&gt;* .
+1. Selezionare il gruppo che si desidera modificare dalla pagina **gruppi** , quindi selezionare **Modifica dettagli** nella pagina *&lt;group_name&gt;* .
 
     Viene visualizzata la finestra di dialogo **Modifica dettagli** ed è possibile aggiornare le informazioni aggiunte al momento della creazione iniziale del gruppo.
 
@@ -113,7 +113,7 @@ Dopo aver creato un gruppo, è possibile modificarne i dettagli, incluso l'aggio
 
 ### <a name="to-add-or-remove-a-member"></a>Per aggiungere o rimuovere un membro
 
-1. Selezionare il gruppo a cui si vogliono aggiungere i membri e quindi selezionare **+** *&lt;nella pagina group_name&gt;* .
+1. Selezionare il gruppo a cui si desidera aggiungere membri, quindi selezionare **+** nella pagina *&lt;group_name&gt;* .
 
     ![Aggiungere un membro del gruppo con segno + evidenziato](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
@@ -123,7 +123,7 @@ Dopo aver creato un gruppo, è possibile modificarne i dettagli, incluso l'aggio
 
     Viene inviato un invito al nuovo membro per iniziare ad accedere alle app dell'organizzazione.
 
-3. Se è stato aggiunto un membro per errore o se un membro ha lasciato l'organizzazione, è possibile rimuovere il membro selezionando **Rimuovi membro** accanto al nome del membro nella *&lt;pagina group_name&gt;* .
+3. Se è stato aggiunto un membro per errore o se un membro ha lasciato l'organizzazione, è possibile rimuovere il membro selezionando **Rimuovi membro** accanto al nome del membro nella pagina *&lt;group_name&gt;* .
 
     ![Rimuovere un membro con il collegamento di rimozione evidenziato](media/my-apps-portal/my-apps-portal-remove-member-link.png)
 
@@ -147,9 +147,9 @@ Se l'organizzazione lo consente, è possibile rinnovare un gruppo di Office 365,
 
 ### <a name="to-delete-the-group"></a>Per eliminare il gruppo
 
-1. Selezionare il gruppo che si desidera eliminare definitivamente, quindi selezionare **Elimina gruppo** nella *&lt;pagina group_name&gt;* .
+1. Selezionare il gruppo che si desidera eliminare definitivamente, quindi selezionare **Elimina gruppo** nella pagina *&lt;group_name&gt;* .
 
-    ![< pagina > Group_name con il collegamento Elimina gruppo evidenziato](media/my-apps-portal/my-apps-portal-delete-group-link.png)
+    ![< Group_name pagina > con il collegamento Elimina gruppo evidenziato](media/my-apps-portal/my-apps-portal-delete-group-link.png)
 
 2. Selezionare **Sì** nel messaggio di conferma.
 

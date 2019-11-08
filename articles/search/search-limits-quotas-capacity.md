@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d70812779d392cc4555c91599fad37c2d2c68ba5
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d5d621ec9eccca56c4e4e9075b6e9cca75c05c98
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793572"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818572"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limiti dei servizi in Azure ricerca cognitiva
 
@@ -46,18 +46,20 @@ I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, doc
 
 ## <a name="index-limits"></a>Limiti per gli indici
 
-| Gruppi | Gratis | Base&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Risorsa | Gratuito | Base&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Numero massimo di indici |3 |5 o 15 |50 |200 |200 |1000 per partizione o 3000 per servizio |10 |10 |
 | Numero massimo di campi semplici per indice |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
 | Numero massimo di campi di raccolta complessi per indice |40 |40 |40 |40 |40 |40 |40 |40 |
-| Numero massimo di elementi in tutte le raccolte complesse per documento |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Numero massimo di elementi in tutte le raccolte complesse per documento&nbsp;<sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Profondità massima dei campi complessi |10 |10 |10 |10 |10 |10 |10 |10 |
 | Numero massimo di [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggesters) per indice |1 |1 |1 |1 |1 |1 |1 |1 |
 | Numero massimo di [profili di punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per indice |100 |100 |100 |100 |100 |100 |100 |100 |
 | Numero massimo di funzioni per profilo |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> i servizi di base creati prima del 2017 dicembre hanno limiti inferiori (5 anziché 15) sugli indici. Il livello Basic è l'unico SKU con un limite inferiore a 100 campi per indice.
+
+<sup>2</sup> la presenza di un numero molto elevato di elementi in raccolte complesse per documento causa attualmente un elevato utilizzo dello spazio di archiviazione. Questo è un problema noto. Nel frattempo, un limite di 3000 è un limite superiore sicuro per tutti i livelli di servizio. Questo limite viene applicato solo per le operazioni di indicizzazione che usano la versione dell'API disponibile a livello generale (GA) più recente che supporta i campi di tipo complesso (`2019-05-06`) e versioni successive. Per non interrompere i client che potrebbero usare versioni dell'API di anteprima precedenti (che supportano campi di tipo complesso), non verrà applicato questo limite per le operazioni di indicizzazione che usano queste versioni dell'API di anteprima. Si noti che le versioni dell'API di anteprima non sono destinate all'uso per gli scenari di produzione e si consiglia vivamente ai clienti di passare alla versione più recente dell'API GA.
 
 <a name="document-limits"></a>
 
@@ -83,9 +85,9 @@ Se il portale indica un limite di documenti, il servizio è stato creato prima d
 
 Per i servizi soggetti a limiti per i documenti, si applicano i limiti massimi seguenti:
 
-|  Gratis | Basic | S1 | S2 | S3 | S3&nbsp;HD |
+|  Gratuito | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10,000 |1 @ no__t_0_ milioni |15 milioni per partizione o 180 milioni per servizio |60 milioni per partizione o 720 milioni per servizio |120 milioni per partizione o 1,4 miliardi per servizio |1 milione per indice o 200 milioni per partizione |
+|  10.000 |1&nbsp;milioni |15 milioni per partizione o 180 milioni per servizio |60 milioni per partizione o 720 milioni per servizio |120 milioni per partizione o 1,4 miliardi per servizio |1 milione per indice o 200 milioni per partizione |
 
 Se il servizio ha dei limiti che costituiscono un blocco, creare un nuovo servizio e pubblicarvi nuovamente tutti i contenuti. Non è previsto alcun meccanismo automatico per eseguire nuovamente il provisioning del servizio nel nuovo hardware in background.
 
@@ -106,17 +108,17 @@ Per limitare la dimensione del documento, è necessario escludere dalla richiest
 Sono disponibili tempi di esecuzione massimi per fornire bilanciamento e stabilità al servizio nel suo complesso, ma i set di dati di dimensioni maggiori potrebbero richiedere più tempo di indicizzazione rispetto al massimo consentito. Se un processo di indicizzazione non può essere completato nel tempo massimo consentito, provare a eseguirlo in una pianificazione. L'utilità di pianificazione tiene traccia dello stato di indicizzazione. Se un processo di indicizzazione pianificato viene interrotto per qualsiasi motivo, alla successiva esecuzione pianificata l'indicizzatore può riprendere dall'ultima interruzione.
 
 
-| Gruppi | Gratuito&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| Risorsa | Gratuito&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | Numero massimo di indicizzatori |3 |5 o 15|50 |200 |200 |N/D |10 |10 |
 | Numero massimo di origini dati |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |
 | Numero massimo di set di competenze <sup>4</sup> |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |
-| Carico di indicizzazione massimo per chiamata |10.000 documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |N/D |Senza limiti |Senza limiti |
+| Carico di indicizzazione massimo per chiamata |10.000 documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |N/D |Nessun limite |Nessun limite |
 | Pianificazione minima | 5 minuti |5 minuti |5 minuti |5 minuti |5 minuti |5 minuti |5 minuti | 5 minuti |
 | Tempo massimo di esecuzione <sup>5</sup> | 1-3 minuti |24 ore |24 ore |24 ore |24 ore |N/D  |24 ore |24 ore |
 | Tempo massimo di esecuzione per set di competenze di ricerca cognitiva o indicizzazione BLOB con analisi delle immagini <sup>5</sup> | 3-10 minuti |2 ore |2 ore |2 ore |2 ore |N/D  |2 ore |2 ore |
 | Indicizzatore BLOB: dimensioni massime per un BLOB, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
-| Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4 @ no__t_0_ milioni |4 @ no__t_0_ milioni |4 @ no__t_0_ milioni |N/D |4 @ no__t_0_ milioni |4 @ no__t_0_ milioni |
+| Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4&nbsp;milioni |4&nbsp;milioni |4&nbsp;milioni |N/D |4&nbsp;milioni |4&nbsp;milioni |
 
 <sup>1</sup> I servizi del livello Gratuito hanno un tempo massimo di esecuzione degli indicizzatori di 3 minuti per le origini BLOB e di 1 minuto per tutte le altre origini dati. Per l'indicizzazione di intelligenza artificiale che effettua chiamate in Servizi cognitivi, i servizi gratuiti sono limitati a 20 transazioni gratuite al giorno, in cui una transazione viene definita come documento che passa correttamente attraverso la pipeline di arricchimento.
 
@@ -128,11 +130,14 @@ Sono disponibili tempi di esecuzione massimi per fornire bilanciamento e stabili
 
 <sup>5</sup> I carichi di lavoro di ricerca cognitiva e l'analisi delle immagini nell'indicizzazione BLOB di Azure presentano tempi di esecuzione più brevi rispetto all'indicizzazione di testo normale. L'analisi delle immagini e l'elaborazione del linguaggio naturale sono attività complesse e utilizzano una quantità estremamente elevata di potenza di elaborazione disponibile. Il tempo di esecuzione è stato ridotto per offrire la possibilità di eseguire altri processi nella coda.  
 
+> [!NOTE]
+> Come indicato nei [limiti degli indici](#index-limits), gli indicizzatori applicheranno anche il limite superiore di 3000 elementi in tutte le raccolte complesse per documento, a partire dalla versione più recente dell'API GA che supporta i tipi complessi (`2019-05-06`) in avanti. Ciò significa che se l'indicizzatore è stato creato con una versione precedente dell'API, non sarà soggetto a questo limite. Per mantenere la massima compatibilità, un indicizzatore creato con una versione precedente dell'API e quindi aggiornato con una versione dell'API `2019-05-06` o versione successiva verrà comunque **escluso** dai limiti. I clienti devono essere consapevoli dell'impatto negativo della presenza di raccolte complesse di grandi dimensioni (come indicato in precedenza) ed è consigliabile creare nuovi indicizzatori con la versione più recente dell'API GA.
+
 ## <a name="synonym-limits"></a>Limiti dei sinonimi
 
 Il numero massimo di mappe sinonime consentite varia in base al piano tariffario. Ogni regola può avere fino a 20 espansioni, dove un'espansione è un termine equivalvent. Ad esempio, se si specifica "Cat", l'associazione con "Kitty", "Feline" e "Felis" (il genere per Cats) viene conteggiata come 3 espansioni.
 
-| Gruppi | Gratis | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
+| Risorsa | Gratuito | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Mappe sinonimo massime |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Numero massimo di regole per mappa |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |

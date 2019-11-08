@@ -4,15 +4,16 @@ description: Configurare la gestione dei clienti potenziali per un endpoint HTTP
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: evansma
-ms.openlocfilehash: 6a34bdcab5a13af682515bbae96e9a1800ccc37f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 83efb9cfd1ee7464a334ebc4064dbfaa20ab30de
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902195"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812280"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configurare la gestione dei clienti potenziali usando un endpoint HTTPS
 
@@ -116,9 +117,9 @@ Se il sistema CRM (Customer Relationship Management) non è supportato in modo e
 
 4. Flow visualizza un modulo per l'immissione delle informazioni sui clienti potenziali. È possibile eseguire il mapping degli elementi dalla richiesta di input scegliendo di aggiungere contenuto dinamico. L'acquisizione di schermata seguente mostra **OfferTitle** come esempio.
 
-    ![Aggiungi contenuto dinamico](./media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png)
+    ![Aggiungere contenuto dinamico](./media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png)
 
-5. Mappare i campi prescelti e quindi selezionare **Salva** per salvare il flusso. Viene creato un URL POST HTTP ed è possibile accedervi nella finestra *quando viene ricevuta una richiesta http* . Copiare questo URL usando il controllo di copia che si trova a destra dell'URL HTTP POST. questa operazione è importante, in modo da non perdere erroneamente alcuna parte dell'intero URL. Salvare questo URL perché sarà necessario quando si configura la gestione dei lead nel portale di pubblicazione.
+5. Mappare i campi prescelti e quindi selezionare **Salva** per salvare il flusso. Viene creato un URL POST HTTP ed è possibile accedervi nella finestra *quando viene ricevuta una richiesta http* . Copiare questo URL usando il controllo di copia che si trova a destra dell'URL HTTP POST. questa operazione è importante in modo da non perdere erroneamente alcuna parte dell'intero URL. Salvare questo URL perché sarà necessario quando si configura la gestione dei lead nel portale di pubblicazione.
 
     ![Quando viene ricevuta una richiesta HTTP.](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
 
@@ -148,7 +149,7 @@ Se il sistema CRM (Customer Relationship Management) non è supportato in modo e
 
        ![Aggiungere un'azione di posta elettronica](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
 
-5. Selezionare **Salva** per completare il flusso. Un URL HTTP POST viene creato ed è accessibile nella finestra *quando viene ricevuta una richiesta http* . Copiare questo URL usando il controllo di copia che si trova a destra dell'URL HTTP POST. questa operazione è importante, in modo da non perdere erroneamente alcuna parte dell'intero URL. Salvare questo URL perché sarà necessario quando si configura la gestione dei lead nel portale di pubblicazione.
+5. Selezionare **Salva** per completare il flusso. Un URL HTTP POST viene creato ed è accessibile nella finestra *quando viene ricevuta una richiesta http* . Copiare questo URL usando il controllo di copia che si trova a destra dell'URL HTTP POST. questa operazione è importante in modo da non perdere erroneamente alcuna parte dell'intero URL. Salvare questo URL perché sarà necessario quando si configura la gestione dei lead nel portale di pubblicazione.
 
    ![URL POST HTTP ](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
 
@@ -156,7 +157,7 @@ Se il sistema CRM (Customer Relationship Management) non è supportato in modo e
 
 È possibile verificare che tutto funzioni come previsto attenendosi alla procedura seguente usando uno strumento denominato [post](https://app.getpostman.com/app/download/win64), che può essere scaricato online. Disponibile per Windows. 
 
-1. Avviare il post e selezionare **nuova** > **richiesta** per configurare lo strumento di test. 
+1. Avviare il post e selezionare **nuovo** > **richiesta** per configurare lo strumento di test. 
 
    ![Richiedere la configurazione dello strumento di test](./media/commercial-marketplace-lead-management-instructions-https/postman-request.png)
 
@@ -211,7 +212,7 @@ Quando vengono generati i clienti potenziali, Microsoft li invia al flusso, che 
 
 ![Gestione dei lead-connessione](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
 
-![Dettagli connessione](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
+![Dettagli di connessione](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
 
-![Dettagli connessione](./media/commercial-marketplace-lead-management-instructions-https/connection-details-1.png)
+![Dettagli di connessione](./media/commercial-marketplace-lead-management-instructions-https/connection-details-1.png)
 

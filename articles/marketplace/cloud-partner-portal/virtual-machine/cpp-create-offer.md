@@ -1,18 +1,19 @@
 ---
-title: Crea offerta di macchina virtuale in Azure Marketplace
+title: Creare un'offerta di macchina virtuale in Azure Marketplace
 description: Elenca i passaggi necessari per creare una nuova offerta di macchina virtuale (VM, Virtual Machine) per Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 4cd635c6f664a5260b79e62ea72bbb86fc4e1e4f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e10bd22b91b51fb811601e49fad06d8f8b30127
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938366"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73817091"
 ---
 # <a name="create-virtual-machine-offer"></a>Creare l'offerta di una macchina virtuale
 
@@ -25,7 +26,7 @@ dove:
 |  **Gruppo di risorse**   |  **Descrizione**  |
 |  ---------------   |  ---------------  |
 |    SKU            |  La più piccola unità acquistabile di un'offerta. A una singola offerta (classe di prodotti) possono essere associati più SKU, per distinguere tra funzionalità supportate, tipi di immagini di macchina virtuale e modelli di fatturazione diversi. |
-|  Marketplace       | Contiene specifiche e risorse di marketing, legali e di gestione dei clienti potenziali.  <ul><li> Le risorse di marketing includono il nome dell'offerta, la descrizione e i loghi</li> <li> Le risorse legali includono l'informativa sulla privacy, le condizioni per l'utilizzo e altra documentazione legale</li>  <li> I criteri di gestione dei clienti potenziali consentono di specificare come gestire i clienti potenziali dal portale Azure Marketplace per gli utenti finali.</li> </ul> |
+|  Marketplace       | Contiene specifiche e asset di marketing, legali e di gestione dei clienti potenziali.  <ul><li> Le risorse di marketing includono il nome dell'offerta, la descrizione e i loghi</li> <li> Le risorse legali includono l'informativa sulla privacy, le condizioni per l'utilizzo e altra documentazione legale</li>  <li> I criteri di gestione dei clienti potenziali consentono di specificare come gestire i clienti potenziali dal portale Azure Marketplace per gli utenti finali.</li> </ul> |
 | Supporto            | Contiene informazioni sui criteri e sui contatti di supporto |
 | Test drive         | Definisce le risorse che consentono agli utenti finali di testare l'offerta prima di acquistarla |
 |  |  |

@@ -1,22 +1,23 @@
 ---
-title: Descrizione di Marketplace per un modulo Azure IoT Edge | Azure Marketplace
+title: Descrizione del Marketplace per un modulo di Azure IoT Edge | Azure Marketplace
 description: Creare la descrizione del marketplace per un modulo IoT Edge.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: aa0c908e18233926965d8dc3cd1b474f876b8dda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57bae42eb44c174657e59fa8b017da2931ae681b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942401"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814594"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Scheda Marketplace del modulo IoT Edge
 
-La scheda **Marketplace** della pagina **Nuova offerta** consente di offrire ai clienti potenziali informazioni e contratti legali, di vendita e marketing e di gestire i clienti potenziali generati dal marketplace. Questa forma estesa è suddivisa in quattro sezioni: **Cenni preliminari sulla**, **gli elementi di Marketing**, **condurre una gestione**, e **legali**.
+La scheda **Marketplace** della pagina **Nuova offerta**  consente di offrire ai clienti potenziali contratti e informazioni legali, di vendita e di marketing e di gestire i clienti potenziali generati dal marketplace. Questa modulo di grandi dimensioni è suddiviso in quattro sezioni: **Overview** (Panoramica), **Marketing Artifacts** (Artefatti di marketing), **Lead Management** (Gestione clienti potenziali) e **Legal** (Legale).
 
 
 ## <a name="overview"></a>Panoramica
@@ -29,11 +30,11 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi ob
 
 |  **Campo**                |     **Descrizione**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Titolo\***                 | Titolo dell'offerta. Verrà visualizzato in posizione prominente nel marketplace.  La lunghezza massima consentita è di 50 caratteri. <!--ADD PICTURE IN ACTION-->|
+| **\* titolo**                 | Titolo dell'offerta. Verrà visualizzato in posizione prominente nel marketplace.  La lunghezza massima consentita è di 50 caratteri. <!--ADD PICTURE IN ACTION-->|
 | **Riepilogo\***               | Breve riepilogo dell'offerta. La lunghezza massima consentita è di 100 caratteri. <!--ADD PICTURE IN ACTION-->|
-| **Riepilogo esteso\***          | Riepilogo più lungo dell'offerta (sebbene possa essere coincidere con il **riepilogo**).  La lunghezza massima consentita è di 256 caratteri. <!--ADD PICTURE IN ACTION-->|
-| **Descrizione\***           | Descrizione dell'offerta.  La lunghezza massima consentita è di 3000 caratteri. Supporta la formattazione HTML semplice.<br/> Deve includere un paragrafo di *requisiti hardware minimi* nella parte inferiore, ad esempio: <br/> <p><u>Requisiti hardware minimi:</u> Linux x64 e arm32 sistema operativo, 1 GB di RAM, 500 Mb di spazio di archiviazione</p>
-| **Identificatore di marketing\***  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **\* di riepilogo lungo**          | Riepilogo più lungo dell'offerta (sebbene possa essere coincidere con il **riepilogo**).  La lunghezza massima consentita è di 256 caratteri. <!--ADD PICTURE IN ACTION-->|
+| **Descrizione\***           | Descrizione dell'offerta.  La lunghezza massima consentita è di 3000 caratteri. Supporta la formattazione HTML semplice.<br/> Deve includere un paragrafo di *requisiti hardware minimi* nella parte inferiore, ad esempio: <br/> <p><u>Requisiti hardware minimi:</u> sistema operativo Linux x64 e arm32, 1 GB di RAM, risorsa di archiviazione da 500 MB</p>
+| **Identificatore marketing\***  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **Preview Subscription IDs** (ID sottoscrizione di anteprima) | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni consentite avranno accesso all'offerta dopo la pubblicazione, prima che venga attivata. |
 | **Collegamenti utili**          | Selezione multipla di categorie commerciali e tecniche a cui associare l'offerta in modo ottimale.  È consentita una selezione massima di 10 elementi. Assicurarsi di aggiungere almeno un collegamento alla documentazione e un collegamento ai dispositivi IoT Edge compatibili dal [catalogo di dispositivi Azure IoT](https://catalog.azureiotsolutions.com/). |
 | **Categorie suggerite\*** | Scegliere fino a cinque categorie. Verranno visualizzati nella pagina dei dettagli del prodotto. Nelle pagine del browser tutti i moduli IoT Edge vengono visualizzati nella categoria *Internet delle cose \> Modulo IoT Edge*.|
@@ -75,7 +76,7 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi ob
 
 ## <a name="marketing-artifacts"></a>Artefatti di marketing
 
-Questa sezione include le sottosezioni seguenti: **Logo**, **Screenshot**, e **video**. 
+Questa sezione include le sottosezioni seguenti: **Logos** (Logo), **Screenshot** e **Video**. 
 
 >[!Note]
 >I logo sono gli unici artefatti di marketing obbligatori, ma tutti sono vivamente consigliati per catturare meglio l'attenzione dei clienti.
@@ -88,7 +89,7 @@ Questa sezione include le sottosezioni seguenti: **Logo**, **Screenshot**, e **v
 | **Small\***                 | Formato PNG 40x40 pixel                                                     |
 | **Medium\***                | Formato PNG 90x90 pixel                                                     |
 | **Large\***                 | Formato PNG 115x115 pixel                                                  |
-| **Wide\***                  | Formato PNG 255x115 pixel                                                   |
+| **\* Wide**                  | Formato PNG 255x115 pixel                                                   |
 | **Hero** (Banner)                  | Formato PNG 815x290 pixel  Facoltativo. Una volta caricata, tuttavia, l'icona del banner non può essere eliminata. |
 | *Screenshot*  | Gli screenshot vengono visualizzati nella pagina dei dettagli del prodotto. Si tratta di un ottimo metodo per comunicare in modo visivo ciò che fa il modulo IoT Edge e come funziona. Ad esempio, è possibile mostrare diagrammi di architettura o illustrazioni di casi d'uso. Facoltativi, ma non più di cinque per SKU. |
 | **Nome**                  | Nome o titolo. La lunghezza massima consentita è di 100 caratteri.                             |
@@ -110,7 +111,7 @@ Ogni logo caricato nel portale Cloud Partner deve rispettare le linee guida segu
 *  La progettazione di Azure ha una tavolozza dei colori semplice. Nel logo usare un numero ridotto di colori primari e secondari.
 *  I colori del tema del portale di Azure sono il bianco e il nero. Evitare di usare questi colori per lo sfondo del logo. Usare un colore che faccia risaltare il logo nel portale di Azure. Si consiglia di usare colori primari semplici. Se si usa uno sfondo trasparente, verificare che il logo e il testo non siano di colore bianco, nero o blu.
 *  Non usare uno sfondo sfumato sul logo.
-*  Non inserire testo nel logo, neanche il nome del marchio o della società. L'aspetto del logo deve essere semplice e senza sfumature.
+*  Non inserire testo, neppure il nome del marchio o della società, nel logo. L'aspetto del logo deve essere semplice e senza sfumature.
 *  Non estendere il logo.
 
 
@@ -160,13 +161,13 @@ Dopo aver pubblicato l'offerta, verrà verificata la connessione al cliente pote
 
 ## <a name="legal"></a>Note legali
 
-In questa sezione consente di fornire i due documenti legali necessari per ogni offerta: informativa sulla privacy e condizioni per l'utilizzo.
+Questa sezione consente di specificare i due documenti legali necessari per ogni offerta: Informativa sulla Privacy e Condizioni per l'utilizzo.
 
 |  **Campo**                    |     **Descrizione**                                                          |
 |  ---------                    |     ---------------                                                          |
-| **Privacy Policy URL\***      | URL dell'informativa sulla privacy pubblicata                                            |
-| **Usare Constract Standard\***  | Indica se utilizzare il modello di contratto standard Microsoft.  Per altre informazioni, vedere [contratto Standard](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
-| **Condizioni per l'utilizzo\***            | *Le condizioni d'uso* come inline semplice codice HTML o un collegamento inviate alle condizioni per l'uso pagina     |
+| **\* dell'URL dell'informativa sulla privacy**      | URL dell'informativa sulla privacy pubblicata                                            |
+| **USA constract standard\***  | Indica se utilizzare il modello di contratto Microsoft standard.  Per ulteriori informazioni, vedere [contratto standard](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
+| **Condizioni per l'utilizzo\***            | *Condizioni per l'utilizzo* come HTML semplice inline o collegamento alla pagina delle condizioni per l'utilizzo pubblicate     |
 |  |  |
 
 

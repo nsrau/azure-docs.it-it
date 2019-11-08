@@ -1,7 +1,7 @@
 ---
-title: Creare set di dati per accedere ai dati con azureml-DataSets
+title: Creare set di dati Azure Machine Learning per accedere ai dati
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare set di impostazioni da diverse origini e registrare set di impostazioni con l'area di lavoro.
+description: Informazioni su come creare set di dati di Azure Machine Learning per accedere ai dati per le esecuzioni dell'esperimento di machine learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,18 +11,18 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 1379085e410ddf119ae4ed1fe45389f00eb1b2a5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 51102962879b43d4ef3ae8662d7c3136bc7441d9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716579"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818449"
 ---
-# <a name="create-and-access-datasets-in-azure-machine-learning"></a>Creare e accedere ai set di impostazioni in Azure Machine Learning
+# <a name="create-azure-machine-learning-datasets"></a>Crea set di impostazioni Azure Machine Learning
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Questo articolo illustra come creare Azure Machine Learning set di dati (anteprima) e come accedere ai dati da esperimenti locali o remoti.
+Questo articolo illustra come creare set di dati di Azure Machine Learning per accedere ai dati per gli esperimenti locali o remoti.
 
 Con Azure Machine Learning set di impostazioni è possibile:
 
@@ -43,7 +43,7 @@ Per creare e usare i set di impostazioni, è necessario:
 * [SDK Azure Machine Learning per Python installato](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), che include il pacchetto azureml-DataSets.
 
 > [!NOTE]
-> Alcune classi del set di dati (anteprima) presentano dipendenze dal pacchetto [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) . Per gli utenti Linux queste classi sono supportate solo nelle distribuzioni seguenti: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
+> Alcune classi del set di dati presentano dipendenze dal pacchetto [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) . Per gli utenti Linux queste classi sono supportate solo nelle distribuzioni seguenti: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
 
 ## <a name="dataset-types"></a>Tipi di set di dati
 
@@ -114,7 +114,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 | |PassengerId|Rimasti|Pclass|Name|Sesso|Age|SibSp|Parch|Ticket|Tariffe|Abitacolo|Intrapreso
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|Falso|3|Braund, Mr. Owen Harris|male|22,0|1|0|A/5 21171|7,2500||S
+0|1|False|3|Braund, Mr. Owen Harris|male|22,0|1|0|A/5 21171|7,2500||S
 1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
 2|3|True|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||S
 

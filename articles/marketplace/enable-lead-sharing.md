@@ -5,20 +5,21 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 9aecef81547131e6f843fdd55db259d2c4299c9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4475f6aecb0fe80cd20138eb885b79b6e7e82208
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938682"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818675"
 ---
 # <a name="enable-lead-sharing"></a>Abilitare la condivisione di clienti potenziali
 Assicurarsi che la gestione dei clienti potenziali sia abilitata per l'inserzione nel [Marketplace di Azure](https://azuremarketplace.microsoft.com) o in [Microsoft AppSource](https://appsource.microsoft.com) in modo da ricevere più facilmente le informazioni di contatto per i seguenti destinatari:
 
-| Vetrina | Audience |
+| Vetrina | Destinatari |
 |:--- |:--- |
 | AppSource | Clienti aziendali |
 | Azure Marketplace | Tutti i clienti |

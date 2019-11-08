@@ -1,18 +1,19 @@
 ---
-title: Immettere i dettagli della vetrina di offerta di consulenza | Azure Marketplace
-description: Definire i dettagli della vetrina in un'offerta di servizio Azure o Dynamics 365 consulenza nel portale Cloud Partner.
+title: Immettere i dettagli della vetrina per l'offerta di consulenza | Azure Marketplace
+description: Definire i dettagli della vetrina in un'offerta di servizio di consulenza di Azure o Dynamics 365 nella portale Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d741361cdeb25d6fc063f95da7bc301178f31fc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942720"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818092"
 ---
 # <a name="storefront-details-tab"></a>Scheda Dettagli vetrina
 
@@ -40,28 +41,28 @@ Il riepilogo dell'offerta è una breve descrizione dell'offerta visualizzata imm
 
 *Esempio 1*
 
--   **Nome offerta**: Analisi cloud: workshop di 3 giorni
--   **Riepilogo offerta**: panoramica di Microsoft Azure e Power BI, valutazione dell'ambiente corrente e mini modello di verifica.
+-   **Nome offerta**: analisi cloud: workshop di 3 giorni
+-   **Riepilogo dell'offerta**: panoramica di Microsoft Azure e Power bi, valutazione dell'ambiente corrente e mini poc.
 
 *Esempio 2*
 
--   **Nome offerta**: Azure IoT industriale: modello di verifica di 30 giorni
--   **Riepilogo offerta**: creare un progetto pilota industriale di prodotti connessi per connettere in modo sicuro le apparecchiature sul campo a una soluzione hub IoT di Azure con dashboard, report e notifiche.
+-   **Nome offerta**: Industrial Azure Internet: modello di verifica per 30 giorni
+-   **Riepilogo dell'offerta**: creare un progetto pilota di prodotto connesso industrialmente per connettere in modo sicuro le apparecchiature nel campo a una soluzione hub Azure Internet con dashboard, report e notifiche.
 
 *Esempio 3*
 
--   **Nome offerta**: Servizi professionali: briefing di 1 ora
--   **Riepilogo offerta**: panoramica e demo della soluzione Dynamics 365 for Operations preconfigurata ed estesa che fornisce una migliore gestione dei progetti, della fatturazione e delle risorse per i servizi professionali.
+-   **Nome offerta**: Servizi professionali: Briefing 1-hr
+-   **Riepilogo dell'offerta**: panoramica e demo di una soluzione preconfigurata di Dynamics 365 per le operazioni che offre una gestione avanzata di progetti, fatturazione e risorse per servizi professionali.
 
 *Esempio 4*
 
--   **Nome offerta**: Power BI per il tuo ambiente: workshop di 4 ore
--   **Riepilogo offerta**: iniziare a operare con il primo dashboard e apprendere le procedure consigliate. Per un massimo di 12 studenti, in loco.
+-   **Nome offerta**: Power bi nel mondo: workshop di 4 ore
+-   **Riepilogo dell'offerta**: iniziare a usare il primo dashboard e apprendere le procedure consigliate. Per un massimo di 12 studenti, in loco.
 
 *Esempio 5*
 
--   **Nome offerta**: Dynamics e progetti: valutazione di 3 giorni
--   **Riepilogo offerta**: raccolta e valutazione dei requisiti per la soluzione ERP destinata a società di servizi professionali e imprese orientate ai progetti.
+-   **Nome dell'offerta**: Dynamics e Projects: valutazione di 3 giorni
+-   **Riepilogo dell'offerta**: raccolta e valutazione dei requisiti per una soluzione ERP progettata per le aziende di servizi professionali e per le aziende basate su progetti.
 
 
 ### <a name="offer-description"></a>Descrizione dell'offerta\*
@@ -78,11 +79,11 @@ La descrizione dell'offerta deve essere breve e rispettare il limite di caratter
 
 L'esempio che segue illustra una descrizione dell'offerta ben composta e il relativo nome e riepilogo:
 
-**Nome offerta**: Analisi cloud: workshop di 3 giorni
+**Nome offerta**: analisi cloud: workshop di 3 giorni
 
-**Riepilogo offerta**: panoramica di Microsoft Azure e Power BI, valutazione dell'ambiente corrente e mini modello di verifica.
+**Riepilogo dell'offerta**: panoramica di Microsoft Azure e Power bi, valutazione dell'ambiente corrente e mini poc.
 
-**Descrizione dell'offerta**: questo workshop di 3 giorni è rivolto ai responsabili tecnici e commerciali e si svolge presso la sede del cliente.
+**Descrizione dell'offerta**: questo workshop di 3 giorni è per i leader tecnici e aziendali e viene mantenuto in sede presso la struttura del client.
 
 Agenda
 
@@ -104,7 +105,7 @@ Al termine del workshop, il cliente sarà in grado di definire un piano di alto 
 
 Il seguente file Markdown di esempio è relativo all'offerta precedente:
 
-    This 3-day workshop is for technical and business leaders and is held on-site at the client’s facility.
+    This 3-day workshop is for technical and business leaders and is held on-site at the client's facility.
 
       ### Agenda
 
@@ -152,18 +153,18 @@ Microsoft si concentra esclusivamente su offerte con ambito fisso, durata fissa,
 
 Sono inclusi i seguenti cinque tipi di offerte:
 
--   **Valutazione:** valutazione dell'ambiente di un cliente per determinare l'applicabilità di una soluzione e fornire una stima dei costi e delle tempistiche.
--   **Briefing:** introduzione a una soluzione o a un servizio di consulenza per suscitare l'interesse del cliente con framework, demo ed esempi di clienti. I briefing devono essere condotti in loco.
--   **Implementazione**: installazione completa che fornisce una soluzione perfettamente funzionante. Per questo progetto pilota, Microsoft raccomanda di limitarsi a soluzioni che possono essere implementate in una settimana o meno.
--   **Modello di verifica:** implementazione di ambito limitato per determinare se una soluzione soddisfa i requisiti di un cliente.
--   **Workshop:** engagement interattivo condotto nella sede di un cliente che può includere sessioni di training, briefing, valutazioni o demo basati sui dati o sull'ambiente del cliente.
+-   **Valutazione**: valutazione dell'ambiente di un cliente per determinare l'applicabilità di una soluzione e fornire una stima dei costi e delle tempistiche.
+-   **Briefing**: introduzione a una soluzione o a un servizio di consulenza per suscitare l'interesse del cliente con framework, demo ed esempi di clienti. I briefing devono essere condotti in loco.
+-   **Implementazione:** installazione completa che fornisce una soluzione perfettamente funzionante. Per questo progetto pilota, Microsoft raccomanda di limitarsi a soluzioni che possono essere implementate in una settimana o meno.
+-   Modello **di prova**: implementazione con ambito limitato per determinare se una soluzione soddisfa i requisiti di un cliente.
+-   **Workshop**: impegno interattivo condotto su un cliente locale che può includere sessioni di formazione, briefing, valutazioni o demo basate sui dati o sull'ambiente del cliente.
 
 **Disponibilità per paese/area geografica**
 
-Selezionare il paese e l'area geografica in cui è disponibile questo servizio di consulenza. Impossibile pubblicare una singola offerta in più paesi o aree geografiche. Per ogni paese o area, è necessario creare una nuova offerta.
+Selezionare il paese e l'area geografica in cui è disponibile questo servizio di consulenza. Impossibile pubblicare una singola offerta in più paesi o aree geografiche. Per ogni paese o regione, è necessario creare una nuova offerta.
 
 >[!Note]
->I servizi di consulenza di AppSource sono attualmente attivi negli Stati Uniti, nel Regno Unito e in Canada. È possibile inviare un'offerta per un paese/area geografica che non è ancora in tempo reale e verrà esaminato e preparato per essere pubblicata. Per aprire un nuovo paese/area geografica, in modo che le offerte per paesi/aree geografiche che non sono in tempo reale sono invitate è necessari un numero minimo di offerte può essere attivata.
+>I servizi di consulenza di AppSource sono attualmente attivi negli Stati Uniti, nel Regno Unito e in Canada. È possibile inviare un'offerta per un paese o un'area geografica non ancora attiva e che verrà esaminata e preparata per l'uso. Per aprire un nuovo paese/area geografica è necessario un numero minimo di offerte pronte per l'uso, quindi le offerte per paesi/aree geografiche non attive sono consigliate.
 
 **Settori**
 

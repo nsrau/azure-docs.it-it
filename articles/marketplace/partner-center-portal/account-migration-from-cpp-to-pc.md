@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 6887430cad06ad33434f0f01e741979014b4558b
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: f8644a2aa989b7013cbbd64e8a8194bc08f40251
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219581"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813110"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migrazione degli account da portale Cloud Partner al centro per i partner
 
@@ -35,9 +36,9 @@ Fare clic sul banner per avviare il processo di migrazione dell'account. Si prev
 
 1. Indirizzo di posta elettronica dell'ufficio: <br> <br> Nella maggior parte dei casi, accedere con l'indirizzo di posta elettronica usato per accedere a CPP. In alcuni casi, è necessario usare un indirizzo di posta elettronica diverso:
 
-    * Account Microsoft: Se l'account CPP è un account Microsoft, immettere un indirizzo di posta elettronica di lavoro valido associato al tenant per il quale viene registrato l'ID di Microsoft Partner Network (MPN). Per ulteriori informazioni, vedere la pagina [relativa all'iscrizione al programma Microsoft Partner Network](#sign-up-for-microsoft-partner-network-program).
+    * Account Microsoft: se l'account CPP è un account Microsoft, immettere un indirizzo di posta elettronica di lavoro valido associato al tenant per il quale viene registrato l'ID del Microsoft Partner Network (MPN). Per ulteriori informazioni, vedere la pagina [relativa all'iscrizione al programma Microsoft Partner Network](#sign-up-for-microsoft-partner-network-program).
 
-    * Tenant non corrispondente: Se l'indirizzo di posta elettronica dell'ufficio non appartiene al tenant associato all'ID Microsoft Partner Network presente nell'account CPP, verrà visualizzato un errore. Per superare questo errore, immettere un indirizzo di posta elettronica associato al tenant. Un messaggio di errore fornirà il nome del tenant.
+    * Mancata corrispondenza del tenant: se l'indirizzo di posta elettronica dell'ufficio non appartiene al tenant associato all'ID Microsoft Partner Network presente nell'account CPP, verrà visualizzato un errore. Per superare questo errore, immettere un indirizzo di posta elettronica associato al tenant. Un messaggio di errore fornirà il nome del tenant.
 
 2. Iscriversi al programma Microsoft Partner Network
 

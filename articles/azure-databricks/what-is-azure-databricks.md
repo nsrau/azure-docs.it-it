@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 149b83b9aacf23cde06a2b35aed06c164afe9647
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 1e86658422e444cb7104c3e3428a74d31d453a72
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243333"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605967"
 ---
 # <a name="what-is-azure-databricks"></a>Informazioni su Azure Databricks
 
@@ -96,9 +96,9 @@ Grazie all'integrazione avanzata con Power BI, Azure Databricks consente di indi
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Guida introduttiva: Eseguire un processo Spark in Azure Databricks](quickstart-create-databricks-workspace-portal.md)
-* [Work with Spark clusters](https://docs.azuredatabricks.net/user-guide/clusters/index.html) (Usare i cluster Spark)
-* [Usare i blocchi appunti](https://docs.azuredatabricks.net/user-guide/notebooks/index.html)
-* [Create Spark jobs](https://docs.azuredatabricks.net/user-guide/jobs.html) (Creare processi Spark)
+* [Work with Spark clusters](/azure/databricks/clusters/index) (Usare i cluster Spark)
+* [Usare i blocchi appunti](/azure/databricks/notebooks/index)
+* [Create Spark jobs](/azure/databricks/jobs) (Creare processi Spark)
 
  
 

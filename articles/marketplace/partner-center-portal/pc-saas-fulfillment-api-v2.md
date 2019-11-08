@@ -4,15 +4,16 @@ description: Questo articolo illustra come creare e gestire un'offerta SaaS in A
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: evansma
-ms.openlocfilehash: b1ec40485e775b7e50b5f7d82014aef77f14fb3e
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 4c73a59352422626ec3c6012607009995479d0cc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025279"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816599"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>API di evasione SaaS, versione 2 
 
@@ -37,7 +38,7 @@ Il diagramma seguente illustra la sequenza di chiamate API per uno scenario di p
 
 ![Chiamate API per il provisioning di un servizio SaaS](./media/saas-post-provisioning-api-v2-calls.png)
 
-#### <a name="provisioned"></a>Con provisioning
+#### <a name="provisioned"></a>Sottoposto a provisioning
 
 Questo stato è lo stato stabile di un servizio di cui è stato effettuato il provisioning.
 
@@ -111,7 +112,7 @@ L'endpoint di risoluzione consente al server di pubblicazione di risolvere un to
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |  Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta. |
 |  x-ms-correlationid |  Valore stringa univoco per l'operazione sul client. Questo parametro mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta.  |
-|  authorization     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Ad esempio: "`Bearer <access_token>`". |
+|  autorizzazione     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Ad esempio: "`Bearer <access_token>`". |
 |  x-ms-marketplace-token  |  Il parametro di query del token nell'URL quando l'utente viene reindirizzato al sito Web del partner SaaS da Azure (ad esempio: `https://contoso.com/signup?token=..`). *Nota:* L'URL decodifica il valore del token dal browser prima di usarlo.  |
 
 *Codici di risposta:*
@@ -160,7 +161,7 @@ L'API di sottoscrizione supporta le operazioni HTTPS seguenti: **Get**, **post**
 
 Elenca tutte le sottoscrizioni SaaS per un server di pubblicazione.
 
-##### <a name="getbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Ottieni<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
+##### <a name="getbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Get<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -175,7 +176,7 @@ Elenca tutte le sottoscrizioni SaaS per un server di pubblicazione.
 | Content-Type       |  `application/json`  |
 | x-ms-requestid     |  Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta. |
 | x-ms-correlationid |  Valore stringa univoco per l'operazione sul client. Questo parametro mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta.  |
-| authorization      |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Ad esempio: "`Bearer <access_token>`".  |
+| autorizzazione      |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Ad esempio: "`Bearer <access_token>`".  |
 
 *Codici di risposta:*
 
@@ -212,7 +213,7 @@ Payload di risposta per l'API fittizia:<br>
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "isFreeTrial": "true", // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.
+          "isFreeTrial": "true", // true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial.
           "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
       }
   ],
@@ -250,7 +251,7 @@ E per l'API reale: <br>
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "isFreeTrial": true, // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.(optional field – default false)
+          "isFreeTrial": true, // true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial.(optional field - default false)
           "isTest": false, //indicating whether the current subscription is a test asset
           "sandboxType": "None", // Possible Values: None, Csp (Csp sandbox purchase)
           "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
@@ -280,7 +281,7 @@ Errore interno del server.
 
 Ottiene la sottoscrizione SaaS specificata. Usare questa chiamata per ottenere informazioni sulle licenze e informazioni sul piano.
 
-##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Ottieni<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`
+##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -296,7 +297,7 @@ Ottiene la sottoscrizione SaaS specificata. Usare questa chiamata per ottenere i
 |  Content-Type      |  `application/json`  |
 |  x-ms-requestid    |  Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta. |
 |  x-ms-correlationid |  Valore stringa univoco per l'operazione sul client. Questo parametro mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta.  |
-|  authorization     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Ad esempio: "`Bearer <access_token>`".  |
+|  autorizzazione     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Ad esempio: "`Bearer <access_token>`".  |
 
 *Codici di risposta:*
 
@@ -320,7 +321,7 @@ Response Body:
           },
         "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
-        "isFreeTrial": "true", // true – customer subscription is currently in free trial, false – customer subscription is not currently in free trial.
+        "isFreeTrial": "true", // true - customer subscription is currently in free trial, false - customer subscription is not currently in free trial.
         "status": "Subscribed", // Indicates the status of the operation.
           "term": { //This gives the free trial term start and end date
             "startDate": "2019-05-31",
@@ -351,7 +352,7 @@ Errore interno del server.<br>
 
 Usare questa chiamata per verificare se sono presenti offerte private o pubbliche per l'editore corrente.
 
-##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidlistavailableplansapi-versionapiversion"></a>Ottieni<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
+##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidlistavailableplansapi-versionapiversion"></a>Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -366,7 +367,7 @@ Usare questa chiamata per verificare se sono presenti offerte private o pubblich
 |   Content-Type     |  `application/json` |
 |   x-ms-requestid   |   Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta. |
 |  x-ms-correlationid  | Valore stringa univoco per l'operazione sul client. Questo parametro mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta. |
-|  authorization     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Ad esempio: "`Bearer <access_token>`". |
+|  autorizzazione     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Ad esempio: "`Bearer <access_token>`". |
 
 *Codici di risposta:*
 
@@ -418,7 +419,7 @@ Errore interno del server.<br>
 |  Content-Type      | `application/json`  |
 |  x-ms-requestid    | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta.  |
 |  x-ms-correlationid  | Valore stringa univoco per l'operazione sul client. Questa stringa mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta.  |
-|  authorization     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Ad esempio: "`Bearer <access_token>`". |
+|  autorizzazione     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Ad esempio: "`Bearer <access_token>`". |
 
 *Payload della richiesta:*
 
@@ -475,7 +476,7 @@ Aggiornare il piano nella sottoscrizione.
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |   Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta.  |
 |  x-ms-correlationid  |  Valore stringa univoco per l'operazione sul client. Questo parametro mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta.    |
-| authorization      |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Ad esempio: "`Bearer <access_token>`".  |
+| autorizzazione      |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Ad esempio: "`Bearer <access_token>`".  |
 
 *Payload della richiesta:*
 
@@ -541,7 +542,7 @@ Aggiornare la quantità nella sottoscrizione.
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |   Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta.  |
 |  x-ms-correlationid  |  Valore stringa univoco per l'operazione sul client. Questo parametro mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta.    |
-| authorization      |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Ad esempio: "`Bearer <access_token>`".  |
+| autorizzazione      |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Ad esempio: "`Bearer <access_token>`".  |
 
 *Payload della richiesta:*
 
@@ -592,7 +593,7 @@ Errore interno del server.
 
 Annulla la sottoscrizione ed elimina la sottoscrizione specificata.
 
-##### <a name="deletebr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionid-api-versionapiversion"></a>Eliminazione<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`
+##### <a name="deletebr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionid-api-versionapiversion"></a>Elimina<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -608,7 +609,7 @@ Annulla la sottoscrizione ed elimina la sottoscrizione specificata.
 |   Content-Type     |  `application/json` |
 |  x-ms-requestid    |   Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta.   |
 |  x-ms-correlationid  |  Valore stringa univoco per l'operazione sul client. Questo parametro mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta.   |
-|  authorization     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Ad esempio: "`Bearer <access_token>`".  |
+|  autorizzazione     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Ad esempio: "`Bearer <access_token>`".  |
 
 *Codici di risposta:*
 
@@ -645,7 +646,7 @@ L'API Operations supporta le operazioni patch e Get seguenti.
 
 Elenca le operazioni in attesa per il server di pubblicazione corrente. 
 
-##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>Ottieni<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
+##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -661,7 +662,7 @@ Elenca le operazioni in attesa per il server di pubblicazione corrente.
 |   Content-Type     |  `application/json` |
 |  x-ms-requestid    |  Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta.  |
 |  x-ms-correlationid |  Valore stringa univoco per l'operazione sul client. Questo parametro mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta.  |
-|  authorization     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Ad esempio: "`Bearer <access_token>`".  |
+|  autorizzazione     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Ad esempio: "`Bearer <access_token>`".  |
 
 *Codici di risposta:*
 
@@ -709,7 +710,7 @@ Errore interno del server.
 
 Consente al server di pubblicazione di tenere traccia dello stato dell'operazione asincrona attivata specificata, ad esempio `Subscribe`, `Unsubscribe`, `ChangePlan`o `ChangeQuantity`.
 
-##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Ottieni<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
+##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -724,7 +725,7 @@ Consente al server di pubblicazione di tenere traccia dello stato dell'operazion
 |  Content-Type      |  `application/json`   |
 |  x-ms-requestid    |   Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta.  |
 |  x-ms-correlationid |  Valore stringa univoco per l'operazione sul client. Questo parametro mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta.  |
-|  authorization     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Ad esempio: "`Bearer <access_token>`".  |
+|  autorizzazione     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Ad esempio: "`Bearer <access_token>`".  |
 
 *Codici di risposta:*<br>
 
@@ -788,7 +789,7 @@ Aggiornare lo stato di un'operazione per indicare l'esito positivo o negativo co
 |   Content-Type     | `application/json`   |
 |   x-ms-requestid   |   Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta. |
 |  x-ms-correlationid |  Valore stringa univoco per l'operazione sul client. Questo parametro mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta. |
-|  authorization     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Ad esempio: "`Bearer <access_token>`".  |
+|  autorizzazione     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Ad esempio: "`Bearer <access_token>`".  |
 
 *Payload della richiesta:*
 
@@ -839,7 +840,7 @@ Il server di pubblicazione deve implementare un webhook in questo servizio SaaS 
   "id": "<this is a GUID operation id, you can call operations API with this to get status>",
   "activityId": "<this is a Guid correlation id>",
   "subscriptionId": "<Guid to uniquely identify this resource>",
-  "publisherId": "<this is the publisher’s name>",
+  "publisherId": "<this is the publisher's name>",
   "offerId": "<this is the offer name>",
   "planId": "<this is the plan id>",
   "quantity": "<the number of seats, will be null if not per-seat saas offer>",

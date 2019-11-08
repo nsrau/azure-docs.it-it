@@ -1,18 +1,19 @@
 ---
-title: SKU disponibili per un'immagine del contenitore di Azure | Azure Marketplace
+title: SKU per un'immagine di contenitori di Azure | Azure Marketplace
 description: Configurare SKU per un contenitore di Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: 6953329bfabe99fc4bb28f2494cb412ba9cbbba0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b69eea8ad7fd4c62925b50434b653118890e280
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942922"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823156"
 ---
 # <a name="container-skus-tab"></a>Scheda SKU del contenitore
 
@@ -45,14 +46,14 @@ I metadati del contenitore includono informazioni di riferimento dei dettagli de
 
 ![Metadati del contenitore](./media/containers-image-repository.png)
     
-Il **dettagli dell'immagine del Repository** nella schermata precedente acquisizione contiene i campi seguenti.  I campi obbligatori sono indicati da un asterisco (*).
+I **Dettagli dell'archivio immagini** nell'acquisizione schermo precedente contengono i campi seguenti.  I campi obbligatori sono indicati da un asterisco (*).
 
--   **ID sottoscrizione\***  -ID sottoscrizione di Azure in cui è presente il registro contenitori di AZURE.
--   **Nome del gruppo di risorse\***  -il nome del gruppo di risorse il registro contenitori di Azure.
--   **Nome del Registro di sistema\***  -nome di registro contenitori di AZURE.
--   **Nome del repository\***  -il nome del repository. Dopo aver impostato il nome, questo valore non può più essere modificato. Usare un nome univoco per evitare conflitti con altre offerte nell'account.
--   **Nome utente\***  -il nome utente (nome utente amministratore) associato all'immagine di registro contenitori di AZURE.
--   **La password\***  -password associata all'immagine di registro contenitori di AZURE.
+-   **ID sottoscrizione\*** : ID sottoscrizione di Azure in cui è presente il registro contenitori di Azure.
+-   **Nome del gruppo di risorse\*** : il nome del gruppo di risorse dell'ACR.
+-   **Nome del registro di sistema\*** : nome dell'ACR.
+-   **Nome repository\*** : nome del repository. Dopo aver impostato il nome, questo valore non può più essere modificato. Usare un nome univoco per evitare conflitti con altre offerte nell'account.
+-   **Nome utente\*** : nome utente (nome utente amministratore) associato all'immagine ACR.
+-   **Password\*** : la password associata all'immagine ACR.
 
     >[!NOTE]
     >Il nome utente e la password sono necessari per garantire che i partner abbiano accesso al Registro Azure Container indicato nel processo di pubblicazione.
@@ -62,7 +63,7 @@ Il **dettagli dell'immagine del Repository** nella schermata precedente acquisiz
 
 Durante la pubblicazione di un'immagine del contenitore è possibile specificare uno o più tag immagine e digest dell'Agente integrità sistema.
 
-**Tag di immagine\* o del Digest**
+**\* o digest del tag image**
  
 - Il tag o digest deve includere un tag `latest` e un tag di versione (ad esempio, deve iniziare con `xx.xx.xx-`, dove xx rappresenta un numero). Devono essere [tag di manifesto](https://github.com/estesp/manifest-tool) per specificare come destinazione più piattaforme. È necessario aggiungere anche tutti i tag referenziati da un tag di manifesto per poterli caricare. 
 - È possibile aggiungere varie versioni del contenitore mediante tag. Tutti i tag di manifesto (tranne `latest`) devono iniziare con `X.Y-` o `X.Y.Z-`, dove X, Y, Z sono numeri interi. <br/> Se ad esempio un tag `latest` punta a `1.0.1-linux-x64`, `1.0.1-linux-arm32` e `1.0.1-windows-arm32`, questi tag devono essere aggiunti qui.

@@ -4,15 +4,16 @@ description: Servizi Go-To-Market - Questa sezione descrive le procedure consigl
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 9f55abf85803adf0f52bbfa445b9f3e489c9448b
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 439617c07b8059860c6d412cc60d56d4ac8c36a5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821065"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818656"
 ---
 # <a name="offer-listing-best-practices"></a>Procedure consigliate per le inserzioni di offerte
 
@@ -43,9 +44,9 @@ Azure Marketplace e Microsoft AppSource sono vetrini che soddisfano i requisiti 
 | \* Automotive     | \* Automotive |
 | Agricoltura     | \* Altro-non segmentato |
 | Distribuzione    | \* Ingrosso <br> \* Pacco & spedizione pacchetti |
-| Istruzione     | \* Istruzione superiore <br> \* Primario & istruzione secondaria/K-12 <br> \* Librerie & musei |
+| Formazione     | \* Istruzione superiore <br> \* Primario & istruzione secondaria/K-12 <br> \* Librerie & musei |
 | Servizi finanziari     | \* Banking & mercati finanziari <br> \* Assicurazione |
-| Pubblica amministrazione    | \* Defense & Intelligence (usata per essere definita sicurezza nazionale e pubblica) <br> \* Sicurezza pubblica & giustizia <br> \* Governo civile |
+| Government    | \* Defense & Intelligence (usata per essere definita sicurezza nazionale e pubblica) <br> \* Sicurezza pubblica & giustizia <br> \* Governo civile |
 | Healthcare (chiamato Health)   | \* Pagante integrità <br> \* Provider integrità <br> \* Farmaci |
 | Produzione di & risorse (chiamate produzione)   | \* & Chimico agrochimica <br> \* Produzione discreta <br> \* Energia |
 | Vendita al dettaglio & beni di consumo (usati per la chiamata al dettaglio)  | \* Beni di consumo <br> \* Rivenditori |

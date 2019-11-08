@@ -1,5 +1,5 @@
 ---
-title: Configurare le informazioni di sicurezza (anteprima) per l'uso dell'indirizzo di posta elettronica - Azure Active Directory | Microsoft Docs
+title: Configurare le info di sicurezza (anteprima) per l'uso della posta elettronica-Azure AD
 description: Come configurare le informazioni di sicurezza per verificare la propria identità usando l'indirizzo di posta elettronica.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8f5590cb528082a73cbdf92850218993a1a6b95
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a025005065174d5a6ca5fca27ee06ebb036b7b1d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161011"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820353"
 ---
 # <a name="set-up-security-info-preview-to-use-your-email-address"></a>Configurare le informazioni di sicurezza (anteprima) per usare l'indirizzo di posta elettronica
 
@@ -32,11 +32,11 @@ Dopo aver configurato il metodo di reimpostazione della password, è necessario 
 A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usare l'indirizzo di posta elettronica come metodo per le informazioni di sicurezza.
 
 >[!Note]
->È consigliabile usare un indirizzo di posta elettronica che non richieda alcuna password di rete per accedere. Se l'opzione relativa alla posta elettronica non viene visualizzata, è possibile che l'organizzazione non consenta l'uso della posta elettronica per la verifica. In questo caso è necessario scegliere un altro metodo oppure contattare l'amministratore per ottenere assistenza.
+>È consigliabile usare un indirizzo di posta elettronica che non richieda alcuna password di rete per accedere. Se l'opzione relativa alla posta elettronica non viene visualizzata, è possibile che l'organizzazione non consenta l'uso della posta elettronica per la verifica. In questo caso, è necessario scegliere un altro metodo oppure contattare l'amministratore per ottenere assistenza.
 
 ### <a name="to-set-up-your-email-address"></a>Per configurare il proprio indirizzo di posta elettronica
 
-1. Accedere all'account aziendale o dell'istituto di istruzione, quindi andare alla pagina https://myprofile.microsoft.com/.
+1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
 
     ![Pagina Profilo personale con i collegamenti evidenziati delle Informazioni di sicurezza](media/security-info/securityinfo-myprofile-page.png)
 
@@ -50,7 +50,7 @@ A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usar
 
 4. Nella pagina **Posta elettronica** digitare l'indirizzo di posta elettronica (ad esempio, alain@gmail.com) e quindi selezionare **Avanti**.
 
-    ![Aggiungere il numero di telefono e scegliere chiamate telefoniche](media/security-info/securityinfo-myprofile-emailaddress.png)
+    ![Aggiungere il numero di telefono e scegliere le chiamate telefoniche](media/security-info/securityinfo-myprofile-emailaddress.png)
 
     >[!Important]
     >Questo non può essere l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione.
@@ -78,11 +78,11 @@ Per non usare più l'indirizzo di posta elettronica come metodo di gestione dell
 
 ## <a name="additional-security-info-methods"></a>Opzioni aggiuntive per le informazioni di sicurezza
 
-In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, tra cui:
+In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, Queste opzioni includono:
 
 - **App di autenticazione.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
 
-- **Mobile device text.** (SMS su dispositivo mobile) Immettere il numero del dispositivo mobile per ricevere via SMS un codice da usare per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un SMS, vedere [Configurare le informazioni di sicurezza per l'invio di SMS](security-info-setup-text-msg.md).
+- **SMS su dispositivo mobile.** Immettere il numero del dispositivo mobile per ricevere via SMS un codice da usare per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un SMS, vedere [Configurare le informazioni di sicurezza per l'invio di SMS](security-info-setup-text-msg.md).
 
 - **Chiamata sul dispositivo mobile o sul telefono dell'ufficio.** Immettere il numero del dispositivo mobile per ricevere una chiamata per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un numero di telefono, vedere [Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche](security-info-setup-phone-number.md).
 

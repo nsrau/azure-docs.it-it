@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: a7e9acbe78ffdca2e615873cc4c33f86b250a429
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dccf1550052910269efe156b999882234669d7dc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551515"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815698"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Struttura dei dashboard di Azure
 Questo documento descrive dettagliatamente la struttura di un dashboard di Azure usando il dashboard seguente come esempio:
@@ -295,7 +295,7 @@ Scomponendo le sezioni rilevanti del codice JSON,  le proprietà di primo livell
 
 ### <a name="the-id-property"></a>Proprietà id
 
-ID risorsa di Azure, soggetto alle [convenzioni di denominazione delle risorse di Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Quando il portale crea un dashboard, in genere sceglie un ID sotto forma di GUID, ma è possibile scegliere qualsiasi nome valido quando si usa la creazione a livello di codice. 
+ID risorsa di Azure, soggetto alle [convenzioni di denominazione delle risorse di Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). Quando il portale crea un dashboard, in genere sceglie un ID sotto forma di GUID, ma è possibile scegliere qualsiasi nome valido quando si usa la creazione a livello di codice. 
 
 ### <a name="the-name-property"></a>Proprietà name
 Il nome è il segmento dell'ID risorsa che non include le informazioni su sottoscrizione, tipo di risorsa o gruppo di risorse. Essenzialmente, si tratta dell'ultimo segmento dell'ID risorsa.
@@ -429,6 +429,6 @@ Analogamente, il riquadro del video ha impostazioni proprie che contengono un pu
 ```
 
 ### <a name="the-asset-object"></a>Oggetto asset
-Per i riquadri associati a oggetti del portale gestibili di prima classe, chiamati asset, la relazione è espressa tramite l'oggetto asset.  Nel dashboard di esempio il riquadro della macchina virtuale contiene la descrizione di questo asset.  La proprietà __idInputName__ indica al portale che l'ID immesso contiene l'identificatore univoco per l'asset, in questo caso l'ID risorsa. Il portale include asset definiti per la maggior parte dei tipi di risorsa di Azure.
+Per i riquadri associati a oggetti del portale gestibili di prima classe, chiamati asset, la relazione è espressa tramite l'oggetto asset.  Nel dashboard di esempio il riquadro della macchina virtuale contiene la descrizione di questo asset.  La proprietà __idInputName__ indica al portale che l'input dell'ID contiene l'identificatore univoco per l'asset, in questo caso l'ID della risorsa. Per la maggior parte dei tipi di risorse di Azure sono presenti asset definiti nel portale.
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`

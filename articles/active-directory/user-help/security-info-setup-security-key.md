@@ -1,5 +1,5 @@
 ---
-title: Configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza (anteprima)-Azure Active Directory | Microsoft Docs
+title: Configurare le informazioni di sicurezza (anteprima) per una chiave di sicurezza-Azure AD
 description: Come configurare le info di sicurezza per verificare la propria identità usando una chiave di sicurezza FIDO2 (Fast Identity online).
 services: active-directory
 author: eross-msft
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47ae7de87efd787b7d3cba14a33688c4b29637e6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a9d86d594f0918e6a9ffed49142a81a0f7834e86
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160717"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803779"
 ---
-# <a name="set-up-security-info-to-use-a-security-key-preview"></a>Configurare le info di sicurezza per l'uso di una chiave di sicurezza (anteprima)
+# <a name="set-up-security-info-preview-for-a-security-key"></a>Configurare le informazioni di sicurezza (anteprima) per una chiave di sicurezza
 
 È possibile usare le chiavi di sicurezza come metodo di accesso senza password all'interno dell'organizzazione. Una chiave di sicurezza è un dispositivo fisico usato con un PIN univoco per accedere all'account aziendale o dell'Istituto di istruzione. Poiché le chiavi di sicurezza richiedono che il dispositivo fisico e un elemento sia solo noto, viene considerato un metodo di autenticazione più sicuro rispetto a un nome utente e una password.
 

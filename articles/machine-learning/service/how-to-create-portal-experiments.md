@@ -1,5 +1,5 @@
 ---
-title: Usare l'interfaccia ML automatizzata di Azure per eseguire il training dei modelli di distribuzione &
+title: Compilare & distribuire modelli di Machine Learning automatici
 titleSuffix: Azure Machine Learning
 description: Creazione, gestione e distribuzione di esperimenti automatici di Machine Learning in Azure Machine Learning Studio.
 services: machine-learning
@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: e1bb84c142fb24086cf6c11a7b1070bdd29ae3f2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 25e775cf7bfd415768144b28ab2ca6989f360edd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581304"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818498"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Crea, Esplora e Distribuisci esperimenti di Machine Learning automatici con Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -215,7 +215,7 @@ Automatizzato ML semplifica la distribuzione del modello senza scrivere codice:
     >[!Important]
     > Il nome file deve essere inferiore a 32 caratteri e deve iniziare e terminare con caratteri alfanumerici. Può includere trattini, caratteri di sottolineatura, punti e caratteri alfanumerici tra. Gli spazi non sono consentiti.
 
-    Il menu *Avanzate* offre funzionalità di distribuzione predefinite, ad esempio le impostazioni di raccolta dati e di utilizzo delle risorse. Se si desidera eseguire l'override di queste impostazioni predefinite, effettuare questa operazione in questo menu.
+    Il menu *Avanzate* offre funzionalità di distribuzione predefinite, ad esempio le impostazioni di [raccolta dei dati](how-to-enable-app-insights.md) e di utilizzo delle risorse. Se si desidera eseguire l'override di queste impostazioni predefinite, effettuare questa operazione in questo menu.
 
 1. Selezionare **Distribuisci**. Il completamento della distribuzione può richiedere circa 20 minuti.
 

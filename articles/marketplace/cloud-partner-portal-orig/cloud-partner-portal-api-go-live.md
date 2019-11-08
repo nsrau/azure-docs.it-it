@@ -1,18 +1,19 @@
 ---
-title: Passare alla fase operativa | Azure Marketplace
+title: Vai in diretta | Azure Marketplace
 description: L'API Go Live avvia il processo di presentazione in tempo reale dell'offerta.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: ac56f86bad132f3e00a4b5c2507d65c0722c628c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30500e9dfae9411563fc727290d0569998ba3550
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935482"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819675"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -28,7 +29,7 @@ Questa API avvia il processo che consente di inviare un'app alla produzione. Que
 |  --------      |   ---------------                                                           | ------------- |
 | publisherId    | Identificatore dell'autore dell'offerta da recuperare, ad esempio `contoso`       |  String       |
 | offerId        | Identificatore dell'offerta da recuperare                                   |  String       |
-| api-version    | Versione più recente dell'API                                                   |  Date         |
+| api-version    | Versione più recente dell'API                                                   |  Data         |
 |  |  |  |
 
 
@@ -38,14 +39,14 @@ Questa API avvia il processo che consente di inviare un'app alla produzione. Que
 |  **Nome**       |     **Valore**       |
 |  ---------      |     ----------      |
 | Content-Type    | `application/json`  |
-| Authorization   | `Bearer YOUR_TOKEN` |
+| Autorizzazione   | `Bearer YOUR_TOKEN` |
 |  |  |
 
 
 <a name="body-example"></a>Esempio di corpo
 ------------
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 
 `Operation-Location: https://cloudpartner.azure.com/api/publishers/contoso/offers/contoso-virtualmachineoffer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8`
 

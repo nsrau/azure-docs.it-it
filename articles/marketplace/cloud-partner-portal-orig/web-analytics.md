@@ -5,22 +5,23 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: a6b2a7981452b47a3992b6c0efee286878e143fb
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: d47a67be157f71a30a6ae155790ed78a78fd6743
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962892"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814654"
 ---
 <a name="web-analytics"></a>Web Analytics
 =============
 
 Questo articolo contiene le istruzioni su come apprendere e usare Web Analytics per promuovere il proprio business. Attualmente questa scheda Informazioni dettagliate è disponibile per qualsiasi offerta AppSource.
 
-Ora che è stata creata e pubblicata l'offerta, il passaggio successivo è tenere traccia e misurarne il\' successo. Con **Web Analytics** è ora possibile esaminare con precisione il successo di ogni offerta nel marketplace. Per iniziare, passare alla pagina Informazioni dettagliate a sinistra nel portale Cloud Partner per visualizzare la nuova scheda di analisi.
+Ora che è stata creata e pubblicata l'offerta, il passaggio successivo è tenere traccia e misurarne il successo. Con **Web Analytics** è ora possibile esaminare con precisione il successo di ogni offerta nel marketplace. Per iniziare, passare alla pagina Informazioni dettagliate a sinistra nel portale Cloud Partner per visualizzare la nuova scheda di analisi.
 
 ![Pagina di Web Analytics](./media/si-getting-started/WebAnalytics1.png)
 
@@ -43,7 +44,7 @@ Per generare la propria campagna, sono disponibili due modi.
 
 Ad esempio, è possibile usare: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-1. (Avanzate): Usare uno degli ID di campagna generici supportati nell'URL. Per assicurare flessibilità con i tag di riferimento aggiuntivi che è necessario usare, viene supportata la convenzione per riconoscere automaticamente questi tag aggiuntivi:
+1. (Avanzata): Usare uno degli ID di campagna generici supportati nell'URL. Per assicurare flessibilità con i tag di riferimento aggiuntivi che è necessario usare, viene supportata la convenzione per riconoscere automaticamente questi tag aggiuntivi:
     
     1. **utm\_campaign**
     2. **utm\_source**
@@ -65,13 +66,13 @@ Uno scenario possibile è quello in cui le campagne usano una pagina intermedia 
 
 Di seguito è fornito un esempio:
 
-1. Un dipendente di marketing acquista annunci da Google per indirizzare il traffico verso la pagina di destinazione dell'azienda <https://contoso.com>. Questa pagina di destinazione contiene un collegamento per \"provare il prodotto\" che rimanda a <https://appsource.com>.
+1. Un dipendente di marketing acquista annunci da Google per indirizzare il traffico verso la pagina di destinazione dell'azienda \'. Questa pagina di destinazione contiene un collegamento per \"provare il prodotto\" che rimanda a <https://appsource.com>.
 2. Un utente fa clic sull'annuncio e accede alla pagina di destinazione dell'azienda.
     1.  URL del referrer = google.com
     2.  URL della pagina di destinazione = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
 3. L'utente fa clic sul collegamento per \"provare il prodotto\" e accede ad AppSource.
     1. URL del referrer = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. URL della pagina di destinazione (**assicurarsi che questo URL includa utm\_campaign e utm\_source aggiunto a questo URL**) = [https://appsource.microsoft.com/product/dynamics-365/contoso.offername? **utm\_ campaign=MyCampaignAdName&utm\_ source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    2. URL della pagina di destinazione (**assicurarsi che questo URL includa utm\_campaign e utm\_source aggiunto a questo URL**) = [https://appsource.microsoft.com/product/dynamics-365/contoso.offername? **utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>Come valutare il successo di una campagna
 -----------------------------------------
@@ -94,7 +95,7 @@ Così come viene indicato il tasso di conversione dell'offerta completa, in ques
 
 Analogamente al modo in cui vengono esaminati i domini dei clienti, questo grafico consente di esaminare la distribuzione dei dati per ogni campagna con cui gli utenti accedono al marketplace. \_NoCampaign indica che il cliente non disponeva di un ID campagna nell'URL quando ha eseguito l'accesso al marketplace.
 
-<a name="next-steps"></a>**Passaggi successivi**
+<a name="next-steps"></a>**Next Steps**
 --------------
 
 Ora che si ha la possibilità di monitorare il successo delle proprie offerte, è consigliabile creare campagne personalizzate.

@@ -1,9 +1,10 @@
 ---
-title: Controlli di accesso alla rete del database SQL di Azure e data warehouse
+title: Controlli di accesso alla rete
 description: Panoramica dei controlli di accesso alla rete per il database SQL di Azure e data warehouse per gestire l'accesso e configurare un database singolo o in pool.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: deee668c3597047a5d5f0fd153626916c3fd8517
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 16de1d9fcf86459b6bcadd9d8c372e436aad0915
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687709"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802929"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controlli di accesso alla rete del database SQL di Azure e data warehouse
 

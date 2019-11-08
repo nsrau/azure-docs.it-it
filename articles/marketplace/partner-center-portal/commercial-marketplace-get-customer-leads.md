@@ -4,15 +4,16 @@ description: Configurare i lead dei clienti nel Marketplace commerciale.
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: evansma
-ms.openlocfilehash: 31dcc8c1e35b627b231dbe2a62998c8514d05a20
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7ead8dee12d4376e6e1058b84a25b91c021a937c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902650"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812662"
 ---
 # <a name="customer-leads-from-your-marketplace-offer"></a>Clienti lead dall'offerta del Marketplace
 
@@ -48,11 +49,11 @@ Di seguito sono riportati i punti in cui viene generato un lead:
 
 ## <a name="understand-lead-data"></a>Informazioni sui lead
 
-Ogni lead ricevuto durante il processo di acquisizione del cliente presenta dati in campi specifici. Il primo campo da cercare è il `LeadSource` campo che segue il formato seguente: **Offerta di azione** | di origine.
+Ogni lead ricevuto durante il processo di acquisizione del cliente presenta dati in campi specifici. Il primo campo da cercare è il campo `LeadSource`, che segue il formato: **origine-azione** | **offerta**.
 
-**Origini**: Il valore di questo campo viene popolato in base al Marketplace che ha generato il lead. I valori possibili `"AzureMarketplace"`sono `"AzurePortal"`, e `"AppSource (SPZA)"`.
+**Origini**: il valore di questo campo viene popolato in base al Marketplace che ha generato il lead. I valori possibili sono `"AzureMarketplace"`, `"AzurePortal"`e `"AppSource (SPZA)"`.
 
-**Azioni**: Il valore di questo campo viene popolato in base all'azione eseguita dal cliente nel Marketplace, che ha generato il lead. 
+**Azioni**: il valore di questo campo viene popolato in base all'azione eseguita dal cliente nel Marketplace, che ha generato il lead. 
 
 I valori possibili sono:
 
@@ -62,9 +63,9 @@ I valori possibili sono:
 - "Crea": questa azione è contenuta solo all'interno del portale di Azure e viene generata quando un cliente acquista l'offerta al proprio account.
 - "StartTestDrive": questa azione riguarda solo i test drive e si genera quando un cliente avvia il test drive.
 
-**Offerte**: Nel Marketplace potrebbero essere presenti più offerte. Il valore di questo campo viene popolato in base all'offerta che ha generato il lead. L'ID dell'editore e l'ID offerta vengono entrambi inviati in questo campo e sono valori specificati al momento della pubblicazione dell'offerta nel Marketplace.
+**Offerte**: è possibile avere più offerte nel Marketplace. Il valore di questo campo viene popolato in base all'offerta che ha generato il lead. L'ID dell'editore e l'ID offerta vengono entrambi inviati in questo campo e sono valori specificati al momento della pubblicazione dell'offerta nel Marketplace.
 
-Negli esempi seguenti vengono illustrati i valori di esempio `publisherid.offerid`nel formato previsto: 
+Negli esempi seguenti vengono illustrati i valori di esempio nel formato previsto `publisherid.offerid`: 
 
 1. `checkpoint.check-point-r77-10sg-byol`
 1. `bitnami.openedxcypress`
@@ -74,13 +75,13 @@ Negli esempi seguenti vengono illustrati i valori di esempio `publisherid.offeri
 
 Le informazioni del cliente vengono inviate tramite più campi. Nell'esempio seguente vengono illustrate le informazioni sul cliente contenute in un lead.
 
-- FirstName John
-- LastName Smith
+- Nome: John
+- Cognome: Smith
 - E-mail: jsmith\@microsoft.com
-- Phone 1234567890
+- Telefono: 1234567890
 - Paese: Stati Uniti
-- Azienda Microsoft
-- Titolo: CTO
+- Azienda: Microsoft
+- Posizione: CTO
 
 >[!Note]
 >Non tutti i dati dell'esempio precedente sono sempre disponibili per ogni lead. Poiché si otterranno lead da più passaggi, come indicato nella sezione Customer Leads, il modo migliore per gestire i lead consiste nel deduplicare i record e personalizzare i follow-up. In questo modo, ogni cliente riceve un messaggio appropriato e si crea una relazione univoca.
@@ -104,7 +105,7 @@ La risposta dipende dal tipo di offerta che si sta pubblicando. SaaS e Dynamics 
 
 ### <a name="how-can-i-find-the-test-lead"></a>Come è possibile trovare il lead del test?
 
-`“MSFT_TEST”` Cercare nella destinazione principale, ecco un esempio di lead di test di Microsoft:
+Cercare `"MSFT_TEST"` nella destinazione principale, ecco un esempio di lead di test di Microsoft:
 
 ```
 company = MSFT_TEST_636573304831318844

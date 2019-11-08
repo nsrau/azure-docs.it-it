@@ -4,15 +4,16 @@ description: Questo articolo illustra come registrare una macchina virtuale da u
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: evansma
-ms.openlocfilehash: 1aa946c813de41423d4fb2ba5b3aa5274db90f39
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 797c258c963d0daec32a8f9ac7c4e0665dc465d3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934973"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813405"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Distribuire una macchina virtuale dai VHD
 
@@ -62,9 +63,9 @@ Dopo aver distribuito la macchina virtuale, è possibile [certificare l'immagine
    | Nome DNS per indirizzo IP pubblico      | Nome DNS IP pubblico. Il nome DNS è della VM, che verrà definito nel portale di Azure, una volta distribuita l'offerta.  |
    | Nome utente amministratore             | Nome utente dell'account di amministratore per la nuova macchina virtuale                                  |
    | Password amministratore              | Password dell'account di amministratore per la nuova macchina virtuale                                  |
-   | Tipo di sistema operativo                     | Sistema operativo della macchina virtuale: `Windows` \| `Linux`                                    |
+   | OS Type (Tipo di sistema operativo)                     | Sistema operativo della macchina virtuale: `Windows` \| `Linux`                                    |
    | ID sottoscrizione             | Identificatore della sottoscrizione selezionata                                      |
-   | Location                    | Località geografica della distribuzione                                        |
+   | Percorso                    | Località geografica della distribuzione                                        |
    | Dimensioni macchina virtuale                     | [Dimensioni della macchina virtuale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), ad esempio `Standard_A2` |
    | Nome indirizzo IP pubblico      | Nome dell'indirizzo IP pubblico dell'utente                                               |
    | Nome macchina virtuale                     | Nome della nuova macchina virtuale                                                           |

@@ -1,22 +1,22 @@
 ---
-title: 'PowerShell: Rimuovere una protezione TDE - Database SQL di Azure| Microsoft Docs'
+title: Rimuovere la protezione Transparent Data Encryption-PowerShell
 description: Guida pratica per la gestione di una protezione TDE potenzialmente compromessa per un database SQL di Azure o un data warehouse che usa TDE con supporto Bring Your Own Key (BYOK).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: dc117dd844a3a47cafa1b37170c95fe852bb82ef
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: df1bf5a53cd5c49465acbe363c71a4a316cd2cc9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566052"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820783"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Rimuovere una protezione TDE (Transparent Data Encryption) tramite PowerShell
 
@@ -40,9 +40,9 @@ Se si ha il sospetto che una chiave sia compromessa, ad esempio per un accesso n
 
 Tenere presente che, dopo l'eliminazione della protezione TDE in Key Vault, **tutte le connessioni ai database crittografati nel server sono bloccate e i database passano alla modalità offline e vengono rilasciati entro 24 ore**. I backup precedenti crittografati con la chiave compromessa non sono più accessibili.
 
-Nei passaggi seguenti viene descritto come controllare le identificazioni personali della protezione Transparent Data Encryption ancora utilizzate dai file di log virtuali (VLF) di un determinato database. È possibile trovare l'identificazione personale della protezione Transparent Data Encryption del database e l'ID del database eseguendo: Select [database_id],       [encryption_state], [encryptor_type],/*asimmetrica Key significa AKV, certificate indica le chiavi gestite dal servizio*/[encryptor_thumbprint], da [sys]. [ dm_database_encryption_keys] 
+Nei passaggi seguenti viene descritto come controllare le identificazioni personali della protezione Transparent Data Encryption ancora utilizzate dai file di log virtuali (VLF) di un determinato database. È possibile trovare l'identificazione personale della protezione Transparent Data Encryption del database e l'ID del database eseguendo: SELECT [database_id],       [encryption_state], [encryptor_type],/*chiave asimmetrica significa AKV, certificate indica le chiavi gestite dal servizio*/[ encryptor_thumbprint], da [sys]. [dm_database_encryption_keys] 
  
-La query seguente restituisce il VLF e le rispettive identificazioni personali di crittografia in uso. Ogni identificazione digitale diversa fa riferimento a una chiave diversa in Azure Key Vault (AKV): SELECT * FROM sys. dm _db_log_info (database_id) 
+La query seguente restituisce il VLF e le rispettive identificazioni personali di crittografia in uso. Ogni identificazione digitale diversa fa riferimento a una chiave diversa in Azure Key Vault (AKV): SELECT * FROM sys. dm_db_log_info (database_id) 
 
 Il comando di PowerShell Get-AzureRmSqlServerKeyVaultKey fornisce l'identificazione personale della protezione Transparent Data Encryption utilizzata nella query, in modo che sia possibile visualizzare le chiavi da mantenere e le chiavi da eliminare in AKV. Solo le chiavi non più utilizzate dal database possono essere eliminate in modo sicuro dal Azure Key Vault.
 
@@ -117,5 +117,5 @@ Questa guida pratica descrive due approcci che si distinguono in base al risulta
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come eseguire la rotazione della protezione TDE di un server per soddisfare i requisiti di sicurezza: [Ruotare la protezione Transparent Data Encryption tramite PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md)
-- Introduzione al supporto Bring Your Own Key per TDE: [Abilitare TDE con la propria chiave di Key Vault usando PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)
+- Informazioni su come eseguire la rotazione della protezione TDE di un server per soddisfare i requisiti di sicurezza: [Rotate the Transparent Data Encryption protector Using PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md) (Ruotare la protezione Transparent Data Encryption tramite PowerShell)
+- Introduzione al supporto Bring Your Own Key per TDE: [Turn on TDE using your own key from Key Vault using PowerShell](transparent-data-encryption-byok-azure-sql-configure.md) (Abilitare TDE tramite la propria chiave da Key Vault usando PowerShell)

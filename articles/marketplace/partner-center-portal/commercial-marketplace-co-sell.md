@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 7364bc41a67d8651c91745a8763fff62fee722fe
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 027a35db9fcb6c0e95be5da276f673b9295ad436
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784805"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812708"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opzione di co-selling nel centro per i partner
 
@@ -34,7 +35,7 @@ Selezionare il tipo di offerta:
 | :------------------- | :-------------------|
 | Dispositivo | Offerta che prevede la creazione o la vendita di hardware da un produttore di dispositivi. |
 | IP | App o altro materiale con copyright concesso in licenza per l'uso da parte del cliente. Ad esempio, un programma CRM che può essere concesso in licenza e installato in locale. |
-| Servizio | Esperienza pratica per uno specifico progetto monouso, spesso fornito tramite consulenti. Ad esempio: configurazione di un database del cliente per un client (con il client che assume la responsabilità di gestire il database dopo il recapito). |
+| Service | Esperienza pratica per uno specifico progetto monouso, spesso fornito tramite consulenti. Ad esempio: configurazione di un database del cliente per un client (con il client che assume la responsabilità di gestire il database dopo il recapito). |
 | Servizio gestito | Esperienza pratica per un progetto basato sul cloud, in genere su base continuativa. Ad esempio: fornire una piattaforma e strumenti per l'esecuzione di un database online, con una gestione continuativa fornita dal provider di servizi gestiti. |
 
 ## <a name="solution-areas"></a>Aree della soluzione

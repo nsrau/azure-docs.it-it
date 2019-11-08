@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 744b4e4975c5d4cec5c705e639e9cc8d252a7dd6
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 4783d3ac8ef78929621179d87f9c8948f6dd079c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194289"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811993"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Account di lavoro aziendali e centro per i partner
 
@@ -23,7 +24,7 @@ Il centro per i partner USA account aziendali aziendali, noti anche come tenant 
 Se la società ha effettuato la sottoscrizione a un servizio cloud Microsoft, ad esempio Azure, Microsoft Intune o Office 365, si dispone già di un dominio di account di posta elettronica di lavoro (noto anche come tenant di Azure Active Directory) che può essere usato con il centro per i partner.
 
 Seguire questa procedura per verificare:
-1. Accedere al portale di amministrazione di Azure all' https://portal.azure.com indirizzo.
+1. Accedere al portale di amministrazione di Azure all'https://portal.azure.com.
 2. Selezionare **Azure Active Directory** dal menu di spostamento a sinistra e quindi selezionare **nomi di dominio personalizzati**.
 3. Se si dispone già di un account aziendale, verrà elencato il nome di dominio.
 

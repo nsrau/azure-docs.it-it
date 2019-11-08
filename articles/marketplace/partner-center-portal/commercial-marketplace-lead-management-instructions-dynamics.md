@@ -4,15 +4,16 @@ description: Configurare la gestione dei lead per Dynamics 365 per il coinvolgim
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 181a3f3a8d3cabb2fdf6caf79cef16201fab0c68
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 37cf613b6e0bd2ec9910dd3e7431c0feaa02431c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177798"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812301"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configurare la gestione dei lead per Dynamics 365 per Customer Engagement
 
@@ -77,7 +78,7 @@ Usare la procedura seguente per configurare Azure Active Directory per Dynamics 
 3. Selezionare **registrazioni app** dal Azure Active Directory di spostamento a sinistra e quindi selezionare **nuova registrazione** nella pagina.
 4. Immettere un nome per il nome dell'applicazione. Specificare un nome di applicazione significativo.
 5. In tipi di account supportati selezionare **account in qualsiasi directory dell'organizzazione**.
-6. In URI di reindirizzamento selezionare **Web** e specificare un URI (ad esempio `https://contosoapp1/auth`). 
+6. In URI di reindirizzamento selezionare **Web** e specificare un URI, ad esempio `https://contosoapp1/auth`. 
 7. Selezionare **Registra**.
 
     ![Registrare un'applicazione](./media/commercial-marketplace-lead-management-instructions-dynamics/register-an-application.png)
@@ -105,7 +106,7 @@ Usare la procedura seguente per configurare Azure Active Directory per Dynamics 
 
     ![Creare un nuovo utente](./media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
 
-19. In **nuovo utente**verificare che l'utente: UTENTE applicazione selezionato. Specificare un nome utente, un nome completo e un indirizzo di posta elettronica per l'utente che si desidera utilizzare con la connessione. Incollare anche l' **ID applicazione** per l'app creata nel portale di Azure del passaggio 8. Selezionare **Salva e Chiudi** per completare l'aggiunta dell'utente.
+19. In **nuovo utente**verificare che l'utente: applicazione utente sia selezionato. Specificare un nome utente, un nome completo e un indirizzo di posta elettronica per l'utente che si desidera utilizzare con la connessione. Incollare anche l' **ID applicazione** per l'app creata nel portale di Azure del passaggio 8. Selezionare **Salva e Chiudi** per completare l'aggiunta dell'utente.
 
     ![Nuovo utente](./media/commercial-marketplace-lead-management-instructions-dynamics/new-user-info.png)
 
@@ -156,11 +157,11 @@ Il passaggio finale consente all'utente creato di scrivere i lead.
 
     ![Ruoli di sicurezza](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
-7. Al ruolo di sicurezza, selezionare la scheda **record principali** . Cercare l'entità "User Entity UI Settings" e abilitare le autorizzazioni di creazione, lettura e scrittura per l'utente (1/4 cerchio giallo) per tale entità facendo clic una volta in ciascuno dei cerchi corrispondenti.
+7. Al ruolo di sicurezza, selezionare la scheda **record principali** . cercare l'entità "User Entity UI Settings" e abilitare le autorizzazioni di creazione, lettura e scrittura per l'utente (1/4 cerchio giallo) per tale entità facendo clic una volta in ciascuno dei cerchi corrispondenti.
 
     ![Writer Lead Microsoft Marketplace-record principali](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer.png)
 
-8. Passare quindi alla scheda **personalizzazione** . Cercare l'entità "processo di sistema" di Tor e abilitare le autorizzazioni di lettura, scrittura e AppendTo per l'organizzazione (verde solido) per tale entità facendo clic quattro volte in ciascuno dei cerchi corrispondenti.
+8. Passare ora alla scheda **personalizzazione** . cercare l'entità "processo di sistema" di Tor e abilitare le autorizzazioni di lettura, scrittura e AppendTo per l'organizzazione (verde solido) per tale entità facendo clic quattro volte in ciascuno dei cerchi corrispondenti.
 
     ![Autore del lead di Microsoft Marketplace-personalizzazione](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 
@@ -181,7 +182,7 @@ Quando si è pronti per configurare le informazioni di gestione dei lead per l'o
 
 4. Specificare l' **URL dell'istanza di Dynamics 365** , ad esempio `https://contoso.crm4.dynamics.com`.
 5. Selezionare il metodo di **autenticazione**, Azure Active Directory o Office 365. 
-6. Se è stata selezionata l'opzione Azure Active Directory, specificare l' **ID dell'applicazione (client)** (ad esempio: `23456052-aaaa-bbbb-8662-1234df56788f`), l' **ID directory** (ad esempio: `12345678-8af1-4asf-1234-12234d01db47`) e il **segreto client** (ad esempio: `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
+6. Se è stata selezionata l'opzione Azure Active Directory, specificare l' **ID dell'applicazione (client)** (esempio: `23456052-aaaa-bbbb-8662-1234df56788f`), l' **ID directory** (ad esempio: `12345678-8af1-4asf-1234-12234d01db47`) e il **segreto client** (ad esempio: `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
 
     ![Dettagli connessione-Azure Active Directory](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-application-id.png)
 

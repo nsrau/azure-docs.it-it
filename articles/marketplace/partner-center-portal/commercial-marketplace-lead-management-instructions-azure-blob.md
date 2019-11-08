@@ -4,15 +4,16 @@ description: Configurare la gestione dei lead per il BLOB di Azure
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/30/2019
 ms.author: evansma
-ms.openlocfilehash: c67855422808f5ec4c81242edcece4e447f2f44f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 5da4e0ab315b3f66a477b816f6fc5d27de7aa339
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902364"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812377"
 ---
 # <a name="lead-management-instructions-for-azure-blob"></a>Istruzioni per la gestione dei lead per BLOB di Azure
 
@@ -80,8 +81,8 @@ Quando si è pronti per configurare le informazioni di gestione dei lead per l'o
 
 4. Fornire il **nome del contenitore** e la **stringa di connessione dell'account di archiviazione** ottenuta seguendo queste istruzioni.
 
-    * Esempio di nome contenitore:`marketplaceleadcontainer`
-    * Esempio di stringa di connessione all'account di archiviazione: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`![Dettagli connessione](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
+    * Esempio di nome contenitore: `marketplaceleadcontainer`
+    * Esempio di stringa di connessione all'account di archiviazione: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![dettagli della connessione](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
 5. Selezionare **Salva**.
 

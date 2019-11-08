@@ -1,5 +1,5 @@
 ---
-title: Training della rete neurale Deep Learning con Chainer
+title: Eseguire il training di modelli di chaining Deep Learning
 titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire gli script di training di PyTorch su scala aziendale usando la classe di stimatore chainer di Azure Machine Learning.  Lo script di esempio classifica le immagini di cifre scritte a mano per creare una rete neurale di apprendimento avanzato usando la libreria Python del Chainer in esecuzione in numpy.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 8427bd8532895e95de82a6ed577052971f15a25d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: bfe44e552618dfbee13e8c85ef424f52d4b7ae5f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584517"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814983"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Esegui il training e la registrazione dei modelli di Chainer su larga scala con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -177,7 +177,7 @@ Quando l'esecuzione viene eseguita, vengono eseguite le fasi seguenti:
 
 - **Ridimensionamento**: il cluster tenta di eseguire la scalabilità verticale se il cluster batch per intelligenza artificiale richiede un numero maggiore di nodi per eseguire l'esecuzione rispetto al momento disponibile.
 
-- **Running**: tutti gli script nella cartella script vengono caricati nella destinazione di calcolo, gli archivi dati vengono montati o copiati e viene eseguito entry_script. Gli output da stdout e la cartella./logs vengono trasmessi alla cronologia di esecuzione e possono essere usati per monitorare l'esecuzione.
+- **Running**: tutti gli script nella cartella di script vengono caricati nella destinazione di calcolo, vengono montati o copiati gli archivi dati e viene eseguita la entry_script. Gli output da stdout e la cartella./logs vengono trasmessi alla cronologia di esecuzione e possono essere usati per monitorare l'esecuzione.
 
 - **Post-elaborazione**: la cartella./Outputs dell'esecuzione viene copiata nella cronologia di esecuzione.
 

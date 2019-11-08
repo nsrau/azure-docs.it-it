@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 97b954ee5e00c13211a3b2a2254b6d34bccb780c
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: e0e649045e3efe488804fd37c030fe01991ad232
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674950"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803616"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
 
@@ -28,7 +28,7 @@ Per i progetti di esempio di funzione autonoma in Python, vedere gli [esempi di 
 
 ## <a name="programming-model"></a>Modello di programmazione
 
-Funzioni di Azure prevede che una funzione sia un metodo senza stato nello script Python che elabora l'input e genera l'output. Per impostazione predefinita, il runtime prevede che il metodo venga implementato come metodo globale denominato `main()` nel file di `__init__.py`. È anche possibile [specificare un punto di ingresso alternativo](#alternate-entry-point).
+Funzioni di Azure prevede che una funzione sia un metodo senza stato nello script Python che elabora l'input e genera l'output. Per impostazione predefinita, il runtime prevede che il metodo venga implementato come metodo globale denominato `main()` nel file `__init__.py`. È anche possibile [specificare un punto di ingresso alternativo](#alternate-entry-point).
 
 I dati dei trigger e delle associazioni vengono associati alla funzione tramite gli attributi del metodo usando la proprietà `name` definita nel file *Function. JSON* . Il file _Function. JSON_ seguente, ad esempio, descrive una semplice funzione attivata da una richiesta HTTP denominata `req`:
 
@@ -123,7 +123,7 @@ Quando si distribuisce un progetto di funzione nell'app per le funzioni in Azure
 
 ## <a name="triggers-and-inputs"></a>Trigger e input
 
-In Funzioni di Azure, gli input vengono suddivisi in due categorie, ovvero l'input del trigger e un input aggiuntivo. Sebbene siano diversi nel file `function.json`, l'utilizzo è identico nel codice Python.  Le stringhe di connessione o i segreti per i trigger e le origini di input eseguono il mapping ai valori nel file di `local.settings.json` durante l'esecuzione in locale e le impostazioni dell'applicazione durante l'esecuzione in Azure. 
+In Funzioni di Azure, gli input vengono suddivisi in due categorie, ovvero l'input del trigger e un input aggiuntivo. Sebbene siano diversi nel file `function.json`, l'utilizzo è identico nel codice Python.  Le stringhe di connessione o i segreti per i trigger e le origini di input eseguono il mapping ai valori nel file `local.settings.json` quando vengono eseguiti localmente e le impostazioni dell'applicazione durante l'esecuzione in Azure. 
 
 Ad esempio, nel codice seguente viene illustrata la differenza tra i due:
 
@@ -176,7 +176,7 @@ def main(req: func.HttpRequest,
 Quando viene richiamata questa funzione, la richiesta HTTP viene passata alla funzione come `req`. Una voce verrà recuperata dall'archivio BLOB di Azure in base all' _ID_ nell'URL della route e resa disponibile come `obj` nel corpo della funzione.  L'account di archiviazione specificato è la stringa di connessione trovata in, ovvero lo stesso account di archiviazione usato dall'app per le funzioni.
 
 
-## <a name="outputs"></a>Output
+## <a name="outputs"></a>outputs
 
 Gli output possono essere espressi sia nel valore restituito che nei parametri di output. Se è presente un solo output, è consigliabile usare il valore restituito. Per più output, è necessario usare invece i parametri di output.
 
@@ -238,7 +238,7 @@ def main(req):
 
 Sono disponibili altri metodi di registrazione che consentono di scrivere nella console a livelli di traccia diversi:
 
-| Metodo                 | Description                                |
+| Metodo                 | Descrizione                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | Scrive un messaggio con livello critico nel logger radice.  |
 | **`error(_message_)`**   | Scrive un messaggio con livello errore nel logger radice.    |
@@ -250,7 +250,7 @@ Per altre informazioni sulla registrazione, vedere [monitorare funzioni di Azure
 
 ## <a name="http-trigger-and-bindings"></a>Trigger e associazioni HTTP
 
-Il trigger HTTP è definito nel file function. Jon. Il `name` dell'associazione deve corrispondere al parametro denominato nella funzione. Negli esempi precedenti viene usato un nome di associazione `req`. Questo parametro è un oggetto [HttpRequest] e viene restituito un oggetto [HttpResponse] .
+Il trigger HTTP è definito nel file function. Jon. Il `name` dell'associazione deve corrispondere al parametro denominato nella funzione. Negli esempi precedenti viene usato un nome di binding `req`. Questo parametro è un oggetto [HttpRequest] e viene restituito un oggetto [HttpResponse] .
 
 Dall'oggetto [HttpRequest] è possibile recuperare le intestazioni della richiesta, i parametri di query, i parametri di route e il corpo del messaggio. 
 
@@ -294,7 +294,7 @@ In queste situazioni, è possibile migliorare le prestazioni eseguendo in modo a
 
 ### <a name="async"></a>Async
 
-È consigliabile usare l'istruzione `async def` per eseguire la funzione come una coroutine asincrona.
+Si consiglia di utilizzare l'istruzione `async def` per fare in modo che la funzione venga eseguita come una coroutine asincrona.
 
 ```python
 # Runs with asyncio directly
@@ -303,7 +303,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-Quando la funzione `main()` è sincrona (senza il qualificatore `async`), la funzione viene eseguita automaticamente in un pool di thread di `asyncio`.
+Quando la funzione `main()` è sincrona (senza il qualificatore `async`), la funzione viene eseguita automaticamente in un pool di thread `asyncio`.
 
 ```python
 # Runs in an asyncio thread-pool
@@ -314,13 +314,13 @@ def main():
 
 ### <a name="use-multiple-language-worker-processes"></a>Usare più processi di lavoro in linguaggio
 
-Per impostazione predefinita, ogni istanza host di funzioni ha un singolo processo di lavoro in linguaggio. Tuttavia, è supportato l'esistenza di più processi di lavoro in linguaggio per ogni istanza host. Le chiamate di funzione possono quindi essere distribuite in modo uniforme tra questi processi di lavoro del linguaggio. Usare l'impostazione dell'applicazione [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) per modificare questo valore. 
+Per impostazione predefinita, ogni istanza host di funzioni ha un singolo processo di lavoro in linguaggio. Tuttavia, è supportato l'esistenza di più processi di lavoro in linguaggio per ogni istanza host. Le chiamate di funzione possono quindi essere distribuite in modo uniforme tra questi processi di lavoro del linguaggio. Per modificare questo valore, utilizzare l'impostazione dell'applicazione [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) . 
 
 ## <a name="context"></a>Context
 
 Per ottenere il contesto di chiamata di una funzione durante l'esecuzione, includere l'argomento [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) nella firma. 
 
-ad esempio:
+Ad esempio:
 
 ```python
 import azure.functions
@@ -360,7 +360,7 @@ def main(req):
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 
-Nelle funzioni, [le impostazioni dell'applicazione](functions-app-settings.md), ad esempio le stringhe di connessione del servizio, vengono esposte come variabili di ambiente durante l'esecuzione. È possibile accedere a queste impostazioni dichiarando `import os` e quindi usando, `setting = os.environ["setting-name"]`.
+Nelle funzioni, [le impostazioni dell'applicazione](functions-app-settings.md), ad esempio le stringhe di connessione del servizio, vengono esposte come variabili di ambiente durante l'esecuzione. È possibile accedere a queste impostazioni dichiarando `import os` e quindi utilizzando `setting = os.environ["setting-name"]`.
 
 Nell'esempio seguente viene ottenuta l' [impostazione dell'applicazione](functions-how-to-use-azure-function-app-settings.md#settings)con la chiave denominata `myAppSetting`:
 
@@ -418,7 +418,7 @@ Per compilare le dipendenze e pubblicare usando un sistema di recapito continuo 
 
 ## <a name="unit-testing"></a>Testing unità
 
-Le funzioni scritte in Python possono essere testate come altro codice Python usando Framework di test standard. Per la maggior parte delle associazioni, è possibile creare un oggetto di input fittizio creando un'istanza di una classe appropriata dal pacchetto di `azure.functions`. Poiché il pacchetto di [`azure.functions`](https://pypi.org/project/azure-functions/) non è immediatamente disponibile, assicurarsi di installarlo tramite il file di `requirements.txt`, come descritto nella sezione precedente relativa alla [versione di Python e alla gestione dei pacchetti](#python-version-and-package-management) .
+Le funzioni scritte in Python possono essere testate come altro codice Python usando Framework di test standard. Per la maggior parte delle associazioni, è possibile creare un oggetto di input fittizio creando un'istanza di una classe appropriata dal pacchetto `azure.functions`. Poiché il pacchetto di [`azure.functions`](https://pypi.org/project/azure-functions/) non è immediatamente disponibile, assicurarsi di installarlo tramite il file di `requirements.txt`, come descritto nella sezione precedente relativa alla [versione di Python e alla gestione dei pacchetti](#python-version-and-package-management) .
 
 Ad esempio, di seguito è riportato un test fittizio di una funzione attivata tramite HTTP:
 
@@ -533,6 +533,27 @@ class TestFunction(unittest.TestCase):
             'msg body: test',
         )
 ```
+## <a name="temporary-files"></a>File temporanei
+
+Il metodo `tempfile.gettempdir()` restituisce una cartella temporanea, che in Linux è `/tmp`. L'applicazione può usare questa directory per archiviare i file temporanei generati e usati dalle funzioni durante l'esecuzione. 
+
+> [!IMPORTANT]
+> Non è garantito che i file scritti nella directory temporanea vengano mantenuti tra le chiamate. Durante la scalabilità orizzontale, i file temporanei non vengono condivisi tra le istanze. 
+
+Nell'esempio seguente viene creato un file temporaneo denominato nella directory temporanea (`/tmp`):
+
+```python
+import logging
+import azure.functions as func
+import tempfile
+from os import listdir
+
+#---
+   tempFilePath = tempfile.gettempdir()   
+   fp = tempfile.NamedTemporaryFile()     
+   fp.write(b'Hello world!')              
+   filesDirListInTemp = listdir(tempFilePath)     
+```   
 
 ## <a name="known-issues-and-faq"></a>Problemi noti e domande frequenti
 

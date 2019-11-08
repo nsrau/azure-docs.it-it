@@ -1,18 +1,19 @@
 ---
-title: Aggiornare un'offerta esistente di contenitori di Azure | Azure Marketplace
+title: Aggiornare un'offerta di contenitori di Azure esistente | Azure Marketplace
 description: Informazioni su come aggiornare l'offerta di un contenitore esistente in Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: pabutler
-ms.openlocfilehash: 0e0db961dec69880eff6ef640e9210af6fcbc978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40cd375b11eb5b7ad5943fea9839b6339a7d002f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942587"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823079"
 ---
 # <a name="update-an-existing-container-offer"></a>Aggiornare l'offerta di un contenitore esistente
 
@@ -67,7 +68,7 @@ Per aggiornare i metadati del marketplace associati all'offerta, seguire questa 
 
 1. Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/).
 2. In **Tutte le offerte** trovare l'offerta che si vuole aggiornare.
-3. Andare alla scheda **Marketplace**. Usare le istruzioni nell'articolo [Pubblicare l'offerta di un contenitore](./cpp-publish-offer.md) per apportare modifiche ai metadati.
+3. Passare alla scheda **Marketplace** . per apportare modifiche ai metadati, seguire le istruzioni disponibili nell'articolo pubblicare l'offerta del [contenitore](./cpp-publish-offer.md) .
 4. Selezionare **Pubblica** per avviare il flusso di lavoro per pubblicare le modifiche.
 
 ## <a name="compare-feature"></a>Funzionalità Confronta

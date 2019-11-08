@@ -1,18 +1,19 @@
 ---
-title: Modulo Azure IoT Edge SKU | Azure Marketplace
+title: SKU del modulo Azure IoT Edge | Azure Marketplace
 description: Creare SKU per un modulo di IoT Edge.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pabutler
-ms.openlocfilehash: bf8957c315909785112dea947f2e2e0f7b26349f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 230f3d6438d44c4e1e1721c0cb1453c85958e282
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942183"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813855"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Scheda SKU di moduli per IoT Edge
 
@@ -35,7 +36,7 @@ La scheda **SKU** viene aggiornata e visualizza i campi modificati per configura
 
 |  **Campo**       |     **Descrizione**                                                          |
 |  ---------       |     ---------------                                                          |
-| **ID SKU\***       | Identificatore dello SKU. Questo nome non può superare i 50 caratteri, costituiti da caratteri alfanumerici minuscoli o trattini (-), ma non può terminare con un trattino. **Nota:** Dopo aver pubblicato l'offerta di, è possibile modificare questo nome. Il nome è visibile pubblicamente negli URL di prodotto. |
+| **ID SKU\***       | Identificatore dello SKU. Questo nome non può superare i 50 caratteri, costituiti da caratteri alfanumerici minuscoli o trattini (-), ma non può terminare con un trattino. **Nota:** dopo aver pubblicato l'offerta, non sarà possibile modificare questo nome. Il nome è visibile pubblicamente negli URL di prodotto. |
 |  |  |
 
 
@@ -49,9 +50,9 @@ La tabella seguente descrive lo scopo, il contenuto e la formattazione dei campi
 
 |  **Campo**       |     **Descrizione**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Titolo\***        | Titolo di questo SKU. La lunghezza massima consentita è di 50 caratteri. <br/> Verrà visualizzato nel portale di Azure e usato come nome di modulo predefinito (senza spazi e caratteri speciali) durante la distribuzione. Vedere le immagini seguenti per visualizzare esattamente dove viene visualizzato questo campo.|
+| **\* titolo**        | Titolo di questo SKU. La lunghezza massima consentita è di 50 caratteri. <br/> Verrà visualizzato nel portale di Azure e usato come nome di modulo predefinito (senza spazi e caratteri speciali) durante la distribuzione. Vedere le immagini seguenti per visualizzare esattamente dove viene visualizzato questo campo.|
 | **Riepilogo\***      | Breve riepilogo dello SKU. La lunghezza massima consentita è di 100 caratteri. **NON** inserire un riepilogo dell'offerta, ma solo dello SKU.  Questo riepilogo verrà visualizzato in Azure Marketplace. Vedere le immagini seguenti per visualizzare esattamente dove viene visualizzato questo campo.|
-| **Descrizione\***  | Breve descrizione dello SKU. La lunghezza massima consentita è di 3000 caratteri. NON descrivere l'offerta, ma solo lo SKU. Verrà visualizzata in Azure Marketplace e nel portale di Azure. Nel portale di Azure verrà accodata alla descrizione del marketplace relativa all'offerta definita nella scheda Marketplace.  Può essere uguale al riepilogo dello SKU. Vedere le immagini seguenti per visualizzare esattamente dove viene visualizzato questo campo.|
+| **Descrizione\***  | Breve descrizione dello SKU. La lunghezza massima consentita è di 3000 caratteri. NON descrivere l'offerta, ma solo lo SKU. Verrà visualizzata in Azure Marketplace e nel portale di Azure. Nella portale di Azure verrà aggiunta alla descrizione del Marketplace che descrive l'offerta definita nella scheda Marketplace.  Può corrispondere al riepilogo dello SKU. Vedere le immagini seguenti per visualizzare esattamente dove viene visualizzato questo campo.|
 | **Nascondi questo SKU\*** | Mantenere l'impostazione predefinita **No**. |
 |  |  |
 
@@ -99,24 +100,24 @@ Specificare l'accesso al [Registro Azure Container](https://azure.microsoft.com/
 
 ![Immagini del modulo IoT Edge](./media/iot-edge-module-skus-tab-acr.png)
 
-La tabella seguente descrive lo scopo, contenuto e la formattazione dei campi per le sezioni **dettagli dell'immagine del Repository** e **versione dell'immagine**.  I campi obbligatori sono indicati da un asterisco (*).
+La tabella seguente descrive lo scopo, il contenuto e la formattazione dei campi per le sezioni **informazioni sul repository di immagini** e la **versione dell'immagine**.  I campi obbligatori sono indicati da un asterisco (*).
 
 
 |  **Campo**       |     **Descrizione**                                                          |
 |  ---------       |     ---------------                                                          |
 |  |  ***Image Repository Details*** (Dettagli repository immagini)    |
-| **ID della sottoscrizione\***        | ID sottoscrizione di Azure di Registro Azure Container.|
-| **nome del gruppo di risorse\***      | Nome del gruppo di risorse di Registro Azure Container.|
-| **Nome del Registro di sistema\***  | Nome del Registro di sistema di Registro Azure Container. Copiare solo il nome del Registro di sistema, NON il nome del server di accesso (ad esempio, senza `azurecr.io`). |
-| **Nome del repository\***  | Nome del repository di Registro Azure Container contenente il modulo IoT Edge. **Nota:** Dopo aver impostato il nome, non può essere modificato in un secondo momento. Usare un nome univoco in modo che nessun'altra offerta dell'account abbia lo stesso nome. |
+| **ID sottoscrizione\***        | ID sottoscrizione di Azure di Registro Azure Container.|
+| **Nome del gruppo di risorse\***      | Nome del gruppo di risorse di Registro Azure Container.|
+| **Nome del registro di sistema\***  | Nome del Registro di sistema di Registro Azure Container. Copiare solo il nome del Registro di sistema, NON il nome del server di accesso (ad esempio, senza `azurecr.io`). |
+| **Nome del repository\***  | Nome del repository di Registro Azure Container contenente il modulo IoT Edge. **Nota:** dopo averlo impostato, il nome non potrà essere più modificato. Usare un nome univoco in modo che nessun'altra offerta dell'account abbia lo stesso nome. |
 | **Nome utente\*** | Nome utente associato al Registro Azure Container (nome utente amministratore). |
-| **Password\*** | Password associata al Registro Azure Container. |
+| **\* password** | Password associata al Registro Azure Container. |
 |    |  ***Versione immagine***   |
-| **Tag di immagine o del Digest\*** | Deve includere almeno un tag `latest` e un tag di versione (ad esempio, deve iniziare con `xx.xx.xx-`, dove xx rappresenta un numero). Devono essere [tag di manifesto](https://github.com/estesp/manifest-tool) per specificare come destinazione più piattaforme. È necessario aggiungere anche tutti i tag referenziati da un tag di manifesto per poterli caricare. È possibile aggiungere varie versioni di un modulo IoT Edge mediante tag. Tutti i tag di manifesto (tranne `latest`) devono iniziare con `X.Y-` o `X.Y.Z-`, dove X, Y, Z sono numeri interi. Altre informazioni sui [tag e sul controllo delle versioni sono disponibili in "Preparare gli asset tecnici del modulo IoT Edge"](./cpp-create-technical-assets.md). <br/> Se ad esempio un tag `latest` punta a `1.0.1-linux-x64`, `1.0.1-linux-arm32` e `1.0.1-windows-arm32`, questi 6 tag devono essere aggiunti qui. |
+| **Tag immagine o digest\*** | Deve includere almeno un tag `latest` e un tag di versione (ad esempio, deve iniziare con `xx.xx.xx-`, dove xx rappresenta un numero). Devono essere [tag di manifesto](https://github.com/estesp/manifest-tool) per specificare come destinazione più piattaforme. È necessario aggiungere anche tutti i tag referenziati da un tag di manifesto per poterli caricare. È possibile aggiungere varie versioni di un modulo IoT Edge mediante tag. Tutti i tag di manifesto (tranne `latest`) devono iniziare con `X.Y-` o `X.Y.Z-`, dove X, Y, Z sono numeri interi. Altre informazioni sui [tag e sul controllo delle versioni sono disponibili in "Preparare gli asset tecnici del modulo IoT Edge"](./cpp-create-technical-assets.md). <br/> Se ad esempio un tag `latest` punta a `1.0.1-linux-x64`, `1.0.1-linux-arm32` e `1.0.1-windows-arm32`, questi 6 tag devono essere aggiunti qui. |
 |  |  |
 
 
-### <a name="help-your-customers-launch-by-using-default-settings"></a>Aiutare i clienti di avvio usando le impostazioni predefinite
+### <a name="help-your-customers-launch-by-using-default-settings"></a>Consentire ai clienti di avviarsi usando le impostazioni predefinite
 
 Definire le impostazioni più comuni per distribuire il modulo IoT Edge. Ottimizzare le distribuzioni dei clienti permettendo loro di avviare il modulo IoT Edge con queste impostazioni predefinite.
 

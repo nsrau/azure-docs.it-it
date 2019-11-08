@@ -4,20 +4,21 @@ description: Panoramica dei vari argomenti relativi alla pubblicazione di offert
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: pabutler
-ms.openlocfilehash: a89921d4b5ec25bc0c924646d3bd41aecf3e8d9c
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 047ffd983cecd9f9bd971ee3f97e15734d14ce66
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67870932"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813284"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Gestione dei lead per il marketplace cloud
 
 
-I clienti costituiscono il fulcro di qualsiasi attività valida. Nella trasformazione odierna delle acquisizioni di prodotti, gli addetti al marketing devono concentrarsi sulla connessione diretta con i clienti e la creazione di una relazione. Ecco perché la generazione di lead di alta qualità è uno strumento fondamentale per il ciclo di vendita. Dopo la presentazione dell'offerta nel [portale Cloud Partner](https://cloudpartner.azure.com/), sono disponibili strumenti che consentono di ricevere le informazioni di contatto del cliente a livello di codice immediatamente dopo che il cliente esprime interesse o distribuisce il prodotto nel marketplace. 
+I clienti costituiscono il fulcro di qualsiasi attività valida. Nella trasformazione delle acquisizioni di prodotti odierni, i marketers devono concentrarsi sulla connessione diretta ai clienti e sulla creazione di una relazione. Ecco perché la generazione di lead di alta qualità è uno strumento fondamentale per il ciclo di vendita. Dopo la presentazione dell'offerta nel [portale Cloud Partner](https://cloudpartner.azure.com/), sono disponibili strumenti che consentono di ricevere le informazioni di contatto del cliente a livello di codice immediatamente dopo che il cliente esprime interesse o distribuisce il prodotto nel marketplace. 
 
 
 
@@ -38,53 +39,53 @@ Ecco le istruzioni dettagliate da seguire per connettere ognuna delle possibili 
 
 **Salesforce** - [Fare clic qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) per ottenere istruzioni sulla configurazione dell'istanza di Salesforce e ottenere i lead.
 
-**Tabella di Azure** – [Fare clic qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) per ottenere le istruzioni per la configurazione dell'account di archiviazione di Azure per ottenere i lead in una tabella di Azure.
+**Tabella di azure** - [fare clic qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) per ottenere le istruzioni per la configurazione dell'account di archiviazione di Azure per ottenere lead in una tabella di Azure.
 
-**Endpoint HTTPS** – [Fare clic qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) per ottenere le istruzioni su come configurare l'endpoint HTTPS per ottenere i lead.
+**Endpoint https** - [fare clic qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) per ottenere le istruzioni per la configurazione dell'endpoint HTTPS per ottenere i lead.
 
-Una volta configurate correttamente la destinazione dei lead e aver premuto Pubblica sull'offerta, verrà convalidata la connessione e inviato un lead di test all'utente. Quando si visualizza l'offerta prima della distribuzione, è inoltre possibile testare la connessione lead quando si tenta di acquisire l'offerta nell'ambiente di anteprima. È importante assicurarsi che le impostazioni lead siano aggiornate in modo da non perdere i lead e assicurarsi di aggiornare queste connessioni ogni volta che c'è una modifica da parte dell'utente.
+Una volta configurate correttamente la destinazione dei lead e aver premuto Pubblica sull'offerta, verrà convalidata la connessione e inviato un lead di test all'utente. Quando si visualizza l'offerta prima della distribuzione, è inoltre possibile testare la connessione lead quando si tenta di acquisire l'offerta nell'ambiente di anteprima. È importante assicurarsi che le impostazioni dei lead rimangano aggiornate affinché nessun lead venga perso. Pertanto, assicurarsi di aggiornare le connessioni ogni volta che c'è una modifica da parte dell'utente.
 
 
 ### <a name="what-are-the-next-steps"></a>Passaggi successivi
 
-Una eseguita la configurazione tecnica, è necessario incorporare i lead nelle vendite attuali, nella strategia di marketing e nei processi operativi. L'intento è quello di comprendere meglio il processo complessivo di vendita e di collaborare con l'utente per creare lead di alta qualità e dati sufficienti a garantire il successo dell'utente. Ogni commento su come ottimizzare e migliorare i lead inviati con dati aggiuntivi per contribuire ad avere clienti di successo è apprezzato. Invitiamo a fornire feedback e suggerimenti per consentire al team delle vendite di sviluppare i lead del Marketplace in modo ottimale.
+Una eseguita la configurazione tecnica, è necessario incorporare i lead nelle vendite attuali, nella strategia di marketing e nei processi operativi. L'intento è quello di comprendere meglio il processo complessivo di vendita e di collaborare con l'utente per creare lead di alta qualità e dati sufficienti a garantire il successo dell'utente. Ogni commento su come ottimizzare e migliorare i lead inviati con dati aggiuntivi per contribuire ad avere clienti di successo è apprezzato. Segnalaci se sei interessato a inviare commenti e suggerimenti per consentire al tuo team di vendita di ottenere una maggiore successo con i lead del Marketplace.
 
 
 
 ## <a name="common-lead-configuration-errors-during-publishing-on-cloud-partner-portal"></a>Errori di configurazione dei lead comuni durante la pubblicazione nel portale Cloud Partner 
 
-**Non è stato possibile salvare il lead in Dynamics CRM. Controllare le impostazioni dell'account Dynamics CRM. LastCRMError: Non è possibile accedere a Dynamics CRM, LastCRMException:** 
+**Non è stato possibile salvare il lead in Dynamics CRM. Verificare le impostazioni dell'account Dynamics CRM. LastCRMError: non è possibile accedere a Dynamics CRM, LastCRMException:** 
 
 > Se è stata selezionata l'autenticazione di Office 365, verificare che l'account utente e la password siano validi. Se è stato selezionato AAD, verificare che l'ID tenant, l'ID applicazione e la chiave privata dell'applicazione corrispondano ai valori configurati in AAD. Seguire le istruzioni [qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics). Se il nome utente e la password dell'account sono validi, verificare che l'account abbia accesso a Dynamics 365 e disponga di una licenza (passaggi 11-15 se si usa Azure Active Directory o Impostazioni di sicurezza se si usa un utente di Office). 
 
  
-**Non è stato possibile salvare il lead in Dynamics CRM. L'utente non ha le autorizzazioni di creazione per l'attributo leadsourcecode nell'entità lead** 
+**Non è stato possibile salvare il lead in Dynamics CRM. L'utente non dispone delle autorizzazioni di creazione per l'attributo leadsourcecode nell'entità lead** 
 
 > L'applicazione o l'utente non ha i ruoli di sicurezza su Microsoft Marketplace Lead Writer. Seguire i passaggi 11-15 se si usa Azure Active Directory oppure Impostazioni di sicurezza se si usa un utente di Office [qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics).
 
-**Non è stato possibile salvare il lead in Dynamics CRM tramite AAD. Eccezione: tenant non trovato. Questa situazione può verificarsi se non sono presenti sottoscrizioni attive per il tenant.**  
+**Non è stato possibile salvare il lead in Dynamics CRM con AAD. Eccezione:: il tenant non è stato trovato. Questa istanza può verificarsi se non sono presenti sottoscrizioni attive per il tenant.**  
 
 > L'ID directory specificato nella sezione relativa alla gestione dei lead non corrisponde a una directory valida. Ottenere l'ID directory seguendo le istruzioni del passaggio 2 (in Azure Active Directory, [qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**Non è stato possibile salvare il lead in Dynamics CRM. LastCRMError: SecLib::RetrievePrivilegeForUser non riuscito - nessun ruolo assegnato all'utente.**  
+**Non è stato possibile salvare il lead in Dynamics CRM. LastCRMError: SecLib:: RetrievePrivilegeForUser non riuscito. nessun ruolo viene assegnato all'utente.**  
 
 > Risoluzione: assegnare il ruolo di sicurezza a Microsoft Marketplace Lead Writer. Seguire le istruzioni [qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) in Impostazioni di sicurezza. 
 
-**Non è stato possibile salvare il lead in Dynamics CRM tramite AAD. Eccezione: applicazione con identificatore non trovata nella directory** 
+**Non è stato possibile salvare il lead in Dynamics CRM con AAD. Eccezione:: l'applicazione con identificatore non è stata trovata nella directory** 
 
 > L'ID applicazione specificato nella sezione relativa alla gestione dei lead non corrisponde a un'applicazione valida. Ottenere l'ID applicazione seguendo le istruzioni del passaggio 8 (in Azure Active Directory, [qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**Non è stato possibile salvare il lead in Dynamics CRM tramite AAD. Eccezione: identificatore tenant richiesto non valido e formato di dominio esterno non valido** 
+**Non è stato possibile salvare il lead in Dynamics CRM con AAD. Eccezione:: l'identificatore del tenant richiesto non è valido e non è un formato di dominio esterno valido** 
 
 > L'ID directory specificato nella sezione relativa alla gestione dei lead non corrisponde a una directory valida. Ottenere l'ID directory seguendo le istruzioni del passaggio 2 (in Azure Active Directory, [qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**Non è stato possibile salvare il lead in Dynamics CRM tramite AAD. Eccezione: errore di convalida delle credenziali. Viene fornito un segreto client non valido.** 
+**Non è stato possibile salvare il lead in Dynamics CRM con AAD. Eccezione:: errore durante la convalida delle credenziali. viene fornito un segreto client non valido.** 
 
-> Risoluzione: accedere al portale di Azure e verificare se la chiave dell'applicazione corrisponde a quella indicata nel portale Cloud Partner. Generare la password seguendo le istruzioni del passaggio 10 (in Azure Active Directory, [qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
+> Soluzione: accedere al portale di Azure e verificare se la chiave dell'applicazione corrisponde a quanto presente nell'portale Cloud Partner. Generare la password seguendo le istruzioni del passaggio 10 (in Azure Active Directory, [qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**Non è stato possibile salvare il lead in Dynamics CRM. LastCRMError: si è verificato il timeout del canale di richiesta durante l'attesa di una risposta dopo 00:02:00. Aumentare il valore di timeout passato alla chiamata a Request o aumentare il valore di SendTimeout nell'elemento Binding. È possibile che il tempo allocato a questa operazione fosse incluso in un timeout più lungo.**  
+**Non è stato possibile salvare il lead in Dynamics CRM. LastCRMError: timeout del canale della richiesta durante l'attesa di una risposta dopo il 00:02:00. Aumentare il valore di timeout passato alla chiamata per richiedere o aumentare il valore di SendTimeout nell'elemento nell'associazione. Il tempo allocato a questa operazione potrebbe essere una parte di un timeout più lungo.**  
 
-> Risoluzione: accedere al portale Cloud Partner e in Storefront details (Dettagli vetrina) >> Lead destination (Destinazione lead) >> URL verificare che sia specificata un'istanza di Dynamic CRM valida
+> Soluzione: accedere a portale Cloud Partner, controllare i dettagli della vetrina > > destinazione lead > > URL, controllare se si tratta di un'istanza dinamica di CRM valida
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -95,7 +96,7 @@ I lead sono i clienti che distribuiscono i prodotti dal Marketplace. Sia che il 
 
 **Dove è possibile ottenere assistenza per configurare la destinazione dei lead?** 
 
-È possibile trovare la relativa documentazione qui: [Ottenere lead](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) oppure inviare un ticket di supporto tramite aka.ms/marketplacepublishersupport selezionando il tipo di offerta e la gestione dei lead. 
+Qui è possibile trovare la documentazione: [ottenere i lead dei clienti](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) o inviare un ticket di supporto tramite aka.ms/marketplacepublishersupport selezionare il tipo di offerta e la gestione dei lead. 
 
 
 
@@ -113,7 +114,7 @@ Dopo aver configurato l'offerta e la destinazione dei lead, pubblicare l'offerta
 **Come si trova il lead di test?**
 
 
-Cercare "MSFT_TEST" nella destinazione dei lead. Ecco un esempio di dati di un lead di test: 
+Cercare "MSFT_TEST" nella destinazione principale, ecco i dati del lead di test di esempio: 
 
 company = MSFT_TEST_636573304831318844 
 
@@ -131,7 +132,7 @@ first_name = MSFT_TEST_636573304831318844
 
 last_name = MSFT_TEST_636573304831318844 
 
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844 | \<Nome dell'offerta > 
+lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844 | Nome dell'offerta\<> 
 
 oid = 00Do0000000ZHog 
 
@@ -141,38 +142,38 @@ title = MSFT_TEST_636573304831318844
 
  
 
-**Perché per un'offerta attiva non è visualizzato alcun lead?**
+**Ho un'offerta Live, ma non vedo alcun lead?**
 
 I dati di ogni lead vengono passati in campi nella destinazione selezionata. I lead hanno questo formato: **Origine-Azione|Offerta** 
 
   *Origini:*
 
-    “AzureMarketplace”, 
-    “AzurePortal”, 
-    “TestDrive”,  
-    “SPZA” (acronym for AppSource) 
+    "AzureMarketplace", 
+    "AzurePortal", 
+    "TestDrive",  
+    "SPZA" (acronym for AppSource) 
 
   *Azioni:*
 
-    “INS” – Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
-    “PLT” – Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
+    "INS" - Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
+    "PLT" - Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
 
-    “DNC” – Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
+    "DNC" - Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
 
-    “Create” – This is inside Azure Portal only and is whenever a customer purchases your offer to their account. 
+    "Create" - This is inside Azure Portal only and is whenever a customer purchases your offer to their account. 
 
-    “StartTestDrive” – This is for Test Drives only and is whenever a customer starts their test drive. 
+    "StartTestDrive" - This is for Test Drives only and is whenever a customer starts their test drive. 
 
 
   *Offerte:*
 
-    “checkpoint.check-point-r77-10sg-byol”, 
-    “bitnami.openedxcypress”, 
-    “docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a” 
+    "checkpoint.check-point-r77-10sg-byol", 
+    "bitnami.openedxcypress", 
+    "docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a" 
 
  
 
-  *Ecco un esempio di dati sulle informazioni del cliente*
+  *Ecco i dati di esempio delle informazioni sul cliente*
 
     { 
 
@@ -207,7 +208,7 @@ Il lead viene scritto solo quando si seleziona l'archivio BLOB di Azure come des
 
  **È stato configurato un BLOB di Azure o una tabella di Azure come destinazione dei lead. Perché i lead non sono visualizzati?** 
 
-È possibile accedere al BLOB o alla tabella dal portale di Azure oppure scaricare e installare gratuitamente [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per visualizzare le tabelle e i BLOB del proprio account di archiviazione di Azure. 
+È possibile accedere al BLOB o alla tabella dal portale di Azure oppure è possibile scaricare e installare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) gratuitamente per visualizzare le tabelle e i BLOB dell'account di archiviazione di Azure. 
 
 
 **È stata configurata una tabella di Azure come destinazione dei lead. È possibile ricevere una notifica quando viene inviato un nuovo lead dal Marketplace?** 
@@ -221,7 +222,7 @@ Sì. Seguire le istruzioni per configurare la tabella di Azure e la funzione nel
 Verificare se il modulo Web-to-Lead (Da Web a lead) è un campo obbligatorio in base a un elenco a discesa. Se lo è, impostarlo su un campo di testo non obbligatorio.  
  
 
-**C'è stato un problema con la destinazione dei lead e non si sono visti alcuni lead. È possibile riceverli tramite posta elettronica?** 
+**Si è verificato un problema con la destinazione principale e ho perso alcuni lead. Posso riceverli in un messaggio di posta elettronica?** 
 
 A causa dei criteri relativi alle informazioni personali, non è possibile condividere informazioni sui lead tramite posta elettronica non protetta. 
 

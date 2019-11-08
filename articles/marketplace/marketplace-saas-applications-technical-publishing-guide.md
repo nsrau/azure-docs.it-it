@@ -4,15 +4,16 @@ description: Guida dettagliata ed elenchi di controllo per la pubblicazione di a
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 author: keithcharlie
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: f9ff6e19a0f0091cb5b831279eee90727bbb89fd
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: c213bbcb3c7859aa4718916aafab970b3ffd4613
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742265"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813038"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guida alla pubblicazione dell'offerta di applicazioni SaaS
 
@@ -27,13 +28,13 @@ Le applicazioni SaaS sono disponibili in entrambe le vetrine di Azure. La tabell
 | AppSource | Sì (Contatta) | Sì (Power BI/Dynamics) |
 | Azure Marketplace | No | Sì (app SaaS) |   
 
-**Elenco**:  L'opzione di pubblicazione Elenco consiste in un'offerta di tipo Contattami e viene usata quando non è possibile una partecipazione a livello di valutazione o di transazione. Il vantaggio di questo approccio è dato dall'opportunità offerta agli editori di mettere subito in commercio una soluzione per iniziare a ricevere clienti potenziali che possono trasformarsi in ottimi affari per la crescita della loro azienda.  
-**Versione di valutazione/Transazione**:  il cliente ha la possibilità di acquistare direttamente o richiedere una versione di valutazione della soluzione. Un'esperienza di valutazione aumenta il livello di coinvolgimento offerto ai clienti e consente loro di esaminare la soluzione prima di acquistarla. Offrendo un'esperienza di valutazione, si hanno maggiori opportunità di promozione nelle vetrine e con molta probabilità si riesce a raggiungere un numero più ampio di clienti potenziali grazie a questa occasione di coinvolgimento. Le versioni di valutazione devono includere il supporto gratuito almeno per la durata del periodo di valutazione.  
+**Elenco:** l’opzione di pubblicazione Elenco consiste in un'offerta di tipo Contatta e viene usata quando non è possibile una partecipazione a livello di valutazione o di transazione. Il vantaggio di questo approccio è dato dall'opportunità offerta agli editori di mettere subito in commercio una soluzione per iniziare a ricevere clienti potenziali che possono trasformarsi in ottimi affari per la crescita della loro azienda.  
+**Versione di valutazione/Transazione**: il cliente ha la possibilità di acquistare direttamente o richiedere una versione di valutazione della soluzione. Un'esperienza di valutazione aumenta il livello di coinvolgimento offerto ai clienti e consente loro di esaminare la soluzione prima di acquistarla. Offrendo un'esperienza di valutazione, si hanno maggiori opportunità di promozione nelle vetrine e con molta probabilità si riesce a raggiungere un numero più ampio di clienti potenziali grazie a questa occasione di coinvolgimento. Le versioni di valutazione devono includere il supporto gratuito almeno per la durata del periodo di valutazione.  
 
 | Offerta di app SaaS | Requisiti aziendali | Requisiti tecnici |  
 | --- | --- | --- |  
-| **Contatta** | Yes | No |  
-| **PowerBI/Dynamics** | Yes | Sì (integrazione di Azure AD) |  
+| **Contatta** | Sì | No |  
+| **PowerBI/Dynamics** | Sì | Sì (integrazione di Azure AD) |  
 | **App SaaS**| Sì | Sì (integrazione di Azure AD) |     
 
 ## <a name="saas-list"></a>Elenco SaaS
@@ -104,7 +105,7 @@ L'uso di Azure AD per abilitare l'autenticazione con un solo clic all'app o alla
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Certificazione dell'integrazione di Azure AD per Marketplace  
 
-Certificare l'integrazione di Azure AD in diversi modi, a seconda che l'applicazione sia a tenant singolo o multi-tenant e che non si abbia familiarità con Azure AD Single Sign-on (SSO) federato oppure che sia già supportata.  
+Certificare l'integrazione di Azure AD in diversi modi, a seconda che l'applicazione sia a tenant singolo o multi-tenant e che non si abbia familiarità con Azure AD Single Sign-On federato (SSO) o che sia già supportata.  
 
 **Per le applicazioni multi-tenant:**  
 

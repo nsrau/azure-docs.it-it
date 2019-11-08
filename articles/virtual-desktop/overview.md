@@ -1,5 +1,5 @@
 ---
-title: Informazioni su Desktop virtuale Windows  - Azure
+title: Informazioni su Desktop virtuale Windows - Azure
 description: Panoramica di Desktop virtuale Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: e1ae0501e2a558967b7d53229dc629e035c5e067
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 058cf516fd8d10cef1e1c93e5493f8c19bdc679d
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597896"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607491"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows 
 

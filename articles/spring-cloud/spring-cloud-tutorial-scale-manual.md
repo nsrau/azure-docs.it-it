@@ -1,19 +1,17 @@
 ---
 title: "Esercitazione: Ridimensionare un'applicazione in Azure Spring Cloud | Microsoft Docs"
 description: In questa esercitazione si apprenderà come ridimensionare un'applicazione in Azure Spring Cloud nel portale di Azure
-services: spring-cloud
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.reviewer: jeconnoc
-ms.author: v-vasuke
-author: v-vasuke
+ms.author: jeconnoc
+author: jpconnock
 ms.date: 10/06/2019
-ms.openlocfilehash: bca88cac45e1ba8117eb4e10141e32d621434b86
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: 31b2322bdf7b7c03ae8974d57ee1b44c2f6137b9
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038633"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607519"
 ---
 # <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Esercitazione: Ridimensionare un'applicazione in Azure Spring Cloud
 

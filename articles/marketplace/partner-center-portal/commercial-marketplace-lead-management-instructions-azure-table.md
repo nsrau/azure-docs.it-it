@@ -4,15 +4,16 @@ description: Configurare la gestione dei clienti potenziali per le tabelle di Az
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 7151be3ac9f55825fd2e9dde35c9afda6a30726a
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 9b24e6eb714c531b49ba08591bf4ed33d0f10101
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902637"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812331"
 ---
 # <a name="configure-lead-management-using-an-azure-table"></a>Configurare la gestione dei lead con una tabella di Azure
 
@@ -66,10 +67,10 @@ Usare questo esempio come guida per creare un semplice flusso per l’invio auto
 
    ![Flussi personali * * + pianificato-da vuoto * *](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-5.  Nella finestra *Compila un flusso pianificato* in *Ripeti ogni* Selezionare "1" per intervallo e "ora" per frequenza. Inoltre, assegnare un nome al flusso se lo si desidera. Selezionare **Create**.
+5.  Nella finestra *Compila un flusso pianificato* in *Ripeti ogni* Selezionare "1" per intervallo e "ora" per frequenza. Inoltre, assegnare un nome al flusso se lo si desidera. Selezionare **Crea**.
 
     >[!Note]
-    >Sebbene in questo esempio venga usato un intervallo di 1 ora, è possibile selezionare l'intervallo e la frequenza che meglio si adattano alle proprie esigenze aziendali.
+    >Sebbene in questo esempio venga usato un intervallo di 1 ora, è possibile selezionare l'intervallo e la frequenza più adatti alle esigenze aziendali.
 
     ![Compilare un flusso pianificato.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
@@ -88,7 +89,7 @@ Usare questo esempio come guida per creare un semplice flusso per l’invio auto
 >[!TIP] 
 >È possibile controllare il flusso in qualsiasi momento per verificare che ogni passaggio sia configurato correttamente. Per controllare il flusso, selezionare **Verifica flusso** dalla barra dei menu Flusso.
 
-Nel successivo set di passaggi, ci si collegherà alla propria tabella Azure e si configurerà la logica di elaborazione per gestire i nuovi clienti potenziali.
+Nei passaggi successivi verrà stabilita la connessione alla tabella di Azure e verrà configurata la logica di elaborazione per gestire i nuovi lead.
 
 9. Dopo il passaggio precedente, selezionare **+ nuovo passaggio**, quindi cercare "Ottieni entità" nella finestra *Scegli un'azione* .
 10. In **azioni**selezionare **Ottieni entità (archiviazione tabelle di Azure)** .
@@ -106,7 +107,7 @@ Nel successivo set di passaggi, ci si collegherà alla propria tabella Azure e s
 
             ![Tabella di Azure ottenere le entità.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-        * *Filtra query* : selezionare questo campo e incollare questa funzione nel campo:`Timestamp gt datetime'@{body('Get_past_time')}'`
+        * *Filtra query* : selezionare questo campo e incollare questa funzione nel campo: `Timestamp gt datetime'@{body('Get_past_time')}'`
 
             ![Tabella di Azure ottenere entità: filtrare Querry.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
@@ -121,14 +122,14 @@ Nel successivo set di passaggi, ci si collegherà alla propria tabella Azure e s
 15. Incollare `length(body('Get_entities')?['value'])` nel campo ***fx***. Selezionare **OK** per aggiungere questa funzione. 
 
 16. Per completare la configurazione della condizione:
-    1. Selezionare “è maggiore di” dall'elenco a discesa.
+    1. Selezionare "è maggiore di" nell'elenco a discesa.
     2. Immettere 0 come valore
 
         ![Tabella-Condition di Azure.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition.png)
 
 Nei passaggi successivi verrà configurata l'azione da eseguire in base al risultato della condizione.
 
-* Se la condizione restituisce **Se no**, non eseguire alcuna operazione.
+* Se la condizione si risolve in in **caso**contrario, non eseguire alcuna operazione.
 * Se la condizione restituisce **Se sì**, attivare un'azione che si connetta all'account di Office 365 per inviare un messaggio di posta elettronica. 
 
 17. Selezionare **Aggiungi un'azione** in **se sì**.
@@ -145,15 +146,15 @@ Nei passaggi successivi verrà configurata l'azione da eseguire in base al risul
 19. Nella finestra **Office 365 Outlook** specificare le informazioni per i campi seguenti:
 
     1. **A**: immettere un indirizzo di posta elettronica per tutti gli utenti che riceveranno la notifica.
-    1. **Oggetto**: inserire un oggetto per il messaggio di posta elettronica. Ad esempio:  Nuovi clienti potenziali!
-    1. **Corpo** : aggiungere il testo che si desidera includere in ogni messaggio di posta elettronica (facoltativo) e quindi incollare il `body('Get_entities')?['value']`corpo.
+    1. **Oggetto** : specificare un oggetto per il messaggio di posta elettronica. Ad esempio: nuovi lead!
+    1. **Corpo** : aggiungere il testo che si vuole includere in ogni messaggio di posta elettronica (facoltativo) e quindi incollare il corpo `body('Get_entities')?['value']`.
 
     >[!Note]
     >È possibile inserire punti dati statici o dinamici aggiuntivi al corpo del messaggio di posta elettronica.
 
     ![Tabella di Azure-condizione, * * se sì * *, finestra di Outlook per Office 365.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-outlook.png)
 
-20. Selezionare **Salva** per salvare il flusso. Microsoft Flow eseguirà automaticamente la verifica del flusso per cercare eventuali errori. Se non sono presenti errori, il flusso verrà avviato dopo il salvataggio.
+20. Selezionare **Salva** per salvare il flusso. Microsoft Flow eseguirà automaticamente la verifica del flusso per cercare eventuali errori. Se non sono presenti errori, l'esecuzione del flusso viene avviata dopo il salvataggio.
 
 Nella schermata successiva è mostrato un esempio di come dovrebbe apparire il flusso finale.
 
@@ -161,13 +162,13 @@ Nella schermata successiva è mostrato un esempio di come dovrebbe apparire il f
 
 ### <a name="manage-your-flow"></a>Gestire il flusso
 
-Gestire il flusso dopo la relativa esecuzione è semplice. Il controllo del flusso è completo. Ad esempio, è possibile arrestarlo, modificarlo, visualizzare una cronologia di esecuzione e ottenere analisi. Nella schermata successiva sono mostrate le opzioni disponibili per gestire un flusso. 
+La gestione del flusso dopo l'esecuzione è facile. Il controllo del flusso è completo. Ad esempio, è possibile arrestarlo, modificarlo, visualizzare una cronologia di esecuzione e ottenere analisi. Nella schermata successiva sono mostrate le opzioni disponibili per gestire un flusso. 
 
  ![Gestione di un flusso](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-manage-completed.png)
 
 Il flusso rimane in esecuzione fino a quando non viene arrestato manualmente con **Disattiva flusso**.
 
-Se non si ricevono notifiche di posta elettronica sui clienti potenziali, non sono stati aggiunti nuovi clienti potenziali alla tabella di Azure. Se si verificano errori di flusso, si otterrà un messaggio di posta elettronica simile all'esempio nella prossima schermata.
+Se non si ricevono notifiche di posta elettronica di lead, significa che non sono stati aggiunti nuovi lead alla tabella di Azure. Se si verificano errori di flusso, si riceverà un messaggio di posta elettronica simile all'esempio riportato nella schermata successiva.
 
  ![Notifica di posta elettronica sugli errori del flusso](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-failure-note.png)
 

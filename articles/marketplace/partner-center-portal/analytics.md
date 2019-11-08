@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 593d43339961ab4576081aaa18a8d68716e40e9b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2b1d3167828f2c2c49bb22580222fbd0e54d31d8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332111"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813182"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analisi per il Marketplace commerciale nel centro per i partner
 
@@ -240,9 +241,9 @@ Si riceverà una notifica popup e un messaggio di posta elettronica contenente u
 | Azure License Type: Enterprise | Cliente, ordine | Il cliente finale ottiene Azure e l'offerta del Marketplace dell'utente tramite un contratto Enterprise Agreement firmato direttamente con Microsoft.|
 | Azure License Type: Enterprise through Reseller  | Cliente, ordine | Il cliente finale approvvigiona Azure e l'offerta del Marketplace tramite un rivenditore che facilita la Enterprise Agreement con Microsoft.|  |
 | Azure License Type: Pay as You Go| Cliente, ordine | Il cliente finale approvvigiona Azure e l'offerta del Marketplace tramite un contratto con pagamento in base al consumo, firmato direttamente con Microsoft.||
-| Nome dell'istanza cloud| Ordina| Microsoft Cloud in cui sono state distribuite le macchine virtuali.||
-| Nome istanza cloud: globale di Azure| Ordina| Microsoft cloud pubblico globale.|| |
-| Nome istanza cloud: Azure per enti pubblici | Ordina| Cloud Microsoft specifici per enti pubblici per uno dei seguenti enti pubblici: Cina, Germania o il Stati Uniti di America.| |
+| Nome dell'istanza cloud| Ordine| Microsoft Cloud in cui sono state distribuite le macchine virtuali.||
+| Nome istanza cloud: globale di Azure| Ordine| Microsoft cloud pubblico globale.|| |
+| Nome istanza cloud: Azure per enti pubblici | Ordine| Cloud Microsoft specifici per enti pubblici per uno dei seguenti enti pubblici: Cina, Germania o il Stati Uniti di America.| |
 | Città del cliente| Customer| Nome della città fornito dal cliente. La città potrebbe essere diversa da quella della città nella sottoscrizione di Azure di un cliente.||
 | Customer Communication Language  | Customer| Lingua di comunicazione preferita dal cliente.||
 | Customer Company Name | Cliente, ordine | Nome della società fornito dal cliente. Il nome può essere diverso da quello della città nella sottoscrizione di Azure di un cliente.|  |
@@ -254,38 +255,38 @@ Si riceverà una notifica popup e un messaggio di posta elettronica contenente u
 | Customer State| Customer| Stato (indirizzo) fornito dal cliente. Lo stato potrebbe essere diverso da quello fornito nella sottoscrizione di Azure di un cliente.| |
 | Date Acquired| Customer| La prima data in cui il cliente ha acquistato qualsiasi offerta pubblicata dall'utente.| |
 | Date Lost| Customer| Ultima data in cui il cliente ha annullato l'ultima delle offerte acquistate in precedenza.||
-| È un nuovo cliente  | Ordina| Il valore identificherà un nuovo cliente che acquisisce una o più offerte per la prima volta (o meno). Il valore sarà "Sì" se rientra nello stesso mese di calendario per "data di acquisizione". Il valore sarà "No" Se il cliente ha acquistato una delle offerte prima del mese di calendario indicato. |
-| SKU anteprima| Ordina| Il valore indica se lo SKU è stato contrassegnato come "anteprima". Il valore sarà "Yes" se lo SKU è stato contrassegnato di conseguenza e solo le sottoscrizioni di Azure autorizzate da possono distribuire e usare questa immagine. Il valore sarà "No" se lo SKU non è stato identificato come "anteprima".  |
+| È un nuovo cliente  | Ordine| Il valore identificherà un nuovo cliente che acquisisce una o più offerte per la prima volta (o meno). Il valore sarà "Sì" se rientra nello stesso mese di calendario per "data di acquisizione". Il valore sarà "No" Se il cliente ha acquistato una delle offerte prima del mese di calendario indicato. |
+| SKU anteprima| Ordine| Il valore indica se lo SKU è stato contrassegnato come "anteprima". Il valore sarà "Yes" se lo SKU è stato contrassegnato di conseguenza e solo le sottoscrizioni di Azure autorizzate da possono distribuire e usare questa immagine. Il valore sarà "No" se lo SKU non è stato identificato come "anteprima".  |
 | Consenso esplicito per il contatto promozionale| Customer| Il valore indica se il cliente ha acconsentito in modo proattivo per il contatto promozionale da parte degli editori. Al momento l'opzione non è presentata ai clienti, pertanto è stato indicato "No" a livello generale. Dopo la distribuzione della funzionalità, si procederà all'aggiornamento dovuto.|
-| Marketplace License Type| Ordina| Metodo di fatturazione dell'offerta del Marketplace dell'utente.||
-| Marketplace License Type: Billed Through Azure| Ordina| Microsoft è l'agente per questa offerta del Marketplace dell'utente ed emette le fatture al cliente per conto dell'utente. Il pagamento avviene con l'uso di carta di credito per pagamento in base al consumo o fattura aziendale.||
-| Marketplace License Type: Bring Your Own License | Ordina| La macchina virtuale richiede un codice di licenza fornito dal cliente per la distribuzione. Microsoft non fattura i clienti per elencare le loro offerte in questo modo tramite il Marketplace.||
-| Marketplace License Type: Free| Ordina| L'offerta è configurata per essere gratuita a tutti gli utenti. Microsoft non addebita ai clienti l'utilizzo di questa offerta.||
-| Marketplace License Type: Microsoft as Reseller  | Ordina| Microsoft è il rivenditore di questa offerta del Marketplace dell'utente.|  |
+| Marketplace License Type| Ordine| Metodo di fatturazione dell'offerta del Marketplace dell'utente.||
+| Marketplace License Type: Billed Through Azure| Ordine| Microsoft è l'agente per questa offerta del Marketplace dell'utente ed emette le fatture al cliente per conto dell'utente. Il pagamento avviene con l'uso di carta di credito per pagamento in base al consumo o fattura aziendale.||
+| Marketplace License Type: Bring Your Own License | Ordine| La macchina virtuale richiede un codice di licenza fornito dal cliente per la distribuzione. Microsoft non fattura i clienti per elencare le loro offerte in questo modo tramite il Marketplace.||
+| Marketplace License Type: Free| Ordine| L'offerta è configurata per essere gratuita a tutti gli utenti. Microsoft non addebita ai clienti l'utilizzo di questa offerta.||
+| Marketplace License Type: Microsoft as Reseller  | Ordine| Microsoft è il rivenditore di questa offerta del Marketplace dell'utente.|  |
 | ID sottoscrizione Marketplace | Cliente, ordine | Identificatore univoco associato alla sottoscrizione di Azure usata dal cliente per acquistare l'offerta per il Marketplace. ID è stato precedentemente il GUID della sottoscrizione di Azure.||
-| Nome offerta  | Ordina| Nome dell'offerta del Marketplace.|| |
-| Tipo di offerta  | Ordina| Tipo di offerta di Microsoft Marketplace.|||
+| Nome offerta  | Ordine| Nome dell'offerta del Marketplace.|| |
+| Tipo di offerta  | Ordine| Tipo di offerta di Microsoft Marketplace.|||
 | Offer Type: Managed Application  | Ordine | Usare l'app Azure: tipo di offerta app gestita quando sono necessarie le condizioni seguenti: si distribuisce una soluzione basata sulla sottoscrizione per il cliente usando una macchina virtuale o un'intera soluzione basata su IaaS. Per l'utente o il cliente è necessario che la soluzione sia gestita da un partner. |
 | Tipo di offerta: applicazione Azure| Ordine | Usare il tipo di offerta del modello di soluzione applicazione Azure quando la soluzione richiede un'automazione aggiuntiva per la distribuzione e la configurazione oltre una semplice macchina virtuale.||
-| Tipo di offerta: servizio di consulenza| Ordina| I Servizi di consulenza in Azure Marketplace consentono di connettere i clienti con servizi per supportare ed estendere l'uso di Azure.| |
-| Tipo di offerta: contenitore | Ordina| Usare il tipo di offerta Contenitore quando la soluzione è un'immagine del contenitore Docker di cui è stato effettuato il provisioning come un servizio Azure Container basato su Kubernetes.||
-| Tipo di offerta: Dynamics 365 business Central| Ordina| Usare questo tipo di offerta quando la soluzione è integrata con Dynamics 365 per Finanza e operazioni| |
-| Tipo di offerta: Dynamics 365 per Customer Engagement | Ordina| Usare questo tipo di offerta quando la soluzione è integrata con Dynamics 365 per il coinvolgimento dei clienti.||
-| Tipo di offerta: modulo IoT Edge | Ordina| Azure IoT Edge moduli sono le unità di calcolo più piccole gestite da IoT Edge e possono contenere servizi Microsoft, ad esempio analisi di flusso di Azure, servizi di terze parti o codice specifico della soluzione. |
-| Tipo di offerta: applicazione Power BI | Ordina| Usare il tipo di offerta di applicazione Power BI quando si distribuisce un'applicazione integrata con Power BI.|  |
-| Tipo di offerta: applicazione SaaS| Ordina| Usare il tipo di offerta di app SaaS per consentire ai clienti di acquistare la soluzione tecnica basata su SaaS come una sottoscrizione.||
-| Tipo di offerta: macchina virtuale | Ordina| Usare il tipo di offerta per le macchine virtuali quando si distribuisce un'appliance virtuale all'abbonamento associato al cliente.||
-| Tipo di offerta: estensione Visual Studio Marketplace  | Ordina| Tipo di offerta in precedenza disponibile per gli sviluppatori di estensioni DevOps di Azure. In futuro gli sviluppatori di estensioni DevOps di Azure possono vendere la propria estensione direttamente ai clienti. Le offerte di estensione possono essere configurate come a pagamento o inclusa una versione di valutazione. |
-| Order Cancel Date| Ordina| Data in cui l'ordine del Marketplace è stato eliminato.||
-| ID dell'ordine| Ordina| Identificatore univoco dell'ordine del cliente per il servizio Marketplace. Le offerte basate sull'utilizzo delle macchine virtuali non sono associate a un ordine.| |
-| Order Purchase Date| Ordina| Data di creazione dell'ordine del Marketplace.|||
-| Order Status| Ordina| Lo stato di un ordine del Marketplace al momento dell'ultimo aggiornamento dei dati.|     |
-| Order Status: Active  | Ordina| Il cliente ha acquistato un ordine e non ha annullato l'ordine.|         |
-| Stato dell'ordine: annullato | Ordina| Il cliente ha precedentemente acquistato un ordine e successivamente ha annullato l'ordine.||
+| Tipo di offerta: servizio di consulenza| Ordine| I Servizi di consulenza in Azure Marketplace consentono di connettere i clienti con servizi per supportare ed estendere l'uso di Azure.| |
+| Tipo di offerta: contenitore | Ordine| Usare il tipo di offerta Contenitore quando la soluzione è un'immagine del contenitore Docker di cui è stato effettuato il provisioning come un servizio Azure Container basato su Kubernetes.||
+| Tipo di offerta: Dynamics 365 business Central| Ordine| Usare questo tipo di offerta quando la soluzione è integrata con Dynamics 365 per Finanza e operazioni| |
+| Tipo di offerta: Dynamics 365 per Customer Engagement | Ordine| Usare questo tipo di offerta quando la soluzione è integrata con Dynamics 365 per il coinvolgimento dei clienti.||
+| Tipo di offerta: modulo IoT Edge | Ordine| Azure IoT Edge moduli sono le unità di calcolo più piccole gestite da IoT Edge e possono contenere servizi Microsoft, ad esempio analisi di flusso di Azure, servizi di terze parti o codice specifico della soluzione. |
+| Tipo di offerta: applicazione Power BI | Ordine| Usare il tipo di offerta di applicazione Power BI quando si distribuisce un'applicazione integrata con Power BI.|  |
+| Tipo di offerta: applicazione SaaS| Ordine| Usare il tipo di offerta di app SaaS per consentire ai clienti di acquistare la soluzione tecnica basata su SaaS come una sottoscrizione.||
+| Tipo di offerta: macchina virtuale | Ordine| Usare il tipo di offerta per le macchine virtuali quando si distribuisce un'appliance virtuale all'abbonamento associato al cliente.||
+| Tipo di offerta: estensione Visual Studio Marketplace  | Ordine| Tipo di offerta in precedenza disponibile per gli sviluppatori di estensioni DevOps di Azure. In futuro gli sviluppatori di estensioni DevOps di Azure possono vendere la propria estensione direttamente ai clienti. Le offerte di estensione possono essere configurate come a pagamento o inclusa una versione di valutazione. |
+| Order Cancel Date| Ordine| Data in cui l'ordine del Marketplace è stato eliminato.||
+| ID dell'ordine| Ordine| Identificatore univoco dell'ordine del cliente per il servizio Marketplace. Le offerte basate sull'utilizzo delle macchine virtuali non sono associate a un ordine.| |
+| Order Purchase Date| Ordine| Data di creazione dell'ordine del Marketplace.|||
+| Order Status| Ordine| Lo stato di un ordine del Marketplace al momento dell'ultimo aggiornamento dei dati.|     |
+| Order Status: Active  | Ordine| Il cliente ha acquistato un ordine e non ha annullato l'ordine.|         |
+| Stato dell'ordine: annullato | Ordine| Il cliente ha precedentemente acquistato un ordine e successivamente ha annullato l'ordine.||
 | Posta elettronica provider| Customer| Indirizzo di posta elettronica del provider che ha richiesto la relazione tra Microsoft e il cliente finale. Se il cliente è un'azienda tramite rivenditore, questo sarà il rivenditore. Se è necessario un provider di soluzioni cloud (CSP), questo sarà il CSP.|
 | Nome provider| Customer| Nome del provider associato alla relazione tra Microsoft e il cliente finale. Se il cliente è un'azienda tramite rivenditore, questo sarà il rivenditore. Se è necessario un provider di soluzioni cloud (CSP), questo sarà il CSP.|
-| SKU| Ordina| Nome dello SKU come definito durante la pubblicazione. Un'offerta può avere molti SKU, ma uno SKU può essere associato solo a una singola offerta.||
-| Trial End Date| Ordina| Data di scadenza del periodo di valutazione per questo ordine.||
+| SKU| Ordine| Nome dello SKU come definito durante la pubblicazione. Un'offerta può avere molti SKU, ma uno SKU può essere associato solo a una singola offerta.||
+| Trial End Date| Ordine| Data di scadenza del periodo di valutazione per questo ordine.||
 
 ## <a name="ratings-and-reviews"></a>Classificazioni e revisioni
 

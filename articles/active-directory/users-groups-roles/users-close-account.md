@@ -1,5 +1,5 @@
 ---
-title: Chiudere l'account aziendale o dell'Istituto di istruzione in una directory non gestita-Azure Active Directory | Microsoft Docs
+title: Chiudere l'account aziendale o dell'Istituto di istruzione in una directory di Azure AD non gestita
 description: Come chiudere l'account aziendale o dell'Istituto di istruzione in un Azure Active Directory non gestito.
 services: active-directory
 author: rolyon
@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0da4c6b1c1434dae564ab4876a3ab3f341a87097
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 3c101c0ef7932151e675c5c514ac558e6e0f94b2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891963"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815727"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-directory"></a>Chiudere l'account aziendale o dell'Istituto di istruzione in una directory non gestita
 
@@ -39,7 +39,7 @@ Prima di poter chiudere l'account, è necessario verificare gli elementi seguent
 > [!WARNING]
 > La chiusura dell'account è irreversibile. Quando si chiude l'account, tutti i dati personali verranno rimossi. Non sarà più possibile accedere all'account e ai dati associati all'account.
 
-## <a name="close-your-account"></a>Chiudi il tuo account
+## <a name="close-your-account"></a>Chiudi l'account
 
 Per chiudere un account aziendale o dell'Istituto di istruzione non gestito, attenersi alla procedura seguente:
 

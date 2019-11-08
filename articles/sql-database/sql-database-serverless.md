@@ -1,5 +1,5 @@
 ---
-title: Database SQL di Azure serverless
+title: Senza server
 description: Questo articolo descrive il nuovo livello di calcolo serverless e lo confronta con il livello di calcolo con provisioning esistente
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: fcd79182e046d94f9e67acecebd5cf6a45f2706f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fecc394080f54f023529ed2da8c9690c38c1da08
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687395"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818268"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure serverless
 

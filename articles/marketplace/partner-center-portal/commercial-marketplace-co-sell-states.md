@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: f0fa86cc3de9f8c183d7b7a24fb03d02204adc17
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 38dcfe04473e8d2fbd81614908adef9636c44b19
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076147"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812848"
 ---
 # <a name="co-sell-state-codes"></a>Codici di stato di co-selling
 
@@ -51,33 +52,33 @@ Se applicabile, usare questi codici per fornire informazioni sullo stato/provinc
 | Nebraska                            | US-NE     |
 | Nevada                              | US-NV     |
 | New Hampshire                       | US-NH     |
-| New Jersey                          | US-NJ     |
-| New Mexico                          | US-NM     |
+| Nuova maglia                          | US-NJ     |
+| Nuovo Messico                          | US-NM     |
 | New York                            | US-NY     |
-| North Carolina                      | US-NC     |
-| North Dakota                        | US-ND     |
+| Carolina del Nord                      | US-NC     |
+| Dakota del Nord                        | US-ND     |
 | Ohio                                | US-OH     |
 | Oklahoma                            | USA-OK     |
 | Oregon                              | US-OR     |
 | Pennsylvania                        | US-PA     |
-| Rhode Island                        | US-RI     |
-| South Carolina                      | STATI UNITI-SC     |
-| South Dakota                        | US-SD     |
+| Rhode Isole                        | US-RI     |
+| Carolina del sud                      | STATI UNITI-SC     |
+| Dakota del sud                        | US-SD     |
 | Tennessee                           | STATI UNITI-TN     |
 | Texas                               | US-TX     |
 | Utah                                | US-UT     |
 | Vermont                             | US-VT     |
 | Virginia                            | US-VA     |
 | Washington                          | US-WA     |
-| West Virginia                       | STATI UNITI-WV     |
+| Virginia occidentale                       | STATI UNITI-WV     |
 | Wisconsin                           | US-WI     |
 | Wyoming                             | US-WY     |
-| District of Columbia                | US-DC     |
-| Samoa Americane                      | USA COME     |
+| Distretto di Columbia                | US-DC     |
+| Samoa americane                      | USA COME     |
 | Guam                                | US-GU     |
-| Isole Marianne Settentrionali            | US-MP     |
+| Marianne Settentrionali            | US-MP     |
 | Portorico                         | US-PR     |
-| Altre isole americane del Pacifico | US-UM    |
+| Altre isole minori degli Stati Uniti | US-UM    |
 |Isole Vergini americane                 | US-VI     |
 
 ## <a name="next-steps"></a>Passaggi successivi

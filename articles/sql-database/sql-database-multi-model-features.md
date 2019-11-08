@@ -1,5 +1,5 @@
 ---
-title: Funzionalità multimodello del database SQL di Azure
+title: Funzionalità multimodello
 description: Il database SQL di Azure consente di usare più modelli di dati nello stesso database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: 0d59db65e940cab12dccaeeacc9083eb7fbba20e
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
-ms.translationtype: HT
+ms.openlocfilehash: 2e8519fa8d96b7fe016b9da4ba84ce481a57d94e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795757"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802822"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Funzionalità multimodello del database SQL di Azure
 

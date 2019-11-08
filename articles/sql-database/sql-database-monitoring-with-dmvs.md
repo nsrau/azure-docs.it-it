@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio delle prestazioni del database SQL di Azure con DMV
+title: Monitorare le prestazioni con DMV
 description: Informazioni su come rilevare e diagnosticare i problemi di prestazioni comuni utilizzando visualizzazioni a gestione dinamica per monitorare il database SQL di Microsoft Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: c7eed3fc8e9d0328a3e793e1ff4b3652ab86e2bc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bea6a572e55f1a79515c385fd7b79881c54ae65e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687744"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802927"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitoraggio delle prestazioni del database SQL di Azure tramite DMV
 
@@ -237,7 +237,7 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>Identificare i problemi di prestazioni di `tempdb`
 
-Quando si identificano i problemi di prestazioni di IO, il tipo di attesa più frequente associato a problemi di `tempdb` è `PAGELATCH_*` (non `PAGEIOLATCH_*`). Tuttavia, le attese `PAGELATCH_*` non indicano sempre una contesa di `tempdb`.  Questo tipo di attesa può anche indicare una contesa della pagina di dati utente-oggetto causata da richieste simultanee che puntano alla stessa pagina di dati. Per confermare ulteriormente `tempdb` contesa, utilizzare [sys. dm _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per verificare che il valore di wait_resource inizi con `2:x:y` dove 2 è `tempdb` è l'ID del database, `x` è l'ID del file e `y` è l'ID della pagina.  
+Quando si identificano i problemi di prestazioni di IO, il tipo di attesa più frequente associato a problemi di `tempdb` è `PAGELATCH_*` (non `PAGEIOLATCH_*`). Tuttavia, le attese `PAGELATCH_*` non indicano sempre una contesa di `tempdb`.  Questo tipo di attesa può anche indicare una contesa della pagina di dati utente-oggetto causata da richieste simultanee che puntano alla stessa pagina di dati. Per confermare ulteriormente `tempdb` contesa, utilizzare [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per confermare che il valore di wait_resource inizia con `2:x:y` dove 2 è `tempdb` è l'ID del database, `x` è l'ID del file e `y` è l'ID della pagina.  
 
 Per la contesa di tempdb, un metodo comune consiste nel ridurre o riscrivere il codice dell'applicazione che si basa su `tempdb`.  Le aree di utilizzo di `tempdb` comuni includono:
 

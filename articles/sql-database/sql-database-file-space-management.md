@@ -1,5 +1,5 @@
 ---
-title: Gestione dello spazio file con database singoli o in pool nel database SQL di Azure | Microsoft Docs
+title: Gestione spazio file per database singoli o in pool
 description: Questa pagina descrive come gestire lo spazio file con database singoli e in pool nel database SQL di Azure e fornisce esempi di codice per determinare se sia necessario compattare un database singolo o in pool e come eseguire un'operazione di compattazione del database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: c92ffb6aa6db9c77a859661115d54ff63ea02401
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a8fe58313bce6e9a21b07aa095672ec35ce572d2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568196"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803063"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gestire lo spazio file per database singoli e in pool nel database SQL di Azure
 

@@ -4,15 +4,16 @@ description: Prerequisiti per un'offerta del servizio di consulenza Azure o Dyna
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 59ca917f31a3e20b6ad02363a5015f16340924e2
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 371e7be0795ec93bfdb7b43deb38613cec6a664b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147136"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818125"
 ---
 # <a name="consulting-service-prerequisites"></a>Prerequisiti dei servizi di consulenza
 
@@ -25,7 +26,7 @@ Esaminare la descrizione e i requisiti per questo tipo di offerta in [servizi di
 | Dynamics 365 for Finance and Operations | i partner devono avere una certificazione Silver o Gold per la [competenza Enterprise Resource Planning](https://partner.microsoft.com/membership/enterprise-resource-planning-competency). I partner devono anche avere un reddito minimo di $25.000 nelle operazioni cloud nei 12 mesi precedenti. |
 | Dynamics 365 Business Central | i partner devono aver operato come Cloud Solution Provider (CSP) o come Digital Partner of Record (DPOR) per almeno un cliente. <br/> per informazioni su come diventare un provider CSP, consultare [Per iniziare](https://partner.microsoft.com/cloud-solution-provider/get-started). <br/> per i requisiti DPOR, consultare[Panoramica](https://partner.microsoft.com/membership/digital-partner-of-record#Membership_Digital_Partner_of_Record_Navigated_Rich_Text_Node1). |
 |  Power BI  | per far parte dello showcase dei partner di Power BI, per altre informazioni, consultare i [criteri per i Partner di soluzioni](https://powerbi.microsoft.com/become-a-partner). |
-|  PowerApp       | i partner devono disporre di una soluzione pubblicata in [Showcase dei Partner di soluzioni](https://powerapps.microsoft.com/partner-showcase). |
+|  PowerApps       | i partner devono disporre di una soluzione pubblicata in [Showcase dei Partner di soluzioni](https://powerapps.microsoft.com/partner-showcase). |
 |  |  |
 
 

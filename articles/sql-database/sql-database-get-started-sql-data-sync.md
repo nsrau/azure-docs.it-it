@@ -1,5 +1,5 @@
 ---
-title: Configurare la sincronizzazione dati SQL
+title: Configurare la sincronizzazione dati
 description: Questa esercitazione illustra come configurare la sincronizzazione dati SQL di Azure
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 082721ef1436d0b6668016aca29870016038af86
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 315d65b635f34847d0310e6b6adf03e20f2afd45
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689985"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807535"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Esercitazione: configurare sincronizzazione dati SQL tra il database SQL di Azure e SQL Server locale
 

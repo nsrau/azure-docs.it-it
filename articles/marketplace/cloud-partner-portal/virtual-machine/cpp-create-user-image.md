@@ -1,18 +1,19 @@
 ---
-title: Creare un'immagine di macchina virtuale per Azure Marketplace
+title: Creare un'immagine di macchina virtuale utente per Azure Marketplace
 description: Sono elencati i passaggi e i riferimenti richiesti per creare un'immagine di macchina virtuale degli utenti.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 0005ab517d38903b87889b67449569495e396265
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e63f09dc538c5e66b244826cf3b5f92ac388b6a9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938321"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818688"
 ---
 # <a name="create-a-user-vm-image"></a>Creare un'immagine di macchina virtuale degli utenti
 
@@ -25,7 +26,7 @@ Seguire le istruzioni indicate nell'articolo seguente sull'acquisizione della ma
 
 -  PowerShell: [Come creare un'immagine di macchina virtuale non gestita da una macchina virtuale di Azure](../../../virtual-machines/windows/capture-image-resource.md)
 -  Interfaccia della riga di comando di Azure: [Come creare un'immagine di una macchina virtuale o un disco rigido virtuale](../../../virtual-machines/linux/capture-image.md)
--  API: [Virtual Machines - Capture](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture) (Macchine virtuali - Acquisizione)
+-  API: [Macchine virtuali - Acquisizione](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
 
 
 ## <a name="generalize-the-vm-image"></a>Generalizzare l'immagine di macchina virtuale
@@ -34,7 +35,7 @@ Poiché l'immagine dell'utente è stata generata da un disco rigido virtuale gen
 
 -  PowerShell: [Generalizzare la macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/sa-copy-generalized#generalize-the-vm)
 -  Interfaccia della riga di comando di Azure: [Passaggio 2: Creare l'immagine della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image#step-2-create-vm-image)
--  API: [Virtual Machines - Generalize](https://docs.microsoft.com/rest/api/compute/virtualmachines/generalize) (Macchine virtuali - Generalizzazione)
+-  API: [Macchine virtuali - Generalizzazione](https://docs.microsoft.com/rest/api/compute/virtualmachines/generalize)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

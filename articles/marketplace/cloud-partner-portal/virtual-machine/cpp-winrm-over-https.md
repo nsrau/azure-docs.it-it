@@ -1,18 +1,19 @@
 ---
 title: Gestione remota Windows su HTTPS per Azure | Azure Marketplace
-description: Viene illustrato come configurare una macchina virtuale ospitata in Azure, basate su Windows, in modo che possa essere gestito in modalità remota con PowerShell.
+description: Viene illustrato come configurare una macchina virtuale basata su Windows ospitata in Azure in modo che possa essere gestita in remoto con PowerShell.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: pabutler
-ms.openlocfilehash: fb661a2705d437d1f40ceebcad7e759c2a78540f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e159bd9b57b26c99afd590d6a9f2153dba2a205
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938218"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808416"
 ---
 # <a name="windows-remote-management-over-https"></a>Gestione remota Windows tramite HTTPS
 
@@ -22,7 +23,7 @@ Se è stata creata una macchina virtuale usando uno degli approcci di Azure "cla
 
 - Uso del [portale di Azure](https://portal.azure.com/), in genere da una base approvata, come descritto nella sezione [Creare un disco rigido virtuale compatibile con Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
 - [Uso dei modelli di Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
-- Uso della shell dei comandi di Azure PowerShell o dell'interfaccia della riga di comando di Azure.  Per alcuni esempi, vedere [Avvio rapido: Creare una macchina virtuale Windows in Azure con PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell) e [Avvio rapido: Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli).
+- Uso della shell dei comandi di Azure PowerShell o dell'interfaccia della riga di comando di Azure.  Per esempi, vedere [Guida introduttiva: creare una macchina virtuale Windows in Azure con PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell) e [Guida introduttiva: creare una macchina virtuale Linux con l'interfaccia della](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli)riga di comando di Azure.
 
 Questo endpoint WinRM è richiesto anche per eseguire lo strumento di certificazione per l'onboarding della macchina virtuale, come descritto in [Certificare l'immagine di macchina virtuale](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm).
 
