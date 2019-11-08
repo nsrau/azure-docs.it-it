@@ -2,24 +2,24 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 10/06/2019
 ms.author: larryfr
-ms.openlocfilehash: 6e2a3a75181cf381f09e06b52c9bb3928dee4896
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b3c1ad48da0ef28c73e3af5d1e30414534f4e94d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68556841"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73799919"
 ---
-Le voci nel `deploymentconfig.json` documento vengono mappate ai parametri per [AciWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). La tabella seguente descrive il mapping tra le entità nel documento JSON e i parametri per il metodo:
+Le voci del documento `deploymentconfig.json` mappano i parametri per [AciWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). La tabella seguente descrive il mapping tra le entità nel documento JSON e i parametri per il metodo:
 
 | Entità JSON | Parametro del metodo | Descrizione |
 | ----- | ----- | ----- |
 | `computeType` | ND | La destinazione di calcolo. Per ACI, il valore deve essere `ACI`. |
 | `containerResourceRequirements` | ND | Contenitore per le entità CPU e memoria. |
-| &emsp;&emsp;`cpu` | `cpu_cores` | Numero di core CPU da allocare. Impostazioni predefinite`0.1` |
+| &emsp;&emsp;`cpu` | `cpu_cores` | Numero di core CPU da allocare. Impostazioni predefinite, `0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | Quantità di memoria (in GB) da allocare per questo servizio Web. Default, `0.5` |
-| `location` | `location` | Area di Azure in cui distribuire il servizio Web. Se non è specificato, verrà usato il percorso dell'area di lavoro. Altre informazioni sulle aree disponibili sono disponibili qui: [Aree ACI](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
+| `location` | `location` | Area di Azure in cui distribuire il servizio Web. Se non è specificato, verrà usato il percorso dell'area di lavoro. Per altre informazioni sulle aree disponibili, vedere le [aree ACI](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
 | `authEnabled` | `auth_enabled` | Indica se abilitare l'autenticazione per questo servizio Web. Il valore predefinito è false |
 | `sslEnabled` | `ssl_enabled` | Indica se abilitare SSL per questo servizio Web. Il valore predefinito è false. |
 | `appInsightsEnabled` | `enable_app_insights` | Indica se abilitare AppInsights per questo servizio Web. Il valore predefinito è false |

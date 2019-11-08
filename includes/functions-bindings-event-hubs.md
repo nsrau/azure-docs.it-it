@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: ef3dc13bd7d36e11f3109ef96a6f453b59afe145
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 0f94c89a52de138b261796cbef25c0acb57622c4
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809333"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73799913"
 ---
 ## <a name="trigger"></a>Trigger
 
@@ -335,7 +335,7 @@ def main(event: func.EventHubEvent):
     logging.info('  Offset =', event.offset)
 ```
 
-### <a name="trigger---java-example"></a>Trigger - Esempio Java
+### <a name="trigger---java-example"></a>Trigger - esempio Java
 
 L'esempio seguente mostra un'associazione di trigger per Hub eventi in un file *function.json* e una [funzione Java](../articles/azure-functions/functions-reference-java.md) che usa l'associazione. La funzione registra il corpo del messaggio del trigger per Hub eventi.
 
@@ -383,15 +383,15 @@ Per un esempio completo, vedere [Trigger - esempio in C#](#trigger---c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `EventHubTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
-|**type** | N/D | Il valore deve essere impostato su `eventHubTrigger`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
-|**direction** | N/D | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
-|**nome** | N/D | Nome della variabile che rappresenta l'elemento evento nel codice della funzione. |
+|**type** | n/d | Il valore deve essere impostato su `eventHubTrigger`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
+|**direction** | n/d | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
+|**nome** | n/d | Nome della variabile che rappresenta l'elemento evento nel codice della funzione. |
 |**path** |**EventHubName** | Solo Funzioni 1.x. Nome di Hub eventi. Quando il nome dell'hub eventi è presente anche nella stringa di connessione, tale valore sostituisce questa proprietà in fase di runtime. |
 |**eventHubName** |**EventHubName** | Solo Funzioni 2.x. Nome di Hub eventi. Quando il nome dell'hub eventi è presente anche nella stringa di connessione, tale valore sostituisce questa proprietà in fase di runtime. |
 |**consumerGroup** |**ConsumerGroup** | Proprietà facoltativa usata per impostare il [gruppo di consumer](../articles/event-hubs/event-hubs-features.md#event-consumers) usato per effettuare la sottoscrizione agli eventi nell'hub. Se omessa, al suo posto viene usato il gruppo di consumer `$Default`. |
-|**cardinality** | N/D | Per JavaScript. Impostare su `many` per abilitare l'invio in batch.  Se omesso o impostato su `one`, singolo messaggio passato alla funzione. |
+|**cardinality** | n/d | Per JavaScript. Impostare su `many` per abilitare l'invio in batch.  Se omesso o impostato su `one`, singolo messaggio passato alla funzione. |
 |**connessione** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo [spazio dei nomi](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), non per lo stesso Hub eventi. Per attivare il trigger, questa stringa di connessione deve disporre almeno delle autorizzazioni Read.|
 |**path**|**EventHubName**|Nome di Hub eventi. È possibile farvi riferimento tramite le impostazioni dell'app `%eventHubName%`|
 
@@ -401,7 +401,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Il trigger di Hub eventi fornisce diverse [proprietà di metadati](../articles/azure-functions/./functions-bindings-expressions-patterns.md). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Queste sono proprietà della classe [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata).
 
-|Proprietà|Type|Description|
+|Proprietà|Tipo|Descrizione|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|L'istanza di `PartitionContext`.|
 |`EnqueuedTimeUtc`|`DateTime`|Il tempo di accodamento in formato UTC.|
@@ -638,12 +638,12 @@ def main(timer: func.TimerRequest) -> str:
     return 'Message created at: {}'.format(timestamp)
 ```
 
-### <a name="output---java-example"></a>Output - Esempio Java
+### <a name="output---java-example"></a>Output - esempio Java
 
 Nell'esempio seguente viene illustrata una funzione Java che scrive un messaggio contenente l'ora corrente in un Hub eventi.
 
 ```java
-@}FunctionName("sendTime")
+@FunctionName("sendTime")
 @EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
 public String sendTime(
    @TimerTrigger(name = "sendTimeTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo)  {
@@ -674,11 +674,11 @@ Per un esempio completo, vedere [Output - esempio in C#](#output---c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `EventHub`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
-|**type** | N/D | Il valore deve essere impostato su "eventHub". |
-|**direction** | N/D | Deve essere impostato su "out". Questo parametro viene impostato automaticamente quando si crea l'associazione nel portale di Azure. |
-|**nome** | N/D | Nome della variabile usato nel codice della funzione che rappresenta l'evento. |
+|**type** | n/d | Il valore deve essere impostato su "eventHub". |
+|**direction** | n/d | Deve essere impostato su "out". Questo parametro viene impostato automaticamente quando si crea l'associazione nel portale di Azure. |
+|**nome** | n/d | Nome della variabile usato nel codice della funzione che rappresenta l'evento. |
 |**path** |**EventHubName** | Solo Funzioni 1.x. Nome di Hub eventi. Quando il nome dell'hub eventi è presente anche nella stringa di connessione, tale valore sostituisce questa proprietà in fase di runtime. |
 |**eventHubName** |**EventHubName** | Solo Funzioni 2.x. Nome di Hub eventi. Quando il nome dell'hub eventi è presente anche nella stringa di connessione, tale valore sostituisce questa proprietà in fase di runtime. |
 |**connessione** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo *spazio dei nomi*, non per lo stesso Hub eventi. Per inviare il messaggio al flusso di eventi, questa stringa di connessione deve disporre di autorizzazioni Send.|
@@ -693,7 +693,7 @@ In JavaScript accedere all'evento di output usando `context.bindings.<name>`. `<
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione | Riferimento |
+| Associazione | Riferimenti |
 |---|---|
 | Hub eventi | [Operations Guide](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) (Guida operativa) |
 
@@ -721,8 +721,8 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }  
 ```
 
-|Proprietà  |Predefinito | Description |
+|Proprietà  |Default | Descrizione |
 |---------|---------|---------|
 |maxBatchSize|64|Il numero massimo degli eventi ricevuto per ogni ciclo di ricezione.|
-|prefetchCount|N/D|Il valore predefinito di PrefetchCount che verrà utilizzato dall’EventProcessorHost sottostante.|
+|prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato dall’EventProcessorHost sottostante.|
 |batchCheckpointFrequency|1|Il numero di batch di eventi da elaborare prima di creare un checkpoint di cursore EventHub.|

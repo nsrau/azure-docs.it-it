@@ -1,6 +1,6 @@
 ---
 title: Gestire app per la logica con Visual Studio-app per la logica di Azure
-description: Gestire le app per la logica e altri asset di Azure con Visual Studio Cloud Explorer
+description: Gestire app per la logica e altre risorse di Azure usando Visual Studio con Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 05/07/2019
-ms.openlocfilehash: db4143b3bf75d1745245d5baae267a55ce71e95f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.date: 10/29/2019
+ms.openlocfilehash: e10683bcd5612db788d6dd5675425fec4130ffeb
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212608"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796335"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
 
@@ -44,7 +44,7 @@ Sebbene sia possibile creare, modificare, gestire e distribuire app per la logic
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
-  * Strumenti App per la logica di Azure per la versione di Visual Studio desiderata:
+  * Gli strumenti più recenti per le app per la logica di Azure per l'estensione di Visual Studio per la versione desiderata:
 
     * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
@@ -52,11 +52,11 @@ Sebbene sia possibile creare, modificare, gestire e distribuire app per la logic
 
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
 
-    È anche possibile scaricare e installare Strumenti App per la logica di Azure direttamente da Visual Studio Marketplace o [installare questa estensione da Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). Assicurarsi di riavviare Visual Studio al termine dell'installazione.
+    È anche possibile scaricare e installare Strumenti App per la logica di Azure direttamente da Visual Studio Marketplace o [installare questa estensione da Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). Assicurarsi di riavviare Visual Studio dopo avere completato l'installazione.
 
 * Accesso al Web mentre si usa la finestra integrata Progettazione app per la logica
 
-  La finestra di progettazione richiede una connessione Internet per creare le risorse in Azure e leggere le proprietà e i dati dai connettori nell'app per la logica. Ad esempio, se si usa il connettore di Dynamics CRM Online, la finestra di progettazione verifica le proprietà predefinite e personalizzate disponibili nell'istanza di CRM.
+  La finestra di progettazione richiede una connessione Internet per creare le risorse in Azure e leggere le proprietà e i dati dai connettori nell'app per la logica. Ad esempio, se si usa il connettore per Dynamics CRM Online, la finestra di progettazione verifica la disponibilità di proprietà predefinite e personalizzate nell'istanza di CRM.
 
 <a name="find-logic-apps-vs"></a>
 
@@ -66,7 +66,7 @@ In Visual Studio è possibile trovare tutte le app per la logica associate a una
 
 1. Aprire Visual Studio. Dal menu **Visualizza** scegliere **Cloud Explorer**.
 
-1. In Cloud Explorer selezionare **Gestione account**. Selezionare la sottoscrizione di Azure associata alle app per la logica e quindi selezionare **applica**. Esempio:
+1. In Cloud Explorer selezionare **Gestione account**. Selezionare la sottoscrizione di Azure associata alle app per la logica e quindi selezionare **applica**. Ad esempio:
 
    ![Selezionare "Gestione account"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -78,7 +78,7 @@ In Visual Studio è possibile trovare tutte le app per la logica associate a una
 
 <a name="open-designer"></a>
 
-## <a name="open-in-visual-studio"></a>Apri in Visual Studio
+## <a name="open-in-visual-studio"></a>Aprire in Visual Studio
 
 In Visual Studio è possibile aprire app per la logica create in precedenza e distribuite direttamente tramite il portale di Azure o come progetti di gruppi di risorse di Azure con Visual Studio.
 
@@ -112,7 +112,7 @@ In Visual Studio è possibile aprire app per la logica create in precedenza e di
 
 1. Sulla barra degli strumenti della finestra di progettazione selezionare **Scarica**.
 
-   ![Selezionare "Scarica"](./media/manage-logic-apps-with-visual-studio/download-logic-app.png)
+   ![Scaricare l'app per la logica da portale di Azure](./media/manage-logic-apps-with-visual-studio/download-logic-app-from-portal.png)
 
 1. Quando viene chiesto di immettere un percorso, selezionare quello desiderato e salvare il modello di Resource Manager per la definizione dell'app per la logica nel formato file JSON (con estensione json).
 
@@ -126,24 +126,74 @@ Per creare app per la logica per scenari di integrazione aziendale B2B (business
 
 1. In Visual Studio aprire il progetto gruppo di risorse di Azure che contiene l'app per la logica.
 
-1. In Esplora soluzioni aprire il menu di scelta rapida **< nome-app-logica >. JSON** e selezionare **Apri con progettazione app per la logica**. (scelta rapida da tastiera: CTRL+L).
+1. In Esplora soluzioni aprire il menu di scelta rapida **< nome-app-logica >. JSON** e selezionare **Apri con progettazione app per la logica**. (Tastiera: CTRL + L)
 
    ![Apri il file con estensione JSON dell'app per la logica con progettazione app per la logica](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
    > [!TIP]
-   > Se non si dispone di questo comando in Visual Studio 2019, verificare di aver installato gli aggiornamenti più recenti per Visual Studio.
+   > Se non si dispone di questo comando in Visual Studio 2019, verificare di avere gli aggiornamenti più recenti per Visual Studio e l'estensione strumenti app per la logica di Azure.
 
-1. Per assicurarsi che la finestra di progettazione dell'app per la logica abbia lo stato attivo, selezionare la scheda o la superficie della finestra di progettazione in modo che il riquadro Proprietà mostri la proprietà dell' **account di integrazione** per l'app per la logica
+1. Assicurarsi che la finestra di progettazione dell'app per la logica abbia lo stato attivo selezionando la scheda o la superficie della finestra di progettazione in modo che la Finestra Proprietà mostri la proprietà dell' **account di integrazione** per l'app per la logica
 
-   ![Riquadro proprietà Mostra la proprietà "account di integrazione"](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties.png)
+   ![Finestra Proprietà-Proprietà "account di integrazione"](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
 
-1. Aprire l'elenco **account di integrazione** e selezionare l'account di integrazione da collegare all'app per la logica, ad esempio:
+   > [!TIP]
+   > Se la Finestra Proprietà non è già aperta, scegliere **finestra Proprietà**dal menu **Visualizza** . (Tastiera: premere F4)
+
+1. Aprire l'elenco delle proprietà dell' **account di integrazione** e selezionare l'account di integrazione da collegare all'app per la logica, ad esempio:
 
    ![Aprire l'elenco delle proprietà "account di integrazione"](./media/manage-logic-apps-with-visual-studio/select-integration-account.png)
 
 1. Al termine, ricordarsi di salvare la soluzione di Visual Studio.
 
-Quando si imposta la proprietà dell' **account di integrazione** in Visual Studio e si salva l'app per la logica come modello di Azure Resource Manager, tale modello include anche una dichiarazione di parametro per l'account di integrazione selezionato. Per altre informazioni sui parametri del modello e sulle app per [la logica, vedere Panoramica: Automatizzare la distribuzione](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)delle app per la logica.
+Quando si imposta la proprietà dell' **account di integrazione** in Visual Studio e si salva l'app per la logica come modello di Azure Resource Manager, tale modello include anche una dichiarazione di parametro per l'account di integrazione selezionato. Per altre informazioni sui parametri del modello e sulle app per la logica, vedere [Panoramica: automatizzare la distribuzione delle app](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)per la logica.
+
+<a name="change-location"></a>
+
+## <a name="change-deployment-location"></a>Modificare il percorso di distribuzione
+
+In Visual Studio, se l'app per la logica esiste come file JSON (JSON) in un [progetto di gruppo di risorse di Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) usato per automatizzare la distribuzione, l'app per la logica è impostata su un tipo di percorso e una posizione specifica. Questo percorso è un'area di Azure o un [ambiente del servizio di integrazione esistente (ISE)](connect-virtual-network-vnet-isolated-environment.md).
+
+Per modificare il tipo o il percorso dell'app per la logica, è necessario aprire il file di definizione del flusso di lavoro dell'app per la logica (con estensione JSON) da Esplora soluzioni usando la finestra di progettazione dell'app per la logica. Non è possibile modificare queste proprietà utilizzando Cloud Explorer.
+
+> [!IMPORTANT]
+> La modifica del tipo di percorso da **Region** a [**ambiente del servizio di integrazione**](connect-virtual-network-vnet-isolated-environment-overview.md) influiscono sul [modello di determinazione prezzi](logic-apps-pricing.md#fixed-pricing) dell'app per la logica usato per la fatturazione, i [limiti](logic-apps-limits-and-config.md#integration-account-limits), il supporto dell' [account di integrazione](connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus)e così via. Prima di selezionare un altro tipo di percorso, verificare di aver compreso l'effetto risultante sull'app per la logica.
+
+1. In Visual Studio aprire il progetto gruppo di risorse di Azure che contiene l'app per la logica.
+
+1. In Esplora soluzioni aprire il menu di scelta rapida del file `<logic-app-name>.json` e selezionare **Apri con progettazione app per la logica**. (Tastiera: CTRL + L)
+
+   ![Apri il file con estensione JSON dell'app per la logica con progettazione app per la logica](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+
+   > [!TIP]
+   > Se non si dispone di questo comando in Visual Studio 2019, verificare di avere gli aggiornamenti più recenti per Visual Studio e l'estensione strumenti app per la logica di Azure.
+
+1. Assicurarsi che la finestra di progettazione dell'app per la logica abbia lo stato attivo selezionando la scheda o la superficie della finestra di progettazione in modo che l'Finestra Proprietà visualizzi le proprietà **Scegli tipo di percorso** e **percorso** per l'app per la logica. Il tipo di percorso del progetto è impostato su **Region** o **ambiente del servizio di integrazione**.
+
+   ![Finestra Proprietà-"Scegli tipo di percorso" & proprietà "percorso"](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
+
+   > [!TIP]
+   > Se la Finestra Proprietà non è già aperta, scegliere **finestra Proprietà**dal menu **Visualizza** . (Tastiera: premere F4)
+
+1. Per modificare il tipo di percorso, aprire l'elenco **Scegli proprietà tipo di percorso** e selezionare il tipo di percorso desiderato.
+
+   Se, ad esempio, il tipo di percorso è **ambiente del servizio di integrazione**, è possibile selezionare **Region (area**).
+
+   ![Proprietà "Scegli tipo di percorso"-modifica del tipo di percorso](./media/manage-logic-apps-with-visual-studio/change-location-type.png)
+
+1. Per modificare il percorso specifico, aprire l'elenco delle proprietà **location** . In base al tipo di percorso, selezionare il percorso desiderato, ad esempio:
+
+   * Selezionare un'area di Azure diversa:
+
+     ![Aprire l'elenco delle proprietà "location", selezionare un'altra area di Azure](./media/manage-logic-apps-with-visual-studio/change-azure-resource-group-region.png)
+
+   * Selezionare un'altra ISE:
+
+     ![Aprire l'elenco delle proprietà "location", selezionare un altro ISE](./media/manage-logic-apps-with-visual-studio/change-integration-service-environment.png)
+
+1. Al termine, ricordarsi di salvare la soluzione di Visual Studio.
+
+Quando si modifica il tipo di percorso o il percorso in Visual Studio e si salva l'app per la logica come modello di Azure Resource Manager, il modello include anche le dichiarazioni di parametro per il tipo e il percorso del percorso. Per altre informazioni sui parametri del modello e sulle app per la logica, vedere [Panoramica: automatizzare la distribuzione delle app](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)per la logica.
 
 <a name="refresh"></a>
 
@@ -157,19 +207,19 @@ Se si modifica l'app per la logica nel portale di Azure e si vogliono mantenere 
 
 * In Visual Studio Cloud Explorer aprire il menu di scelta rapida dell'app per la logica e scegliere **Aggiorna**.
 
-![Aggiornare l'app per la logica con aggiornamenti](./media/manage-logic-apps-with-visual-studio/refresh-logic-app.png)
+![Aggiornare l'app per la logica con aggiornamenti](./media/manage-logic-apps-with-visual-studio/refresh-logic-app-with-updates-from-portal.png)
 
 ## <a name="publish-logic-app-updates"></a>Pubblicare aggiornamenti delle app per la logica
 
 Quando si è pronti per distribuire gli aggiornamenti dell'app per la logica da Visual Studio in Azure, nella barra degli strumenti di progettazione app per la logica selezionare **pubblica**.
 
-![Pubblicare l'app per la logica aggiornata](./media/manage-logic-apps-with-visual-studio/publish-logic-app.png)
+![Pubblicare l'app per la logica aggiornata in portale di Azure](./media/manage-logic-apps-with-visual-studio/publish-logic-app-to-azure-portal.png)
 
 ## <a name="manually-run-your-logic-app"></a>Eseguire manualmente l'app per la logica
 
 È possibile attivare manualmente un'app per la logica distribuita in Azure da Visual Studio. Nella barra degli strumenti di progettazione app per la logica selezionare **Esegui trigger**.
 
-![Eseguire manualmente l'app per la logica](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
+![Eseguire manualmente il trigger per l'app per la logica](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
 
 ## <a name="review-run-history"></a>Esaminare la cronologia di esecuzione
 
@@ -177,37 +227,37 @@ Per controllare lo stato e diagnosticare i problemi relativi alle esecuzioni del
 
 1. In Cloud Explorer aprire il menu di scelta rapida dell'app per la logica e selezionare **Apri cronologia di esecuzione**.
 
-   ![Apri cronologia di esecuzione](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
+   ![Apri cronologia di esecuzione per l'app per la logica](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
-1. Per visualizzare i dettagli per un'esecuzione specifica, fare doppio clic su di essa. Esempio:
+1. Per visualizzare i dettagli per un'esecuzione specifica, fare doppio clic su di essa. Ad esempio:
 
-   ![Cronologia di esecuzione dettagliata](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
+   ![Visualizza informazioni sull'esecuzione specifica](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
    > [!TIP]
    > Per ordinare la tabella in base alla proprietà, selezionare l'intestazione di colonna per la proprietà.
 
 1. Espandere i passaggi di cui si desidera esaminare gli input e gli output, ad esempio:
 
-   ![Visualizzare gli input e gli output per ogni passaggio](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
+   ![Visualizzare gli input e gli output per ogni passaggio](./media/manage-logic-apps-with-visual-studio/view-run-history-inputs-outputs.png)
 
 ## <a name="disable-or-enable-logic-app"></a>Disabilitare o abilitare l'app per la logica
 
 Senza eliminare l'app per la logica, è possibile arrestare l'attivazione del trigger la volta successiva in cui viene soddisfatta la condizione di trigger. La disabilitazione dell'app per la logica impedisce al motore di App per la logica di creare ed eseguire istanze di flusso di lavoro future per l'app per la logica. In Cloud Explorer aprire il menu di scelta rapida dell'app per la logica e scegliere **Disabilita**.
 
-![Disabilitare l'app per la logica](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
+![Disabilitare l'app per la logica in Cloud Explorer](./media/manage-logic-apps-with-visual-studio/disable-logic-app-cloud-explorer.png)
 
 > [!NOTE]
 > Quando si disabilita un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione. Tutte le esecuzioni in corso e in sospeso continuano fino a quando non vengono completate, il che potrebbe richiedere tempo.
 
 Per riattivare l'app per la logica, in Cloud Explorer aprire il menu di scelta rapida dell'app per la logica e selezionare **Abilita**.
 
-![Abilitare l'app per la logica](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
+![Abilitare l'app per la logica in Cloud Explorer](./media/manage-logic-apps-with-visual-studio/enable-logic-app-cloud-explorer.png)
 
 ## <a name="delete-your-logic-app"></a>Eliminare l'app per la logica
 
 Per eliminare l'app per la logica dal portale di Azure, in Cloud Explorer aprire il menu di scelta rapida dell'app per la logica e scegliere **Elimina**.
 
-![Eliminare l'app per la logica](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
+![Eliminare l'app per la logica da portale di Azure](./media/manage-logic-apps-with-visual-studio/delete-logic-app-from-azure-portal.png)
 
 > [!NOTE]
 > Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione. Tutte le esecuzioni in corso e in sospeso vengono annullate. Se si dispone di migliaia di esecuzioni, l'annullamento potrebbe richiedere molto tempo. 

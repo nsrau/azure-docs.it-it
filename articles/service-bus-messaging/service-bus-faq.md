@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 80809afc9f2a8e8da2f6adecfe916141c4cd3e45
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 8a2a704f39aa678be819a7297b30f8926e414e56
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278334"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748440"
 ---
 # <a name="service-bus-faq"></a>Domande frequenti sul bus di servizio
 
@@ -51,7 +51,7 @@ Se si usano entità partizionate, l'ordinamento non è garantito. Se una partizi
 
 Vedere la tabella seguente per le porte in uscita che è necessario aprire per usare questi protocolli per comunicare con hub eventi di Azure. 
 
-| Protocol | Porte | Dettagli | 
+| Protocollo | Porte | Dettagli | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 e 5672 | Vedere la [Guida al protocollo AMQP](service-bus-amqp-protocol-guide.md) | 
 | SBMP | da 9350 a 9354 | Vedere la [modalità di connettività](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
@@ -65,7 +65,7 @@ Per trovare gli indirizzi IP corretti per le connessioni a elenco bianco, seguir
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Annotare l'indirizzo IP restituito `Non-authoritative answer`in. Questo indirizzo IP è statico. L'unico punto nel tempo che cambierebbe è se si ripristina lo spazio dei nomi in un cluster diverso.
+2. Annotare l'indirizzo IP restituito in `Non-authoritative answer`. Questo indirizzo IP è statico. L'unico punto nel tempo che cambierebbe è se si ripristina lo spazio dei nomi in un cluster diverso.
 
 Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario eseguire alcuni passaggi aggiuntivi: 
 
@@ -112,6 +112,13 @@ Qualsiasi trasferimento di dati nell'ambito di una specifica area di Azure non �
 ### <a name="does-service-bus-charge-for-storage"></a>Per il bus di servizio viene addebitato lo spazio di archiviazione?
 No, per il bus di servizio non viene addebitato lo spazio di archiviazione. È tuttavia prevista una quota che limita la quantità massima di dati che è possibile salvare in modo permanente per ogni coda e argomento. Vedere la risposta alla domanda successiva.
 
+### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Ho uno spazio dei nomi standard del bus di servizio. Perché vengono visualizzati gli addebiti nel gruppo di risorse ' $system '?
+Il bus di servizio di Azure ha aggiornato di recente i componenti di fatturazione. A causa di questo, se si dispone di uno spazio dei nomi standard del bus di servizio, è possibile che vengano visualizzate voci per la risorsa '/subscriptions/< azure_subscription_id >/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system ' nel gruppo di risorse ' $ System '.
+
+Questi costi rappresentano il costo di base per ogni sottoscrizione di Azure per cui è stato effettuato il provisioning di uno spazio dei nomi standard del bus 
+
+È importante sottolineare che questi non sono nuovi costi, ovvero che erano già presenti nel modello di fatturazione precedente. L'unica modifica è che ora sono elencate in "$system". Questa operazione viene eseguita a causa dei consensi nel nuovo sistema di fatturazione, che raggruppa i costi del livello di sottoscrizione, non legati a una risorsa specifica, con l'ID di risorsa ' $system '.
+
 ## <a name="quotas"></a>Quote
 
 Per un elenco di limiti e quote del bus di servizio, vedere la [Panoramica delle quote del bus][Quotas overview]di servizio.
@@ -126,7 +133,7 @@ Come gli altri servizi in Azure, il bus di servizio applica un set specifico di 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>Come gestire i messaggi di dimensioni superiori a 1 MB?
 I servizi di messaggistica del bus di servizio (code e argomenti/sottoscrizioni) consentono all'applicazione di inviare messaggi di dimensioni fino a 256 KB (livello standard) o 1 MB (livello premium). Se è necessario gestire messaggi di dimensioni superiori a 1 MB, usare il modello claim check descritto in [questo post di blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Come si crea uno spazio dei nomi dopo l'eliminazione da un'altra sottoscrizione? 
 Quando si elimina uno spazio dei nomi da una sottoscrizione, attendere 4 ore prima di ricrearla con lo stesso nome in un'altra sottoscrizione. In caso contrario, è possibile che venga visualizzato il messaggio di errore seguente: `Namespace already exists`. 
 
@@ -134,14 +141,14 @@ Quando si elimina uno spazio dei nomi da una sottoscrizione, attendere 4 ore pri
 Per un elenco di possibili eccezioni del bus di servizio, vedere [Cenni preliminari sulle eccezioni][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Cos'è una firma di accesso condiviso e quali linguaggi supportano la generazione di una firma?
-Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le firme in node. js, PHP, Java, Python e C#, vedere l'articolo relativo alle firme di [accesso condiviso][Shared Access Signatures] .
+Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le firme in node. js, PHP, Java, Python e C#, vedere l'articolo relativo alle [firme di accesso condiviso][Shared Access Signatures] .
 
 ## <a name="subscription-and-namespace-management"></a>Gestione di sottoscrizioni e spazi dei nomi
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Come si esegue la migrazione di uno spazio dei nomi a un'altra sottoscrizione di Azure?
 
 È possibile spostare uno spazio dei nomi da una sottoscrizione di Azure a un'altra usando il [portale di Azure](https://portal.azure.com) o i comandi di PowerShell. Per eseguire l'operazione, lo spazio dei nomi deve essere già attivo. L'utente che esegue i comandi deve essere un amministratore delle sottoscrizioni di origine e di destinazione.
 
-#### <a name="portal"></a>Portale
+#### <a name="portal"></a>di Microsoft Azure
 
 Per usare il portale di Azure per eseguire la migrazione degli spazi dei nomi del bus di servizio a un'altra sottoscrizione, seguire le istruzioni riportate [qui](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 

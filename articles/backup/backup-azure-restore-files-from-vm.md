@@ -1,6 +1,6 @@
 ---
 title: 'Backup di Azure: ripristinare file e cartelle dal backup delle macchine virtuali di Azure'
-description: Ripristinare i file da un punto di ripristino della macchina virtuale di Azure
+description: Questo articolo illustra come ripristinare file e cartelle da un punto di ripristino della macchina virtuale di Azure.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: df8e309ecb2a81205684c60076015f79ac8c4c8f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: c6b49e794011d915f8cd7b29e6317e80391f2675
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968479"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747379"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -186,7 +186,7 @@ La tabella seguente illustra la compatibilità tra i sistemi operativi del serve
 
 |Sistema operativo del server | Sistema operativo compatibile del client  |
 | --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
+| Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
@@ -222,7 +222,7 @@ Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richi
 
 Questa sezione illustra come eseguire il ripristino di file da backup di macchine virtuali di Azure il cui numero di dischi è > 16 e ogni dimensione del disco è > 4 TB.
 
-Poiché il processo di recupero file connette tutti i dischi dal backup, in caso di un numero elevato di dischi (> 16) o dischi di grandi dimensioni (> 4 TB ciascuno), sono consigliati i punti di azione seguenti.
+Poiché il processo di recupero file connette tutti i dischi dal backup, quando vengono usati un numero elevato di dischi (> 16) o dischi di grandi dimensioni (> 4 TB ciascuno), sono consigliati i punti di azione seguenti:
 
 - Per il ripristino dei file, è necessario usare un server di ripristino separato (VM D2v3 VM di Azure). È possibile utilizzare questo solo ripristino di file e quindi arrestarlo quando non è necessario. Il ripristino nel computer originale non è consigliato perché avrà un impatto significativo sulla macchina virtuale stessa.
 - Eseguire quindi lo script una volta per verificare se l'operazione di ripristino del file riesce.
@@ -244,10 +244,10 @@ Poiché il processo di recupero file connette tutti i dischi dal backup, in caso
   - Nel file/etc/iSCSI/iscsid.conf modificare l'impostazione da
     - node. Conn [0]. Timeo. noop_out_timeout = 5 a node. Conn [0]. Timeo. noop_out_timeout = 30
 - Dopo aver eseguito le operazioni seguenti, eseguire di nuovo lo script. Con queste modifiche, è molto probabile che il ripristino dei file abbia esito positivo.
-- Ogni volta che un utente Scarica uno script, backup di Azure avvia il processo di preparazione del punto di ripristino per il download. In caso di dischi di grandi dimensioni, l'operazione può richiedere molto tempo. Se sono presenti picchi di richieste successivi, la preparazione di destinazione entra in una spirale di download. È quindi consigliabile scaricare uno script da portale/PowerShell/CLI, attendere 20-30 minuti (euristica) e quindi eseguirlo. A questo punto, è previsto che la destinazione sia pronta per la connessione dallo script.
+- Ogni volta che un utente Scarica uno script, backup di Azure avvia il processo di preparazione del punto di ripristino per il download. Con dischi di grandi dimensioni, l'operazione può richiedere molto tempo. Se sono presenti picchi di richieste successivi, la preparazione di destinazione entra in una spirale di download. È quindi consigliabile scaricare uno script da portale/PowerShell/CLI, attendere 20-30 minuti (euristica) e quindi eseguirlo. A questo punto, è previsto che la destinazione sia pronta per la connessione dallo script.
 - Dopo il ripristino del file, assicurarsi di tornare al portale per fare clic su "smontare i dischi" per i punti di ripristino in cui non è stato possibile montare i volumi. In pratica, questo passaggio eliminerà eventuali processi/sessioni esistenti e aumenterà la probabilità di ripristino.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si verificano problemi durante il ripristino di file dalle macchine virtuali, controllare la tabella seguente per informazioni aggiuntive.
 

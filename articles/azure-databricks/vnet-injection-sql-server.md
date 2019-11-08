@@ -7,15 +7,15 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 04/02/2019
-ms.openlocfilehash: 773ffe264446e6a4d9ef2e88634e4f2c9b8aeb45
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.date: 11/07/2019
+ms.openlocfilehash: 460079248e6cbd939c36b84f94cac41dce4dda2b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273974"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747657"
 ---
-# <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Esercitazione: Eseguire query in un contenitore Docker di SQL Server Linux in una rete virtuale da un notebook di Azure Databricks
+# <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Esercitazione: eseguire query su un contenitore Docker SQL Server Linux in una rete virtuale da un notebook di Azure Databricks
 
 Questa esercitazione illustra come integrare Azure Databricks con un contenitore Docker Linux SQL Server in una rete virtuale. 
 
@@ -42,11 +42,11 @@ In questa esercitazione si apprenderà come:
 
     ![Aggiungi nuova macchina virtuale di Azure](./media/vnet-injection-sql-server/add-virtual-machine.png)
 
-2. Nella scheda **nozioni di base** scegliere Ubuntu Server 16,04 LTS. Modificare le dimensioni della macchina virtuale in B1ms, che include un vCPU e 2 GB di RAM. Il requisito minimo per un contenitore Docker di Linux SQL Server è 2 GB. Scegliere un nome utente e una password di amministratore.
+2. Nella scheda **nozioni di base** scegliere Ubuntu server 18,04 LTS e modificare le dimensioni della macchina virtuale in B2S. Scegliere un nome utente e una password di amministratore.
 
     ![Scheda nozioni di base della nuova configurazione della macchina virtuale](./media/vnet-injection-sql-server/create-virtual-machine-basics.png)
 
-3. Passare alla scheda **rete** . Scegliere la rete virtuale e la subnet pubblica che include il cluster Azure Databricks. Selezionare **Verifica + crea**, quindi **Crea** per distribuire la macchina virtuale.
+3. Passare alla scheda **rete** . scegliere la rete virtuale e la subnet pubblica che include il cluster Azure Databricks. Selezionare **Verifica + crea**, quindi **Crea** per distribuire la macchina virtuale.
 
     ![Scheda rete della nuova configurazione della macchina virtuale](./media/vnet-injection-sql-server/create-virtual-machine-networking.png)
 
@@ -62,32 +62,31 @@ In questa esercitazione si apprenderà come:
 
 7. Aggiungere una regola per aprire la porta 22 per SSH. Usare le seguenti impostazioni:
     
-    |Impostazione|Valore suggerito|Descrizione|
+    |Impostazione|Valore consigliato|Descrizione|
     |-------|---------------|-----------|
     |Source|Indirizzi IP|Indirizzi IP specifica che il traffico in ingresso da un indirizzo IP di origine specifico verrà consentito o negato da questa regola.|
-    |Indirizzi IP di origine|< IP pubblico @ no__t-0|Immettere l'indirizzo IP pubblico. È possibile trovare l'indirizzo IP pubblico visitando [Bing.com](https://www.bing.com/) e cercando **"My IP"** .|
-    |Source port ranges|*|Consentire il traffico da qualsiasi porta.|
+    |Indirizzi IP di origine|<\> IP pubblico|Immettere l'indirizzo IP pubblico. È possibile trovare l'indirizzo IP pubblico visitando [Bing.com](https://www.bing.com/) e cercando **"My IP"** .|
+    |Intervalli di porte di origine|*|Consentire il traffico da qualsiasi porta.|
     |Destination|Indirizzi IP|Indirizzi IP specifica che il traffico in uscita per un indirizzo IP di origine specifico verrà consentito o negato da questa regola.|
-    |Indirizzi IP di destinazione|< l'IP pubblico della VM @ no__t-0|Immettere l'indirizzo IP pubblico della macchina virtuale. È possibile trovarlo nella pagina **Panoramica** della macchina virtuale.|
+    |Indirizzi IP di destinazione|< l'indirizzo IP pubblico della VM\>|Immettere l'indirizzo IP pubblico della macchina virtuale. È possibile trovarlo nella pagina **Panoramica** della macchina virtuale.|
     |Intervalli di porte di destinazione|22|Aprire la porta 22 per SSH.|
-    |Priority|290|Assegnare una priorità alla regola.|
-    |NOME|SSH-databricks-esercitazione-VM|Assegnare un nome alla regola.|
+    |Priorità|290|Assegnare una priorità alla regola.|
+    |Name|SSH-databricks-esercitazione-VM|Assegnare un nome alla regola.|
 
 
     ![Aggiungere una regola di sicurezza in ingresso per la porta 22](./media/vnet-injection-sql-server/open-port.png)
 
 8. Aggiungere una regola per aprire la porta 1433 per SQL con le impostazioni seguenti:
 
-    |Impostazione|Valore suggerito|Descrizione|
+    |Impostazione|Valore consigliato|Descrizione|
     |-------|---------------|-----------|
-    |Source|Indirizzi IP|Indirizzi IP specifica che il traffico in ingresso da un indirizzo IP di origine specifico verrà consentito o negato da questa regola.|
-    |Indirizzi IP di origine|10.179.0.0/16|Immettere l'intervallo di indirizzi per la rete virtuale.|
-    |Source port ranges|*|Consentire il traffico da qualsiasi porta.|
+    |Source|Qualsiasi|Origine specifica che il traffico in ingresso da un indirizzo IP di origine specifico verrà consentito o negato da questa regola.|
+    |Intervalli di porte di origine|*|Consentire il traffico da qualsiasi porta.|
     |Destination|Indirizzi IP|Indirizzi IP specifica che il traffico in uscita per un indirizzo IP di origine specifico verrà consentito o negato da questa regola.|
-    |Indirizzi IP di destinazione|< l'IP pubblico della VM @ no__t-0|Immettere l'indirizzo IP pubblico della macchina virtuale. È possibile trovarlo nella pagina **Panoramica** della macchina virtuale.|
+    |Indirizzi IP di destinazione|< l'indirizzo IP pubblico della VM\>|Immettere l'indirizzo IP pubblico della macchina virtuale. È possibile trovarlo nella pagina **Panoramica** della macchina virtuale.|
     |Intervalli di porte di destinazione|1433|Aprire la porta 22 per SQL Server.|
-    |Priority|300|Assegnare una priorità alla regola.|
-    |NOME|sql-databricks-tutorial-vm|Assegnare un nome alla regola.|
+    |Priorità|300|Assegnare una priorità alla regola.|
+    |Name|SQL-databricks-esercitazione-macchina virtuale|Assegnare un nome alla regola.|
 
     ![Aggiungere una regola di sicurezza in ingresso per la porta 1433](./media/vnet-injection-sql-server/open-port2.png)
 
@@ -205,4 +204,4 @@ Quando non sono più necessari, eliminare il gruppo di risorse, l'area di lavoro
 
 Passare all'articolo successivo per informazioni su come estrarre, trasformare e caricare i dati usando Azure Databricks.
 > [!div class="nextstepaction"]
-> [Esercitazione: Estrarre, trasformare e caricare dati con Azure Databricks](databricks-extract-load-sql-data-warehouse.md)
+> [Esercitazione: estrarre, trasformare e caricare i dati usando Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

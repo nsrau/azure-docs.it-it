@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f3e852d178a6720f8d567f4ecb042f0b83bcd56c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: f782c5abe611086baae5d2ad71bc38516039a231
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583155"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796045"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Accesso a più protocolli su Azure Data Lake Storage
 
@@ -79,7 +79,7 @@ Analogamente all'elenco delle funzionalità di archiviazione BLOB supportate, gl
 |[Analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Disponibile a livello generale|
 |[Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|Disponibile a livello generale|
 |[App per la logica](https://azure.microsoft.com/services/logic-apps/)|Disponibile a livello generale|
-|[Ricerca di Azure](https://docs.microsoft.com/azure/search/search-blob-storage-integration)|Preview|
+|[ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|Preview|
 
 Per l'elenco completo del supporto ecosistema di Azure per Data Lake Storage Gen2, vedere [integrare Azure Data Lake storage con i servizi di Azure](data-lake-storage-integrate-with-azure-services.md).
 

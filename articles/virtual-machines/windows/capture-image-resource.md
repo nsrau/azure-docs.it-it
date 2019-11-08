@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: fd2b3a8a09ce69c07cc7d4715a4aaeacf64f0817
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 54743b191b0334c92c63f374d38870a7dbfd9a38
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200644"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749626"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Creare un'immagine gestita di una macchina virtuale generalizzata in Azure
 
 È possibile creare una risorsa di tipo immagine gestita da una macchina virtuale (VM) generalizzata che è stata archiviata come disco gestito o come disco non gestito in un account di archiviazione. L'immagine è quindi utilizzabile per creare più macchine virtuali. Per informazioni sulla fatturazione delle immagini gestite, vedere [Prezzi per Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizzare la macchina virtuale Windows con Sysprep
 
@@ -48,7 +48,7 @@ Per generalizzare la VM Windows, seguire questa procedura:
    
 3. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Passare alla Configurazione guidata** e quindi selezionare la casella di controllo **Generalizza**.
    
-4. In **Opzioni di arresto** selezionare **Arresta il sistema**.
+4. In **Opzioni di arresto del sistema** selezionare **Arresta il sistema**.
    
 5. Selezionare **OK**.
    
@@ -94,7 +94,7 @@ Per generalizzare la VM Windows, seguire questa procedura:
 
 ## <a name="create-an-image-of-a-vm-using-powershell"></a>Creare un'immagine di una macchina virtuale tramite PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 La creazione di un'immagine direttamente nella VM garantisce che l'immagine includa tutti i dischi associati alla VM, compresi il disco del sistema operativo e gli eventuali dischi dati. Questo esempio illustra come creare un'immagine gestita da una VM che usa dischi gestiti.
 

@@ -1,7 +1,7 @@
 ---
 title: Concetti relativi a revisioni, flussi di lavoro e processi-Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Scopri di più su revisioni, flussi di lavoro e processi
+description: In questo articolo vengono illustrati i concetti di base dello strumento di Revisione; revisioni, flussi di lavoro e processi.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 917636c8ae339e06321c169979611f74276ca523
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043995"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744416"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Revisioni, flussi di lavoro e processi di moderazione dei contenuti
 

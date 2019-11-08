@@ -1,23 +1,22 @@
 ---
 title: Eliminare un Backup di Microsoft Azure insieme di credenziali dei servizi di ripristino
-description: Questo articolo descrive come eliminare un Backup di Microsoft Azure insieme di credenziali di servizi di ripristino.
+description: In questo articolo viene illustrato come rimuovere le dipendenze e quindi eliminare un insieme di credenziali MARS (Backup di Microsoft Azure Recovery Services).
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: ae8421ca9e3705d697e9638e80fc61f853ff9d28
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 469d6532449df8327389b8117904b078d9340e5b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72028287"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747582"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminare un insieme di credenziali di servizi di ripristino di Azure Backup
 
 Questo articolo descrive come eliminare un insieme di credenziali di servizi di ripristino di backup di Microsoft [Azure](backup-overview.md) (Mars). Contiene le istruzioni per rimuovere le dipendenze e quindi eliminare un insieme di credenziali.
-
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -33,7 +32,7 @@ Non è possibile eliminare un insieme di credenziali di servizi di ripristino co
 
   ![Eliminare l'errore del server protetto.](./media/backup-azure-delete-vault/error-message.jpg)
 
-- Se gli elementi di backup sono in stato di eliminazione temporanea al di sotto del messaggio di avviso, sarà necessario attendere che vengano eliminati definitivamente. Per altre informazioni, fare riferimento a [questo articolo](https://aka.ms/SoftDeleteCloudWorkloads).
+- Se vengono visualizzati gli elementi di backup in stato di eliminazione temporanea al di sotto del messaggio di avviso, sarà necessario attendere che vengano eliminati definitivamente. Per altre informazioni, vedere questo [articolo](https://aka.ms/SoftDeleteCloudWorkloads).
 
    ![Eliminare l'errore dell'insieme di credenziali.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
   
@@ -46,7 +45,6 @@ Sono presenti computer locali protetti tramite MAB (Backup di Microsoft Azure Se
 Sono presenti elementi protetti nel cloud (ad esempio, una macchina virtuale laaS o una condivisione File di Azure)  | Eseguire la procedura descritta in [eliminare gli elementi protetti nel cloud](#delete-protected-items-in-the-cloud)
 Sono presenti elementi protetti sia in locale che nel cloud | Eseguire i passaggi in tutte le sezioni seguenti, nell'ordine seguente: <br> 1. [eliminare gli elementi protetti nel cloud](#delete-protected-items-in-the-cloud)<br> 2. [eliminare gli elementi di backup dalla console di gestione di Mars](#delete-backup-items-from-the-mars-management-console) <br> 3. [eliminare gli elementi di backup dalla console di gestione di MAB](#delete-backup-items-from-the-mabs-management-console)
 Non sono presenti elementi protetti in locale o nel cloud; Tuttavia, ricevo ancora l'errore di eliminazione dell'insieme di credenziali | Eseguire la procedura descritta in [eliminare l'insieme di credenziali di servizi di ripristino usando Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager)
-
 
 ## <a name="delete-protected-items-in-the-cloud"></a>Eliminare gli elementi protetti nel cloud
 
@@ -64,12 +62,12 @@ Per arrestare la protezione ed eliminare i dati di backup, seguire questa proced
 
         ![Riquadro Interrompi backup.](./media/backup-azure-delete-vault/stop-backup-item.png)
 
-    - Se viene visualizzato il riquadro **Elimina dati di backup** , immettere il nome dell'elemento di backup (questo campo fa distinzione tra maiuscole e minuscole) e quindi selezionare un motivo dal menu a discesa. Immettere i commenti, se disponibili. Quindi, selezionare **Elimina**. 
+    - Se viene visualizzato il riquadro **Elimina dati di backup** , immettere il nome dell'elemento di backup (questo campo fa distinzione tra maiuscole e minuscole) e quindi selezionare un motivo dal menu a discesa. Immettere i commenti, se disponibili. Quindi selezionare **Elimina**.
 
          ![Riquadro Elimina dati di backup.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-5. Selezionare l'icona di **notifica** : ![The icona di notifica. ](./media/backup-azure-delete-vault/messages.png) Al termine del processo, il servizio Visualizza il messaggio seguente: *interruzione del backup ed eliminazione dei dati di backup per "elemento di*backup *"* . *L'operazione è stata completata*.
-6. Selezionare **Aggiorna** dal menu **elementi di backup** per assicurarsi che l'elemento di backup sia stato eliminato.
+3. Selezionare l'icona di **notifica** : ![icona di notifica.](./media/backup-azure-delete-vault/messages.png) Al termine del processo, il servizio Visualizza il messaggio seguente: *interruzione del backup ed eliminazione dei dati di backup per "elemento di*backup *"* . *L'operazione è stata completata*.
+4. Selezionare **Aggiorna** dal menu **elementi di backup** per assicurarsi che l'elemento di backup sia stato eliminato.
 
       ![Pagina Elimina elementi di backup.](./media/backup-azure-delete-vault/empty-items-list.png)
 
@@ -80,12 +78,11 @@ Prima di tutto, leggere la sezione **[prima di iniziare](#before-you-start)** pe
 1. Dal menu del dashboard dell'insieme di credenziali selezionare **infrastruttura di backup**.
 2. A seconda dello scenario locale, scegliere una delle opzioni seguenti:
 
-      - Per MARS selezionare **server protetti** e quindi **agente di backup di Azure**. Selezionare quindi il server che si desidera eliminare. 
+      - Per MARS selezionare **server protetti** e quindi **agente di backup di Azure**. Selezionare quindi il server che si desidera eliminare.
 
         ![Per MARS selezionare l'insieme di credenziali per aprire il relativo dashboard.](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-      - Per MAB o DPM, selezionare **server di gestione di backup**. Selezionare quindi il server che si desidera eliminare. 
-
+      - Per MAB o DPM, selezionare **server di gestione di backup**. Selezionare quindi il server che si desidera eliminare.
 
           ![Per MAB selezionare l'insieme di credenziali per aprire il relativo dashboard.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
@@ -101,15 +98,13 @@ Prima di tutto, leggere la sezione **[prima di iniziare](#before-you-start)** pe
 
 4. Selezionare la casella di controllo consenso, quindi selezionare **Elimina**.
 
-
-5. Selezionare l'icona di **notifica** ![delete backup data ](./media/backup-azure-delete-vault/messages.png). Al termine dell'operazione, il servizio Visualizza il messaggio: *interruzione del backup ed eliminazione dei dati di backup per "elemento di backup".* *L'operazione è stata completata*.
+5. Selezionare l'icona di **notifica** ![Elimina](./media/backup-azure-delete-vault/messages.png)dati di backup. Al termine dell'operazione, il servizio Visualizza il messaggio: *interruzione del backup ed eliminazione dei dati di backup per "elemento di backup".* *L'operazione è stata completata*.
 6. Selezionare **Aggiorna** dal menu **elementi di backup** per assicurarsi che l'elemento di backup venga eliminato.
 
 Al termine di questo processo, è possibile eliminare gli elementi di backup dalla console di gestione:
-    
-   - [Eliminare gli elementi di backup dalla console di gestione di MARS](#delete-backup-items-from-the-mars-management-console)
-    - [Eliminare gli elementi di backup dalla console di gestione di MAB](#delete-backup-items-from-the-mabs-management-console)
 
+- [Eliminare gli elementi di backup dalla console di gestione di MARS](#delete-backup-items-from-the-mars-management-console)
+- [Eliminare gli elementi di backup dalla console di gestione di MAB](#delete-backup-items-from-the-mabs-management-console)
 
 ### <a name="delete-backup-items-from-the-mars-management-console"></a>Eliminare gli elementi di backup dalla console di gestione di MARS
 
@@ -122,7 +117,7 @@ Al termine di questo processo, è possibile eliminare gli elementi di backup dal
 
     ![Arrestare un backup pianificato.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Viene richiesto di immettere un PIN di sicurezza (Personal Identification Number), che è necessario generare manualmente. A tale scopo, accedere prima al portale di Azure.
-5. Passare a insieme di credenziali di **servizi di ripristino**  > **Impostazioni**  > **proprietà**.
+5. Passare a insieme di credenziali di **servizi di ripristino** > **Impostazioni** > **proprietà**.
 6. In **pin di sicurezza**selezionare **genera**. Copiare questo PIN. Il PIN è valido solo per cinque minuti.
 7. Nella console di gestione incollare il PIN e quindi fare clic su **OK**.
 
@@ -139,11 +134,12 @@ Dopo aver eliminato gli elementi di backup locali, seguire i passaggi successivi
 Esistono due metodi che è possibile usare per eliminare gli elementi di backup dalla console di gestione di MAB.
 
 #### <a name="method-1"></a>Metodo 1
+
 Per arrestare la protezione ed eliminare i dati di backup, seguire questa procedura:
 
-1.  Aprire il Console amministrazione DPM e quindi selezionare **protezione** sulla barra di spostamento.
-2.  Nel riquadro informazioni selezionare il membro del gruppo protezione dati che si desidera rimuovere. Fare clic con il pulsante destro del mouse per selezionare l'opzione **Arresta protezione dei membri del gruppo** .
-3.  Nella finestra di dialogo **Arresta protezione** dati selezionare **Elimina dati protetti**, quindi selezionare la casella di controllo **Elimina archiviazione online** . Quindi selezionare **Arresta protezione**.
+1. Aprire il Console amministrazione DPM e quindi selezionare **protezione** sulla barra di spostamento.
+2. Nel riquadro informazioni selezionare il membro del gruppo protezione dati che si desidera rimuovere. Fare clic con il pulsante destro del mouse per selezionare l'opzione **Arresta protezione dei membri del gruppo** .
+3. Nella finestra di dialogo **Arresta protezione** dati selezionare **Elimina dati protetti**, quindi selezionare la casella di controllo **Elimina archiviazione online** . Quindi selezionare **Arresta protezione**.
 
     ![Selezionare Elimina dati protetti dal riquadro Arresta protezione.](./media/backup-azure-delete-vault/delete-storage-online.png)
 
@@ -158,12 +154,12 @@ Per arrestare la protezione ed eliminare i dati di backup, seguire questa proced
     ![Elimina lo spazio di archiviazione online.](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
 
 #### <a name="method-2"></a>Metodo 2
+
 Aprire la console di **gestione di MAB** . In **Seleziona metodo protezione dati**deselezionare la casella di controllo voglio la **protezione online** .
 
   ![Selezionare il metodo di protezione dati.](./media/backup-azure-delete-vault/data-protection-method.png)
 
 Dopo aver eliminato gli elementi di backup locali, seguire i passaggi successivi dal portale.
-
 
 ## <a name="delete-the-recovery-services-vault"></a>Eliminare l'insieme di credenziali di Servizi di ripristino
 
@@ -185,71 +181,73 @@ Per arrestare la protezione ed eliminare i dati di backup:
 - Se si usa SQL nel backup di macchine virtuali di Azure e si Abilita la protezione automatica per le istanze di SQL, disabilitare prima la protezione automatica.
 
     ```PowerShell
-        Disable-AzRecoveryServicesBackupAutoProtection 
-           [-InputItem] <ProtectableItemBase> 
-           [-BackupManagementType] <BackupManagementType> 
-           [-WorkloadType] <WorkloadType> 
-           [-PassThru] 
-           [-VaultId <String>] 
-           [-DefaultProfile <IAzureContextContainer>] 
-           [-WhatIf] 
-           [-Confirm] 
-           [<CommonParameters>] 
+        Disable-AzRecoveryServicesBackupAutoProtection
+           [-InputItem] <ProtectableItemBase>
+           [-BackupManagementType] <BackupManagementType>
+           [-WorkloadType] <WorkloadType>
+           [-PassThru]
+           [-VaultId <String>]
+           [-DefaultProfile <IAzureContextContainer>]
+           [-WhatIf]
+           [-Confirm]
+           [<CommonParameters>]
     ```
 
-  [Scopri di più](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) su come disabilitare la protezione per un elemento protetto da backup di Azure 
+  [Altre informazioni](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) su come disabilitare la protezione per un elemento protetto da backup di Azure.
 
 - Arrestare la protezione ed eliminare i dati per tutti gli elementi protetti da backup nel cloud (ad esempio, VM laaS, condivisione file di Azure e così via):
 
     ```PowerShell
-       Disable-AzRecoveryServicesBackupProtection 
-       [-Item] <ItemBase> 
-       [-RemoveRecoveryPoints] 
-       [-Force] 
-       [-VaultId <String>] 
-       [-DefaultProfile <IAzureContextContainer>] 
-       [-WhatIf] 
-       [-Confirm] 
-       [<CommonParameters>] 
+       Disable-AzRecoveryServicesBackupProtection
+       [-Item] <ItemBase>
+       [-RemoveRecoveryPoints]
+       [-Force]
+       [-VaultId <String>]
+       [-DefaultProfile <IAzureContextContainer>]
+       [-WhatIf]
+       [-Confirm]
+       [<CommonParameters>]
     ```
-    [Altre informazioni](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0)  about Disabilita la protezione per un elemento protetto da backup. 
+
+    [Altre](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) informazioni about Disabilita la protezione per un elemento protetto da backup.
 
 - Per i file e le cartelle locali protetti con l'agente di backup di Azure (MARS) che esegue il backup in Azure, usare il comando di PowerShell seguente per eliminare i dati di cui è stato eseguito il backup da ogni modulo di PowerShell MARS:
 
-    ```
+    ```powershell
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Pubblicare il messaggio seguente:
-     
-    *Backup di Microsoft Azure rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente.  <br/> [Y] Sì [A] Sì a tutti [N] no [L] no a all [S] Suspend [?] Guida (il valore predefinito è "Y"):*
+    Post in cui viene visualizzato il messaggio seguente:
 
+    *Backup di Microsoft Azure rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente. <br/> [Y] Sì [A] Sì a tutti [N] no [L] no a all [S] Suspend [?] Guida (il valore predefinito è "Y"):*
 
 - Per i computer locali protetti con MAB (Backup di Microsoft Azure Server) o DPM in Azure (System Center Data Protection Manager), usare il comando seguente per eliminare i dati di cui è stato eseguito il backup in Azure.
 
-    ```
-    Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin> 
+    ```powershell
+    Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Pubblicare il messaggio seguente: 
-         
-   *Backup di Microsoft Azure rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente.  <br/> [Y] Sì [A] Sì a tutti [N] no [L] no a all [S] Suspend [?] Guida (il valore predefinito è "Y"):*
+    Post in cui viene visualizzato il messaggio seguente:
 
-Dopo aver eliminato i dati di cui è stato eseguito il backup, annullare la registrazione di tutti i contenitori locali e i server di gestione. 
+   *Backup di Microsoft Azure* Rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente. <br/>
+   [Y] Sì [A] Sì a tutti [N] no [L] no a tutti [S] Sospendi [?] Guida (il valore predefinito è "Y"):*
+
+Dopo aver eliminato i dati di cui è stato eseguito il backup, annullare la registrazione di tutti i contenitori locali e i server di gestione.
 
 - Per i file e le cartelle locali protetti con l'agente di backup di Azure (MARS) che esegue il backup in Azure:
 
     ```PowerShell
-    Unregister-AzRecoveryServicesBackupContainer 
-              [-Container] <ContainerBase> 
-              [-PassThru] 
-              [-VaultId <String>] 
-              [-DefaultProfile <IAzureContextContainer>] 
-              [-WhatIf] 
-              [-Confirm] 
-              [<CommonParameters>] 
+    Unregister-AzRecoveryServicesBackupContainer
+              [-Container] <ContainerBase>
+              [-PassThru]
+              [-VaultId <String>]
+              [-DefaultProfile <IAzureContextContainer>]
+              [-WhatIf]
+              [-Confirm]
+              [<CommonParameters>]
     ```
-    [Altre](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) informazioni su come annullare la registrazione di un server Windows o di un altro contenitore dall'insieme di credenziali. 
+
+    [Altre](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) informazioni su come annullare la registrazione di un server Windows o di un altro contenitore dall'insieme di credenziali.
 
 - Per i computer locali protetti con MAB (Backup di Microsoft Azure Server) o DPM in Azure (System Center Data Protection Manage:
 
@@ -266,57 +264,57 @@ Dopo aver eliminato i dati di cui è stato eseguito il backup, annullare la regi
 
     [Altre](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) informazioni su come annullare la registrazione di un contenitore di gestione di backup dall'insieme di credenziali.
 
-Dopo aver eliminato definitivamente i dati sottoposti a backup e aver annullato la registrazione di tutti i contenitori, procedere con l'eliminazione dell'insieme di credenziali. 
+Dopo aver eliminato definitivamente i dati sottoposti a backup e aver annullato la registrazione di tutti i contenitori, procedere con l'eliminazione dell'insieme di credenziali.
 
-Per eliminare un insieme di credenziali dei servizi di ripristino: 
+Per eliminare un insieme di credenziali dei servizi di ripristino:
 
    ```PowerShell
-       Remove-AzRecoveryServicesVault 
-      -Vault <ARSVault> 
-      [-DefaultProfile <IAzureContextContainer>] 
-      [-WhatIf] 
-      [-Confirm] 
-      [<CommonParameters>]        
+       Remove-AzRecoveryServicesVault
+      -Vault <ARSVault>
+      [-DefaultProfile <IAzureContextContainer>]
+      [-WhatIf]
+      [-Confirm]
+      [<CommonParameters>]
    ```
 
-[Altre](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) informazioni sull'eliminazione di un insieme di credenziali di servizi di ripristino. 
+[Altre](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) informazioni sull'eliminazione di un insieme di credenziali di servizi di ripristino.
 
 ## <a name="delete-the-recovery-services-vault-by-using-cli"></a>Eliminare l'insieme di credenziali di servizi di ripristino tramite CLI
 
 Prima di tutto, leggere la sezione **[prima di iniziare](#before-you-start)** per comprendere le dipendenze e il processo di eliminazione dell'insieme di credenziali.
 
 > [!NOTE]
-> Attualmente, l'interfaccia della riga di comando di backup di Azure supporta la gestione solo dei backup di VM di Azure, quindi il comando seguente per eliminare l'insieme di credenziali funziona solo se l'insieme di credenziali contiene backup di macchine virtuali Non è possibile eliminare un insieme di credenziali usando l'interfaccia della riga di comando di backup di Azure se l'insieme di credenziali contiene un elemento di backup di tipo diverso dalle macchine virtuali 
+> Attualmente, l'interfaccia della riga di comando di backup di Azure supporta la gestione solo dei backup di VM di Azure, quindi il comando seguente per eliminare l'insieme di credenziali funziona solo se l'insieme di credenziali contiene backup di macchine virtuali Non è possibile eliminare un insieme di credenziali usando l'interfaccia della riga di comando di backup di Azure se l'insieme di credenziali contiene un elemento di backup di tipo diverso dalle macchine virtuali
 
-Per eliminare l'insieme di credenziali di servizi di ripristino esistente, seguire questa procedura: 
+Per eliminare l'insieme di credenziali di servizi di ripristino esistente, seguire questa procedura:
 
-- Per arrestare la protezione ed eliminare i dati di backup 
-
-    ```CLI
-    az backup protection disable --container-name 
-                             --item-name 
-                             [--delete-backup-data {false, true}] 
-                             [--ids] 
-                             [--resource-group] 
-                             [--subscription] 
-                             [--vault-name] 
-                             [--yes] 
-    ```
-
-    Per ulteriori informazioni, fare riferimento a questo [articolo](/cli/azure/backup/protection#az-backup-protection-disable). 
-
-- Eliminare un insieme di credenziali di servizi di ripristino esistente: 
+- Per arrestare la protezione ed eliminare i dati di backup
 
     ```CLI
-    az backup vault delete [--force] 
-                       [--ids] 
-                       [--name] 
-                       [--resource-group] 
-                       [--subscription] 
-                       [--yes] 
+    az backup protection disable --container-name
+                             --item-name
+                             [--delete-backup-data {false, true}]
+                             [--ids]
+                             [--resource-group]
+                             [--subscription]
+                             [--vault-name]
+                             [--yes]
     ```
 
-    Per ulteriori informazioni, fare riferimento a questo [articolo](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest) . 
+    Per altre informazioni, vedere questo [articolo](/cli/azure/backup/protection#az-backup-protection-disable).
+
+- Eliminare un insieme di credenziali di servizi di ripristino esistente:
+
+    ```CLI
+    az backup vault delete [--force]
+                       [--ids]
+                       [--name]
+                       [--resource-group]
+                       [--subscription]
+                       [--yes]
+    ```
+
+    Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest)
 
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Eliminare l'insieme di credenziali di servizi di ripristino usando Azure Resource Manager
 
@@ -344,6 +342,7 @@ Per ulteriori informazioni sul comando ARMClient, vedere il [file Leggimi di ARM
    ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
+
 2. Se l'insieme di credenziali non è vuoto, verrà visualizzato il messaggio di errore seguente: *non è possibile eliminare l'insieme di credenziali perché sono presenti risorse esistenti all'interno di questo insieme di credenziali.* Per rimuovere un elemento o un contenitore protetto in un insieme di credenziali, eseguire il comando seguente:
 
    ```azurepowershell
@@ -351,7 +350,6 @@ Per ulteriori informazioni sul comando ARMClient, vedere il [file Leggimi di ARM
    ```
 
 3. Nel portale di Azure assicurarsi che l'insieme di credenziali venga eliminato.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

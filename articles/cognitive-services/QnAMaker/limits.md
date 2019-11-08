@@ -11,22 +11,22 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c7b0dc39d2da403383f245b9ff3227734c58cbbe
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 4effd14029eaaee1e1c22cdb814096820e19e089
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193496"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794019"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
 
-QnA Maker limiti indicati di seguito sono una combinazione dei limiti del piano tariffario di [ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity) e dei limiti del piano tariffario di [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). È necessario conoscere entrambi i set di limiti per comprendere il numero di Knowledge base che è possibile creare per ogni risorsa e le dimensioni di ogni Knowledge base che possono aumentare.
+QnA Maker limiti indicati di seguito sono una combinazione dei limiti del piano [tariffario di Azure ricerca cognitiva](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity) e del piano [tariffario QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). È necessario conoscere entrambi i set di limiti per comprendere il numero di Knowledge base che è possibile creare per ogni risorsa e le dimensioni di ogni Knowledge base che possono aumentare.
 
 ## <a name="knowledge-bases"></a>Knowledge base
 
-Il numero massimo di Knowledge base è basato sui [limiti del livello di ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity).
+Il numero massimo di Knowledge base è basato sui [limiti del livello di ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity).
 
-|**Livello di ricerca di Azure** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Livello ricerca cognitiva di Azure** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Numero massimo di knowledge base pubblicate consentite|2|14|49|199|199|2999|
 
@@ -44,11 +44,11 @@ Il numero massimo di collegamenti profondi che possono essere sottoposti a ricer
 
 ## <a name="metadata-limits"></a>Limiti di metadati
 
-### <a name="by-azure-search-pricing-tier"></a>Del piano tariffario di ricerca di Azure
+### <a name="by-azure-cognitive-search-pricing-tier"></a>Da Azure ricerca cognitiva piano tariffario
 
-Il numero massimo di campi di metadati per Knowledge base è basato sui **[limiti del livello di ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** .
+Il numero massimo di campi di metadati per Knowledge base è basato sui **[limiti del livello di ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** .
 
-|**Livello di ricerca di Azure** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Livello ricerca cognitiva di Azure** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Numero massimo di campi di metadati per ogni servizio QnA Maker (attraverso tutte le knowledge base)|1\.000|100*|1\.000|1\.000|1\.000|1\.000|
 
@@ -58,26 +58,26 @@ Nella tabella seguente sono elencati i caratteri di lunghezza e accettabili per 
 
 |Elemento|Caratteri consentiti|Corrispondenza del criterio Regex|Caratteri max|
 |--|--|--|--|
-|Name|Consente<br>alfanumerico (lettere e cifre)<br>`_`sottolineatura|`^[a-zA-Z0-9_]+$`|100|
-|Valore|Consente tutti gli elementi eccetto<br>`:`virgola<br>`|`(barra verticale)|`^[^:|]+$`|500|
+|Name|Consente<br>alfanumerico (lettere e cifre)<br>`_` (carattere di sottolineatura)|`^[a-zA-Z0-9_]+$`|100|
+|Valore|Consente tutti gli elementi eccetto<br>`:` (due punti)<br>`|` (barra verticale)|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>Limiti di contenuto della Knowledge Base
 Limiti complessivi sul contenuto nella knowledge base:
 * Lunghezza del testo della risposta: 25.000
-* Lunghezza del testo della domanda: 1.000
-* Lunghezza del testo di chiave/valore dei metadati: 100
-* Caratteri supportati per il nome dei metadati: Alfabeti, cifre e`_`  
-* Caratteri supportati per il valore dei metadati: Tutti tranne `:` e`|` 
+* Lunghezza del testo della domanda: 1000
+* Lunghezza del testo di chiave/valore: 100
+* Caratteri supportati per il nome dei metadati: alfabeti, cifre e `_`  
+* Caratteri supportati per il valore dei metadati: tutti tranne `:` e `|` 
 * Lunghezza del nome file: 200
 * Formati di file supportati: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Numero massimo di domande alternative: 300
-* Numero massimo di coppie di risposta alla domanda: Dipende dal livello di **[ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** scelto. Una coppia di domande e risposte viene mappata a un documento nell'indice di ricerca di Azure. 
-* URL/pagina HTML: 1 milione caratteri
+* Numero massimo di coppie domanda-risposta: dipende dal livello di **[ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** scelto. Una coppia di domande e risposte viene mappata a un documento in Azure ricerca cognitiva index. 
+* Pagina URL/HTML: 1 milione caratteri
 
 ## <a name="create-knowledge-base-call-limits"></a>Creare i limiti di chiamata per la Knowledge base:
 Questi rappresentano i limiti per ogni azione di creazione di knowledge base; ovvero, fare clic su *Crea KB* o richiamare l'API di Crea Knowledge Base.
-* Numero massimo di domande alternative per ogni risposta: 300
+* Numero massimo di domande alternative per risposta: 300
 * Numero massimo di URL: 10
 * Numero massimo di file: 10
 

@@ -1,5 +1,5 @@
 ---
-title: 'Configurare il peering per un circuito - ExpressRoute: Azure: classico | Microsoft Docs'
+title: 'Configurare il peering per un circuito-ExpressRoute: Azure: classico | Microsoft Docs'
 description: Questo articolo descrive come creare ed eseguire il provisioning di un circuito ExpressRoute per il peering privato, il peering pubblico e il peering Microsoft. Questo articolo mostra anche come controllare lo stato e aggiornare o eliminare i peering per un circuito.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: a57681cc9f44593ceea6b2c1795274c1b16d3a94
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 01ec721fb7e7dea0e4e31e0c3052cc4246cf14b0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64726202"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748184"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Creare e modificare il peering per un circuito ExpressRoute (versione classica)
 > [!div class="op_single_selector"]
@@ -23,7 +23,7 @@ ms.locfileid: "64726202"
 > * [Video - Peering privato](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Video - Peering pubblico](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [Video - Peering Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
-> * [PowerShell (classic)](expressroute-howto-routing-classic.md) (PowerShell (classico))
+> * [PowerShell (classico)](expressroute-howto-routing-classic.md)
 > 
 
 Questo articolo descrive le procedure per creare e gestire la configurazione di peering/routing per un circuito ExpressRoute usando PowerShell e il modello di distribuzione classico. La procedura seguente mostra anche come controllare lo stato e aggiornare, eliminare o effettuare il deprovisioning dei peering per un circuito ExpressRoute. Per un circuito ExpressRoute è possibile configurare uno, due o tutti e tre i peering (peering privato di Azure, peering pubblico di Azure e peering Microsoft). È possibile configurare i peering nell'ordine desiderato. assicurandosi, tuttavia, di completare la configurazione di un peering per volta. 
@@ -32,12 +32,9 @@ Queste istruzioni si applicano solo ai circuiti creati con provider di servizi c
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
-**Informazioni sui modelli di distribuzione di AzureAbout Azure deployment models**
+**Informazioni sui modelli di distribuzione di Azure**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>Prerequisiti di configurazione
 
@@ -55,7 +52,7 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRou
 
 Per istruzioni dettagliate sulla configurazione del computer per l'uso con i moduli di Azure PowerShell, vedere [Getting started with Azure PowerShell cmdlets](/powershell/azure/overview) (Introduzione ai cmdlet di Azure PowerShell).
 
-### <a name="sign-in"></a>Accesso
+### <a name="sign-in"></a>pagina di accesso
 
 Per accedere al proprio account di Azure, usare gli esempi seguenti:
 
@@ -189,7 +186,7 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed eliminare la configurazione del peering pubblico di Azure per un circuito ExpressRoute.
 
 > [!NOTE]
-> Peering pubblico di Azure è deprecato per nuovi circuiti.
+> Il peering pubblico di Azure è deprecato per i nuovi circuiti.
 >
 
 ### <a name="to-create-azure-public-peering"></a>Per creare un peering pubblico di Azure
@@ -336,10 +333,10 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
    * Una subnet /30 per il collegamento secondario. Deve essere un prefisso IPv4 pubblico valido di proprietà dell'utente e registrato presso un registro RIR o IRR.
    * Un ID VLAN valido su cui stabilire questo peering. Verificare che nessun altro peering nel circuito usi lo stesso ID VLAN.
    * Numero AS per il peering. È possibile usare numeri AS a 2 e a 4 byte.
-   * Prefissi annunciati: è necessario fornire un elenco di tutti i prefissi che si intende annunciare nella sessione BGP. Sono accettati solo prefissi di indirizzi IP pubblici. Per inviare un set di prefissi, è possibile creare un elenco con valori delimitati da virgole. Questi prefissi devono essere intestati all'utente in un registro RIR o IRR.
-   * ASN cliente: se si annunciano prefissi non registrati nel numero AS del peering, è possibile specificare il numero AS in cui sono registrati. **Facoltativo**.
-   * Nome del registro di routing: è possibile specificare il registro RIR/IRR in cui sono registrati il numero AS e i prefissi.
-   * Un hash MD5, se si sceglie di usarne uno. **Facoltativo.**
+   * Advertised prefixes: è necessario fornire un elenco di tutti i prefissi che si intende pubblicizzare nella sessione BGP. Sono accettati solo prefissi di indirizzi IP pubblici. Per inviare un set di prefissi, è possibile creare un elenco con valori delimitati da virgole. Questi prefissi devono essere intestati all'utente in un registro RIR o IRR.
+   * Customer ASN: se si annunciano prefissi registrati al numero AS di peering, è possibile specificare il numero AS a cui sono registrati. **Facoltativo**.
+   * Routing Registry Name: è possibile specificare il registro RIR/IRR in cui sono registrati il numero AS e i prefissi.
+   * Hash MD5, se si sceglie di usarne uno. **Facoltativo.**
      
    Per configurare il peering Microsoft per il circuito, eseguire il cmdlet seguente:
  

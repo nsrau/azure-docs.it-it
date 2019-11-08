@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
-ms.openlocfilehash: 3abf3d562b9ca4d6fc9907c065dbaf9a52d58c5f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 81d82ce79130513a2827090a98bfef192c9d7829
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555354"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795711"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Panoramica delle informazioni dettagliate in monitoraggio di Azure
 Le informazioni dettagliate forniscono un'esperienza di monitoraggio personalizzata per applicazioni e servizi specifici. Archiviano i dati nella [piattaforma dati di monitoraggio di Azure](../platform/data-platform.md) e sfruttano altre funzionalità di monitoraggio di Azure per l'analisi e l'invio di avvisi, ma possono raccogliere dati aggiuntivi e fornire un'esperienza utente univoca nel portale di Azure. Accedere a Insights dalla sezione **Insights** del menu di monitoraggio di Azure nel portale di Azure.
@@ -45,7 +45,12 @@ Monitoraggio di Azure per le macchine virtuali consente di monitorare le macchin
 
 Vedere [che cos'è monitoraggio di Azure per le macchine virtuali?](vminsights-overview.md)
 
-![Monitoraggio di Azure per le macchine virtuali](media/insights-overview/vm-insights.png)
+![Monitoraggio di Azure per VM](media/insights-overview/vm-insights.png)
+
+## <a name="azure-monitor-for-network-preview"></a>Monitoraggio di Azure per rete (anteprima)
+Monitoraggio di Azure per la rete offre una panoramica completa dell'integrità e delle metriche per tutte le risorse di rete. La funzionalità di ricerca avanzata consente di identificare le dipendenze delle risorse, abilitando scenari come l'identificazione di risorse che ospitano il sito Web, semplicemente cercando il nome del sito Web.
+
+![Monitoraggio di Azure per le reti](media/insights-overview/network-insights.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Scopri di più sulla [piattaforma dati di monitoraggio di Azure](../platform/data-platform.md) sfruttando le informazioni dettagliate.

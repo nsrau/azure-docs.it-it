@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: philmea
-ms.openlocfilehash: 533a199f75baa5a27ed06698f22d4d046be45507
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 173be8207df2f0128dfc9ae3c36aa3c3dc392bee
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607882"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748562"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza dell'hub IoT
 
@@ -62,7 +62,7 @@ Una volta completata l'operazione di failover per l'Hub IoT, tutte le operazioni
 > [!CAUTION]
 > - Il nome e l'endpoint compatibili con l'Hub eventi dell'Hub incorporato degli eventi IoT cambiano dopo il failover. Quando si ricevono messaggi di telemetria dall'endpoint incorporato usano il client Hub eventi o l'host del processore eventi, è necessario [usare la stringa di connessione Hub IoT ](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) per stabilire la connessione. Ciò garantisce che le applicazioni back-end continuino a funzionare senza richiedere l'intervento manuale dopo il failover. Se si usa il nome compatibile con Hub eventi e l'endpoint nell'applicazione back-end direttamente, è necessario riconfigurare l'applicazione eseguendo il [recupero del nuovo nome compatibile con l'Hub eventi e con l'endpoint](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) dopo il failover per continuare operazioni.
 >
-> - Quando si esegue il routing alla risorsa di archiviazione, è consigliabile eseguire l'integrazione del contenitore di archiviazione e quindi scorrerli per assicurarsi che tutti i contenitori vengano letti senza creare presupposti della partizione. È possibile che l'intervallo di partizioni venga modificato durante un failover manuale o avviato da Microsoft. Per informazioni su come enumerare l'elenco di BLOB, vedere [routing ad archiviazione di Azure](iot-hub-devguide-messages-d2c.md#azure-storage).
+> - Quando si esegue il routing alla risorsa di archiviazione, è consigliabile elencare i BLOB o i file e quindi scorrerli per assicurarsi che tutti i BLOB o i file vengano letti senza creare presupposti della partizione. È possibile che l'intervallo di partizioni venga modificato durante un failover manuale o avviato da Microsoft. È possibile usare l' [API List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) per enumerare l'elenco di BLOB o [elencare ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) per l'elenco di file. 
 
 ## <a name="microsoft-initiated-failover"></a>Failover avviato da Microsoft
 

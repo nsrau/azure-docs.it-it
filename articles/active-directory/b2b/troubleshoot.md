@@ -4,20 +4,23 @@ description: Informazioni su come risolvere i problemi comuni di Collaborazione 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/25/2017
+tags: active-directory
 ms.author: mimart
 author: v-miegge
-manager: celestedg
+manager: dcscontentpm
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom:
+- it-pro
+- seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f91ddee8668316df69c98ed14fbcabcb06b6da82
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6449644f98280d75363f737be11f8e8b824cab36
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983405"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795188"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory
 

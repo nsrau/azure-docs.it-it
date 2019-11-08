@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: af30719ead8464d0420734818203b8070eb5d145
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: a0b0d0d95e1ffd50faba19f1665ea5dae737b124
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105111"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796141"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configurare i contenitori di Riconoscimento modulo
 
@@ -45,9 +45,9 @@ L'impostazione `Billing` specifica l'URI dell'endpoint della risorsa di _Riconos
 
 Questa impostazione si trova nel portale di Azure, nella sezione **Endpoint** di **Form Recognizer Overview** (Panoramica di Riconoscimento modulo).
 
-|Obbligatoria| Name | Tipo di dati | Descrizione |
+|Obbligatorio| Name | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
+|Sì| `Billing` | String | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](form-recognizer-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -76,24 +76,24 @@ La sintassi esatta della posizione di montaggio host varia a seconda del sistema
 
 |Facoltativo| Name | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
-|Obbligatoria| `Input` | String | Destinazione del montaggio di input. Il valore predefinito è `/input`.    <br><br>Esempio:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Obbligatoria| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`.  <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Obbligatorio| `Input` | String | Destinazione del montaggio di input. Il valore predefinito è `/input`.    <br><br>Esempio:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Obbligatorio| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`.  <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandi docker run di esempio
 
 Gli esempi seguenti usano le impostazioni di configurazione per illustrare come scrivere e usare i comandi `docker run`. Una volta avviata, l'esecuzione del contenitore continua finché non la si [arresta](form-recognizer-container-howto.md#stop-the-container).
 
-* **Carattere di continuazione di riga**: I comandi di Docker nelle sezioni seguenti usano la barra rovesciata (\\) come carattere di continuazione di riga. Sostituire o rimuovere questo carattere in base ai requisiti del sistema operativo host.
-* **Ordine degli argomenti**: Non cambiare l'ordine degli argomenti se non si ha dimestichezza con i contenitori Docker.
+* **Carattere di continuazione di riga**: i comandi di Docker nelle sezioni seguenti usano una barra rovesciata (\\) come carattere di continuazione di riga. Sostituire o rimuovere questo carattere in base ai requisiti del sistema operativo host.
+* **Ordine**degli argomenti: non modificare l'ordine degli argomenti a meno che non si abbia familiarità con i contenitori docker.
 
 Sostituire {_argument_name_} nella tabella seguente con i propri valori:
 
-| Segnaposto | Value |
+| Placeholder | Valore |
 |-------------|-------|
 | **{FORM_RECOGNIZER_API_KEY}** | La chiave usata per avviare il contenitore. È disponibile nella pagina Form Recognizer Keys (Chiavi di Riconoscimento modulo) del portale di Azure. |
 | **{FORM_RECOGNIZER_ENDPOINT_URI}** | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina Form Recognizer Overview (Panoramica di Riconoscimento modulo) del portale di Azure.|
 | **{COMPUTER_VISION_API_KEY}** | La chiave è disponibile nella pagina Computer Vision API Keys (Chiavi dell'API Visione artificiale) del portale di Azure.|
-| **{COMPUTER_VISION_ENDPOINT_URI}** | L'endpoint di fatturazione. Se si usa una risorsa di Visione artificiale basata sul cloud, il valore dell'URI è disponibile nella pagina Computer Vision API Overview (Panoramica dell'API Visione artificiale) del portale di Azure. Se si usa un contenitore *cognitive-Services-Recognize-text* , usare l'URL dell'endpoint di fatturazione passato al contenitore nel `docker run` comando. |
+| **{COMPUTER_VISION_ENDPOINT_URI}** | L'endpoint di fatturazione. Se si usa una risorsa di Visione artificiale basata sul cloud, il valore dell'URI è disponibile nella pagina Computer Vision API Overview (Panoramica dell'API Visione artificiale) del portale di Azure. Se si usa un contenitore *cognitive-Services-Recognize-text* , usare l'URL dell'endpoint di fatturazione passato al contenitore nel comando `docker run`. |
 
 Per informazioni dettagliate su come ottenere questi valori, vedere [raccolta dei parametri obbligatori](form-recognizer-container-howto.md#gathering-required-parameters) .
 

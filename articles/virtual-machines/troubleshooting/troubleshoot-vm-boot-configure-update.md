@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 4263afe33caa4d6471848c8e7dbf9bc1eeec4bee
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: da45e24898bc3b5aead250077af69a61bdb33bab
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332557"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749633"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>L'avvio della macchina virtuale si blocca su un messaggio analogo a "Preparazione di Windows. Non spegnere il computer" in Azure
 
 Questo articolo descrive le schermate "preparazione" e "preparazione di Windows" che possono verificarsi quando si avvia una macchina virtuale (VM) Windows in Microsoft Azure. Sono incluse le procedure per raccogliere i dati per un ticket di supporto.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="symptoms"></a>Sintomi
 
@@ -100,7 +100,7 @@ Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
 3. [Scollegare il disco del sistema operativo e quindi ricollegarlo alla macchina virtuale interessata](../windows/troubleshoot-recovery-disks-portal.md).
 4. Avviare la macchina virtuale e accedere alla console seriale.
 5. Selezionare **Invia interrupt non mascherabile (NMI)** per attivare il dump della memoria.
-    immagine ![The su dove inviare l'interrupt non mascherabile @ no__t-1
+    ![l'immagine sulla posizione in cui inviare l'interrupt non mascherabile](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
 6. Alleghi nuovamente il disco del sistema operativo a una macchina virtuale di ripristino, Raccogli file dump.
 
 ## <a name="contact-microsoft-support"></a>Contattare il supporto Microsoft

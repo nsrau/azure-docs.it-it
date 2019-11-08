@@ -6,19 +6,19 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3e2d9b892ad42563b481a0b1fe6a468daefad672
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: e0c3c88119c3d064326442881854920b411f5ed4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606407"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748379"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Creare contenitori e database di Azure Cosmos in modalità Autopilot (anteprima)
 
 Azure Cosmos DB consente di effettuare il provisioning della velocità effettiva nei contenitori in modalità manuale o automatico. Questo articolo descrive i vantaggi e i casi d'uso della modalità Autopilot.
 
 > [!NOTE]
-> La modalità Autopilot è attualmente disponibile in anteprima pubblica.
+> La modalità Autopilot è attualmente disponibile in anteprima pubblica. Per abilitare la funzionalità Autopilot per l'account Azure Cosmos, vedere la sezione [abilitare Autopilot](#enable-autopilot) di questo articolo. È possibile abilitare Autopilot solo per i nuovi database e per i contenitori, non è disponibile per i contenitori e i database esistenti.
 
 Oltre al provisioning manuale della velocità effettiva, è ora possibile configurare i contenitori di Azure Cosmos in modalità Autopilot. I contenitori e i database di Azure Cosmos configurati in modalità Autopilot consentono di **ridimensionare automaticamente e immediatamente la velocità effettiva con provisioning in base alle esigenze dell'applicazione senza compromettere i contratti** di contratto.
 
@@ -68,7 +68,7 @@ Le soluzioni ai problemi precedenti non solo richiedono una quantità di tempo m
 | **Prezzi** | UR/sec di cui è stato effettuato manualmente il provisioning all'ora. | Per gli account con singola area di scrittura, si paga per la velocità effettiva usata su base oraria, usando la tariffa di Autopilot ur/sec per ora. <br/><br/>Per gli account con più aree di scrittura, non sono previsti costi aggiuntivi per Autopilot. Paghi per la velocità effettiva usata su base oraria usando la stessa tariffa per più master ur/sec per ogni ora. |
 | **Ideale per i tipi di carico di lavoro** |  Carichi di lavoro prevedibili e stabili|   Carichi di lavoro imprevedibili e variabili  |
 
-## <a name="enable-autopilot-from-azure-portal"></a>Abilita Autopilot da portale di Azure
+## <a name="a-idenable-autopilot-enable-autopilot-from-azure-portal"></a><a id="enable-autopilot"> abilitare Autopilot da portale di Azure
 
 È possibile provare Autopilot negli account Azure Cosmos abilitando in da portale di Azure. Per abilitare l'opzione Autopilot, attenersi alla procedura seguente:
 
