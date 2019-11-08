@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: f0f9a2e59e0e231c956e9f1c36bb6a54bcbaca24
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7e07419115a6e9709879c71dfac1234408bda0ee
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476321"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824066"
 ---
 # <a name="what-is-azure-machine-learning"></a>Informazioni su Azure Machine Learning
 
@@ -44,7 +44,7 @@ Azure Machine Learning offre tutti gli strumenti necessari agli sviluppatori e a
 
 + Notebook di Jupyter: usare i [notebook di esempio](https://aka.ms/aml-notebooks) forniti o creare notebook personalizzati per sfruttare gli esempi dell'<a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK per Python</a> per Machine Learning. 
 
-+ Notebook o script R in cui usare l'<a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html on" target="_blank">SDK per R</a> per scrivere codice personalizzato o usare i moduli R nella finestra di progettazione.
++ Notebook o script R in cui usare l'<a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK per R</a> per scrivere codice personalizzato o usare i moduli R nella finestra di progettazione.
 
 + [Estensione di Visual Studio Code](how-to-vscode-tools.md)
 
@@ -73,7 +73,7 @@ Per un training e una distribuzione senza codice o con poco codice, provare:
 
   Per altre informazioni, vedere l'[articolo di panoramica sulla finestra di progettazione di Azure Machine Learning](concept-designer.md). 
 
-  ![Esempio di finestra di progettazione di Azure Machine Learning](/media/concept-ml-pipelines/visual-design-surface.gif)
+  ![Esempio di finestra di progettazione di Azure Machine Learning](media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
 + **Interfaccia utente di Machine Learning automatizzato**
 

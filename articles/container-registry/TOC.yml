@@ -39,7 +39,7 @@
           href: container-registry-tutorial-deploy-update.md
 - name: Concetti
   items:
-    - name: SKU Registro contenitori
+    - name: SKU di Registro Container e limiti
       href: container-registry-skus.md
     - name: 'Registri, repository e immagini'
       href: container-registry-concepts.md
@@ -75,8 +75,6 @@
               href: container-registry-retention-policy.md
             - name: Ripulire automaticamente tag e manifesti (anteprima)
               href: container-registry-auto-purge.md
-        - name: Aggiornare un registro classico
-          href: container-registry-upgrade.md
         - name: Usare i webhook ACR
           href: container-registry-webhook.md
         - name: Repository di chart Helm (anteprima)

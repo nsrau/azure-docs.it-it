@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bbb064c358eba2dd64ba9ae86540a30cb56adb66
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 52394eb150a4206b7fb31cdf4b801762511e1a8c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595020"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471354"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
@@ -60,9 +60,13 @@ Per eseguire il mapping di un nome DNS personalizzato a un'app Web, è necessari
 
 Aprire il [portale di Azure](https://portal.azure.com) e accedere con l'account Azure.
 
-### <a name="navigate-to-the-app-in-the-azure-portal"></a>Passare all'app nel portale di Azure
+### <a name="select-the-app-in-the-azure-portal"></a>Selezionare l'app nel portale di Azure
 
-Dal menu a sinistra selezionare **Servizi app** e quindi selezionare il nome dell'app.
+Cercare e selezionare **Servizi app**.
+
+![Selezionare Servizi app](./media/app-service-web-tutorial-custom-domain/app-services.png)
+
+Nella pagina **Servizi app** selezionare il nome dell'app di Azure.
 
 ![Passaggio all'app di Azure nel portale](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
@@ -156,7 +160,7 @@ La visualizzazione del nuovo dominio personalizzato nella pagina **Domini person
 ![Record CNAME aggiunto](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> L'etichetta **Non sicuro** indica che il dominio personalizzato non è ancora associato a un certificato SSL e che, a seconda del browser in uso, per qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato verrà restituito un errore o un avviso. Per aggiungere un binding SSL, vedere [Associare un certificato SSL personalizzato esistente al Servizio app di Azure](app-service-web-tutorial-custom-ssl.md).
+> L'etichetta **Non sicuro** indica che il dominio personalizzato non è ancora associato a un certificato SSL e che, a seconda del browser in uso, per qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato verrà restituito un errore o un avviso. Per aggiungere un binding SSL, vedere [Proteggere un nome DNS personalizzato con un'associazione SSL nel Servizio app di Azure](configure-ssl-bindings.md).
 
 Se è stato saltato un passaggio o è stato inserito un errore di digitazione, nella parte inferiore della pagina viene visualizzato un errore di verifica.
 
@@ -240,7 +244,7 @@ La visualizzazione del nuovo dominio personalizzato nella pagina **Domini person
 ![Record A aggiunto](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> L'etichetta **Non sicuro** indica che il dominio personalizzato non è ancora associato a un certificato SSL e che, a seconda del browser in uso, per qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato verrà restituito un errore o un avviso. Per aggiungere un binding SSL, vedere [Associare un certificato SSL personalizzato esistente al Servizio app di Azure](app-service-web-tutorial-custom-ssl.md).
+> L'etichetta **Non sicuro** indica che il dominio personalizzato non è ancora associato a un certificato SSL e che, a seconda del browser in uso, per qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato verrà restituito un errore o un avviso. Per aggiungere un binding SSL, vedere [Proteggere un nome DNS personalizzato con un'associazione SSL nel Servizio app di Azure](configure-ssl-bindings.md).
 
 Se è stato saltato un passaggio o è stato inserito un errore di digitazione, nella parte inferiore della pagina viene visualizzato un errore di verifica.
 
@@ -295,7 +299,7 @@ Fare di nuovo clic sull'icona **+** per aggiungere un altro dominio personalizza
 ![Record CNAME aggiunto](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> L'etichetta **Non sicuro** indica che il dominio personalizzato non è ancora associato a un certificato SSL e che, a seconda del browser in uso, per qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato verrà restituito un errore o un avviso. Per aggiungere un binding SSL, vedere [Associare un certificato SSL personalizzato esistente al Servizio app di Azure](app-service-web-tutorial-custom-ssl.md).
+> L'etichetta **Non sicuro** indica che il dominio personalizzato non è ancora associato a un certificato SSL e che, a seconda del browser in uso, per qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato verrà restituito un errore o un avviso. Per aggiungere un binding SSL, vedere [Proteggere un nome DNS personalizzato con un'associazione SSL nel Servizio app di Azure](configure-ssl-bindings.md).
 
 ## <a name="test-in-browser"></a>Prova nel browser
 
@@ -374,4 +378,4 @@ Questa esercitazione illustra come:
 Passare all'esercitazione successiva per apprendere come associare un certificato SSL personalizzato a un'app Web.
 
 > [!div class="nextstepaction"]
-> [Associare un certificato SSL personalizzato esistente al servizio app di Azure](app-service-web-tutorial-custom-ssl.md)
+> [Proteggere un nome DNS personalizzato con un binding SSL nel Servizio app di Azure](configure-ssl-bindings.md)

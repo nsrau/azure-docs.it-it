@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 25882f2aaa5d32dfb594d5f8fdb9cdc46f2ad958
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9531e86e63fa8d944aa216fddd0c8215b73038a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307606"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492717"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Esercitazione: Ottenere dati esattamente corrispondenti al testo da un'espressione
 
 Questa esercitazione spiega come ottenere dati entità corrispondenti a un elenco predefinito di elementi. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **In questa esercitazione si imparerà come:**
 
@@ -104,7 +106,7 @@ Il nome _canonico_ per ogni elemento è il nome del reparto. Ecco alcuni sinonim
 
 1. Nella finestra popup relativa all'entità immettere `Department` come nome dell'entità e **List** come tipo di entità. Selezionare **Operazione completata**.  
 
-    [![Screenshot della creazione di una nuova finestra di dialogo entità](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "Screenshot della creazione di una nuova finestra di dialogo entità")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
+    [![Screenshot della finestra popup di creazione di una nuova entità](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "Screenshot della finestra popup di creazione di una nuova entità")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
 
 1. Nella pagina relativa all'entità reparto immettere `Accounting` come nuovo valore.
 

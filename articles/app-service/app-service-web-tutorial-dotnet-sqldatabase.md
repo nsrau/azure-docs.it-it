@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f010e7564f097f28269070d85e2895e73f454054
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2f815d99c32c2dcaa1fd35d00110b27a90f53ab4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415566"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471229"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Esercitazione: Creare un'app ASP.NET in Azure con un database SQL
 
@@ -201,7 +201,7 @@ Dopo che Visual Studio ha completato la creazione dell'impostazione del firewall
 
 In questa posizione è possibile eseguire le operazioni di database più comuni, ad esempio eseguire query, creare visualizzazioni e stored procedure e così via. 
 
-Espandere la connessione > **Database** > **&lt;database >** > **Tabelle**. Fare clic con il pulsante destro del mouse sulla tabella `Todoes` e selezionare **Visualizza dati**. 
+Espandere la connessione > **Database** >  **&lt;database >**  > **Tabelle**. Fare clic con il pulsante destro del mouse sulla tabella `Todoes` e selezionare **Visualizza dati**. 
 
 ![Esplorare gli oggetti del database SQL](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
@@ -311,9 +311,9 @@ Fare clic su **Configura** per aprire le impostazioni di pubblicazione.
 
 Nella procedura guidata fare clic su **Avanti**.
 
-Assicurarsi che la stringa di connessione per il database SQL sia popolata in **MyDatabaseContext (MyDbConnection)**. Potrebbe essere necessario selezionare il database **myToDoAppDb** dall'elenco a discesa. 
+Assicurarsi che la stringa di connessione per il database SQL sia popolata in **MyDatabaseContext (MyDbConnection)** . Potrebbe essere necessario selezionare il database **myToDoAppDb** dall'elenco a discesa. 
 
-Selezionare **Esegui migrazione primo codice (inizia all'avvio dell'applicazione)**, quindi fare clic su **Salva**.
+Selezionare **Esegui migrazione primo codice (inizia all'avvio dell'applicazione)** , quindi fare clic su **Salva**.
 
 ![Abilitare Migrazioni Code First nell'app Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
 
@@ -392,11 +392,11 @@ Per arrestare il servizio di streaming dei log, fare clic sul pulsante **Interro
 
 ## <a name="manage-your-azure-app"></a>Gestire l'app Azure
 
-Passare al [portale di Azure](https://portal.azure.com) per visualizzare l'app creata. 
+Accedere al [portale di Azure](https://portal.azure.com) per visualizzare l'app Web. Cercare e selezionare **Servizi app**. 
 
+![Ricerca di Servizi app di Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
 
-
-Nel menu a sinistra fare clic su **Servizio app** e quindi sul nome dell'app di Azure.
+Selezionare il nome dell'app di Azure.
 
 ![Passaggio all'app di Azure nel portale](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 

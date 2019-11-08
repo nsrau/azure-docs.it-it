@@ -9,20 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 87e4fe3671f419383cb342fdb7dca55a8d2eb45d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: a917176cb06e833745996326520341c1f819c5bf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376257"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465412"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Esercitazione: Estrarre nomi con entità semplice ed elenco di frasi
 
 Questa esercitazione illustra come estrarre dati di Machine Learning relativi a un nome di mansione da un'espressione usando l'entità **semplice**. Per aumentare l'accuratezza di estrazione, aggiungere un elenco di frasi contenente termini specifici all'entità semplice.
 
 L'entità semplice rileva un singolo concetto di dati contenuto in parole o frasi.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **In questa esercitazione si imparerà come:**
 
@@ -93,7 +95,7 @@ Dopo che le entità sono contrassegnate nelle espressioni di esempio, è importa
 
 1. Nell'espressione `I want to apply for the new accounting job` selezionare `accounting` immettere `Job` nel campo in alto nel menu a comparsa e quindi scegliere **Create new entity** (Crea nuova entità) dal menu a comparsa. 
 
-    [![Screenshot di LUIS con finalità 'ApplyForJob' con evidenziati i passaggi di creazione dell'entità](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Screenshot di LUIS con finalità 'ApplyForJob' con evidenziati i passaggi di creazione dell'entità")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![Screenshot di LUIS con la finalità "ApplyForJob" con i passaggi di creazione dell'entità evidenziati](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Screenshot di LUIS con la finalità "ApplyForJob" con i passaggi di creazione dell'entità evidenziati")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 1. Nella finestra popup verificare il nome dell'entità e selezionare **Done** (Fine).
 
@@ -101,7 +103,7 @@ Dopo che le entità sono contrassegnate nelle espressioni di esempio, è importa
 
 1. Nelle espressioni rimanenti, contrassegnare le parole correlate alle mansioni con l'entità **Job** selezionando la parola o frase, quindi scegliere **Job** dal menu a comparsa. 
 
-    [![Screenshot dell'assegnazione di etichette da parte di LUIS a entità processo](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Screenshot dell'assegnazione di etichette da parte di LUIS a entità processo")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
+    [![Screenshot di LUIS con l'etichetta dell'entità Job evidenziata](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Screenshot di LUIS con l'etichetta dell'entità Job evidenziata")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
 
 ## <a name="add-more-example-utterances-and-mark-entity"></a>Aggiungere altre espressioni di esempio e contrassegnare l'entità
@@ -239,7 +241,7 @@ Aprire il file [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive
 
 1. Selezionare **Done** (Fine) per attivare l'elenco di frasi.
 
-    [![Screenshot della finestra popup di creazione di un nuovo elenco di frasi con parole nella casella dei valori dell'elenco di frasi](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot della finestra popup di creazione di un nuovo elenco di frasi con parole nella casella dei valori dell'elenco di frasi")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+    [![Screenshot della finestra popup di creazione di un nuovo elenco di frasi con le parole nella casella dei valori dell'elenco di frasi](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot della finestra popup di creazione di un nuovo elenco di frasi con le parole nella casella dei valori dell'elenco di frasi")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
 1. Eseguire il training dell'app e pubblicarla di nuovo per usare l'elenco di frasi.
 

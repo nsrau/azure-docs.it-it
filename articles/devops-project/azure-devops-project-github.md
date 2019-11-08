@@ -16,12 +16,12 @@ ms.date: 06/27/2019
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4a48b5c413f6dfb58a1ba3f896ded49250cde306
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 15ac201a078864717d8e0079801507cf5fc0fe3b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286266"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481084"
 ---
 # <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Esercitazione: Creare una pipeline CI/CD per il codice esistente usando Azure DevOps Projects
 
@@ -48,7 +48,11 @@ Azure DevOps Projects crea una pipeline CI/CD in Azure Pipelines. È possibile c
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nel riquadro di spostamento sinistro selezionare **+ Crea una risorsa**, quindi cercare **DevOps Projects** e selezionare **Crea**.
+2. Nel menu del portale di Azure selezionare **Crea una risorsa**.
+
+   ![Menu del portale di Azure - Crea una risorsa](_img/azure-devops-project-github/createaresource.png)
+
+3. Selezionare **DevOps > Progetto DevOps**.
 
    ![Dashboard di DevOps Projects](_img/azure-devops-project-github/azuredashboard.png)
 
@@ -56,7 +60,7 @@ Azure DevOps Projects crea una pipeline CI/CD in Azure Pipelines. È possibile c
 
 ## <a name="configure-access-to-your-github-repo-and-choose-a-framework"></a>Configurare l'accesso al repository GitHub e scegliere un framework
 
-1. Selezionare **GitHub** o un repository di codice **Git** esterno. Per questa esercitazione, selezionare **GitHub**. La prima volta che si completa questo passaggio, può essere necessario eseguire l'autenticazione con GitHub, per consentire ad Azure l'accesso al repository GitHub.
+1. Selezionare **GitHub** o un repository di codice **Git** esterno. Per questa esercitazione, selezionare **GitHub**. Al primo tentativo può essere necessario eseguire l'autenticazione con GitHub per consentire ad Azure di accedere al repository GitHub.
 
 2. Infine, selezionare **Repository** e **Ramo**, quindi **Avanti**.
 

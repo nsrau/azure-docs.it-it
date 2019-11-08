@@ -361,7 +361,7 @@
               href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/sql-database/toc.json
             - name: Usare il connettore Spark
               href: sql-database-spark-connector.md
-            - name: Indicizzare con Ricerca di Azure
+            - name: Indicizzare con la ricerca cognitiva di Azure
               href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/sql-database/toc.json
             - name: Configurare i criteri di conservazione temporale
               href: sql-database-temporal-tables-retention-policy.md

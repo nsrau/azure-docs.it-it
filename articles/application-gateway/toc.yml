@@ -147,6 +147,8 @@
           href: ingress-controller-letsencrypt-certificate-application-gateway.md
         - name: Esporre WebSocket al gateway applicazione
           href: ingress-controller-expose-websocket-server.md
+        - name: Ridimensionare automaticamente i pod del servizio Azure Kubernetes con le metriche del gateway applicazione
+          href: ingress-controller-autoscale-pods.md
     - name: Indirizzare in base all'URL
       items:
         - name: Azure PowerShell

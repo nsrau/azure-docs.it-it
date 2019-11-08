@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9a4d4f84626eafdfbc5cc21eef1968a9ed64fcad
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a52a842bbd8ba9d8b22cdcf6792ec7e45a06e964
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "71055624"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471134"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Esercitazione: Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure
 
@@ -408,13 +408,15 @@ Per altre informazioni sulla personalizzazione dei logo di ASP.NET Core, vedere 
 
 ## <a name="manage-your-azure-app"></a>Gestire l'app Azure
 
-Accedere al [portale di Azure](https://portal.azure.com) per visualizzare l'app creata.
+Per visualizzare l'app creata, nel [portale di Azure](https://portal.azure.com) cercare e selezionare **Servizi app**.
 
-Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Azure.
+![Selezionare Servizi app nel portale di Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/app-services.png)
+
+Nella pagina **Servizi app** selezionare il nome dell'app di Azure.
 
 ![Passaggio all'app di Azure nel portale](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 
-Per impostazione predefinita, il portale visualizza la pagina **Panoramica** dell'app. che offre una visualizzazione dello stato dell'app. In questa pagina è anche possibile eseguire attività di gestione di base come esplorare, arrestare, avviare, riavviare ed eliminare. Le schede sul lato sinistro della pagina mostrano le diverse pagine di configurazione che è possibile aprire.
+Per impostazione predefinita, il portale visualizza la pagina **Panoramica** dell'app. che offre una visualizzazione dello stato dell'app. In questa pagina è anche possibile eseguire attività di gestione di base come esplorare, arrestare, avviare, riavviare ed eliminare. Sul lato sinistro della pagina vengono mostrate le diverse pagine di configurazione che è possibile aprire.
 
 ![Pagina del servizio app nel portale di Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 

@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 09/19/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: e2af5cb193653736a0d75b4194e09d42282d2fa6
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 6b55ce851bb12e37aed37039889aa8e69223a286
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203794"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467199"
 ---
 # <a name="what-is-personalizer"></a>Informazioni su Personalizza esperienze
 
-Personalizza esperienze di Azure è un servizio API basato sul cloud che consente di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.
+Personalizza esperienze di Azure è un servizio API basato sul cloud che consente di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento collettivo in tempo reale.
 
 * È possibile fornire informazioni sui propri utenti e contenuti e ricevere l'azione principale da mostrare agli utenti. 
 * Non è necessario pulire ed etichettare i dati prima di usare Personalizza esperienze.
 * È possibile fornire il feedback a Personalizza esperienze al momento opportuno. 
 * È possibile visualizzare l'analisi in tempo reale. 
-* È possibile usare Personalizza esperienze come parte di un'operazione di data science più ampia per convalidare gli esperimenti esistenti.
+
+Vedere una dimostrazione del [funzionamento di Personalizza esperienze](https://personalizercontentdemo.azurewebsites.net/).
 
 ## <a name="how-does-personalizer-work"></a>Come funziona Personalizza esperienze?
 
@@ -37,9 +38,9 @@ Personalizza esperienze usa modelli di Machine Learning per individuare l'azione
 
 1. Scegliere un'esperienza nell'app da personalizzare.
 1. Creare e configurare un'istanza del servizio di personalizzazione nel portale di Azure. Ogni istanza è un ciclo di Personalizza esperienze.
-1. Usare l'SDK per chiamare Personalizza esperienze con le informazioni (_funzionalità_) sugli utenti e sul contenuto (_azioni_). Non è necessario fornire dati puliti ed etichettati prima di usare Personalizza esperienze. 
+1. Usare l'[API per la classificazione](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) per chiamare Personalizza esperienze con le informazioni (_funzionalità_) relative agli utenti e sul contenuto (_azioni_). Non è necessario fornire dati puliti ed etichettati prima di usare Personalizza esperienze. Le API possono essere chiamate direttamente o usando gli SDK disponibili per diversi linguaggi di programmazione.
 1. Nell'applicazione client, mostrare all'utente l'azione selezionata da Personalizza esperienze.
-1. Usare l'SDK per inviare il feedback a Personalizza esperienze, indicando se l'utente ha selezionato l'azione di Personalizza esperienze. Si tratta di un _[punteggio di ricompensa](concept-rewards.md)_ .
+1. Usare l'[API per la ricompensa](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) per inviare il feedback a Personalizza esperienze, indicando se l'utente ha selezionato l'azione di Personalizza esperienze. Si tratta di un _[punteggio di ricompensa](concept-rewards.md)_ .
 1. Visualizzare l'analisi nel portale di Azure per valutare come funziona il sistema e in che modo i dati aiutano la personalizzazione.
 
 ## <a name="where-can-i-use-personalizer"></a>In quali situazioni è possibile usare Personalizza esperienze?

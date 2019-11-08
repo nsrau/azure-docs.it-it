@@ -107,6 +107,8 @@
           href: sql-reference-data.md
         - name: Eseguire l'autenticazione con un'identità gestita - Output di BLOB
           href: blob-output-managed-identity.md
+        - name: Eseguire l'autenticazione con un'identità gestita - Power BI
+          href: powerbi-output-managed-identity.md
     - name: Creare soluzioni
       items:
         - name: Analisi del sentiment su Twitter

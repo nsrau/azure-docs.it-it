@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 7f62e437d80f023972327d98b4add193eb7b8dd6
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 65bbf58d8514f9fea082b839f57e9aaf3417dc14
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044408"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469736"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure
 
@@ -47,8 +47,9 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 Prima di tutto, abilitare Gestione aggiornamenti nella macchina virtuale per questa esercitazione:
 
-1. Nel menu sinistro del portale di Azure selezionare **Macchine virtuali**. Selezionare una VM dall'elenco.
-2. Nella pagina della macchina virtuale, in **OPERAZIONI**, selezionare **Gestione aggiornamenti**. Verrà aperto il riquadro **Abilita Gestione aggiornamenti**.
+1. Nel menu del [portale di Azure](https://portal.azure.com) selezionare **Macchine virtuali** oppure cercare e selezionare **Macchine virtuali** nella pagina **Home**.
+1. Selezionare la macchina virtuale per la quale si vuole abilitare Gestione aggiornamenti.
+1. Nella pagina della macchina virtuale, in **OPERAZIONI**, selezionare **Gestione aggiornamenti**. Verrà aperto il riquadro **Abilita Gestione aggiornamenti**.
 
 Viene eseguita una convalida per determinare se Gestione aggiornamenti è abilitato per la macchina virtuale. La convalida include controlli per un'area di lavoro Log Analytics di Azure e un account di Automazione collegato e verifica se la soluzione Gestione aggiornamenti è presente nell'area di lavoro.
 

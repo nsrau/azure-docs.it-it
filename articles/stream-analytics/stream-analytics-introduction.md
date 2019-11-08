@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: c50ad2b045f32daf53033318123b68e4b2d58db5
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 0982cc90d26c9f04e8d547c7d634e09280d7fca2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329326"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467905"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Informazioni su Analisi di flusso di Azure
 
@@ -61,7 +61,7 @@ Analisi di flusso di Azure usa un semplice linguaggio di query basato su SQL che
 
 Il linguaggio di query di Analisi di flusso offre un'ampia gamma di funzioni per l'analisi e l'elaborazione dei dati in streaming. Questo linguaggio di query supporta la modifica di dati semplici, funzioni di aggregazione e funzioni geospaziali complesse. È possibile modificare le query nel portale e testarle usando i dati di esempio estratti da uno streaming live.
 
-È possibile estendere le funzionalità del linguaggio di query definendo e richiamando funzioni aggiuntive. È possibile definire chiamate di funzione nel servizio Azure Machine Learning per sfruttare i vantaggi delle soluzioni Azure Machine Learning e integrare funzioni o aggregazioni definite dall'utente in JavaScript o C# per eseguire calcoli complessi come parte di una query di Analisi di flusso.
+È possibile estendere le funzionalità del linguaggio di query definendo e richiamando funzioni aggiuntive. È possibile definire chiamate di funzione in Azure Machine Learning per sfruttare i vantaggi delle soluzioni Azure Machine Learning e integrare funzioni o aggregazioni definite dall'utente in JavaScript o C# per eseguire calcoli complessi come parte di una query di Analisi di flusso.
 
 ## <a name="fully-managed"></a>Soluzione completamente gestita
 

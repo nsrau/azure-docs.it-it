@@ -16,12 +16,12 @@ ms.author: cephalin
 ms.custom: seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: 380e587fc8c921b395d63d1dbca10e2f5fb1b9ba
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 98d939c69bb03666dbeed124778b06f8a7e73532
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433196"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471471"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creare un'app Web Node.js in Azure 
 
@@ -124,13 +124,13 @@ Nell'area **SERVIZIO APP DI AZURE** selezionare l'icona della freccia verso l'al
 1. Scegliere un'opzione di creazione in base al sistema operativo in cui eseguire la distribuzione:
 
     - Linux: Scegliere **Crea una nuova app Web**.
-    - Windows: Scegliere **Crea una nuova app Web - Avanzate**.
+    - Windows: Scegliere **Crea una nuova app Web** e selezionare l'opzione **Avanzate**.
 
 1. Digitare un nome univoco a livello globale per l'app Web e premere INVIO. I caratteri validi per il nome dell'app sono "a-z", "0-9" e "-".
 
 1. Se la destinazione è Linux, selezionare una versione di Node.js quando richiesto. È consigliabile usare una versione **LTS**.
 
-1. Se la destinazione è Windows con l'opzione *Avanzate** seguire le istruzioni aggiuntive:
+1. Se la destinazione è Windows con l'opzione **Avanzate**, seguire le istruzioni aggiuntive:
     1. Selezionare **Creare un nuovo gruppo di risorse**, quindi immettere un nome per il gruppo di risorse.
     1. Selezionare **Windows** come sistema operativo.
     1. Selezionare un piano di Servizio app esistente oppure crearne uno nuovo. È possibile selezionare un piano tariffario quando si crea un nuovo piano.

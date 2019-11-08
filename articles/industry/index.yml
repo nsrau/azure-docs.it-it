@@ -1,0 +1,53 @@
+### YamlMime:Hub
+title: Documentazione di Industry for Azure
+summary: Informazioni su come usare Azure per creare soluzioni per casi d'uso comuni dei diversi settori.
+brand: azure
+metadata:
+  title: Documentazione di Industry for Azure
+  description: Informazioni su come usare Azure per creare soluzioni per casi d'uso comuni dei diversi settori.
+  ms.service: azure-industry
+  ms.topic: hub-page
+  ms.collection: collection
+  author: DCtheGeek
+  ms.author: dacoulte
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 2777093db7486f17cf19b45db08bbd0168a4e2a8
+  ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 11/07/2019
+  ms.locfileid: "73797075"
+highlightedContent:
+  items:
+  - title: Azure FarmBeats
+    itemType: overview
+    url: ./agriculture/overview.md
+  - title: Forum della community
+    itemType: concept
+    url: https://aka.ms/FarmBeatsMSDN
+  - title: UserVoice (feedback)
+    itemType: get-started
+    url: https://aka.ms/FarmBeatsForum
+productDirectory:
+  title: Aree di soluzioni di settore
+  items:
+  - title: Azure FarmBeats
+    imageSrc: ../media/index/industry-agriculture-farmbeats.svg
+    summary: Creare rapidamente soluzioni di agricoltura digitale nel cloud.
+    url: ./agriculture/overview.md
+  - title: Servizi finanziari
+    imageSrc: ../media/index/industry-financial.png
+    summary: Soluzioni e casi d'uso per il settore dei servizi finanziari.
+    url: /azure/industry-marketing/financial/
+  - title: Servizi sanitari e scienze biologiche
+    imageSrc: ../media/index/industry-health.png
+    summary: Soluzioni e casi d'uso per il settore dei servizi sanitari e scienze biologiche.
+    url: /azure/industry-marketing/health/
+  - title: Produzione
+    imageSrc: ../media/index/industry-manufacturing.png
+    summary: Soluzioni e casi d'uso per il settore manifatturiero.
+    url: /azure/industry-marketing/manufacturing/
+  - title: Vendita al dettaglio
+    imageSrc: ../media/index/industry-retail.png
+    summary: Soluzioni e casi d'uso per il settore della vendita al dettaglio.
+    url: /azure/industry-marketing/retail/

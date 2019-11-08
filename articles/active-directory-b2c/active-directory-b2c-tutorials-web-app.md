@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 587848c6718a003bf781f81d0298c73ef1549bb3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d88ad13c1326ce62b73dbffa0c79904c6f81e6f4
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474888"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641784"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Esercitazione: Abilitare l'autenticazione in un'applicazione Web con Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Nell'esercitazione completata come parte dei prerequisiti è stata registrata un
 
 ### <a name="add-a-redirect-uri-reply-url"></a>Aggiungere un URI di reindirizzamento (URL di risposta)
 
-Per aggiornare l'applicazione, è possibile usare l'esperienza **Applicazioni** corrente o la nuova esperienza **Registrazioni app (anteprima)** unificata. [Altre informazioni sull'esperienza di anteprima](http://aka.ms/b2cappregintro).
+Per aggiornare l'applicazione, è possibile usare l'esperienza **Applicazioni** corrente o la nuova esperienza **Registrazioni app (anteprima)** unificata. [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
 

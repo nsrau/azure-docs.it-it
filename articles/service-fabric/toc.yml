@@ -487,6 +487,8 @@
                   href: service-fabric-application-secret-management-windows.md
                 - name: Configurare un certificato di crittografia e crittografare segreti in Linux
                   href: service-fabric-application-secret-management-linux.md
+                - name: Archiviare in modo sicuro i segreti con KeyVaultReference (anteprima)
+                  href: service-fabric-keyvault-references.md
             - name: Configurare il proxy inverso per le comunicazioni sicure
               href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: Eseguire uno script di avvio del servizio come account utente o di sistema locale

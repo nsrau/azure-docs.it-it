@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d2eeada500de0f174178234ab92b51bcf16b3502
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 61b4f41a0b36945413e45a357a5ca73ac75ceb98
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176739"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480124"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparare i computer locali per la migrazione ad Azure
 
-Questo articolo descrive come preparare i computer locali e basati sul cloud prima di iniziare la migrazione ad Azure con [Migrazione del server di Azure Migrate](migrate-services-overview.md#azure-migrate-server-migration).
+Questo articolo descrive come preparare i computer locali prima di iniziare la migrazione ad Azure con [Migrazione del server di Azure Migrate](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 In questo articolo si apprenderà come:

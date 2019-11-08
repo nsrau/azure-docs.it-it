@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: c2d7d7d97dce974ad8d72cc98f9ec6d3d554fb6d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 39f71e109b0d9d7b3b0375c0ec2c4d1e4a657994
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72783992"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469499"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Esercitazione: Estrarre, trasformare e caricare dati con Azure Databricks
 
@@ -89,9 +89,15 @@ Assicurarsi di soddisfare i prerequisiti di questa esercitazione.
 
 In questa sezione si crea un servizio Azure Databricks con il portale di Azure.
 
-1. Nel portale di Azure selezionare **Crea una risorsa** > **Analisi** > **Azure Databricks**.
+1. Nel menu del portale di Azure selezionare **Crea una risorsa**.
 
-    ![Databricks nel portale di Azure](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Databricks nel portale di Azure")
+    ![Creazione di una risorsa nel portale di Azure](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png)
+
+    Selezionare quindi **Analisi** > **Azure Databricks**.
+
+    ![Creazione di Azure Databricks nel portale di Azure](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-resource-create.png)
+
+
 
 2. In **Servizio Azure Databricks** specificare i valori seguenti per creare un servizio Databricks:
 
