@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/18/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: b99eafeae60e81fd7d902289a47190a2cbe1daa3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2a1fbe8d47af8a2215b0d0a3d81fbe67a62d4755
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786995"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474412"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Esercitazione: Creare e configurare un'istanza di Azure Active Directory Domain Services
 
@@ -55,7 +55,7 @@ In questa esercitazione viene creata e configurata l'istanza di Azure AD DS tram
 
 Per avviare la procedura guidata **Abilita Azure AD Domain Services**, seguire questa procedura:
 
-1. Nell'angolo in alto a sinistra del portale di Azure selezionare **+ Crea una risorsa**.
+1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**.
 1. Immettere *Servizi di dominio* nella barra di ricerca, quindi scegliere *Azure AD Domain Services* nei suggerimenti per la ricerca.
 1. Nella pagina Azure AD Domain Services selezionare **Crea**. Viene avviata la procedura guidata **Abilita Azure AD Domain Services**.
 1. Selezionare la **Sottoscrizione** di Azure in cui si vuole creare il dominio gestito.
@@ -87,7 +87,11 @@ Si applicano anche le seguenti restrizioni relative ai nomi DNS:
 Completare i campi della finestra *Informazioni di base* del portale di Azure per creare un'istanza di Azure AD DS:
 
 1. Immettere un **nome di dominio DNS** per il dominio gestito, prendendo in considerazione i punti precedenti.
-1. Scegliere la **Località** di Azure in cui deve essere creato il dominio gestito.
+1. Scegliere la **Località** di Azure in cui deve essere creato il dominio gestito. Se si sceglie un'area che supporta le zone di disponibilità, le risorse di Azure AD DS vengono distribuite in più zone per garantire maggiore ridondanza.
+
+    Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate.
+
+    Non è necessario eseguire alcuna operazione di configurazione per distribuire Azure AD DS in più zone. La piattaforma Azure gestisce automaticamente la distribuzione delle risorse nelle zone. Per altre informazioni e per consultare la disponibilità delle zone, vedere [Informazioni sulle zone di disponibilità di Azure][availability-zones].
 
     ![Configurare le impostazioni di base per un'istanza di Azure AD Domain Services](./media/tutorial-create-instance/basics-window.png)
 
@@ -117,7 +121,7 @@ Nella pagina **Riepilogo** della procedura guidata controllare le impostazioni d
 
     ![Stato di Domain Services dopo il provisioning](./media/tutorial-create-instance/successfully-provisioned.png)
 
-Il provisioning di Azure AD Domain Services viene effettuato nel tenant di Azure Active Directory e la risorsa di Azure AD Domain Services per il servizio viene creata all'interno della sottoscrizione di Azure associata. Durante il processo di provisioning, Azure AD DS crea due applicazioni aziendali denominate *Domain Controller Services* e *AzureActiveDirectoryDomainControllerServices* nell'istanza di Azure Active Directory in cui è stato abilitato Azure AD Domain Services. Queste applicazioni aziendali sono necessarie per gestire il dominio gestito  ed è fondamentale che non vengono eliminate in nessuna circostanza.
+Il dominio gestito è associato al tenant di Azure AD. Durante il processo di provisioning, Azure AD DS crea due applicazioni aziendali denominate *Domain Controller Services* e *AzureActiveDirectoryDomainControllerServices* nel tenant di Azure AD. Queste applicazioni aziendali sono necessarie per gestire il dominio gestito Non eliminare queste applicazioni.
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>Aggiornare le impostazioni DNS per la rete virtuale di Azure
 
@@ -188,6 +192,7 @@ Prima di aggiungere a un dominio le macchine virtuali e distribuire le applicazi
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[availability-zones]: ../availability-zones/az-overview.md
 
 <!-- EXTERNAL LINKS -->
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

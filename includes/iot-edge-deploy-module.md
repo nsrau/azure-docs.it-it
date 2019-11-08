@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/04/2019
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: c20a14ef2bc74d73b93ab39ee52fe1be8a5f984f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 12661c77c6a950b482187b09e4465c964e6d6652
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180265"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494045"
 ---
 Una delle principali funzionalità di Azure IoT Edge è la possibilità di distribuire codice ai dispositivi IoT Edge dal cloud. I **moduli IoT Edge** sono pacchetti eseguibili implementati come contenitori. In questa sezione viene distribuito un modulo predefinito dalla [sezione Moduli IoT Edge di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). 
 
@@ -37,7 +37,7 @@ Per distribuire il primo modulo da Azure Marketplace, eseguire i passaggi seguen
 
 3. Dopo avere scelto un modulo IoT Edge da Azure Marketplace e un dispositivo IoT Edge per riceverlo, viene visualizzata una procedura guidata in tre passaggi che consente di definire esattamente come distribuire il modulo. Nel passaggio **Aggiungi moduli** della procedura guidata il modulo **SimulatedTemperatureSensor** viene inserito automaticamente. Nelle esercitazioni si userà questa pagina per aggiungere altri moduli alla distribuzione. Per questa guida introduttiva, è sufficiente distribuire un modulo. Selezionare **Avanti** per continuare con il passaggio successivo della procedura guidata.
 
-4. Nel passaggio **Specifica route** della procedura guidata definire come vengono passati i messaggi tra i moduli e all'hub IoT. Per la guida introduttiva, si vuole che tutti i messaggi da tutti i moduli siano passati all'hub IoT (`$upstream`). Se non viene compilato automaticamente, aggiungere il codice seguente e quindi selezionare **Avanti**:
+4. Nel passaggio **Specifica route** della procedura guidata definire come vengono passati i messaggi tra i moduli e all'hub IoT. Per la guida introduttiva, si vuole che tutti i messaggi da tutti i moduli siano passati all'hub IoT (`$upstream`). Se non viene eseguito il popolamento automatico, aggiungere il codice seguente:
 
    ```json
     {
@@ -46,6 +46,7 @@ Per distribuire il primo modulo da Azure Marketplace, eseguire i passaggi seguen
         }
     }
    ```
+   Quindi selezionare **Avanti**.
 
 5. Nel passaggio **Rivedi distribuzione** della procedura guidata è possibile visualizzare in anteprima il file JSON che definisce tutti i moduli distribuiti nel dispositivo IoT Edge. Si noti che sono inclusi il modulo **SimulatedTemperatureSensor**, nonché due moduli di sistema aggiuntivi denominati **edgeAgent** ed **edgeHub**. Al termine, selezionare **Invia**.
 

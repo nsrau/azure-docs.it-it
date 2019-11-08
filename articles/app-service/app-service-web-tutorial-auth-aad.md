@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad0c510244c78fa3bdba41690c2284d0650c4b55
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: c82cad30fcc2aa80eea52ab13f60fc0c4da33cd1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019415"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471296"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel Servizio app di Azure
 
@@ -218,29 +218,31 @@ Come provider di identità viene usato Azure Active Directory. Per altre informa
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Abilitare l'autenticazione e l'autorizzazione per l'app back-end
 
-Nel [portale di Azure](https://portal.azure.com), aprire la pagina di gestione dell'app back-end facendo clic su **Gruppi di risorse** > **myAuthResourceGroup** >  **_\<back-end-app-name>_** .
+1. Nel menu del [portale di Azure](https://portal.azure.com) selezionare **Gruppi di risorse** oppure cercare e selezionare *Gruppi di risorse* da qualsiasi pagina.
 
-![API ASP.NET Core in esecuzione nel servizio app di Azure](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
+1. In **Gruppi di risorse** cercare e selezionare il gruppo di risorse desiderato. In **Panoramica** selezionare la pagina di gestione dell'app back-end.
 
-Nel menu a sinistra dell'app back-end fare clic su **Autenticazione/Autorizzazione** e quindi abilitare l'autenticazione del servizio app facendo clic su **Sì**.
+   ![API ASP.NET Core in esecuzione nel servizio app di Azure](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 
-In **Azione da eseguire quando la richiesta non è autenticata** selezionare **Accedi con Azure Active Directory**.
+1. Nel menu a sinistra dell'app back-end selezionare **Autenticazione/Autorizzazione** e quindi abilitare l'autenticazione del servizio app scegliendo **Sì**.
 
-In **Provider di autenticazione** fare clic su **Azure Active Directory**. 
+1. In **Azione da eseguire quando la richiesta non è autenticata** selezionare **Accedi con Azure Active Directory**.
 
-![API ASP.NET Core in esecuzione nel servizio app di Azure](./media/app-service-web-tutorial-auth-aad/configure-auth-back-end.png)
+1. In **Provider di autenticazione** selezionare **Azure Active Directory**. 
 
-Fare clic su **Rapida**, quindi accettare le impostazioni predefinite per creare una nuova app AD e fare clic su **OK**.
+   ![API ASP.NET Core in esecuzione nel servizio app di Azure](./media/app-service-web-tutorial-auth-aad/configure-auth-back-end.png)
 
-Nella pagina **Autenticazione/Autorizzazione** fare clic su **Salva**. 
+1. Selezionare **Rapida**, quindi accettare le impostazioni predefinite per creare una nuova app AD e scegliere **OK**.
 
-Quando viene visualizzata la notifica con il messaggio `Successfully saved the Auth Settings for <back-end-app-name> App`, aggiornare la pagina.
+1. Nella pagina **Autenticazione/Autorizzazione** selezionare **Salva**.
 
-Fare di nuovo clic su **Azure Active Directory** e quindi su **App Azure AD**.
+   Quando viene visualizzata la notifica con il messaggio `Successfully saved the Auth Settings for <back-end-app-name> App`, aggiornare la pagina.
 
-Copiare l'**ID client** dell'applicazione di Azure AD negli appunti. Questo valore sarà necessario in un secondo momento.
+1. Selezionare di nuovo **Azure Active Directory** e quindi **App Azure AD**.
 
-![API ASP.NET Core in esecuzione nel servizio app di Azure](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
+1. Copiare l'**ID client** dell'applicazione di Azure AD negli appunti. Questo valore sarà necessario in un secondo momento.
+
+   ![API ASP.NET Core in esecuzione nel servizio app di Azure](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>Abilitare l'autenticazione e l'autorizzazione per l'app front-end
 
@@ -259,15 +261,17 @@ Se si vuole, passare a `http://<front-end-app-name>.azurewebsites.net`. Si verr�
 
 Dopo l'abilitazione dell'autenticazione e dell'autorizzazione per entrambe le app, ognuna di queste è supportata da un'applicazione AD. In questo passaggio si concedono all'app front-end le autorizzazioni necessarie per accedere al back-end per conto dell'utente. Tecnicamente, si concedono all'_applicazione AD_ del front-end le autorizzazioni per accedere all'_applicazione AD_ del back-end per conto dell'utente.
 
-Dal menu a sinistra nel portale selezionare **Azure Active Directory** > **Registrazioni app** > **Applicazioni di cui si è proprietari** >  **\<nome-app-front-end>**  > **Autorizzazioni API**.
+1. Nel menu del [portale di Azure](https://portal.azure.com) selezionare **Azure Active Directory** oppure cercare e selezionare *Azure Active Directory* da qualsiasi pagina.
 
-![API ASP.NET Core in esecuzione nel servizio app di Azure](./media/app-service-web-tutorial-auth-aad/add-api-access-front-end.png)
+1. Selezionare **Registrazioni app** > **Applicazioni di proprietà**. Selezionare il nome dell'app front-end e quindi scegliere **Autorizzazioni API**.
 
-Selezionare **Aggiungi un'autorizzazione**, quindi selezionare **Le mie API** >  **\<nome-app-back-end>** .
+   ![API ASP.NET Core in esecuzione nel servizio app di Azure](./media/app-service-web-tutorial-auth-aad/add-api-access-front-end.png)
 
-Nella pagina **Richiedi le autorizzazioni dell'API** per l'app back-end, selezionare **Autorizzazioni delegate** e **user_impersonation**, quindi selezionare **Aggiungere autorizzazioni**.
+1. Selezionare **Aggiungi un'autorizzazione**, quindi selezionare **Le mie API** >  **\<nome-app-back-end>** .
 
-![API ASP.NET Core in esecuzione nel servizio app di Azure](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
+1. Nella pagina **Richiedi le autorizzazioni dell'API** per l'app back-end, selezionare **Autorizzazioni delegate** e **user_impersonation**, quindi selezionare **Aggiungere autorizzazioni**.
+
+   ![API ASP.NET Core in esecuzione nel servizio app di Azure](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>Configurare il servizio app per la restituzione di un token di accesso utilizzabile
 

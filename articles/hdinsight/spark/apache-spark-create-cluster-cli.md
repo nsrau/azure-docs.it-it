@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un cluster Apache Spark in Azure HDInsight con l'interfaccia della riga di comando di Azure"
+title: "Guida introduttiva: Cluster Apache Spark con l'interfaccia della riga di comando di Azure - Azure HDInsight"
 description: Questo argomento di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per creare un cluster Apache Spark in Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 72bdab9d7fb5c3019d97ffc4c92257c49ec2b8e5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 71b5e9f0ece79633673b183ca7288852f42ca3c0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066252"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494724"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Guida introduttiva: Creare cluster Apache Spark in Azure HDInsight usando l'interfaccia della riga di comando di Azure
 

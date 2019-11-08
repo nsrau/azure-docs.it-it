@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Azure Toolkit for IntelliJ: applicazione Spark per un cluster HDInsight'
+title: 'Esercitazione: Azure Toolkit for IntelliJ: App Spark - HDInsight'
 description: 'Esercitazione: Usare Azure Toolkit for IntelliJ per sviluppare applicazioni Spark scritte in Scala e inviarle a un cluster HDInsight Spark.'
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: ff08d3ffde958a8e64dce911ace83cec87201117
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b2705f209b2acf1198ea555a5de2f79987a4d0e3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327276"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494234"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Esercitazione: Usare Azure Toolkit for IntelliJ per creare applicazioni Apache Spark per un cluster HDInsight
 
@@ -448,7 +448,7 @@ Se non si intende continuare a usare questa applicazione, eliminare il cluster c
 
 1. Selezionare **Elimina**. Selezionare **Sì**.
 
-![Eliminazione del cluster HDInsight nel portale di Azure](./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png "Eliminazione del cluster HDInsight")
+![Eliminazione del cluster HDInsight nel portale di Azure](./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png "Eliminare un cluster HDInsight")
 
 ## <a name="next-steps"></a>Passaggi successivi
 

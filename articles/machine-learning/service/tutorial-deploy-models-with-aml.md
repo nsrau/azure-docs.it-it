@@ -10,14 +10,15 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 988f91d9ab644df4ecb375114abf4245440cbf13
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: ae657daca86c979495ca14d9df845e2a7a769e0a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162535"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476140"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Esercitazione: Distribuire un modello di classificazione delle immagini in Istanze di Azure Container
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questa esercitazione è la **seconda di una serie in due parti**. Nell'[esercitazione precedente](tutorial-train-models-with-aml.md), è stato eseguito il training di modelli di machine learning e quindi registrato un modello nell'area di lavoro sul cloud.  
 
@@ -39,9 +40,15 @@ Istanze di Container è un'ottima soluzione per testare e comprendere il flusso 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire il notebook, completare innanzitutto il training del modello in [Esercitazione (parte 1): Eseguire il training di un modello di classificazione delle immagini](tutorial-train-models-with-aml.md).   Aprire quindi il notebook **tutorials/img-classification-part2-deploy.ipynb** usando lo stesso server notebook.
+Per eseguire il notebook, completare innanzitutto il training del modello in [Esercitazione (parte 1): Eseguire il training di un modello di classificazione delle immagini](tutorial-train-models-with-aml.md).   Aprire quindi il notebook **img-classification-part2-deploy.ipynb** nella cartella **tutorials** clonata.
 
 Questa esercitazione è disponibile anche in [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se si vuole usarla nel proprio [ambiente locale](how-to-configure-environment.md#local).  Verificare di aver installato `matplotlib` e `scikit-learn` nell'ambiente. 
+
+> [!Important]
+> Il resto di questo articolo contiene lo stesso contenuto visualizzato nel notebook.  
+>
+> Passare ora al notebook di Jupyter se si desidera leggere durante l'esecuzione del codice.
+> Per eseguire una singola cella di codice in un notebook, fare clic sulla cella di codice e premere **MAIUSC + INVIO**. In alternativa, eseguire l'intero notebook scegliendo **Esegui tutto** dalla barra degli strumenti superiore.
 
 ## <a name="start"></a>Configurare l'ambiente
 

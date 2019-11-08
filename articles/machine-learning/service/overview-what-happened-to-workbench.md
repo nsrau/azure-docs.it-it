@@ -11,18 +11,18 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 724e120a8ed92f71ff2e7f2bdda7d1884d80bc10
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3c98da50d0c50a7fdb94f579444f3c09c1096d18
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997145"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476408"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Che cosa è successo ad Azure Machine Learning Workbench?
 
-L'applicazione Azure Machine Learning Workbench e alcune altre funzionalità di anteprima sono state deprecate e sostituite nella versione di settembre 2018 per introdurre un miglioramento nell'[architettura](concept-azure-machine-learning-architecture.md).
+L'applicazione Azure Machine Learning Workbench e alcune altre funzionalità di anteprima sono state deprecate e sostituite nella versione di **settembre 2018** per introdurre un miglioramento nell'[architettura](concept-azure-machine-learning-architecture.md).
 
-Per migliorare l'esperienza dell'utente, questa versione contiene molti aggiornamenti significativi introdotti in base al feedback dei clienti. Le funzionalità di base, dalle esecuzioni sperimentali alla distribuzione del modello, non sono cambiate, ma è ora possibile usare le solide funzionalità dell'<a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> e dell'[interfaccia della riga di comando di Azure](reference-azure-machine-learning-cli.md) per eseguire attività e pipeline di apprendimento automatico.
+Per migliorare l'esperienza dell'utente, questa versione contiene molti aggiornamenti significativi introdotti in base al feedback dei clienti. Le funzionalità di base, dalle esecuzioni sperimentali alla distribuzione del modello, non sono cambiate, ma è ora possibile usare le solide funzionalità di <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> e R SDK e dell'[interfaccia della riga di comando di Azure](reference-azure-machine-learning-cli.md) per eseguire attività e pipeline di apprendimento automatico.
 
 La maggior parte degli artefatti creati nella versione precedente di Azure Machine Learning si trova nello spazio di archiviazione locale o cloud. Questi artefatti non verranno mai eliminati.
 
@@ -42,7 +42,7 @@ L'ultima versione di Azure Machine Learning include le funzionalità seguenti:
 
 L'[architettura](concept-azure-machine-learning-architecture.md) è stata riprogettata per una maggiore facilità d'uso. Invece di più risorse e account di Azure, è sufficiente avere un'[area di lavoro di Azure Machine Learning](concept-workspace.md). Le aree di lavoro possono essere create rapidamente nel [portale di Azure](how-to-manage-workspace.md). Usando un'area di lavoro, più utenti possono archiviare destinazioni di calcolo per training e distribuzione, esperimenti di modello, immagini Docker, modelli distribuiti e così via.
 
-Anche se nella versione corrente sono disponibili interfaccia della riga di comando e client SDK nuovi e migliorati, l'applicazione desktop Workbench stessa è stata ritirata. È possibile gestire gli esperimenti nel [dashboard dell'area di lavoro nel portale di Azure](how-to-track-experiments.md#view-the-experiment-in-the-web-portal). Attraverso il dashboard è possibile accedere alla cronologia degli esperimenti, gestire le destinazioni di calcolo collegate all'area di lavoro, gestire i modelli e le immagini Docker, nonché distribuire servizi Web.
+Anche se nella versione corrente sono disponibili interfaccia della riga di comando e client SDK nuovi e migliorati, l'applicazione desktop Workbench stessa è stata ritirata. È possibile gestire gli esperimenti nel [dashboard dell'area di lavoro di Azure Machine Learning Studio](how-to-track-experiments.md#view-the-experiment-in-the-web-portal). Attraverso il dashboard è possibile accedere alla cronologia degli esperimenti, gestire le destinazioni di calcolo collegate all'area di lavoro, gestire i modelli e le immagini Docker, nonché distribuire servizi Web.
 
 <a name="timeline"></a>
 
@@ -56,7 +56,7 @@ Tutte le funzionalità più recenti sono disponibili questo <a href="https://doc
 
 Le cronologie di esecuzione precedenti non sono più accessibili, ma è comunque possibile visualizzare le esecuzioni nella versione più recente.
 
-Le cronologie di esecuzione sono denominate **esperimenti**. È possibile raccogliere gli esperimenti di un modello ed esplorarli usando l'SDK, l'interfaccia della riga di comando o il portale di Azure.
+Le cronologie di esecuzione sono denominate **esperimenti**. È possibile raccogliere gli esperimenti di un modello ed esplorarli usando l'SDK, l'interfaccia della riga di comando o Azure Machine Learning Studio.
 
 Il dashboard dell'area di lavoro del portale è supportato solo nei browser Microsoft Edge, Chrome e Firefox:
 
@@ -112,7 +112,7 @@ In quest'ultima versione, l'estensione è stata rinominata in Azure Machine Lear
 
 ## <a name="what-about-domain-packages"></a>Che ne è dei pacchetti di domini?
 
-I pacchetti di domini relativi a Visione artificiale, Analisi del testo e Previsione non possono essere usati con la versione più recente di Azure Machine Learning. È comunque possibile creare ed eseguire il training di modelli di Visione artificiale, Analisi del testo e Previsione con la versione più recente dell'<a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> per Python di Azure Machine Learning. Per informazioni su come eseguire la migrazione di modelli preesistenti realizzati con i pacchetti Visione artificiale, Analisi del testo e Previsione, scrivere all'indirizzo [AML-Packages@microsoft.com](mailto:AML-Packages@microsoft.com).
+I pacchetti di domini relativi a Visione artificiale, Analisi del testo e Previsione non possono essere usati con la versione più recente di Azure Machine Learning. È comunque possibile creare ed eseguire il training di modelli di Visione artificiale, Analisi del testo e Previsione con la versione più recente dell'<a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> per Python di Azure Machine Learning.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -120,6 +120,9 @@ Informazioni sull'[architettura più recente per Azure Machine Learning](concept
 
 Per una panoramica del servizio, vedere [Informazioni su Azure Machine Learning](overview-what-is-azure-ml.md).
 
-Creare il primo esperimento con l'esercitazione in due parti per [configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md) ed [eseguire il training del primo modello](tutorial-1st-experiment-sdk-train.md).
-
-Per un'esperienza più approfondita di questo flusso di lavoro, seguire l'[esercitazione completa](tutorial-train-models-with-aml.md) contenente le procedure dettagliate per il training e la distribuzione di modelli con Azure Machine Learning.
+Creare il primo esperimento con il metodo preferito:
+  + [Usare i notebook di Python per eseguire il training e la distribuzione di modelli di Machine Learning](tutorial-1st-experiment-sdk-setup.md)
+  + [Usare R Markdown per eseguire il training e la distribuzione di modelli di Machine Learning]( tutorial-1st-r-experiment.md) 
+  + [Usare il servizio Machine Learning automatizzato per eseguire il training e la distribuzione di modelli di Machine Learning](ui-tutorial-automobile-price-train-score.md) 
+  + [Usare le funzionalità di trascinamento della selezione della finestra di progettazione per eseguire il training e la distribuzione](tutorial-first-experiment-automated-ml.md) 
+  + [Usare l'interfaccia della riga di comando di Machine Learning per eseguire il training e la distribuzione di un modello](tutorial-train-deploy-model-cli.md)

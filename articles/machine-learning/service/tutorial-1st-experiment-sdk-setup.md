@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Creare il primo esperimento di Machine Learning: Configurazione'
 titleSuffix: Azure Machine Learning
-description: In questa serie di esercitazioni si completeranno le procedure end-to-end per iniziare a usare Azure Machine Learning SDK per Python eseguito in Jupyter Notebook.  La prima parte illustra la creazione di un ambiente server notebook cloud, nonché la creazione di un'area di lavoro per gestire gli esperimenti e i modelli di Machine Learning.
+description: In questa esercitazione si inizierà a usare Azure Machine Learning Python SDK eseguito in notebook Jupyter.  Nella prima parte si crea un'area di lavoro in cui sarà possibile gestire gli esperimenti e i modelli di Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,23 +10,25 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 3bbda22689bb330acc836173162a64b840f1bbd8
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 891615ea301348b83124823b10403964d394c224
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828044"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475999"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Esercitazione: Introduzione alla creazione del primo esperimento di Machine Learning con Python SDK
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In questa esercitazione si completeranno le procedure end-to-end per iniziare a usare Azure Machine Learning SDK per Python eseguito in Jupyter Notebook. Questa esercitazione, la **prima di una serie di esercitazioni in due parti**, illustra l'installazione e la configurazione dell'ambiente Python, nonché la creazione di un'area di lavoro per gestire gli esperimenti e i modelli di Machine Learning. Su questa base, nella [**seconda parte**](tutorial-1st-experiment-sdk-train.md) viene eseguito il training di più modelli di Machine Learning e viene presentato il processo di gestione dei modelli sia con il portale di Azure che con l'SDK.
+In questa esercitazione si completeranno le procedure end-to-end per iniziare a usare Azure Machine Learning SDK per Python eseguito in Jupyter Notebook. Questa esercitazione, la **prima di una serie di esercitazioni in due parti**, illustra l'installazione e la configurazione dell'ambiente Python, nonché la creazione di un'area di lavoro per gestire gli esperimenti e i modelli di Machine Learning. Su questa base, nella [**seconda parte**](tutorial-1st-experiment-sdk-train.md) viene eseguito il training di più modelli di Machine Learning e viene presentato il processo di gestione dei modelli sia con Azure Machine Learning Studio che con l'SDK.
 
 In questa esercitazione:
 
 > [!div class="checklist"]
 > * Creare un'[area di lavoro di Azure Machine Learning](concept-workspace.md) da usare nell'esercitazione successiva.
 > * Clonare il notebook delle esercitazioni nella cartella nell'area di lavoro.
-> * Creare una macchina virtuale Jupyter Notebook basata sul cloud con Azure Machine Learning SDK per Python installato e preconfigurato.
+> * Creare un'istanza di calcolo basata sul cloud con Azure Machine Learning Python SDK installato e preconfigurato.
+
 
 Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -46,23 +48,27 @@ Per creare un'area di lavoro è necessario usare il portale di Azure, una consol
 
 Questo esempio usa il server notebook cloud nell'area di lavoro per un'esperienza preconfigurata senza installazioni. Se si preferisce avere il controllo sull'ambiente, sui pacchetti e sulle dipendenze, usare il [proprio ambiente](how-to-configure-environment.md#local).
 
-Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento nella pagina di destinazione dell'area di lavoro (anteprima), un'interfaccia consolidata che include strumenti di Machine Learning per l'esecuzione di scenari di data science per professionisti di data science con qualsiasi livello di competenza.
+Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento in Azure Machine Learning Studio, un'interfaccia consolidata che include strumenti di Machine Learning per l'esecuzione di scenari di data science per esperti della materia di qualsiasi livello di competenza.
 
-1. Effettuare l'accesso alla [pagina di destinazione dell'area di lavoro](https://ml.azure.com/).
+1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com/).
 
 1. Selezionare la sottoscrizione e l'area di lavoro create.
 
-1. Selezionare **Notebooks and Files** (Notebook e file) a sinistra.
+1. Selezionare **Notebook** a sinistra.
 
-1. Aprire la cartella di **esempi**.
+1. Aprire la cartella **Samples**.
+
+1. Aprire la cartella **Python**.
+
+1. Aprire la cartella con un numero di versione.  Questo numero rappresenta la versione corrente di Python SDK.
 
 1. Selezionare **"..."** a destra della cartella **tutorials** e quindi scegliere **Clone** (Clona).
 
     ![Clonare la cartella](media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
 
-1. Viene visualizzata una cartella per ogni utente che accede all'area di lavoro.  Selezionare la propria cartella per clonare la cartella **tutorial** al suo interno.
+1. Viene visualizzato un elenco di cartelle che mostra ogni utente che accede all'area di lavoro.  Selezionare la propria cartella per clonare la cartella **tutorials** al suo interno.
 
-## <a name="a-nameopenselect-a-vm-to-run-the-notebook"></a><a name="open">Selezionare una VM per l'esecuzione del notebook
+## <a name="a-nameopenopen-the-cloned-notebook"></a><a name="open">Aprire il notebook clonato
 
 1. In **User Files** (File utente) aprire la propria cartella e quindi la cartella **tutorials** clonata.
 
@@ -73,11 +79,9 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
     
 1. Selezionare il file **tutorial-1st-experiment-sdk-train.ipynb** nella cartella **tutorials**.
 
-1. Sulla barra superiore selezionare una macchina virtuale per notebook da usare per eseguire il notebook. Queste VM sono preconfigurate con tutti i componenti necessari per eseguire Azure Machine Learning. È possibile selezionare una VM creata da qualsiasi utente dell'area di lavoro. 
+1. Sulla barra superiore selezionare un'istanza di calcolo da usare per eseguire il notebook. Queste macchine virtuali sono preconfigurate con [tutti i componenti necessari per eseguire Azure Machine Learning](concept-compute-instance.md#contents). È possibile selezionare una VM creata da qualsiasi utente dell'area di lavoro. 
 
-1. Se non sono disponibili VM, selezionare **+ New VM** (Nuova VM) per crearne una.
-
-    ![Creare una macchina virtuale](media/tutorial-1st-experiment-sdk-setup/no-vm.png)
+1. Se non sono disponibili macchine virtuali, selezionare **+ Aggiungi ambiente di calcolo** per crearne una.
 
     1. Quando si crea una VM, specificare il nome,  che deve essere composto da un numero di caratteri compreso tra 2 e 16. I caratteri validi sono lettere, numeri e il carattere - ed è necessario che il nome sia univoco nella sottoscrizione di Azure.
 
@@ -85,6 +89,9 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
 
 1. Quando la VM è disponibile, verrà visualizzata sulla barra degli strumenti superiore.  È ora possibile eseguire il notebook usando **Esegui tutto** sulla barra degli strumenti oppure premendo **MAIUSC + INVIO** nelle celle di codice del notebook.
 
+> [!NOTE]
+> Le istanze di calcolo sono disponibili solo per le aree di lavoro con **Stati Uniti centro-settentrionali** o **Regno Unito meridionale** come area geografica.
+>Se l'area di lavoro si trova in qualsiasi altra area geografica, è possibile continuare a creare e usare una [macchina virtuale notebook](concept-compute-instance.md#notebookvm) in alternativa.  Per eseguire il notebook, è possibile usare una macchina virtuale notebook o un'istanza di calcolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
