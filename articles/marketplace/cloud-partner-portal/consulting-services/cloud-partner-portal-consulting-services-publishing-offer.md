@@ -4,15 +4,16 @@ description: Guida alla definizione e alla pubblicazione di un'offerta di serviz
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pabutler
-ms.openlocfilehash: 6c75664e558602429250420f1896b75a74546e67
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 506b34281ba8ab5b669c87b4699fb8b138c8734a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145450"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819197"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Offerta di servizi di consulenza per Azure e Dynamics 365
 
@@ -38,7 +39,7 @@ Questa sezione descrive gli elementi della pubblicazione di un'offerta di un ser
     - Dynamics 365 for Finance and Operations 
     - Dynamics 365 Business Central 
     - Power BI 
-    - PowerApp
+    - PowerApps
 - [Creare una nuova offerta](./cpp-consulting-service-create-offer.md) elenca i passaggi necessari per creare la voce dell'offerta di un servizio di consulenza usando il portale Cloud Partner:
     - [Definire le impostazioni dell'offerta](./cpp-consulting-service-define-offer-settings.md).
     - [Immettere i dettagli della vetrina e la preferenza in merito alla pubblicazione in Azure Marketplace o in AppSource.](./cpp-consulting-service-storefront-details.md)

@@ -1,5 +1,5 @@
 ---
-title: Gestire le impostazioni di verifica a due fattori-Azure Active Directory | Microsoft Docs
+title: 'Gestire le impostazioni di verifica a due fattori: Azure AD'
 description: Informazioni su come modificare i dettagli del metodo di verifica della sicurezza in relazione alla verifica a due fattori.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ed7d812a9c1cba356277a4454234531ce8d41ef
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4c402e0992a3a04d674477bc9dd19e0181fd6775
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616153"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805271"
 ---
 # <a name="manage-your-two-factor-verification-method-settings"></a>Gestire le impostazioni del metodo di verifica a due fattori
 
@@ -87,7 +87,7 @@ Se si decide di modificare il metodo di verifica di sicurezza predefinito in uso
 
 ### <a name="to-change-your-phone-numbers"></a>Per modificare i numeri di telefono
 
-1. Nella sezione **come si desidera rispondere?** della pagina **verifica aggiuntiva di sicurezza** aggiornare le informazioni sul numero di telefono per il telefono per **l'autenticazione** (il dispositivo mobile primario) e il **telefono dell'ufficio**.
+1. Nella sezione **come si desidera rispondere?** della pagina **verifica aggiuntiva di sicurezza** aggiornare le informazioni sul numero di telefono per il **telefono per l'autenticazione** (il dispositivo mobile primario) e il **telefono dell'ufficio**.
 
 2. Selezionare la casella accanto all'opzione **telefono per l'autenticazione alternativo** , quindi digitare un numero di telefono secondario in cui è possibile ricevere messaggi di testo o telefonate se non è possibile accedere al dispositivo primario.
 
@@ -139,6 +139,6 @@ Dopo aver aggiunto o aggiornato le impostazioni di verifica a due fattori, è po
 
 - [Gestire le password dell'app per la verifica a due fattori](multi-factor-authentication-end-user-app-passwords.md) per le app che non supportano la verifica a due fattori.
 
-- [Accesso con la verifica a due fattori](multi-factor-authentication-end-user-signin.md)
+- [Accedere usando la verifica a due fattori](multi-factor-authentication-end-user-signin.md)
 
-- [Ottenere assistenza con la verifica a due fattori](multi-factor-authentication-end-user-troubleshoot.md)
+- [Risolvere i problemi relativi alla verifica a due fattori](multi-factor-authentication-end-user-troubleshoot.md)

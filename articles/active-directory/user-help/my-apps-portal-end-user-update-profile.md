@@ -1,5 +1,5 @@
 ---
-title: Aggiornare il profilo e le informazioni sull'account dal portale delle app personali-Azure Active Directory | Microsoft Docs
+title: Aggiornare il profilo e l'account nel portale app personali-Azure AD
 description: Informazioni su come aggiornare il profilo e le informazioni sull'account aziendale o dell'Istituto di istruzione, inclusa la modifica della password, l'attivazione della reimpostazione della password, l'aggiornamento dei metodi di verifica della sicurezza, la visualizzazione delle condizioni per l'utilizzo dell'organizzazione e la disconnessione da ovunque sia stato eseguito l'accesso con l'account aziendale o dell'Istituto di istruzione.
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40cf8e16e08db67c36009435758db36797518d96
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4416b35d2e2204cec2a9ffe2f50e92983d6204c0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160758"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820372"
 ---
-# <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Aggiornare il profilo e le informazioni sull'account dal portale app personali
+# <a name="update-your-profile-and-account-info-on-the-my-apps-portal"></a>Aggiornare il profilo e le informazioni sull'account nel portale app personali
 
 È possibile usare l'account aziendale o dell'istituto di istruzione con il portale **App personali** basato sul Web per visualizzare e avviare molte delle app dell'organizzazione basate sul cloud, per aggiornare alcune informazioni dell'account e del profilo, per visualizzare le informazioni sui **gruppi** e per eseguire **verifiche di accesso** per le app e i gruppi. Se non si ha accesso al portale **App personali**, è necessario contattare il supporto tecnico per l'autorizzazione.
 

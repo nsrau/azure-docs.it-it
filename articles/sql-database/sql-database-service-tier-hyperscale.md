@@ -1,5 +1,5 @@
 ---
-title: Panoramica sull'iperscalabilità del database SQL di Azure
+title: Panoramica dell'iperscalabilità
 description: Questo articolo descrive il livello di servizio Hyperscale nel modello di acquisto basato su vCore nel database SQL di Azure e ne illustra le differenze rispetto ai livelli di servizio Utilizzo generico e Business critical.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 38402d6ccf5c5582fff878ad60bf1c9fd4a07118
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3a448147390ff2dd6a8049e8338a4cbf2bd94ce3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687316"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821109"
 ---
 # <a name="hyperscale-service-tier"></a>Livello di servizio Hyperscale
 

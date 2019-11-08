@@ -1,6 +1,6 @@
 ---
 title: Come distribuire il modulo OPC Twin per Azure da zero | Microsoft Docs
-description: Come distribuire un dispositivo OPC gemello da zero.
+description: Questo articolo descrive come distribuire un dispositivo OPC Twin da zero usando il pannello IoT Edge del portale di Azure e anche usando AZ CLI.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: df1dd45d58baf82710b5e362afaf055aad140b98
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 96a4afff3e58bfa1ebf661909f380aa525fea76e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302633"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820144"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuisci il modulo e le dipendenze di OPC Twin da zero
 
@@ -111,9 +111,9 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-1. Distribuire le [dipendenze](howto-opc-twin-deploy-dependencies.md) del dispositivo OPC gemello e ottenere il file `.env` risultante. Si noti la `hub name` distribuzione `PCS_IOTHUBREACT_HUB_NAME` della variabile nel file risultante `.env` .
+1. Distribuire le [dipendenze](howto-opc-twin-deploy-dependencies.md) del dispositivo OPC gemello e ottenere il file `.env` risultante. Si noti la `hub name` distribuita della variabile `PCS_IOTHUBREACT_HUB_NAME` nel file di `.env` risultante.
 
-2. Registrare e avviare un gateway di IoT Edge [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) o [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) e prendere `device id`nota del relativo.
+2. Registrare e avviare un gateway di IoT Edge [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) o [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) e annotarne il `device id`.
 
 ### <a name="deploy-to-an-edge-device"></a>Eseguire la distribuzione in un dispositivo perimetrale
 
@@ -143,7 +143,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
 
 7. Selezionare **Save (Salva** ) e ripetere il passaggio **5**.  
 
-8. Nella finestra di dialogo IOT Edge modulo personalizzato usare `opcpublisher` come nome per il modulo e l' *URI dell'immagine* del contenitore come 
+8. Nella finestra di dialogo IoT Edge modulo personalizzato usare `opcpublisher` come nome per il modulo e l' *URI dell'immagine* del contenitore come 
 
    ```bash
    mcr.microsoft.com/iotedge/opc-publisher:latest
@@ -182,7 +182,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
 
 ### <a name="quickstart"></a>Guida introduttiva
 
-1. Salvare il manifesto di distribuzione precedente in `deployment.json` un file.  
+1. Salvare il manifesto di distribuzione precedente in un file di `deployment.json`.  
 
 2. Per applicare la configurazione a un dispositivo IoT Edge usare il comando seguente:
 
@@ -190,7 +190,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content ./deployment.json
    ```
 
-   Il `device id` parametro fa distinzione tra maiuscole e minuscole. Il parametro content punta al file del manifesto della distribuzione salvato. 
+   Il parametro `device id` fa distinzione tra maiuscole e minuscole. Il parametro content punta al file del manifesto della distribuzione salvato. 
     ![AZ IoT Edge set-Modules output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
 3. Dopo aver distribuito i moduli nel dispositivo, è possibile visualizzarli tutti con il comando seguente:

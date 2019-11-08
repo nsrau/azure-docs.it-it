@@ -1,6 +1,6 @@
 ---
 title: Funzionalità di richiesta dati dei clienti in Azure IoT Central | Microsoft Docs
-description: Funzionalità di richiesta dati dei clienti in Azure IoT Central
+description: Questo articolo descrive come identificare, eliminare ed esportare i dati dei clienti nell'applicazione IoT Central di Azure.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/23/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 3c9a3520e6ca97d6f2054e49301d122eb2400682
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 27cd2e58eabcd96414391cac1a517ea242a65c21
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952550"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809802"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dati dei clienti
 
@@ -31,7 +31,7 @@ Riguardo ai dispositivi, Microsoft non mantiene alcuna informazione e non dispon
 
 Quando si usano i servizi enterprise di Microsoft, Microsoft genera alcune informazioni, note come log generati dal sistema. Questi log costituiscono azioni pratiche eseguite nel servizio e dati diagnostici relativi ai singoli dispositivi e non sono correlati all'attività dell'utente. I log generati dal sistema di Azure IoT Central non sono accessibili o esportabili dagli amministratori dell'applicazione.
 
-## <a name="deleting-customer-data"></a>Eliminazione dei dati del cliente
+## <a name="deleting-customer-data"></a>Eliminazione di dati del cliente
 
 La possibilità di eliminare i dati utente viene fornita solo tramite la pagina di amministrazione di IoT Central. Gli amministratori di applicazioni possono selezionare l'utente da eliminare e selezionare **Elimina** nell'angolo superiore destro dell'applicazione per eliminare il record. Gli amministratori dell'applicazione possono anche rimuovere singoli account che non sono più associati all'applicazione in questione.
 
@@ -39,7 +39,7 @@ Dopo l'eliminazione di un utente, non gli vengono più inviati avvisi tramite po
 
 Per altre informazioni, vedere [Configurare le regole e le azioni per i dispositivi](tutorial-configure-rules.md).
 
-## <a name="exporting-customer-data"></a>Esportazione dei dati dei clienti
+## <a name="exporting-customer-data"></a>Esportazione di dati dei clienti
 
 La possibilità di esportare i dati viene fornita solo tramite la pagina di amministrazione di IoT Central. I dati dei clienti, compresi i ruoli assegnati, possono essere selezionati, copiati e incollati da un amministratore dell'applicazione.
 
