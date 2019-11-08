@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 11/06/2019
 ms.author: apimpm
-ms.openlocfilehash: 0bf52b45bc315874c58be50bccbffa49090d554d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 88ef235d47a548ce426eaa2e8a8a56fb9dcb01d2
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294353"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796042"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Problemi noti e limitazioni dell'importazione dell'API
 
@@ -33,13 +33,15 @@ Se vengono restituiti errori durante l'importazione del documento OpenAPI, verif
 ### <a name="open-api-general"> </a>Generale
 
 -   I parametri obbligatori per percorso e query devono avere nomi univoci. In OpenAPI un nome di parametro deve essere univoco solo all'interno di una determinata posizione, ad esempio percorso, query, intestazione. In Gestione API, invece, le operazioni possono essere discriminate in base a parametri sia di percorso che di query, cosa che non è possibile in OpenAPI. Per questo motivo è necessario che i nomi dei parametri siano univoci all'interno dell'intero modello di URL.
--   i puntatori **\$ref** non possono fare riferimento a file esterni.
+-   **\$** puntatori Ref non possono fare riferimento a file esterni.
 -   **x-ms-paths** e **x-servers** sono le uniche estensioni supportate.
 -   Le estensioni personalizzate vengono ignorate in fase di importazione e non vengono salvate o mantenute per l'esportazione.
 -   **Ricorsione**: Gestione API non supporta le definizioni con carattere ricorsivo, ad esempio gli schemi che fanno riferimento a se stessi.
 -   L'URL del file di origine, se disponibile, viene applicato agli URL di server relativi.
 -   Le definizioni di sicurezza vengono ignorate.
 -   Le definizioni dello schema inline per le operazioni API non sono supportate. Le definizioni dello schema sono definite nell'ambito dell'API ed è possibile farvi riferimento negli ambiti di richiesta o di risposta delle operazioni dell'API.
+-   Un parametro URL definito deve far parte del modello URL.
+-   La parola chiave **produces** , che descrive i tipi MIME restituiti da un'API, non è supportata. 
 
 ### <a name="open-api-v2"> </a>OpenAPI versione 2
 

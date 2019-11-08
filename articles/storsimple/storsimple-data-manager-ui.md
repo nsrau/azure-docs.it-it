@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: fa897b4b77f7f5869eab2ba2e7db9afbd84febfa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a87b4c07d2e961d9876fb44c6584f37ad9246df
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631419"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796654"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gestire il servizio StorSimple Data Manager nel portale di Azure
 
-Questo articolo illustra come usare l'interfaccia utente di StorSimple Data Manager per trasformare i dati che risiedono sui dispositivi StorSimple serie 8000. I dati trasformati possono quindi essere impiegati da altri servizi di Azure, ad esempio Servizi multimediali di Azure, Azure HDInsight, Azure Machine Learning e Ricerca di Azure.
+Questo articolo illustra come usare l'interfaccia utente di StorSimple Data Manager per trasformare i dati che risiedono sui dispositivi StorSimple serie 8000. I dati trasformati possono quindi essere usati da altri servizi di Azure, ad esempio servizi multimediali di Azure, Azure HDInsight, Azure Machine Learning e ricerca cognitiva di Azure.
 
 
 ## <a name="use-storsimple-data-transformation"></a>Usare la trasformazione dati di StorSimple
@@ -56,7 +56,7 @@ Eseguire la procedura seguente per creare un servizio StorSimple Data Manager.
     
    5. Per inserire un collegamento al servizio nel dashboard, selezionare **Aggiungi al dashboard**.
     
-   6. Fare clic su **Create**(Crea).
+   6. Fare clic su **Create**.
 
       ![Creare un servizio StorSimple Data Manager 3](./media/storsimple-data-manager-ui/create-service-4.png)
 

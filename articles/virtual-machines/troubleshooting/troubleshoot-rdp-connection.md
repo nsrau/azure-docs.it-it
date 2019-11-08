@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: 0a88c1e4d357f2919635e36a223e79b0407c0b8b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: d3ad0e6d88ed849074989dc36698c01209921449
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168758"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749690"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Risolvere i problemi di connessione con Desktop remoto di una macchina virtuale di Azure
 La mancata connessione Remote Desktop Protocol (RDP) alla macchina virtuale di Azure basata su Windows può avere varie cause, impedendo l'accesso alla VM. Il problema può dipendere dal servizio di desktop remoto nella VM, dalla connessione di rete o dal client di desktop remoto nel computer host. Questo articolo illustra alcuni dei metodi più comuni per risolvere i problemi di connessione RDP. 
 
-Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
+Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Richiedi supporto**.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 <a id="quickfixrdp"></a>
 
@@ -86,7 +86,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di co
     ![Reimpostare le credenziali utente nel portale di Azure](./media/troubleshoot-rdp-connection/reset-password.png)
 7. **Riavviare la VM**. Questa procedura di risoluzione dei problemi consente di correggere eventuali problemi sottostanti riscontrati dalla macchina virtuale.
    
-    Selezionare la macchina virtuale nel portale di Azure e fare clic sulla scheda **Panoramica**. Fare clic sul pulsante **Riavvia**:
+    Selezionare la macchina virtuale nel portale di Azure e fare clic sulla scheda **Panoramica** . fare clic sul pulsante **Riavvia** :
    
     ![Riavviare la macchina virtuale nel portale di Azure](./media/troubleshoot-rdp-connection/restart-vm.png)
 8. **Ripetere la distribuzione della VM**. Questa procedura di risoluzione dei problemi ripete la distribuzione della macchina virtuale in un altro host all'interno di Azure per correggere eventuali problemi relativi alla rete o alla piattaforma sottostante.
@@ -136,7 +136,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di co
     $rules.SecurityRules
     ```
    
-    L'esempio seguente illustra una regola di sicurezza valida che consente il traffico RDP. È visualizzata la corretta configurazione di `Protocol`, `DestinationPortRange`, `Direction` e `Access`:
+    L'esempio seguente illustra una regola di sicurezza valida che consente il traffico RDP. È visualizzata la corretta configurazione di `Protocol`, `DestinationPortRange`, `Access` e `Direction`:
    
     ```powershell
     Name                     : default-allow-rdp
@@ -197,7 +197,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la rico
 
 1. **Ripristinare la connessione RDP**. Questa procedura di risoluzione dei problemi consente di ripristinare la configurazione della connessione RDP quando, ad esempio, le connessioni remote sono disabilitate o le regole di Windows Firewall la bloccano.
    
-    Selezionare la macchina virtuale nel portale di Azure. Fare clic sul pulsante  **Altro** quindi su **Reimposta accesso remoto**:
+    Selezionare la macchina virtuale nel portale di Azure. Fare clic sul pulsante **Altro** quindi su **Reimposta accesso remoto**:
    
     ![Ripristinare la configurazione della connessione RDP nel portale di Azure](./media/troubleshoot-rdp-connection/classic-reset-rdp.png)
 2. **Controllare gli endpoint di Servizi cloud**. Questa procedura di risoluzione dei problemi verifica che gli endpoint di Servizi cloud consentano il traffico RDP. La porta RDP predefinita è la porta TCP 3389. Quando si crea la macchina virtuale, non è possibile creare automaticamente una regola che consenta il traffico RDP.
@@ -224,7 +224,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la rico
     ![Reimpostare le credenziali utente nel portale di Azure](./media/troubleshoot-rdp-connection/classic-reset-password.png)
 6. **Riavviare la VM**. Questa procedura di risoluzione dei problemi consente di correggere eventuali problemi sottostanti riscontrati dalla macchina virtuale.
    
-    Selezionare la macchina virtuale nel portale di Azure e fare clic sulla scheda **Panoramica**. Fare clic sul pulsante **Riavvia**:
+    Selezionare la macchina virtuale nel portale di Azure e fare clic sulla scheda **Panoramica** . fare clic sul pulsante **Riavvia** :
    
     ![Riavviare la macchina virtuale nel portale di Azure](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
 
@@ -238,7 +238,7 @@ Quando si tenta di connettersi alla VM tramite RDP, potrebbe essere visualizzato
 * [La sessione remota è stata disconnessa perché non sono disponibili server licenze di Desktop remoto per il rilascio della licenza](troubleshoot-specific-rdp-errors.md#rdplicense).
 * [Desktop remoto: impossibile rilevare il "nome" del computer](troubleshoot-specific-rdp-errors.md#rdpname).
 * [Si è verificato un errore di autenticazione. Impossibile contattare l'autorità di sicurezza locale](troubleshoot-specific-rdp-errors.md#rdpauth).
-* [Eventi di sicurezza di Windows: le credenziali non funzionavano](troubleshoot-specific-rdp-errors.md#wincred).
+* [Errore di sicurezza di Windows: Le credenziali specificate non funzionano](troubleshoot-specific-rdp-errors.md#wincred).
 * [Il computer non è in grado di connettersi al computer remoto](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

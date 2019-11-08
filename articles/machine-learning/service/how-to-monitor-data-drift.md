@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: eddfddc994482bcb6e60604703e7f306fee9c32b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: MT
+ms.openlocfilehash: 24b1c22d9badc58360b0355bb4ef89017db27f06
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574357"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796730"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Rilevare la tendenza dei dati (anteprima) nei modelli distribuiti in Azure Kubernetes Service (AKS)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -189,6 +189,8 @@ Quando la tendenza dei dati influisce negativamente sulle prestazioni del modell
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un esempio completo dell'uso della dispersione dei dati, vedere il [notebook di spostamento dei dati di Azure ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb). Questo Jupyter Notebook illustra l'uso di un [set di dati di Azure Open](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) per eseguire il training di un modello per stimare il tempo, distribuirlo in AKS e monitorare la tendenza dei dati. 
+* Per un esempio completo dell'uso della dispersione dei dati, vedere il [notebook di spostamento dei dati di Azure ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/drift-on-aks.ipynb). Questo Jupyter Notebook illustra l'uso di un [set di dati di Azure Open](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) per eseguire il training di un modello per stimare il tempo, distribuirlo in AKS e monitorare la tendenza dei dati. 
+
+* Rilevare la tendenza dei dati con [monitoraggi del set](how-to-monitor-datasets.md)di dati.
 
 * Si apprezzeranno molto le domande, i commenti o i suggerimenti quando lo spostamento dei dati viene spostato verso la disponibilità generale. Usare il pulsante feedback del prodotto sotto. 

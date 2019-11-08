@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 14339a61e48866d51089db9a0008a3de982b1710
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
-ms.translationtype: MT
+ms.openlocfilehash: 4e6d86cb3fa304c8e85e7d0ff4a2810be1dc75af
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277114"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794955"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Punteggio di attendibilità di una knowledge base di QnA Maker
 Quando una query dell'utente viene confrontata con una knowledge base, QnA Maker restituisce le risposte pertinenti insieme a un punteggio di attendibilità. Questo punteggio indica la probabilità che la risposta corrisponda perfettamente alla query dell'utente specificata. 
@@ -72,9 +72,9 @@ Quando più risposte hanno un punteggio di attendibilità simile, è probabile c
 
 
 ## <a name="confidence-score-differences"></a>Differenze tra punteggi di attendibilità
-Il punteggio di attendibilità di una risposta può variare in modo trascurabile tra la versione di test e la versione pubblicata della Knowledge Base, anche se il contenuto è lo stesso. Questo accade perché il contenuto della versione di test e della versione pubblicata della Knowledge Base si trova in indici diversi di Ricerca di Azure. Quando si pubblica una knowledge base, il contenuto di domande e risposte della knowledge base passa dall'indice di test a un indice di produzione in Ricerca di Azure. Vedere come funziona l'operazione di [pubblicazione](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
+Il punteggio di attendibilità di una risposta può variare in modo trascurabile tra la versione di test e la versione pubblicata della Knowledge Base, anche se il contenuto è lo stesso. Ciò è dovuto al fatto che il contenuto del test e della Knowledge base pubblicata si trova in diversi indici di Azure ricerca cognitiva. Quando si pubblica una knowledge base, il contenuto di domande e risposte della knowledge base passa dall'indice di test a un indice di produzione in Ricerca di Azure. Vedere come funziona l'operazione di [pubblicazione](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
-Se si dispone di una Knowledge Base in aree diverse, ogni area usa il proprio indice di Ricerca di Azure. Poiché vengono usati indici diversi, i punteggi non saranno esattamente gli stessi. 
+Se si dispone di una Knowledge base in aree diverse, ogni area usa il proprio indice ricerca cognitiva di Azure. Poiché vengono usati indici diversi, i punteggi non saranno esattamente gli stessi. 
 
 
 ## <a name="no-match-found"></a>Nessuna corrispondenza trovata

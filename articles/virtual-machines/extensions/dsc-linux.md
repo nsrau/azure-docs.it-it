@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: e2faf444aa411f0e60f1b5c7b1f811abc2f6b63a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1825f9f0f5d525c0129341d800ca5949136ae633
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176680"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750083"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Estensione DSC per Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -35,7 +35,7 @@ L'estensione DSCForLinux è pubblicata e supportata da Microsoft. L'estensione i
 - Installare moduli DSC personalizzati nella macchina virtuale Linux (ExtensionAction Install)
 - Rimuovere i moduli DSC personalizzati dalla macchina virtuale Linux (ExtensionAction Remove)
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -60,11 +60,11 @@ Di seguito sono riportati tutti i parametri della configurazione pubblica suppor
 
 * `FileUri`: (facoltativo, stringa) URI del file MOF/file meta.MOF/file di risorse personalizzato con estensione zip.
 * `ResourceName`: (facoltativo, stringa) nome del modulo di risorse personalizzato
-* `ExtensionAction`: (facoltativo, stringa) specifica le azioni compiute da un'estensione. Valori validi: Register, Push, Pull, Install, Remove. Se non specificato, viene considerata l'azione Push per impostazione predefinita.
+* `ExtensionAction`: (facoltativo, stringa) specifica le azioni compiute da un'estensione. I valori validi sono Register, Push, Pull, Install, Remove. Se non specificato, viene considerata l'azione Push per impostazione predefinita.
 * `NodeConfigurationName`: (facoltativo, stringa) nome di una configurazione del nodo da applicare.
 * `RefreshFrequencyMins`: (facoltativo, int) specifica la frequenza (in minuti) con cui DSC tenta di ottenere la configurazione dal server di pull. 
        Se la configurazione nel server di pull è diversa da quella corrente nel nodo di destinazione, viene copiata nell'archivio di elementi in sospeso e applicata.
-* `ConfigurationMode`: (facoltativo, stringa) specifica la modalità di applicazione della configurazione da parte di DSC. I valori validi sono: ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
+* `ConfigurationMode`: (facoltativo, stringa) specifica la modalità di applicazione della configurazione da parte di DSC. I valori validi sono ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
 * `ConfigurationModeFrequencyMins`: (facoltativo, int) specifica la frequenza (in minuti) con cui DSC verifica che la configurazione si trovi nello stato desiderato.
 
 > [!NOTE]
@@ -406,7 +406,7 @@ Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere problemi
+### <a name="troubleshoot"></a>Risolvere i problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata VM, eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
 
@@ -420,14 +420,14 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Codice errore: 51 rappresenta una distribuzione non supportata o un'azione dell'estensione non supportata.
-In alcuni casi, l'estensione DSC per Linux non riesce a installare OMI quando nel computer è già presente una versione più recente di OMI. [risposta di errore: (000003)Downgrade not allowed (Downgrade non consentito)]
+Codice di errore: 51 rappresenta una distribuzione non supportata o un'azione dell'estensione non supportata.
+In alcuni casi, l'estensione DSC per Linux non riesce a installare OMI quando nel computer è già presente una versione più recente di OMI. [Risposta di errore: (000003)Downgrade not allowed] (Downgrade non consentito)
 
 
 
 ### <a name="support"></a>Supporto
 
-Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle estensioni, vedere [Estensioni e funzionalità delle macchine virtuali per Linux](features-linux.md).
+Per altre informazioni sulle estensioni, vedere [Estensioni e funzionalità della macchina virtuale per Linux](features-linux.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2019
 ms.author: memildin
-ms.openlocfilehash: dad8c6173495d11abd6c9f5babb4ef8bc789e4ce
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 140361b7ba3a6a618d4c416447525f8a73690b81
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686427"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748421"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Valutazione e raccomandazioni di Endpoint Protection nel centro sicurezza di Azure
 
@@ -84,8 +84,8 @@ Il Centro sicurezza di Azure fornisce valutazioni dell'integrità delle versioni
 * Il Centro sicurezza consiglia **di "installare soluzioni Endpoint Protection nella macchina virtuale"** quando uno dei seguenti controlli non viene soddisfatto:
     * **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent** esiste
     * **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists
-    * Il file **dsq_query. cmd** si trova nella cartella di installazione
-    * Esecuzione di **dsa_query. cmd** risultati con **Component. am. Mode: rilevato un agente di sicurezza Deep micro-trend**
+    * Il file **dsa_query. cmd** si trova nella cartella di installazione
+    * Esecuzione di **dsa_query. cmd** risultati con **Component. am. Mode: rilevato agente di sicurezza Deep micro-trend**
 
 ## <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection
 Il Centro sicurezza consiglia **di "installare soluzioni Endpoint Protection nella macchina virtuale"** quando uno dei seguenti controlli non viene soddisfatto:

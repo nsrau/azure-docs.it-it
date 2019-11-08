@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracych
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 4390fab3d59706bf692de46d17923dad4f9a8f21
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 615536fbba38279a23516352c69461c19f9972ed
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489610"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796718"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Eseguire l'inferenza batch su grandi quantità di dati usando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -184,7 +184,7 @@ model = Model.register(model_path="models/",
 ## <a name="write-your-inference-script"></a>Scrivere lo script di inferenza
 
 >[!Warning]
->Il codice seguente è solo un esempio usato dal [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/notebooks/contrib/batch_inferencing/file-dataset-image-inference-mnist.ipynb). È necessario creare uno script personalizzato per lo scenario in uso.
+>Il codice seguente è solo un esempio usato dal [notebook di esempio](https://aka.ms/batch-inference-notebooks). È necessario creare uno script personalizzato per lo scenario in uso.
 
 Lo script *deve contenere* due funzioni:
 - `init()`: usare questa funzione per qualsiasi preparazione dispendiosa o comune per un'inferenza successiva. Usarla ad esempio per caricare il modello in un oggetto globale.
@@ -347,7 +347,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per vedere questo processo in funzione dall'inizio alla fine, provare il [notebook relativo all'inferenza batch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/). 
+Per vedere questo processo in funzione dall'inizio alla fine, provare il [notebook relativo all'inferenza batch](https://aka.ms/batch-inference-notebooks). 
 
 Per indicazioni sul debug e la risoluzione dei problemi per le pipeline, vedere la [guida pratica](how-to-debug-pipelines.md).
 

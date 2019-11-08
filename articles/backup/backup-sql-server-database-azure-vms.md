@@ -1,6 +1,6 @@
 ---
 title: Eseguire il backup di database SQL Server nelle VM di Azure | Microsoft Docs
-description: Informazioni su come eseguire il backup di database di SQL Server in macchine virtuali di Azure
+description: Questo articolo illustra come eseguire il backup di database di SQL Server in macchine virtuali di Azure con backup di Azure.
 ms.reviewer: vijayts
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 847a4ec7da3c9b00753e5d07baf2952b31d2b5bb
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: a6752ffcf434b81c3013a2bd43c784bc92a8c1fe
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934854"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747166"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
 
@@ -24,10 +24,10 @@ Questo articolo illustra come eseguire il backup di un database di SQL Server in
 L'articolo spiega come:
 
 > [!div class="checklist"]
+>
 > * Creare e configurare un insieme di credenziali.
 > * Individuare i database e configurare i backup.
 > * Configurare la protezione automatica per i database.
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -41,40 +41,38 @@ Prima di eseguire il backup di un database di SQL Server, verificare i criteri s
 > [!NOTE]
 > È possibile abilitare backup di Azure per una macchina virtuale di Azure e anche per un database SQL Server in esecuzione nella macchina virtuale senza conflitti.
 
-
 ### <a name="establish-network-connectivity"></a>Stabilire la connettività di rete
 
 Per tutte le operazioni, una macchina virtuale SQL Server richiede la connettività agli indirizzi IP pubblici di Azure. Le operazioni della macchina virtuale (individuazione del database, configurazione dei backup, pianificazione dei backup, ripristino dei punti di ripristino e così via) hanno esito negativo senza connettività agli indirizzi IP pubblici di Azure.
 
 Stabilire la connettività usando una delle opzioni seguenti:
 
-- **Consentire gli intervalli IP del Data Center di Azure**. Questa opzione consente di scaricare gli [intervalli IP](https://www.microsoft.com/download/details.aspx?id=41653) . Per accedere a un gruppo di sicurezza di rete (NSG), usare il cmdlet Set-AzureNetworkSecurityRule. Se si dispone di un elenco di destinatari sicuri solo per gli indirizzi IP specifici dell'area, sarà necessario aggiornare anche l'Azure AD Azure Active Directory elenco dei destinatari sicuri per abilitare l'autenticazione.
+* **Consentire gli intervalli IP del Data Center di Azure**. Questa opzione consente di scaricare gli [intervalli IP](https://www.microsoft.com/download/details.aspx?id=41653) . Per accedere a un gruppo di sicurezza di rete (NSG), usare il cmdlet Set-AzureNetworkSecurityRule. Se si dispone di un elenco di destinatari sicuri solo per gli indirizzi IP specifici dell'area, sarà necessario aggiornare anche l'Azure AD Azure Active Directory elenco dei destinatari sicuri per abilitare l'autenticazione.
 
-- **Consente l'accesso tramite tag NSG**.  Se si usa NSG per limitare la connettività, è necessario usare il tag del servizio AzureBackup per consentire l'accesso in uscita a backup di Azure. Inoltre, è necessario consentire la connettività per l'autenticazione e il trasferimento dei dati usando [le regole](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) per Azure ad e archiviazione di Azure. Questa operazione può essere eseguita dal portale o da PowerShell.
+* **Consente l'accesso tramite tag NSG**.  Se si usa NSG per limitare la connettività, è necessario usare il tag del servizio AzureBackup per consentire l'accesso in uscita a backup di Azure. Inoltre, è necessario consentire la connettività per l'autenticazione e il trasferimento dei dati usando [le regole](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) per Azure ad e archiviazione di Azure. Questa operazione può essere eseguita dal portale o da PowerShell.
 
     Per creare una regola tramite il portale:
-    
-    - In **tutti i servizi**, passare a **gruppi di sicurezza di rete** e selezionare il gruppo di sicurezza di rete.
-    - Selezionare **regole di sicurezza in uscita** in **Impostazioni**.
-    - Selezionare **Aggiungi**. Immettere tutti i dettagli necessari per la creazione di una nuova regola, come descritto in [impostazioni delle regole di sicurezza](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Verificare che l'opzione **destinazione** sia impostata su **tag servizio** e il **tag servizio di destinazione** sia impostato su **AzureBackup**.
-    - Fare clic su **Aggiungi**per salvare la regola di sicurezza in uscita appena creata.
-    
+
+  * In **tutti i servizi**, passare a **gruppi di sicurezza di rete** e selezionare il gruppo di sicurezza di rete.
+  * Selezionare **regole di sicurezza in uscita** in **Impostazioni**.
+  * Selezionare **Aggiungi**. Immettere tutti i dettagli necessari per la creazione di una nuova regola, come descritto in [impostazioni delle regole di sicurezza](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Verificare che l'opzione **destinazione** sia impostata su **tag servizio** e il **tag servizio di destinazione** sia impostato su **AzureBackup**.
+  * Fare clic su **Aggiungi**per salvare la regola di sicurezza in uscita appena creata.
+
    Per creare una regola usando PowerShell:
 
-   - Aggiungere le credenziali dell'account Azure e aggiornare i cloud nazionali<br/>
+  * Aggiungere le credenziali dell'account Azure e aggiornare i cloud nazionali<br/>
     ``Add-AzureRmAccount``
-  - Selezionare la sottoscrizione di NSG<br/>
+  * Selezionare la sottoscrizione di NSG<br/>
     ``Select-AzureRmSubscription "<Subscription Id>"``
-  - Selezionare il NSG<br/>
+  * Selezionare il NSG<br/>
     ```$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"```
-  - Aggiungi regola Consenti connessioni in uscita per il servizio backup di Azure<br/>
+  * Aggiungi regola Consenti connessioni in uscita per il servizio backup di Azure<br/>
    ```Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"```
-  - Salva NSG<br/>
+  * Salva NSG<br/>
     ```Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg```
 
-   
-- **Consentire l'accesso usando i tag del firewall di Azure**. Se si usa il firewall di Azure, creare una regola dell'applicazione usando il [tag FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags)AzureBackup. Questo consente l'accesso in uscita a backup di Azure.
-- **Distribuire un server proxy HTTP per instradare il traffico**. Quando si esegue il backup di un database di SQL Server in una macchina virtuale di Azure, l'estensione di backup nella VM usa le API HTTPS per inviare i comandi di gestione a backup e dati di Azure in archiviazione di Azure. L'estensione per il backup usa anche Azure AD per l'autenticazione. Eseguire il routing del traffico di estensione per il backup di questi tre servizi attraverso il proxy HTTP. Le estensioni sono l'unico componente configurato per l'accesso a Internet pubblico.
+* **Consentire l'accesso usando i tag del firewall di Azure**. Se si usa il firewall di Azure, creare una regola dell'applicazione usando il [tag FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags)AzureBackup. Questo consente l'accesso in uscita a backup di Azure.
+* **Distribuire un server proxy HTTP per instradare il traffico**. Quando si esegue il backup di un database di SQL Server in una macchina virtuale di Azure, l'estensione di backup nella VM usa le API HTTPS per inviare i comandi di gestione a backup e dati di Azure in archiviazione di Azure. L'estensione per il backup usa anche Azure AD per l'autenticazione. Eseguire il routing del traffico di estensione per il backup di questi tre servizi attraverso il proxy HTTP. Le estensioni sono l'unico componente configurato per l'accesso a Internet pubblico.
 
 Le opzioni di connettività includono i vantaggi e gli svantaggi seguenti:
 
@@ -89,14 +87,13 @@ Usare un proxy HTTP | È consentito il controllo granulare nel proxy sugli URL d
 
 Evitare di utilizzare i seguenti elementi nei nomi di database:
 
-  * Spazi finali e iniziali
-  * Punti esclamativi finali (!)
-  * Parentesi quadre chiuse (])
-  * Punto e virgola ';'
-  * Barra '/'
+* Spazi finali e iniziali
+* Punti esclamativi finali (!)
+* Parentesi quadre chiuse (])
+* Punto e virgola ';'
+* Barra '/'
 
 L'aliasing è disponibile per i caratteri non supportati, ma è consigliabile evitarli. Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
-
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -118,9 +115,9 @@ Come individuare i database in esecuzione in una macchina virtuale:
 
 5. In **Obiettivo di backup** > **Individuare i database nelle macchine virtuali** selezionare **Avvia individuazione** per cercare le macchine virtuali non protette nella sottoscrizione. Questa ricerca può richiedere un po' di tempo, a seconda del numero di macchine virtuali non protette nella sottoscrizione.
 
-   - Le VM non protette verranno visualizzate nell'elenco dopo l'individuazione, elencate per nome e gruppo di risorse.
-   - Se una macchina virtuale non è elencata come previsto, vedere se è già stato eseguito il backup in un insieme di credenziali.
-   - Più macchine virtuali possono avere lo stesso nome, ma appartengono a gruppi di risorse diversi.
+   * Le VM non protette verranno visualizzate nell'elenco dopo l'individuazione, elencate per nome e gruppo di risorse.
+   * Se una macchina virtuale non è elencata come previsto, vedere se è già stato eseguito il backup in un insieme di credenziali.
+   * Più macchine virtuali possono avere lo stesso nome, ma appartengono a gruppi di risorse diversi.
 
      ![Il backup è in sospeso durante la ricerca dei database nelle macchine virtuali](./media/backup-azure-sql-database/discovering-sql-databases.png)
 
@@ -132,18 +129,18 @@ Come individuare i database in esecuzione in una macchina virtuale:
 
 8. Backup di Azure individua tutti i database SQL Server presenti nella macchina virtuale. Durante l'individuazione, in background si verificano gli elementi seguenti:
 
-    - Backup di Azure registra la VM con l'insieme di credenziali per il backup del carico di lavoro. È possibile eseguire il backup di tutti i database della VM registrata solo in questo insieme di credenziali.
-    - Backup di Azure installa l'estensione AzureBackupWindowsWorkload nella macchina virtuale. Nessun agente è installato in un database SQL.
-    - Backup di Azure crea l'account di servizio NT Service\AzureWLBackupPluginSvc nella macchina virtuale.
-      - Tutte le operazioni di backup e ripristino usano l'account del servizio.
-      - NT Service\AzureWLBackupPluginSvc richiede le autorizzazioni sysadmin di SQL. Tutte le macchine virtuali SQL Server create nel Marketplace vengono installate con SqlIaaSExtension. L'estensione AzureBackupWindowsWorkload USA SQLIaaSExtension per ottenere automaticamente le autorizzazioni necessarie.
-    - Se la macchina virtuale non è stata creata dal Marketplace o se si utilizza SQL 2008 e 2008 R2, è possibile che nella macchina virtuale non sia installato SqlIaaSExtension e che l'operazione di individuazione abbia esito negativo con il messaggio di errore UserErrorSQLNoSysAdminMembership. Per risolvere questo problema, seguire le istruzioni in [impostare le autorizzazioni per le macchine virtuali](backup-azure-sql-database.md#set-vm-permissions).
+    * Backup di Azure registra la VM con l'insieme di credenziali per il backup del carico di lavoro. È possibile eseguire il backup di tutti i database della VM registrata solo in questo insieme di credenziali.
+    * Backup di Azure installa l'estensione AzureBackupWindowsWorkload nella macchina virtuale. Nessun agente è installato in un database SQL.
+    * Backup di Azure crea l'account di servizio NT Service\AzureWLBackupPluginSvc nella macchina virtuale.
+      * Tutte le operazioni di backup e ripristino usano l'account del servizio.
+      * NT Service\AzureWLBackupPluginSvc richiede le autorizzazioni sysadmin di SQL. Tutte le macchine virtuali SQL Server create nel Marketplace vengono installate con SqlIaaSExtension. L'estensione AzureBackupWindowsWorkload USA SQLIaaSExtension per ottenere automaticamente le autorizzazioni necessarie.
+    * Se la macchina virtuale non è stata creata dal Marketplace o se si utilizza SQL 2008 e 2008 R2, è possibile che nella macchina virtuale non sia installato SqlIaaSExtension e che l'operazione di individuazione abbia esito negativo con il messaggio di errore UserErrorSQLNoSysAdminMembership. Per risolvere questo problema, seguire le istruzioni in [impostare le autorizzazioni per le macchine virtuali](backup-azure-sql-database.md#set-vm-permissions).
 
         ![Selezionare la macchina virtuale e il database](./media/backup-azure-sql-database/registration-errors.png)
 
 ## <a name="configure-backup"></a>Configurare il backup  
 
-1. In > obiettivo**di backup passaggio 2: Configurare il**backup e selezionare **Configura backup**.
+1. In **obiettivo di backup** > **passaggio 2: configurare il backup**Selezionare **Configura backup**.
 
    ![Selezionare Configurare il backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
@@ -169,9 +166,9 @@ Come individuare i database in esecuzione in una macchina virtuale:
 
 5. In **criterio di backup**scegliere un criterio e quindi fare clic su **OK**.
 
-   - Selezionare i criteri predefiniti come HourlyLogBackup.
-   - Scegliere un criterio di backup creato in precedenza per SQL.
-   - Definire un nuovo criterio basato sull'obiettivo del punto di ripristino (RPO) e sull'intervallo di conservazione.
+   * Selezionare i criteri predefiniti come HourlyLogBackup.
+   * Scegliere un criterio di backup creato in precedenza per SQL.
+   * Definire un nuovo criterio basato sull'obiettivo del punto di ripristino (RPO) e sull'intervallo di conservazione.
 
      ![Selezionare il criterio di backup](./media/backup-azure-sql-database/select-backup-policy.png)
 
@@ -187,15 +184,15 @@ Come individuare i database in esecuzione in una macchina virtuale:
 
 Un criterio di backup definisce quando vengono acquisiti i backup e per quanto tempo vengono conservati.
 
-- Un criterio viene creato a livello di insieme di credenziali.
-- Più insiemi di credenziali possono usare gli stessi criteri di backup, ma è necessario applicare i criteri di backup a ogni insieme di credenziali.
-- Quando si crea un criterio di backup, il backup completo giornaliero è l'impostazione predefinita.
-- È possibile aggiungere un backup differenziale, ma solo se si configura l'esecuzione settimanale del backup completo.
-- Informazioni sui [diversi tipi di criteri di backup](backup-architecture.md#sql-server-backup-types).
+* Un criterio viene creato a livello di insieme di credenziali.
+* Più insiemi di credenziali possono usare gli stessi criteri di backup, ma è necessario applicare i criteri di backup a ogni insieme di credenziali.
+* Quando si crea un criterio di backup, il backup completo giornaliero è l'impostazione predefinita.
+* È possibile aggiungere un backup differenziale, ma solo se si configura l'esecuzione settimanale del backup completo.
+* Informazioni sui [diversi tipi di criteri di backup](backup-architecture.md#sql-server-backup-types).
 
 Per creare un criterio di backup:
 
-1. Nell'insieme di credenziali selezionare **criteri** > di backup**Aggiungi**.
+1. Nell'insieme di credenziali selezionare **criteri di Backup** > **Aggiungi**.
 2. In **Aggiungi**selezionare **SQL Server nella macchina virtuale di Azure** per definire il tipo di criteri.
 
    ![Scegliere un tipo per il nuovo criterio di backup](./media/backup-azure-sql-database/policy-type-details.png)
@@ -203,20 +200,20 @@ Per creare un criterio di backup:
 3. In **Nome criterio** immettere un nome per il nuovo criterio.
 4. In **criterio backup completo**selezionare una **frequenza di backup**. Scegliere **giornaliera** o **settimanale**.
 
-   - Per **Giornaliero**, scegliere l'ora e il fuso orario per l'inizio del processo di backup.
-   - Per **Settimanale**, selezionare il giorno della settimana, l'ora e il fuso orario per l'inizio del processo di backup.
-   - Eseguire un backup completo, perché non è possibile disattivare l'opzione **backup completo** .
-   - Selezionare **backup completo** per visualizzare i criteri.
-   - Se si sceglie di eseguire backup completi giornalieri, non è possibile creare backup differenziali.
+   * Per **Giornaliero**, scegliere l'ora e il fuso orario per l'inizio del processo di backup.
+   * Per **Settimanale**, selezionare il giorno della settimana, l'ora e il fuso orario per l'inizio del processo di backup.
+   * Eseguire un backup completo, perché non è possibile disattivare l'opzione **backup completo** .
+   * Selezionare **backup completo** per visualizzare i criteri.
+   * Se si sceglie di eseguire backup completi giornalieri, non è possibile creare backup differenziali.
 
      ![Nuovi campi di criteri di backup](./media/backup-azure-sql-database/full-backup-policy.png)  
 
 5. In periodo di **mantenimento**dati, tutte le opzioni sono selezionate per impostazione predefinita. Deselezionare gli eventuali limiti del periodo di mantenimento dati non desiderati, quindi impostare gli intervalli da utilizzare.
 
-    - Il periodo di memorizzazione minimo per qualsiasi tipo di backup (completo, differenziale e log) è di sette giorni.
-    - I punti di recupero vengono contrassegnati per la conservazione, in base al relativo intervallo. Ad esempio, se si seleziona un backup completo giornaliero, viene attivato solo un backup completo ogni giorno.
-    - Il backup di un giorno specifico viene contrassegnato e mantenuto in base al periodo di mantenimento dati settimanale e all'impostazione di conservazione settimanale.
-    - Gli intervalli di conservazione mensili e annuali si comportano in modo simile.
+    * Il periodo di memorizzazione minimo per qualsiasi tipo di backup (completo, differenziale e log) è di sette giorni.
+    * I punti di recupero vengono contrassegnati per la conservazione, in base al relativo intervallo. Ad esempio, se si seleziona un backup completo giornaliero, viene attivato solo un backup completo ogni giorno.
+    * Il backup di un giorno specifico viene contrassegnato e mantenuto in base al periodo di mantenimento dati settimanale e all'impostazione di conservazione settimanale.
+    * Gli intervalli di conservazione mensili e annuali si comportano in modo simile.
 
        ![Impostazione dell'intervallo di conservazione](./media/backup-azure-sql-database/retention-range-interval.png)
 
@@ -228,8 +225,8 @@ Per creare un criterio di backup:
 
 8. Nel **criterio Backup differenziale** selezionare **Abilita** per accedere alle opzioni di frequenza e conservazione.
 
-    - È possibile attivare un solo backup differenziale al giorno.
-    - I backup differenziali possono essere conservati al massimo per 180 giorni. Per un periodo di conservazione più lungo, utilizzare backup completi.
+    * È possibile attivare un solo backup differenziale al giorno.
+    * I backup differenziali possono essere conservati al massimo per 180 giorni. Per un periodo di conservazione più lungo, utilizzare backup completi.
 
 9. Selezionare **OK** per salvare il criterio e tornare al menu principale **Criteri di backup**.
 
@@ -240,8 +237,8 @@ Per creare un criterio di backup:
     ![Modificare i criteri di backup del log](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
 13. Nel menu **Criterio di backup**, scegliere se abilitare la **compressione dei backup SQL**.
-    - La compressione è disabilitata per impostazione predefinita.
-    - Nel back-end Backup di Azure usa la compressione di backup nativa di SQL.
+    * La compressione è disabilitata per impostazione predefinita.
+    * Nel back-end Backup di Azure usa la compressione di backup nativa di SQL.
 
 14. Dopo aver completato le modifiche ai criteri di backup, selezionare **OK**.
 
@@ -249,9 +246,9 @@ Per creare un criterio di backup:
 
 È possibile abilitare la protezione automatica per eseguire automaticamente il backup di tutti i database esistenti e futuri in un'istanza di SQL Server autonoma o in un gruppo di disponibilità Always On.
 
-- Non esiste alcun limite al numero di database che è possibile selezionare per la protezione automatica in una sola volta.
-- Non è possibile proteggere in modo selettivo o escludere i database dalla protezione in un'istanza nel momento in cui si Abilita la protezione automatica.
-- Se l'istanza include già alcuni database protetti, questi rimarranno protetti in base ai rispettivi criteri anche dopo l'attivazione della protezione automatica. Tutti i database non protetti aggiunti in un secondo momento avranno un solo criterio definito al momento dell'abilitazione della protezione automatica, elencati in **configurare il backup**. Tuttavia, è possibile modificare i criteri associati a un database protetto automaticamente in un secondo momento.  
+* Non esiste alcun limite al numero di database che è possibile selezionare per la protezione automatica in una sola volta.
+* Non è possibile proteggere in modo selettivo o escludere i database dalla protezione in un'istanza nel momento in cui si Abilita la protezione automatica.
+* Se l'istanza include già alcuni database protetti, questi rimarranno protetti in base ai rispettivi criteri anche dopo l'attivazione della protezione automatica. Tutti i database non protetti aggiunti in un secondo momento avranno un solo criterio definito al momento dell'abilitazione della protezione automatica, elencati in **configurare il backup**. Tuttavia, è possibile modificare i criteri associati a un database protetto automaticamente in un secondo momento.  
 
 Per abilitare la protezione automatica:
 
@@ -266,10 +263,9 @@ Se è necessario disabilitare la protezione automatica, selezionare il nome dell
 
 ![Disabilitare la protezione automatica in tale istanza](./media/backup-azure-sql-database/disable-auto-protection.png)
 
- 
 ## <a name="next-steps"></a>Passaggi successivi
 
 È possibile passare agli argomenti seguenti:
 
-- [Ripristinare i database SQL Server sottoposti a backup](restore-sql-database-azure-vm.md)
-- [Gestire i database SQL Server sottoposti a backup](manage-monitor-sql-database-backup.md)
+* [Ripristinare i database SQL Server sottoposti a backup](restore-sql-database-azure-vm.md)
+* [Gestire i database SQL Server sottoposti a backup](manage-monitor-sql-database-backup.md)

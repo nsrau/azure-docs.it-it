@@ -11,27 +11,27 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 2d8f0fce3cb8f1cd8fdb596cb4e238a79d6cee4c
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 5cbdb6fcf9fcdf12b54ff1db4b577bb975517131
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193493"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73793956"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>Scelta della capacità per la distribuzione di QnA Maker
 
 Il servizio QnA Maker stabilisce una dipendenza da tre risorse di Azure:
 1.  Servizio app (per il runtime)
-2.  Ricerca di Azure (per l'archiviazione e la ricerca di QnAs)
+2.  Azure ricerca cognitiva (per l'archiviazione e la ricerca di QnAs)
 3.  App Insights (facoltativo, per archiviare log di chat e dati di telemetria)
 
 Prima di creare il servizio QnA Maker, è necessario stabilire quale livello dei servizi precedenti soddisfa le proprie esigenze. 
 
 Ci sono generalmente tre parametri da considerare:
 
-1. **La velocità effettiva che il servizio deve fornire**: scegliere il [piano app](https://azure.microsoft.com/pricing/details/app-service/plans/) appropriato per il servizio app in base alle proprie esigenze. È possibile [aumentare](https://docs.microsoft.com/azure/app-service/manage-scale-up) o ridurre le prestazioni dell'app. Ciò influenzerà anche la scelta dello SKU di Ricerca di Azure. Per altri dettagli, vedere [qui](https://docs.microsoft.com/azure/search/search-sku-tier).
+1. **La velocità effettiva che il servizio deve fornire**: scegliere il [piano app](https://azure.microsoft.com/pricing/details/app-service/plans/) appropriato per il servizio app in base alle proprie esigenze. È possibile [aumentare](https://docs.microsoft.com/azure/app-service/manage-scale-up) o ridurre le prestazioni dell'app. Questo dovrebbe influire anche sulla selezione dello SKU ricerca cognitiva di Azure. per altre informazioni, vedere [qui](https://docs.microsoft.com/azure/search/search-sku-tier).
 
-1. **Dimensioni e numero di Knowledge Base:** : scegliere lo [SKU di Ricerca di Azure](https://azure.microsoft.com/pricing/details/search/) appropriato per lo scenario. È possibile pubblicare N-1 Knowledge Base in un particolare livello, dove N è il numero massimo di indici consentiti nel livello. Verificare anche le dimensioni massime e il numero di documenti consentiti per ogni livello.
+1. **Dimensioni e numero di Knowledge Base**: scegliere lo [SKU di Ricerca di Azure](https://azure.microsoft.com/pricing/details/search/) appropriato per lo scenario. È possibile pubblicare N-1 Knowledge Base in un particolare livello, dove N è il numero massimo di indici consentiti nel livello. Verificare anche le dimensioni massime e il numero di documenti consentiti per ogni livello.
 
     Ad esempio, se il livello include 15 indici consentiti, è possibile pubblicare 14 articoli della knowledge base (1 indice per ogni articolo della knowledge base pubblicato). Il quindicesimo indice viene usato per tutti gli articoli della knowledge base per la creazione e il testing. 
 
@@ -39,7 +39,7 @@ Ci sono generalmente tre parametri da considerare:
 
 La tabella seguente indica alcune linee guida generali.
 
-|                        | Gestione di QnA Maker | Servizio app | Ricerca di Azure | Limitazioni                      |
+|                        | Gestione di QnA Maker | Servizio app | Ricerca cognitiva di Azure | Limitazioni                      |
 | ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | Sperimentazione        | SKU gratuito             | Livello gratuito   | Livello gratuito    | Pubblicazione di massimo 2 Knowledge Base, dimensioni 50 MB  |
 | Ambiente di sviluppo/test   | SKU Standard         | Condiviso      | Basic        | Pubblicazione di massimo 14 Knowledge Base, dimensioni 2 GB    |

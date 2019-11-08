@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 52d4efaba25dcede3322586d05fceb4d166f51e3
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 1cb5af13bdd309c762337e64ecde8538afc756b0
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973814"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794850"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo di vita della knowledge base in QnA Maker
 QnA Maker apprende meglio in un ciclo iterativo di modifiche ai modelli, esempi di espressioni, pubblicazione e raccolta dei dati dalle query degli endpoint. 
@@ -35,7 +35,7 @@ La knowledge base è pronta per i test dopo essere stata popolata con il contenu
 
 Questo ciclo serrato di test-aggiornamento continua finché non si è soddisfatti dei risultati. Leggere le informazioni su come [testare la knowledge base](../How-To/test-knowledge-base.md).
 
-Per i dati di grandi dimensioni, utilizzare test automatizzati con l' [API generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e la proprietà del corpo `isTest` che esegue una query sulla knowledge base `test` invece che sulla Knowledge base pubblicata. 
+Per i database di grandi dimensioni, utilizzare i test automatizzati con l' [API generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e la proprietà `isTest` Body che esegue una query sul `test` Knowledge base anziché sulla Knowledge base pubblicata. 
 
 ```json
 {
@@ -47,11 +47,11 @@ Per i dati di grandi dimensioni, utilizzare test automatizzati con l' [API gener
 ```
 
 ## <a name="publish-the-knowledge-base"></a>Pubblicare la knowledge base
-Una volta testata la knowledge base, è possibile pubblicarla. La pubblicazione inserisce la versione più recente della knowledge base testata in un indice di Ricerca di Azure dedicato che rappresenta la knowledge base **pubblicata**. Viene inoltre creato un endpoint che può essere chiamato nell'applicazione o nel chat bot.
+Una volta testata la knowledge base, è possibile pubblicarla. Publish esegue il push della versione più recente della Knowledge base verificata in un indice di ricerca cognitiva di Azure dedicato che rappresenta la Knowledge base **pubblicata** . Viene inoltre creato un endpoint che può essere chiamato nell'applicazione o nel chat bot.
 
 In questo modo, eventuali modifiche apportate alla versione di test della knowledge base non influiscono sulla versione pubblicata, che potrebbe essere in uso in un'applicazione di produzione.
 
-Ognuna di queste knowledge base può essere scelta come destinazione per i test separatamente. Utilizzando le API, è possibile specificare come destinazione la versione di prova della Knowledge base con la proprietà del corpo `isTest` nella chiamata generateAnswer.
+Ognuna di queste knowledge base può essere scelta come destinazione per i test separatamente. Utilizzando le API, è possibile specificare come destinazione la versione di test della Knowledge base con `isTest` proprietà Body nella chiamata generateAnswer.
 
 Leggere le informazioni su come [pubblicare la knowledge base](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 

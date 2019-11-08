@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 0e4daaa3417ce349111fbc811be36a4615058c76
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: 771a20ccf1c34958308d58dafb6fb01e36bb408a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791713"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749018"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -94,7 +94,7 @@ Il server NFS usa un nome host virtuale dedicato e indirizzi IP virtuali per ogn
 * Porta probe
   * Porta 61000 per NW1
   * Porta 61001 per NW2
-* Regole di bilanciamento del carico
+* Regole Loadbalancing (se si usa il servizio di bilanciamento del carico Basic)
   * TCP 2049 per NW1
   * UDP 2049 per NW1
   * TCP 2049 per NW2
@@ -136,48 +136,85 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
    SLES For SAP Applications 12 SP3 (BYOS)  
    Selezionare il set di disponibilità creato in precedenza  
 1. Aggiungere un disco dati per ogni sistema SAP a entrambe le macchine virtuali.
-1. Creare un servizio di bilanciamento del carico (interno)  
-   1. Creare gli indirizzi IP front-end
-      1. Indirizzo IP 10.0.0.4 per NW1
-         1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
-         1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio **nw1-frontend**
-         1. Impostare Assegnazione su Statico e immettere l'indirizzo IP, ad esempio **10.0.0.4**
-         1. Fare clic su OK.
-      1. Indirizzo IP 10.0.0.5 per NW2
-         * Ripetere i passaggi precedenti per NW2
-   1. Creare i pool back-end
-      1. Connessione alle interfacce di rete primarie di tutte le macchine virtuali che devono fare parte del cluster NFS per NW1
-         1. Aprire il servizio di bilanciamento del carico, selezionare Pool back-end e fare clic su Aggiungi
-         1. Immettere il nome del nuovo pool back-end, ad esempio **nw1-backend**
-         1. Fare clic su Aggiungi una macchina virtuale
-         1. Selezionare il set di disponibilità creato in precedenza
-         1. Selezionare le macchine virtuali del cluster NFS
-         1. Fare clic su OK.
-      1. Connessione alle interfacce di rete primarie di tutte le macchine virtuali che devono fare parte del cluster NFS per NW2
-         * Ripetere i passaggi precedenti per creare un pool back-end per NW2
-   1. Creare i probe di integrità
-      1. Porta 61000 per NW1
-         1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
-         1. Immettere il nome del nuovo probe di integrità, ad esempio **nw1-hp**
-         1. Selezionare TCP come protocollo, la porta 610**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
-         1. Fare clic su OK.
-      1. Porta 61001 per NW2
-         * Ripetere i passaggi precedenti per creare un probe di integrità per NW2
-   1. Regole di bilanciamento del carico
-      1. TCP 2049 per NW1
+1. Creare una Load Balancer (interna). Si consiglia [Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+   1. Seguire queste istruzioni per creare un servizio di bilanciamento del carico standard:
+      1. Creare gli indirizzi IP front-end
+         1. Indirizzo IP 10.0.0.4 per NW1
+            1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
+            1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio **nw1-frontend**
+            1. Impostare Assegnazione su Statico e immettere l'indirizzo IP, ad esempio **10.0.0.4**
+            1. Fare clic su OK.
+         1. Indirizzo IP 10.0.0.5 per NW2
+            * Ripetere i passaggi precedenti per NW2
+      1. Creare i pool back-end
+         1. Connessione alle interfacce di rete primarie di tutte le macchine virtuali che devono fare parte del cluster NFS per NW1
+            1. Aprire il servizio di bilanciamento del carico, selezionare Pool back-end e fare clic su Aggiungi
+            1. Immettere il nome del nuovo pool back-end, ad esempio **nw1-backend**
+            1. Seleziona rete virtuale
+            1. Fare clic su Aggiungi una macchina virtuale
+            1. Selezionare le macchine virtuali del cluster NFS e i relativi indirizzi IP.
+            1. Fare clic su Aggiungi.
+         1. Connessione alle interfacce di rete primarie di tutte le macchine virtuali che devono fare parte del cluster NFS per NW2
+            * Ripetere i passaggi precedenti per creare un pool back-end per NW2
+      1. Creare i probe di integrità
+         1. Porta 61000 per NW1
+            1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
+            1. Immettere il nome del nuovo probe di integrità, ad esempio **nw1-hp**
+            1. Selezionare TCP come protocollo, la porta 610**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
+            1. Fare clic su OK.
+         1. Porta 61001 per NW2
+            * Ripetere i passaggi precedenti per creare un probe di integrità per NW2
+      1. Regole di bilanciamento del carico
          1. Aprire il servizio di bilanciamento del carico, selezionare Regole di bilanciamento del carico e fare clic su Aggiungi
-         1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **nw1-lb-2049**
-         1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza, ad esempio **nw1-frontend**
-         1. Mantenere il protocollo **TCP** e immettere la porta **2049**
+         1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **NW1-lb**
+         1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza, ad esempio **NW1-frontend**. **NW1-back-end** e **NW1-HP**
+         1. Selezionare **porte a disponibilità elevata**.
          1. Aumentare il timeout di inattività a 30 minuti
          1. **Assicurarsi di abilitare l'indirizzo IP mobile**
          1. Fare clic su OK.
-      1. UDP 2049 per NW1
-         * Ripetere i passaggi precedenti per la porta 2049 e UDP per NW1
-      1. TCP 2049 per NW2
-         * Ripetere i passaggi precedenti per la porta 2049 e TCP per NW2
-      1. UDP 2049 per NW2
-         * Ripetere i passaggi precedenti per la porta 2049 e UDP per NW2
+         * Ripetere i passaggi precedenti per creare una regola di bilanciamento del carico per NW2
+   1. In alternativa, se lo scenario richiede il servizio di bilanciamento del carico di base, seguire queste istruzioni:
+      1. Creare gli indirizzi IP front-end
+         1. Indirizzo IP 10.0.0.4 per NW1
+            1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
+            1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio **nw1-frontend**
+            1. Impostare Assegnazione su Statico e immettere l'indirizzo IP, ad esempio **10.0.0.4**
+            1. Fare clic su OK.
+         1. Indirizzo IP 10.0.0.5 per NW2
+            * Ripetere i passaggi precedenti per NW2
+      1. Creare i pool back-end
+         1. Connessione alle interfacce di rete primarie di tutte le macchine virtuali che devono fare parte del cluster NFS per NW1
+            1. Aprire il servizio di bilanciamento del carico, selezionare Pool back-end e fare clic su Aggiungi
+            1. Immettere il nome del nuovo pool back-end, ad esempio **nw1-backend**
+            1. Fare clic su Aggiungi una macchina virtuale
+            1. Selezionare il set di disponibilità creato in precedenza
+            1. Selezionare le macchine virtuali del cluster NFS
+            1. Fare clic su OK.
+         1. Connessione alle interfacce di rete primarie di tutte le macchine virtuali che devono fare parte del cluster NFS per NW2
+            * Ripetere i passaggi precedenti per creare un pool back-end per NW2
+      1. Creare i probe di integrità
+         1. Porta 61000 per NW1
+            1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
+            1. Immettere il nome del nuovo probe di integrità, ad esempio **nw1-hp**
+            1. Selezionare TCP come protocollo, la porta 610**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
+            1. Fare clic su OK.
+         1. Porta 61001 per NW2
+            * Ripetere i passaggi precedenti per creare un probe di integrità per NW2
+      1. Regole di bilanciamento del carico
+         1. TCP 2049 per NW1
+            1. Aprire il servizio di bilanciamento del carico, selezionare Regole di bilanciamento del carico e fare clic su Aggiungi
+            1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **nw1-lb-2049**
+            1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza, ad esempio **nw1-frontend**
+            1. Mantenere il protocollo **TCP** e immettere la porta **2049**
+            1. Aumentare il timeout di inattività a 30 minuti
+            1. **Assicurarsi di abilitare l'indirizzo IP mobile**
+            1. Fare clic su OK.
+         1. UDP 2049 per NW1
+            * Ripetere i passaggi precedenti per la porta 2049 e UDP per NW1
+         1. TCP 2049 per NW2
+            * Ripetere i passaggi precedenti per la porta 2049 e TCP per NW2
+         1. UDP 2049 per NW2
+            * Ripetere i passaggi precedenti per la porta 2049 e UDP per NW2
 
 > [!IMPORTANT]
 > Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. TCP _timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
@@ -545,5 +582,5 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 * [Pianificazione e implementazione di macchine virtuali di Azure per SAP][planning-guide]
 * [Distribuzione di macchine virtuali di Azure per SAP][deployment-guide]
 * [Distribuzione DBMS di macchine virtuali di Azure per SAP][dbms-guide]
-* Per informazioni su come stabilire la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md).
+* Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md).
 * Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA nelle VM di Azure, vedere [disponibilità elevata di SAP Hana in macchine virtuali di Azure (VM)][sap-hana-ha]

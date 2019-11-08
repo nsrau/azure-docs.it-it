@@ -6,6 +6,7 @@ documentationcenter: na
 author: v-miegge
 manager: dcscontentpm
 editor: ''
+tags: virtual-network
 ms.assetid: 1a3d1e84-f793-41b4-aa04-774a7e8f7719
 ms.service: virtual-network
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 0898a65323957cbab4c2ab5278e9970cf0c16a90
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 1fddbe908ccebc1384dcccde0810366f1a6d5da7
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219232"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796243"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Risolvere i problemi di peering di rete virtuale
 
@@ -66,11 +67,11 @@ Per configurare il peering di rete virtuale per le reti virtuali in sottoscrizio
 
 ### <a name="for-a-site-to-site-connection-or-an-expressroute-connection"></a>Per una connessione da sito a sito o una connessione ExpressRoute
 
-Attenersi alla procedura descritta in: [Configurare il transito del gateway VPN per il peering di rete virtuale](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
+Seguire i passaggi in: [configurare il transito del gateway VPN per il peering di rete virtuale](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
 
 ### <a name="for-point-to-site-connections"></a>Per le connessioni da punto a sito
 
-1. Attenersi alla procedura descritta in: [Configurare il transito del gateway VPN per il peering di rete virtuale](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
+1. Seguire i passaggi in: [configurare il transito del gateway VPN per il peering di rete virtuale](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
 2. Dopo la creazione o la modifica del peering di rete virtuale, scaricare e reinstallare il pacchetto da punto a sito in modo che i client da punto a sito ottengano le route aggiornate alla rete virtuale spoke.
 
 ## <a name="configure-virtual-network-peering-with-hub-spoke-topology-virtual-network"></a>Configurare il peering di rete virtuale con la rete virtuale della topologia hub-spoke
@@ -126,7 +127,7 @@ Per risolvere il problema:
    1. Avviare una traccia di rete nella macchina virtuale di destinazione. Per Windows, è possibile usare **netsh**. Per Linux, usare **TCPDump**.
    2. Eseguire **TcpPing** o **PsPing** dall'origine all'indirizzo IP di destinazione.
 
-      Di seguito è riportato un esempio di comando **TcpPing** :`tcping64.exe -t <destination VM address> 3389`
+      Di seguito è riportato un esempio di comando **TcpPing** : `tcping64.exe -t <destination VM address> 3389`
 
    3. Al termine del **TcpPing** , arrestare la traccia di rete nella destinazione.
    4. Se i pacchetti arrivano dall'origine, non si verifica alcun problema di rete. Esaminare il firewall della macchina virtuale e l'applicazione in ascolto su tale porta per individuare il problema di configurazione.
@@ -222,7 +223,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 ## <a name="troubleshoot-a-virtual-network-peering-configuration-error-message"></a>Risolvere i problemi di un messaggio di errore di configurazione del peering di rete virtuale 
 
-### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>Il tenant `<TENANT ID>` corrente non è autorizzato ad accedere alla sottoscrizione collegata
+### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>Il `<TENANT ID>` tenant corrente non è autorizzato ad accedere alla sottoscrizione collegata
 
 Per risolvere questo problema, vedere [creare un peering-interfaccia](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli)della riga di comando di Azure.
 

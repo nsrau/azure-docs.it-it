@@ -6,7 +6,7 @@ documentationcenter: ''
 author: v-miegge
 manager: dcscontentpm
 editor: ''
-tags: ''
+tags: virtual-machines
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: d942f3861eb2fcc4e096248d495b2db2d8119ea1
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 6bda8cb831e84a56c889ed40109954551a34c113
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71132104"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796166"
 ---
-# <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Ripristinare una VM Windows usando i comandi di ripristino della macchina virtuale di Azure
+# <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Riparare una macchina virtuale Windows usando i comandi di riparazione della macchina virtuale di Azure
 
 Se la macchina virtuale (VM) Windows in Azure rileva un errore di avvio o del disco, potrebbe essere necessario eseguire la mitigazione sul disco. Un esempio comune è un aggiornamento di un'applicazione non riuscito che impedisce il corretto avvio della VM. Questo articolo illustra come usare i comandi di ripristino delle macchine virtuali di Azure per connettere il disco a un'altra VM Windows per risolvere eventuali errori e quindi ricompilare la VM originale.
 
@@ -60,13 +60,13 @@ Per ulteriori documentazione e istruzioni, vedere [AZ VM Repair](https://docs.mi
 
    Se si preferisce installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessaria l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire ``az --version`` per trovare la versione. Per installare o aggiornare l'interfaccia della riga di comando di Azure, vedere [installare l'interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli)della riga di comando di Azure.
 
-2. Se è la prima volta che si usano i `az vm repair` comandi, aggiungere l'estensione dell'interfaccia della riga di comando per la riparazione della VM.
+2. Se è la prima volta che si usano i comandi di `az vm repair`, aggiungere l'estensione CLI per la riparazione della VM.
 
    ```azurepowershell-interactive
    az extension add -n vm-repair
    ```
 
-   Se in precedenza sono stati usati `az vm repair` i comandi, applicare tutti gli aggiornamenti all'estensione per la riparazione della VM.
+   Se in precedenza sono stati usati i comandi di `az vm repair`, applicare tutti gli aggiornamenti all'estensione per la riparazione della VM.
 
    ```azurepowershell-interactive
    az extension update -n vm-repair

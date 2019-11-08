@@ -1,18 +1,18 @@
 ---
 title: Gestire server e insiemi di credenziali di Servizi di ripristino di Azure
-description: Gestire processi e avvisi in un insieme di credenziali di Servizi di ripristino di Azure.
+description: Questo articolo illustra come usare il dashboard di panoramica dell'insieme di credenziali di servizi di ripristino per monitorare e gestire gli insiemi di credenziali dei servizi di ripristino.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7e7312f942103125217c1f61ae8fe8007a49529b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a86af57f49b91615cc453946b0b5d51d22f2d163
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954770"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747436"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
 
@@ -23,7 +23,6 @@ Questo articolo illustra come usare il dashboard **Panoramica** dell'insieme di 
 I prerequisiti per questo articolo sono: una sottoscrizione di Azure, un insieme di credenziali di Servizi di ripristino e almeno un elemento di backup configurato per l'insieme di credenziali.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-
 
 ## <a name="open-a-recovery-services-vault"></a>Aprire un insieme di credenziali di Servizi di ripristino
 
@@ -66,7 +65,7 @@ Fare clic sui riquadri (a eccezione di Archivio backup) per aprire il menu assoc
 
 ![Menu Avvisi di backup filtrato per gli avvisi critici](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-Il menu Avvisi di Backup, nell'immagine precedente, viene filtrato per: Lo stato è attivo, la gravità è critica e l'ora è impostata sulle 24 ore precedenti.
+Il menu Avvisi di backup nell'immagine precedente viene filtrato per: stato attivo, gravità critica e intervallo di tempo corrispondente alle 24 ore precedenti.
 
 ## <a name="manage-backup-alerts"></a>Gestire gli avvisi di backup
 
@@ -100,9 +99,9 @@ Per impostazione predefinita, tutti i dettagli, tranne **Ora ultima occorrenza**
 * Elementi di backup
 * Server protetti
 * Gravità
-* Duration
+* Durata
 * Data creazione
-* Status
+* Stato
 * Ora ultima occorrenza
 
 ### <a name="change-the-details-in-alerts-report"></a>Modificare i dettagli nei report degli avvisi
@@ -223,7 +222,7 @@ Il tipo di elemento è il tipo di gestione di backup dell'istanza protetta. Ne e
 * Register
 * Configurare il backup
 * Backup
-* Restore
+* Ripristino
 * Disabilitare il backup
 * Elimina dati di backup
 
@@ -232,7 +231,7 @@ Il tipo di elemento è il tipo di gestione di backup dell'istanza protetta. Ne e
 È possibile visualizzare tutti gli stati o uno. Non è possibile selezionare due o tre stati. Gli stati disponibili sono:
 
 * Tutti gli stati
-* Completi
+* Completed
 * In corso
 * Operazione non riuscita
 * Cancellati
@@ -254,17 +253,16 @@ Per esportare le informazioni sui processi in un foglio di calcolo, fare clic su
 
 ## <a name="monitor-backup-usage"></a>Monitorare l'utilizzo del backup
 
-Il riquadro Archivio di backup del dashboard indica lo spazio di archiviazione utilizzato in Azure. L'utilizzo dello spazio di archiviazione viene fornito per:
+Il riquadro Utilizzo del backup del dashboard indica lo spazio di archiviazione utilizzato in Azure. L'utilizzo dello spazio di archiviazione viene fornito per:
 
 * Utilizzo dello spazio di archiviazione con ridondanza locale nel cloud associato all'insieme di credenziali
 * Utilizzo dello spazio di archiviazione con ridondanza geografica nel cloud associato all'insieme di credenziali
-
 
 ## <a name="troubleshooting-monitoring-issues"></a>Risoluzione dei problemi di monitoraggio
 
 **Problema:** i processi e/o gli avvisi generati dall'agente di Backup di Azure non vengono visualizzati nel portale.
 
-**Passaggi per la risoluzione dei problemi:** Il prpcesso, ```OBRecoveryServicesManagementAgent```, viene usato per inviare i dati dei processi e degli avvisi al servizio Backup di Azure. A volte questo processo può risultare danneggiato o arrestato.
+**Procedura per la risoluzione del problema:** il processo, ```OBRecoveryServicesManagementAgent```, viene usato per inviare i dati dei processi e degli avvisi al servizio Backup di Azure. A volte questo processo può risultare danneggiato o arrestato.
 
 1. Per controllare se il processo si è arrestato, aprire **Gestione attività** e controllare se ```OBRecoveryServicesManagementAgent``` è in esecuzione.
 
@@ -275,6 +273,7 @@ Il riquadro Archivio di backup del dashboard indica lo spazio di archiviazione u
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Ripristino di Windows Server o Windows Client da Azure](backup-azure-restore-windows-server.md)
 * Per altre informazioni sul servizio Backup di Azure, vedere [Panoramica di Backup di Azure](backup-introduction-to-azure-backup.md)
 * Visitare il [Forum su Backup di Azure](https://go.microsoft.com/fwlink/p/?LinkId=290933)

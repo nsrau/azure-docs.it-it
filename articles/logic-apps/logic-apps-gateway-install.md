@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 10/18/2019
-ms.openlocfilehash: d515982dc2937b660de75ee723cebe39b33bec7d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/06/2019
+ms.openlocfilehash: a8deb7933bb19745bbe4c3b3a209c19c9cc712bd
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580887"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796299"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
@@ -33,9 +33,9 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 
 * Un account e una sottoscrizione di Azure. Se non si ha un account Azure con una sottoscrizione, [iscriversi per ottenere un account Azure gratuito](https://azure.microsoft.com/free/).
 
-  * È necessario usare lo stesso account Azure per installare e amministrare il gateway nel computer locale.
+  * È necessario che l'account di Azure appartenga a una singola [Directory o a un tenant di Azure Active Directory (Azure ad)](../active-directory/fundamentals/active-directory-whatis.md#terminology). È necessario usare lo stesso account Azure per l'installazione e l'amministrazione del gateway nel computer locale.
 
-    Durante l'installazione del gateway, si accede con l'account Azure, che collega l'installazione del gateway al proprio account Azure e solo a tale account. Successivamente, nella portale di Azure è necessario usare lo stesso account di Azure per creare una risorsa del gateway di Azure che registri e attesta l'installazione del gateway. In app per la logica di Azure, trigger e azioni locali usare la risorsa gateway per la connessione alle origini dati locali.
+  * Durante l'installazione del gateway, si accede con l'account Azure, che collega l'installazione del gateway al proprio account Azure e solo a tale account. In seguito, nella portale di Azure, è necessario usare lo stesso account Azure e Azure AD tenant quando si crea una risorsa del gateway di Azure che registra e attesta l'installazione del gateway. In app per la logica di Azure, trigger e azioni locali usare la risorsa gateway per la connessione alle origini dati locali.
 
     > [!NOTE]
     > È possibile collegare tra loro solo un'installazione del gateway e una risorsa del gateway di Azure. Non è possibile collegare la stessa installazione del gateway a più account Azure o risorse del gateway di Azure. Un account Azure può tuttavia essere collegato a più installazioni del gateway e risorse del gateway di Azure. In un'azione o un trigger locale è possibile scegliere tra le diverse sottoscrizioni di Azure e quindi selezionare una risorsa gateway associata.

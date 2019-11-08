@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 23519edb61df23c97dfd2162d6cabea6b7fa5d38
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: afbf77014ece981568d4123db7820a2fa0a8f60d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101764"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749102"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Macchine virtuali in un modello di Azure Resource Manager
 
@@ -27,7 +27,7 @@ Questo articolo descrive gli aspetti di un modello di Azure Resource Manager che
 
 Sono disponibili numerosi [modelli nella raccolta](https://azure.microsoft.com/documentation/templates/?term=VM) che includono la risorsa di VM. Di seguito sono descritti solo alcuni elementi che possono essere inclusi in un modello.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 Questo esempio mostra una sezione di risorse tipica di un modello per la creazione di un numero specificato di VM:
 
@@ -252,7 +252,7 @@ Tenere presente che la creazione di un ciclo per una risorsa nel modello potrebb
 } ]
 ```
 
-## <a name="dependencies"></a>Dependencies
+## <a name="dependencies"></a>Dipendenze
 
 Il corretto funzionamento della maggior parte delle risorse dipende dalle altre risorse. Le macchine virtuali deve essere associate a una rete virtuale e a tale scopo è necessaria un'interfaccia di rete. L'elemento [dependsOn](../../resource-group-define-dependencies.md) viene usato per verificare che l'interfaccia di rete sia pronta per essere usata prima che vengano create le VM:
 
@@ -446,7 +446,7 @@ Lo script start.ps1 può eseguire molte attività di configurazione. Ad esempio,
 
 È possibile anche ottenere informazioni sull'estensione mediante il comando **Get-AzVMExtension** di PowerShell, il comando **vm extension get** dell'interfaccia della riga di comando di Azure oppure l'API REST **Get extension information**.
 
-## <a name="deployments"></a>Distribuzioni
+## <a name="deployments"></a>Deployments
 
 Quando si distribuisce un modello, Azure tiene traccia delle risorse distribuite come gruppo e assegna automaticamente un nome a questo gruppo distribuito. Il nome della distribuzione corrisponde a quello del modello.
 
@@ -456,7 +456,7 @@ Per conoscere lo stato delle risorse nella distribuzione, visualizzare il gruppo
     
 Non è un problema usare lo stesso modello per creare risorse o per aggiornare le risorse esistenti. Quando si usano comandi per distribuire i modelli, si ha la possibilità di indicare la [modalità](../../resource-group-template-deploy.md) da usare. La modalità può essere impostata su **Completa** o **Incrementale**. Gli aggiornamenti incrementali sono il valore predefinito. Prestare attenzione quando si usa la modalità **Completa** perché è possibile eliminare accidentalmente le risorse. Quando si imposta la modalità su **Completa**, Resource Manager elimina tutte le risorse nel gruppo di risorse che non sono presenti nel modello.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 - È possibile creare un modello personalizzato usando le informazioni presenti in [Creazione di modelli di Azure Resource Manager](../../resource-group-authoring-templates.md).
 - Distribuire il modello creato usando [Creare una macchina virtuale Windows con un modello di Resource Manager](ps-template.md).

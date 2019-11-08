@@ -1,5 +1,5 @@
 ---
-title: 'Configurare Copertura globale - ExpressRoute: Azure | Microsoft Docs'
+title: 'Configurare Copertura globale-ExpressRoute: Azure | Microsoft Docs'
 description: Questo articolo descrive come collegare circuiti ExpressRoute tra loro per creare una rete privata tra le reti locali e abilitare il servizio Copertura globale.
 services: expressroute
 author: jaredr80
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: de9cbd9cfac766e2a67274684d3fb6b447e45200
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64abf820a502db0ee0033ce52ed148bae6b8ffc2
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64572744"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748178"
 ---
 # <a name="configure-expressroute-global-reach"></a>Configurare Copertura globale di ExpressRoute
 
@@ -23,30 +23,30 @@ Questo articolo illustra come configurare Copertura globale di ExpressRoute con 
 
 Prima di iniziare la configurazione, verificare quanto segue:
 
-* Comprendere il provisioning del circuito ExpressRoute [flussi di lavoro](expressroute-workflows.md).
-* Circuiti ExpressRoute sono in uno stato di provisioning.
-* Peering privato di Azure è configurato su circuiti ExpressRoute.
-* Se si desidera eseguire PowerShell in locale, verificare che la versione più recente di Azure PowerShell sia installata nel computer.
+* Si conoscono i [flussi di lavoro del](expressroute-workflows.md)provisioning del circuito ExpressRoute.
+* I circuiti ExpressRoute sono in stato di provisioning.
+* Il peering privato di Azure viene configurato nei circuiti ExpressRoute.
+* Se si vuole eseguire PowerShell localmente, verificare che nel computer sia installata la versione più recente di Azure PowerShell.
 
 ### <a name="working-with-azure-powershell"></a>Uso di Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-## <a name="identify-circuits"></a>Identificare i circuiti
+## <a name="identify-circuits"></a>Identificazione circuiti
 
-1. Per avviare la configurazione, accedere al proprio account Azure e selezionare la sottoscrizione che si desidera utilizzare.
+1. Per avviare la configurazione, accedere al proprio account Azure e selezionare la sottoscrizione che si vuole usare.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. Identificare i circuiti ExpressRoute che si vuole usare. È possibile abilitare ExpressRoute globale raggiungere tra qualsiasi due circuiti ExpressRoute, purché che si trovano in paesi/aree geografiche supportati e sono stati creati in diverse località di peering. 
+2. Identificare i circuiti ExpressRoute che si vuole usare. È possibile abilitare ExpressRoute Copertura globale tra due circuiti ExpressRoute diversi, purché si trovino nei paesi/aree geografiche supportate e siano stati creati in percorsi di peering diversi. 
 
    * Se la sottoscrizione è proprietaria di entrambi i circuiti, è possibile scegliere uno dei due circuiti per l'esecuzione della configurazione nelle sezioni seguenti.
    * Se i due circuiti si trovano in sottoscrizioni di Azure diverse, è necessaria l'autorizzazione di una delle due sottoscrizioni. Occorre quindi passare la chiave di autorizzazione quando si esegue il comando di configurazione nell'altra sottoscrizione di Azure.
 
 ## <a name="enable-connectivity"></a>Abilitare la connettività
 
-Abilitare la connettività tra le reti locali. Sono presenti più set di istruzioni per circuiti che sono nella stessa sottoscrizione di Azure e circuiti appartenenti a sottoscrizioni diverse.
+Abilitare la connettività tra le reti locali. Sono disponibili set distinti di istruzioni per i circuiti che si trovano nella stessa sottoscrizione di Azure e circuiti che sono sottoscrizioni diverse.
 
 ### <a name="expressroute-circuits-in-the-same-azure-subscription"></a>Circuiti ExpressRoute nella stessa sottoscrizione di Azure
 
@@ -74,7 +74,7 @@ Abilitare la connettività tra le reti locali. Sono presenti più set di istruzi
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
    ```
 
-Al termine dell'operazione precedente, si avrà la connettività tra le reti locali in entrambi i lati tramite due circuiti ExpressRoute.
+Al termine dell'operazione precedente, si disporrà di connettività tra le reti locali su entrambi i lati attraverso i due circuiti ExpressRoute.
 
 ### <a name="expressroute-circuits-in-different-azure-subscriptions"></a>Circuiti ExpressRoute in sottoscrizioni di Azure diverse
 
@@ -100,7 +100,7 @@ Se i due circuiti non sono inclusi nella stessa sottoscrizione di Azure, è nece
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
    ```
 
-Al termine dell'operazione precedente, si avrà la connettività tra le reti locali in entrambi i lati tramite due circuiti ExpressRoute.
+Al termine dell'operazione precedente, si disporrà di connettività tra le reti locali su entrambi i lati attraverso i due circuiti ExpressRoute.
 
 ## <a name="verify-the-configuration"></a>Verificare la configurazione
 
@@ -111,9 +111,9 @@ $ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName
 
 Se si esegue semplicemente *$ckt1* in PowerShell, si vedrà *CircuitConnectionStatus* nell'output. Questo cmdlet indica se è stata stabilita la connettività, con valore "Connected", o meno, con valore "Disconnected". 
 
-## <a name="disable-connectivity"></a>Disabilitare la connettività
+## <a name="disable-connectivity"></a>Disabilita connettività
 
-Per disabilitare la connettività tra le reti locali, eseguire i comandi per il circuito in cui è stata effettuata la configurazione (ad esempio, circuito 1 nell'esempio precedente).
+Per disabilitare la connettività tra le reti locali, eseguire i comandi nel circuito in cui è stata eseguita la configurazione (ad esempio, il circuito 1 nell'esempio precedente).
 
 ```azurepowershell-interactive
 $ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"

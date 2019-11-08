@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: b0345773956a0adc5c7f403195c496a3ea5e6fd6
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 48bac68b518706cf3a23d2283da7cda49846e0a7
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982334"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795837"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Servizi cognitivi e Machine Learning
 
@@ -25,8 +25,8 @@ Servizi cognitivi fornisce funzionalità di machine learning per risolvere i pro
 |Categoria servizio|Scopo|
 |--|--|
 |[Decisione](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Crea app che espongono raccomandazioni per un processo decisionale informato ed efficiente.|
-|[Lingua](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Consenti alle tue app di elaborare il linguaggio naturale con script predefiniti, valutare i sentimenti e scoprire come riconoscere cosa vogliono gli utenti.|
-|[Ricerca](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Aggiungi API di ricerca Bing alle tue app e sfrutta la possibilità di combinare miliardi di pagine Web, immagini, video e notizie con una singola chiamata API.|
+|[Lingua](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permetti alle tue app di elaborare il linguaggio naturale con script predefiniti, valutare il sentiment e riconoscere i desideri degli utenti.|
+|[Ricerca](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Aggiungi le API di Ricerca Bing alle tue app e sfrutta la possibilità di esaminare miliardi di pagine Web, immagini, video e notizie con una singola chiamata all'API.|
 |[Sintesi vocale](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Converti il parlato in testo e il testo in parlato simile al linguaggio naturale. Traduci da una lingua a un'altra e consenti la verifica voce e il riconoscimento del parlante.|
 |[Visione artificiale](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Riconosci, identifica, aggiungi sottotitoli, indicizza e modera immagini, video e contenuti di tipo input penna.|
 ||||
@@ -117,9 +117,9 @@ I dati seguenti categorizzano ogni servizio in base al tipo di dati che consente
  
 I servizi vengono usati in qualsiasi applicazione che può effettuare chiamate API REST o SDK. Esempi di applicazioni includono siti Web, bot, realtà virtuale o mista, applicazioni desktop e per dispositivi mobili. 
 
-## <a name="how-is-cognitive-search-related-to-cognitive-services"></a>In che modo la ricerca cognitiva è correlata ai servizi cognitivi?
+## <a name="how-is-azure-cognitive-search-related-to-cognitive-services"></a>In che modo Azure ricerca cognitiva correlato ai servizi cognitivi?
 
-[Ricerca di Azure](../search/search-what-is-azure-search.md) USA Servizi cognitivi per fornire questa funzionalità. Servizi cognitivi viene esposto in ricerca di Azure attraverso [competenze predefinite](../search/cognitive-search-predefined-skills.md) che racchiudono le singole API. È possibile usare una risorsa gratuita per le procedure dettagliate, ma pianificare la creazione e il fissaggio di una [risorsa fatturabile](../search/cognitive-search-attach-cognitive-services.md) per volumi più grandi.
+[Azure ricerca cognitiva](../search/search-what-is-azure-search.md) è un servizio di ricerca cloud separato che, facoltativamente, USA Servizi cognitivi per aggiungere immagini e l'elaborazione del linguaggio naturale ai carichi di lavoro di indicizzazione. Servizi cognitivi viene esposto in Azure ricerca cognitiva tramite [competenze predefinite](../search/cognitive-search-predefined-skills.md) che incapsulano le singole API. È possibile usare una risorsa gratuita per le procedure dettagliate, ma pianificare la creazione e il fissaggio di una [risorsa fatturabile](../search/cognitive-search-attach-cognitive-services.md) per volumi più grandi.
 
 ## <a name="how-can-you-use-cognitive-services"></a>Come è possibile usare servizi cognitivi?
 

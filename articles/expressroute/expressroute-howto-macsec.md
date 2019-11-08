@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 36cd1bfebe4e5379a1c8cfc551c8e003459ebf5c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 081c448ff09148668dbe5e244e80421a47d77152
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162439"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748283"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Configurare MACsec in porte ExpressRoute dirette
 
@@ -28,7 +28,7 @@ Prima di iniziare la configurazione, verificare quanto segue:
 
 ### <a name="working-with-azure-powershell"></a>Uso di Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
@@ -47,7 +47,7 @@ Per avviare la configurazione, accedere al proprio account Azure e selezionare l
     $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
     ```
 
-    Se è già presente un insieme di credenziali delle chiavi o un gruppo di risorse, è possibile riutilizzarli. È tuttavia fondamentale abilitare la funzionalità di [ **eliminazione** ](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-soft-delete) temporanea nell'insieme di credenziali delle chiavi esistente. Se soft-delete non è abilitato, è possibile usare i comandi seguenti per abilitarlo:
+    Se è già presente un insieme di credenziali delle chiavi o un gruppo di risorse, è possibile riutilizzarli. È tuttavia fondamentale abilitare la funzionalità di [ **eliminazione** ](../key-vault/key-vault-ovw-soft-delete.md) temporanea nell'insieme di credenziali delle chiavi esistente. Se soft-delete non è abilitato, è possibile usare i comandi seguenti per abilitarlo:
 
     ```azurepowershell-interactive
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"

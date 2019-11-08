@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: 7156b9923c9cb98ae3dde143c98eb32a6eb11a9c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: 0d59db65e940cab12dccaeeacc9083eb7fbba20e
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687721"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795757"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Funzionalità multimodello del database SQL di Azure
 
@@ -29,7 +29,7 @@ Il database SQL di Azure è progettato per funzionare con il modello relazionale
 - Sono disponibili alcune informazioni o strutture più adatte per i modelli NoSQL e non si vuole usare un database NoSQL separato.
 - La maggior parte dei dati è adatta per il modello relazionale ed è necessario modellare alcune parti dei dati nello stile NoSQL.
 - Si desidera sfruttare il linguaggio Transact-SQL avanzato per eseguire query e analizzare i dati relazionali e NoSQL e integrarli con un'ampia gamma di strumenti e applicazioni in grado di utilizzare il linguaggio SQL.
-- Si desidera applicare funzionalità di database come le [tecnologie in memoria](sql-database-in-memory.md) per migliorare le prestazioni dell'analisi o dell'elaborazione dei dati NoSQL strutture, utilizzare la [replica transazionale](sql-database-managed-instance-transactional-replication.md) o [repliche leggibili](sql-database-read-scale-out.md) per creare una copia dei dati in l'altra posizione e l'offload di alcuni carichi di lavoro analitici dal database primario.
+- Si desidera applicare funzionalità di database quali le [tecnologie in memoria](sql-database-in-memory.md) per migliorare le prestazioni dell'analisi o dell'elaborazione delle strutture di dati NoSQL, utilizzare la [replica transazionale](sql-database-managed-instance-transactional-replication.md) o le [repliche leggibili](sql-database-read-scale-out.md) per creare una copia dei dati in l'altra posizione e l'offload di alcuni carichi di lavoro analitici dal database primario.
 
 ## <a name="overview"></a>Panoramica
 
@@ -38,7 +38,7 @@ SQL di Azure offre le seguenti funzionalità multimodello:
 - Le [funzionalità JSON](#json-features) consentono di inserire documenti JSON in tabelle, trasformare i dati relazionali in documenti JSON e viceversa. È possibile usare il linguaggio Transact-SQL standard migliorato con le funzioni JSON per l'analisi dei documenti e usare indici non cluster, indici columnstore o tabelle ottimizzate per la memoria per ottimizzare le query.
 - [Funzionalità spaziali](#spatial-features) consente di archiviare i dati geometrici e geografici, indicizzarli utilizzando gli indici spaziali e recuperare i dati usando le query spaziali.
 - Le [funzionalità XML](#xml-features) consentono di archiviare e indicizzare i dati XML nel database e usare operazioni XQuery o XPath native per usare i dati XML. Il database SQL di Azure è dotato di un motore di query XML incorporato che elabora i dati XML.
-- Le [coppie chiave-valore](#key-value-pairs) non sono esplicitamente supportate come funzionalità speciali poiché le coppie chiave-valore possono essere modellate in modo nativo come tabelle di due colonne.
+- Le [coppie chiave-valore](#key-value-pairs) non sono supportate in modo esplicito come funzionalità speciali perché le coppie chiave-valore possono essere modellate in modo nativo come tabelle a due colonne.
 
   > [!Note]
   > È possibile usare espressioni di percorso JSON, espressioni XQuery o XPath, funzioni spaziali ed espressioni query-grafo nella stessa query Transact-SQL per accedere ai dati archiviati nel database. Inoltre, qualsiasi strumento o linguaggio di programmazione in grado di eseguire query Transact-SQL può usare quell'interfaccia di query per accedere ai dati multimodello. Questa è la differenza principale rispetto ai database multimodello, come ad esempio [Azure Cosmos DB](/azure/cosmos-db/) che fornisce API specializzate per diversi modelli di dati.
@@ -68,7 +68,7 @@ Non esiste nulla che possa essere ottenuto da un database a grafo, che non possa
 
 Il database SQL di Azure consente di analizzare ed eseguire query sui dati rappresentati in formato JavaScript Object Notation [(JSON)](https://www.json.org/) e di esportare i dati relazionali come testo JSON.
 
-JSON è un formato di dati diffuso usato per scambiare dati nelle moderne applicazioni Web e per dispositivi mobili. JSON è usato anche per archiviare dati semistrutturati nei file di log o nei database NoSQL come [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Molti servizi Web REST restituiscono risultati formattati come testo JSON o accettano dati formattati come JSON. La maggior parte dei servizi di Azure come [Ricerca di Azure](https://azure.microsoft.com/services/search/), [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) e [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) presentano endpoint REST che restituiscono o usano JSON.
+JSON è un formato di dati diffuso usato per scambiare dati nelle moderne applicazioni Web e per dispositivi mobili. JSON è usato anche per archiviare dati semistrutturati nei file di log o nei database NoSQL come [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Molti servizi Web REST restituiscono risultati formattati come testo JSON o accettano dati formattati come JSON. La maggior parte dei servizi di Azure, ad esempio [azure ricerca cognitiva](https://azure.microsoft.com/services/search/), [archiviazione di Azure](https://azure.microsoft.com/services/storage/)e [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hanno endpoint REST che restituiscono o utilizzano JSON.
 
 Il database SQL di Azure consente di lavorare facilmente con dati JSON e integrare il database con i servizi moderni. Il database SQL di Azure fornisce le funzioni seguenti per lavorare con i dati JSON:
 

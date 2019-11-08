@@ -1,5 +1,5 @@
 ---
-title: 'Spostare circuiti dal modello di distribuzione classica a Resource Manager - ExpressRoute: PowerShell: Azure | Microsoft Docs'
+title: 'Spostamento dei circuiti dal modello classico a Gestione risorse-ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Questa pagina illustra come spostare un circuito classico nel modello di distribuzione Resource Manager usando PowerShell.
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 11a84d4ced3232102d262352b84abe1f813e2406
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 34dd7ed4c6352ed90793288f918d78b7fb07af80
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60365182"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748236"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Spostare i circuiti ExpressRoute dal modello di distribuzione classica a quello Resource Manager usando PowerShell
 
@@ -21,9 +21,9 @@ Per usare un circuito ExpressRoute per il modello di distribuzione classica e pe
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
-* Verificare che sono installati sia il modello di distribuzione classica e moduli Az Azure PowerShell in locale nel computer. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+* Verificare di aver installato i moduli classico e AZ Azure PowerShell localmente nel computer. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 * Prima di procedere con la configurazione, assicurarsi di avere verificato i [prerequisiti](expressroute-prerequisites.md), i [requisiti di routing](expressroute-routing.md) e i [flussi di lavoro](expressroute-workflows.md).
 * Rivedere le informazioni disponibili in [Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager](expressroute-move.md). Assicurarsi di aver compreso pienamente i limiti e le limitazioni.
 * Verificare che il circuito sia completamente operativo nel modello di distribuzione classica.
@@ -92,7 +92,7 @@ Per spostare il circuito, modificare ed eseguire il frammento seguente:
 Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-Nella modalità classica di un circuito ExpressRoute non esiste il concetto di vincolo a un'area. In Resource Manager, tuttavia, ogni risorsa deve essere mappata a un'area di Azure. L'area specificato nel cmdlet Move-AzExpressRouteCircuit tecnicamente può essere qualsiasi area. A fini organizzativi, è possibile scegliere un'area che rappresenta in modo affidabile il percorso di peering.
+Nella modalità classica di un circuito ExpressRoute non esiste il concetto di vincolo a un'area. In Resource Manager, tuttavia, ogni risorsa deve essere mappata a un'area di Azure. L'area specificata nel cmdlet Move-AzExpressRouteCircuit può essere tecnicamente di qualsiasi area. A fini organizzativi, è possibile scegliere un'area che rappresenta in modo affidabile il percorso di peering.
 
 > [!NOTE]
 > Al termine dello spostamento, il nuovo nome elencato nel cmdlet precedente verrà usato per fare riferimento alla risorsa. Il circuito verrà essenzialmente rinominato.

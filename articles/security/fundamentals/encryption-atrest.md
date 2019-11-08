@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2019
 ms.author: barclayn
-ms.openlocfilehash: 0fddabc7973fbea147de9f3b6e6da5556407030c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc3c7ea2f0060fc6ab20fa821c9e45d6e5173d4f
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498460"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795795"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi di Azure
 
@@ -262,7 +262,7 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Lato server con chiave gestita dal servizio**     | **Lato server con chiave gestita dal cliente**             | **Lato client con chiave gestita dal client**      |
 | **Intelligenza artificiale e Machine Learning**      |                    |                    |                    |
-| Ricerca di Azure                     | Sì                | Preview            | -                  |
+| Ricerca cognitiva di Azure                     | Sì                | Preview            | -                  |
 | Azure Machine Learning   | Sì                | -                  | -                  |
 | Azure Machine Learning Studio    | Sì                | Anteprima, RSA a 2048 bit | -               |
 | Power BI                         | Sì                | Anteprima, RSA a 2048 bit | -                  |

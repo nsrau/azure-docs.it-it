@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: danlep
-ms.openlocfilehash: dbfadea9bc05614108333ef5a046e11b5280cc68
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 7b9d220ac7e507513458eab6b55276b3aa434739
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73588434"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742756"
 ---
 # <a name="repository-scoped-permissions-in-azure-container-registry"></a>Autorizzazioni con ambito repository in Azure Container Registry 
 
@@ -28,9 +28,8 @@ Vedere [informazioni sulle autorizzazioni con ambito repository](#about-reposito
 
 ## <a name="preview-limitations"></a>Limiti di anteprima
 
-* Questa funzionalità è disponibile solo in un registro contenitori **Premium** . Per informazioni sui livelli di servizio del registro di sistema, vedere [sku container Registry di Azure](container-registry-skus.md).
+* Questa funzionalità è disponibile solo in un registro contenitori **Premium** . Per informazioni sui limiti e i livelli di servizio del registro di sistema, vedere [sku container Registry di Azure](container-registry-skus.md).
 * Attualmente non è possibile assegnare autorizzazioni con ambito repository a un oggetto Azure Active Directory, ad esempio un'entità servizio o un'identità gestita.
-* Un registro di sistema consente un massimo di 20.000 di mappe con ambito e 20.000 token.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

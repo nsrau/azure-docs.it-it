@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cc3c1d9352d9df44a51a917700c656055b8b8361
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cdbf55aae52cec9df1ba34cbeb34c67b8e5fc5d0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088615"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749191"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Creare una VM da un disco rigido virtuale specializzato in un account di archiviazione
 
@@ -30,7 +30,7 @@ Sono disponibili due opzioni:
 * [Caricare un VHD](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [Copiare il disco rigido virtuale di una VM di Azure esistente](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 
 ## <a name="option-1-upload-a-specialized-vhd"></a>Opzione 1: Caricare un disco rigido virtuale specializzato
@@ -118,8 +118,8 @@ Verificare quanto segue:
 ### <a name="deallocate-the-vm"></a>Deallocare la VM
 Deallocare la VM, operazione che consente di liberare il disco rigido virtuale da copiare. 
 
-* **Portale**: fare clic su **Macchine virtuali** > **myVM** > Stop (Termina)
-* **PowerShell**: usare [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) per arrestare (deallocare) la macchina virtuale denominata **myVM** nel gruppo di risorse **myResourceGroup**.
+* **Portale**: fare clic su  **Macchine virtuali** > **myVM** &gt; Stop (Termina)
+* **PowerShell**: usare [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) per arrestare (deallocare) la macchina virtuale denominata **MyVM** nel gruppo di risorse **myResourceGroup**.
 
 ```powershell
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
@@ -133,7 +133,7 @@ Sono necessari gli URL degli account di archiviazione di origine e destinazione.
 Per ottenere l'URL è possibile usare il portale di Azure o Azure PowerShell:
 
 * **Portale**: fare clic su **>** per **Tutti i servizi** > **Account di archiviazione** > *account di archiviazione* > **BLOB**. Il file VHD di origine si trova probabilmente nel contenitore **vhds**. Fare clic su **Proprietà** per il contenitore e copiare il testo con l'etichetta **URL**. Sono necessari gli URL di entrambi i contenitori di origine e di destinazione. 
-* **PowerShell**: usare [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) per ottenere le informazioni per la macchina virtuale denominata **myVM** nel gruppo di risorse **myResourceGroup**. Nei risultati esaminare la sezione **Storage profile** (Profilo archiviazione) per l'**URI VHD**. La prima parte dell'URI è l'URL del contenitore, mentre l'ultima parte è il nome del disco rigido virtuale del sistema operativo della VM.
+* **PowerShell**: usare [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) per ottenere le informazioni per la macchina virtuale denominata **MyVM** nel gruppo di risorse **myResourceGroup**. Nei risultati esaminare la sezione **Storage profile** (Profilo archiviazione) per l'**URI VHD**. La prima parte dell'URI è l'URL del contenitore, mentre l'ultima parte è il nome del disco rigido virtuale del sistema operativo della VM.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -143,7 +143,7 @@ Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 Trovare le chiavi di accesso per gli account di archiviazione di origine e destinazione. Per altre informazioni sulle chiavi di accesso, vedere [Informazioni sugli account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md).
 
 * **Portale**: fare clic su **Tutti i servizi** > **Account di archiviazione** > *account di archiviazione* > **Chiavi di accesso**. Copiare la chiave denominata **key1**.
-* **PowerShell**: usare [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) per ottenere la chiave di archiviazione per l'account di archiviazione **mystorageaccount** nel gruppo di risorse **myResourceGroup**. Copiare la chiave denominata **key1**.
+* **PowerShell**: usare [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) per ottenere la chiave di archiviazione per l'account di archiviazione **Mystorageaccount** nel gruppo di risorse **myResourceGroup**. Copiare la chiave denominata **key1**.
 
 ```powershell
 Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup

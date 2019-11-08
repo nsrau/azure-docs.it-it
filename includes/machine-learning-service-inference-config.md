@@ -2,16 +2,16 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/19/2019
+ms.date: 11/06/2019
 ms.author: larryfr
-ms.openlocfilehash: 055909d51fcd1228e8eb26189ba682e09aee6a1a
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: ab31d45808a8c77c53b895643eec63952201d9e4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390610"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73799917"
 ---
-Le voci nel `inferenceconfig.json` documento vengono mappate ai parametri per la classe [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) . La tabella seguente descrive il mapping tra le entità nel documento JSON e i parametri per il metodo:
+Le voci del documento `inferenceconfig.json` mappano i parametri per la classe [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) . La tabella seguente descrive il mapping tra le entità nel documento JSON e i parametri per il metodo:
 
 | Entità JSON | Parametro del metodo | Descrizione |
 | ----- | ----- | ----- |

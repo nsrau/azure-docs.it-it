@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: f7f57a43697a9376062bdd3baa2d5f7333bf4a7f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 25091e8e58fbdba908fb00ece3cd2d3d296c5ab1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100147"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749061"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configurare l'accesso WinRM per le macchine virtuali in Azure Resource Manager
 
@@ -31,7 +31,7 @@ Di seguito è descritta la procedura per configurare una VM con connettività Wi
 4. Ottenere l'URL del certificato autofirmato nell'insieme di credenziali delle chiavi
 5. Fare riferimento all'URL del certificato autofirmato durante la creazione di una VM
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="step-1-create-a-key-vault"></a>Passaggio 1: Creare un insieme di credenziali delle chiavi
 Il seguente comando consente di creare l'insieme di credenziali delle chiavi
@@ -82,7 +82,7 @@ Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValu
 Durante il provisioning della VM, il provider di risorse Microsoft.Compute necessita dell'URL della chiave privata all'interno dell'insieme di credenziali delle chiavi. Ciò consente al provider di risorse Microsoft.Compute di scaricare la chiave privata e creare il certificato equivalente nella VM.
 
 > [!NOTE]
-> L'URL della chiave privata deve includerne anche la versione. Un URL di esempio è simile al seguente\/https:/contosovault.Vault.Azure.NET:443/Secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
+> L'URL della chiave privata deve includerne anche la versione. Un URL di esempio ha un aspetto simile al seguente https:\//contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 
 #### <a name="templates"></a>Modelli
 Per ottenere il collegamento all'URL nel modello, è possibile utilizzre il codice seguente
@@ -94,7 +94,7 @@ Questo URL può essere ottenuto utilizzando il seguente comando PowerShell
 
     $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
 
-## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>Passaggio 5: Fare riferimento all'URL del certificato autofirmato durante la creazione di una VM
+## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>Passaggio 5: Durante la creazione di una VM, fare riferimento all'URL dei certificati autofirmati
 #### <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
 Quando si crea una VM tramite modelli, viene fatto riferimento al certificato nelle sezioni delle chiavi private e di WinRM, come indicato di seguito:
 
@@ -143,7 +143,7 @@ Il codice sorgente di questo modello è reperibile in [GitHub](https://github.co
     $CertificateStore = "My"
     $vm = Add-AzVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
 
-## <a name="step-6-connecting-to-the-vm"></a>Passaggio 6: Connessione alla macchina virtuale
+## <a name="step-6-connecting-to-the-vm"></a>Passaggio 6: Connettersi alla VM
 Per potersi connettere alla VM è necessario controllare di aver configurato il computer per la gestione remota di WinRM. Avviare PowerShell come amministratore ed eseguire il comando seguente per verificare la configurazione.
 
     Enable-PSRemoting -Force

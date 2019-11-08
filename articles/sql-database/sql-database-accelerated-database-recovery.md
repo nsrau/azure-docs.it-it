@@ -10,12 +10,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: e66b3e6563d796cc7b59e82233bd1b22bc906c6e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: cff481c7c2e09da1dc8c8e2f971d9adb164d54da
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691348"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796112"
 ---
 # <a name="accelerated-database-recovery"></a>Recupero accelerato del database
 
@@ -99,11 +99,11 @@ I quattro componenti del ripristino accelerato del database (ADR) sono:
 
 - **Ripristino logico**
 
-  Il ripristino logico è il processo asincrono responsabile dell'esecuzione dell'annullamento basato sulla versione a livello di riga che fornisce il rollback della transazione immediata e Annulla per tutte le operazioni con versione.
+  Il ripristino logico è il processo asincrono responsabile dell'esecuzione dell'annullamento basato sulla versione a livello di riga che fornisce il rollback della transazione immediata e Annulla per tutte le operazioni con versione. Il ripristino logico viene eseguito da:
 
-  - Tiene traccia di tutte le transazioni interrotte
-  - Esegue il rollback usando l'archivio versioni permanente (PVS) per tutte le transazioni utente
-  - Rilascia tutti i blocchi immediatamente dopo l'interruzione della transazione
+  - Tenere traccia di tutte le transazioni interrotte e contrassegnarle come invisibile ad altre transazioni. 
+  - Esecuzione del rollback utilizzando PVS per tutte le transazioni utente, anziché analizzare fisicamente il log delle transazioni e annotare le modifiche una alla volta.
+  - Rilascio di tutti i blocchi immediatamente dopo l'interruzione della transazione. Poiché Abort implica semplicemente il contrassegno delle modifiche nella memoria, il processo è molto efficiente e pertanto non è necessario che i blocchi vengano mantenuti per un lungo periodo di tempo.
 
 - **sLog**
 

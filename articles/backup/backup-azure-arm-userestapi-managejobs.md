@@ -1,6 +1,6 @@
 ---
-title: "Backup di Azure: Gestire i processi di backup con l'API REST"
-description: Gestire i processi di backup e ripristino di Backup di Azure con l'API REST
+title: "Backup di Azure: gestire i processi di backup con l'API REST"
+description: Questo articolo illustra come tenere traccia e gestire i processi di backup e ripristino di backup di Azure usando l'API REST.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: b10283c2946d01101b941d53b6bf03be3a12e99e
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: c0ce79c68b9d9cf11ea20c2d6469f4240fb38a95
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954920"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747553"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Tenere traccia dei processi di backup e ripristino con l'API REST
 
@@ -23,7 +23,7 @@ Il servizio backup di Azure attiva i processi eseguiti in background in diversi 
 
 ## <a name="fetch-job-information-from-operations"></a>Recuperare informazioni sui processi dalle operazioni
 
-Un'operazione come l'attivazione del backup restituirà sempre un jobID. Ad esempio:  La risposta finale di un' [operazione dell'API REST di backup del trigger](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) è la seguente:
+Un'operazione come l'attivazione del backup restituirà sempre un jobID. Ad esempio, la risposta finale di un' [operazione dell'API REST di backup del trigger](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) è la seguente:
 
 ```http
 {
@@ -49,9 +49,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 `{jobName}` è il "jobId" indicato in precedenza. La risposta è sempre 200 OK con il campo "status" che indica lo stato corrente del processo. Quando è "Completed" o "CompletedWithWarnings", nella sezione 'extendedInfo' vengono visualizzati altri dettagli sul processo.
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 
-|Name  |Type  |Descrizione  |
+|Name  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 

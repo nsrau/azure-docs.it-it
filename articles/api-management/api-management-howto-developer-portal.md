@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1311328dde6fc70202ce3c6271b33f79d52102cc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1eef7b6505c4800acbe8aa69cf6f17eecc503aed
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472219"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796015"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Panoramica del portale per sviluppatori di gestione API di Azure
 
@@ -117,7 +117,31 @@ No.
 
 ### <a name="im-getting-a-cors-error-when-using-the-interactive-console-what-should-i-do"></a>Viene ricevuto un errore CORS quando si usa la console interattiva. Cosa devo fare?
 
-La console interattiva esegue una richiesta API sul lato client dal browser. È possibile risolvere il problema CORS aggiungendo [un criterio CORS](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) sulle API. È possibile specificare tutti i parametri manualmente, ad esempio Origin come https://contoso.com) o usare un valore di `*` con caratteri jolly.
+La console interattiva esegue una richiesta API sul lato client dal browser. È possibile risolvere il problema CORS aggiungendo [un criterio CORS](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) sulle API. È possibile specificare tutti i parametri manualmente o usare i valori dei caratteri jolly `*`. Ad esempio:
+
+```XML
+<cors>
+    <allowed-origins>
+        <origin>*</origin>
+    </allowed-origins>
+    <allowed-methods>
+        <method>GET</method>
+        <method>POST</method>
+        <method>PUT</method>
+        <method>DELETE</method>
+        <method>HEAD</method>
+        <method>OPTIONS</method>
+        <method>PATCH</method>
+        <method>TRACE</method>
+    </allowed-methods>
+    <allowed-headers>
+        <header>*</header>
+    </allowed-headers>
+    <expose-headers>
+        <header>*</header>
+    </expose-headers>
+</cors>
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
