@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 863d38f6ea0f071a1c1a6678d025ec5b37a306dc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 127354e55a81e379825b41759f2b6150ba554a12
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466435"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818550"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indicizzazione di BLOB per produrre più documenti di ricerca
 Per impostazione predefinita, un indicizzatore BLOB considererà il contenuto di un BLOB come singolo documento di ricerca. Alcuni valori **parsingMode** supportano scenari in cui un singolo BLOB può produrre più documenti di ricerca. I diversi tipi di **parsingMode** che consentono a un indicizzatore di estrarre più di un documento di ricerca da un BLOB sono:
@@ -99,7 +99,7 @@ Se si vuole impostare un mapping di campi esplicito, assicurarsi che _campoOrigi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non si ha già familiarità con la struttura di base e il flusso di lavoro di indicizzazione BLOB, è necessario prima esaminare l' [indicizzazione dell'archiviazione BLOB di Azure con ricerca di Azure](search-howto-index-json-blobs.md) . Per altre informazioni sulle modalità di analisi per i diversi tipi di contenuto BLOB, vedere gli articoli seguenti.
+Se non si ha già familiarità con la struttura di base e il flusso di lavoro di indicizzazione BLOB, è consigliabile esaminare prima di tutto l' [indicizzazione dell'archiviazione BLOB di Azure con azure ricerca cognitiva](search-howto-index-json-blobs.md) Per altre informazioni sulle modalità di analisi per i diversi tipi di contenuto BLOB, vedere gli articoli seguenti.
 
 > [!div class="nextstepaction"]
 > [Indicizzazione di BLOB CSV](search-howto-index-csv-blobs.md)

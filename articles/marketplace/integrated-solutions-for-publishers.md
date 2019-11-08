@@ -4,15 +4,16 @@ description: Soluzioni integrate in Azure Marketplace e Microsoft AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 8bffb2c71f5e07499338ea32e0c064392af81684
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: eaba5612221e712ad5b14f10876e083729970fde
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71706318"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818552"
 ---
 # <a name="publish-an-integrated-solution"></a>Pubblicare una soluzione integrata
 
@@ -61,7 +62,7 @@ Dopo che la candidatura è stata approvata, usare le risorse del programma colle
 1. Completa le discussioni tecniche e aziendali in un formato di workshop per definire la soluzione e l'approccio di integrazione. 
 
     La discussione sulla soluzione deve includere i punti seguenti:
-    * `Scope`
+    * Scope
     * Clienti di destinazione
     * Proposta di valore
     * Prezzi
@@ -70,12 +71,12 @@ Dopo che la candidatura è stata approvata, usare le risorse del programma colle
     * Approccio di supporto
     * Attività di marketing
     * Processo di vendita
-    * Attività
+    * attività
 
     La discussione sull'approccio di integrazione dovrebbe prevedere i punti seguenti: 
     * Punti di integrazione
     * Architettura della soluzione
-    * Authentication
+    * Autenticazione
     * Interfaccia utente
     * Monitoraggio
     * Meccanismo di distribuzione
@@ -86,7 +87,7 @@ Dopo che la candidatura è stata approvata, usare le risorse del programma colle
 
     * [Guida alla discussione dell'officina decisionale aziendale](https://aka.ms/AA5qicx)
     * [Guida alla discussione per le decisioni tecniche](https://aka.ms/AA5qid1)
-    * video [Quickstart: Workshop tecnici e aziendali @ no__t-0
+    * [Video introduttivo: workshop aziendali e tecnici](https://aka.ms/AA5qos9)
 
 1. Identificare un project manager tra partner per guidare il piano e la sequenza temporale del progetto sviluppati nei laboratori aziendali e tecnici.
 

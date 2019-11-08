@@ -1,18 +1,19 @@
 ---
-title: Riferimento all'API del portale di Partner cloud | Azure Marketplace
+title: Informazioni di riferimento sull'API portale Cloud Partner | Azure Marketplace
 description: Descrizione dei prerequisiti per usare ed elencare le operazioni all'API marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 9626fdb5dbdf720a65217421565fc559a0cee684
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6591e1780d03cbfaff70fbd19ec3dfd274fae79
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935467"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819638"
 ---
 <a name="cloud-partner-portal-api-reference"></a>Riferimento all'API del portale Cloud Partner
 ==================================
@@ -59,6 +60,6 @@ Questo riferimento illustra nel dettaglio le API per eseguire le seguenti attivi
 
 -   [Impostare i prezzi per le offerte di macchine virtuali](./cloud-partner-portal-api-setting-price.md)
 
-### <a name="troubleshooting"></a>risoluzione dei problemi
+### <a name="troubleshooting"></a>Risoluzione dei problemi
 
 -   [Risoluzione dei problemi di autenticazione](./cloud-partner-portal-api-troubleshooting-authentication-errors.md)

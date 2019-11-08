@@ -1,5 +1,5 @@
 ---
-title: Advanced Threat Protection-database SQL di Azure
+title: Advanced Threat Protection
 description: Advanced Threat Protection rileva le attività anomale del database che indicano potenziali minacce alla sicurezza nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 03/31/2019
-ms.openlocfilehash: fca68fbc1ee30b1df100255e463eca2fc895980b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d09cc202c3f7e18358ec693d1cfe4bd2648811ba
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686963"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820707"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Advanced Threat Protection per il database SQL di Azure
 

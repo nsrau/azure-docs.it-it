@@ -1,18 +1,19 @@
 ---
-title: Versione di Test di App per la logica | Azure Marketplace
+title: Unità di test dell'app per la logica | Azure Marketplace
 description: Viene illustrato come creare un test drive che si connette a un'istanza di Dynamics AX/CRM o a qualsiasi altra risorsa non di Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 3dc5642541f411acc93301f6bb9828e901aba449
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87170344f7467770829cbd8ba7d8936a9e39c0cc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64940015"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824593"
 ---
 <a name="logic-app-test-drive"></a>Test drive di app per la logica
 ====================
@@ -27,13 +28,13 @@ Attualmente, la documentazione di test drive di app per la logica è ancora disp
 <a name="how-to-publish-a-test-drive"></a>Come pubblicare un test drive
 ---------------------------
 
-Dopo aver compilato il test drive, la sezione conterrà i campi da compilare per pubblicare correttamente il test drive.
+Dopo aver compilato il test drive, questa sezione descrive i campi necessari per pubblicare correttamente il test drive.
 
 ![Abilitare la funzionalità di test drive](./media/azure-resource-manager-test-drive/howtopub1.png)
 
-Il primo campo, che è il più importante, è da attivare se si vuole un test del modulo con tutti i campi obbligatori pronti per essere compilati. Quando si seleziona **No,** il modulo viene disabilitato e se si pubblica nuovamente con il test drive disabilitato, il test drive viene rimosso dall'ambiente di produzione.
+Il primo e più importante campo consiste nel selezionare se si desidera che il test del form con tutti i campi richiesti venga compilato. Quando si seleziona **No,** il modulo viene disabilitato e se si ripubblica con la test drive disabilitata, la test drive viene rimosso dalla produzione.
 
-*Nota*: se non ci sono test drive usati attivamente dagli utenti, quei test drive devono continuare l'esecuzione fino alla fine della sessione.
+*Nota*: se non vi sono test drive usati attivamente dagli utenti, quei test drive devono continuare l'esecuzione fino alla fine della sessione.
 
 ### <a name="details"></a>Dettagli
 
@@ -41,17 +42,17 @@ La sezione successiva da compilare contiene i dettagli relativi all'offerta del 
 
 ![Dettagli del test drive](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**Descrizione** *[Campo obbligatorio]* Il campo in cui scrivere la descrizione principale di ciò che è presente nel test drive. Il cliente potrà scoprire gli scenari relativi al prodotto descritti dal test drive. 
+**Descrizione** *[Campo obbligatorio]* Il campo in cui scrivere la descrizione principale di ciò che è presente nel test drive. Il cliente potrà scoprire gli scenari relativi al prodotto ricoperti dal test drive. 
 
 **Manuale dell'utente** *[Campo obbligatorio]* Tratta in modo approfondito la procedura guidata dell'esperienza di test drive. Una volta aperto, il cliente verrà guidato a compiere i passaggi a lui richiesti attraverso il test drive. È importante che il contenuto sia facile da comprendere e seguire. (Deve essere un file con estensione PDF)
 
 **Video demo del test drive** \[Consigliato\] Come per il Manuale per l'utente, la cosa migliore è inserire un tutorial video dell'esperienza di test drive. Il cliente lo vedrà prima o durante il test drive e potrà compiere i passaggi a lui richiesti attraverso il test drive. È importante che il contenuto sia facile da comprendere e seguire.
 
-- **Nome** Titolo del video.
+- **Nome** -Titolo del video
 - **Collegamento** Deve essere un URL di YouTube o Vimeo. Di seguito, un esempio di come recuperare l'URL incorporato:
 - **Anteprima** Deve essere un'immagine di alta qualità (533x324 pixel). È consigliabile acquisire una schermata di alcune parti dell'esperienza di test drive.
 
-In basso, viene illustrato come il cliente visualizza i campi durante l'esperienza di test drive.
+Di seguito è riportato come questi campi vengono visualizzati dai clienti durante l'esperienza di test drive.
 
 ![Aspetto dei campi del test drive](./media/azure-resource-manager-test-drive/howtopub4.png)
 
@@ -63,7 +64,7 @@ Nella sezione successiva da compilare, si configura l'app per la logica del test
 
 - **Area** -  *[Campo obbligatorio]* L'area selezionata dove si sceglie dove distribuire le risorse dell'app per la logica del test drive.
 
-    *Nota:* se ci sono risorse personalizzate archiviate in un'area, assicurarsi qui che l'area sia selezionata. Il modo migliore per farlo è **distribuire completamente l'app per la logica in locale nella sottoscrizione di Azure del portale e verificare che funzioni** prima di scrivere qui.
+    *Note:* se vi sono risorse personalizzate archiviate in un'area, assicurarsi qui che l'area sia selezionata. Il modo migliore per farlo è **distribuire completamente l'app per la logica in locale nella sottoscrizione di Azure del portale e verificare che funzioni** prima di scrivere qui.
 
 - **Numero massimo di test drive simultanei** -  *[Campo obbligatorio]* Numero di istanze di test drive che sono già distribuite e che sono in attesa dell'accesso all'area selezionata. I clienti possono accedere immediatamente a questo test drive, anziché dover attendere la distribuzione.
 
@@ -112,7 +113,7 @@ In caso contrario, creare un nuovo tenant in Azure Active Directory.
 6. Fare clic su Crea.
 7. Dopo aver creato l'applicazione, andare su Proprietà \> Impostare l'applicazione come multi tenant e fare clic su Salva.
 
-Fare clic su Save. L'ultimo passaggio consiste nell'individuare l'ID applicazione per l'app registrata e nell'incollarlo nel campo del test drive qui di seguito.
+Fare clic su Salva. L'ultimo passaggio consiste nell'individuare l'ID applicazione per l'app registrata e nell'incollarlo nel campo del test drive qui di seguito.
 
 ![ID dell'applicazione Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails7.png)
 
@@ -120,7 +121,7 @@ Poiché l'applicazione da distribuire nella sottoscrizione è in uso, è necessa
 
 1. Sul pannello di sottoscrizione, selezionare la sottoscrizione in uso usando soltanto per il test drive.
 1. Fare clic su **Controllo di accesso (IAM)** .
-1. Fare clic sulla scheda **Assegnazioni di ruolo**.  ![Azure Active Directory, aggiungere una nuova entità di sicurezza Controllo di accesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Fare clic sulla scheda **assegnazioni di ruolo** .  ![Azure Active Directory, aggiunta di una nuova entità di controllo di accesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Fare clic su **Aggiungi assegnazione ruolo**.
 1. Impostare il ruolo di **collaboratore**.
 1. Digitare il nome dell'applicazione Azure AD e selezionare l'applicazione per assegnare il ruolo.
@@ -132,7 +133,7 @@ Poiché l'applicazione da distribuire nella sottoscrizione è in uso, è necessa
 ![Sezione delle chiavi di Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails8.png)
 
 > [!CAUTION]
-> È possibile usare l'anteprima di registrazione App di Azure perché non attualmente genera una chiave con codificata base64.
+> Non è possibile usare l'anteprima della registrazione app Azure perché attualmente non genera una chiave con codifica Base64.
 
 
 <a name="next-steps"></a>Passaggi successivi

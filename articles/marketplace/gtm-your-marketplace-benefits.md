@@ -4,19 +4,20 @@ description: "Servizi per l'immissione sul mercato: in questa sezione vengono de
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 6ae761b9558a0d6c1b663c1202bc560382c7b0b6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7b563cd90ec3e46dfd2d4420b728cd6f69df40eb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752390"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818638"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vantaggi del Marketplace commerciale
 
-Per la pubblicazione nel Marketplace, ora si vuole che l'offerta abbia esito positivo. Ti offriamo i vantaggi, ovvero vendite, tecniche e marketing, per accelerare la crescita dell'offerta.
+Per la pubblicazione nel Marketplace, ora si vuole che l'offerta abbia esito positivo. Ti offriamo i vantaggi-vendite, tecniche e marketing. devi accelerare la crescita dell'offerta.
 
 Quando si partecipa alla propria offerta, il team di ricompense del Marketplace si rivolgerà per iniziare a collaborare con i propri vantaggi idonei. I vantaggi dei premi del Marketplace si accumulano in base all'impegno e alle vendite del Marketplace commerciale. Maggiore è il numero di indicizzazione, maggiore è il numero di ritorni.
 
@@ -87,7 +88,7 @@ Oltre ai vantaggi riconoscibili, i partner di applicazioni aziendali con le offe
 
 Tutte le attività descritte in questa pagina sono coperte dal contratto per la [pubblicazione nel Marketplace](https://docs.microsoft.com/legal/marketplace/terms) e sono conformi all'addendum del programma Commercial benefits.
 
-### <a name="cancellation-policy"></a>Criteri per l'annullamento
+### <a name="cancellation-policy"></a>Politica di annullamento
 
 Gli editori di [elenchi e di prova](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) possono acconsentire esplicitamente o rifiutare esplicitamente le attività per ogni pubblicazione dell'offerta. I partner possono rifiutare esplicitamente il coinvolgimento in qualsiasi momento. 
 

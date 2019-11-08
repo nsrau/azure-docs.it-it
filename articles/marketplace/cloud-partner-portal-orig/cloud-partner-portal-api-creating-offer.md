@@ -4,15 +4,16 @@ description: API per creare una nuova offerta o aggiornare un'offerta esistente.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 55f6aa60c836d55333e1c5b02a44114b91df822d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bfb9cfbe2c63caafef8487015f42a05b98afa29c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935529"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819709"
 ---
 <a name="create-or-modify-an-offer"></a>Create o modificare un'offerta
 =========================
@@ -29,7 +30,7 @@ Questa chiamata crea una nuova offerta o aggiorna una specifica offerta all'inte
 |  --------         |  ----------------                     |  -------------  |
 | publisherId       |  Identificatore dell'editore, per esempio `contoso` |   String |
 | offerId           |  Identificatore dell'offerta                     |   String        |
-| api-version       |  Versione più recente dell'API            |   Date           |
+| api-version       |  Versione più recente dell'API            |   Data           |
 |  |  |  |
 
 <a name="header"></a>Intestazione
@@ -38,7 +39,7 @@ Questa chiamata crea una nuova offerta o aggiorna una specifica offerta all'inte
 |  **Nome**        |  **Valore**               |
 |  ---------       |  ----------              | 
 | Content-Type     | `application/json`       |
-| Authorization    | `Bearer YOUR_TOKEN`      |
+| Autorizzazione    | `Bearer YOUR_TOKEN`      |
 |  |  |
 
 
@@ -127,7 +128,7 @@ Il seguente esempio crea un'offerta con l'offerID di `contosovirtualmachine`.
 ```
 
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 
 ``` json
  {
@@ -248,7 +249,7 @@ Il seguente esempio crea un'offerta con l'offerID di `contosovirtualmachine`.
 | --------  |  ---------------                                                                            |
 |  200      | `OK`. La richiesta è stata elaborata con successo e l'offerta è stata modificata correttamente.           |
 |  201      | `Created`. La richiesta è stata elaborata con successo e l'offerta è stata creata correttamente.   |
-|  400      | `Bad/Malformed request`. Il corpo della risposta di errore può specificare altre informazioni.            |
+|  400      | `Bad/Malformed request`. Il corpo della risposta di errore può fornire altre informazioni.            |
 |  403      | `Forbidden`. Il client non ha accesso allo spazio dei nomi richiesto.                     |
 |  404      | `Not found`. L'entità a cui rimanda il client non esiste.                           |
 |  412      | Il server non soddisfa uno dei presupposti che il richiedente ha specificato nella richiesta. Il client deve controllare il valore ETag inviato con la richiesta. |

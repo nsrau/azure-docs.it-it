@@ -1,22 +1,22 @@
 ---
-title: PowerShell - Ruotare la protezione TDE - Database SQL di Azure| Microsoft Docs
+title: Ruotare la protezione Transparent Data Encryption-PowerShell
 description: Informazioni su come ruotare la protezione di Transparent Data Encryption (TDE) per un server SQL di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 464ea73d9b3d7116205377600ffccee13a9e2dcb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5bfcacb9348940e0b36947f6e4e0d27839de35bb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566040"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824672"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>Ruotare la protezione Transparent Data Encryption (TDE) tramite PowerShell
 
@@ -94,6 +94,6 @@ La rotazione manuale della chiave usa i cmdlet [Add-AzKeyVaultKey](/powershell/m
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- In caso di rischio per la sicurezza, consultare Rimuovere una chiave potenzialmente compromessa per informazioni su come rimuovere una protezione TDE potenzialmente compromessa 
+- In caso di rischio per la sicurezza, consultare [Rimuovere una chiave potenzialmente compromessa](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) per informazioni su come rimuovere una protezione TDE potenzialmente compromessa 
 
-- Iniziare a usare l'integrazione di Azure Key Vault e il supporto Bring Your Own Key per TDE: [Abilitare TDE con la propria chiave di Key Vault usando PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)
+- Introduzione all'integrazione Azure Key Vault e al supporto Bring Your Own Key per Transparent Data Encryption: attivare Transparent [Data Encryption con la propria chiave da Key Vault usando PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)

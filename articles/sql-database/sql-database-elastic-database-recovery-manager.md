@@ -1,22 +1,22 @@
 ---
-title: Uso di gestione ripristino per correggere i problemi delle mappe partizioni
+title: Gestione ripristino per risolvere i problemi della mappa partizioni
 description: Usare la classe RecoveryManager per risolvere i problemi relativi alle mappe partizioni.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 5920f0a3f08d83b1300956ca830b3b9b827fa5e2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6101e00ab98b0d8d901f2e42bf4083d40d0a3227
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690480"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823840"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Uso della classe RecoveryManager per correggere i problemi delle mappe partizioni
 

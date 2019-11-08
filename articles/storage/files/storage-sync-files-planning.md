@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 698702e24f1f6dfc6b94b75de77c08156832e566
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e1f7aeb5615c1a22c1970f118c24c996ac936870
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177850"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826816"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
-Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
+Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
 
 Questo articolo espone considerazioni importanti per la distribuzione di Sincronizzazione file di Azure. È consigliabile leggere anche [Pianificazione per una distribuzione di File di Azure](storage-files-planning.md). 
 
@@ -42,7 +42,7 @@ L'agente Sincronizzazione file di Azure è un pacchetto scaricabile che consente
     - C:\Programmi\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Endpoint server
-Un endpoint server rappresenta una posizione specifica in un server registrato, ad esempio una cartella in un volume del server. Possono esistere più endpoint server nello stesso volume se i relativi spazi dei nomi non si sovrappongono, ad esempio `F:\sync1` e `F:\sync2`. È possibile configurare criteri di suddivisione in livelli cloud singolarmente per ogni endpoint server. 
+Un endpoint server rappresenta una posizione specifica in un server registrato, ad esempio una cartella in un volume del server. Possono esistere più endpoint server nello stesso volume se i relativi spazi dei nomi non si sovrappongono, ad esempio `F:\sync1` e `F:\sync2`. È possibile configurare i criteri di suddivisione in livelli nel cloud singolarmente per ogni endpoint server. 
 
 È possibile creare un endpoint server tramite un punto di montaggio. Si noti che i punti di montaggio all'interno dell'endpoint server vengono ignorati.  
 
@@ -63,7 +63,7 @@ Un endpoint cloud è una condivisione file di Azure che fa parte di un gruppo di
 > Sincronizzazione file di Azure supporta la modifica diretta della condivisione file di Azure. Qualsiasi modifica apportata alla condivisione file di Azure, tuttavia, deve prima essere individuata dal processo di rilevamento modifiche di Sincronizzazione file di Azure, che per un endpoint cloud viene avviato una sola volta ogni 24 ore. Inoltre, le modifiche apportate a una condivisione file di Azure tramite il protocollo REST non aggiorneranno l'ora dell'Ultima modifica SMB e non verranno visualizzate come modifiche sincronizzate. Per ulteriori informazioni, vedere [file di Azure Domande frequenti](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Suddivisione in livelli nel cloud 
-La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincronizzazione file di Azure in base alla quale i file a cui viene eseguito l'accesso di frequente vengono memorizzati nella cache locale del server, mentre tutti gli altri file vengono suddivisi in livelli in File di Azure a seconda delle impostazioni dei criteri. Per altre informazioni, vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md).
+La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincronizzazione file di Azure in base alla quale i file a cui si accede di frequente vengono memorizzati nella cache locale del server, mentre tutti gli altri file vengono archiviati a livelli in File di Azure in base alle impostazioni dei criteri. Per altre informazioni, vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md).
 
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Requisiti di sistema e interoperabilità di Sincronizzazione file di Azure 
 Questa sezione illustra l'interoperabilità e i requisiti di sistema dell'agente di Sincronizzazione file di Azure con funzionalità e ruoli di Windows Server e soluzioni di terze parti.
@@ -158,7 +158,7 @@ Il clustering di failover di Windows Server è supportato da Sincronizzazione fi
 > Perché la sincronizzazione funzioni correttamente, l'agente Sincronizzazione file di Azure deve essere installato in tutti i nodi di un cluster di failover.
 
 ### <a name="data-deduplication"></a>Deduplicazione dei dati
-**Versione dell'agente 5.0.2.0 o più recente**   
+**Windows server 2016 e Windows server 2019**   
 La deduplicazione dei dati è supportata nei volumi con la suddivisione in livelli cloud abilitata in Windows Server 2016. L'abilitazione della deduplicazione dati in un volume con la suddivisione in livelli cloud abilitata consente di memorizzare nella cache più file in locale senza effettuare il provisioning di più spazio di archiviazione. 
 
 Quando la deduplicazione dei dati è abilitata in un volume con la suddivisione in livelli nel cloud abilitata, i file ottimizzati per deduplicazione all'interno del percorso dell'endpoint server verranno suddivisi a livelli in un file normale in base alle impostazioni dei criteri di suddivisione in livelli nel cloud. Una volta a livelli i file ottimizzati per deduplicazione, il processo di deduplicazione dati Garbage Collection verrà eseguito automaticamente per recuperare spazio su disco rimuovendo blocchi non necessari a cui gli altri file del volume non fanno più riferimento.
@@ -168,8 +168,8 @@ Si noti che il risparmio del volume si applica solo al server; i dati nella cond
 > [!Note]  
 > La deduplicazione dei dati e la suddivisione in livelli cloud non sono attualmente supportate nello stesso volume nel server 2019 a causa di un bug che verrà risolto in un aggiornamento futuro.
 
-**Agente di Windows Server 2012 R2 o di versioni precedenti**  
-Per i volumi per cui non è abilitata la suddivisione in livelli nel cloud, Sincronizzazione file di Azure supporta l'abilitazione della deduplicazione dei dati di Windows Server per il volume.
+**Windows Server 2012 R2**  
+Sincronizzazione file di Azure non supporta la deduplicazione dei dati e la suddivisione in livelli nel cloud nello stesso volume. Se la deduplicazione dei dati è abilitata in un volume, la suddivisione in livelli cloud deve essere disabilitata. 
 
 **Note**
 - Se la deduplicazione dei dati viene installata prima di installare l'agente di Sincronizzazione file di Azure, è necessario riavviare il servizio per supportare la deduplicazione dei dati e la suddivisione in livelli nel cloud nello stesso volume.
@@ -244,25 +244,25 @@ In genere, Sincronizzazione file di Azure supporta l'interoperabilità con soluz
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Altre soluzioni di gestione dell'archiviazione gerarchica
 Con Sincronizzazione file di Azure non devono essere usate altre soluzioni di gestione dell'archiviazione gerarchica.
 
-## <a name="region-availability"></a>Disponibilità in base all'area
+## <a name="region-availability"></a>Aree di disponibilità
 Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 
-| Area geografica | Ubicazione del data center |
+| Region | Ubicazione del data center |
 |--------|---------------------|
 | Australia orientale | New South Wales |
-| Australia sud-orientale | Victoria |
+| Australia sudorientale | Victoria |
 | Brasile meridionale | Stato di San Paolo |
 | Canada centrale | Toronto |
-| Canada orientale | Québec |
+| Canada orientale | Quebec City |
 | India centrale | Pune |
 | Stati Uniti centrali | Iowa |
 | Asia orientale | RAS di Hong Kong |
-| Stati Uniti Orientali | Virginia |
+| Stati Uniti orientali | Virginia |
 | Stati Uniti Orientali 2 | Virginia |
 | Francia centrale | Parigi |
 | Francia meridionale * | Marsiglia |
-| Corea centrale | Seoul |
-| Corea meridionale | Busan |
+| Corea del Sud centrale | Seul |
+| Corea del Sud meridionale | Busan |
 | Giappone orientale | Tokyo, Saitama |
 | Giappone occidentale | Osaka |
 | Stati Uniti centro-settentrionali | Illinois |
@@ -271,12 +271,12 @@ Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 | Sudafrica occidentale * | Città del Capo |
 | Stati Uniti centro-meridionali | Texas |
 | India meridionale | Chennai |
-| Asia sud-orientale | Singapore |
+| Asia sudorientale | Singapore |
 | Regno Unito meridionale | Londra |
 | Regno Unito occidentale | Cardiff |
-| US Gov Arizona | Arizona |
-| US Gov Texas | Texas |
-| US Gov Virginia | Virginia |
+| Governo degli Stati Uniti - Arizona | Arizona |
+| Governo degli Stati Uniti - Texas | Texas |
+| Governo degli Stati Uniti - Virginia | Virginia |
 | Emirati Arabi Uniti settentrionali | Dubai |
 | Emirati Arabi Uniti centrali * | Abu Dhabi |
 | Europa occidentale | Paesi Bassi |
@@ -298,37 +298,37 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 
 | Area primaria      | Area associata      |
 |---------------------|--------------------|
-| Australia orientale      | Australia sud-orientale|
-| Australia sud-orientale | Australia orientale     |
+| Australia orientale      | Australia sudorientale|
+| Australia sudorientale | Australia orientale     |
 | Brasile meridionale        | Stati Uniti centro-meridionali   |
 | Canada centrale      | Canada orientale        |
 | Canada orientale         | Canada centrale     |
 | India centrale       | India meridionale        |
 | Stati Uniti centrali          | Stati Uniti orientali 2          |
-| Asia orientale           | Asia sud-orientale     |
-| Stati Uniti Orientali             | Stati Uniti occidentali            |
+| Asia orientale           | Asia sudorientale     |
+| Stati Uniti orientali             | Stati Uniti occidentali            |
 | Stati Uniti orientali 2           | Stati Uniti centrali         |
 | Francia centrale      | Francia meridionale       |
 | Francia meridionale        | Francia centrale     |
 | Giappone orientale          | Giappone occidentale         |
 | Giappone occidentale          | Giappone orientale         |
-| Corea centrale       | Corea meridionale        |
-| Corea meridionale         | Corea centrale      |
+| Corea del Sud centrale       | Corea del Sud meridionale        |
+| Corea del Sud meridionale         | Corea del Sud centrale      |
 | Europa settentrionale        | Europa occidentale        |
 | Stati Uniti centro-settentrionali    | Stati Uniti centro-meridionali   |
 | Sudafrica settentrionale  | Sudafrica occidentale  |
 | Sudafrica occidentale   | Sudafrica settentrionale |
 | Stati Uniti centro-meridionali    | Stati Uniti centro-settentrionali   |
 | India meridionale         | India centrale      |
-| Asia sud-orientale      | Asia orientale          |
+| Asia sudorientale      | Asia orientale          |
 | Regno Unito meridionale            | Regno Unito occidentale            |
 | Regno Unito occidentale             | Regno Unito meridionale           |
-| US Gov Arizona      | US Gov Texas       |
-| Governo degli Stati Uniti - Iowa         | US Gov Virginia    |
-| US Gov Virginia      | US Gov Texas       |
+| Governo degli Stati Uniti - Arizona      | Governo degli Stati Uniti - Texas       |
+| US Gov Iowa         | Governo degli Stati Uniti - Virginia    |
+| Governo degli Stati Uniti - Virginia      | Governo degli Stati Uniti - Texas       |
 | Europa occidentale         | Europa settentrionale       |
 | Stati Uniti centro-occidentali     | Stati Uniti occidentali 2          |
-| Stati Uniti occidentali             | Stati Uniti Orientali            |
+| Stati Uniti occidentali             | Stati Uniti orientali            |
 | Stati Uniti occidentali 2           | Stati Uniti centro-occidentali    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure

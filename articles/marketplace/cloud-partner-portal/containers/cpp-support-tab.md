@@ -1,22 +1,23 @@
 ---
-title: Supporta le impostazioni per un'immagine del contenitore di Azure | Azure Marketplace
+title: Impostazioni di supporto per un'immagine di contenitori di Azure | Azure Marketplace
 description: Configurare le impostazioni di assistenza per un contenitore di Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: 71436d7ee82d9e5162780719d9a7a063fa903c6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 144512683e6afa643639ba12b071e2a3ed7e01bd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942571"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823097"
 ---
 # <a name="container-support-tab"></a>Scheda dell'assistenza sul contenitore
 
-La scheda **Support** (Supporto) nella pagina **Nuova offerta** consente di specificare le risorse di supporto utente e tecniche della propria offerta.  Le aree di input seguenti sono disponibili nel form di supporto: **Engineering Contact**, **supporto tecnico**, e **supporta URL**. Un asterisco (*) accodato al nome del campo indica che si tratta di un campo obbligatorio.
+La scheda **Support** (Supporto) nella pagina **Nuova offerta** consente di specificare le risorse di supporto utente e tecniche della propria offerta.  Nel modulo Support (Supporto) sono presenti le aree di input seguenti: **Engineering Contact** (Contatto tecnico), **Customer Support** (Assistenza clienti) e **Support Urls** (URL del supporto). Un asterisco (*) accodato al nome del campo indica che si tratta di un campo obbligatorio.
 
 
 ## <a name="support-form-fields"></a>Campi del modulo Support (Supporto)
@@ -28,18 +29,18 @@ Fornire le informazioni necessarie per i campi Engineering Contact (Contatto tec
 
 Si tratta del contatto tecnico tra l'organizzazione e Microsoft. I campi obbligatori sono indicati da un asterisco (*).
 
-- **Nome\***  -nome della persona o gruppo che funge da supporto tecnico/engineering.
-- **Messaggio di posta elettronica\***  -indirizzo del contatto tecnico di posta elettronica.
-- **Telefono\***  -numero di telefono per supporto tecnico.
+- **Nome\*** : nome della persona o del gruppo che funge da supporto tecnico/tecnico.
+- Indirizzo di posta elettronica **\*** di questo contatto tecnico.
+- **Telefono\*** -numero di telefono per il supporto tecnico.
 
 
 ### <a name="customer-support"></a>Customer support (Assistenza clienti)
 
 Il contatto per l'assistenza ai clienti riceve i ticket di supporto aperti dai clienti all'interno di Azure.  I campi obbligatori sono indicati da un asterisco (*).
 
-- **Nome\***  -nome della persona o gruppo che funge da supporto tecnico.
-- **Messaggio di posta elettronica\***  -indirizzo di questo contatto di supporto di posta elettronica.
-- **Telefono\***  -numero di telefono per supporto tecnico.
+- **Nome\*** : nome della persona o del gruppo che funge da supporto tecnico.
+- **Email\*** : indirizzo di posta elettronica del contatto del supporto tecnico.
+- **Telefono\*** -numero di telefono per il supporto tecnico.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

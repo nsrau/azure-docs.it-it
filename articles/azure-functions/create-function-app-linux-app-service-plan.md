@@ -1,21 +1,18 @@
 ---
 title: Creare un'app per le funzioni in Linux dal portale di Azure | Microsoft Docs
 description: Informazioni su come creare la prima funzione di Azure per l'esecuzione senza server tramite il portale di Azure.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: glenga
-ms.custom: ''
-ms.openlocfilehash: a612505acdc37591377eebf290365b65cc3836cd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 89755e8b70a490f1c5746b23e0d36c5d90b624c1
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098281"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571662"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Creare un'app per le funzioni in Linux in un piano di servizio app di Azure
 
@@ -50,7 +47,7 @@ Per ospitare l'esecuzione delle funzioni in Linux, è necessaria un'app per le f
     | **Pubblica** | Codice | Viene usato il contenitore Linux predefinito per lo **stack di runtime**. È sufficiente specificare il codice di progetto dell'app per le funzioni. Un'altra opzione consiste nel pubblicare un'[immagine Docker](functions-create-function-linux-custom-image.md) personalizzata. |
     | **[Piano di hosting](functions-scale.md)** | Piano di servizio app | Piano di hosting che definisce come vengono allocate le risorse all'app per le funzioni. In caso di esecuzione in un piano di servizio app, è possibile controllare il [ridimensionamento dell'app per le funzioni](functions-scale.md).  |
     | **Piano di servizio app/Località** | Crea piano | Scegliere **Crea nuovo** e specificare un nome in **Piano di servizio app**. Scegliere una **località** in un'[area](https://azure.microsoft.com/regions/) nelle vicinanze o vicino ad altri servizi a cui accedono le funzioni. Scegliere il **[piano tariffario](https://azure.microsoft.com/pricing/details/app-service/linux/)** preferito. <br/>Non è possibile eseguire app per le funzioni sia Linux che Windows nello stesso piano di servizio app. |
-    | **Stack di runtime** | Lingua preferita | Scegliere un runtime che supporti il linguaggio di programmazione della funzione preferito. Scegliere **.NET** per le funzioni C# e F #. Il [supporto di Python](functions-reference-python.md) attualmente è disponibile in anteprima. |
+    | **Stack di runtime** | Lingua preferita | Scegliere un runtime che supporti il linguaggio di programmazione della funzione preferito. Scegliere **.NET** per le funzioni C# e F #. |
     | **[Archiviazione](../storage/common/storage-quickstart-create-account.md)** |  Nome globalmente univoco |  Creare un account di archiviazione usato dall'app per le funzioni. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile usare un account esistente, che dovrà soddisfare i [requisiti dell'account di archiviazione](functions-scale.md#storage-account-requirements). |
     | **[Application Insights](functions-monitoring.md)** | Attivato | Application Insights è disabilitato per impostazione predefinita. È consigliabile abilitare l'integrazione di Application Insights ora e scegliere una località vicina a quella del piano di servizio app. Se si vuole farlo successivamente, vedere [Monitorare Funzioni di Azure](functions-monitoring.md).  |
 

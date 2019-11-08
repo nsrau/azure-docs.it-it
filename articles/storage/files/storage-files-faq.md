@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 6fecd143055da2829ac49cee4f50d448a37a6e1b
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6526f27177b5fb8640deb5302d8cb3aa4acf1a97
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514876"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824266"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore. È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -24,7 +24,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 3. [UserVoice per File di Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Supporto tecnico Microsoft. Per creare una nuova richiesta di supporto, nel portale di Azure, nella scheda **Guida**, selezionare **Guida e supporto** e quindi selezionare **Nuova richiesta di supporto**.
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 * <a id="why-files-useful"></a>
   **Perché File di Azure è utile?**  
    È possibile usare File di Azure per creare condivisioni file nel cloud, senza la responsabilità di gestire l'overhead di un server fisico, un dispositivo o un'appliance. Si possono così delegare le operazioni monotone, incluse l'installazione degli aggiornamenti del sistema operativo e la sostituzione di dischi danneggiati. Per altre informazioni sugli scenari in cui è utile usare File di Azure, vedere [Vantaggi offerti da File di Azure](storage-files-introduction.md#why-azure-files-is-useful).
@@ -78,7 +78,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     > Non è possibile creare condivisioni file di Azure dagli account di archiviazione BLOB o dagli account di archiviazione per utilizzo generico *Premium* (utilizzo generico V1 o GPv2). Le condivisioni file di Azure standard devono essere create solo negli account *standard* per utilizzo generico e le condivisioni file di Azure Premium devono essere create solo negli account di archiviazione filestorage. Gli account di archiviazione *Premium* per utilizzo generico (utilizzo generico V1 e GPv2) sono solo per i BLOB di pagine Premium. 
 
 * <a id="give-us-feedback"></a>
-   voglio**visualizzare una funzionalità specifica aggiunta a file di Azure. È possibile aggiungerla?**  
+  voglio **visualizzare una funzionalità specifica aggiunta a file di Azure. È possibile aggiungerla?**  
     Il team di File di Azure è interessato a tutti i commenti e i suggerimenti dei clienti sul servizio offerto. Gli utenti sono invitati a votare le richieste di funzionalità in [UserVoice per File di Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). Il team di File di Azure farà il possibile per soddisfare le richieste di nuove funzionalità.
 
 ## <a name="azure-file-sync"></a>Sincronizzazione file di Azure
@@ -151,12 +151,12 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     Prima dell'agente di Sincronizzazione file di Azure versione 3, Sincronizzazione file di Azure bloccava lo spostamento dei file a livelli all'esterno dell'endpoint server e ne consentiva lo spostamento solo nello stesso volume dell'endpoint server. Operazioni di copia, spostamenti di file non a livelli e spostamenti di file a livelli in altri volumi non erano interessati. Il motivo di questo comportamento è il presupposto implicito, da parte di Esplora file e di altre API di Windows, che le operazioni di spostamento nello stesso volume siano operazioni di ridenominazione (quasi) istantanee. Durante gli spostamenti, Esplora file o altri metodi di spostamento (ad esempio tramite riga di comando o PowerShell) sembrano quindi non rispondere mentre Sincronizzazione file di Azure richiama i dati dal cloud. A partire dall'[agente di Sincronizzazione file di Azure versione 3.0.12.0](storage-files-release-notes.md#supported-versions), Sincronizzazione file di Azure consente di spostare un file a livelli all'esterno dell'endpoint server. Gli effetti negativi indicati in precedenza vengono evitati consentendo la presenza del file a livelli all'esterno dell'endpoint server e richiamando quindi il file in background. Ciò determina che gli spostamenti nello stesso volume siano istantanei e che al termine dello spostamento il file venga richiamato automaticamente su disco. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
-   si**verifica un problema con sincronizzazione file di Azure sul server (sincronizzazione, suddivisione in livelli cloud e così via). È necessario rimuovere e ricreare l'endpoint server?**  
+  si **verifica un problema con sincronizzazione file di Azure sul server (sincronizzazione, suddivisione in livelli cloud e così via). È necessario rimuovere e ricreare l'endpoint server?**  
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
   **È possibile spostare il servizio di sincronizzazione archiviazione e/o account di archiviazione in un gruppo di risorse o in una sottoscrizione diversi?**  
-   Sì, è possibile spostare il servizio di sincronizzazione archiviazione e/o l'account di archiviazione in un gruppo di risorse o in una sottoscrizione diversa all'interno del tenant di Azure AD esistente. Se l'account di archiviazione viene spostato, è necessario concedere l'accesso al servizio di sincronizzazione dei file ibridi nell'account di archiviazione (vedere [Assicurarsi che la sincronizzazione file di Azure possa accedere all'account di archiviazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+   Sì, è possibile spostare il servizio di sincronizzazione archiviazione e/o l'account di archiviazione in un gruppo di risorse o in una sottoscrizione diversa all'interno del tenant di Azure AD esistente. Se l'account di archiviazione viene spostato, è necessario concedere l'accesso al servizio Sincronizzazione file ibrida nell'account di archiviazione (vedere [Garantire che Sincronizzazione file di Azure possa accedere all'account di archiviazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > Sincronizzazione file di Azure non consente lo spostamento della sottoscrizione in un diverso tenant di Azure AD.
@@ -174,7 +174,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
     File di Azure offre altri due modi per gestire il controllo di accesso:
 
-    - È possibile usare le firme di accesso condiviso (SAS) per generare token con autorizzazioni specifiche e validi per un intervallo di tempo specificato. Ad esempio, è possibile generare un token con accesso di sola lettura a un file specifico e con scadenza di 10 minuti. Tutti coloro che possiedono il token nel periodo in cui è valido hanno accesso in sola lettura a tale file nell'intervallo di 10 minuti. Attualmente, le chiavi di firma di accesso condiviso sono supportate solo tramite l'API REST o nelle librerie client. È necessario montare la condivisione file di Azure tramite SMB usando le chiavi dell'account di archiviazione.
+    - È possibile usare le firme di accesso condiviso (SAS) per generare token con autorizzazioni specifiche e validi per un intervallo di tempo specificato. Ad esempio, è possibile generare un token con accesso di sola lettura a un file specifico e con scadenza di 10 minuti. Tutti coloro che possiedono il token nel periodo in cui è valido hanno accesso in sola lettura a tale file nell'intervallo di 10 minuti. Le chiavi di firma di accesso condiviso sono supportate solo tramite l'API REST o nelle librerie client. È necessario montare la condivisione file di Azure tramite SMB usando le chiavi dell'account di archiviazione.
 
     - Sincronizzazione file di Azure consente di mantenere e replicare tutti gli elenchi DACL, ovvero gli elenchi di controllo di accesso discrezionale, (basati su Active Directory o locali) in tutti gli endpoint server con cui viene eseguita la sincronizzazione. Dato che Windows Server è già in grado di eseguire l'autenticazione con Active Directory, Sincronizzazione file di Azure rappresenta un'efficace soluzione temporanea fino a quando non sarà disponibile il supporto completo per l'autenticazione basata su Active Directory e gli elenchi di controllo di accesso.
     
@@ -206,7 +206,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     No, l'autenticazione dalle macchine virtuali Linux non è supportata.
 
 * <a id="ad-aad-smb-afs"></a>
- è**possibile sfruttare File di Azure Azure ad l'autenticazione DS per le condivisioni file gestite da sincronizzazione file di Azure?**
+è **possibile sfruttare File di Azure Azure ad l'autenticazione DS per le condivisioni file gestite da sincronizzazione file di Azure?**
 
     No, File di Azure non supporta la conservazione degli ACL NTFS nelle condivisioni file gestite da Sincronizzazione file di Azure. Gli ACL dei file trasferiti dai file server locali vengono resi permanente da Sincronizzazione file di Azure. Eventuali ACL NTFS configurati in modo nativo rispetto a File di Azure verranno sovrascritti dal servizio di Sincronizzazione file di Azure. File di Azure non supporta inoltre l'autenticazione con credenziali di Azure AD per l'accesso alle condivisioni file gestite dal servizio Sincronizzazione file di Azure.
 
@@ -252,7 +252,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
     È possibile montare la condivisione file usando il protocollo SMB, se la porta 445 (TCP in uscita) è aperta e il client supporta il protocollo SMB 3.0, ad esempio su Windows 10 o Windows Server 2016. Se la porta 445 è bloccata dai criteri dell'organizzazione o dall'ISP, è possibile usare Sincronizzazione file di Azure per accedere alla condivisione file di Azure.
 
-## <a name="backup"></a>Eseguire il backup
+## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Come è possibile eseguire il backup nella condivisione file di Azure?**  
     È possibile usare [snapshot di condivisione](storage-snapshots-files.md) periodici per la protezione da eliminazioni accidentali. È anche possibile usare AzCopy, RoboCopy o uno strumento di backup di terze parti per eseguire il backup di una condivisione file montata. Backup di Azure offre il backup di File di Azure. Altre informazioni su come [eseguire il backup di condivisioni file di Azure con Backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-files).
@@ -347,7 +347,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     Le dimensioni della condivisione file di Azure (Premium e standard) possono essere scalate fino a 100 TiB. Vedere la sezione [onboarding to large file Shares (livello standard)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) della Guida alla pianificazione per le istruzioni di onboarding per le condivisioni file più grandi per il livello standard.
 
 * <a id="lfs-performance-impact"></a>
- l'**espansione della quota di condivisione file ha un effetto sui carichi di lavoro o sincronizzazione file di Azure?**
+l' **espansione della quota di condivisione file ha un effetto sui carichi di lavoro o sincronizzazione file di Azure?**
     
     No. Espandendo la quota non si avrà alcun effetto sui carichi di lavoro o Sincronizzazione file di Azure.
 
@@ -374,17 +374,17 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="rest-rename"></a>
 **Esiste un'operazione di ridenominazione nell'API REST?**  
-    Non attualmente.
+    Attualmente non è possibile.
 
 * <a id="nested-shares"></a>
- è**possibile configurare condivisioni annidate? In altre parole, una condivisione in una condivisione?**  
+è **possibile configurare condivisioni annidate? In altre parole, una condivisione in una condivisione?**  
     No. La condivisione file *è* il driver virtuale che è possibile montare, quindi le condivisioni annidate non sono supportate.
 
 * <a id="ibm-mq"></a>
 **Come si può usare File di Azure con IBM MQ?**  
     IBM ha pubblicato un documento per supportare i clienti di IBM MQ nella configurazione di File di Azure con il servizio IBM. Per altre informazioni, vedere [How to set up an IBM MQ multi-instance queue manager with Microsoft Azure Files service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service) (Come configurare IBM MQ Multi Instance Queue Manager (MIQM) con il servizio File di Microsoft Azure).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 * [Risolvere i problemi relativi a File di Azure in Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Risolvere i problemi relativi a File di Azure in Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Risolvere i problemi di Sincronizzazione file di Azure](storage-sync-files-troubleshoot.md)

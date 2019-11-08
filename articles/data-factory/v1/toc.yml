@@ -76,7 +76,7 @@
               href: data-factory-azure-documentdb-connector.md
             - name: Azure Data Lake Storage Gen1
               href: data-factory-azure-datalake-connector.md
-            - name: Ricerca di Azure
+            - name: Ricerca cognitiva di Azure
               href: data-factory-azure-search-connector.md
             - name: database SQL di Azure
               href: data-factory-azure-sql-connector.md

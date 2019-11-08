@@ -1,22 +1,22 @@
 ---
-title: 'Creare e gestire processi di database elastici SQL di Azure con Transact-SQL (T-SQL) '
+title: Creare e gestire processi di database elastici con Transact-SQL (T-SQL)
 description: Eseguire script in più database con l'agente di processo di database elastico tramite Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 374346faacf99148cc20a5e9f11325af1e436108
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: deefc1cc1d8fe82eab9ec0085b3a11ccd2fe7840
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685275"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820607"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico
 
@@ -446,7 +446,7 @@ Aggiunge un nuovo processo.
   
 #### <a name="arguments"></a>Argomenti  
 
-[ **\@job_name =** ] 'job_name'  
+[ **\@job_name =** ] ' job_name '  
 Nome del processo. Il nome deve essere univoco e non può contenere il carattere di percentuale (%). job_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
 [ **descrizione\@=** ] Descrizione  
@@ -473,7 +473,7 @@ Data dalla quale è possibile avviare l'esecuzione del processo. schedule_start_
 [ **\@schedule_end_time =** ] schedule_end_time  
 Data in cui è possibile arrestare l'esecuzione del processo. schedule_end_time è di tipo DATETIME2 e il valore predefinito è 9999-12-31 11:59:59.0000000. 
 
-[ **\@job_id =** ] job_id output  
+[ **\@job_id =** ] output job_id  
 Numero di identificazione del processo assegnato al processo se viene creato correttamente. job_id è una variabile di output di tipo uniqueidentifier.
 
 #### <a name="return-code-values"></a>Valori del codice restituito
@@ -509,10 +509,10 @@ Aggiorna un processo esistente.
 ```
 
 #### <a name="arguments"></a>Argomenti
-[ **\@job_name =** ] 'job_name'  
+[ **\@job_name =** ] ' job_name '  
 Nome del processo da aggiornare. job_name è di tipo nvarchar(128).
 
-[ **\@new_name =** ] 'new_name'  
+[ **\@new_name =** ] ' new_name '  
 Nuovo nome del processo. new_name è di tipo nvarchar(128).
 
 [ **descrizione\@=** ] Descrizione  
@@ -566,7 +566,7 @@ Elimina il processo esistente.
 ```
 
 #### <a name="arguments"></a>Argomenti
-[ **\@job_name =** ] 'job_name'  
+[ **\@job_name =** ] ' job_name '  
 Nome del processo da eliminare. job_name è di tipo nvarchar(128).
 
 [ **\@Force =** ] forza  
@@ -621,7 +621,7 @@ Aggiunge un passaggio a un processo.
 
 #### <a name="arguments"></a>Argomenti
 
-[ **\@job_name =** ] 'job_name'  
+[ **\@job_name =** ] ' job_name '  
 Nome del processo a cui aggiungere il passaggio. job_name è di tipo nvarchar(128).
 
 [ **\@step_id =** ] step_id  
@@ -630,12 +630,12 @@ Numero di identificazione della sequenza per il passaggio del processo. I numeri
 [ **\@step_name =** ] step_name  
 Nome del passaggio. È necessario specificare il nome, tranne che per il primo passaggio di un processo che, per praticità, ha il nome predefinito "JobStep". step_name è di tipo nvarchar(128).
 
-[ **\@command_type =** ] 'command_type'  
+[ **\@command_type =** ] ' command_type '  
 Tipo di comando eseguito da questo passaggio del processo. command_type è di tipo nvarchar(50) e il valore predefinito è TSql, ovvero il valore del parametro @command_type è uno script T-SQL.
 
 Se specificato, il valore deve essere TSql.
 
-[ **\@command_source =** ] 'command_source'  
+[ **\@command_source =** ] ' command_source '  
 Tipo di posizione in cui è archiviato il comando. command_source è di tipo nvarchar(50) e il valore predefinito è Inline, ovvero il valore del parametro @command_source è il testo del comando.
 
 Se specificato, il valore deve essere Inline.
@@ -643,7 +643,7 @@ Se specificato, il valore deve essere Inline.
 [ **comando\@=** ] comando  
 Il comando deve essere uno script T-SQL valido, che verrà eseguito da questo passaggio del processo. command è di tipo nvarchar(max) e il valore predefinito è NULL.
 
-[ **\@credential_name =** ] 'credential_name'  
+[ **\@credential_name =** ] ' credential_name '  
 Nome delle credenziali con ambito database archiviate in questo database di controllo dei processi usato per connettersi a ognuno dei database di destinazione all'interno del gruppo di destinazione quando viene eseguito questo passaggio. credential_name è di tipo nvarchar(128).
 
 [ **\@target_group_name =** ] ' target-group_name '  
@@ -664,36 +664,36 @@ Numero di tentativi di esecuzione se il tentativo iniziale non riesce. Ad esempi
 [ **\@step_timeout_seconds =** ] step_timeout_seconds  
 Tempo massimo consentito per l'esecuzione del passaggio. Se questo tempo viene superato, l'esecuzione del processo termina con un ciclo di vita TimedOut. step_timeout_seconds è di tipo int e il valore predefinito è 43.200 secondi (12 ore).
 
-[ **\@OUTPUT_TYPE =** ] 'output_type'  
+[ **\@OUTPUT_TYPE =** ] ' output_type '  
 Se non è Null, il tipo di destinazione in cui viene scritto il primo set di risultati del comando. output_type è di tipo nvarchar(50) e il valore predefinito è NULL.
 
 Se specificato, il valore deve essere SqlDatabase.
 
-[ **\@output_credential_name =** ] 'output_credential_name'  
+[ **\@output_credential_name =** ] ' output_credential_name '  
 Se non è Null, il nome delle credenziali con ambito database usato per la connessione al database di destinazione di output. È necessario specificare il nome se output_type è uguale a SqlDatabase. output_credential_name è di tipo nvarchar(128) e il valore predefinito è NULL.
 
-[ **\@output_subscription_id =** ] 'output_subscription_id'  
+[ **\@output_subscription_id =** ] ' output_subscription_id '  
 Descrizione da inserire.
 
-[ **\@output_resource_group_name =** ] 'output_resource_group_name'  
+[ **\@output_resource_group_name =** ] ' output_resource_group_name '  
 Descrizione da inserire.
 
-[ **\@output_server_name =** ] 'output_server_name'  
+[ **\@output_server_name =** ] ' output_server_name '  
 Se non è Null, il nome DNS completo del server che contiene il database di destinazione di output. È necessario specificare il nome se output_type è uguale a SqlDatabase. output_server_name è di tipo nvarchar(256) e il valore predefinito è NULL.
 
-[ **\@output_database_name =** ] 'output_database_name'  
+[ **\@output_database_name =** ] ' output_database_name '  
 Se non è Null, il nome del database che contiene la tabella di destinazione di output. È necessario specificare il nome se output_type è uguale a SqlDatabase. output_database_name è di tipo nvarchar(128) e il valore predefinito è NULL.
 
-[ **\@output_schema_name =** ] 'output_schema_name'  
+[ **\@output_schema_name =** ] ' output_schema_name '  
 Se non è Null, il nome dello schema SQL che contiene la tabella di destinazione di output. Se output_type è uguale a SqlDatabase, il valore predefinito è dbo. output_schema_name è di tipo nvarchar(128).
 
-[ **\@output_table_name =** ] 'output_table_name'  
+[ **\@output_table_name =** ] ' output_table_name '  
 Se non è Null, il nome della tabella in cui verrà scritto il primo set di risultati del comando. Se la tabella non esiste già, verrà creata in base allo schema del set di risultati restituito. È necessario specificare il nome se output_type è uguale a SqlDatabase. output_table_name è di tipo nvarchar(128) e il valore predefinito è NULL.
 
-[ **\@job_version =** ] job_version output  
+[ **\@job_version =** ] output job_version  
 Parametro di output che verrà assegnato al nuovo numero di versione del processo. job_version è di tipo int.
 
-[ **\@max_parallelism =** ] max_parallelism output  
+[ **\@max_parallelism =** ] output max_parallelism  
 Livello massimo di parallelismo per ogni pool elastico. Se impostato, il passaggio del processo sarà limitato in modo da eseguire solo il numero massimo di database per ogni pool elastico. Questo vale per ogni pool elastico, incluso direttamente nel gruppo di destinazione o all'interno di un server incluso nel gruppo di destinazione. max_parallelism è di tipo int.
 
 
@@ -745,27 +745,27 @@ Aggiorna un passaggio di un processo.
 ```
 
 #### <a name="arguments"></a>Argomenti
-[ **\@job_name =** ] 'job_name'  
+[ **\@job_name =** ] ' job_name '  
 Nome del processo a cui appartiene il passaggio. job_name è di tipo nvarchar(128).
 
 [ **\@step_id =** ] step_id  
 Numero di identificazione per il passaggio del processo da modificare. È necessario specificare step_id o step_name. step_id è di tipo int.
 
-[ **\@step_name =** ] 'step_name'  
+[ **\@step_name =** ] ' step_name '  
 Nome del passaggio da modificare. È necessario specificare step_id o step_name. step_name è di tipo nvarchar(128).
 
 [ **\@new_id =** ] new_id  
 Nuovo numero di identificazione della sequenza per il passaggio del processo. I numeri di identificazione dei passaggi iniziano da 1 e vengono incrementati senza interruzioni. Se un passaggio viene riordinato, gli altri passaggi verranno rinumerati automaticamente.
 
-[ **\@new_name =** ] 'new_name'  
+[ **\@new_name =** ] ' new_name '  
 Nuovo nome del passaggio. new_name è di tipo nvarchar(128).
 
-[ **\@command_type =** ] 'command_type'  
+[ **\@command_type =** ] ' command_type '  
 Tipo di comando eseguito da questo passaggio del processo. command_type è di tipo nvarchar(50) e il valore predefinito è TSql, ovvero il valore del parametro @command_type è uno script T-SQL.
 
 Se specificato, il valore deve essere TSql.
 
-[ **\@command_source =** ] 'command_source'  
+[ **\@command_source =** ] ' command_source '  
 Tipo di posizione in cui è archiviato il comando. command_source è di tipo nvarchar(50) e il valore predefinito è Inline, ovvero il valore del parametro @command_source è il testo del comando.
 
 Se specificato, il valore deve essere Inline.
@@ -773,7 +773,7 @@ Se specificato, il valore deve essere Inline.
 [ **comando\@=** ] comando  
 Il comando deve essere uno script T-SQL valido, che verrà eseguito da questo passaggio del processo. command è di tipo nvarchar(max) e il valore predefinito è NULL.
 
-[ **\@credential_name =** ] 'credential_name'  
+[ **\@credential_name =** ] ' credential_name '  
 Nome delle credenziali con ambito database archiviate in questo database di controllo dei processi usato per connettersi a ognuno dei database di destinazione all'interno del gruppo di destinazione quando viene eseguito questo passaggio. credential_name è di tipo nvarchar(128).
 
 [ **\@target_group_name =** ] ' target-group_name '  
@@ -794,30 +794,30 @@ Numero di tentativi di esecuzione se il tentativo iniziale non riesce. Ad esempi
 [ **\@step_timeout_seconds =** ] step_timeout_seconds  
 Tempo massimo consentito per l'esecuzione del passaggio. Se questo tempo viene superato, l'esecuzione del processo termina con un ciclo di vita TimedOut. step_timeout_seconds è di tipo int e il valore predefinito è 43.200 secondi (12 ore).
 
-[ **\@OUTPUT_TYPE =** ] 'output_type'  
+[ **\@OUTPUT_TYPE =** ] ' output_type '  
 Se non è Null, il tipo di destinazione in cui viene scritto il primo set di risultati del comando. Per reimpostare il valore di output_type su NULL, impostare il valore del parametro su '' (stringa vuota). output_type è di tipo nvarchar(50) e il valore predefinito è NULL.
 
 Se specificato, il valore deve essere SqlDatabase.
 
-[ **\@output_credential_name =** ] 'output_credential_name'  
+[ **\@output_credential_name =** ] ' output_credential_name '  
 Se non è Null, il nome delle credenziali con ambito database usato per la connessione al database di destinazione di output. È necessario specificare il nome se output_type è uguale a SqlDatabase. Per reimpostare il valore di output_credential_name su NULL, impostare il valore del parametro su '' (stringa vuota). output_credential_name è di tipo nvarchar(128) e il valore predefinito è NULL.
 
-[ **\@output_server_name =** ] 'output_server_name'  
+[ **\@output_server_name =** ] ' output_server_name '  
 Se non è Null, il nome DNS completo del server che contiene il database di destinazione di output. È necessario specificare il nome se output_type è uguale a SqlDatabase. Per reimpostare il valore di output_server_name su NULL, impostare il valore del parametro su '' (stringa vuota). output_server_name è di tipo nvarchar(256) e il valore predefinito è NULL.
 
-[ **\@output_database_name =** ] 'output_database_name'  
+[ **\@output_database_name =** ] ' output_database_name '  
 Se non è Null, il nome del database che contiene la tabella di destinazione di output. È necessario specificare il nome se output_type è uguale a SqlDatabase. Per reimpostare il valore di output_database_name su NULL, impostare il valore del parametro su '' (stringa vuota). output_database_name è di tipo nvarchar(128) e il valore predefinito è NULL.
 
-[ **\@output_schema_name =** ] 'output_schema_name'  
+[ **\@output_schema_name =** ] ' output_schema_name '  
 Se non è Null, il nome dello schema SQL che contiene la tabella di destinazione di output. Se output_type è uguale a SqlDatabase, il valore predefinito è dbo. Per reimpostare il valore di output_schema_name su NULL, impostare il valore del parametro su '' (stringa vuota). output_schema_name è di tipo nvarchar(128).
 
-[ **\@output_table_name =** ] 'output_table_name'  
+[ **\@output_table_name =** ] ' output_table_name '  
 Se non è Null, il nome della tabella in cui verrà scritto il primo set di risultati del comando. Se la tabella non esiste già, verrà creata in base allo schema del set di risultati restituito. È necessario specificare il nome se output_type è uguale a SqlDatabase. Per reimpostare il valore di output_server_name su NULL, impostare il valore del parametro su '' (stringa vuota). output_table_name è di tipo nvarchar(128) e il valore predefinito è NULL.
 
-[ **\@job_version =** ] job_version output  
+[ **\@job_version =** ] output job_version  
 Parametro di output che verrà assegnato al nuovo numero di versione del processo. job_version è di tipo int.
 
-[ **\@max_parallelism =** ] max_parallelism output  
+[ **\@max_parallelism =** ] output max_parallelism  
 Livello massimo di parallelismo per ogni pool elastico. Se impostato, il passaggio del processo sarà limitato in modo da eseguire solo il numero massimo di database per ogni pool elastico. Questo vale per ogni pool elastico, incluso direttamente nel gruppo di destinazione o all'interno di un server incluso nel gruppo di destinazione. Per reimpostare il valore di max_parallelism su Null, impostare il valore del parametro su -1. max_parallelism è di tipo int.
 
 
@@ -852,16 +852,16 @@ Rimuove un passaggio da un processo.
 ```
 
 #### <a name="arguments"></a>Argomenti
-[ **\@job_name =** ] 'job_name'  
+[ **\@job_name =** ] ' job_name '  
 Nome del processo da cui rimuovere il passaggio. job_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
 [ **\@step_id =** ] step_id  
 Numero di identificazione per il passaggio del processo da eliminare. È necessario specificare step_id o step_name. step_id è di tipo int.
 
-[ **\@step_name =** ] 'step_name'  
+[ **\@step_name =** ] ' step_name '  
 Nome del passaggio da eliminare. È necessario specificare step_id o step_name. step_name è di tipo nvarchar(128).
 
-[ **\@job_version =** ] job_version output  
+[ **\@job_version =** ] output job_version  
 Parametro di output che verrà assegnato al nuovo numero di versione del processo. job_version è di tipo int.
 
 #### <a name="return-code-values"></a>Valori del codice restituito
@@ -896,10 +896,10 @@ Avvia l'esecuzione di un processo.
 ```
 
 #### <a name="arguments"></a>Argomenti
-[ **\@job_name =** ] 'job_name'  
+[ **\@job_name =** ] ' job_name '  
 Nome del processo da cui rimuovere il passaggio. job_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
-[ **\@job_execution_id =** ] job_execution_id output  
+[ **\@job_execution_id =** ] output job_execution_id  
 Parametro di output che verrà assegnato all'ID dell'esecuzione del processo. job_version è di tipo uniqueidentifier.
 
 #### <a name="return-code-values"></a>Valori del codice restituito
@@ -957,10 +957,10 @@ Aggiunge un gruppo di destinazione.
 
 
 #### <a name="arguments"></a>Argomenti
-[ **\@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] ' target_group_name '  
 Nome del gruppo di destinazione da creare. target_group_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
-[ **\@target_group_id =** ] Target_group_id output il numero di identificazione del gruppo di destinazione assegnato al processo se viene creato correttamente. target_group_id è una variabile di output di tipo uniqueidentifier e il valore predefinito è NULL.
+[ **\@target_group_id =** ] Target_group_id restituire il numero di identificazione del gruppo di destinazione assegnato al processo se viene creato correttamente. target_group_id è una variabile di output di tipo uniqueidentifier e il valore predefinito è NULL.
 
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (operazione completata) o 1 (operazione non riuscita)
@@ -987,7 +987,7 @@ Elimina un gruppo di destinazione.
 
 
 #### <a name="arguments"></a>Argomenti
-[ **\@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] ' target_group_name '  
 Nome del gruppo di destinazione da eliminare. target_group_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
 #### <a name="return-code-values"></a>Valori del codice restituito
@@ -1021,31 +1021,31 @@ Aggiunge un database o un gruppo di database a un gruppo di destinazione.
 ```
 
 #### <a name="arguments"></a>Argomenti
-[ **\@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] ' target_group_name '  
 Nome del gruppo di destinazione a cui verrà aggiunto il membro. target_group_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
-[ **\@membership_type =** ] 'membership_type'  
+[ **\@membership_type =** ] ' membership_type '  
 Specifica se il membro del gruppo di destinazione deve essere incluso o escluso. target_group_name è di tipo nvarchar(128) e il valore predefinito è "Include". I valori validi per target_group_name sono "Include" o "Exclude".
 
-[ **\@target_type =** ] 'target_type'  
+[ **\@target_type =** ] ' target_type '  
 Tipo di database o raccolta di database di destinazione, inclusi tutti i database in un server, tutti i database in un pool elastico, tutti i database in una mappa partizioni o un singolo database. target_type è di tipo nvarchar(128), senza alcun valore predefinito. I valori validi per target_type sono "SqlServer", "SqlElasticPool", "SqlDatabase" o "SqlShardMap". 
 
-[ **\@refresh_credential_name =** ] 'refresh_credential_name'  
+[ **\@refresh_credential_name =** ] ' refresh_credential_name '  
 Nome del server di database SQL. refresh_credential_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
-[ **\@nome_server =** ] ' nome_server '  
+[ **\@server_name =** ] ' server_name '  
 Nome del server di database SQL da aggiungere al gruppo di destinazione specificato. È necessario specificare server_name se target_type è "SqlServer". server_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
 [ **\@database_name =** ] ' database_name '  
 Nome del database da aggiungere al gruppo di destinazione specificato. È necessario specificare database_name se target_type è "SqlDatabase". database_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
-[ **\@elastic_pool_name =** ] 'elastic_pool_name'  
+[ **\@elastic_pool_name =** ] ' elastic_pool_name '  
 Nome del pool elastico da aggiungere al gruppo di destinazione specificato. È necessario specificare elastic_pool_name se target_type è "SqlElasticPool". elastic_pool_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
-[ **\@shard_map_name =** ] 'shard_map_name'  
+[ **\@shard_map_name =** ] ' shard_map_name '  
 Nome del pool della mappa partizioni da aggiungere al gruppo di destinazione specificato. È necessario specificare elastic_pool_name se target_type è "SqlSqlShardMap". shard_map_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
-[ **\@target_id =** ] target_group_id output  
+[ **\@target_id =** ] output target_group_id  
 Numero di identificazione della destinazione assegnato al membro del gruppo di destinazione se viene creato e aggiunto correttamente al gruppo di destinazione. target_id è una variabile di output di tipo uniqueidentifier e il valore predefinito è NULL.
 Valori del codice restituito 0 (operazione completata) o 1 (operazione non riuscita)
 
@@ -1156,7 +1156,7 @@ Rimuove i record della cronologia per un processo.
 ```
 
 #### <a name="arguments"></a>Argomenti
-[ **\@job_name =** ] 'job_name'  
+[ **\@job_name =** ] ' job_name '  
 Nome del processo per cui eliminare i record della cronologia. job_name è di tipo nvarchar(128) e il valore predefinito è NULL. È necessario specificare job_id o job_name, ma non è possibile specificarli entrambi.
 
 [ **\@job_id =** ] job_id  

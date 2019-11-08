@@ -1,5 +1,5 @@
 ---
-title: Configurare le informazioni di sicurezza (anteprima) per usare la messaggistica del testo-Azure Active Directory | Microsoft Docs
+title: Configurare le info di sicurezza (anteprima) per i messaggi di testo-Azure AD
 description: Come configurare le informazioni di sicurezza per verificare la propria identità usando l'invio di SMS e il dispositivo mobile.
 services: active-directory
 author: eross-msft
@@ -12,23 +12,23 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3544094da72c1c0f854f3d02a34f8540ad2f784
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5a4be99a84964b7a55448692385d027262ecfec3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160879"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803846"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>Configurare le informazioni di sicurezza (anteprima) per l'uso di SMS
 
 È possibile seguire questi passaggi per aggiungere i metodi di verifica a due fattori e di reimpostazione della password. Dopo averle configurate per la prima volta, è possibile tornare alla pagina **Informazioni di sicurezza** per aggiungere, aggiornare o eliminare le informazioni di sicurezza.
 
-Se viene chiesto di configurarle subito dopo aver effettuato l'accesso all'account aziendale o dell'istituto di istruzione, vedere i passaggi dettagliati nell'articolo [Configurare le informazioni di sicurezza (anteprima) dal messaggio di richiesta della pagina di accesso](security-info-setup-signin.md).
+Se viene chiesto di configurarle subito dopo aver effettuato l'accesso all'account aziendale o dell'istituto di istruzione, vedere la procedura dettagliata nell'articolo [Configurare le informazioni di sicurezza dal prompt della pagina di accesso](security-info-setup-signin.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Se non viene visualizzata un'opzione relativa al telefono, è possibile che l'organizzazione non consenta l'uso di un numero di telefono per la verifica. In questo caso, è necessario scegliere un altro metodo oppure contattare l'amministratore per ricevere assistenza.
+>Se non viene visualizzata un'opzione relativa al telefono, è possibile che l'organizzazione non consenta l'uso di un numero di telefono per la verifica. In questo caso è necessario scegliere un altro metodo oppure contattare l'amministratore per ricevere assistenza.
 
 ## <a name="set-up-text-messages-from-the-security-info-page"></a>Configurare gli SMS dalla pagina Info di sicurezza
 
@@ -39,7 +39,7 @@ A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usar
 
 ### <a name="to-set-up-text-messages"></a>Per configurare SMS
 
-1. Accedere all'account aziendale o dell'istituto di istruzione, quindi andare alla pagina https://myprofile.microsoft.com/.
+1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
 
     ![Pagina Profilo personale con i collegamenti evidenziati delle Informazioni di sicurezza](media/security-info/securityinfo-myprofile-page.png)
 
@@ -80,7 +80,7 @@ Per non usare più gli SMS come metodo di gestione delle informazioni di sicurez
 
 2. Selezionare **Sì** nella casella di conferma per eliminare il numero di **telefono**. Il numero di telefono, dopo essere stato eliminato, viene rimosso dalle informazioni di sicurezza e non viene più visualizzato nella pagina **Informazioni di sicurezza**. Se **Telefono** è il metodo predefinito, verrà sostituito con un altro metodo disponibile.
 
-## <a name="change-your-default-security-info-method"></a>Modificare il metodo di gestione delle informazioni di sicurezza predefinito
+## <a name="change-your-default-security-info-method"></a>Cambiare il metodo di gestione delle informazioni di sicurezza predefinito
 
 Se si vuole che la messaggistica del testo sia il metodo predefinito usato quando si accede all'account aziendale o dell'Istituto di istruzione usando la verifica a due fattori o per le richieste di reimpostazione della password, è possibile impostarlo dalla pagina delle **informazioni di sicurezza** .
 
@@ -88,17 +88,17 @@ Se si vuole che la messaggistica del testo sia il metodo predefinito usato quand
 
 1. Nella pagina **Informazioni di sicurezza** selezionare il collegamento **Modifica** accanto alle informazioni **Metodo di accesso predefinito**.
 
-    ![Modificare il collegamento per il metodo di accesso predefinito](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
+    ![Cambiare collegamento per il metodo di accesso predefinito](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
 2. Selezionare **Telefono - SMS a ( *_numero_telefono_utente_* )** dall'elenco a discesa di metodi disponibili e quindi selezionare **Conferma**.
 
-    ![Scegliere il metodo di accesso predefinito](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
+    ![Scegliere il metodo per l'accesso predefinito](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
 
     Il metodo predefinito usato per l'accesso passa a **Telefono - SMS a ( *_numero_telefono_utente_* )** .
 
 ## <a name="additional-security-info-methods"></a>Opzioni aggiuntive per le informazioni di sicurezza
 
-In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, tra cui:
+In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, Queste opzioni includono:
 
 - **App di autenticazione.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
 

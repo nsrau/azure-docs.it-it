@@ -4,15 +4,16 @@ description: Introduzione alla funzionalità Informazioni dettagliate del vendit
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 6c903c87bc153864381a3f1763afaeeb7796090a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d335525a23ca2e1442ae009dcfbc062bff8cc77d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943048"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824758"
 ---
 <a name="getting-started-with-seller-insights"></a>Introduzione alle Informazioni dettagliate del venditore
 ====================================
@@ -57,7 +58,7 @@ Solo gli utenti in possesso delle autorizzazioni *Proprietario* possono visualiz
 <a name="finding-more-help"></a>Altre informazioni di supporto
 -----------------
 
-- [Definizioni di Informazioni dettagliate del venditore](./si-insights-definitions-v4.md): trovare le definizioni per metrica e dati
+- [Definizioni di Informazioni dettagliate del venditore](./si-insights-definitions-v4.md) - Trovare le definizioni per metrica e dati
 
 - [Introduzione a Informazioni dettagliate del venditore](./si-getting-started.md):-Introduzione alla funzionalità Informazioni dettagliate del venditore.
 

@@ -1,5 +1,5 @@
 ---
-title: Come configurare il database SQL di Azure-Single
+title: Come configurare un singolo database
 description: Informazioni su come configurare e gestire il database SQL di Azure (database singolo)
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 02/08/2019
-ms.openlocfilehash: 45e25641092fae36cd58a59400cea025f74cbc1f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3c03797c97a354eb06b6c3b1d76ba5c39d512c18
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689911"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811213"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Come usare un database singolo in Database SQL di Azure
 

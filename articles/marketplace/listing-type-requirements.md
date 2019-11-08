@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: e45346ce8bd23ea8431faf8a123d57ecdee71606
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b9a2e8b37f746eb86b2e0fe6a7304cd888a293e1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937884"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823024"
 ---
 # <a name="requirements-by-listing-type"></a>Requisiti in base al tipo di inserzione  
 I requisiti tecnici e quelli relativi al contenuto di marketing variano in base alla vetrina, al tipo di offerta e al tipo di inserzione. Rivedere le specifiche seguenti per verificare la conformità.  
@@ -38,7 +39,7 @@ Nella tabella seguente vengono descritti i prerequisiti per la pubblicazione in 
 | ***Informativa sulla privacy e condizioni per l'utilizzo*** | L'app deve fornire un collegamento alla pagina dell'informativa sulla privacy con un URL pubblico e le condizioni per l'utilizzo devono essere fornite in formato testo al momento della pubblicazione. | Obbligatorio |  
 | ***Supporto*** | L'app deve fornire un collegamento alla pagina dell'assistenza clienti con un URL pubblico. Se l'app è una versione di valutazione, è necessario fornire il supporto senza alcun costo aggiuntivo durante il periodo di valutazione. | Obbligatorio |  
 
-## <a name="storefront-requirements-azure-marketplace"></a>Requisiti della vetrina: Azure Marketplace  
+## <a name="storefront-requirements-azure-marketplace"></a>Requisiti delle vetrine: Azure Marketplace  
 Di seguito sono elencati i prerequisiti per i tipi di inserzione in Azure Marketplace.  
 
 | Requisito | Dettagli | Tipo di inserzione |  
@@ -54,23 +55,23 @@ Di seguito sono elencati i prerequisiti per i tipi di inserzione in Azure Market
 In questa sezione vengono descritte tutte le offerte che non usano il tipo di inserzione Transazione. 
 
 ### <a name="list"></a>Elenco  
-Il tipo di inserzione Elenco include i seguenti tipi di offerta nelle vetrine in Marketplace.  
+Il tipo di inserzione Elenco include i tipi di offerta seguenti nelle vetrine in marketplace.  
 
 | Tipo di offerta | Vetrina | Dettagli |  
 |:---        |:---        |:---     |  
-| Servizi di consulenza | AppSource | Requirements: AppSource: Elenco: Servizi di consulenza |  
-| Servizi di consulenza | Azure Marketplace | Requirements: Azure Marketplace: Elenco: Servizi di consulenza |  
+| Servizi di consulenza | AppSource | Requisiti: AppSource: list: Servizi di consulenza |  
+| Servizi di consulenza | Azure Marketplace | Requisiti: Azure Marketplace: elenco: Servizi di consulenza |  
 | Contattami | AppSource | [](#) |  
-| Contattami | Azure Marketplace | Requirements: AppSource: Elenco: Contattami |  
+| Contattami | Azure Marketplace | Requisiti: AppSource: elenco: contattami |  
 
-#### <a name="requirements-appsource-list-consulting-service"></a>Requirements: AppSource: Elenco: Servizio di consulenza  
+#### <a name="requirements-appsource-list-consulting-service"></a>Requisiti: AppSource: Elenco: Servizio di consulenza  
 
 | Requisiti | Dettagli |  
 |:--- |:--- |  
 | Caratteristiche dell'offerta del servizio | Il servizio di consulenza deve soddisfare i criteri seguenti.<ul> <li>Offerta con un ambito, una durata e un prezzo prestabiliti (o gratuita).</li> <li>Orientato principalmente alla pre-vendita.</li> <li>Limitato a un singolo cliente.</li> <li>Effettuato presso la sede.</li> </ul> |  
 | Requisiti dei partner per i servizi di consulenza | Vengono soddisfatti i criteri nell'area pertinente al servizio.<table><tr><th>Area soluzione</th><th>Criteri</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>Avere la competenza Silver o Gold di Cloud Customer Relationship Management.</td></tr><tr><td>Dynamics 365 for Finance and Operations, Enterprise edition</td><td>Avere la competenza Silver o Gold di Enterprise Resource Planning e un fatturato generato dalle operazioni cloud degli ultimi 12 mesi di $25.000 o più.</td></tr><tr><td>Dynamics 365 for Finance and Operations, Business edition</td><td>Aver operato come Provider di servizi Cloud (CSP) o come Digital POR (Partner of Record) per uno o più clienti.</td></tr><tr><td>Power BI</td><td>Soddisfare i criteri di Partner di soluzioni.</td></tr><tr><td>PowerApps</td><td>Avere pubblicato una presentazione di soluzioni partner.</td></tr></table><ul> <li>Per altre informazioni sulla gestione delle relazioni con i clienti, visitare la pagina Cloud Customer Relationship Management all'indirizzo [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>Per altre informazioni sulla pianificazione delle risorse, visitare la pagina Enterprise Resource Planning all'indirizzo [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>Per altre informazioni sui provider CSP, visitare la pagina Cloud Services Provider all'indirizzo [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>Per altre informazioni su DPOR, visitare la pagina Digital POR (Partner of Record) e associazione del partner all'indirizzo [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>Per altre informazioni sui criteri dei partner di soluzione, consultare la documentazione sulla panoramica e gli incentivi dei partner di soluzione disponibile all'indirizzo [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx? SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>Per altre informazioni sulla presentazione dei partner, visitare la pagina sulla presentazione dei partner pagina all'indirizzo [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
 
-#### <a name="requirements-azure-marketplace-list-consulting-service"></a>Requirements: Azure Marketplace: Elenco: Servizio di consulenza  
+#### <a name="requirements-azure-marketplace-list-consulting-service"></a>Requisiti: AppSource: Marketplace: Elenco: Servizi di consulenza  
 
 | Requisiti | Dettagli |  
 |:--- |:--- |  
@@ -85,35 +86,35 @@ Il tipo di inserzione Elenco include i seguenti tipi di offerta nelle vetrine in
 
 | Tipo di offerta | Vetrina | Dettagli |  
 |:---        |:---        |:---     |  
-| Versione di valutazione gratuita/SaaS | AppSource | Requisiti del tipo di inserzione: Versione di valutazione |  
-| Versione di valutazione gratuita/SaaS | Azure Marketplace | Requirements: Azure Marketplace: Versione di valutazione: Versione di valutazione gratuita/Versione di valutazione SaaS |  
-| Demo interattiva | AppSource | Requisiti del tipo di inserzione: Versione di valutazione |  
+| Versione di valutazione gratuita/SaaS | AppSource | Elenco dei requisiti del tipo: versione di valutazione |  
+| Versione di valutazione gratuita/SaaS | Azure Marketplace | Requisiti: Azure Marketplace: Versione di valutazione: Versione di valutazione gratuita/Versione di valutazione di SaaS |  
+| Demo interattiva | AppSource | Elenco dei requisiti del tipo: versione di valutazione |  
 | Demo interattiva | Azure Marketplace | [Requisiti: Azure Marketplace: Versione di valutazione: Demo interattiva](#requirements-azure-marketplace-trial-interactive-demo) |  
-| Test drive | AppSource | Requisiti del tipo di inserzione: Versione di valutazione |  
+| Test drive | AppSource | Elenco dei requisiti del tipo: versione di valutazione |  
 | Test drive | Azure Marketplace | [Requisiti: Azure Marketplace: Versione di valutazione: Test drive](#requirements-azure-marketplace-trial-test-drive) |  
 
-#### <a name="requirements-azure-marketplace-trial"></a>Requirements: Azure Marketplace: Versione di valutazione  
+#### <a name="requirements-azure-marketplace-trial"></a>Requisiti: Azure Marketplace: Versione di valutazione  
 
 | Requisito | Dettagli |  
 |:--- |:--- |  
-| Periodo di valutazione gratuita ed esperienza di valutazione | Il cliente può provare l'app gratuitamente per un periodo di tempo limitato.<br /><br />Il cliente non deve pagare costi di licenza o di sottoscrizione per l'offerta. I clienti non devono pagare il prodotto o il servizio proprietario di Microsoft sottostante. Tutte le opzioni di valutazione sono distribuite nella sottoscrizione di Azure. L'utente ha il controllo esclusivo dell'ottimizzazione dei costi e della gestione.<br /><br />È possibile scegliere una versione di valutazione gratuita, una demo interattiva o un test drive. Indipendentemente dall'opzione selezionata, per la prova gratuita è necessario concedere al cliente un periodo prestabilito di tempo per provare l'offerta senza costi aggiuntivi.<ul> <li>Per iniziare a creare un test drive, inviare un messaggio di posta elettronica a [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com).</li> </ul>Note: le versioni di valutazione SaaS di Azure Marketplace devono consentire ai clienti di usare le credenziali di lavoro personali per accedere.<ul> <li>Per altre informazioni, visitare la sezione relativa alle esperienze di valutazione di AppSource all'indirizzo [docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences).</li> </ul> |  
+| Periodo di prova gratuita ed esperienza della versione di valutazione | Il cliente può provare l'app gratuitamente per un periodo di tempo limitato.<br /><br />Il cliente non deve pagare costi di licenza o di sottoscrizione per l'offerta. I clienti non devono pagare il prodotto o il servizio proprietario di Microsoft sottostante. Tutte le opzioni di valutazione sono distribuite nella sottoscrizione di Azure. L'utente ha il controllo esclusivo dell'ottimizzazione dei costi e della gestione.<br /><br />È possibile scegliere una versione di valutazione gratuita, una demo interattiva o un test drive. Indipendentemente dall'opzione selezionata, per la prova gratuita è necessario concedere al cliente un periodo prestabilito di tempo per provare l'offerta senza costi aggiuntivi.<ul> <li>Per iniziare a creare un test drive, inviare un messaggio di posta elettronica a [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com).</li> </ul>Nota: le versioni di valutazione SaaS di Azure Marketplace SaaS devono consentire agli utenti di usare le credenziali di lavoro personali per accedere.<ul> <li>Per altre informazioni, visitare la sezione relativa alle esperienze di valutazione di AppSource all'indirizzo [docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences).</li> </ul> |  
 | Soluzione pronta all'uso e facilmente configurabile | L'app deve essere semplice e rapida da configurare e installare. |  
 | Disponibilità/Tempo di attività | L'app o la piattaforma SaaS deve avere un tempo di attività pari ad almeno il 99,9%. |  
 | Azure Active Directory | L'offerta deve consentire l'accesso Single Sign-On (SSO) federato di Azure Active Directory (accesso SSO federato di Azure AD) con il consenso abilitato. |  
 
-#### <a name="requirements-azure-marketplace-trial-free-trial--saas-trial"></a>Requirements: Azure Marketplace: Versione di valutazione: Versione di valutazione gratuita/Versione di valutazione SaaS  
+#### <a name="requirements-azure-marketplace-trial-free-trial--saas-trial"></a>Requisiti: Azure Marketplace: Versione di valutazione: Versione di valutazione gratuita/Versione di valutazione di SaaS  
 
 | Vantaggi | Requisito |  
 |:--- |:--- |  
 | Consente al cliente di provare il prodotto prima di acquistarlo con un metodo automatico per la conversione all'uso a pagamento. oltre a offrire un modello di verifica per i clienti e opportunità di collaborazione con i team di vendita Microsoft. | La soluzione offerta è di tipo macchina virtuale o modello di soluzione<br /><br />oppure è una soluzione SaaS e si offre un prodotto SaaS multi-tenant,<br /><br />non si ha un'esperienza consolidata per garantire ai clienti l'operatività immediata<br /><br />ed è configurato un tenant singolo ma si aggiungono clienti come utenti guest. |  
 
-#### <a name="requirements-azure-marketplace-trial-interactive-demo"></a>Requirements: Azure Marketplace: Versione di valutazione: Demo interattiva  
+#### <a name="requirements-azure-marketplace-trial-interactive-demo"></a>Requisiti: Azure Marketplace: Versione di valutazione: Demo interattiva  
 
 | Vantaggi | Requisito |  
 |:--- |:--- |  
 | Consente ai clienti di osservare come funziona una soluzione senza doversi preoccupare dell'installazione. | La soluzione richiede un'installazione complessa che sarebbe difficile completare nel periodo di prova. |  
 
-#### <a name="requirements-azure-marketplace-trial-test-drive"></a>Requirements: Azure Marketplace: Versione di valutazione: Test drive  
+#### <a name="requirements-azure-marketplace-trial-test-drive"></a>Requisiti: Azure Marketplace: Versione di valutazione: Test drive  
 
 | Vantaggi | Requisito |  
 |:--- |:--- |  
@@ -127,8 +128,8 @@ Il tipo di inserzione Elenco include i seguenti tipi di offerta nelle vetrine in
 
 | Tipo di offerta | Vetrina | Dettagli |   
 |:---        |:---        | :--- |  
-| App di Azure: App gestita | Azure Marketplace | Requirements: Azure Marketplace: Transazione: App di Azure: App gestita |  
-| App di Azure: Modello di soluzione | Azure Marketplace | Requirements: Azure Marketplace: Transazione: App di Azure: Modello di soluzione |  
+| App di Azure: App gestita | Azure Marketplace | Requisiti: Azure Marketplace: Transazione: App di Azure: App gestita |  
+| App di Azure: Modello di soluzione | Azure Marketplace | Requisiti: Azure Marketplace: Transazione: App di Azure: Modello di soluzione |  
 | Contenitori | Azure Marketplace | [Requisiti: Azure Marketplace: Transazione: Contenitore](#requirements-azure-marketplace-transact-container) |  
 | App SaaS  | Azure Marketplace | [Requisiti: Azure Marketplace: Transazione: App SaaS](#requirements-azure-marketplace-transact-saas-app) |  
 | Macchina virtuale | Azure Marketplace | [Requisiti: Azure Marketplace: Transazione: Macchina virtuale](#requirements-azure-marketplace-transact-virtual-machine) |  
@@ -137,14 +138,14 @@ Il tipo di inserzione Elenco include i seguenti tipi di offerta nelle vetrine in
 
 #### Requirements: Azure Marketplace: Transact: Azure apps: Solution template   -->
 
-#### <a name="requirements-azure-marketplace-transact-container"></a>Requirements: Azure Marketplace: Transazione: Contenitore  
+#### <a name="requirements-azure-marketplace-transact-container"></a>Requisiti: Azure Marketplace: Transazione: Contenitore  
 
 | Requisito | Dettagli |  
 |:--- |:--- |  
 | Fatturazione e misurazione | Supporta il modello di fatturazione BYOL o di fatturazione gratuita. |  
 | Immagine basata su Docker | Le immagini dei contenitori devono essere basate sul formato di immagine di Docker e devono essere estratte da Registri contenitori di Azure. |  
 
-#### <a name="requirements-azure-marketplace-transact-saas-app"></a>Requirements: Azure Marketplace: Transazione: App SaaS  
+#### <a name="requirements-azure-marketplace-transact-saas-app"></a>Requisiti: Azure Marketplace: Transazione: App SaaS  
 
 | Requisito | Dettagli |  
 |:--- |:--- |  
@@ -153,7 +154,7 @@ Il tipo di inserzione Elenco include i seguenti tipi di offerta nelle vetrine in
 | Pagina di destinazione delle transazioni | Ospitare una pagina di destinazione delle transazioni di Azure con co-branding. La pagina di destinazione consente ai clienti di creare e gestire l'account di servizio SaaS. |  
 | API della sottoscrizione SaaS | Fornire un servizio che interagisce con la sottoscrizione SaaS per creare, aggiornare ed eliminare un account utente e un piano di servizio. Tutte le modifiche critiche all'API devono essere supportate entro 24 ore. Le modifiche non critiche all'API verranno aggiornate periodicamente. |  
 
-#### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>Requirements: Azure Marketplace: Transazione: Macchina virtuale  
+#### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>Requisiti: Azure Marketplace: Transazione: Macchina virtuale  
 
 | Requisito | Dettagli |  
 |:--- |:--- | 

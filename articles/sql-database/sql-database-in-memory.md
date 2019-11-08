@@ -1,5 +1,5 @@
 ---
-title: Tecnologie in memoria del database SQL di Azure
+title: Tecnologie in memoria
 description: Le tecnologie in memoria del database SQL di Azure migliorano notevolmente le prestazioni dei carichi di lavoro transazionali e analitici.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: 7ee643c10c61368ee91692cbddf326ba488f81e6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: de60712451d4c2e8a7d931f7a09352f55be05694
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689782"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810271"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Ottimizzare le prestazioni tramite le tecnologie in memoria nel database SQL
 
@@ -82,7 +82,7 @@ La tecnologia OLTP in memoria fornisce operazioni di accesso ai dati estremament
 
 - Il formato **rowstore ottimizzato per la memoria**, in cui ogni riga è un oggetto di memoria distinto. Questo è un classico formato OLTP in memoria ottimizzato per carichi di lavoro OLTP ad alte prestazioni. Esistono due tipi di tabelle ottimizzate per la memoria che possono essere usate nel formato rowstore ottimizzato per la memoria:
   - Le *tabelle durevoli* (SCHEMA_AND_DATA), in cui le righe inserite nella memoria vengono mantenute dopo il riavvio del server. Questo tipo di tabelle si comporta come una tabella rowstore tradizionale con i vantaggi aggiuntivi delle ottimizzazioni in memoria.
-  - *Tabelle non durevoli* (SCHEMA_ONLY) in cui le righe non vengono mantenute dopo il riavvio. Questo tipo di tabella è progettato per i dati temporanei (ad esempio, la sostituzione di tabelle temporanee) o per le tabelle in cui è necessario caricare rapidamente i dati prima di spostarli in una tabella persistente (le cosiddette tabelle di staging).
+  - Le *tabelle non durevoli* (SCHEMA_ONLY) in cui le righe non vengono mantenute dopo il riavvio. Questo tipo di tabella è progettato per i dati temporanei (ad esempio, la sostituzione di tabelle temporanee) o per le tabelle in cui è necessario caricare rapidamente i dati prima di spostarli in una tabella persistente (le cosiddette tabelle di staging).
 - Il formato **columnstore ottimizzato per la memoria**, in cui dati sono organizzati in un formato a colonne. Questa struttura è progettata per gli scenari HTAP in cui è necessario eseguire query di analisi sulla stessa struttura dei dati in cui è in esecuzione il carico di lavoro OLTP.
 
 > [!Note]

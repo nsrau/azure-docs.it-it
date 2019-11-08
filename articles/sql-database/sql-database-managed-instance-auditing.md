@@ -1,5 +1,5 @@
 ---
-title: Controllo dell'istanza gestita di database SQL di Azure
+title: Controllo delle istanze gestite
 description: Informazioni su come iniziare a eseguire il controllo dell'istanza gestita del database SQL di Azure usando T-SQL
 services: sql-database
 ms.service: sql-database
@@ -13,12 +13,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 04/08/2019
-ms.openlocfilehash: 915d804cd3ae67848b4b9aa2f50fb5f1b4f1f092
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 41d632b145a7187dd0aeaab740cd8546a3955e7f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689433"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819004"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introduzione al controllo dell'istanza gestita del database SQL di Azure
 

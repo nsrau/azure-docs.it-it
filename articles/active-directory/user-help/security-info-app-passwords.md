@@ -1,5 +1,5 @@
 ---
-title: Configurare le password delle app dalla pagina Info di sicurezza (anteprima) - Azure Active Directory | Microsoft Docs
+title: Creare password di app in info di sicurezza (anteprima)-Azure AD
 description: Configurare le password generate automaticamente (password dell'app) da usare con qualsiasi app non basate su browser o qualsiasi app che non supporta la verifica a due fattori nell'organizzazione. Questa password dell'app è distinta da una password normale e può essere configurata dalla pagina Info di sicurezza.
 services: active-directory
 author: eross-msft
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9638893c707757cb520acdf18e8e89a6cdf13f08
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: eb26d90772fc9e3e3e506946363c76cf02e6b2ef
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915985"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820333"
 ---
-# <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gestire le password delle app dalla pagina Info di sicurezza (anteprima)
+# <a name="create-app-passwords-from-your-security-info-preview-page"></a>Creare password di app dalla pagina delle info di sicurezza (anteprima)
 
 Alcune app, come Outlook 2010, non supportano la verifica in due passaggi. L'assenza di supporto significa che se si usa la verifica in due passaggi nell'organizzazione, l'app non funzionerà. Per ovviare a questo problema, è possibile creare una password generata automaticamente da usare con ogni app non basata su browser, diversa dalla password normale.
 
@@ -52,7 +52,7 @@ Se si usa la verifica in due passaggi con l'account aziendale o dell'istituto di
 
 2. Selezionare **Informazioni di sicurezza** dal riquadro di spostamento a sinistra o dal collegamento nel blocco **Informazioni di sicurezza**, quindi selezionare **Aggiungi metodo** dalla pagina **Informazioni di sicurezza**.
 
-    ![Pagina Info di sicurezza con l'opzione Aggiungi metodo evidenziata](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Pagina Informazioni di sicurezza con l'opzione Aggiungi metodo evidenziata](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Nella pagina **Aggiungi un metodo** selezionare **Password dell'app** dall'elenco a discesa e quindi selezionare **Aggiungi**.
 

@@ -1,5 +1,5 @@
 ---
-title: Pianificazione per gli eventi di manutenzione di Azure-database SQL di Azure
+title: Pianificazione degli eventi di manutenzione di Azure
 description: Informazioni sulle attività preliminari per gli eventi di manutenzione pianificata per il database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 ms.date: 01/30/2019
-ms.openlocfilehash: 5598d5a465645ce20d9244011de6d9cef47ac3c4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ba882176fbe17f7b74c786f421dde8fadd58d9b7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687623"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821309"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Pianificazione di eventi di manutenzione di Azure nel database SQL di Azure
 

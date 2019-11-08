@@ -1,18 +1,19 @@
 ---
-title: Pagina di Insights per Azure Marketplace
-description: Panoramica della pagina Insights nel portale per Cloud Partner per Azure Marketplace.
+title: Pagina Insights per Azure Marketplace
+description: Panoramica della pagina Insights in portale Cloud Partner per Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 2cbe3b790197c3f71305e4cb21d0f37fe0404511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1b8d716beec17b7da82968ede8d24ced348e04a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943494"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821514"
 ---
 # <a name="insights-page"></a>Pagina Informazioni dettagliate
 
@@ -21,7 +22,7 @@ La pagina [**Informazioni dettagliate**](https://cloudpartner.azure.com/#insight
 
 |  **Dashboard**    |  **Contenuto visualizzato**               |
 |  -------------    |  ---------------------               |
-| **Riepilogo**       | Grafici, tendenze e valori dei dati aggregati che riepilogano l'attività del marketplace per le offerte dell'autore |
+| **Summary**       | Grafici, tendenze e valori dei dati aggregati che riepilogano l'attività del marketplace per le offerte dell'autore |
 | **Payout** (Proventi)        | Proventi e transazioni correlate in formati grafici e scaricabili |
 | **Orders & usage** (Ordini e utilizzo) | Ordini e informazioni sull'utilizzo in formati grafici e scaricabili |
 | **Cliente**      | Informazioni sul cliente, incluso il profilo di acquisto |

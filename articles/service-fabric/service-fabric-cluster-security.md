@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: atsenthi
-ms.openlocfilehash: 6ee7c71a66488e9636752676d68a79fdfaf855cb
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cf808bef75a73cef6e8c17045506f29fabf3b52e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599840"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819438"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenari di sicurezza di un cluster di Service Fabric
-Un cluster di Azure Service Fabric è una risorsa di cui si è proprietari. È responsabilità dell'utente proteggere i cluster per evitare che utenti non autorizzati si connettano a essi. Un cluster sicuro è particolarmente importante quando si eseguono carichi di lavoro nel cluster. La creazione di cluster non protetti, anche se possibile, potrebbe consentire a utenti anonimi di connettersi a un cluster che espone gli endpoint di gestione a Internet pubblico. I cluster non protetti non sono supportati per l'esecuzione di carichi di lavoro di produzione. 
+Un cluster di Azure Service Fabric è una risorsa di cui si è proprietari. È responsabilità dell'utente proteggere i cluster per evitare che utenti non autorizzati si connettano a essi. Un cluster sicuro è particolarmente importante quando si eseguono carichi di lavoro nel cluster. È possibile creare un cluster non protetto. Tuttavia, se il cluster espone gli endpoint di gestione alla rete Internet pubblica, gli utenti anonimi possono connettersi a tale cluster. I cluster non protetti non sono supportati per l'esecuzione di carichi di lavoro di produzione. 
 
 In questo articolo viene fornita una panoramica degli scenari di sicurezza per i cluster di Azure e i cluster autonomi e le varie tecnologie che è possibile usare per la relativa implementazione:
 
@@ -57,7 +57,7 @@ La sicurezza da client a nodo autentica i client e aiuta a proteggere la comunic
 I cluster eseguiti in Azure e i cluster autonomi eseguiti in Windows possono usare la [sicurezza basata su certificati](https://msdn.microsoft.com/library/ff649801.aspx) o la [sicurezza di Windows](https://msdn.microsoft.com/library/ff649396.aspx).
 
 ### <a name="client-to-node-certificate-security"></a>Sicurezza basata su certificati da client a nodo
-Impostare la sicurezza basata su certificati da client a nodo durante la creazione del cluster tramite il portale di Azure usando un modello di Resource Manager o un modello JSON autonomo. Per creare il certificato, specificare un certificato client di amministrazione o un certificato client utente. Come procedura consigliata, i certificati client di amministrazione e i certificati client utente specificati devono essere diversi dai certificati primario e secondario specificati per la [sicurezza da nodo a nodo](#node-to-node-security). Per impostazione predefinita, i certificati cluster per la sicurezza da nodo a nodo vengono aggiunti all'elenco di certificati Amministratore client consentiti.
+Impostare la sicurezza basata su certificati da client a nodo durante la creazione del cluster tramite il portale di Azure usando un modello di Resource Manager o un modello JSON autonomo. Per creare il certificato, specificare un certificato client di amministrazione o un certificato client utente. Come procedura consigliata, i certificati client di amministrazione e i certificati client utente specificati devono essere diversi dai certificati primario e secondario specificati per la [sicurezza da nodo a nodo](#node-to-node-security). I certificati del cluster hanno gli stessi diritti dei certificati di amministrazione client. Tuttavia, devono essere usati solo dal cluster e non dagli utenti amministratori come procedura di sicurezza consigliata.
 
 I client che si connettono al cluster con il certificato amministratore hanno accesso completo alle funzionalità di gestione. I client che si connettono al cluster con il certificato client utente di sola lettura hanno solo l'accesso in lettura alle funzionalità di gestione. Questi certificati vengono usati per il controllo degli accessi in base al ruolo descritto più avanti in questo articolo.
 
@@ -66,14 +66,14 @@ Per informazioni su come impostare la sicurezza basata su certificati in un clus
 Per informazioni su come impostare la sicurezza basata su certificati in un cluster di Windows Server autonomo, vedere [proteggere un cluster autonomo in Windows mediante certificati X.509](service-fabric-windows-cluster-x509-security.md).
 
 ### <a name="client-to-node-azure-active-directory-security-on-azure"></a>Sicurezza di Azure Active Directory da client a nodo in Azure
-Azure AD consente alle organizzazioni (note come tenant) di gestire l'accesso degli utenti alle applicazioni. Alcune applicazioni sono caratterizzate da un'interfaccia utente di accesso basata sul Web, altre invece da un'esperienza client nativa. Se non è già stato creato un tenant, iniziare leggendo [come ottenere un tenant di Azure Active Directory][active-directory-howto-tenant].
+Azure AD consente alle organizzazioni (note come tenant) di gestire l'accesso utenti alle applicazioni. Alcune applicazioni sono caratterizzate da un'interfaccia utente di accesso basata sul Web, altre invece da un'esperienza client nativa. Se non è già stato creato un tenant, iniziare leggendo [come ottenere un tenant di Azure Active Directory][active-directory-howto-tenant].
 
 Un cluster di Service Fabric offre diversi punti di accesso alle proprie funzionalità di gestione, tra cui [Service Fabric Explorer][service-fabric-visualizing-your-cluster] e [Visual Studio][service-fabric-manage-application-in-visual-studio] basati sul Web. Verranno quindi create due applicazioni Azure AD per controllare l'accesso al cluster, un'applicazione Web e un'applicazione nativa.
 
 Per i cluster eseguiti in Azure è anche possibile proteggere l'accesso agli endpoint di gestione usando Azure Active Directory (Azure AD). Per informazioni su come creare gli artefatti necessari di Azure AD e su come popolarli durante la creazione del cluster, vedere [Configurare Azure AD per autenticare i client](service-fabric-cluster-creation-setup-aad.md).
 
-## <a name="security-recommendations"></a>Raccomandazioni sulla sicurezza
-Per i cluster di Service Fabric distribuiti in una rete pubblica ospitata in Azure, per l'autenticazione reciproca da client a nodo è consigliabile:
+## <a name="security-recommendations"></a>Suggerimenti per la sicurezza
+Per i cluster di Service Fabric distribuiti in una rete pubblica ospitata in Azure, la raccomandazione per l'autenticazione reciproca client-nodo è:
 *   Usare Azure Active Directory per l'identità del client
 *   Un certificato per l'identità del server e la crittografia SSL della comunicazione HTTP
 
@@ -83,7 +83,7 @@ Per i cluster di Service Fabric distribuiti in una rete pubblica ospitata in Azu
 Per i cluster di Windows Server autonomi, se sono presenti Windows Server 2012 R2 e Active Directory è consigliabile usare la sicurezza di Windows con account del servizio gestito del gruppo. In caso contrario, usare la sicurezza di Windows con account di Windows.
 
 ## <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
-È possibile usare il controllo di accesso per limitare l'accesso a determinate operazioni di cluster per gruppi di utenti diversi. In questo modo il cluster è più sicuro. Per i client che si connettono a un cluster sono supportati due tipi di controllo di accesso diversi: il ruolo di amministratore e il ruolo utente.
+È possibile usare il controllo di accesso per limitare l'accesso a determinate operazioni di cluster per diversi gruppi di utenti. In questo modo il cluster è più sicuro. Per i client che si connettono a un cluster, sono supportati due tipi di controllo di accesso diversi: il ruolo di amministratore e il ruolo utente.
 
 Gli utenti assegnati al ruolo di amministratore hanno accesso completo alle funzionalità  di gestione, incluse funzionalità  di lettura/scrittura. Gli utenti assegnati al ruolo di utente, per impostazione predefinita, hanno solo l'accesso in lettura alle funzionalità di gestione, ad esempio funzionalità di query, e la possibilità di risolvere applicazioni e servizi.
 
@@ -114,7 +114,7 @@ Altri aspetti da considerare:
 
 * Il campo **Soggetto** può avere più valori. Ogni valore è preceduto da un'inizializzazione per indicare il tipo di valore. In genere, l'inizializzazione è **CN** (per il *nome comune*); ad esempio, **cn = www\.contoso.com**. 
 * Il campo **Soggetto** può essere vuoto. 
-* Se il campo facoltativo **Nome alternativo soggetto** è popolato, deve contenere sia il nome comune del certificato sia una voce per ogni nome alternativo del soggetto. Queste voci vengono immesse come valori di **nomi DNS**. Per informazioni su come generare certificati con nomi alternativi del soggetto, vedere [Come aggiungere un nome alternativo del soggetto a un certificato LDAP sicuro](https://support.microsoft.com/kb/931351).
+* Se il campo facoltativo **Nome alternativo soggetto** è popolato, deve contenere sia il nome comune del certificato sia una voce per ogni nome alternativo del soggetto. Queste voci vengono immesse come valori di **nomi DNS**. Per informazioni su come generare certificati che dispongano di SAN, vedere [Come aggiungere un nome alternativo del soggetto a un certificato LDAP sicuro](https://support.microsoft.com/kb/931351).
 * Il valore del campo **Scopi designati** del certificato deve includere un valore appropriato, ad esempio **Autenticazione server** o **Autenticazione client**.
 
 ### <a name="application-certificates-optional"></a>Certificati delle applicazioni (facoltativo)

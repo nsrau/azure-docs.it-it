@@ -1,5 +1,5 @@
 ---
-title: Aggiungere l'account Microsoft personale all'app Microsoft Authenticator - Azure Active Directory | Microsoft Docs
+title: Aggiungere un account Microsoft personale a un'app Authenticator-Azure AD
 description: Come aggiungere gli account Microsoft personali, ad esempio per Outlook.com oppure Xbox LIVE all'app Microsoft Authenticator per la verifica a due fattori.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf4629ca97abc5d4ce508f7078f4691467ba249
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9ca01aad76bfbeba0cf56be8ee74287a79f6346e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616075"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820247"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Aggiungere l'account Microsoft personale
 
@@ -39,7 +39,7 @@ Aggiungere gli account Microsoft personali, ad esempio per Outlook.com e Xbox LI
 
 ### <a name="turn-on-two-factor-verification"></a>Attivare la verifica a due fattori
 
-1. Nel computer in uso andare alla pagina [Informazioni di base sulla sicurezza](https://account.microsoft.com/security) e accedere usando l'account Microsoft personale. Ad esempio alain@outlook.com.
+1. Nel computer in uso andare alla pagina [Informazioni di base sulla sicurezza](https://account.microsoft.com/security) e accedere usando l'account Microsoft personale. Ad esempio, alain@outlook.com.
 
 2. In fondo alla pagina **nozioni fondamentali sulla sicurezza**, scegliere il collegamento **Altre opzioni di sicurezza**.
 

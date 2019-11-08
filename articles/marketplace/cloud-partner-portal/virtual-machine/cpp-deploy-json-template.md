@@ -1,18 +1,19 @@
 ---
-title: Modello di distribuzione disco rigido virtuale di Azure | Azure Marketplace
+title: Modello di distribuzione del disco rigido virtuale di Azure | Azure Marketplace
 description: Elenca il modello di Azure Resource Manager necessario per distribuire una nuova macchina virtuale di Azure da un disco rigido virtuale dell'utente.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 73f53f72d4db88bc0487999165d25fc952cf4a20
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddaf9213980e666ea69c700ad26b9db52886c9cb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938283"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821419"
 ---
 # <a name="virtual-hard-disk-deployment-template"></a>Modello di distribuzione di disco rigido virtuale 
 

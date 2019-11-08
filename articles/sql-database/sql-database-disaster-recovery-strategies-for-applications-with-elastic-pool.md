@@ -1,5 +1,5 @@
 ---
-title: Progettare soluzioni di ripristino di emergenza-database SQL di Azure
+title: Progettare soluzioni di ripristino di emergenza
 description: Informazioni su come progettare la soluzione cloud per il ripristino di emergenza scegliendo il modello di failover appropriato.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 535397dcf32a617038ab4bef4ec7aa227f4563b1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4eeaa187142a6d0d97b12f685ebc455f3844606f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690661"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825867"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategie di ripristino di emergenza per applicazioni che usano i pool elastici del database SQL
 

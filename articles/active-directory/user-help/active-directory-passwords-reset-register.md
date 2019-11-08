@@ -1,6 +1,6 @@
 ---
-title: Eseguire la registrazione per la reimpostazione della password self-service - Azure Active Directory | Microsoft Docs
-description: Registrare i dati di autenticazione per la reimpostazione password self-service di Azure AD
+title: Eseguire la registrazione per reimpostare la password Azure AD
+description: Registrare i dati di autenticazione per Azure AD la reimpostazione della password self-service, in modo che sia possibile reimpostare la password senza la guida dell'amministratore.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f113c42ff45811f31eb77a92873fb187dd51ea6b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 796702b2189dcfb001f72913e4a01c0ae01462ad
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60530883"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820445"
 ---
-# <a name="register-for-self-service-password-reset"></a>Eseguire la registrazione per la reimpostazione password self-service
+# <a name="register-to-reset-your-own-password"></a>Eseguire la registrazione per reimpostare la password
 
 > [!IMPORTANT]
 > Se si sta visitando questa pagina perché non si riesce a effettuare l'accesso, vedere [Reimpostare la password aziendale o scolastica](active-directory-passwords-update-your-own-password.md).

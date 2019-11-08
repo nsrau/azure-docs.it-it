@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1c81045408a948820c8b9fef56e2c7d69cd39e08
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: c399bed803145659bae1863e9e0b919f33254627
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811911"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820212"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configurare l'accesso da reti virtuali
 
@@ -52,7 +52,7 @@ Le sezioni seguenti descrivono come configurare un endpoint servizio di rete vir
 > Per abilitare gli endpoint servizio di rete virtuale sono necessarie le autorizzazioni seguenti per la sottoscrizione:
 >   * Sottoscrizione con la rete virtuale: Collaboratore Rete
 >   * Sottoscrizione con account Azure Cosmos DB: Collaboratore Account DocumentDB
->   * Se la rete virtuale e l'account Azure Cosmos DB si trovano in sottoscrizioni diverse, verificare che anche la sottoscrizione con rete virtuale disponga di un provider di risorse `Microsoft.DocumentDB` registrato. Per registrare un provider di risorse, vedere l'articolo sui [tipi e i provider di risorse di Azure](../azure-resource-manager/resource-manager-supported-services.md) .
+>   * Se la rete virtuale e l'account Azure Cosmos DB si trovano in sottoscrizioni diverse, verificare che anche la sottoscrizione con rete virtuale disponga di `Microsoft.DocumentDB` provider di risorse registrato. Per registrare un provider di risorse, vedere l'articolo sui [tipi e i provider di risorse di Azure](../azure-resource-manager/resource-manager-supported-services.md) .
 
 Di seguito sono riportate le istruzioni per la registrazione della sottoscrizione con il provider di risorse.
 
@@ -68,7 +68,7 @@ Di seguito sono riportate le istruzioni per la registrazione della sottoscrizion
 
    ![Selezionare una rete virtuale e una subnet da una nuova rete virtuale](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png)
 
-Se l'account Azure Cosmos DB viene usato da altri servizi di Azure, ad esempio ricerca di Azure o a cui si accede da analisi di flusso o Power BI, si consente l'accesso selezionando **accetta connessioni dai data center globali di Azure**.
+Se l'account Azure Cosmos DB viene usato da altri servizi di Azure come Azure ricerca cognitiva oppure è accessibile da analisi di flusso o Power BI, si consente l'accesso selezionando **accetta connessioni dai data center globali di Azure**.
 
 Per assicurarsi di avere accesso alle metriche di Azure Cosmos DB dal portale, è necessario abilitare le opzioni **Consentire l'accesso dal portale di Azure**. Per altre informazioni su queste opzioni, vedere l'articolo [Configurare un firewall IP](how-to-configure-firewall.md). Dopo avere abilitato l'accesso, selezionare **Salva** per salvare le impostazioni.
 
@@ -235,7 +235,7 @@ az cosmosdb create \
 
 ### <a name="connect-and-configure-a-cosmos-account-to-a-back-end-subnet-independently"></a>Connettere e configurare un account Cosmos in una subnet back-end in modo indipendente
 
-Questo esempio illustra come connettere un account Azure Cosmos a una nuova rete virtuale esistente in cui la subnet non è ancora configurata per gli endpoint di servizio. Questa operazione viene eseguita utilizzando il parametro `--ignore-missing-vnet-service-endpoint`. Ciò consente di completare la configurazione dell'account Cosmos senza errori prima che la configurazione alla subnet della rete virtuale sia stata completata. Una volta completata la configurazione della subnet, l'account Cosmos diventerà accessibile tramite la subnet configurata.
+Questo esempio illustra come connettere un account Azure Cosmos a una nuova rete virtuale esistente in cui la subnet non è ancora configurata per gli endpoint di servizio. Questa operazione viene eseguita tramite il parametro `--ignore-missing-vnet-service-endpoint`. Ciò consente di completare la configurazione dell'account Cosmos senza errori prima che la configurazione alla subnet della rete virtuale sia stata completata. Una volta completata la configurazione della subnet, l'account Cosmos diventerà accessibile tramite la subnet configurata.
 
 ```azurecli-interactive
 # Create an Azure Cosmos Account with a service endpoint connected to a backend subnet

@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 manager: nunoc
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 41a09be36262ff09c383b8ccb64a94230a11d3f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ffdc6b22209c1d334ac7b75c7079e755a7405154
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937923"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823004"
 ---
 # <a name="containers-offer-publishing-guide"></a>Guida alla pubblicazione dell'offerta di contenitori
 
@@ -34,7 +35,7 @@ Microsoft supporta attualmente i modelli di licenza BYOL (Bring Your Own License
 |:--- |:--- |  
 | Fatturazione e misurazione | Supporta il modello di fatturazione BYOL o di fatturazione gratuita. |  
 | Immagine creata da Dockerfile | Le immagini del contenitore devono essere basate sulla specifica per immagini Docker e devono essere create da Dockerfile.<ul> <li>Per altre informazioni sulla creazione delle immagini Docker, consultare la sezione Usage (Utilizzo) all'indirizzo [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
-| Hosting nel record di controllo di accesso | Le immagini del contenitore devono essere ospitate in un repository di Registro Azure Container.<ul> <li>Per altre informazioni sull'uso di Registro Azure Container, vedere l'argomento di avvio rapido: Creare un registro contenitori con il portale di Azure all'indirizzo [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
+| Hosting nel record di controllo di accesso | Le immagini del contenitore devono essere ospitate in un repository di Registro Azure Container.<ul> <li>Per altre informazioni sull'uso di Registro Azure Container, visitare la pagina Avvio rapido: Creare un registro contenitori con il portale di Azure all'indirizzo [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
 | Tag di immagine | Le immagini del contenitore devono includere almeno 1 tag (numero massimo di tag: 16).<ul> <li>Per altre informazioni sui tag di immagine, visitare la pagina docker tag all'indirizzo [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
 
 ## <a name="next-steps"></a>Passaggi successivi

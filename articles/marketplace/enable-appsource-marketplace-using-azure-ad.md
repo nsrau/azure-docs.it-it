@@ -5,15 +5,16 @@ services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchai
 author: qianw211
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: pabutler
-ms.openlocfilehash: 0b68687a2bbaa817f2776757ccab9571638c0fd5
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 9423263270313659017b16a5e34511e7ef385af5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876008"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825880"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Abilitare un'inserzione nel Marketplace e in AppSource con Azure Active Directory
 
@@ -38,7 +39,7 @@ Le [opzioni di presentazione e i tipi di offerta](https://docs.microsoft.com/azu
 | Macchina virtuale | N/D | No | No | No |
 | App di Azure (modello di soluzione)  | N/D | N/D | N/D | N/D |
 | App gestite  | N/D | N/D | N/D | No |
-| SaaS  | No | Yes | Sì | Yes |
+| SaaS  | No | Sì | Sì | Sì |
 | Contenitori  | N/D | N/D | N/D | No |
 | Servizi di consulenza  | No | N/D | N/D | N/D |
 

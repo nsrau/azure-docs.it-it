@@ -1,19 +1,20 @@
 ---
-title: Gestisci profilo di pubblicazione di Azure Marketplace e AppSource
-description: Gestione profilo di pubblicazione di Azure Marketplace e AppSource
+title: Gestisci il profilo di pubblicazione di Azure Marketplace e AppSource
+description: Gestione del profilo di pubblicazione di Azure Marketplace e AppSource
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 manager: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pabutler
-ms.openlocfilehash: a72259e1deb97ca0256de5bfd3b2f6c78d92e3c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c9e8e73d18ec0c2a7334fbb5521e89ead4334cc7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935357"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826359"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Gestire il profilo di pubblicazione di "Azure Marketplace" e "AppSource"
 
@@ -23,7 +24,7 @@ A questo punto, è stata completata la procedura per diventare un editore di Azu
 
 Se la società non è stata registrata come partner cloud, vedere [Get started with the cloud partner portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal) (Introduzione al portale Cloud Partner).
 
-**Profilo di pubblicazione**: il profilo di pubblicazione distingue l'azienda in Azure Marketplace e AppSource. È costituito dall'ID dell'editore, dal nome visualizzato e dall'indirizzo di posta elettronica del proprietario. Un profilo ben gestito aumenterà la visibilità e consentirà agli utenti del marketplace di essere identificati facilmente e di selezionare un'offerta appropriata.
+**Profilo di pubblicazione**: il profilo di pubblicazione distingue l'azienda tra Azure Marketplace e AppSource. È costituito dall'ID dell'editore, dal nome visualizzato e dall'indirizzo di posta elettronica del proprietario. Un profilo ben gestito aumenterà la visibilità e consentirà agli utenti del marketplace di essere identificati facilmente e di selezionare un'offerta appropriata.
 
 > [!NOTE]
 > L'ID dell'editore e l'indirizzo di posta elettronica del proprietario registrato non sono modificabili dopo la pubblicazione della prima offerta. Tuttavia è possibile visualizzare il profilo e modificare il nome visualizzato dell'editore dal portale Cloud Partner.
@@ -39,7 +40,7 @@ Se la società non è stata registrata come partner cloud, vedere [Get started w
 
 ![Scheda Profilo di pubblicazione - dettagli profilo di pubblicazione](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledetails.png)
 
-**Collegare l'account Dev Center**: è anche possibile collegare l'account Dev Center esistente al profilo di pubblicazione nel portale Cloud Partner.
+**Collegare l'account Dev Center**: è anche possibile collegare l'account Dev Center esistente al profilo di pubblicazione sul portale per Cloud Partner.
 Innanzitutto accedere al portale con lo stesso indirizzo di posta elettronica usato per registrare l'account Dev Center. La pagina del profilo di pubblicazione visualizza quindi lo stato dell'account Dev Center, l'indirizzo di posta elettronica del proprietario dell'account Dev Center e il nome dell'account Dev Center.
 
 >[!NOTE]

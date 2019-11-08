@@ -4,19 +4,20 @@ description: Servizi Go-To-Market - Questa sezione descrive le procedure di mark
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 6/24/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4df5a94aebd91fc6941acbec149a5fde98d7f760
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5d2c6ce8682e24d981457ea8fc804ff04e226750
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441729"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823941"
 ---
 # <a name="marketing-best-practices"></a>Procedure consigliate di marketing
 
-Un'inserzione di marketplace ottimizzata e le campagne di go-to-market possono aiutarti ad accelerare la crescita di acquisizione dei clienti e pertanto può avere un ruolo significativo nella strategia aziendale cloud e del motore. Prepararsi alle offerte di elenco, specificare le versioni di valutazione dei clienti e connettersi con la community di partner e clienti Microsoft. Scaricare il [Azure Marketplace e AppSource marketing migliore Guida alle procedure consigliate](https://aka.ms/marketplacebestpractices) per imparare a sfruttare al meglio le attività di marketing online.
+Un elenco ottimizzato del Marketplace e campagne di immissione sul mercato possono aiutarti ad accelerare la crescita dell'acquisizione dei clienti e, di conseguenza, avere un ruolo significativo nel motore e nella strategia aziendale cloud. Prepararsi per elencare le offerte, fornire le versioni di valutazione dei clienti e connettersi con i clienti Microsoft e la community partner. Scarica la [Guida alle procedure consigliate di AppSource & Azure Marketplace](https://aka.ms/marketplacebestpractices) per scoprire come sfruttare al meglio le tue attività di marketing online.
 
 **Passaggi successivi**
 

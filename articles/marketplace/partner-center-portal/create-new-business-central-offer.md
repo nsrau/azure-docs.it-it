@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 16b75a98a5a42c9acf6d9a68330cbf8e005f7179
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b3d66cab8cf43d862bbf17d5783f0469e3e1a5f8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819807"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825645"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Crea una nuova offerta di Dynamics 365 business Central
 
@@ -56,7 +57,7 @@ Elencare l'offerta ai clienti con un collegamento a una versione di valutazione 
 > [!NOTE]
 > I token che l'applicazione riceverà tramite il collegamento alla versione di valutazione può essere usato solo per ottenere informazioni sugli utenti tramite Azure Active Directory (Azure AD) per automatizzare la creazione di account nell'app. Gli account Microsoft non sono supportati per l'autenticazione con questo token.
 
-#### <a name="contact-me"></a>Contattami
+#### <a name="contact-me"></a>Contact me (Contattami)
 
 Raccogliere le informazioni di contatto del cliente connettendosi al sistema CRM (Customer Relationship Management). Al cliente verrà richiesta l'autorizzazione a condividere le informazioni. Queste informazioni sui clienti, insieme al nome dell'offerta, all'ID e all'origine del Marketplace in cui è stata trovata l'offerta, verranno inviate al sistema CRM configurato. Per ulteriori informazioni sulla configurazione del CRM, vedere [Connect Lead Management](#connect-lead-management). 
 
@@ -91,7 +92,7 @@ Per altre informazioni, vedere [Cenni preliminari sulla gestione dei lead](./com
 
 Ricordarsi di **salvare** prima di procedere alla sezione successiva.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>Proprietà
 
 La pagina delle **Proprietà** consente di definire le categorie e i settori usati per raggruppare l'offerta nel Marketplace, la versione dell'app e i contratti legali che supportano l'offerta. Selezionare **Salva** dopo aver completato questa pagina.
 
@@ -130,7 +131,7 @@ Sarà necessario definire i dettagli del Marketplace (nome dell'offerta, descriz
 > [!NOTE]
 > Il contenuto dell'offerta (ad esempio la descrizione, i documenti, le schermate, le condizioni per l'utilizzo e così via) non deve essere in inglese, purché la descrizione dell'offerta inizi con la frase "questa applicazione è disponibile solo in [lingua non inglese]". È anche accettabile fornire un URL di *collegamento utile* per offrire contenuto in una lingua diversa da quella usata nell'offerta di visualizzazione del contenuto.
 
-### <a name="name"></a>name
+### <a name="name"></a>Name
 
 Il nome immesso qui verrà visualizzato ai clienti come titolo dell'elenco di offerte. Questo campo viene prepopolato con il testo immesso per l' **alias offerta** al momento della creazione dell'offerta, ma è possibile modificare questo valore. Questo nome può essere registrato (e possono essere inclusi marchi o simboli di copyright). Il nome non può contenere più di 50 caratteri e non può includere emoji.
 
@@ -138,7 +139,7 @@ Il nome immesso qui verrà visualizzato ai clienti come titolo dell'elenco di of
 
 Fornire una breve descrizione dell'offerta (fino a 100 caratteri), che può essere usata nei risultati della ricerca nel Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrizione
 
 Fornire una descrizione più lunga dell'offerta (fino a 3.000 caratteri). Questa descrizione verrà visualizzata ai clienti nella panoramica dell'inserzione sul Marketplace. Includere la proposta di valore dell'offerta, i vantaggi principali, le associazioni di categoria e/o di settore, le opportunità di acquisto in-app ed eventuali divulgazioni necessarie. 
 
@@ -153,7 +154,7 @@ Alcuni suggerimenti per scrivere la descrizione:
 - Usare il più possibile la terminologia specifica del settore o formule che mettano in evidenza i vantaggi offerti. 
 - Prendere in considerazione l'uso di tag HTML per formattare la descrizione e renderla più accattivante.
 
-### <a name="search-keywords"></a>Parole chiave di ricerca
+### <a name="search-keywords"></a>Search Keywords (Parole chiave di ricerca)
 
 Facoltativamente, è possibile immettere fino a tre parole chiave di ricerca per aiutare i clienti a trovare l'offerta nel Marketplace. Per ottenere risultati ottimali, provare a usare queste parole chiave anche nella descrizione.
 
@@ -269,7 +270,7 @@ La pagina **test drive** consente di configurare una dimostrazione (o "test driv
 
 Sono disponibili i tipi di unità di test seguenti, ognuno con requisiti di configurazione tecnici specifici.
 
-- [Azure Resource Manager](#technical-configuration-for-azure-resource-manager-test-drive)
+- [Gestione risorse di Azure](#technical-configuration-for-azure-resource-manager-test-drive)
 - [Dynamics 365](#technical-configuration-for-dynamics-365-test-drive)
 - [App per la logica](#technical-configuration-for-logic-app-test-drive)
 - [Power bi](#technical-configuration-not-required-for-power-bi-test-drives) (configurazione tecnica non necessaria)
@@ -369,7 +370,7 @@ Se l'offerta richiede l'edizione Premium di Microsoft Dynamics 365 business Cent
 
 ### <a name="key-usage-scenario"></a>Scenario di utilizzo chiave
 
-È necessario pload un file `.pdf` che elenca gli scenari di utilizzo chiave dell'offerta elencati in un documento (formato PDF). Tutti gli scenari elencati di seguito possono essere verificati dal team di convalida prima di approvare l'offerta per il Marketplace.
+È necessario pload un file `.pdf` in cui sono elencati gli scenari di utilizzo chiave dell'offerta elencati in un documento (formato PDF). Tutti gli scenari elencati di seguito possono essere verificati dal team di convalida prima di approvare l'offerta per il Marketplace.
 
 ### <a name="app-tests-automation"></a>Automazione di test app
 
@@ -390,7 +391,7 @@ Se è la prima volta che si pubblica questa offerta, è possibile:
 - Vedere lo stato di completamento di ogni sezione dell'offerta.
     - *Non avviato* : indica che la sezione non è stata toccata e deve essere completata.
     - *Incompleto* : indica che la sezione contiene errori che devono essere corretti o che sono necessarie altre informazioni. Tornare alla sezione o aggiornarla.
-    - *Completato* : indica che la sezione è completa, sono stati forniti tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere in uno stato completo prima di poter inviare l'offerta.
+    - *Complete* : indica che la sezione è completa, sono stati forniti tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere in uno stato completo prima di poter inviare l'offerta.
 - Nella sezione **Note per la certificazione** , fornire istruzioni di test al team di certificazione per assicurarsi che l'app venga testata correttamente, oltre a eventuali note aggiuntive utili per comprendere l'app.
 - Inviare l'offerta per la pubblicazione selezionando **Invia**. Ti invieremo un messaggio di posta elettronica quando sarà disponibile una versione di anteprima dell'offerta da rivedere e approvare. Tornare al centro per i partner e selezionare **Go-Live** per l'offerta per pubblicare l'offerta al pubblico (o se un'offerta privata, per i destinatari privati).
 

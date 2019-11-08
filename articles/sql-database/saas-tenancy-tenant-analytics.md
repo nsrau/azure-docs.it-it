@@ -1,5 +1,5 @@
 ---
-title: Eseguire l'analisi su più tenant con dati estratti| Microsoft Docs
+title: Analisi su più tenant con dati estratti
 description: Query di analisi su più tenant con dati estratti da diversi database SQL di Azure in un'app a singolo tenant.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 12/18/2018
-ms.openlocfilehash: 2c24a87377eb4b893cbcae1b9a36522e586a6d56
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c589d9619da8b5150d0fb4752625571c48393552
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570147"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826374"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analisi su più tenant con dati estratti in un'app a singolo tenant
  
@@ -90,9 +90,9 @@ Nei passaggi seguenti si distribuiscono l'archivio di analisi, denominato **tena
 2. Impostare la variabile $DemoScenario nello script in base all'archivio di analisi scelto:
     - Per usare un database SQL senza columnstore, impostare **$DemoScenario** = **2**
     - Per usare un database SQL con columnstore, impostare **$DemoScenario** = **3**  
-3. Premere **F5** per eseguire lo script demo (che chiama lo script *deploy-\<TenantAnalytics XX >. ps1* ) che crea l'archivio di analisi dei tenant. 
+3. Premere **F5** per eseguire lo script demo (che chiama lo script *Deploy-TenantAnalytics\<XX >. ps1* ) che crea l'archivio di analisi dei tenant. 
 
-Ora che l'applicazione è stata distribuita e è stata compilata con dati del tenant interessanti, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettere **tenants1--&lt;user&gt;**  e **Catalog-&lt;&gt;** Server che usano login = *Developer*, password *=\@P ssword1*. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
+Ora che l'applicazione è stata distribuita e è stata compilata con dati del tenant interessanti, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettere **Tenants1-&lt;utente&gt;** e **Catalog--&lt;utente&gt;** server utilizzando login = *Developer*, password = *P\@ssword1*. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -180,7 +180,7 @@ Seguire questa procedura per connettersi a Power BI e importare le viste create 
 
 6. Nel riquadro **Strumento di navigazione** selezionare le tabelle dello schema star fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates nel database di analisi. Selezionare quindi **Carica**. 
 
-Congratulazioni! Il caricamento dei dati in Power BI è stato completato. È ora possibile iniziare a esplorare visualizzazioni interessanti per ottenere informazioni dettagliate sui tenant. Successivamente verrà illustrato in dettaglio come l'analisi consenta al team aziendale di Wingtip Tickets di offrire raccomandazioni basate sui dati che saranno utili per ottimizzare il modello aziendale e l'esperienza dei clienti.
+Congratulazioni. Il caricamento dei dati in Power BI è stato completato. È ora possibile iniziare a esplorare visualizzazioni interessanti per ottenere informazioni dettagliate sui tenant. Successivamente verrà illustrato in dettaglio come l'analisi consenta al team aziendale di Wingtip Tickets di offrire raccomandazioni basate sui dati che saranno utili per ottimizzare il modello aziendale e l'esperienza dei clienti.
 
 Per iniziare, si analizzano i dati relativi alle vendite di biglietti per individuare la variazione nell'utilizzo tra le diverse sedi. Selezionare le opzioni seguenti in Power BI per tracciare un grafico a barre del numero totale di biglietti venduti da ogni sede. A causa della variazione casuale nel generatore di biglietti, i risultati effettivi potrebbero essere diversi.
  
@@ -226,7 +226,7 @@ Sono state osservate le tendenze nei dati dei tenant dell'applicazione WingTip. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > - Distribuire un database di analisi dei tenant con tabelle predefinite di uno schema star
@@ -235,7 +235,7 @@ In questa esercitazione si è appreso come:
 > - Eseguire query su un database di analisi 
 > - Usare Power BI per la visualizzazione dei dati per osservare le tendenze nei dati dei tenant 
 
-Congratulazioni!
+Congratulazioni.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

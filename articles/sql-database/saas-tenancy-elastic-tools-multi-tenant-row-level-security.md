@@ -1,5 +1,5 @@
 ---
-title: 'App multi-tenant con strumenti di database elastico e RLS '
+title: App multi-tenant con strumenti di database elastico e RLS
 description: Usare gli strumenti di database elastici insieme alla sicurezza a livello di riga per compilare un'applicazione con un livello dati altamente scalabile.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 4d3f25a6e234c3d3dfd878aaae68cf58684f2fac
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a5fe5d6d4076c5d82d33737d05bb95ede0a89c00
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691854"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822025"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga
 

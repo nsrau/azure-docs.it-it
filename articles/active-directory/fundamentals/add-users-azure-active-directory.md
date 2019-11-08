@@ -13,15 +13,15 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b436fbdb0d70318e6820d3f59f1e198c639e5a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e98b09d8b07c625613e3be149e64ac8f06adc089
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561700"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805554"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Aggiungere o eliminare utenti tramite Azure Active Directory
-Aggiungere nuovi utenti o eliminare gli utenti esistenti dall'organizzazione Azure Active Directory (Azure AD).
+Aggiungere nuovi utenti o eliminare gli utenti esistenti dall'organizzazione Azure Active Directory (Azure AD). Per aggiungere o eliminare utenti, è necessario essere un amministratore utente o un amministratore globale. 
 
 ## <a name="add-a-new-user"></a>Aggiungere un nuovo utente
 Con il portale Azure Active Directory è possibile creare un nuovo utente.
@@ -39,7 +39,7 @@ Con il portale Azure Active Directory è possibile creare un nuovo utente.
 
    - **Nome (obbligatorio).** Nome e cognome del nuovo utente. Ad esempio, Mary Parker.
 
-   - **Nome utente (obbligatorio).** Nome utente del nuovo utente. Ad esempio mary@contoso.com.
+   - **Nome utente (obbligatorio).** Nome utente del nuovo utente. Ad esempio, mary@contoso.com.
     
        La parte relativa al dominio del nome utente deve usare il nome di dominio predefinito iniziale, <_nomedominio_>.onmicrosoft.com o un nome di dominio personalizzato, ad esempio contoso.com. Per altre informazioni su come creare un nome di dominio personalizzato, vedere [Come aggiungere un nome di dominio personalizzato ad Azure Active Directory](add-custom-domain.md).
 
@@ -51,7 +51,7 @@ Con il portale Azure Active Directory è possibile creare un nuovo utente.
 
 4. Copiare la password generata automaticamente nella casella **Password**. È necessario fornire la password all'utente per la procedura di accesso iniziale.
 
-5. Selezionare **Create**.
+5. Selezionare **Crea**.
 
     L'utente viene creato e aggiunto al tenant di Azure AD.
 

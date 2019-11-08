@@ -1,5 +1,5 @@
 ---
-title: Scalabilità orizzontale di un database SQL di Azure
+title: Scalabilità orizzontale di un database
 description: Come utilizzare ShardMapManager, libreria client dei database elastici
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: d704e22dcd9ce4442ed16ae901c9c447fc025ebd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8175563d8c1c2ec59b4195b2ede06f6e1dbf8556
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690163"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823552"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Aumentare il numero di istanze dei database con il gestore delle mappe partizioni
 

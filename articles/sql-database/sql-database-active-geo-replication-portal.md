@@ -1,5 +1,5 @@
 ---
-title: 'Portale di Azure: replica geografica del database SQL '
+title: 'Portale di Azure: replica geografica'
 description: Configurare la replica geografica per un database singolo o in pool nel database SQL di Azure usando il portale di Azure e avviare il failover
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 2a9d627cb2b51d0d7d0b07052f18a8dbe1dc2f19
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7ddaefb0f65db1cfc828e4baa844f6d8e01f9d2e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691326"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808114"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurare la replica geografica attiva per il database SQL di Azure nel portale di Azure e avviare il failover
 

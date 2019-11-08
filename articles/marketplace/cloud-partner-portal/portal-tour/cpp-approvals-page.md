@@ -1,18 +1,19 @@
 ---
-title: Pagina approvazioni per Azure Marketplace
-description: Panoramica della pagina approvazioni nel portale per Cloud Partner per Azure Marketplace.
+title: Pagina Approvazioni per Azure Marketplace
+description: Panoramica della pagina approvazioni in portale Cloud Partner per Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 69727b2eb4259f106d114050e6fc6e8a21410cc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de6ad58ebd0442772eddfcf14792bc77cd76aad6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943390"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821540"
 ---
 # <a name="approvals-page"></a>Pagina Approvazioni
 

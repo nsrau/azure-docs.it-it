@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 00d0067fe51efef8efffe31860e16f4530adf3ac
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 1ae2f87a3719853f4a91cb8ba801be6d578597d3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972360"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825678"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>Compattare un cloud privato CloudSimple
 
@@ -26,11 +26,11 @@ Per la compattazione di un cloud privato devono essere soddisfatte le condizioni
 * Un cluster vSphere deve avere tre nodi.  Un cluster con solo tre nodi non può essere compattato.
 * Lo spazio di archiviazione totale utilizzato non deve superare la capacità totale dopo la compattazione del cluster. 
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="shrink-a-private-cloud"></a>Compattare un cloud privato
+## <a name="shrink-a-private-cloud"></a>Ridurre un cloud privato
 
 1. [Accedere al portale di CloudSimple](access-cloudsimple-portal.md).
 
@@ -53,6 +53,10 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 8. Fare clic su **Invia** per compattare il cloud privato.
 
 Viene avviata la compattazione del cloud privato.  È possibile monitorare lo stato di avanzamento nelle attività.  Il processo di compattazione può richiedere alcune ore a seconda dei dati, che devono essere risincronizzati in rete VSAN.
+
+> [!NOTE]
+> Se si riduce un cloud privato eliminando l'ultimo o l'unico cluster nel Data Center, il Data Center non verrà eliminato.  
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

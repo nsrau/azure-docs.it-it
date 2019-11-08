@@ -6,18 +6,18 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/11/2019
+ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 32c7a2a79c8d6a35008255b3c117f20d04ad7749
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3b498911999e224003710eced8e0c34989672800
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72927410"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809189"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importare ed esportare le identità dei dispositivi dell'hub Internet in blocco
 
-Ogni hub IoT ha un registro delle identità che è possibile usare per creare le risorse per ogni dispositivo nel servizio. e per consentire di controllare gli accessi agli endpoint per il dispositivo. Questo articolo descrive come importare ed esportare in blocco le identità del dispositivo in/da un registro delle identità.
+Ogni hub IoT ha un registro delle identità che è possibile usare per creare le risorse per ogni dispositivo nel servizio. e per consentire di controllare gli accessi agli endpoint per il dispositivo. Questo articolo descrive come importare ed esportare in blocco le identità del dispositivo in/da un registro delle identità. Per vedere un esempio funzionante in C# e informazioni su come usare questa funzionalità quando si clona un hub in un'area diversa, vedere [come clonare un hub](iot-hub-how-to-clone.md)Internet.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -257,7 +257,7 @@ Se il file di importazione include metadati gemelli, questi metadati sovrascrivo
 
 Usare la proprietà facoltativa **importMode** nei dati di serializzazione dell'importazione per ogni dispositivo per controllare il processo di importazione per dispositivo. La proprietà **importMode** include le opzioni seguenti:
 
-| importMode | Description |
+| importMode | Descrizione |
 | --- | --- |
 | **createOrUpdate** |Se un dispositivo non esiste con l' **ID**specificato, viene appena registrato. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati senza tener conto del valore **ETag** . <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'ETag del gemello, se specificato, viene elaborato in modo indipendente dal valore etag del dispositivo. Se è presente una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
 | **create** |Se un dispositivo non esiste con l' **ID**specificato, viene appena registrato. <br/>Se il dispositivo esiste già, viene scritto un errore nel file di log. <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'ETag del gemello, se specificato, viene elaborato in modo indipendente dal valore etag del dispositivo. Se è presente una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
@@ -421,7 +421,11 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come eseguire operazioni in blocco sul registro delle identità in un hub IoT. Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare questi collegamenti:
+In questo articolo si è appreso come eseguire operazioni in blocco sul registro delle identità in un hub IoT. Molte di queste operazioni, incluse le modalità per spostare i dispositivi da un hub a un altro, vengono usate nella [sezione gestione dei dispositivi registrati per l'hub delle cose in come clonare un hub](iot-hub-how-to-clone.md#managing-the-devices-registered-to-the-iot-hub)Internet. 
+
+All'articolo relativo alla clonazione è associato un esempio funzionante, disponibile negli C# esempi di Internet delle cose in questa pagina: [esempi di Azure per C# ](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/), con il progetto ImportExportDevicesSample. È possibile scaricare l'esempio e provarlo; sono disponibili istruzioni nell'articolo [come clonare un hub](iot-hub-how-to-clone.md) .
+
+Per altre informazioni sulla gestione dell'hub Azure, vedere gli articoli seguenti:
 
 * [Metriche di hub IoT](iot-hub-metrics.md)
 * [Log dell'hub Internet](iot-hub-monitor-resource-health.md)

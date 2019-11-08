@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti sulla soluzione Connected Factory - Azure | Microsoft Docs
-description: Domande frequenti sull'acceleratore di soluzioni di connected factory
+description: Questo articolo risponde alle domande frequenti relative all'acceleratore della soluzione di Connected Factory. Include i collegamenti al repository GitHub.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ed429d923cad2c715621990c146d4cf3a23e7bca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c84452ff71fa34a65b2e56ec753b68bf551c7e35
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447931"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826285"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Domande frequenti sull'acceleratore di soluzioni di connected factory
 
@@ -68,7 +68,7 @@ Se la soluzione è stata distribuita da www.azureiotsuite.com, non è possibile 
 1. Il nome utente da usare è: `docker`.
 1. La password da usare dipende dalla versione usata per la distribuzione:
     * Per le soluzioni distribuite usando lo script build.ps1 prima dell'1 giugno 2017, la password è: `Passw0rd`.
-    * Per le soluzioni distribuite usando lo script build.ps1 dopo l'1 giugno 2017, è possibile trovare la password nel file `<name of your deployment>.config.user`. La password viene archiviata nell'impostazione **VmAdminPassword**. La password viene generata in modo casuale in fase di distribuzione a meno che non la si specifichi usando il parametro `-VmAdminPassword` dello script `build.ps1`
+    * Per le soluzioni distribuite usando lo script build.ps1 dopo l'1 giugno 2017, è possibile trovare la password nel file `<name of your deployment>.config.user`. La password viene archiviata nell'impostazione **VmAdminPassword**. La password viene generata in modo casuale in fase di distribuzione a meno che non la si specifichi usando il parametro `build.ps1` dello script `-VmAdminPassword`
 
 ### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Come è possibile arrestare e avviare tutti i processi docker nella VM di simulazione?
 
@@ -148,7 +148,7 @@ Quando si esegue la distribuzione usando lo script `build.ps1` disponibile nel r
 
 È anche possibile aggiungere una chiave dell'account Mappe di Azure all'acceleratore di soluzione dopo la distribuzione. Passare al portale di Azure e accedere alla risorsa Servizio app nella distribuzione della soluzione Connected Factory. Passare a **Impostazioni dell'applicazione**, in cui si trova una sezione **Impostazioni applicazione**. Impostare **MapApiQueryKey** sulla [chiave dell'account Mappe di Azure](../azure-maps/how-to-manage-account-keys.md). Salvare le impostazioni e quindi passare a **Panoramica** e riavviare il servizio app.
 
-### <a name="how-do-i-create-an-azure-maps-account"></a>Come si crea un account mappe di Azure?
+### <a name="how-do-i-create-an-azure-maps-account"></a>Ricerca per categorie creare un account Azure Maps?
 
 Vedere [Come gestire l'account e le chiavi di Mappe di Azure](../azure-maps/how-to-manage-account-keys.md).
 

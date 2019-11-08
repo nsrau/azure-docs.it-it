@@ -4,15 +4,16 @@ description: Creazione e gestione delle offerte di Azure Marketplace e del marke
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pabutler
-ms.openlocfilehash: 746b1b51d593b21bdf85bca4eeb75c135196093a
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: f1e561e84daed6c24ca0d9b7832af3d975082e25
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962863"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818766"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Offerte di Azure Marketplace e del marketplace di AppSource
 
@@ -32,9 +33,9 @@ Per altre informazioni su questi marketplace, vedere la [Guida alla pubblicazion
 Il processo di creazione di una nuova offerta varia in modo significativo a seconda dei tipi di offerta, ad esempio per un'[offerta di applicazione Azure](./azure-applications/cpp-azure-app-offer.md) o per un'[offerta di servizio di consulenza](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md).  Molte delle altre operazioni eseguite su un'offerta nel [portale Cloud Partner](https://cloudpartner.azure.com) invece sono piuttosto standardizzate per tutti i tipi di offerta.  Queste operazioni comuni, tra cui la pubblicazione, la visualizzazione, l'aggiornamento e l'eliminazione, sono illustrate nella sezione [Gestire le offerte](./manage-offers/cpp-manage-offers.md)
 
 
-## <a name="test-drive"></a>Test Drive
+## <a name="test-drive"></a>Test drive
 
-Il *test drive* è una funzionalità del marketplace che offre ai clienti un'opzione di dimostrazione di "prova prima dell'acquisto" per ogni offerta abilitata.  La funzionalità test drive è limitata al sottoinsieme di tipi di offerte seguente: [applicazioni Azure](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 per Finanza e operazioni](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [applicazioni SaaS](./saas-app/cpp-saas-offer.md) e [macchine virtuali](./virtual-machine/cpp-virtual-machine-offer.md).  Questa funzionalità richiede che l'editore crei un modello di test drive personalizzato per l'offerta.  Per altre informazioni, vedere la sezione [Test drive](./test-drive/what-is-test-drive.md).
+Il *test drive* è una funzionalità del marketplace che offre ai clienti un'opzione di dimostrazione di "prova prima dell'acquisto" per ogni offerta abilitata.  La funzionalità test drive è limitata ai seguenti subset di tipi di offerta: [applicazioni Azure](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [Saas applicazioni](./saas-app/cpp-saas-offer.md)e [macchine virtuali](./virtual-machine/cpp-virtual-machine-offer.md).  Questa funzionalità richiede che l'editore crei un modello di test drive personalizzato per l'offerta.  Per altre informazioni, vedere la sezione [Test drive](./test-drive/what-is-test-drive.md).
 
 È possibile esplorare le offerte del marketplace esistenti con dimostrazioni di test drive applicando il [filtro Test Drive](https://azuremarketplace.microsoft.com/marketplace/apps?filters=test-drive). 
 
@@ -43,7 +44,7 @@ Il *test drive* è una funzionalità del marketplace che offre ai clienti un'opz
 
 La tabella seguente contiene l'elenco dei tipi di offerta correnti supportati dal [portale Cloud Partner](https://cloudpartner.azure.com).  Per ogni tipo sono indicati i marketplace in cui è possibile includere l'offerta, nonché una descrizione generale della tecnologia della soluzione fornita.
 
-|                Tipo di offerta                |  Marketplace  |   DESCRIZIONE                                                           |
+|                Tipo di offerta                |  Marketplace  |   Descrizione                                                           |
 |                ----------                |  -----------  |   -----------                                                           |
 | [Applicazione di Azure](./azure-applications/cpp-azure-app-offer.md) | Azure | La soluzione è costituita da una o più macchine virtuali, codice di Azure personalizzato facoltativo, distribuiti tramite un modello Azure Resource Manager.  La distribuzione può essere eseguita dal cliente tramite un modello di soluzione o gestita dall'editore. Questo tipo viene usato per offrire maggiore flessibilità rispetto all'offerta fornita di tipo macchina virtuale.  |
 | [Servizio di consulenza](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Entrambi | I consulenti qualificati Microsoft possono offrire servizi specifici di dominio in Azure Marketplace o AppSource.  Le competenze offerte consentono ai clienti di valutare i problemi riscontrati e creare e distribuire le soluzioni più appropriate per soddisfare gli obiettivi fi business.  |

@@ -1,20 +1,21 @@
 ---
-title: Database SQL di Azure-diagnostica delle prestazioni nel livello di servizio di iperscalabilità
+title: Diagnostica delle prestazioni in iperscalabilità
 description: Questo articolo descrive come risolvere i problemi di prestazioni di iperscalabilità nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
+ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: b8acdbc63098ae99355e8874f7c1585759e5fb7f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a7c64284c958fa8b3ec89c2b27515fe167a04011
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689857"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811156"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnostica per la risoluzione dei problemi delle prestazioni di scalabilità SQL
 
@@ -27,7 +28,7 @@ Per risolvere i problemi di prestazioni in un database con iperscalabilità, le 
 
 Ogni livello di servizio del database SQL di Azure ha limiti di velocità di generazione del log applicati tramite la [governance della frequenza dei log](sql-database-resource-limits-database-server.md#transaction-log-rate-governance). In iperscalabilità, il limite di generazione dei log è attualmente impostato su 100 MB/sec, indipendentemente dal livello di servizio. In alcuni casi, tuttavia, la velocità di generazione del log nella replica di calcolo primaria deve essere limitata per mantenere i contratti di ripristino. Questa limitazione si verifica quando un [server di pagine o un'altra replica di calcolo](sql-database-service-tier-hyperscale.md#distributed-functions-architecture) è significativamente alla base dell'applicazione di nuovi record di log dal servizio di log.
 
-I tipi di attesa seguenti (in [sys. dm _os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) descrivono i motivi per cui la frequenza dei log può essere limitata alla replica di calcolo primaria:
+I tipi di attesa seguenti (in [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) descrivono i motivi per cui la frequenza dei log può essere limitata alla replica di calcolo primaria:
 
 |Tipo di attesa    |Descrizione                         |
 |-------------          |------------------------------------|
@@ -49,7 +50,7 @@ Diversi DMV ed eventi estesi contengono colonne e campi che specificano il numer
     - [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
     - [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
     - [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
-    - [sys. dm _exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
+    - [sys. dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
 - Le letture del server di paging vengono aggiunte agli eventi estesi seguenti:
     - sql_statement_completed
     - sp_statement_completed
@@ -68,12 +69,12 @@ Diversi DMV ed eventi estesi contengono colonne e campi che specificano il numer
 
 ## <a name="virtual-file-stats-and-io-accounting"></a>Statistiche di file virtuali e accounting IO
 
-Nel database SQL di Azure, la DMF [sys. dm _io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) è il modo principale per monitorare SQL Server io. Le caratteristiche di i/o sull'iperscala sono diverse a causa dell' [architettura distribuita](sql-database-service-tier-hyperscale.md#distributed-functions-architecture). Questa sezione è incentrata sulle operazioni di i/o (letture e scritture) in file di dati, come illustrato in questa DMF. In iperscalabilità ogni file di dati visibile in questa DMF corrisponde a un server di pagina remoto. La cache di RBPEX indicata qui è una cache locale basata su SSD che è una cache non coprente nella replica di calcolo.
+Nel database SQL di Azure, la DMF [sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) è il modo principale per monitorare SQL Server io. Le caratteristiche di i/o sull'iperscala sono diverse a causa dell' [architettura distribuita](sql-database-service-tier-hyperscale.md#distributed-functions-architecture). Questa sezione è incentrata sulle operazioni di i/o (letture e scritture) in file di dati, come illustrato in questa DMF. In iperscalabilità ogni file di dati visibile in questa DMF corrisponde a un server di pagina remoto. La cache di RBPEX indicata qui è una cache locale basata su SSD che è una cache non coprente nella replica di calcolo.
 
 
 ### <a name="local-rbpex-cache-usage"></a>Utilizzo locale della cache RBPEX
 
-La cache RBPEX locale esiste nel nodo di calcolo nell'archivio SSD locale. Quindi, i/o in questa cache RBPEX sono più veloci di IO nei server di pagine remote. Attualmente, [sys. dm _io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) in un database con iperscalabilità ha una riga speciale che segnala l'i/o eseguito nella cache RBPEX locale della replica di calcolo. Questa riga ha il valore 0 per le colonne `database_id` e `file_id`. Ad esempio, la query seguente restituisce le statistiche di utilizzo di RBPEX dall'avvio del database.
+La cache RBPEX locale esiste nel nodo di calcolo nell'archivio SSD locale. Quindi, i/o in questa cache RBPEX sono più veloci di IO nei server di pagine remote. Attualmente, [sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) in un database con iperscalabilità ha una riga speciale che segnala l'i/o eseguito nella cache RBPEX locale della replica di calcolo. Questa riga ha il valore 0 per le colonne `database_id` e `file_id`. Ad esempio, la query seguente restituisce le statistiche di utilizzo di RBPEX dall'avvio del database.
 
 `select * from sys.dm_io_virtual_file_stats(0,NULL);`
 
@@ -83,8 +84,8 @@ Un rapporto tra le letture eseguite su RBPEX e le letture aggregate eseguite su 
 ### <a name="data-reads"></a>Letture dei dati
 
 - Quando le letture vengono rilasciate dal motore di SQL Server in una replica di calcolo, possono essere servite dalla cache RBPEX locale o dai server della pagina remota o da una combinazione dei due se si leggono più pagine.
-- Quando la replica di calcolo legge alcune pagine da un file specifico, ad esempio file_id 1, se i dati risiedono esclusivamente nella cache RBPEX locale, tutti i/o per questa lettura vengono considerati con file_id 0 (RBPEX). Se una parte di tali dati si trova nella cache RBPEX locale e alcune parti si trova in un server della pagina remota, i/o vengono conteggiati verso file_id 0 per la parte fornita da RBPEX e la parte fornita dal server della pagina remota viene conteggiata per file_ID 1. 
-- Quando una replica di calcolo richiede una pagina in un determinato [LSN](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) da un server di pagina, se il server della pagina non è stato aggiornato al numero LSN richiesto, la lettura nella replica di calcolo resterà in attesa finché il server della pagina non verrà aggiornato prima che la pagina venga restituita alla replica di calcolo. Per qualsiasi operazione di lettura da un server di pagina nella replica di calcolo, verrà visualizzato il tipo di attesa PAGEIOLATCH_ * se è in attesa su tale i/o. Questo tempo di attesa include sia il tempo necessario per recuperare la pagina richiesta nel server della pagina fino al numero LSN necessario, sia il tempo necessario per trasferire la pagina dal server della pagina alla replica di calcolo.
+- Quando la replica di calcolo legge alcune pagine da un file specifico, ad esempio file_id 1, se i dati risiedono esclusivamente nella cache RBPEX locale, tutte le operazioni di i/o per questa lettura vengono contabilizzate rispetto file_id 0 (RBPEX). Se una parte di tali dati si trova nella cache RBPEX locale e alcune parti si trova in un server della pagina remota, i/o vengono conteggiati verso file_id 0 per la parte fornita da RBPEX e la parte fornita dal server della pagina remota viene conteggiata per file_id 1. 
+- Quando una replica di calcolo richiede una pagina in un determinato [LSN](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) da un server di pagina, se il server della pagina non è stato aggiornato al numero LSN richiesto, la lettura nella replica di calcolo resterà in attesa finché il server della pagina non verrà aggiornato prima che la pagina venga restituita alla replica di calcolo. Per tutte le operazioni di lettura da un server di pagina nella replica di calcolo, verrà visualizzato il tipo di attesa PAGEIOLATCH_ * se è in attesa su tale i/o. Questo tempo di attesa include sia il tempo necessario per recuperare la pagina richiesta nel server della pagina fino al numero LSN necessario, sia il tempo necessario per trasferire la pagina dal server della pagina alla replica di calcolo.
 - Le letture di grandi dimensioni, ad esempio Read-ahead, vengono spesso eseguite utilizzando le [letture "scatter-gather"](/sql/relational-databases/reading-pages/). Questo consente letture di un massimo di 4 MB di pagine alla volta, considerate come singole letture nel motore SQL Server. Tuttavia, quando i dati letti si trovano in RBPEX, queste letture vengono contabilizzate come più letture singole di 8 KB, dal momento che il pool di buffer e RBPEX utilizzano sempre pagine da 8 KB. Come risultato, il numero di letture IOs visualizzate rispetto a RBPEX potrebbe essere maggiore del numero effettivo di IOs eseguito dal motore.
 
 
@@ -96,7 +97,7 @@ Un rapporto tra le letture eseguite su RBPEX e le letture aggregate eseguite su 
 
 ### <a name="log-writes"></a>Scritture log
 
-- Nel calcolo primario viene contabilizzata una scrittura di log in file_id 2 di sys. dm _io_virtual_file_stats. Una scrittura di log nel calcolo primario è una scrittura nell'area di destinazione del log.
+- Nel calcolo primario, una scrittura di log viene rappresentata in file_id 2 di sys. dm_io_virtual_file_stats. Una scrittura di log nel calcolo primario è una scrittura nell'area di destinazione del log.
 - I record di log non vengono finalizzati alla replica secondaria su un commit. In iperscalabilità, il log viene applicato dal servizio xlog alle repliche remote. Poiché le Scritture del log non si verificano effettivamente sulle repliche secondarie, qualsiasi contabilità delle operazioni di i/o di log nelle repliche secondarie è esclusivamente a scopo di rilevamento.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 931f2fbe5798966c41378d9b401dcd59cafc5cca
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 9bb7114611ce5c7eabb8124ad11db64d50e12946
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820866"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809829"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codici di errore del report delle attività di accesso 
 
@@ -50,10 +50,10 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 
 È anche possibile accedere a livello di codice ai dati di accesso usando l'[API di creazione report](concept-reporting-api.md).
 
-## <a name="error-codes"></a>Codici errore
+## <a name="error-codes"></a>Codici di errore
 
 
-|Errore|Description|
+|Tipi di errore|Descrizione|
 |---|---|
 |16000|Questo è un dettaglio di implementazione interno e non una condizione di errore. È possibile ignorare questo messaggio di errore.|
 |20001|Si è verificato un problema con il provider di identità federato. Contattare l'IDP per risolvere il problema.|
@@ -127,6 +127,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |50177|La richiesta di verifica esterna non è supportata per gli utenti pass-through.|
 |50178|Il controllo della sessione non è supportato per gli utenti pass-through.|
 |50180|È necessaria l'autenticazione integrata di Windows. Abilitare il tenant per Seamless SSO.|
+|50181|Errore correlato a OTP durante l'accesso. |
 |50201|Questo messaggio di interrupt verrà visualizzato all'utente durante l'accesso quando verranno fornite informazioni aggiuntive all'utente.|
 |51001|Non è presente il suggerimento di dominio con l'ID di sicurezza locale o l'UPN locale.|
 |51004|L'account utente non è presente nella directory.|

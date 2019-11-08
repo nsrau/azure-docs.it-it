@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: jamwall
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.openlocfilehash: c0f3fba389f9cb6f55ac5bf7bb81475fa8244cbf
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 53d6b5b43a028d552c95c58aebf7268353621759
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195255"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827897"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Supporto per il programma Commercial Marketplace nel centro per i partner
 
@@ -44,9 +45,9 @@ Microsoft fornisce il supporto per un'ampia gamma di prodotti e servizi. Trovare
 
 Se si seleziona **ulteriore guida** dal menu di supporto del Marketplace commerciale nel centro per i partner, si passerà alla pagina supporto tecnico Microsoft for business. Vengono visualizzati diversi menu a discesa. I primi menu a discesa vengono compilati automaticamente. Per il supporto del Marketplace, identificare la famiglia di prodotti come **servizi cloud e online**, il prodotto come **editore del Marketplace**e la versione del prodotto come **pubblicazione nel Marketplace**. Non modificare queste selezioni del menu a discesa pre-popolate. 
 
-- **Selezionare una categoria che descrive meglio il problema**: Scegliere la categoria più allineata alla domanda o al problema. Se si seleziona una categoria, verrà visualizzato un menu a discesa aggiuntivo in cui viene chiesto di selezionare il problema che descrive meglio il problema.
+- **Selezionare una categoria che descrive meglio il problema**: scegliere la categoria che meglio si allinea alla domanda o al problema. Se si seleziona una categoria, verrà visualizzato un menu a discesa aggiuntivo in cui viene chiesto di selezionare il problema che descrive meglio il problema.
 
-- **Selezionare un problema che descrive meglio il problema**: Scegliere il problema dalle opzioni elencate che meglio si allineano al problema. A seconda del problema, è possibile che venga visualizzata una nuova sezione "Ecco alcune informazioni che potrebbero essere utili" con i collegamenti pertinenti al problema. Esaminare questi collegamenti prima di selezionare il pulsante **Avanti** per verificare se la domanda o il problema è stato risolto.
+- **Selezionare un problema che descrive meglio il**problema: scegliere il problema dalle opzioni elencate che meglio si allineano al problema. A seconda del problema, è possibile che venga visualizzata una nuova sezione "Ecco alcune informazioni che potrebbero essere utili" con i collegamenti pertinenti al problema. Esaminare questi collegamenti prima di selezionare il pulsante **Avanti** per verificare se la domanda o il problema è stato risolto.
 
 Selezionando il pulsante **Avanti** , si verrà indirizzati alla pagina dei **Dettagli del problema** . 
 

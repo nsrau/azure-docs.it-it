@@ -1,18 +1,19 @@
 ---
-title: Creare un'offerta di applicazione di Azure | Azure Marketplace
+title: Creare un'offerta di applicazione Azure | Azure Marketplace
 description: Come pubblicare una nuova offerta per un'applicazione di Azure in Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 2eed5ed60d5aed7fb537e886f39b97dfc8257f19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 173e371c97ed2ab281bd7badae29f253e1e3e1f8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943000"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827633"
 ---
 # <a name="create-an-azure-application-offer"></a>Creare un'offerta per un'applicazione di Azure
 

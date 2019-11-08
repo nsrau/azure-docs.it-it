@@ -1,5 +1,5 @@
 ---
-title: Importare un file BACPAC per creare un database SQL di Azure
+title: Importare un file BACPAC per creare un database
 description: Creare un nuovo database SQL di Azure importando un file BACPAC.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 4b96f076abf36a8f93d2b257be8fac2fd9e6de48
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b6b2366a10f38c1938e5ecc09f77271db04dcbc4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689880"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810499"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Guida introduttiva: importare un file BACPAC in un database nel database SQL di Azure
 

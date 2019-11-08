@@ -1,18 +1,19 @@
 ---
-title: Guida introduttiva | Azure Marketplace
+title: Introduzione | Azure Marketplace
 description: Introduzione al portale Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 9d2c64479f65995c0eca756b86bd0a96a752867d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6065f0485b03a53fa55ae700831869998d9453cc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935766"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818366"
 ---
 # <a name="getting-started-with-the-cloud-partner-portal"></a>Introduzione al portale per Cloud Partner
 
@@ -44,7 +45,7 @@ Dopo aver avviato una nuova offerta o quando si modifica un'offerta precedente, 
 ![Pagina dell'offerta](./media/cloud-partner-portal-getting-started-with-the-cloud-partner-portal/offer-page.png)
 
 Nella pagina delle offerte, è possibile:
-- Aggiungere contenuto o controllare lo stato dell'offerta attivando e disattivando tra due modalità di primo livello: **Editor** e **stato**.
+- Aggiungere contenuto o controllare lo stato dell'offerta passando da una modalità di primo livello all'altra, ovvero da **Editor** a **Stato** e viceversa.
 - Utilizzare la **barra delle azioni** per gestire in modo esplicito le modifiche dell'offerta salvando ed eliminando quanto immesso.
 - Spostarsi tra i **moduli** di ogni offerta man mano che se ne modificano le impostazioni.
 
@@ -55,5 +56,5 @@ Infine, nella parte in alto dello schermo, sarà sempre possibile accedere alla 
 ![Barra dei menu](./media/cloud-partner-portal-getting-started-with-the-cloud-partner-portal/menu-bar.png)
 
 -   **Need help?** (Richiesta di assistenza) : in caso di dubbi e per assistenza, è possibile creare una richiesta di supporto e reperire collegamenti alla documentazione.
--   **Feedback** (Commenti e suggerimenti): se si desidera esprimere un proprio parere è possibile comunicarlo qui. Microsoft desidera rendere quanto più semplice e intuitiva possibile l'esperienza di Azure Marketplace, del processo di pubblicazione in AppSource e del portale per Cloud Partner in generale. Tutti i commenti e i suggerimenti verranno presi in considerazione e valutati sempre nel rispetto della privacy. L'utente verrà ricontattato in caso di richiesta di altre informazioni.
+-   **Feedback** (Commenti e suggerimenti): se si desidera esprimere un proprio parere è possibile comunicarlo qui. Microsoft desidera rendere l'esperienza con Azure Marketplace, il processo di pubblicazione di AppSource e il portale Cloud Partner il più semplice e intuitiva possibile. Tutti i commenti e i suggerimenti verranno presi in considerazione e valutati sempre nel rispetto della privacy. L'utente verrà ricontattato in caso di richiesta di altre informazioni.
 - **Account editore**: quando si visita il portale per la prima volta, verrà visualizzata la trattativa privata per gli editori, che deve essere accettata per diventare un editore. Da quel momento in poi, sarà questa la sede in cui poter modificare il proprio profilo o rivedere il contratto. Da qui sarà anche possibile connettersi al proprio account Dev Center per vendere le offerte.

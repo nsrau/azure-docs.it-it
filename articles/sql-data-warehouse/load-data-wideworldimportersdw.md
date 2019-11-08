@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c59c5ba4e5447d01bb66b9f0ed2edcb948d34d40
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5ae6844cf11ffa095f56c429e17b9c39ad0c76aa
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693074"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822909"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Esercitazione: Caricare dati in Azure SQL Data Warehouse
 
@@ -61,7 +61,7 @@ Per creare una SQL Data Warehouse vuota, seguire questa procedura.
    | ------- | --------------- | ----------- | 
    | **Nome database** | SampleDW | Per i nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers). | 
    | **Sottoscrizione** | Sottoscrizione in uso  | Per informazioni dettagliate sulle sottoscrizioni, vedere [Subscriptions](https://account.windowsazure.com/Subscriptions) (Sottoscrizioni). |
-   | **Gruppo di risorse** | SampleRG | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Gruppo di risorse** | SampleRG | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
    | **Select source** (Seleziona origine) | Database vuoto | Specificare che venga creato un database vuoto. Si noti che un data warehouse è un tipo di database.|
 
     ![creare un data warehouse](media/load-data-wideworldimportersdw/create-data-warehouse.png)
@@ -70,7 +70,7 @@ Per creare una SQL Data Warehouse vuota, seguire questa procedura.
 
     | Impostazione | Valore consigliato | Descrizione | 
     | ------- | --------------- | ----------- |
-    | **Server name** (Nome server) | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Regole di denominazione e restrizioni). | 
+    | **Server name** (Nome server) | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Naming rules and restrictions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) (Regole di denominazione e restrizioni). | 
     | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificatori di database).|
     | **Password** | Qualsiasi password valida | La password deve contenere almeno otto caratteri delle tre categorie seguenti: maiuscole, minuscole, numeri e caratteri non alfanumerici. |
     | **Posizione** | Qualsiasi località valida | Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |
@@ -555,7 +555,7 @@ Questa sezione usa le tabelle esterne definite per caricare i dati di esempio da
 
 Lo script usa l'istruzione T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) per caricare i dati dal BLOB del servizio di archiviazione di Azure nelle nuove tabelle del data warehouse. CTAS crea una nuova tabella in base ai risultati di un'istruzione SELECT. La nuova tabella ha le stesse colonne e gli stessi tipi di dati dei risultati dell'istruzione SELECT. Quando l'istruzione SELECT seleziona da una tabella esterna, SQL Data Warehouse importa i dati in una tabella relazionale del data warehouse. 
 
-Questo script non carica i dati nelle tabelle dimension_Date e la prima guerra. fact_Sale. Queste tabelle sono generate in un passaggio successivo, in modo che possano avere un numero consistente di righe.
+Questo script non carica i dati nella prima guerra. dimension_Date e la prima guerra. fact_Sale tabelle. Queste tabelle sono generate in un passaggio successivo, in modo che possano avere un numero consistente di righe.
 
 1. Eseguire lo script seguente per caricare i dati nelle nuove tabelle nel data warehouse.
 
@@ -751,7 +751,7 @@ Questo script non carica i dati nelle tabelle dimension_Date e la prima guerra. 
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Creare tabelle e procedure per generare le tabelle delle date e delle vendite
 
-Questa sezione Crea le tabelle della prima guerra. dimension_Date e della prima guerra. fact_Sale. Vengono inoltre create stored procedure in grado di generare milioni di righe nelle tabelle della prima guerra. dimension_Date e fact_Sale.
+Questa sezione Crea il dimension_Date e la prima guerra. fact_Sale tabelle. Vengono inoltre create stored procedure in grado di generare milioni di righe nella prima guerra. dimension_Date e la prima guerra fact_Sale tabelle.
 
 1. Creare le tabelle dimension_Date e fact_Sale.  
 
@@ -894,7 +894,7 @@ Questa sezione Crea le tabelle della prima guerra. dimension_Date e della prima 
     DROP table #days;
     END;
     ```
-4. Creare questa procedura per popolare le tabelle della prima guerra. dimension_Date e della prima guerra. fact_Sale. La procedura chiama [wwi].[PopulateDateDimensionForYear] per popolare wwi.dimension_Date.
+4. Creare questa procedura per popolare la prima guerra. dimension_Date e la prima guerra. fact_Sale tabelle. La procedura chiama [wwi].[PopulateDateDimensionForYear] per popolare wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -950,7 +950,7 @@ Questa sezione Crea le tabelle della prima guerra. dimension_Date e della prima 
     ```
 
 ## <a name="generate-millions-of-rows"></a>Generare milioni di righe
-Usare le stored procedure create per generare milioni di righe nella tabella della prima guerra. fact_Sale e i dati corrispondenti nella tabella della prima guerra. dimension_Date. 
+Usare le stored procedure create per generare milioni di righe nella prima guerra. fact_Sale tabella e i dati corrispondenti nella tabella della prima guerra dimension_Date. 
 
 
 1. Eseguire questa procedura per inizializzare [wwi].[seed_Sale] con più righe.

@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: e7516fffb4aa8806062655e39c591e4691e779b1
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 9a5e060d6248d3144720930fe960e0a371a73d6e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959107"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822261"
 ---
 # <a name="egress-and-endpoints"></a>Traffico in uscita ed endpoint
 
@@ -47,23 +47,23 @@ Gli eventi vengono inviati da oggetti IoT, come dispositivi e sensori, per esser
 }
 ```
 
-| Attributo | Type | Descrizione |
+| Attributo | Tipo | Descrizione |
 | --- | --- | --- |
-| id | string | Identificatore univoco dell'evento. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
-| dati | object | Dati dell'evento specifici del provider di risorse. |
-| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
-| topic | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| id | stringa | Identificatore univoco dell'evento. |
+| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
+| data | oggetto | Dati dell'evento specifici del provider di risorse. |
+| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 
 Per altre informazioni sullo schema di eventi di Griglia di eventi:
 
 - Vedere [Schema di eventi di Griglia di eventi di Azure](../event-grid/event-schema.md).
-- Vedere la documentazione di riferimento sull'[interfaccia EventGridEvent](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+- Vedere la documentazione di riferimento sull'[interfaccia EventGridEvent](https://docs.microsoft.com/javascript/api/@azure/eventgrid/eventgridevent?view=azure-node-latest).
 
-## <a name="event-types"></a>Tipi di evento
+## <a name="event-types"></a>Tipi di eventi
 
 I tipi di eventi classificano la natura dell'evento e sono impostati nel campo **eventType**. Di seguito sono elencati i tipi di evento disponibili:
 
@@ -122,7 +122,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Value | Sostituire con |
+| Valore | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -153,7 +153,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Value | Sostituire con |
+| Valore | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -188,7 +188,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Value | Sostituire con |
+| Valore | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -223,7 +223,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Value | Sostituire con |
+| Valore | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -268,7 +268,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | Sostituire con |
+    | Valore | Sostituire con |
     | --- | --- |
     | YOUR_NAMESPACE | Spazio dei nomi dell'endpoint |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione |
@@ -291,7 +291,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | Sostituire con |
+    | Valore | Sostituire con |
     | --- | --- |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione|
     | YOUR_SECONDARY_KEY | Stringa di connessione secondaria usata per l'autenticazione |
@@ -313,7 +313,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | Sostituire con |
+    | Valore | Sostituire con |
     | --- | --- |
     | YOUR_NAMESPACE | Spazio dei nomi dell'endpoint |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione |
@@ -334,7 +334,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | Sostituire con |
+    | Valore | Sostituire con |
     | --- | --- |
     | YOUR_NAMESPACE | Spazio dei nomi dell'endpoint |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione |

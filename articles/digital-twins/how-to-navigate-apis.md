@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/27/2019
-ms.openlocfilehash: 5df8bb0ba0323692bddf94ae2888e8fcf1ad24a9
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: b0c3d72085e008524811f479ccbdeec013e26c4c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063278"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822256"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Come usare le API di gestione di Gemelli digitali di Azure
 
@@ -72,7 +72,7 @@ Le API di Gemelli digitali supportano il filtro e lo spostamento in tutto il gra
    - **Span**: filtra una parte orizzontale del grafico spaziale, allo stesso livello dell'ID di spazio specificato. È necessario che **minRelative** o **maxRelative** sia impostato su true. 
 
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 L'elenco seguente illustra alcuni esempi di spostamento nelle API [/devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices). Si noti che il segnaposto `YOUR_MANAGEMENT_API_URL` si riferisce all'URI delle API di Gemelli digitali nel formato `https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/`, dove `YOUR_INSTANCE_NAME` è il nome dell'istanza di Gemelli digitali di Azure e `YOUR_LOCATION` è l'area in cui è ospitata l'istanza.
 
@@ -99,7 +99,7 @@ La maggior parte delle API che restituiscono raccolte, ad esempio una chiamata G
 > [!NOTE]
 > Alcune opzioni OData, ad esempio le opzioni di query **$count**, **$expand**e **$Search**, non sono attualmente supportate.
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 Nell'elenco seguente vengono illustrate diverse query con sintassi OData valida:
 
@@ -116,4 +116,4 @@ Per informazioni su alcuni modelli di query sulle API comuni, vedere [Come esegu
 
 Per altre informazioni sugli endpoint dell'API, vedere l'articolo su [come usare i gemelli digitali spavalderia](./how-to-use-swagger.md).
 
-Per esaminare la sintassi OData e gli operatori di confronto disponibili, vedere [operatori di confronto OData in ricerca di Azure](../search/search-query-odata-comparison-operators.md).
+Per esaminare la sintassi OData e gli operatori di confronto disponibili, vedere [operatori di confronto OData in Azure ricerca cognitiva](../search/search-query-odata-comparison-operators.md).

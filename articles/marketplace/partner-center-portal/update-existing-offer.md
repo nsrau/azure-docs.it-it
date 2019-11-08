@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9cefdc9354560ac5b7f3789cde2408a4c255c186
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: f2cb1907557c2440a5a94c0f4799eac95a8cf507
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191768"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827867"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Aggiornare un'offerta esistente nel Marketplace commerciale
 
@@ -30,12 +31,12 @@ Quando si è pronti per pubblicare l'offerta aggiornata, selezionare **pubblica*
 
 
 - Vedere lo stato di completamento per le sezioni dell'offerta aggiornata: 
-    - **Modifiche non pubblicate**: La sezione è stata aggiornata ed è stata completata. Sono stati forniti tutti i dati necessari e non sono stati introdotti errori negli aggiornamenti.
-    - **Dati incompleti**: Gli aggiornamenti apportati alla sezione hanno introdotto errori che devono essere corretti o sono necessarie altre informazioni.
+    - **Modifiche non pubblicate**: la sezione è stata aggiornata ed è stata completata. Sono stati forniti tutti i dati necessari e non sono stati introdotti errori negli aggiornamenti.
+    - **Incompleto**: gli aggiornamenti apportati alla sezione hanno introdotto errori che devono essere corretti o sono necessarie altre informazioni.
 - Fornire informazioni aggiuntive al team di test della certificazione per assicurarsi che il test venga eseguito senza problemi.
 - Inviare l'offerta aggiornata per la pubblicazione selezionando **Invia**.  Ti invieremo un messaggio di posta elettronica quando sarà disponibile una versione di anteprima dell'offerta aggiornata per la verifica e la disconnessione.
 
-**IMPORTANTE**: È necessario rivedere l'anteprima dell'offerta, una volta disponibile, e selezionare **Go-Live** per pubblicare l'offerta aggiornata nei destinatari desiderati (pubblico o privato).
+**Importante**: è necessario rivedere l'anteprima dell'offerta, una volta disponibile, e selezionare **Go-Live** per pubblicare l'offerta aggiornata per i destinatari (pubblici o privati).
 
 ## <a name="update-a-plan-within-an-existing-offer"></a>Aggiornare un piano in un'offerta esistente
 
@@ -73,7 +74,7 @@ Se si vuole pubblicare l'offerta in un secondo momento, è necessario avviare il
 
 ## <a name="stop-selling-an-offer-or-plan"></a>Interrompi la vendita di un'offerta o di un piano
 
-Per interrompere la vendita di un'offerta dopo che è già stata pubblicata, selezionare Interrompi la **vendita** dalla pagina **Panoramica dell'offerta** . Per interrompere la vendita di un piano, selezionare Interrompi la **vendita** dalla pagina **Panoramica del piano** . (L'opzione per arrestare la vendita di un piano è disponibile solo se si dispone di più di un piano nell'offerta. È possibile scegliere di interrompere la vendita di un piano senza influito sugli altri piani nell'offerta.
+Per interrompere la vendita di un'offerta dopo che è già stata pubblicata, selezionare **Interrompi la vendita** dalla pagina **Panoramica dell'offerta** . Per interrompere la vendita di un piano, selezionare **Interrompi la vendita** dalla pagina **Panoramica del piano** . (L'opzione per arrestare la vendita di un piano è disponibile solo se si dispone di più di un piano nell'offerta. È possibile scegliere di interrompere la vendita di un piano senza influito sugli altri piani nell'offerta.
 
 Quando si conferma che si desidera interrompere la vendita dell'offerta o del piano, entro poche ore non sarà più visibile nel Marketplace e nessun nuovo cliente potrà scaricarlo. 
 

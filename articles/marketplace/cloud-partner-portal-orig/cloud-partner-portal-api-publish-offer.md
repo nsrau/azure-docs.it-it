@@ -4,15 +4,16 @@ description: API per pubblicare l'offerta specificata.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 117a4e5e238e754524ff813ce25ebc1105e2153c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7ad8086c417cf1f14d9116fa4abcb0a88030922
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64934986"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819647"
 ---
 <a name="publish-an-offer"></a>Pubblicare un'offerta
 ================
@@ -28,7 +29,7 @@ Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√
 |  ------------- |  ------------------------------------            |   -----------  |
 |  publisherId   | Identificatore dell'editore, per esempio `contoso`      |   String       |
 |  offerId       | Identificatore dell'offerta                                 |   String       |
-|  api-version   | Versione pi√π recente dell'API                        |   Date         |
+|  api-version   | Versione pi√π recente dell'API                        |   Data         |
 |  |  |
 
 
@@ -38,7 +39,7 @@ Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√
 |  **Nome**        |    **Valore**          |
 |  --------        |    ---------          |
 |  Content-Type    | `application/json`    |
-|  Authorization   |  `Bearer YOUR_TOKEN`  |
+|  Autorizzazione   |  `Bearer YOUR_TOKEN`  |
 |  |  |
 
 
@@ -64,7 +65,7 @@ Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√
 |  |  |
 
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 
    `Operation-Location: /api/operations/contoso$56615b67-2185-49fe-80d2-c4ddf77bb2e8$2$preview?api-version=2017-10-31`
 

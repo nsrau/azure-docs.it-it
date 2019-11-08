@@ -1,5 +1,5 @@
 ---
-title: Configurare la sicurezza del database SQL di Azure per il ripristino di emergenza
+title: Configurare la sicurezza per il ripristino di emergenza
 description: Informazioni sulle considerazioni sulla configurazione e la gestione della sicurezza dopo il ripristino di un database o il failover in un server secondario.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 3c08ba1a37d7b0d16042d6496c27e0de8d070b75
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d628583168883276e67d9e2f2fcafdce292769e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689977"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807490"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurare e gestire la sicurezza dei database SQL di Azure per il ripristino geografico o il failover
 

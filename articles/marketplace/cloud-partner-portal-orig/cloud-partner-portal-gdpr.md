@@ -1,18 +1,19 @@
 ---
-title: Conformità a GDPR | Azure Marketplace
+title: Conformità GDPR | Azure Marketplace
 description: Portale Cloud Partner e GDPR.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 91db369f9a2a0439bdbaf8600d1b329f0da00aa0
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: bc43a6cb3c30638d8c3904d7ca5b004e0905f1d2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786465"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824299"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Conformità al GDPR per il portale Cloud Partner
 ====================================
@@ -24,12 +25,12 @@ Il portale Cloud Partner offre informazioni dettagliate riguardanti l'elaborazio
 <a name="discover"></a>Scoprire
 --------
 
-Il portale Cloud Partner offre accesso a tutti i dati nella scheda utenti. È possibile identificare i dati personali. Per informazioni su come aggiungere/rimuovere utenti, vedere la [documentazione](./cloud-partner-portal-manage-users.md).
+Portale Cloud Partner consente di accedere a tutti i dati nella scheda utenti. È possibile identificare i dati personali. Per informazioni su come aggiungere/rimuovere utenti, vedere la [documentazione](./cloud-partner-portal-manage-users.md).
 
-<a name="manage"></a>Gestisci
+<a name="manage"></a>Gestire
 ------
 
-È possibile gestire i dati personali premendo CANC nella scheda utenti del proprio account utente. Sono disponibili ruoli **proprietario** e **collaboratore** che è possibile assegnare a ciascun utente specifico; entrambi possono essere assegnati o copiati, aggiornati oppure eliminati.
+È possibile gestire i dati personali premendo CANC nell'account utente nella scheda utenti. I ruoli di un **proprietario** e di un **collaboratore** possono essere assegnati a ogni utente specifico e possono essere assegnati/copiati/aggiornati/eliminati.
 
 <a name="consent"></a>Consenso
 -------

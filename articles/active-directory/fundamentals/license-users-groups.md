@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/06/2018
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 869713967a6a89611ab2ea9ca7b7516f090a5f92
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 9f690d23ac4d8c452d731c2f6fd4ae67dc281639
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034230"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805515"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Assegnare o rimuovere licenze nel portale di Azure Active Directory
 
@@ -31,9 +31,9 @@ Sono disponibili diversi piani di licenza per il servizio Azure AD, tra cui:
 
 - Azure AD Free
 
-- Azure AD P1 Premium
+- Azure AD Premium P1
 
-- Azure AD Premium P2
+- Azure AD P2 Premium
 
 Per informazioni specifiche su ogni piano di licenza e i dettagli relativi alle licenze associate, vedere [quali sono le licenze necessarie?](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -87,6 +87,8 @@ Verificare che chiunque necessiti di usare un servizio Azure AD concesso in lice
 1. Selezionare **Assegna**.
 
     L'utente viene aggiunto all'elenco degli utenti con licenza e può accedere ai servizi di Azure AD inclusi.
+    > [!NOTE]
+    > Le licenze possono anche essere assegnate direttamente a un utente dalla pagina **licenze** dell'utente. Se un utente dispone di una licenza assegnata tramite l'appartenenza a un gruppo e si desidera assegnare la stessa licenza direttamente all'utente, è possibile eseguire questa operazione solo dalla pagina **prodotti** indicata nel passaggio 1.
 
 ### <a name="to-assign-a-license-to-a-group"></a>Per assegnare una licenza a un gruppo
 
