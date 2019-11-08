@@ -7,18 +7,29 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 10/21/2019
-ms.custom: seodec18
-ms.openlocfilehash: c845966c86659c0ff983bf33c492a67dd99275f0
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: f0f9a2e59e0e231c956e9f1c36bb6a54bcbaca24
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692953"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476321"
 ---
 # <a name="what-is-azure-machine-learning"></a>Informazioni su Azure Machine Learning
 
-Il servizio Azure Machine Learning è un servizio cloud che consente di eseguire il training di modelli di Machine Learning, distribuirli, automatizzarli e gestirli, il tutto su vasta scala grazie all'ampia portata del cloud.
+Questo articolo illustra Azure Machine Learning, un ambiente basato sul cloud utilizzabile per eseguire il training, distribuire, automatizzare, gestire e tenere traccia dei modelli di Machine Learning. 
+
+Azure Machine Learning può essere usato per qualsiasi tipo di Machine Learning, dalla forma classica al Deep Learning, supervisionato e non supervisionato. Che si preferisca scrivere codice Python o R oppure usare opzioni senza o con poco codice, come nel caso della [finestra di progettazione](ui-tutorial-automobile-price-train-score.md), è possibile creare, sottoporre a training e monitorare i modelli di Deep Learning e Machine Learning altamente accurati in un'area di lavoro di Azure Machine Learning. 
+
+Iniziare il training nel computer locale per poi scalare orizzontalmente nel cloud. 
+
+Il servizio interagisce anche con gli strumenti open source più diffusi, ad esempio PyTorch, TensorFlow e Scikit-learn.
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
+
+> [!Tip]
+> **Versione di valutazione gratuita.**  Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree). Si ricevono così crediti da spendere in servizi di Azure. Quando i crediti saranno esauriti, sarà possibile mantenere l'account e usare i [servizi di Azure gratuiti](https://azure.microsoft.com/free/). Verranno applicati addebiti alla carta di credito solo se l'utente modifica le impostazioni e richiede esplicitamente l'addebito.
+
 
 ## <a name="what-is-machine-learning"></a>Che cos'è l'apprendimento automatico?
 
@@ -26,47 +37,54 @@ Machine Learning è una tecnica di analisi scientifica dei dati che consente ai 
 
 Queste previsioni o stime di Machine Learning possono rendere più intelligenti le app e i dispositivi. Quando si effettuano acquisti online, ad esempio, l'apprendimento automatico consiglia altri prodotti che potrebbero interessare in base a ciò che si è acquistato. Quando si usa la carta di credito, l'apprendimento automatico confronta la transazione con un database di transazioni e consente di rilevare eventuali frodi. Infine, quando il robot aspirapolvere aspira la polvere in una stanza, l'apprendimento automatico gli consente di decidere se il lavoro è stato completato.
 
-## <a name="what-is-azure-machine-learning"></a>Informazioni su Azure Machine Learning
+## <a name="machine-learning-tools-to-fit-each-task"></a>Strumenti di Machine Learning adatti per ogni attività 
 
-Azure Machine Learning offre un ambiente basato sul cloud in cui è possibile preparare i dati, eseguire il training, i test, la distribuzione e la gestione dei modelli di Machine Learning e tenerne traccia. Iniziare il training nel computer locale per poi scalare orizzontalmente nel cloud. Il servizio offre il supporto completo per tecnologie open source come PyTorch, TensorFlow e scikit-learn e può essere usato per qualsiasi tipo di processo di Machine Learning, da quelli classici al Deep Learning, con apprendimento supervisionato e non supervisionato.
+Azure Machine Learning offre tutti gli strumenti necessari agli sviluppatori e ai data scientist per i rispettivi flussi di lavoro di Machine Learning, tra cui:
++ [Finestra di progettazione di Azure Machine Learning](ui-tutorial-automobile-price-train-score.md) (anteprima): moduli con trascinamento della selezione per creare gli esperimenti e distribuire le pipeline.
 
-Esplorare e preparare i dati, eseguire il training e il test dei modelli e distribuirli con strumenti avanzati come:
-+ Un'[interfaccia visiva grafica](ui-tutorial-automobile-price-train-score.md) in cui è possibile trascinare moduli per creare esperimenti e quindi distribuire i modelli
-+ [Jupyter Notebook](https://jupyter.org) in cui usare gli [SDK](https://docs.microsoft.com/azure/machine-learning) per scrivere codice personalizzato, come questi [notebook di esempio](https://aka.ms/aml-notebooks)
++ Notebook di Jupyter: usare i [notebook di esempio](https://aka.ms/aml-notebooks) forniti o creare notebook personalizzati per sfruttare gli esempi dell'<a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK per Python</a> per Machine Learning. 
+
++ Notebook o script R in cui usare l'<a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html on" target="_blank">SDK per R</a> per scrivere codice personalizzato o usare i moduli R nella finestra di progettazione.
+
 + [Estensione di Visual Studio Code](how-to-vscode-tools.md)
 
++ [Interfaccia della riga di comando di Machine Learning](reference-azure-machine-learning-cli.md)
 
-> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
++ Framework open source come PyTorch, TensorFlow, Scikit-learn e molti altri
 
-## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Quali operazioni si possono eseguire con Azure Machine Learning?
+È persino possibile usare [MLflow per monitorare le metriche e distribuire i modelli](how-to-use-mlflow.md) oppure Kubeflow per [creare pipeline di flussi di lavoro end-to-end](https://www.kubeflow.org/docs/azure/).
 
-Usare <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> con i pacchetti Python open source oppure l'[interfaccia visiva grafica (anteprima)](ui-tutorial-automobile-price-train-score.md) per creare ed eseguire autonomamente il training di modelli di Machine Learning e Deep Learning estremamente accurati in un'area di lavoro del servizio Azure Machine Learning.
 
-È possibile scegliere tra i numerosi componenti di Machine Learning disponibili nei pacchetti Python open source, ad esempio <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a> e <a href="https://mxnet.io" target="_blank">MXNet</a>.
+## <a name="build-ml-models-in-python-or-r"></a>Creare modelli di Machine Learning in Python o R
 
-Sia che si decida di scrivere codice o di usare l'interfaccia visiva grafica, è possibile tenere traccia di più esecuzioni mentre si sperimenta per trovare la soluzione ottimale, oltre a gestire i modelli distribuiti.
+Iniziare il training nel computer locale usando Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a> per poi scalare orizzontalmente nel cloud. 
 
-### <a name="code-first-experience"></a>Esperienza code-first
-
-Iniziare il training nel computer locale usando <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> per poi scalare orizzontalmente nel cloud. Grazie alla disponibilità di molte [destinazioni di calcolo](how-to-set-up-training-targets.md), ad esempio l'ambiente di calcolo di Azure Machine Learning e [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), e a [servizi avanzati per l'ottimizzazione degli iperparametri](how-to-tune-hyperparameters.md), è possibile creare modelli migliori in modo più rapido, sfruttando la potenza del cloud.
+Grazie alla disponibilità di molte [destinazioni di calcolo](how-to-set-up-training-targets.md), ad esempio l'ambiente di calcolo di Azure Machine Learning e [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), e a [servizi avanzati per l'ottimizzazione degli iperparametri](how-to-tune-hyperparameters.md), è possibile creare modelli migliori in modo più rapido, sfruttando la potenza del cloud.
 
 È anche possibile [automatizzare il training e l'ottimizzazione dei modelli](tutorial-auto-train-models.md) usando l'SDK.
 
-### <a name="ui-based-low-code-experience"></a>Esperienza con poco codice basata sull'interfaccia utente
+## <a name="build-ml-models-with-no-code-tools"></a>Creare modelli di Machine Learning con strumenti senza codice
 
-Per un training e una distribuzione senza codice, provare:
+Per un training e una distribuzione senza codice o con poco codice, provare:
 
-+ Creazione di [esperimenti di Machine Learning automatizzati](tutorial-first-experiment-automated-ml.md) in un'interfaccia semplice da usare.
-+ [Sperimentazione tramite trascinamento della selezione nell'interfaccia visiva grafica](ui-tutorial-automobile-price-train-score.md).
-  ![Interfaccia visiva grafica per Azure Machine Learning](media/overview-what-is-azure-ml/visual-interface.png)
++ **Finestra di progettazione di Azure Machine Learning (anteprima)**
 
+  Usare la finestra di progettazione per preparare i dati, eseguire il training, testare, distribuire, gestire e tenere traccia dei modelli di Machine Learning senza scrivere codice. Non sono necessarie operazioni di programmazione, è sufficiente collegare visivamente i set di dati e i moduli per costruire il modello.   Provare l'[esercitazione relativa alla finestra di progettazione](tutorial-designer-automobile-price-train-score.md).
 
+  Per altre informazioni, vedere l'[articolo di panoramica sulla finestra di progettazione di Azure Machine Learning](concept-designer.md). 
 
-### <a name="operationalization-mlops"></a>Operazionalizzazione (MLOps)
+  ![Esempio di finestra di progettazione di Azure Machine Learning](/media/concept-ml-pipelines/visual-design-surface.gif)
 
++ **Interfaccia utente di Machine Learning automatizzato**
+
+  Imparare a creare [esperimenti di Machine Learning automatizzato](tutorial-first-experiment-automated-ml.md) in un'interfaccia semplice da usare. 
+
+  [![Riquadro di spostamento di Azure Machine Learning Studio](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
+
+## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Esecuzione della distribuzione e gestione del ciclo di vita
 Dopo aver creato il modello appropriato, è possibile usarlo facilmente in un servizio Web, in un dispositivo IoT o in Power BI. Per altre informazioni, vedere l'articolo su [come e dove eseguire la distribuzione](how-to-deploy-and-where.md).
 
-È quindi possibile gestire i modelli distribuiti usando [Azure Machine Learning SDK per Python](https://aka.ms/aml-sdk), il [portale di Azure](https://portal.azure.com/) o la [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com).
+È quindi possibile gestire i modelli distribuiti usando l'[SDK di Azure Machine Learning per Python](https://aka.ms/aml-sdk), [Azure Machine Learning Studio](https://ml.azure.com) o l'[interfaccia della riga di comando di Machine Learning](reference-azure-machine-learning-cli.md).
 
 Questi modelli possono essere utilizzati e restituiscono stime, [in tempo reale](how-to-consume-web-service.md) o [in modo asincrono](how-to-run-batch-predictions.md), su grandi quantità di dati.
 
@@ -77,51 +95,33 @@ Questi modelli possono essere utilizzati e restituiscono stime, [in tempo reale]
 * Usare risorse di calcolo diverse in ogni passaggio
 * Eseguire attività di assegnazione di punteggio batch
 
+Se si vogliono usare gli script per automatizzare il flusso di lavoro di Machine Learning, l'[interfaccia della riga di comando di Machine Learning](reference-azure-machine-learning-cli.md) fornisce strumenti da riga di comando che eseguono attività comuni, ad esempio l'invio di un'esecuzione di training o la distribuzione di un modello.
+
 Per iniziare a usare Azure Machine Learning, vedere [Passaggi successivi](#next-steps).
 
-## <a name="how-does-azure-machine-learning-differ-from-studio"></a>Differenze tra Azure Machine Learning e Studio
+## <a name="sku"></a>Edizioni Basic ed Enterprise
 
-[Machine Learning Studio](../studio/what-is-ml-studio.md) è un'area di lavoro collaborativa e grafica con trascinamento della selezione in cui è possibile creare, testare e distribuire soluzioni di Machine Learning senza la necessità di scrivere codice. Usa algoritmi di Machine Learning e moduli di gestione dei dati precompilati e preconfigurati, oltre a una piattaforma di calcolo proprietaria.
+Azure Machine Learning offre due edizioni personalizzate per le esigenze di Machine Learning:
++ Basic (disponibile a livello generale)
++ Enterprise (anteprima)
 
-Azure Machine Learning offre sia SDK **sia** un'interfaccia visiva grafica (anteprima) per eseguire rapidamente la preparazione dei dati e il training e la distribuzione dei modelli di Machine Learning. Questa interfaccia visiva grafica (anteprima) offre un'esperienza di trascinamento della selezione simile a quella di Studio. A differenza della piattaforma di calcolo proprietaria di Studio, tuttavia, l'interfaccia visiva grafica usa le risorse di calcolo dell'utente ed è pienamente integrata in Azure Machine Learning.
+Queste edizioni determinano quali strumenti di Machine Learning sono disponibili per sviluppatori e data scientist dalla relativa area di lavoro.   
 
-Ecco un confronto rapido.
+Le aree di lavoro dell'edizione Basic consentono di continuare a usare Azure Machine Learning e pagare solo per le risorse di Azure utilizzate durante il processo di Machine Learning. Per le aree di lavoro dell'edizione Enterprise verrà addebitato solo l'utilizzo di Azure mentre l'edizione è in anteprima. Per altre informazioni sugli strumenti disponibili, vedere la [pagina di panoramica e dei prezzi delle edizioni](https://azure.microsoft.com/pricing/details/machine-learning/) di Azure Machine Learning. 
 
-|| Machine Learning Studio | Azure Machine Learning:<br/>Interfaccia visiva grafica|
-|---| --- | --- |
-|| Disponibile a livello generale | In anteprima|
-|Interfaccia di trascinamento della selezione| Sì | Sì|
-|Esperimento| Scalabilità (limite dei dati di training di 10 GB) | Ridimensionamento con destinazione di calcolo|
-|Moduli per l'interfaccia| Molti | Set iniziale di moduli più diffusi|
-|Destinazioni di calcolo del training| Destinazione di calcolo proprietaria, solo CPU|Calcolo di AML (GPU/CPU)<br/> VM notebook |
-|Destinazioni di calcolo di inferenza| Formato di servizio Web proprietario, non personalizzabile | Servizio Azure Kubernetes (inferenza in tempo reale) <br/>Calcolo di AML (inferenza batch) |
-|Pipeline di Machine Learning| Non supportate | Creazione di pipeline <br/> Pipeline pubblicata <br/> Endpoint della pipeline <br/> [Altre informazioni sulle pipeline di Machine Learning](concept-ml-pipelines.md)|
-|Operazioni di Machine Learning| Gestione e distribuzione dei modelli di base | Distribuzione configurabile, controllo delle versioni dei modelli e delle pipeline|
-|Modello| Formato proprietario. Non può essere usato all'esterno di Studio | Formato standard, varia a seconda del processo di training|
-|Training automatizzato dei modelli e ottimizzazione degli iperparametri | No | Non ancora nell'interfaccia visiva grafica. <br/> Supportato in Python SDK e nella pagina di destinazione dell'area di lavoro. |
+L'edizione viene assegnata ogni volta che si crea un'area di lavoro. Inoltre, le aree di lavoro già esistenti sono state convertite automaticamente all'edizione Basic. L'edizione Basic include tutte le funzionalità che erano già disponibili a livello generale da ottobre 2019. Tutti gli esperimenti in queste aree di lavoro creati con le funzionalità dell'edizione Enterprise continueranno a essere disponibili in sola lettura finché non si eseguirà l'aggiornamento a Enterprise. Vedere le informazioni su come [aggiornare un'area di lavoro dell'edizione Basic all'edizione Enterprise](how-to-manage-workspace.md#upgrade). 
 
-Per provare l'interfaccia visiva grafica (anteprima), vedere [Esercitazione: Stimare il prezzo di un'automobile con l'interfaccia visiva grafica](ui-tutorial-automobile-price-train-score.md).
-
-> [!NOTE]
-> I modelli creati in Studio non possono essere distribuiti né gestiti con Azure Machine Learning. I modelli creati e distribuiti nell'interfaccia visiva grafica del servizio possono invece essere gestiti tramite l'area di lavoro di Azure Machine Learning.
-
-## <a name="free-trial"></a>Versione di prova gratuita
-
-Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
-
-Si ricevono così crediti da spendere in servizi di Azure. Quando i crediti saranno esauriti, sarà possibile mantenere l'account e usare i [servizi di Azure gratuiti](https://azure.microsoft.com/free/). Verranno applicati addebiti alla carta di credito solo se l'utente modifica le impostazioni e richiede esplicitamente l'addebito. In alternativa, è possibile [attivare i vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), in modo da accumulare ogni mese crediti che possono essere usati per i servizi di Azure a pagamento.
+I clienti sono responsabili dei costi sostenuti per le risorse di calcolo e di altro tipo di Azure durante questo periodo di tempo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per iniziare, [creare un'area di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md).
-
-- Seguire le esercitazioni complete:
-  + [Creare un'area di lavoro ed eseguire il training del primo modello di Machine Learning](tutorial-1st-experiment-sdk-setup.md)
-  + [Eseguire il training di un modello di classificazione delle immagini con Azure Machine Learning](tutorial-train-models-with-aml.md)
-
+- Creare il primo esperimento con il metodo preferito:
+  + [Usare i notebook di Python per eseguire il training e la distribuzione di modelli di Machine Learning](tutorial-1st-experiment-sdk-setup.md)
+  + [Usare R Markdown per eseguire il training e la distribuzione di modelli di Machine Learning](tutorial-1st-r-experiment.md) 
+  + [Usare il servizio Machine Learning automatizzato per eseguire il training e la distribuzione di modelli di Machine Learning](  tutorial-first-experiment-automated-ml.md) 
+  + [Usare le funzionalità di trascinamento della selezione della finestra di progettazione per eseguire il training e la distribuzione](tutorial-designer-automobile-price-train-score.md) 
+  + [Usare l'interfaccia della riga di comando di Machine Learning per eseguire il training e la distribuzione di un modello](tutorial-train-deploy-model-cli.md)
 
 - Vedere le [pipeline di apprendimento automatico](/azure/machine-learning/service/concept-ml-pipelines) per compilare, ottimizzare e gestire gli scenari di Machine Learning.
 
 - Vedere l'articolo di approfondimento su [architettura e concetti di Azure Machine Learning](concept-azure-machine-learning-architecture.md).
-
-- Per altre informazioni, vedere [altri prodotti di apprendimento automatico Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning).
