@@ -1,7 +1,7 @@
 ---
 title: Novità della API Analisi del testo
-titlesuffix: Text Analytics - Azure Cognitive Services
-description: Informazioni sui nuovi sviluppi con il servizio Analisi del testo
+titleSuffix: Text Analytics - Azure Cognitive Services
+description: Questo articolo fornisce informazioni sulle nuove versioni e funzionalità per i servizi cognitivi di Azure Analisi del testo.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: aahi
-ms.openlocfilehash: 44ef6fb118be4d1110a693faded6c57bc8b4e2fd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7e4eb8f7f9077ce04ee8138580a836637b89cf8c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499949"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835593"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
@@ -44,12 +44,12 @@ La prossima versione di Analisi del sentiment è ora disponibile per l'anteprima
 * Assegnazione automatica di etichette per diversi sentimenti nel testo.
 * Analisi dei sentimenti e output a livello di documento e di frase. 
 
-Supporta inglese (`en`), giapponese (`ja`), cinese semplificato (`zh-Hans`), cinese tradizionale (`zh-Hant`), francese (`fr`), Italiano (`it`), spagnolo (`es`), olandese (`nl`), portoghese (`pt`) e tedesco (`de`), e è disponibile nelle aree geografiche seguenti: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`e `West US 2`.
+Supporta inglese (`en`), giapponese (`ja`), cinese semplificato (`zh-Hans`), cinese tradizionale (`zh-Hant`), francese (`fr`), Italiano (`it`), spagnolo (`es`), olandese (`nl`), portoghese (`pt`) e tedesco (`de`) ed è disponibile nelle aree geografiche seguenti: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`e `West US 2`.
 
 > [!div class="nextstepaction"]
 > [Altre informazioni su Analisi del sentiment V3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni sull'API Analisi del testo](overview.md)  
 * [Esempi di scenari utente](text-analytics-user-scenarios.md)

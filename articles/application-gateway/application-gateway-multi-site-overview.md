@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 1/16/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: d01ff17966d2e6b9aeaaf3c1f69817dbc84c3a6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2e50217b361b62a468e872fe489381911de9c2c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "57792634"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835361"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hosting di più siti in un gateway applicazione
 
@@ -23,9 +23,9 @@ L'hosting di più siti consente di configurare più applicazioni Web nella stess
 > [!IMPORTANT]
 > Le regole vengono elaborate nell'ordine in cui sono elencate nel portale. È consigliabile configurare i listener multisito prima di configurare un listener di base.  In questo modo il traffico viene indirizzato al back-end appropriato. Se un listener di base viene elencato per primo e corrisponde a una richiesta in ingresso, sarà tale listener a elaborarla.
 
-Per le richieste http://contoso.com viene eseguito il routing verso ContosoServerPool mentre per le richieste http://fabrikam.com viene eseguito il routing verso FabrikamServerPool.
+Per le richieste `http://contoso.com` viene eseguito il routing verso ContosoServerPool mentre per le richieste `http://fabrikam.com` viene eseguito il routing verso FabrikamServerPool.
 
-Analogamente, la stessa distribuzione del gateway applicazione può ospitare due sottodomini dello stesso dominio padre. Gli esempi di uso di sottodomini possono includere http://blog.contoso.com e http://app.contoso.com ospitati in una singola distribuzione del gateway applicazione.
+Analogamente, la stessa distribuzione del gateway applicazione può ospitare due sottodomini dello stesso dominio padre. Gli esempi di uso di sottodomini possono includere `http://blog.contoso.com` e `http://app.contoso.com` ospitati in una singola distribuzione del gateway applicazione.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Intestazioni host e indicazione nome server (SNI)
 

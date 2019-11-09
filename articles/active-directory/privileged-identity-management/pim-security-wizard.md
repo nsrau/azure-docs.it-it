@@ -1,25 +1,25 @@
 ---
-title: Sicurezza guidata ruoli di Azure AD in Privileged Identity Management-Azure Active Directory | Microsoft Docs
+title: Azure AD guidata sicurezza ruoli in PIM-Azure Active Directory | Microsoft Docs
 description: Descrive la procedura guidata relativa alla sicurezza che è possibile usare per convertire le assegnazioni di ruolo di Azure AD con privilegi permanenti in assegnazioni idonee usando Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d1c9905047cb4b234bf80ba82f2395f72f67f1
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 04bd0993873568ba7cce368ddd9277ed356b636c
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895210"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847040"
 ---
 # <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Azure AD guidata sicurezza ruoli in Privileged Identity Management
 

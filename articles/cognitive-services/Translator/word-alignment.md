@@ -1,7 +1,7 @@
 ---
 title: Allineamento delle parole - API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Ricevere informazioni sull'allineamento delle parole dall'API Traduzione testuale.
+description: Per ricevere informazioni sull'allineamento, usare il metodo Translate e includere il parametro facoltativo includeAlignment.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 5818d3f4d2ebed7cbcd46aadf538640914d3b7d4
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: dd4ff1e39c062910f4627973c801dc3c51f345e5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594791"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837235"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Come ricevere informazioni sull'allineamento delle parole
 

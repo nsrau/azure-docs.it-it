@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/07/2019
 ms.author: diberry
-ms.openlocfilehash: 0788df1c05d70c01d4de7f7a6ba62a476252f75a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2e32d0f4906dea69d6eab27faca4a2e41106ed73
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498940"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836829"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novità di Language Understanding
 
@@ -31,11 +31,13 @@ Informazioni sulle novità del servizio. Questi elementi includono note sulla ve
     * Possibilità di importare ed esportare app con formato Lu ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)). In questo modo viene spianato il modo di un processo di integrazione continua/recapito continuo effettivo. 
 * Espansione del linguaggio
     * [Arabo e Hindi](luis-language-support.md) in versione di anteprima pubblica.
-* Modelli di precompilazione
+* Modelli predefiniti
     * [Domini predefiniti](luis-reference-prebuilt-domains.md) è ora disponibile a livello generale (GA)
     * [Entità predefinite](luis-reference-prebuilt-entities.md#japanese-entity-support) giapponesi: età, valuta, numero, percentuale non supportata in V3.
     * [Entità predefinite](luis-reference-prebuilt-entities.md#italian-entity-support) italiane: validità, valuta, dimensione, numero, risoluzione percentuale modificata dalla versione V2.
-* Miglioramento dell'esperienza utente nel [portale di Preview.Luis.ai](https://preview.luis.ai) : esperienza di assegnazione di etichette rinnovata per consentire la compilazione e il debug di modelli complessi.
+* Miglioramento dell'esperienza utente nel [portale di Preview.Luis.ai](https://preview.luis.ai) : esperienza di assegnazione di etichette rinnovata per consentire la compilazione e il debug di modelli complessi. Provare le esercitazioni del portale di anteprima:
+    * [Solo Intent](tutorial-intents-only.md)
+    * [Entità Machine-learnable ricomponibile](tutorial-machine-learned-entity.md) 
 * Avanzate funzionalità di comprensione della lingua: [creazione di modelli di linguaggio sofisticati](luis-concept-entity-types.md) con minor sforzo. 
 * Definizione delle funzionalità di machine learning a livello di modello e abilitazione dei modelli da utilizzare come segnali per altri modelli, ad esempio l'utilizzo di entità come funzionalità per gli Intent e altre entità.
 * Nuovi [limiti](luis-boundaries.md) espansi-massimo per elenchi di frasi e frasi totali, nuovo modello come limite di funzionalità

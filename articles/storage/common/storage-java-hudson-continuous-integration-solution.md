@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: tarcher
 ms.subservice: common
-ms.openlocfilehash: 10bfc3ce4666ee1653110099a3c8d22a58d80f35
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 75b0ea106be04cd77b18bfed8487edb6a7b7f65b
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985290"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839179"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Hudson
 ## <a name="overview"></a>Panoramica
@@ -49,7 +49,7 @@ Per utilizzare il servizio BLOB con la soluzione di Integrazione continuata Huds
 
   3. Nel browser aprire `http://localhost:8080/`. Verrà aperto il dashboard di Hudson.
   4. Al primo utilizzo di Hudson, completare la configurazione iniziale all'indirizzo `http://localhost:8080/`.
-  5. Dopo aver completato la configurazione iniziale, annullare l'istanza in esecuzione di Hudson War, avviare di nuovo la guerra di Hudson e riaprire il dashboard di `http://localhost:8080/`Hudson,, che verrà usato per installare e configurare il plug-in di archiviazione di Azure.
+  5. Dopo aver completato la configurazione iniziale, annullare l'istanza in esecuzione di Hudson WAR, avviare di nuovo la guerra di Hudson e riaprire il dashboard di Hudson, `http://localhost:8080/`, che verrà usato per installare e configurare il plug-in di archiviazione di Azure.
      
       Sebbene sia necessario configurare una tipica soluzione di Integrazione continuata Hudson per eseguirla come servizio, ai fini di questa esercitazione sarà sufficiente eseguire il file WAR di Hudson nella riga di comando.
 * Un account Azure. È possibile registrarsi per un account Azure all'indirizzo <https://www.azure.com>.
@@ -83,7 +83,7 @@ Per usare il servizio BLOB con Hudson, è necessario installare il plug-in di Ar
    
     e. [Facoltativo] Se si dispone di account di archiviazione aggiuntivi che si desidera rendere disponibili all'Integrazione continuata Hudson, fare clic su **Add more storage accounts**.
    
-    f. Fare clic su **salvare** per salvare le impostazioni.
+    f. Per salvare le impostazioni, fare clic su **Save** .
 
 ## <a name="how-to-create-a-post-build-action-that-uploads-your-build-artifacts-to-your-storage-account"></a>Creazione di un'operazione post-compilazione per il caricamento degli elementi di compilazione nell'account di archiviazione
 Ai fini di questa esercitazione, è necessario innanzitutto creare un processo che crei più file e quindi aggiungere l'operazione post-compilazione per caricare i file nell'account di archiviazione.
@@ -103,7 +103,7 @@ Ai fini di questa esercitazione, è necessario innanzitutto creare un processo c
 
 5. Nella sezione **Post-build Actions** della configurazione del processo fare clic su **Upload artifacts to Microsoft Azure Blob storage**.
 6. In **Storage Account Name**scegliere l'account di archiviazione da usare.
-7. In **Container Name**specificare il nome del contenitore. Il contenitore verrà creato se non esiste già al momento del caricamento degli elementi di compilazione. È possibile usare variabili di ambiente, pertanto in questo esempio immettere **${JOB_NAME}** come nome del contenitore.
+7. In **Container Name**specificare il nome del contenitore. Il contenitore verrà creato se non esiste già quando vengono caricati gli artefatti di compilazione. È possibile usare le variabili di ambiente, quindi per questo esempio immettere **$ {job_name}** come nome del contenitore.
    
     **Suggerimento**
    
@@ -134,7 +134,7 @@ La procedura seguente illustra come configurare un passaggio di compilazione per
 1. Nella sezione **Build** della configurazione del processo fare clic su **Add build step** e scegliere **Download from Azure Blob storage**.
 2. In **Storage Account Name**scegliere l'account di archiviazione da utilizzare.
 3. In **Container name**specificare il nome del contenitore in cui si trovano i BLOB da scaricare. A questo scopo, è possibile usare le variabili di ambiente.
-4. In **Blob name**specificare il nome del BLOB. A questo scopo, è possibile usare le variabili di ambiente. È anche possibile usare un asterisco come carattere jolly dopo avere specificato le lettere iniziali del nome del BLOB. Ad esempio, **Project\\** * specifica tutti i BLOB i cui nomi iniziano con **Project**.
+4. In **Blob name**specificare il nome del BLOB. A questo scopo, è possibile usare le variabili di ambiente. È anche possibile usare un asterisco come carattere jolly dopo avere specificato le lettere iniziali del nome del BLOB. Ad esempio, **project\\** * specifica tutti i BLOB i cui nomi iniziano con **Project**.
 5. [Facoltativo] In **Download path**specificare il percorso nel computer Hudson in cui si vuole scaricare i file dall'archivio BLOB di Azure. A questo scopo, è anche possibile usare le variabili di ambiente. (Se non si specifica un valore per **Download path**, i file dall'archivio BLOB di Azure verranno scaricati nell'area di lavoro del processo.)
 
 Per scaricare elementi aggiuntivi dall'archiviazione BLOB di Azure, è possibile creare altri passaggi di compilazione.
@@ -144,10 +144,10 @@ Dopo avere eseguito una build, è possibile verificare l'output della cronologia
 ## <a name="components-used-by-the-blob-service"></a>Componenti usati dal servizio BLOB
 Di seguito è riportata una panoramica delle componenti del servizio BLOB.
 
-* **Account di archiviazione**: l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Questo è il livello più alto dello spazio dei nomi per accedere ai BLOB. Un account può contenere un numero illimitato di contenitori, purché la dimensione totale di questi sia inferiore a 100 TB.
-* **Contenitore**: Un contenitore consente di raggruppare un set di BLOB. Tutti i BLOB devono trovarsi in un contenitore. In un account può esistere un numero illimitato di contenitori. In un contenitore può essere archiviato un numero illimitato di BLOB.
-* **BLOB**: file di qualsiasi tipo o dimensione. Vi sono due tipi di BLOB che possono essere archiviati in Archiviazione di Azure: BLOB di pagine e BLOB in blocchi. La maggior parte dei file sono BLOB in blocchi. Un singolo BLOB in blocchi può raggiungere fino a 200 GB di dimensione. In questa esercitazione vengono utilizzati BLOB in blocchi. I BLOB di pagine, di altro tipo, possono raggiungere dimensioni fino a 1 TB e risultano più efficienti quando all'interno di un file vi sono intervalli di byte soggetti a modifiche frequenti. Per altre informazioni sui BLOB, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](https://msdn.microsoft.com/library/azure/ee691964.aspx).
-* **Formato URL**: è possibile fare riferimento ai BLOB usando il formato di URL seguente:
+* **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Questo è il livello più alto dello spazio dei nomi per accedere ai BLOB. Un account può contenere un numero illimitato di contenitori, purché la dimensione totale di questi sia inferiore a 100 TB.
+* **Contenitore:** un contenitore fornisce un raggruppamento di un set di BLOB. Tutti i BLOB devono trovarsi in un contenitore. In un account può esistere un numero illimitato di contenitori. In un contenitore può essere archiviato un numero illimitato di BLOB.
+* **BLOB:** un file di qualsiasi tipo e dimensione. Vi sono due tipi di BLOB che possono essere archiviati in Archiviazione di Azure: BLOB di pagine e BLOB in blocchi. La maggior parte dei file sono BLOB in blocchi. Un singolo BLOB in blocchi può raggiungere fino a 200 GB di dimensione. In questa esercitazione vengono utilizzati BLOB in blocchi. I BLOB di pagine, di altro tipo, possono raggiungere dimensioni fino a 1 TB e risultano più efficienti quando all'interno di un file vi sono intervalli di byte soggetti a modifiche frequenti. Per altre informazioni sui BLOB, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **Formato dell'URL:** è possibile fare riferimento ai BLOB usando il formato di URL seguente:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
@@ -160,7 +160,7 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
 ## <a name="next-steps"></a>Passaggi successivi
 * [Meet Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [Azure Storage SDK per Java](https://github.com/azure/azure-storage-java)
-* [Riferimento all'SDK del client di archiviazione di Azure](http://dl.windowsazure.com/storage/javadoc/)
+* [Riferimento all'SDK del client di archiviazione di Azure](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog del team di Archiviazione di Azure](https://blogs.msdn.com/b/windowsazurestorage/)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: afbf77014ece981568d4123db7820a2fa0a8f60d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: e1b513344b6ea16c25d829939e64cd5ca1063c87
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749102"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838900"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Macchine virtuali in un modello di Azure Resource Manager
 
@@ -282,7 +282,7 @@ Per impostare questa proprietà, è necessario che esista l'interfaccia di rete.
 Quando si definisce una risorsa di macchina virtuale, vengono usati diversi elementi di profilo. Alcuni sono necessari e alcuni sono facoltativi. Ad esempio, sono necessari gli elementi hardwareProfile, osProfile, storageProfile e networkProfile, ma diagnosticsProfile è facoltativo. Questi profili definiscono impostazioni, ad esempio:
    
 - [dimensione](sizes.md)
-- [nome](/azure/architecture/best-practices/naming-conventions) e credenziali
+- [nome](/azure/architecture/best-practices/resource-naming) e credenziali
 - disco e [impostazioni del sistema operativo](cli-ps-findimage.md)
 - [interfaccia di rete](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - diagnostica di avvio

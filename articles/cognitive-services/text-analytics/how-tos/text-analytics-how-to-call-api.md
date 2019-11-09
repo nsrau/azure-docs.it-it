@@ -1,7 +1,7 @@
 ---
 title: Chiamare l'API Analisi del testo
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come chiamare l'API REST Analisi del testo.
+description: Questo articolo illustra come chiamare i servizi cognitivi di Azure Analisi del testo l'API REST e il post.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 14d3864f654dac42566441b3729de0cf88482295
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5697ae4c8864e0b9c4cbfc9e1e1048e1c3d60f77
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697856"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837203"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Come chiamare l'API REST Analisi del testo
 
@@ -42,8 +42,8 @@ Attualmente è possibile inviare gli stessi documenti per tutte le operazioni di
 
 | Elemento | Valori validi | Obbligatorio? | Utilizzo |
 |---------|--------------|-----------|-------|
-|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Obbligatoria | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
-|`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Obbligatoria | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../text-analytics-supported-languages.md). |
+|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Obbligatorio | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
+|`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Obbligatorio | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../text-analytics-supported-languages.md). |
 |`language` | Codice [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) di 2 caratteri per una [lingua supportata](../text-analytics-supported-languages.md) | Variabile | Richiesto per l'analisi del sentiment, l'estrazione delle frasi chiave e il collegamento delle entità; facoltativo per il rilevamento della lingua. Se lo si omette non si verifica nessun errore ma l'analisi risulta più debole. Il codice della lingua deve corrispondere al `text` fornito. |
 
 Per altre informazioni sui limiti, vedere [Panoramica di Analisi del testo > Limiti relativi ai dati](../overview.md#data-limits). 
@@ -84,7 +84,7 @@ Il servizio accetta richieste fino alla dimensione di 1 MB. Se si usa Postman o 
   + [Rilevamento della lingua](text-analytics-how-to-language-detection.md)  
   + [Estrazione delle frasi chiave](text-analytics-how-to-keyword-extraction.md)  
   + [Analisi del sentiment](text-analytics-how-to-sentiment-analysis.md)  
-  + [Riconoscimento entità](text-analytics-how-to-entity-linking.md)  
+  + [Riconoscimento delle entità](text-analytics-how-to-entity-linking.md)  
 
 
 6. Fare clic su **Send** (Invia) per inviare la richiesta. Per informazioni sul numero di richieste che è possibile inviare al minuto e al secondo, vedere la sezione relativa ai [limiti dei dati](../overview.md#data-limits) nella panoramica.
@@ -94,7 +94,7 @@ Il servizio accetta richieste fino alla dimensione di 1 MB. Se si usa Postman o 
 ## <a name="see-also"></a>Vedere anche 
 
  [Panoramica di Analisi del testo](../overview.md)  
- [Domande frequenti](../text-analytics-resource-faq.md)
+ [Domande frequenti (FAQ)](../text-analytics-resource-faq.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 186d0bb9161d70d9e458d25dc1b9cbe518bb790e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a4a47f93054c4c93043b5215371b5eea7244d46
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133536"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834999"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento interno tramite l'interfaccia della riga di comando di Azure
 
-È possibile usare l'interfaccia della riga di comando di Azure per configurare il [reindirizzamento del traffico Web](application-gateway-multi-site-overview.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questa esercitazione viene creato un pool back-end usando un set di scalabilità di macchine virtuali, quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web arrivi al pool appropriato. Questa esercitazione si presuppone che si è proprietari di più domini e usi gli esempi del *www\.contoso.com* e *www\.contoso.org*.
+È possibile usare l'interfaccia della riga di comando di Azure per configurare il [reindirizzamento del traffico Web](application-gateway-multi-site-overview.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questa esercitazione viene creato un pool back-end usando un set di scalabilità di macchine virtuali, quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web arrivi al pool appropriato. In questa esercitazione si presuppone che l'utente sia proprietario di più domini e usi esempi di *www\.contoso.com* e *www\.contoso.org*.
 
 In questo articolo viene spiegato come:
 
@@ -99,9 +99,9 @@ Il processo di creazione del gateway applicazione può richiedere alcuni minuti.
 - *rule1*: regola di routing predefinita associata ad *appGatewayHttpListener*.
 
 
-## <a name="add-listeners-and-rules"></a>Aggiungere listener e regole 
+## <a name="add-listeners-and-rules"></a>Aggiunta di listener e regole 
 
-È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato al pool back-end. In questa esercitazione vengono creati due listener per i due domini. In questo esempio vengono creati i listener per i domini *www\.contoso.com* e *www\.contoso.org*.
+È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato al pool back-end. In questa esercitazione si creano due listener per i due domini. In questo esempio vengono creati i listener per i domini di *www\.contoso.com* e *www\.contoso.org*.
 
 Aggiungere i listener back-end necessari per instradare il traffico usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway).
 
@@ -124,7 +124,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Aggiungere la configurazione di reindirizzamento
 
-Aggiungere la configurazione di reindirizzamento che invia il traffico da *www\.consoto.org* al listener per *www\.contoso.com* nel gateway applicazione usando [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
+Aggiungere la configurazione di reindirizzamento che invia il traffico da *www\.consoto.org* al listener per *www\.contoso.com* nel gateway applicazione usando [AZ Network Application-Gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -137,7 +137,7 @@ az network application-gateway redirect-config create \
   --include-query-string true
 ```
 
-### <a name="add-routing-rules"></a>Aggiungere le regole di routing
+### <a name="add-routing-rules"></a>Aggiunta delle regole di routing
 
 Le regole vengono elaborate nell'ordine in cui sono state create e il traffico viene indirizzato usando la prima regola corrispondente all'URL inviato al gateway applicazione. In questa esercitazione non è necessaria la regola di base predefinita che è stata creata. In questo esempio si creano due nuove regole denominate *contosoComRule* e *contosoOrgRule* e si elimina la regola predefinita che è stata creata.  È possibile aggiungere le regole usando [az network application-gateway rule create](/cli/azure/network/application-gateway).
 
@@ -209,15 +209,15 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http://www.contoso.com .
+Immettere il nome di dominio nella barra degli indirizzi del browser, Ad esempio, `http://www.contoso.com`.
 
 ![Testare il sito contoso nel gateway applicazione](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 
-Modificare l'indirizzo per l'altro dominio, ad esempio http://www.contoso.org dovrebbe essere possibile visualizzare che il traffico è stato reindirizzato al listener per www\. contoso.com.
+Modificare l'indirizzo per l'altro dominio, ad esempio http://www.contoso.org e si noterà che il traffico è stato reindirizzato al listener per www\.contoso.com.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Configurare la rete

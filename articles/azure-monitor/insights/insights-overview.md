@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
-ms.openlocfilehash: 81d82ce79130513a2827090a98bfef192c9d7829
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: d1b53267daa2d47baf9976727bbaf3fa56172432
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795711"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832101"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Panoramica delle informazioni dettagliate in monitoraggio di Azure
 Le informazioni dettagliate forniscono un'esperienza di monitoraggio personalizzata per applicazioni e servizi specifici. Archiviano i dati nella [piattaforma dati di monitoraggio di Azure](../platform/data-platform.md) e sfruttano altre funzionalità di monitoraggio di Azure per l'analisi e l'invio di avvisi, ma possono raccogliere dati aggiuntivi e fornire un'esperienza utente univoca nel portale di Azure. Accedere a Insights dalla sezione **Insights** del menu di monitoraggio di Azure nel portale di Azure.
@@ -47,8 +47,8 @@ Vedere [che cos'è monitoraggio di Azure per le macchine virtuali?](vminsights-o
 
 ![Monitoraggio di Azure per VM](media/insights-overview/vm-insights.png)
 
-## <a name="azure-monitor-for-network-preview"></a>Monitoraggio di Azure per rete (anteprima)
-Monitoraggio di Azure per la rete offre una panoramica completa dell'integrità e delle metriche per tutte le risorse di rete. La funzionalità di ricerca avanzata consente di identificare le dipendenze delle risorse, abilitando scenari come l'identificazione di risorse che ospitano il sito Web, semplicemente cercando il nome del sito Web.
+## <a name="azure-monitor-for-networks-preview"></a>Monitoraggio di Azure per le reti (anteprima)
+[Monitoraggio di Azure per le reti](network-insights-overview.md) offre una panoramica completa dell'integrità e delle metriche per tutte le risorse di rete. La funzionalità di ricerca avanzata consente di identificare le dipendenze delle risorse, abilitando scenari come l'identificazione di risorse che ospitano il sito Web, semplicemente cercando il nome del sito Web.
 
 ![Monitoraggio di Azure per le reti](media/insights-overview/network-insights.png)
 

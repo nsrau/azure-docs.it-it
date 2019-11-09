@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ecec237eab42cf434ab8627ebdf9b1e34f3ab3f1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66167399"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838121"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteggere le chiamate alle API personalizzate da App per la logica di Azure
 
@@ -29,7 +29,7 @@ Per proteggere le chiamate alle API, è possibile configurare l'autenticazione d
   > [!NOTE]
   > Per impostazione predefinita, l'autenticazione di Azure AD che si attiva nel portale di Azure non offre un'autorizzazione con granularità fine. Ad esempio, questa autenticazione blocca l'API a un tenant specifico, non a un determinato utente o app. 
 
-* [Aggiornare il codice dell'API](#update-code): proteggere l'API applicando [l'autenticazione del certificato](#certificate), l'[autenticazione di base](#basic) o l'[autenticazione di Azure AD](#azure-ad-code) attraverso il codice.
+* [Aggiornare il codice dell'API](#update-code): proteggere l'API applicando [l'autenticazione del certificato](#certificate), [l'autenticazione di base](#basic) o [autenticazione di Azure AD](#azure-ad-code) attraverso il codice.
 
 <a name="no-code"></a>
 
@@ -49,7 +49,7 @@ L'app per la logica usa questa identità di applicazione di Azure AD per l'auten
 
 **Creare l'identità di applicazione per l'app per la logica nel portale di Azure**
 
-1. Nel [portale di Azure](https://portal.azure.com "https://portal.azure.com") scegliere **Azure Active Directory**. 
+1. Nella [portale di Azure](https://portal.azure.com "https://portal.azure.com")scegliere **Azure Active Directory**. 
 
 2. Verificare di essere nella stessa directory dell'app Web o app per le API.
 
@@ -100,11 +100,13 @@ L'app per la logica usa questa identità di applicazione di Azure AD per l'auten
 
 1. `Add-AzAccount`
 
-2. `$SecurePassword = Read-Host -AsSecureString` (Immettere una password e premere INVIO)
+1. `$SecurePassword = Read-Host -AsSecureString`
 
-3. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+1. Immettere una password e premere INVIO.
 
-4. Assicurarsi di copiare l'**ID tenant** (GUID per il tenant di Azure AD), l'**ID applicazione** e la password usati.
+1. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+
+1. Assicurarsi di copiare l'**ID tenant** (GUID per il tenant di Azure AD), l'**ID applicazione** e la password usati.
 
 Per altre informazioni, vedere la procedura di [creazione di un'entità servizio con PowerShell per accedere alle risorse](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
@@ -114,7 +116,7 @@ Se l'app Web o l'app per le API è già stata distribuita, è possibile attivare
 
 **Creare l'identità di applicazione e attivare l'autenticazione nel portale di Azure per le app distribuite**
 
-1. Nel [portale di Azure](https://portal.azure.com "https://portal.azure.com") individuare e selezionare l'app Web o l'app per le API. 
+1. Nella [portale di Azure](https://portal.azure.com "https://portal.azure.com")trovare e selezionare l'app Web o l'app per le API. 
 
 2. In **Impostazioni** scegliere **Autenticazione/Autorizzazione**. In **Autenticazione servizio app** **attivare** l'autenticazione. In **Provider di autenticazione** scegliere **Azure Active Directory**.
 
@@ -151,7 +153,7 @@ A questo punto è necessario trovare l'ID client e l'ID tenant per l'identità d
 
 **Attivare l'autenticazione quando si esegue la distribuzione con un modello di Azure Resource Manager**
 
-È comunque necessario creare un'identità di applicazione di Azure AD per l'app Web o app per le API che differisce dall'identità di applicazione per l'app per la logica. Per creare l'identità di applicazione, seguire i passaggi descritti in precedenza nella Parte 2 per il portale di Azure. 
+È comunque necessario creare un'identità dell'applicazione Azure AD per l'app Web o l'app per le API che differisce dall'identità dell'app per la logica. Per creare l'identità di applicazione, seguire i passaggi descritti in precedenza nella Parte 2 per il portale di Azure. 
 
 È anche possibile seguire i passaggi della Parte 1, ma assicurarsi di usare l'elemento `https://{URL}` reale dell'app Web o app per le API per **URL accesso** e **URI dell'ID dell'app**. Da questi passaggi è necessario salvare sia l'ID client che l'ID tenant per usarli nel modello di distribuzione dell'app, nonché per la Parte 3.
 
@@ -161,19 +163,21 @@ A questo punto è necessario trovare l'ID client e l'ID tenant per l'identità d
 Dopo aver ottenuto l'ID client e l'ID tenant, includerli come risorsa secondaria dell'app Web o app per le API nel modello di distribuzione:
 
 ``` json
-"resources": [ {
-    "apiVersion": "2015-08-01",
-    "name": "web",
-    "type": "config",
-    "dependsOn": ["[concat('Microsoft.Web/sites/','parameters('webAppName'))]"],
-    "properties": {
-        "siteAuthEnabled": true,
-        "siteAuthSettings": {
-            "clientId": "{client-ID}",
-            "issuer": "https://sts.windows.net/{tenant-ID}/",
-        }
-    }
-} ]
+"resources": [ 
+   {
+      "apiVersion": "2015-08-01",
+      "name": "web",
+      "type": "config",
+      "dependsOn": ["[concat('Microsoft.Web/sites/','parameters('webAppName'))]"],
+      "properties": {
+         "siteAuthEnabled": true,
+         "siteAuthSettings": {
+            "clientId": "<client-ID>",
+            "issuer": "https://sts.windows.net/<tenant-ID>/"
+         }
+      }
+   } 
+]
 ```
 
 Per implementare automaticamente un'app Web vuota e un'app per la logica con l'autenticazione di Azure Active Directory, [visualizzare il modello completo qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json) oppure fare clic su **Distribuzione in Azure** qui:
@@ -184,12 +188,20 @@ Per implementare automaticamente un'app Web vuota e un'app per la logica con l'a
 
 Questa sezione dell'autorizzazione è già stata configurata nel modello precedente, ma se si crea direttamente l'app per la logica, sarà necessario includere l'intera sezione relativa all'autorizzazione.
 
-Aprire la definizione dell'app per la logica nella visualizzazione Codice, passare alla sezione dell'azione **HTTP**, trovare la sezione dell'**autorizzazione** e includere questa riga:
+Aprire la definizione dell'app per la logica nella visualizzazione codice, passare alla definizione dell'azione **http** , trovare la sezione **autorizzazione** e includere le proprietà seguenti:
 
-`{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
+```json
+{
+   "tenant": "<tenant-ID>",
+   "audience": "<client-ID-from-Part-2-web-app-or-API app>", 
+   "clientId": "<client-ID-from-Part-1-logic-app>",
+   "secret": "<key-from-Part-1-logic-app>", 
+   "type": "ActiveDirectoryOAuth"
+}
+```
 
-| Elemento | Obbligatorio | Descrizione | 
-| ------- | -------- | ----------- | 
+| Proprietà | Obbligatorio | Descrizione | 
+| -------- | -------- | ----------- | 
 | tenant | Sì | Il GUID per il tenant di Azure AD | 
 | audience | Sì | GUID per la risorsa di destinazione cui si vuole accedere, che è l'ID client dall'identità di applicazione per l'app Web o l'app per le API | 
 | clientId | Sì | GUID per il client che richiede l'accesso, che è l'ID client dall'identità di applicazione per l'app per la logica | 
@@ -202,10 +214,9 @@ Ad esempio:
 ``` json
 {
    "actions": {
-      "some-action": {
-         "conditions": [],
+      "HTTP": {
          "inputs": {
-            "method": "post",
+            "method": "POST",
             "uri": "https://your-api-azurewebsites.net/api/your-method",
             "authentication": {
                "tenant": "tenant-ID",
@@ -214,7 +225,7 @@ Ad esempio:
                "secret": "key-from-azure-ad-app-for-logic-app",
                "type": "ActiveDirectoryOAuth"
             }
-         },
+         }
       }
    }
 }
@@ -230,12 +241,18 @@ Ad esempio:
 
 Per convalidare le richieste in ingresso dall'app per la logica all'app Web o all'app per le API, è possibile usare i certificati client. Per configurare il codice, vedere le informazioni relative alla [configurazione dell'autenticazione reciproca TLS](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
-Includere questa riga nella sezione dell'**autorizzazione**: 
+Nella sezione **autorizzazione** includere le proprietà seguenti:
 
-`{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
+```json
+{
+   "type": "ClientCertificate",
+   "password": "<password>",
+   "pfx": "<long-pfx-key>"
+} 
+```
 
-| Elemento | Obbligatorio | Descrizione | 
-| ------- | -------- | ----------- | 
+| Proprietà | Obbligatorio | Descrizione | 
+| -------- | -------- | ----------- | 
 | type | Sì | Il tipo di autenticazione. Per i certificati client SSL, il valore deve essere `ClientCertificate`. | 
 | password | Sì | La password per accedere al certificato client (file PFX) | 
 | pfx | Sì | Contenuti del certificato client con codifica Base64 (file PFX) | 
@@ -247,14 +264,20 @@ Includere questa riga nella sezione dell'**autorizzazione**:
 
 Per convalidare le richieste in ingresso dall'app per la logica all'app Web o app per le API, è possibile usare l'autenticazione di base, ad esempio un nome utente e una password. L'autenticazione di base è un modello comune applicabile a qualsiasi linguaggio usato per compilare l'app Web o app per le API.
 
-Includere questa riga nella sezione dell'**autorizzazione**:
+Nella sezione **autorizzazione** includere le proprietà seguenti:
 
-`{"type": "basic", "username": "username", "password": "password"}`.
+```json
+{
+   "type": "Basic",
+   "username": "<username>",
+   "password": "<password>"
+}
+```
 
-| Elemento | Obbligatorio | Descrizione | 
-| ------- | -------- | ----------- | 
+| Proprietà | Obbligatorio | Descrizione | 
+| -------- | -------- | ----------- | 
 | type | Sì | Tipo di autenticazione che si vuole usare. Per l'autenticazione di base il valore deve essere `Basic`. | 
-| username | Sì | Nome utente che si vuole usare per l'autenticazione | 
+| Nome utente | Sì | Nome utente che si vuole usare per l'autenticazione | 
 | password | Sì | Password che si vuole usare per l'autenticazione | 
 |||| 
 

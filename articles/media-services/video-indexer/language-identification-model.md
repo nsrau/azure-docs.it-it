@@ -1,6 +1,6 @@
 ---
 title: Identificazione automatica della lingua parlata con Video Indexer-Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Questo articolo descrive il modo in cui viene usato il modello di identificazione della lingua Video Indexer per identificare automaticamente la lingua parlata in un video.
 services: media-services
 author: juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ellbe
-ms.openlocfilehash: 729ac9fc7c8ec6a85b3497c51888d3b5a6fc8558
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: ce3e488a6387f9a823d7c1b514b52af24944776b
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147185"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839004"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identificazione automatica della lingua parlata con il modello di identificazione della lingua
 
@@ -31,9 +31,9 @@ Quando si usa il portale, accedere ai **video dell'account** nella [video Indexe
 
 ## <a name="model-output"></a>Output modello
 
-Video Indexer Trascriva il video in base alla lingua più probabile se la confidenza di tale lingua è `> 0.6`. Se la lingua non può essere identificata in tutta sicurezza, presuppone che la lingua parlata sia l'inglese. 
+Video Indexer Trascriva il video in base alla lingua più probabile se la confidenza per tale lingua è `> 0.6`. Se la lingua non può essere identificata in tutta sicurezza, presuppone che la lingua parlata sia l'inglese. 
 
-Il linguaggio dominante del modello è disponibile nel file JSON di Insights `sourceLanguage` come attributo (in root/video/Insights). Un punteggio di confidenza corrispondente è disponibile anche `sourceLanguageConfidence` nell'attributo.
+Il linguaggio dominante del modello è disponibile nel file JSON di Insights come attributo `sourceLanguage` (in root/video/Insights). Un punteggio di confidenza corrispondente è disponibile anche nell'attributo `sourceLanguageConfidence`.
 
 ```json
 "insights": {
@@ -51,7 +51,7 @@ Il linguaggio dominante del modello è disponibile nel file JSON di Insights `so
 
 * Le lingue supportate sono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, russo e portoghese (Brasile).
 * Se l'audio contiene lingue diverse dall'elenco supportato, il risultato è imprevisto.
-* Se video Indexer non è in grado di identificare la lingua con una`>0.6`confidenza sufficientemente elevata (), la lingua di fallback è l'inglese.
+* Se Video Indexer non è in grado di identificare la lingua con una confidenza sufficientemente elevata (`>0.6`), la lingua di fallback è l'inglese.
 * Non è disponibile alcun supporto corrente per file con audio in lingue miste. Se l'audio contiene lingue miste, il risultato è imprevisto. 
 * L'audio di bassa qualità può influito sui risultati del modello.
 * Il modello richiede almeno un minuto di riconoscimento vocale nell'audio.

@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: article
 ms.date: 7/9/2018
 ms.author: victorh
-ms.openlocfilehash: b39174152e427e408e7dfbbc353baf5f96ec7c01
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: c0a6cda54a58e3cc03ba31e221fb57fc725dd779
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657083"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839379"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Distribuire Firewall di Azure con un modello
 
-[Creare il modello di configurazione sandbox di AzureFirewall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox) crea un ambiente di rete di test con un firewall. La rete ha una rete virtuale (VNet) con tre subnet: *AzureFirewallSubnet*, *ServersSubnet*, e *JumpboxSubnet*. Ciascuna delle subnet *ServersSubnet* e *JumpboxSubnet* dispone di una macchina singola virtuale Windows Server a due core.
+[Creare il modello di configurazione sandbox di AzureFirewall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox) crea un ambiente di rete di test con un firewall. La rete ha una rete virtuale (VNet) con tre subnet: *AzureFirewallSubnet*, *ServersSubnet*e *JumpboxSubnet*. Ciascuna delle subnet *ServersSubnet* e *JumpboxSubnet* dispone di una macchina singola virtuale Windows Server a due core.
 
-Il firewall si trova nella subnet *AzureFirewallSubnet* e dispone di una raccolta di regole dell'applicazione con una singola regola che consente l'accesso a *www.microsoft.com*.
+Il firewall si trova nella subnet *AzureFirewallSubnet* e include una raccolta di regole dell'applicazione con una singola regola che consente l'accesso ai `www.microsoft.com`.
 
 Una route definita dall'utente punta al traffico di rete dalla subnet *ServersSubnet* attraverso il firewall, in cui vengono applicate le regole del firewall.
 
@@ -41,10 +41,10 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Nel portale, alla pagina **Creare una configurazione sandbox di AzureFirewall**, digitare o selezionare i seguenti valori:
    
-   - **Gruppo di risorse**: selezionare **Crea nuovo**, digitare un nome per il gruppo di risorse e selezionare **OK**. 
-   - **Nome della rete virtuale**: Digitare un nome per la nuova rete virtuale. 
-   - **Nome utente amministratore**: Digitare un nome utente per l'account utente amministratore.
-   - **Password amministratore**: Digitare una password dell'amministratore. 
+   - **Gruppo di risorse**: selezionare **Crea nuovo**, digitare un nome per il gruppo di risorse e fare clic su **OK**. 
+   - **Nome rete virtuale**: digitare un nome per il nuovo VNet. 
+   - **Nome utente**amministratore: digitare un nome utente per l'account utente amministratore.
+   - **Password**amministratore: digitare una password di amministratore. 
    
 1. Leggere le condizioni, quindi selezionare **Accetto le condizioni riportate sopra**.
    
@@ -58,7 +58,7 @@ Per altre informazioni sulla sintassi JSON e sulle proprietà di un firewall in 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non è più necessario, è possibile rimuovere il gruppo di risorse, firewall e tutte le relative risorse eseguendo il [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) comando di PowerShell. Per rimuovere un gruppo di risorse denominato *MyResourceGroup*, eseguire: 
+Quando non sono più necessari, è possibile rimuovere il gruppo di risorse, il firewall e tutte le risorse correlate eseguendo il comando di PowerShell [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) . Per rimuovere un gruppo di risorse denominato *MyResourceGroup*, eseguire: 
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
@@ -70,4 +70,4 @@ Non rimuovere ancora il gruppo di risorse e il firewall se si prevede di continu
 È ora possibile monitorare i log di Firewall di Azure:
 
 > [!div class="nextstepaction"]
-> [Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)
+> [Esercitazione: Monitorare i log di Firewall di Azure](./tutorial-diagnostics.md)

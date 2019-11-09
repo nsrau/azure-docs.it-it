@@ -4,18 +4,18 @@ ms.service: dns
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
-ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 261ae22348cd82b129727261c619727917e19c96
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180777"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832065"
 ---
 ### <a name="record-names"></a>Nomi dei record
 
-Nel servizio DNS di Azure i record vengono specificati usando nomi relativi. Un nome di dominio *completo* (FQDN) include il nome della zona, mentre un nome *relativo* no. Ad esempio, il nome di record relativo "www" nella zona "contoso.com" genera il nome di record completo "www.contoso.com".
+Nel servizio DNS di Azure i record vengono specificati usando nomi relativi. Un nome di dominio *completo* (FQDN) include il nome della zona, mentre un nome *relativo* no. Ad esempio, il nome del record relativo `www` nell'`contoso.com` della zona indica il nome completo del record `www.contoso.com`.
 
-Un record *vertice* è un record DNS alla radice (o *vertice*) di una zona DNS. Ad esempio, nella zona DNS "contoso.com", anche un record vertice ha il nome completo "contoso.com", chiamato a volte dominio di tipo *naked*.  Per convenzione, per rappresentare record vertice viene usato il nome relativo "\@".
+Un record *vertice* è un record DNS alla radice (o *vertice*) di una zona DNS. Ad esempio, nella `contoso.com`della zona DNS, un record Apex ha anche il nome completo `contoso.com` (questo è talvolta denominato dominio *nudo* ).  Per convenzione, per rappresentare record vertice viene usato il nome relativo "\@".
 
 ### <a name="record-types"></a>Tipi di record
 

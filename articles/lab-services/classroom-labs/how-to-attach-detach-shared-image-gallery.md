@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: f3006dd3f474dea1add1621f35f902422e244ce1
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 4f3f435110f0cba5ea2370f2900d4e7031904067
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161552"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890325"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Collegamento o scollegamento di una raccolta di immagini condivise in Azure Lab Services
 Insegnanti/amministratori Lab possono salvare un'immagine di macchina virtuale modello in una [raccolta di immagini condivise](../../virtual-machines/windows/shared-image-galleries.md) di Azure perché venga riutilizzata da altri utenti. Come primo passaggio, l'amministratore del Lab connette una raccolta di immagini condivise esistente all'account Lab. Una volta collegata la raccolta di immagini condivise, i Lab creati nell'account Lab possono salvare le immagini nella raccolta di immagini condivise. Altri docenti possono selezionare questa immagine dalla raccolta di immagini condivise per creare un modello per le classi. 
@@ -26,7 +26,7 @@ Insegnanti/amministratori Lab possono salvare un'immagine di macchina virtuale m
 Questo articolo illustra come connettere o scollegare una raccolta di immagini condivise a un account Lab. 
 
 > [!NOTE]
-> Quando un'immagine viene salvata in una raccolta di immagini condivise, Azure Lab Services replica l'immagine salvata in altre aree disponibili nella stessa area [geografica](https://azure.microsoft.com/global-infrastructure/geographies/). Assicura che l'immagine sia disponibile per i Lab creati in altre aree nella stessa area geografica. Il salvataggio di immagini in una raccolta di immagini condivise comporta un costo aggiuntivo, che include il costo per tutte le immagini replicate. Questo costo è separato dal costo di utilizzo del Azure Lab Services. Per altre informazioni sui prezzi di raccolta immagini condivise, vedere [raccolta immagini condivise-fatturazione]( https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries#billing).
+> Quando un'immagine viene salvata in una raccolta di immagini condivise, Azure Lab Services replica l'immagine salvata in altre aree disponibili nella stessa area [geografica](https://azure.microsoft.com/global-infrastructure/geographies/). Assicura che l'immagine sia disponibile per i Lab creati in altre aree nella stessa area geografica. Il salvataggio di immagini in una raccolta di immagini condivise comporta un costo aggiuntivo, che include il costo per tutte le immagini replicate. Questo costo è separato dal costo di utilizzo del Azure Lab Services. Per altre informazioni sui prezzi di raccolta immagini condivise, vedere [raccolta immagini condivise-fatturazione]( https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
 
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurare al momento della creazione dell'account Lab

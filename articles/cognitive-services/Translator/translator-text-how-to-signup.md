@@ -1,7 +1,7 @@
 ---
 title: Introduzione - API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come eseguire la registrazione all'API Traduzione testuale e ottenere una chiave di sottoscrizione.
+description: Questo articolo illustra come iscriversi ai servizi cognitivi di Azure API Traduzione testuale e ottenere una chiave di sottoscrizione.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: e51e6875681618b5f558d5c52ed5a2b14095b079
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cfae5318213e8af164c8d0cc9ed378705a5644b0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434958"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835698"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Come registrarsi all'API Traduzione testuale
 

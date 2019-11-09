@@ -1,18 +1,18 @@
 ---
-title: Funzionalità di richiesta dati dei clienti
+title: Funzionalità di richiesta dei dati del cliente per i dispositivi di Azure DPS
+description: Per i dispositivi gestiti nel servizio Device provisioning di Azure (DPS) personali, questo articolo illustra come esportare o eliminare i dati personali da parte degli amministratori.
 author: dominicbetts
 ms.author: dobett
-manager: timlt
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 5dd027c886e8102e77ddefe93817daee0e1ec29b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1dcf1b9f62f94b8f75ef2fe77f3e237a387c53eb
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626435"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890642"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dati dei clienti
 
@@ -43,7 +43,7 @@ Per altre informazioni, vedere l'argomento relativo a [come gestire le registraz
 * Per eliminare le informazioni di registrazione per un gruppo di dispositivi è possibile usare [Device Enrollment group - Delete](/rest/api/iot-dps/deleteenrollmentgroup/deleteenrollmentgroup) (Registrazione gruppo di dispositivi - Elimina).
 * Per eliminare le informazioni sui dispositivi che sono stati sottoposti a provisioning, è possibile usare [Registration State - Delete Registration State](/rest/api/iot-dps/deletedeviceregistrationstate/deletedeviceregistrationstate) (Stato di registrazione - Elimina stato di registrazione).
 
-## <a name="exporting-customer-data"></a>Esportazione di dati del cliente
+## <a name="exporting-customer-data"></a>Esportazione di dati dei clienti
 
 Il servizio di provisioning di dispositivi archivia le registrazioni e i record di registrazione. Le registrazioni contengono informazioni sui dispositivi sui quali è possibile eseguire il provisioning e i record di registrazione mostrano i dispositivi che sono già stati sottoposti al processo di provisioning.
 

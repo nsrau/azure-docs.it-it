@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e1f7aeb5615c1a22c1970f118c24c996ac936870
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3c70d2086fc5866b07c31966343397f8ccc809be
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826816"
+ms.locfileid: "73846738"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -169,7 +169,7 @@ Si noti che il risparmio del volume si applica solo al server; i dati nella cond
 > La deduplicazione dei dati e la suddivisione in livelli cloud non sono attualmente supportate nello stesso volume nel server 2019 a causa di un bug che verrà risolto in un aggiornamento futuro.
 
 **Windows Server 2012 R2**  
-Sincronizzazione file di Azure non supporta la deduplicazione dei dati e la suddivisione in livelli nel cloud nello stesso volume. Se la deduplicazione dei dati è abilitata in un volume, la suddivisione in livelli cloud deve essere disabilitata. 
+Sincronizzazione file di Azure non supporta la deduplicazione dei dati e la suddivisione in livelli nel cloud nello stesso volume di Windows Server 2012 R2. Se la deduplicazione dei dati è abilitata in un volume, la suddivisione in livelli cloud deve essere disabilitata. 
 
 **Note**
 - Se la deduplicazione dei dati viene installata prima di installare l'agente di Sincronizzazione file di Azure, è necessario riavviare il servizio per supportare la deduplicazione dei dati e la suddivisione in livelli nel cloud nello stesso volume.

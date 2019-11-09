@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/23/2016
-ms.openlocfilehash: 1e02e227180bb0082dd87ab8f5d2fe64e19b60f2
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 550ac9ff3b425e682fdda16501613aa41a80d765
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677816"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847239"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtri e pre-elaborazione della telemetria in Application Insights SDK
 
@@ -25,11 +25,11 @@ ms.locfileid: "72677816"
 
 Prima di iniziare:
 
-* Installare l'SDK appropriato per l'applicazione: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [non http/Worker per .NET/.NET Core](worker-service.md)o [Java](../../azure-monitor/app/java-get-started.md).
+* Installare l'SDK appropriato per l'applicazione: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [non http/Worker per .NET/.NET Core](worker-service.md), [Java](../../azure-monitor/app/java-get-started.md) o [JavaScript](javascript.md)
 
 <a name="filtering"></a>
 
-## <a name="filtering-itelemetryprocessor"></a>Filtro: ITelemetryProcessor
+## <a name="filtering"></a>Filtri
 
 Questa tecnica offre il controllo diretto sugli elementi inclusi o esclusi dal flusso di dati di telemetria. È possibile usare il filtro per eliminare gli elementi di telemetria dall'invio a Application Insights. È possibile usarla insieme al campionamento oppure separatamente.
 
@@ -198,13 +198,36 @@ public void Process(ITelemetry item)
 
 <a name="add-properties"></a>
 
-## <a name="add-properties-itelemetryinitializer"></a>Aggiungere proprietà: ITelemetryInitializer
+### <a name="javascript-web-applications"></a>Applicazioni Web JavaScript
+
+**Applicazione di filtri tramite ITelemetryInitializer**
+
+1. Creare una funzione di callback dell'inizializzatore di telemetria. La funzione di callback accetta `ITelemetryItem` come parametro, ovvero l'evento che viene elaborato. Se si restituisce `false` da questo callback, l'elemento di telemetria viene filtrato.  
+
+   ```JS
+   var filteringFunction = (envelope) => {
+     if (envelope.data.someField === 'tobefilteredout') {
+        return false;
+     }
+  
+     return true;
+   };
+   ```
+
+2. Aggiungere il callback dell'inizializzatore di telemetria:
+
+   ```JS
+   appInsights.addTelemetryInitializer(filteringFunction);
+   ```
+
+## <a name="addmodify-properties-itelemetryinitializer"></a>Aggiungi/modifica proprietà: ITelemetryInitializer
+
 
 Usare gli inizializzatori di telemetria per arricchire la telemetria con altre informazioni e/o per eseguire l'override delle proprietà di telemetria impostate dai moduli di telemetria standard.
 
 Il Application Insights per il pacchetto Web, ad esempio, raccoglie i dati di telemetria sulle richieste HTTP. per impostazione predefinita, contrassegna come non riuscita qualsiasi richiesta con un codice di risposta > = 400. Tuttavia, se si vuole considerare 400 come un risultato positivo, è possibile fornire un inizializzatore di telemetria che imposti la proprietà Success.
 
-In tal modo, l'inizializzatore di telemetria verrà chiamato ogni volta che viene chiamato uno dei metodi Track*(). Sono inclusi `Track()` metodi chiamati dai moduli di telemetria standard. Per convenzione, questi moduli non impostano le proprietà che sono già state impostate da un inizializzatore. Gli inizializzatori di telemetria vengono chiamati prima di chiamare i processori di telemetria. Quindi, eventuali arricchimenti eseguiti dagli inizializzatori sono visibili ai processori.
+In tal modo, l'inizializzatore di telemetria verrà chiamato ogni volta che viene chiamato uno dei metodi Track*(). Sono inclusi i metodi `Track()` chiamati dai moduli di telemetria standard. Per convenzione, questi moduli non impostano le proprietà che sono già state impostate da un inizializzatore. Gli inizializzatori di telemetria vengono chiamati prima di chiamare i processori di telemetria. Quindi, eventuali arricchimenti eseguiti dagli inizializzatori sono visibili ai processori.
 
 **Definire l'inizializzatore**
 
@@ -276,7 +299,7 @@ protected void Application_Start()
 **App del servizio ASP.NET Core/Worker: caricare l'inizializzatore**
 
 > [!NOTE]
-> L'aggiunta di un inizializzatore usando `ApplicationInsights.config` o l'uso di `TelemetryConfiguration.Active` non è valida per le applicazioni ASP.NET Core o se si usa Microsoft. ApplicationInsights. WorkerService SDK.
+> L'aggiunta di un inizializzatore con `ApplicationInsights.config` o con `TelemetryConfiguration.Active` non è valida per le applicazioni ASP.NET Core o se si usa Microsoft. ApplicationInsights. WorkerService SDK.
 
 Per le app scritte con [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) o [WorkerService](worker-service.md#adding-telemetryinitializers), l'aggiunta di una nuova `TelemetryInitializer` viene eseguita aggiungendola al contenitore di inserimento delle dipendenze, come illustrato di seguito. Questa operazione viene eseguita nel metodo `Startup.ConfigureServices`.
 
@@ -403,7 +426,7 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 * Verificare che il nome di tipo completo e il nome di assembly siano corretti.
 * Verificare che il file applicationinsights.config si trovi nella directory di output e includa le ultime modifiche apportate.
 
-## <a name="reference-docs"></a>Documenti di riferimento
+## <a name="reference-docs"></a>Documentazione di riferimento
 
 * [Panoramica API](../../azure-monitor/app/api-custom-events-metrics.md)
 * [Riferimento ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
@@ -417,4 +440,4 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 ## <a name="next"></a>Passaggi successivi
 * [Ricerca di eventi e log](../../azure-monitor/app/diagnostic-search.md)
 * [Campionamento](../../azure-monitor/app/sampling.md)
-* [risoluzione dei problemi](../../azure-monitor/app/troubleshoot-faq.md)
+* [Risoluzione dei problemi](../../azure-monitor/app/troubleshoot-faq.md)

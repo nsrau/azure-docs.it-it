@@ -1,6 +1,6 @@
 ---
 title: Creare un'area di lavoro
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Per usare Azure Machine Learning Studio (versione classica), è necessario disporre di un'area di lavoro di Machine Learning Studio (classica). Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: c5aa5a0ea4a74c2047e600fa3c46e226d12f69c0
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1652febf6c3eb906990b2405590274911a45348e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647090"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839907"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Creare e condividere un'area di lavoro di Azure Machine Learning Studio (classica)
 
@@ -41,7 +41,7 @@ Per usare Azure Machine Learning Studio (versione classica), è necessario dispo
 
      ![Creare una nuova area di lavoro di studio (classica)](./media/create-workspace/create-new-workspace.png)
 
-5. Fare clic su **Create**.
+5. Fai clic su **Crea**.
 
 > [!NOTE]
 > Machine Learning Studio (classico) si basa su un account di archiviazione di Azure fornito per salvare i dati intermedi quando esegue il flusso di lavoro. Dopo la creazione dell'area di lavoro, se l'account di archiviazione viene eliminato o se le chiavi di accesso vengono cambiate, l'area di lavoro non funzionerà più e tutti gli esperimenti al suo interno avranno esito negativo.

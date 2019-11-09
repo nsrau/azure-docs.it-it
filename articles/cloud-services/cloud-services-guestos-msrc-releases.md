@@ -10,43 +10,40 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/15/2019
+ms.date: 11/1/2019
 ms.author: raiye
-ms.openlocfilehash: b4150858986f204723dc258b23daf22de5d39842
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 22e833a1d555057c7e6a2ce46e7a1bb136260851
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430158"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888316"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti sono sempre disponibili per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
 ## <a name="october-2019-guest-os"></a>Sistema operativo guest di ottobre 2019
 
->[!NOTE]
->Il sistema operativo guest di ottobre è in corso di implementazione nelle macchine virtuali del servizio Cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le seguenti patch sono incluse nel sistema operativo guest di ottobre. L'elenco è soggetto a variazioni.
-
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 19-10   |  [4520003]  |  Windows Security   |  2,91  |  8 ottobre 2019  |
-|  Rel 19-10   |  [4519985]  |  Windows Security   |  3,78  |  8 ottobre 2019  |
-|  Rel 19-10   |  [4519990]  |  Windows Security   |  4,71  |  8 ottobre 2019  |
-|  Rel 19-10   |  [4519998]  |  Aggiornamento cumulativo più recente   |  5,36  |  8 ottobre 2019  |
-|  Rel 19-10   |  [4519338]  |  Aggiornamento cumulativo più recente   |  6,12  |  8 ottobre 2019  |
-|  Rel 19-10   |  [4519974]  |  Internet Explorer   |  2,91, 3,78, 4,71  |  8 ottobre 2019  |
-|  Rel 19-10   |  [4516065]  |  Non-sicurezza   |  2,91  |  10 settembre 2019  |
-|  Rel 19-10   |  [4516655]  |  SSU   |  2,91  |  10 settembre 2019  |
-|  Rel 19-10   |  [4516055]  |  Non-sicurezza   |  3,78  |  10 settembre 2019  |
-|  Rel 19-10   |  [4512939]  |  SSU   |  3,78  |  10 settembre 2019  |
-|  Rel 19-10   |  [4514370]  |  .NET Framework 3,5   |  3,78  |  10 settembre 2019  |
-|  Rel 19-10   |  [4514368]  |  4\.5.2 di .NET Framework   |  3,78  |  10 settembre 2019  |
-|  Rel 19-10   |  [4516067]  |  Non sicurezza   |  4,71  |  10 settembre 2019  |
-|  Rel 19-10   |  [4512938]  |  SSU   |  4,71  |  10 settembre 2019  |
-|  Rel 19-10   |  [4514371]  |  .NET Framework 3,5   |  4,71  |  10 settembre 2019  |
-|  Rel 19-10   |  [4514367]  |  4\.5.2 di .NET Framework   |  4,71  |  10 settembre 2019  |
-|  Rel 19-10   |  [4512574]  |  SSU   |  5,36  |  10 settembre 2019  |
-|  Rel 19-10   |  [4512577]  |  SSU   |  6,12  |  10 settembre 2019  |
+|  Rel 19-10   |  [4520003]  |  Windows Security   |  [2,91]  |  8 ottobre 2019  |
+|  Rel 19-10   |  [4519985]  |  Windows Security   |  [3,78]  |  8 ottobre 2019  |
+|  Rel 19-10   |  [4519990]  |  Windows Security   |  [4,71]  |  8 ottobre 2019  |
+|  Rel 19-10   |  [4519998]  |  Aggiornamento cumulativo più recente   |  [5,36]  |  8 ottobre 2019  |
+|  Rel 19-10   |  [4519338]  |  Aggiornamento cumulativo più recente   |  [6,12]  |  8 ottobre 2019  |
+|  Rel 19-10   |  [4519974]  |  Internet Explorer   |  [2,91], [3,78], [4,71]  |  8 ottobre 2019  |
+|  Rel 19-10   |  [4516065]  |  Non-sicurezza   |  [2,91]  |  10 settembre 2019  |
+|  Rel 19-10   |  [4516655]  |  SSU   |  [2,91]  |  10 settembre 2019  |
+|  Rel 19-10   |  [4516055]  |  Non-sicurezza   |  [3,78]  |  10 settembre 2019  |
+|  Rel 19-10   |  [4512939]  |  SSU   |  [3,78]  |  10 settembre 2019  |
+|  Rel 19-10   |  [4514370]  |  .NET Framework 3,5   |  [3,78]  |  10 settembre 2019  |
+|  Rel 19-10   |  [4514368]  |  4\.5.2 di .NET Framework   |  [3,78]  |  10 settembre 2019  |
+|  Rel 19-10   |  [4516067]  |  Non sicurezza   |  [4,71]  |  10 settembre 2019  |
+|  Rel 19-10   |  [4512938]  |  SSU   |  [4,71]  |  10 settembre 2019  |
+|  Rel 19-10   |  [4514371]  |  .NET Framework 3,5   |  [4,71]  |  10 settembre 2019  |
+|  Rel 19-10   |  [4514367]  |  4\.5.2 di .NET Framework   |  [4,71]  |  10 settembre 2019  |
+|  Rel 19-10   |  [4512574]  |  SSU   |  [5,36]  |  10 settembre 2019  |
+|  Rel 19-10   |  [4512577]  |  SSU   |  [6,12]  |  10 settembre 2019  |
 
 [4520003]: https://support.microsoft.com/kb/4520003
 [4519985]: https://support.microsoft.com/kb/4519985
@@ -67,6 +64,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4512574]: https://support.microsoft.com/kb/4512574
 [4512577]: https://support.microsoft.com/kb/4512577
 
+[6,12]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5,36]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4,71]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3,78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2,91]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="september-2019-guest-os"></a>Sistema operativo guest di settembre 2019
@@ -104,11 +106,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4512488]: https://support.microsoft.com/kb/4512488
 [4512518]: https://support.microsoft.com/kb/4512518
 [4512506]: https://support.microsoft.com/kb/4512506
-[6,11]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5,35]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4,70]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3,77]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2,90]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6,11]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5,35]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4,70]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3,77]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2,90]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="august-2019-guest-os"></a>Sistema operativo guest 2019 agosto
@@ -161,11 +163,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4507001]: https://support.microsoft.com/kb/4507001
 [4507704]: https://support.microsoft.com/kb/4507704
 
-[6,1]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5,34]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4,69]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3,76]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2,89]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6,1]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5,34]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4,69]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3,76]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2,89]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="july-2019-guest-os"></a>Sistema operativo guest 2019 luglio
@@ -920,7 +922,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Rel 17-03 |  [4012213] |Unico aggiornamento di qualità della sicurezza del mese di marzo 2017 per Windows 8.1 e Windows Server 2012 R2 |4.40 |14 marzo 2017 |
 | Rel 17-03 |  [4012214] |Unico aggiornamento di qualità della sicurezza del mese di marzo 2017 per Windows Server 2012|3.47 |14 marzo 2017 |
 | Rel 17-03 |  [4012204] |Aggiornamento della sicurezza per Internet Explorer |2.60, 3.47, 4.40, 5.5 |14 marzo 2017 |
-| N/D |  [4012864] |Modifiche dell'ora legale in Windows per Cipro, la Mongolia e la regione russa di Saratov |2.60, 3.47, 4.40 |14 marzo 2017 |
+| N/D |  [4012864] |Modifiche dell'ora legale in Windows per il Cipro del Nord, la Mongolia e la regione russa di Saratov |2.60, 3.47, 4.40 |14 marzo 2017 |
 | N/D |  [3212646] |Rollup di qualità mensile per la sicurezza di gennaio 2017 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.60 |14 marzo 2017 |
 | N/D |  [3205409] |Rollup di qualità mensile per la sicurezza di dicembre 2016 per Windows Server 2012 |3.47 |14 marzo 2017 |
 | N/D |  [3205401] |Rollup di qualità mensile per la sicurezza di dicembre 2016 per Windows 8.1 e Windows Server 2012 R2 |4.40 |14 marzo 2017 |
@@ -1230,7 +1232,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-052 |[3050514] |La vulnerabilità nel kernel di Windows potrebbe consentire il bypass della funzionalità di sicurezza |4.20, 3.27, 2.39 |12 maggio 2015 |
 | MS15-053 |[3057263] |Le vulnerabilità nel motore di script JScript e VBScript potrebbero consentire il bypass della funzionalità di sicurezza |4.20, 3.27, 2.39 |12 maggio 2015 |
 | MS15-054 |[3051768] |La vulnerabilità nel formato file di Microsoft Management Console potrebbe consentire un attacco Denial of Service |4.20, 3.27, 2.39 |12 maggio 2015 |
-| MS15-055 |[3061518] |Una vulnerabilità in Schannel potrebbe consentire il bypass della funzionalità di sicurezza e situazioni di Information Disclosure, ovvero la divulgazioni delle informazioni importanti |4.20, 3.27, 2.39 |12 maggio 2015 |
+| MS15-055 |[3061518] |Una vulnerabilità in Schannel potrebbe consentire il bypass della funzionalità di sicurezza e situazioni di Information Discosure, ovvero la divulgazioni delle informazioni importanti |4.20, 3.27, 2.39 |12 maggio 2015 |
 | MS15-032 |[3038314] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.20, 3.27, 2.39 |17 aprile 2015 |
 | MS15-035 |[3046306] |La vulnerabilità nel componente grafico Microsoft potrebbe consentire l'esecuzione di codice in modalità remota |4.20, 3.27, 2.39 |17 aprile 2015 |
 | MS15-037 |[3046269] |La vulnerabilità nell’utilità di pianificazione attività di Windows potrebbe consentire l'elevazione dei privilegi |4.20, 3.27, 2.39 |17 aprile 2015 |

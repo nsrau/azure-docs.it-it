@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 8b2f16f45be1d095e9be8042611de328af36f064
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a6b7cb3fd45e17b84519efcaa826b569083e156
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813444"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839469"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -33,11 +33,11 @@ Questo articolo descrive come gestire utenti, processi, origini dati e account A
 2. Fare clic su **Crea una risorsa** > **Intelligence e analisi** > **Data Lake Analytics**.
 3. Selezionare i valori per gli elementi seguenti: 
    1. **Nome**: nome dell'account di Data Lake Analytics.
-   2. **Sottoscrizione** sottoscrizione di Azure usata per l'account.
+   2. **Sottoscrizione**: sottoscrizione di Azure usata per l'account.
    3. **Gruppo di risorse**: gruppo di risorse di Azure in cui creare l'account. 
    4. **Posizione**: data center di Azure per l'account di Data Lake Analytics. 
    5. **Data Lake Store**: archivio predefinito da usare per l'account di Data Lake Analytics. L'account di Azure Data Lake Store e quello di Data Lake Analytics devono trovarsi nella stessa posizione.
-4. Fare clic su **Create**(Crea). 
+4. Fai clic su **Crea**. 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Eliminare un account di Data Lake Analytics
 
@@ -55,7 +55,7 @@ Prima di eliminare un account di Data Lake Analytics, eliminare il relativo acco
 
 Data Lake Analytics supporta le origini dati seguenti:
 
-* Data Lake Store
+* Archivio Data Lake
 * Archiviazione di Azure
 
 Per esplorare le origini dati ed eseguire operazioni di gestione dei file di base è possibile usare Esplora dati. 
@@ -131,11 +131,11 @@ Usare il ruolo Sviluppatore di Data Lake Analytics per consentire agli sviluppat
 
 2. Fare clic su **Nuovo processo**. Per ogni processo, configurare quanto segue:
 
-    1. **Nome processo**: Nome del processo.
+    1. **Nome processo**: nome del processo.
     2. **Priorità**: i numeri più bassi hanno maggiore priorità. Se due processi sono in coda, verrà eseguito per primo quello con la priorità più bassa.
     3. **Parallelismo**: numero massimo di processi di calcolo da riservare per il processo.
 
-3. Fare clic su **Invia processo**.
+3. Fare clic su **Submit Job**.
 
 ### <a name="monitor-jobs"></a>Monitorare i processi
 
@@ -150,7 +150,7 @@ Per visualizzare un elenco di processi U-SQL che fanno parte delle pipeline:
 
 1. Nel portale di Azure accedere agli account di Data Lake Analytics.
 2. Fare clic su **Informazioni dettagliate sul processo**. Verrà aperta per impostazione predefinita la scheda "Tutti i processi", che mostra un elenco di processi in esecuzione, in coda e terminati.
-3. Fare clic sulla scheda **Processi della pipeline**. Verrà visualizzato un elenco di processi della pipeline, con statistiche aggregate per ogni pipeline.
+3. Fare clic sulla scheda **processi pipeline** . Verrà visualizzato un elenco di processi della pipeline insieme a statistiche aggregate per ogni pipeline.
 
 ### <a name="monitoring-recurring-jobs"></a>Monitoraggio dei processi ricorrenti
 Un processo ricorrente è un processo che ha la stessa logica di business, ma usa dati di input diversi ogni volta che viene eseguito. Idealmente, i processi ricorrenti devono avere sempre esito positivo e un tempo di esecuzione relativamente stabile. Il monitoraggio di questi comportamenti aiuta ad assicurarsi che il processo sia integro. I processi ricorrenti vengono identificati mediante la proprietà "Recurrence". Per i processi pianificati usando ADF V2 questa proprietà viene popolata automaticamente.
@@ -159,10 +159,10 @@ Per visualizzare un elenco di processi U-SQL ricorrenti:
 
 1. Nel portale di Azure accedere agli account di Data Lake Analytics.
 2. Fare clic su **Informazioni dettagliate sul processo**. Verrà aperta per impostazione predefinita la scheda "Tutti i processi", che mostra un elenco di processi in esecuzione, in coda e terminati.
-3. Fare clic sulla scheda **Processi ricorrenti**. Verrà visualizzato un elenco di processi ricorrenti, con statistiche aggregate per ogni processo.
+3. Fare clic sulla scheda **processi ricorrenti** . Verrà visualizzato un elenco di processi ricorrenti insieme a statistiche aggregate per ogni processo ricorrente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Manage Azure Data Lake Analytics using policies](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-policies) (Gestire Azure Data Lake Analytics con criteri)
+* [Manage Azure Data Lake Analytics using policies](data-lake-analytics-account-policies.md) (Gestire Azure Data Lake Analytics con criteri)

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 47ad2346f4574b10d12c46c1f72394225e014854
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0f2929218b3a304099b1eb009df8e93d0e43c103
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102573"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839874"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Panoramica delle macchine virtuali Windows in Azure
 
@@ -48,7 +48,7 @@ Quando si compila l'infrastruttura di un'applicazione in Azure, ci sono sempre n
 * Risorse correlate richieste dalla VM
 
 ### <a name="naming"></a>Denominazione
-Una macchina virtuale dispone di un [nome](/azure/architecture/best-practices/naming-conventions) assegnato e di un nome computer configurato come parte del sistema operativo. Il nome di una VM può essere composto da un massimo di 15 caratteri.
+Una macchina virtuale dispone di un [nome](/azure/architecture/best-practices/resource-naming) assegnato e di un nome computer configurato come parte del sistema operativo. Il nome di una VM può essere composto da un massimo di 15 caratteri.
 
 Se si usa Azure per creare il disco del sistema operativo, il nome del computer e il nome della macchina virtuale sono uguali. Se si [carica la propria immagine](upload-generalized-managed.md) contenente un sistema operativo configurato in precedenza e la si usa per creare una macchina virtuale, i nomi possono differire. Quando si carica il proprio file di immagine, è consigliabile far coincidere il nome computer nel sistema operativo con il nome della macchina virtuale.
 
@@ -57,7 +57,7 @@ Le risorse create in Azure vengono distribuite tra più [aree geografiche](https
 
 Questa tabella illustra alcuni dei metodi con cui è possibile ottenere un elenco di località disponibili.
 
-| Metodo | DESCRIZIONE |
+| Metodo | Descrizione |
 | --- | --- |
 | Portale di Azure |Quando si crea una VM, selezionare una località nell'elenco. |
 | Azure PowerShell |Usare il comando [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
@@ -100,13 +100,13 @@ Le [estensioni](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows
 ### <a name="related-resources"></a>Risorse correlate
 Le risorse in questa tabella vengono usate dalla VM e devono essere presenti o essere create quando si crea la VM.
 
-| Risorsa | Obbligatoria | DESCRIZIONE |
+| Risorsa | Obbligatorio | Descrizione |
 | --- | --- | --- |
 | [Gruppo di risorse](../../azure-resource-manager/resource-group-overview.md) |Sì |La VM deve essere contenuta in un gruppo di risorse. |
 | [Account di archiviazione](../../storage/common/storage-create-storage-account.md) |Sì |La VM richiede l'account di archiviazione per archiviare i dischi rigidi virtuali. |
 | [Rete virtuale](../../virtual-network/virtual-networks-overview.md) |Sì |La VM deve appartenere a una rete virtuale. |
 | [Indirizzo IP pubblico](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |No |È possibile che la VM disponga di un indirizzo IP pubblico assegnato per accedervi in modalità remota. |
-| [Interfaccia di rete](../../virtual-network/virtual-network-network-interface.md) |Yes |La VM richiede l'interfaccia di rete per comunicare in rete. |
+| [Interfaccia di rete](../../virtual-network/virtual-network-network-interface.md) |Sì |La VM richiede l'interfaccia di rete per comunicare in rete. |
 | [Dischi dati](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |La VM può includere dischi dati per espandere le funzionalità di archiviazione. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Come creare la prima VM

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/10/2019
 ms.author: victorh
-ms.openlocfilehash: c4bc0ec2bf15a29962909f14f55854c06f0a6561
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e32443e01e8b44ff5a891afc76378a53b13d7ddd
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932509"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833310"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Eseguire la migrazione di applicazione Azure gateway e del Web Application Firewall da V1 a V2
 
@@ -29,8 +29,8 @@ Questo articolo illustra la migrazione della configurazione. La migrazione del t
 
 È disponibile uno script Azure PowerShell che esegue le operazioni seguenti:
 
-* Crea un nuovo gateway Standard_v2 o WAF_v2 in una subnet di rete virtuale specificata.
-* Copia senza interruzioni la configurazione associata al gateway standard V1 o WAF al gateway Standard_V2 o WAF_V2 appena creato.
+* Crea una nuova Standard_v2 o WAF_v2 gateway in una subnet di rete virtuale specificata.
+* Copia senza difficoltà la configurazione associata al gateway standard V1 o WAF al nuovo Standard_V2 o WAF_V2 gateway.
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
@@ -41,7 +41,7 @@ Questo articolo illustra la migrazione della configurazione. La migrazione del t
 * V2 non supporta IPv6, quindi non viene eseguita la migrazione dei gateway V1 abilitati per IPv6. Se si esegue lo script, l'operazione potrebbe non essere completata.
 * Se il gateway V1 ha solo un indirizzo IP privato, lo script crea un indirizzo IP pubblico e un indirizzo IP privato per il nuovo gateway V2. i gateway V2 attualmente non supportano solo indirizzi IP privati.
 
-## <a name="download-the-script"></a>Scarica lo script
+## <a name="download-the-script"></a>Scaricare lo script
 
 Scaricare lo script di migrazione dalla [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration).
 
@@ -49,10 +49,10 @@ Scaricare lo script di migrazione dalla [PowerShell Gallery](https://www.powersh
 
 Sono disponibili due opzioni a seconda della configurazione e delle preferenze dell'ambiente di PowerShell locale:
 
-* Se non si dispone di Azure AZ Modules installato o non si vuole disinstallare i moduli AZ di Azure, l'opzione migliore consiste nell'usare l' `Install-Script` opzione per eseguire lo script.
+* Se non si dispone di Azure AZ Modules installato o non si vuole disinstallare i moduli AZ di Azure, l'opzione migliore consiste nell'usare l'opzione `Install-Script` per eseguire lo script.
 * Se è necessario proteggere i moduli di Azure AZ, la scommessa migliore consiste nel scaricare lo script ed eseguirlo direttamente.
 
-Per determinare se Azure AZ Modules è installato, eseguire `Get-InstalledModule -Name az`. Se non vengono visualizzati i moduli AZ installati, è possibile usare il `Install-Script` metodo.
+Per determinare se Azure AZ Modules è installato, eseguire `Get-InstalledModule -Name az`. Se non vengono visualizzati i moduli AZ installati, è possibile usare il metodo `Install-Script`.
 
 ### <a name="install-using-the-install-script-method"></a>Eseguire l'installazione usando il metodo Install-script
 
@@ -89,7 +89,7 @@ Per eseguire lo script:
    ```
 
    Parametri per lo script:
-   * **resourceId: [stringa]: Obbligatorio** : ID di risorsa di Azure per il gateway standard V1 o WAF V1 esistente. Per trovare questo valore stringa, passare alla portale di Azure, selezionare il gateway applicazione o la risorsa WAF e fare clic sul collegamento **Properties (proprietà** ) per il gateway. L'ID risorsa si trova nella pagina.
+   * **resourceId: [String]: required** . si tratta dell'ID risorsa di Azure per il gateway standard V1 o WAF V1 esistente. Per trovare questo valore stringa, passare alla portale di Azure, selezionare il gateway applicazione o la risorsa WAF e fare clic sul collegamento **Properties (proprietà** ) per il gateway. L'ID risorsa si trova nella pagina.
 
      È anche possibile eseguire i comandi di Azure PowerShell seguenti per ottenere l'ID risorsa:
 
@@ -98,9 +98,9 @@ Per eseguire lo script:
      $appgw.Id
      ```
 
-   * **subnetAddressRange: [stringa]:  Obbligatorio** : lo spazio di indirizzi IP allocato (o che si vuole allocare) per una nuova subnet che contiene il nuovo gateway V2. Questa operazione deve essere specificata nella notazione CIDR. Ad esempio:  10.0.0.0/24. Non è necessario creare questa subnet in anticipo. Lo script lo crea automaticamente se non esiste.
-   * **appgwName: [stringa]: Facoltativo**. Si tratta di una stringa specificata da usare come nome per il nuovo gateway Standard_v2 o WAF_v2. Se questo parametro non viene specificato, il nome del gateway V1 esistente verrà usato con il suffisso *\nomeservervdi* aggiunto.
-   * **sslCertificates: [PSApplicationGatewaySslCertificate]: Facoltativo**.  Un elenco delimitato da virgole di oggetti PSApplicationGatewaySslCertificate creati per rappresentare i certificati SSL dal gateway V1 deve essere caricato nel nuovo gateway V2. Per ogni certificato SSL configurato per il gateway standard V1 o WAF V1, è possibile creare un nuovo oggetto PSApplicationGatewaySslCertificate tramite il `New-AzApplicationGatewaySslCertificate` comando riportato di seguito. È necessario il percorso del file del certificato SSL e la password.
+   * **subnetAddressRange: [String]: required** . si tratta dello spazio degli indirizzi IP allocato (o che si desidera allocare) per una nuova subnet che contiene il nuovo gateway V2. Questa operazione deve essere specificata nella notazione CIDR. Ad esempio: 10.0.0.0/24. Non è necessario creare questa subnet in anticipo. Lo script lo crea automaticamente se non esiste.
+   * **appgwName: [String]: facoltativo**. Si tratta di una stringa specificata da usare come nome per il nuovo Standard_v2 o WAF_v2 gateway. Se questo parametro non viene specificato, il nome del gateway V1 esistente verrà usato con il suffisso *_v2* accodato.
+   * **sslCertificates: [PSApplicationGatewaySslCertificate]: facoltativo**.  Un elenco delimitato da virgole di oggetti PSApplicationGatewaySslCertificate creati per rappresentare i certificati SSL dal gateway V1 deve essere caricato nel nuovo gateway V2. Per ognuno dei certificati SSL configurati per il gateway standard V1 o WAF V1, è possibile creare un nuovo oggetto PSApplicationGatewaySslCertificate tramite il comando `New-AzApplicationGatewaySslCertificate` riportato qui. È necessario il percorso del file del certificato SSL e la password.
 
        Questo parametro è facoltativo solo se non sono stati configurati listener HTTPS per il gateway V1 o WAF. Se è presente almeno una configurazione del listener HTTPS, è necessario specificare questo parametro.
 
@@ -114,14 +114,14 @@ Per eseguire lo script:
         -Password $password
       ```
 
-      È possibile passare `$mySslCert1, $mySslCert2` (separati da virgola) nell'esempio precedente come valori per questo parametro nello script.
-   * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: Facoltativo**. Elenco delimitato da virgole di oggetti PSApplicationGatewayTrustedRootCertificate creati per rappresentare i [certificati radice attendibili](ssl-overview.md) per l'autenticazione delle istanze di back-end dal gateway V2.  
+      È possibile passare `$mySslCert1, $mySslCert2` (separate da virgola) nell'esempio precedente come valori per questo parametro nello script.
+   * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: facoltativo**. Elenco delimitato da virgole di oggetti PSApplicationGatewayTrustedRootCertificate creati per rappresentare i [certificati radice attendibili](ssl-overview.md) per l'autenticazione delle istanze di back-end dal gateway V2.  
 
       Per creare un elenco di oggetti PSApplicationGatewayTrustedRootCertificate, vedere [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
-   * **privateIpAddress: [stringa]: Facoltativo**. Un indirizzo IP privato specifico che si vuole associare al nuovo gateway V2.  Deve provenire dallo stesso VNet allocato per il nuovo gateway V2. Se non è specificato, lo script alloca un indirizzo IP privato per il gateway V2.
-    * **publicIpResourceId: [String]: Facoltativo**. ResourceId di una risorsa di indirizzo IP pubblico (SKU standard) nella sottoscrizione che si vuole allocare al nuovo gateway V2. Se non è specificato, lo script alloca un nuovo indirizzo IP pubblico nello stesso gruppo di risorse. Il nome è il nome del gateway V2 con *-IP* aggiunto.
-   * **validateMigration: [opzione]: Facoltativo**. Usare questo parametro se si vuole che lo script esegua alcune convalide di confronto di configurazione di base dopo la creazione del gateway V2 e la copia di configurazione. Per impostazione predefinita, non viene eseguita alcuna convalida.
-   * **enableAutoScale: [opzione]: Facoltativo**. Usare questo parametro se si vuole che lo script abiliti la scalabilità automatica sul nuovo gateway v2 dopo che è stato creato. Per impostazione predefinita, la scalabilità automatica è disabilitata. È sempre possibile abilitarlo manualmente in un secondo momento nel gateway V2 appena creato.
+   * **privateIpAddress: [String]: facoltativo**. Un indirizzo IP privato specifico che si vuole associare al nuovo gateway V2.  Deve provenire dallo stesso VNet allocato per il nuovo gateway V2. Se non è specificato, lo script alloca un indirizzo IP privato per il gateway V2.
+    * **publicIpResourceId: [String]: facoltativo**. ResourceId di una risorsa di indirizzo IP pubblico (SKU standard) nella sottoscrizione che si vuole allocare al nuovo gateway V2. Se non è specificato, lo script alloca un nuovo indirizzo IP pubblico nello stesso gruppo di risorse. Il nome è il nome del gateway V2 con *-IP* aggiunto.
+   * **validateMigration: [switch]: facoltativo**. Usare questo parametro se si vuole che lo script esegua alcune convalide di confronto di configurazione di base dopo la creazione del gateway V2 e la copia di configurazione. Per impostazione predefinita, non viene eseguita alcuna convalida.
+   * **enableAutoScale: [switch]: facoltativo**. Usare questo parametro se si vuole che lo script abiliti la scalabilità automatica sul nuovo gateway v2 dopo che è stato creato. Per impostazione predefinita, la scalabilità automatica è disabilitata. È sempre possibile abilitarlo manualmente in un secondo momento nel gateway V2 appena creato.
 
 1. Eseguire lo script usando i parametri appropriati. Il completamento può richiedere da cinque a sette minuti.
 
@@ -156,7 +156,7 @@ Di seguito sono riportati alcuni scenari in cui il gateway applicazione corrente
 
   * Se si usano indirizzi IP pubblici nel gateway applicazione, è possibile eseguire una migrazione controllata e granulare usando un profilo di gestione traffico per instradare in modo incrementale il traffico (metodo di routing del traffico ponderato) al nuovo gateway V2.
 
-    A tale scopo, è possibile aggiungere le etichette DNS dei gateway applicazione V1 e V2 al [profilo di gestione traffico](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)e il record DNS personalizzato (ad esempio, www.contoso.com) per il dominio di Traffic Manager (ad esempio, contoso.trafficmanager.NET) .
+    A tale scopo, aggiungere le etichette DNS dei gateway applicazione V1 e V2 al [profilo di gestione traffico](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)e il record DNS personalizzato (ad esempio, `www.contoso.com`) al dominio di Traffic Manager (ad esempio, contoso.trafficmanager.NET).
   * In alternativa, è possibile aggiornare il record DNS di dominio personalizzato in modo che punti all'etichetta DNS del nuovo gateway applicazione V2. A seconda della durata (TTL) configurata nel record DNS, potrebbe essere necessario un po' di tempo per eseguire la migrazione di tutto il traffico client al nuovo gateway V2.
 * I **client si connettono all'indirizzo IP front-end del gateway applicazione**.
 
@@ -190,7 +190,7 @@ No. Attualmente lo script non supporta i certificati nell'insieme di credenziali
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Si sono verificati alcuni problemi con l'uso di questo script. Come è possibile ottenere assistenza?
   
-È possibile inviare un messaggio di appgwmigrationsup@microsoft.composta elettronica a, aprire un caso di supporto con il supporto tecnico di Azure o eseguire entrambe le operazioni.
+È possibile inviare un messaggio di posta elettronica a appgwmigrationsup@microsoft.com, aprire un caso di supporto con il supporto tecnico di Azure o eseguire entrambe le operazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

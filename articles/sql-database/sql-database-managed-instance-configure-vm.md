@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: a455607b1459ebc9e37b1df70b454feea76d1f2f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7273c7b1dbf5eb6c855b95a8661f38bd4bd14af7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822783"
+ms.locfileid: "73839054"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Guida introduttiva: Configurare una macchina virtuale di Azure per la connessione a un'istanza gestita di database SQL di Azure
 
@@ -46,7 +46,7 @@ La procedura seguente illustra come creare una nuova subnet nella rete virtuale 
 
    | Impostazione| Valore consigliato | Descrizione |
    | ---------------- | ----------------- | ----------- |
-   | **Nome** | Qualsiasi nome valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).|
+   | **Nome** | Qualsiasi nome valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming).|
    | **Intervallo di indirizzi (blocco CIDR)** | Un intervallo valido | Il valore predefinito è appropriato per questa guida introduttiva.|
    | **Gruppo di sicurezza di rete** | Nessuna | Il valore predefinito è appropriato per questa guida introduttiva.|
    | **Tabella di route** | Nessuna | Il valore predefinito è appropriato per questa guida introduttiva.|
@@ -78,8 +78,8 @@ Il modo più semplice per creare una macchina virtuale client con tutti gli stru
    | **Sottoscrizione** | Una sottoscrizione valida | Deve trattarsi di una sottoscrizione in cui si dispone dell'autorizzazione per creare nuove risorse. |
    | **Gruppo di risorse** |Il gruppo di risorse specificato nella guida introduttiva [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).|Deve essere il gruppo di risorse in cui si trova la rete virtuale.|
    | **Posizione** | Posizione per il gruppo di risorse | Questo valore viene popolato in base al gruppo di risorse selezionato. |
-   | **Nome macchina virtuale**  | Qualsiasi nome valido | Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).|
-   |**Nome utente amministratore**|Qualsiasi nome utente valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). Non usare "serveradmin" perché è un ruolo a livello di server riservato.<br>Questo nome utente viene usato ogni volta che ci si [connette alla macchina virtuale](#connect-to-virtual-machine).|
+   | **Nome macchina virtuale**  | Qualsiasi nome valido | Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming).|
+   |**Nome utente amministratore**|Qualsiasi nome utente valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming). Non usare "serveradmin" perché è un ruolo a livello di server riservato.<br>Questo nome utente viene usato ogni volta che ci si [connette alla macchina virtuale](#connect-to-virtual-machine).|
    |**Password**|Qualsiasi password valida|La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Questa password viene usata ogni volta che ci si [connette alla macchina virtuale](#connect-to-virtual-machine).|
    | **Dimensioni macchina virtuale** | Qualsiasi dimensione valida | Il valore predefinito in questo modello, **Standard_B2s**, è sufficiente per questo argomento di avvio rapido. |
    | **Posizione**|[resourceGroup().location].| Non modificare questo valore. |

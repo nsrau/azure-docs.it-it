@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 4480819a08ef9a7a4ad7257f75a94c5d10a3d312
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 23e638b1d678e6ecf19c23220828185eb0e25a00
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858570"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891446"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Immagini di macchine virtuali Oracle e relative distribuzioni in Microsoft Azure
 
@@ -79,7 +79,7 @@ Queste funzionalità sono possibili perché Azure NetApp Files si basa su NetApp
 
 ## <a name="licensing-oracle-database--software-on-azure"></a>Licenze Oracle Database & software in Azure
 Microsoft Azure è un ambiente cloud autorizzato per l'esecuzione di Oracle Database. La tabella di Oracle Core Factor non è applicabile quando si esegue la gestione delle licenze di database Oracle nel cloud. Al contrario, quando si usano macchine virtuali con tecnologia Hyper-Threading abilitata per i database Enterprise Edition, contare due vCPU come equivalente a una licenza del processore Oracle se l'Hyper-Threading è abilitato (come indicato nel documento dei criteri). I dettagli dei criteri sono disponibili [qui](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-I database Oracle richiedono in genere una maggiore quantità di memoria e i/o. Per questo motivo, le [macchine virtuali con ottimizzazione](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-memory) per la memoria sono consigliate per questi carichi di lavoro. Per ottimizzare ulteriormente i carichi di lavoro, è consigliabile usare [vCPU Core vincolati](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/constrained-vcpu) per carichi di lavoro Oracle DB che richiedono memoria elevata, archiviazione e larghezza di banda di I/O, ma non un numero elevato di core.
+I database Oracle richiedono in genere una maggiore quantità di memoria e i/o. Per questo motivo, le [macchine virtuali con ottimizzazione](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) per la memoria sono consigliate per questi carichi di lavoro. Per ottimizzare ulteriormente i carichi di lavoro, è consigliabile usare [vCPU Core vincolati](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) per carichi di lavoro Oracle DB che richiedono memoria elevata, archiviazione e larghezza di banda di I/O, ma non un numero elevato di core.
 
 Quando si esegue la migrazione di carichi di lavoro e software Oracle da locale a Microsoft Azure, Oracle fornisce la mobilità delle licenze come indicato nelle [domande frequenti su Oracle in Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 
@@ -90,7 +90,7 @@ Oracle RAC è progettato per ridurre l'errore di un singolo nodo in una configur
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Considerazioni sulla disponibilità elevata e sul ripristino di emergenza
 Quando si usano database Oracle in Azure, si è responsabili dell'implementazione di una soluzione di disponibilità elevata e ripristino di emergenza per evitare tempi di inattività. 
 
-La disponibilità elevata e il ripristino di emergenza per Oracle Database Enterprise Edition (senza basarsi su Oracle RAC) possono essere realizzati in Azure usando [Data Guard, Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html)o [Oracle GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate), con due database in due componenti virtuali distinti macchine. Entrambe le macchine virtuali dovrebbero trovarsi nella stessa [rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/) per assicurare l'accesso reciproco attraverso l'indirizzo IP privato permanente.  È inoltre consigliabile posizionare le macchine virtuali nello stesso set di disponibilità per consentire ad Azure di inserirle in domini di errore e domini di aggiornamento separati. Se si vuole avere la ridondanza geografica, configurare i due database per la replica tra due aree diverse e connettere le due istanze con un gateway VPN.
+La disponibilità elevata e il ripristino di emergenza per Oracle Database Enterprise Edition (senza basarsi su Oracle RAC) possono essere realizzati in Azure usando [Data Guard, Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html)o [Oracle GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate), con due database in due macchine virtuali separate. Entrambe le macchine virtuali dovrebbero trovarsi nella stessa [rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/) per assicurare l'accesso reciproco attraverso l'indirizzo IP privato permanente.  È inoltre consigliabile posizionare le macchine virtuali nello stesso set di disponibilità per consentire ad Azure di inserirle in domini di errore e domini di aggiornamento separati. Se si vuole avere la ridondanza geografica, configurare i due database per la replica tra due aree diverse e connettere le due istanze con un gateway VPN.
 
 L'esercitazione [implementare Oracle Data Guard in Azure](configure-oracle-dataguard.md) illustra la procedura di configurazione di base in Azure.  
 
@@ -102,7 +102,7 @@ Oltre a disporre di una soluzione di disponibilità elevata e di ripristino di e
 
 
 ## <a name="support-for-jd-edwards"></a>Supporto per JD Edwards
-Secondo la nota del supporto Oracle, l' [ID doc 2178595,1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), le versioni 9,2 e successive di JD Edwards EnterpriseOne sono supportate in **qualsiasi offerta di cloud pubblico** che soddisfi le specifiche `Minimum Technical Requirements` (MTR).  È necessario creare immagini personalizzate che soddisfano le specifiche MTR per la compatibilità delle applicazioni con il sistema operativo e il software. 
+Secondo la nota del supporto Oracle, [doc ID 2178595,1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), JD Edwards EnterpriseOne versione 9,2 e successive sono supportati in **qualsiasi offerta di cloud pubblico** che soddisfi la `Minimum Technical Requirements` specifica (MTR).  È necessario creare immagini personalizzate che soddisfano le specifiche MTR per la compatibilità delle applicazioni con il sistema operativo e il software. 
 
 
 ## <a name="oracle-weblogic-server-virtual-machine-images"></a>Immagini di macchine virtuali Oracle WebLogic Server

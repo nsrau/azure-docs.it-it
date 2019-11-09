@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c764460fb65287dab0031b27291d2f332cec3b3d
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ceb3b7315439aced7f781e8de5e62b49fd83818c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756544"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833806"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usare il controllo mappa di mappe di Azure
 
@@ -174,7 +174,7 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
 
 8. Aprire il file nel Web browser e visualizzare la mappa di cui è stato eseguito il rendering. Il codice dovrebbe essere simile al seguente:
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="Come usare il controllo mappa" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Vedere la pagina relativa all' <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>uso del controllo map</a> da parte di mappe di Azure (<a href='https://codepen.io/azuremaps'> @azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+    <iframe height="700" style="width: 100%;" scrolling="no" title="Come usare il controllo mappa" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Vedere la pagina relativa all' <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>uso del controllo map</a> da parte di mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
     </iframe>
 
 ## <a name="localizing-the-map"></a>Localizzazione della mappa
@@ -183,7 +183,7 @@ Azure Maps offre due modi diversi per impostare la lingua e la visualizzazione a
 
 ```javascript
 atlas.setLanguage('fr-FR');
-atlas.setView('auto');
+atlas.setView('Auto');
 ```
 
 La seconda opzione consiste nel passare queste informazioni nelle opzioni della mappa quando si carica la mappa, ad esempio:
@@ -191,7 +191,7 @@ La seconda opzione consiste nel passare queste informazioni nelle opzioni della 
 ```javascript
 map = new atlas.Map('myMap', {
     language: 'fr-FR',
-    view: 'auto',
+    view: 'Auto',
 
     authOptions: {
         authType: 'aad',

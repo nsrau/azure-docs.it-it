@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d80ac949dea3c9d6c3d28d2a343c4ed7bad8983
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 22e3131a204589a506b2d5f1e2508c37ad3b4100
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474348"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847212"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud
 
@@ -209,6 +209,9 @@ function Set-MfaState {
 Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
+> [!NOTE]
+> Il comportamento e lo script di PowerShell sono stati modificati di recente di conseguenza. In precedenza, lo script salvava i metodi di autenticazione a più fattori, disabilitazione dell'autenticazione a più fattori e ripristina i metodi. Questa operazione non è più necessaria, ora che il comportamento predefinito di Disable non cancella i metodi.
+
 ## <a name="plan-conditional-access-policies"></a>Pianificare i criteri di accesso condizionale
 
 Per pianificare la strategia di criteri di accesso condizionale, che determina quando sono necessari l'autenticazione a più fattori e altri controlli, vedere informazioni sull' [accesso condizionale in Azure Active Directory](../conditional-access/overview.md).
@@ -237,7 +240,7 @@ Per pianificare la strategia di criteri di accesso condizionale, che determina q
     * Fare clic su **Seleziona**.
 1. Ignorare la sezione **Sessione**.
 1. Impostare l'interruttore **Abilita criterio** su **Sì**.
-1. Fare clic su **Create**(Crea).
+1. Fai clic su **Crea**.
 
 ## <a name="plan-integration-with-on-premises-systems"></a>Pianificare l'integrazione con i sistemi locali
 
@@ -274,7 +277,7 @@ Se è già stata distribuita un'istanza NPS e in uso, fare riferimento a [integr
 
 Scegliere cosa accade quando gli utenti che non sono registrati con l'autenticazione a più fattori tentano di eseguire l'autenticazione. Usare l'impostazione del registro di sistema `REQUIRE_USER_MATCH` nel percorso del registro di sistema `HKLM\Software\Microsoft\AzureMFA` per controllare il comportamento della funzionalità. Questa impostazione ha un'unica opzione di configurazione.
 
-| Chiave | Value | Predefinito |
+| Chiave | Valore | Default |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | Non impostato (equivalente a VERO) |
 
@@ -344,7 +347,7 @@ Report per l'autenticazione a più fattori di Azure
 
 Azure Multi-Factor Authentication fornisce report tramite i portale di Azure:
 
-| Documentazione | Località | Description |
+| Report | Percorso | Descrizione |
 | --- | --- | --- |
 | Avvisi di illecito e utilizzo | Azure AD > Accessi | Fornisce informazioni su utilizzo complessivo, riepilogo utenti e dettagli utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
 

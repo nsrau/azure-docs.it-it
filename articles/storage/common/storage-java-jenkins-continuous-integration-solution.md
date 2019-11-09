@@ -9,12 +9,12 @@ ms.service: storage
 custom: jenkins
 ms.date: 08/13/2019
 ms.subservice: common
-ms.openlocfilehash: dc62696700a5c34c28f5f8c4f347dbb4c5183cab
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 72756bd3eb12ca80f419a0d53db76e6637d884fc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986537"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839138"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Uso di Archiviazione di Azure con una soluzione di Integrazione continua Jenkins
 
@@ -92,7 +92,7 @@ Ai fini di questa esercitazione, è necessario innanzitutto creare un processo c
 
 5. Nella sezione **Post-build Actions** (Azioni di post-compilazione) della configurazione del processo fare clic su **Add post-build action** (Aggiungi azione di post-compilazione) e scegliere **Upload artifacts to Azure Blob storage** (Carica artefatti su archiviazione BLOB di Azure).
 6. In **Storage Account Name**scegliere l'account di archiviazione da utilizzare.
-7. In **Container Name**specificare il nome del contenitore. Il contenitore verrà creato se non esiste già al momento del caricamento degli elementi di compilazione. È possibile usare variabili di ambiente, pertanto in questo esempio immettere `${JOB_NAME}` come nome del contenitore.
+7. In **Container Name**specificare il nome del contenitore. Il contenitore verrà creato se non esiste già quando vengono caricati gli artefatti di compilazione. È possibile usare le variabili di ambiente, quindi per questo esempio immettere `${JOB_NAME}` come nome del contenitore.
    
     **Suggerimento**
    
@@ -118,7 +118,7 @@ La procedura seguente illustra come configurare un passaggio di compilazione per
 1. Nella sezione **Build** (Compilazione) della configurazione del processo fare clic su **Add build step** (Aggiungi un passaggio di compilazione) e scegliere **Download from Azure Blob storage** (Scarica dallo spazio di archiviazione BLOB di Azure).
 2. In **Storage Account Name**scegliere l'account di archiviazione da utilizzare.
 3. In **Container name**specificare il nome del contenitore in cui si trovano i BLOB da scaricare. A questo scopo, è possibile usare le variabili di ambiente.
-4. In **Blob name**specificare il nome del BLOB. A questo scopo, è possibile usare le variabili di ambiente. È anche possibile usare un asterisco come carattere jolly dopo avere specificato le lettere iniziali del nome del BLOB. Ad esempio, **Project\\** * specifica tutti i BLOB i cui nomi iniziano con **Project**.
+4. In **Blob name**specificare il nome del BLOB. A questo scopo, è possibile usare le variabili di ambiente. È anche possibile usare un asterisco come carattere jolly dopo avere specificato le lettere iniziali del nome del BLOB. Ad esempio, **project\\** * specifica tutti i BLOB i cui nomi iniziano con **Project**.
 5. [Facoltativo] In **Download path**specificare il percorso nel computer Jenkins in cui si vuole scaricare i file dall'archivio BLOB di Azure. A questo scopo, è anche possibile usare le variabili di ambiente. Se non si specifica un valore per **Download path**, i file dall'archivio BLOB di Azure verranno scaricati nell'area di lavoro del processo.
 
 Per scaricare elementi aggiuntivi dall'archiviazione BLOB di Azure, è possibile creare altri passaggi di compilazione.
@@ -128,10 +128,10 @@ Dopo avere eseguito una build, è possibile verificare l'output della cronologia
 ## <a name="components-used-by-the-blob-service"></a>Componenti usati dal servizio BLOB
 Questa sezione offre una panoramica delle componenti del servizio BLOB.
 
-* **Account di archiviazione**: l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Un account di archiviazione è il livello più alto dello spazio dei nomi per accedere ai BLOB. Un account può contenere un numero illimitato di contenitori, purché la dimensione totale di questi sia inferiore a 100 TB.
-* **Contenitore**: Un contenitore consente di raggruppare un set di BLOB. Tutti i BLOB devono trovarsi in un contenitore. In un account può esistere un numero illimitato di contenitori. In un contenitore può essere archiviato un numero illimitato di BLOB.
-* **BLOB**: file di qualsiasi tipo o dimensione. Vi sono due tipi di BLOB che possono essere archiviati in Archiviazione di Azure: BLOB di pagine e BLOB in blocchi. La maggior parte dei file sono BLOB in blocchi. Un singolo BLOB in blocchi può raggiungere fino a 200 GB di dimensione. In questa esercitazione vengono utilizzati BLOB in blocchi. I BLOB di pagine, di altro tipo, possono raggiungere dimensioni fino a 1 TB e risultano più efficienti quando all'interno di un file vi sono intervalli di byte soggetti a modifiche frequenti. Per altre informazioni sui BLOB, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](https://msdn.microsoft.com/library/azure/ee691964.aspx).
-* **Formato URL**: è possibile fare riferimento ai BLOB usando il formato di URL seguente:
+* **Account di archiviazione:** tutti gli accessi ad Archiviazione di Azure vengono eseguiti tramite un account di archiviazione. Un account di archiviazione è il livello più alto dello spazio dei nomi per accedere ai BLOB. Un account può contenere un numero illimitato di contenitori, purché la dimensione totale di questi sia inferiore a 100 TB.
+* **Contenitore:** un contenitore fornisce un raggruppamento di un set di BLOB. Tutti i BLOB devono trovarsi in un contenitore. In un account può esistere un numero illimitato di contenitori. In un contenitore può essere archiviato un numero illimitato di BLOB.
+* **BLOB:** un file di qualsiasi tipo e dimensione. Vi sono due tipi di BLOB che possono essere archiviati in Archiviazione di Azure: BLOB di pagine e BLOB in blocchi. La maggior parte dei file sono BLOB in blocchi. Un singolo BLOB in blocchi può raggiungere fino a 200 GB di dimensione. In questa esercitazione vengono utilizzati BLOB in blocchi. I BLOB di pagine, di altro tipo, possono raggiungere dimensioni fino a 1 TB e risultano più efficienti quando all'interno di un file vi sono intervalli di byte soggetti a modifiche frequenti. Per altre informazioni sui BLOB, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **Formato dell'URL:** è possibile fare riferimento ai BLOB usando il formato di URL seguente:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
@@ -148,7 +148,7 @@ Se si rilevano bug con i plug-in Jenkins, segnalare un problema in [Jenkins JIRA
 ## <a name="next-steps"></a>Passaggi successivi
 * [Meet Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 * [Azure Storage SDK per Java](https://github.com/azure/azure-storage-java)
-* [Riferimento all'SDK del client di archiviazione di Azure](http://dl.windowsazure.com/storage/javadoc/)
+* [Riferimento all'SDK del client di archiviazione di Azure](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog del team di Archiviazione di Azure](https://blogs.msdn.com/b/windowsazurestorage/)
 

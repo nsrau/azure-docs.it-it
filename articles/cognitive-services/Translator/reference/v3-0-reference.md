@@ -1,7 +1,7 @@
 ---
 title: Riferimenti per l'API Traduzione testuale v3.0
 titleSuffix: Azure Cognitive Services
-description: Documentazione di riferimento per l'API Traduzione testuale v3.0.
+description: Documentazione di riferimento per l'API Traduzione testuale v3.0. La versione 3 dell'API Traduzione testuale fornisce un'API Web moderna basata su JSON.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: a441ca83230a1c715aadda79683964aaab6d6213
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: c07673e7b170170de4723a1232d2e7281feaaf99
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72252967"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888085"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
@@ -35,7 +35,7 @@ Microsoft Translator è accessibile da più posizioni di data center. Attualment
 
 * **Americhe:** Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali e Stati Uniti occidentali 2 
 * **Asia Pacifico:** Corea meridionale, Giappone orientale, Asia sudorientale e Australia orientale
-* **Europa:** Europa settentrionale e Europa occidentale
+* **Europa:** Europa settentrionale ed Europa occidentale
 
 Nella maggior parte dei casi le richieste per l'API Traduzione testuale Microsoft vengono gestite dal data center più vicino all'area di origine della richiesta. In caso di errore di un Data Center, la richiesta può essere instradata al di fuori della geografia di Azure.
 
@@ -48,7 +48,7 @@ Per forzare la gestione della richiesta da parte di una specifica area geografic
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Asia/Pacifico|    api-apc.cognitive.microsofttranslator.com|
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Sottoscrivere la [funzionalità multiservizio di API traduzione testuale o servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/) in Servizi cognitivi di Azure e usare la chiave di sottoscrizione (disponibile nella portale di Azure) per l'autenticazione. 
 
@@ -57,7 +57,7 @@ Sono tre le intestazioni che è possibile usare per autenticare la sottoscrizion
 |Headers|Descrizione|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Usare con la sottoscrizione di Servizi cognitivi se si passa la chiave privata*.<br/>Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
-|Authorization|*Usare con la sottoscrizione di Servizi cognitivi se si passa un token di autenticazione*.<br/>Il valore è il token di connessione: `Bearer <token>`.|
+|Autorizzazione|*Usare con la sottoscrizione di Servizi cognitivi se si passa un token di autenticazione*.<br/>Il valore è il token di connessione: `Bearer <token>`.|
 |Ocp-Apim-Subscription-Region|*Usare con la sottoscrizione multiservizio di servizi cognitivi se si passa una chiave privata con più servizi.*<br/>Il valore è l'area della sottoscrizione multiservizio. Questo valore è facoltativo se non si utilizza una sottoscrizione multiservizio.|
 
 ###  <a name="secret-key"></a>Chiave privata
@@ -98,14 +98,14 @@ Quando si usa una chiave privata a più servizi, è necessario includere due int
 
 L'area è obbligatoria per la sottoscrizione dell'API del testo multiservizio. L'area selezionata è l'unica area che è possibile usare per la traduzione di testo quando si usa la chiave di sottoscrizione multiservizio e deve essere la stessa area selezionata al momento dell'iscrizione per la sottoscrizione multiservizio tramite il portale di Azure.
 
-Le aree disponibili sono `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, @no__ t-21 e 2.
+Le aree disponibili sono `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, @no__ t-21 e 2.`japaneast``japanwest``koreacentral``northcentralus``northeurope``southcentralus``southeastasia``uksouth``westcentralus``westeurope``westus``westus2``southafricanorth`
 
 Se si passa la chiave privata nella stringa di query con il parametro `Subscription-Key`, è necessario specificare l'area con il parametro di query `Subscription-Region`.
 
 Se si usa un bearer token, è necessario ottenere il token dall'endpoint di area: `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>Errori
 
 Una risposta di errore standard è un oggetto JSON con coppia nome/valore denominato `error`. Il valore è anche un oggetto JSON con proprietà:
 

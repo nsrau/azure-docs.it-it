@@ -6,16 +6,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 11/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24efd9d67e5bcc083ce1a02dcf0850a39189afe8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 2596091324acde5c4fdc3f7c467849f90266fec9
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173100"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847238"
 ---
 # <a name="cloud-authentication-staged-rollout-public-preview"></a>Autenticazione cloud: implementazione temporanea (anteprima pubblica)
 
@@ -117,18 +117,18 @@ Abilitare l'accesso SSO facile nelle foreste di Active Directory tramite PowerSh
 
 2. Passare alla cartella% ProgramFiles%\\Microsoft Azure Active Directory Connect.
 
-3. Importare il modulo di PowerShell seamless SSO usando il comando seguente: `Import-Module .\\AzureADSSO.psd1`.
+3. Importare il modulo di PowerShell seamless SSO usando il comando seguente: `Import-Module .\AzureADSSO.psd1`.
 
 4. Eseguire PowerShell come amministratore. In PowerShell chiamare `New-AzureADSSOAuthenticationContext`. Questo comando dovrebbe fornire una finestra di dialogo in cui è possibile immettere le credenziali di amministratore globale del tenant.
 
-5. Chiamare `Get-AzureADSSOStatus \| ConvertFrom-Json`. Questo comando fornisce l'elenco delle foreste di Active Directory (esaminare l'elenco dei domini \"\") in cui è stata abilitata questa funzionalità. Per impostazione predefinita, è impostato su false a livello di tenant.
+5. Chiamare `Get-AzureADSSOStatus | ConvertFrom-Json`. Questo comando fornisce l'elenco delle foreste di Active Directory (esaminare l'elenco dei domini \"\") in cui è stata abilitata questa funzionalità. Per impostazione predefinita, è impostato su false a livello di tenant.
 
    > **Esempio:** 
    > ![esempio di output di Windows PowerShell](./media/how-to-connect-staged-rollout/sr3.png)
 
-6. Chiamare `\$creds = Get-Credential`. Quando richiesto, immettere le credenziali dell'amministratore di dominio per la foresta di Active Directory da usare.
+6. Chiamare `$creds = Get-Credential`. Quando richiesto, immettere le credenziali dell'amministratore di dominio per la foresta di Active Directory da usare.
 
-7. Eseguire la chiamata a `Enable-AzureADSSOForest -OnPremCredentials \$creds`. Questo comando crea l'account del computer AZUREADSSOACC dal controller di dominio locale per questa foresta di Active Directory specifica, necessaria per la funzionalità seamless SSO.
+7. Eseguire la chiamata a `Enable-AzureADSSOForest -OnPremCredentials $creds`. Questo comando crea l'account del computer AZUREADSSOACC dal controller di dominio locale per questa foresta di Active Directory specifica, necessaria per la funzionalità seamless SSO.
 
 8. L'accesso SSO facile richiede che gli URL si trovino nell'area Intranet. Per distribuire tali URL usando criteri di gruppo, fare riferimento alla [Guida introduttiva Single Sign-on](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature) .
 
@@ -240,7 +240,7 @@ Ecco come tenere traccia degli accessi degli utenti ancora in AD FS per gli uten
 
 -   **D: è possibile usare PowerShell per eseguire l'implementazione temporanea?**
 
--   R: Sì, trovare la documentazione per usare PowerShell per eseguire l'implementazione temporanea.
+-   R: Sì, trovare la documentazione per usare PowerShell per eseguire l'implementazione [temporanea.](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout)
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 - [AzureAD 2,0 Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

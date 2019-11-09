@@ -1,5 +1,5 @@
 ---
-title: Distribuire la soluzione di monitoraggio remoto localmente (tramite IDE IntelliJ)-Azure | Microsoft Docs
+title: Distribuire la soluzione di monitoraggio remoto localmente-IDE IntelliJ-Azure | Microsoft Docs
 description: Questa guida illustra come distribuire Remote Monitoring Solution Accelerator nel computer locale usando IntelliJ per il test e lo sviluppo.
 author: v-krghan
 manager: dominicbetts
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2f3c11763bb2f406caf9d33275fc29b0d140da9a
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 779ee1e057d74b11c5e0ba58dc2fd32b803f1e0e
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "70743302"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888821"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuire localmente l'acceleratore di soluzioni di monitoraggio remoto - IntelliJ
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Questo articolo illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale a scopo di test e sviluppo. Si apprenderà come eseguire i microservizi in IntelliJ. Una distribuzione locale di microservizi utilizzerà i servizi cloud seguenti: Hub Internet delle cose, Azure Cosmos DB, analisi di flusso di Azure e Azure Time Series Insights.
+Questo articolo illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale a scopo di test e sviluppo. Si apprenderà come eseguire i microservizi in IntelliJ. Una distribuzione locale di microservizi utilizzerà i servizi cloud seguenti: hub Internet delle cose, Azure Cosmos DB, analisi di flusso di Azure e Azure Time Series Insights.
 
 Se si intende eseguire l'acceleratore di soluzioni di monitoraggio remoto in Docker nel computer locale, vedere [Distribuire l'acceleratore di soluzioni di monitoraggio remoto localmente - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
@@ -27,7 +27,7 @@ Se si intende eseguire l'acceleratore di soluzioni di monitoraggio remoto in Doc
 
 Per distribuire i servizi di Azure usati dall'acceleratore di soluzioni di monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Impostazioni del computer
 
@@ -98,18 +98,18 @@ Se non sono ancora state create le risorse di Azure necessarie, seguire questa p
    Lo script aggiunge anche un set di variabili di ambiente nel computer locale. Il prefisso dei **PC**è il nome di ogni variabile. Queste variabili di ambiente forniscono dettagli che consentono al monitoraggio remoto di leggere i valori di configurazione da una risorsa Azure Key Vault.
 
    > [!TIP]
-   > Al termine dell'esecuzione dello script, le variabili di ambiente vengono salvate in un file denominato  **\<cartella\\\<\>Home\\. PC\>Nome soluzione. env**. È possibile usarli per distribuzioni future di Solution Accelerator. Si noti che tutte le variabili di ambiente impostate nel computer locale sostituiscono i valori nel file **\\Local\\. env degli script\\dei servizi** quando si esegue **Docker-compose**.
+   > Al termine dell'esecuzione dello script, le variabili di ambiente vengono salvate in un file denominato **\<cartella home\>\\. pcs\\\<nome della soluzione\>. env**. È possibile usarli per distribuzioni future di Solution Accelerator. Si noti che tutte le variabili di ambiente impostate nel computer locale sostituiscono i valori negli **script di\\dei servizi\\file\\. env locale** quando si esegue **Docker-compose**.
 
 1. Chiudere l'ambiente della riga di comando.
 
 ### <a name="use-existing-azure-resources"></a>Usare le risorse di Azure esistenti
 
 Se sono già state create le risorse di Azure necessarie, impostare le variabili di ambiente corrispondenti nel computer locale:
-* **PCS_KEYVAULT_NAME**: Nome della risorsa Key Vault.
-* **PCS_AAD_APPID**: ID dell'applicazione Azure Active Directory (Azure AD).
-* **PCS_AAD_APPSECRET**: Il segreto dell'applicazione Azure AD.
+* **PCS_KEYVAULT_NAME**: il nome della risorsa key Vault.
+* **PCS_AAD_APPID**: l'ID applicazione Azure Active Directory (Azure ad).
+* **PCS_AAD_APPSECRET**: il segreto dell'applicazione Azure ad.
 
-I valori di configurazione verranno letti da questa risorsa Key Vault. Queste variabili di ambiente possono essere salvate nel file con  **\<estensione\>ENV della\\soluzione\>Home\\Folder. PCS\<** dalla distribuzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
+I valori di configurazione verranno letti da questa risorsa Key Vault. Queste variabili di ambiente possono essere salvate nel **\<cartella home\>\\. pcs\\\<nome della soluzione\>file con estensione ENV** dalla distribuzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
 
 Parte della configurazione richiesta dal microservizio è archiviata in un'istanza di Key Vault creata durante la distribuzione iniziale. Le variabili corrispondenti nell'insieme di credenziali delle chiavi devono essere modificate in base alle esigenze.
 
@@ -159,7 +159,7 @@ I passaggi seguenti illustrano come eseguire i microservizi di monitoraggio remo
 
 #### <a name="create-run-configurations"></a>Creare configurazioni di esecuzione
 
-1. Selezionare **Esegui** > **modifiche configurazioni**.
+1. Selezionare **esegui** > **modificare le configurazioni**.
 1. Selezionare **Aggiungi nuova configurazione** > **attività SBT**.
 1. Immettere **nome**, quindi immettere **attività** come **Esegui**.
 1. Selezionare la **directory di lavoro** in base al servizio che si desidera eseguire.
@@ -172,17 +172,17 @@ I passaggi seguenti illustrano come eseguire i microservizi di monitoraggio remo
 
 Nell'immagine seguente, ad esempio, viene illustrato come aggiungere una configurazione per un servizio:
 
-[![Screenshot della finestra di configurazione dell'esecuzione/debug dell'IDE di IntelliJ, che mostra l'opzione storageAdapter evidenziata nell'elenco attività SBT nel riquadro sinistro e voci nelle caselle nome, attività, directory di lavoro e parametri VM nel riquadro destro.](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
+[![screenshot della finestra di configurazione dell'esecuzione/debug dell'IDE IntelliJ, che mostra l'opzione storageAdapter evidenziata nell'elenco attività SBT nel riquadro sinistro e voci nelle caselle nome, attività, directory di lavoro e parametri VM nel riquadro destro.](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 #### <a name="create-a-compound-configuration"></a>Creare una configurazione composta
 
-1. Per eseguire tutti i servizi insieme, selezionare **Aggiungi nuovo** > **composto**di configurazione.
+1. Per eseguire tutti i servizi insieme, selezionare **Aggiungi nuova configurazione** > **composto**.
 1. Immettere **nome**, quindi selezionare **Aggiungi attività SBT**.
 1. Selezionare **applica** > **OK** per salvare le scelte.
 
 Nell'immagine seguente, ad esempio, viene illustrato come aggiungere tutte le attività SBT a una singola configurazione:
 
-[![Screenshot della finestra di configurazione dell'esecuzione/debug dell'IDE di IntelliJ, che mostra l'opzione AllServices evidenziata nell'elenco composto nel riquadro sinistro e l'opzione "deviceTelemetry" dell'attività SBT evidenziata nel riquadro di destra.](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
+[![screenshot della finestra di configurazione dell'esecuzione/debug dell'IDE IntelliJ, che mostra l'opzione AllServices evidenziata nell'elenco composto nel riquadro sinistro e l'opzione "deviceTelemetry" dell'attività SBT evidenziata nel riquadro di destra.](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
 Selezionare **Esegui** per compilare ed eseguire i servizi Web nel computer locale.
 
@@ -190,10 +190,10 @@ Ogni servizio Web apre una finestra del prompt dei comandi e una finestra del br
 
 Per accedere allo stato dei servizi, passare agli URL seguenti:
 
-* Gestione Hub:[http://localhost:9002/v1/status](http://localhost:9002/v1/status)
-* Telemetria del dispositivo:[http://localhost:9004/v1/status](http://localhost:9004/v1/status)
-* config[http://localhost:9005/v1/status](http://localhost:9005/v1/status)
-* scheda di archiviazione:[http://localhost:9022/v1/status](http://localhost:9022/v1/status)
+* Gestione Hub Internet: [http://localhost:9002/v1/status](http://localhost:9002/v1/status)
+* Telemetria del dispositivo: [http://localhost:9004/v1/status](http://localhost:9004/v1/status)
+* configurazione: [http://localhost:9005/v1/status](http://localhost:9005/v1/status)
+* scheda di memoria: [http://localhost:9022/v1/status](http://localhost:9022/v1/status)
 
 ### <a name="start-the-stream-analytics-job"></a>Avviare il processo di analisi di flusso
 
@@ -213,7 +213,7 @@ npm install
 npm start
 ```
 
-Al termine del comando di **avvio** , il browser Visualizza la pagina in corrispondenza dell' [http://localhost:3000/dashboard](http://localhost:3000/dashboard)indirizzo. Gli errori in questa pagina sono previsti. Per visualizzare l'applicazione senza errori, attenersi alla procedura riportata di seguito.
+Al termine del comando **Start** , il browser Visualizza la pagina all'indirizzo [http://localhost:3000/dashboard](http://localhost:3000/dashboard). Gli errori in questa pagina sono previsti. Per visualizzare l'applicazione senza errori, attenersi alla procedura riportata di seguito.
 
 ### <a name="configure-and-run-nginx"></a>Configurare ed eseguire nginx
 
@@ -226,7 +226,7 @@ Per ulteriori informazioni sull'esecuzione di nginx, vedere [Nginx per Windows](
 
 ### <a name="connect-to-the-dashboard"></a>Connettersi al dashboard
 
-Per accedere al dashboard della soluzione di monitoraggio remoto, http://localhost:9000 passare a nel browser.
+Per accedere al dashboard della soluzione di monitoraggio remoto, passare a http://localhost:9000 nel browser.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 880b31702cf1c0a92ab7ee536cd88e8e6957f6f8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 3414cc54e5023bdeebb2d5536c1408f981e68f19
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430861"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891390"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Eseguire il backup di macchine virtuali del carico di lavoro nel cloud privato CloudSimple usando Veeam B & R
 
@@ -136,7 +136,7 @@ Creare regole del firewall tra la subnet di gestione e la rete di backup per con
 
 Nella tabella seguente viene fornito un elenco di porte.
 
-| Icona | Description | Icona | Description |
+| Icona | Descrizione | Icona | Descrizione |
 | ------------ | ------------- | ------------ | ------------- |
 | Server di backup  | vCenter  | HTTPS/TCP  | 443 |
 | Server di backup <br> *Obbligatorio per la distribuzione di Veeam Backup & componenti di replica* | Proxy di backup  | TCP/UDP  | 135, da 137 a 139 e 445 |
@@ -194,7 +194,7 @@ Connettere la rete virtuale al cloud privato seguendo le istruzioni riportate in
 
 ### <a name="configure-azure-blob-storage-for-long-term-data-retention"></a>Configurare l'archiviazione BLOB di Azure per la conservazione dei dati a lungo termine
 
-1. Creare un account di archiviazione per utilizzo generico (GPv2) di tipo standard e un contenitore BLOB come descritto nel Introduzione video Microsoft [con archiviazione di Azure](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage).
+1. Creare un account di archiviazione per utilizzo generico (GPv2) di tipo standard e un contenitore BLOB come descritto nel Introduzione video Microsoft [con archiviazione di Azure](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage).
 2. Creare un contenitore di archiviazione di Azure, come descritto in creare un riferimento al [contenitore](https://docs.microsoft.com/rest/api/storageservices/create-container) .
 2. Scaricare l'utilità da riga di comando `azcopy` per Linux da Microsoft. È possibile usare i comandi seguenti nella shell bash in CentOS 7,5.
 
@@ -290,7 +290,7 @@ Per annullare l'escalation dei privilegi, vedere [decrescenza dei privilegi](esc
 * [Connettere una VNet a una sottoscrizione circuit-different](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription)
 * [Creare una macchina virtuale Linux nel portale di Azure](../virtual-machines/linux/quick-create-portal.md)
 * [Come aggiungere un disco dati gestito a una macchina virtuale Windows nel portale di Azure](../virtual-machines/windows/attach-managed-disk-portal.md)
-* [Introduzione con archiviazione di Azure-video](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage)
+* [Introduzione con archiviazione di Azure-video](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)
 * [Crea contenitore](https://docs.microsoft.com/rest/api/storageservices/create-container)
 * [Trasferire dati con AzCopy in Linux](../storage/common/storage-use-azcopy-linux.md)
 

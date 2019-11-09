@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 4dd4831d6437b7026459dc358455335dd0fa221b
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: f27a6df86ebbe2b07b73016f304ac364e88664bb
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063109"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891042"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -69,7 +69,7 @@ ExpressRoute supporta [tre domini di routing](expressroute-circuit-peerings.md) 
 * [Desktop virtuale Windows](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (community di Servizi globali di Azure)
 * È supportata la maggior parte dei servizi di Azure. Contattare direttamente il servizio che si vuole usare per verificarne il supporto.<br><br>**I servizi seguenti NON sono supportati**:
-    * Rete CDN
+    * RETE CDN
     * Frontdoor di Azure
     * Server di autenticazione a più fattori (legacy)
     * Gestione traffico
@@ -83,7 +83,7 @@ ExpressRoute supporta [tre domini di routing](expressroute-circuit-peerings.md) 
 * Power BI
 * È supportata la maggior parte dei servizi di Azure. Contattare direttamente il servizio che si vuole usare per verificarne il supporto.<br><br>
   **I servizi seguenti NON sono supportati**:
-    * Rete CDN
+    * RETE CDN
     * Frontdoor di Azure
     * Server di autenticazione a più fattori (legacy)
     * Gestione traffico
@@ -101,7 +101,7 @@ Se viene visualizzato il messaggio "convalida richiesta", raccogliere i document
 Gli ambienti Dynamics 365 e Common Data Service (CDS) sono ospitati in Azure e quindi i clienti traggono vantaggio dal supporto ExpressRoute sottostante per le risorse di Azure. È possibile connettersi agli endpoint del servizio se il filtro del router include le aree di Azure in cui sono ospitati gli ambienti Dynamics 365/CDS.
 
 > [!NOTE]
-> [ExpressRoute Premium](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs#expressroute-premium) **non** è necessario per la connettività Dynamics 365 tramite Azure ExpressRoute.
+> [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) **non** è necessario per la connettività Dynamics 365 tramite Azure ExpressRoute.
 
 ## <a name="data-and-connections"></a>Dati e connessioni
 
@@ -345,7 +345,7 @@ ExpressRoute local è disponibile nelle località di peering in cui una o due ar
 
 ### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services"></a>I circuiti ExpressRoute esistenti possono supportare la connettività ai servizi di Office 365?
 
-Sì. È possibile configurare i circuiti ExpressRoute esistenti per supportare la connettività ai servizi di Office 365. Assicurarsi di avere una capacità sufficiente a connettersi ai servizi di Office 365 e che sia stato abilitato il componente aggiuntivo Premium. [Pianificazione della rete e ottimizzazione delle prestazioni per Office 365](https://aka.ms/tune/) aiuta a pianificare le esigenze di connettività. Vedere inoltre [Creare e modificare un circuito ExpressRoute](expressroute-howto-circuit-classic.md).
+Sì. È possibile configurare i circuiti ExpressRoute esistenti per supportare la connettività ai servizi di Office 365. Assicurarsi di avere una capacità sufficiente a connettersi ai servizi di Office 365 e che sia stato abilitato il componente aggiuntivo Premium. [Pianificazione e al perfezionamento delle prestazioni di rete per Office 365](https://aka.ms/tune/) aiuta a pianificare le esigenze di connettività. Vedere inoltre [Creare e modificare un circuito ExpressRoute](expressroute-howto-circuit-classic.md).
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>A quali servizi di Office 365 è possibile accedere tramite una connessione ExpressRoute?
 
@@ -386,9 +386,9 @@ Il circuito esistente continuerà a annunciare i prefissi per Office 365. Se si 
 
 ### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>Ho un peering Microsoft in una località, ora sto cercando di abilitarlo in un'altra località e non vengono visualizzati i prefissi.
 
-* Il peering Microsoft dei circuiti ExpressRoute che sono stati configurati prima del 1° agosto 2017, avranno tutti i prefissi di servizio pubblicati tramite il peering Microsoft, anche se non sono definiti i filtri di route.
+* Per i circuiti ExpressRoute configurati prima del 1 agosto 2017, tutti i prefissi dei servizi verranno annunciati tramite il peering Microsoft, anche in mancanza di filtri di route definiti.
 
-* Il peering Microsoft dei circuiti ExpressRoute che vengono configurati dopo il 1° agosto 2017 non avrà alcun prefisso annunciato fino a quando non viene associato un filtro di route per il circuito. Per impostazione predefinita, non verrà visualizzato alcun prefisso.
+* Per il peering Microsoft dei circuiti ExpressRoute configurati dopo il 1 agosto 2017 non verrà annunciato alcun prefisso fino a quando non viene associato un filtro di route al circuito. Per impostazione predefinita, non verrà visualizzato alcun prefisso.
 
 ## <a name="expressRouteDirect"></a>ExpressRoute Direct
 

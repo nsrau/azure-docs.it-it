@@ -1,7 +1,7 @@
 ---
 title: Filtro per le espressioni volgari - API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Usare il filtro per le espressioni volgari nell'API Traduzione testuale.
+description: Usare il filtro volgare per determinare il livello di volgarità tradotto nel testo nei servizi cognitivi di Azure API Traduzione testuale.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 114dea098db5c824a1235ba1635f547383bf6743
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: e7e2097e0d3daf360f1fa0f30bf3fd2c62c07163
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595186"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836235"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Aggiungere il filtro per le espressioni volgari nell'API Traduzione testuale
 

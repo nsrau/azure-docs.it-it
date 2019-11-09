@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: atsenthi
-ms.openlocfilehash: 3fa40d794d02da08d29b6cac652edf493977f8e1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: fd1787318e8573183293ddd832a11cf8cfe09cf2
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599722"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832613"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visualizzare i log per un servizio contenitore di Service Fabric
 Azure Service Fabric è un agente di orchestrazione dei contenitori e supporta [contenitori Linux e Windows](service-fabric-containers-overview.md).  Questo articolo descrive come visualizzare i log dei contenitori di un servizio contenitore in esecuzione o di un contenitore non utilizzato, in modo da diagnosticare e risolvere i problemi.
 
 ## <a name="access-the-logs-of-a-running-container"></a>Accedere ai log di un contenitore in esecuzione
-I log dei contenitori sono accessibili mediante [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  In un Web browser aprire Service Fabric Explorer dall'endpoint di gestione del cluster, visitando l'indirizzo [http://mycluster.region.cloudapp.azure.com:19080/Explorer](http://mycluster.region.cloudapp.azure.com:19080/Explorer).  
+I log dei contenitori sono accessibili mediante [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  In un Web browser aprire Service Fabric Explorer dall'endpoint di gestione del cluster passando a `http://mycluster.region.cloudapp.azure.com:19080/Explorer`.  
 
 I log dei contenitori sono disponibili nel nodo del cluster in cui è in esecuzione l'istanza del servizio contenitore. Ad esempio, è possibile visualizzare i log del contenitore front-end Web dell'[applicazione di voto di esempio per Linux](service-fabric-quickstart-containers-linux.md). Nella visualizzazione struttura ad albero espandere **Cluster**>**Applicazioni**>**VotingType**>**fabric:/Voting/azurevotefront**.  Espandere quindi la partizione (d1aa737e-f22a-e347-be16-eec90be24bc1 in questo esempio) e verificare che il contenitore sia in esecuzione nel nodo del cluster *_lnxvm_0*.
 
@@ -44,7 +44,7 @@ Per semplificare la diagnosi degli errori di avvio dei contenitori, Service Fabr
 
 L'impostazione **ContainersRetentionCount** specifica il numero di contenitori da conservare in caso di errore. Se viene specificato un valore negativo, verranno conservati tutti i contenitori con errori. Quando l'attributo **ContainersRetentionCount** non viene specificato, non verrà conservato alcun contenitore. L'attributo **ContainersRetentionCount** supporta anche i parametri dell'applicazione, quindi gli utenti possono specificare valori diversi per cluster di test e di produzione. Usare vincoli di posizionamento per specificare come destinazione un nodo specifico per il servizio contenitore quando si usa questa funzionalità, per evitare che il servizio contenitore passi ad altri nodi. Eventuali contenitori conservati tramite questa funzionalità devono essere rimossi manualmente.
 
-L'impostazione **RunInteractive** corrisponde ai [flag](https://docs.docker.com/engine/reference/commandline/run/#options) `--interactive` e `tty` di Docker. Quando questa impostazione è true nel file manifesto, tali flag vengono usati per avviare il contenitore.  
+L'impostazione **RunInteractive** corrisponde ai `--interactive`flag`tty` [ e ](https://docs.docker.com/engine/reference/commandline/run/#options) di Docker. Quando questa impostazione è true nel file manifesto, tali flag vengono usati per avviare il contenitore.  
 
 ### <a name="rest"></a>REST
 Usare l'operazione per [ottenere i log dei contenitori distribuiti nel nodo](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) per ottenere i log per un contenitore arrestato in modo anomalo. Specificare il nome del nodo in cui era in esecuzione il contenitore, il nome dell'applicazione, il nome del manifesto del servizio e il nome del pacchetto di codice.  Specificare `&Previous=true`. La risposta conterrà i log dei contenitori per il contenitore non utilizzato dell'istanza del pacchetto di codice.

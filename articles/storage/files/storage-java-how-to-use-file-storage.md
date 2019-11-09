@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 00130114b793b5f4d4459eee3404fc4adaf6a8b4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 28a280ea7c3bf9ef84a1fff05da5090ed526fb12
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699402"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837467"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Sviluppare per File di Azure con Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -165,7 +165,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 }
 ```
 
-## <a name="upload-a-file"></a>Carica un file
+## <a name="upload-a-file"></a>Caricare un file
 In questa sezione verrà illustrato come caricare un file dall'archiviazione locale nella directory radice di una condivisione.
 
 Il primo passaggio del caricamento di un file consiste nell'ottenere un riferimento alla directory in cui risiederà. È possibile eseguire questa operazione chiamando il metodo **getRootDirectoryReference** dell'oggetto condivisione.
@@ -185,7 +185,7 @@ Ora che si dispone di un riferimento alla directory radice della condivisione, �
         cloudFile.uploadFromFile(filePath);
 ```
 
-## <a name="download-a-file"></a>Scarica file
+## <a name="download-a-file"></a>Scaricare un file
 Una delle operazioni più frequenti che verranno eseguite in File di Azure consiste nello scaricare i file. Nell'esempio seguente, il codice scarica SampleFile.txt e ne visualizza il contenuto.
 
 ```java
@@ -227,7 +227,7 @@ Per ulteriori informazioni su altre API di archiviazione di Azure, seguire i col
 * [Azure for Java developers](/java/azure) (Azure per sviluppatori Java)
 * [Azure Storage SDK per Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage SDK per Android](https://github.com/azure/azure-storage-android)
-* [Riferimento all'SDK del client di archiviazione di Azure](http://dl.windowsazure.com/storage/javadoc/)
+* [Riferimento all'SDK del client di archiviazione di Azure](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog del team di Archiviazione di Azure](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](../common/storage-use-azcopy.md)

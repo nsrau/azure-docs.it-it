@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 34b54459629560ba80e6a38d10edbab32ea44778
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3f987b9e05bcdcda9afe26a1eb1354e5e2450ac5
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820162"
+ms.locfileid: "73846526"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account-preview"></a>Configurare il collegamento privato di Azure per un account Azure Cosmos (anteprima)
 
@@ -86,7 +86,7 @@ La tabella seguente illustra il mapping tra diversi tipi di API dell'account Azu
 
 ### <a name="fetch-the-private-ip-addresses"></a>Recuperare gli indirizzi IP privati
 
-Una volta eseguito il provisioning dell'endpoint privato, è possibile eseguire una query sugli indirizzi IP. Per visualizzare gli indirizzi IP da portale di Azure. Selezionare **tutte le risorse**, cercare l'endpoint privato creato in precedenza in questo caso "dbPrivateEndpoint3" e selezionare la scheda Panoramica per visualizzare le impostazioni DNS e gli indirizzi IP:
+Una volta eseguito il provisioning dell'endpoint privato, è possibile eseguire una query sugli indirizzi IP. Per visualizzare gli indirizzi IP da portale di Azure, selezionare **tutte le risorse**, cercare l'endpoint privato creato in precedenza in questo caso "dbPrivateEndpoint3" e selezionare la scheda Panoramica per visualizzare le impostazioni DNS e gli indirizzi IP:
 
 ![Indirizzi IP privati in portale di Azure](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: b451597d2d91117e11b1becd8b4ab96f981dade8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ce0b917f34cab31227e721e119c72cd5d1f99bff
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931310"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832013"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
@@ -48,7 +48,7 @@ Per la funzionalità Monitoraggio di ExpressRoute, i nodi di Azure devono essere
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>Quale protocollo, tra TCP e ICMP, deve essere selezionato per il monitoraggio?
 Se si sta monitorando la rete con i nodi basati su Windows Server, è consigliabile usare TCP come protocollo di monitoraggio, perché fornisce un'accuratezza migliore. 
 
-Il protocollo ICMP è consigliato per i nodi basati su sistema operativo desktop/client Windows. Questa piattaforma does consente l'invio dei dati TCP su socket non elaborati, che NPM USA per individuare la topologia di rete.
+Il protocollo ICMP è consigliato per i nodi basati su sistema operativo desktop/client Windows. Questa piattaforma non consente l'invio di dati TCP su socket non elaborati, che NPM USA per individuare la topologia di rete.
 
 È possibile ottenere [qui](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol) altre informazioni sui vantaggi dei vari protocolli.
 
@@ -69,7 +69,7 @@ Lo script configura Windows Firewall solo in locale. Se sono definite regole del
 ### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>Qual è il numero massimo di agenti che è possibile usare o viene visualizzato l'errore ".... è stato raggiunto il limite di configurazione?
 NPM limita il numero di indirizzi IP a 5000 IP per ogni area di lavoro. Se un nodo dispone sia di indirizzi IPv4 che IPv6, questo vale come 2 indirizzi IP per tale nodo. Di conseguenza, il limite di 5000 IP stabilisce il limite massimo del numero di agenti. È possibile eliminare gli agenti inattivi dalla scheda Nodi in NPM >> Configura. NPM gestisce anche la cronologia di tutti gli indirizzi IP che sono stati assegnati alla macchina virtuale che ospita l'agente e ognuno viene conteggiato come IP separato, contribuendo a tale limite superiore di 5000 IP. Per liberare gli IP per l'area di lavoro, è possibile usare la pagina nodi per eliminare gli IP non in uso.
 
-## <a name="monitoring"></a>Monitorare
+## <a name="monitoring"></a>Monitoraggio
 
 ### <a name="how-are-loss-and-latency-calculated"></a>Come vengono calcolate la perdita e la latenza?
 Gli agenti di origine inviano richieste SYN TCP (se è selezionato TCP come protocollo per il monitoraggio) o ECHO ICMP (se invece è selezionato ICMP) all'indirizzo IP di destinazione a intervalli regolari per verificare che tutti i percorsi per la combinazione di IP di origine e destinazione siano coperti. Per calcolare la perdita e la latenza di ogni percorso viene misurata la percentuale di pacchetti ricevuti e di tempo di round trip dei pacchetti. I dati vengono aggregati per l'intervallo di polling e per tutti i percorsi in modo da ottenere i valori complessivi di perdita e latenza per la combinazione di IP per lo specifico intervallo di polling.
@@ -98,6 +98,42 @@ Monitoraggio prestazioni rete adotta un meccanismo probabilistico per assegnare 
 ### <a name="how-can-i-create-alerts-in-npm"></a>Come è possibile creare avvisi in Monitoraggio prestazioni rete?
 Per istruzioni dettagliate, vedere la [sezione relativa agli avvisi nella documentazione](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts).
 
+### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Quali sono le query Log Analytics predefinite per gli avvisi
+Query di performance monitor
+
+    NetworkMonitoring 
+     | where (SubType == "SubNetwork" or SubType == "NetworkPath") 
+     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and RuleName == "<<your rule name>>"
+    
+Query di monitoraggio connettività del servizio
+
+    NetworkMonitoring                 
+     | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
+     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
+    
+Query di monitoraggio ExpressRoute: query sui circuiti
+
+    NetworkMonitoring
+    | where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
+
+Peering privato
+
+    NetworkMonitoring 
+     | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ExpressRoutePath")   
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == "<<your circuit name>>" and VirtualNetwork == "<<vnet name>>"
+
+Peering Microsoft
+
+    NetworkMonitoring 
+     | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
+
+Query comune   
+
+    NetworkMonitoring
+    | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") 
+
 ### <a name="can-npm-monitor-routers-and-servers-as-individual-devices"></a>Monitoraggio prestazioni rete può eseguire il monitoraggio di router e server come singoli dispositivi?
 Monitoraggio prestazioni rete identifica solo l'indirizzo IP e il nome host degli hop di rete sottostanti (commutatori, router, server e così via) tra gli IP di origine e di destinazione. Rileva inoltre la latenza tra questi hop identificati. Non esegue il monitoraggio dei singoli hop sottostanti.
 
@@ -110,17 +146,23 @@ Il valore di utilizzo della larghezza di banda corrisponde al totale della largh
 ### <a name="can-we-get-incoming-and-outgoing-bandwidth-information-for-the-expressroute"></a>È possibile ottenere informazioni sulla larghezza di banda in ingresso e in uscita per ExpressRoute?
 È possibile acquisire i valori in ingresso e in uscita sia per la larghezza di banda primaria sia per quella secondaria.
 
-Per informazioni a livello di peering, usare la query seguente in Ricerca log
+Per informazioni sul livello di peering MS, usare la query indicata di seguito in ricerca log
 
     NetworkMonitoring 
-    | where SubType == "ExpressRoutePeeringUtilization"
-    | project CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | where SubType == "ERMSPeeringUtilization"
+     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+    
+Per informazioni sul livello di peering privato, usare la query indicata di seguito in ricerca log
+
+    NetworkMonitoring 
+     | where SubType == "ERVNetConnectionUtilization"
+     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
   
-Per informazioni a livello di circuito, usare la query seguente 
+Per informazioni a livello di circuito, usare la query indicata di seguito in ricerca log
 
     NetworkMonitoring 
-    | where SubType == "ExpressRouteCircuitUtilization"
-    | project CircuitName,PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+        | where SubType == "ERCircuitTotalUtilization"
+        | project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>Quali aree sono supportate per la funzionalità Performance Monitor di Monitoraggio prestazioni rete?
 Monitoraggio prestazioni rete può monitorare la connettività tra reti in qualsiasi parte del mondo, da un'area di lavoro ospitata in una delle [aree supportate](../../azure-monitor/insights/network-performance-monitor.md#supported-regions).
@@ -131,7 +173,7 @@ Monitoraggio prestazioni rete può monitorare la connettività ai servizi in qua
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Quali aree sono supportate per la funzionalità Monitoraggio di ExpressRoute di Monitoraggio prestazioni rete?
 Monitoraggio prestazioni rete può monitorare i circuiti ExpressRoute presenti in qualsiasi area di Azure. Per eseguire l'onboarding a Monitoraggio prestazioni rete, è necessaria un'area di lavoro Log Analytics ospitata in una delle [aree supportate](/azure/expressroute/how-to-npm).
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risolvere i problemi
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Per quale motivo alcuni hop sono contrassegnati come non identificati nella visualizzazione della topologia di rete?
 Monitoraggio prestazioni rete usa una versione modificata di traceroute per individuare la topologia dall'agente di origine alla destinazione. Un hop non identificato indica che l'hop di rete non ha risposto alla richiesta traceroute dell'agente di origine. Se tre hop di rete consecutivi non rispondono al traceroute dell'agente, la soluzione contrassegna gli hop che non rispondono come non identificati e non tenta di individuare più hop.
@@ -142,8 +184,8 @@ Un hop può non rispondere a una richiesta traceroute in almeno uno degli scenar
 * I dispositivi di rete non consentano il traffico ICMP_TTL_EXCEEDED.
 * Un firewall sta bloccando la risposta ICMP_TTL_EXCEEDED dal dispositivo di rete.
 
-### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy-"></a>Ricevo avvisi per i test non integri, ma i valori elevati non sono visualizzati nel grafico della perdita e della latenza di NPM. Ricerca per categorie verificare che cos'è non integro?
-NPM genera un avviso se la latenza end-to-end tra l'origine e la destinazione attraversa la soglia per qualsiasi percorso tra di essi. Alcune reti hanno più percorsi che connettono la stessa origine e la stessa destinazione. NPM genera un avviso se il percorso non è integro. La perdita e la latenza visualizzate nei grafici sono il valore medio per tutti i percorsi, quindi è possibile che non venga visualizzato il valore esatto di un singolo percorso. Per capire dove è stata superata la soglia, cercare la colonna "sottotipo" nell'avviso. Se il problema è causato da un percorso, il valore del sottotipo sarà NetworkPath (per i test di performance monitor), EndpointPath (per i test di monitoraggio della connettività del servizio) e ExpressRoutePath (per i test di monitoraggio di Expressroute). 
+### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>Ricevo avvisi per i test non integri, ma i valori elevati non sono visualizzati nel grafico della perdita e della latenza di NPM. Ricerca per categorie verificare che cos'è non integro?
+NPM genera un avviso se la latenza end-to-end tra l'origine e la destinazione supera la soglia per qualsiasi percorso tra di essi. Alcune reti hanno più percorsi che connettono la stessa origine e la stessa destinazione. NPM genera un avviso se il percorso non è integro. La perdita e la latenza visualizzate nei grafici sono il valore medio per tutti i percorsi, quindi è possibile che non venga visualizzato il valore esatto di un singolo percorso. Per capire dove è stata superata la soglia, cercare la colonna "sottotipo" nell'avviso. Se il problema è causato da un percorso, il valore del sottotipo sarà NetworkPath (per i test di performance monitor), EndpointPath (per i test di monitoraggio della connettività del servizio) e ExpressRoutePath (per i test di monitoraggio di Expressroute). 
 
 La query di esempio da trovare è il percorso non è integro:
 
@@ -181,7 +223,7 @@ I percorsi di rete tra il nodo A e il B possono essere diversi da quelli tra il 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Per quale motivo non tutti i circuiti e le connessioni di peering di ExpressRoute vengono individuati?
 NPM individua ora i circuiti ExpressRoute e le connessioni di peering in tutte le sottoscrizioni a cui l'utente ha accesso. Scegliere tutte le sottoscrizioni in cui sono collegate risorse di ExpressRoute e abilitare il monitoraggio per ogni risorsa individuata. NPM cerca gli oggetti di connessione durante l'individuazione di un peering privato, verificare quindi se il peering è associato a una rete virtuale.
 
-### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>La funzionalità Monitoraggio di ExpressRoute visualizza un messaggio di diagnostica per segnalare che il traffico non passa attraverso alcun circuito. Cosa significa?
+### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>La funzionalità Monitoraggio di ExpressRoute visualizza un messaggio di diagnostica per segnalare che il traffico non passa attraverso alcun circuito. Che cosa significa?
 
 Può verificarsi uno scenario in cui è presente una connessione integra tra il nodo locale e quello di Azure, ma il traffico non passa attraverso il circuito ExpressRoute configurato per il monitoraggio tramite Monitoraggio prestazioni rete. 
 
@@ -214,7 +256,7 @@ Questa situazione può verificarsi se almeno una di queste condizioni è vera:
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>Per quale motivo, nella funzionalità Monitoraggio connettività servizio, il tempo di risposta del servizio non è disponibile, ma i valori di perdita di rete e latenza sono validi?
 Questa situazione può verificarsi se il servizio di destinazione non è un'applicazione Web, ma il test è configurato come test Web. Modificare la configurazione di test e scegliere il tipo di test Rete invece di Web.
 
-## <a name="miscellaneous"></a>Varie
+## <a name="miscellaneous"></a>Miscellaneous
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Si può riscontrare un impatto sulle prestazioni del nodo usato per il monitoraggio?
 Monitoraggio prestazioni rete è configurato in modo da arrestare il processo di monitoraggio se utilizza più del 5% delle risorse della CPU dell'host. Ciò consente di assicurarsi di poter usare i nodi per i normali carichi di lavoro senza alcun impatto sulle prestazioni.

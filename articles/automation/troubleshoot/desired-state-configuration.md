@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b9d2dda589cc59be24b73ce16dcdcbbe79b31aef
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 7be5e814d8092b523fa69fdd84f0e1476736fda2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259165"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887707"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Risolvere i problemi della configurazione dello stato desiderato (DSC)
 
@@ -24,7 +24,7 @@ Questo articolo contiene informazioni sulla risoluzione dei problemi della confi
 
 Quando si verificano errori durante la compilazione o la distribuzione di configurazioni in Azure state Configuration, di seguito sono riportati alcuni passaggi che consentono di diagnosticare il problema.
 
-1. **Assicurarsi che la configurazione venga compilata correttamente nel computer locale:**  La configurazione dello stato di Azure si basa su PowerShell DSC. È possibile trovare la documentazione relativa alla sintassi e al linguaggio DSC in [PowerShell DSC docs](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+1. **Assicurarsi che la configurazione venga compilata correttamente nel computer locale:**  La configurazione dello stato di Azure si basa su PowerShell DSC. È possibile trovare la documentazione relativa alla sintassi e al linguaggio DSC in [PowerShell DSC docs](https://docs.microsoft.com/powershell/scripting/overview).
 
    Compilando la configurazione DSC nel computer locale è possibile individuare e risolvere gli errori comuni, ad esempio:
 
@@ -45,7 +45,7 @@ Quando si verificano errori durante la compilazione o la distribuzione di config
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Errori comuni durante l'utilizzo di Desired State Configuration (DSC)
 
-### <a name="unsupported-characters"></a>Scenario: Una configurazione con caratteri speciali non può essere eliminata dal portale
+### <a name="unsupported-characters"></a>Scenario: una configurazione con caratteri speciali non può essere eliminata dal portale
 
 #### <a name="issue"></a>Problema
 
@@ -65,7 +65,7 @@ Questo errore è un problema temporaneo che è pianificato per essere risolto.
 * La documentazione per questo cmdlet non è stata ancora aggiornata.  Fino ad allora, fare riferimento alla documentazione per il modulo AzureRM.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
-### <a name="failed-to-register-agent"></a>Scenario: Non è stato possibile registrare l'agente DSC
+### <a name="failed-to-register-agent"></a>Scenario: non è stato possibile registrare l'agente DSC
 
 #### <a name="issue"></a>Problema
 
@@ -90,7 +90,7 @@ Questo errore è in genere causato da un firewall, dal computer che si trova die
 
 Verificare che il computer abbia accesso agli endpoint appropriati per Automation DSC di Azure e riprovare. Per un elenco di porte e indirizzi necessari, vedere [pianificazione della rete](../automation-dsc-overview.md#network-planning)
 
-### <a name="failed-not-found"></a>Scenario: lo stato del nodo indica che non è riuscito con errore "Non trovato"
+### <a name="failed-not-found"></a>Scenario: Lo stato del nodo indica che non è riuscito con errore "Non trovato"
 
 #### <a name="issue"></a>Problema
 
@@ -112,7 +112,7 @@ Questo errore si verifica in genere quando al nodo viene assegnato un nome di co
   * Per assegnare una configurazione del nodo a un nodo usando portale di Azure, aprire la pagina **nodi DSC** , selezionare un nodo e fare clic sul pulsante **Assegna configurazione nodo** .
   * Per assegnare una configurazione del nodo a un nodo usando il cmdlet di PowerShell, usare il cmdlet **set-AzureRmAutomationDscNode**
 
-### <a name="no-mof-files"></a>Scenario: non sono state generate configurazioni di nodo (file con estensione mof) durante la compilazione di una configurazione
+### <a name="no-mof-files"></a>Scenario: Non sono state prodotte configurazioni di nodo (file MOF) durante la compilazione di una configurazione
 
 #### <a name="issue"></a>Problema
 
@@ -133,7 +133,7 @@ una qualsiasi delle soluzioni seguenti consente di correggere il problema:
 * Verificare che l'espressione accanto alla parola chiave **node** nella definizione di configurazione non stia valutando $null.
 * Se durante la compilazione della configurazione si passano dei dati di configurazione, verificare di specificare i valori previsti necessari per la configurazione da [ConfigurationData](../automation-dsc-compile.md).
 
-### <a name="dsc-in-progress"></a>Scenario: il report relativo al nodo DSC rimane bloccato nello stato "In corso"
+### <a name="dsc-in-progress"></a>Scenario: Il report relativo al nodo DSC rimane bloccato nello stato "in corso"
 
 #### <a name="issue"></a>Problema
 
@@ -151,7 +151,7 @@ No instance found with given property values
 
 Per risolvere il problema, seguire le istruzioni riportate nell'articolo [limitazioni e problemi noti di DSC](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc) .
 
-### <a name="issue-using-credential"></a>Scenario: non è possibile usare le credenziali in una configurazione DSC
+### <a name="issue-using-credential"></a>Scenario: Non è possibile usare le credenziali in una configurazione DSC
 
 #### <a name="issue"></a>Problema
 
@@ -169,7 +169,7 @@ Sono state usate le credenziali in una configurazione ma non è stato fornito un
 
 * Assicurarsi di passare il **configurationData** appropriato per impostare **PSDscAllowPlainTextPassword** su true per ogni configurazione di nodo citata nella configurazione. Per altre informazioni, vedere la sezione relativa agli [asset in Automation DSC per Azure](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
 
-### <a name="failure-processing-extension"></a>Scenario: Caricamento dall'estensione DSC, errore dell'estensione per l'elaborazione degli errori
+### <a name="failure-processing-extension"></a>Scenario: onboarding dall'estensione DSC, errore dell'estensione per l'elaborazione degli errori
 
 #### <a name="issue"></a>Problema
 
@@ -188,7 +188,7 @@ Questo errore si verifica in genere quando al nodo viene assegnato un nome di co
 * Assicurarsi di assegnare il nodo con un nome di configurazione nodo che corrisponda esattamente al nome del servizio.
 * È possibile scegliere di non includere il nome della configurazione del nodo, che comporterà l'onboarding del nodo, ma non l'assegnazione di una configurazione del nodo
 
-### <a name="failure-linux-temp-noexec"></a>Scenario: Applicazione di una configurazione in Linux, si verifica un errore con un errore generale
+### <a name="failure-linux-temp-noexec"></a>Scenario: applicazione di una configurazione in Linux. si verifica un errore con un errore generale
 
 #### <a name="issue"></a>Problema
 
@@ -200,13 +200,13 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>Causa
 
-I clienti hanno identificato che se `/tmp` la località è impostata `noexec`su, la versione corrente di DSC non sarà in grado di applicare le configurazioni.
+I clienti hanno identificato che se il percorso del `/tmp` è impostato su `noexec`, la versione corrente di DSC non sarà in grado di applicare le configurazioni.
 
 #### <a name="resolution"></a>Risoluzione
 
-* Rimuovere l' `noexec` opzione `/tmp` dal percorso.
+* Rimuovere l'opzione `noexec` dal percorso `/tmp`.
 
-### <a name="compilation-node-name-overlap"></a>Scenario: I nomi di configurazione del nodo che si sovrappongono possono causare una versione non valida
+### <a name="compilation-node-name-overlap"></a>Scenario: i nomi di configurazione del nodo che si sovrappongono possono causare una versione non valida
 
 #### <a name="issue"></a>Problema
 
@@ -228,4 +228,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Ottieni risposte dagli esperti di Azure tramite i [forum di Azure](https://azure.microsoft.com/support/forums/)
 * Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale per il miglioramento dell'esperienza dei clienti che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.
-* Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
+* Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Richiedi supporto**.

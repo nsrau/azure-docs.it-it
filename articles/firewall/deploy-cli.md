@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: 94db17405457be91795d1588bee68a0deea68246
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: e97783d1a32916cad151f1d0858a8190d0005fd0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114819"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831973"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Distribuire e configurare il firewall di Azure con l'interfaccia della riga di comando
 
@@ -79,7 +79,7 @@ az group create --name Test-FW-RG --location eastus
 Questa rete virtuale ha tre subnet.
 
 > [!NOTE]
-> Le dimensioni della subnet AzureFirewallSubnet sono/26. Per altre informazioni sulle dimensioni della subnet, vedere [domande frequenti su firewall di Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> La dimensione della subnet AzureFirewallSubnet è /26. Per altre informazioni sulle dimensioni delle subnet, vedere le [domande frequenti su Firewall di Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 ```azurecli-interactive
 az network vnet create \
@@ -284,7 +284,7 @@ A questo punto testare il firewall per verificare che funzioni come previsto.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Le richieste www.google.com dovrebbero avere esito positivo e le richieste www.microsoft.com dovrebbero avere esito negativo. Ciò dimostra che le regole del firewall funzionano come previsto.
+   Le richieste di `www.google.com` dovrebbero avere esito positivo e le richieste di `www.microsoft.com` devono avere esito negativo. Ciò dimostra che le regole del firewall funzionano come previsto.
 
 A questo punto si è verificato che le regole del firewall funzionano:
 
@@ -302,4 +302,4 @@ az group delete \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)
+* [Esercitazione: Monitorare i log di Firewall di Azure](./tutorial-diagnostics.md)

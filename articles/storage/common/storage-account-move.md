@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 76648428e6adcaed579b0e4f1896fdf83e11a8b6
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 8ce949ac997ba7ee38cb057752d89f4b4d22388f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348854"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838714"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Spostare un account di archiviazione di Azure in un'altra area
 
@@ -39,7 +39,7 @@ L'articolo spiega come:
 
 <a id="prepare" />
 
-## <a name="prepare"></a>Prepara
+## <a name="prepare"></a>Preparazione
 
 Per iniziare, esportare e modificare un modello di Gestione risorse. 
 
@@ -51,11 +51,11 @@ Questo modello contiene le impostazioni che descrivono l'account di archiviazion
 
 Per esportare un modello utilizzando portale di Azure:
 
-1. Accedere al [portale di Azure](http://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Selezionare **tutte le risorse** e quindi selezionare l'account di archiviazione.
 
-3. Selezionare > **Impostazioni** > **Esporta modello**.
+3. Selezionare > **impostazioni** > **Esporta modello**.
 
 4. Scegliere **Scarica** nel pannello **Esporta modello** .
 
@@ -109,7 +109,7 @@ Per distribuire il modello utilizzando portale di Azure:
 
     ![Raccolta di modelli di Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. Selezionare **Create**.
+4. Selezionare **Crea**.
 
 5. Selezionare **Creare un modello personalizzato nell'editor**.
 
@@ -137,7 +137,7 @@ Per distribuire il modello utilizzando portale di Azure:
          "location": "centralus"
          }]          
     ```
-    Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** = **centrali.**
+    Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, **Stati Uniti centrali** = **centralus**.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -176,7 +176,7 @@ Per distribuire il modello usando PowerShell:
 
 <a id="move" />
 
-## <a name="move"></a>Sposta
+## <a name="move"></a>Spostamento
 
 Distribuire il modello per creare un nuovo account di archiviazione nell'area di destinazione. 
 
@@ -186,11 +186,11 @@ Distribuire il modello per creare un nuovo account di archiviazione nell'area di
 
 2. Immettere o selezionare i valori delle proprietà:
 
-- **Sottoscrizione** Selezionare una sottoscrizione di Azure.
+- **Sottoscrizione**: selezionare una sottoscrizione di Azure.
 
-- **Gruppo di risorse**: Selezionare **Crea nuovo** e assegnare un nome al gruppo di risorse.
+- **Gruppo di risorse**: selezionare **Crea nuovo** e assegnare un nome al gruppo di risorse.
 
-- **Località**: Selezionare una località di Azure.
+- **Località**: selezionare una località di Azure.
 
 3. Fare clic sulla casella di controllo Accetto **i termini e le condizioni indicati in precedenza** , quindi fare clic sul pulsante **Seleziona acquisto** .
 
@@ -219,7 +219,7 @@ Alcune funzionalità non verranno esportate in un modello, pertanto sarà necess
 
 La tabella seguente elenca queste funzionalità insieme alle indicazioni per aggiungerle al nuovo account di archiviazione.
 
-| Funzionalità    | Materiale sussidiario    |
+| Funzionalità    | Indicazioni    |
 |--------|-----------|
 | **Criteri di gestione del ciclo di vita** | [Gestire il ciclo di vita di Archiviazione BLOB di Azure](../blobs/storage-lifecycle-management-concepts.md) |
 | **Siti web statici** | [Ospitare un sito Web statico in archiviazione di Azure](../blobs/storage-blob-static-website-how-to.md) |
@@ -234,19 +234,19 @@ La tabella seguente elenca queste funzionalità insieme alle indicazioni per agg
 
 Ecco alcuni modi per spostare i dati.
 
-:heavy_check_mark: **Azure Storage Explorer**
+: heavy_check_mark: **Azure Storage Explorer**
 
   È facile da usare e adatto per piccoli set di dati. È possibile copiare contenitori e condivisioni file e quindi incollarli nell'account di destinazione.
 
   Vedere [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/);
 
-:heavy_check_mark: **AzCopy**
+: heavy_check_mark: **AzCopy**
 
   Si tratta dell'approccio preferito. È ottimizzato per le prestazioni.  Un modo più rapido è che i dati vengono copiati direttamente tra i server di archiviazione, quindi AzCopy non usa la larghezza di banda di rete del computer. Usare AzCopy nella riga di comando o come parte di uno script personalizzato.
 
   Vedere [Introduzione a AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-:heavy_check_mark: **Data factory di Azure** 
+: heavy_check_mark: **Azure Data Factory** 
 
   Usare questo strumento solo se sono necessarie funzionalità che non sono supportate nella versione corrente di AzCopy. Nella versione corrente di AzCopy, ad esempio, non è possibile copiare i BLOB tra gli account che hanno uno spazio dei nomi gerarchico. Inoltre, AzCopy non mantiene gli elenchi di controllo di accesso ai file o i timestamp dei file (ad esempio, creare e modificare i timestamp). 
 

@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5ae6844cf11ffa095f56c429e17b9c39ad0c76aa
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5272d9aa77f78d0cef316f9f227f9e269ab7e186
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822909"
+ms.locfileid: "73839889"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Esercitazione: Caricare dati in Azure SQL Data Warehouse
 
@@ -61,7 +61,7 @@ Per creare una SQL Data Warehouse vuota, seguire questa procedura.
    | ------- | --------------- | ----------- | 
    | **Nome database** | SampleDW | Per i nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers). | 
    | **Sottoscrizione** | Sottoscrizione in uso  | Per informazioni dettagliate sulle sottoscrizioni, vedere [Subscriptions](https://account.windowsazure.com/Subscriptions) (Sottoscrizioni). |
-   | **Gruppo di risorse** | SampleRG | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
+   | **Gruppo di risorse** | SampleRG | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming). |
    | **Select source** (Seleziona origine) | Database vuoto | Specificare che venga creato un database vuoto. Si noti che un data warehouse è un tipo di database.|
 
     ![creare un data warehouse](media/load-data-wideworldimportersdw/create-data-warehouse.png)
@@ -70,7 +70,7 @@ Per creare una SQL Data Warehouse vuota, seguire questa procedura.
 
     | Impostazione | Valore consigliato | Descrizione | 
     | ------- | --------------- | ----------- |
-    | **Server name** (Nome server) | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Naming rules and restrictions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) (Regole di denominazione e restrizioni). | 
+    | **Server name** (Nome server) | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Regole di denominazione e restrizioni). | 
     | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificatori di database).|
     | **Password** | Qualsiasi password valida | La password deve contenere almeno otto caratteri delle tre categorie seguenti: maiuscole, minuscole, numeri e caratteri non alfanumerici. |
     | **Posizione** | Qualsiasi località valida | Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |

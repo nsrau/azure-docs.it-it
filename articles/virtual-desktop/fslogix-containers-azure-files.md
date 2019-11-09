@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: cf4274931d83b51afb4a8ada7d1c9040ccce3c14
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7003e5b8574d2caa05bfe66e500b93db0c1cdcfa
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606844"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891631"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenitori di profili FSLogix e file di Azure
 
@@ -78,7 +78,7 @@ Dall'acquisizione, Microsoft ha iniziato a sostituire le soluzioni del profilo u
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Integrazione di File di Azure con Azure Active Directory servizio del dominio
 
-Le prestazioni e le funzionalità dei contenitori del profilo FSLogix sfruttano il cloud. Il 7 agosto 2019, i file di Microsoft Azure annunciano la disponibilità a livello generale dell' [autenticazione file di Azure con Azure Active Directory Domain Service (ad DS)](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-overview). Affrontando il sovraccarico amministrativo e costi, File di Azure con l'autenticazione di Azure AD DS è una soluzione Premium per i profili utente nel servizio desktop virtuale di Windows.
+Le prestazioni e le funzionalità dei contenitori del profilo FSLogix sfruttano il cloud. Il 7 agosto 2019, i file di Microsoft Azure annunciano la disponibilità a livello generale dell' [autenticazione file di Azure con Azure Active Directory Domain Service (ad DS)](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview). Affrontando il sovraccarico amministrativo e costi, File di Azure con l'autenticazione di Azure AD DS è una soluzione Premium per i profili utente nel servizio desktop virtuale di Windows.
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Procedure consigliate per desktop virtuale Windows
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: a5176f74964e0809cea39aa160943cc6f3451237
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: a2f6d7f881e404e9e4dbdb8087cabf25f67d561b
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176514"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847311"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Come usare le identità gestite nel servizio app e in Funzioni di Azure
 
@@ -41,9 +41,9 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
 
 2. Se si usa un'app per le funzioni, passare a **Funzionalità della piattaforma**. Per altri tipi di app, scorrere verso il basso fino al gruppo **Impostazioni** nel riquadro di spostamento a sinistra.
 
-3. Selezionare **Identità gestita**.
+3. Selezionare **Identity (identità**).
 
-4. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Salva**
+4. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Save**.
 
     ![Identità gestita nel servizio app](media/app-service-managed-service-identity/msi-blade-system.png)
 
@@ -168,7 +168,7 @@ Sarà prima di tutto necessario creare una risorsa identità assegnata dall'uten
 
 3. Se si usa un'app per le funzioni, passare a **Funzionalità della piattaforma**. Per altri tipi di app, scorrere verso il basso fino al gruppo **Impostazioni** nel riquadro di spostamento a sinistra.
 
-4. Selezionare **Identità gestita**.
+4. Selezionare **Identity (identità**).
 
 5. Nella scheda **assegnato dall'utente** fare clic su **Aggiungi**.
 
@@ -193,7 +193,7 @@ Qualsiasi risorsa di tipo `Microsoft.Web/sites` può essere creata con un'identi
 > [!NOTE] 
 > Un'applicazione può avere contemporaneamente sia identità assegnate dal sistema che assegnate dall'utente. In questo caso, la proprietà `type` sarebbe `SystemAssigned,UserAssigned`
 
-L'aggiunta del tipo assegnato dall'utente indica ad Azure di creare e gestire l'identità per l'applicazione.
+L'aggiunta del tipo assegnato dall'utente indica ad Azure di usare l'identità assegnata dall'utente specificata per l'applicazione.
 
 Ad esempio, un app Web può essere simile alla seguente:
 ```json
@@ -256,7 +256,7 @@ Un'app con un'identità gestita ha due variabili di ambiente definite:
 
 **MSI_ENDPOINT** è un URL locale da cui l'app può richiedere token. Per ottenere un token per una risorsa, eseguire una richiesta HTTP GET a questo endpoint, includendo i parametri seguenti:
 
-> |Nome parametro|In ingresso|Description|
+> |Nome parametro|In ingresso|Descrizione|
 > |-----|-----|-----|
 > |resource|Query|URI della risorsa AAD per cui è necessario ottenere un token. Può trattarsi di uno dei [servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) o di qualsiasi altro URI di risorsa.|
 > |api-version|Query|Versione dell'API del token da usare. Al momento, l'unica versione supportata è: "2017-09-01".|
@@ -268,7 +268,7 @@ Un'app con un'identità gestita ha due variabili di ambiente definite:
 
 Una risposta 200 OK con esito positivo include un corpo JSON con le proprietà seguenti:
 
-> |Nome proprietà|Description|
+> |Nome proprietà|Descrizione|
 > |-------------|----------|
 > |access_token|Token di accesso richiesto. Il servizio Web chiamante può usare questo token per l'autenticazione nel servizio Web ricevente.|
 > |expires_on|Scadenza del token di accesso. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino alla scadenza. Questo valore viene usato per determinare la durata dei token memorizzati nella cache.|

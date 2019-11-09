@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 10/23/2019
-ms.openlocfilehash: 88bcee1cbb23bf298c5ad3920a7744d8da6ce3fb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/07/2019
+ms.openlocfilehash: 16fc15a574655f20e3e6e37f164773b41ffe0b78
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821963"
+ms.locfileid: "73839331"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -246,7 +246,7 @@ Se l'applicazione usa l'istanza gestita come livello dati, seguire queste linee 
 
 - **Confermare le limitazioni note dei gruppi di failover**
 
-  La ridenominazione del database e il ridimensionamento dell'istanza non sono supportati per le istanze nel gruppo di failover. Sarà necessario eliminare temporaneamente il gruppo di failover per poter eseguire queste operazioni.
+  La ridenominazione del database non è supportata per le istanze nel gruppo di failover. Sarà necessario eliminare temporaneamente il gruppo di failover per poter rinominare un database.
 
 ## <a name="failover-groups-and-network-security"></a>Gruppi di failover e sicurezza di rete
 
@@ -296,7 +296,7 @@ Quando si configura un gruppo di failover tra istanze gestite primarie e seconda
    > [!IMPORTANT]
    > Regole di sicurezza dei gruppi di sicurezza di rete non configurate correttamente determinano il blocco delle operazioni di copia del database.
 
-7. L'istanza secondaria è configurata con l'ID della zona DNS corretto. La zona DNS è una proprietà di un'istanza gestita e il relativo ID è incluso nell'indirizzo del nome host. L'ID zona viene generato come stringa casuale quando la prima istanza gestita viene creata in ogni VNet e lo stesso ID viene assegnato a tutte le altre istanze nella stessa subnet. Una volta assegnato, la zona DNS non può essere modificata. Le istanze gestite incluse nello stesso gruppo di failover devono condividere la zona DNS. A tale scopo, passare l'ID zona dell'istanza primaria come valore del parametro DnsZonePartner durante la creazione dell'istanza secondaria. 
+7. L'istanza secondaria è configurata con l'ID della zona DNS corretto. La zona DNS è una proprietà di un'istanza gestita e di un cluster virtuale e il relativo ID è incluso nell'indirizzo del nome host. L'ID zona viene generato come stringa casuale quando la prima istanza gestita viene creata in ogni VNet e lo stesso ID viene assegnato a tutte le altre istanze nella stessa subnet. Una volta assegnato, la zona DNS non può essere modificata. Le istanze gestite incluse nello stesso gruppo di failover devono condividere la zona DNS. A tale scopo, passare l'ID zona dell'istanza primaria come valore del parametro DnsZonePartner durante la creazione dell'istanza secondaria. 
 
    > [!NOTE]
    > Per un'esercitazione dettagliata sulla configurazione di gruppi di failover con istanza gestita, vedere [aggiungere un'istanza gestita a un gruppo di failover](sql-database-managed-instance-failover-group-tutorial.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 068ae6fd581a55892c115f3a7e38d10304f057d8
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 95b7644ab8e0254a53eb4a0872a5af98a0894aec
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170216"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839232"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Domande frequenti sulle Macchine virtuali Windows
 Questo articolo analizza alcune delle domande più comuni sulle macchine virtuali Windows create in Azure mediante il modello di distribuzione di Gestione risorse. Per la versione di Linux di questo argomento, vedere [domande frequenti su macchine virtuali Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -64,7 +64,7 @@ Sì. Per istruzioni, vedere [Come espandere l'unità del sistema operativo di un
 ## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>È possibile copiare o clonare una VM di Azure esistente?
 Sì. Usando immagini gestite, è possibile creare un'immagine di una macchina virtuale e quindi usare l'immagine per creare diverse nuove macchine virtuali. Per istruzioni, vedere [Creare un'immagine personalizzata di una macchina virtuale](tutorial-custom-images.md).
 
-## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>Perché non si vedono le aree del Canada centrale e del Canada orientale tramite Azure Resource Manager?
+## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>Perché non si vedono le aree del Canada centrale e del Canada orientale tramite Gestione risorse di Azure?
 
 Le due nuove aree del Canada centrale e del Canada orientale non vengono registrate automaticamente per la creazione della macchina virtuale per le sottoscrizioni di Azure esistenti. La registrazione viene eseguita automaticamente quando si distribuisce una macchina virtuale tramite il portale di Azure in qualsiasi altra area di Azure Resource Manager. Dopo aver distribuito una macchina virtuale in qualsiasi altra area di Azure le nuove aree dovrebbero essere disponibili per le macchine virtuali successive.
 
@@ -75,10 +75,10 @@ Sì. Per creare rapidamente una VM Linux di prova, vedere [Creare una VM Linux i
 Sì, ora è possibile. La macchina virtuale deve prima essere arrestata e deallocata. È possibile a questo punto aggiungere o rimuovere una scheda di interfaccia di rete (a meno che non sia l'ultima nella macchina virtuale). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Esistono requisiti relativi al nome del computer?
-Sì. Il nome del computer non può contenere più di 15 caratteri. Vedere [Naming conventions rules and restrictions](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#sample-naming-convention) (Regole e restrizioni per le convenzioni di denominazione) per altre informazioni sulla denominazione delle risorse.
+Sì. Il nome del computer non può contenere più di 15 caratteri. Vedere [Naming conventions rules and restrictions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#sample-naming-convention) (Regole e restrizioni per le convenzioni di denominazione) per altre informazioni sulla denominazione delle risorse.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Vi sono requisiti relativi al nome del gruppo di risorse?
-Sì. Il nome del gruppo di risorse non può contenere più di 90 caratteri. Vedere [Naming conventions rules and restrictions](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming) (Regole e restrizioni per le convenzioni di denominazione) per altre informazioni sui gruppi di risorse.
+Sì. Il nome del gruppo di risorse non può contenere più di 90 caratteri. Vedere [Naming conventions rules and restrictions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming) (Regole e restrizioni per le convenzioni di denominazione) per altre informazioni sui gruppi di risorse.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Quali requisiti devono avere i nomi utente durante la creazione di una VM?
 

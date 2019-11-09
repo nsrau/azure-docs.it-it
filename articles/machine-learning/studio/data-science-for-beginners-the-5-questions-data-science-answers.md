@@ -1,6 +1,6 @@
 ---
 title: Analisi scientifica dei dati per principianti
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: La serie di Data Science per principianti illustra i concetti di base in 5 brevi video, partendo con "The 5 Questions Data Science Answers" (Le 5 domande a cui Data Science può rispondere). Da Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: b2a91f3df3bab6a2ba10090719d0e614b9d652a3
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: feb49b4e12bd304b49e0c50cd43ed0be52761532
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621771"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838777"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Analisi scientifica dei dati per principianti, video 1: Le 5 domande a cui risponde l'analisi scientifica dei dati
 La serie *Data Science for Beginners* (Analisi scientifica dei dati per principianti) offre in cinque brevi video una rapida introduzione all'analisi scientifica dei dati offerta da un esperto in materia. Questi video sono basilari, ma utili per chi è interessato a eseguire l'analisi scientifica dei dati oppure lavora con addetti a questa operazione.

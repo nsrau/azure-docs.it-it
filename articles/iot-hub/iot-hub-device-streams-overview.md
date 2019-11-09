@@ -1,18 +1,18 @@
 ---
-title: Flussi dispositivo dell'hub IoT (anteprima) | Microsoft Docs
-description: Panoramica dei flussi di dispositivi dell'hub Internet
+title: Flussi di dispositivi dell'hub Azure Microsoft Docs
+description: Panoramica dei flussi di dispositivi dell'hub Azure, che semplificano i tunnel TCP bidirezionali sicuri per un'ampia gamma di scenari di comunicazione da cloud a dispositivo.
 author: robinsh
 services: iot-hub
 ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
-ms.openlocfilehash: c71ca96ee657cd4d4d0d57e05dc31c03112dc848
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ff738e56226f7cbb720a754573a9d8607e0e3247
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900733"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890462"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Device Streams di Hub IoT (anteprima)
 

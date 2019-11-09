@@ -1,19 +1,18 @@
 ---
 title: Query sul routing dei messaggi di hub IoT di Azure | Microsoft Docs
-description: Guida per sviluppatori - Sintassi di query per il routing dei messaggi di hub IoT di Azure.
+description: Informazioni sul linguaggio di query per il routing dei messaggi dell'hub Internet che è possibile usare per applicare query complesse ai messaggi per ricevere i dati più importanti.
 author: ash2017
-manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 7f6439d79e5d46621b92b1c24ba5caf87889f443
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 859b15954f64f8b481f6b86c04fc28b542599f02
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877067"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890489"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintassi query per il routing dei messaggi di hub IoT
 
@@ -21,7 +20,7 @@ Il routing dei messaggi consente agli utenti di instradare diversi tipi di dati,
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Il routing dei messaggi consente di eseguire query sulle proprietà dei messaggi e sul corpo del messaggio, nonché sui tag e sulle proprietà del dispositivo gemello. Se il corpo del messaggio non è JSON, il routing dei messaggi può comunque instradare il messaggio, ma le query non possono essere applicate al corpo del messaggio.  Le query vengono definite come espressioni booleane in cui un valore booleano true rende la query riuscita e che instrada tutti i dati in ingresso, mentre il valore booleano false rende una query errata e nessun dato viene instradato. Se l'espressione dà come valore null o non definito, viene considerata come false e verrà generato un errore nel log di diagnostica in caso di esito negativo. La sintassi di query deve essere corretta per la route per essere salvata e valutata.  
+Il routing dei messaggi consente di eseguire query sulle proprietà e sul corpo dei messaggi, nonché sui tag dei dispositivi gemelli e sulle proprietà dei dispositivi gemelli. Se il corpo del messaggio non è JSON, il routing dei messaggi può comunque instradare il messaggio, ma le query non possono essere applicate al corpo del messaggio.  Le query vengono definite come espressioni booleane in cui un valore booleano true rende la query riuscita e che instrada tutti i dati in ingresso, mentre il valore booleano false rende una query errata e nessun dato viene instradato. Se l'espressione dà come valore null o non definito, viene considerata come false e verrà generato un errore nel log di diagnostica in caso di esito negativo. La sintassi di query deve essere corretta per la route per essere salvata e valutata.  
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Routing messaggi di query basato sulle proprietà del messaggio 
 
@@ -47,17 +46,17 @@ L'hub IoT definisce un [formato comune](iot-hub-devguide-messages-construct.md) 
 } 
 ```
 
-### <a name="system-properties"></a>Proprietà del sistema
+### <a name="system-properties"></a>Proprietà di sistema
 
 Le proprietà di sistema identificano contenuto e origine dei messaggi. 
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Tipo | Descrizione |
 | -------- | ---- | ----------- |
-| contentType | string | L'utente specifica il tipo di contenuto del messaggio. Per consentire query sul corpo del messaggio, questo valore deve essere impostato su application/JSON. |
-| contentEncoding | string | L'utente specifica il tipo di codifica del messaggio. Valori consentiti sono UTF-8, UTF-16, UTF-32 Se il contentType è impostato su application/JSON. |
-| iothub-connection-device-id | string | Questo valore viene impostato dall'hub IoT e identifica l'ID del dispositivo. Per la query, usare `$connectionDeviceId`. |
-| iothub-enqueuedtime | string | Questo valore viene impostato dall'hub IoT e rappresenta l'ora effettiva di inserimento in coda del messaggio in UTC. Per la query, usare `enqueuedTime`. |
-| iothub-interface-name | string | Questo valore viene impostato dall'utente e rappresenta il nome dell'interfaccia digitale gemella che implementa il messaggio di telemetria. Per la query, usare `$interfaceName`. Questa funzionalità è disponibile come parte del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md). |
+| contentType | stringa | L'utente specifica il tipo di contenuto del messaggio. Per consentire query sul corpo del messaggio, questo valore deve essere impostato su application/JSON. |
+| contentEncoding | stringa | L'utente specifica il tipo di codifica del messaggio. Valori consentiti sono UTF-8, UTF-16, UTF-32 Se il contentType è impostato su application/JSON. |
+| iothub-connection-device-id | stringa | Questo valore viene impostato dall'hub IoT e identifica l'ID del dispositivo. Per la query, usare `$connectionDeviceId`. |
+| iothub-enqueuedtime | stringa | Questo valore viene impostato dall'hub IoT e rappresenta l'ora effettiva di inserimento in coda del messaggio in UTC. Per la query, usare `enqueuedTime`. |
+| iothub-interface-name | stringa | Questo valore viene impostato dall'utente e rappresenta il nome dell'interfaccia digitale gemella che implementa il messaggio di telemetria. Per la query, usare `$interfaceName`. Questa funzionalità è disponibile come parte del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md). |
 
 Come descritto in [messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md), sono disponibili le proprietà di sistema aggiuntive in un messaggio. Oltre a **contentType**, **contentEncoding** e **enqueuedTime**, è possibile sottoporre a query anche **connectionDeviceId** e **connectionModuleId**.
 

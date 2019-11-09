@@ -1,7 +1,7 @@
 ---
-title: Come creare un progetto - Custom Translator
+title: Come creare un convertitore personalizzato per il progetto
 titleSuffix: Azure Cognitive Services
-description: Come creare un progetto in Custom Translator
+description: Questo articolo illustra come creare e gestire un progetto nel traduttore personalizzato di servizi cognitivi di Azure.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: a62cc6133fe01bf7478166c526e32b3215ceebf1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 5b3a6f2e903d8178554b7a076ae1277633569353
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595744"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836571"
 ---
 # <a name="create-a-project"></a>Creare un progetto
 
@@ -30,9 +30,9 @@ La creazione del progetto è il primo passaggio per la creazione di un modello.
 
 2.  Immettere i dettagli seguenti relativi al progetto nella finestra di dialogo:
 
-    a.  Project name (Nome progetto) - obbligatorio: assegnare al progetto un nome univoco e significativo. Non è necessario citare le lingue all'interno del titolo.
+    a.  Project Name (Nome del progetto) - obbligatorio: assegnare al progetto un nome univoco e significativo. Non è necessario citare le lingue all'interno del titolo.
 
-    b.  Descrizione: una breve descrizione del progetto. Questa descrizione non influisce sul comportamento di Custom Translator o sul sistema personalizzato risultante, ma consente di distinguere i diversi progetti.
+    b.  Description (Descrizione): una breve descrizione sul progetto. Questa descrizione non influisce sul comportamento di Custom Translator o sul sistema personalizzato risultante, ma consente di distinguere i diversi progetti.
 
     c.  Language pair (Coppia di lingue) - obbligatorio: selezionare la lingua di origine e di destinazione per la traduzione.
 
@@ -46,7 +46,7 @@ La creazione del progetto è il primo passaggio per la creazione di un modello.
 
 3.  Fare clic su Crea
 
-## <a name="view-project-details"></a>Visualizza i dettagli del progetto
+## <a name="view-project-details"></a>Visualizzare i dettagli del progetto
 
 La pagina di destinazione di Custom Translator mostra i primi 10 progetti nell'area di lavoro. Visualizza il nome del progetto, la coppia di lingue, la categoria, lo stato e il punteggio BLEU.
 
@@ -60,7 +60,7 @@ Dopo aver selezionato un progetto, si noteranno le informazioni seguenti nella p
 
 - Pulsante per filtrare i documenti: usare questo pulsante per filtrare e cercare documenti specifici.
 
-    ![Visualizza i dettagli del progetto](media/how-to/how-to-view-project.png)
+    ![Visualizzare i dettagli del progetto](media/how-to/how-to-view-project.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

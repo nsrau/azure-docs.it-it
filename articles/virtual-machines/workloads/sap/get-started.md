@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/04/2019
+ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d444ed21f3eb86975442f2176b8caa8dca6e0c3f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 74c95ed62bcfec8792aaa465d27f539c02188713
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602441"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891440"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -120,6 +120,7 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 
 ## <a name="change-log"></a>Registro modifiche
+- 11/08/2019: modifiche nell' [elenco di controllo della pianificazione e distribuzione del carico di lavoro SAP](sap-deployment-checklist.md) per chiarire la raccomandazione  
 - 11/04/2019: modifiche apportate alla configurazione di [pacemaker in SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md) per creare il cluster direttamente con la configurazione unicast  
 - 10/29/2019: rilascio della [connettività degli endpoint pubblici per le macchine virtuali con Load Balancer standard di Azure in scenari a disponibilità elevata di SAP](high-availability-guide-standard-load-balancer-outbound-connections.md)
 - 10/25/2019: modifiche in [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) e [SAP Hana con scalabilità orizzontale con nodo standby in macchine virtuali di Azure con Azure NetApp files su SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) per chiarire il protocollo NFS per il volume/Hana/Shared

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/08/2019
-ms.openlocfilehash: 24a2b8a3c190ed440684ea3aa0ab35ebbf93fca0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0a6322edccc2047ffd9d67e4e3ed113e668898da
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161964"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834698"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
 Questo articolo contiene informazioni sulla risoluzione dei problemi relativi all'uso di Diagnostica di Azure. Per altre informazioni su Diagnostica di Azure, vedere la [panoramica di Diagnostica di Azure](diagnostics-extension-overview.md).
@@ -206,7 +206,7 @@ Di seguito è fornito un esempio:
 ```
 Questo codice genera quattro tabelle:
 
-| Event | Nome tabella |
+| Evento | Nome tabella |
 | --- | --- |
 | provider = "ProV1" &lt;ID evento = "1"/&gt; |WADEvent + MD5 ("ProV1") + "1" |
 | provider = "ProV1" &lt;ID evento = "2" eventDestination = "DesT1"/&gt; |WADdest1 |
@@ -216,7 +216,7 @@ Questo codice genera quattro tabelle:
 ## <a name="references"></a>Riferimenti
 
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>Come controllare la configurazione dell'estensione Diagnostica
-Il modo più semplice per controllare la configurazione dell'estensione consiste nel passare ad [Azure Resource Explorer](http://resources.azure.com) e quindi alla macchina virtuale o al servizio cloud in cui si trova l'estensione Diagnostica di Azure (IaaSDiagnostics/PaasDiagnostics).
+Il modo più semplice per controllare la configurazione dell'estensione consiste nel passare ad [Azure Resource Explorer](https://resources.azure.com) e quindi alla macchina virtuale o al servizio cloud in cui si trova l'estensione Diagnostica di Azure (IaaSDiagnostics/PaasDiagnostics).
 
 In alternativa, connettersi tramite desktop remoto al computer ed esaminare il file di configurazione di Diagnostica di Azure descritto nella sezione Percorsi di log ed elementi.
 
@@ -229,7 +229,7 @@ Per il ruolo del servizio cloud, se si seleziona la configurazione dal disco, ai
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Codici di uscita del plug-in di Diagnostica di Azure
 Il plug-in restituisce i seguenti codici di uscita:
 
-| Codice di uscita | Description |
+| Codice di uscita | Descrizione |
 | --- | --- |
 | 0 |Completamento della procedura. |
 | -1 |Errore generico. |

@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 736612398861cc7a168fd24e83bc28e3815a8a28
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 1d3f6357faa8626d48e2aac0efe86e22222c9ba6
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742162"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73846678"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core"></a>Inviare o ricevere eventi da Hub eventi di Azure usando .NET Core
 Hub eventi è un servizio che consente di elaborare grandi quantità di dati di telemetria sugli eventi da applicazioni e dispositivi connessi. Dopo aver raccolto i dati in Hub eventi, è possibile archiviarli usando un cluster di archiviazione o trasformarli usando un provider di analisi in tempo reale. Questa funzionalità di elaborazione e raccolta di eventi su vasta scala rappresenta un componente chiave delle moderne architetture di applicazioni, tra cui Internet delle cose (IoT). Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
@@ -34,7 +34,7 @@ Questa esercitazione illustra come creare applicazioni .NET Core in C# per invia
 
 - [Microsoft Visual Studio 2019](https://www.visualstudio.com).
 - [Strumenti di Visual Studio 2015 o 2017 per .NET Core](https://www.microsoft.com/net/core). 
-- **Creare uno spazio dei nomi di hub eventi e un hub eventi**. Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md). Ottenere quindi la **stringa di connessione per lo spazio dei nomi dell'hub eventi** seguendo le istruzioni dell'articolo: [Ottenere una stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). La stringa di connessione sarà necessaria più avanti nell'esercitazione.
+- **Creare uno spazio dei nomi di hub eventi e un hub eventi**. Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md). Ottenere quindi la **stringa di connessione per lo spazio dei nomi dell'hub eventi** seguendo le istruzioni dell'articolo: [ottenere la stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). La stringa di connessione sarà necessaria più avanti nell'esercitazione.
 
 ## <a name="send-events"></a>Inviare eventi 
 Questa sezione illustra come creare un'applicazione console .NET Core per inviare eventi a un hub eventi. 
@@ -70,7 +70,7 @@ Aggiungere il pacchetto NuGet della raccolta .NET Core [`Microsoft.Azure.EventHu
     private const string EventHubName = "{Event Hub path/name}";
     ```
 
-3. Aggiungere alla classe `Program` un nuovo metodo denominato `MainAsync` come da esempio seguente:
+3. Aggiungere alla classe `MainAsync` un nuovo metodo denominato `Program` come da esempio seguente:
 
     ```csharp
     private static async Task MainAsync(string[] args)
@@ -94,7 +94,7 @@ Aggiungere il pacchetto NuGet della raccolta .NET Core [`Microsoft.Azure.EventHu
     }
     ```
 
-4. Aggiungere alla classe `Program` un nuovo metodo denominato `SendMessagesToEventHub` come da esempio seguente:
+4. Aggiungere alla classe `SendMessagesToEventHub` un nuovo metodo denominato `Program` come da esempio seguente:
 
     ```csharp
     // Uses the event hub client to send 100 messages to the event hub.
@@ -285,7 +285,7 @@ Aggiungere al progetto i pacchetti NuGet [**Microsoft.Azure.EventHubs**](https:/
     private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
     ```   
 
-3. Aggiungere alla classe `Program` un nuovo metodo denominato `MainAsync` come da esempio seguente:
+3. Aggiungere alla classe `MainAsync` un nuovo metodo denominato `Program` come da esempio seguente:
 
     ```csharp
     private static async Task MainAsync(string[] args)

@@ -1,7 +1,7 @@
 ---
 title: Metodo Transliterate dell'API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Usare il metodo Transliterate dell'API Traduzione testuale.
+description: Converte il testo in un linguaggio da uno script a un altro con il metodo API Traduzione testuale transliterate.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 58c9399b3701e2d8f0737b48c00336159e9688a8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e6bb1541b2b668796b352bebc68d59b4ade143e3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931991"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837287"
 ---
 # <a name="translator-text-api-30-transliterate"></a>API Traduzione testuale 3.0: Transliterate
 
@@ -34,14 +34,14 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
-  <th width="20%">Parametro di query</th>
+  <th width="20%">Query parameter (Parametro di query)</th>
   <th>Descrizione</th>
   <tr>
     <td>api-version</td>
     <td>*Parametro obbligatorio*.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`.</td>
   </tr>
   <tr>
-    <td>language</td>
+    <td>Lingua</td>
     <td>*Parametro obbligatorio*.<br/>Specifica la lingua del testo da convertire da uno script a un altro. Le lingue possibili sono elencate nell'ambito `transliteration` ottenuto a seguito di una query al servizio per le [lingue supportate](./v3-0-languages.md).</td>
   </tr>
   <tr>
@@ -57,7 +57,7 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta includono:
 
 <table width="100%">
-  <th width="20%">Intestazioni</th>
+  <th width="20%">Headers</th>
   <th>Descrizione</th>
   <tr>
     <td>Intestazione/e di autenticazione</td>
@@ -98,9 +98,9 @@ Si applicano le limitazioni seguenti:
 
 Una risposta corretta è una matrice JSON con un risultato per ogni elemento nella matrice di input. Un oggetto risultato include le proprietà seguenti:
 
-  * `text`: stringa che è il risultato della conversione della stringa di input nello script di output.
+  * `text`: una stringa che è il risultato della conversione della stringa di input nello script di output.
   
-  * `script`: stringa che specifica lo script usato nell'output.
+  * `script`: una stringa che specifica lo script usato nell'output.
 
 Una risposta JSON di esempio è:
 
@@ -114,7 +114,7 @@ Una risposta JSON di esempio è:
 ## <a name="response-headers"></a>Intestazioni della risposta
 
 <table width="100%">
-  <th width="20%">Intestazioni</th>
+  <th width="20%">Headers</th>
   <th>Descrizione</th>
   <tr>
     <td>X-RequestId</td>
@@ -131,15 +131,15 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   <th>Descrizione</th>
   <tr>
     <td>200</td>
-    <td>Riuscite.</td>
+    <td>Completamento della procedura.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>Uno dei parametri di query manca o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
+    <td>Uno dei parametri di query è mancante o non valido. Prima di riprovare, correggere i parametri della richiesta.</td>
   </tr>
   <tr>
     <td>401</td>
-    <td>La richiesta non è stata autenticata. Verificare che le credenziali siano state specificate e che siano valide.</td>
+    <td>Impossibile autenticare la richiesta. Verificare che le credenziali siano state specificate e che siano valide.</td>
   </tr>
   <tr>
     <td>403</td>
@@ -151,11 +151,11 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>500</td>
-    <td>Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
+    <td>Si è verificato un errore imprevisto. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta `X-RequestId` e l'identificativo del client dall'intestazione di risposta `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
+    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta `X-RequestId` e l'identificativo del client dall'intestazione di risposta `X-ClientTraceId`.</td>
   </tr>
 </table> 
 

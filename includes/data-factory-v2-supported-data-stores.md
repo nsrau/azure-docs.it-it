@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: data-factory
 author: linda33wj
 ms.service: data-factory
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 10/25/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 9f82661553f901658e9a5b17aa053bc1e72b44e3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b4cf80f2385a13fb95c563cab678a8fd5136ce78
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958637"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850391"
 ---
 | Categoria | Archivio dati | Supportato come origine | Supportato come sink | Supportato dal [runtime di integrazione di Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Supportato dal runtime di integrazione [self-hosted](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **Azure** |[Archivio BLOB di Azure](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
+| **Azzurro** |[Archivio BLOB di Azure](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Cosmos DB (API SQL)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[API di Azure Cosmos DB per MongoDB](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Esplora dati di Azure](../articles/data-factory/connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ |
@@ -30,7 +30,7 @@ ms.locfileid: "72958637"
 | &nbsp; |[Database SQL di Azure](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Istanza gestita di database SQL di Azure](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Indice di ricerca di Azure](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
+| &nbsp; |[Indice ricerca cognitiva di Azure](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
 | &nbsp; |[Archivio tabelle di Azure](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
 | **Database** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |

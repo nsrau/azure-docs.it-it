@@ -1,6 +1,6 @@
 ---
 title: Copiare gli esempi di data science altrui
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: "Il segreto commerciale dell'analisi scientifica dei dati: far svolgere il proprio lavoro ad altre persone. Esempi di Machine Learning dalla raccolta di intelligenza artificiale per Azure."
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 6004a3092856b0dbe55e044676b6a93e77debb1e
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 3a99ad12af7f6eecb74f6c0d52a269770fd5ed7c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619515"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837830"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiare il lavoro di altre persone per l'analisi scientifica dei dati
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Analisi scientifica dei dati per principianti

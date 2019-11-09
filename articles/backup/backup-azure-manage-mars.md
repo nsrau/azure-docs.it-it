@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: 68c991396c92e6f288d1cc17d6b7dcf1ec79343f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 88a914a2a4d3d62918b01674d6d21f2f011e2c2e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165485"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834309"
 ---
 # <a name="manage-microsoft-azure-recovery-services-agent-backups-by-using-the-azure-backup-service"></a>Gestire i backup di Servizi di ripristino di Microsoft Azure Agent con il servizio backup di Azure
 
@@ -39,7 +39,7 @@ Creare un criterio come segue:
     ![Elementi selezionati di cui eseguire il backup](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 6. Nella pagina **selezionare gli elementi da sottoporre a backup** fare clic su **Avanti**.
-7. Nella pagina **impostazione pianificazione backup** specificare quando si desidera eseguire backup giornalieri o settimanali. Quindi fare clic su **Next**.
+7. Nella pagina **impostazione pianificazione backup** specificare quando si desidera eseguire backup giornalieri o settimanali. Quindi fare clic su **Avanti**.
 
     - Quando viene creato un backup, viene creato un punto di ripristino.
     - Il numero di punti di ripristino creati nell'ambiente dipende dalla pianificazione del backup.
@@ -52,7 +52,7 @@ Creare un criterio come segue:
 
     ![Pianificazione settimanale](./media/backup-configure-vault/week-schedule.png)
 
-10. Nella pagina **Seleziona criteri di conservazione** specificare la modalità di archiviazione delle copie cronologiche dei dati. Quindi fare clic su **Next**.
+10. Nella pagina **Seleziona criteri di conservazione** specificare la modalità di archiviazione delle copie cronologiche dei dati. Quindi fare clic su **Avanti**.
 
     - Le impostazioni di conservazione specificano i punti di ripristino da archiviare e la durata di archiviazione.
     - Ad esempio, quando si imposta un'impostazione di conservazione giornaliera, si indica che nel momento specificato per la conservazione giornaliera, il punto di ripristino più recente verrà mantenuto per il numero di giorni specificato. Oppure, come altro esempio, è possibile specificare un criterio di conservazione mensile per indicare che il punto di ripristino creato il 30 di ogni mese deve essere archiviato per 12 mesi.
@@ -181,7 +181,7 @@ Esistono due modi per arrestare la protezione del backup di file e cartelle:
 
     ![Arrestare un backup pianificato.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Viene richiesto di immettere un PIN di sicurezza (Personal Identification Number), che è necessario generare manualmente. A tale scopo, accedere prima al portale di Azure.
-5. Passare a insieme di credenziali di **servizi di ripristino**  > **Impostazioni**  > **proprietà**.
+5. Passare a insieme di credenziali di **servizi di ripristino** > **Impostazioni** > **proprietà**.
 6. In **pin di sicurezza**selezionare **genera**. Copiare questo PIN. Il PIN è valido solo per cinque minuti.
 7. Nella console di gestione incollare il PIN e quindi fare clic su **OK**.
 
@@ -209,4 +209,4 @@ Se la protezione è stata interrotta durante la conservazione dei dati e si è d
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni sugli scenari e le limitazioni supportati, vedere la [matrice di supporto per Mars](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
-- Altre informazioni sul [comportamento di conservazione dei criteri di backup ad hoc](https://docs.microsoft.com/azure/backup/backup-configure-vault#ad-hoc-backup-policy-retention-behavior.md).
+- Altre informazioni sul [comportamento di conservazione dei criteri di backup ad hoc](backup-configure-vault.md#ad-hoc-backup-policy-retention-behavior).

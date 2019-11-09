@@ -1,7 +1,7 @@
 ---
 title: Metodo Languages dell'API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Usare il metodo Languages dell'API Traduzione testuale.
+description: Il metodo Languages ottiene il set di lingue attualmente supportate da altre operazioni del API Traduzione testuale.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 3dd875fbf9a8da464abe1b6312cec84c030dc624
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 37f70399e8125db559098869cdfffdf4533498d7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934006"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835840"
 ---
-# <a name="translator-text-api-30-languages"></a>API Traduzione testuale 3.0: Lingue
+# <a name="translator-text-api-30-languages"></a>API Traduzione testuale 3.0: Languages
 
 Ottiene il set di lingue attualmente supportate da altre operazioni dell'API Traduzione testuale. 
 
@@ -33,7 +33,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
-  <th width="20%">Parametro di query</th>
+  <th width="20%">Query parameter (Parametro di query)</th>
   <th>Descrizione</th>
   <tr>
     <td>api-version</td>
@@ -48,11 +48,11 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta sono le seguenti:
 
 <table width="100%">
-  <th width="20%">Intestazioni</th>
+  <th width="20%">Headers</th>
   <th>Descrizione</th>
   <tr>
     <td>Accept-Language</td>
-    <td>*Intestazione di richiesta facoltativa*.<br/>Lingua da usare per le stringhe dell'interfaccia utente. Alcuni campi nella risposta sono nomi di lingue o di aree. Usare questo parametro per definire la lingua in cui verranno restituiti tali nomi. La lingua viene specificata fornendo un tag di lingua BCP 47 in formato corretto. Ad esempio, usare il valore `fr` per richiedere i nomi in francese oppure `zh-Hant` per richiedere i nomi in cinese tradizionale.<br/>Quando non è specificata una lingua di destinazione o non è disponibile la localizzazione, i nomi vengono forniti in lingua inglese.
+    <td>*Intestazione di richiesta facoltativa*.<br/>Lingua da usare per le stringhe dell'interfaccia utente. Alcuni campi nella risposta sono nomi di lingue o di aree. Usare questo parametro per definire la lingua in cui verranno restituiti tali nomi. La lingua viene specificata tramite un tag di lingua BCP 47 ben formato. Ad esempio, usare il valore `fr` per richiedere i nomi in francese oppure `zh-Hant` per richiedere i nomi in cinese tradizionale.<br/>Quando non è specificata una lingua di destinazione o non è disponibile la localizzazione, i nomi vengono forniti in lingua inglese.
     </td>
   </tr>
   <tr>
@@ -101,7 +101,7 @@ Di seguito è riportato il valore di ogni proprietà.
 
   * `nativeName`: nome visualizzato della lingua nelle relative impostazioni locali native.
 
-  * `dir`: direzionalità, ovvero `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
+  * `dir`: direzionalità, che è `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
 
   Di seguito è riportato un esempio:
           
@@ -135,7 +135,7 @@ Di seguito è riportato il valore di ogni proprietà.
 
     * `nativeName`: nome visualizzato della lingua nelle relative impostazioni locali native.
 
-    * `dir`: direzionalità, ovvero `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
+    * `dir`: direzionalità, che è `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
 
     * `toScripts`: elenco degli alfabeti in cui è possibile convertire il testo. Ogni elemento dell'elenco di `toScripts` contiene le proprietà `code`, `name`, `nativeName` e `dir` descritte in precedenza.
 
@@ -192,7 +192,7 @@ Di seguito è riportato il valore di ogni proprietà.
 
   * `nativeName`: nome visualizzato della lingua nelle relative impostazioni locali native.
 
-  * `dir`: direzionalità, ovvero `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
+  * `dir`: direzionalità, che è `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
 
   * `translations`: elenco delle lingue con traduzioni alternative ed esempi della query espressa nella lingua di origine. Ogni elemento dell'elenco di `translations` contiene le proprietà seguenti.
 
@@ -200,7 +200,7 @@ Di seguito è riportato il valore di ogni proprietà.
 
     * `nativeName`: nome visualizzato della lingua di destinazione nelle relative impostazioni locali native.
 
-    * `dir`: direzionalità, ovvero `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
+    * `dir`: direzionalità, che è `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
     
     * `code`: codice di lingua che identifica la lingua di destinazione.
 
@@ -229,8 +229,8 @@ L'elenco delle lingue supportate non subirà spesso modifiche. Per risparmiare l
 ## <a name="response-headers"></a>Intestazioni della risposta
 
 <table width="100%">
-  <th width="20%">Intestazioni</th>
-  <th>DESCRIZIONE</th>
+  <th width="20%">Headers</th>
+  <th>Descrizione</th>
   <tr>
     <td>ETag</td>
     <td>Valore corrente del tag di entità per i gruppi di lingue supportate richiesti. Per rendere più efficienti le richieste successive, il client può inviare il valore di `ETag` in un campo dell'intestazione `If-None-Match`.
@@ -251,7 +251,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   <th>Descrizione</th>
   <tr>
     <td>200</td>
-    <td>Riuscite.</td>
+    <td>Completamento della procedura.</td>
   </tr>
   <tr>
     <td>304</td>
@@ -259,7 +259,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>400</td>
-    <td>Uno dei parametri di query manca o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
+    <td>Uno dei parametri di query è mancante o non valido. Prima di riprovare, correggere i parametri della richiesta.</td>
   </tr>
   <tr>
     <td>429</td>
@@ -267,11 +267,11 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>500</td>
-    <td>Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
+    <td>Si è verificato un errore imprevisto. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta `X-RequestId` e l'identificativo del client dall'intestazione di risposta `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
+    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta `X-RequestId` e l'identificativo del client dall'intestazione di risposta `X-ClientTraceId`.</td>
   </tr>
 </table> 
 

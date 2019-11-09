@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: c5a07d8b52e83215b2fdc220d76557ca45e1eae9
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: e2f1747b8ae98ce53ce570422044a2f172c1a526
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286022"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834467"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
 
@@ -37,9 +37,11 @@ Per eseguire la distribuzione in una **sottoscrizione**, usare [AZ Deployment cr
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-Attualmente, le distribuzioni di gruppi di gestione sono supportate solo tramite l'API REST. Vedere [distribuire le risorse con gestione risorse modelli e gestione risorse API REST](resource-group-template-deploy-rest.md).
+Per altre informazioni sulle distribuzioni a livello di sottoscrizione, vedere [creare gruppi di risorse e risorse a livello di sottoscrizione](deploy-to-subscription.md).
 
-Gli esempi in questo articolo usano le distribuzioni di gruppi di risorse. Per altre informazioni sulle distribuzioni delle sottoscrizioni, vedere [creare gruppi di risorse e risorse a livello di sottoscrizione](deploy-to-subscription.md).
+Attualmente, le distribuzioni di gruppi di gestione sono supportate solo tramite l'API REST. Per ulteriori informazioni sulle distribuzioni a livello di gruppo di gestione, vedere [creazione di risorse a livello di gruppo di gestione](deploy-to-management-group.md).
+
+Gli esempi in questo articolo usano le distribuzioni di gruppi di risorse.
 
 ## <a name="deploy-local-template"></a>Distribuire un modello locale
 
@@ -151,7 +153,7 @@ az group deployment create \
 
 ## <a name="handle-extended-json-format"></a>Gestire il formato JSON esteso
 
-Per distribuire un modello con stringhe o commenti a più righe, è necessario usare l'opzione `--handle-extended-json-format`.  Esempio:
+Per distribuire un modello con stringhe o commenti a più righe, è necessario usare l'opzione `--handle-extended-json-format`.  Ad esempio:
 
 ```json
 {
@@ -191,7 +193,7 @@ Se non vengono rilevati errori, il comando restituisce informazioni sulla distri
       ...
 ```
 
-Se viene rilevato un errore, il comando restituisce un messaggio di errore. Ad esempio, passare un valore non corretto per lo SKU dell'account di archiviazione restituisce l'errore seguente:
+Se viene rilevato un errore, il comando restituisce un messaggio di errore. Ad esempio, passare un valore non corretto per lo SKU dell'account di archiviazione, restituisce l'errore seguente:
 
 ```azurecli
 {

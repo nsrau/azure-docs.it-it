@@ -1,6 +1,6 @@
 ---
 title: Come un modello diventa un servizio Web
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Panoramica dei meccanismi di avanzamento del modello di Azure Machine Learning Studio (classico) da un esperimento di sviluppo a un servizio Web.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 24a2c31271d123d6378732bd9f85f6341a78d65c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ce1e7d3b3b9908d5c4608f6ab62e9b743f80c0b0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671242"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838004"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Come un modello di Machine Learning Studio (classico) avanza da un esperimento a un servizio Web
 Azure Machine Learning Studio (classico) fornisce un'area di disegno interattiva che consente di sviluppare, eseguire, testare ed eseguire l'iterazione di un ***esperimento*** che rappresenta un modello di analisi predittiva. Sono disponibili diversi moduli che consentono di:

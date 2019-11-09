@@ -1,7 +1,7 @@
 ---
 title: Metodo Translate dell'API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Usare il metodo Translate dell'API Traduzione testuale.
+description: Informazioni sui parametri, le intestazioni e i messaggi del corpo per i servizi cognitivi di Azure API Traduzione testuale metodo Translate per tradurre il testo.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 10/16/2019
 ms.author: swmachan
-ms.openlocfilehash: b809171549a8f3cbbbb6ccad1553608598afa345
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b4daa04a4dbf87006147fb0d44d7b128a6d8ecf4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161708"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835776"
 ---
 # <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Translate
 
@@ -35,13 +35,13 @@ I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
   <th width="20%">Query parameter (Parametro di query)</th>
-  <th>Description</th>
+  <th>Descrizione</th>
   <tr>
     <td>api-version</td>
     <td><em>Parametro obbligatorio</em>.<br/>Versione dell'API richiesta dal client. Il valore deve essere <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>from</td>
+    <td>Da</td>
     <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine. <br/><br/>Quando si usa la funzionalità del <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dizionario dinamico</a> , è necessario usare il parametro <code>from</code> anziché il rilevamento automatico.</td>
   </tr>
   <tr>
@@ -94,8 +94,8 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta includono:
 
 <table width="100%">
-  <th width="20%">headers</th>
-  <th>Description</th>
+  <th width="20%">Headers</th>
+  <th>Descrizione</th>
   <tr>
     <td>Intestazione/e di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
@@ -172,8 +172,8 @@ Nella sezione [Esempi](#examples) è disponibile un esempio di risposte JSON.
 ## <a name="response-headers"></a>Intestazioni della risposta
 
 <table width="100%">
-  <th width="20%">headers</th>
-  <th>Description</th>
+  <th width="20%">Headers</th>
+  <th>Descrizione</th>
     <tr>
     <td>X-RequestId</td>
     <td>Valore generato dal servizio per identificare la richiesta. Viene usato per la risoluzione dei problemi.</td>
@@ -190,14 +190,14 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 <table width="100%">
   <th width="20%">Codice di stato</th>
-  <th>Description</th>
+  <th>Descrizione</th>
   <tr>
     <td>200</td>
     <td>Completamento della procedura.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>Uno dei parametri di query manca o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
+    <td>Uno dei parametri di query è mancante o non valido. Prima di riprovare, correggere i parametri della richiesta.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -217,17 +217,17 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>500</td>
-    <td>Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della risposta <code>X-RequestId</code> e identificatore del client dall'intestazione della richiesta <code>X-ClientTraceId</code>.</td>
+    <td>Si è verificato un errore imprevisto. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta <code>X-RequestId</code> e l'identificativo del client dall'intestazione di risposta <code>X-ClientTraceId</code>.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della risposta <code>X-RequestId</code> e identificatore del client dall'intestazione della richiesta <code>X-ClientTraceId</code>.</td>
+    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta <code>X-RequestId</code> e l'identificativo del client dall'intestazione di risposta <code>X-ClientTraceId</code>.</td>
   </tr>
 </table> 
 
 Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore più comuni sono reperibili nella [pagina di riferimento API Traduzione testuale V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 ### <a name="translate-a-single-input"></a>Tradurre un singolo input
 
@@ -381,7 +381,7 @@ Per <code>ProfanityMarker=Tag</code>, le parole volgari sono racchiuse tra i tag
   </tr>
 </table> 
 
-ad esempio:
+Ad esempio:
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"

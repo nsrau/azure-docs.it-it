@@ -7,35 +7,34 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 07/16/2019
+ms.date: 11/07/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 91b202f8a5df841fa3d6aa1f0903999b395f8137
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e9d5a137247c072516c0b25d7f6147ef48fec248
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686060"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839799"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Usare le pianificazioni della manutenzione per gestire gli aggiornamenti e la manutenzione dei servizi
 
-Le pianificazioni di manutenzione sono ora disponibili in tutte le aree Azure SQL Data Warehouse. La funzionalità pianificazione della manutenzione integra le notifiche di manutenzione pianificata per l'integrità dei servizi, il monitoraggio Integrità risorse controllo e il servizio di pianificazione Azure SQL Data Warehouse manutenzione.
+La funzionalità pianificazione della manutenzione integra le notifiche di manutenzione pianificata per l'integrità dei servizi, il monitoraggio Integrità risorse controllo e il servizio di pianificazione Azure SQL Data Warehouse manutenzione.
 
-La pianificazione della manutenzione consente di scegliere una finestra temporale per ricevere al momento opportuno le nuove funzionalità, gli aggiornamenti e le patch. Si sceglie una finestra di manutenzione primaria e secondaria entro un periodo di sette giorni. Per usare questa funzione è necessario identificare una finestra primaria e secondaria all'interno di intervalli giornalieri separati.
+È consigliabile usare la pianificazione della manutenzione per scegliere un intervallo di tempo quando è consigliabile ricevere nuove funzionalità, aggiornamenti e patch. È necessario scegliere una finestra di manutenzione primaria e secondaria entro un periodo di sette giorni, ogni finestra deve essere compresa in intervalli di giorni distinti.
 
-È ad esempio possibile pianificare una finestra primaria da sabato 22:00 a domenica 01:00, quindi pianificare una finestra secondaria di mercoledì 19:00 a 22:00. Se SQL Data Warehouse non riesce a eseguire operazioni di manutenzione durante la finestra di manutenzione primaria, cercherà di effettuare tale operazione nell'ambito della finestra di manutenzione secondaria. La manutenzione del servizio può verificarsi durante le finestre primarie e secondarie. Per garantire il completamento rapido di tutte le operazioni di manutenzione, DW400 (c) e livelli di data warehouse inferiori possono completare la manutenzione al di fuori di una finestra di manutenzione designata.
+È ad esempio possibile pianificare una finestra primaria da sabato 22:00 a domenica 01:00, quindi pianificare una finestra secondaria di mercoledì 19:00 a 22:00. Se SQL Data Warehouse non riesce a eseguire operazioni di manutenzione durante la finestra di manutenzione primaria, cercherà di effettuare tale operazione nell'ambito della finestra di manutenzione secondaria. La manutenzione del servizio può avvenire occasionalmente durante le finestre primarie e secondarie. Per garantire il completamento rapido di tutte le operazioni di manutenzione, DW400c e livelli di data warehouse inferiori possono completare la manutenzione al di fuori di una finestra di manutenzione designata.
 
 Tutte le istanze di Azure SQL Data Warehouse appena create avranno una pianificazione di manutenzione definita dal sistema applicata durante la distribuzione. È possibile modificare la pianificazione non appena la distribuzione viene completata.
 
-Ogni finestra di manutenzione può essere compresa tra tre e otto ore. La manutenzione può avvenire in qualsiasi momento nell'ambito della finestra All'avvio della manutenzione verranno annullate tutte le sessioni attive e verrà eseguito il rollback delle transazioni di cui non è stato eseguito il commit. È necessario prevedere più brevi perdite di connettività quando il servizio distribuisce nuovo codice nel data warehouse. Si riceverà una notifica subito dopo il completamento della manutenzione del data warehouse.
+Anche se una finestra di manutenzione può essere compresa tra tre e otto ore, questo non significa che il data warehouse sarà offline per la durata. La manutenzione può essere eseguita in qualsiasi momento all'interno di tale finestra ed è necessario aspettarsi una singola disconnessione durante tale periodo che dura ~ 5 -6 minuti perché il servizio distribuisce nuovo codice nel data warehouse. DW400c e Lower possono riscontrare più brevi perdite di connettività in momenti diversi durante la finestra di manutenzione. Quando viene avviata la manutenzione, tutte le sessioni attive verranno annullate e verrà eseguito il rollback delle transazioni di cui non è stato eseguito il commit. Per ridurre al minimo i tempi di inattività delle istanze, assicurarsi che non siano presenti transazioni con esecuzione prolungata nel data warehouse prima del periodo di manutenzione scelto.
 
- Tutte le operazioni di manutenzione devono terminare entro le finestre di manutenzione pianificate. Nessuna manutenzione verrà eseguita al di fuori delle finestre di manutenzione specificate senza preavviso. Se il data warehouse è sospeso durante una manutenzione pianificata, verrà aggiornato durante l'operazione di ripresa. 
+Tutte le operazioni di manutenzione devono terminare entro le finestre di manutenzione specificate, a meno che non sia necessario distribuire un aggiornamento sensibile al tempo. Se il data warehouse è sospeso durante una manutenzione pianificata, verrà aggiornato durante l'operazione di ripresa. Si riceverà una notifica subito dopo il completamento della manutenzione del data warehouse.
 
 ## <a name="alerts-and-monitoring"></a>Avvisi e monitoraggio
 
-L'integrazione con le notifiche sull'integrità dei servizi e il monitoraggio per il controllo dell'integrità delle risorse consente ai clienti di essere aggiornati sulle attività di manutenzione imminenti. La nuova automazione si avvale di Monitoraggio di Azure. È possibile decidere come si vuole ricevere una notifica degli eventi di manutenzione imminenti. Inoltre, è possibile scegliere i flussi automatizzati che consentiranno di gestire i tempi di inattività e ridurre al minimo l'effetto operativo.
-
-Una notifica di anticipo di 24 ore precede tutti gli eventi di manutenzione che non sono relativi al DWC400c e ai livelli inferiori. Per ridurre al minimo i tempi di inattività delle istanze, assicurarsi che non siano presenti transazioni con esecuzione prolungata nel data warehouse prima del periodo di manutenzione scelto.
+L'integrazione con le notifiche sull'integrità dei servizi e il monitoraggio per il controllo dell'integrità delle risorse consente ai clienti di essere aggiornati sulle attività di manutenzione imminenti. Questa automazione sfrutta i vantaggi di monitoraggio di Azure. È possibile decidere come si vuole ricevere una notifica degli eventi di manutenzione imminenti. Inoltre, è possibile scegliere i flussi automatizzati che consentiranno di gestire i tempi di inattività e ridurre al minimo l'effetto operativo.
+Una notifica di anticipo di 24 ore precede tutti gli eventi di manutenzione che non sono relativi al DWC400c e ai livelli inferiori.
 
 > [!NOTE]
 > Nel caso in cui sia necessario distribuire un aggiornamento critico del tempo, i tempi di notifica avanzati possono essere notevolmente ridotti.

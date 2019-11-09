@@ -1,6 +1,6 @@
 ---
 title: Usare il sito Web di Video Indexer per personalizzare un modello di Marchi - Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Questo articolo illustra come personalizzare un modello di Marchi con il sito Web di Video Indexer.
 services: media-services
 author: anikaz
@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 721fde63aeae8704761b3c21f489dcad77cb89e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4b2f7a8b43c1723beb0dd8da82814f74cd7b135
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799606"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838354"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Personalizzare un modello di Marchi con il sito Web di Video Indexer
 
-Video Indexer supporta il rilevamento del marchio dal parlato e dal testo visivo durante l'indicizzazione e la reindicizzazione di contenuto audio e video. La funzionalità di rilevamento del marchio identifica citazioni di prodotti, servizi e aziende suggerite dal database dei marchi di Bing. Se, ad esempio, Microsoft viene citata in un contenuto audio o video o se appare nel testo visivo di un video, Video Indexer lo rileva come un marchio. Un modello dei marchi personalizzato consente di selezionare se Video Indexer dovrà fare riferimento al database dei marchi di Bing, escludere determinati marchi dal rilevamento (essenzialmente creando un elenco di marchi non consentiti) e includere i marchi che devono far parte del modello ma che potrebbero non essere nel database dei marchi di Bing (essenzialmente creando un elenco di marchi consentiti).
+Video Indexer supporta il rilevamento del marchio dal parlato e dal testo visivo durante l'indicizzazione e la reindicizzazione di contenuto audio e video. La funzionalità di rilevamento del marchio identifica citazioni di prodotti, servizi e aziende suggerite dal database dei marchi di Bing. Se, ad esempio, il nome Microsoft viene citato in un contenuto audio o video o se appare nel testo visivo di un video, Video Indexer lo rileva come un marchio. Un modello dei marchi personalizzato consente di selezionare se Video Indexer dovrà fare riferimento al database dei marchi di Bing, escludere determinati marchi dal rilevamento (essenzialmente creando un elenco di marchi non consentiti) e includere i marchi che devono far parte del modello ma che potrebbero non essere nel database dei marchi di Bing (essenzialmente creando un elenco di marchi consentiti).
 
 Per una panoramica dettagliata, vedere [Panoramica](customize-brands-model-overview.md).
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 1c9562f413fa0ed52d61d0b38df358f1a2cd03f9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 54d34a120c575fd01f746131d909058951d1facf
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498682"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839247"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Infrastruttura di sicurezza: sicurezza della comunicazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -136,7 +136,7 @@ L'esempio seguente contiene una regola di base di URL Rewrite che forza l'uso di
   </system.webServer>
 </configuration>
 ```
-Il funzionamento di questa regola prevede la restituzione di un codice di stato HTTP 301 (reindirizzamento permanente) quando l'utente richiede una pagina mediante HTTP. Il codice 301 reindirizza la richiesta allo stesso URL richiesto dal visitatore, ma sostituisce la parte HTTP della richiesta con HTTPS. Ad esempio, HTTP://contoso.com viene reindirizzato a HTTPS://contoso.com. 
+Il funzionamento di questa regola prevede la restituzione di un codice di stato HTTP 301 (reindirizzamento permanente) quando l'utente richiede una pagina mediante HTTP. Il codice 301 reindirizza la richiesta allo stesso URL richiesto dal visitatore, ma sostituisce la parte HTTP della richiesta con HTTPS. Ad esempio, `HTTP://contoso.com` viene reindirizzato a `HTTPS://contoso.com`. 
 
 ## <a id="http-hsts"></a>Abilitare HTTP Strict Transport Security (HSTS)
 

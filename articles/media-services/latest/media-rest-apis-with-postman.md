@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 11/07/2019
 ms.author: juliako
-ms.openlocfilehash: c402381534087f1e8cdab711bd1b2a34c78417f4
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 7b4e2d14e8719808db138a4f2607b19cece401a6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675733"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839591"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurare Postman per le chiamate API REST di Servizi multimediali
 
@@ -80,7 +80,7 @@ Prima di iniziare la modifica delle risorse in servizi multimediali di Microsoft
 
 1. Nella finestra di sinistra dell'app post, selezionare "passaggio 1: ottenere il token di autenticazione AAD".
 2. Selezionare quindi "Get Azure AD Token for Service Principal Authentication" (Ottieni token Azure AD per autenticazione basata su entità servizio).
-3. Premere **Invia**.
+3. Fare clic su **Invia**.
 
     Viene inviata l'operazione **POST** seguente.
 
@@ -92,7 +92,12 @@ Prima di iniziare la modifica delle risorse in servizi multimediali di Microsoft
 
     ![Ottenere il token AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="troubleshooting"></a>Risoluzione dei problemi 
+
+* Se l'applicazione ha esito negativo con "HTTP 504: Timeout gateway", assicurarsi che la variabile di percorso non sia stata impostata in modo esplicito su un valore diverso da quello previsto per l'account di servizi multimediali. 
+* Se viene ricevuto un errore "account non trovato", verificare anche che la proprietà location nel messaggio JSON Body sia impostata sul percorso in cui si trova l'account di servizi multimediali. 
+
+## <a name="see-also"></a>Vedere anche
 
 - [Caricare file in un account di Servizi multimediali - REST](upload-files-rest-how-to.md)
 - [Creare filtri con Servizi multimediali - REST](filters-dynamic-manifest-rest-howto.md)

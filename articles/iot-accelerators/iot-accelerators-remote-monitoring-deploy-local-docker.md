@@ -1,5 +1,5 @@
 ---
-title: Distribuire localmente la soluzione di monitoraggio remoto - Docker - Azure | Microsoft Docs
+title: Distribuire la soluzione di monitoraggio remoto in locale-Docker-Azure | Microsoft Docs
 description: Questa guida pratica illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale tramite Docker a scopo di test e sviluppo.
 author: avneet723
 manager: hegate
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: db934725fe91a142c43ba66701919e9d5a70a4b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32b47d9d6d45ff471961f55f8159dbe85eae2dce
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967533"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888828"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Distribuire localmente l'acceleratore di soluzioni di monitoraggio remoto - Docker
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Questo articolo illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale a scopo di test e sviluppo. Si apprenderà come distribuire i microservizi in contenitori Docker locali. Una distribuzione di microservizi locale usa i servizi cloud seguenti: servizi IoT Hub, Cosmos DB, Azure Streaming Analytics e Azure Time Series Insights.
+Questo articolo illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale a scopo di test e sviluppo. Si apprenderà come distribuire i microservizi in contenitori Docker locali. Una distribuzione di microservizi locale usa i servizi cloud seguenti: hub IoT, Cosmos DB, Analisi di flusso di Azure e Azure Time Series Insights nel cloud.
 
 Se si intende eseguire l'acceleratore di soluzioni di monitoraggio remoto in un IDE nel computer locale, vedere [Distribuire l'acceleratore di soluzioni di monitoraggio remoto localmente - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
 
@@ -27,7 +27,7 @@ Se si intende eseguire l'acceleratore di soluzioni di monitoraggio remoto in un 
 
 Per distribuire i servizi di Azure usati dall'acceleratore di soluzioni di monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Impostazioni del computer
 
@@ -96,7 +96,7 @@ Per avviare il processo di analisi di flusso, seguire questa procedura:
 
 ### <a name="connect-to-the-dashboard"></a>Connettersi al dashboard
 
-Per accedere a dashboard della soluzione di monitoraggio remoto, passare a `http://localhost:8080` nel browser. È ora possibile usare l'interfaccia utente Web e i microservizi locali.
+Per accedere al dashboard della soluzione di monitoraggio remoto, passare a `http://localhost:8080` nel browser. È ora possibile usare l'interfaccia utente Web e i microservizi locali.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 

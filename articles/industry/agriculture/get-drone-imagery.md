@@ -5,16 +5,18 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 598248a0efb3322a9c22a5e38e4986f5ba5142ab
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
-ms.translationtype: MT
+ms.openlocfilehash: 19d709a2eb0af5bdb9d40a2bce96c5716ce3c6f6
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798453"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847424"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Ottenere immagini drone da partner drone
 
-Questo articolo descrive come è possibile importare i dati di orthomosaic dai partner di immagini drone in Azure FarmBeats Data Hub. Attualmente sono supportati i seguenti partner di immagini:  
+Questo articolo descrive come è possibile importare i dati di orthomosaic dai partner di immagini drone in Azure FarmBeats Data Hub. Un orthomosaic è un'illustrazione/immagine aerea con correzione geometrica e cucita dai dati raccolti dal drone.
+
+Attualmente sono supportati i seguenti partner di immagini.
 
   ![Beat Farm progetto](./media/get-drone-imagery-from-drone-partner/drone-partner-1.png)
 

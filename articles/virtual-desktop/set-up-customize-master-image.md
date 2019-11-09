@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 622b4e53be68025ad9553ce604041d14885bb2b2
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 7a0cce6b72240b95943fbece08cfbf61eaee3524
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330837"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891697"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparare e personalizzare un'immagine master di disco rigido virtuale
 
-Questo articolo illustra come preparare un'immagine del disco rigido virtuale (VHD) master per il caricamento in Azure, tra cui come creare macchine virtuali (VM) e installare software su di essi. Le istruzioni riguardano una configurazione specifica di Desktop virtuale Windows che può essere usata con processi esistenti dell'organizzazione.
+Questo articolo illustra come preparare un'immagine del disco rigido virtuale (VHD) master per il caricamento in Azure, tra cui come creare macchine virtuali (VM) e installare software su di essi. Queste istruzioni sono relative a una configurazione specifica di un desktop virtuale di Windows che può essere usata con i processi esistenti dell'organizzazione.
 
-## <a name="create-a-vm"></a>Creare una VM
+## <a name="create-a-vm"></a>Creare una macchina virtuale
 
 La funzionalità multisessione Enterprise di Windows 10 è disponibile nella raccolta immagini di Azure. Sono disponibili due opzioni per la personalizzazione di questa immagine.
 
@@ -70,7 +70,7 @@ Se gli utenti devono accedere ad alcune applicazioni LOB, è consigliabile insta
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Configurare il contenitore profili utente (FSLogix)
 
-Per includere il contenitore FSLogix come parte dell'immagine, seguire le istruzioni riportate in [creare un contenitore di profili per un pool di host usando una condivisione file](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). È possibile testare la funzionalità del contenitore FSLogix con [questa Guida introduttiva](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
+Per includere il contenitore FSLogix come parte dell'immagine, seguire le istruzioni riportate in [creare un contenitore di profili per un pool di host usando una condivisione file](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). È possibile testare la funzionalità del contenitore FSLogix con [questa Guida introduttiva](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial).
 
 ### <a name="configure-windows-defender"></a>Configurare Windows Defender
 
@@ -86,7 +86,7 @@ Per altre informazioni su come configurare Windows Defender in modo da escludere
 
 Per disabilitare Aggiornamenti automatici tramite Criteri di gruppo locale:
 
-1. Aprire **Editor criteri di gruppo locali @ no__t-1Administrative templates @ no__t-2Windows Components @ no__t-3Windows Update**.
+1. Aprire **Editor Criteri di gruppo locali\\modelli amministrativi Componenti di Windows\\\\Windows Update**.
 2. Fare clic con il pulsante destro del mouse su **Configura aggiornamento automatico** e impostarlo su **disabilitato**.
 
 È anche possibile eseguire il comando seguente al prompt dei comandi per disabilitare Aggiornamenti automatici.
@@ -109,7 +109,7 @@ I criteri di sessione remota possono essere applicati a livello di Criteri di gr
 
 Per configurare i criteri di sessione remota:
 
-1. Passare a **Modelli amministrativi** > **componenti di Windows**@no__t-**3 Servizi Desktop remoto** > **host sessione Desktop remoto**i limiti di**tempo della sessione** > .
+1. Passare a **Modelli amministrativi** > **componenti** di Windows > Servizi Desktop remoto ** > ** host sessione Desktop remoto **limiti di tempo della sessione**. > 
 2. Nel pannello sul lato destro selezionare il criterio **Imposta limite di tempo per le sessioni di Servizi Desktop remoto attive ma inattive** .
 3. Quando viene visualizzata la finestra modale, modificare l'opzione dei criteri da **non configurato** in **abilitato** per attivare il criterio.
 4. Nel menu a discesa sotto l'opzione policy impostare la quantità di tempo su **3 ore**.
@@ -134,7 +134,7 @@ Per reindirizzare i fusi orari:
 1. Nel server Active Directory aprire il **console Gestione criteri di gruppo**.
 2. Espandere il dominio e gli oggetti Criteri di gruppo.
 3. Fare clic con il pulsante destro del mouse sull' **oggetto Criteri di gruppo** creato per le impostazioni di criteri di gruppo e scegliere **modifica**.
-4. Nella **Editor gestione criteri di gruppo**passare a **Configurazione computer** > **criteri** > **modelli amministrativi** > **componenti Windows** > **Servizi Desktop remoto**@no__ t-10**host sessione Desktop remoto**il reindirizzamento di**risorse e dispositivi**2.
+4. Nella **Editor gestione criteri di gruppo**passare a **Configurazione Computer** > **criteri** > **modelli amministrativi** > componenti di **Windows** > Servizi Desktop remoto ** > host sessione Desktop remoto** > **dispositivo e Reindirizzamento risorse**.
 5. Abilitare l'impostazione **Consenti reindirizzamento del fuso orario** .
 
 È anche possibile eseguire questo comando sull'immagine master per reindirizzare i fusi orari:

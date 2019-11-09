@@ -1,7 +1,7 @@
 ---
 title: Metodo BreakSentence dell'API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Usare il metodo BreakSentence dell'API Traduzione testuale.
+description: Il API Traduzione testuale metodo BreakSentence identifica il posizionamento dei limiti di frase in una porzione di testo.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 184677589b3aa777ec556215455f8018e0d71f3f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: b4eb083b0f98112274a5d00631af8662ff5c063a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934047"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835878"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>API Traduzione testuale 3.0: BreakSentence
 
@@ -34,14 +34,14 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
-  <th width="20%">Parametro di query</th>
+  <th width="20%">Query parameter (Parametro di query)</th>
   <th>Descrizione</th>
   <tr>
     <td>api-version</td>
     <td>*Parametro di query obbligatorio*.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`.</td>
   </tr>
   <tr>
-    <td>language</td>
+    <td>Lingua</td>
     <td>*Parametro di query facoltativo*.<br/>Tag di lingua che identifica la lingua del testo di input. Se non viene specificato un codice, verrà applicato il rilevamento automatico della lingua.</td>
   </tr>
   <tr>
@@ -53,8 +53,8 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta includono:
 
 <table width="100%">
-  <th width="20%">Intestazioni</th>
-  <th>DESCRIZIONE</th>
+  <th width="20%">Headers</th>
+  <th>Descrizione</th>
   <tr>
     <td>Intestazione/e di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
@@ -94,7 +94,7 @@ Si applicano le limitazioni seguenti:
 
 Una risposta corretta è una matrice JSON con un risultato per ogni stringa nella matrice di input. Un oggetto risultato include le proprietà seguenti:
 
-  * `sentLen`: Una matrice di interi che rappresenta le lunghezze delle frasi nell'elemento di testo. La lunghezza della matrice è il numero di frasi e i valori sono la lunghezza di ogni frase. 
+  * `sentLen`: matrice di interi che rappresenta le lunghezze delle frasi nell'elemento di testo. La lunghezza della matrice è il numero di frasi e i valori sono la lunghezza di ogni frase. 
 
   * `detectedLanguage`: oggetto che descrive la lingua rilevata tramite le proprietà seguenti:
 
@@ -121,8 +121,8 @@ Una risposta JSON di esempio è:
 ## <a name="response-headers"></a>Intestazioni della risposta
 
 <table width="100%">
-  <th width="20%">Intestazioni</th>
-  <th>DESCRIZIONE</th>
+  <th width="20%">Headers</th>
+  <th>Descrizione</th>
   <tr>
     <td>X-RequestId</td>
     <td>Valore generato dal servizio per identificare la richiesta. Viene usato per la risoluzione dei problemi.</td>
@@ -138,15 +138,15 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   <th>Descrizione</th>
   <tr>
     <td>200</td>
-    <td>Riuscite.</td>
+    <td>Completamento della procedura.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>Uno dei parametri di query manca o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
+    <td>Uno dei parametri di query è mancante o non valido. Prima di riprovare, correggere i parametri della richiesta.</td>
   </tr>
   <tr>
     <td>401</td>
-    <td>La richiesta non è stata autenticata. Verificare che le credenziali siano state specificate e che siano valide.</td>
+    <td>Impossibile autenticare la richiesta. Verificare che le credenziali siano state specificate e che siano valide.</td>
   </tr>
   <tr>
     <td>403</td>
@@ -158,11 +158,11 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>500</td>
-    <td>Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
+    <td>Si è verificato un errore imprevisto. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta `X-RequestId` e l'identificativo del client dall'intestazione di risposta `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
+    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta `X-RequestId` e l'identificativo del client dall'intestazione di risposta `X-ClientTraceId`.</td>
   </tr>
 </table> 
 

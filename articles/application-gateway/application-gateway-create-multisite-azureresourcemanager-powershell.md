@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 11962d8958811bc87fb94dc6fe78cb760fdaa20e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e96579d52752f75b864c430ea0334a544606998c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729704"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835583"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>Creare un gateway applicazione con l'hosting di più siti usando Azure PowerShell
 
@@ -98,7 +98,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pools-and-settings"></a>Creare i pool e le impostazioni back-end
 
-Creare i pool back-end denominati *contosoPool* e *fabrikamPool* per il gateway applicazione usando [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configurare le impostazioni del pool usando [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
+Creare pool back-end denominati *contosoPool* e *fabrikamPool* per il gateway applicazione usando [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configurare le impostazioni del pool usando [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $contosoPool = New-AzApplicationGatewayBackendAddressPool `
@@ -117,7 +117,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato ai pool back-end. In questa esercitazione si creano i listener per ognuno dei due domini. In questo esempio vengono creati i listener per i domini *www.contoso.com* e *www.fabrikam.com*.
 
-Creare i listener denominati *contosoListener* e *fabrikamListener* usando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configurazione front-end e front-end porta creato in precedenza. Sono necessarie regole per comunicare ai listener quale pool back-end usare per il traffico in ingresso. Creare le regole di base denominate *contosoRule* e *fabrikamRule* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Creare i listener denominati *contosoListener* e *fabrikamListener* usando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configurazione front-end e la porta front-end create in precedenza. Sono necessarie regole per comunicare ai listener quale pool back-end usare per il traffico in ingresso. Creare regole di base denominate *contosoRule* e *fabrikamRule* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `
@@ -260,7 +260,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http://www.contoso.com .
+Immettere il nome di dominio nella barra degli indirizzi del browser, Ad esempio, https://www.contoso.com.
 
 ![Testare il sito contoso nel gateway applicazione](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest.png)
 

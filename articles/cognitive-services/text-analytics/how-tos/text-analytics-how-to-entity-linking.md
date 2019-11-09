@@ -1,7 +1,7 @@
 ---
 title: Usare il riconoscimento di entità con l'API Analisi del testo
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come riconoscere le entità usando l'API REST Analisi del testo.
+description: Informazioni su come identificare e risolvere l'ambiguità dell'identità di un'entità trovata nel testo con l'API REST di Analisi del testo.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: aahi
-ms.openlocfilehash: e51e5945df8b08ec81db0c85416b31b3ec788ffd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b139f473bb20dbecde75c3b08dd92371849f096e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488638"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835657"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 

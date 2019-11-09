@@ -3,10 +3,8 @@ title: Esempio di script dell'interfaccia della riga di comando di Azure - Esegu
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
-manager: timlt
-editor: tysonn
-tags: ''
+author: asudbring
+manager: KumudD
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: azurecli
@@ -14,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: kumud
-ms.openlocfilehash: 916e9e1f7287757f19e93ecf7b8cc38f556e2dc8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: bf5f4bb6bd15fa1fd440e679913a370bbe30b663
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60564647"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890303"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata
 

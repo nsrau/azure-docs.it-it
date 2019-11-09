@@ -6,14 +6,14 @@ author: bandersmsft
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/01/2019
 ms.author: banders
-ms.openlocfilehash: d211334ad2aa760cd63b98c6827fb2512811a1d3
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b1cc034b4d397f170b57e873cb9a5d74c91f83f4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806948"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73746453"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Acquistare prenotazioni con pagamenti mensili
 
@@ -24,6 +24,7 @@ Sono possibili variazioni all'importo del pagamento mensile in base al tasso di 
 I pagamenti mensili sono disponibili per:
 
 - Macchine virtuali
+- Archiviazione di Azure
 - Database SQL
 - SQL Data Warehouse
 - Cosmos DB
@@ -60,20 +61,6 @@ Quando si scambia una prenotazione con pagamento mensile, il costo di durata tot
 Se si annulla una prenotazione che viene pagata mensilmente, Microsoft potrebbe applicare una tariffa di annullamento ai pagamenti impegnati futuri che vengono annullati. I pagamenti impegnati rimanenti vengono accumulati fino al raggiungimento del limite di rimborso di 50.000 USD.
 
 Per altre informazioni su scambi e rimborsi, vedere [Scambi e rimborsi in modalità self-service per le prenotazioni di Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
-
-## <a name="faq"></a>Domande frequenti
-
-D: Azure offre "prenotazioni con pagamento anticipato parziale"?<br>
-R. No. Poiché i costi per le prenotazioni pagate in anticipo e mensilmente sono gli stessi, Microsoft non supporta i pagamenti anticipati parziali.
-
-D: Sono disponibili pagamenti mensili per il programma Microsoft Cloud Solution Provider (CSP)?<br>
-R. Sì, i partner possono acquistare prenotazioni per i clienti CSP nel portale di Azure. Nel Centro per i partner non è invece possibile acquistare prenotazioni con fatturazione mensile.
-
-D: Gli utenti di Azure per enti pubblici negli Stati Uniti possono acquistare prenotazioni con pagamento mensile?<br>
-R. No, per il momento.
-
-D: È possibile scambiare o ottenere un rimborso nel portale di Azure, invece di creare un ticket di supporto?<br>
-R. No, per il momento. Le richieste di scambio e di rimborso delle prenotazioni con pagamento mensile vengono gestite dal supporto tecnico di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 771a4ffde9f3929a55ee8ce48c2b38e16b83ad49
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 4fd6de848756cedf21d7bb1f7f1be31175de6627
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650686"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838244"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Creare la prima applicazione contenitore di Service Fabric in Windows
 
@@ -296,7 +296,7 @@ La [governance delle risorse](service-fabric-resource-governance.md) limita le r
 
 A partire dalla versione 6.1, Service Fabric integra automaticamente gli eventi di [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) nel report relativo all'integrità del sistema. Se **HEALTHCHECK** è stato abilitato nel contenitore, Service Fabric fornirà informazioni sull'integrità ogni volta che lo stato dell'integrità del contenitore subisce modifiche, in base a quanto segnalato da Docker. Un report sull'integrità di tipo **OK** verrà visualizzato in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) quando il valore *health_status* è *healthy* e un report di tipo **AVVISO** verrà visualizzato quando il valore *health_status* è *unhealthy*. 
 
-A partire dalla versione di aggiornamento più recente di v 6.4, è possibile specificare che le valutazioni di Docker HEALTHCHECK devono essere segnalate come un errore. Se questa opzione è abilitata, viene visualizzato un report di integrità **OK** quando *health_status* è integro e viene visualizzato un **errore** quando *health_status* non è *integro*.
+A partire dalla versione di aggiornamento più recente di v 6.4, è possibile specificare che le valutazioni di Docker HEALTHCHECK devono essere segnalate come un errore. Se questa opzione è abilitata, viene visualizzato un report di integrità **OK** quando *health_status* è *integro* e viene visualizzato un **errore** quando *health_status* non è *integro*.
 
 L'istruzione **HEALTHCHECK** che fa riferimento alla verifica effettiva eseguita per il monitoraggio dell'integrità dei contenitori deve essere presente nel Dockerfile usato durante la generazione dell'immagine del contenitore.
 
@@ -320,26 +320,26 @@ L'istruzione **HEALTHCHECK** che fa riferimento alla verifica effettiva eseguita
     </Policies>
 </ServiceManifestImport>
 ```
-Per impostazione predefinita, *IncludeDockerHealthStatusInSystemHealthReport* è impostato su **true**, *l'opzione restartcontaineronunhealthydockerhealthstatus* è impostato su **false**e *TreatContainerUnhealthyStatusAsError* è impostato su **false.** . 
+Per impostazione predefinita, *IncludeDockerHealthStatusInSystemHealthReport* è impostato su **true**, *l'opzione restartcontaineronunhealthydockerhealthstatus* è impostato su **false**e *TreatContainerUnhealthyStatusAsError* è impostato su **false**. 
 
 Se l'opzione *RestartContainerOnUnhealthyDockerHealthStatus* è impostata su **true**, un contenitore che segnala ripetutamente uno stato non integro viene riavviato, possibilmente su altri nodi.
 
-Se *TreatContainerUnhealthyStatusAsError* è impostato su **true**, i report sull'integrità degli **errori** verranno visualizzati quando *health_status* del contenitore non è *integro*.
+Se *TreatContainerUnhealthyStatusAsError* è impostato su **true**, i report sull'integrità degli **errori** verranno visualizzati quando il *health_status* del contenitore non è *integro*.
 
 Se si vuole disabilitare l'integrazione di **HEALTHCHECK** per l'intero cluster di Service Fabric, sarà necessario impostare [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) su **false**.
 
 ## <a name="deploy-the-container-application"></a>Distribuire l'applicazione del contenitore
 Salvare tutte le modifiche e compilare l'applicazione. Per pubblicare l'applicazione, fare clic con il pulsante destro del mouse su **MyFirstContainer** in Esplora soluzioni e scegliere **Pubblica**.
 
-In **Endpoint connessione** immettere l'endpoint di gestione per il cluster, ad esempio "containercluster.westus2.cloudapp.azure.com:19000". L'endpoint di connessione del client è disponibile nella scheda Panoramica del cluster nel [portale di Azure](https://portal.azure.com).
+In **Endpoint connessione** immettere l'endpoint di gestione per il cluster, Ad esempio, `containercluster.westus2.cloudapp.azure.com:19000`. L'endpoint di connessione del client è disponibile nella scheda Panoramica del cluster nel [portale di Azure](https://portal.azure.com).
 
 Fare clic su **Pubblica**.
 
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) è uno strumento basato sul Web che permette di analizzare e gestire applicazioni e nodi in un cluster di Service Fabric. Aprire un browser Web e passare a http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ per seguire la distribuzione dell'applicazione. L'applicazione viene distribuita, ma rimane in stato di errore fino a quando l'immagine non viene scaricata nei nodi del cluster. L'operazione può richiedere del tempo, a seconda delle dimensioni dell'immagine: ![Error (Errore) (Error (Errore)e)][1]
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) è uno strumento basato sul Web che permette di analizzare e gestire applicazioni e nodi in un cluster di Service Fabric. Aprire un browser Web e passare a `http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/` per seguire la distribuzione dell'applicazione. L'applicazione viene distribuita, ma rimane in stato di errore fino a quando l'immagine non viene scaricata nei nodi del cluster. L'operazione può richiedere del tempo, a seconda delle dimensioni dell'immagine: ![Errore][1]
 
 L'applicazione è pronta quando è in stato ```Ready```: ![Pronto][2]
 
-Aprire un browser e passare a http://containercluster.westus2.cloudapp.azure.com:8081. Verrà visualizzata l'intestazione "Hello World!" nel browser.
+Aprire un browser e passare a `http://containercluster.westus2.cloudapp.azure.com:8081`. Verrà visualizzata l'intestazione "Hello World!" nel browser.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 
@@ -362,7 +362,7 @@ I contenitori di Windows Server non sono compatibili con tutte le versioni del s
  
 Per altre informazioni, vedere [Compatibilità delle versioni dei contenitori di Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Considerare la compatibilità del sistema operativo host e del sistema operativo del contenitore durante la creazione e la distribuzione dei contenitori nel cluster di Service Fabric. Esempio:
+Considerare la compatibilità del sistema operativo host e del sistema operativo del contenitore durante la creazione e la distribuzione dei contenitori nel cluster di Service Fabric. Ad esempio:
 
 - Assicurarsi di distribuire i contenitori con un sistema operativo compatibile con il sistema operativo nei nodi del cluster.
 - Assicurarsi che la modalità di isolamento specificata per l'app contenitore sia coerente con il supporto per il sistema operativo del contenitore nel nodo in cui viene distribuito.
@@ -507,7 +507,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Configurare l'intervallo di tempo prima della terminazione forzata del contenitore
 
-È possibile configurare un intervallo di tempo di attesa del runtime prima che il contenitore venga rimosso dopo l'avvio dell'eliminazione del servizio (o di un passaggio a un altro nodo). Configurando l'intervallo di tempo, viene inviato il comando `docker stop <time in seconds>` al contenitore.  Per altri dettagli, vedere [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). L'intervallo di tempo per l'attesa viene specificato nella sezione `Hosting`. La `Hosting` sezione può essere aggiunta in fase di creazione del cluster o successiva in un aggiornamento della configurazione. Il frammento di manifesto del cluster seguente illustra come impostare l'intervallo di attesa:
+È possibile configurare un intervallo di tempo di attesa del runtime prima che il contenitore venga rimosso dopo l'avvio dell'eliminazione del servizio (o di un passaggio a un altro nodo). Configurando l'intervallo di tempo, viene inviato il comando `docker stop <time in seconds>` al contenitore.  Per altri dettagli, vedere [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). L'intervallo di tempo per l'attesa viene specificato nella sezione `Hosting`. La sezione `Hosting` può essere aggiunta in fase di creazione del cluster o in un secondo momento in un aggiornamento della configurazione. Il frammento di manifesto del cluster seguente illustra come impostare l'intervallo di attesa:
 
 ```json
 "fabricSettings": [

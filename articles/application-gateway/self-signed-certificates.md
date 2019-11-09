@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 659c4cb3a6f0d50176875b76eeb2784c711eafd1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 84a46e66bb6c36950a84fbeb2dacc3a8d6bcc241
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967132"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833364"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generare un certificato autofirmato applicazione Azure gateway con una CA radice personalizzata
 
@@ -40,7 +40,7 @@ In questo articolo verrà spiegato come:
 
 - **SKU del gateway applicazione V2**
    
-  Se non si dispone di un gateway applicazione esistente, [vedere Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Portale di Azure](quick-create-portal.md).
+  Se non si dispone di un gateway applicazione esistente, vedere [Guida introduttiva: indirizzare il traffico Web con applicazione Azure portale di Azure gateway](quick-create-portal.md).
 
 ## <a name="create-a-root-ca-certificate"></a>Creare un certificato CA radice
 
@@ -87,7 +87,7 @@ Usare il comando seguente per generare la chiave per il certificato del server.
 CSR è una chiave pubblica assegnata a una CA quando viene richiesto un certificato. La CA rilascia il certificato per questa richiesta specifica.
 
 > [!NOTE]
-> Il CN (nome comune) per il certificato server deve essere diverso dal dominio dell'emittente. Ad esempio, in questo caso, il CN per l'emittente è www.contoso.com e il CN del certificato server è www.fabrikam.com
+> Il CN (nome comune) per il certificato server deve essere diverso dal dominio dell'emittente. In questo caso, ad esempio, il CN per l'emittente è `www.contoso.com` e il CN del certificato server è `www.fabrikam.com`.
 
 
 1. Usare il comando seguente per generare il CSR:
@@ -96,9 +96,9 @@ CSR è una chiave pubblica assegnata a una CA quando viene richiesto un certific
    openssl req -new -sha256 -key fabrikam.key -out fabrikam.csr
    ```
 
-1. Quando richiesto, digitare la password per la chiave radice e le informazioni sull'organizzazione per la CA personalizzata: Country, state, org, OU e il nome di dominio completo. Questo è il dominio del sito Web e deve essere diverso dall'emittente.
+1. Quando richiesto, digitare la password per la chiave radice e le informazioni sull'organizzazione per la CA personalizzata: paese, stato, organizzazione, unità organizzativa e nome di dominio completo. Questo è il dominio del sito Web e deve essere diverso dall'emittente.
 
-   ![Certificato del server](media/self-signed-certificates/server-cert.png)
+   ![Certificato server](media/self-signed-certificates/server-cert.png)
 
 ### <a name="generate-the-certificate-with-the-csr-and-the-key-and-sign-it-with-the-cas-root-key"></a>Generare il certificato con CSR e la chiave e firmarla con la chiave radice della CA
 
@@ -130,7 +130,7 @@ Nel server Web configurare SSL usando i file Fabrikam. CRT e fabrikam. Key. Se i
 
 ### <a name="iis"></a>IIS
 
-Per istruzioni su come importare e caricare il certificato come certificato server in IIS, vedere [procedura: Installare i certificati importati in un server Web in](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server)Windows Server 2003.
+Per istruzioni su come importare e caricare il certificato come certificato server in IIS, vedere [procedura: installare i certificati importati in un server Web in Windows server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
 
 Per istruzioni sull'associazione SSL, vedere [come configurare SSL in IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
 

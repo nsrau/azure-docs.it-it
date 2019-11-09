@@ -1,10 +1,10 @@
 ---
-title: Verificare l'accesso ai ruoli di Azure AD in PIM-Azure Active Directory | Microsoft Docs
-description: Informazioni su come verificare l'accesso dei ruoli di Azure AD in Azure AD Privileged Identity Management (PIM).
+title: Verificare l'accesso ai ruoli di Azure AD in PIM-Azure AD | Microsoft Docs
+description: Informazioni su come verificare l'accesso dei ruoli di Azure Active Directory in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8b9f16d6c7f738e64f154506228c832e31e0f5b
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 76eccb5d62b68865b7a117312be62753f203e2cb
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809058"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847099"
 ---
 # <a name="review-access-to-azure-ad-roles-in-privileged-identity-management"></a>Controllare l'accesso ai ruoli di Azure AD in Privileged Identity Management
 

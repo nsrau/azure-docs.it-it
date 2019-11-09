@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 24e90ebd2994c5fffc1252167c06783421f2ac33
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: e072923c2c8b1d8e5bb281a5bcff992b25289b4d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035255"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888496"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
@@ -48,8 +48,8 @@ Gli insiemi di credenziali dei servizi di ripristino includono le funzionalità 
 - È possibile monitorare gli elementi di cui è stato eseguito il backup in un insieme di credenziali, incluse le macchine virtuali di Azure e i computer locali.
 - È possibile gestire l'accesso dell'insieme di credenziali tramite il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) di Azure.
 - È necessario specificare come vengono replicati i dati nell'insieme di credenziali per la ridondanza:
-  - **Archiviazione con ridondanza locale**. Per evitare errori in un Data Center, è possibile usare con ridondanza locale. L'archiviazione con ridondanza locale replica i dati in un'unità di scala di archiviazione. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
-  - **Archiviazione con ridondanza geografica**: Per proteggersi da interruzioni a livello di area, è possibile usare GRS. Il GRS replica i dati in un'area secondaria. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)
+  - **Archiviazione con ridondanza locale (con ridondanza locale)** : per evitare errori in un Data Center, è possibile usare con ridondanza locale. L'archiviazione con ridondanza locale replica i dati in un'unità di scala di archiviazione. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+  - **Archiviazione con ridondanza geografica**: per proteggersi da interruzioni a livello di area, è possibile usare GRS. Il GRS replica i dati in un'area secondaria. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
   - Per impostazione predefinita, gli insiemi di credenziali dei servizi di ripristino usano GRS.
 
 ## <a name="backup-agents"></a>Agenti di backup
@@ -98,10 +98,10 @@ Nella tabella seguente sono riepilogate le funzionalità supportate per i divers
 
 **Funzionalità** | **Computer Windows Server locali (Direct)** | **Macchine virtuali di Azure** | **Computer o app con DPM/MAB**
 --- | --- | --- | ---
-Backup nell'insieme di credenziali | ![Yes][green] | ![Yes][green] | ![Yes][green]
-Esegui il backup nel disco di DPM/MAB, quindi in Azure | | | ![Yes][green]
-Compressione dei dati inviati per il backup | ![Yes][green] | Durante il trasferimento dei dati non viene usata alcuna compressione. Leggero aumento dello spazio di archiviazione richiesto, ma ripristino più veloce.  | ![Yes][green]
-Backup incrementale |![Yes][green] |![Yes][green] |![Yes][green]
+Backup nell'insieme di credenziali | ![Sì][green] | ![Sì][green] | ![Sì][green]
+Esegui il backup nel disco di DPM/MAB, quindi in Azure | | | ![Sì][green]
+Compressione dei dati inviati per il backup | ![Sì][green] | Durante il trasferimento dei dati non viene usata alcuna compressione. Leggero aumento dello spazio di archiviazione richiesto, ma ripristino più veloce.  | ![Sì][green]
+Backup incrementale |![Sì][green] |![Sì][green] |![Sì][green]
 Backup di dischi deduplicati | | | ![Parzialmente][yellow]<br/><br/> Solo per i server DPM/MABS distribuiti in locale.
 
 ![Chiave tabella](./media/backup-architecture/table-key.png)
@@ -120,13 +120,13 @@ Backup di dischi deduplicati | | | ![Parzialmente][yellow]<br/><br/> Solo per i 
     - Vengono copiati solo i blocchi di dati modificati dopo l'ultimo backup.
     - I dati non vengono crittografati. Backup di Azure può eseguire il backup di macchine virtuali di Azure crittografate tramite crittografia dischi di Azure.
     - I dati dello snapshot potrebbero non essere copiati immediatamente nell'insieme di credenziali. In momenti di picco, il backup potrebbe richiedere alcune ore. Il tempo totale di backup per una macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
-1. Dopo che i dati sono stati inviati all'insieme di credenziali, viene creato un punto di ripristino. Per impostazione predefinita, gli snapshot vengono conservati per due giorni prima di essere eliminati. Questa funzionalità consente l'operazione di ripristino da questi snapshot, riducendo così i tempi di ripristino. Riduce il tempo necessario per la trasformazione e la copia dei dati dall'insieme di credenziali. Vedere [funzionalità di ripristino immediato di backup di Azure](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability).
+1. Dopo che i dati sono stati inviati all'insieme di credenziali, viene creato un punto di ripristino. Per impostazione predefinita, gli snapshot vengono conservati per due giorni prima di essere eliminati. Questa funzionalità consente l'operazione di ripristino da questi snapshot, riducendo così i tempi di ripristino. Riduce il tempo necessario per la trasformazione e la copia dei dati dall'insieme di credenziali. Vedere [funzionalità di ripristino immediato di backup di Azure](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
 
 Le macchine virtuali di Azure richiedono l'accesso a Internet per i comandi di controllo. Se si esegue il backup dei carichi di lavoro all'interno della macchina virtuale, ad esempio SQL Server backup del database, anche i dati back-end necessitano di accesso a Internet.
 
 ![Backup di macchine virtuali di Azure](./media/backup-architecture/architecture-azure-vm.png)
 
-## <a name="architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders"></a>Architettura: Backup diretto di computer Windows Server locali o di cartelle o file di VM di Azure
+## <a name="architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders"></a>Architettura: backup diretto di computer Windows Server locali o di cartelle o file di VM di Azure
 
 1. Per configurare lo scenario, scaricare e installare l'agente MARS nel computer. È quindi possibile selezionare gli elementi di cui eseguire il backup, quando verranno eseguiti i backup e per quanto tempo verranno conservati in Azure.
 1. Il backup iniziale viene eseguito in base alle impostazioni di backup.
@@ -140,7 +140,7 @@ Le macchine virtuali di Azure richiedono l'accesso a Internet per i comandi di c
 
 ![Backup di computer Windows Server locali con l'agente MARS](./media/backup-architecture/architecture-on-premises-mars.png)
 
-## <a name="architecture-back-up-to-dpmmabs"></a>Architettura: backup in DPM/MABS
+## <a name="architecture-back-up-to-dpmmabs"></a>Architettura: backup in DPM/MAB
 
 1. Si installa l'agente protezione DPM o MAB nei computer che si desidera proteggere. È quindi possibile aggiungere i computer a un gruppo protezione dati DPM.
     - Per proteggere i computer locali, il server DPM o MABS deve essere in locale.
@@ -157,15 +157,15 @@ Le macchine virtuali di Azure richiedono l'accesso a Internet per i comandi di c
 Le macchine virtuali di Azure usano dischi per archiviare il sistema operativo, le app e i dati. Ogni macchina virtuale di Azure dispone di almeno due dischi: un disco per il sistema operativo e un disco temporaneo. Le macchine virtuali di Azure possono anche avere dischi dati per i dati delle app. I dischi vengono archiviati come dischi rigidi virtuali.
 
 - I dischi rigidi virtuali vengono archiviati come BLOB di pagine negli account di archiviazione standard o Premium in Azure:
-  - **Archiviazione standard:** supporto di dischi affidabili e a basso costo per le macchine virtuali che eseguono carichi di lavoro non sensibili alla latenza. L'archiviazione standard può usare dischi SSD (Solid-State Drive) standard o dischi disco rigido (HDD) standard.
-  - **Archiviazione Premium:** supporto per dischi ad alte prestazioni. Usa dischi SSD Premium.
+  - **Archiviazione standard:** Supporto del disco affidabile e a basso costo per le macchine virtuali che eseguono carichi di lavoro che non sono sensibili alla latenza. L'archiviazione standard può usare dischi SSD (Solid-State Drive) standard o dischi disco rigido (HDD) standard.
+  - **Archiviazione Premium:** Supporto per dischi ad alte prestazioni. Usa dischi SSD Premium.
 - Sono disponibili tre diversi livelli di prestazioni per i dischi:
-  - **Disco HDD Standard:** supportato da unità HDD e usato per un'archiviazione conveniente.
-  - **Disco SDD Standard:** Combina gli elementi di dischi SSD Premium e dischi HDD standard. Offre prestazioni e affidabilità più coerenti rispetto al disco rigido, ma è ancora conveniente.
+  - **Disco HDD standard:** Supportato da HDD e usato per l'archiviazione conveniente.
+  - **Disco SDD standard:** Combina gli elementi di dischi SSD Premium e dischi HDD standard. Offre prestazioni e affidabilità più coerenti rispetto al disco rigido, ma è ancora conveniente.
   - **Disco SSD Premium:** Supportato da SSD e offre prestazioni elevate e bassa latenza per le macchine virtuali che eseguono carichi di lavoro con attività di I/O intensive.
 - I dischi possono essere gestiti o non gestiti:
   - **Dischi non gestiti:** Tipo tradizionale di dischi usati dalle macchine virtuali. Per questi dischi è necessario creare un account di archiviazione personale e specificarlo durante la creazione del disco. È quindi necessario scoprire come ottimizzare le risorse di archiviazione per le macchine virtuali.
-  - **Dischi gestiti**: Azure crea e gestisce automaticamente gli account di archiviazione. Si specificano le dimensioni del disco e il livello di prestazioni e Azure crea automaticamente i dischi gestiti. Quando si aggiungono dischi e si ridimensionano le macchine virtuali, Azure gestisce gli account di archiviazione.
+  - **Dischi gestiti:** Azure crea e gestisce automaticamente gli account di archiviazione. Si specificano le dimensioni del disco e il livello di prestazioni e Azure crea automaticamente i dischi gestiti. Quando si aggiungono dischi e si ridimensionano le macchine virtuali, Azure gestisce gli account di archiviazione.
 
 Per altre informazioni sull'archiviazione su disco e sui tipi di dischi disponibili per le macchine virtuali, vedere questi articoli:
 
@@ -178,7 +178,7 @@ Per altre informazioni sull'archiviazione su disco e sui tipi di dischi disponib
 È possibile eseguire il backup di macchine virtuali di Azure usando archiviazione Premium con backup di Azure:
 
 - Durante il processo di backup di macchine virtuali con archiviazione Premium, il servizio di backup crea un percorso di gestione temporanea, denominato *AzureBackup*, nell'account di archiviazione. Le dimensioni del percorso di gestione temporanea equivalgono alla dimensione dello snapshot del punto di ripristino.
-- Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione Premium per il percorso di gestione temporanea. [Altre informazioni](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits) Non modificare il percorso di gestione temporanea.
+- Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione Premium per il percorso di gestione temporanea. [Altre informazioni](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). Non modificare il percorso di gestione temporanea.
 - Al termine del processo di backup, il percorso di gestione temporanea viene eliminato.
 - Il prezzo della risorsa di archiviazione usata per il percorso di gestione temporanea è in linea con i [prezzi dell'archiviazione Premium](../virtual-machines/windows/disks-types.md#billing).
 

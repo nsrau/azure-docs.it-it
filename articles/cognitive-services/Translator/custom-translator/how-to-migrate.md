@@ -1,7 +1,7 @@
 ---
 title: Eseguire la migrazione dell'area di lavoro e dei progetti di Microsoft Translator Hub - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Eseguire la migrazione dell'area di lavoro e dei progetti di Hub in Custom Translator.
+description: Questo articolo illustra come eseguire la migrazione dell'area di lavoro e dei progetti dell'hub al convertitore personalizzato di servizi cognitivi di Azure.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 9c97eaef30a08123605ed4c01810745e312d6aa0
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 7ea7b48e1fc36399a0ca173f9068faf8b88849d5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675507"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836585"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Eseguire la migrazione dell'area di lavoro e dei progetti di Hub in Custom Translator
 
@@ -134,10 +134,10 @@ Questa tabella mette a confronto le funzionalità di Microsoft Translator Hub co
 |:-----|:----:|:----:|
 |Stato delle funzionalità di personalizzazione   | Disponibilità generale  | Disponibilità generale |
 | Versione API per testo  | V2    | V3  |
-| Personalizzazione SMT | SÌ   | No |
-| Personalizzazione NMT | No    | SÌ |
-| Personalizzazione dei nuovi servizi voce unificati | No    | SÌ |
-| Nessuna traccia | SÌ | SÌ |
+| Personalizzazione SMT | Sì   | No |
+| Personalizzazione NMT | No    | Sì |
+| Personalizzazione dei nuovi servizi voce unificati | No    | Sì |
+| Nessuna traccia | Sì | Sì |
 
 ## <a name="new-languages"></a>Nuove lingue
 

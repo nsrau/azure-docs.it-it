@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5b3170d640257774339697ee7915169c2f5e451f
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0472510801f5827327ac06a3927ca597b6caa612
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973345"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834362"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Distribuire le risorse con i modelli e l'API REST di Resource Manager
 
@@ -35,13 +35,17 @@ Per eseguire la distribuzione in una **sottoscrizione**, usare [distribuzioni-cr
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
 ```
 
+Per altre informazioni sulle distribuzioni a livello di sottoscrizione, vedere [creare gruppi di risorse e risorse a livello di sottoscrizione](deploy-to-subscription.md).
+
 Per eseguire la distribuzione in un **gruppo di gestione**, usare [distribuzioni-crea nell'ambito del gruppo di gestione](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). La richiesta viene inviata a:
 
 ```HTTP
 PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
 ```
 
-Gli esempi in questo articolo usano le distribuzioni di gruppi di risorse. Per altre informazioni sulle distribuzioni delle sottoscrizioni, vedere [creare gruppi di risorse e risorse a livello di sottoscrizione](deploy-to-subscription.md).
+Per ulteriori informazioni sulle distribuzioni a livello di gruppo di gestione, vedere [creazione di risorse a livello di gruppo di gestione](deploy-to-management-group.md).
+
+Gli esempi in questo articolo usano le distribuzioni di gruppi di risorse.
 
 ## <a name="deploy-with-the-rest-api"></a>Distribuire con l'API REST
 

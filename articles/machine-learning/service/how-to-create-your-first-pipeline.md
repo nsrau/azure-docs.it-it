@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3dc439c352bb3e6e56fae4b83d783da94720bfe1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4af18eaa0dc5622dcc52603e6fb4e569f505feeb
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818408"
+ms.locfileid: "73838119"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creare ed eseguire pipeline di Machine Learning con Azure Machine Learning SDK
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -411,14 +411,14 @@ response = requests.post(published_pipeline1.endpoint,
 ### <a name="view-results-of-a-published-pipeline"></a>Visualizzare i risultati di una pipeline pubblicata
 
 Vedere l'elenco di tutte le pipeline pubblicate e i relativi dettagli di esecuzione:
-1. Accedere a [Azure Machine Learning Studio](https://ml.azure.com).
+1. Accedere a [Azure Machine Learning](https://ml.azure.com).
 
 1. [Visualizzare l'area di lavoro](how-to-manage-workspace.md#view) per trovare l'elenco delle pipeline.
  ![elenco delle pipeline di Machine Learning](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Selezionare una pipeline specifica per visualizzare i risultati dell'esecuzione.
 
-Questi risultati sono disponibili anche nell'area di lavoro in [Azure Machine Learning Studio]] (https://ml.azure.com).
+Questi risultati sono disponibili anche nell'area di lavoro in [Azure Machine Learning](https://ml.azure.com).
 
 ### <a name="disable-a-published-pipeline"></a>Disabilitare una pipeline pubblicata
 

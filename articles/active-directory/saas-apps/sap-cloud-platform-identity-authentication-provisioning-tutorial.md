@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurare SAP Cloud Platform Identity Authentication per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: configurare SAP Cloud Platform Identity Authentication per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in SAP Cloud Platform Identity Authentication.
 services: active-directory
 documentationcenter: ''
@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: f570cb6f945f403e77a36374cc9f82edb7b640c9
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 266e68b2378db7148649fd4067f1da6172932367
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174812"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833845"
 ---
-# <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Esercitazione: Configurare SAP Cloud Platform Identity Authentication per il provisioning utenti automatico
+# <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Esercitazione: configurare SAP Cloud Platform Identity Authentication per il provisioning utenti automatico
 
-Questa esercitazione illustra i passaggi da eseguire in SAP Cloud Platform Identity Authentication e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in SAP Cloud Autenticazione dell'identità della piattaforma.
+Questa esercitazione illustra i passaggi da eseguire in SAP Cloud Platform Identity Authentication e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in SAP Cloud Platform Identity Authentication.
 
 > [!NOTE]
 > L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
 >
-> Questo connettore è attualmente disponibile in anteprima pubblica. Per ulteriori informazioni sulle condizioni per l'utilizzo di Microsoft Azure generali per le funzionalità di anteprima, vedere le [condizioni per l'utilizzo supplementari per](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)le anteprime di Microsoft Azure.
+> Questo connettore è attualmente disponibile in anteprima pubblica. Per ulteriori informazioni sulle condizioni per l'utilizzo di Microsoft Azure generali per le funzionalità di anteprima, vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -121,9 +121,9 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
-    ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
+    ![Posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Salva**.
+7. Fare clic su **Save**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a SAP Cloud Platform Identity Authentication**.
 
@@ -150,6 +150,10 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning in SAP Cloud Platform Identity Authentication.
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+
+## <a name="connector-limitations"></a>Limitazioni dei connettori
+
+* L'endpoint SCIM di SAP Cloud Platform Identity Authentication richiede che determinati attributi siano di formato specifico. Per ulteriori informazioni su questi attributi e sul relativo formato specifico, vedere [qui](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/b10fc6a9a37c488a82ce7489b1fab64c.html#).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

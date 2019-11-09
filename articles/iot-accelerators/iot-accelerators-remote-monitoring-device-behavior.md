@@ -1,5 +1,5 @@
 ---
-title: Comportamento di un dispositivo simulato nella soluzione di monitoraggio remoto - Azure | Microsoft Docs
+title: Dispositivo simulato nella soluzione di monitoraggio remoto-Azure | Microsoft Docs
 description: Questo articolo descrive come usare JavaScript per definire il comportamento di un dispositivo simulato nella soluzione di monitoraggio remoto.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 04d2ad2f0e86ee977600af86a2ffd1e9d7680375
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c39ca0a018bd22844cf7e5350e6d3586319aac16
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65823413"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890852"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementare il comportamento del modello di dispositivo
 
@@ -36,7 +36,7 @@ In questo articolo viene spiegato come:
 
 La sezione [Simulation](../../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#simulation) dello schema del modello di dispositivo definisce lo stato interno di un dispositivo simulato:
 
-- `InitialState` definisce i valori iniziali di tutte le proprietà dell'oggetto di stato del dispositivo.
+- `InitialState` definisce i valori iniziali per tutte le proprietà dell'oggetto di stato del dispositivo.
 - `Script` identifica un file JavaScript che viene eseguito in base a una pianificazione per aggiornare lo stato del dispositivo.
 
 L'esempio seguente mostra la definizione dell'oggetto di stato del dispositivo per un dispositivo simulato refrigeratore:
@@ -258,7 +258,7 @@ L'articolo [Running the service locally](https://github.com/Azure/device-simulat
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha spiegato come definire il comportamento di un modello di dispositivo simulato personalizzato. Sono state illustrate le procedure per eseguire queste operazioni:
+Questo articolo ha spiegato come definire il comportamento di un modello di dispositivo simulato personalizzato. In questo articolo sono state presentate le procedure per:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

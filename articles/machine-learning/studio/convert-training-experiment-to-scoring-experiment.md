@@ -1,6 +1,6 @@
 ---
 title: Preparare il modello per la distribuzione
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Come preparare il modello sottoposto a training per la distribuzione come servizio Web convertendo l'esperimento di training Machine Learning Studio (classico) in un esperimento predittivo.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: e24393783dac0f918009f3138f31bdda98bbd22e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4b07150ac9f35085763786c505d3d746428a542b
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684866"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839668"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>Come preparare il modello per la distribuzione in Azure Machine Learning Studio (classico)
 

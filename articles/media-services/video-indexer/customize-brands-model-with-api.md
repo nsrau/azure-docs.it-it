@@ -1,6 +1,6 @@
 ---
 title: Usare Azure Video Indexer per personalizzare il modello Marchi
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Questo articolo illustra come usare Azure Video Indexer per personalizzare il modello Marchi.
 services: media-services
 author: anikaz
@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 8d0806bc0262cd45a49e4f97ea629683ac239aa8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4289c592644d7570ff0dd9ce6aed0cd77f51f25e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799648"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838331"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personalizzare un modello Marchi con l'API di Video Indexer
 
-Video Indexer supporta il rilevamento del marchio dal parlato e dal testo visivo durante l'indicizzazione e la reindicizzazione di contenuto audio e video. La funzionalità di rilevamento del marchio identifica citazioni di prodotti, servizi e aziende suggerite dal database dei marchi di Bing. Se, ad esempio, Microsoft viene citata in un contenuto audio o video o se appare nel testo visivo di un video, Video Indexer lo rileva come un marchio. Un modello Marchi personalizzato consente di escludere determinati marchi dal rilevamento e includere i marchi che devono far parte del modello che potrebbe non essere presente nel database di marchi di Bing.
+Video Indexer supporta il rilevamento del marchio dal parlato e dal testo visivo durante l'indicizzazione e la reindicizzazione di contenuto audio e video. La funzionalità di rilevamento del marchio identifica citazioni di prodotti, servizi e aziende suggerite dal database dei marchi di Bing. Se, ad esempio, il nome Microsoft viene citato in un contenuto audio o video o se appare nel testo visivo di un video, Video Indexer lo rileva come un marchio. Un modello Marchi personalizzato consente di escludere determinati marchi dal rilevamento e includere i marchi che devono far parte del modello che potrebbe non essere presente nel database di marchi di Bing.
 
 Per una panoramica dettagliata, vedere [Panoramica](customize-brands-model-overview.md).
 
@@ -41,9 +41,9 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
 |---|---|---|---|
-|location|string|Yes|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
-|accountId|string|Yes|Identificatore univoco globale per l'account|
-|accessToken|string|Yes|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
+|location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
+|accountId|stringa|Sì|Identificatore univoco globale per l'account|
+|accessToken|stringa|Sì|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
 
 ### <a name="request-body"></a>Corpo della richiesta
 
@@ -65,7 +65,7 @@ Il campo **referenceUrl** può contenere qualsiasi sito Web di riferimento per i
 
 Il valore **tag** è un elenco di tag per il marchio. Viene visualizzato nel campo *Categoria* del marchio nel sito Web di Video Indexer. Ad esempio, il marchio "Azure" può essere contrassegnato o classificato come "Cloud".
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 
 La risposta specifica informazioni sul marchio che è stato appena creato seguendo il formato dell'esempio riportato di seguito.
 
@@ -103,16 +103,16 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
 |---|---|---|---|
-|location|string|Yes|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
-|accountId|string|Yes|Identificatore univoco globale per l'account|
-|id|numero intero|Yes|L'id del marchio (generato quando è stato creato il marchio)|
-|accessToken|string|Yes|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
+|location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
+|accountId|stringa|Sì|Identificatore univoco globale per l'account|
+|id|numero intero|Sì|L'id del marchio (generato quando è stato creato il marchio)|
+|accessToken|stringa|Sì|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
 
 ### <a name="request-body"></a>Corpo della richiesta
 
 Per questa chiamata non è necessario specificare altri dati nel corpo della richiesta.
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 
 Non viene restituito contenuto quando il marchio viene eliminato.
 
@@ -132,16 +132,16 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
 |---|---|---|---|
-|location|string|Yes|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
-|accountId|string|Yes|Identificatore univoco globale per l'account|
-|id|numero intero|Yes|L'ID del marchio (generato quando è stato creato il marchio)|
-|accessToken|string|Yes|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
+|location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
+|accountId|stringa|Sì|Identificatore univoco globale per l'account|
+|id|numero intero|Sì|L'ID del marchio (generato quando è stato creato il marchio)|
+|accessToken|stringa|Sì|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
 
 ### <a name="request-body"></a>Corpo della richiesta
 
 Per questa chiamata non è necessario specificare altri dati nel corpo della richiesta.
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 
 La risposta specifica informazioni sul marchio che è stato cercato (usando l'ID del marchio) seguendo il formato dell'esempio riportato di seguito.
 
@@ -182,10 +182,10 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
 |---|---|---|---|
-|location|string|Yes|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
-|accountId|string|Yes|Identificatore univoco globale per l'account|
-|id|numero intero|Yes|L'ID del marchio (generato quando è stato creato il marchio)|
-|accessToken|string|Yes|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
+|location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
+|accountId|stringa|Sì|Identificatore univoco globale per l'account|
+|id|numero intero|Sì|L'ID del marchio (generato quando è stato creato il marchio)|
+|accessToken|stringa|Sì|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
 
 ### <a name="request-body"></a>Corpo della richiesta
 
@@ -207,7 +207,7 @@ Oltre a questi parametri, è necessario fornire un oggetto JSON del corpo della 
 > [!NOTE]
 > In questo esempio il marchio che è stato creato nel corpo della richiesta di esempio nella sezione **Creare un marchio** viene aggiornato con un nuovo tag e una nuova descrizione. Anche il valore **enabled** è stato modificato in false per inserirlo nell'elenco *Exclude*.
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 
 La risposta specifica informazioni aggiornate sul marchio che è stato aggiornato seguendo il formato dell'esempio riportato di seguito.
 
@@ -245,15 +245,15 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
 |---|---|---|---|
-|location|string|Yes|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
-|accountId|string|Yes|Identificatore univoco globale per l'account|
-|accessToken|string|Yes|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
+|location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
+|accountId|stringa|Sì|Identificatore univoco globale per l'account|
+|accessToken|stringa|Sì|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
 
 ### <a name="request-body"></a>Corpo della richiesta
 
 Per questa chiamata non è necessario specificare altri dati nel corpo della richiesta.
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 
 La risposta restituisce un elenco di tutti i marchi nell'account e ognuno dei relativi dettagli seguendo il formato dell'esempio riportato di seguito.
 
@@ -305,15 +305,15 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
 |---|---|---|---|
-|location|string|Yes|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
-|accountId|string|Yes|Identificatore univoco globale per l'account|
-|accessToken|string|Yes|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
+|location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
+|accountId|stringa|Sì|Identificatore univoco globale per l'account|
+|accessToken|stringa|Sì|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
 
 ### <a name="request-body"></a>Corpo della richiesta
 
 Per questa chiamata non è necessario specificare altri dati nel corpo della richiesta.
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 
 La risposta mostra se i marchi Bing sono abilitati seguendo il formato dell'esempio riportato di seguito.
 
@@ -342,9 +342,9 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
 |---|---|---|---|
-|location|string|Yes|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
-|accountId|string|Yes|Identificatore univoco globale per l'account|
-|accessToken|string|Yes|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
+|location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
+|accountId|stringa|Sì|Identificatore univoco globale per l'account|
+|accessToken|stringa|Sì|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
 
 ### <a name="request-body"></a>Corpo della richiesta
 
@@ -359,7 +359,7 @@ Oltre a questi parametri, è necessario fornire un oggetto JSON del corpo della 
 > [!NOTE]
 > Se **useBuiltIn** è impostato su true, i marchi Bing sono abilitati. Se *useBuiltin* è impostato su false, i marchi Bing sono disabilitati.
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>Response
 
 Non viene restituito alcun contenuto quando il l'impostazione del modello Marchi viene aggiornato correttamente.
 

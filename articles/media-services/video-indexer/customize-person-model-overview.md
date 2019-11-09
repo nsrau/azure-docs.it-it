@@ -1,6 +1,6 @@
 ---
 title: Personalizzare un modello Person con Video Indexer - Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Questo articolo fornisce informazioni generali sul modello Person in Video Indexer e come personalizzarlo.
 services: media-services
 author: anikaz
@@ -10,24 +10,24 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: c74b913fc3ac35039d914fc97c9c438d2e4a3069
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3fabba98cb137975da749411ca9accb5a951742d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799436"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838304"
 ---
 # <a name="customize-a-person-model-in-video-indexer"></a>Personalizzare un modello Person con Video Indexer
 
-Video Indexer supporta il riconoscimento di celebrità nei video. La funzionalità di identificazione di celebrità include circa un milione di visi basandosi su origini dati di uso comune, ad esempio IMDB, Wikipedia e i principali influencer di LinkedIn. Visi non riconosciute da indicizzatore Video vengono comunque rilevati ma rimangono senza nome. I clienti possono creare modelli di persona personalizzati e consentire all'indicizzatore Video di riconoscere i visi non riconosciuti per impostazione predefinita. I clienti possono creare questi modelli persona mediante l'associazione di un nome di persona con i file di immagine del viso della persona.  
+Video Indexer supporta il riconoscimento celebrità nei video. La funzionalità di identificazione di celebrità include circa un milione di visi basandosi su origini dati di uso comune, ad esempio IMDB, Wikipedia e i principali influencer di LinkedIn. I visi che non sono riconosciuti da Video Indexer vengono comunque rilevati, ma rimangono senza nome. I clienti possono creare modelli person personalizzati e consentire Video Indexer di riconoscere i visi che non sono riconosciuti per impostazione predefinita. I clienti possono creare questi modelli di persona abbinando il nome di un utente con i file di immagine della faccia della persona.  
 
-Se l'account si occupa dei diversi casi d'uso, è possibile trarre vantaggio dalla possibilità di creare più modelli di persona per ogni account. Ad esempio, se il contenuto nell'account deve essere ordinato in canali diversi, è possibile creare un modello di persona separato per ogni canale. 
+Se l'account è adatto a diversi casi d'uso, è possibile trarre vantaggio dalla possibilità di creare più modelli di persona per ogni account. Ad esempio, se il contenuto dell'account deve essere ordinato in canali diversi, potrebbe essere necessario creare un modello person separato per ogni canale. 
 
 > [!NOTE]
-> Ogni modello di persona supporta fino a 1 milione di persone e ogni account prevede un limite di 50 modelli persona. 
+> Ogni modello di persona supporta fino a 1 milione di persone e ogni account ha un limite di 50 modelli di persona. 
 
-Dopo aver creato un modello, è possibile usarlo specificando l'ID modello di un modello Persona specifico quando si carica un video o lo si indicizza una o più volte. Training di un nuovo viso per un video, aggiorna il modello personalizzato specifico che il video è stato associato. 
+Dopo aver creato un modello, è possibile usarlo specificando l'ID modello di un modello Persona specifico quando si carica un video o lo si indicizza una o più volte. Il training di un nuovo volto per un video, aggiorna il modello personalizzato specifico a cui è stato associato il video. 
 
-Se non è necessario il supporto di più modelli Persona, non assegnare un ID di modello Persona al video durante il caricamento, l'indicizzazione o la reindicizzazione. In questo caso, Video Indexer userà il modello di utente predefinito nell'account. 
+Se non è necessario il supporto di più modelli Persona, non assegnare un ID di modello Persona al video durante il caricamento, l'indicizzazione o la reindicizzazione. In questo caso, Video Indexer utilizzerà il modello person predefinito nell'account. 
 
-È possibile usare il sito Web di indicizzatore Video per modificare i volti rilevati in un video e gestire più modelli di persona personalizzati nell'account, come descritto nel [personalizzare un modello di persona con un sito Web](customize-person-model-with-website.md) argomento. È anche possibile usare l'API, come descritto in [personalizzare un modello di persona usando le API](customize-person-model-with-api.md).
+È possibile usare il sito Web Video Indexer per modificare i visi rilevati in un video e per gestire più modelli person personalizzati nell'account, come descritto nell'argomento [personalizzare un modello person usando un sito Web](customize-person-model-with-website.md) . È anche possibile usare l'API, come descritto in [personalizzare un modello di persona usando le API](customize-person-model-with-api.md).

@@ -1,5 +1,5 @@
 ---
-title: Approva o rifiuta le richieste per i ruoli di Azure AD in PIM-Azure Active Directory | Microsoft Docs
+title: Approva o rifiuta le richieste per i ruoli di Azure AD in PIM-Azure AD | Microsoft Docs
 description: Informazioni su come approvare o negare le richieste per i ruoli di Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3245f7343a48d3e54795c14dcb23b836c8d9d988
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7f663f7daad19e77dcc1cc95a6a324e881d92b28
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756419"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847137"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Approva o rifiuta le richieste per i ruoli di Azure AD in Privileged Identity Management
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: gwallace
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc9ca5f5a638f0b36a28d58172fe8052b3d1522f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: b59343fca5e14d211864a1354001819c918bd1ca
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875439"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891510"
 ---
 # <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>Cosa fare in caso di un'interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure
 Microsoft si impegna costantemente per garantire agli utenti la disponibilità dei servizi in base alle esigenze. Eventi imprevisti possono, tuttavia, causare interruzioni non pianificate dei servizi.
@@ -33,7 +33,7 @@ Questo articolo illustra uno scenario reale di ripristino di emergenza, quando i
 
 Per semplificare la gestione di questi rari avvenimenti, di seguito vengono fornite indicazioni per le macchine virtuali di Azure in caso di interruzione del servizio nell'intera area in cui è distribuita la macchina virtuale di Azure.
 
-## <a name="option-1-initiate-a-failover-by-using-azure-site-recovery"></a>Opzione 1: Avviare un failover usando Azure Site Recovery
+## <a name="option-1-initiate-a-failover-by-using-azure-site-recovery"></a>Opzione 1: avviare un failover con Azure Site Recovery
 È possibile configurare Azure Site Recovery per le macchine virtuali in modo che sia possibile recuperare l'applicazione con un solo clic in pochi minuti. È possibile eseguire la replica in un'area di Azure di propria scelta che non sia limitata alle aree associate. Iniziare eseguendo [la replica delle macchine virtuali](https://aka.ms/a2a-getting-started). È possibile [creare un piano di ripristino](../site-recovery/site-recovery-create-recovery-plans.md) in modo da poter automatizzare tutto il processo di failover per l'applicazione. È possibile prima fare il [test dei failover](../site-recovery/site-recovery-test-failover-to-azure.md) senza alcun impatto sull'applicazione di produzione o sulla replica in corso. In caso di interruzione di un'area primaria basta [avviare un failover](../site-recovery/site-recovery-failover.md) e portare l'applicazione nell'area di destinazione.
 
 
@@ -54,7 +54,7 @@ Questa è l'opzione migliore se non sono stati configurati Azure Site Recovery, 
 
 - Per altre informazioni su come implementare una strategia di disponibilità elevata e ripristino di emergenza, vedere [Ripristino di emergenza e disponibilità elevata per le applicazioni basate su Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-- Per sviluppare una conoscenza tecnica approfondita delle funzionalità della piattaforma cloud, vedere [Indicazioni tecniche sulla resilienza di Azure](../resiliency/resiliency-technical-guidance.md).
+- Per sviluppare una conoscenza tecnica approfondita delle funzionalità della piattaforma cloud, vedere [Indicazioni tecniche sulla resilienza di Azure](/azure/data-lake-store/data-lake-store-disaster-recovery-guidance).
 
 
 - Per chiarimenti sulle istruzioni o per chiedere a Microsoft di eseguire le operazioni per proprio conto, contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

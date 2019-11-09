@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 0648b9b321aabc7c9e56997c320a63386542498c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e7c577e28b30e68020532049affba59f355341cf
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083381"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838501"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Domande frequenti sulle macchine virtuali Linux
 Questo articolo analizza alcune delle domande più comuni sulle macchine virtuali Linux create in Azure mediante il modello di distribuzione Resource Manager. Per la versione di Windows di questo argomento, vedere [Domande frequenti sulle macchine virtuali Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -43,19 +43,19 @@ Se si verificano problemi, vedere l'argomento [Risolvere i problemi relativi all
 Non usare il disco temporaneo (/dev/sdb1) per archiviare i dati. Serve solo per l'archiviazione temporanea. I dati non ripristinabili rischiano di andare persi.
 
 ## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>È possibile copiare o clonare una VM di Azure esistente?
-Sì. Per le istruzioni, vedere [Creare una copia di una macchina virtuale Linux nel modello di distribuzione di Resource Manager](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Sì. Per le istruzioni, vedere [How to create a copy of a Linux virtual machine in the Resource Manager deployment model](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Creare una copia di una macchina virtuale Linux nel modello di distribuzione di Resource Manager).
 
-## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>Perché non si vedono le aree del Canada centrale e del Canada orientale tramite Azure Resource Manager?
+## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>Perché non si vedono le aree del Canada centrale e del Canada orientale tramite Gestione risorse di Azure?
 Le due nuove aree del Canada centrale e del Canada orientale non vengono registrate automaticamente per la creazione della macchina virtuale per le sottoscrizioni di Azure esistenti. La registrazione viene eseguita automaticamente quando si distribuisce una macchina virtuale tramite il portale di Azure in qualsiasi altra area di Azure Resource Manager. Dopo aver distribuito una macchina virtuale in qualsiasi altra area di Azure le nuove aree dovrebbero essere disponibili per le macchine virtuali successive.
 
 ## <a name="can-i-add-a-nic-to-my-vm-after-its-created"></a>È possibile aggiungere un NIC alla VM dopo la sua creazione?
 Sì, ora è possibile. La macchina virtuale deve prima essere arrestata e deallocata. È possibile a questo punto aggiungere o rimuovere una scheda di interfaccia di rete (a meno che non sia l'ultima nella macchina virtuale). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Esistono requisiti relativi al nome del computer?
-Sì. Il nome del computer non può contenere più di 64 caratteri. Vedere [Naming conventions rules and restrictions](/azure/architecture/best-practices/naming-conventions) (Regole e restrizioni per le convenzioni di denominazione) per altre informazioni sulla denominazione delle risorse.
+Sì. Il nome del computer non può contenere più di 64 caratteri. Vedere [Naming conventions rules and restrictions](/azure/architecture/best-practices/resource-naming) (Regole e restrizioni per le convenzioni di denominazione) per altre informazioni sulla denominazione delle risorse.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Vi sono requisiti relativi al nome del gruppo di risorse?
-Sì. Il nome del gruppo di risorse non può contenere più di 90 caratteri. Vedere [Naming conventions rules and restrictions](/azure/architecture/best-practices/naming-conventions) (Regole e restrizioni per le convenzioni di denominazione) per altre informazioni sui gruppi di risorse.
+Sì. Il nome del gruppo di risorse non può contenere più di 90 caratteri. Vedere [Naming conventions rules and restrictions](/azure/architecture/best-practices/resource-naming) (Regole e restrizioni per le convenzioni di denominazione) per altre informazioni sui gruppi di risorse.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Quali requisiti devono avere i nomi utente durante la creazione di una VM?
 

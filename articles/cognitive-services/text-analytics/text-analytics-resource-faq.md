@@ -1,7 +1,7 @@
 ---
 title: Domande frequenti sull'API Analisi del testo
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come ottenere risposte alle domande comuni sull'API Analisi del testo.
+description: Risposte alle domande frequenti su concetti, codice e scenari correlati alla API Analisi del testo per servizi cognitivi di Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: a85fa543a6b26a5ea6452ce99fb91dc1ce465db7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aca3b0bea65923cee1bae25020058666c973922c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60827953"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837134"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Domande frequenti sul servizio cognitivo Analisi del testo
 
@@ -53,5 +53,5 @@ La domanda riguarda una funzione o una funzionalità mancante? È possibile rich
 
 ## <a name="see-also"></a>Vedere anche
 
- [StackOverflow: API Analisi del testo](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ [StackOverflow: Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)  (StackOverflow: API Analisi del testo)  
  [StackOverflow: Servizi cognitivi](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

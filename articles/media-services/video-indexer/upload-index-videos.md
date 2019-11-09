@@ -1,6 +1,6 @@
 ---
 title: Caricare e indicizzare video con Video Indexer
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Questo argomento illustra come usare le API per caricare e indicizzare i video con Video Indexer.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
-ms.openlocfilehash: d6338f3840b6f8afe21f8115304ba00bba90c6ea
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 255c98965026266348a66bb98a1741eaf04a1d38
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372384"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839150"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -37,7 +37,7 @@ Una volta caricato il video, facoltativamente Video Indexer lo codifica (illustr
 - La lunghezza dell'URL della richiesta è limitata a 6144 caratteri, in cui la lunghezza dell'URL della stringa di query è limitata a 4096 caratteri.
 - Le dimensioni di caricamento con l'opzione di matrice di byte sono limitate a 2 GB.
 - L'opzione della matrice di byte scade dopo 30 minuti.
-- L'URL specificato nel param `videoURL` deve essere codificato.
+- L'URL specificato in `videoURL` Param deve essere codificato.
 - L'indicizzazione degli asset di servizi multimediali ha la stessa limitazione dell'indicizzazione dall'URL.
 - Video Indexer ha un limite di durata massima di 4 ore per un singolo file.
 
@@ -61,22 +61,22 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
 - Modifica stato indicizzazione: 
     - Proprietà:    
     
-        |name|Description|
+        |Name|Descrizione|
         |---|---|
         |id|ID video|
         |state|Lo stato del video|  
-    - Esempio: https: \//test. com/NotifyMe? NomeProgetto = MyProject & ID = 1234abcd & state = processed
+    - Esempio: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Persona identificata nel video:
-  - properties
+  - Proprietà
     
-      |name|Description|
+      |Name|Descrizione|
       |---|---|
       |id| ID video|
       |faceId|L'ID viso che appare nell'indice video|
       |knownPersonId|L'ID utente univoco all'interno di un modello di viso|
       |personName|Il nome della persona|
         
-    - Esempio: https: \//test. com/NotifyMe? NomeProgetto = MyProject & ID = 1234abcd & FaceId = 12 & knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5 & personaname = Inigo_Montoya 
+    - Esempio: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>Note
 
@@ -285,7 +285,7 @@ public class AccountContractSlim
 
 L'operazione di caricamento può restituire i codici di stato elencati nella tabella seguente.
 
-|Codice di stato|ErrorType (nel corpo della risposta)|Description|
+|Codice di stato|ErrorType (nel corpo della risposta)|Descrizione|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|Lo stesso video è già in fase di elaborazione nell'account specificato.|
 |400|VIDEO_ALREADY_FAILED|Lo stesso video ha restituito un errore di elaborazione nell'account specificato meno di 2 ore prima. I client API devono attendere almeno 2 ore prima di caricare nuovamente un video.|

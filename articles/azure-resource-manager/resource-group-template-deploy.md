@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 88aabb676d3a15dd2efff3acd751818301519ae1
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0634b069c79495ad6de536b27ebd9981eeb36128
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972701"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837090"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell
 
@@ -33,9 +33,11 @@ Per eseguire la distribuzione in una **sottoscrizione**, usare [New-AzDeployment
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
-Attualmente, le distribuzioni di gruppi di gestione sono supportate solo tramite l'API REST. Vedere [distribuire le risorse con gestione risorse modelli e gestione risorse API REST](resource-group-template-deploy-rest.md).
+Per altre informazioni sulle distribuzioni a livello di sottoscrizione, vedere [creare gruppi di risorse e risorse a livello di sottoscrizione](deploy-to-subscription.md).
 
-Gli esempi in questo articolo usano le distribuzioni di gruppi di risorse. Per altre informazioni sulle distribuzioni delle sottoscrizioni, vedere [creare gruppi di risorse e risorse a livello di sottoscrizione](deploy-to-subscription.md).
+Attualmente, le distribuzioni di gruppi di gestione sono supportate solo tramite l'API REST. Per ulteriori informazioni sulle distribuzioni a livello di gruppo di gestione, vedere [creazione di risorse a livello di gruppo di gestione](deploy-to-management-group.md).
+
+Gli esempi in questo articolo usano le distribuzioni di gruppi di risorse.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -63,7 +65,7 @@ Per il completamento della distribuzione sarà necessario attendere alcuni minut
 
 ## <a name="deploy-remote-template"></a>Distribuisci modello remoto
 
-Anziché archiviare i modelli di Resource Manager nel computer locale, è consigliabile archiviarli in una posizione esterna, ad esempio in un repository di controllo del codice sorgente come GitHub. o, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
+Anziché archiviare i modelli di Resource Manager nel computer locale, è consigliabile archiviarli in una posizione esterna, ad esempio in un repository di controllo del codice sorgente come GitHub. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
 
 Per distribuire un modello esterno, usare il parametro **TemplateUri**. Usare l'URI indicato nell'esempio per distribuire il modello di esempio da GitHub.
 
@@ -76,7 +78,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-L'esempio precedente richiede l'utilizzo di un URI accessibile pubblicamente per il modello, che funziona per la maggior parte degli scenari. Il proprio modello non deve infatti includere dati sensibili. Se è necessario specificare dati riservati, ad esempio una password di amministratore, passare il valore come parametro protetto. Se invece si preferisce che il modello usato non sia accessibile pubblicamente, è possibile proteggerlo archiviandolo in un contenitore di archiviazione privato. Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso (SAS), vedere [Distribuire un modello privato con un token di firma di accesso condiviso](resource-manager-powershell-sas-token.md). Per eseguire un'esercitazione, vedere [Esercitazione: Integrare Azure Key Vault in Distribuzione modelli di Resource Manager](./resource-manager-tutorial-use-key-vault.md).
+L'esempio precedente richiede l'utilizzo di un URI accessibile pubblicamente per il modello, che funziona per la maggior parte degli scenari. Il proprio modello non deve infatti includere dati sensibili. Se è necessario specificare dati riservati, ad esempio una password di amministratore, passare il valore come parametro protetto. Se invece si preferisce che il modello usato non sia accessibile pubblicamente, è possibile proteggerlo archiviandolo in un contenitore di archiviazione privato. Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso (SAS), vedere [Distribuire un modello privato con un token di firma di accesso condiviso](resource-manager-powershell-sas-token.md). Per eseguire un'esercitazione, vedere [esercitazione: integrare Azure Key Vault in Gestione risorse distribuzione modelli](./resource-manager-tutorial-use-key-vault.md).
 
 ## <a name="deploy-from-azure-cloud-shell"></a>Distribuire da Azure cloud Shell
 
@@ -165,7 +167,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\azuredeploy.json -storageAccountType Standard_GRS
 ```
 
-Se non vengono rilevati errori, il comando termina senza una risposta. Se viene rilevato un errore, il comando restituisce un messaggio di errore. Ad esempio, passare un valore non corretto per lo SKU dell'account di archiviazione restituisce l'errore seguente:
+Se non vengono rilevati errori, il comando termina senza una risposta. Se viene rilevato un errore, il comando restituisce un messaggio di errore. Ad esempio, passare un valore non corretto per lo SKU dell'account di archiviazione, restituisce l'errore seguente:
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName testgroup `

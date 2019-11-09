@@ -1,7 +1,7 @@
 ---
 title: Eseguire la migrazione a V3 - API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come eseguire la migrazione dalla versione 2 alla versione 3 dell'API Traduzione testuale.
+description: Questo articolo illustra i passaggi per eseguire la migrazione da V2 a V3 dei servizi cognitivi di Azure API Traduzione testuale.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 9ce9dc330ec1b0c32ce045437fadb5d8c191529e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: eb43d549d3e0cd449c865d533fc8701c4c3912fd
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595238"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837320"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migrazione dell'API Traduzione testuale dalla versione 2 alla versione 3
 
@@ -61,7 +61,7 @@ L'elenco di metodi delle versioni 2 e 3 seguente individua le API e i metodi del
 
 La Traduzione testuale Microsoft V2 ha accettato e restituito i dati in formato XML. Nella V3 tutti i dati inviati e ricevuti tramite l'API sono in formato JSON. La V3 non accetterà o restituirà più il formato XML.
 
-Tale modifica interesserà diversi aspetti di un'applicazione scritta per l'API Traduzione testuale della V2. Ad esempio: L'API di lingue restituisce informazioni sulla lingua per i metodi di traduzione testuale, traslitterazione e i due metodi del dizionario. È possibile richiedere tutte le informazioni sulla lingua per tutti i metodi in un'unica chiamata o richiederle singolarmente.
+Tale modifica interesserà diversi aspetti di un'applicazione scritta per l'API Traduzione testuale della V2. Ad esempio, l'API Languages restituisce informazioni sulla lingua per i metodi di traduzione testuale, traslitterazione e i due metodi del dizionario. È possibile richiedere tutte le informazioni sulla lingua per tutti i metodi in un'unica chiamata o richiederle singolarmente.
 
 Il metodo Languages non richiede l'autenticazione. Facendo clic sul collegamento seguente è possibile visualizzare tutte le informazioni sulla lingua per la V3 in formato JSON:
 
@@ -86,7 +86,7 @@ Microsoft Translator V3 ha lo stesso prezzo della V2; per ogni carattere, inclus
 
 ## <a name="v3-end-points"></a>Obiettivi della V3
 
-Global
+Globale
 
 * api.cognitive.microsofttranslator.com
 
@@ -119,7 +119,7 @@ La traduzione neurale con l'API testuale V3 non supporta l'uso delle categorie s
 | |Endpoint|    Conformità al processore GDPR|  Usare l'Hub di Translator| Usare il traduttore personalizzato (anteprima)|
 |:-----|:-----|:-----|:-----|:-----|
 |API Traduzione testuale versione 2| api.microsofttranslator.com|    No  |Sì    |No|
-|API Traduzione testuale versione 3| api.cognitive.microsofttranslator.com|  Sì|    No| Yes|
+|API Traduzione testuale versione 3| api.cognitive.microsofttranslator.com|  Sì|    No| Sì|
 
 **API Traduzione testuale versione 3**
 * È disponibile a livello generale e completamente supportata.

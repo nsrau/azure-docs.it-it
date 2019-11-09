@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9107471448a58dc7866fb2cd6052abf168437d2b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e76e5c5d2cfcfd983f2b5cdc279f0c13fa6706e4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174171"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832699"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Governare l'accesso per gli utenti esterni in Azure AD gestione dei diritti
 
@@ -97,7 +97,7 @@ Per assicurarsi che gli utenti esterni all'organizzazione possano richiedere pac
 
 ### <a name="review-your-sharepoint-online-external-sharing-settings"></a>Esaminare le impostazioni di condivisione esterna di SharePoint Online
 
-- Se si desidera includere i siti di SharePoint Online nei pacchetti di accesso per gli utenti esterni, assicurarsi che l'impostazione di condivisione esterna a livello di organizzazione sia impostata su **chiunque** (gli utenti non necessitano dell'accesso) o su **Guest nuovi ed esistenti** (i Guest devono firmare in o fornire un codice di verifica). Per altre informazioni, vedere [attivare o disattivare la condivisione esterna](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Per includere i siti di SharePoint Online nei pacchetti di accesso per gli utenti esterni, assicurarsi che l'impostazione di condivisione esterna a livello di organizzazione sia impostata su **chiunque** (gli utenti non necessitano dell'accesso) o su **Guest nuovi ed esistenti** (i Guest devono accedere o fornire un codice di verifica). Per altre informazioni, vedere [attivare o disattivare la condivisione esterna](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
 - Se si vuole limitare la condivisione esterna al di fuori della gestione dei diritti, è possibile impostare l'impostazione di condivisione esterna su **Guest esistenti**. Quindi, solo i nuovi utenti invitati tramite la gestione dei diritti saranno in grado di accedere a questi siti. Per altre informazioni, vedere [attivare o disattivare la condivisione esterna](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
@@ -113,7 +113,7 @@ Per assicurarsi che gli utenti esterni all'organizzazione possano richiedere pac
 
 ### <a name="review-your-teams-sharing-settings"></a>Esaminare le impostazioni di condivisione dei team
 
-- Se si desidera includere i team nei pacchetti di accesso per gli utenti esterni, assicurarsi che l'accesso **consentito ai guest in Microsoft teams** sia impostato **su on** per consentire l'accesso guest. Per altre informazioni, vedere [configurare l'accesso guest nell'interfaccia di amministrazione di Microsoft teams](https://docs.microsoft.com/microsoftteams/set-up-guests#configure-guest-access-in-the-microsoft-teams-admin-center).
+- Se si desidera includere i team nei pacchetti di accesso per gli utenti esterni, assicurarsi che l'accesso **consentito ai guest in Microsoft teams** sia impostato **su on** per consentire l'accesso guest. Per altre informazioni, vedere [configurare l'accesso guest nell'interfaccia di amministrazione di Microsoft teams](/microsoftteams/set-up-guests#configure-guest-access-in-the-teams-admin-center).
 
 ## <a name="manage-the-lifecycle-of-external-users"></a>Gestire il ciclo di vita degli utenti esterni
 
@@ -143,7 +143,7 @@ Per assicurarsi che gli utenti esterni all'organizzazione possano richiedere pac
 
 1. Se si desidera rimuovere l'account utente guest in questa directory, è possibile impostare il numero di giorni prima della rimozione. Se si desidera rimuovere l'account utente Guest non appena si perde l'ultima assegnazione a tutti i pacchetti di accesso, impostare il **numero di giorni prima di rimuovere l'utente esterno da questa directory** a **0**.
 
-1. Fare clic su **Salva**
+1. Fare clic su **Save**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

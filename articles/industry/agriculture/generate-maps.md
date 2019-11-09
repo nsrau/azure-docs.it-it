@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6cdebb8f6abea2b50dd8aad58ccc9fb5e680cba9
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 635431fb87e5f164f92ab4b7a1027ee96e9d801a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798479"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891020"
 ---
 # <a name="generate-maps"></a>Genera mappe
 
@@ -170,7 +170,7 @@ L'umidità del suolo è l'acqua che viene mantenuta negli spazi tra le particell
 Prima di provare a generare un mappa termica di umidità del suolo, verificare quanto segue:
 
 - Devono essere distribuiti almeno tre sensori di umidità del suolo. Microsoft consiglia di non provare a creare una mappa di umidità del suolo prima che i sensori vengano distribuiti e associati alla farm.  
-- Almeno una scena Sentinel gratuita nel cloud deve essere disponibile per gli ultimi 120 giorni, dal giorno in cui è stata richiesta la mappa di umidità del suolo.
+- Genera mappa termica di umidità del suolo è influenzato dalla copertura del percorso di Sentinel, dal cloud cover e dall'ombreggiatura cloud. Almeno una scena Sentinel gratuita nel cloud deve essere disponibile per gli ultimi 120 giorni, dal giorno in cui è stata richiesta la mappa di umidità del suolo.
 - Almeno la metà dei sensori distribuiti nella farm deve essere online e disporre di flussi di dati nell'hub dati.
 - Mappa termica deve essere generato usando le misure del sensore dello stesso provider.
 
@@ -220,6 +220,6 @@ Seguire questa procedura:
 4. Selezionare l'icona di **ordinamento** accanto alle intestazioni di tabella per eseguire l'ordinamento in base a farm, data, created on, ID processo e tipo di processo.
 5. Scorrere l'elenco delle mappe disponibili usando i pulsanti di spostamento alla fine della pagina.
 6. Selezionare la mappa che si desidera visualizzare. In una finestra popup viene visualizzata l'anteprima per la mappa selezionata.
-7. Selezionare **download** menu a discesa per selezionare il formato di download e la mappa viene scaricata e archiviata nella cartella locale del computer.
+7. Selezionare **download** menu a discesa per selezionare il formato di download e la mappa viene scaricata e archiviata nella cartella specificata.
 
     ![Beat Farm progetto](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)

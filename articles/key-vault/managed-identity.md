@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6c7a9fdb5ed60023a82984fd5be5b424c634e679
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 75317f73ad724b4ce8ad7a894890b2269bd8c5d0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720257"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837506"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Fornire Key Vault autenticazione con un'identità gestita
 
@@ -34,7 +34,7 @@ Per completare questa guida, è necessario disporre delle risorse riportate di s
    - [Creare un insieme di credenziali delle chiavi con Azure PowerShell](quick-create-powershell.md)
    - [Creare un insieme di credenziali delle chiavi con l'portale di Azure](quick-create-portal.md).
 - Un'applicazione del servizio app esistente a cui concedere l'accesso all'insieme di credenziali delle chiavi. È possibile crearne rapidamente uno attenendosi alla procedura descritta nella [documentazione del servizio app](../app-service/overview.md).
-- [Interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure o [Azure PowerShell](/powershell/azure/overview). In alternativa, è possibile usare la [portale di Azure](http://portal.azure.com).
+- [Interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure o [Azure PowerShell](/powershell/azure/overview). In alternativa, è possibile usare la [portale di Azure](https://portal.azure.com).
 
 
 ## <a name="adding-a-system-assigned-identity"></a>Aggiunta di un'identità assegnata dal sistema 
@@ -49,7 +49,7 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
 
 1. Selezionare **Identità gestita**. 
 
-1. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Salva**. 
+1. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Save**. 
 
     ![](./media/managed-identity-system-assigned.png)
 
@@ -76,7 +76,7 @@ az webapp identity assign --name myApp --resource-group myResourceGroup
 az functionapp identity assign --name myApp --resource-group myResourceGroup
 ```
 
-Prendere nota dell'oggetto `PrincipalId`, che sarà necessario nella sezione successiva.
+Prendere nota del `PrincipalId`, che sarà necessario nella sezione successiva.
 
 ```json
 {
@@ -111,7 +111,7 @@ az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-perm
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- sicurezza Key Vault [Azure: Gestione delle identità e degli accessi @ no__t-0
+- [Sicurezza Azure Key Vault: gestione delle identità e degli accessi](overview-security.md#identity-and-access-management)
 - [Fornire Key Vault autenticazione con un criterio di controllo di accesso](key-vault-group-permissions-for-apps.md)
 - [Informazioni su chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)
 - [Proteggere l'](key-vault-secure-your-key-vault.md)insieme di credenziali delle chiavi.

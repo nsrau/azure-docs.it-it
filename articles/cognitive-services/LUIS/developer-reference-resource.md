@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: b2b32d6ccca69f330cfe15faa1446aa91fdb687a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d59646a87727409d759cc1903046fb3cdeade2e0
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465737"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847382"
 ---
 # <a name="developer-resources-for-language-understanding"></a>Risorse per gli sviluppatori per Language Understanding
 
@@ -27,7 +27,7 @@ Usare il livello di gestione dei servizi cognitivi di Azure per creare, modifica
 
 Trovare la documentazione di riferimento basata sullo strumento:
 
-* [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/cognitiveservices#az-cognitiveservices-list)
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/cognitiveservices#az-cognitiveservices-list)
 
 * [AzureRM PowerShell](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
 
@@ -41,12 +41,14 @@ Informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
 
 Le API REST di creazione ed endpoint di stima sono disponibili nelle API REST:
 
-* Documentazione di [riferimento](https://go.microsoft.com/fwlink/?linkid=2092087) per la creazione
-* [Documentazione di riferimento](https://go.microsoft.com/fwlink/?linkid=2092356) del runtime di stima
+|Tipo|Versione|
+|--|--|
+|Creazione|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[Anteprima V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
+|Previsione|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
 
 ### <a name="language-based-sdks"></a>SDK basati su linguaggio
 
-|Linguaggio |Documentazione di riferimento|Pacchetto|Esempi|Guide introduttive|
+|Lingua |Documentazione di riferimento|Pacchetto|Esempi|Guide introduttive|
 |--|--|--|--|--|
 |C#|[Creazione](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Previsioni](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[Creazione di NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Stima di NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Esempi di .NET SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS)|[Crea e Gestisci app](sdk-csharp-quickstart-authoring-app.md)<br>[Endpoint di stima query](sdk-csharp-quickstart-query-prediction-endpoint.md)|
 |Go|[Creazione e stima](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)|[Creazione](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/go)<br>[Previsioni](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/go)|[Creazione tramite REST](luis-get-started-go-add-utterance.md)<br>[Stima con REST](luis-get-started-go-get-intent.md)|

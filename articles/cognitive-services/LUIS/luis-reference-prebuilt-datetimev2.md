@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 4c16953d3c708516edbe0b3c13b091dc3181b187
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 75d1f2b6facd438e329555d8595fe159565dbb74
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465070"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837360"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entità predefinita DatetimeV2 per un'app LUIS
 
@@ -115,7 +115,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 
 |Nome proprietà |Tipo e descrizione proprietà|
 |---|---|
-|Persona giuridica|**stringa** - Testo estratto dall'espressione con tipo di data, ora, intervallo di date o intervallo di tempo.|
+|Entità|**stringa** - Testo estratto dall'espressione con tipo di data, ora, intervallo di date o intervallo di tempo.|
 |type|**string** - Uno dei [sottotipi di datetimeV2](#subtypes-of-datetimev2)
 |startIndex|**int** - L'indice nell'espressione dove inizia l'entità.|
 |endIndex|**int** - L'indice nell'espressione dove termina l'entità.|
@@ -147,7 +147,7 @@ Ogni elemento della matrice `values` può contenere i campi seguenti:
 |--|--|
 |timex|Ora, data o intervallo di date espressi nel formato TIMEX che segue lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e gli attributi TIMEX3 per l'annotazione con il linguaggio TimeML. Questa annotazione è descritta nelle [linee guida TIMEX](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
 |type|Sottotipo, che può essere uno degli elementi seguenti: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration``set`.|
-|value|**Facoltativo.** Un oggetto datetime nel formato yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). Se `type` è `duration`, il valore è il numero di secondi (durata) <br/> Usato solo se `type` è `datetime` oppure `date`, `time` o `duration.|
+|value|**Facoltativo.** Un oggetto DateTime nel formato AAAA-MM-GG (date), HH: mm: SS (Time) aaaa-MM-GG HH: mm: SS (DateTime). Se `type` è `duration`, il valore è il numero di secondi (durata) <br/> Usato solo se `type` è `datetime` oppure `date`, `time` o `duration.|
 
 ## <a name="valid-date-values"></a>Valori di daae validi
 
@@ -681,7 +681,7 @@ Per sostituire `datetime` con `datetimeV2` nell'app LUIS, completare i passaggi 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
+Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
 
 Informazioni sulle entità [dimensioni](luis-reference-prebuilt-dimension.md), [posta elettronica](luis-reference-prebuilt-email.md) e [numero](luis-reference-prebuilt-number.md). 
 

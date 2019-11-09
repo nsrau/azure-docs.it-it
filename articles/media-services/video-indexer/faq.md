@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti su Video Indexer - Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Ottenere risposte a domande frequenti relative a Video Indexer.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: f20d718d0b1d3bbdf117e502a380897c79a7905f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95f2af1b192564290551f9ed31f0fe158b4536f6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799509"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838239"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -34,7 +34,7 @@ Di seguito sono elencate alcune delle operazioni che Video Indexer può eseguire
 * Identificazione ed estrazione della voce e identificazione di chi sta parlando
 * Identificazione ed estrazione del testo visualizzato sullo schermo in un video
 * Rilevamento degli oggetti in un file video
-* Identificazione dei marchi, ad esempio Microsoft, in tracce audio e testo visualizzato in un video
+* Identificare i marchi (ad esempio: Microsoft) dalle tracce audio e dal testo sullo schermo in un video.
 * Rilevamento e riconoscimento dei volti da un database di celebrità e un database di volti definito dall'utente
 * Estrazione degli argomenti discussi, ma non necessariamente menzionati, nel contenuto audio e video
 * Creazione dei sottotitoli dalla traccia audio
@@ -159,7 +159,7 @@ I token di accesso scadono ogni ora, pertanto è necessario generare un nuovo to
 
 Video Indexer usa un semplice modello di determinazione dei prezzi con pagamento in base al consumo che dipende dalla durata dell'input del contenuto indicizzato. La codifica, lo streaming, l'archiviazione, l'uso della rete e le unità riservate di codifica potrebbero richiedere costi aggiuntivi. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/).
 
-### <a name="when-am-i-billed-for-using-video-indexer"></a>Quando viene fatturato per l'uso di Video Indexer?
+### <a name="when-am-i-billed-for-using-video-indexer"></a>Quando viene addebitato l'utilizzo di Video Indexer?
 
 Quando invia un video per l'indicizzazione, l'utente definirà l'indicizzazione come analisi video, analisi audio o entrambe. Questa selezione determina gli SKU che verranno addebitati. Se si verifica un errore di livello critico durante l'elaborazione, verrà restituito come risposta un codice errore. In tale caso non viene applicata alcuna fatturazione.  Un errore critico può essere provocato da un bug nel codice o da un errore critico in una dipendenza interna del server. Errori quali un'identificazione o un'estrazione di informazioni dettagliate non corretta non vengono considerati critici e viene restituita una risposta. Nei casi in cui viene restituita una risposta valida, ovvero un codice non di errore, viene applicata la fatturazione.
  

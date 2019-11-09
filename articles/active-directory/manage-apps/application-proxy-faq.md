@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 9743f25d89bed4e54b3deed815d1cf29030caff6
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 612b6caf47ec4764aa2bbef162592100198ed0c4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955471"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832204"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Domande frequenti sul proxy di applicazione Active Directory (Azure AD)
 
@@ -87,7 +87,7 @@ Dalla pagina registrazioni applicazioni è possibile modificare l'URL della Home
 
 No, non è previsto alcun requisito IIS per le applicazioni pubblicate. È possibile pubblicare applicazioni Web in esecuzione su server diversi da Windows Server. Tuttavia, potrebbe non essere possibile usare la preautenticazione con un server non Windows, a seconda che il server Web supporti la negoziazione (autenticazione Kerberos). IIS non è richiesto nel server in cui è installato il connettore.
 
-## <a name="integrated-windows-authentication"></a>Autenticazione di Windows integrata
+## <a name="integrated-windows-authentication"></a>Autenticazione integrata di Windows
 
 ### <a name="when-should-i-use-the-principalsallowedtodelegatetoaccount-method-when-setting-up-kerberos-constrained-delegation-kcd"></a>Quando è consigliabile usare il metodo PrincipalsAllowedToDelegateToAccount quando si configura la delega vincolata Kerberos (delega vincolata Kerberos)?
 
@@ -95,7 +95,7 @@ Il metodo PrincipalsAllowedToDelegateToAccount viene usato quando i server del c
 Se i server del connettore e l'account del servizio dell'applicazione Web si trovano nello stesso dominio, è possibile utilizzare Active Directory utenti e computer per configurare le impostazioni di delega in ogni account del computer connettore, consentendo loro di delegare al nome SPN di destinazione.
 
 Se i server del connettore e l'account del servizio dell'applicazione Web si trovano in domini diversi, viene utilizzata la delega basata sulle risorse. Le autorizzazioni di delega sono configurate nel server Web di destinazione e nell'account del servizio dell'applicazione Web. Questo metodo di delega vincolata è relativamente nuovo. Il metodo è stato introdotto in Windows Server 2012, che supporta la delega tra domini consentendo al proprietario della risorsa (servizio Web) di controllare quali account del computer e del servizio possono delegare. Non è disponibile alcuna interfaccia utente per semplificare questa configurazione, quindi è necessario usare PowerShell.
-Per ulteriori informazioni, vedere il white paper informazioni sulla [delega vincolata Kerberos con proxy di applicazione](http://aka.ms/kcdpaper).
+Per ulteriori informazioni, vedere il white paper informazioni sulla [delega vincolata Kerberos con proxy di applicazione](https://aka.ms/kcdpaper).
 
 ## <a name="pass-through-authentication"></a>Autenticazione pass-through
 
@@ -145,7 +145,7 @@ No. Azure AD proxy di applicazione è progettato per funzionare con Azure AD e n
 
 ### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>WebSocket supporta il lavoro per applicazioni diverse da Qlik Sense?
 
-Attualmente, il supporto del protocollo WebSocket è ancora in anteprima pubblica e potrebbe non funzionare per altre applicazioni. Alcuni clienti hanno avuto un successo misto usando il protocollo WebSocket con altre applicazioni. Se si testano tali scenari, si apprezzeranno i risultati. Inviaci i tuoi commenti a aadapfeedback@microsoft.com.
+Attualmente, il supporto del protocollo WebSocket è ancora in anteprima pubblica e potrebbe non funzionare per altre applicazioni. Alcuni clienti hanno avuto un successo misto usando il protocollo WebSocket con altre applicazioni. Se si testano tali scenari, si apprezzeranno i risultati. Inviare commenti e suggerimenti all'aadapfeedback@microsoft.com.
 
 ## <a name="link-translation"></a>Conversione collegamento
 

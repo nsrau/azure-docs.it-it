@@ -8,12 +8,12 @@ ms.date: 12/08/2016
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 33123c823a2e0d6044e3419f62a512f3e84f953f
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 17d02d8df96927aa506683fef94899e5c5114684
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302996"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839030"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Come usare l'archiviazione di accodamento da Java
 
@@ -68,8 +68,8 @@ String storageConnectionString =
 
 Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per ottenere la stringa di connessione di archiviazione.
 
-## <a name="how-to-create-a-queue"></a>Procedura: Creare una coda
-Per ottenere oggetti di riferimento per le code, è possibile usare un oggetto **CloudQueueClient**. Il codice seguente consente di creare un oggetto **CloudQueueClient**. (Nota: Esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nel [Riferimento all'SDK del client di archiviazione di Azure].
+## <a name="how-to-create-a-queue"></a>Procedura: creare una coda
+Per ottenere oggetti di riferimento per le code, è possibile usare un oggetto **CloudQueueClient**. Il codice seguente consente di creare un oggetto **CloudQueueClient**. (Nota: esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nel [Riferimento all'SDK del client di archiviazione di Azure]).
 
 Usare l'oggetto **CloudQueueClient** t per ottenere un riferimento alla coda da usare. È possibile creare la coda se non esiste già.
 
@@ -96,7 +96,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-add-a-message-to-a-queue"></a>Procedura: Aggiungere un messaggio a una coda
+## <a name="how-to-add-a-message-to-a-queue"></a>Procedura: aggiungere un messaggio a una coda
 Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo oggetto **CloudQueueMessage**. Quindi, chiamare il metodo **addMessage** . È possibile creare un oggetto **CloudQueueMessage** da una stringa in formato UTF-8 o da una matrice di byte. Ecco il codice che crea una coda (se non esiste) e inserisce il messaggio "Hello, World".
 
 ```java
@@ -126,7 +126,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Procedura: Visualizzare il messaggio successivo
+## <a name="how-to-peek-at-the-next-message"></a>Procedura: visualizzare il messaggio successivo
 È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo **peekMessage**.
 
 ```java
@@ -158,7 +158,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedura: Cambiare il contenuto di un messaggio in coda
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedura: cambiare il contenuto di un messaggio accodato
 È possibile cambiare il contenuto di un messaggio inserito nella coda. Se il messaggio rappresenta un'attività di lavoro, è possibile utilizzare questa funzionalità per aggiornarne lo stato. Il codice seguente consente di aggiornare il messaggio in coda con nuovo contenuto e di impostarne il timeout di visibilità per prolungarlo di altri 60 secondi. L'estensione del timeout di visibilità Salva lo stato di lavoro associato al messaggio e fornisce al client un altro minuto per continuare a lavorare sul messaggio. È possibile usare questa tecnica per tenere traccia di flussi di lavoro composti da più passaggi nei messaggi in coda, senza la necessità di ricominciare dall'inizio se un passaggio di elaborazione non riesce a causa di errori hardware o software. In genere, è consigliabile mantenere anche un conteggio dei tentativi, in modo da eliminare i messaggi per cui vengono effettuati più di *n* tentativi. In questo modo è possibile evitare che un messaggio attivi un errore dell'applicazione ogni volta che viene elaborato.
 
 L'esempio di codice seguente consente di eseguire una ricerca nella coda di messaggi, individuare il primo messaggio con una corrispondenza di "Hello, World" per il contenuto, di modificare il contenuto del messaggio e infine di uscire.
@@ -241,7 +241,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Procedura: Recuperare la lunghezza della coda
+## <a name="how-to-get-the-queue-length"></a>Procedura: recuperare la lunghezza delle code
 È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo **downloadAttributes** richiede al servizio di accodamento diversi valori correnti, incluso un conteggio dei messaggi presenti in una coda. Il conteggio è solo approssimativo, poiché è possibile aggiungere o rimuovere messaggi dopo la risposta del servizio di accodamento. Il metodo **getApproximateMessageCount** restituisce l'ultimo valore recuperato dalla chiamata a **downloadAttributes**, senza chiamare il servizio di accodamento.
 
 ```java
@@ -273,7 +273,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Procedura: Rimuovere il messaggio successivo dalla coda
+## <a name="how-to-dequeue-the-next-message"></a>Procedura: rimuovere il messaggio successivo dalla coda
 Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiamando il metodo **retrieveMessage**, si ottiene il messaggio successivo in una coda. Un messaggio restituito da **retrieveMessage** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **deleteMessage**. Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio non riesca a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **deleteMessage** immediatamente dopo l'elaborazione del messaggio.
 
 ```java
@@ -337,7 +337,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-list-the-queues"></a>Procedura: Elencare le code
+## <a name="how-to-list-the-queues"></a>Procedura: elencare le code
 Per ottenere un elenco delle code correnti, chiamare il metodo **CloudQueueClient.listQueues()** che restituisce una raccolta di oggetti **CloudQueue**.
 
 ```java
@@ -365,7 +365,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-delete-a-queue"></a>Procedura: Eliminare una coda
+## <a name="how-to-delete-a-queue"></a>Procedura: eliminare una coda
 Per eliminare una coda e tutti i messaggi in essa contenuti, chiamare il metodo **deleteIfExists** sull'oggetto **CloudQueue**.
 
 ```java
@@ -402,6 +402,6 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 [Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Riferimento all'SDK del client di archiviazione di Azure]: http://dl.windowsazure.com/storage/javadoc/
+[Riferimento all'SDK del client di archiviazione di Azure]: https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html
 [Azure Storage Services REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/

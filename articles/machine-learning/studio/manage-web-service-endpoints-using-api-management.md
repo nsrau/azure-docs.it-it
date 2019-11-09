@@ -1,6 +1,6 @@
 ---
 title: Gestire i servizi Web tramite gestione API
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Guida che mostra come gestire i servizi Web di AzureML con Gestione API. Gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 227a7205788194cc507dcd9dab7e5cad57abc7f9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 084f3a1ecc7e44dc404d63a75b4561f8d5cb57cb
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671583"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839819"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Gestire i servizi Web di Azure Machine Learning Studio (classico) tramite gestione API
 ## <a name="overview"></a>Panoramica
@@ -38,12 +38,12 @@ Per completare questa guida, è necessario:
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **+ Crea una risorsa**.
 3. Nella casella di ricerca digitare "Gestione API" e quindi selezionare la risorsa "Gestione API".
-4. Fare clic su **Create**.
+4. Fai clic su **Crea**.
 5. Il valore del campo **Nome** verrà usato per creare un URL univoco (in questo esempio viene usato "demoazureml").
 6. Scegliere un valore nei campi **Sottoscrizione**, **Gruppo di risorse** e **Area** per l'istanza del servizio.
 7. Specificare un valore per **Nome organizzazione** (in questo esempio viene usato "demoazureml").
 8. Immettere un valore nel campo **Indirizzo di posta elettronica dell'amministratore**. L'indirizzo specificato verrà usato per le notifiche del sistema Gestione API.
-9. Fare clic su **Create**.
+9. Fai clic su **Crea**.
 
 La creazione del nuovo potrebbe richiedere fino a 30 minuti.
 

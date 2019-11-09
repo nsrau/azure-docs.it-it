@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 84c06c0ac45a5005646cf7b4fb1e274d0347593c
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 1c7a406f0b06b94aaa6d8b4af63b1416b11c7c56
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958496"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847340"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creare dinamicamente e usare un volume persistente con i dischi di Azure nel servizio Azure Kubernetes
 
@@ -25,7 +25,7 @@ Per altre informazioni sui volumi Kubernetes, vedere [Opzioni di archiviazione p
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster servizio Azure Kubernetes esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
 
 È necessaria anche l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [installare l'interfaccia][install-azure-cli]della riga di comando di Azure.
 
@@ -40,7 +40,7 @@ Ogni cluster servizio Azure Kubernetes include due classi di archiviazione prede
 * La classe di archiviazione *gestita Premium* esegue il provisioning di un disco di Azure premium.
     * I dischi premium sono supportati da un disco a bassa latenza e ad alte prestazioni basato su SSD. Ideale per le macchine virtuali che eseguono il carico di lavoro della produzione. Se i nodi del servizio Azure Container nel cluster usano l'archiviazione premium, selezionare la classe *gestita Premium*.
     
-Queste classi di archiviazione predefinite non consentono di aggiornare le dimensioni del volume dopo la creazione. Per abilitare questa funzionalità, aggiungere la riga *allowVolumeExpansion: true* a una delle classi di archiviazione predefinite oppure creare una classe di archiviazione personalizzata. È possibile modificare una classe di archiviazione esistente usando il comando `kubectl edit sc`. Per altre informazioni sulle classi di archiviazione e sulla creazione di guardarete o, vedere [Opzioni di archiviazione per le applicazioni in AKS][storage-class-concepts].
+Queste classi di archiviazione predefinite non consentono di aggiornare le dimensioni del volume dopo la creazione. Per abilitare questa funzionalità, aggiungere la riga *allowVolumeExpansion: true* a una delle classi di archiviazione predefinite oppure creare una classe di archiviazione personalizzata. È possibile modificare una classe di archiviazione esistente usando il comando `kubectl edit sc`. Per altre informazioni sulle classi di archiviazione e sulla creazione di una propria, vedere [Opzioni di archiviazione per le applicazioni in AKS][storage-class-concepts].
 
 Usare il comando [kubectl Get SC][kubectl-get] per visualizzare le classi di archiviazione create in precedenza. L'esempio seguente illustra la creazione preliminare di classi di archiviazione disponibile all'interno di un cluster servizio Azure Kubernetes:
 

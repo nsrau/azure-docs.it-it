@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8936bc21af951cbabb90188b6a31d610caf80395
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: aaf59de2425e0725958847477f1043a5b7fac68a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241768"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839356"
 ---
 # <a name="onboarding-and-installing"></a>Onboarding e installazione
 
@@ -51,7 +51,7 @@ Prerequisiti per la Guida introduttiva all'analisi del codice di sicurezza Micro
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Installazione dell'estensione Microsoft Security Code Analysis
 
-1. Dopo che l'estensione è stata condivisa con l'organizzazione DevOps di Azure, passare alla pagina di Azure DevOps Organization. Un URL di esempio per una pagina di http://dev.azure.com/contoso questo tipo è.
+1. Dopo che l'estensione è stata condivisa con l'organizzazione DevOps di Azure, passare alla pagina di Azure DevOps Organization. Un URL di esempio per una pagina di questo tipo è `https://dev.azure.com/contoso`.
 1. Selezionare l'icona del carrello nell'angolo superiore destro accanto al nome e quindi selezionare **Gestisci estensioni**.
 1. Selezionare Microsoft Security Code Analysis Extension, quindi aprire la procedura guidata dell'interfaccia utente di Azure DevOps per avviare l'installazione.
 1. Dall'elenco a discesa scegliere l'organizzazione DevOps di Azure in cui installare l'estensione.
@@ -65,10 +65,10 @@ Dopo aver installato l'estensione, le attività di compilazione di sviluppo sicu
 ## <a name="adding-specific-build-tasks-to-your-azure-devops-pipeline"></a>Aggiunta di attività di compilazione specifiche alla pipeline di Azure DevOps
 
 1. Dall'organizzazione DevOps di Azure aprire il progetto team.
-1. Selezionare le**compilazioni** **pipeline** > .
+1. Selezionare **pipeline** > **compilazioni**.
 1. Selezionare la pipeline in cui si desidera aggiungere le attività di compilazione dell'estensione:
-   - Nuova pipeline: Selezionare **nuovo** e seguire i passaggi descritti in dettaglio per creare una nuova pipeline.
-   - Modifica pipeline: Selezionare una pipeline esistente e quindi fare clic su **modifica** per iniziare a modificare la pipeline.
+   - Nuova pipeline: selezionare **nuovo** e seguire i passaggi descritti in dettaglio per creare una nuova pipeline.
+   - Modifica pipeline: selezionare una pipeline esistente e quindi fare clic su **modifica** per iniziare a modificare la pipeline.
 1. Selezionare **+** e passare al riquadro **Aggiungi attività** .
 1. Dall'elenco o usando la casella di ricerca, trovare l'attività di compilazione che si vuole aggiungere. Selezionare **Aggiungi**.
 1. Specificare i parametri necessari per l'attività.

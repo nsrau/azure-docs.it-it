@@ -16,12 +16,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6968379722dc7f2deda95e8d3804a03d4dbc8686
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 38235e90ccf79cf1322ce0f26ed426d8c3a693cc
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176007"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847171"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -71,7 +71,7 @@ In determinate circostanze, i server che sono stati aggiornati automaticamente a
 ### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità
 - I nuovi strumenti per la risoluzione dei problemi consentono di risolvere i problemi relativi agli scenari di "sincronizzazione dell'utente", "non sincronizzazione del gruppo" o "membri del gruppo non sincronizzati".
 - Aggiungere il supporto per i cloud nazionali nello script per la risoluzione dei problemi di AAD Connect 
-- I clienti devono essere informati che gli endpoint WMI deprecati per MIIS_Service sono stati rimossi. Tutte le operazioni WMI dovrebbero ora essere eseguite tramite i cmdlet di PS.
+- I clienti devono essere informati che gli endpoint WMI deprecati per MIIS_Service ora sono stati rimossi. Tutte le operazioni WMI dovrebbero ora essere eseguite tramite i cmdlet di PS.
 - Miglioramento della sicurezza reimpostando la delega vincolata sull'oggetto AZUREADSSOACC
 - Quando si aggiunge o modifica una regola di sincronizzazione, se sono presenti attributi usati nella regola nello schema del connettore ma non aggiunti al connettore, gli attributi vengono aggiunti automaticamente al connettore. Lo stesso vale per il tipo di oggetto a cui la regola ha effetto. Se viene aggiunto un elemento al connettore, il connettore verrà contrassegnato per l'importazione completa al successivo ciclo di sincronizzazione.
 - L'uso di un amministratore aziendale o di dominio come account del connettore non è più supportato nelle nuove distribuzioni di AAD Connect. Le distribuzioni correnti di AAD Connect che usano un amministratore aziendale o di dominio come account del connettore non saranno interessate da questa versione.
@@ -80,8 +80,8 @@ In determinate circostanze, i server che sono stati aggiornati automaticamente a
 - Aggiunto un avviso di deprecazione per Sync Service Manager nella pagina delle proprietà del connettore. Questo avviso informa l'utente che le modifiche devono essere apportate tramite la procedura guidata AADC.
 - Aggiunta di un nuovo errore per i problemi relativi ai criteri password di un utente.
 - Impedisci la configurazione errata del filtraggio del gruppo per filtro di dominio e unità organizzativa. I filtri di gruppo visualizzeranno un errore quando il dominio o l'unità organizzativa del gruppo immesso è già stato escluso e l'utente non sarà più in futuro fino alla risoluzione del problema.
-- Gli utenti non possono più creare un connettore per Active Directory Domain Services o Windows Azure Active Directory nell'interfaccia utente precedente.
-- Accessibilità fissa dei controlli dell'interfaccia utente personalizzati nel Service Manager di sincronizzazione
+- Gli utenti non possono più creare un connettore per Active Directory Domain Services o Windows Azure Active Directory nell'interfaccia utente di Synchronization Service Manager.
+- Accessibilità fissa dei controlli dell'interfaccia utente personalizzati nell'Synchronization Service Manager.
 - Abilitate sei attività di gestione federative per tutti i metodi di accesso in Azure AD Connect.  In precedenza, era disponibile solo l'attività "Aggiorna certificato SSL AD FS" per tutti gli accessi.
 - Aggiunta di un avviso quando si modifica il metodo di accesso dalla Federazione a pH o PTA che tutti Azure AD domini e utenti verranno convertiti in autenticazione gestita.
 - Rimossi i certificati per la firma di token dall'attività "Reimposta Azure AD e attendibilità AD FS" ed è stata aggiunta una sottoattività separata per aggiornare questi certificati.
@@ -133,7 +133,7 @@ In determinate circostanze, i server che sono stati aggiornati automaticamente a
 - Aggiunta del supporto per l'aggiornamento del dominio 
 - La funzionalità cartelle pubbliche della posta di Exchange va a GA 
 - Miglioramento della gestione degli errori della procedura guidata per errori del servizio 
-- Aggiunto il collegamento avviso per l'interfaccia utente precedente nella pagina delle proprietà del connettore. 
+- Aggiunto il collegamento avviso nell'interfaccia utente di Synchronization Service Manager nella pagina delle proprietà del connettore. 
 - La funzionalità di writeback dei gruppi unificati è ora GA 
 - Miglioramento del messaggio di errore SSPR se nel controller di dominio manca un controllo LDAP 
 - Aggiunta diagnostica per errori del registro di sistema DCOM durante l'installazione  
@@ -159,7 +159,7 @@ In determinate circostanze, i server che sono stati aggiornati automaticamente a
 - Correzione di errori VSS con local DB  
 - Correzione di un messaggio di errore fuorviante quando il tipo di oggetto non rientra nell'ambito 
 - Correzione di un problema per cui l'installazione di Azure AD PowerShell in un server potrebbe causare un conflitto di assembly con Azure AD Connect. 
-- Correzione del bug pH nel server di staging quando le credenziali del connettore vengono aggiornate nell'interfaccia utente precedente. 
+- Correzione del bug pH nel server di staging quando le credenziali del connettore vengono aggiornate nell'interfaccia utente di Synchronization Service Manager. 
 - Correzione di alcune perdite di memoria 
 - Correzioni di aggiornamenti rapidi varie 
 - Correzioni varie per l'esportazione e l'elaborazione di importazione non confermata 
@@ -465,18 +465,18 @@ Bloccare l'accesso all'account di Active Directory Domain Services implementando
 *   Rimuovere tutte le voci ACE nell'oggetto specifico, ad eccezione delle voci ACE specifiche di SELF. Le autorizzazioni predefinite devono rimanere inalterate per SELF.
 *   Assegnare le autorizzazioni specifiche seguenti:
 
-Type     | name                          | Accesso               | Si applica a
+Tipo     | Name                          | Accesso               | Si applica a
 ---------|-------------------------------|----------------------|--------------|
-Allow    | SYSTEM                        | Controllo completo         | Questo oggetto  |
-Allow    | Enterprise Admins             | Controllo completo         | Questo oggetto  |
-Allow    | Domain Admins                 | Controllo completo         | Questo oggetto  |
-Allow    | Amministratori                | Controllo completo         | Questo oggetto  |
-Allow    | Controller di dominio organizzazione | Contenuto elenco        | Questo oggetto  |
-Allow    | Controller di dominio organizzazione | Leggi tutte le proprietà  | Questo oggetto  |
-Allow    | Controller di dominio organizzazione | Autorizzazioni di lettura     | Questo oggetto  |
-Allow    | Utenti autenticati           | Contenuto elenco        | Questo oggetto  |
-Allow    | Utenti autenticati           | Leggi tutte le proprietà  | Questo oggetto  |
-Allow    | Utenti autenticati           | Autorizzazioni di lettura     | Questo oggetto  |
+Consenti    | SYSTEM                        | Controllo completo         | Questo oggetto  |
+Consenti    | Enterprise Admins             | Controllo completo         | Questo oggetto  |
+Consenti    | Domain Admins                 | Controllo completo         | Questo oggetto  |
+Consenti    | Administrators                | Controllo completo         | Questo oggetto  |
+Consenti    | Controller di dominio organizzazione | Contenuto elenco        | Questo oggetto  |
+Consenti    | Controller di dominio organizzazione | Leggi tutte le proprietà  | Questo oggetto  |
+Consenti    | Controller di dominio organizzazione | Autorizzazioni di lettura     | Questo oggetto  |
+Consenti    | Utenti autenticati           | Contenuto elenco        | Questo oggetto  |
+Consenti    | Utenti autenticati           | Leggi tutte le proprietà  | Questo oggetto  |
+Consenti    | Utenti autenticati           | Autorizzazioni di lettura     | Questo oggetto  |
 
 Per restringere le impostazioni per l'account di Active Directory Domain Services è possibile eseguire [questo script di PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Lo script di PowerShell consentirà di assegnare le autorizzazioni indicate sopra all'account di Active Directory Domain Services.
 
@@ -761,7 +761,7 @@ A causa del problema, l'opzione **Sincronizza tutti i domini e le unità organiz
 
 #### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità
 
-* Nelle versioni precedenti la funzionalità [ms-DS-ConsistencyGuid come sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) è disponibile solo per le nuove distribuzioni. Ora questa funzionalità è disponibile per le distribuzioni esistenti. In particolare:
+* Nelle versioni precedenti la funzionalità [ms-DS-ConsistencyGuid come sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) è disponibile solo per le nuove distribuzioni. Ora questa funzionalità è disponibile per le distribuzioni esistenti. Più in particolare:
   * Per accedere alla funzionalità, avviare la procedura guidata di Azure AD Connect e scegliere l'opzione *Update Source Anchor* (Aggiorna ancoraggio di origine).
   * Questa opzione è visibile solo per le distribuzioni esistenti che usano objectGuid come attributo sourceAnchor.
   * Quando si configura l'opzione, la procedura guidata controlla lo stato dell'attributo ms-DS-ConsistencyGuid nell'istanza di Active Directory locale. Se l'attributo non è configurato in nessun oggetto utente nella directory, la procedura usa l'attributo ms-DS-ConsistencyGuid come attributo sourceAnchor. Se invece l'attributo è configurato in uno o più oggetti utente nella directory, la procedura deduce che l'attributo è usato da altre applicazioni e non è adatto come attributo sourceAnchor e quindi impedisce la modifica dell'ancoraggio di origine. Se si è certi che l'attributo non è usato dalle applicazioni esistenti, è necessario contattare il supporto tecnico per informazioni su come eliminare l'errore.
@@ -808,9 +808,9 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|Seleziona|
+    |CertVersion|CertSignatureAlgorithmOid|Selezionare|
     |CertKeyAlgorithmParams|CertHashString|Where|
-    |||Con|
+    |||With|
 
 * Le modifiche seguenti dello schema sono state introdotte per consentire ai clienti di creare regole di sincronizzazione personalizzate per includere nel flusso gli attributi sAMAccountName, domainNetBios e domainFQDN per gli oggetti gruppo e l'attributo distinguishedName per gli oggetti utente:
 

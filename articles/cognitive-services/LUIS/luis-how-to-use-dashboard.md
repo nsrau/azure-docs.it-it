@@ -1,7 +1,7 @@
 ---
 title: Dashboard-Language Understanding-LUIS
 titleSuffix: Azure Cognitive Services
-description: Correggere gli Intent con il dashboard di analisi, uno strumento di creazione di report visualizzato.
+description: Correzione di Intent ed entità con il dashboard dell'app di cui è stato eseguito il training. Il dashboard Visualizza le informazioni generali sull'app, con i punti salienti che devono essere corretti.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 22e187bba3782e485685354c203a6273d5bcc618
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: d9ae126753f55349f9bf3eefd20bc4d222866af1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735061"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888209"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Come usare il dashboard per migliorare l'app
 
@@ -100,7 +100,7 @@ Non aggiungere espressioni alla finalità None, a meno che non sia suggerito nel
 
 > [!Tip]
 > Usare la terza sezione della pagina, **espressione per finalità** con l'impostazione **enunciazioni (numero)** , come guida visiva rapida per cui sono necessari più espressioni.  
-    ![Usare ' enunciati (numero)' per individuare gli Intent con squilibrio dei dati.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
+    ![usare ' enunciati (numero)' per individuare gli Intent con squilibrio dei dati.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
 
 ### <a name="review-incorrect-predictions"></a>Verifica stime non corrette
 
@@ -154,7 +154,7 @@ Determinare le percentuali di soglia con cui si ha dimestichezza per l'azienda.
 
 Il filtro consente di trovare gli Intent con un problema specifico:
 
-|Applica filtro|Percentuale suggerita|Scopo|
+|Filtro|Percentuale suggerita|Scopo|
 |--|--|--|
 |Intent più problematici|-|**Iniziare da qui** : correggere le espressioni in questo intento migliorerà l'app più di altre correzioni.|
 |Correggere le stime di seguito|60%|Questa è la percentuale di enunciati nell'intento selezionato che sono corretti, ma hanno un punteggio di confidenza al di sotto della soglia. |

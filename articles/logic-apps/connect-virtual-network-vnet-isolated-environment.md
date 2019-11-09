@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 4c4eb5a6cb7527bcb3eb21beebb8063b0bd021d3
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 9adc8b3f96847c346a59905d1a5ec145fadd2f5b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680466"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888715"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
@@ -48,7 +48,7 @@ Questo articolo descrive come portare a termine le attività seguenti:
 
   * La rete virtuale deve avere quattro subnet *vuote* per la creazione e la distribuzione di risorse in ISE. È possibile creare queste subnet in anticipo, oppure è possibile attendere fino a quando non si crea ISE in cui è possibile creare le subnet nello stesso momento. Altre informazioni sui [requisiti](#create-subnet)per le subnet.
 
-  * I nomi delle subnet devono iniziare con un carattere alfabetico o un carattere di sottolineatura e non possono usare questi caratteri: `<`, `>`, `%`, `&`, `\\`, `?` `/`. 
+  * I nomi delle subnet devono iniziare con un carattere alfabetico o un carattere di sottolineatura e non possono usare questi caratteri: `<`, `>`, `%`, `&`, `\\`, `?``/`. 
   
   * Se si vuole distribuire ISE tramite un modello di Azure Resource Manager, assicurarsi prima di tutto di delegare una subnet vuota a Microsoft. Logic/integrationServiceEnvironment. Non è necessario eseguire questa delega quando si esegue la distribuzione tramite il portale di Azure.
 
@@ -56,7 +56,7 @@ Questo articolo descrive come portare a termine le attività seguenti:
 
   * Se si usa [ExpressRoute](../expressroute/expressroute-introduction.md), che fornisce una connessione privata ai servizi cloud Microsoft, è necessario [creare una tabella di route](../virtual-network/manage-route-table.md) con la route seguente e collegare tale tabella a ogni subnet usata da ISE:
 
-    **Nome**: <*route-name* ><br>
+    **Nome**: <*route-name*><br>
     **Prefisso indirizzo**: 0.0.0.0/0<br>
     **Hop successivo**: Internet
 
@@ -83,7 +83,7 @@ Quando si usa ISE con una rete virtuale di Azure, un problema di installazione c
 
 Di seguito è riportata la tabella che descrive le porte nella rete virtuale utilizzate da ISE e in cui vengono utilizzate tali porte. I [tag del servizio Gestione risorse](../virtual-network/security-overview.md#service-tags) rappresentano un gruppo di prefissi di indirizzi IP che consentono di ridurre al minimo la complessità durante la creazione delle regole di sicurezza.
 
-| Finalità | Direzione | Porte di destinazione | Tag del servizio di origine | Tag del servizio di destinazione | Note |
+| Scopo | Direzione | Porte di destinazione | Tag del servizio di origine | Tag del servizio di destinazione | Note |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
 | Comunicazione dalle App per la logica di Azure | In uscita | 80, 443 | VirtualNetwork | Internet | La porta dipende dal servizio esterno con cui comunica il servizio app per la logica |
 | Azure Active Directory | In uscita | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
@@ -94,10 +94,11 @@ Di seguito è riportata la tabella che descrive le porte nella rete virtuale uti
 | Gestione delle connessioni | In uscita | 443 | VirtualNetwork  | AppService | |
 | Pubblicare i log di diagnostica e metriche | In uscita | 443 | VirtualNetwork  | AzureMonitor | |
 | Comunicazione da Gestione traffico di Azure | In ingresso | 443 | AzureTrafficManager | VirtualNetwork | |
-| Progettazione di App per la logica - proprietà dinamiche | In ingresso | 454 | Internet | VirtualNetwork | Le richieste provengono dagli [indirizzi IP in ingresso dell'endpoint di accesso delle app per la logica in tale area](../logic-apps/logic-apps-limits-and-config.md#inbound). |
+| Progettazione di App per la logica - proprietà dinamiche | In ingresso | 454 | Vedere la colonna Note per gli indirizzi IP da consentire | VirtualNetwork | Le richieste provengono dagli indirizzi IP in [ingresso](../logic-apps/logic-apps-limits-and-config.md#inbound) dell'endpoint di accesso delle app per la logica per tale area. |
+| Controllo integrità rete | In ingresso e in uscita | 454 | Vedere la colonna Note per gli indirizzi IP da consentire | VirtualNetwork | Le richieste provengono dall'endpoint di accesso delle app per la logica per gli indirizzi IP in [ingresso](../logic-apps/logic-apps-limits-and-config.md#inbound) e in [uscita](../logic-apps/logic-apps-limits-and-config.md#outbound) per tale area. |
 | Dipendenza da Gestione del servizio app | In ingresso | 454, 455 | AppServiceManagement | VirtualNetwork | |
 | Distribuzione dei connettori | In ingresso | 454 | AzureConnectors | VirtualNetwork | Necessario per la distribuzione e l'aggiornamento dei connettori. La chiusura o il blocco di questa porta causa la mancata riuscita delle distribuzioni di ISE e impedisce aggiornamenti o correzioni del connettore. |
-| Distribuzione dei criteri del connettore | In ingresso | 3443 | AppService | VirtualNetwork | Necessario per la distribuzione e l'aggiornamento dei connettori. La chiusura o il blocco di questa porta causa la mancata riuscita delle distribuzioni di ISE e impedisce aggiornamenti o correzioni del connettore. |
+| Distribuzione dei criteri del connettore | In ingresso | 3443 | Internet | VirtualNetwork | Necessario per la distribuzione e l'aggiornamento dei connettori. La chiusura o il blocco di questa porta causa la mancata riuscita delle distribuzioni di ISE e impedisce aggiornamenti o correzioni del connettore. |
 | Dipendenza SQL di Azure | In uscita | 1433 | VirtualNetwork | SQL | |
 | Integrità risorse di Azure | In uscita | 1886 | VirtualNetwork | AzureMonitor | Per pubblicare lo stato di integrità Integrità risorse |
 | Gestione API - endpoint di gestione | In ingresso | 3443 | APIManagement | VirtualNetwork | |
@@ -115,7 +116,7 @@ Per creare un ambiente del servizio di integrazione (ISE), seguire questa proced
 1. Scegliere [Crea una risorsa](https://portal.azure.com) dal menu principale di Azure nel **portale di Azure**.
 Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come filtro.
 
-   ![Create new resource (Crea nuova risorsa)](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
+   ![Creare una nuova risorsa](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
 1. Nel riquadro Creazione ambiente del servizio di integrazione scegliere **Crea**.
 
@@ -125,17 +126,17 @@ Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come 
 
    ![Fornire i dettagli dell'ambiente](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Proprietà | Obbligatoria | Value | Description |
+   | Proprietà | Obbligatorio | Valore | Descrizione |
    |----------|----------|-------|-------------|
-   | **Sottoscrizione** | SÌ | <*nome sottoscrizione di Azure*> | Sottoscrizione di Azure da usare per l'ambiente |
-   | **Gruppo di risorse** | SÌ | <*Azure-resource-group-name*> | Il gruppo di risorse di Azure in cui si desidera creare l'ambiente |
-   | **Nome dell'ambiente del servizio di integrazione** | SÌ | <*Nome ambiente*> | Il nome ISE, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`) e punti (`.`). |
-   | **Località** | SÌ | <*Azure-datacenter-region*> | L'area del datacenter di Azure in cui distribuire l'ambiente |
-   | **SKU** | SÌ | **Premium** o **Developer (nessun contratto di contratto)** | SKU ISE da creare e usare. Per le differenze tra questi SKU, vedere [SKU di ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Importante**: questa opzione è disponibile solo in fase di creazione di ISE e non può essere modificata in un secondo momento. |
-   | **Capacità aggiuntiva** | Premium: <br>SÌ <p><p>Developer: <br>Non applicabile | Premium: <br>da 0 a 10 <p><p>Developer: <br>Non applicabile | Il numero di unità di elaborazione aggiuntive da usare per questa risorsa ISE. Per aggiungere capacità dopo la creazione, vedere [aggiungere la capacità di ISE](#add-capacity). |
-   | **Endpoint di accesso** | SÌ | **Interno** o **esterno** | Il tipo di endpoint di accesso da usare per ISE, che determina se i trigger di richiesta o webhook nelle app per la logica in ISE possono ricevere chiamate dall'esterno della rete virtuale. Il tipo di endpoint influiscono anche sull'accesso a input e output nella cronologia delle esecuzioni dell'app per la logica. Per ulteriori informazioni, vedere [endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Importante**: questa opzione è disponibile solo in fase di creazione di ISE e non può essere modificata in un secondo momento. |
-   | **Rete virtuale** | SÌ | <*Azure-virtual-network-name*> | La rete virtuale di Azure in cui si desidera collegare l'ambiente in modo che le app per la logica in quell'ambiente possano accedere alla rete virtuale. Se non si ha una rete, [creare prima di tutto una rete virtuale di Azure](../virtual-network/quick-create-portal.md). <p>**Importante**: è possibile eseguire questo Injection *solo* quando si crea ISE. |
-   | **Subnet** | SÌ | <*subnet-resource-list*> | Un ISE richiede quattro subnet *vuote* per la creazione e la distribuzione di risorse nell'ambiente. Per creare ciascuna subnet, [seguire i passaggi descritti in questa tabella](#create-subnet). |
+   | **Sottoscrizione** | Sì | <*nome sottoscrizione di Azure*> | Sottoscrizione di Azure da usare per l'ambiente |
+   | **Gruppo di risorse** | Sì | <*Azure-resource-group-name*> | Il gruppo di risorse di Azure in cui si desidera creare l'ambiente |
+   | **Nome dell'ambiente del servizio di integrazione** | Sì | <*Nome ambiente*> | Il nome ISE, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`) e punti (`.`). |
+   | **Posizione** | Sì | <*Azure-datacenter-region*> | L'area del datacenter di Azure in cui distribuire l'ambiente |
+   | **SKU** | Sì | **Premium** o **Developer (nessun contratto di contratto)** | SKU ISE da creare e usare. Per le differenze tra questi SKU, vedere [SKU di ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Importante**: questa opzione è disponibile solo in fase di creazione di ISE e non può essere modificata in un secondo momento. |
+   | **Capacità aggiuntiva** | Premium: <br>Sì <p><p>Developer: <br>Non applicabile | Premium: <br>da 0 a 10 <p><p>Developer: <br>Non applicabile | Il numero di unità di elaborazione aggiuntive da usare per questa risorsa ISE. Per aggiungere capacità dopo la creazione, vedere [aggiungere la capacità di ISE](#add-capacity). |
+   | **Endpoint di accesso** | Sì | **Interno** o **esterno** | Il tipo di endpoint di accesso da usare per ISE, che determina se i trigger di richiesta o webhook nelle app per la logica in ISE possono ricevere chiamate dall'esterno della rete virtuale. Il tipo di endpoint influiscono anche sull'accesso a input e output nella cronologia delle esecuzioni dell'app per la logica. Per ulteriori informazioni, vedere [endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Importante**: questa opzione è disponibile solo in fase di creazione di ISE e non può essere modificata in un secondo momento. |
+   | **Rete virtuale** | Sì | <*Azure-virtual-network-name*> | La rete virtuale di Azure in cui si desidera collegare l'ambiente in modo che le app per la logica in quell'ambiente possano accedere alla rete virtuale. Se non si ha una rete, [creare prima di tutto una rete virtuale di Azure](../virtual-network/quick-create-portal.md). <p>**Importante**: è possibile eseguire questo Injection *solo* quando si crea ISE. |
+   | **Subnet** | Sì | <*subnet-resource-list*> | Un ISE richiede quattro subnet *vuote* per la creazione e la distribuzione di risorse nell'ambiente. Per creare ciascuna subnet, [seguire i passaggi descritti in questa tabella](#create-subnet). |
    |||||
 
    <a name="create-subnet"></a>
@@ -146,13 +147,13 @@ Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come 
    
    > [!IMPORTANT]
    > 
-   > I nomi delle subnet devono iniziare con un carattere alfabetico o un carattere di sottolineatura (nessun numero), né usare i caratteri seguenti: `<`, `>`, `%`, `&`, `\\`, `?` `/`.
+   > I nomi delle subnet devono iniziare con un carattere alfabetico o un carattere di sottolineatura (nessun numero), né usare i caratteri seguenti: `<`, `>`, `%`, `&`, `\\`, `?``/`.
    
    Inoltre, ogni subnet deve soddisfare questi requisiti:
 
    * Usa il [formato CIDR (Inter-Domain Routing) con classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e uno spazio di indirizzi della classe B.
 
-   * USA almeno un `/27` nello spazio degli indirizzi, perché ogni subnet *deve avere almeno* 32 indirizzi come *minimo*. ad esempio:
+   * USA almeno un `/27` nello spazio degli indirizzi, perché ogni subnet *deve avere almeno* 32 indirizzi come *minimo*. Ad esempio:
 
      * `10.0.0.0/27` ha 32 indirizzi, perché 2<sup>(32-27)</sup> è 2<sup>5</sup> o 32.
 
@@ -164,7 +165,7 @@ Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come 
 
    * Se si usa [ExpressRoute](../expressroute/expressroute-introduction.md), è necessario [creare una tabella di route](../virtual-network/manage-route-table.md) con la route seguente e collegare la tabella a ogni subnet usata da ISE:
 
-     **Nome**: <*route-name* ><br>
+     **Nome**: <*route-name*><br>
      **Prefisso indirizzo**: 0.0.0.0/0<br>
      **Hop successivo**: Internet
 

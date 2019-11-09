@@ -1,6 +1,6 @@
 ---
 title: Usare il sito Web di Video Indexer per personalizzare un modello linguistico - Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Questo articolo illustra come personalizzare un modello linguistico con il sito Web di Video Indexer.
 services: media-services
 author: anikaz
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: f98cdcab2d108f8dd9d40e3770498ad17b2a8a88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d92cb02a0ac52b317cf9d4b6c8e0278f9291910
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799626"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838449"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Personalizzare un modello linguistico con il sito Web di Video Indexer
 
@@ -61,10 +61,10 @@ Per usare il modello linguistico in un nuovo video, eseguire una delle operazion
 
 * Fare clic sul pulsante **Carica** nella parte superiore della pagina. 
 
-    ![Caricamento](./media/customize-language-model/upload.png)
+    ![Carica](./media/customize-language-model/upload.png)
 * Rilasciare il file audio o video nel cerchio o cercare il proprio file.
 
-    ![Caricamento](./media/customize-language-model/upload2.png)
+    ![Carica](./media/customize-language-model/upload2.png)
 
 In questo modo è possibile selezionare la **lingua di origine del video**. Fare clic sull'elenco a discesa e selezionare un modello linguistico creato dall'elenco. Dovrebbe essere indicati la lingua del modello linguistico e il nome assegnato tra parentesi.
 
@@ -118,33 +118,33 @@ Viene visualizzata una nuova finestra che indica che l'eliminazione non può ess
 
 Questa azione rimuove completamente il modello linguistico dall'account. Qualsiasi video che usava il modello linguistico eliminato manterrà lo stesso indice finché non si reindicizza il video. Se si reindicizza il video, è possibile assegnare un nuovo modello linguistico al video. In alternativa, Video Indexer userà il modello predefinito per reindicizzare il video. 
 
-## <a name="customize-language-models-by-correcting-transcripts"></a>Personalizzare modelli di lingua, correggere le trascrizioni
+## <a name="customize-language-models-by-correcting-transcripts"></a>Personalizzare i modelli di lingua correggendo le trascrizioni
 
-Video Indexer supporta la personalizzazione automatica della lingua modelli basati sugli utenti effettivi correzioni apportare alle trascrizioni dei video.
+Video Indexer supporta la personalizzazione automatica dei modelli di lingua in base alle effettive correzioni effettuate dagli utenti alle trascrizioni dei video.
 
-1. Per apportare correzioni a una trascrizione, aprire il video che si desidera modificare dai tuoi video di Account. Selezionare il **della sequenza temporale** scheda.
+1. Per apportare correzioni a una trascrizione, aprire il video che si vuole modificare dai video dell'account. Selezionare la scheda **sequenza temporale** .
 
     ![Personalizzare il modello linguistico](./media/customize-language-model/timeline.png)
-1. Fare clic sull'icona a forma di matita per modificare la trascrizione della trascrizione. 
+1. Fare clic sull'icona a matita per modificare la trascrizione della trascrizione. 
 
     ![Personalizzare il modello linguistico](./media/customize-language-model/edits.png)
 
-    Video Indexer acquisisce tutte le righe che sono stati corretti da parte dell'utente nella trascrizione del video e le aggiunge automaticamente un file di testo denominato "da modifiche trascrizione". Queste modifiche vengono usate per nuovamente il training del modello di lingua specifico che è stato usato per indicizzare in questo video. 
+    Video Indexer acquisisce tutte le righe che vengono corrette dall'utente nella trascrizione del video e le aggiunge automaticamente in un file di testo denominato "da modifiche della trascrizione". Queste modifiche vengono usate per eseguire il training del modello di linguaggio specifico usato per indicizzare questo video. 
     
-    Se non è stato specificato un modello di lingua durante l'indicizzazione in questo video, quindi tutte le modifiche per questo video verranno archiviate in un modello di lingua predefinito denominato adattamenti Account entro la lingua rilevata del video. 
+    Se non è stato specificato un modello di lingua durante l'indicizzazione del video, tutte le modifiche per questo video verranno archiviate in un modello di lingua predefinito denominato adattamenti account all'interno della lingua rilevata del video. 
     
-    Nel caso in cui sono state apportate più modifiche alla stessa riga, solo l'ultima versione della riga di corretti da utilizzare per l'aggiornamento del modello di lingua.  
+    Nel caso in cui siano state apportate più modifiche alla stessa riga, per aggiornare il modello di lingua viene utilizzata solo l'ultima versione della riga corretta.  
     
     > [!NOTE]
-    > Solo correzioni testuali vengono usate per la personalizzazione. Ciò significa che le correzioni che non coinvolgono parole effettive (ad esempio, segni di punteggiatura o spazi) non sono incluse. 
+    > Per la personalizzazione vengono utilizzate solo correzioni testuali. Ciò significa che non sono incluse le correzioni che non coinvolgono parole effettive (ad esempio, segni di punteggiatura o spazi). 
     
-1. Si noterà correzioni trascrizione visualizzati nella scheda lingue della pagina di personalizzazione di modello di contenuto.
+1. Le correzioni della trascrizione vengono visualizzate nella scheda lingua della pagina Personalizzazione del modello di contenuto.
 
     ![Personalizzare il modello linguistico](./media/customize-language-model/customize.png)
 
-   Per esaminare il file "From trascrizione modifiche" per ciascuno dei modelli di lingua, fare clic su di esso per aprirlo. 
+   Per esaminare il file "da modifiche della trascrizione" per ogni modello di lingua, fare clic su di esso per aprirlo. 
 
-    ![Da modifiche trascrizione](./media/customize-language-model/from-transcript-edits.png)
+    ![Da modifiche della trascrizione](./media/customize-language-model/from-transcript-edits.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

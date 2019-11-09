@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2019
+ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a77c0e38db06698e714c3d0c3df0d9a5f028787b
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 097429e9c761d447a7164c813a6c84d3f07f0ab6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71672945"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891411"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione
 
@@ -128,7 +128,7 @@ Si consiglia di configurare e convalidare una soluzione HADR completa e la proge
             - Oracle Linux 7.5. Se si usa il kernel RHCKL, è necessario rilasciare 3.10.0-862.13.1. EL7. Se si usa il kernel Oracle UEK, è richiesta la versione 5.
         - Testare e valutare la latenza di rete tra le macchine virtuali del livello applicazione SAP e le VM DBMS in base alle note di supporto SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) e [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Valutare i risultati in base alle indicazioni sulla latenza di rete nella [Nota del supporto SAP #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). La latenza di rete deve essere nell'intervallo moderato o valido. Le eccezioni si applicano al traffico tra le macchine virtuali e le unità di istanze large di HANA, come descritto in [questo articolo](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance).
         - Assicurarsi che le distribuzioni di ILB siano configurate per l'uso di Direct Server Return. Questa impostazione consente di ridurre la latenza quando Azure gli ILB viene usato per le configurazioni a disponibilità elevata nel livello DBMS.
-        - Se si usa Azure Load Balancer insieme ai sistemi operativi guest Linux, verificare che il parametro di rete Linux **net. IPv4. TCP _timestamps** sia impostato su **0**. Questa raccomandazione è in conflitto con le raccomandazioni nelle versioni precedenti di [SAP nota #2382421](https://launchpad.support.sap.com/#/notes/2382421). La nota SAP è ora aggiornata per indicare che questo parametro deve essere impostato su **0** per funzionare con i bilanciamenti del carico di Azure.
+        - Se si usa Azure Load Balancer insieme ai sistemi operativi guest Linux, verificare che il parametro di rete Linux **net. IPv4. tcp_timestamps** sia impostato su **0**. Questa raccomandazione è in conflitto con le raccomandazioni nelle versioni precedenti di [SAP nota #2382421](https://launchpad.support.sap.com/#/notes/2382421). La nota SAP è ora aggiornata per indicare che questo parametro deve essere impostato su **0** per funzionare con i bilanciamenti del carico di Azure.
         - Per ottenere una latenza di rete ottimale, provare a usare i [gruppi di posizionamento prossimità di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) Per altre informazioni, vedere [gruppi di posizionamento di prossimità di Azure per la latenza di rete ottimale con le applicazioni SAP](sap-proximity-placement-scenarios.md).
    4. Distribuzioni a disponibilità elevata e di ripristino di emergenza.
         - Se si distribuisce il livello applicazione SAP senza definire una zona di disponibilità di Azure specifica, assicurarsi che tutte le macchine virtuali che eseguono istanze di finestra di dialogo SAP o istanze middleware di un singolo sistema SAP vengano distribuite in un [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
@@ -160,7 +160,7 @@ Si consiglia di configurare e convalidare una soluzione HADR completa e la proge
    1.  Verificare che il [gruppo di sicurezza di rete e](https://docs.microsoft.com/azure/virtual-network/security-overview) le regole ASC funzionino come previsto e proteggano le risorse protette.
    1.  Assicurarsi che tutte le risorse che devono essere crittografate lo siano effettivamente. Definire e implementare i processi per eseguire il backup dei certificati, archiviare e accedere a tali certificati e ripristinare le entità crittografate.
    1.  Usare [crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) per i dischi del sistema operativo laddove possibile da un punto di vista del supporto del sistema operativo.
-   1.  Assicurarsi che non si stiano utilizzando troppi livelli di crittografia. In alcuni casi, è consigliabile usare crittografia dischi di Azure insieme a uno dei metodi di Transparent Data Encryption DBMS.
+   1.  Assicurarsi che non si stiano utilizzando troppi livelli di crittografia. In alcuni casi, è consigliabile usare crittografia dischi di Azure insieme a uno dei metodi di Transparent Data Encryption DBMS per proteggere dischi o componenti diversi nello stesso server.  Ad esempio, in un server SAP DBMS, è possibile abilitare crittografia dischi di Azure (ADE) nel disco di avvio del sistema operativo (se il sistema operativo supporta ADE) e i dischi dati non usati dai file di persistenza dei dati DBMS.  Un esempio consiste nell'usare ADE sul disco che contiene le chiavi di crittografia Transparent Data Encryption.
 1. Test delle prestazioni. In SAP, in base alla traccia e alle misurazioni SAP, effettuare i confronti seguenti:
    - Laddove applicabile, confrontare i primi 10 report online con l'implementazione corrente.
    - Laddove applicabile, confrontare i primi 10 processi batch con l'implementazione corrente.

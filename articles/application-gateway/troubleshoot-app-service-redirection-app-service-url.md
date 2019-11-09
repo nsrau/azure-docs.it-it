@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: absha
-ms.openlocfilehash: 4b233117bc0f967368aeac7baec8c4875aa16826
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: ef2bbf8804e96a3e25f053d189c6d85bfa845b0b
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051430"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833181"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Risolvere i problemi del servizio app nel gateway applicazione
 
@@ -39,10 +39,10 @@ Inoltre, quando si usano i servizi app dietro un gateway applicazione, il nome d
 
 ## <a name="sample-configuration"></a>Configurazione di esempio
 
-- Listener HTTP: Di base o multisito
-- Pool di indirizzi back-end: Servizio app
-- Impostazioni HTTP: **Seleziona nome host dall'indirizzo back-end** abilitato
-- Sonda **Seleziona nome host da impostazioni http** abilitata
+- Listener HTTP: di base o multisito
+- Pool di indirizzi back-end: servizio app
+- Impostazioni HTTP: **selezionare il nome host dall'indirizzo back-end** abilitato
+- Probe: **selezionare il nome host da impostazioni http** abilitate
 
 ## <a name="cause"></a>Causa
 
@@ -76,16 +76,16 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-Nell'esempio precedente, si noti che l'intestazione della risposta ha un codice di stato 301 per il reindirizzamento. L'intestazione Location ha il nome host del servizio app anziché il nome host originale www.contoso.com.
+Nell'esempio precedente, si noti che l'intestazione della risposta ha un codice di stato 301 per il reindirizzamento. L'intestazione Location ha il nome host del servizio app anziché il nome host originale `www.contoso.com`.
 
-## <a name="solution-rewrite-the-location-header"></a>Soluzione: Riscrivere l'intestazione Location
+## <a name="solution-rewrite-the-location-header"></a>Soluzione: riscrivere l'intestazione Location
 
-Impostare il nome host nell'intestazione Location sul nome di dominio del gateway applicazione. A tale scopo, creare una [regola](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) di riscrittura con una condizione che valuti se l'intestazione Location nella risposta contiene azurewebsites.NET. Deve anche eseguire un'azione per riscrivere l'intestazione location in modo da avere il nome host del gateway applicazione. Per ulteriori informazioni, vedere le istruzioni su [come riscrivere l'intestazione Location](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#modify-a-redirection-url).
+Impostare il nome host nell'intestazione Location sul nome di dominio del gateway applicazione. A tale scopo, creare una [regola di riscrittura](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) con una condizione che valuti se l'intestazione Location nella risposta contiene azurewebsites.NET. Deve anche eseguire un'azione per riscrivere l'intestazione location in modo da avere il nome host del gateway applicazione. Per ulteriori informazioni, vedere le istruzioni su [come riscrivere l'intestazione Location](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#modify-a-redirection-url).
 
 > [!NOTE]
-> Il supporto per la riscrittura dell'intestazione HTTP è disponibile solo per lo [SKU Standard_v2 e WAF_v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) del gateway applicazione. Se si usa lo SKU V1, è consigliabile [eseguire la migrazione da V1 a V2](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2). Si desidera utilizzare riscrittura e altre [funzionalità avanzate](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) disponibili con lo SKU V2.
+> Il supporto per la riscrittura dell'intestazione HTTP è disponibile solo per le [Standard_v2 e WAF_V2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) del gateway applicazione. Se si usa lo SKU V1, è consigliabile [eseguire la migrazione da V1 a V2](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2). Si desidera utilizzare riscrittura e altre [funzionalità avanzate](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) disponibili con lo SKU V2.
 
-## <a name="alternate-solution-use-a-custom-domain-name"></a>Soluzione alternativa: Usare un nome di dominio personalizzato
+## <a name="alternate-solution-use-a-custom-domain-name"></a>Soluzione alternativa: usare un nome di dominio personalizzato
 
 Se si usa lo SKU V1, non è possibile riscrivere l'intestazione Location. Questa funzionalità è disponibile solo per lo SKU V2. Per risolvere il problema di reindirizzamento, passare lo stesso nome host che il gateway applicazione riceve anche al servizio app, anziché eseguire una sostituzione dell'host.
 
@@ -97,9 +97,9 @@ Il servizio app ora esegue il reindirizzamento, se presente, sulla stessa intest
 
     ![Elenco di domini personalizzati del servizio app](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
-- Il servizio app è pronto per accettare il nome host www.contoso.com. Modificare la voce CNAME in DNS per puntare di nuovo al nome di dominio completo del gateway applicazione, ad esempio appgw.eastus.cloudapp.azure.com.
+- Il servizio app è pronto per accettare il nome host `www.contoso.com`. Modificare la voce CNAME in DNS per puntare di nuovo al nome di dominio completo del gateway applicazione, ad esempio `appgw.eastus.cloudapp.azure.com`.
 
-- Quando si esegue una query DNS, verificare che il dominio www.contoso.com venga risolto nel nome di dominio completo del gateway applicazione.
+- Verificare che il dominio `www.contoso.com` venga risolto nel nome di dominio completo del gateway applicazione quando si esegue una query DNS.
 
 - Impostare il probe personalizzato per disabilitare **pick hostname dalle impostazioni http back-end**. Nella portale di Azure deselezionare la casella di controllo nelle impostazioni del probe. In PowerShell non usare l'opzione **-PickHostNameFromBackendHttpSettings** nel comando **set-AzApplicationGatewayProbeConfig** . Nel campo nome host del probe immettere il nome di dominio completo del servizio app, example.azurewebsites.net. Le richieste di probe inviate dal gateway applicazione contengono questo FQDN nell'intestazione host.
 
@@ -110,7 +110,7 @@ Il servizio app ora esegue il reindirizzamento, se presente, sulla stessa intest
 
 - Associare nuovamente il probe personalizzato alle impostazioni HTTP back-end e verificare che il back-end sia integro.
 
-- Il gateway applicazione deve ora trasmettere lo stesso nome host, www.contoso.com, al servizio app. Il reindirizzamento si verifica sullo stesso nome host. Controllare le intestazioni di richiesta e risposta di esempio seguenti.
+- Il gateway applicazione deve ora trasmettere lo stesso nome host, `www.contoso.com`, al servizio app. Il reindirizzamento si verifica sullo stesso nome host. Controllare le intestazioni di richiesta e risposta di esempio seguenti.
 
 Per implementare i passaggi precedenti usando PowerShell per un'installazione esistente, usare lo script di PowerShell di esempio seguente. Si noti che non sono state usate le opzioni **-PickHostname** nella configurazione delle impostazioni di probe e http.
 

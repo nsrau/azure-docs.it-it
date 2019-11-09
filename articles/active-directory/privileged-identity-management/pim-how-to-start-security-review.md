@@ -1,10 +1,10 @@
 ---
-title: Creare una verifica di accesso dei ruoli Azure AD in PIM-Azure Active Directory | Microsoft Docs
+title: Creare una verifica di accesso dei ruoli Azure AD in PIM-Azure AD | Microsoft Docs
 description: Informazioni su come creare una verifica di accesso dei ruoli Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -14,16 +14,16 @@ ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72d9f0c7df12bd6746cd5cf0336e7bd58b6cc88d
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 2f7e9ef503a9a3469ecbc835be8d9229fbd0167f
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809031"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847119"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Creare una verifica di accesso dei ruoli Azure AD in Privileged Identity Management
 
-I requisiti per consentire agli utenti di ottenere l'accesso ai ruoli di Azure Active Directory privilegiati (Azure AD) possono cambiare nel tempo. Per ridurre i rischi associati alle assegnazioni di ruolo obsolete, è necessario esaminare periodicamente l'accesso. È possibile usare Azure AD Privileged Identity Management (PIM) per creare verifiche di accesso per i ruoli Azure AD con privilegi. È anche possibile configurare le verifiche di accesso periodiche che vengono eseguite automaticamente.
+Per ridurre i rischi associati alle assegnazioni di ruolo obsolete, è necessario esaminare periodicamente l'accesso. È possibile usare Azure AD Privileged Identity Management (PIM) per creare verifiche di accesso per i ruoli Azure AD con privilegi. È anche possibile configurare le verifiche di accesso periodiche che vengono eseguite automaticamente.
 
 Questo articolo descrive come creare una o più verifiche di accesso per i ruoli di Azure AD con privilegi.
 

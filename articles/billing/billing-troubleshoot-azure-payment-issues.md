@@ -1,23 +1,24 @@
 ---
 title: Risolvere i problemi di pagamento di Azure
 description: Risoluzione di un problema durante l'aggiornamento delle informazioni di pagamento nell'account nel portale di Microsoft Azure o nel Centro account.
+services: azure
 author: v-miegge
-manager: na
+manager: dcscontentpm
 editor: v-jesits
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2019
 ms.author: jaserano
-ms.openlocfilehash: 7795007b5bb27b9da540c6c3bcb0df45d1e17d80
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 8fb1af7041b028560a218ba19e10c0df2e921317
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718709"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795873"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Risolvere i problemi di pagamento di Azure
 

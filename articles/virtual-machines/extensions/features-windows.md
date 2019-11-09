@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d73a2dcd0aab3b972a3e0a9237e53d05d4a9a53
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 8b99e919c396ebc3ef72c046fbe3fef1261050ad
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750030"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891586"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
 
@@ -54,18 +54,18 @@ Per informazioni sui sistemi operativi supportati e per le istruzioni di install
 
 #### <a name="supported-agent-versions"></a>Versioni supportate dell'agente
 
-Per garantire la migliore esperienza possibile, sono previsti requisiti minimi per le versioni supportate dell'agente. Per altre informazioni, vedere [questo articolo](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+Per garantire la migliore esperienza possibile, sono previsti requisiti minimi per le versioni supportate dell'agente. Per altre informazioni, vedere [questo articolo](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 #### <a name="supported-oses"></a>Sistemi operativi supportati
 
-L'agente guest di Windows viene eseguito su più sistemi operativi, tuttavia il framework delle estensioni prevede un limite per i sistemi operativi. Per altre informazioni, vedere [questo articolo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+L'agente guest di Windows viene eseguito su più sistemi operativi, tuttavia il framework delle estensioni prevede un limite per i sistemi operativi. Per altre informazioni, vedere [questo articolo](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems
 ).
 
 Alcune estensioni non sono supportate in tutti i sistemi operativi e possono generare il *codice di errore 51, "Sistema operativo non supportato"* . Vedere la documentazione della singola estensione per informazioni sul supporto.
 
 #### <a name="network-access"></a>Accesso alla rete
 
-I pacchetti di estensioni vengono scaricati dal repository delle estensioni di Archiviazione di Azure, mentre i caricamenti dello stato delle estensioni vengono pubblicati in Archiviazione di Azure. Se si usa la versione [supportata](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) degli agenti, non è necessario consentire l'accesso ad archiviazione di Azure nell'area della macchina virtuale, in quanto può usare l'agente per reindirizzare la comunicazione al controller di infrastruttura di Azure per le comunicazioni degli agenti (la funzionalità HostGAPlugin tramite il canale privilegiato su IP privato [168.63.129.16](https://docs.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16)). Se è in uso una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad Archiviazione di Azure in tale area dalla macchina virtuale.
+I pacchetti di estensioni vengono scaricati dal repository delle estensioni di Archiviazione di Azure, mentre i caricamenti dello stato delle estensioni vengono pubblicati in Archiviazione di Azure. Se si usa la versione [supportata](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) degli agenti, non è necessario consentire l'accesso ad archiviazione di Azure nell'area della macchina virtuale, in quanto può usare l'agente per reindirizzare la comunicazione al controller di infrastruttura di Azure per le comunicazioni degli agenti (la funzionalità HostGAPlugin tramite il canale privilegiato su IP privato [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)). Se è in uso una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad Archiviazione di Azure in tale area dalla macchina virtuale.
 
 > [!IMPORTANT]
 > Se è stato bloccato l'accesso a *168.63.129.16* tramite il firewall Guest o con un proxy, le estensioni hanno esito negativo indipendentemente dalla precedente. Sono necessarie le porte 80, 443 e 32526.

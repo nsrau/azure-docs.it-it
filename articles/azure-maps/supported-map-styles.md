@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 457154a797a4b6d9853b1effe0d8121053653a99
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: cd16ee87b213c2bfa4c541c4d3c453a4499855d0
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174773"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887722"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Stili delle mappe supportati da Mappe di Azure
 Mappe di Azure supporta vari stili di mappa predefiniti, come descritto di seguito.
@@ -31,7 +31,7 @@ Una mappa **stradale** è una mappa standard che indica le strade, caratteristic
 
 ## <a name="blank-and-blank_accessible"></a>Blank e blank_accessible
 
-Gli stili della mappa **blank** e **blank_accessible** forniscono un'area di disegno vuota su cui visualizzare i dati. Lo stile **blank_accessible** continuerà a fornire aggiornamenti per la lettura dello schermo con i dettagli della posizione in cui si trova la mappa, anche se la mappa di base non viene visualizzata.
+Gli stili **blank** e **blank_accessible** map forniscono un'area di disegno vuota su cui visualizzare i dati. Lo stile **blank_accessible** continuerà a fornire aggiornamenti per la lettura dello schermo con i dettagli della posizione in cui si trova la mappa, anche se la mappa di base non viene visualizzata.
 
 > [!Note]
 > In Web SDK è possibile modificare il colore di sfondo della mappa impostando lo stile CSS `background-color` dell'elemento map DIV.
@@ -103,4 +103,4 @@ la **luce in grigio** è una versione leggera dello stile della mappa stradale.
 Informazioni su come impostare uno stile di mappa in mappe di Azure:
 
 > [!div class="nextstepaction"]
-> [Scegliere uno stile mappa](https://docs.microsoft.com/en-us/azure/azure-maps/choose-map-style)
+> [Scegliere uno stile mappa](https://docs.microsoft.com/azure/azure-maps/choose-map-style)

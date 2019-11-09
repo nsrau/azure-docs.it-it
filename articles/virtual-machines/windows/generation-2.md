@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: 63cf3301a08ce4073998c5d281f155a6b3eefe4d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4cb6d684171ac6e7e9e1cb7da556250f857cf2af
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491929"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891491"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Supporto per le macchine virtuali di seconda generazione in Azure
 
@@ -59,7 +59,9 @@ Le macchine virtuali di seconda generazione supportano le seguenti immagini del 
 * Windows Server 2012 Datacenter
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 16.04+
+* Ubuntu Server 16.04, 18.04, 19,04, 19,10
+* RHEL 8,0
+
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Macchine virtuali in locale e Azure di seconda generazione
 

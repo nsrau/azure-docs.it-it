@@ -1,6 +1,6 @@
 ---
 title: Distribuire un servizio Web
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Come convertire un esperimento di training in un esperimento predittivo, prepararlo per la distribuzione e quindi distribuirlo come servizio Web Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 846b356d98a68000f48609de1f19ff2f7de3cab9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4324d33a9da66c5f49645e1c8014bd5f57d37bd9
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693462"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837736"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuire un servizio Web di Azure Machine Learning Studio (classico)
 
@@ -139,7 +139,7 @@ I prezzi sono specifici per ogni area, quindi è necessario definire un piano di
 6. Nell'elenco a discesa **Resource Group** (Gruppo di risorse) selezionare un gruppo di risorse per il piano. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 7. In **Plan Name** (Nome piano) digitare il nome del piano.
 8. In **Plan Options**(Opzioni piano) selezionare il livello di fatturazione per il nuovo piano.
-9. Fare clic su **Create**.
+9. Fai clic su **Crea**.
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Eseguire la distribuzione del servizio Web in un'altra area
 

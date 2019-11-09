@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: a1c3bec4b32a9d3450e307f42958bb19263c3d7a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ddd631b809d4a0635107069f48281db4c0a2e7e0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717146"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837545"
 ---
 # <a name="permutation-feature-importance"></a>Importanza della funzionalità di permutazione
 
@@ -24,7 +24,7 @@ In questo modulo i valori delle funzionalità vengono mescolati in modo casuale,
 
 I punteggi restituiti dal modulo rappresentano la *modifica* delle prestazioni di un modello sottoposto a training, dopo la permutazione. Le funzionalità importanti sono in genere più sensibili al processo di shuffle, pertanto si otterranno punteggi di importanza maggiore. 
 
-Questo articolo fornisce una panoramica della funzionalità di permutazione, della relativa base teorica e delle relative applicazioni in Machine Learning: [importanza della funzionalità di permutazione](http://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
+Questo articolo fornisce una panoramica della funzionalità di permutazione, della relativa base teorica e delle relative applicazioni in Machine Learning: [importanza della funzionalità di permutazione](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
 
 ## <a name="how-to-use-permutation-feature-importance"></a>Come usare l'importanza della funzionalità di permutazione
 

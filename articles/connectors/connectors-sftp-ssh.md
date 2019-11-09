@@ -10,12 +10,12 @@ ms.reviewer: divswa, klam, LADocs
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: a48ba0d2d691314a1ca7c91ac7ae27b62fbb379b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f52fc91d218e1a5448f6e6e7465f6416a04fd67d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825249"
+ms.locfileid: "73837141"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -49,7 +49,9 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
 
 * Usa la [libreria SSH.NET](https://github.com/sshnet/SSH.NET), una libreria SSH (open source Secure Shell) che supporta .NET.
 
-* Per impostazione predefinita, le azioni SFTP-SSH possono leggere o scrivere file di *1 GB o di dimensioni inferiori* , ma solo in blocchi di *15 MB* alla volta. Per gestire file di dimensioni superiori a 15 MB, le azioni SFTP-SSH possono usare la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). Per caricare file di grandi dimensioni, sono necessarie anche le autorizzazioni di lettura e scrittura. Tuttavia, l'azione copia file supporta solo file da 15 MB perché tale azione non supporta la suddivisione in blocchi dei messaggi. I trigger SFTP-SSH non supportano la suddivisione in blocchi.
+* Per impostazione predefinita, le azioni SFTP-SSH possono leggere o scrivere file di *1 GB o di dimensioni inferiori* , ma solo in blocchi di *15 MB* alla volta.
+
+  Per gestire file di dimensioni superiori a 15 MB, le azioni SFTP-SSH possono usare la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, l'azione copia file supporta solo file da 15 MB perché tale azione non supporta la suddivisione in blocchi dei messaggi. I trigger SFTP-SSH non supportano la suddivisione in blocchi. Per caricare file di grandi dimensioni, è necessario disporre delle autorizzazioni di lettura e scrittura per la cartella radice sul server SFTP.
 
 * Fornisce l'azione **Crea cartella** che crea una cartella nel percorso specificato nel server SFTP.
 
@@ -61,7 +63,7 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* L'indirizzo del server SFTP e le credenziali dell'account che consentono all'app per la logica di accedere all'account SFTP. È anche necessario accedere a una chiave privata SSH e alla password della chiave privata SSH. Per utilizzare la suddivisione in blocchi durante il caricamento di file di grandi dimensioni, è necessario disporre delle autorizzazioni di lettura e scrittura.
+* L'indirizzo del server SFTP e le credenziali dell'account che consentono all'app per la logica di accedere all'account SFTP. È anche necessario accedere a una chiave privata SSH e alla password della chiave privata SSH. Per utilizzare la suddivisione in blocchi durante il caricamento di file di grandi dimensioni, è necessario disporre delle autorizzazioni di lettura e scrittura per la cartella radice sul server SFTP. In caso contrario, viene ricevuto un errore "401 non autorizzato".
 
   > [!IMPORTANT]
   >

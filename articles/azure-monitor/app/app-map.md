@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 65a257cc4613fb9e4dece09a2544de2e78779ab4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 305de556cc6e50af21cb38aa1b8073b420efbf43
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577069"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887760"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: valutare le applicazioni distribuite
 
@@ -234,7 +234,7 @@ In alternativa, l' **istanza del ruolo Cloud** può essere utile per gli scenari
 
 Uno scenario in cui potrebbe essere necessario eseguire l'override del valore per l'istanza del ruolo cloud potrebbe essere se l'app è in esecuzione in un ambiente contenitore in cui semplicemente la conoscenza del singolo server potrebbe non essere sufficiente per individuare un determinato problema.
 
-Per altre informazioni su come eseguire l'override della proprietà del nome del ruolo cloud con gli inizializzatori di telemetria, vedere [aggiungere proprietà: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Per altre informazioni su come eseguire l'override della proprietà del nome del ruolo cloud con gli inizializzatori di telemetria, vedere [aggiungere proprietà: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

@@ -4,14 +4,14 @@ description: Questo articolo descrive come creare un gruppo di risorse in un mod
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 11/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: d8b1be1d79ae0426d73c45408dd3c4f4f4660afb
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 04a46700b68bcf498956f93c96ce2dccf1b555fe
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532185"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832725"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
 
@@ -23,7 +23,7 @@ Per distribuire i modelli a livello di sottoscrizione, usare l'interfaccia della
 
 È possibile distribuire i tipi di risorse seguenti a livello di sottoscrizione:
 
-* [distribuzioni](/azure/templates/microsoft.resources/deployments) 
+* [distribuzioni](/azure/templates/microsoft.resources/deployments)
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
@@ -32,14 +32,20 @@ Per distribuire i modelli a livello di sottoscrizione, usare l'interfaccia della
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
-### <a name="schema"></a>SCHEMA
+### <a name="schema"></a>Schema
 
 Lo schema usato per le distribuzioni a livello di sottoscrizione è diverso dallo schema per le distribuzioni di gruppi di risorse.
 
-Per lo schema, usare:
+Per i modelli, usare:
 
 ```json
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+```
+
+Per i file di parametri, usare:
+
+```json
+https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>Comandi di distribuzione
@@ -76,14 +82,14 @@ Per le distribuzioni a livello di sottoscrizione, è necessario specificare un p
 
 È possibile specificare un nome per la distribuzione oppure utilizzare il nome predefinito della distribuzione. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
 
-Per ogni nome di distribuzione, il percorso non è modificabile. È possibile creare una distribuzione in un percorso quando è presente una distribuzione con lo stesso nome, ma percorso diverso. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
+Per ogni nome di distribuzione, il percorso non è modificabile. Non è possibile creare una distribuzione in un'unica posizione quando esiste una distribuzione esistente con lo stesso nome in una posizione diversa. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
 
 ## <a name="use-template-functions"></a>Usare le funzioni di modello
 
 Per le distribuzioni a livello di sottoscrizione, esistono alcune considerazioni importanti quando si usano funzioni di modello:
 
 * La funzione [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) **non** è supportata.
-* La funzione [resourceId()](resource-group-template-functions-resource.md#resourceid) funzione è supportata. Usare la funzione per ottenere l'ID risorsa per le risorse che vengono usate in distribuzioni a livello di sottoscrizione. Ad esempio, ottenere l'ID risorsa per una definizione di criteri con `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`
+* La funzione [resourceId()](resource-group-template-functions-resource.md#resourceid) funzione è supportata. Usare la funzione per ottenere l'ID risorsa per le risorse che vengono usate in distribuzioni a livello di sottoscrizione. Ottenere, ad esempio, l'ID risorsa per una definizione di criteri con `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. In alternativa, usare la funzione [subscriptionResourceId ()](resource-group-template-functions-resource.md#subscriptionresourceid) per ottenere l'ID risorsa per una risorsa a livello di sottoscrizione.
 * Le funzioni [reference()](resource-group-template-functions-resource.md#reference) e [list()](resource-group-template-functions-resource.md#list) sono supportate.
 
 ## <a name="create-resource-groups"></a>Creare gruppi di risorse

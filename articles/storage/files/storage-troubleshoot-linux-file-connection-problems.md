@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 12976e2b2dd37b640efe1823fc8d2ca7048ebcdb
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 005e93837d1d420526f6fb33e79d25a94da6fab7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73097370"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838539"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
@@ -60,7 +60,7 @@ Per risolvere il problema, usare lo [strumento di risoluzione dei problemi per g
 
 Per motivi di sicurezza, le connessioni alle condivisioni file di Azure vengono bloccate se il canale di comunicazione non è crittografato e il tentativo di connessione non viene effettuato dallo stesso data center in cui si trovano tali condivisioni. Le connessioni non crittografate all'interno dello stesso data center possono essere bloccate se l'impostazione [Trasferimento sicuro obbligatorio](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) è abilitata nell'account di archiviazione. Un canale di comunicazione crittografato è disponibile solo se il sistema operativo del client dell'utente supporta la crittografia SMB.
 
-Per altre informazioni, vedere [Prerequisiti per il montaggio di una condivisione file di Azure con Linux e il pacchetto cifs-utils](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux#prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package). 
+Per altre informazioni, vedere [Prerequisiti per il montaggio di una condivisione file di Azure con Linux e il pacchetto cifs-utils](storage-how-to-use-files-linux.md#prerequisites). 
 
 ### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
 
@@ -111,8 +111,8 @@ Per chiudere gli handle aperti per una condivisione file, una directory o un fil
     - Strumenti di terze parti open source, ad esempio:
         - [Parallelo GNU](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) : Ordina i file e li comprime in partizioni.
-        - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) : USA fpart e uno strumento di copia per generare più istanze per la migrazione dei dati da src_dir a dst_url.
-        - CP e [md5sum multithread](https://github.com/pkolano/mutil) multithreading basati su coreutils GNU.
+        - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) : USA fpart e uno strumento di copia per generare più istanze per eseguire la migrazione dei dati da src_dir a dst_url.
+        - [Multi](https://github.com/pkolano/mutil) CP e md5sum multithread multithreading basati su coreutils GNU.
 - Impostando in anticipo le dimensioni del file, invece di creare ogni scrittura di un'estensione di scrittura, contribuisce a migliorare la velocità di copia negli scenari in cui le dimensioni del file sono note. Se è necessario evitare l'estensione delle Scritture, è possibile impostare le dimensioni del file di destinazione con `truncate - size <size><file>` comando. Successivamente, `dd if=<source> of=<target> bs=1M conv=notrunc`comando copierà un file di origine senza dover aggiornare ripetutamente le dimensioni del file di destinazione. Ad esempio, è possibile impostare le dimensioni del file di destinazione per ogni file che si desidera copiare (si supponga che una condivisione sia montata in/mnt/share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
     - e quindi copiare i file senza estendere le Scritture in parallelo: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
@@ -289,6 +289,6 @@ Questo problema di riconnessione nel kernel Linux è stato corretto nell'ambito 
 
 Se non è possibile eseguire l'aggiornamento alle versioni del kernel più recenti, si può ovviare a questo problema conservando un file nella condivisione file di Azure in cui scrivere ogni 30 secondi o meno. Deve trattarsi di un'operazione di scrittura, ad esempio la riscrittura della data di creazione o di modifica del file. In caso contrario, i risultati verrebbero memorizzati nella cache e l'operazione potrebbe non attivare la riconnessione.
 
-## <a name="need-help-contact-support"></a>Opzioni per Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

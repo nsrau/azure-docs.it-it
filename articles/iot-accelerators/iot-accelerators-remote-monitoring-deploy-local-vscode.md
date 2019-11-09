@@ -1,5 +1,5 @@
 ---
-title: Distribuire la soluzione di monitoraggio remoto in locale (Visual Studio Code) - Azure | Microsoft Docs
+title: Distribuire la soluzione di monitoraggio remoto localmente-Visual Studio Code-Azure | Microsoft Docs
 description: Questa guida pratica illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto nel computer locale tramite Visual Studio Code a scopo di test e sviluppo.
 author: avneet723
 manager: hegate
@@ -8,24 +8,24 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: ed3301eb0e723e05e2a642ffea2f1609032553b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f1d20e9a6a78d99a23fe4b98aeb4f3eb8359da7
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730186"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890949"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto localmente - Visual Studio Code
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Questo articolo illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale a scopo di test e sviluppo. Si apprenderà come eseguire i microservizi in Visual Studio Code. Una distribuzione di microservizi locale usa i servizi cloud seguenti: hub IoT, Cosmos DB, Analisi di flusso di Azure e Azure Time Series Insights.
+Questo articolo illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale a scopo di test e sviluppo. Si apprenderà come eseguire i microservizi in Visual Studio Code. Una distribuzione di microservizi locale usa i servizi cloud seguenti: hub Internet delle cose, Cosmos DB, analisi di flusso di Azure e Azure Time Series Insights.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per distribuire i servizi di Azure usati dall'acceleratore di soluzioni di monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Impostazioni del computer
 
@@ -59,17 +59,17 @@ dotnet build -c Release
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>Distribuire tutti gli altri microservizi nel computer locale
 
-I passaggi seguenti mostrano come eseguire i microservizi di monitoraggio remoto in Visual Studio Code:
+I passaggi seguenti illustrano come eseguire i microservizi di monitoraggio remoto in Visual Studio Code:
 
 1. Avviare Visual Studio Code.
-1. In Visual Studio Code, aprire il **azure-iot-pcs-remote-monitoring-dotnet** cartella.
-1. Creare una nuova cartella denominata **vscode** nel **azure-iot-pcs-remote-monitoring-dotnet** cartella.
-1. Copiare i file **Launch. JSON** e **Tasks. JSON** da services\scripts\local\launch\idesettings\vscode per il **vscode** cartella appena creata.
-1. Aprire il **Pannello di Debug** in Visual Studio Code ed eseguire il **eseguire tutti i microservizi** configurazione. Questa configurazione esegue il microservizio di simulazione dispositivi in Docker ed esegue gli altri microservizi nel debugger.
+1. In VS Code aprire la cartella **Azure-le cose-PCS-Remote-Monitoring-DotNet** .
+1. Creare una nuova cartella denominata **. VSCODE** nella cartella **Azure--PCS-Remote-Monitoring-DotNet** .
+1. Copiare i file **Launch. JSON** e **Tasks. JSON** da services\scripts\local\launch\idesettings\vscode alla cartella **. VSCODE** appena creata.
+1. Aprire il **Pannello debug** in vs code ed eseguire la configurazione **Esegui tutti i microservizi** . Questa configurazione esegue il microservizio di simulazione dispositivi in Docker ed esegue gli altri microservizi nel debugger.
 
-L'output di esecuzione **microsoervices Esegui tutto** nella Console di Debug simile al seguente:
+L'output dell'esecuzione di **Run all microsoervices** nel Console di debug ha un aspetto simile al seguente:
 
-[![Deploy-Local-Microservices](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
+[![distribuzione-locale-microservizi](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
 
 ### <a name="run-the-web-ui"></a>Eseguire l'interfaccia utente Web
 
@@ -80,7 +80,7 @@ npm install
 npm start
 ```
 
-Una volta completato l'avvio, il browser visualizza la pagina **http:\//localhost:3000 / dashboard**. Gli errori in questa pagina sono previsti. Per visualizzare l'applicazione senza errori, completare la procedura seguente.
+Al termine dell'avvio, nel browser verrà visualizzata la pagina **http:\//localhost: 3000/dashboard**. Gli errori in questa pagina sono previsti. Per visualizzare l'applicazione senza errori, completare la procedura seguente.
 
 ### <a name="configure-and-run-nginx"></a>Configurare ed eseguire NGINX
 
@@ -93,7 +93,7 @@ Per altre informazioni sull'esecuzione **nginx**, vedere [nginx per Windows](htt
 
 ### <a name="connect-to-the-dashboard"></a>Connettersi al dashboard
 
-Per accedere a dashboard della soluzione di monitoraggio remoto, passare a http:\//localhost:9000 nel browser.
+Per accedere al dashboard della soluzione di monitoraggio remoto, passare a http:\//localhost: 9000 nel browser.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 

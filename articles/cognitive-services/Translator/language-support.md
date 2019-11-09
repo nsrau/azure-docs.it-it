@@ -1,7 +1,7 @@
 ---
 title: Supporto per la lingua - API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Elenco di lingue naturali supportate dall'API Traduzione testuale.
+description: Il API Traduzione testuale supporta le seguenti lingue per la traduzione da testo a testo tramite Neural Machine Translation (NMT).
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cb0552612d95500e01edd91aff36406d4c2282bd
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 5e96ced1bd87a0ed8be19bf4e07f7b0d9b319aad
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70909974"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837338"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
 
@@ -23,29 +23,29 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 
 [Altre informazioni sull'uso della traduzione automatica](https://www.microsoft.com/translator/mt.aspx)
 
-## <a name="translation"></a>Conversione
+## <a name="translation"></a>Traduzione
 
 **API Traduzione V2**
 
 > [!NOTE]
 > V2 è stato deprecato il 30 aprile 2018. Eseguire la migrazione delle applicazioni a V3 per sfruttare i vantaggi delle nuove funzionalità disponibili esclusivamente in V3.
 
-* Solo sistema statistico: nessun sistema neurale è disponibile per questa lingua.
-* Sistema neurale disponibile: è disponibile un sistema neurale. Usare il parametro `category=generalnn` per accedere al sistema neurale.
-* Sistema neurale come predefinito: il sistema neurale è il sistema di traduzione predefinito. Usare il parametro `category=smt` per accedere al sistema statistico per l'uso con l'Hub di Microsoft Translator.
-* Solo sistema neurale: è disponibile solo la traduzione neurale.
+* Solo statistica: non è disponibile alcun sistema neurale per questa lingua.
+* Neural available: è disponibile un sistema neurale. Usare il parametro `category=generalnn` per accedere al sistema neurale.
+* Impostazione predefinita neurale: neurale è il sistema di conversione predefinito. Usare il parametro `category=smt` per accedere al sistema statistico per l'uso con l'Hub di Microsoft Translator.
+* Solo neurale: è disponibile solo la traduzione neurale.
 
 **API Traduzione V3** l'API Traduzione V3 è neurale per impostazione predefinita e i sistemi statistici sono disponibili solo quando non è presente alcun sistema neurale.
 
 > [!NOTE]
 > Attualmente, un sottoinsieme di linguaggi neurali è disponibile nel convertitore personalizzato e l'aggiunta di altri. [Visualizza le lingue attualmente disponibili nel convertitore personalizzato](#customization).
 
-|Linguaggio|  Codice lingua|  API V2| API V3|
+|Lingua|  Codice lingua|  API V2| API V3|
 |:-----|:-----:|:-----|:-----|
 |Afrikaans| `af`    |Solo sistema statistico|  Neurale|
 |Arabo|    `ar`    |Sistema neurale disponibile|  Neurale|
-|Bengali|    `bn`    |Sistema neurale disponibile|  Neurale|
-|Bosniaco (latino)|   `bs`    |Sistema neurale disponibile|  Neurale|
+|Bengalese|    `bn`    |Sistema neurale disponibile|  Neurale|
+|Bosniaco (alfabeto latino)|   `bs`    |Sistema neurale disponibile|  Neurale|
 |Bulgaro| `bg`    |Sistema neurale disponibile|  Neurale|
 |Cantonese (tradizionale)|   `yue`   |Solo sistema statistico|  Statistica|
 |Catalano|   `ca`    |Solo sistema statistico|  Statistica|
@@ -95,7 +95,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |Sloveno| `sl`    |Sistema neurale disponibile|  Neurale|
 |Spagnolo|   `es`    |Sistema neurale disponibile|  Neurale|
 |Svedese|   `sv`    |Sistema neurale disponibile   |Neurale|
-|Tahitiano|  `ty`    |Solo sistema statistico|  Statistica|
+|Taitiano|  `ty`    |Solo sistema statistico|  Statistica|
 |Tamil| `ta`    |Solo sistema statistico|  Statistica|
 |Telugu|    `te`    |Solo sistema neurale|   Neurale|
 |Thai|  `th`    |Sistema neurale disponibile|  Neurale|
@@ -111,10 +111,10 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 
 Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il simbolo "<-->" indica che la lingua può essere traslitterata da o verso entrambi gli alfabeti elencati. Il simbolo "-->" indica che la lingua può essere traslitterata solo da un alfabeto all'altro.
 
-| Linguaggio    | Codice lingua | Script | Verso/Da | Script|
+| Lingua    | Codice lingua | Script | Verso/Da | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabo | `ar` | Arabo `Arab` | <--> | Latino `Latn` |
-|Bengali  | `bn` | Bengalese `Beng` | <--> | Latino `Latn` |
+|Bengalese  | `bn` | Bengalese `Beng` | <--> | Latino `Latn` |
 | Cinese (semplificato) | `zh-Hans` | Cinese semplificato `Hans`| <--> | Latino `Latn` |
 | Cinese (semplificato) | `zh-Hans` | Cinese semplificato `Hans`| <--> | Cinese tradizionale `Hant`|
 | Cinese (tradizionale) | `zh-Hant` | Cinese tradizionale `Hant`| <--> | Latino `Latn` |
@@ -126,7 +126,7 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 | Kannada | `kn` | Kannada `Knda` | --> | Latino `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | --> | Latino `Latn` |
 | Marathi | `mr` | Devanagari `Deva` | --> | Latino `Latn` |
-| Odia | `or` | Oriya `Orya` | <--> | Latino `Latn` |
+| Oriya | `or` | Oriya `Orya` | <--> | Latino `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latino `Latn`  |
 | Serbo (alfabeto cirillico) | `sr-Cyrl` | Cirillico `Cyrl`  | --> | Latino `Latn` |
 | Serbo (alfabeto latino) | `sr-Latn` | Latino `Latn` | --> | Cirillico `Cyrl`|
@@ -138,12 +138,12 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 
 Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i metodi Lookup ed Examples.
 
-| Linguaggio    | Codice lingua |
+| Lingua    | Codice lingua |
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Arabo       | `ar`          |
-| Bengali      | `bn`          |
-| Bosniaco (latino)      | `bs`          |
+| Bengalese      | `bn`          |
+| Bosniaco (alfabeto latino)      | `bs`          |
 | Bulgaro      | `bg`          |
 | Catalano      | `ca`          |
 | Cinese semplificato      | `zh-Hans`          |
@@ -191,7 +191,7 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 | Vietnamita      | `vi`          |
 | Gallese      | `cy`          |
 
-## <a name="detect"></a>Rileva
+## <a name="detect"></a>Detect
 
 API Traduzione testuale rileva tutte le lingue disponibili per la conversione e la traslitterazione.
 
@@ -206,11 +206,11 @@ API Traduzione testuale rileva tutte le lingue disponibili per la conversione e 
 
 Le lingue seguenti sono disponibili per la personalizzazione da o verso l'inglese utilizzando il [convertitore personalizzato](https://aka.ms/CustomTranslator).
 
-| Linguaggio    | Codice lingua |
+| Lingua    | Codice lingua |
 |:----------- |:-------------:|
 | Arabo       | `ar`          |
-| Bengali      | `bn`          |
-| Bosniaco (latino)      | `bs`          |
+| Bengalese      | `bn`          |
+| Bosniaco (alfabeto latino)      | `bs`          |
 | Bulgaro      | `bg`          |
 | Cinese semplificato      | `zh-Hans`          |
 |Cinese tradizionale|   `zh-Hant`   |
@@ -257,6 +257,6 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Accedere all'elenco nel sito Web Microsoft Translator
 
-Per una rapida panoramica delle lingue, il sito Web di Microsoft Translator offre l'elenco di tutte le lingue supportate dalle API Traduzione testuale e Traduzione vocale. L'elenco non include informazioni specifiche per sviluppatori, ad esempio i codici delle lingue.
+Per una rapida panoramica delle lingue, il sito Web Microsoft Translator offre l'elenco di tutte le lingue supportate dalle API Traduzione testuale e Traduzione vocale. L'elenco non include informazioni specifiche per sviluppatori, ad esempio i codici delle lingue.
 
 [Visualizzare l'elenco delle lingue](https://www.microsoft.com/translator/languages.aspx)

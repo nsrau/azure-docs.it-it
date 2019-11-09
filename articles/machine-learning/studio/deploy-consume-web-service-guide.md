@@ -1,6 +1,6 @@
 ---
 title: Distribuzione e utilizzo
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: È possibile usare Azure Machine Learning Studio (classico) per distribuire i flussi di lavoro e i modelli di machine learning come servizi Web. Questi servizi Web possono quindi essere usati per chiamare i modelli di Machine Learning dalle applicazioni tramite Internet allo scopo di eseguire stime in tempo reale o in modalità batch.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 47cd04615919fcc9db757ed4b9e8fd06eb297592
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 560158dce3c70049ad3faa11a5ffb9a1858aa445
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684832"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837677"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Servizi Web di Azure Machine Learning Studio (classico): distribuzione e utilizzo
 

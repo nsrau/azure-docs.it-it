@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 494beb6ba2bf8a9409962b4418089cdad0e182e1
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 7f48012ca1f97c2e28380d95da37863c4bc17f63
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114790"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831834"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Distribuire e configurare il firewall di Azure con Azure PowerShell
 
@@ -68,7 +68,7 @@ New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 Questa rete virtuale presenta tre subnet:
 
 > [!NOTE]
-> Le dimensioni della subnet AzureFirewallSubnet sono/26. Per altre informazioni sulle dimensioni della subnet, vedere [domande frequenti su firewall di Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> La dimensione della subnet AzureFirewallSubnet è /26. Per altre informazioni sulle dimensioni delle subnet, vedere le [domande frequenti su Firewall di Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 ```azurepowershell
 $FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/26
@@ -241,7 +241,7 @@ A questo punto testare il firewall per verificare che funzioni come previsto.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Le richieste www.google.com dovrebbero avere esito positivo e le richieste www.microsoft.com dovrebbero avere esito negativo. Ciò dimostra che le regole del firewall funzionano come previsto.
+   Le richieste di `www.google.com` dovrebbero avere esito positivo e le richieste di `www.microsoft.com` devono avere esito negativo. Ciò dimostra che le regole del firewall funzionano come previsto.
 
 A questo punto si è verificato che le regole del firewall funzionano:
 
@@ -258,4 +258,4 @@ Remove-AzResourceGroup -Name Test-FW-RG
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)
+* [Esercitazione: Monitorare i log di Firewall di Azure](./tutorial-diagnostics.md)

@@ -1,6 +1,6 @@
 ---
 title: Gestire i servizi Web
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Gestisci i tuoi Machine Learning i servizi Web nuovi e classici usando il portale dei servizi Web di Microsoft Azure Machine Learning. Poiché i servizi Web classici e nuovi sono basati su tecnologie diverse, sono disponibili funzionalità di gestione leggermente diverse.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: cf24c45cb00dfcffa085272a26e401abf78524c2
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 2e72c8a363ee7f58630b1c0d8d0f00434c2e2b7e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618932"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838799"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning Studio (classico)
 Il portale dei servizi Web di Microsoft Azure Machine Learning consente di gestire i servizi Web classici e nuovi di Machine Learning. Poiché i servizi Web classici e nuovi sono basati su tecnologie diverse, sono disponibili funzionalità di gestione leggermente diverse.

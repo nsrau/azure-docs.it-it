@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 10/30/2019
-ms.openlocfilehash: 87e1995a84ae2b598b8097d4910914831a75a318
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7574f5c17c1b4598336b8db3108946164dc203f2
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162026"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847273"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connettere i computer senza accesso a Internet usando il gateway Log Analytics in monitoraggio di Azure
 
@@ -26,7 +26,7 @@ Il gateway Log Analytics è un proxy di inoltro HTTP che supporta il tunneling H
 
 Il gateway di Log Analytics gli elementi seguenti:
 
-* Creazione di report per gli stessi quattro Log Analytics agenti dell'area di lavoro protetti e configurati con i ruoli di lavoro ibridi per Runbook di automazione di Azure.  
+* Creazione di report per le stesse aree di lavoro Log Analytics configurate in ogni agente sottostante e configurate con i ruoli di lavoro ibridi per Runbook di automazione di Azure.  
 * Computer Windows in cui il Microsoft Monitoring Agent è direttamente connesso a un'area di lavoro Log Analytics in monitoraggio di Azure.
 * Computer Linux in cui un agente di Log Analytics per Linux è direttamente connesso a un'area di lavoro Log Analytics in monitoraggio di Azure.  
 * System Center Operations Manager 2012 SP1 con UR7, Operations Manager 2012 R2 con UR3 o un gruppo di gestione in Operations Manager 2016 o versione successiva integrato con Log Analytics.  
@@ -73,7 +73,7 @@ Il gateway Log Analytics è disponibile nelle lingue seguenti:
 - Cinese (tradizionale)
 - Ceco
 - Olandese
-- Italiano
+- Inglese
 - Francese
 - Tedesco
 - Ungherese
@@ -115,7 +115,7 @@ Per ottenere il gateway Log Analytics dal portale di Azure, seguire questa proce
  
    ![Screenshot dei passaggi per scaricare il gateway Log Analytics](./media/gateway/download-gateway.png)
 
-Oppure 
+oppure 
 
 1. Nel pannello dell'area di lavoro in **Impostazioni** selezionare **Impostazioni avanzate**.
 1. Passare a **origini connesse** > **server Windows** e selezionare **Scarica log Analytics gateway**.
@@ -153,7 +153,7 @@ Il file scaricato per il gateway è un pacchetto di Windows Installer che suppor
  
 Nella tabella seguente vengono evidenziati i parametri supportati dal programma di installazione.
 
-|parameters| Note|
+|Parametri| Note|
 |----------|------| 
 |NumeroPorta | Numero di porta TCP su cui è in ascolto il gateway |
 |PROXY | Indirizzo IP del server proxy |
@@ -243,7 +243,7 @@ Per usare il gateway OMS per supportare Operations Manager, è necessario dispor
 
 Se il gruppo di gestione Operations Manager viene registrato con un'area di lavoro di Log Analytics per la prima volta, non verrà visualizzata l'opzione per specificare la configurazione proxy per il gruppo di gestione nella console operatore. Questa opzione è disponibile solo se il gruppo di gestione è stato registrato con il servizio.  
 
-Per configurare l'integrazione, aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema in cui viene eseguita la console operatore e in tutti i server di gestione del gruppo di gestione. Seguire questa procedura:
+Per configurare l'integrazione, aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema in cui viene eseguita la console operatore e in tutti i server di gestione del gruppo di gestione. A tale scopo, seguire questa procedura:
 
 1. Aprire un prompt dei comandi con privilegi elevati:
 
@@ -322,12 +322,12 @@ Se il computer è stato aggiunto ad automazione di Azure usando il cmdlet di reg
 
 Un errore nel passaggio 3 indica che il modulo non è stato importato. L'errore potrebbe verificarsi quando PowerShell non riesce a trovare il modulo. Il modulo è reperibile nel percorso di installazione del gateway OMS: c:\Programmi\Microsoft *OMS Gateway\PowerShell\OmsGateway*.
 
-| **Cmdlet** | **Parameters** | **Descrizione** | **Esempio** |
+| **Cmdlet** | **Parameters** (Parametri) | **Descrizione** | **Esempio** |
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |Chiave |Ottiene la configurazione del servizio |`Get-OMSGatewayConfig` |  
-| `Set-OMSGatewayConfig` |Chiave (obbligatorio) <br> Value |Modifica la configurazione del servizio |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Set-OMSGatewayConfig` |Chiave (obbligatorio) <br> Valore |Modifica la configurazione del servizio |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Ottiene l'indirizzo del proxy di inoltro (upstream) |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |Indirizzo<br> Username<br> Password |Imposta l'indirizzo (e le credenziali) del proxy di inoltro (upstream) |1. impostare un proxy di inoltro e le credenziali:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. impostare un proxy di inoltro che non richiede l'autenticazione: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. deselezionare l'impostazione proxy di inoltro:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Set-OMSGatewayRelayProxy` |Indirizzo<br> Nome utente<br> Password |Imposta l'indirizzo (e le credenziali) del proxy di inoltro (upstream) |1. impostare un proxy di inoltro e le credenziali:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. impostare un proxy di inoltro che non richiede l'autenticazione: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. deselezionare l'impostazione proxy di inoltro:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |Ottiene l'host attualmente consentito (solo l'host consentito configurato localmente, non gli host consentiti scaricati automaticamente) |`Get-OMSGatewayAllowedHost` | 
 | `Add-OMSGatewayAllowedHost` |Host (obbligatorio) |Aggiunge l'host all'elenco dei valori consentiti |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Host (obbligatorio) |Rimuove l'host dall'elenco dei valori consentiti |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
@@ -335,7 +335,7 @@ Un errore nel passaggio 3 indica che il modulo non è stato importato. L'errore 
 | `Remove-OMSGatewayAllowedClientCertificate` |Oggetto (obbligatorio) |Rimuove l'oggetto del certificato client dall'elenco dei valori consentiti |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
 | `Get-OMSGatewayAllowedClientCertificate` | |Ottiene gli oggetti del certificato client attualmente consentiti (solo gli oggetti consentiti configurati localmente, non scaricati automaticamente gli oggetti consentiti) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Per raccogliere gli eventi registrati dal gateway, è necessario che sia installato l'agente Log Analytics.
 
