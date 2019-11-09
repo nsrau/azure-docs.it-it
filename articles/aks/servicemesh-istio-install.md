@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 9c9dcd567b8632626bf4b1f0bf2ef6b5e69b8a9d
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 245ac3b1fd88b8d2430e9ddefef3562efd16e6d1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530446"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885390"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installare e utilizzare Istio nel servizio Azure Kubernetes
 
@@ -21,9 +21,9 @@ ms.locfileid: "72530446"
 Questo articolo illustra come installare Istio. Il file binario client `istioctl` Istio viene installato nel computer client e i componenti Istio vengono installati in un cluster Kubernetes in AKS.
 
 > [!NOTE]
-> Queste istruzioni fanno riferimento a Istio Version `1.3.2` e usano almeno la versione Helm `2.14.2`.
+> Queste istruzioni fanno riferimento a Istio Version `1.3.2`e usano almeno la versione Helm `2.14.2`.
 >
-> Le versioni `1.3.x` di Istio sono state testate dal team Istio in base alle versioni di Kubernetes `1.13`, `1.14` `1.15`. È possibile trovare altre versioni di Istio in [GitHub-Istio releases][istio-github-releases], informazioni su ogni versione di [Istio News][istio-release-notes] e versioni supportate di Kubernetes in [Istio domande frequenti generali][istio-faq].
+> Le versioni `1.3.x` di Istio sono state testate dal team Istio in base alle versioni di Kubernetes `1.13`, `1.14``1.15`. È possibile trovare altre versioni di Istio in [GitHub-Istio releases][istio-github-releases], informazioni su ogni versione di [Istio News][istio-release-notes] e versioni supportate di Kubernetes in [Istio domande frequenti generali][istio-faq].
 
 In questo articolo viene spiegato come:
 
@@ -195,7 +195,7 @@ kubectl get svc --namespace istio-system --output wide
 L'output di esempio indicato di seguito mostra i servizi attualmente in esecuzione:
 
 - Servizi di `istio-*`
-- Servizi di traccia del componente aggiuntivo `jaeger-*`, `tracing` e `zipkin`
+- Servizi di traccia del componente aggiuntivo `jaeger-*`, `tracing`e `zipkin`
 - `prometheus` il servizio metriche del componente aggiuntivo
 - `grafana` componente aggiuntivo di analisi e monitoraggio del servizio dashboard
 - `kiali` servizio dashboard mesh del servizio componente aggiuntivo
@@ -383,7 +383,7 @@ Per informazioni su come monitorare l'applicazione AKS usando Application Insigh
 [kubernetes-crd]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions
 [kubernetes-jobs]: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
 [kubernetes-secrets]: https://kubernetes.io/docs/concepts/configuration/secret/
-[kubernetes-node-selectors]: https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#node-selectors
+[kubernetes-node-selectors]: https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#node-selectors
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-port-forward]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward

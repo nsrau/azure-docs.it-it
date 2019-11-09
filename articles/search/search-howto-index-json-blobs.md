@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f8ddec95b92121c8dad4a39cf0c7b3f1798ec8ad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 81e652b90831af0e1e20e716842b4e79f5606d05
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789511"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889893"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Come indicizzare i BLOB JSON usando un indicizzatore BLOB in Azure ricerca cognitiva
 
@@ -65,17 +65,11 @@ Nella pagina **Nuova origine dati** l'origine deve essere **Archivio BLOB di Azu
 
    ![Definizione dell'origine dati BLOB](media/search-howto-index-json/import-wizard-json-data-source.png)
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4 - Saltare la pagina "Aggiungi ricerca cognitiva" nella procedura guidata
+### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4-ignorare la pagina "arricchisci contenuto" della procedura guidata
 
-L'aggiunta di funzionalità di ricerca cognitiva non è necessaria per l'importazione di documenti JSON. A meno che non sia necessario aggiungere l' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) alla pipeline di indicizzazione, è consigliabile ignorare questo passaggio.
+L'aggiunta di competenze cognitive (o arricchimento) non è un requisito di importazione. A meno che non sia necessario aggiungere l' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) alla pipeline di indicizzazione, è consigliabile ignorare questo passaggio.
 
-Per ignorare il passaggio, passare prima alla pagina successiva.
-
-   ![Pulsante Pagina successiva per la ricerca cognitiva](media/search-get-started-portal/next-button-add-cog-search.png)
-
-Da questa pagina è possibile passare alla personalizzazione degli indici.
-
-   ![Ignorare il passaggio delle competenze cognitive](media/search-get-started-portal/skip-cog-skill-step.png)
+Per ignorare il passaggio, fare clic sui pulsanti blu nella parte inferiore della pagina per "Avanti" e "Ignora".
 
 ### <a name="5---set-index-attributes"></a>5 - Impostare gli attributi dell'indice
 
@@ -124,7 +118,7 @@ L'ordine delle operazioni richiede la creazione e la chiamata di oggetti in ques
 
 I BLOB JSON nell'archivio BLOB di Azure sono in genere un singolo documento JSON o una "matrice" JSON. L'indicizzatore BLOB in Azure ricerca cognitiva può analizzare una costruzione, a seconda di come si imposta il parametro **parsingMode** nella richiesta.
 
-| Documento JSON | parsingMode | Description | Disponibilità |
+| Documento JSON | parsingMode | Descrizione | Disponibilità |
 |--------------|-------------|--------------|--------------|
 | Un solo documento per BLOB | `json` | Analizza i BLOB JSON come un singolo blocco di testo. Ogni BLOB JSON diventa un singolo documento di ricerca cognitiva di Azure. | Disponibile a livello generale nell'API [Rest](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e in [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 | Più documenti per BLOB | `jsonArray` | Analizza una matrice JSON nel BLOB, in cui ogni elemento della matrice diventa un documento di ricerca cognitiva di Azure separato.  | Disponibile a livello generale nell'API [Rest](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e in [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
@@ -288,7 +282,7 @@ La creazione dell'indicizzatore in Azure ricerca cognitiva attiva l'importazione
 
 I BLOB JSON possono assumere più forme. Il parametro **parsingMode** nell'indicizzatore JSON determina il modo in cui il contenuto BLOB JSON viene analizzato e strutturato in un indice ricerca cognitiva di Azure:
 
-| parsingMode | Description |
+| parsingMode | Descrizione |
 |-------------|-------------|
 | `json`  | Indicizzare ogni BLOB come un singolo documento. Questa è la modalità predefinita. |
 | `jsonArray` | Scegliere questa modalità se i BLOB sono costituiti da matrici JSON ed è necessario che ogni elemento della matrice diventi un documento separato in Azure ricerca cognitiva. |
@@ -430,7 +424,7 @@ I nomi dei campi di origine nei mapping vengono specificati mediante la notazion
 >
 >
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Indicizzatori in Azure ricerca cognitiva](search-indexer-overview.md)
 + [Indicizzazione dell'archiviazione BLOB di Azure con Azure ricerca cognitiva](search-howto-index-json-blobs.md)

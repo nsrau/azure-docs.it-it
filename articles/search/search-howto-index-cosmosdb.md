@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 41da5b59c7d9429a068ecd483aa96edb1141b727
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 0657d3d5aec414b867e85b627fcf77174c8ce789
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719958"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889903"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Come indicizzare i dati Cosmos DB usando un indicizzatore in Azure ricerca cognitiva 
 
@@ -78,17 +78,11 @@ Nella pagina **origine dati** , l'origine deve essere **Cosmos DB**, con le spec
 
    ![Definizione dell'origine dati Cosmos DB](media/search-howto-index-cosmosdb/cosmosdb-datasource.png "Definizione dell'origine dati Cosmos DB")
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4 - Saltare la pagina "Aggiungi ricerca cognitiva" nella procedura guidata
+### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4-ignorare la pagina "arricchisci contenuto" della procedura guidata
 
-L'aggiunta di competenze cognitive non è necessaria per l'importazione di documenti. A meno che non sia necessario aggiungere l' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) alla pipeline di indicizzazione, è consigliabile ignorare questo passaggio.
+L'aggiunta di competenze cognitive (o arricchimento) non è un requisito di importazione. A meno che non sia necessario aggiungere l' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) alla pipeline di indicizzazione, è consigliabile ignorare questo passaggio.
 
-Per ignorare il passaggio, passare prima alla pagina successiva.
-
-   ![Pulsante pagina successiva per Aggiungi competenze](media/search-get-started-portal/next-button-add-cog-search.png)
-
-Da questa pagina è possibile passare alla personalizzazione degli indici.
-
-   ![Ignorare il passaggio delle competenze cognitive](media/search-get-started-portal/skip-cog-skill-step.png)
+Per ignorare il passaggio, fare clic sui pulsanti blu nella parte inferiore della pagina per "Avanti" e "Ignora".
 
 ### <a name="5---set-index-attributes"></a>5 - Impostare gli attributi dell'indice
 

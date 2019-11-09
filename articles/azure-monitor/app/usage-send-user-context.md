@@ -8,12 +8,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: cf639be5db90e3632b8931564ac397c42e1d8403
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b105e8ba79e99be02420ca1821f6a080b0862d6f
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899369"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887403"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Invio degli ID del contesto utente per abilitare esperienze di utilizzo in Azure Application Insights
 
@@ -32,7 +32,7 @@ Per tenere traccia delle operazioni eseguite da un utente nel corso del tempo, A
 - Sessioni: includere l'ID di sessione.
 
 > [!NOTE]
-> Questo articolo illustra in modo approfondito la procedura manuale per tenere traccia delle attività degli utenti con Application Insights. Con molte applicazioni Web **questa procedura potrebbe non essere necessaria** poiché gli SDK lato server predefiniti in combinazione con [JavaScript SDK lato client/browser](../../azure-monitor/app/website-monitoring.md ) sono spesso sufficienti per tenere traccia automaticamente delle attività degli utenti. Se non è stato configurato il [monitoraggio lato client](../../azure-monitor/app/website-monitoring.md ) in aggiunta all'SDK lato server, è necessario eseguire prima questa operazione e successivamente il test per verificare se gli strumenti di analisi del comportamento degli utenti funzionano come previsto.
+> Questo articolo illustra in modo approfondito la procedura manuale per tenere traccia delle attività degli utenti con Application Insights. Con molte applicazioni Web **questa procedura potrebbe non essere necessaria** poiché gli SDK lato server predefiniti in combinazione con l'[SDK JavaScript lato client/browser](../../azure-monitor/app/website-monitoring.md ) sono spesso sufficienti per tenere traccia automaticamente delle attività degli utenti. Se non è stato configurato il [monitoraggio lato client](../../azure-monitor/app/website-monitoring.md ) in aggiunta all'SDK lato server, è necessario eseguire prima questa operazione e successivamente il test per verificare se gli strumenti di analisi del comportamento degli utenti funzionano come previsto.
 
 ## <a name="choosing-user-ids"></a>Scelta degli ID utente
 
@@ -48,7 +48,7 @@ Se l'ID contiene informazioni personali sull'utente, non è un valore appropriat
 
 ## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>App ASP.NET: Impostare il contesto utente in un ITelemetryInitializer
 
-Creare un inizializzatore della telemetria come descritto in dettaglio [qui](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer). Passare l'ID sessione tramite la telemetria delle richieste e impostare Context.User.Id e Context.Session.Id.
+Creare un inizializzatore della telemetria come descritto in dettaglio [qui](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer). Passare l'ID sessione tramite la telemetria delle richieste e impostare Context.User.Id e Context.Session.Id.
 
 Questo esempio imposta l'ID utente su un identificatore che scade al termine della sessione. Se possibile, usare un ID utente che persiste tra le sessioni.
 

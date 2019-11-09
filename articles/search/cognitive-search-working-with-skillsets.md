@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8a783581394de05fff9f0060e124e8dc59c96b60
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 8fa20608f09b4e3006dad685d2fc52bcc9207b5a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790179"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890153"
 ---
 # <a name="working-with-skillsets-in-azure-cognitive-search"></a>Uso di skillsets in Azure ricerca cognitiva
 
@@ -32,7 +32,7 @@ Un skillt dispone di tre proprietà:
 
 
 
-Skillsets vengono creati in JSON. È possibile compilare skillsets complessi con cicli e [diramazioni](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-conditional) usando il [linguaggio delle espressioni](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). Il linguaggio delle espressioni usa la notazione del percorso del [puntatore JSON](https://tools.ietf.org/html/rfc6901) con alcune modifiche per identificare i nodi nell'albero di arricchimento. Un ```"/"``` attraversa un livello inferiore nell'albero e ```"*"``` funge da operatore for-each nel contesto. Questi concetti sono descritti meglio con un esempio. Per illustrare alcuni dei concetti e delle funzionalità, verranno illustrate le procedure per l' [esempio delle recensioni degli hotel](knowledge-store-connect-powerbi.md) . Per visualizzare le competenze dopo aver seguito il flusso di lavoro di importazione dei dati, è necessario usare un client dell'API REST per [ottenere l'](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset)insieme di competenze.
+Skillsets vengono creati in JSON. È possibile compilare skillsets complessi con cicli e [diramazioni](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional) usando il [linguaggio delle espressioni](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). Il linguaggio delle espressioni usa la notazione del percorso del [puntatore JSON](https://tools.ietf.org/html/rfc6901) con alcune modifiche per identificare i nodi nell'albero di arricchimento. Un ```"/"``` attraversa un livello inferiore nell'albero e ```"*"``` funge da operatore for-each nel contesto. Questi concetti sono descritti meglio con un esempio. Per illustrare alcuni dei concetti e delle funzionalità, verranno illustrate le procedure per l' [esempio delle recensioni degli hotel](knowledge-store-connect-powerbi.md) . Per visualizzare le competenze dopo aver seguito il flusso di lavoro di importazione dei dati, è necessario usare un client dell'API REST per [ottenere l'](https://docs.microsoft.com/rest/api/searchservice/get-skillset)insieme di competenze.
 
 ### <a name="enrichment-tree"></a>Albero di arricchimento
 
@@ -41,16 +41,16 @@ Per conoscere il modo in cui un insieme di competenze arricchisce progressivamen
 
 Quando un documento si trova nella pipeline di arricchimento, viene rappresentato come albero di contenuto e arricchimenti associati. Viene creata un'istanza di questo albero come output di cracking del documento. Il formato dell'albero di arricchimento consente alla pipeline di arricchimento di alleghi i metadati ai tipi di dati ancora primitivi, non è un oggetto JSON valido, ma può essere proiettato in un formato JSON valido. La tabella seguente illustra lo stato di un documento che entra nella pipeline di arricchimento:
 
-|Modalità Source\Parsing dati|Predefinito|JSON, righe JSON & CSV|
+|Modalità Source\Parsing dati|Default|JSON, righe JSON & CSV|
 |---|---|---|
-|Archiviazione BLOB|/document/content<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
+|Archiviazione BLOB|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
 |SQL|/document/{column1}<br>/document/{column2}<br>…|N/D |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/D|
 
  Quando le competenze vengono eseguite, aggiungono nuovi nodi all'albero di arricchimento. Questi nuovi nodi possono quindi essere utilizzati come input per le competenze downstream, proiettando nell'archivio informazioni o eseguendo il mapping a campi di indice. Gli arricchimenti non sono modificabili: una volta creati, i nodi non possono essere modificati. Poiché il skillsets è più complesso, l'albero di arricchimento, ma non tutti i nodi dell'albero di arricchimento, deve renderlo nell'indice o nell'archivio informazioni. È possibile salvare in modo selettivo solo un subset degli arricchimenti nell'indice o nell'archivio informazioni.
 
 È possibile salvare in modo selettivo solo un subset degli arricchimenti nell'indice o nell'archivio informazioni.
-Per la parte restante di questo documento si presuppone che si stia lavorando all' [esempio di recensioni degli Alberghi](https://docs.microsoft.com/en-us/azure/search/knowledge-store-connect-powerbi), ma gli stessi concetti si applicano all'arricchimento dei documenti da tutte le altre origini dati.
+Per la parte restante di questo documento si presuppone che si stia lavorando all' [esempio di recensioni degli Alberghi](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi), ma gli stessi concetti si applicano all'arricchimento dei documenti da tutte le altre origini dati.
 
 ### <a name="context"></a>Context
 Ogni competenza richiede un contesto. Un contesto determina:

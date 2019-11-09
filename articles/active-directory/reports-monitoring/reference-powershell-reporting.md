@@ -17,17 +17,17 @@ ms.date: 07/12/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d34204b936a608158a0ca3e8af2264059ffc6aa
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: dd1d4f86b6223abd3de8fab618e5975ebd33f892
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70136562"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885286"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlet di Azure AD PowerShell per la creazione di report
 
 > [!NOTE] 
-> Questi cmdlet di PowerShell funzionano attualmente solo con il modulo [Azure ad Preview](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) . Si noti che il modulo di anteprima non è consigliato per l'uso in produzione. 
+> Questi cmdlet di PowerShell funzionano attualmente solo con il modulo [Azure ad Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) . Si noti che il modulo di anteprima non è consigliato per l'uso in produzione. 
 
 Con Azure Active Directory (Azure AD) report è possibile ottenere informazioni dettagliate sulle attività relative a tutte le operazioni di scrittura nella direzione (log di controllo) e i dati di autenticazione (log di accesso). Sebbene le informazioni siano disponibili tramite il API Graph MS, ora è possibile recuperare gli stessi dati utilizzando i cmdlet di Azure AD PowerShell per la creazione di report.
 
@@ -43,7 +43,7 @@ Per ottenere l'accesso ai log di controllo, usare il cmdlet "Get-AzureADAuditDir
 | Scenario                      | Comando di PowerShell |
 | :--                           | :--                |
 | Nome visualizzato dell'applicazione      | Get-AzureADAuditDirectoryLogs-Filter "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "" |
-| Category                      | Get-AzureADAuditDirectoryLogs-Filter "Category EQ ' Gestione applicazioni" |
+| Categoria                      | Get-AzureADAuditDirectoryLogs-Filter "Category EQ ' Gestione applicazioni" |
 | Data/ora attività            | Get-AzureADAuditDirectoryLogs-Filter "activityDateTime gt 2019-04-18" |
 | Tutte le precedenti              | Get-AzureADAuditDirectoryLogs-Filter "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "e Category EQ" Application Management "e activityDateTime gt 2019-04-18"|
 

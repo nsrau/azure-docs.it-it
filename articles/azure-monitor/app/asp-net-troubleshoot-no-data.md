@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/23/2018
-ms.openlocfilehash: 0bb32486ea3fcfd37337b18b02f4f432effa8f75
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 857188ebb5ddc3c24f6a225819c47fc1643417e6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678336"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887525"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alcuni dati di telemetria sono mancanti
@@ -174,7 +174,7 @@ Se l'applicazione invia una grande quantità di dati ed è in uso Application In
 Il 5 febbraio 2018 è stata annunciata la rimozione della registrazione dell'indirizzo IP del client. Questa operazione non influenza la posizione geografica.
 
 > [!NOTE]
-> Se si ha bisogno dei primi 3 ottetti dell'indirizzo IP è possibile usare un [inizializzatore di telemetria](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) per aggiungere un attributo personalizzato.
+> Se si ha bisogno dei primi 3 ottetti dell'indirizzo IP è possibile usare un [inizializzatore di telemetria](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer) per aggiungere un attributo personalizzato.
 > Questa operazione non influisce sui dati raccolti prima del 5 febbraio 2018.
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Dati geografici errati nella telemetria utente

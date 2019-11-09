@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 5c2ecd5a53bb77193469ba1135c46d9b5fa65b2c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8b7e50fdc02ab47c50cecb95073f1b51393db898
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202970"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885638"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>Protezione avanzata degli host di macchine virtuali AKS 
 
@@ -30,7 +30,7 @@ L'obiettivo del sistema operativo host con protezione avanzata consiste nel ridu
 
 * AKS fornisce un sistema operativo host con ottimizzazione per la sicurezza per impostazione predefinita. Non esiste alcuna opzione corrente per selezionare un sistema operativo alternativo. 
 
-* Azure applica patch giornaliere (incluse le patch di sicurezza) agli host di macchine virtuali AKS. Per alcune di queste patch è necessario riavviare il computer, mentre altre non lo sono. L'utente è responsabile della pianificazione dei riavvii dell'host della macchina virtuale AKS in base alle esigenze. Per istruzioni su come automatizzare l'applicazione di patch AKS, vedere applicazione di [patch ai nodi AKS](https://docs.microsoft.com/en-us/azure/aks/node-updates-kured).
+* Azure applica patch giornaliere (incluse le patch di sicurezza) agli host di macchine virtuali AKS. Per alcune di queste patch è necessario riavviare il computer, mentre altre non lo sono. L'utente è responsabile della pianificazione dei riavvii dell'host della macchina virtuale AKS in base alle esigenze. Per istruzioni su come automatizzare l'applicazione di patch AKS, vedere applicazione di [patch ai nodi AKS](https://docs.microsoft.com/azure/aks/node-updates-kured).
 
 Di seguito è riportato un riepilogo delle operazioni di protezione avanzata delle immagini implementate nel motore AKS per produrre il sistema operativo host con ottimizzazione per la sicurezza. Il lavoro è stato implementato [in questo progetto GitHub](https://github.com/Azure/aks-engine/projects/7).  
 

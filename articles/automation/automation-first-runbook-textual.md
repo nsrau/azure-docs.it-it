@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ab6d213e83c2d7eba95c6c9a6dca5edc1f0f2215
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 4973a5215d93a1ce9d0a80f83264dd8c1fbe0888
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996516"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887213"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Il primo runbook del flusso di lavoro PowerShell
 
@@ -103,16 +103,16 @@ Il runbook creato è ancora in modalità bozza. È necessario pubblicarlo prima 
 1. Verrà aperto un riquadro per il processo del runbook creato. È possibile chiudere questo riquadro, ma in questo caso lo si lascerà aperto per poter controllare lo stato del processo.
 1. Lo stato del processo è visualizzato in **Riepilogo processi** e corrisponde agli stati osservati quando è stato testato il runbook.
 
-   ![Riepilogo processi](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
+   ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
 
 1. Quando lo stato del runbook risulta *Completato*fare clic su **Output**. Viene aperto il riquadro Output dove si può vedere il testo *Hello World*.
 
-   ![Riepilogo processi](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)
+   ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)
 
 1. Chiudere il riquadro Output.
 1. Fare clic su **Tutti i log** per aprire il riquadro Flussi relativo al processo del runbook. è necessario visualizzare solo *Hello World* nel flusso di output, ma questa vista può mostrare altri flussi per un processo Runbook, ad esempio verbose ed Error Se il Runbook scrive in essi.
 
-   ![Riepilogo processi](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
+   ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
 1. Chiudere la pagina dei flussi e la pagina del processo per tornare alla pagina MyFirstRunbook.
 1. Fare clic su **processi** per aprire la pagina processi per questo runbook. In questa pagina sono elencati tutti i processi creati da questo runbook. Dovrebbe essere elencato un solo processo, perché il processo è stato eseguito una sola volta.
@@ -150,7 +150,7 @@ Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività 
 1. Fare clic su **Riquadro di test** in modo da testare il runbook.
 1. Fare clic su **Avvia** per avviare il test. Al termine verrà visualizzato un output simile al seguente, con le informazioni di base sull'account. Questa azione conferma che le credenziali sono valide.
 
-   ![Esegui autenticazione](media/automation-first-runbook-textual/runbook-auth-output.png)
+   ![Autentica](media/automation-first-runbook-textual/runbook-auth-output.png)
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Passaggio 6 - aggiungere il codice per avviare una macchina virtuale
 
@@ -204,14 +204,14 @@ Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe pi
 5. Arrestare la macchina virtuale avviata nel passaggio precedente.
 6. Fare clic su **Avvia** per avviare il runbook. Digitare **VMName** e **ResourceGroupName** per la macchina virtuale da avviare.
 
-   ![Avvia runbook](media/automation-first-runbook-textual/automation-pass-params.png)
+   ![Avviare il runbook](media/automation-first-runbook-textual/automation-pass-params.png)
 
 7. Quando il runbook viene completato, controllare che la macchina virtuale sia stata avviata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere la [documentazione di PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
 * Per iniziare a usare runbook grafici, vedere [Il primo runbook grafico](automation-first-runbook-graphical.md)
-* Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual-powershell.md)
+* Per iniziare a usare i runbook PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual-powershell.md)
 * Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
 * Per altre informazioni sulla funzionalità di supporto degli script PowerShell, vedere il blog relativo al [supporto di script PowerShell nativi in Automazione di Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

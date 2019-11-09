@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/05/2018
-ms.openlocfilehash: d77bbe355b3f6a2666f46246d1d12cfb2e43e559
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 860694a750ae313f04aceab924429dcf08ecbb66
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677568"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887548"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per i servizi cloud di Azure
 [Application Insights][start] possibile monitorare le [app del servizio cloud di Azure](https://azure.microsoft.com/services/cloud-services/) per disponibilità, prestazioni, errori e utilizzo combinando i dati di Application Insights SDK con [diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) i dati dei servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
@@ -26,7 +26,7 @@ Prima di iniziare, è necessario disporre di quanto segue:
 * Strumenti di Microsoft Azure 2.9 o versione successiva.
 * Developer Analytics Tools 7.10 o versione successiva.
 
-## <a name="get-started-quickly"></a>Inizia rapidamente
+## <a name="get-started-quickly"></a>Operatività immediata
 Il modo più rapido e semplice per monitorare il servizio cloud con Application Insights è scegliere questa opzione quando si pubblica il servizio in Azure.
 
 ![Pagina Impostazioni di diagnostica di esempio](./media/cloudservices/azure-cloud-application-insights.png)
@@ -57,7 +57,7 @@ Ogni risorsa appartiene a un gruppo di risorse. I gruppi di risorse vengono usat
 ### <a name="resources-for-components"></a>Risorse per i componenti
 È consigliabile creare una risorsa separata per ogni componente dell'app, ovvero per ogni ruolo Web e ruolo di lavoro. È possibile analizzare ogni componente separatamente, ma anche creare un [dashboard](../../azure-monitor/app/overview-dashboard.md) che riunisca i grafici chiave per tutti i componenti, per poterli confrontare e monitorare tutti insieme in un'unica visualizzazione. 
 
-Un approccio alternativo prevede l'invio dei dati di telemetria da più di un ruolo alla stessa risorsa, ma anche l'[aggiunta di una proprietà delle dimensioni a ogni elemento della telemetria](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) per identificare il ruolo di origine. In questo approccio i grafici delle metriche, ad esempio le eccezioni, visualizzano in genere un'aggregazione dei conteggi dei diversi ruoli ma, in base alle esigenze, è possibile segmentare il grafico in base all'identificatore di ruolo. Le ricerche possono essere filtrate anche in base alla stessa dimensione. Questa alternativa può rendere un po' più semplice visualizzare tutti gli elementi insieme, ma può anche creare confusione tra i ruoli.
+Un approccio alternativo prevede l'invio dei dati di telemetria da più di un ruolo alla stessa risorsa, ma anche l'[aggiunta di una proprietà delle dimensioni a ogni elemento della telemetria](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) per identificare il ruolo di origine. In questo approccio i grafici delle metriche, ad esempio le eccezioni, visualizzano in genere un'aggregazione dei conteggi dei diversi ruoli ma, in base alle esigenze, è possibile segmentare il grafico in base all'identificatore di ruolo. Le ricerche possono essere filtrate anche in base alla stessa dimensione. Questa alternativa può rendere un po' più semplice visualizzare tutti gli elementi insieme, ma può anche creare confusione tra i ruoli.
 
 I dati di telemetria del browser in genere vengono inclusi nella stessa risorsa come ruolo Web lato server.
 
@@ -74,7 +74,7 @@ Per inviare i dati di telemetria alle risorse appropriate, è possibile configur
 
 Se si è deciso di creare una risorsa separata per ogni ruolo, ed eventualmente un set separato per ogni configurazione della build, il modo più semplice è crearle tutte insieme nel portale di Application Insights. Se si creano molte risorse, è possibile [automatizzare il processo](../../azure-monitor/app/powershell.md).
 
-1. Nella [portale di Azure][portal]selezionare **nuovo**  >  servizi per gli**sviluppatori**  > **Application Insights**.  
+1. Nella [portale di Azure][portal]selezionare **nuovo** > servizi per gli **sviluppatori** > **Application Insights**.  
 
     ![Riquadro di Application Insights](./media/cloudservices/01-new.png)
 
@@ -224,7 +224,7 @@ Per i ruoli di lavoro esistono due modi per tenere traccia delle eccezioni:
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 Per impostazione predefinita, vengono raccolti i contatori seguenti:
 
-* \Processo (?? APP_WIN32_PROC??) Tempo processore \%
+* \Processo (?? APP_WIN32_PROC? Tempo processore\%
 * \Memory\Available Bytes
 * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
 * \Process(??APP_WIN32_PROC??)\Private Bytes

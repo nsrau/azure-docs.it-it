@@ -6,17 +6,17 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: e22b426b2172c169f9343569fffac57f370afbee
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: de2bc551547706fb820813e57996e77bf49148d1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219874"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888926"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casi d'uso comuni di Azure Cosmos DB
 Questo articolo fornisce una panoramica di diversi casi d'uso comuni per Azure Cosmos DB.  I consigli forniti sono un punto di partenza per sviluppare applicazioni con Cosmos DB.   
 
-Alla fine della lettura, si avranno le risposte alle domande seguenti: 
+Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti: 
 
 * Quali sono i casi d'uso comuni per Azure Cosmos DB?
 * Quali sono i vantaggi dell'uso di Azure Cosmos DB per le applicazioni di vendita al dettaglio?
@@ -33,7 +33,7 @@ Di seguito sono indicati alcuni attributi di Azure Cosmos DB che lo rendono part
 * Azure Cosmos DB partiziona in modo nativo i dati per la disponibilità e la scalabilità elevate. Azure Cosmos DB garantisce al 99,99% disponibilità, velocità effettiva, bassa latenza e coerenza per tutti gli account in una singola area e per tutti gli account in più aree con coerenza media. Garantisce poi al 99,999% la disponibilità in lettura per tutti gli account di database in più aree.
 * Azure Cosmos DB ha una risorsa di archiviazione basata su SSD con tempi di risposta a bassa latenza nell'ordine di millisecondi.
 * Il supporto di Azure Cosmos DB per i livelli di coerenza di tipo eventuale, prefisso coerente, sessione e con obsolescenza associata consente una flessibilità completa e un basso rapporto costo-prestazioni. Nessun servizio di database offre una flessibilità maggiore di Azure Cosmos DB in termini di coerenza dei livelli. 
-* Azure Cosmos DB ha un modello di determinazione dei prezzi flessibile e semplice da usare che calcola in modo indipendente la memoria e la velocità effettiva.
+* Azure Cosmos DB ha un modello di determinazione dei prezzi flessibile e semplice da usare che calcola in modo indipendente lo spazio di archiviazione e la velocità effettiva.
 * Il modello di velocità effettiva riservata di Azure Cosmos DB consente un approccio in termini di numero di letture/scritture invece che di CPU/memoria/operazioni di I/O dell'hardware sottostante.
 * La progettazione di Azure Cosmos DB consente la scalabilità di elevati volumi di richieste, nell'ordine di trilioni di richieste al giorno.
 
@@ -65,10 +65,10 @@ Azure DB Cosmos viene spesso usato per il recupero degli eventi per architetture
 
 I dati archiviati in Azure Cosmos DB possono inoltre essere integrati con HDInsight per analisi di Big Data tramite processi Apache Spark. Per altri dettagli sul connettore Spark per Azure Cosmos DB, vedere [Run a Spark job with Cosmos DB and HDInsight](spark-connector.md) (Eseguire un processo Spark con Azure Cosmos DB e HDInsight).
 
-## <a name="gaming"></a>Modalità di gioco
+## <a name="gaming"></a>Giochi
 Il livello database è un componente fondamentale delle applicazioni di gioco. I giochi moderni eseguono l'elaborazione grafica in client mobili/console, ma si basano sul cloud per distribuire contenuti personalizzati come le statistiche di gioco, l'integrazione con i social media e le classifiche dei punteggi. I giochi richiedono spesso latenze di un solo millisecondo per operazioni di lettura e scrittura, per offrire un'esperienza di gioco accattivante. Un database per giochi deve essere veloce e in grado di gestire picchi significativi a livello di frequenza di richieste durante l'avvio di nuovi giochi e gli aggiornamenti delle funzionalità.
 
-Azure Cosmos DB viene usato da giochi come [The Walking Dead: No Man s Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) di [Next Games](https://www.nextgames.com/), e [Halo 5: Guardians](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Azure Cosmos DB offre agli sviluppatori di giochi i vantaggi seguenti:
+Azure Cosmos DB viene usato da giochi come [The Walking Dead: No Man's Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) di [Next Games](https://www.nextgames.com/) e [Halo 5: Guardians](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Azure Cosmos DB offre agli sviluppatori di giochi i vantaggi seguenti:
 
 * Azure Cosmos DB consente di aumentare o ridurre le prestazioni in modo flessibile. In questo modo i giochi possono gestire l'aggiornamento del profilo e le statistiche di decine di milioni di giocatori simultanei con una singola chiamata API.
 * Azure Cosmos DB supporta le letture e le scritture in millisecondi per evitare eventuali ritardi durante il gioco.
@@ -101,4 +101,4 @@ JSON, supportato da Cosmos DB, è un formato adatto a rappresentare i dati di la
 
 * Per iniziare a usare Azure Cosmos DB, seguire le [guide introduttive](create-sql-api-dotnet.md), che illustrano come creare un account ed eseguire le prime operazioni con Cosmos DB.
 
-* Per altre informazioni sui clienti che usano Azure Cosmos DB, vedere la pagina [Case Study del cliente](https://azure.microsoft.com/en-us/case-studies/?service=cosmos-db) .
+* Per altre informazioni sui clienti che usano Azure Cosmos DB, vedere la pagina [Case Study del cliente](https://azure.microsoft.com/case-studies/?service=cosmos-db) .

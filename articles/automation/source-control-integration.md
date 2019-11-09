@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 52fcd0d928ecbce5c617ff6a27175fccb8fd96f6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 44ab9688471a87e6db3712cc61b8abb194d54ac3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990249"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886521"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integrazione del controllo del codice sorgente in Automazione di Azure
 
@@ -50,11 +50,11 @@ Inserire le informazioni nella pagina **Riepilogo del Controllo del codice sorge
 |Nome del controllo del codice sorgente     | Nome descrittivo per il controllo del codice sorgente. *Questo nome deve contenere solo lettere e numeri.*        |
 |Tipo di controllo del codice sorgente     | Specifica del tipo di controllo del codice sorgente. Le opzioni disponibili sono:</br> GitHub</br>Azure Repos (git)</br> Azure Repos (TFVC)        |
 |Repository     | Nome del repository o del progetto. Vengono restituiti i primi 200 repository. Per cercare un repository, digitare il nome nel campo e fare clic **su Cerca in GitHub**.|
-|Branch     | Ramo da cui eseguire il pull dei file di origine. La destinazione del ramo non è disponibile per il tipo di controllo del codice sorgente TFVC.          |
-|Percorso cartella     | Cartella che contiene i runbook da sincronizzare. Esempio: /Runbooks </br>*Vengono sincronizzati solo manuali operativi nella cartella specificata. La ricorsione non è supportata.*        |
+|Ramo     | Ramo da cui eseguire il pull dei file di origine. La destinazione del ramo non è disponibile per il tipo di controllo del codice sorgente TFVC.          |
+|Percorso della cartella     | Cartella che contiene il manuali operativi da sincronizzare. Esempio:/runbooks </br>*Vengono sincronizzati solo manuali operativi nella cartella specificata. La ricorsione non è supportata.*        |
 |Sincronizzazione automatica<sup>1</sup>     | Attiva o disattiva la sincronizzazione automatica quando viene eseguito un commit nel repository del controllo del codice sorgente         |
 |Pubblica runbook     | Se impostato **su on**, dopo la sincronizzazione di manuali operativi dal controllo del codice sorgente verranno pubblicati automaticamente.         |
-|DESCRIZIONE     | Campo di testo in cui fornire altri dettagli        |
+|Descrizione     | Campo di testo in cui fornire altri dettagli        |
 
 <sup>1</sup> per abilitare la sincronizzazione automatica quando si configura l'integrazione del controllo del codice sorgente con Azure Repos, è necessario essere un amministratore di progetto.
 
@@ -93,7 +93,7 @@ Controllo del codice sorgente richiede alcune autorizzazioni minime per i token 
 
 Per altre informazioni sulla creazione di un token di accesso personale in GitHub, vedere [creazione di un token di accesso personale per la riga di comando](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Ambito  |DESCRIZIONE  |
+|Scope  |Descrizione  |
 |---------|---------|
 |**repo**     |         |
 |repo:status     | Accedere allo stato del commit         |
@@ -107,7 +107,7 @@ Per altre informazioni sulla creazione di un token di accesso personale in GitHu
 
 Per altre informazioni sulla creazione di un token di accesso personale in Azure Repos, vedere [autenticare l'accesso con i token di accesso personali](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
-|Ambito  |
+|Scope  |
 |---------|
 |Codice (lettura)     |
 |Progetto e team (lettura)|
@@ -122,7 +122,7 @@ Per altre informazioni sulla creazione di un token di accesso personale in Azure
 
 Consente di selezionare l'origine della tabella nella pagina **controllo del codice sorgente** . Fare clic su **Avvia sincronizzazione** per avviare il processo di sincronizzazione.
 
-È possibile visualizzare lo stato del processo di sincronizzazione corrente o di quelli precedenti facendo clic sulla scheda **Processi di sincronizzazione**. Nell'elenco a discesa **Controllo del codice sorgente** selezionare un controllo del codice sorgente.
+È possibile visualizzare lo stato del processo di sincronizzazione corrente o di quelli precedenti facendo clic sulla scheda **Sincronizza processi** . Nell'elenco a discesa **controllo del codice sorgente** selezionare un controllo del codice sorgente.
 
 ![Stato sincronizzazione](./media/source-control-integration/sync-status.png)
 
@@ -177,7 +177,7 @@ Se più persone modificano manuali operativi nel repository del controllo del co
 
 Attualmente, non è possibile aggiornare il token di accesso nel controllo del codice sorgente dal portale. Dopo che il token di accesso personale è scaduto o revocato, è possibile aggiornare il controllo del codice sorgente con un nuovo token di accesso nei modi seguenti:
 
-* Tramite l' [API REST](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update).
+* Tramite l' [API REST](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
 * Tramite il cmdlet [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) .
 
 ## <a name="next-steps"></a>Passaggi successivi

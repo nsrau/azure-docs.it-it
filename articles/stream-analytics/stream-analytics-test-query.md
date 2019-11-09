@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c67d511f6c94c8b9af034835e149875304e2235
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: d68c1ee084efc146d69d8404aadb8acbb4cc33d1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918974"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891761"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Testare un processo di Analisi di flusso di Azure con dati di esempio
 
-In analisi di flusso di Azure è possibile testare la query senza avviare o arrestare il processo. È possibile testare le query sui dati in ingresso dal sink di input o i dati di esempio caricati da un file locale nel portale di Azure. È anche possibile testare le query localmente da dati di esempio locali o dati dinamici in [Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-live-data-local-testing) e [Visual Studio Code](https://docs.microsoft.com/en-us/azure/stream-analytics/vscode-local-run). 
+In analisi di flusso di Azure è possibile testare la query senza avviare o arrestare il processo. È possibile testare le query sui dati in ingresso dal sink di input o i dati di esempio caricati da un file locale nel portale di Azure. È anche possibile testare le query localmente da dati di esempio locali o dati dinamici in [Visual Studio](stream-analytics-live-data-local-testing.md) e [Visual Studio Code](vscode-local-run.md). 
 
 ## <a name="sample-incoming-data-from-input"></a>Campionare i dati in ingresso dall'input
 
@@ -100,7 +100,7 @@ Invece di usare i dati dinamici, è possibile usare dati di esempio da un file l
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 
 * [Esempi di query per modelli di utilizzo comuni di analisi di flusso](stream-analytics-stream-analytics-query-patterns.md)
 

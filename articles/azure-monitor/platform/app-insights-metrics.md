@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 903fd2309949036b62fb4975596fb645c021d06d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 847c56faae61483813286c46190764327e287783
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535045"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887260"
 ---
 # <a name="application-insights-log-based-metrics"></a>Metriche basate su log Application Insights
 
@@ -50,7 +50,7 @@ La metrica di *disponibilità* Mostra la percentuale delle esecuzioni dei test W
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|---|---|---|
-|Percentuale|Average|Percorso di esecuzione, nome del test|
+|Percentuale|Media|Percorso di esecuzione, nome del test|
 
 ```Kusto
 availabilityResults 
@@ -80,7 +80,7 @@ La metrica dei *test di disponibilità* riflette il conteggio delle esecuzioni d
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|---|---|---|
-|Conteggio|Conteggio|Percorso di esecuzione, nome del test, risultato del test|
+|Numero|Numero|Percorso di esecuzione, nome del test, risultato del test|
 
 ```Kusto
 availabilityResults
@@ -181,11 +181,11 @@ Le metriche negli **errori** presentano problemi relativi all'elaborazione delle
 
 ### <a name="browser-exceptions-exceptionsbrowser"></a>Eccezioni del browser (eccezioni/browser)
 
-Questa metrica riflette il numero di eccezioni generate dal codice dell'applicazione in esecuzione nel browser. Nella metrica vengono incluse solo le eccezioni rilevate con una ```trackException()``` chiamata API Application Insights.
+Questa metrica riflette il numero di eccezioni generate dal codice dell'applicazione in esecuzione nel browser. Nella metrica vengono incluse solo le eccezioni rilevate con una chiamata ```trackException()``` Application Insights API.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
-|Conteggio|Conteggio|Nessuna|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Numero|Numero|Nessuna|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
 
 ```Kusto
 exceptions
@@ -200,7 +200,7 @@ Numero di chiamate di dipendenza non riuscite.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
-|Conteggio|Conteggio|Nessuna|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Numero|Numero|Nessuna|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
 
 ```Kusto
 dependencies
@@ -211,11 +211,11 @@ dependencies
 
 ### <a name="exceptions-exceptionscount"></a>Eccezioni (eccezioni/conteggio)
 
-Ogni volta che si registra un'eccezione a Application Insights, viene rilevata una chiamata al [Metodo trackexception ()](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) dell'SDK. La metrica eccezioni Mostra il numero di eccezioni registrate.
+Ogni volta che si registra un'eccezione a Application Insights, viene [rilevata una chiamata al metodo trackexception ()](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) dell'SDK. La metrica eccezioni Mostra il numero di eccezioni registrate.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
-|Conteggio|Conteggio|Nome del ruolo Cloud, istanza del ruolo Cloud, tipo di dispositivo|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Numero|Numero|Nome del ruolo Cloud, istanza del ruolo Cloud, tipo di dispositivo|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
 
 ```Kusto
 exceptions
@@ -225,11 +225,11 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>Richieste non riuscite (richieste/non riuscite)
 
-Conteggio delle richieste del server rilevate contrassegnate come *non riuscite*. Per impostazione predefinita, il Application Insights SDK contrassegna automaticamente ogni richiesta del server che ha restituito il codice di risposta HTTP 5xx o 4xx come richiesta non riuscita. È possibile personalizzare questa logica modificando la proprietà *Success* dell'elemento telemetria della richiesta in un inizializzatore di telemetria [personalizzato](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Conteggio delle richieste del server rilevate contrassegnate come *non riuscite*. Per impostazione predefinita, il Application Insights SDK contrassegna automaticamente ogni richiesta del server che ha restituito il codice di risposta HTTP 5xx o 4xx come richiesta non riuscita. È possibile personalizzare questa logica modificando la proprietà *Success* dell'elemento telemetria della richiesta in un [inizializzatore di telemetria personalizzato](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
-|Conteggio|Conteggio|Istanza del ruolo Cloud, nome del ruolo Cloud, traffico reale o sintetico, prestazioni delle richieste, codice di risposta|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Numero|Numero|Istanza del ruolo Cloud, nome del ruolo Cloud, traffico reale o sintetico, prestazioni delle richieste, codice di risposta|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
 
 ```Kusto
 requests
@@ -244,7 +244,7 @@ Questa metrica indica il numero di eccezioni del server.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
-|Conteggio|Conteggio|Nome del ruolo Cloud, istanza del ruolo Cloud|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Numero|Numero|Nome del ruolo Cloud, istanza del ruolo Cloud|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
 
 ```Kusto
 exceptions
@@ -313,7 +313,7 @@ La metrica Mostra la quantità di capacità totale del processore utilizzata dal
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|
-|Percentuale|Media, min, max|Istanza del ruolo cloud
+|Percentuale|Media, min, max|Istanza del ruolo del cloud
 
 ```Kusto
 performanceCounters
@@ -327,7 +327,7 @@ performanceCounters
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|
-|Byte al secondo|Media, min, max|Istanza del ruolo cloud
+|Byte al secondo|Media, min, max|Istanza del ruolo del cloud
 
 ```Kusto
 performanceCounters
@@ -343,7 +343,7 @@ Quantità di memoria non condivisa allocata dal processo monitorato per i dati.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|
-|Byte|Media, min, max|Istanza del ruolo cloud
+|Byte|Media, min, max|Istanza del ruolo del cloud
 
 ```Kusto
 performanceCounters
@@ -359,7 +359,7 @@ Utilizzo della CPU da parte di *tutti* i processi in esecuzione nell'istanza del
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|
-|Percentuale|Media, min, max|Istanza del ruolo cloud
+|Percentuale|Media, min, max|Istanza del ruolo del cloud
 
 >[!NOTE]
 > La metrica del tempo del processore non è disponibile per le applicazioni ospitate nei servizi app Azure. Usare la metrica [Process CPU](#process-cpu-performancecountersprocesscpupercentage) per tenere traccia dell'utilizzo della CPU delle applicazioni Web ospitate nei servizi app.

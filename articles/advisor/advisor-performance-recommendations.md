@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: c8647e316cc77e7e1eed5108fafccd6d70d181cf
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 1fec8a10a6699dc1360494cc7ac66e13f5d37ff0
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898192"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885743"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Migliorare le prestazioni delle applicazioni di Azure con Azure Advisor
 
@@ -27,7 +27,7 @@ Azure Advisor identifica i profili di Gestione Traffico con una durata configura
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>Migliorare le prestazioni del database con Advisor per database SQL
 
-Advisor fornisce una visualizzazione coerente e consolidata dei consigli per tutte le risorse di Azure. Si integra con Advisor per database SQL per offrire consigli su come migliorare le prestazioni del database SQL di Azure. Advisor per database SQL consente di valutare le prestazioni dei database SQL di Azure analizzando la cronologia relativa all'uso. Offre quindi consigli ideali per l'esecuzione del carico di lavoro tipico del database.
+Advisor fornisce una visualizzazione coerente e consolidata dei consigli per tutte le risorse di Azure. Si integra con Advisor per database SQL per offrire consigli su come migliorare le prestazioni del database SQL di Azure. Advisor per database SQL consente di valutare le prestazioni dei database SQL Azure analizzando la cronologia di utilizzo. Offre quindi consigli ideali per l'esecuzione del carico di lavoro tipico del database.
 
 > [!NOTE]
 > Per ottenere consigli, è necessario che un database sia stato in uso per circa una settimana, nel corso della quale deve essersi verificata attività coerente. Advisor per database SQL può essere più facilmente ottimizzato per modelli di query coerenti anziché picchi irregolari casuali di attività.
@@ -73,7 +73,7 @@ Advisor identifica le tabelle che non sono tabelle replicate, ma che potrebbero 
 Eseguire la migrazione del modello di distribuzione dell'account di archiviazione ad Azure Resource Manager (Resource Manager) per usufruire delle distribuzioni di modelli, di maggiori opzioni di sicurezza e della possibilità di eseguire l'aggiornamento a un account GPv2 per l'uso delle funzionalità più recenti di Archiviazione di Azure. Advisor identifica eventuali account di archiviazione autonomi che usano il modello di distribuzione classica e consiglia di eseguire la migrazione al modello di distribuzione di Resource Manager.
 
 > [!NOTE]
-> Gli avvisi classici in monitoraggio di Azure sono stati ritirati nel 2019 agosto. È consigliabile aggiornare l'account di archiviazione classico all'uso di Resource Manager in modo da mantenere la funzionalità di avviso con la nuova piattaforma. Per altre informazioni, vedere [Disattivazione avvisi classici](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform).
+> Gli avvisi classici in monitoraggio di Azure sono stati ritirati nel 2019 agosto. È consigliabile aggiornare l'account di archiviazione classico all'uso di Resource Manager in modo da mantenere la funzionalità di avviso con la nuova piattaforma. Per altre informazioni, vedere [Disattivazione avvisi classici](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform).
 
 ## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Progettare gli account di archiviazione per evitare di raggiungere il limite massimo di sottoscrizioni
 
@@ -88,7 +88,7 @@ Un utilizzo molto elevato della CPU in un periodo prolungato può causare un ral
 Una percentuale di riscontri nella cache ridotta può comportare un rallentamento delle prestazioni delle query e maggiore IOPS. Questo potrebbe essere dovuto a un piano di query non valido o a un carico di lavoro con utilizzo intensivo della memoria. Correggendo il piano di query o [aumentando la memoria](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) del database di Azure per il server di database PostgreSQL, il server di database MySQL di Azure o il server Azure MariaDB consente di ottimizzare l'esecuzione del carico di lavoro del database. Azure Advisor identifica i server interessati a causa di questa varianza del pool di buffer elevata e consiglia di correggere il piano di query, di spostarlo in uno SKU superiore con una maggiore quantità di memoria o di aumentare le dimensioni di archiviazione per ottenere un numero maggiore di IOPS.
 
 ### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Usare una replica di lettura di Azure MySQL o Azure PostgreSQL per scalare le letture per i carichi di lavoro con utilizzo intensivo di lettura
-Azure Advisor utilizza l'euristica basata sul carico di lavoro, ad esempio il rapporto tra le letture e le scritture nel server negli ultimi sette giorni per identificare i carichi di lavoro a elevato utilizzo di lettura. La risorsa del database di Azure per PostgreSQL o del database di Azure per MySQL con un rapporto di lettura/scrittura molto elevato può comportare conflitti di CPU e/o di memoria per rallentare le prestazioni delle query. L'aggiunta di una [replica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) contribuirà alla scalabilità orizzontale delle letture nel server di replica, evitando vincoli di CPU e/o memoria nel server primario. Advisor identificherà i server con carichi di lavoro a elevato utilizzo di lettura e consiglia di aggiungere una [replica](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) di lettura per l'offload di alcuni dei carichi di lavoro di lettura.
+Azure Advisor utilizza l'euristica basata sul carico di lavoro, ad esempio il rapporto tra le letture e le scritture nel server negli ultimi sette giorni per identificare i carichi di lavoro a elevato utilizzo di lettura. La risorsa del database di Azure per PostgreSQL o del database di Azure per MySQL con un rapporto di lettura/scrittura molto elevato può comportare conflitti di CPU e/o di memoria per rallentare le prestazioni delle query. L'aggiunta di una [replica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) contribuirà alla scalabilità orizzontale delle letture nel server di replica, evitando vincoli di CPU e/o memoria nel server primario. Advisor identificherà i server con carichi di lavoro a elevato utilizzo di lettura e consiglia di aggiungere una [replica di lettura](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) per eseguire l'offload di alcuni dei carichi di lavoro di lettura.
 
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Ridimensionare il server Azure MySQL, Azure PostgreSQL o Azure MariaDB a uno SKU superiore per evitare vincoli di connessione
@@ -121,7 +121,7 @@ Azure Advisor identificherà Azure Cosmos DB contenitori in cui vengono utilizza
 Per altre informazioni sui consigli di Advisor, vedere:
 
 * [Introduction to Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
-* [Introduzione ad Advisor](advisor-get-started.md)
+* [Get started with Advisor](advisor-get-started.md) (Introduzione ad Advisor)
 * [Advisor Cost recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sui costi)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Consigli di Advisor sulla disponibilità elevata)
 * [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)

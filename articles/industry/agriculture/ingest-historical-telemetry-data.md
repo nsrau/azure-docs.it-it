@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6fc70b55b3e672ecc67eb1145bb751de33d998a1
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
-ms.translationtype: HT
+ms.openlocfilehash: e6bd9b5c09e1af5ec587e1f0e52ab25d21d2293b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847426"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889621"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Inserire dati di telemetria cronologici
 
@@ -50,11 +50,14 @@ Attenersi ai passaggi seguenti per generarli:
 
     ![Beat Farm progetto](./media/for-tutorials/power-shell-two-1.png)
 
-5. Passare alla directory in cui sono stati caricati i file. per impostazione predefinita, viene caricata nella directory Home/Home/username/.
+5. Passare alla directory in cui sono stati caricati i file
+
+   >[!NOTE]
+   > Per impostazione predefinita, il file viene caricato nella home directory/home/username/.
 6. Eseguire lo script usando il comando:  
 
     ```azurepowershell-interactive
-    PS> ./generateCredentials.ps1
+    ./generateCredentials.ps1
     ```
 
 7. Seguire le istruzioni visualizzate per completare la procedura.
@@ -127,7 +130,9 @@ FarmBeats Data Hub USA l'autenticazione della porta, che richiede le credenziali
 
 Usando le credenziali sopra riportate, il chiamante può richiedere un token di accesso, che deve essere inviato nelle richieste API successive nella sezione dell'intestazione, come indicato di seguito:
 
-Headers = *{"Authorization": "Bearer" + access_token,...}*
+```
+headers = *{"Authorization": "Bearer " + access_token, …}*
+```
 
 **Intestazioni di richiesta http**:
 
@@ -161,8 +166,10 @@ Di seguito sono riportate le intestazioni di richiesta più comuni che è necess
     "additionalProp3": {}
   }
 }
+```
 
-Device
+Dispositivo
+
 ```json
 {
   "deviceModelId": "string",
@@ -242,7 +249,7 @@ Sensore
 ```
 La richiesta di esempio seguente prevede la creazione di un dispositivo, che include un input JSON come payload con il corpo della richiesta.  
 
-```
+```azurepowershell-interactive
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
 "accept: application/json" -H  "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>" -d "
@@ -266,6 +273,7 @@ Ora che sono stati creati i dispositivi e i sensori in FarmBeats, è possibile i
 
 Una volta stabilita una connessione come client EventHub, è possibile inviare messaggi al EventHub come JSON.  
 Convertire il formato dei dati cronologici del sensore in un formato canonico che Azure FarmBeats riconosce. Il formato del messaggio canonico è il seguente:  
+
 
 
  ```

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 8e8e4524034f0a296045691309b065f8547bdaa0
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 057037807a75e50eb2305bfab19d1fcff7fe77ce
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797699"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889600"
 ---
 # <a name="references"></a>Riferimenti
 
@@ -85,7 +85,7 @@ L'URL del servizio API è l'URL dell'hub dati https://\<yourdatahub-website-name
 
 La richiesta di esempio seguente consente di ottenere l'elenco dei dispositivi:
 
-```
+```azurepowershell-interactive
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
 ```
 
@@ -108,7 +108,6 @@ Ad esempio, quando si esegue una query sull'elenco di dispositivi (GET Call on/d
 
 Le API di Azure FarmBeats Data Hub restituiscono gli errori HTTP standard. I codici di errore più comuni sono i seguenti:
 
-
  |Codice di errore             | Descrizione |
  |---                    | --- |
  |200                    | Success |
@@ -121,29 +120,29 @@ Le API di Azure FarmBeats Data Hub restituiscono gli errori HTTP standard. I cod
 
 Oltre agli errori HTTP standard, le API dell'hub dati di Azure FarmBeats restituiscono anche errori interni nel formato seguente:
 
-```
-{
-  "message": "<More information on the error>",
-  "status": "<error code>”,
-  "code": "<InternalErrorCode>",
-  "moreInfo": "<Details of the error>"
-}
-```
+    ```
+    {
+      "message": "<More information on the error>",
+      "status": "<error code>”,
+      "code": "<InternalErrorCode>",
+      "moreInfo": "<Details of the error>"
+    }
+    ```
 
 Esempio: quando si crea una farm, nel payload di input non è stato specificato un campo obbligatorio "Name". Il messaggio di errore risultante sarà:
 
-```
-{
-  "message": "Model validation failed",
-  "status": 400,
-  "code": "ModelValidationFailed",
-  "moreInfo": "[\"The Name field is required.\"]"
-}
-```
+    ```json
+    {
+      "message": "Model validation failed",
+      "status": 400,
+      "code": "ModelValidationFailed",
+      "moreInfo": "[\"The Name field is required.\"]"
+    }
+    ```
 
 ## <a name="adding-users-or-app-registrations-to-azure-active-directory"></a>Aggiunta di utenti o registrazioni di app a Azure Active Directory
 
- È possibile accedere alle API di Azure FarmBeats da un utente o da una registrazione dell'app nel Azure Active Directory. Per creare una registrazione dell'app nel Azure Active Directory, seguire questa procedura:  
+È possibile accedere alle API di Azure FarmBeats da un utente o da una registrazione dell'app nel Azure Active Directory. Per creare una registrazione dell'app nel Azure Active Directory, seguire questa procedura:  
 
 1. Passare a [portale di Azure](https://portal.azure.com) **Azure Active Directory, registrazioni app**> **nuova registrazione**. In alternativa, è possibile usare un account esistente.
 2. Per un nuovo account, assicurarsi di completare le operazioni seguenti:

@@ -1,6 +1,6 @@
 ---
 title: Inviare messaggi a un server MQTT usando la libreria client MQTT di Azure| Microsoft Docs
-description: Usare il dispositivo DevKit come client per inviare messaggi a un server MQTT
+description: Informazioni su come usare la libreria client MQTT per inviare messaggi a un broker MQTT. Informazioni su come configurare il DevKit di mXChip in modo che sia un client MQTT.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 6afe0a2fe366b83af45682245776c803c99483d3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4de8b0910a2be48cc626775c5c9bc873c6e780dc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484027"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889542"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Inviare messaggi a un server MQTT
 
@@ -80,7 +80,7 @@ In caso di problemi, vedere le [domande frequenti di IoT DevKit](https://microso
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Connettere DevKit di IoT AZ3166 all'hub IoT di Azure nel cloud](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 * [Usare lo scuotimento per recuperare un messaggio di Twitter con Funzioni di Azure](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)

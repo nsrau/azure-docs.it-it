@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 01a321503a2c55bfc28720675932e6813cdab320
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2f8fa4c378ed394930a4018c58b99ed919cbc2c2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850602"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886959"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
@@ -32,7 +32,7 @@ I processi accedono alle risorse di Azure eseguendo una connessione alla sottosc
 
 I runbook in Automazione di Automazione di Azure possono essere eseguiti in una sandbox di Azure o in un [ruolo di lavoro ibrido per runbook](automation-hybrid-runbook-worker.md). Una sandbox è un ambiente condiviso di Azure che può essere usato da più processi. I processi che usano la stessa sandbox sono vincolati dalle limitazioni di risorse della sandbox. I ruoli di lavoro ibridi per Runbook possono eseguire manuali operativi direttamente sul computer che ospita il ruolo e sulle risorse nell'ambiente per gestire tali risorse locali. I runbook vengono infatti archiviati e gestiti in Automazione di Azure e quindi distribuiti a uno o più computer assegnati. La maggior parte di manuali operativi può essere eseguita facilmente nelle sandbox di Azure. Esistono però alcuni scenari specifici in cui è consigliabile scegliere un ruolo di lavoro ibrido per runbook invece di una sandbox di Azure per eseguire i runbook. La tabella seguente illustra alcuni scenari di esempio:
 
-|Attività|Scelta migliore|Note|
+|attività|Scelta migliore|Note|
 |---|---|---|
 |Integrazione con le risorse di Azure|Sandbox di Azure|Se ospitata in Azure, l'autenticazione è più semplice. Se si usa un ruolo di lavoro ibrido per runbook in una macchina virtuale di Azure, è possibile usare le [identità gestite per le risorse di Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
 |Prestazioni ottimali per gestire le risorse di Azure|Sandbox di Azure|Lo script viene eseguito nello stesso ambiente, che a sua volta presenta una minore latenza|
@@ -45,7 +45,7 @@ I runbook in Automazione di Automazione di Azure possono essere eseguiti in una 
 |Usare moduli con requisiti specifici| ruolo di lavoro ibrido per runbook|Di seguito sono riportati alcuni esempi:</br> **WinSCP** - dipendenza da winscp.exe </br> **IISAdministration** - IIS deve essere abilitato|
 |Installare un modulo che richiede un programma di installazione|ruolo di lavoro ibrido per runbook|I moduli per sandbox devono essere copiabili|
 |Usare runbook o moduli che richiedono una versione di .NET Framework diversa dalla 4.7.2|ruolo di lavoro ibrido per runbook|Le sandbox di automazione hanno .NET Framework 4.7.2 e non è possibile aggiornare questa versione|
-|Script che richiedono l'elevazione dei privilegi|ruolo di lavoro ibrido per runbook|Le sandbox non consentono l'elevazione dei privilegi. Per risolvere questo problema, usare un ruolo di lavoro ibrido per Runbook ed è possibile `Invoke-Command` disattivare UAC e usare quando si esegue il comando che richiede l'elevazione dei privilegi|
+|Script che richiedono l'elevazione dei privilegi|ruolo di lavoro ibrido per runbook|Le sandbox non consentono l'elevazione dei privilegi. Per risolvere questo problema, usare un ruolo di lavoro ibrido per Runbook ed è possibile disattivare UAC e usare `Invoke-Command` durante l'esecuzione del comando che richiede l'elevazione dei privilegi|
 |Script che richiedono l'accesso a WMI|ruolo di lavoro ibrido per runbook|I processi in esecuzione in sandbox nel cloud non [possono accedere a WMI](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Comportamento dei runbook
@@ -118,7 +118,7 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 
 ### <a name="working-with-multiple-subscriptions"></a>Uso di più sottoscrizioni
 
-Quando si creano manuali operativi che gestiscono più sottoscrizioni, per Runbook è necessario usare il cmdlet [Disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) per assicurarsi che il contesto di autenticazione non venga recuperato da un altro Runbook che potrebbe essere in esecuzione nella stessa sandbox. È quindi necessario usare il `-AzureRmContext` parametro `AzureRM` sui cmdlet e passargli il contesto appropriato.
+Quando si creano manuali operativi che gestiscono più sottoscrizioni, per Runbook è necessario usare il cmdlet [Disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) per assicurarsi che il contesto di autenticazione non venga recuperato da un altro Runbook che potrebbe essere in esecuzione nella stessa sandbox. È quindi necessario usare il parametro `-AzureRmContext` sui cmdlet `AzureRM` e passargli il contesto appropriato.
 
 ```powershell
 # Ensures you do not inherit an AzureRMContext in your runbook
@@ -149,7 +149,7 @@ Quando si creano script, è importante essere in grado di gestire le eccezioni e
 
 #### <a name="erroractionpreference"></a>$ErrorActionPreference
 
-La variabile di preferenza [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina il modo in cui PowerShell risponde a un errore non fatale. Gli errori di terminazione non sono `$ErrorActionPreference`interessati da e vengono sempre terminati. Se si `$ErrorActionPreference`utilizza, un errore normalmente non irreversibile come `PathNotFound` dal `Get-ChildItem` cmdlet arresterà il completamento del Runbook. Nell'esempio seguente viene illustrato `$ErrorActionPreference`l'utilizzo di. La riga `Write-Output` finale non verrà mai eseguita perché lo script verrà interrotto.
+La variabile di preferenza [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina il modo in cui PowerShell risponde a un errore non fatale. Gli errori di terminazione non sono interessati dal `$ErrorActionPreference`, ma terminano sempre. Se si usa `$ErrorActionPreference`, un errore normalmente non irreversibile come `PathNotFound` dal cmdlet `Get-ChildItem` arresterà il completamento del Runbook. Nell'esempio seguente viene illustrato l'utilizzo di `$ErrorActionPreference`. La riga di `Write-Output` finale non verrà mai eseguita perché lo script verrà interrotto.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -159,7 +159,7 @@ Write-Output "This message will not show"
 
 #### <a name="try-catch-finally"></a>Try catch finally
 
-[Try catch](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) viene usato negli script di PowerShell per semplificare la gestione degli errori di terminazione. Con try catch è possibile rilevare eccezioni specifiche o eccezioni generali. L'istruzione catch deve essere utilizzata per tenere traccia degli errori o per tentare di gestire l'errore. Nell'esempio seguente viene tentato di scaricare un file che non esiste. Rileva l' `System.Net.WebException` eccezione, se si è verificata un'altra eccezione, viene restituito l'ultimo valore.
+[Try catch](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) viene usato negli script di PowerShell per semplificare la gestione degli errori di terminazione. Con try catch è possibile rilevare eccezioni specifiche o eccezioni generali. L'istruzione catch deve essere utilizzata per tenere traccia degli errori o per tentare di gestire l'errore. Nell'esempio seguente viene tentato di scaricare un file che non esiste. Rileva l'eccezione `System.Net.WebException`, se si è verificata un'altra eccezione, viene restituito l'ultimo valore.
 
 ```powershell-interactive
 try
@@ -177,9 +177,9 @@ catch
 }
 ```
 
-#### <a name="throw"></a>Generare
+#### <a name="throw"></a>generare
 
-[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) può essere usato per generare un errore di terminazione. Questa operazione può essere utile quando si definisce la logica personalizzata in un Runbook. Se viene soddisfatto un determinato criterio che dovrebbe arrestare lo script, è possibile usare `throw` per arrestare lo script. Nell'esempio seguente viene illustrato il computer a cui è richiesto `throw`un parametro di funzione tramite.
+[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) può essere usato per generare un errore di terminazione. Questa operazione può essere utile quando si definisce la logica personalizzata in un Runbook. Se viene soddisfatto un determinato criterio che dovrebbe arrestare lo script, è possibile usare `throw` per arrestare lo script. Nell'esempio seguente viene illustrato il funzionamento di un parametro di funzione richiesto utilizzando `throw`.
 
 ```powershell-interactive
 function Get-ContosoFiles
@@ -201,10 +201,10 @@ I processi Runbook eseguiti in sandbox di Azure non hanno accesso alle caratteri
 
 La tabella seguente descrive i diversi stati possibili per un processo. PowerShell ha due tipi di errori, fatali e non fatali. Gli errori fatali impostano lo stato del runbook su **Non riuscito**, se si verificano. Gli errori non fatali consentono allo script di continuare anche dopo che si verificano. Un esempio di errore non fatale è l'uso del cmdlet `Get-ChildItem` con un percorso che non esiste. PowerShell rileva che il percorso non esiste, genera un errore e passa alla cartella successiva. Questo errore non imposta su **Failed** lo stato del runbook, che può essere contrassegnato come **Completato**. Per forzare l'arresto di un runbook in caso di errore non fatale, è possibile usare `-ErrorAction Stop` nel cmdlet.
 
-| Stato | DESCRIZIONE |
+| Stato | Descrizione |
 |:--- |:--- |
-| Completi |Il processo è stato completato. |
-| Failed |Per [Runbook grafico e runbook flusso di lavoro PowerShell](automation-runbook-types.md), la compilazione di runbook non è riuscita. Per [Runbook di Script di PowerShell](automation-runbook-types.md), non è stato possibile avviare il runbook o il processo conteneva un'eccezione. |
+| Completed |Il processo è stato completato. |
+| Operazione non riuscita |Per [Runbook grafico e runbook flusso di lavoro PowerShell](automation-runbook-types.md), la compilazione di runbook non è riuscita. Per [Runbook di Script di PowerShell](automation-runbook-types.md), non è stato possibile avviare il runbook o il processo conteneva un'eccezione. |
 | Failed, waiting for resources |Il processo non è riuscito perché ha raggiunto il limite di [condivisione equa](#fair-share) tre volte iniziando ogni volta dallo stesso checkpoint o dall'inizio del runbook. |
 | Queued |Il processo è in attesa che diventino disponibili risorse in un computer di lavoro di Automazione per poter essere avviato. |
 | Avvio in corso |Il processo è stato assegnato a un computer di lavoro e il sistema lo sta avviando. |
@@ -212,7 +212,7 @@ La tabella seguente descrive i diversi stati possibili per un processo. PowerShe
 | In esecuzione |Il processo è in esecuzione. |
 | Running, waiting for resources |Il processo è stato scaricato perché ha raggiunto il limite di [condivisione equa](#fair-share) . Riprende a breve dall'ultimo checkpoint. |
 | Arrestato |Il processo è stato arrestato dall'utente prima del completamento. |
-| Stopping |Il sistema sta arrestando il processo. |
+| Arresto in corso |Il sistema sta arrestando il processo. |
 | Suspended |Il processo è stato sospeso dall'utente, dal sistema o da un comando del runbook. Se un runbook non ha un checkpoint, viene avviato dall'inizio del runbook. Se ha un checkpoint, può essere nuovamente avviato e riprendere dall'ultimo checkpoint. Il runbook viene sospeso dal sistema solo quando si verifica un'eccezione. Per impostazione predefinita, il valore di ErrorActionPreference è impostato su **Continua**, a indicare che il processo continua a essere eseguito in caso di errore. Se questa variabile di preferenza è impostata su **Stop**, il processo viene sospeso in caso di errore. Si applica solo a [Runbook grafico e al flusso di lavoro PowerShell](automation-runbook-types.md) . |
 | Suspending |Il sistema sta provando a sospendere il processo su richiesta dell'utente. Il runbook deve raggiungere il checkpoint successivo prima di poter essere sospeso. Se ha già superato l'ultimo checkpoint, il processo viene completato prima di poter essere sospeso. Si applica solo a [Runbook grafico e al flusso di lavoro PowerShell](automation-runbook-types.md) . |
 
@@ -327,4 +327,4 @@ Un'altra opzione consiste nell'ottimizzare il runbook usando runbook figlio. Se 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni sui diversi metodi che possono essere usati per avviare un runbook in Automazione di Azure, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
-* Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere la [documentazione di PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/scripting/overview).

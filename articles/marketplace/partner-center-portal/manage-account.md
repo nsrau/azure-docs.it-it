@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 2edc644f003af2b33054a5cbdbaee81c9baa38cd
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
-ms.translationtype: HT
+ms.openlocfilehash: 60837171e3f59312895a76f68c660228697529ad
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847457"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891084"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Come gestire l'account del Marketplace commerciale nel centro per i partner 
 
@@ -145,11 +145,11 @@ La creazione di report viene effettuata in base al valore partner (ID partner Mi
 Per altre informazioni, vedere le [domande frequenti su come tenere traccia dell'utilizzo dei clienti di Azure con GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
 
 
-## <a name="establish-a-billing-profile"></a>Stabilire un profilo di fatturazione
+## <a name="create-a-billing-profile"></a>Creare un profilo di fatturazione
 
 Se si pubblica un'offerta di [dynamics 365 per Customer Engagement & Power Apps](./create-new-customer-engagement-offer.md) o [Dynamics 365 for Operations](./create-new-operations-offer.md) , è necessario completare il **profilo di fatturazione**.
 
-L'indirizzo di fatturazione viene prepopolato dall'ID MPN ed è possibile aggiornare questo indirizzo in un secondo momento. I campi TAX e VAT ID sono facoltativi.  Non è possibile modificare il nome del paese e il nome della società.
+L'indirizzo di fatturazione è già popolato dall'entità legale ed è possibile aggiornarlo in un secondo momento. I campi TAX e VAT ID sono facoltativi.  Non è possibile modificare il nome del paese e il nome della società.
 
 ## <a name="multi-user-account-management"></a>Gestione degli account multiutente
 

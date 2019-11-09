@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c739e827589a9fd6adeb10255f869acef29a4f16
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9c8219dd9ec971303fb62cf828da91ee877f4ca9
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562217"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882914"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -34,13 +34,13 @@ Per pianificare l'implementazione di Azure AD join, è necessario acquisire fami
 
 |   |   |
 |---|---|
-|![Segno di spunta][1]|Esame degli scenari|
-|![Segno di spunta][1]|Esame dell'infrastruttura di gestione delle identità|
-|![Segno di spunta][1]|Valutazione della gestione dei dispositivi|
-|![Segno di spunta][1]|Analisi delle considerazioni relative a risorse e applicazioni|
-|![Segno di spunta][1]|Identificazione delle opzioni di provisioning|
-|![Segno di spunta][1]|Configurazione di Enterprise State Roaming|
-|![Segno di spunta][1]|Configurare l'accesso condizionale|
+|![Controllo][1]|Esame degli scenari|
+|![Controllo][1]|Esame dell'infrastruttura di gestione delle identità|
+|![Controllo][1]|Valutazione della gestione dei dispositivi|
+|![Controllo][1]|Analisi delle considerazioni relative a risorse e applicazioni|
+|![Controllo][1]|Identificazione delle opzioni di provisioning|
+|![Controllo][1]|Configurazione di Enterprise State Roaming|
+|![Controllo][1]|Configurare l'accesso condizionale|
 
 ## <a name="review-your-scenarios"></a>Esame degli scenari 
 
@@ -78,14 +78,14 @@ Quando si usa AD FS, è necessario abilitare gli endpoint WS-Trust seguenti: `/a
 Se il provider di identità non supporta questi protocolli, l'aggiunta ad Azure AD non funziona in modo nativo. A partire da Windows 10 1809, gli utenti possono accedere a un dispositivo aggiunto ad Azure AD con un provider di identità basato su SAML attraverso l'[accesso Web in Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Attualmente, l'accesso Web è una funzionalità di anteprima e non è consigliato per le distribuzioni di produzione.
 
 >[!NOTE]
-> Attualmente, Azure AD join non funziona con [AD FS 2019 configurato con provider di autenticazione esterni come metodo di autenticazione principale](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Per impostazione predefinita, Azure AD join è l'autenticazione con password come metodo principale, che comporta errori di autenticazione in questo scenario
+> Attualmente, Azure AD join non funziona con [AD FS 2019 configurato con provider di autenticazione esterni come metodo di autenticazione principale](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Per impostazione predefinita, Azure AD join è l'autenticazione con password come metodo principale, che comporta errori di autenticazione in questo scenario
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Smart card e autenticazione basata su certificato
 
 Non è possibile usare smart card o l'autenticazione basata su certificato per aggiungere dispositivi ad Azure AD. Tuttavia, è possibile usare smart card per accedere ai dispositivi aggiunti ad Azure AD se è stato configurato AD FS.
 
-**Raccomandazione:** implementare Windows Hello for Business per un'autenticazione sicura e senza password nei dispositivi Windows 10.
+**Consiglio:** implementare Windows Hello for Business per un'autenticazione sicura e senza password ai dispositivi Windows 10.
 
 ### <a name="user-configuration"></a>Configurazione degli utenti
 
@@ -106,7 +106,7 @@ L'aggiunta ad Azure AD:
 - Non è applicabile alle versioni precedenti di Windows o ad altri sistemi operativi. Se sono presenti dispositivi Windows 7/8.1, è necessario eseguire l'aggiornamento a Windows 10 per distribuire l'aggiunta ad Azure AD.
 - Non è supportato nei dispositivi con TPM in modalità FIPS.
  
-**Raccomandazione:** usare sempre la versione più recente di Windows 10 per sfruttare i vantaggi delle funzionalità aggiornate.
+**Consiglio:** usare sempre la versione più recente di Windows 10 per sfruttare i vantaggi delle funzionalità aggiornate.
 
 ### <a name="management-platform"></a>Piattaforma di gestione
 
@@ -131,7 +131,7 @@ Se la soluzione MDM non è disponibile tramite la raccolta di app Azure AD, è p
 
 Tramite la co-gestione, è possibile usare SCCM per gestire determinati aspetti dei dispositivi, mentre i criteri vengono distribuiti tramite la piattaforma MDM. Microsoft Intune permette la co-gestione con SCCM. Per altre informazioni, vedere [Co-gestione per dispositivi Windows 10](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). Se si usa un prodotto MDM diverso da Intune, verificare con il provider MDM gli scenari di co-gestione applicabili.
 
-**Raccomandazione:** prendere in considerazione la gestione solo MDM per i dispositivi aggiunti ad Azure AD.
+**Consiglio:** prendere in considerazione la gestione solo MDM per i dispositivi aggiunti ad Azure AD.
 
 ## <a name="understand-considerations-for-applications-and-resources"></a>Analisi delle considerazioni relative a risorse e applicazioni
 
@@ -157,13 +157,13 @@ Se le app sono compilate in modo personalizzato e/o ospitate in locale, è neces
 
 Se si usa AD FS, vedere [Verificare e gestire l'accesso Single Sign-On con AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
-**Raccomandazione:** per un'esperienza migliore, prendere in considerazione l'hosting nel cloud (ad esempio, Azure) e l'integrazione con Azure AD.
+**Consiglio:** per un'esperienza migliore, prendere in considerazione l'hosting nel cloud (ad esempio, Azure) e l'integrazione con Azure AD.
 
 ### <a name="on-premises-applications-relying-on-legacy-protocols"></a>Applicazioni locali basate su protocolli legacy
 
 Gli utenti ottengono SSO dai dispositivi aggiunti ad Azure AD se il dispositivo ha accesso a un controller di dominio. 
 
-**Raccomandazione:** distribuire il [proxy applicazione di Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) per abilitare l'accesso sicuro per queste applicazioni.
+**Consiglio:** distribuire il [proxy di app Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) per abilitare l'accesso sicuro per queste applicazioni.
 
 ### <a name="on-premises-network-shares"></a>Condivisioni di rete locali
 
@@ -179,7 +179,7 @@ Mentre le stampanti non possono essere individuate automaticamente in un ambient
 
 I dispositivi aggiunti ad Azure AD non supportano le applicazioni locali basate sull'autenticazione del computer. 
 
-**Raccomandazione:** valutare se ritirare queste applicazioni e passare ad applicazioni alternative più moderne.
+**Consiglio:** valutare se ritirare queste applicazioni e passare ad applicazioni alternative più moderne.
 
 ### <a name="remote-desktop-services"></a>Servizi Desktop remoto
 
@@ -198,7 +198,7 @@ Ecco un confronto di questi tre approcci
 |   | Configurazione self-service | Windows Autopilot | Registrazione in blocco |
 | --- | --- | --- | --- |
 | Richiesta dell'interazione dell'utente per la configurazione | Sì | Sì | No |
-| Richiesta di attività IT | No | Yes | Sì |
+| Richiesta di attività IT | No | Sì | Sì |
 | Flussi applicabili | Configurazione guidata e impostazioni | Solo Configurazione guidata | Solo Configurazione guidata |
 | Diritti di amministratore locale a un utente primario | Sì, per impostazione predefinita | Configurabile | No |
 | Richiesta del supporto dell'OEM del dispositivo | No | Sì | No |
@@ -247,7 +247,7 @@ Prima di poter configurare le impostazioni di mobilità, può essere necessario 
 1. Fare clic su **Aggiungi applicazione**.
 1. Selezionare il provider MDM nell'elenco.
 
-   ![Aggiungi applicazione](./media/azureadjoin-plan/04.png)
+   ![Aggiungere un'applicazione](./media/azureadjoin-plan/04.png)
 
 Selezionare il provider MDM per configurare le impostazioni correlate. 
 
@@ -259,8 +259,8 @@ Selezionare **In parte** o **Tutti** in base all'ambito della distribuzione.
 
 A seconda dell'ambito, si verifica una delle situazioni seguenti: 
 
-- **L'utente è incluso nell'abito MDM**: se si ha una sottoscrizione Azure AD Premium, la registrazione MDM è un'operazione automatica che avviene durante l'aggiunta ad Azure AD. Tutti gli utenti con ambito devono avere una licenza appropriata per MDM. Se la registrazione MDM non riesce in questo scenario, viene eseguito il rollback anche dell'aggiunta ad Azure AD.
-- **L'utente non è incluso nell'ambito MDM**: se gli utenti non sono inclusi nell'ambito MDM, l'aggiunta ad Azure AD viene completata senza alcuna registrazione MDM. Questa situazione comporta un dispositivo non gestito.
+- **L'utente è incluso nell'ambito MDM**: se si ha una sottoscrizione Azure AD Premium, la registrazione MDM è un'operazione automatica che avviene durante l'aggiunta ad Azure AD. Tutti gli utenti con ambito devono avere una licenza appropriata per MDM. Se la registrazione MDM non riesce in questo scenario, viene eseguito il rollback anche dell'aggiunta ad Azure AD.
+- **Gli utenti non sono inclusi nell'ambito MDM**: se gli utenti non sono inclusi nell'ambito MDM, l'aggiunta ad Azure AD viene completata senza alcuna registrazione MDM. Questa situazione comporta un dispositivo non gestito.
 
 ### <a name="mdm-urls"></a>URL MDM
 
@@ -270,7 +270,7 @@ Esistono tre URL correlati alla configurazione MDM:
 - URL individuazione MDM 
 - URL conformità MDM
 
-![Aggiungi applicazione](./media/azureadjoin-plan/06.png)
+![Aggiungere un'applicazione](./media/azureadjoin-plan/06.png)
 
 Ogni URL ha un valore predefinito. Se questi campi sono vuoti, contattare il provider MDM per altre informazioni.
 

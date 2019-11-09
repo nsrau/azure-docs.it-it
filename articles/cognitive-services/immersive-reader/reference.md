@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 1908ed916d61c7a65b1f0061c0fe8d8a08b5e41c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: ed9bd6f5932fdcb2d9124a000115a6f68cf21613
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388104"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889300"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Guida di riferimento a immersive Reader SDK
 
 Immersive Reader SDK è una libreria JavaScript che consente di integrare il lettore immersivo nell'applicazione Web.
 
-# <a name="functions"></a>Funzioni
+## <a name="functions"></a>Funzioni
 
 L'SDK espone le funzioni:
 
@@ -39,28 +39,28 @@ Avvia il Reader immersivo all'interno di un `iframe` nell'applicazione Web.
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parametri
 
-| name | Type | Description |
+| Name | Tipo | Descrizione |
 | ---- | ---- |------------ |
-| `token` | string | Token di autenticazione Azure AD. Vedere le [procedure per l'autenticazione Azure ad](./azure-active-directory-authentication.md). |
-| `subdomain` | string | Sottodominio personalizzato della risorsa Reader immersiva in Azure. Vedere le [procedure per l'autenticazione Azure ad](./azure-active-directory-authentication.md). |
+| `token` | stringa | Token di autenticazione Azure AD. Vedere le [procedure per l'autenticazione Azure ad](./azure-active-directory-authentication.md). |
+| `subdomain` | stringa | Sottodominio personalizzato della risorsa Reader immersiva in Azure. Vedere le [procedure per l'autenticazione Azure ad](./azure-active-directory-authentication.md). |
 | `content` | [Contenuto](#content) | Oggetto contenente il contenuto da visualizzare nel lettore immersivo. |
 | `options` | [Opzioni](#options) | Opzioni per la configurazione di determinati comportamenti del lettore immersivo. facoltativo. |
 
 ### <a name="returns"></a>Restituisce
 
-Restituisce un `Promise<HTMLDivElement>`, che risolve quando il lettore immersivo viene caricato. Il `Promise` viene risolto in un elemento `div` il cui unico figlio è un elemento `iframe` che contiene la pagina Reader immersiva.
+Restituisce un `Promise<HTMLDivElement>`, che viene risolto quando il lettore immersivo viene caricato. Il `Promise` viene risolto in un elemento `div` il cui unico figlio è un elemento `iframe` che contiene la pagina Reader immersiva.
 
 ### <a name="exceptions"></a>Eccezioni
 
-Il valore restituito `Promise` verrà rifiutato con un oggetto [`Error`](#error) se il caricamento del lettore immersivo non riesce. Per ulteriori informazioni, vedere i [codici di errore](#error-codes).
+Il `Promise` restituito verrà rifiutato con un oggetto [`Error`](#error) se il caricamento del lettore immersivo non riesce. Per ulteriori informazioni, vedere i [codici di errore](#error-codes).
 
 ## <a name="close"></a>chiudi
 
 Chiude il lettore immersivo.
 
-Un caso d'uso di esempio per questa funzione è se il pulsante Esci è nascosto impostando ```hideExitButton: true``` in [Opzioni](#options). Quindi, un pulsante diverso (ad esempio, la freccia indietro di un'intestazione mobile) può chiamare questa funzione ```close``` quando viene fatto clic.
+Un caso d'uso di esempio per questa funzione è se il pulsante Esci è nascosto impostando ```hideExitButton: true``` nelle [Opzioni](#options). Quindi, un pulsante diverso (ad esempio, la freccia indietro di un'intestazione mobile) può chiamare questa funzione ```close``` quando viene selezionato.
 
 ```typescript
 close(): void;
@@ -68,7 +68,7 @@ close(): void;
 
 ## <a name="renderbuttons"></a>renderButtons
 
-Questa funzione ha lo stile e aggiorna gli elementi del pulsante Reader immersive del documento. Se viene specificato ```options.elements```, questa funzione eseguirà il rendering di pulsanti entro ```options.elements```. In caso contrario, verrà eseguito il rendering dei pulsanti negli elementi del documento con la classe ```immersive-reader-button```.
+Questa funzione ha lo stile e aggiorna gli elementi del pulsante Reader immersive del documento. Se viene specificato ```options.elements```, questa funzione eseguirà il rendering di pulsanti all'interno ```options.elements```. In caso contrario, verrà eseguito il rendering dei pulsanti negli elementi del documento con la classe ```immersive-reader-button```.
 
 Questa funzione viene chiamata automaticamente dall'SDK quando viene caricata la finestra.
 
@@ -78,15 +78,15 @@ Per altre opzioni di rendering, vedere [attributi facoltativi](#optional-attribu
 renderButtons(options?: RenderButtonsOptions): void;
 ```
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parametri
 
-| name | Type | Description |
+| Name | Tipo | Descrizione |
 | ---- | ---- |------------ |
 | `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Opzioni per la configurazione di determinati comportamenti della funzione renderButtons. facoltativo. |
 
-## <a name="types"></a>Tipi
+## <a name="types"></a>Types
 
-### <a name="content"></a>Contenuto
+### <a name="content"></a>Content
 
 Contiene il contenuto da visualizzare nel lettore immersivo.
 
@@ -111,10 +111,10 @@ Singolo blocco di dati, che verrà passato al contenuto del lettore immersivo.
 
 #### <a name="supported-mime-types"></a>Tipi MIME supportati
 
-| Tipo MIME | Description |
+| Tipo MIME | Descrizione |
 | --------- | ----------- |
 | text/plain | Testo normale. |
-| text/html | Contenuto HTML. [Ulteriori informazioni](#html-support)|
+| text/html | Contenuto HTML. [Altre informazioni](#html-support)|
 | Application/MathML + XML | Linguaggio di markup matematico (MathML). [Altre informazioni](https://developer.mozilla.org/en-US/docs/Web/MathML).
 | Application/vnd. openxmlformats-officedocument. WordprocessingML. Document | Documento di formato Microsoft Word. docx.
 
@@ -124,7 +124,7 @@ Singolo blocco di dati, che verrà passato al contenuto del lettore immersivo.
 | Stili dei tipi di carattere | Grassetto, corsivo, sottolineato, codice, barrato, apice, pedice |
 | Elenchi non ordinati | Disco, cerchio, quadrato |
 | Elenchi ordinati | Decimale, superiore-alfa, inferiore-alfa, superiore-romana, minore-romana |
-| Collegamenti ipertestuali | Presto disponibile |
+| Collegamenti ipertestuali | Imminente |
 
 I tag non supportati verranno sottoposti a rendering in modo paragonabile. Le immagini e le tabelle non sono attualmente supportate.
 
@@ -155,7 +155,7 @@ Opzioni per il rendering dei pulsanti Reader immersivi.
 }
 ```
 
-### <a name="error"></a>Errore
+### <a name="error"></a>Tipi di errore
 
 Contiene informazioni sull'errore.
 
@@ -166,18 +166,18 @@ Contiene informazioni sull'errore.
 }
 ```
 
-#### <a name="error-codes"></a>Codici errore
+#### <a name="error-codes"></a>Codici di errore
 
-| Codice | Description |
+| Codice | Descrizione |
 | ---- | ----------- |
-| BadArgument | Argomento fornito non valido. per informazioni dettagliate, vedere `message`. |
+| BadArgument | L'argomento fornito non è valido. per informazioni dettagliate, vedere `message`. |
 | Timeout | Non è stato possibile caricare il lettore immersivo entro il timeout specificato. |
 | TokenExpired | Il token fornito è scaduto. |
 | Strozzato | È stato superato il limite di frequenza delle chiamate. |
 
 ## <a name="launching-the-immersive-reader"></a>Avvio del lettore immersivo
 
-L'SDK fornisce lo stile predefinito per il pulsante per l'avvio del lettore immersivo. Usare l'attributo della classe `immersive-reader-button` per abilitare questo stile.
+L'SDK fornisce lo stile predefinito per il pulsante per l'avvio del lettore immersivo. Per abilitare questo stile, usare l'attributo della classe `immersive-reader-button`.
 
 ```html
 <div class='immersive-reader-button'></div>
@@ -187,7 +187,7 @@ L'SDK fornisce lo stile predefinito per il pulsante per l'avvio del lettore imme
 
 Usare gli attributi seguenti per configurare l'aspetto del pulsante.
 
-| Attributo | Description |
+| Attributo | Descrizione |
 | --------- | ----------- |
 | `data-button-style` | Imposta lo stile del pulsante. Può essere `icon`, `text` o `iconAndText`. L'impostazione predefinita è `icon`. |
 | `data-locale` | Imposta le impostazioni locali. Ad esempio, `en-US` o `fr-FR`. Il valore predefinito è l'inglese `en`. |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
-ms.openlocfilehash: 5b9b92cd39e8d540f784d82d6c7f4a5754c85b62
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 8a87335dba237e8088275706f7dcc2eb7f34831a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677720"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887553"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -44,19 +44,19 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 1. Aprire il progetto in Visual Studio.
 
     > [!TIP]
-    > Se lo si desidera, è possibile configurare il controllo del codice sorgente per il progetto in modo che sia possibile tenere traccia di tutte le modifiche apportate Application Insights. Per abilitare il controllo del codice sorgente, selezionare **File**  > **Aggiungi al controllo del codice sorgente**.
+    > Se lo si desidera, è possibile configurare il controllo del codice sorgente per il progetto in modo che sia possibile tenere traccia di tutte le modifiche apportate Application Insights. Per abilitare il controllo del codice sorgente, selezionare **File** > **Aggiungi al controllo del codice sorgente**.
 
 2. Selezionare **Progetto** > **Aggiungi Application Insights Telemetry**.
 
 3. Selezionare **Attività iniziali**. Il testo di questa selezione può variare a seconda della versione di Visual Studio. Alcune versioni precedenti usano invece un pulsante **Start Free** .
 
-4. Selezionare la propria sottoscrizione. Selezionare quindi **Resource**  > **Register**.
+4. Selezionare la propria sottoscrizione. Selezionare quindi **Resource** > **Register**.
 
-5. Dopo aver aggiunto Application Insights al progetto, verificare che si stia usando la versione stabile più recente dell'SDK. Passare a **Project**  > **gestire i pacchetti NuGet**  > **Microsoft. ApplicationInsights. AspNetCore**. Se necessario, scegliere **Aggiorna**.
+5. Dopo aver aggiunto Application Insights al progetto, verificare che si stia usando la versione stabile più recente dell'SDK. Passare a **Project** > **gestire i pacchetti NuGet** > **Microsoft. ApplicationInsights. AspNetCore**. Se necessario, scegliere **Aggiorna**.
 
      ![Screenshot che mostra dove selezionare il pacchetto di Application Insights per l'aggiornamento](./media/asp-net-core/update-nuget-package.png)
 
-6. Se è stato seguito il suggerimento facoltativo e il progetto è stato aggiunto al controllo del codice sorgente, passare a **View**  > **Team Explorer**  > **changes**. Selezionare quindi ogni file per visualizzare una visualizzazione diff delle modifiche apportate da Application Insights telemetria.
+6. Se è stato seguito il suggerimento facoltativo e il progetto è stato aggiunto al controllo del codice sorgente, passare a **View** > **Team Explorer** > **changes**. Selezionare quindi ogni file per visualizzare una visualizzazione diff delle modifiche apportate da Application Insights telemetria.
 
 ## <a name="enable-application-insights-server-side-telemetry-no-visual-studio"></a>Abilitare la telemetria lato server di Application Insights (senza Visual Studio)
 
@@ -86,7 +86,7 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 
 3. Configurare la chiave di strumentazione.
 
-    Sebbene sia possibile fornire la chiave di strumentazione come argomento per `AddApplicationInsightsTelemetry`, è consigliabile specificare la chiave di strumentazione nella configurazione. Nell'esempio di codice seguente viene illustrato come specificare una chiave di strumentazione in `appsettings.json`. Assicurarsi che `appsettings.json` venga copiato nella cartella radice dell'applicazione durante la pubblicazione.
+    Sebbene sia possibile fornire la chiave di strumentazione come argomento a `AddApplicationInsightsTelemetry`, è consigliabile specificare la chiave di strumentazione nella configurazione. Nell'esempio di codice seguente viene illustrato come specificare una chiave di strumentazione in `appsettings.json`. Assicurarsi che `appsettings.json` venga copiato nella cartella radice dell'applicazione durante la pubblicazione.
 
     ```json
         {
@@ -107,7 +107,7 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 
     * `ApplicationInsights:InstrumentationKey`
 
-    ad esempio:
+    Ad esempio:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -151,13 +151,13 @@ Il supporto per i [contatori delle prestazioni](https://azure.microsoft.com/docu
 
 I passaggi precedenti sono sufficienti per iniziare a raccogliere i dati di telemetria sul lato server. Se l'applicazione ha componenti lato client, seguire i passaggi successivi per iniziare a raccogliere i [dati di telemetria sull'utilizzo](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview).
 
-1. In `_ViewImports.cshtml` aggiungere injection:
+1. In `_ViewImports.cshtml`aggiungere injection:
 
     ```cshtml
         @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
     ```
 
-2. In `_Layout.cshtml` inserire `HtmlHelper` alla fine della sezione `<head>` ma prima di qualsiasi altro script. Se si desidera segnalare i dati di telemetria JavaScript personalizzati dalla pagina, inserire il frammento di codice seguente:
+2. In `_Layout.cshtml`inserire `HtmlHelper` alla fine della sezione `<head>` ma prima di qualsiasi altro script. Se si desidera segnalare i dati di telemetria JavaScript personalizzati dalla pagina, inserire il frammento di codice seguente:
 
     ```cshtml
         @Html.Raw(JavaScriptSnippet.FullScript)
@@ -195,7 +195,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Elenco completo delle impostazioni in `ApplicationInsightsServiceOptions`
 
-|Impostazione | Description | Predefinito
+|Impostazione | Descrizione | Default
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Abilita/Disabilita la funzionalità LiveMetrics | true
 |EnableAdaptiveSampling | Abilita/Disabilita il campionamento adattivo | true
@@ -213,7 +213,7 @@ Per altre informazioni, vedere [configurare il campionamento adattivo per ASP.NE
 
 ### <a name="adding-telemetryinitializers"></a>Aggiunta di TelemetryInitializers
 
-Usare gli [inizializzatori di telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) quando si desidera definire le proprietà globali che vengono inviate con tutti i dati di telemetria.
+Usare gli [inizializzatori di telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) quando si desidera definire le proprietà globali che vengono inviate con tutti i dati di telemetria.
 
 Aggiungere nuovi `TelemetryInitializer` al contenitore `DependencyInjection`, come illustrato nel codice seguente. L'SDK preleva automaticamente qualsiasi `TelemetryInitializer` aggiunto al contenitore di `DependencyInjection`.
 
@@ -277,7 +277,7 @@ I moduli di raccolta automatica seguenti sono abilitati per impostazione predefi
 * `AzureInstanceMetadataTelemetryModule`: raccoglie i battimenti cardiaci, che vengono inviati come metriche personalizzate, sull'ambiente di macchine virtuali di Azure in cui è ospitata l'applicazione.
 * `EventCounterCollectionModule`-raccoglie [EventCounters.](eventcounters.md) Questo modulo è una nuova funzionalità ed è disponibile nella versione SDK 2.8.0 e versioni successive.
 
-Per configurare qualsiasi `TelemetryModule` predefinita, usare il metodo di estensione `ConfigureTelemetryModule<T>` su `IServiceCollection`, come illustrato nell'esempio seguente.
+Per configurare qualsiasi valore predefinito `TelemetryModule`, usare il metodo di estensione `ConfigureTelemetryModule<T>` in `IServiceCollection`, come illustrato nell'esempio seguente.
 
 ```csharp
 using Microsoft.ApplicationInsights.DependencyCollector;
@@ -332,7 +332,7 @@ using Microsoft.ApplicationInsights.Channel;
 
 ### <a name="disable-telemetry-dynamically"></a>Disabilitare la telemetria in modo dinamico
 
-Se si vuole disabilitare la telemetria in modo condizionale e dinamico, è possibile risolvere `TelemetryConfiguration` istanza con ASP.NET Core contenitore di inserimento delle dipendenze in qualsiasi punto del codice e impostare `DisableTelemetry` flag.
+Se si vuole disabilitare la telemetria in modo condizionale e dinamico, è possibile risolvere l'istanza `TelemetryConfiguration` con ASP.NET Core contenitore di inserimento delle dipendenze in qualsiasi punto del codice e impostare il flag `DisableTelemetry`.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -359,7 +359,7 @@ Inoltre, se si usano le istruzioni basate su Visual Studio da [qui](#enable-appl
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>Come è possibile tenere traccia dei dati di telemetria che non vengono raccolti automaticamente?
 
-Ottenere un'istanza di `TelemetryClient` usando l'inserimento del costruttore e chiamare il metodo `TrackXXX()` obbligatorio. Non è consigliabile creare nuove istanze di `TelemetryClient` in un'applicazione ASP.NET Core. Un'istanza singleton di `TelemetryClient` è già registrata nel contenitore `DependencyInjection`, che condivide `TelemetryConfiguration` con il resto dei dati di telemetria. La creazione di una nuova istanza di `TelemetryClient` è consigliata solo se è necessaria una configurazione separata dal resto dei dati di telemetria.
+Ottenere un'istanza di `TelemetryClient` usando l'inserimento del costruttore e chiamare il metodo `TrackXXX()` richiesto. Non è consigliabile creare nuove istanze di `TelemetryClient` in un'applicazione ASP.NET Core. Un'istanza singleton di `TelemetryClient` è già registrata nel contenitore `DependencyInjection`, che condivide `TelemetryConfiguration` con il resto dei dati di telemetria. La creazione di una nuova istanza di `TelemetryClient` è consigliata solo se è necessaria una configurazione separata dal resto dei dati di telemetria.
 
 L'esempio seguente illustra come tenere traccia dei dati di telemetria aggiuntivi da un controller.
 
@@ -437,7 +437,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ### <a name="is-this-sdk-supported-for-the-new-net-core-30-worker-service-template-applications"></a>Questo SDK è supportato per le nuove applicazioni modello di servizio di lavoro .NET Core 3,0?
 
-Questo SDK richiede `HttpContext` e pertanto non funziona in alcuna applicazione non HTTP, incluse le applicazioni del servizio di lavoro .NET Core 3,0. Fare riferimento a [questo](worker-service.md) documento per abilitare Application Insights in tali applicazioni, usando il nuovo SDK Microsoft. ApplicationInsights. WorkerService.
+Questo SDK richiede `HttpContext`e pertanto non funziona in alcuna applicazione non HTTP, incluse le applicazioni del servizio di lavoro .NET Core 3,0. Fare riferimento a [questo](worker-service.md) documento per abilitare Application Insights in tali applicazioni, usando il nuovo SDK Microsoft. ApplicationInsights. WorkerService.
 
 ## <a name="open-source-sdk"></a>SDK open source
 

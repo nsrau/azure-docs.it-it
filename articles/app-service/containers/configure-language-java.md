@@ -13,18 +13,18 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: fa3cd84978119a5858e63712b4d22c2ea89ea528
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8f6fb9737d3d8dad93a95f31d566f7cc4706ded3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470910"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886054"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurare un'app Java Linux per il servizio app Azure
 
 Il Servizio app di Azure in Linux consente agli sviluppatori Java di compilare, distribuire e ridimensionare rapidamente le applicazioni Web in pacchetto Tomcat o Java Standard Edition (SE) in un servizio basato su Linux completamente gestito. Distribuire le applicazioni con i plug-in Maven dalla riga di comando o in editor come IntelliJ, Eclipse o Visual Studio Code.
 
-Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Java che usano un contenitore Linux incorporato nel servizio app. Se non si è mai usato app Azure servizio, seguire prima l'esercitazione [introduttiva](quickstart-java.md) su Java e [Java con PostgreSQL](tutorial-java-enterprise-postgresql-app.md) .
+Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Java che usano un contenitore Linux incorporato nel servizio app. Se non si è mai usato app Azure servizio, seguire prima l'[esercitazione introduttiva su Java](quickstart-java.md) e [Java con PostgreSQL](tutorial-java-enterprise-postgresql-app.md).
 
 ## <a name="deploying-your-app"></a>Distribuzione dell'app
 
@@ -76,7 +76,7 @@ Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
 116 /home/site/wwwroot/app.jar
 ```
 
-Eseguire il comando seguente per avviare una registrazione di 30 secondi della JVM. Questa operazione produrrà la JVM e creerà un file JFR denominato *jfr_example. JFR* nella Home Directory. Sostituire 116 con il PID dell'app java.
+Eseguire il comando seguente per avviare una registrazione di 30 secondi della JVM. Verrà profilata la JVM e verrà creato un file JFR denominato *jfr_example. JFR* nella Home Directory. Sostituire 116 con il PID dell'app java.
 
 ```shell
 jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
@@ -239,6 +239,24 @@ Per prima cosa, seguire le istruzioni per [concedere all'app l'accesso a Key Vau
 
 Per inserire questi segreti nel file di configurazione di Spring o Tomcat, usare la sintassi di inserimento delle variabili di ambiente (`${MY_ENV_VAR}`). Per i file di configurazione della primavera, vedere la documentazione sulle [configurazioni esternalizzate](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
+## <a name="using-the-java-key-store"></a>Uso dell'archivio chiavi Java
+
+Per impostazione predefinita, tutti i certificati pubblici o privati [caricati nel servizio app Linux](../configure-ssl-certificate.md) verranno caricati nell'archivio chiavi Java quando il contenitore viene avviato. Ciò significa che i certificati caricati saranno disponibili nel contesto di connessione quando si effettuano connessioni TLS in uscita.
+
+È possibile interagire o eseguire il debug dello strumento chiave Java [aprendo una connessione SSH](app-service-linux-ssh-support.md) al servizio app ed eseguendo il comando `keytool`. Vedere la [documentazione dello strumento chiave](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) per un elenco di comandi. I certificati vengono archiviati nel percorso del file dell'archivio chiavi predefinito di Java, `$JAVA_HOME/jre/lib/security/cacerts`.
+
+Potrebbe essere necessaria una configurazione aggiuntiva per la crittografia della connessione JDBC. Per informazioni sul driver JDBC scelto, vedere la documentazione.
+
+- [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
+- [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
+- [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+
+### <a name="manually-initialize-and-load-the-key-store"></a>Inizializzare e caricare manualmente l'archivio chiavi
+
+È possibile inizializzare l'archivio chiavi e aggiungere i certificati manualmente. Creare un'impostazione dell'app, `SKIP_JAVA_KEYSTORE_LOAD`con un valore `1` per disabilitare il caricamento automatico dei certificati nell'archivio chiavi da parte del servizio app. Tutti i certificati pubblici caricati nel servizio app tramite il portale di Azure vengono archiviati in `/var/ssl/certs/`. I certificati privati vengono archiviati in `/var/ssl/private/`.
+
+Per ulteriori informazioni sull'API dell'archivio chiavi, consultare [la documentazione ufficiale](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
+
 ## <a name="configure-apm-platforms"></a>Configurare le piattaforme APM
 
 Questa sezione illustra come connettere le applicazioni Java distribuite nel servizio app Azure in Linux con le piattaforme APM (Application Performance Monitoring) NewRelic e AppDynamics.
@@ -275,7 +293,7 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel ser
 
 Per impostazione predefinita, il servizio app prevede che l'applicazione JAR sia denominata *app. jar*. Se il nome è presente, verrà eseguito automaticamente. Per gli utenti di Maven è possibile impostare il nome del file JAR includendo `<finalName>app</finalName>` nella sezione `<build>` del file *POM. XML*. [È possibile eseguire la stessa operazione in Gradle](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) impostando la proprietà `archiveFileName`.
 
-Se si vuole usare un nome diverso per il file JAR, è necessario specificare anche il [comando di avvio](app-service-linux-faq.md#built-in-images) che esegue il file jar. Ad esempio `java -jar my-jar-app.jar`. È possibile impostare il valore per il comando di avvio nel portale, in configurazione > Impostazioni generali o con un'impostazione dell'applicazione denominata `STARTUP_COMMAND`.
+Se si vuole usare un nome diverso per il file JAR, è necessario specificare anche il [comando di avvio](app-service-linux-faq.md#built-in-images) che esegue il file jar. Ad esempio, `java -jar my-jar-app.jar`. È possibile impostare il valore per il comando di avvio nel portale, in configurazione > Impostazioni generali o con un'impostazione dell'applicazione denominata `STARTUP_COMMAND`.
 
 ### <a name="server-port"></a>Porta server
 
@@ -595,7 +613,7 @@ I passaggi seguenti illustrano i requisiti per la connessione del servizio app e
             DATABASE_CONNECTION_URL=jdbc:sqlserver://<database server name>:1433;database=<database name>;user=<admin name>;password=<admin password>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
     ```
 
-    I valori di DATABASE_CONNECTION_URL sono diversi per ogni server di database e diversi dai valori del portale di Azure. I formati URL indicati qui (e nei frammenti di codice precedenti) sono obbligatori per l'uso da parte di WildFly:
+    I valori di DATABASE_CONNECTION_URL sono diversi per ogni server di database e diversi dai valori della portale di Azure. I formati URL indicati qui (e nei frammenti di codice precedenti) sono obbligatori per l'uso da parte di WildFly:
 
     * **PostgreSQL:** `jdbc:postgresql://<database server name>:5432/<database name>?ssl=true`
     * **MySQL:** `jdbc:mysql://<database server name>:3306/<database name>?ssl=true\&useLegacyDatetimeCode=false\&serverTimezone=GMT`
@@ -659,7 +677,7 @@ Per usare Tomcat con Redis, è necessario configurare l'app per l'uso di un'impl
 
 1. Aprire un terminale bash e usare `export <variable>=<value>` per impostare ognuna delle variabili di ambiente seguenti.
 
-    | Variabile                 | Value                                                                      |
+    | Variabile                 | Valore                                                                      |
     |--------------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME       | Nome del gruppo di risorse contenente l'istanza del servizio app.       |
     | WEBAPP_NAME              | Nome dell'istanza del servizio app.                                     |

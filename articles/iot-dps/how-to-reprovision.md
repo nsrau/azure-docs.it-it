@@ -1,33 +1,32 @@
 ---
 title: Come rieffettuare il provisioning dei dispositivi nel servizio Device Provisioning in hub IoT di Azure | Documentazione Microsoft
-description: Come rieffettuare il provisioning dei dispositivi in un'istanza del servizio Device Provisioning
+description: Informazioni su come eseguire il provisioning dei dispositivi con l'istanza del servizio Device provisioning e i motivi per cui potrebbe essere necessario eseguire questa operazione.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 92680a453d93c8dc0189c6ae376449a8e7a22076
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 41e6274e81c91584cf5212bc7ca7b2f31582b4db
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60627349"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888987"
 ---
 # <a name="how-to-reprovision-devices"></a>Come rieffettuare il provisioning dei dispositivi
 
-Durante il ciclo di vita di una soluzione IoT, è comune spostare i dispositivi tra hub IoT. Le ragioni di questo spostamento possono includere gli scenari seguenti:
+Durante il ciclo di vita di una soluzione IoT, è comune spostare i dispositivi tra hub IoT. I motivi per eseguire lo spostamento possono includere i seguenti scenari:
 
-* **Georilevazione**: Quando un dispositivo si sposta tra le posizioni, latenza di rete è stata migliorata facendo in modo che il dispositivo di eseguire la migrazione a un hub IoT più vicini a ogni posizione.
+* **Georilevazione**: quando un dispositivo viene spostato tra le posizioni, la latenza della rete viene migliorata migrando il dispositivo su un hub IoT più vicino a ciascuna posizione.
 
-* **Multi-tenancy**: Un dispositivo è stato utilizzato all'interno della stessa soluzione IoT ma, riassegnato o assegnato in lease a un nuovo cliente, o di un sito cliente. Questo nuovo cliente può essere servito usando un hub IoT diverso.
+* **Multi-tenancy**: un dispositivo può essere usato all'interno della stessa soluzione IoT ma riassegnato o concesso in lease a un nuovo cliente oppure al sito del cliente. Questo nuovo cliente può essere servito usando un hub IoT diverso.
 
-* **Modifica di soluzione**: Un dispositivo potrebbe essere spostato in una soluzione IoT nuova o aggiornata. Questa riassegnazione potrebbe richiedere al dispositivo di comunicare con un nuovo hub IoT collegato ad altri componenti di back-end. 
+* **Modifica della soluzione**: è stato possibile spostare un dispositivo in una soluzione IoT nuova o aggiornata. Questa riassegnazione potrebbe richiedere al dispositivo di comunicare con un nuovo hub IoT collegato ad altri componenti di back-end. 
 
-* **Quarantine**: Simile a una modifica della soluzione. Un dispositivo malfunzionante, compromesso o obsoleto può essere riassegnato a un hub IoT in cui tutto ciò che può fare è aggiornare e ripristinare la conformità. Una volta che il dispositivo funziona correttamente, viene quindi migrato nuovamente al suo hub principale.
+* **Quarantena**: simile a una modifica della soluzione. Un dispositivo malfunzionante, compromesso o obsoleto può essere riassegnato a un hub IoT in cui tutto ciò che può fare è aggiornare e ripristinare la conformità. Una volta che il dispositivo funziona correttamente, viene quindi migrato nuovamente al suo hub principale.
 
-Per più di una panoramica più dettagliata di un nuovo provisioning, vedere [dispositivo Hub IoT un nuovo provisioning concetti](concepts-device-reprovision.md).
+Per una panoramica più dettagliata del nuovo provisioning, vedere [concetti relativi al nuovo provisioning dei dispositivi dell'hub](concepts-device-reprovision.md).
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>Configurare i criteri di allocazione di registrazione
@@ -42,11 +41,11 @@ I passaggi seguenti consentono di configurare i criteri di allocazione per la re
 
 3. Alla voce **Seleziona come assegnare i dispositivi agli hub**, selezionare uno dei criteri di allocazione seguenti:
 
-    * **Latenza più bassa**: Questo criterio assegna i dispositivi all'IoT Hub collegato che genererà le comunicazioni di latenza più basse tra dispositivo e l'IoT Hub. Questa opzione consente al dispositivo di comunicare con l'hub IoT più vicino in base alla posizione. 
+    * **Latenza più bassa**: questo criterio assegna i dispositivi all'hub IoT collegato che genererà le comunicazioni di latenza più basse tra il dispositivo e l'hub IoT. Questa opzione consente al dispositivo di comunicare con l'hub IoT più vicino in base alla posizione. 
     
-    * **Distribuzione ponderata uniforme**: Questo criterio distribuisce i dispositivi tra l'hub IoT collegati in base al peso allocazione assegnato a ogni hub IoT collegato. Questo criterio consente di bilanciare il carico dei dispositivi in un gruppo di hub collegati in base ai pesi di allocazione assegnati a tali hub. Se si effettua il provisioning dei dispositivi in un solo hub IoT, è consigliabile utilizzare questa impostazione. Questa è l'impostazione predefinita. 
+    * **Distribuzione ponderata uniforme**: questo criterio distribuisce i dispositivi tra gli hub IoT collegati in base al peso di allocazione assegnato a ogni hub IoT collegato. Questo criterio consente di bilanciare il carico dei dispositivi in un gruppo di hub collegati in base ai pesi di allocazione assegnati a tali hub. Se si effettua il provisioning dei dispositivi in un solo hub IoT, è consigliabile utilizzare questa impostazione. Questa è l'impostazione predefinita. 
     
-    * **Configurazione statica**: Questo criterio richiede un IoT Hub desiderato elencati nella voce di registrazione per effettuarne il provisioning del dispositivo. Questo criterio consente di designare un singolo hub IoT specifico a cui assegnare i dispositivi.
+    * **Configurazione statica**: questo criterio richiede che l'hub IoT sia elencato nella voce di registrazione affinché venga effettuato il provisioning del dispositivo. Questo criterio consente di designare un singolo hub IoT specifico a cui assegnare i dispositivi.
 
 4. Alla voce **Seleziona gli hub IoT a cui questo gruppo può essere assegnato**, selezionare gli hub IoT collegati da includere con i criteri di allocazione. Facoltativamente, aggiungere un nuovo hub IoT collegato usando il pulsante **Collega un nuovo hub IoT**.
 
@@ -70,9 +69,9 @@ I passaggi seguenti consentono di configurare i criteri di allocazione per la re
 
 3. Alla voce **Seleziona come gestire i dati del dispositivo durante il provisioning a un hub diverso**, scegliere uno dei seguenti criteri per rieffettuare il provisioning:
 
-    * **Rieseguire il provisioning e la migrazione dei dati**: Questo criterio interviene quando associati alla voce di registrazione dispositivi di inviano una nuova richiesta di provisioning. A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. Tutte le informazioni sullo stato del dispositivo da tale hub IoT iniziale verranno migrate sul nuovo hub IoT. Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**
+    * **Rieffettuare il provisioning e migrare i dati**: questi criteri intervengono quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta di provisioning. A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. Tutte le informazioni sullo stato del dispositivo da tale hub IoT iniziale verranno migrate sul nuovo hub IoT. Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**
 
-    * **Rieseguire il provisioning e reimpostare la configurazione iniziale**: Questo criterio interviene quando associati alla voce di registrazione dispositivi di inviano una nuova richiesta di provisioning. A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. I dati di configurazione iniziali che l'istanza del servizio di provisioning ha ricevuto durante il provisioning del dispositivo vengono forniti al nuovo hub IoT. Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**.
+    * **Rieffettuare il provisioning e ripristinare la configurazione iniziale**: questo criterio interviene quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta di provisioning. A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. I dati di configurazione iniziali che l'istanza del servizio di provisioning ha ricevuto durante il provisioning del dispositivo vengono forniti al nuovo hub IoT. Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**.
 
 4. Fare clic su **Salva** per rieffettuare il provisioning del dispositivo in base alle modifiche apportate.
 
@@ -86,15 +85,15 @@ Affinché si possa rieffettuare il provisioning dei dispositivi in base alle mod
 
 La frequenza con cui un dispositivo invia una richiesta di provisioning dipende dallo scenario. Tuttavia, si consiglia di programmare i dispositivi in modo che inviino una richiesta di provisioning a un'istanza di servizio di provisioning al riavvio del sistema e affinché supportino un [metodo](../iot-hub/iot-hub-devguide-direct-methods.md) per attivare manualmente il provisioning su richiesta. Il provisioning può essere attivato anche impostando una [proprietà desiderata](../iot-hub/iot-hub-devguide-device-twins.md#desired-property-example). 
 
-Il criterio per rieffettuare il provisioning su una voce di registrazione determina in che modo l'istanza del servizio di provisioning del dispositivo gestisce queste richieste di provisioning e se i dati sullo stato del dispositivo devono essere migrati durante il nuovo provisioning. Gli stessi criteri sono disponibili per le registrazioni individuali e di gruppi:
+Il criterio di reprovisioning su una voce di registrazione determina in che modo l'istanza del servizio di provisioning del dispositivo gestisce queste richieste di provisioning e se i dati dello stato del dispositivo devono essere migrati durante il reprovisioning. Gli stessi criteri sono disponibili per le registrazioni individuali e di gruppi:
 
 Per un esempio di codice di invio per le richieste di provisioning da un dispositivo durante una sequenza di avvio, vedere [Provisioning automatico di un dispositivo simulato](quick-create-simulated-device.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su altre Reprovisioning, vedere [dispositivo Hub IoT un nuovo provisioning concetti](concepts-device-reprovision.md) 
-- Per informazioni su ulteriori il deprovisioning di utenti, vedere [come effettuare il deprovisioning di dispositivi che sono stati precedentemente sottoposti a provisioning](how-to-unprovision-devices.md) 
+- Per ulteriori informazioni sul nuovo provisioning, vedere [concetti relativi al provisioning dei dispositivi dell'hub](concepts-device-reprovision.md) . 
+- Per ulteriori informazioni sul deprovisioning, vedere [come eseguire il deprovisioning di dispositivi precedentemente sottoposti a provisioning automatico](how-to-unprovision-devices.md) 
 
 
 

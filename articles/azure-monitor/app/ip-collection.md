@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/11/2019
-ms.openlocfilehash: bee3e24739aa560a43960143d1a18c30ec1ce160
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 356c8389ed486246ce55b5006e1e489ac7c3c1e3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819440"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884792"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Georilevazione e gestione degli indirizzi IP
 
@@ -124,7 +124,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>Inizializzatore della telemetria
 
-Se è necessaria un'alternativa più flessibile rispetto a `DisableIpMasking` per registrare tutti gli indirizzi IP o parte di essi, è possibile usare un [inizializzatore di telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) per copiare tutto o parte dell'indirizzo IP in un campo personalizzato. 
+Se è necessaria un'alternativa più flessibile rispetto a `DisableIpMasking` per registrare tutti gli indirizzi IP o parte di essi, è possibile usare un [inizializzatore di telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) per copiare tutto o parte dell'indirizzo IP in un campo personalizzato. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
@@ -235,7 +235,7 @@ requests
 
 Nella colonna `customDimensions_client-ip` verranno visualizzati gli indirizzi IP appena raccolti. Per la colonna `client-ip` predefinita, tutti i 4 ottetti verranno azzerati o verranno visualizzati solo i primi tre ottetti a seconda di come è stata configurata la raccolta di indirizzi IP a livello di componente. Se si esegue il test in locale dopo l'implementazione dell'inizializzatore di telemetria e il valore visualizzato per `customDimensions_client-ip` è `::1` questo comportamento previsto. `::1` rappresenta l'indirizzo di loopback in IPv6. Equivale a `127.0.01` in IPv4 ed è il risultato che verrà visualizzato durante il test da localhost.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 * Scopri di più sulla [raccolta di dati personali](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) in Application Insights.
 

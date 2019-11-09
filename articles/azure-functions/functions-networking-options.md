@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 34759077bd7223d17fea70d32bda63fd1b2595eb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4e55932d47389e09b135d571d0e000b9795e6edc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668132"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884956"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di funzioni di Azure
 
@@ -86,7 +86,7 @@ Indipendentemente dalla versione usata, l'integrazione della rete virtuale conse
 Funzionalità di integrazione della rete virtuale:
 
 * Richiede un piano di servizio app standard, Premium o PremiumV2
-* supporta TCP e UDP
+* Supporta TCP e UDP
 * Funziona con le app del servizio app e le app per le funzioni
 
 L'integrazione della rete virtuale non supporta alcune operazioni, tra cui:
@@ -116,6 +116,12 @@ Per garantire un livello di sicurezza più elevato, è possibile limitare un num
 Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, di Accodamento e tabelle. Attualmente non è possibile usare alcuna restrizione di rete virtuale per questo account. Se si configura un endpoint del servizio di rete virtuale nell'account di archiviazione usato per l'app per le funzioni, l'app verrà interrotta.
 
 [Altre informazioni sui requisiti dell'account di archiviazione.](./functions-create-function-app-portal.md#storage-account-requirements)
+
+### <a name="using-key-vault-references"></a>Uso di riferimenti Key Vault 
+
+I riferimenti Key Vault consentono di usare i segreti Azure Key Vault nell'applicazione funzioni di Azure senza richiedere modifiche al codice. Azure Key Vault è un servizio che fornisce una gestione centralizzata dei segreti, con controllo completo sui criteri di accesso e sulla cronologia di controllo.
+
+Attualmente [Key Vault riferimenti](../app-service/app-service-key-vault-references.md) non funzioneranno se il Key Vault è protetto con gli endpoint di servizio. Per connettersi a un Key Vault usando l'integrazione della rete virtuale, è necessario chiamare Key Vault nel codice dell'applicazione.
 
 ## <a name="virtual-network-triggers-non-http"></a>Trigger della rete virtuale (non HTTP)
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a8823a9b354ca4ae9ecab0eeac265b486116bec
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 050bc3cf6b81b9467d9947a4f611477e2fcbcd9a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808961"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885853"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -69,8 +69,8 @@ Per una singola espressione le parentesi sono facoltative. La lunghezza totale d
 Una regola di appartenenza che popola automaticamente un gruppo con utenti o dispositivi è un'espressione binaria che restituisce un risultato true o false. Le tre parti di una regola semplice sono:
 
 - Proprietà
-- Operator
-- Value
+- Operatore
+- Valore
 
 L'ordine delle parti in un'espressione è importante per evitare gli errori di sintassi.
 
@@ -78,22 +78,22 @@ L'ordine delle parti in un'espressione è importante per evitare gli errori di s
 
 Ci sono tre tipi di proprietà che è possibile usare per costruire una regola di appartenenza.
 
-- boolean
-- Stringa
+- Booleano
+- String
 - Raccolta di tipi string
 
 Di seguito sono elencate le proprietà utente che è possibile usare per creare una singola espressione.
 
 ### <a name="properties-of-type-boolean"></a>Proprietà di tipo boolean
 
-| properties | Valori consentiti | Utilizzo |
+| Proprietà | Valori consentiti | Utilizzo |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Proprietà di tipo stringa
 
-| properties | Valori consentiti | Utilizzo |
+| Proprietà | Valori consentiti | Utilizzo |
 | --- | --- | --- |
 | city |Qualsiasi valore di stringa o *null* |(user.city -eq "valore") |
 | country |Qualsiasi valore di stringa o *null* |(user.country -eq "valore") |
@@ -105,7 +105,7 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 | givenName |Qualsiasi valore di stringa o *null* |(user.givenName -eq "valore") |
 | jobTitle |Qualsiasi valore di stringa o *null* |(user.jobTitle -eq "valore") |
 | mail |Qualsiasi valore di stringa o *null* (indirizzo SMTP dell'utente) |(user.mail -eq "valore") |
-| mailNickName |Qualsiasi valore stringa (alias di posta dell'utente) |(user.mailNickName -eq "valore") |
+| mailNickname |Qualsiasi valore stringa (alias di posta dell'utente) |(user.mailNickName -eq "valore") |
 | mobile |Qualsiasi valore di stringa o *null* |(user.mobile -eq "valore") |
 | objectId |GUID dell'oggetto utente |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | Identificatore di sicurezza (SID) locale per gli utenti sincronizzati da un ambiente locale al cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
@@ -124,7 +124,7 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 
 ### <a name="properties-of-type-string-collection"></a>Proprietà di tipo insieme String
 
-| properties | Valori consentiti | Utilizzo |
+| Proprietà | Valori consentiti | Utilizzo |
 | --- | --- | --- |
 | otherMails |Qualsiasi valore stringa. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -135,12 +135,12 @@ Per le proprietà usate per le regole dei dispositivi, vedere [Regole per i disp
 
 Nella tabella seguente sono elencati tutti gli operatori supportati e la relativa sintassi per un'espressione singola. Gli operatori possono essere usati con o senza trattino (-) come prefisso.
 
-| Operator | Sintassi |
+| Operatore | Sintassi |
 | --- | --- |
 | Non uguale a |-ne |
 | Uguale a |-eq |
 | Non inizia con |-notStartsWith |
-| Starts With |-startsWith |
+| Inizia con |-startsWith |
 | Non contiene |-notContains |
 | Contiene |-contains |
 | Non corrispondente |-notMatch |
@@ -249,7 +249,7 @@ Una regola di appartenenza può essere costituita da espressioni complesse in cu
 
 Le proprietà multivalore sono raccolte di oggetti dello stesso tipo. Possono essere usate per creare regole di appartenenza tramite gli operatori logici -any e -all.
 
-| properties | Valori | Utilizzo |
+| Proprietà | Valori | Utilizzo |
 | --- | --- | --- |
 | assignedPlans | Ogni oggetto della raccolta espone le proprietà di stringa seguenti: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -357,7 +357,10 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 
 ## <a name="rules-for-devices"></a>Regole per i dispositivi
 
-È anche possibile creare una regola che consenta di selezionare gli oggetti dispositivo per l'appartenenza a un gruppo. Un gruppo non può avere come membri sia utenti che dispositivi. L'attributo **organizationalUnit** non viene più elencato e non deve essere usato. Questa stringa viene impostata da Intune in casi specifici ma non viene riconosciuta da Azure AD, quindi nessun dispositivo viene aggiunto ai gruppi in base a questo attributo.
+È anche possibile creare una regola che consenta di selezionare gli oggetti dispositivo per l'appartenenza a un gruppo. Un gruppo non può avere come membri sia utenti che dispositivi. 
+
+> [!NOTE]
+> L'attributo **organizationalUnit** non viene più elencato e non deve essere usato. Questa stringa viene impostata da Intune in casi specifici ma non viene riconosciuta da Azure AD, quindi nessun dispositivo viene aggiunto ai gruppi in base a questo attributo.
 
 > [!NOTE]
 > systemlabels è un attributo di sola lettura che non può essere impostato con Intune.
@@ -379,9 +382,8 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
  enrollmentProfileName | Profilo di registrazione del dispositivo Apple, registrazione del dispositivo-identificatori di dispositivi aziendali (Android-chiosco) o nome del profilo di Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (per i dispositivi mobili)<br>PC (per i computer gestiti dall'agente di PC Intune) | (device.managementType -eq "MDM")
- organizationalUnit | unità organizzativa locale (OU) valida | (Device. organizationalUnit-contiene "laptop")
  deviceId | ID dispositivo di Azure AD valido | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
- objectId | ID oggetto di Azure AD valido |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ objectId | ID oggetto di Azure AD valido |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
  devicePhysicalIds | qualsiasi valore stringa utilizzato da Autopilot, ad esempio tutti i dispositivi Autopilot, OrderID o PurchaseOrderID  | (Device. devicePhysicalIDs-any _-contains "[ZTDId]") (Device. devicePhysicalIds-any _-EQ "[OrderID]: 179887111881") (Device. devicePhysicalIds-any _-EQ "[PurchaseOrderId]: 76222342342")
  systemLabels | qualsiasi stringa corrispondente alla proprietà del dispositivo Intune per contrassegnare i dispositivi dell'area di lavoro moderna | (Device. systemLabels-contiene "M365Managed")
 

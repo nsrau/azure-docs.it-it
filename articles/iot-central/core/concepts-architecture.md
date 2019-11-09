@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 9206bf07a36cc5724b173790eb94037cb86add9c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 25b0ec1b86a59b944cdb895bd536da32a1f8595b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952082"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884499"
 ---
 # <a name="azure-iot-central-architecture"></a>Architettura di Azure IoT Central
 
@@ -83,7 +83,7 @@ Un'applicazione può avere uno o più dispositivi simulati e reali basati su ogn
 
 ## <a name="data-export"></a>Esportazione dati
 
-In un'applicazione IoT Central di Azure è possibile [esportare i dati](howto-export-data-event-hubs-service-bus.md) in modo continuo nei propri hub eventi di Azure e nelle istanze del bus di servizio di Azure. È anche possibile esportare periodicamente i dati nell'account di archiviazione BLOB di Azure. IoT Central possibile esportare misure, dispositivi e modelli di dispositivo.
+In un'applicazione IoT Central di Azure è possibile [esportare i dati](howto-export-data-event-hubs-service-bus.md) in modo continuo in hub eventi di Azure, nel bus di servizio di Azure e nelle istanze di archiviazione BLOB di Azure. IoT Central possibile esportare misure, dispositivi e modelli di dispositivo.
 
 ## <a name="batch-device-updates"></a>Aggiornamenti del dispositivo batch
 

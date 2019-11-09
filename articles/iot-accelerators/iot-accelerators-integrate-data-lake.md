@@ -1,5 +1,5 @@
 ---
-title: Integrare la soluzione di monitoraggio remoto con Data Lake Store - Azure | Microsoft Docs
+title: Trasmettere i dati dal monitoraggio remoto al Data Lake Store-Azure | Microsoft Docs
 description: Informazioni su come integrare la soluzione di monitoraggio remoto con Azure Data Lake Store usando un processo di Analisi di flusso di Azure.
 author: philmea
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61449505"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889246"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrare la soluzione di monitoraggio remoto con Azure Data Lake Store
 
@@ -23,7 +23,7 @@ In questa procedura si userà un processo di Analisi di flusso di Azure per eseg
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa procedura, è necessario quanto segue:
+Per completare questa procedura è necessario avere eseguito le operazioni seguenti:
 
 * [Distribuire l'acceleratore di soluzioni di monitoraggio remoto](quickstart-remote-monitoring-deploy.md).
   * La soluzione implementerà l'hub IoT e il processo di Analisi di flusso di Azure usati in questo articolo nella sottoscrizione Azure.
@@ -67,7 +67,7 @@ Creare un processo di Analisi di flusso di Azure per eseguire lo streaming dei d
 
 1. Assicurarsi di lasciare l'impostazione predefinita **Cloud** per l'ambiente di hosting.
 
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Create**.
 
     ![Creare un processo di Analisi di flusso](./media/iot-accelerators-integrate-data-lake/create-stream-analytics-job.png)
 
@@ -178,6 +178,6 @@ Analisi di flusso di Azure usa un linguaggio di query simile a SQL per specifica
 
     ![Esplorare i dati di streaming](./media/iot-accelerators-integrate-data-lake/data-lake-store-file-preview.png)
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Per eseguire analisi di Big Data sui set di dati di Data Lake Store è possibile usare Azure Data Lake Analytics. Per altre informazioni, vedere la [documentazione di Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics).

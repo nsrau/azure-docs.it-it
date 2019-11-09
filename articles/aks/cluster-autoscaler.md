@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: f27b910910ca21aa36582506e6c7b2d1d39da88a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ce5d2965d0127eec01620c702d7d83bd0b39416
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472865"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885769"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Ridimensionare automaticamente un cluster per soddisfare le richieste delle applicazioni nel servizio Azure Kubernetes (AKS)
 
@@ -122,6 +122,35 @@ az aks update \
 ## <a name="re-enable-a-disabled-cluster-autoscaler"></a>Abilitare di nuovo il ridimensionamento automatico di un cluster disabilitato
 
 Se si vuole abilitare di nuovo il ridimensionamento automatico del cluster in un cluster esistente, è possibile riabilitarlo usando il comando [AZ AKS Update][az-aks-update] , specificando i parametri-- *Enable-cluster-AutoScaler*, *--min-count*e *--Max-count* .
+
+## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>Recuperare i log e lo stato di scalabilità automatica del cluster
+
+Per eseguire la diagnosi e il debug degli eventi di scalabilità automatica, è possibile recuperare i log e lo stato dal componente aggiuntivo di scalabilità automatica.
+
+AKS gestisce il ridimensionamento automatico del cluster per conto dell'utente e lo esegue nel piano di controllo gestito. I log dei nodi master devono essere configurati per essere visualizzati come risultato.
+
+Per configurare i log da inserire dal ridimensionatore automatico del cluster in Log Analytics seguire questa procedura.
+
+1. Configurare una regola per i log di diagnostica per eseguire il push dei log del cluster di scalabilità automatica in Log Analytics. Per [istruzioni dettagliate](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs), assicurarsi di selezionare la casella per `cluster-autoscaler` quando si selezionano le opzioni per "log".
+1. Fare clic sulla sezione "log" del cluster tramite il portale di Azure.
+1. Immettere la query di esempio seguente in Log Analytics:
+
+```
+AzureDiagnostics
+| where Category == "cluster-autoscaler"
+```
+
+Verranno visualizzati log simili ai seguenti restituiti, purché siano presenti log da recuperare.
+
+![Log di Log Analytics](media/autoscaler/autoscaler-logs.png)
+
+Il servizio di scalabilità automatica del cluster scriverà anche lo stato di integrità in un configMap denominato `cluster-autoscaler-status`. Per recuperare questi log, eseguire il comando di `kubectl` seguente. Viene segnalato uno stato di integrità per ogni pool di nodi configurato con il ridimensionatore automatico del cluster.
+
+```
+kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
+```
+
+Per altre informazioni sugli elementi registrati da scalabilità automatica, vedere le domande frequenti sul [progetto Kubernetes/AutoScaler GitHub](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why).
 
 ## <a name="use-the-cluster-autoscaler-with-multiple-node-pools-enabled"></a>Usare il ridimensionamento automatico del cluster con più pool di nodi abilitati
 

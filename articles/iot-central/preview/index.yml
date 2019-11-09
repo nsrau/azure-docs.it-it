@@ -1,0 +1,99 @@
+### YamlMime:Landing
+title: Documentazione di Azure IoT Central
+summary: Azure IoT Central è una soluzione SaaS (Software as a Service) completamente gestita che semplifica la connessione, il monitoraggio e la gestione dei dispositivi IoT su vasta scala. Azure IoT Central semplifica la configurazione iniziale della soluzione IoT e riduce le attività di gestione, i costi operativi e l'overhead di un tipico progetto IoT. È possibile ottenere informazioni su come creare, personalizzare, gestire e usare un'applicazione Azure IoT Central con le guide introduttive e le esercitazioni.
+metadata:
+  title: Documentazione di Azure IoT Central
+  description: Azure IoT Central è una soluzione SaaS (Software as a Service) completamente gestita che semplifica la connessione, il monitoraggio e la gestione dei dispositivi IoT su vasta scala. Azure IoT Central semplifica la configurazione iniziale della soluzione IoT e riduce le attività di gestione, i costi operativi e l'overhead di un tipico progetto IoT. È possibile ottenere informazioni su come creare, personalizzare, gestire e usare un'applicazione Azure IoT Central con le guide introduttive e le esercitazioni.
+  services: iot-central
+  ms.service: iot-central
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 10/25/2019
+  ms.openlocfilehash: d769b906324c1022baffff198fea6e4e44821757
+  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 11/09/2019
+  ms.locfileid: "73891806"
+landingContent:
+- title: Informazioni su Azure IoT Central
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni su Azure IoT Central
+      url: overview-iot-central.md
+    - text: Opzioni per le soluzioni IoT
+      url: overview-iot-central-tour.md
+    - text: Panoramica dell'interfaccia utente
+      url: overview-iot-central-tour.md
+  - linkListType: architecture
+    links:
+    - text: Architettura di Azure IoT Central
+      url: concepts-architecture.md
+  - linkListType: quickstart
+    links:
+    - text: Creare una nuova applicazione
+      url: quick-deploy-iot-central.md
+- title: Connettersi
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Configurare un modello di dispositivo
+      url: howto-set-up-template.md
+    - text: Connettere un dispositivo Plug and Play IoT
+      url: tutorial-connect-pnp-device.md
+  - linkListType: how-to-guide
+    links:
+    - text: Preparare e connettere un componente MXChip IoT DevKit
+      url: howto-connect-devkit.md
+    - text: Connettere altri cloud IoT
+      url: ../core/howto-build-iotc-device-bridge.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+- title: Rimanere connessi
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Usare gruppi di dispositivi
+      url: tutorial-use-device-groups.md
+  - linkListType: how-to-guide
+    links:
+    - text: Gestire i dispositivi
+      url: howto-manage-devices.md
+    - text: Eseguire un processo
+      url: ../core/howto-run-a-job.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+    - text: Analizzare i dati del dispositivo
+      url: howto-create-analytics.md
+- title: Trasformare
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Creare una regola
+      url: quick-configure-rules.md
+    - text: Creare regole di telemetria
+      url: tutorial-create-telemetry-rules.md
+    - text: Eseguire l'esportazione nell'archiviazione BLOB
+      url: howto-export-data.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creare regole personalizzate
+      url: howto-create-custom-rules.md
+    - text: Creare analisi personalizzate
+      url: howto-create-custom-analytics.md
+- title: Administration
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gestire l'applicazione
+      url: howto-administer.md
+    - text: Gestire utenti e ruoli
+      url: howto-manage-users-roles.md
+    - text: Visualizzare la fattura
+      url: howto-view-bill.md
+    - text: Personalizzare l'interfaccia utente dell'applicazione
+      url: howto-customize-ui.md
+    - text: Configurare dashboard personali
+      url: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+    - text: Usare i riquadri del dashboard
+      url: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+    - text: Usare i modelli di applicazione
+      url: howto-use-app-templates.md

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 1c48e758e9ee69085034f714652632151912f8d4
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d5d0a575c3fb662df034b66a48135ac33393f95c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530628"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885398"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Installare e usare Consul in Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ ms.locfileid: "72530628"
 Questo articolo illustra come installare Console. I componenti Consul sono installati in un cluster Kubernetes in AKS.
 
 > [!NOTE]
-> Queste istruzioni fanno riferimento a console `1.6.0` e usano almeno la versione Helm `2.14.2`.
+> Queste istruzioni fanno riferimento a console `1.6.0`e usano almeno la versione Helm `2.14.2`.
 >
 > Le versioni di console `1.6.x` possono essere eseguite con le versioni di Kubernetes `1.13+`. Altre versioni di Consul sono disponibili nelle versioni di [GitHub-console][consul-github-releases] e informazioni su ognuna delle versioni in [console-note sulla versione][consul-release-notes].
 
@@ -42,7 +42,7 @@ Questo articolo separa le linee guida per l'installazione di Consul in diversi p
 
 ### <a name="install-the-consul-components-on-aks"></a>Installare i componenti di console su AKS
 
-Si inizierà con il download della versione `v0.10.0` del grafico Helm del console. Questa versione del grafico include la versione `1.6.0` di console.
+Si inizierà con il download della versione `v0.10.0` del grafico Helm del console. Questa versione del grafico include la versione `1.6.0`di console.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -186,7 +186,7 @@ Per esplorare altre opzioni di installazione e configurazione per Consul, vedere
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-port-forward]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward
-[kubernetes-node-selectors]: https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#node-selectors
+[kubernetes-node-selectors]: https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#node-selectors
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: Esaminare e testare le modifiche da una richiesta pull direttamente nel servizio Azure Kubernetes usando le azioni di GitHub e Azure Dev Spaces.
 keywords: Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, azioni di GitHub, Helm, mesh dei servizi, routing mesh del servizio, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 590d49f4c189ff48f20369d18b17e0f6e4a46fa2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 09dc9440628ac5d808f90d086bd88e4f90765c28
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571599"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889726"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azioni di GitHub & servizio Azure Kubernetes (anteprima)
 
@@ -96,8 +96,8 @@ Passare al repository con fork e fare clic su *Settings (impostazioni*). Fare cl
 1. *RESOURCE_GROUP*: il gruppo di risorse per il cluster AKS, che in questo esempio è *MyResourceGroup*.
 1. *CLUSTER_NAME*: il nome del cluster AKS, che in questo esempio è *MyAKS*.
 1. *CONTAINER_REGISTRY*: *LOGINSERVER* per l'ACR.
-1. *Host*: host per lo spazio di sviluppo, che assume il formato *< MASTER_SPACE >. < APP_NAME >. < HOST_SUFFIX >* , che in questo esempio è *dev.bikesharingweb.fedcab0987.EUS.azds.io*.
-1. *HOST_SUFFIX*: suffisso host per lo spazio di sviluppo, che in questo esempio è *fedcab0987.EUS.azds.io*.
+1. *Host*: host per lo spazio di sviluppo, che assume il formato *< MASTER_SPACE >. < APP_NAME >.* < HOST_SUFFIX >, che in questo esempio è *dev.bikesharingweb.fedcab0987.EUS.azds.io*.
+1. *HOST_SUFFIX*: il suffisso host per lo spazio di sviluppo, che in questo esempio è *fedcab0987.EUS.azds.io*.
 1. *IMAGE_PULL_SECRET*: il nome del segreto che si vuole usare, ad esempio *demo-Secret*.
 1. *MASTER_SPACE*: il nome dello spazio di sviluppo padre, che in questo esempio è *dev*.
 1. *REGISTRY_USERNAME*: *ClientID* dall'output JSON della creazione dell'entità servizio.
@@ -145,7 +145,7 @@ Usare `git push` per eseguire il push del nuovo ramo nel repository con fork:
 git push origin bike-images
 ```
 
-Al termine del push, passare al repository con fork in GitHub creare una richiesta pull con lo *sviluppatore* nel repository con fork come Branch di base rispetto al ramo *bike-images* .
+Al termine del push, passare al repository con fork in GitHub per creare una richiesta pull con il ramo *Master* nel repository con fork come Branch di base rispetto al ramo *bike-images* .
 
 Dopo l'apertura della richiesta pull, passare alla scheda *azioni* . Verificare che sia stata avviata una nuova azione che sta creando il servizio *Bikes* .
 
@@ -158,7 +158,7 @@ Al termine dell'azione, viene visualizzato un commento con un URL per il nuovo s
 
 Passare al servizio *bikesharingweb* aprendo l'URL dal commento. Selezionare *Aurelia Briggs (Customer)* come utente, quindi selezionare una bicicletta da affittare. Verificare che l'immagine segnaposto per la bicicletta non sia più visualizzata.
 
-Se si uniscono le modifiche nel ramo *dev* , viene eseguita un'altra azione per ricompilare ed eseguire l'intera applicazione nello spazio di sviluppo padre. In questo esempio lo spazio padre è *dev*. Questa azione è configurata in [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
+Se si uniscono le modifiche nel ramo *Master* nel fork, viene eseguita un'altra azione per ricompilare ed eseguire l'intera applicazione nello spazio di sviluppo padre. In questo esempio lo spazio padre è *dev*. Questa azione è configurata in [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
 ## <a name="clean-up-your-azure-resources"></a>Pulire le risorse di Azure
 

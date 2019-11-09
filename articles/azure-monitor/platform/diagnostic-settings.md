@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ec1842d534dcb1e9ddef149d3ae879677b29e715
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c1b7f81c62217d9e113f3293a8f351d908a6a576
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262518"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887278"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure
 I [log della piattaforma](resource-logs-overview.md) in Azure forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Questo articolo fornisce informazioni dettagliate sulla creazione e la configurazione delle impostazioni di diagnostica per raccogliere i log della piattaforma in destinazioni diverse.
@@ -32,7 +32,7 @@ Una singola impostazione di diagnostica può definire una delle destinazioni. Se
 > [!NOTE]
 > Le [metriche della piattaforma](metrics-supported.md) vengono raccolte automaticamente nelle metriche di monitoraggio di [Azure](data-platform-metrics.md). È possibile usare le impostazioni di diagnostica per raccogliere le metriche per determinati servizi di Azure nei log di monitoraggio di Azure per l'analisi con altri dati di monitoraggio usando le [query di log](../log-query/log-query-overview.md).
 
-## <a name="destinations"></a>Destinazioni 
+## <a name="destinations"></a>Destinations 
 I log della piattaforma possono essere inviati alle destinazioni nella tabella seguente. La configurazione per ogni destinazione viene eseguita usando lo stesso processo per la creazione di impostazioni di diagnostica descritte in questo articolo. Per informazioni dettagliate sull'invio di dati a tale destinazione, seguire ogni collegamento nella tabella seguente.
 
 | Destination | Descrizione |
@@ -83,16 +83,16 @@ I log della piattaforma possono essere inviati alle destinazioni nella tabella s
 > [!NOTE]
 > L'invio delle metriche multidimensionali tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione.
 >
-> *Ad esempio*: la metrica "Messaggi in arrivo" su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. Tuttavia, in caso di esportazione tramite impostazione di diagnostica, la metrica verrà rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
+> *Ad esempio*: la metrica 'Messaggi in ingresso' su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. Tuttavia, in caso di esportazione tramite impostazione di diagnostica, la metrica verrà rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
 
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa risorsa e i log vengono trasmessi alle destinazioni specificate quando vengono generati nuovi dati degli eventi. Si noti che potrebbero essere necessari fino a 15 minuti tra il momento in cui viene generato un evento e il momento in cui viene [visualizzato in un'area di lavoro log Analytics](data-ingestion-time.md).
 
 
 
 ## <a name="create-diagnostic-settings-using-powershell"></a>Creare impostazioni di diagnostica tramite PowerShell
-Usare il cmdlet [set-AzDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/az.monitor/set-azdiagnosticsetting) per creare un'impostazione di diagnostica con [Azure PowerShell](powershell-quickstart-samples.md). Per una descrizione dei parametri, vedere la documentazione relativa a questo cmdlet.
+Usare il cmdlet [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) per creare un'impostazione di diagnostica con [Azure PowerShell](powershell-quickstart-samples.md). Per una descrizione dei parametri, vedere la documentazione relativa a questo cmdlet.
 
 Di seguito è riportato un esempio di cmdlet di PowerShell per la creazione di un'impostazione di diagnostica con le tre destinazioni.
 

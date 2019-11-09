@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 0d132a46db39308911f472941c02f8bb04a44e0d
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 22b2cb8caa815b2ce8343a060a5f12133b763b83
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988781"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890347"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossario dei termini per la Plug and Play di anteprima
 
@@ -117,7 +117,7 @@ Uno [sviluppatore di dispositivi](#device-developer) usa il [linguaggio di defin
 
 ## <a name="device-provisioning-service"></a>Servizio di provisioning di dispositivi
 
-[Azure IOT Central](#azure-iot-central) usa il servizio Device provisioning per gestire la registrazione e la connessione dei dispositivi. Per altre informazioni, vedere [connettività dei dispositivi in Azure IOT Central](../iot-central/core/overview-iot-central-get-connected-pnp.md). È anche possibile usare il servizio Device provisioning per gestire la registrazione e la connessione dei dispositivi alla soluzione Internet delle cose in base all'hub. Per altre informazioni, vedere [provisioning di dispositivi con il servizio Device provisioning in hub Azure](../iot-dps/about-iot-dps.md).
+[Azure IOT Central](#azure-iot-central) usa il servizio Device provisioning per gestire la registrazione e la connessione dei dispositivi. Per altre informazioni, vedere [connettività dei dispositivi in Azure IOT Central](../iot-central/preview/overview-iot-central-get-connected.md). È anche possibile usare il servizio Device provisioning per gestire la registrazione e la connessione dei dispositivi alla soluzione Internet delle cose in base all'hub. Per altre informazioni, vedere [provisioning di dispositivi con il servizio Device provisioning in hub Azure](../iot-dps/about-iot-dps.md).
 
 ## <a name="device-registration"></a>Registrazione del dispositivo
 

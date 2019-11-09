@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3717199d2fa342fff5996d97bc5cdaf6da6e9880
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: b265ff8831275a9f4b84f7dac28b82ae75630f8b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595194"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889779"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure
 
@@ -47,8 +47,8 @@ Le altre opzioni di ridondanza di Archiviazione di Azure includono l'archiviazio
 
 È importante progettare l'applicazione per la disponibilità elevata fin dall'inizio. Per indicazioni sulla progettazione dell'applicazione e sulla pianificazione del ripristino di emergenza, vedere queste risorse di Azure:
 
-* [Progettazione di applicazioni resilienti per Azure](https://docs.microsoft.com/azure/architecture/resiliency/): Panoramica dei concetti chiave per l'architettura di applicazioni a disponibilità elevata in Azure.
-* [Elenco di controllo della disponibilità](https://docs.microsoft.com/azure/architecture/checklist/availability): elenco di controllo per verificare che l'applicazione implementi le procedure di progettazione consigliate per la disponibilità elevata.
+* [Progettazione di applicazioni resilienti per Azure](/azure/architecture/checklist/resiliency-per-service): Panoramica dei concetti chiave per l'architettura di applicazioni a disponibilità elevata in Azure.
+* [Elenco di controllo della disponibilità](/azure/architecture/checklist/resiliency-per-service): elenco di controllo per verificare che l'applicazione implementi le procedure di progettazione consigliate per la disponibilità elevata.
 * [Progettazione di applicazioni a disponibilità elevata con RA-GRS](storage-designing-ha-apps-with-ragrs.md): linee guida di progettazione per la creazione di applicazioni per sfruttare i vantaggi di RA-GRS.
 * [Esercitazione: creare un'applicazione a disponibilità elevata con archiviazione BLOB](../blobs/storage-create-geo-redundant-storage.md): un'esercitazione che illustra come creare un'applicazione a disponibilità elevata che passa automaticamente tra gli endpoint come errori e i recuperi vengono simulati. 
 
@@ -122,7 +122,7 @@ Il failover dell'account è disponibile in anteprima per tutti i clienti che usa
 - Asia orientale
 - Asia sudorientale
 - Australia orientale
-- Australia sud-orientale
+- Australia sudorientale
 - Stati Uniti centrali
 - Stati Uniti orientali 2
 - Stati Uniti centro-occidentali
@@ -186,7 +186,7 @@ Se l'account di archiviazione è configurato per l'archiviazione con ridondanza 
 
 In casi estremi, in cui un'area va persa a causa di una grave emergenza, Microsoft potrebbe avviare un failover a livello di area. In tal caso, non è necessaria alcuna azione da parte dell'utente. Si avrà di nuovo accesso in scrittura all'account di archiviazione solo dopo il completamento del failover gestito da Microsoft. Le applicazioni possono eseguire operazioni di lettura dall'area secondaria se l'account di archiviazione è configurato per l'archiviazione con ridondanza geografica e accesso in lettura. 
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Avviare il failover di un account (anteprima)](storage-initiate-account-failover.md)
 * [Progettazione di applicazioni a disponibilità elevata con RA-GRS](storage-designing-ha-apps-with-ragrs.md)

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83c185a6ba8f1c5e6edf095db5baf575f750fa3b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9c7084954fe58351a6f9af40552714faa34685ad
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176463"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887054"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Esecuzione di runbook in un ruolo di lavoro ibrido per runbook
 
@@ -103,7 +103,7 @@ Get-AzureRmVm | Select Name
 ```
 
 > [!NOTE]
-> `Connect-AzureRMAccount -Identity` funziona per un ruolo di lavoro ibrido per Runbook usando un'identità assegnata dal sistema e una singola identità assegnata dall'utente. Se è necessario usare più identità assegnate dall'utente in lavoro ibrido, è necessario specificare il parametro `-AccountId` per selezionare l'identità assegnata all'utente specifico.
+> `Connect-AzureRMAccount -Identity` funziona per un ruolo di lavoro ibrido per Runbook usando un'identità assegnata dal sistema e un'identità assegnata a un singolo utente. Se è necessario usare più identità assegnate dall'utente in lavoro ibrido, è necessario specificare il parametro `-AccountId` per selezionare l'identità assegnata all'utente specifico.
 
 ### <a name="runas-script"></a>Account RunAs di Automazione
 
@@ -315,4 +315,4 @@ Il runbook firmato può ora essere caricato in Automazione di Azure ed eseguito 
 * Per altre informazioni sui vari modi per avviare un runbook, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md).
 * Per comprendere le diverse modalità di utilizzo dei runbook di PowerShell in Automazione di Azure con l'editor di testo, vedere [Modifica di runbook testuali in Automazione di Azure](automation-edit-textual-runbook.md).
 * Se i runbook non vengono completati correttamente, vedere l'articolo sulla risoluzione dei problemi relativi agli [errori di esecuzione dei runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
-* Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere la [documentazione di PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/scripting/overview).

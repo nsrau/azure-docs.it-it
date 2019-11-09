@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5daa1cf04e04507174fa480c785bd15b656541a1
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: d1ef652747dccdcb0e04ac8032dd47e2ebaa6bf2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019096"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886901"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Raccolte di runbook e moduli per l'automazione di Azure
 
@@ -35,7 +35,7 @@ Il [PowerShell Gallery](https://www.powershellgallery.com/packages) offre un'amp
 
 1. Nel portale di Azure aprire l'account di automazione.
 2. In **Automazione processi** fare clic su **Raccolta di runbook**
-3. Selezionare **l'origine: PowerShell Gallery**.
+3. Selezionare l' **origine: PowerShell Gallery**.
 4. Individuare l'elemento della raccolta desiderato e selezionarlo per visualizzarne i dettagli. A sinistra è possibile immettere parametri di ricerca aggiuntivi per il server di pubblicazione e il tipo.
 
    ![Sfoglia raccolta](media/automation-runbook-gallery/browse-gallery.png)
@@ -50,7 +50,7 @@ Il [PowerShell Gallery](https://www.powershellgallery.com/packages) offre un'amp
 
 ### <a name="adding-a-powershell-runbook-to-the-gallery"></a>Aggiunta di un Runbook di PowerShell alla raccolta
 
-Microsoft consiglia di aggiungere manuali operativi al PowerShell Gallery che si ritiene utile ad altri clienti. Il PowerShell Gallery accetta i moduli di PowerShell e gli script di PowerShell. Per aggiungere un Runbook, è possibile caricarlo nell' [PowerShell Gallery](/powershell/gallery/how-to/publishing-packages/publishing-a-package).
+Microsoft consiglia di aggiungere manuali operativi al PowerShell Gallery che si ritiene utile ad altri clienti. Il PowerShell Gallery accetta i moduli di PowerShell e gli script di PowerShell. Per aggiungere un Runbook, è possibile [caricarlo nell'PowerShell Gallery](/powershell/gallery/how-to/publishing-packages/publishing-a-package).
 
 > [!NOTE]
 > Manuali operativi grafici non supportati in PowerShell Gallery.
@@ -113,4 +113,4 @@ L'elenco seguente contiene alcuni manuali operativi che forniscono soluzioni agl
 
 * Per iniziare a usare i runbook, vedere [Manage runbook in Azure Automation](manage-runbooks.md) (Gestire i runbook in Automazione di Azure).
 * Per comprendere le differenze tra PowerShell e i flussi di lavoro di PowerShell con i runbook, vedere [Informazioni sul flusso di lavoro di Windows PowerShell](automation-powershell-workflow.md)
-* Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere la [documentazione di PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/scripting/overview).

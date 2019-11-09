@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulla federazione con Azure AD | Microsoft Docs
+title: Informazioni sulla federazione con Azure AD | Documentazione Microsoft
 description: Informazioni sulla federazione con Azure AD.
 services: active-directory
 author: billmath
@@ -13,12 +13,12 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52f9832a4307ea9519df448f192eeca70043a6d6
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: aeb8886987c09b504262d6ea12863a646d6022cc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035179"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73883658"
 ---
 # <a name="what-is-federation-with-azure-ad"></a>Informazioni sulla federazione con Azure AD
 
@@ -33,9 +33,9 @@ Per federazione si intende una raccolta di domini che hanno stabilito una relazi
 > Se si decide di usare la federazione con Active Directory Federation Services (AD FS), è possibile configurare facoltativamente la sincronizzazione dell'hash delle password come backup in caso di errore dell'infrastruttura di AD FS.
 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni sull'identità ibrida](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-hybrid-identity)
+- [Informazioni sull'identità ibrida](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
 - [Informazioni su Azure AD Connect e Connect Health](whatis-azure-ad-connect.md)
 - [Informazioni sulla sincronizzazione dell'hash delle password](whatis-phs.md)
 - [Informazioni sulla federazione](whatis-fed.md)

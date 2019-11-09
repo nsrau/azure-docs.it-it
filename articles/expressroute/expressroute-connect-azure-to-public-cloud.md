@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
 ms.author: osamaz
-ms.openlocfilehash: a496b91ab8ec14ce859df0da93e0ad5d87c50982
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: b8a454c2a104dfe8545cf734bf0b020b8f749bb1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019023"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889634"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>Connessione di Azure con cloud pubblici
 
@@ -52,7 +52,7 @@ In entrambi i casi, il cliente avrà connessioni Point-to-Point a ogni cloud pub
 
 I clienti possono scegliere di connettere ExpressRoute direttamente all'offerta di connettività diretta del provider di servizi cloud. Due provider di servizi cloud verranno connessi di nuovo e BGP verrà stabilito direttamente tra i rispettivi router. Questo tipo di connessione è attualmente disponibile con Oracle.
 
-## <a name="site-to-site-vpn"></a>VPN da sito a sito
+## <a name="site-to-site-vpn"></a>Da sito a VPN
 
 I clienti possono sfruttare Internet per connettere le istanze in Azure con altri cloud pubblici. Quasi tutti i provider di servizi cloud offrono funzionalità VPN da sito a sito. Tuttavia, potrebbero verificarsi incompatibilità a causa della mancanza di determinate varianti. Alcuni provider di servizi cloud, ad esempio, supportano solo IKEv1, quindi è necessario un endpoint di terminazione VPN in tale cloud. Per i provider di servizi cloud che supportano IKEv2 è possibile stabilire un tunnel diretto tra gateway VPN in entrambi i provider di servizi cloud.
 
@@ -65,7 +65,7 @@ Vedere [configurare la connessione diretta tra Azure e Oracle Cloud][ER-OCI] per
 
 <!--Link References-->
 [ER-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
-[ER-OCI]: https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking
+[ER-OCI]: https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking
 
 
 

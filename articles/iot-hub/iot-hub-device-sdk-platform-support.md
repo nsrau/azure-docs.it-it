@@ -1,18 +1,18 @@
 ---
 title: Supporto per la piattaforma di Azure IoT SDK per dispositivi | Microsoft Docs
-description: 'Concetti: elenco di piattaforme supportate da Azure IoT SDK per dispositivi'
+description: Gli SDK per dispositivi Open Source sono disponibili su GitHub in C, .NETC#(), Java, node. js e Python per connettere i dispositivi all'hub Azure e al servizio Device provisioning (DPS).
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: ac5817675d3cfc97a8732ee2e10ec7b9246b12a5
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d39fd95f8704650db16c1dc1553efaba2f727052
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693325"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889421"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Supporto della piattaforma SDK per dispositivi Azure
 
@@ -44,19 +44,19 @@ Per ognuno degli SDK elencati, Microsoft:
 
 L' [SDK per dispositivi C dell'hub Azure](https://github.com/Azure/azure-iot-sdk-c) è stato testato con e supporta le configurazioni seguenti.
 
-| Sistema operativo                  | Libreria TLS                  | Requisiti aggiuntivi                                                                     |
+| SO                  | Libreria TLS                  | Requisiti aggiuntivi                                                                     |
 |---------------------|------------------------------|---------------------------------------------------------------------------------------------|
 | Linux               | OpenSSL, WolfSSL o BearSSL | Socket Berkeley</br></br>POSIX (Portable Operating System Interface)                       |
 | iOS 12,2            | OpenSSL o OSX nativo        | XCode emulato in OSX 10.13.4                                                               |
 | Famiglia Windows 10   | SChannel                     |                                                                                             |
 | Sistema operativo mbed 5,4         | Mbed TLS 2                   | [Kit di sviluppo MXChip](https://microsoft.github.io/azure-iot-developer-kit/)                  |
-| Sistema operativo Azure Sphere     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/en-us/services/azure-sphere/get-started/) |
+| Sistema operativo Azure Sphere     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/services/azure-sphere/get-started/) |
 
 ### <a name="python-sdk"></a>Python SDK
 
 L' [SDK per dispositivi Python per hub Azure](https://github.com/Azure/azure-iot-sdk-python) è stato testato con e supporta le configurazioni seguenti.
 
-| Sistema operativo                  | Compilatore                          |
+| SO                  | Compilatore                          |
 |---------------------|-----------------------------------|
 | Linux               | Python 2,7 *, 3,4*, 3,5 *, 3,6, 3,7 |
 | MacOS High Sierra   | Python 2,7 *, 3,4*, 3,5 *, 3,6, 3,7 |
@@ -68,7 +68,7 @@ L' [SDK per dispositivi Python per hub Azure](https://github.com/Azure/azure-iot
 
 L' [SDK per dispositivi .NET (C#) di Azure](https://github.com/Azure/azure-iot-sdk-csharp) viene testato con e supporta le configurazioni seguenti.
 
-| Sistema operativo                                   | Standard                                                   |
+| SO                                   | Standard                                                   |
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | SKU per desktop e server di Windows 10   | .NET Core 2,1, .NET Framework 4.5.1 o .NET Framework 4,7 |
@@ -79,16 +79,16 @@ L' [SDK per dispositivi .NET (C#) di Azure](https://github.com/Azure/azure-iot-s
 
 L' [SDK del dispositivo node. js dell'hub Azure](https://github.com/Azure/azure-iot-sdk-node) è testato con e supporta le configurazioni seguenti.
 
-| Sistema operativo                  | Versione del nodo    |
+| SO                  | Versione del nodo    |
 |---------------------|-----------------|
 | Linux               | LTS e Current |
 | Famiglia Windows 10   | LTS e Current |
 
-### <a name="java-sdk"></a>Java SDK
+### <a name="java-sdk"></a>SDK per Java
 
 L' [SDK per dispositivi Java dell'hub Azure](https://github.com/Azure/azure-iot-sdk-java) è stato testato con e supporta le configurazioni seguenti.
 
-| Sistema operativo                     | Versione Java |
+| SO                     | Versione Java |
 |------------------------|--------------|
 | API Android 28         | Java 8       |
 | Linux x64             | Java 8       |
@@ -115,11 +115,11 @@ Microsoft collabora con diversi partner per espandere continuamente l'universo d
 
 * Per esplorare i dispositivi certificati Azure, vedere [Microsoft Azure Certified per IOT catalogo dei dispositivi](https://catalog.azureiotsolutions.com/).
 
-* Per ulteriori informazioni sui partner attendibili Microsoft o per informazioni su come diventare un partner attendibile Microsoft, vedere [Microsoft Azure certified Internet delle cose partner attendibili](https://azure.microsoft.com/en-us/marketplace/certified-iot-partners/).
+* Per ulteriori informazioni sui partner attendibili Microsoft o per informazioni su come diventare un partner attendibile Microsoft, vedere [Microsoft Azure certified Internet delle cose partner attendibili](https://azure.microsoft.com/marketplace/certified-iot-partners/).
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>Connessione all'hub Internet senza SDK
 
-Se non si è in grado di usare uno degli SDK per dispositivi dell'hub Internet delle cose, è possibile connettersi direttamente all'hub di Internet delle cose usando le [API REST dell'hub](https://docs.microsoft.com/en-us/rest/api/iothub/) tutto da qualsiasi applicazione in grado di inviare e ricevere richieste e risposte HTTPS.
+Se non si è in grado di usare uno degli SDK per dispositivi dell'hub Internet delle cose, è possibile connettersi direttamente all'hub di Internet delle cose usando le [API REST dell'hub](https://docs.microsoft.com/rest/api/iothub/) tutto da qualsiasi applicazione in grado di inviare e ricevere richieste e risposte HTTPS.
 
 ## <a name="support-and-other-resources"></a>Supporto e altre risorse
 
