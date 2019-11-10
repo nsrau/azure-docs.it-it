@@ -4,18 +4,18 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/23/2019
-ms.openlocfilehash: b9f84385e49fcf5f101b7ce642b0a82e3a4b9388
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: fb3795ff807a87e9bac4d95400f5e446c68d1e4d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799939"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73897512"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Eseguire l'autenticazione con Azure Active Directory
 
 > [!IMPORTANT]
 > 1. Attualmente, **solo** il API Visione artificiale, API Viso, API analisi del testo, il lettore immersivo, il riconoscitore del modulo, il rilevatore di anomalie e tutti i servizi Bing tranne ricerca personalizzata Bing supportano l'autenticazione con Azure Active Directory (AAD).
-> 2. L'autenticazione di AAD deve essere sempre usata insieme al nome del sottodominio personalizzato della risorsa di Azure. Gli [endpoint internazionali](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) non supportano l'autenticazione AAD.
+> 2. L'autenticazione di AAD deve essere sempre usata insieme al nome del sottodominio personalizzato della risorsa di Azure. Gli [endpoint internazionali](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) non supportano l'autenticazione AAD.
 
 Nelle sezioni precedenti è stato illustrato come eseguire l'autenticazione in Servizi cognitivi di Azure usando una chiave di sottoscrizione a servizio singolo o multiservizio. Sebbene queste chiavi forniscano un percorso rapido e semplice per iniziare lo sviluppo, si riferiscono a scenari più complessi che richiedono controlli degli accessi in base al ruolo. Verranno ora esaminati gli elementi necessari per l'autenticazione con Azure Active Directory (AAD).
 
