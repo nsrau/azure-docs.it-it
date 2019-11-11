@@ -876,6 +876,8 @@
       href: service-fabric-common-questions.md
     - name: Forum di MSDN
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
+    - name: Barriere per la distribuzione Azure Resource Manager
+      href: service-fabric-azure-resource-manager-guardrails.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Calcolatore prezzi

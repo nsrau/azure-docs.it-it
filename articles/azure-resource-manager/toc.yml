@@ -138,6 +138,8 @@
           href: resource-group-create-multiple.md
         - name: Risorse a livello di sottoscrizione
           href: deploy-to-subscription.md
+        - name: Risorse a livello di gruppo di gestione
+          href: deploy-to-management-group.md
     - name: Distribuire modelli
       items:
         - name: Distribuire - portale

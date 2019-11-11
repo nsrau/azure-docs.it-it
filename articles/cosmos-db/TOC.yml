@@ -1011,7 +1011,7 @@
           href: changefeed-ecommerce-solution.md
         - name: Servizio app di Azure
           href: create-website.md
-        - name: Indicizzatore di Ricerca di Azure
+        - name: Indicizzatore di Ricerca cognitiva di Azure
           href: /azure/search/search-howto-index-cosmosdb
           maintainContext: true
         - name: Funzioni di Azure
