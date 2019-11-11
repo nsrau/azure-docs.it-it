@@ -1,6 +1,6 @@
 ---
-title: Come usare gli argomenti del bus di servizio di Azure con Python | Microsoft Docs
-description: Informazioni su come usare gli argomenti e le sottoscrizioni del bus di servizio da Python.
+title: 'Guida introduttiva: Come usare gli argomenti del bus di servizio di Azure con Python'
+description: 'Guida introduttiva: Informazioni su come usare gli argomenti e le sottoscrizioni del bus di servizio da Python.'
 services: service-bus-messaging
 documentationcenter: python
 author: axisc
@@ -11,21 +11,21 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: ef0237b38c8f640c0fc4b1b1788215c8804a5cd4
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
-ms.translationtype: MT
+ms.openlocfilehash: 8f7d47879a025742dbca6a5cafa634899e60ee68
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141892"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719169"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con Python
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Guida introduttiva: Come usare gli argomenti e le sottoscrizioni del bus di servizio con Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in Python e usano il [pacchetto Azure Python SDK][Azure Python package]. Gli scenari trattati includono:
+Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in Python e usano il [pacchetto Azure SDK per Python][Azure Python package]. Gli scenari trattati includono:
 
 - Creazione di argomenti e sottoscrizioni 
 - Creazione di filtri di sottoscrizione 
@@ -34,14 +34,14 @@ Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di
 - Eliminazione di argomenti e sottoscrizioni
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i benefici per gli abbonati di [Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Seguire i [passaggi nella Guida introduttiva: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni dell'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per creare uno **spazio dei nomi** del bus di servizio e ottenere la stringa di **connessione**.
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Seguire la procedura descritta in [Avvio rapido: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per creare uno **spazio dei nomi** del bus di servizio e ottenere la **stringa di connessione**.
 
     > [!NOTE]
-    > In questa Guida introduttiva si creerà un **argomento** e una **sottoscrizione** all'argomento usando **Python** . 
-3. Installare il [pacchetto python di Azure][Azure Python package]. Vedere la [Guida all'installazione di Python](/azure/python/python-sdk-azure-install).
+    > In questa guida di avvio rapido verranno creati un **argomento** e una **sottoscrizione** all'argomento usando **Python**. 
+3. Installare il [pacchetto Azure per Python][Azure Python package]. Vedere la [Guida all'installazione di Python](/azure/python/python-sdk-azure-install).
 
-## <a name="create-a-topic"></a>Crea un argomento
+## <a name="create-a-topic"></a>Creare un argomento
 
 L'oggetto **ServiceBusService** consente di usare gli argomenti. Aggiungere il seguente codice all'inizio di ogni file Python da cui si desidera accedere al bus di servizio a livello di codice:
 
@@ -79,9 +79,9 @@ bus_service.create_topic('mytopic', topic_options)
 È possibile creare sottoscrizioni ad argomenti anche con l'oggetto **ServiceBusService**. Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita il set di messaggi recapitati alla coda virtuale della sottoscrizione.
 
 > [!NOTE]
-> Per impostazione predefinita, le sottoscrizioni sono persistenti e continueranno a esistere fino a quando non vengono eliminate o l'argomento in cui sono state sottoscritte.
+> Per impostazione predefinita, le sottoscrizioni sono permanenti e continueranno a esistere fintanto che esse o l'argomento che hanno sottoscritto non verrà eliminato.
 > 
-> È possibile eliminare automaticamente le sottoscrizioni impostando la [Proprietà auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
+> È possibile eliminare automaticamente le sottoscrizioni impostando la [proprietà auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
 
@@ -176,11 +176,11 @@ Il bus di servizio fornisce funzionalità per il ripristino gestito automaticame
 
 Al messaggio bloccato nella sottoscrizione è anche associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà automaticamente il messaggio rendendolo nuovamente disponibile per la ricezione.
 
-In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata del metodo `delete`, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo Almeno una volta l'\*elaborazione, ovvero ogni messaggio viene elaborato almeno una volta, ma in determinate situazioni lo stesso messaggio può essere recapitato nuovamente. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo, è possibile usare la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
+In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata del metodo `delete`, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo At-Least-Once\*, per indicare che ogni messaggio verrà elaborato almeno una volta, ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo, è possibile usare la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminare argomenti e sottoscrizioni
 
-Gli argomenti e le sottoscrizioni sono permanenti, a meno che non sia impostata la [Proprietà auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) . Possono essere eliminati tramite il [portale di Azure][Azure portal] o a livello di codice. L'esempio seguente illustra come eliminare l'argomento denominato `mytopic`:
+Gli argomenti e le sottoscrizioni sono permanenti, a meno che non venga impostata la [proprietà auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python). Possono essere eliminati tramite il [portale di Azure][Azure portal] o a livello di codice. L'esempio seguente illustra come eliminare l'argomento denominato `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')
