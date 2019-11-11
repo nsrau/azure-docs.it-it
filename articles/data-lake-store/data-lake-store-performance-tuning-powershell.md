@@ -1,76 +1,78 @@
 ---
-title: Linee guida per l'ottimizzazione delle prestazioni per l'uso di PowerShell con Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Suggerimenti su come migliorare le prestazioni quando si usa Azure PowerShell con Azure Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
+title: Ottimizzazione delle prestazioni Azure Data Lake Storage Gen1-PowerShell
+description: Suggerimenti su come migliorare le prestazioni quando si usa Azure PowerShell con Azure Data Lake Storage Gen1.
 author: stewu
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: 1c554b0eee844a632e6412b6f8a285c7a2573326
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c975af1799d427651b76bb9fde5ff765afed3f86
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195854"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904570"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Linee guida per l'ottimizzazione delle prestazioni per l'uso di PowerShell con Azure Data Lake Storage Gen1
 
-Questo articolo elenca le proprietà che è possibile ottimizzare per ottenere prestazioni migliori durante l'uso di PowerShell con Azure Data Lake Storage Gen1:
+Questo articolo descrive le proprietà che è possibile ottimizzare per ottenere prestazioni migliori durante l'uso di PowerShell per lavorare con Data Lake Storage Gen1.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="performance-related-properties"></a>Proprietà correlate alle prestazioni
 
-| Proprietà            | Predefinito | Descrizione |
+| Proprietà            | Default | DESCRIZIONE |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | Questo parametro consente di scegliere il numero di thread paralleli per il caricamento o il download di ogni file. Questo valore rappresenta il numero massimo di thread che può essere allocato per ogni file, ma è possibile ottenere meno thread a seconda dello scenario (ad esempio, se si sta caricando un file da 1 KB, si ottiene un thread anche se si chiedono 20 thread).  |
 | ConcurrentFileCount | 10      | Questo parametro viene usato specificamente per il caricamento e il download delle cartelle. Questo parametro determina il numero di file che possono essere caricati o scaricati contemporaneamente. Questo valore rappresenta il numero massimo di file che possono essere caricati o scaricati contemporaneamente in una sola volta, ma è possibile ottenere un valore inferiore di concorrenza a seconda dello scenario (ad esempio, se si caricano due file, si ottiene il caricamento di due file contemporaneamente anche se ne vengono richiesti 15). |
 
-**Esempio**
+**Esempio:**
 
 Questo comando scarica i file da Data Lake Storage Gen1 al disco locale dell'utente usando 20 thread per file e 100 file contemporaneamente.
 
-    Export-AzDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
+```PowerShell
+Export-AzDataLakeStoreItem -AccountName "Data Lake Storage Gen1 account name" `
+    -PerFileThreadCount 20 `
+    -ConcurrentFileCount 100 `
+    -Path /Powershell/100GB `
+    -Destination C:\Performance\ `
+    -Force `
+    -Recurse
+```
 
-## <a name="how-do-i-determine-the-value-for-these-properties"></a>Come è possibile determinare il valore per queste proprietà?
+## <a name="how-to-determine-property-values"></a>Come determinare i valori delle proprietà
 
 La domanda successiva potrebbe essere come determinare il valore da inserire per le proprietà correlate alle prestazioni. Ecco alcune linee guida che è possibile usare.
 
-* **Passaggio 1: Determinare il numero totale di thread** - È consigliabile iniziare calcolando il numero totale di thread da usare. Come regola generale, è consigliabile usare sei thread per ogni core fisico.
+* **Passaggio 1: determinare il numero totale di thread** -iniziare calcolando il numero totale di thread da usare. Come regola generale, è consigliabile usare sei thread per ogni core fisico.
 
-        Total thread count = total physical cores * 6
+    `Total thread count = total physical cores * 6`
 
-    **Esempio**
+    **Esempio:**
 
     Supponendo che si eseguano i comandi PowerShell da una macchina virtuale D14 con 16 core
 
-        Total thread count = 16 cores * 6 = 96 threads
+    `Total thread count = 16 cores * 6 = 96 threads`
 
+* **Passaggio 2: calcolare PerFileThreadCount** -viene calcolato il PerFileThreadCount in base alle dimensioni dei file. Per i file di dimensioni inferiori a 2,5 GB, non è necessario modificare questo parametro, perché il valore predefinito di 10 è sufficiente. Per i file di dimensioni superiori a 2,5 GB, è necessario usare 10 thread come base per i primi 2,5 GB e aggiungere 1 thread per ogni incremento aggiuntivo di 256 MB alle dimensioni del file. Se si copia una cartella con un'ampia gamma di dimensioni dei file, è consigliabile raggrupparle in file di dimensioni simili. Il raggruppamento in file di dimensioni diverse può comportare prestazioni non ottimali. Se non è possibile raggruppare file di dimensioni simili, è necessario impostare PerFileThreadCount in base alle dimensioni del file più grande.
 
-* **Passaggio 2: Calcolare PerFileThreadCount** - Viene calcolato il parametro PerFileThreadCount in base alla dimensione dei file. Per i file di dimensioni inferiori a 2,5 GB, non è necessario modificare questo parametro, perché il valore predefinito di 10 è sufficiente. Per i file di dimensioni superiori a 2,5 GB, è necessario usare 10 thread come base per i primi 2,5 GB e aggiungere 1 thread per ogni incremento aggiuntivo di 256 MB alle dimensioni del file. Se si copia una cartella con un'ampia gamma di dimensioni dei file, è consigliabile raggrupparle in file di dimensioni simili. Il raggruppamento in file di dimensioni diverse può comportare prestazioni non ottimali. Se non è possibile raggruppare file di dimensioni simili, è necessario impostare PerFileThreadCount in base alle dimensioni del file più grande.
+    `PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size`
 
-        PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size
-
-    **Esempio**
+    **Esempio:**
 
     Se si dispone di 100 file da 1 GB a 10 GB, viene usata la dimensione di 10 GB come riferimento per l'equazione, interpretata come segue.
 
-        PerFileThreadCount = 10 + ((10 GB - 2.5 GB) / 256 MB) = 40 threads
+    `PerFileThreadCount = 10 + ((10 GB - 2.5 GB) / 256 MB) = 40 threads`
 
 * **Passaggio 3: Calcolare ConcurrentFilecount** - Usare il numero totale di thread e PerFileThreadCount per calcolare ConcurrentFileCount in base all'equazione seguente:
 
-        Total thread count = PerFileThreadCount * ConcurrentFileCount
+    `Total thread count = PerFileThreadCount * ConcurrentFileCount`
 
-    **Esempio**
+    **Esempio:**
 
     In base ai valori di esempio usati
 
-        96 = 40 * ConcurrentFileCount
+    `96 = 40 * ConcurrentFileCount`
 
     Pertanto, **ConcurrentFileCount** è **2.4**, che è possibile arrotondare a **2**.
 
@@ -78,7 +80,7 @@ La domanda successiva potrebbe essere come determinare il valore da inserire per
 
 È possibile richiedere un'ulteriore ottimizzazione perché è presente un intervallo di dimensioni di file da usare. Il calcolo precedente funziona bene se tutti o la maggior parte dei file è più grande e più vicina all'intervallo di 10 GB. Se invece sono presenti diverse dimensioni di file con molti file più piccoli, è possibile ridurre PerFileThreadCount. Riducendo PerFileThreadCount, è possibile aumentare il valore di ConcurrentFileCount. Pertanto, se si presume che la maggior parte dei file è minore dell'intervallo di 5 GB, è possibile eseguire nuovamente il calcolo:
 
-    PerFileThreadCount = 10 + ((5 GB - 2.5 GB) / 256 MB) = 20
+`PerFileThreadCount = 10 + ((5 GB - 2.5 GB) / 256 MB) = 20`
 
 Pertanto, **ConcurrentFileCount** diventa 96/20, ovvero 4,8, arrotondato a **4**.
 
@@ -88,13 +90,14 @@ Pertanto, **ConcurrentFileCount** diventa 96/20, ovvero 4,8, arrotondato a **4**
 
 * **Numero di file minore di ConcurrentFileCount**: se il numero di file che si sta caricando è minore del valore di **ConcurrentFileCount** calcolato, è necessario ridurre **ConcurrentFileCount** in modo che risulti uguale al numero di file. È possibile usare i thread rimanenti per aumentare **PerFileThreadCount**.
 
-* **Troppi thread**: se si aumenta il numero dei thread in maniera eccessiva senza aumentare le dimensioni del cluster, si rischia un calo delle prestazioni. È possibile che si verifichino problemi di conflitto dovuti al cambio di contesto nella CPU.
+* **Troppi thread**: se si aumenta il numero dei thread in maniera eccessiva senza aumentare le dimensioni del cluster, si corre il rischio di ridurre le prestazioni. È possibile che si verifichino problemi di conflitto dovuti al cambio di contesto nella CPU.
 
 * **Concorrenza insufficiente**: se la concorrenza non è sufficiente, è possibile che il cluster sia troppo piccolo. È possibile aumentare il numero di nodi del cluster in modo da avere maggiore concorrenza.
 
 * **Errori di limitazione**: se la concorrenza è troppo elevata, è possibile che vengano visualizzati errori di limitazione. Se si riscontrano errori di limitazione, è necessario ridurre la concorrenza o contattare Microsoft.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Usare Azure Data Lake Storage Gen1 per i requisiti di Big Data](data-lake-store-data-scenarios.md) 
 * [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Usare Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

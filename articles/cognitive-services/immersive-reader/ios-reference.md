@@ -1,7 +1,7 @@
 ---
 title: Informazioni di riferimento su iOS SDK per i lettori immersivi
 titleSuffix: Azure Cognitive Services
-description: Informazioni di riferimento per l'SDK per iOS immersive Reader
+description: Immersive Reader iOS SDK è una CocoaPod rapida che consente di integrare il lettore immersivo nell'applicazione iOS.
 services: cognitive-services
 author: metanMSFT
 ms.service: cognitive-services
@@ -9,20 +9,20 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 08/01/2019
 ms.author: metan
-ms.openlocfilehash: 1f85740c358bd0949fed9c954537f0926538995d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 67d6b8c22c5635bd789078a7f91b02f8b07e5e70
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388126"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903135"
 ---
 # <a name="immersive-reader-sdk-reference-for-ios"></a>Guida di riferimento a immersive Reader SDK per iOS
 
 Immersive Reader iOS SDK è una CocoaPod rapida che consente di integrare il lettore immersivo nell'applicazione iOS.
 
-## <a name="functions"></a>Funzioni
+## <a name="functions"></a>Functions
 
-L'SDK espone una singola funzione, `launchImmersiveReader(navController, token, subdomain, content, options, onSuccess, onFailure)`.
+L'SDK espone una singola funzione `launchImmersiveReader(navController, token, subdomain, content, options, onSuccess, onFailure)`.
 
 ### <a name="launchimmersivereader"></a>launchImmersiveReader
 
@@ -32,21 +32,21 @@ Avvia il lettore immersivo avviando un controller di visualizzazione nell'applic
 public func launchImmersiveReader(navController: UINavigationController, token: String, subdomain: String, content: Content, options: Options?, onSuccess: @escaping () -> Void, onFailure: @escaping (_ error: Error) -> Void)
 ```
 
-#### <a name="parameters"></a>parameters
+#### <a name="parameters"></a>parametri
 
-| name | Type | Description |
+| Nome | digitare | DESCRIZIONE |
 | ---- | ---- |------------ |
 | `navController` | UINavigationController | Il controller di spostamento per l'applicazione iOS da cui viene chiamata la funzione. |
-| `token` | Stringa | Token di autenticazione Azure AD. Vedere le [procedure per l'autenticazione Azure ad](./azure-active-directory-authentication.md). |
-| `subdomain` | Stringa | Sottodominio personalizzato della risorsa Reader immersiva in Azure. Vedere le [procedure per l'autenticazione Azure ad](./azure-active-directory-authentication.md). |
+| `token` | String | Token di autenticazione Azure AD. Vedere le [procedure per l'autenticazione Azure ad](./azure-active-directory-authentication.md). |
+| `subdomain` | String | Sottodominio personalizzato della risorsa Reader immersiva in Azure. Vedere le [procedure per l'autenticazione Azure ad](./azure-active-directory-authentication.md). |
 | `content` | [Contenuto](#content) | Oggetto contenente il contenuto da visualizzare nel lettore immersivo. |
-| `options` | [Opzioni](#options) | Opzioni per la configurazione di determinati comportamenti del lettore immersivo. facoltativo. |
+| `options` | [Opzioni](#options) | Opzioni per la configurazione di determinati comportamenti del lettore immersivo. Facoltativa. |
 | `onSuccess` | ()-> void | Una chiusura richiamata quando il lettore immersivo viene avviato correttamente. |
 | `onFailure` | (_ errore: [errore](#error))-> void | Una chiusura richiamata quando il lettore immersivo non riesce a caricare. Questa chiusura restituisce un oggetto [`Error`](#error) che rappresenta un codice di errore e un messaggio di errore associato all'errore. Per ulteriori informazioni, vedere i [codici di errore](#error-codes). |
 
-## <a name="types"></a>Tipi
+## <a name="types"></a>Types
 
-### <a name="content"></a>Contenuto
+### <a name="content"></a>Content
 
 Contiene il contenuto da visualizzare nel lettore immersivo.
 
@@ -59,7 +59,7 @@ struct Content: Encodable {
 
 #### <a name="supported-mime-types"></a>Tipi MIME supportati
 
-| Tipo MIME | Description |
+| Tipo MIME | DESCRIZIONE |
 | --------- | ----------- |
 | text/plain | Testo normale. |
 | Application/MathML + XML | Linguaggio di markup matematico (MathML). [Altre informazioni](https://developer.mozilla.org/en-US/docs/Web/MathML).
@@ -75,7 +75,7 @@ struct Options {
 }
 ```
 
-### <a name="error"></a>Errore
+### <a name="error"></a>Tipi di errore
 
 Contiene informazioni sull'errore.
 
@@ -86,11 +86,11 @@ struct Error {
 }
 ```
 
-#### <a name="error-codes"></a>Codici errore
+#### <a name="error-codes"></a>Codici di errore
 
-| Codice | Description |
+| Codice | DESCRIZIONE |
 | ---- | ----------- |
-| BadArgument | Argomento fornito non valido. per informazioni dettagliate, vedere `message`. |
+| BadArgument | L'argomento fornito non è valido. per informazioni dettagliate, vedere `message`. |
 | Timeout | Non è stato possibile caricare il lettore immersivo entro il timeout specificato. |
 | TokenExpired | Il token fornito è scaduto. |
 | Strozzato | È stato superato il limite di frequenza delle chiamate. |

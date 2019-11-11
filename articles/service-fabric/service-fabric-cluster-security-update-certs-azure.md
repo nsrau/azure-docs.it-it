@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: 9c14afb22d95493deaf3552cb8c7392c3fc5a679
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a993c71e362a61b6861e001dfb5d6eca24873293
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934012"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903282"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Aggiungere o rimuovere certificati per un cluster Service Fabric in Azure
 È consigliabile acquisire familiarità con l'uso dei certificati X.509 da parte di Service Fabric e con gli [scenari di sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md). È necessario comprendere cos'è un certificato del cluster e a cosa serve prima di procedere.
 
-Il certificato predefinito del comportamento di carico di Azure Service Fabric SDK, consiste nel distribuire e usare un certificato definito con una data di scadenza futura; indipendentemente dalla relativa definizione di configurazione primaria o secondaria. Il fallback al comportamento classico è un'azione avanzata non consigliata e richiede l'impostazione del valore del parametro "UseSecondaryIfNewer" su false nella configurazione Fabric. code.
+Il comportamento predefinito di caricamento del certificato di Azure Service Fabrics SDK prevede la distribuzione e l'uso del certificato definito con una data di scadenza più lontana nel futuro. indipendentemente dalla definizione di configurazione primaria o secondaria. Il fallback al comportamento classico non è un'azione avanzata consigliata ed è necessario impostare il valore del parametro "UseSecondaryIfNewer" su false all'interno della configurazione del `Fabric.Code`.
 
 Service Fabric consente di specificare due certificati cluster, uno primario e uno secondario, durante la configurazione della sicurezza basata su certificati al momento della creazione del cluster, oltre ai certificati client. Per informazioni dettagliate sulla loro configurazione in fase di creazione, vedere l'argomento relativo alla [creazione di un di cluster Azure tramite il portale](service-fabric-cluster-creation-via-portal.md) o alla [creazione di un cluster di Azure tramite Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Se si specifica un solo certificato cluster in fase di creazione, questo viene usato come certificato primario. Dopo la creazione del cluster è possibile aggiungere un nuovo certificato come secondario.
 
@@ -40,7 +40,7 @@ Service Fabric consente di specificare due certificati cluster, uno primario e u
 Non è possibile aggiungere il certificato cluster secondario tramite il portale di Azure, usare Azure PowerShell. Il processo è descritto più avanti in questo documento.
 
 ## <a name="remove-a-cluster-certificate-using-the-portal"></a>Rimuovere un certificato cluster tramite il portale
-Per un cluster protetto, è sempre necessario almeno un certificato valido (non revocato né scaduto). Verrà usato il certificato distribuito con la data di scadenza più lontana e la rimozione dello stesso interromperà il funzionamento del cluster. Assicurarsi di rimuovere solo il certificato scaduto o un certificato inutilizzato che sta per scadere.
+Per un cluster protetto, è sempre necessario almeno un certificato valido (non revocato né scaduto). Il certificato distribuito con la data successiva in scadenza sarà in uso e la sua rimozione renderà il funzionamento del cluster interrotto. Assicurarsi di rimuovere solo il certificato scaduto o un certificato non usato che scade il più presto.
 
 Per rimuovere un certificato di sicurezza del cluster, passare alla sezione Sicurezza e selezionare l'opzione "Elimina" dal menu di scelta rapida per il certificato non usato.
 
@@ -287,6 +287,10 @@ Oltre ai certificati cluster, è possibile aggiungere certificati client per ese
 ### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>Eliminazione di certificati client Amministratore o Sola lettura tramite il portale
 
 Per rimuovere un certificato secondario perché non venga usato per la sicurezza del cluster, passare alla sezione Sicurezza e selezionare l'opzione "Elimina" dal menu di scelta rapida per il certificato specifico.
+
+## <a name="adding-application-certificates-to-a-virtual-machine-scale-set"></a>Aggiunta di certificati dell'applicazione a un set di scalabilità di macchine virtuali
+
+Per distribuire un certificato usato per le applicazioni nel cluster, vedere [questo script di PowerShell di esempio](scripts/service-fabric-powershell-add-application-certificate.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sulla gestione del cluster, leggere questi articoli:

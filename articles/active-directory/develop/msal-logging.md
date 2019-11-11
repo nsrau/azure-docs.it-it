@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/05/2019
+ms.date: 10/31/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e12badd84bd929bdeb7b60ad6e99d6b3169e5022
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e9045fd6c1f5dcc4587b6ff85d567584f02421ba
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150454"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902910"
 ---
 # <a name="logging-in-msal-applications"></a>Registrazione nelle applicazioni MSAL
 
@@ -117,14 +117,15 @@ Per disabilitare la registrazione dei dati personali e delle organizzazioni:
 Logger.getInstance().setEnablePII(false);
 ```
 
-Per impostazione predefinita, la registrazione in logcat è disabilitata. Per abilitare: 
+Per impostazione predefinita, la registrazione in logcat è disabilitata. Per abilitare:
+
 ```java
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
 ## <a name="logging-in-msaljs"></a>Registrazione in MSAL.js
 
- Abilitare la registrazione in MSAL. js passando un oggetto logger durante la configurazione per la creazione di un'istanza di `UserAgentApplication`. Questo oggetto logger ha le proprietà seguenti:
+ Abilitare la registrazione in MSAL. js (JavaScript) passando un oggetto logger durante la configurazione per la creazione di un'istanza di `UserAgentApplication`. Questo oggetto logger ha le proprietà seguenti:
 
 - `localCallback`: istanza di callback che può essere fornita dallo sviluppatore per utilizzare e pubblicare i log in modo personalizzato. Implementare il metodo localCallback a seconda del modo in cui si intende reindirizzare i log.
 - `level` (facoltativo): il livello di registrazione configurabile. I livelli di registrazione supportati sono: `Error`, `Warning`, `Info`e `Verbose`. Il valore predefinito è `Info`.
@@ -173,7 +174,7 @@ Impostare un callback per acquisire la registrazione MSAL e incorporarla nella r
 typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
 ```
 
-ad esempio:
+Ad esempio:
 
 Objective-C
 ```objc
@@ -202,9 +203,9 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 }
 ```
 
-### <a name="personal-identifiable-information-pii"></a>Informazioni personali (PII)
+### <a name="personal-data"></a>Dati personali
 
-Per impostazione predefinita, MSAL non acquisisce né registra le informazioni personali. La libreria consente agli sviluppatori di app di attivare questa operazione tramite una proprietà nella classe MSALLogger. Quando si attivano le informazioni personali, l'app si assume la responsabilità di gestire in modo sicuro i dati altamente sensibili e i requisiti normativi.
+Per impostazione predefinita, MSAL non acquisisce né registra i dati personali (PII). La libreria consente agli sviluppatori di app di attivare questa operazione tramite una proprietà nella classe MSALLogger. Attivando `pii.Enabled`, l'app assume la responsabilità di gestire in modo sicuro i dati altamente sensibili e i requisiti normativi.
 
 Objective-C
 ```objc
@@ -232,15 +233,15 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 Per impostare il livello di registrazione quando si registra usando MSAL per iOS e macOS, usare uno dei valori seguenti:
 
-|Level  |Description |
+|Livello  |DESCRIZIONE |
 |---------|---------|
 | `MSALLogLevelNothing`| Disabilitare tutte le registrazioni |
 | `MSALLogLevelError` | Livello predefinito, stampa le informazioni solo quando si verificano errori |
 | `MSALLogLevelWarning` | Avvisi |
 | `MSALLogLevelInfo` |  Punti di ingresso della libreria, con parametri e varie operazioni Keychain |
-|`MSALLogLevelVerbose`     |  Tenere traccia delle API       |
+|`MSALLogLevelVerbose`     |  Tenere traccia delle API |
 
-ad esempio:
+Ad esempio:
 
 Objective-C
 ```objc
@@ -256,8 +257,56 @@ MSALGlobalConfig.loggerConfig.logLevel = .verbose
 
 La parte del messaggio dei messaggi di log di MSAL è nel formato `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
-ad esempio:
+Ad esempio:
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
 Fornire ID di correlazione e timestamp è utile per tenere traccia dei problemi. Le informazioni sul timestamp e sull'ID di correlazione sono disponibili nel messaggio del log. L'unica posizione affidabile per recuperarli è MSAL i messaggi di registrazione.
+
+## <a name="logging-in-msal-for-java"></a>Registrazione in MSAL per Java
+
+MSAL per Java (MSAL4J) consente di usare la libreria di registrazione già in uso con l'app, purché sia compatibile con SLF4J. MSAL4j usa la [semplice facciata di registrazione per Java](http://www.slf4j.org/) (SLF4J) come facciata o astrazione semplice per vari Framework di registrazione, ad esempio [java. util. Logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) e [log4j](https://logging.apache.org/log4j/2.x/). SLF4J consente all'utente finale di collegare il Framework di registrazione desiderato al momento della distribuzione.
+
+Ad esempio, per usare Logback come Framework di registrazione nell'applicazione, aggiungere la dipendenza Logback al file POM di Maven per l'applicazione:
+
+```xml
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+</dependency>
+```
+
+Aggiungere quindi il file di configurazione Logback:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+</configuration>
+```
+
+SLF4J viene associato automaticamente a Logback al momento della distribuzione. I log MSAL verranno scritti nella console.
+
+Per istruzioni su come eseguire l'associazione ad altri Framework di registrazione, vedere il [Manuale di SLF4J](http://www.slf4j.org/manual.html).
+
+### <a name="personal-and-organization-information"></a>Informazioni personali e aziendali
+
+Per impostazione predefinita, la registrazione di MSAL non acquisisce né registra dati personali o aziendali. Nell'esempio seguente la registrazione di dati personali o aziendali è disattivata per impostazione predefinita:
+
+```java
+    PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+            .authority(AUTHORITY)
+            .build();
+```
+
+Attivare la registrazione dei dati personali e aziendali impostando `logPii()` nel generatore di applicazioni client. Se si attiva la registrazione dei dati personali o aziendali, l'app deve avere la responsabilità di gestire in modo sicuro i dati altamente sensibili e rispettare eventuali requisiti normativi.
+
+Nell'esempio seguente viene abilitata la registrazione dei dati personali o aziendali:
+
+```java
+PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+        .authority(AUTHORITY)
+        .logPii(true)
+        .build();
+```

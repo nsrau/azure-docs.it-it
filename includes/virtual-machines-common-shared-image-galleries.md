@@ -6,14 +6,14 @@ author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 05/06/2019
-ms.author: akjosh; cynthn
+ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 9a564bf7f633903c58a5719327216baee2df6550
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 18c85995c545e1b603333fd6788b70cd863865ce
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026165"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904995"
 ---
 Raccolta immagini condivise è un servizio che consente di creare struttura e organizzazione in base alle immagini gestite. Le raccolte di immagini condivise forniscono:
 
@@ -31,11 +31,12 @@ Se si dispone di un numero elevato di immagini gestite che è necessario gestire
 
 La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
 
-| Resource | Descrizione|
+| Risorsa | DESCRIZIONE|
 |----------|------------|
-| **Immagine gestita** | Un'immagine di base che può essere usata da sola o usata per creare una **versione dell'immagine** in una raccolta di immagini. Le immagini gestite vengono create da macchine virtuali generalizzate. Un'immagine gestita è un tipo speciale di disco rigido virtuale che può essere usato per creare più macchine virtuali e può ora essere sfruttato per creare versioni di immagini condivise. |
+| **Immagine gestita** | Un'immagine di base che può essere usata da sola o usata per creare una **versione dell'immagine** in una raccolta di immagini. Le immagini gestite vengono create da VM [generalizzate](#generalized-and-specialized-images) . Un'immagine gestita è un tipo speciale di disco rigido virtuale che può essere usato per creare più macchine virtuali e può ora essere sfruttato per creare versioni di immagini condivise. |
+| **Snapshot** | Copia di un disco rigido virtuale che può essere utilizzato per creare una **versione dell'immagine**. Gli snapshot possono essere ricavati da una VM [specializzata](#generalized-and-specialized-images) (uno che non è stato generalizzato), quindi usati singolarmente o con snapshot di dischi dati, per creare una versione di immagine specializzata.
 | **Raccolta di immagini** | Come in Azure Marketplace, una **raccolta di immagini** è un repository per la gestione e la condivisione delle immagini, ma è possibile controllare chi ha accesso. |
-| **Definizione delle immagini** | Le immagini vengono definite all'interno di una raccolta e contengono informazioni sull'immagine e sui requisiti per l'uso all'interno dell'organizzazione. È possibile includere informazioni come se l'immagine sia Windows o Linux, i requisiti di memoria minimi e massimi e le note sulla versione. Si tratta della definizione di un tipo di immagine. |
+| **Definizione delle immagini** | Le immagini vengono definite all'interno di una raccolta e contengono informazioni sull'immagine e sui requisiti per l'uso all'interno dell'organizzazione. È possibile includere informazioni come se l'immagine sia generalizzata o specializzata, il sistema operativo, i requisiti di memoria minimi e massimi e le note sulla versione. Si tratta della definizione di un tipo di immagine. |
 | **Versione dell'immagine** | La **versione dell'immagine** è ciò che si usa per creare una macchina virtuale quando si usa una raccolta. È possibile avere più versioni di un'immagine in base alle necessità del proprio ambiente. Come un'immagine gestita, quando si usa una **versione dell'immagine** per creare una macchina virtuale, la versione dell'immagine viene usata per creare nuovi dischi per la macchina virtuale. Le versioni delle immagini possono essere usate più volte. |
 
 <br>
@@ -48,7 +49,7 @@ Le definizioni di immagine sono un raggruppamento logico per le versioni di un'i
 
 Esistono tre parametri per ogni definizione di immagine usati in combinazione- **autore**, **offerta** e **SKU**. Questi vengono usati per trovare una definizione di immagine specifica. È possibile avere versioni delle immagini che condividono uno o due, ma non tutti e tre i valori.  Di seguito, un esempio di tre definizioni di immagini con i relativi valori:
 
-|Definizione delle immagini|Editore|Offerta|Sku|
+|Definizione delle immagini|Autore|Offerta|Sku|
 |---|---|---|---|
 |myImage1|Contoso|Finanza|Back-end|
 |myImage2|Contoso|Finanza|Front-end|
@@ -58,7 +59,7 @@ Questi tre presentano set univoci di valori. Il formato è simile a quello in cu
 
 Di seguito sono riportati altri parametri che è possibile impostare nella definizione dell'immagine, in modo da poter tenere traccia più facilmente delle risorse:
 
-* Stato del sistema operativo: è possibile impostare lo stato del sistema operativo su generalizzato o specializzato, ma è attualmente supportato solo generalizzato. Le immagini devono essere create da macchine virtuali generalizzate mediante Sysprep per Windows o `waagent -deprovision` per Linux.
+* Stato del sistema operativo: è possibile impostare lo stato del sistema operativo su [generalizzato o specializzato](#generalized-and-specialized-images).
 * Sistema operativo: può essere Windows o Linux.
 * Descrizione: usare Description per fornire informazioni più dettagliate sul motivo per cui la definizione dell'immagine esiste. Ad esempio, si potrebbe avere una definizione di immagine per il server front-end in cui è preinstallata l'applicazione.
 * EULA-può essere usato per puntare a un contratto di licenza con l'utente finale specifico per la definizione dell'immagine.
@@ -68,23 +69,45 @@ Di seguito sono riportati altri parametri che è possibile impostare nella defin
 * Raccomandazioni vCPU e Memory minime e massime: se l'immagine presenta vCPU e consigli per la memoria, è possibile alleghi tali informazioni alla definizione dell'immagine.
 * Tipi di dischi non consentiti: è possibile fornire informazioni sulle esigenze di archiviazione per la macchina virtuale. Se, ad esempio, l'immagine non è adatta per i dischi HDD standard, è necessario aggiungerli all'elenco non consentiti.
 
+## <a name="generalized-and-specialized-images"></a>Immagini generalizzate e specializzate
+
+La raccolta di immagini condivise supporta due Stati del sistema operativo. In genere le immagini richiedono che la macchina virtuale usata per creare l'immagine sia stata generalizzata prima di acquisire l'immagine. Generalizzare è un processo che rimuove le informazioni specifiche del computer e dell'utente dalla macchina virtuale. Per Windows, viene utilizzato anche Sysprep. Per Linux, è possibile usare [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` o `-deprovision+user` parametri.
+
+Le macchine virtuali specializzate non hanno attraversato un processo per rimuovere informazioni e account specifici del computer. Inoltre, alle macchine virtuali create da immagini specializzate non è associato un `osProfile`. Ciò significa che le immagini specializzate avranno alcune limitazioni.
+
+- Gli account che potrebbero essere usati per accedere alla macchina virtuale possono essere usati anche in qualsiasi macchina virtuale creata usando l'immagine specializzata creata da tale macchina virtuale.
+- Le macchine virtuali avranno il **nome computer** della macchina virtuale da cui è stata ricavata l'immagine. È necessario modificare il nome del computer per evitare conflitti.
+- Il `osProfile` indica il modo in cui vengono passate informazioni riservate alla macchina virtuale usando `secrets`. Questo può causare problemi usando l'insieme di credenziali delle credenziali, WinRM e altre funzionalità che usano `secrets` nel `osProfile`. In alcuni casi, è possibile usare identità del servizio gestito (MSI) per aggirare queste limitazioni.
+
+> [!IMPORTANT]
+> Le immagini specializzate sono attualmente in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> **Limitazioni di anteprima note** Le macchine virtuali possono essere create solo da immagini specializzate usando il portale o l'API. Non è disponibile l'interfaccia della riga di comando o il supporto PowerShell per l'anteprima.
+
+
 ## <a name="regional-support"></a>Supporto a livello di area
 
 Le aree di origine sono elencate nella tabella seguente. Tutte le aree pubbliche possono essere aree di destinazione, ma per eseguire la replica in Australia centrale e Australia centrale 2 è necessario che la sottoscrizione sia consentita. Per richiedere l'inserimento nella whitelist, passare a: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-| Aree di origine |
-|---------------------|-----------------|------------------|-----------------|
-| Australia centrale   | Stati Uniti centrali EUAP | Corea del Sud centrale    | Stati Uniti centro-occidentali |
-| Australia centrale 2 | Asia orientale       | Corea del Sud meridionale      | Europa occidentale     |
-| Australia orientale      | East US         | Stati Uniti centro-settentrionali | India occidentale      |
-| Australia sud-orientale | Stati Uniti orientali 2       | Europa settentrionale     | Stati Uniti occidentali         |
-| Brasile meridionale        | Stati Uniti orientali 2 EUAP  | Stati Uniti centro-meridionali | Stati Uniti occidentali 2       |
-| Canada centrale      | Francia centrale  | India meridionale      | Cina orientale      |
-| Canada orientale         | Francia meridionale    | Asia sud-orientale   | Cina orientale 2    |
-| India centrale       | Giappone orientale      | Regno Unito meridionale         | Cina settentrionale     |
-| Stati Uniti centrali          | Giappone occidentale      | Regno Unito occidentale          | Cina settentrionale 2   |
 
-## <a name="limits"></a>Limiti 
+| Aree di origine        |                   |                    |                    |
+| --------------------- | ----------------- | ------------------ | ------------------ |
+| Australia centrale     | Cina orientale        | India meridionale        | Europa occidentale        |
+| Australia centrale 2   | Cina orientale 2      | Asia sudorientale     | Regno Unito meridionale           |
+| Australia orientale        | Cina settentrionale       | Giappone orientale         | Regno Unito occidentale            |
+| Australia sudorientale   | Cina settentrionale 2     | Giappone occidentale         | Dipartimento della difesa Stati Uniti centrali     |
+| Brasile meridionale          | Asia orientale         | Corea del Sud centrale      | Dipartimento della difesa Stati Uniti orientali        |
+| Canada centrale        | Stati Uniti Orientali           | Corea del Sud meridionale        | Governo degli Stati Uniti - Arizona     |
+| Canada orientale           | Stati Uniti orientali 2         | Stati Uniti centro-settentrionali   | Governo degli Stati Uniti - Texas       |
+| India centrale         | Stati Uniti orientali 2 EUAP    | Europa settentrionale       | Governo degli Stati Uniti - Virginia    |
+| Stati Uniti centrali            | Francia centrale    | Stati Uniti centro-meridionali   | India occidentale         |
+| Stati Uniti centrali EUAP       | Francia meridionale      | Stati Uniti centro-occidentali    | Stati Uniti occidentali            |
+|                       |                   |                    | Stati Uniti occidentali 2          |
+
+
+
+## <a name="limits"></a>limiti 
 
 Per la distribuzione delle risorse tramite le raccolte di immagini condivise sono previsti limiti, per sottoscrizione:
 - 100 raccolte di immagini condivise, per sottoscrizione, per area
@@ -120,14 +143,14 @@ Le aree in cui la versione di immagini condivise viene replicata possono essere 
 
 ![Immagine che mostra come replicare le immagini](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Accesso
+## <a name="access"></a>Access
 
 Poiché la raccolta di immagini condivise, la definizione di immagine e la versione dell'immagine sono tutte risorse, possono essere condivise usando i controlli RBAC nativi di Azure predefiniti. Utilizzando il controllo degli accessi in base al ruolo è possibile condividere queste risorse con altri utenti, entità servizio e gruppi. È anche possibile condividere l'accesso a utenti esterni al tenant in cui sono stati creati. Una volta che un utente ha accesso alla versione dell'immagine condivisa, può distribuire una VM o un set di scalabilità di macchine virtuali.  Di seguito è riportata la matrice di condivisione che consente all'utente di riconoscere a cosa ha accesso:
 
 | Condivisi con l'utente     | Raccolta di immagini condivise | Definizione delle immagini | Versione dell'immagine |
 |----------------------|----------------------|--------------|----------------------|
-| Raccolta di immagini condivise | Yes                  | Yes          | Yes                  |
-| Definizione delle immagini     | No                   | Yes          | Yes                  |
+| Raccolta di immagini condivise | Sì                  | Sì          | Sì                  |
+| Definizione delle immagini     | No                   | Sì          | Sì                  |
 
 Per un'esperienza ottimale, è consigliabile condividere a livello di raccolta. Non è consigliabile condividere le singole versioni dell'immagine. Per altre informazioni su RBAC, vedere [gestire l'accesso alle risorse di Azure con RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -143,12 +166,12 @@ Non sono previsti addebiti aggiuntivi per l'uso del servizio Raccolta di immagin
 Una volta creato, è possibile apportare alcune modifiche alle risorse della raccolta immagini. Sono limitati a:
  
 Raccolta di immagini condivise:
-- Descrizione
+- DESCRIZIONE
 
 Definizione delle immagini:
 - VCPU consigliati
 - Memoria consigliata
-- Descrizione
+- DESCRIZIONE
 - Data di scadenza
 
 Versione immagine:
@@ -163,7 +186,7 @@ Gli SDK seguenti supportano la creazione di raccolte di immagini condivise:
 
 - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
+- [Node.JS](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
 - [Go](https://docs.microsoft.com/azure/go/)
 
@@ -174,7 +197,7 @@ Gli SDK seguenti supportano la creazione di raccolte di immagini condivise:
 - [Creare una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Creare una definizione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Creare una versione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Creare una macchina virtuale dalla versione dell'immagine](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Creare una macchina virtuale da una versione dell'immagine](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti 
 
@@ -217,15 +240,16 @@ Sì. Esistono tre scenari in base ai tipi di immagini che si possono avere.
 
  Scenario 1: se si dispone di un'immagine gestita, è possibile creare una definizione di immagine e una versione dell'immagine a partire da essa.
 
- Scenario 2: se si dispone di un'immagine generalizzata non gestita, è possibile creare un'immagine gestita da quest'ultima e quindi creare una definizione di immagine e la versione dell'immagine da essa. 
+ Scenario 2: se si dispone di un'immagine non gestita, è possibile creare un'immagine gestita e quindi creare una definizione di immagine e una versione dell'immagine. 
 
- Scenario 3: se si dispone di un disco rigido virtuale nel file system locale, è necessario caricare il disco rigido virtuale e creare un'immagine gestita; quindi è possibile creare una definizione di immagine e una versione dell'immagine da quest'ultima.
-- Se il disco rigido virtuale è di una macchina virtuale Windows, vedere [Caricare un disco rigido virtuale generalizzato](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+ Scenario 3: se si dispone di un disco rigido virtuale nel file system locale, è necessario caricare il disco rigido virtuale in un'immagine gestita, quindi è possibile creare una definizione di immagine e una versione dell'immagine.
+
+- Se il disco rigido virtuale è di una macchina virtuale Windows, vedere [caricare un disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
 - Se il disco rigido virtuale è per una macchina virtuale Linux, vedere [Caricare un disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>È possibile creare una versione di immagine da un disco specializzato?
 
-No, attualmente non sono supportati dischi specializzati come immagini. Se si dispone di un disco specializzato, è necessario [creare una macchina virtuale dal disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) collegando il disco specializzato a una nuova macchina virtuale. Una volta che si dispone di una macchina virtuale in esecuzione, è necessario seguire le istruzioni per creare un'immagine gestita dalla [macchina virtuale Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) oppure dalla [macchina virtuale Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Una volta che si dispone di un'immagine gestita generalizzata, è possibile avviare il processo per creare una descrizione di immagine condivisa e una versione dell'immagine.
+Sì, il supporto per dischi specializzati come immagini è in anteprima. È possibile creare una macchina virtuale solo da un'immagine specializzata usando il portale ([Windows](../articles/virtual-machines/linux/shared-images-portal.md) o [Linux](../articles/virtual-machines/linux/shared-images-portal.md)) e l'API. Non è disponibile alcun supporto di PowerShell per l'anteprima.
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>È possibile spostare la risorsa raccolta immagini condivise in una sottoscrizione diversa dopo che è stata creata?
 
@@ -235,7 +259,7 @@ No, non è possibile spostare la risorsa Raccolta di immagini condivise in una s
 
 No, non è possibile replicare le versioni delle immagini in diversi cloud.
 
-### <a name="can-i-replicate-my-image-versions-across-subscriptions"></a>È possibile replicare le versioni delle immagini tra sottoscrizioni diverse? 
+### <a name="can-i-replicate-my-image-versions-across-subscriptions"></a>È possibile replicare le versioni delle immagini tra sottoscrizioni diverse?
 
 No, è possibile replicare le versioni delle immagini nelle aree in una sottoscrizione e usarle in altre sottoscrizioni tramite RBAC.
 
@@ -262,7 +286,7 @@ Esistono due modi in cui è possibile specificare il numero delle repliche di ve
 1. Il conteggio delle repliche a livello di area che specifica il numero di repliche che si desidera creare per ogni area. 
 2. Il conteggio comune delle repliche, che è il conteggio predefinito per area nel caso in cui non sia specificato il conteggio di repliche a livello di area. 
 
-Per specificare il numero di repliche internazionali, passare il percorso insieme al numero di repliche che si vuole creare in tale area: "Stati Uniti centro-meridionali=2". 
+Per specificare il numero di repliche internazionali, passare il percorso insieme al numero di repliche che si vuole creare in tale area: "Stati Uniti centro-meridionali = 2". 
 
 Se il conteggio delle repliche a livello di area non è specificato per ogni posizione, il numero predefinito di repliche sarà il conteggio comune delle repliche comuni che è stato specificato. 
 

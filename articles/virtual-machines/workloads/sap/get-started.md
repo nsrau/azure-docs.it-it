@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74c95ed62bcfec8792aaa465d27f539c02188713
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d092dcf6fa9942f7b3283d1d77157b1f291a5062
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891440"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73905055"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -120,6 +120,7 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 
 ## <a name="change-log"></a>Registro modifiche
+- 11/08/2019: modifiche alla [disponibilità elevata di SAP Hana nelle VM di Azure in SUSE Linux Enterprise Server](sap-hana-high-availability.md), [configurare SAP Hana la replica di sistema in macchine virtuali (VM)](sap-hana-high-availability-rhel.md)di Azure, [disponibilità elevata di macchine virtuali di azure per SAP NETWEAVER su SUSE Linux Enterprise Server per applicazioni SAP](high-availability-guide-suse.md), [disponibilità elevata di macchine virtuali di azure per SAP NetWeaver in SUSE Linux Enterprise Server con Azure NetApp files](high-availability-guide-suse-netapp-files.md), [disponibilità elevata di macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux ](high-availability-guide-rhel.md), [Disponibilità elevata di macchine virtuali di Azure per SAP netweaver in Red Hat Enterprise Linux con Azure NetApp files](high-availability-guide-rhel-netapp-files.md), [disponibilità elevata per NFS in macchine virtuali di Azure in SUSE Linux Enterprise Server](high-availability-guide-suse-nfs.md), GlusterFS in macchine virtuali di [Azure in Red Hat Enterprise Linux per SAP NetWeaver](high-availability-guide-rhel-glusterfs.md) per consigliare il servizio di bilanciamento del carico standard di Azure  
 - 11/08/2019: modifiche nell' [elenco di controllo della pianificazione e distribuzione del carico di lavoro SAP](sap-deployment-checklist.md) per chiarire la raccomandazione  
 - 11/04/2019: modifiche apportate alla configurazione di [pacemaker in SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md) per creare il cluster direttamente con la configurazione unicast  
 - 10/29/2019: rilascio della [connettività degli endpoint pubblici per le macchine virtuali con Load Balancer standard di Azure in scenari a disponibilità elevata di SAP](high-availability-guide-standard-load-balancer-outbound-connections.md)

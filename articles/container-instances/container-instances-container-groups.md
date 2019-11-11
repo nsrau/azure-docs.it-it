@@ -6,15 +6,15 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 11/01/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: cc9b11ba5fe0cd015d0879f28b9e85fb46b11955
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: a785ecbfa09c54d3affa97c220d4808f9fe8d90b
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178588"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904458"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Gruppi di contenitori in Istanze di Azure Container
 
@@ -51,15 +51,17 @@ Per mantenere la configurazione di un gruppo di contenitori, è possibile esport
 
 Istanze di contenitore di Azure alloca le risorse, ad esempio CPU, memoria e facoltativamente [GPU][gpus] (anteprima) a un gruppo di contenitori, aggiungendo le [richieste di risorse][resource-requests] delle istanze nel gruppo. Assunzione di risorse della CPU come esempio, se si crea un gruppo di contenitori con due istanze, ciascuna delle quali richiede 1 CPU, al gruppo di contenitori vengono allocate 2 CPU.
 
-Le risorse massime disponibili per un gruppo di contenitori dipendono dall' [area di Azure][region-availability] usata per la distribuzione.
+### <a name="resource-usage-by-instances"></a>Utilizzo delle risorse da istanze
 
-### <a name="container-resource-requests-and-limits"></a>Richieste e limiti delle risorse del contenitore
+A ogni istanza di contenitore vengono allocate le risorse specificate nella relativa richiesta di risorsa. Tuttavia, l'utilizzo delle risorse da parte di un'istanza di contenitore in un gruppo dipende dalla modalità di configurazione della proprietà del [limite di risorse][resource-limits] facoltativo.
 
-* Per impostazione predefinita, le istanze di contenitore in un gruppo condividono le risorse richieste del gruppo. In un gruppo con due istanze ciascuna richiesta di 1 CPU, il gruppo nel suo complesso può accedere a 2 CPU. Ogni istanza può utilizzare fino a 2 CPU e le istanze possono competere per la risorsa CPU mentre sono in esecuzione.
+* Se non si specifica un limite di risorse, l'utilizzo massimo delle risorse dell'istanza è uguale a quello della relativa richiesta di risorse.
 
-* Per limitare l'utilizzo delle risorse da parte di un'istanza in un gruppo, impostare facoltativamente un [limite di risorse][resource-limits] per l'istanza. In un gruppo con due istanze che richiedono 1 CPU, uno dei contenitori potrebbe richiedere l'esecuzione di più CPU rispetto all'altra.
+* Se si specifica un limite di risorse per un'istanza, è possibile modificare l'utilizzo delle risorse dell'istanza per il proprio carico di lavoro, riducendo o aumentando l'utilizzo rispetto alla richiesta di risorse. Il limite massimo di risorse che è possibile impostare è il totale delle risorse allocate al gruppo.
+    
+    Ad esempio, in un gruppo con due istanze che richiedono 1 CPU, è possibile che uno dei contenitori esegua un carico di lavoro che richiede l'esecuzione di più CPU rispetto all'altra.
 
-  In questo scenario, è possibile impostare un limite di risorse di 0,5 CPU per un'istanza e un limite di 2 CPU per il secondo. Questa configurazione limita l'utilizzo delle risorse del primo contenitore alla CPU 0,5, consentendo al secondo contenitore di usare fino a 2 CPU complete, se disponibili.
+    In questo scenario, è possibile impostare un limite di risorse di 0,5 CPU per un'istanza e un limite di 2 CPU per il secondo. Questa configurazione limita l'utilizzo delle risorse del primo contenitore alla CPU 0,5, consentendo al secondo contenitore di usare fino a 2 CPU complete, se disponibili.
 
 Per altre informazioni, vedere la proprietà [ResourceRequirements][resource-requirements] nell'API REST dei gruppi di contenitori.
 
@@ -67,7 +69,7 @@ Per altre informazioni, vedere la proprietà [ResourceRequirements][resource-req
 
 * Allocare **almeno** 1 CPU e 1 GB di memoria a un gruppo di contenitori. È possibile eseguire il provisioning di istanze di contenitore singole all'interno di un gruppo con meno di 1 CPU e 1 GB di memoria. 
 
-* Per le risorse massime in un gruppo di contenitori, vedere la pagina relativa alla [disponibilità delle risorse][region-availability] per le istanze di contenitore di Azure nell'area di distribuzione.
+* Per le risorse **massime** in un gruppo di contenitori, vedere la pagina relativa alla [disponibilità delle risorse][region-availability] per le istanze di contenitore di Azure nell'area di distribuzione.
 
 ## <a name="networking"></a>Rete
 

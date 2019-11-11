@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: dbfb6a1c4c53b1bd255560e688d3dc0cf3835a3a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d286cbab33a1fb6a2d2a2cb70caed11b21af735
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469628"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904103"
 ---
 # <a name="azure-app-configuration-faq"></a>Domande frequenti sulla configurazione di app Azure
 
@@ -42,9 +42,19 @@ La configurazione dell'app è complementare a Key Vault e le due devono essere u
 
 Sebbene la configurazione dell'app fornisca sicurezza avanzata, Key Vault rappresenta comunque il posto migliore per l'archiviazione dei segreti delle applicazioni. Key Vault fornisce la crittografia a livello di hardware, i criteri di accesso granulari e le operazioni di gestione, ad esempio la rotazione del certificato.
 
+È possibile creare valori di configurazione dell'app che fanno riferimento a segreti archiviati in Key Vault. Per altre informazioni, vedere [usare Key Vault riferimenti in un'app ASP.NET Core](./use-key-vault-references-dotnet-core.md).
+
 ## <a name="does-app-configuration-encrypt-my-data"></a>La configurazione dell'app crittografa i dati?
 
 Sì. La configurazione dell'app crittografa tutti i valori di chiave che possiede e crittografa le comunicazioni di rete. I nomi delle chiavi vengono usati come indici per il recupero dei dati di configurazione e non vengono crittografati.
+
+## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>In che modo la configurazione delle app è diversa dalle impostazioni del servizio app Azure?
+
+App Azure servizio consente di definire le impostazioni dell'app per ogni istanza del servizio app. Queste impostazioni vengono passate come variabili di ambiente al codice dell'applicazione. Se lo si desidera, è possibile associare un'impostazione a uno slot di distribuzione specifico. Per altre informazioni, vedere [configurare le impostazioni dell'app](/azure/app-service/configure-common#configure-app-settings).
+
+Al contrario, la configurazione di app Azure consente di definire le impostazioni che possono essere condivise tra più app, incluse le app in esecuzione nel servizio app. È possibile accedere a queste impostazioni nel codice dell'applicazione tramite i provider di configurazione per .NET e Java, tramite Azure SDK o direttamente tramite le API REST.
+
+È anche possibile importare ed esportare le impostazioni tra il servizio app e la configurazione dell'app. Questo consente di configurare rapidamente un nuovo archivio di configurazione dell'app in base alle impostazioni del servizio app esistenti o di condividere facilmente la configurazione con un'app esistente che si basa sulle impostazioni del servizio app.
 
 ## <a name="are-there-any-size-limitations-on-keys-and-values-stored-in-app-configuration"></a>Esistono limitazioni alle dimensioni delle chiavi e dei valori archiviati nella configurazione dell'app?
 

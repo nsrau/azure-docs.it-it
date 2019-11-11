@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: 88a914a2a4d3d62918b01674d6d21f2f011e2c2e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 049b09f7927da2cc841130a0adeaa90768037db8
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834309"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903202"
 ---
 # <a name="manage-microsoft-azure-recovery-services-agent-backups-by-using-the-azure-backup-service"></a>Gestire i backup di Servizi di ripristino di Microsoft Azure Agent con il servizio backup di Azure
 
@@ -39,7 +39,7 @@ Creare un criterio come segue:
     ![Elementi selezionati di cui eseguire il backup](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 6. Nella pagina **selezionare gli elementi da sottoporre a backup** fare clic su **Avanti**.
-7. Nella pagina **impostazione pianificazione backup** specificare quando si desidera eseguire backup giornalieri o settimanali. Quindi fare clic su **Avanti**.
+7. Nella pagina **impostazione pianificazione backup** specificare quando si desidera eseguire backup giornalieri o settimanali. Quindi fare clic su **Next**.
 
     - Quando viene creato un backup, viene creato un punto di ripristino.
     - Il numero di punti di ripristino creati nell'ambiente dipende dalla pianificazione del backup.
@@ -52,7 +52,7 @@ Creare un criterio come segue:
 
     ![Pianificazione settimanale](./media/backup-configure-vault/week-schedule.png)
 
-10. Nella pagina **Seleziona criteri di conservazione** specificare la modalità di archiviazione delle copie cronologiche dei dati. Quindi fare clic su **Avanti**.
+10. Nella pagina **Seleziona criteri di conservazione** specificare la modalità di archiviazione delle copie cronologiche dei dati. Quindi fare clic su **Next**.
 
     - Le impostazioni di conservazione specificano i punti di ripristino da archiviare e la durata di archiviazione.
     - Ad esempio, quando si imposta un'impostazione di conservazione giornaliera, si indica che nel momento specificato per la conservazione giornaliera, il punto di ripristino più recente verrà mantenuto per il numero di giorni specificato. Oppure, come altro esempio, è possibile specificare un criterio di conservazione mensile per indicare che il punto di ripristino creato il 30 di ogni mese deve essere archiviato per 12 mesi.
@@ -62,7 +62,7 @@ Creare un criterio come segue:
             -I backup eseguiti il sabato l'ultima settimana del mese a mezzanotte e 6:00 PM vengono conservati per 12 mesi.
             -I backup eseguiti a sabato nell'ultima settimana di marzo sono conservati per 10 anni.
 
-           ![Retention example](./media/backup-configure-vault/retention-example.png)
+    ![Esempio di conservazione](./media/backup-configure-vault/retention-example.png)
 
 11. In **Scegli il tipo di backup iniziale** decidere se si vuole eseguire il backup iniziale sulla rete o usare il backup offline. per altre informazioni, vedere questo [articolo](backup-azure-backup-import-export.md). Per eseguire il backup iniziale sulla rete, selezionare **automaticamente in rete** e fare clic su **Avanti**.
 
@@ -165,7 +165,7 @@ Esistono due modi per arrestare la protezione del backup di file e cartelle:
     ![modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/mars-actions.png)
 1. Nella pagina **Selezione elemento criteri** selezionare **Modifica pianificazione backup per i file e le cartelle** , quindi fare clic su **Avanti**.
     ![modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
-1. Dalla pagina **modifica o arresta un backup pianificato** selezionare **Interrompi utilizzo di questa pianificazione del backup, ma Mantieni i backup archiviati fino a quando non viene attivata una pianificazione**. Quindi selezionare **Avanti**.  
+1. Nella pagina **modificare o arrestare un backup pianificato** selezionare **Interrompi utilizzando questa pianificazione del backup, ma Mantieni i backup archiviati fino a quando non viene attivata nuovamente una pianificazione**. Quindi selezionare **Avanti**.  
     ![modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
 1. In **sospendere il backup pianificato** verificare le informazioni fare clic su **fine** ![modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
 1. in **Modifica processo di backup** verificare che la pianificazione del backup stato di sospensione sia riuscita e fare clic su **Chiudi** per terminare.

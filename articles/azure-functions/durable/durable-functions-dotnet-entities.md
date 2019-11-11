@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: a59e5443c80c9372f646edfdae2261157a41acc9
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d854f41ffc883b40f9159a7dacdde0fb3bb7240f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614896"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904054"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guida per gli sviluppatori di entità durevoli in .NET
 
@@ -117,7 +117,7 @@ Ad esempio, è possibile modificare l'entità contatore in modo da avviare un'or
 
 ## <a name="accessing-entities-directly"></a>Accesso diretto alle entità
 
-È possibile accedere direttamente alle entità basate su classi, usando nomi di stringa espliciti per l'entità e le relative operazioni. Di seguito vengono forniti alcuni esempi. per una spiegazione più approfondita dei concetti sottostanti (ad esempio, i segnali e le chiamate), vedere l'argomento relativo all' [accesso alle entità](durable-functions-entities.md#accessing-entities). 
+È possibile accedere direttamente alle entità basate su classi, usando nomi di stringa espliciti per l'entità e le relative operazioni. Di seguito vengono forniti alcuni esempi. per una spiegazione più approfondita dei concetti sottostanti (ad esempio, i segnali e le chiamate), vedere la discussione in [Access Entities](durable-functions-entities.md#access-entities). 
 
 > [!NOTE]
 > Laddove possibile, è consigliabile [accedere alle entità tramite le interfacce](#accessing-entities-through-interfaces), perché fornisce maggiore controllo dei tipi.

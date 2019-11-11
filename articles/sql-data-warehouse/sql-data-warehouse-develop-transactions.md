@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 09fc0f7cee38f799322a1914848a5176e9a223a1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 376b7b8a734e5064713237e9250542a4c5cc18f1
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692781"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903080"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>Uso delle transazioni in SQL Data Warehouse
 Suggerimenti per l'implementazione di transazioni in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
@@ -151,8 +151,8 @@ BEGIN TRAN
 
         IF @@TRANCOUNT > 0
         BEGIN
-            PRINT 'ROLLBACK';
             ROLLBACK TRAN;
+            PRINT 'ROLLBACK';
         END
 
         SELECT  ERROR_NUMBER()    AS ErrNumber
@@ -199,5 +199,5 @@ Ecco quali sono:
 * Nessun supporto per DDL come CREATE TABLE all'interno di una transazione definita dall'utente
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'ottimizzazione delle transazioni, vedere [Procedure consigliate per le transazioni](sql-data-warehouse-develop-best-practices-transactions.md). Per altre informazioni sulle procedure consigliate per SQL Data Warehouse, vedere [Procedure consigliate per Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Per altre informazioni sull'ottimizzazione delle transazioni, vedere [Ottimizzazione delle transazioni per SQL Data Warehouse](sql-data-warehouse-develop-best-practices-transactions.md). Per altre informazioni sulle procedure consigliate per SQL Data Warehouse, vedere [Procedure consigliate per Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

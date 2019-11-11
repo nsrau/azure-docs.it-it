@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 648c5ca1eb1cb1c0f1832654fc66d436b9318af3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 878658135bdb8844c5c86bc207db580ccd7ff63f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161859"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903611"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Ripristinare il backup di database SQL Server in macchine virtuali di Azure
 
@@ -27,7 +27,7 @@ Backup di Azure è in grado di ripristinare SQL Server database in esecuzione in
 - Ripristinare una data o un'ora specifica (al secondo) utilizzando i backup del log delle transazioni. Backup di Azure determina automaticamente il backup completo differenziale appropriato e la catena di backup del log necessari per il ripristino in base all'ora selezionata.
 - Ripristinare un backup completo o differenziale specifico per eseguire il ripristino in un punto di ripristino specifico.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di ripristinare un database, tenere presente quanto segue:
 
@@ -51,7 +51,7 @@ Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
   - Se si esegue il ripristino nella stessa VM, si tratta della VM di origine.
   - Se si esegue il ripristino in un percorso alternativo, si tratta della nuova VM di destinazione.
 
-È possibile eseguire il ripristino come descritto di seguito:
+È possibile eseguire il ripristino nel modo seguente:
 
 1. Aprire l'insieme di credenziali in cui è stata registrata la VM di SQL Server.
 2. Nel dashboard dell'insieme di credenziali, in **Uso**, selezionare **Elementi di backup**.
@@ -76,9 +76,9 @@ Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
    - **Percorso alternativo**: ripristinare il database in un percorso alternativo e salvare il database di origine originale.
    - **Sovrascrivi database**: ripristina i dati nella stessa istanza di SQL Server dell'origine. Questa opzione sovrascrive il database originale.
 
-           > [!IMPORTANT]
-           > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
-           >
+    > [!IMPORTANT]
+    > Se il database selezionato appartiene a un gruppo di disponibilità Always On, SQL Server non consente di sovrascrivere il database. È disponibile solo **Percorso alternativo**.
+    >
    - **Ripristina come file**: anziché ripristinare come database, ripristinare i file di backup che possono essere ripristinati come database in un secondo momento in qualsiasi computer in cui i file sono presenti usando SQL Server Management Studio.
      ![menu configurazione ripristino](./media/backup-azure-sql-database/restore-configuration.png)
 

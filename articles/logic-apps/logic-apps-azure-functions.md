@@ -9,12 +9,12 @@ ms.author: estfan
 ms.topic: article
 ms.date: 10/01/2019
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: 275d02219087d07a058f486c263d1886839dd4cf
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 5b946e36c5da9f122adce1f8e3b99523a789a66f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799861"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901102"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Chiamare funzioni di Azure da app per la logica di Azure
 
@@ -29,7 +29,7 @@ Per eseguire frammenti di codice senza creare funzioni di Azure, imparare a [agg
 > [!NOTE]
 > L'integrazione tra app per la logica e funzioni di Azure attualmente non funziona con gli slot abilitati.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -114,7 +114,7 @@ Prima di poter creare una funzione di Azure a partire dall'interno dell'app per 
 
    * Tra i passaggi esistenti nel flusso di lavoro dell'app per la logica, spostare il puntatore del mouse sulla freccia, selezionare il segno più (+) e quindi selezionare **Aggiungi un'azione**.
 
-1. Nella casella di ricerca immettere "funzioni di Azure" come filtro. Nell'elenco azioni selezionare questa azione: **scegliere una funzione di Azure**
+1. Nella casella di ricerca immettere "funzioni di Azure" come filtro. Nell'elenco azioni selezionare l'azione **scegliere una funzione di Azure** , ad esempio:
 
    ![Cercare "funzioni di Azure"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
@@ -126,24 +126,24 @@ Prima di poter creare una funzione di Azure a partire dall'interno dell'app per 
 
    1. Nella casella **Nome funzione** immettere un nome per la funzione.
 
-   1. Nella casella **codice** aggiungere il codice al modello di funzione, incluse la risposta e il payload che si vuole restituire all'app per la logica al termine dell'esecuzione della funzione.
+   1. Nella casella **codice** aggiungere il codice al modello di funzione, incluse la risposta e il payload che si vuole restituire all'app per la logica al termine dell'esecuzione della funzione. Al termine, selezionare **Crea**.
 
-      ![Definire la funzione](./media/logic-apps-azure-functions/function-definition.png)
+   Ad esempio:
 
-      Nel codice del modello, l' *`context`oggetto* fa riferimento ai messaggi inviati dall'app per la logica tramite il campo **Corpo della richiesta** in un passaggio successivo. Per accedere alle proprietà dell'oggetto `context` all'interno della funzione, usare la sintassi seguente:
+   ![Definire la funzione](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
-      `context.body.<property-name>`
+   Nel codice del modello, l' *`context`oggetto* fa riferimento ai messaggi inviati dall'app per la logica tramite il campo **Corpo della richiesta** in un passaggio successivo. Per accedere alle proprietà dell'oggetto `context` all'interno della funzione, usare la sintassi seguente:
 
-      Ad esempio, per fare riferimento alla proprietà `content` all'interno dell'oggetto `context`, usare la sintassi seguente:
+   `context.body.<property-name>`
 
-      `context.body.content`
+   Ad esempio, per fare riferimento alla proprietà `content` all'interno dell'oggetto `context`, usare la sintassi seguente:
 
-      Il codice del modello include anche una variabile `input`,che archivia il valore dal parametro `data`, in modo che la funzione possa eseguire operazioni su tale valore. All'interno di funzioni JavaScript, la variabile `data` rappresenta anche un collegamento per `context.body`.
+   `context.body.content`
 
-      > [!NOTE]
-      > La proprietà `body` si applica qui all'oggetto `context` e non corrisponde al token **Corpo** di un'azione di output, che può essere passato anch'esso alla funzione.
+   Il codice del modello include anche una variabile `input`,che archivia il valore dal parametro `data`, in modo che la funzione possa eseguire operazioni su tale valore. All'interno di funzioni JavaScript, la variabile `data` rappresenta anche un collegamento per `context.body`.
 
-   1. Al termine, selezionare **Crea**.
+   > [!NOTE]
+   > La proprietà `body` si applica qui all'oggetto `context` e non corrisponde al token **Corpo** di un'azione di output, che può essere passato anch'esso alla funzione.
 
 1. Nella casella **Corpo della richiesta**, specificare l'input della funzione, che deve essere formattato in JSON (JavaScript Object Notation).
 
@@ -167,7 +167,7 @@ Per chiamare funzioni di Azure esistenti dalle proprie app per la logica, è pos
 
 1. Nel passaggio in cui si vuole aggiungere la funzione selezionare **nuovo passaggio**.
 
-1. In **scegliere un'azione**, nella casella di ricerca, immettere "funzioni di Azure" come filtro. Nell'elenco azioni selezionare questa azione: **scegliere una funzione di Azure**
+1. In **scegliere un'azione**, nella casella di ricerca, immettere "funzioni di Azure" come filtro. Nell'elenco azioni selezionare l'azione **scegliere una funzione di Azure** .
 
    ![Cercare "funzioni di Azure"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 

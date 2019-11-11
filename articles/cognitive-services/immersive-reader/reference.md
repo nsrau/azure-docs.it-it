@@ -1,7 +1,7 @@
 ---
 title: Guida di riferimento a immersive Reader SDK
 titleSuffix: Azure Cognitive Services
-description: Informazioni di riferimento sull'SDK di immersive Reader
+description: Immersive Reader SDK è una libreria JavaScript che consente di integrare il lettore immersivo nell'applicazione Web.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: ed9bd6f5932fdcb2d9124a000115a6f68cf21613
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 09244b634fa2603a7dc92af3c78d171f8d6bd9df
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889300"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903116"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Guida di riferimento a immersive Reader SDK
 
 Immersive Reader SDK è una libreria JavaScript che consente di integrare il lettore immersivo nell'applicazione Web.
 
-## <a name="functions"></a>Funzioni
+## <a name="functions"></a>Functions
 
 L'SDK espone le funzioni:
 
@@ -39,14 +39,14 @@ Avvia il Reader immersivo all'interno di un `iframe` nell'applicazione Web.
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parametri
 
-| Name | Tipo | Descrizione |
+| Nome | digitare | DESCRIZIONE |
 | ---- | ---- |------------ |
 | `token` | stringa | Token di autenticazione Azure AD. Vedere le [procedure per l'autenticazione Azure ad](./azure-active-directory-authentication.md). |
 | `subdomain` | stringa | Sottodominio personalizzato della risorsa Reader immersiva in Azure. Vedere le [procedure per l'autenticazione Azure ad](./azure-active-directory-authentication.md). |
 | `content` | [Contenuto](#content) | Oggetto contenente il contenuto da visualizzare nel lettore immersivo. |
-| `options` | [Opzioni](#options) | Opzioni per la configurazione di determinati comportamenti del lettore immersivo. facoltativo. |
+| `options` | [Opzioni](#options) | Opzioni per la configurazione di determinati comportamenti del lettore immersivo. Facoltativa. |
 
 ### <a name="returns"></a>Restituisce
 
@@ -78,11 +78,11 @@ Per altre opzioni di rendering, vedere [attributi facoltativi](#optional-attribu
 renderButtons(options?: RenderButtonsOptions): void;
 ```
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parametri
 
-| Name | Tipo | Descrizione |
+| Nome | digitare | DESCRIZIONE |
 | ---- | ---- |------------ |
-| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Opzioni per la configurazione di determinati comportamenti della funzione renderButtons. facoltativo. |
+| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Opzioni per la configurazione di determinati comportamenti della funzione renderButtons. Facoltativa. |
 
 ## <a name="types"></a>Types
 
@@ -111,7 +111,7 @@ Singolo blocco di dati, che verrà passato al contenuto del lettore immersivo.
 
 #### <a name="supported-mime-types"></a>Tipi MIME supportati
 
-| Tipo MIME | Descrizione |
+| Tipo MIME | DESCRIZIONE |
 | --------- | ----------- |
 | text/plain | Testo normale. |
 | text/html | Contenuto HTML. [Altre informazioni](#html-support)|
@@ -168,7 +168,7 @@ Contiene informazioni sull'errore.
 
 #### <a name="error-codes"></a>Codici di errore
 
-| Codice | Descrizione |
+| Codice | DESCRIZIONE |
 | ---- | ----------- |
 | BadArgument | L'argomento fornito non è valido. per informazioni dettagliate, vedere `message`. |
 | Timeout | Non è stato possibile caricare il lettore immersivo entro il timeout specificato. |
@@ -187,7 +187,7 @@ L'SDK fornisce lo stile predefinito per il pulsante per l'avvio del lettore imme
 
 Usare gli attributi seguenti per configurare l'aspetto del pulsante.
 
-| Attributo | Descrizione |
+| Attribute | DESCRIZIONE |
 | --------- | ----------- |
 | `data-button-style` | Imposta lo stile del pulsante. Può essere `icon`, `text` o `iconAndText`. L'impostazione predefinita è `icon`. |
 | `data-locale` | Imposta le impostazioni locali. Ad esempio, `en-US` o `fr-FR`. Il valore predefinito è l'inglese `en`. |

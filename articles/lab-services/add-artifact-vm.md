@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un elemento in una macchina virtuale in Azure DevTest Labs | Microsoft Docs
-description: Informazioni su come aggiungere un elemento in una macchina virtuale in un lab in Azure DevTest Labs
+title: Aggiungere un elemento a una macchina virtuale in Azure DevTest Labs | Microsoft Docs
+description: Informazioni su come aggiungere un elemento a una macchina virtuale in un Lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: spelluru
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 19a7d6052091f8889a88c61793186b7bf7d9d869
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27fec279582d845972b87ac635c87c16c239924e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60304267"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901318"
 ---
-# <a name="add-an-artifact-to-a-vm"></a>Aggiungere un elemento in una macchina virtuale
-Durante la creazione di una macchina virtuale, è possibile aggiungere elementi esistenti a esso. Questi elementi possono essere da entrambi i [pubblica repository Git di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) o dal repository Git. Questo articolo illustra come aggiungere gli elementi nel portale di Azure e tramite Azure PowerShell. 
+# <a name="add-an-artifact-to-a-vm"></a>Aggiungere un artefatto a una VM
+Durante la creazione di una macchina virtuale, è possibile aggiungervi elementi esistenti. Questi elementi possono provenire dal [repository git DevTest Labs pubblico](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) o dal repository git. Questo articolo illustra come aggiungere elementi nel portale di Azure e usando Azure PowerShell. 
 
 Gli *elementi* di Azure DevTest Labs consentono di specificare le *azioni* eseguite quando viene eseguito il provisioning della macchina virtuale, ad esempio, l'esecuzione di script Windows PowerShell, comandi Bash e installazione del software. Gli elementi *parametri* consentono di personalizzare l'elemento per un determinato scenario.
 
-Per altre informazioni su come creare elementi personalizzati, vedere l'articolo: [Creare elementi personalizzati](devtest-lab-artifact-author.md).
+Per informazioni su come creare elementi personalizzati, vedere l'articolo [creare artefatti personalizzati](devtest-lab-artifact-author.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -65,7 +65,7 @@ I passaggi seguenti illustrano come visualizzare o modificare i parametri di un 
 1. Selezionare **OK** per chiudere il riquadro **Artefatti selezionati**.
 
 ## <a name="use-powershell"></a>Usare PowerShell
-Lo script seguente si applica l'elemento specificato per la macchina virtuale specificata. Il [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) comando è quello che esegue l'operazione.  
+Lo script seguente applica l'elemento specificato alla macchina virtuale specificata. Il comando [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) è quello che esegue l'operazione.  
 
 ```powershell
 #Requires -Module Az.Resources
@@ -90,7 +90,7 @@ param
 Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
  
 # Get the lab resource group name
-$resourceGroupName = (Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $DevTestLabName}).ResourceGroupName
+$resourceGroupName = (Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $DevTestLabName}).ResourceGroupName
 if ($resourceGroupName -eq $null) { throw "Unable to find lab $DevTestLabName in subscription $SubscriptionId." }
 
 # Get the internal repo name
@@ -164,9 +164,9 @@ if ($virtualMachine -ne $null) {
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Sugli elementi, vedere gli articoli seguenti:
+Vedere gli articoli seguenti sugli artefatti:
 
-- [Specificare gli elementi obbligatori per l'ambiente lab](devtest-lab-mandatory-artifacts.md)
+- [Specificare gli artefatti obbligatori per il Lab](devtest-lab-mandatory-artifacts.md)
 - [Creare elementi personalizzati](devtest-lab-artifact-author.md)
-- [Aggiungere un repository di elementi a un lab](devtest-lab-artifact-author.md)
+- [Aggiungere un repository di artefatti a un Lab](devtest-lab-artifact-author.md)
 - [Diagnosticare errori degli elementi](devtest-lab-troubleshoot-artifact-failure.md)

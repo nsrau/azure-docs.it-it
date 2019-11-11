@@ -1,5 +1,5 @@
 ---
-title: Creazione e modifica di chiavi di runtime-LUIS
+title: Come usare le chiavi di creazione e di runtime con LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS utilizza due chiavi, la chiave di creazione per creare il modello e la chiave di runtime per eseguire query sull'endpoint di stima con espressioni utente.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 973a8dd56437506d907159f212164ff147ba975c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b58aa97dbb97bade87a38456c58df8f93a29946f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487497"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901692"
 ---
 # <a name="authoring-and-runtime-keys"></a>Chiavi di creazione e runtime
 
@@ -115,7 +115,7 @@ L'accesso all'app dal portale [Luis](luis-reference-regions.md#luis-website) o d
 
 Il proprietario e tutti i collaboratori possono accedere per creare l'app. 
 
-|L'accesso in creazione include|Note|
+|L'accesso in creazione include|note|
 |--|--|
 |Aggiungere o rimuovere chiavi endpoint||
 |Esportare una versione||
@@ -123,7 +123,7 @@ Il proprietario e tutti i collaboratori possono accedere per creare l'app.
 |Importare una versione||
 |Rendere pubblica un'app|Quando un'app è pubblica, chiunque disponga di una chiave di creazione o endpoint può eseguire una query nell'app.|
 |Modificare il modello|
-|Pubblica|
+|Publish|
 |Rivedere le espressioni endpoint per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md)|
 |Eseguire il training|
 

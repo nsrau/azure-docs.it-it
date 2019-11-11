@@ -5,22 +5,22 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/27/2019
+ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: cae108a1d4226e8c0fe39f9cd1cedc1e6a024ffc
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 729e757c69887bbdce324e2d8383c970995dc94a
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465466"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903656"
 ---
-## <a name="sign-in-to-azure"></a>Accedi ad Azure 
+## <a name="sign-in-to-azure"></a>Accedere ad Azure 
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 > [!NOTE]
-> Se è registrata per l'uso di raccolte di immagini condivise durante l'anteprima, si potrebbe essere necessario registrare nuovamente il `Microsoft.Compute` provider. Aprire [Cloud Shell](https://shell.azure.com/bash) e digitare: `az provider register -n Microsoft.Compute`
+> Se è stata eseguita la registrazione per usare le raccolte di immagini condivise durante l'anteprima, potrebbe essere necessario registrare nuovamente il provider di `Microsoft.Compute`. Aprire [cloud Shell](https://shell.azure.com/bash) e digitare: `az provider register -n Microsoft.Compute`
 
 ## <a name="create-an-image-gallery"></a>Creare un raccolta di immagini
 
@@ -30,64 +30,83 @@ L'esempio seguente crea una raccolta denominata *myGallery* nel gruppo di risors
 
 1. Selezionare **Crea risorsa** nell'angolo superiore sinistro del portale di Azure.
 1. Usare il tipo **raccolta immagini condivise** nella casella di ricerca e selezionare **raccolta immagini condivise** nei risultati.
-1. Nel **raccolta di immagini condivise** pagina, fare clic su **crea**.
+1. Nella pagina **raccolta immagini condivise** fare clic su **Crea**.
 1. Selezionare la sottoscrizione corretta.
-1. Nelle **gruppo di risorse**, selezionare **Crea nuovo** e digitare *myGalleryRG* per il nome.
-1. Nelle **Name**, digitare *myGallery* per il nome della raccolta.
-1. Il valore predefinito per **regione**.
-1. È possibile digitare una breve descrizione della raccolta, ad esempio *la raccolta di immagini per il test.* e quindi fare clic su **revisione + Crea**.
-1. Dopo la convalida ha esito positivo, selezionare **Create**.
+1. In **gruppo di risorse**selezionare **Crea nuovo** e digitare *myGalleryRG* per nome.
+1. In **nome** *digitare raccolta* per il nome della raccolta.
+1. Lasciare l'impostazione predefinita per **Region**.
+1. È possibile digitare una breve descrizione della raccolta, ad esempio la *raccolta immagini per i test.* e quindi fare clic su **Verifica + crea**.
+1. Al termine della convalida, selezionare **Crea**.
 1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
    
 ## <a name="create-an-image-definition"></a>Creare una definizione dell'immagine 
 
-Le definizioni di immagini crea un raggruppamento logico per le immagini. Vengono utilizzati per gestire le informazioni sulle versioni di immagini che vengono creati in esse contenute. I nomi definizione di immagine possono essere costituiti da periodi, cifre, punti, trattini e lettere maiuscole o minuscole. Per altre informazioni sui valori è possibile specificare per una definizione dell'immagine, vedere [le definizioni di immagine](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Le definizioni di immagine creano un raggruppamento logico per le immagini. Vengono utilizzati per gestire le informazioni sulle versioni delle immagini create al suo interno. I nomi delle definizioni di immagine possono essere costituiti da lettere maiuscole o minuscole, cifre, punti, trattini e punti. Per ulteriori informazioni sui valori che è possibile specificare per la definizione di un'immagine, vedere [definizioni di immagine](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
-Creare la definizione dell'immagine della raccolta all'interno della raccolta. In questo esempio, l'immagine della raccolta è denominata *myImageDefinition*.
+Creare la definizione dell'immagine della raccolta all'interno della raccolta. In questo esempio l'immagine della raccolta è denominata *myImageDefinition*.
 
-1. Nella pagina per la nuova raccolta di immagini, selezionare **aggiungere una nuova definizione di immagine** dalla parte superiore della pagina. 
-1. Per la **nome dell'immagine definition**, digitare *myImageDefinition*.
-1. Per la **sistema operativo**, selezionare l'opzione corretta in base l'immagine di origine.
-1. Per la **server di pubblicazione**, digitare *myPublisher*. 
-1. Per la **offrono**, digitare *myOffer*.
-1. Per la **SKU**, digitare *mySKU*.
-1. Al termine, selezionare **revisione + Crea**.
-1. Dopo la definizione dell'immagine supera la convalida, selezionare **Create**.
+1. Nella pagina relativa alla nuova raccolta immagini selezionare **Aggiungi nuova definizione immagine** nella parte superiore della pagina. 
+1. Per **nome definizione immagine**digitare *myImageDefinition*.
+1. Per **sistema operativo**, selezionare l'opzione corretta in base alla VM di origine.
+1. Per la **generazione di macchine virtuali**, selezionare l'opzione in base alla VM di origine. Nella maggior parte dei casi, si tratta di *generazione 1*. Per altre informazioni, vedere [supporto per le macchine virtuali di seconda generazione](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
+1. Per **lo stato del sistema operativo**, selezionare l'opzione in base alla VM di origine. Per ulteriori informazioni, vedere [generalizzato e specializzato](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
+1. Per **Publisher digitare Server**di *pubblicazione*. 
+1. Per l' **offerta**, digitare " *offerta*".
+1. Per **SKU**, digitare *mySKU*.
+1. Al termine, selezionare **Verifica + crea**.
+1. Dopo che la definizione dell'immagine ha superato la convalida, selezionare **Crea**.
 1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
 
 
 ## <a name="create-an-image-version"></a>Creare una versione di immagine
 
-Creare una versione di immagine da un'immagine gestita. In questo esempio la versione dell'immagine è *1.0.0* e viene replicata nei datacenter degli *Stati Uniti centrali* e degli *Stati Uniti centro-meridionali*. Quando si scelgono le aree di destinazione per la replica, tenere presente che anche necessario includere il *origine* area come destinazione per la replica.
+Creare una versione dell'immagine da un'immagine gestita. In questo esempio la versione dell'immagine è *1.0.0* e viene replicata nei datacenter degli *Stati Uniti centrali* e degli *Stati Uniti centro-meridionali*. Quando si scelgono le aree di destinazione per la replica, tenere presente che è necessario includere anche l'area di *origine* come destinazione per la replica.
 
-I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
+I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
 
-1. Nella pagina per la definizione dell'immagine, selezionare **Aggiungi versione** dalla parte superiore della pagina.
-1. Nelle **regione**, selezionare l'area in cui è archiviato l'immagine gestita. Dovranno essere creati nella stessa area dell'immagine gestiti da che vengono creati versioni dell'immagine.
-1. Per la **Name**, digitare *1.0.0*. Il nome di versione dell'immagine deve seguire *principali*. *minori*. *patch* formattare con numeri interi. 
-1. Nelle **immagine di origine**, selezionare l'immagine gestita di origine dall'elenco a discesa.
-1. Nelle **Escludi dal più recente**, lasciare il valore predefinito *No*.
-1. Per la **fine della vita**, selezionare una data dal calendario di un paio di mesi in futuro.
-1. Nelle **replica**, lasciare il **replica numero predefinito di** come 1. È necessario eseguire la replica nell'area di origine, quindi lasciare la replica prima come predefinita e quindi selezionare una seconda area di replica sia *Stati Uniti orientali*.
-1. Al termine, selezionare **revisione + Crea**. Azure verrà convalidata la configurazione.
-1. Quando si passa la convalida versione dell'immagine, selezionare **Create**.
+I passaggi per la creazione di una versione di immagine sono leggermente diversi, a seconda che l'origine sia un'immagine generalizzata o uno snapshot di una macchina virtuale specializzata. 
+
+### <a name="option-generalized"></a>Opzione: generalizzata
+
+1. Nella pagina per la definizione dell'immagine selezionare **Aggiungi versione** nella parte superiore della pagina.
+1. In **Region (area**) selezionare l'area in cui è archiviata l'immagine gestita. È necessario creare le versioni delle immagini nella stessa area dell'immagine gestita da cui vengono create.
+1. Per **nome**Digitare *1.0.0*. Il nome della versione dell'immagine deve seguire la *principale*. *minore*. formato della *patch* usando numeri interi. 
+1. In **immagine di origine**selezionare l'immagine gestita di origine dall'elenco a discesa.
+1. In **Escludi dal più recente**lasciare il valore predefinito *No*.
+1. Per la **Data di fine della vita**, selezionare una data del calendario che risale a un paio di mesi in futuro.
+1. In **replica**lasciare il **numero di repliche predefinito** pari a 1. È necessario eseguire la replica nell'area di origine, quindi lasciare la prima replica come predefinita e quindi selezionare una seconda area di replica come *Stati Uniti orientali*.
+1. Al termine, selezionare **Rivedi e crea**. Azure convaliderà la configurazione.
+1. Quando la versione dell'immagine supera la convalida, selezionare **Crea**.
 1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
 
-Può richiedere un po' di tempo per replicare l'immagine in tutte le aree di destinazione.
+La replica dell'immagine in tutte le aree di destinazione può richiedere del tempo.
+
+### <a name="option-specialized"></a>Opzione: specializzata
+
+1. Nella pagina per la definizione dell'immagine selezionare **Aggiungi versione** nella parte superiore della pagina.
+1. In **Region (area**) selezionare l'area in cui è archiviato lo snapshot. È necessario creare le versioni dell'immagine nella stessa area dell'origine da cui vengono create.
+1. Per **nome**Digitare *1.0.0*. Il nome della versione dell'immagine deve seguire la *principale*. *minore*. formato della *patch* usando numeri interi. 
+1. In **snapshot del disco del sistema operativo**selezionare lo snapshot dalla VM di origine dall'elenco a discesa. Se la macchina virtuale di origine ha un disco dati che si vuole includere, selezionare il numero di **lun** corretto dall'elenco a discesa e quindi selezionare lo snapshot del disco dati per lo **snapshot del disco dati**. 
+1. In **Escludi dal più recente**lasciare il valore predefinito *No*.
+1. Per la **Data di fine della vita**, selezionare una data del calendario che risale a un paio di mesi in futuro.
+1. In **replica**lasciare il **numero di repliche predefinito** pari a 1. È necessario eseguire la replica nell'area di origine, quindi lasciare la prima replica come predefinita e quindi selezionare una seconda area di replica come *Stati Uniti orientali*.
+1. Al termine, selezionare **Rivedi e crea**. Azure convaliderà la configurazione.
+1. Quando la versione dell'immagine supera la convalida, selezionare **Crea**.
+1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
 
 ## <a name="share-the-gallery"></a>Condividere la raccolta
 
-È consigliabile che si condivide l'accesso a livello di raccolta di immagini. Di seguito illustra la condivisione della raccolta appena creato.
+Si consiglia di condividere l'accesso a livello di raccolta immagini. Di seguito viene illustrata la condivisione della raccolta appena creata.
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
-1. Nel menu a sinistra, selezionare **gruppi di risorse**. 
-1. Nell'elenco dei gruppi di risorse, selezionare **myGalleryRG**. Verrà aperto il pannello del gruppo di risorse.
-1. Nel menu a sinistra del **myGalleryRG** pagina, selezionare **controllo di accesso (IAM)** . 
-1. Sotto **aggiungere un'assegnazione di ruolo**, selezionare **Add**. Il **aggiungere un'assegnazione di ruolo** riquadro viene aperto. 
-1. Sotto **ruolo**, selezionare **lettore**.
-1. Sotto **assegna accesso a**, lasciare il valore predefinito **utente, gruppo o entità servizio Azure AD**.
-1. Sotto **seleziona**, digitare l'indirizzo di posta elettronica della persona che si desidera invitare.
-1. Se l'utente è all'esterno dell'organizzazione, si verrà visualizzato il messaggio **questo utente verrà inviato un messaggio di posta elettronica che consente loro di collaborare con Microsoft.** Selezionare l'utente con l'indirizzo di posta elettronica e quindi fare clic su **salvare**.
+1. Nel menu a sinistra selezionare **gruppi di risorse**. 
+1. Nell'elenco dei gruppi di risorse selezionare **myGalleryRG**. Viene aperto il pannello del gruppo di risorse.
+1. Nel menu a sinistra della pagina **myGalleryRG** selezionare **controllo di accesso (IAM)** . 
+1. In **Aggiungi un'assegnazione di ruolo**selezionare **Aggiungi**. Viene visualizzato il riquadro **Aggiungi assegnazione ruolo** . 
+1. In **ruolo**selezionare **Reader**.
+1. In **assegna accesso a**lasciare l'impostazione predefinita **Azure ad utente, gruppo o entità servizio**.
+1. In **Seleziona**Digitare l'indirizzo di posta elettronica della persona che si vuole invitare.
+1. Se l'utente è all'esterno dell'organizzazione, verrà visualizzato il messaggio **a cui verrà inviato un messaggio di posta elettronica che consente loro di collaborare con Microsoft.** Selezionare l'utente con l'indirizzo di posta elettronica e quindi fare clic su **Salva**.
 
-Se l'utente è all'esterno dell'organizzazione, si otterrà un invito tramite posta elettronica a unirsi all'organizzazione. L'utente dovrà accettare l'invito, quindi saranno in grado di visualizzare la raccolta e tutte le definizioni di immagini e versioni nei rispettivi elenchi di risorse.
+Se l'utente è all'esterno dell'organizzazione, riceverà un invito tramite posta elettronica per partecipare all'organizzazione. L'utente deve accettare l'invito, quindi potrà visualizzare la raccolta e tutte le definizioni e le versioni di immagine nell'elenco delle risorse.
 

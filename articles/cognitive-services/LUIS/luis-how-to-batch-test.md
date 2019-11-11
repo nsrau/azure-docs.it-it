@@ -1,5 +1,5 @@
 ---
-title: Test in batch - LUIS
+title: Come eseguire un test batch-LUIS
 titleSuffix: Azure Cognitive Services
 description: Eseguire il test in batch dell'app Language Understanding (LUIS) per trovare le espressioni con finalità ed entità errate.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: a99b2e7097f2abf36f184368b3b4fdaba8f2730b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bfef7eae7158a05b09a3534e8fb44335333d8cf1
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467416"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904347"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test in batch con un set di espressioni di esempio
 
@@ -38,7 +38,7 @@ ms.locfileid: "73467416"
 
 3. Nel campo **Dataset Name** (Nome set di dati) immettere un nome per il file di set di dati. Il file del set di dati include una **matrice di espressioni**, incluse la *finalità etichettata* e le *entità*. Rivedere la sintassi del [file batch di esempio](luis-concept-batch-test.md#batch-file-format). 
 
-4. Selezionare **Operazione completata**. Il file di set di dati viene aggiunto.
+4. Selezionare **Done**(Fine). Il file di set di dati viene aggiunto.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Eseguire, rinominare, esportare o eliminare il set di dati
 
@@ -104,7 +104,7 @@ Le due sezioni del grafico in verde corrispondevano alla stima prevista.
 
 Se il test indica che l'app LUIS non riconosce le finalità e le entità corrette, è possibile migliorare le prestazioni dell'app LUIS etichettando più espressioni o aggiungendo funzionalità. 
 
-* [Etichettare le espressioni suggerite con LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Etichettare espressioni suggerite con LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Usare le funzionalità per migliorare le prestazioni dell'app LUIS](luis-how-to-add-features.md) 
 * [Comprendere il test in batch con questa esercitazione](luis-tutorial-batch-testing.md)
 * [Informazioni sui concetti del test in batch](luis-concept-batch-test.md).

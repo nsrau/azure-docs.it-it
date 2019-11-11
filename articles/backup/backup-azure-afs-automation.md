@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: dacurwin
 ms.reviewer: pullabhk
-ms.openlocfilehash: 491e27f85d00ce512995a63e43b9e248798e5d0f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 4642549dcdd455c97ea3e8fd8a8b5440779b923c
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747636"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903619"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Eseguire il backup e il ripristino File di Azure con PowerShell
 
@@ -276,7 +276,7 @@ Durante l'esecuzione dei backup vengono usati gli snapshot di condivisione file 
 
 ### <a name="using-on-demand-backups-to-extend-retention"></a>Uso di backup su richiesta per estendere la conservazione
 
-È possibile usare i backup su richiesta per conservare gli snapshot per 10 anni. È possibile usare le utilità di pianificazione per eseguire script di PowerShell su richiesta con la conservazione scelta e quindi creare snapshot a intervalli regolari ogni settimana, mese o anno. Quando si effettuano snapshot regolari, si fa riferimento alle [limitazioni dei backup su richiesta](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share-) con backup di Azure.
+È possibile usare i backup su richiesta per conservare gli snapshot per 10 anni. È possibile usare le utilità di pianificazione per eseguire script di PowerShell su richiesta con la conservazione scelta e quindi creare snapshot a intervalli regolari ogni settimana, mese o anno. Durante l'esecuzione di snapshot regolari, vedere le [limitazioni dei backup su richiesta](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) con backup di Azure.
 
 Per gli script di esempio, è possibile fare riferimento allo script di esempio su GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup)> usando Runbook di automazione di Azure che consente di pianificare i backup periodicamente e mantenerli anche fino a 10 anni.
 

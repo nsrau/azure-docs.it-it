@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/08/2019
 ms.author: dapine
-ms.openlocfilehash: 98f5c672e9da50f294df6da7d5abcb23b10fc1ba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a47e363e2b51b271c8103ac426362a61fc332601
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486998"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901900"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -28,15 +28,15 @@ Il video seguente illustra l'uso di questo contenitore.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per eseguire il contenitore LUIS, tenere presente i prerequisiti seguenti:
 
-|Obbligatorio|Scopo|
+|obbligatori|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
-|Risorsa `Cognitive Services` di Azure e file di [app in pacchetto](luis-how-to-start-new-app.md#export-app-for-containers) Luis |Per usare il contenitore, è necessario disporre di:<br><br>* Una risorsa di Azure _Servizi cognitivi_ e la chiave di fatturazione associata l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore. <br>* Un'app pubblicata o sottoposta a training inserita in un pacchetto come input montato per il contenitore con il relativo ID app associato. È possibile ottenere il file in pacchetto dal portale LUIS o dalle API di creazione. Se si sta ricevendo un'app in pacchetto LUIS dalle [API di creazione](#authoring-apis-for-package-file), sarà necessaria anche la _chiave di creazione_.<br><br>Questi requisiti vengono usati per passare gli argomenti della riga di comando per le variabili seguenti:<br><br>**{AUTHORING_KEY}** : questa chiave viene usata per ottenere l'app in pacchetto dal servizio Luis nel cloud e caricare nuovamente i log di query nel cloud. Il formato è `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APP_ID}** : questo ID viene usato per selezionare l'app. Il formato è `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}** : questa chiave viene usata per avviare il contenitore. È possibile trovare la chiave dell'endpoint in due posizioni. Il primo è la portale di Azure all'interno dell'elenco chiavi della risorsa _Servizi cognitivi_ . La chiave dell'endpoint è anche disponibile nel portale di LUIS nella pagina relativa a impostazioni dell'endpoint e chiavi. Non usare la chiave di avvio.<br><br>**{ENDPOINT_URI}** : endpoint fornito nella pagina Overview.<br><br>La [chiave di creazione e la chiave dell'endpoint](luis-boundaries.md#key-limits) hanno scopi diversi. Non usarle in modo intercambiabile. |
+|Risorsa `Cognitive Services` di Azure e file di [app in pacchetto](luis-how-to-start-new-app.md) Luis |Per usare il contenitore, è necessario disporre di:<br><br>* Una risorsa di Azure _Servizi cognitivi_ e la chiave di fatturazione associata l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore. <br>* Un'app pubblicata o sottoposta a training inserita in un pacchetto come input montato per il contenitore con il relativo ID app associato. È possibile ottenere il file in pacchetto dal portale LUIS o dalle API di creazione. Se si sta ricevendo un'app in pacchetto LUIS dalle [API di creazione](#authoring-apis-for-package-file), sarà necessaria anche la _chiave di creazione_.<br><br>Questi requisiti vengono usati per passare gli argomenti della riga di comando per le variabili seguenti:<br><br>**{AUTHORING_KEY}** : questa chiave viene usata per ottenere l'app in pacchetto dal servizio Luis nel cloud e caricare nuovamente i log di query nel cloud. Il formato è `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APP_ID}** : questo ID viene usato per selezionare l'app. Il formato è `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}** : questa chiave viene usata per avviare il contenitore. È possibile trovare la chiave dell'endpoint in due posizioni. Il primo è la portale di Azure all'interno dell'elenco chiavi della risorsa _Servizi cognitivi_ . La chiave dell'endpoint è anche disponibile nel portale di LUIS nella pagina relativa a impostazioni dell'endpoint e chiavi. Non usare la chiave di avvio.<br><br>**{ENDPOINT_URI}** : endpoint fornito nella pagina panoramica.<br><br>La [chiave di creazione e la chiave dell'endpoint](luis-boundaries.md#key-limits) hanno scopi diversi. Non usarle in modo intercambiabile. |
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -51,11 +51,11 @@ API di creazione per le app in pacchetto:
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti dei contenitori
+### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti per i contenitori
 
 Il contenitore supporta i valori minimi e consigliati seguenti per le impostazioni:
 
-|Contenitore| Minima | Consigliato | PROGRAMMI<br>(Minimo, massimo)|
+|Contenitore:| Minima | Consigliato | PROGRAMMI<br>(Minimo, massimo)|
 |-----------|---------|-------------|--|
 |LUIS|1 core, 2 GB di memoria|1 core, 4 GB di memoria|20, 40|
 
@@ -200,7 +200,7 @@ Per scaricare il pacchetto con versione, fare riferimento alla [documentazione d
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i valori `{ENDPOINT_URI}` e `{API_KEY}`, vedere [raccolta dei parametri obbligatori](#gathering-required-parameters) .
 
-Sono disponibili [esempi](luis-container-configuration.md#example-docker-run-commands) del comando `docker run`.
+Sono disponibili [esempi](luis-container-configuration.md#example-docker-run-commands) di comando `docker run`.
 
 ```console
 docker run --rm -it -p 5000:5000 ^
@@ -245,7 +245,7 @@ Il contenitore fornisce API dell'endpoint di stima di query basate su REST. Gli 
 
 Usare l'host, `http://localhost:5000`, per le API del contenitore.
 
-# <a name="v3-prediction-endpointtabv3"></a>[Endpoint di stima V3](#tab/v3)
+# <a name="v3-prediction-endpointtabv3"></a>[Endpoint di previsione V3](#tab/v3)
 
 |Tipo di pacchetto|Verbo HTTP|Route|Parametri di query|
 |--|--|--|--|
@@ -254,14 +254,14 @@ Usare l'host, `http://localhost:5000`, per le API del contenitore.
 
 I parametri di query specificano la modalità e i contenuti restituiti nella risposta della query:
 
-|Query parameter (Parametro di query)|Tipo|Scopo|
+|Query parameter (Parametro di query)|digitare|Scopo|
 |--|--|--|
 |`query`|stringa|Espressione dell'utente.|
 |`verbose`|boolean|Valore booleano che indica se restituire tutti i metadati per i modelli stimati. Il valore predefinito è false.|
 |`log`|boolean|Registra le query, che successivamente possono essere usate per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md). Il valore predefinito è false.|
 |`show-all-intents`|boolean|Valore booleano che indica se restituire tutti gli Intent o solo il primo scopo del punteggio. Il valore predefinito è false.|
 
-# <a name="v2-prediction-endpointtabv2"></a>[V2 endpoint di stima](#tab/v2)
+# <a name="v2-prediction-endpointtabv2"></a>[Endpoint di previsione V2](#tab/v2)
 
 |Tipo di pacchetto|Verbo HTTP|Route|Parametri di query|
 |--|--|--|--|
@@ -270,7 +270,7 @@ I parametri di query specificano la modalità e i contenuti restituiti nella ris
 
 I parametri di query specificano la modalità e i contenuti restituiti nella risposta della query:
 
-|Query parameter (Parametro di query)|Tipo|Scopo|
+|Query parameter (Parametro di query)|digitare|Scopo|
 |--|--|--|
 |`q`|stringa|Espressione dell'utente.|
 |`timezoneOffset`|number|Il parametro timezoneOffset consente di [modificare il fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usato dall'entità predefinita datetimeV2.|
@@ -284,7 +284,7 @@ I parametri di query specificano la modalità e i contenuti restituiti nella ris
 
 Ecco un esempio di comando CURL per eseguire query sul contenitore per un'app pubblicata:
 
-# <a name="v3-prediction-endpointtabv3"></a>[Endpoint di stima V3](#tab/v3)
+# <a name="v3-prediction-endpointtabv3"></a>[Endpoint di previsione V3](#tab/v3)
 
 Per eseguire una query su un modello in uno slot, usare l'API seguente:
 
@@ -310,7 +310,7 @@ curl -G \
 "http://localhost:5000/luis/prediction/v3.0/apps/{APP_ID}/versions/{APP_VERSION}/predict"
 ```
 
-# <a name="v2-prediction-endpointtabv2"></a>[V2 endpoint di stima](#tab/v2)
+# <a name="v2-prediction-endpointtabv2"></a>[Endpoint di previsione V2](#tab/v2)
 
 Per eseguire una query su un modello in uno slot, usare l'API seguente:
 
@@ -374,9 +374,9 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](lui
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>summary
 
-In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire contenitori Language Understanding (LUIS). In breve:
+In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire contenitori Language Understanding (LUIS). In sintesi:
 
 * LUIS (Language Understanding) offre un contenitore Linux per Docker per le stime di query degli endpoint per le espressioni.
 * Le immagini dei contenitori vengono scaricate da Registro Container Microsoft.

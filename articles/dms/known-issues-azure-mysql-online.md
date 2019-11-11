@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/06/2019
-ms.openlocfilehash: fc5565ab9e3be21b96ce5aa5a938cf22ec3caeb0
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 11/08/2019
+ms.openlocfilehash: 39c1928f1d38276418b2e1a3e766c4b9d8a0d8d2
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848490"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902789"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Problemi noti e limitazioni per le migrazioni online a Database di Azure per MySQL
 
@@ -31,7 +31,7 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 - La migrazione alla stessa versione. La migrazione di MySQL 5.6 a Database di Azure per MySQL 5.7 non è supportata.
 - Abilitare la registrazione binaria in my.ini (Windows) o my.cnf (Unix)
   - Impostare Server_id su un numero qualsiasi maggiore o uguale a 1, ad esempio Server_id=1 (solo per MySQL 5.6)
-  - Set log-bin = \<path > (solo per MySQL 5,6)
+  - Imposta log-bin = \<percorso > (solo per MySQL 5,6)
   - Impostare binlog_format = row
   - Expire_logs_days = 5 (impostazione consigliata: solo per MySQL 5.6)
 - L'utente deve avere il ruolo ReplicationAdmin.
@@ -66,7 +66,7 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 
     **Soluzione alternativa**: modificare il tipo di dati JSON impostando Medium text o Longtext nel database MySQL di origine.
 
-- **Limitazione**: Se non è presente alcuna chiave primaria nelle tabelle, la sincronizzazione continua ha esito negativo.
+- **Limitazione**: se non è presente alcuna chiave primaria nelle tabelle, la sincronizzazione continua ha esito negativo.
 
     **Soluzione alternativa**: impostare temporaneamente una chiave primaria per la tabella per consentire alla migrazione di continuare. Al termine della migrazione dei dati, è possibile rimuovere la chiave primaria.
 
@@ -74,47 +74,47 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 
 Le colonne LOB (Large Object) sono colonne che possono raggiungere dimensioni elevate. Per MySQL, media text, LONGTEXT, BLOB, Mediumblob, longblob e così via, sono alcuni dei tipi di oggetto LOB.
 
-- **Limitazione**: Se come chiavi primarie vengono usati tipi di dati LOB, la migrazione ha esito negativo.
+- **Limitazione**: se come chiavi primarie vengono usati tipi di dati LOB, la migrazione ha esito negativo.
 
     **Soluzione alternativa**: sostituire la chiave primaria con altri tipi di dati o colonne non LOB.
 
-- **Limitazione**: Se la lunghezza della colonna LOB (Large Object) è maggiore a 32 kB, è possibile che i dati vengano troncati nella destinazione. È possibile controllare la lunghezza della colonna LOB usando questa query:
+- **Limitazione**: se la lunghezza della colonna LOB è maggiore di 32 kB, è possibile che nella destinazione i dati vengano troncati. È possibile controllare la lunghezza della colonna LOB usando questa query:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Soluzione alternativa**: Se si dispone di un oggetto LOB di dimensioni maggiori di 32 KB, contattare il team di progettazione di per [chiedere alle migrazioni del database di Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com). 
+    **Soluzione alternativa**: se si dispone di un oggetto LOB di dimensioni maggiori di 32 KB, contattare il team di progettazione di per [chiedere alle migrazioni del database di Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>Limitazioni per la migrazione in linea da AWS RDS MySQL
 
 Quando si tenta di eseguire una migrazione in linea da AWS RDS MySQL a database di Azure per MySQL, è possibile che si verifichino i seguenti errori.
 
-- **Errore:** Il database{0}'' contiene una o più chiavi esterne nella destinazione. Correggere la destinazione e avviare una nuova attività di migrazione dei dati. Eseguire lo script seguente nella destinazione per elencare le chiavi esterne
+- **Errore:** Il database '{0}' contiene una o più chiavi esterne nella destinazione. Correggere la destinazione e avviare una nuova attività di migrazione dei dati. Eseguire lo script seguente nella destinazione per elencare le chiavi esterne
 
-  **Limitazione**: Se nello schema sono presenti chiavi esterne, il caricamento iniziale e la sincronizzazione continua della migrazione avrà esito negativo.
-  **Soluzione alternativa**: Eseguire lo script seguente in MySQL Workbench per estrarre lo script di eliminazione della chiave esterna e lo script di aggiunta della chiave esterna:
+  **Limitazione**: se si dispone di chiavi esterne nello schema, il caricamento iniziale e la sincronizzazione continua della migrazione avranno esito negativo.
+  **Soluzione alternativa**: eseguire lo script seguente in MySQL Workbench per estrarre lo script DROP FOREIGN KEY e aggiungere lo script di chiave esterna:
 
   ```
   SET group_concat_max_len = 8192; SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery FROM (SELECT KCU.REFERENCED_TABLE_SCHEMA as SchemaName, KCU.TABLE_NAME, KCU.COLUMN_NAME, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC WHERE KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries GROUP BY SchemaName;
   ```
 
-- **Errore:** Il database{0}'' non esiste nel server. Il server MySQL di origine fornito fa distinzione tra maiuscole e minuscole. Verificare il nome del database.
+- **Errore:** Il database '{0}' non esiste nel server. Il server MySQL di origine fornito fa distinzione tra maiuscole e minuscole. Verificare il nome del database.
 
-  **Limitazione**: Durante la migrazione di un database MySQL in Azure usando l'interfaccia della riga di comando, gli utenti possono riscontrare questo errore. Il servizio non è stato in grado di individuare il database nel server di origine, perché potrebbe essere stato specificato un nome di database errato oppure il database non esiste nel server elencato. Nota i nomi di database fanno distinzione tra maiuscole e minuscole.
+  **Limitazione**: quando si esegue la migrazione di un database MySQL in Azure tramite l'interfaccia della riga di comando, gli utenti potrebbero raggiungere questo errore. Il servizio non è stato in grado di individuare il database nel server di origine, perché potrebbe essere stato specificato un nome di database errato oppure il database non esiste nel server elencato. Nota i nomi di database fanno distinzione tra maiuscole e minuscole.
 
-  **Soluzione alternativa**: Specificare il nome esatto del database, quindi riprovare.
+  **Soluzione temporanea**: specificare il nome esatto del database, quindi riprovare.
 
 - **Errore:** Nel database ' {database}' sono presenti tabelle con lo stesso nome. Database di Azure per MySQL non supporta le tabelle che fanno distinzione tra maiuscole e minuscole.
 
-  **Limitazione**: Questo errore si verifica quando sono presenti due tabelle con lo stesso nome nel database di origine. Database di Azure per MySQL non supporta le tabelle con distinzione tra maiuscole e minuscole.
+  **Limitazione**: questo errore si verifica quando si dispone di due tabelle con lo stesso nome nel database di origine. Database di Azure per MySQL non supporta le tabelle con distinzione tra maiuscole e minuscole.
 
-  **Soluzione alternativa**: Aggiornare i nomi di tabella in modo che siano univoci, quindi riprovare.
+  **Soluzione temporanea**: aggiornare i nomi di tabella in modo che siano univoci, quindi riprovare.
 
 - **Errore:** Il database di destinazione {database} è vuoto. Eseguire la migrazione dello schema.
 
-  **Limitazione**: Questo errore si verifica quando il database di Azure per il database MySQL di destinazione non ha lo schema richiesto. La migrazione dello schema è necessaria per abilitare la migrazione dei dati alla destinazione.
+  **Limitazione**: questo errore si verifica quando il database di Azure di destinazione per il database MySQL non ha lo schema richiesto. La migrazione dello schema è necessaria per abilitare la migrazione dei dati alla destinazione.
 
-  **Soluzione alternativa**: [Eseguire la migrazione dello schema](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) dal database di origine al database di destinazione.
+  **Soluzione temporanea**: [eseguire la migrazione dello schema](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) dal database di origine al database di destinazione.
 
 ## <a name="other-limitations"></a>Altre limitazioni
 
@@ -130,4 +130,10 @@ Quando si tenta di eseguire una migrazione in linea da AWS RDS MySQL a database 
     CREATE INDEX partial_name ON customer (name(10));
     ```
 
-- Nel Servizio Migrazione del database il limite di database per eseguire la migrazione con una singola attività è quattro.
+- Nel servizio migrazione del database di Azure, il limite di database di cui eseguire la migrazione in un'unica attività di migrazione è quattro.
+
+- **Errore:** Dimensioni delle righe troppo grandi (> 8126). Potrebbe essere utile modificare alcune colonne in testo o BLOB. Nel formato di riga corrente, il prefisso BLOB di 0 byte viene archiviato inline.
+
+  **Limitazione**: questo errore si verifica quando si esegue la migrazione al database di Azure per MySQL usando il motore di archiviazione InnoDB e le dimensioni delle righe della tabella sono troppo grandi (> 8126 byte).
+
+  **Soluzione temporanea**: aggiornare lo schema della tabella con una dimensione di riga superiore a 8126 byte. Non è consigliabile modificare la modalità Strict perché i dati verranno troncati. La modifica della page_size non è supportata.

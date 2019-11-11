@@ -8,19 +8,19 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
-ms.date: 06/04/2019
-ms.openlocfilehash: 2ab6ace7c30c3dd385928b6b0ae8000485d5f495
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.date: 11/08/2019
+ms.openlocfilehash: c65a0464bbad6dbaca51dbc5bbc0d84adbd605d7
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680154"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904632"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Chiamare o attivare app per la logica usando funzioni di Azure e il bus di servizio di Azure
 
 È possibile usare [funzioni di Azure](../azure-functions/functions-overview.md) per attivare un'app per la logica quando è necessario distribuire un'attività o un listener con esecuzione prolungata. Ad esempio, è possibile creare una funzione di Azure che rimane in ascolto in una coda del [bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md) e genera immediatamente un'app per la logica come trigger di push.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -32,13 +32,13 @@ ms.locfileid: "72680154"
 
 ## <a name="create-logic-app"></a>Creare l'app per la logica
 
-Per questo scenario, è presente una funzione che esegue ogni app per la logica che si vuole attivare. Prima di tutto, creare un'app per la logica che inizia con un trigger di richiesta HTTP. La funzione chiamerà tale endpoint ogniqualvolta venga ricevuto un messaggio in coda.  
+Per questo scenario, è presente una funzione che esegue ogni app per la logica che si vuole attivare. Prima di tutto, creare un'app per la logica che inizia con un trigger di richiesta HTTP. La funzione chiamerà tale endpoint ogniqualvolta venga ricevuto un messaggio in coda.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e creare un'app per la logica vuota.
 
    Se non si ha familiarità con le app per la logica, vedere [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Nella casella di ricerca immettere "richiesta http". Nell'elenco dei trigger selezionare questo trigger: **Alla ricezione di una richiesta HTTP**
+1. Nella casella di ricerca immettere `http request`. Dall'elenco trigger selezionare il trigger **quando viene ricevuta una richiesta http** .
 
    ![Selezionare il trigger](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
@@ -50,9 +50,9 @@ Per questo scenario, è presente una funzione che esegue ogni app per la logica 
 
    Se non si ha uno schema, ma si ha un payload di esempio in formato JSON, è possibile generare uno schema da tale payload.
 
-   1. Nel trigger Richiesta selezionare **Usare il payload di esempio per generare lo schema**.
+   1. Nel trigger di richiesta selezionare **Usare il payload di esempio per generare lo schema**.
 
-   1. In **Immettere o incollare un payload JSON di esempio** specificare il payload di esempio e quindi scegliere **Fine**.
+   1. In **immettere o incollare un payload JSON di esempio**, immettere il payload di esempio e quindi **fare**clic su fine.
 
       ![Immettere il payload di esempio](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
 
@@ -102,9 +102,9 @@ A questo punto creare la funzione che agisce come trigger e rimane in ascolto su
 
 1. Nel portale di Azure aprire ed espandere l'app per le funzioni, se non già aperta. 
 
-1. Sotto il nome dell'app espandere **Funzioni**. Nel riquadro **Funzioni** scegliere **Nuova funzione**.
+1. Sotto il nome dell'app espandere **Funzioni**. Nel riquadro **funzioni** selezionare **nuova funzione**.
 
-   ![Espandere "funzioni" e scegliere "nuova funzione".](./media/logic-apps-scenario-function-sb-trigger/create-new-function.png)
+   ![Espandere "funzioni" e selezionare "nuova funzione".](./media/logic-apps-scenario-function-sb-trigger/add-new-function-to-function-app.png)
 
 1. Selezionare questo modello a seconda che sia stata creata una nuova app per le funzioni in cui è stato selezionato .NET come stack di runtime oppure si sta usando un'app per le funzioni esistente.
 
@@ -116,9 +116,17 @@ A questo punto creare la funzione che agisce come trigger e rimane in ascolto su
 
      ![Selezionare il modello per l'app per le funzioni esistente](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
 
-1. Nel riquadro **trigger della coda del bus di servizio di Azure** specificare un nome per il trigger e configurare la **connessione del bus di servizio** per la coda, che usa il listener del bus di servizio di Azure `OnMessageReceive()` e scegliere **Crea**.
+1. Nel riquadro **trigger della coda del bus di servizio di Azure** specificare un nome per il trigger e configurare la **connessione del bus di servizio** per la coda, che usa il listener del bus di servizio di Azure `OnMessageReceive()` e selezionare **Crea**.
 
-1. Scrivere una funzione di base per chiamare l'endpoint dell'app per la logica creato in precedenza usando il messaggio della coda come trigger. Nell'esempio viene usato il tipo di contenuto di messaggio `application/json`, ma è possibile modificare questo tipo in base alle proprie esigenze. Se possibile, riutilizzare l'istanza di client HTTP. Per altre informazioni, vedere [Manage Connections in funzioni di Azure](../azure-functions/manage-connections.md).
+1. Scrivere una funzione di base per chiamare l'endpoint dell'app per la logica creato in precedenza usando il messaggio della coda come trigger. Prima di scrivere la funzione, esaminare le considerazioni seguenti:
+
+   * Nell'esempio viene usato il tipo di contenuto di messaggio `application/json`, ma è possibile modificare questo tipo in base alle proprie esigenze.
+   
+   * A causa di possibili funzioni simultanee, volumi elevati o carichi pesanti, evitare di creare un'istanza della [classe HTTPClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) con l'istruzione `using` e creare direttamente istanze HTTPClient per ogni richiesta. Per altre informazioni, vedere [usare HttpClientFactory per implementare richieste http resilienti](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
+   
+   * Se possibile, riutilizzare l'istanza di client HTTP. Per altre informazioni, vedere [Manage Connections in funzioni di Azure](../azure-functions/manage-connections.md).
+
+   In questo esempio viene usato il [metodo`Task.Run`](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) in modalità [asincrona](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async) . Per altre informazioni, vedere [programmazione asincrona con Async e await](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
 
    ```CSharp
    using System;
@@ -126,17 +134,16 @@ A questo punto creare la funzione che agisce come trigger e rimane in ascolto su
    using System.Net.Http;
    using System.Text;
 
-   // Callback URL for previously created Request trigger
+   // Can also fetch from App Settings or environment variable
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/workflows/<remaining-callback-URL>";
 
-   // Reuse the instance of HTTP clients if possible
+   // Reuse the instance of HTTP clients if possible: https://docs.microsoft.com/azure/azure-functions/manage-connections
    private static HttpClient httpClient = new HttpClient();
 
-   public static void Run(string myQueueItem, ILogger log)
+   public static async Task Run(string myQueueItem, TraceWriter log) 
    {
-       log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-
-       var response = httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
+      log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+      var response = await httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")); 
    }
    ```
 
@@ -146,4 +153,4 @@ A questo punto creare la funzione che agisce come trigger e rimane in ascolto su
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Chiamare, attivare o annidare flussi di lavoro tramite endpoint HTTP](../logic-apps/logic-apps-http-endpoint.md)
+* [Chiamare, attivare o annidare flussi di lavoro tramite endpoint HTTP](../logic-apps/logic-apps-http-endpoint.md)

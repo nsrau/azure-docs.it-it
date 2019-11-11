@@ -1,23 +1,25 @@
 ---
 title: Elencare BLOB con .NET-archiviazione di Azure
-description: Informazioni su come elencare i BLOB in un contenitore nell'account di archiviazione di Azure usando la libreria client .NET.
+description: Informazioni su come elencare i BLOB in un contenitore nell'account di archiviazione di Azure usando la libreria client .NET. Gli esempi di codice illustrano come elencare i BLOB in un elenco semplice o come elencare i BLOB in modo gerarchico, come se fossero organizzati in directory o cartelle.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bf9d2d59e993de3807a10a6c39f88b2063024bfc
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4b6dc9d80cfe96e501e575d265b9fa383b1c4d2c
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72599929"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902009"
 ---
 # <a name="list-blobs-with-net"></a>Elencare BLOB con .NET
 
-Quando si elencano i BLOB dal codice, è possibile specificare diverse opzioni per gestire il modo in cui i risultati vengono restituiti dall'archiviazione di Azure. Questo articolo illustra come elencare i BLOB usando la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage/client).  
+Quando si elencano i BLOB dal codice, è possibile specificare diverse opzioni per gestire il modo in cui i risultati vengono restituiti dall'archiviazione di Azure. È possibile specificare il numero di risultati da restituire in ogni set di risultati, quindi recuperare i set successivi. È possibile specificare un prefisso per restituire i BLOB i cui nomi iniziano con tale carattere o stringa. Ed è possibile elencare i BLOB in una struttura di elenco semplice o gerarchicamente. Un elenco gerarchico restituisce i BLOB come se fossero organizzati in cartelle. 
+
+Questo articolo illustra come elencare i BLOB usando la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage/client).  
 
 ## <a name="understand-blob-listing-options"></a>Informazioni sulle opzioni per l'elenco di BLOB
 
@@ -53,7 +55,7 @@ Per restituire i metadati dei BLOB con i risultati, specificare il valore **dei 
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Elenco semplice rispetto alla lista gerarchica
 
-I BLOB in archiviazione di Azure sono organizzati in un paradigma semplice, anziché in un paradigma gerarchico (ad esempio un file system classico). È tuttavia possibile organizzare i BLOB in *directory virtuali* per simulare un paradigma gerarchico. Una directory virtuale fa parte del nome del BLOB delimitato dal carattere delimitatore.
+I BLOB in archiviazione di Azure sono organizzati in un paradigma semplice, anziché in un paradigma gerarchico (ad esempio un file system classico). Tuttavia, è possibile organizzare i BLOB in *directory virtuali* per simulare una struttura di cartelle. Una directory virtuale fa parte del nome del BLOB ed è indicata dal carattere delimitatore.
 
 Per organizzare i BLOB in directory virtuali, usare un carattere delimitatore nel nome del BLOB. Il carattere delimitatore predefinito è una barra (/), ma è possibile specificare qualsiasi carattere come delimitatore.
 
