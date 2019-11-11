@@ -59,7 +59,7 @@ Come prima cosa, creare un criterio WAF di base con il set di regole predefinite
 
 ### <a name="change-mode"></a>Cambiare modalità
 
-Quando si crea un criterio WAF, per impostazione predefinita questo è in modalità **Rilevamento**. In modalità **Rilevamento ** WAF non blocca alcuna richiesta e le richieste che soddisfano le regole WAF vengono registrate nei log di WAF.
+Quando si crea un criterio WAF, per impostazione predefinita questo è in modalità **Rilevamento**. In modalità **Rilevamento** WAF non blocca alcuna richiesta e le richieste che soddisfano le regole WAF vengono registrate nei log di WAF.
 Per vedere WAF in azione, è possibile cambiare le impostazioni della modalità da **Rilevamento** a **Prevenzione**. In modalità **Prevenzione** le richieste che soddisfano le regole definite nel set di regole predefinite vengono bloccate e registrate nei log WAF.
 
  ![Cambiare la modalità del criterio WAF](../media/waf-front-door-create-portal/policy.png)
