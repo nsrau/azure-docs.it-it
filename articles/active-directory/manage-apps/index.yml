@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: db10b91f0e407be048cc2a646c2eef905ac81c54
-  ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+  ms.openlocfilehash: 2b83d09932aaa39e31d04f30bc660541efcbb50b
+  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/31/2019
-  ms.locfileid: "73199739"
+  ms.lasthandoff: 11/09/2019
+  ms.locfileid: "73882793"
 landingContent:
 - title: Informazioni sulla gestione delle applicazioni
   linkLists:
@@ -95,3 +95,15 @@ landingContent:
       url: application-proxy-integrate-with-remote-desktop-services.md
     - text: Abilitare l'accesso remoto a SharePoint con il proxy di applicazione di Azure AD
       url: application-proxy-integrate-with-sharepoint-server.md
+- title: Proteggere le app legacy con reti e controller di distribuzione delle app
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Proteggere l'accesso ibrido per le app legacy (cloud e locale)
+      url: secure-hybrid-access.md
+  - linkListType: how-to-guide
+    links:
+    - text: Proteggere le app con F5 Big-IP APM
+      url: https://aka.ms/f5-hybridaccessguide
+    - text: Proteggere le app con Zscaler ZPA
+      url: https://aka.ms/zscaler-hybridaccessguide

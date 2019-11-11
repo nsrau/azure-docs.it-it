@@ -307,8 +307,8 @@
               href: concepts-gating-overview.md
             - name: Distribuzione della tecnologia sintetica
               href: concepts-guidelines-responsible-deployment-synthetic.md
-            - name: Nota sulla trasparenza per Voce personalizzata
-              href: 'https://aka.ms/neural-tts-transparency-note'
+            - name: Informativa per speaker
+              href: 'https://aka.ms/disclosure-voice-talent'
             - name: Linee guida sulla progettazione di informative
               href: concepts-disclosure-guidelines.md
             - name: Schemi progettuali per le informative

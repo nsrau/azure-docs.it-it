@@ -407,8 +407,8 @@
             - name: Portale
               href: shared-images-portal.md
             - name: CLI
-              href: ../linux/shared-images.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Condividere immagini tra tenant
+              href: ../linux/shared-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Registrazione delle app per la condivisione
               href: share-images-across-tenants.md
             - name: Risolvere i problemi relativi alle immagini condivise
               href: troubleshooting-shared-images.md

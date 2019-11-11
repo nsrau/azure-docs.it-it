@@ -13,10 +13,10 @@
 - name: Concetti
   items:
     - name: Gestione risorse delegate di Azure
-      displayName: delegation
+      displayName: 'delegation, projection'
       href: ./concepts/azure-delegated-resource-management.md
     - name: Esperienze di gestione tra tenant
-      displayName: scenarios
+      displayName: 'scenarios, supported, enhanced, services, limitations, current'
       href: ./concepts/cross-tenant-management-experience.md
     - name: 'Tenant, ruoli e utenti'
       displayName: 'Azure AD, Azure Active Directory'
@@ -39,16 +39,22 @@
       displayName: resource management
       href: ./how-to/onboard-customer.md
     - name: Pubblicare offerte di servizi gestiti in Azure Marketplace
-      displayName: 'managed services offer, azure marketplace, publish'
+      displayName: 'managed services offer, azure marketplace, publish, marketplace'
       href: ./how-to/publish-managed-services-offers.md
     - name: Visualizzare e gestire i clienti
-      displayName: 'managed services offer, azure marketplace, publish'
+      displayName: my customers
       href: ./how-to/view-manage-customers.md
     - name: Visualizzare e gestire i provider di servizi
-      displayName: 'managed services offer, azure marketplace, publish'
+      displayName: 'customer, update'
       href: ./how-to/view-manage-service-providers.md
-    - name: Distribuire un criterio che è possibile correggere
-      href: ./how-to/deploy-policy-remediation.md
+    - name: Integrazione di Criteri di Azure
+      items:
+        - name: Distribuire un criterio su larga scala
+          displayName: storage
+          href: ./how-to/policy-at-scale.md
+        - name: Distribuire un criterio che è possibile correggere
+          displayName: 'deployIfNotExists, modify, managed identities, managed identity'
+          href: ./how-to/deploy-policy-remediation.md
 - name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

@@ -91,6 +91,8 @@
       items:
         - name: Configurare probe di attività
           href: container-instances-liveness-probe.md
+        - name: Configurare probe di idoneità
+          href: container-instances-readiness-probe.md
         - name: Arrestare e avviare i contenitori
           href: container-instances-stop-start.md
         - name: Aggiornare i contenitori in esecuzione
