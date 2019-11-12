@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5d4c549eaded78c69d3e7fa7173b5ad9b1d82f2f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 9c4ba09c7e3eca4482ed56b0b337124aeec5b838
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333152"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928248"
 ---
 # <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>Esercitazione: creare regole analitiche personalizzate per rilevare minacce sospette
 
-Dopo aver [connesso le origini dati](quickstart-onboard.md)@no__t 1per di Azure Sentinel, è possibile creare regole personalizzate che consentono di cercare criteri specifici nell'ambiente e generare eventi imprevisti quando i criteri vengono confrontati in modo da poterli analizzare. Questa esercitazione consente di creare regole personalizzate per rilevare le minacce con Azure Sentinel.
+Dopo aver [connesso le origini dati](quickstart-onboard.md) ad Azure Sentinel, è possibile creare regole personalizzate che consentono di cercare criteri specifici nell'ambiente e generare eventi imprevisti quando i criteri vengono confrontati in modo da poterli analizzare. Questa esercitazione consente di creare regole personalizzate per rilevare le minacce con Azure Sentinel.
 
 Questa esercitazione consente di rilevare le minacce con Azure Sentinel.
 > [!div class="checklist"]
@@ -56,7 +56,7 @@ Questa esercitazione consente di rilevare le minacce con Azure Sentinel.
     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
 
    > [!NOTE]
-   > La lunghezza della query deve avere una lunghezza compresa tra 1 e 1.000 caratteri e non può contenere "Search \*" o "Union \*".
+   > La lunghezza della query deve avere una lunghezza compresa tra 1 e 10.000 caratteri e non può contenere "Search \*" o "Union \*".
 
     1. In **pianificazione query**impostare i parametri seguenti:
 

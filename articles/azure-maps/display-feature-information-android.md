@@ -1,5 +1,5 @@
 ---
-title: Come visualizzare le informazioni sulle funzionalità nella Android SDK Maps di Azure | Microsoft Docs
+title: Visualizzare le informazioni sulle funzionalità nell'Android SDK mappe di Azure | Microsoft Docs
 description: Informazioni su come visualizzare le informazioni sulle funzionalità nell'Android SDK mappe di Azure.
 author: rbrundritt
 ms.author: richbrun
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: dc72bb43752323576bed6e7991f33c4096ccabd4
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 0dcabb0e5141a92394f2be38cbe7e71fa6e03d58
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977287"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928547"
 ---
 # <a name="display-feature-information"></a>Visualizzare informazioni sulle funzionalità
 
-I dati spaziali vengono spesso rappresentati tramite punti, linee e poligoni. A questi dati sono spesso associate informazioni sui metadati. Un punto, ad esempio, può rappresentare la posizione di un negozio e i metadati relativi a tale ristorante possono essere il nome, l'indirizzo e il tipo di cibo che serve. Questi metadati possono essere aggiunti come proprietà di queste funzionalità usando un `JsonObject`. Il codice seguente crea una funzionalità di punto semplice con `title` una proprietà con valore "Hello World!"
+I dati spaziali vengono spesso rappresentati tramite punti, linee e poligoni. A questi dati sono spesso associate informazioni sui metadati. Un punto, ad esempio, può rappresentare la posizione di un negozio e i metadati relativi a tale ristorante possono essere il nome, l'indirizzo e il tipo di cibo che serve. Questi metadati possono essere aggiunti come proprietà di queste funzionalità utilizzando un `JsonObject`. Il codice seguente crea una funzionalità di punto semplice con una proprietà `title` con valore "Hello World!"
 
 ```java
 //Create a data source and add it to the map.
@@ -32,7 +32,7 @@ properties.addProperty("title", "Hello World!");
 dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64), properties));
 ```
 
-Quando un utente interagisce con una funzionalità sulla mappa, gli eventi possono essere usati per rispondere a tali azioni. Uno scenario comune consiste nel visualizzare un messaggio composto dalle proprietà dei metadati di una funzionalità con cui l'utente ha eseguito l'interazione. L' `OnFeatureClick` evento è l'evento principale utilizzato per rilevare quando l'utente ha toccato una funzionalità sulla mappa. Esiste anche un `OnLongFeatureClick` evento. Quando si aggiunge `OnFeatureClick` l'evento alla mappa, può essere limitato a un singolo livello passando l'ID di un livello per limitarlo a. Se non viene passato alcun ID livello, toccando qualsiasi funzionalità sulla mappa, indipendentemente dal livello in cui si trova, questo evento verrà generato. Il codice seguente crea un livello di simboli per il rendering dei dati del punto sulla mappa, `OnFeatureClick` quindi aggiunge un evento e lo limita a questo livello di simbolo.
+Quando un utente interagisce con una funzionalità sulla mappa, gli eventi possono essere usati per rispondere a tali azioni. Uno scenario comune consiste nel visualizzare un messaggio composto dalle proprietà dei metadati di una funzionalità con cui l'utente ha eseguito l'interazione. L'evento `OnFeatureClick` è l'evento principale utilizzato per rilevare quando l'utente ha toccato una funzionalità sulla mappa. Esiste anche un evento `OnLongFeatureClick`. Quando si aggiunge l'evento `OnFeatureClick` alla mappa, può essere limitato a un singolo livello passando l'ID di un livello per limitarlo a. Se non viene passato alcun ID livello, toccando qualsiasi funzionalità sulla mappa, indipendentemente dal livello in cui si trova, questo evento verrà generato. Il codice seguente crea un livello di simboli per il rendering dei dati del punto sulla mappa, quindi aggiunge un evento `OnFeatureClick` e lo limita a questo livello di simbolo.
 
 ```java
 //Create a symbol and add it to the map.
@@ -50,7 +50,7 @@ map.events.add((OnFeatureClick) (features) -> {
 
 ## <a name="display-a-toast-message"></a>Visualizza un messaggio di avviso popup
 
-Un messaggio di avviso popup è uno dei modi più semplici per visualizzare le informazioni all'utente ed è disponibile in tutte le versioni di Android. Non supporta alcun tipo di input dell'utente e viene visualizzato solo per un breve periodo di tempo. Se si desidera consentire all'utente di conoscere rapidamente gli elementi che hanno toccato, un messaggio di avviso popup potrebbe essere un'opzione appropriata. Nel codice seguente viene illustrato come è possibile utilizzare un messaggio di avviso `OnFeatureClick` popup con l'evento.
+Un messaggio di avviso popup è uno dei modi più semplici per visualizzare le informazioni all'utente ed è disponibile in tutte le versioni di Android. Non supporta alcun tipo di input dell'utente e viene visualizzato solo per un breve periodo di tempo. Se si desidera consentire all'utente di conoscere rapidamente gli elementi che hanno toccato, un messaggio di avviso popup potrebbe essere un'opzione appropriata. Il codice seguente mostra come è possibile usare un messaggio di avviso popup con l'evento `OnFeatureClick`.
 
 ```java
 //Add a feature click event to the map.
@@ -65,7 +65,7 @@ map.events.add((OnFeatureClick) (features) -> {
 
 <center>
 
-![Animazione di una funzionalità toccata e visualizzazione di un messaggio popup](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)</center>
+![animazione di una funzionalità toccata e viene visualizzato un messaggio di avviso popup](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)</center>
 
 Oltre ai messaggi di avviso popup, esistono molti altri modi per presentare le proprietà dei metadati di una funzionalità, ad esempio:
 

@@ -1,5 +1,5 @@
 ---
-title: Limitare l'accesso a un registro contenitori di Azure da una rete virtuale
+title: Limitare l'accesso alla Container Registry di Azure con una rete virtuale
 description: Consentire l'accesso a un registro contenitori di Azure solo da risorse in una rete virtuale di Azure o da intervalli di indirizzi IP pubblici.
 services: container-registry
 author: dlepow
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 3050a52da4d39657bd7b2fb38e235b9bd418faf4
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 5ba5c180def9539c486fb8727a0a78b4f98fa185
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619892"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931325"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Limitare l'accesso a un registro contenitori di Azure usando una rete virtuale di Azure o regole del firewall
 
@@ -38,11 +38,11 @@ Se invece è necessario configurare regole di accesso per le risorse per raggiun
 
 * Ogni registro supporta un massimo di 100 regole della rete virtuale.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Per usare i passaggi dell'interfaccia della riga di comando di Azure in questo articolo, è necessaria la versione 2.0.58 o successiva di Azure CLI. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
-* Se non si ha già un registro contenitori, crearne uno (SKU Premium obbligatorio) ed effettuare il push di un' `hello-world` immagine di esempio, ad esempio dall'hub docker. Ad esempio, usare l' [portale di Azure][quickstart-portal] o l' [interfaccia][quickstart-cli] della riga di comando di Azure per creare un registro. 
+* Se non si dispone già di un registro contenitori, crearne uno (SKU Premium obbligatorio) ed effettuare il push di un'immagine di esempio, ad esempio `hello-world` dall'hub docker. Ad esempio, usare l' [portale di Azure][quickstart-portal] o l' [interfaccia][quickstart-cli] della riga di comando di Azure per creare un registro. 
 
 * Se si vuole limitare l'accesso al registro di sistema usando una rete virtuale in un'altra sottoscrizione di Azure, è necessario registrare il provider di risorse per Container Registry di Azure nella sottoscrizione. Ad esempio:
 
@@ -54,7 +54,7 @@ Se invece è necessario configurare regole di accesso per le risorse per raggiun
 
 ## <a name="about-network-rules-for-a-container-registry"></a>Informazioni sulle regole di rete per un registro contenitori
 
-Per impostazione predefinita, un registro contenitori di Azure accetta connessioni su Internet dagli host in qualsiasi rete. Con una rete virtuale, è possibile consentire solo a risorse di Azure, ad esempio un cluster AKS o una macchina virtuale di Azure, di accedere in modo sicuro al registro di sistema, senza superare un limite di rete. È anche possibile configurare le regole del firewall di rete per gli intervalli di indirizzi IP Internet pubblici specifici. 
+Per impostazione predefinita, un registro contenitori di Azure accetta connessioni su Internet dagli host in qualsiasi rete. Con una rete virtuale, è possibile consentire solo a risorse di Azure, ad esempio un cluster AKS o una macchina virtuale di Azure, di accedere in modo sicuro al registro di sistema, senza superare un limite di rete. È anche possibile configurare le regole del firewall di rete per consentire solo specifici intervalli di indirizzi IP Internet pubblici. 
 
 Per limitare l'accesso a un registro, modificare prima l'azione predefinita del registro di sistema in modo da negare tutte le connessioni di rete. Quindi, aggiungere le regole di accesso alla rete. I client che hanno concesso l'accesso tramite le regole di rete devono continuare a eseguire l' [autenticazione nel registro contenitori](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) ed essere autorizzati ad accedere ai dati.
 
@@ -310,7 +310,7 @@ Dopo alcuni minuti di attesa per l'aggiornamento della configurazione, verificar
 az acr login --name mycontainerregistry
 ```
 
-È possibile eseguire operazioni del registro di sistema `docker pull` , ad esempio Esegui per eseguire il pull di un'immagine di esempio dal registro di sistema. Sostituire un'immagine e un valore di tag appropriati per il registro di sistema, preceduto dal nome del server di accesso del registro di sistema (tutti minuscoli):
+È possibile eseguire operazioni del registro di sistema, ad esempio Esegui `docker pull` per eseguire il pull di un'immagine di esempio dal registro di sistema. Sostituire un'immagine e un valore di tag appropriati per il registro di sistema, preceduto dal nome del server di accesso del registro di sistema (tutti minuscoli):
 
 ```bash
 docker pull mycontainerregistry.azurecr.io/hello-world:v1
@@ -318,7 +318,7 @@ docker pull mycontainerregistry.azurecr.io/hello-world:v1
 
 Docker esegue correttamente il pull dell'immagine nella macchina virtuale.
 
-Questo esempio dimostra che è possibile accedere al registro contenitori privato tramite la regola di accesso alla rete. Non è tuttavia possibile accedere al registro di sistema da un host di accesso diverso in cui non è configurata una regola di accesso alla rete. Se si tenta di eseguire l'accesso da un altro `az acr login` host usando `docker login` il comando o il comando, l'output sarà simile al seguente:
+Questo esempio dimostra che è possibile accedere al registro contenitori privato tramite la regola di accesso alla rete. Non è tuttavia possibile accedere al registro di sistema da un host di accesso diverso in cui non è configurata una regola di accesso alla rete. Se si tenta di eseguire l'accesso da un altro host usando il comando `az acr login` o `docker login`, l'output sarà simile al seguente:
 
 ```Console
 Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ failed with status: 403 Forbidden
@@ -355,7 +355,7 @@ az acr network-rule remove \
   --ip-address 23.45.1.0/24
 ```
 
-#### <a name="allow-access"></a>Consenti l'accesso
+#### <a name="allow-access"></a>Consentire l'accesso
 
 Sostituire il nome del registro di sistema con il comando [AZ ACR Update][az-acr-update] seguente:
 ```azurecli

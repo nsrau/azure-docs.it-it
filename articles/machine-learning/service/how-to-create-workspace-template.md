@@ -1,5 +1,5 @@
 ---
-title: Usare un modello di Azure Resource Manager per creare un'area di lavoro
+title: Creare un'area di lavoro con Azure Resource Manager modello
 titleSuffix: Azure Machine Learning
 description: Informazioni su come usare un modello di Azure Resource Manager per creare una nuova area di lavoro di Azure Machine Learning.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: f20c7955856e2e848d331d857d2564649c837bb0
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 8bcfb80d42e7cd1fad6ff4c04415bd8627a3293e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847471"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932149"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -25,7 +25,7 @@ In questo articolo vengono illustrati diversi modi per creare un'area di lavoro 
 
 Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](../../azure-resource-manager/resource-group-template-deploy.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Una **sottoscrizione di Azure**. Se non si dispone di un, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -177,7 +177,7 @@ Questo modello crea le risorse Azure seguenti:
 
 * Gruppo di risorse di Azure
 * Account di archiviazione di Azure
-* Azure Key Vault
+* insieme di credenziali chiave
 * Azure Application Insights
 * Registro Azure Container
 * Area di lavoro di Azure Machine Learning

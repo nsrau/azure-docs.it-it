@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: helohr
-ms.openlocfilehash: cf344d6c551ecd3d301d79c29efe9e7adb7f8d83
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: dc93480807f34a79ee02f628f7b6f090c7efa428
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646876"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931712"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrazioni di partner desktop virtuali Windows
 
@@ -59,7 +59,7 @@ ControlUp è un provider di servizi a valore aggiunto per desktop virtuale di Wi
 
 Se usato con desktop virtuale di Windows, ControlUp offre funzionalità aggiuntive per ottimizzare gli ambienti desktop virtuali Windows e l'esperienza dell'utente finale. Dalla console di ControlUp ottiene la visibilità dell'ambiente dell'utente finale per monitorare e risolvere in modo efficace i problemi relativi alle prestazioni. Un dashboard intuitivo fornisce informazioni dettagliate e analisi per le distribuzioni di desktop virtuali, oltre a opzioni per la creazione di report automatici arricchiti con i benchmark della community. ControlUp può gestire più origini dati e tipi, organizzarli in set di dati ad alte prestazioni aggregati tra calcolo, archiviazione e infrastruttura desktop virtuale di Windows, consentendo una visibilità granulare da un unico riquadro di vetro.
 
-- [Vedere il Brief della soluzione di join](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
+- [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
 - [Accedere al sito Web del partner](https://www.controlup.com/solutions/ms_wvd/).
 
 ## <a name="devicetrust"></a>deviceTRUST

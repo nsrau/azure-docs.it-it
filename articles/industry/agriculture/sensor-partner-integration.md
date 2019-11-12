@@ -1,18 +1,18 @@
 ---
-title: Integrazione del partner sensore
+title: Integrazione di partner di sensori
 description: Descrive l'integrazione del partner sensori
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e90284ce2f8ea37eb9249822e38cef04e1356f59
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1e819c94732e1cbc2de39e6400f8305b7df5aca1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889571"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927662"
 ---
-# <a name="sensor-partner-integration"></a>Integrazione del partner sensore
+# <a name="sensor-partner-integration"></a>Integrazione di partner di sensori
 
 Questo articolo fornisce informazioni sul componente Azure FarmBeats **Translator** , che consente l'integrazione del partner di sensori.
 
@@ -25,7 +25,7 @@ Una volta che i clienti hanno acquistato e distribuito dispositivi/sensori, poss
    - Nome visualizzato (campo facoltativo per l'utente che definisce un nome per l'integrazione)
    - Endpoint API
    - ID tenant
-   - ID client
+   - ID Client
    - Segreto client
    - Stringa di connessione EventHub
    - Data di inizio
@@ -73,13 +73,13 @@ FarmBeats utilizza l'autenticazione Active Directory di Microsoft Azure. App A
 Per altre informazioni, vedere [Azure Active Directory - Documentazione](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
 
 FarmBeats Data Hub USA l'autenticazione della porta, che richiede le credenziali seguenti:
-   - ID client
-   - Client Secret
+   - ID Client
+   - Segreto client
    - ID tenant
 
 Usando le credenziali sopra riportate, il chiamante può richiedere un token di accesso, che deve essere inviato nelle richieste API successive nella sezione dell'intestazione, come indicato di seguito:
 
-```json
+```
 headers = {"Authorization": "Bearer " + access_token, …} 
 ```
 
@@ -124,14 +124,14 @@ Facoltativamente, è possibile includere i parametri di query sulle chiamate GET
 
 La richiesta di esempio seguente consente di ottenere l'elenco dei dispositivi:
 
-```azurepowershell-interactive
-curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
+```bash
+curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>"
 ```
 Per la maggior parte delle chiamate GET, POST e PUT è necessario un corpo della richiesta JSON.
 
 La richiesta di esempio seguente consiste nel creare un dispositivo (questo esempio ha un JSON di input con il corpo della richiesta).
 
-```azurepowershell-interactive
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
@@ -154,17 +154,17 @@ L'hub dati FarmBeats include le API seguenti che consentono ai partner di dispos
   Produttore  | 2 stelle |
   ProductCode  | Codice prodotto del dispositivo o nome/numero del modello. Ad esempio, EnviroMonitor # 6800 |
   Porte  | Nome e tipo di porta (digitale/analogico)  |
-  Name  | Nome per identificare la risorsa. Ad esempio nome modello/nome prodotto |
-  Descrizione  | Fornire una descrizione significativa del modello |
+  Nome  | Nome per identificare la risorsa. Ad esempio nome modello/nome prodotto |
+  DESCRIZIONE  | Fornire una descrizione significativa del modello |
   Proprietà  | Proprietà aggiuntive del produttore |
   **Dispositivo** | **Il dispositivo corrisponde a un dispositivo fisico presente nella farm. Ogni dispositivo ha un ID dispositivo univoco** |
 DeviceModelId  |ID del modello di dispositivo associato. |
 hardwareId   |ID univoco per il dispositivo, ad esempio l'indirizzo MAC e così via.  |
 reportingInterval |Intervallo di Reporting in secondi |
-Percorso    |Latitudine del dispositivo (da-90 a + 90)/Longitude (-180 a 180)/Elevation (in metri) |
+Location    |Latitudine del dispositivo (da-90 a + 90)/Longitude (-180 a 180)/Elevation (in metri) |
 ParentDeviceId | ID del dispositivo padre a cui è connesso il dispositivo. Ad esempio: Un nodo connesso a un gateway; il nodo avrà parentDeviceID come gateway |
-  Name  | Nome per identificare la risorsa.  I partner del dispositivo dovranno inviare un nome coerente con il nome del dispositivo sul lato del partner del dispositivo. Se il nome del dispositivo è definito dall'utente sul lato Device partner, lo stesso nome definito dall'utente deve essere propagato a FarmBeats  |
-  Descrizione  | Fornire una descrizione significativa  |
+  Nome  | Nome per identificare la risorsa.  I partner del dispositivo dovranno inviare un nome coerente con il nome del dispositivo sul lato del partner del dispositivo. Se il nome del dispositivo è definito dall'utente sul lato Device partner, lo stesso nome definito dall'utente deve essere propagato a FarmBeats  |
+  DESCRIZIONE  | Fornire una descrizione significativa  |
   Proprietà  |Proprietà aggiuntive del produttore  |
   **Modello di sensore** | SensorModel corrisponde ai metadati del sensore, ad esempio il produttore, il tipo di sensore analogico o digitale, misura sensore come temperatura ambiente, pressione e così via. |
   Tipo (analogico, digitale)  |Menzione sensore analogico o digitale|
@@ -177,8 +177,8 @@ ParentDeviceId | ID del dispositivo padre a cui è connesso il dispositivo. Ad e
   SensorMeasures > aggregationType  | None, Average, Maximum, Minimum, StandardDeviation
   Profondità > SensorMeasures  | Profondità del sensore in centimetri, ad esempio misura dell'umidità di 10 cm sotto la superficie.
   Descrizione > sensorMeasures  | Fornire una descrizione significativa della misura
-  name  | Nome per identificare la risorsa. Ad esempio nome modello/nome prodotto
-  description  | Fornire una descrizione significativa del modello
+  Nome  | Nome per identificare la risorsa. Ad esempio nome modello/nome prodotto
+  Descrizione  | Fornire una descrizione significativa del modello
   properties  | Proprietà aggiuntive del produttore
   **Sensore**  |
   hardwareId  | ID univoco per il sensore impostato dal produttore
@@ -186,8 +186,8 @@ ParentDeviceId | ID del dispositivo padre a cui è connesso il dispositivo. Ad e
   location  | Latitudine del sensore (da-90 a + 90)/Longitude (-180 a 180)/Elevation (in metri)
   nome > porta  |Nome e tipo della porta a cui il sensore è connesso nel dispositivo. Il nome deve corrispondere a quello definito nel modello di dispositivo
   deviceId  | ID del dispositivo a cui è connesso il sensore
-  name  | Nome per identificare la risorsa. Ad esempio il nome del sensore, il nome del prodotto e il numero di modello/codice del prodotto.
-  description  | Fornire una descrizione significativa
+  Nome  | Nome per identificare la risorsa. Ad esempio il nome del sensore, il nome del prodotto e il numero di modello/codice del prodotto.
+  Descrizione  | Fornire una descrizione significativa
   properties  | Proprietà aggiuntive del produttore
 
  Per informazioni su ogni oggetto e sulle relative proprietà, vedere [spavalderia](https://aka.ms/FarmBeatsDatahubSwagger).
@@ -243,27 +243,26 @@ Il formato del messaggio canonico è il seguente:
 
 ```json
 {
-“deviceid”: “<id of the Device created>”,
- "timestamp": "<timestamp in ISO 8601 format>",
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
 "version" : "1",
 "sensors": [
     {
-      "id": "<id of the sensor created>”
+      "id": "<id of the sensor created>",
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": value
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": value
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
+ ]
 }
-
 ```
-
 Tutti i nomi di chiave nel codice JSON di telemetria devono essere in lettere minuscole, ad esempio DeviceID, SensorData e così via.
 
 Ad esempio, messaggio di telemetria:

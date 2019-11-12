@@ -1,5 +1,5 @@
 ---
-title: Proteggere gli esperimenti e l'inferenza in una rete virtuale
+title: Proteggere gli esperimenti e l'inferenza nella rete virtuale
 titleSuffix: Azure Machine Learning
 description: informazioni su come proteggere i processi di sperimentazione/formazione e i processi di inferenza/assegnazione dei punteggi in Azure Machine Learning all'interno di una rete virtuale di Azure.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/25/2019
-ms.openlocfilehash: e5dee838df2a60bf2038f2c7d2b1cc5958354d29
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 5ac741579562b41678c4aeb59bb5ebb425d8405c
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796758"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932097"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteggere i processi di sperimentazione e inferenza di Azure ML in una rete virtuale di Azure
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Questo articolo fornisce inoltre informazioni dettagliate sulle *impostazioni di
 > [!WARNING]
 > Microsoft non supporta l'uso di Azure Machine Learning Designer o di Machine Learning automatizzato (da studio) con risorse all'interno di una rete virtuale.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 + Area di [lavoro](how-to-manage-workspace.md)Azure Machine Learning.
 
@@ -156,7 +156,7 @@ Se non si vogliono usare le regole in uscita predefinite e si vuole limitare l'a
 - Negare la connessione Internet in uscita usando le regole NSG.
 
 - Limitare il traffico in uscita ai seguenti elementi:
-   - Archiviazione di Azure, usando il __tag di servizio__ di __storage. Region_Name__ (ad esempio, storage. eastus)
+   - Archiviazione di Azure, usando un __tag di servizio__ di __archiviazione. Region_Name__ (ad esempio, storage. eastus)
    - Azure Container Registry, usando il __tag di servizio__ di __AzureContainerRegistry. Region_Name__ (ad esempio, AzureContainerRegistry. eastus)
    - Azure Machine Learning, usando il __tag di servizio__ di __AzureMachineLearning__
 
@@ -200,7 +200,7 @@ Per creare un cluster di ambiente di calcolo di Machine Learning, procedere come
 
     b. Nell'elenco a discesa __gruppo di risorse__ selezionare il gruppo di risorse che contiene la rete virtuale.
 
-    c. Nell'elenco a discesa __rete virtuale__ selezionare la rete virtuale che contiene la subnet.
+    C. Nell'elenco a discesa __rete virtuale__ selezionare la rete virtuale che contiene la subnet.
 
     d. Nell'elenco a discesa __subnet__ selezionare la subnet da usare.
 

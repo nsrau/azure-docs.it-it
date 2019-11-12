@@ -7,14 +7,14 @@ ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: fe733b686f2b56beee26a6c33c4d6264d621e627
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bcea9a8674e4b1979698b7d28eb4192172b0dc11
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516344"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931313"
 ---
-# <a name="deploy-a-trusted-security-partner-preview"></a>Distribuire un partner di sicurezza attendibile (anteprima)
+# <a name="deploy-a-trusted-security-partner-preview"></a>Distribuire un partner di sicurezza affidabile (anteprima)
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
@@ -24,18 +24,18 @@ Per altre informazioni sugli scenari supportati e sulle procedure consigliate, v
 
 I partner di sicurezza supportati sono **ZScaler** e **iboss** per questa versione di anteprima. Le aree supportate sono WestCentralUS, NorthCentralUS, Westus, WestUS2 e Eastus.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 > [!IMPORTANT]
-> L'anteprima di gestione firewall di Azure deve essere abilitata in modo esplicito con il comando `Register-AzProviderFeature` PowerShell.
+> L'anteprima di Gestione firewall di Azure deve essere abilitata in modo esplicito con il comando di PowerShell `Register-AzProviderFeature`.
 
-Da un prompt dei comandi di PowerShell eseguire i comandi seguenti:
+Dal prompt dei comandi di PowerShell eseguire questi comandi:
 
 ```azure-powershell
 connect-azaccount
 Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
 ```
-Per il completamento della registrazione della funzionalità sono necessari fino a 30 minuti. Eseguire il comando seguente per verificare lo stato della registrazione:
+Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. Eseguire questo comando per controllare lo stato della registrazione:
 
 `Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
 
@@ -83,12 +83,11 @@ Per configurare i tunnel per il gateway VPN dell'hub virtuale, i provider di ter
 
    > [!NOTE]
    > È possibile limitare l'accesso solo al gruppo di risorse per un controllo più granulare.
-3. Seguire le istruzioni riportate nel collegamento seguente.
+3. Seguire le istruzioni riportate in [ZScaler: Configuring a Microsoft Azure Virtual WAN Integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration) to:
 
-   - Per accedere al portale per i partner e aggiungere le credenziali per consentire al partner attendibile di accedere all'hub protetto.
-   - Una volta convalidate le credenziali di autenticazione del Azure AD, usare le istruzioni seguenti per sincronizzare gli hub virtuali nel portale per i partner e configurare il tunnel per l'hub virtuale.
-
-   [ZScaler: configurazione di un'integrazione WAN virtuale Microsoft Azure](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration)
+   - Accedere al portale per i partner e aggiungere le credenziali per consentire al partner attendibile di accedere all'hub protetto.
+   - Sincronizzare gli hub virtuali nel portale per i partner e configurare il tunnel per l'hub virtuale. Questa operazione può essere eseguita dopo la convalida delle credenziali di autenticazione Azure AD.
+   
 4. È possibile esaminare lo stato di creazione del tunnel nel portale WAN virtuale di Azure in Azure. Quando i tunnel sono **connessi** sia in Azure che nel portale per i partner, continuare con i passaggi successivi per configurare le route per selezionare quali Branch e reti virtuali devono inviare il traffico Internet al partner.
 
 ## <a name="configure-route-settings"></a>Configurare le impostazioni della route

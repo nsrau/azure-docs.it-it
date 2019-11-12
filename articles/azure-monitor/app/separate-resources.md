@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/15/2017
-ms.openlocfilehash: bcf741e82e247a5b79a478ef1015a70cccb4d274
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c4d029de782ae408b83c265322a865db7b166c1e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899902"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928294"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Separazione della telemetria da sviluppo, test e produzione
 
@@ -50,8 +50,8 @@ Impostare la chiave in un metodo di inizializzazione, ad esempio global.aspx.cs 
 
 In questo esempio i valori ikey per le diverse risorse vengono inseriti in versioni diverse del file di configurazione Web. Lo scambio del file di configurazione Web, che è possibile eseguire nell'ambito dello script di rilascio, consente di scambiare la risorsa di destinazione.
 
-### <a name="web-pages"></a>Pagine Web
-Il valore iKey viene usato anche nelle pagine Web dell'app, nello [script ottenuto dal pannello Avvio rapido](../../azure-monitor/app/javascript.md). Invece di codificarlo letteralmente nello script, generarlo dallo stato del server. Ad esempio, in un'app ASP.NET:
+### <a name="web-pages"></a>Pagina Web
+IKey viene usato anche nelle pagine Web dell'app, nello [script ottenuto dal pannello avvio rapido](../../azure-monitor/app/javascript.md). Invece di codificarlo letteralmente nello script, generarlo dallo stato del server. Ad esempio, in un'app ASP.NET:
 
 *JavaScript in Razor*
 
@@ -81,7 +81,7 @@ In [portal.azure.com](https://portal.azure.com)aggiungere una nuova risorsa di A
 
 La creazione della risorsa richiede pochi secondi. Al termine della creazione verrà visualizzato un avviso.
 
-È possibile scrivere uno [script di PowerShell](../../azure-monitor/app/powershell-script-create-resource.md) per creare automaticamente una risorsa.
+È possibile scrivere uno [script di PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) per creare automaticamente una risorsa.
 
 ### <a name="getting-the-instrumentation-key"></a>Ottenere la chiave di strumentazione
 La chiave di strumentazione identifica la risorsa creata. 
@@ -134,7 +134,7 @@ Esistono diversi metodi di impostazione della proprietà della versione dell'app
     Per consentire a MSBuild di generare i numeri di versione, in AssemblyReference.cs impostare la versione come, ad esempio, `1.0.*` .
 
 ## <a name="version-and-release-tracking"></a>Verifica della versione
-Per tenere traccia della versione dell'applicazione, assicurarsi che il processo di Microsoft Build Engine generi `buildinfo.config`. Nel file con estensione csproj, aggiungere:  
+Per tenere traccia della versione dell'applicazione, assicurarsi che il processo di Microsoft Build Engine generi `buildinfo.config`. Nel file di `.csproj` aggiungere:  
 
 ```XML
 
@@ -145,7 +145,7 @@ Per tenere traccia della versione dell'applicazione, assicurarsi che il processo
 
 Quando ha le informazioni di compilazione, il modulo Web di Application Insights aggiunge automaticamente la **versione dell'applicazione** come proprietà a ogni elemento dei dati di telemetria. Questo consente di applicare filtri in base alla versione quando si eseguono [ricerche diagnostiche](../../azure-monitor/app/diagnostic-search.md) o quando si [esaminano le metriche](../../azure-monitor/app/metrics-explorer.md).
 
-Si noti tuttavia che il numero di versione della build viene generato solo da Microsoft Build Engine, non dalla build dello sviluppatore in Visual Studio.
+Si noti tuttavia che il numero di versione della build viene generato solo dal Microsoft Build Engine, non dalla Build dello sviluppatore da Visual Studio.
 
 ### <a name="release-annotations"></a>Annotazioni sulle versioni
 Se si usa Azure DevOps, è possibile [visualizzare un marcatore di annotazione](../../azure-monitor/app/annotations.md) aggiunto ai grafici quando si rilascia una nuova versione. L'immagine seguente illustra come viene visualizzato il marcatore.

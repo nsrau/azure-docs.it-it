@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: b1a14cf4c8aec2f3dbfa7bc4fd0800d9fd1fb0aa
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: ca1d1a5761e62b2838a474dcb83f450987972998
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327308"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928966"
 ---
 # <a name="azure-security-center-for-iot-event-aggregation"></a>Centro sicurezza di Azure per l'aggregazione di eventi Internet
 
@@ -44,7 +44,7 @@ Per ridurre il footprint di memoria dell'agente, ogni volta che l'agente raccogl
 
 Gli eventi sono considerati identici solo quando vengono soddisfatte le condizioni seguenti: 
 
-* Eventi ProcessCreate-quando **CommandLine**, **Executable**, * * username e **userid** sono identici
+* Eventi ProcessCreate-quando **CommandLine**, **Executable**, **username**e **userid** sono identici
 * Eventi ConnectionCreate-quando **CommandLine**, **userid**, **Direction**, **Local Address**, **Remote Address**, * * Protocol e **Destination Port** sono identici
 * Eventi ProcessTerminate-quando **lo stato** dell' **eseguibile** e dell'uscita è identico
 
@@ -64,7 +64,7 @@ Ogni evento aggregato rappresenta un periodo di 24 ore di avvisi raccolti. Utili
 ## <a name="event-aggregation-twin-configuration"></a>Configurazione dell'aggregazione di eventi gemelli
 Apportare modifiche alla configurazione del Centro sicurezza di Azure per l'aggregazione di eventi Internet nell' [oggetto di configurazione dell'agente](how-to-agent-configuration.md) dell'identità del modulo gemello del modulo **azureiotsecurity** .
 
-| Nome configurazione | Valori possibili | Dettagli | Note |
+| Nome configurazione | Valori possibili | Dettagli | Osservazioni |
 |:-----------|:---------------|:--------|:--------|
 | aggregationEnabledProcessCreate | boolean | Abilita/Disabilita l'aggregazione di eventi per gli eventi di creazione del processo |
 | aggregationIntervalProcessCreate | Stringa TimeSpan ISO8601 | Intervallo di aggregazione per gli eventi di creazione del processo |

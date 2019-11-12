@@ -1,6 +1,5 @@
 ---
 title: Abilitare la registrazione in Azure Machine Learning
-titleSuffix: Azure Machine Learning
 description: Informazioni su come abilitare la registrazione in Azure Machine Learning usando il pacchetto di registrazione Python predefinito, oltre a usare funzionalità specifiche dell'SDK.
 ms.author: trbye
 author: trevorbye
@@ -10,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 07/12/2019
-ms.openlocfilehash: a47ce44a325720fb1b6df919a0a324a4d3319d86
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 91e00b8e1d13f69ae3ba446bcbc09f06f387c439
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489897"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931125"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>Abilitare la registrazione in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +27,7 @@ Il SDK Python di Azure Machine Learning consente di abilitare la registrazione u
 > * Modelli distribuiti
 > * Impostazioni `logging` di Python
 
-[Creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md). Usare la [Guida](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) per altre informazioni sull'SDK.
+[Creare un'area di lavoro di Azure Machine Learning](how-to-manage-workspace.md). Usare la [Guida](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) per altre informazioni sull'SDK.
 
 ## <a name="training-models-and-compute-target-logging"></a>Training dei modelli e registrazione delle destinazioni di calcolo
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/31/2016
-ms.openlocfilehash: 0771079eb338c2f22cb0b1f31c48b0b9f80a3ff5
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: cf03fa0055710dde86a0f74cd58344575494faf1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819085"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928574"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usare PowerShell per impostare gli avvisi in Application Insights
 
@@ -45,7 +45,7 @@ Avviare Azure PowerShell e [connettersi alla sottoscrizione](/powershell/azure/o
 ## <a name="get-alerts"></a>Ottenere gli avvisi
     Get-AzAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
-## <a name="add-alert"></a>Aggiungere un avviso
+## <a name="add-alert"></a>Aggiungi avviso
     Add-AzMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
@@ -93,7 +93,7 @@ Ho un'applicazione in cui uso [TrackMetric()](../../azure-monitor/app/api-custom
 La stessa regola può essere utilizzata per la metrica riportata utilizzando il [parametro misura](../../azure-monitor/app/api-custom-events-metrics.md#properties) di un altra chiamata di rilevamento come ad esempio TrackEvent o trackPageView.
 
 ## <a name="metric-names"></a>Nomi delle metriche
-| Nome metrica | Nome schermata | Description |
+| Nome metrica | Nome schermata | DESCRIZIONE |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Eccezioni del browser |Conteggio delle eccezioni non rilevate generate nel browser. |
 | `basicExceptionServer.count` |Eccezioni del server |Conteggio delle eccezioni non gestite generate dall'applicazione |
@@ -122,7 +122,7 @@ Le metriche vengono inviate da moduli di telemetria diversi:
 
 | Gruppo metrica | Modulo dell'agente di raccolta |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>visualizza |[JavaScript browser](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[JavaScript browser](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[Prestazioni](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Dipendenza](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[Richiesta server](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
@@ -130,8 +130,8 @@ Le metriche vengono inviate da moduli di telemetria diversi:
 ## <a name="webhooks"></a>Webhook
 È possibile [automatizzare la risposta a un avviso](../../azure-monitor/platform/alerts-webhooks.md). Azure richiamerà l'indirizzo Web specificato quando viene generato un avviso.
 
-## <a name="see-also"></a>Vedi anche
-* [Script per configurare Application Insights](powershell-script-create-resource.md)
+## <a name="see-also"></a>Vedere anche
+* [Script per configurare Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Creare risorse Application Insights e test web da modelli](powershell.md)
 * [Automatizzare l'accoppiamento tra Diagnostica di Microsoft Azure e Application Insights](powershell-azure-diagnostics.md)
 * [Automatizzare la risposta a un avviso](../../azure-monitor/platform/alerts-webhooks.md)

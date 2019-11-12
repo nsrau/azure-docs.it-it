@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 3495d62c7447ba50d9ffe48e68b15dbe36867ac9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9c8bae879c5e28914981eec34afb0759dd963004
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73662586"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928986"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ Quando si creano e si gestiscono cluster AKS che supportano più pool di nodi, s
 * Il cluster AKS deve usare il servizio di bilanciamento del carico SKU standard per usare più pool di nodi. la funzionalità non è supportata con i bilanciamenti del carico SKU Basic.
 * Il cluster AKS deve usare i set di scalabilità di macchine virtuali per i nodi.
 * Non è possibile aggiungere o eliminare pool di nodi usando un modello di Gestione risorse esistente come per la maggior parte delle operazioni. Usare invece [un modello di gestione risorse separato](#manage-node-pools-using-a-resource-manager-template) per apportare modifiche ai pool di nodi in un cluster AKS.
-* Il nome di un pool di nodi deve iniziare con una lettera minuscola e può contenere solo caratteri alfanumerici. Per i pool di nodi Linux la lunghezza deve essere compresa tra 1 e 12 caratteri, per i pool di nodi Windows la lunghezza deve essere compresa tra 1 e 6 caratteri.
+* Il nome di un pool di nodi può contenere solo caratteri alfanumerici minuscoli e deve iniziare con una lettera minuscola. Per i pool di nodi Linux la lunghezza deve essere compresa tra 1 e 12 caratteri, per i pool di nodi Windows la lunghezza deve essere compresa tra 1 e 6 caratteri.
 * Il cluster AKS può avere un massimo di otto pool di nodi.
 * Il cluster AKS può avere un massimo di 400 nodi tra questi otto pool di nodi.
 * Tutti i pool di nodi devono trovarsi nella stessa subnet.
@@ -46,7 +46,7 @@ Quando si creano e si gestiscono cluster AKS che supportano più pool di nodi, s
 Per iniziare, creare un cluster AKS con un pool a nodo singolo. L'esempio seguente usa il comando [AZ Group create][az-group-create] per creare un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* . Un cluster AKS denominato *myAKSCluster* viene quindi creato usando il comando [AZ AKS create][az-aks-create] . Viene usata una *versione--kubernetes-Version* di *1.13.10* per illustrare come aggiornare un pool di nodi in un passaggio successivo. È possibile specificare qualsiasi [versione di Kubernetes supportata][supported-versions].
 
 > [!NOTE]
-> Lo SKU *Basic* Load balanacer non è supportato quando si usano più pool di nodi. Per impostazione predefinita, i cluster AKS vengono creati con lo SKU del servizio di bilanciamento del carico *standard* dall'interfaccia della riga di comando di Azure e portale di Azure.
+> Lo SKU del servizio di bilanciamento del carico di *base* **non è supportato** quando si usano più pool di nodi. Per impostazione predefinita, i cluster AKS vengono creati con lo SKU del servizio di bilanciamento del carico *standard* dall'interfaccia della riga di comando di Azure e portale di Azure.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -191,28 +191,34 @@ Come procedura consigliata, è consigliabile aggiornare tutti i pool di nodi in 
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Aggiornare un piano di controllo cluster con più pool di nodi
 
 > [!NOTE]
-> Kubernetes usa lo schema di controllo delle versioni [semantico standard](https://semver.org/). Il numero di versione è espresso come *x. y. z*, dove *x* è la versione principale, *y* è la versione secondaria e *z* è la versione della patch. Ad esempio, nella versione *1.12.6*, 1 è la versione principale, 12 è la versione secondaria e 6 è la versione della patch. La versione Kubernetes del piano di controllo e del pool di nodi iniziale viene impostata durante la creazione del cluster. Tutti i pool di nodi aggiuntivi hanno la versione Kubernetes impostata quando vengono aggiunti al cluster. Le versioni di Kubernetes possono essere diverse tra i pool di nodi, nonché tra un pool di nodi e il piano di controllo, ma sono valide le restrizioni seguenti:
-> 
-> * La versione del pool di nodi deve avere la stessa versione principale del piano di controllo.
-> * La versione del pool di nodi può essere una versione secondaria minore della versione del piano di controllo.
-> * La versione del pool di nodi può essere qualsiasi versione patch, purché vengano seguiti gli altri due vincoli.
+> Kubernetes usa lo schema di controllo delle versioni [semantico standard](https://semver.org/). Il numero di versione è espresso come *x. y. z*, dove *x* è la versione principale, *y* è la versione secondaria e *z* è la versione della patch. Ad esempio, nella versione *1.12.6*, 1 è la versione principale, 12 è la versione secondaria e 6 è la versione patch. La versione Kubernetes del piano di controllo e il pool di nodi iniziale vengono impostati durante la creazione del cluster. Tutti i pool di nodi aggiuntivi hanno la versione Kubernetes impostata quando vengono aggiunti al cluster. Le versioni di Kubernetes possono essere diverse tra i pool di nodi, nonché tra un pool di nodi e il piano di controllo.
 
-Un cluster AKS ha due oggetti risorsa cluster con le versioni Kubernetes associate. Il primo è una versione del piano di controllo Kubernetes. Il secondo è un pool di agenti con una versione di Kubernetes. Un piano di controllo è mappato a uno o più pool di nodi. Il comportamento di un'operazione di aggiornamento dipende dal comando dell'interfaccia della riga di comando di Azure usato.
+Un cluster AKS ha due oggetti risorsa cluster con le versioni Kubernetes associate.
 
-* Per l'aggiornamento del piano di controllo è necessario usare `az aks upgrade`
-   * Questo Aggiorna la versione del piano di controllo e tutti i pool di nodi nel cluster
-   * Passando `az aks upgrade` con il flag di `--control-plane-only` solo il piano di controllo cluster viene aggiornato e nessuno dei pool di nodi associati viene modificato.
-* L'aggiornamento di singoli pool di nodi richiede l'uso di `az aks nodepool upgrade`
-   * Questo Aggiorna solo il pool di nodi di destinazione con la versione specificata di Kubernetes
+1. Versione Kubernetes del piano di controllo cluster.
+2. Un pool di nodi con una versione di Kubernetes.
 
-La relazione tra le versioni di Kubernetes contenute nei pool di nodi deve anche seguire un set di regole.
+Un piano di controllo è mappato a uno o più pool di nodi. Il comportamento di un'operazione di aggiornamento dipende dal comando dell'interfaccia della riga di comando di Azure usato.
 
-* Non è possibile effettuare il downgrade del piano di controllo né della versione Kubernetes del pool di nodi.
-* Se non viene specificata una versione Kubernetes del pool di nodi, il comportamento dipende dal client utilizzato. Per la dichiarazione nel modello di Gestione risorse viene utilizzata la versione esistente definita per il pool di nodi, se non è impostata alcuna versione del piano di controllo.
-* È possibile aggiornare o ridimensionare un piano di controllo o un pool di nodi in un determinato momento, non è possibile inviare entrambe le operazioni simultaneamente.
-* Una versione Kubernetes del pool di nodi deve essere la stessa versione principale del piano di controllo.
-* Una versione Kubernetes del pool di nodi può essere al massimo due (2) versioni secondarie minori del piano di controllo, mai maggiore.
-* Un pool di nodi può essere qualsiasi versione patch Kubernetes inferiore o uguale al piano di controllo, mai maggiore.
+Per l'aggiornamento di un piano di controllo AKS è necessario usare `az aks upgrade`. Questo Aggiorna la versione del piano di controllo e tutti i pool di nodi nel cluster. 
+
+L'esecuzione del comando `az aks upgrade` con il flag `--control-plane-only` aggiorna solo il piano di controllo cluster. Nessuno dei pool di nodi associati nel cluster viene modificato.
+
+Per aggiornare i singoli pool di nodi è necessario usare `az aks nodepool upgrade`. Questo Aggiorna solo il pool di nodi di destinazione con la versione specificata di Kubernetes
+
+### <a name="validation-rules-for-upgrades"></a>Regole di convalida per gli aggiornamenti
+
+Gli aggiornamenti validi per le versioni Kubernetes contenute nel piano di controllo o nei pool di nodi di un cluster vengono convalidati in base ai set di regole seguenti.
+
+* Regole per le versioni valide per l'aggiornamento a:
+   * La versione del pool di nodi deve avere la stessa versione *principale* del piano di controllo.
+   * La versione del pool di nodi può essere due versioni *secondarie minori* della versione del piano di controllo.
+   * La versione del pool di nodi può essere costituita da due versioni di *patch* minori rispetto alla versione del piano di controllo.
+
+* Regole per l'invio di un'operazione di aggiornamento:
+   * Non è possibile effettuare il downgrade del piano di controllo o della versione Kubernetes del pool di nodi.
+   * Se non viene specificata una versione Kubernetes del pool di nodi, il comportamento dipende dal client utilizzato. La dichiarazione nei modelli di Gestione risorse esegue il fallback alla versione esistente definita per il pool di nodi, se usata, se non è impostata, viene usata la versione del piano di controllo per eseguire il fallback.
+   * È possibile aggiornare o ridimensionare un piano di controllo o un pool di nodi in un determinato momento, non è possibile inviare simultaneamente più operazioni su un singolo piano di controllo o una risorsa del pool di nodi.
 
 ## <a name="scale-a-node-pool-manually"></a>Ridimensionare manualmente un pool di nodi
 
@@ -322,7 +328,7 @@ Negli esempi precedenti per creare un pool di nodi, è stata usata una dimension
 
 Nell'esempio seguente creare un pool di nodi basato su GPU che usa le dimensioni della macchina virtuale *Standard_NC6* . Queste VM sono basate sulla scheda NVIDIA Tesla K80. Per informazioni sulle dimensioni delle VM disponibili, vedere [dimensioni per le macchine virtuali Linux in Azure][vm-sizes].
 
-Creare un pool di nodi usando di nuovo il comando [AZ AKS node pool Add][az-aks-nodepool-add] . Questa volta specificare il nome *gpunodepool*e usare il parametro `--node-vm-size` per specificare le dimensioni di *Standard_NC6* :
+Creare un pool di nodi usando di nuovo il comando [AZ AKS node pool Add][az-aks-nodepool-add] . Questa volta specificare il nome *gpunodepool*e utilizzare il parametro `--node-vm-size` per specificare le dimensioni del *Standard_NC6* :
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -450,11 +456,11 @@ Solo i pod con questo Taint applicato possono essere pianificati nei nodi di *gp
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Gestire i pool di nodi usando un modello di Gestione risorse
 
-Quando si usa un modello di Azure Resource Manager per creare e risorse gestite, è in genere possibile aggiornare le impostazioni nel modello e ridistribuirle per aggiornare la risorsa. Con i pool di nodi in AKS, il profilo del pool iniziale del nodo non può essere aggiornato dopo la creazione del cluster AKS. Questo comportamento significa che non è possibile aggiornare un modello di Gestione risorse esistente, apportare una modifica ai pool di nodi e ridistribuirlo. Al contrario, è necessario creare un modello di Gestione risorse separato che aggiorni solo i pool di agenti per un cluster AKS esistente.
+Quando si usa un modello di Azure Resource Manager per creare e risorse gestite, è in genere possibile aggiornare le impostazioni nel modello e ridistribuirle per aggiornare la risorsa. Con i pool di nodi in AKS, il profilo del pool iniziale del nodo non può essere aggiornato dopo la creazione del cluster AKS. Questo comportamento significa che non è possibile aggiornare un modello di Gestione risorse esistente, apportare una modifica ai pool di nodi e ridistribuirlo. Al contrario, è necessario creare un modello di Gestione risorse separato che aggiorni solo i pool di nodi per un cluster AKS esistente.
 
 Creare un modello, ad esempio `aks-agentpools.json` e incollare il manifesto di esempio seguente. Questo modello di esempio configura le impostazioni seguenti:
 
-* Aggiorna il pool di agenti *Linux* denominato *myagentpool* per eseguire tre nodi.
+* Aggiorna il pool di nodi *Linux* denominato *myagentpool* per eseguire tre nodi.
 * Imposta i nodi nel pool di nodi per eseguire Kubernetes versione *1.13.10*.
 * Definisce le dimensioni del nodo come *Standard_DS2_v2*.
 

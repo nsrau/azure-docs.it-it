@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 75568cf3c88c02968b3e3e95971f81cf1b9285d3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9b873b5a68979b8225c44c32e0b9494408e35ac1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496345"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927171"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizzare il cluster con Service Fabric Explorer
 
@@ -89,7 +89,7 @@ A ogni livello della struttura ad albero, il riquadro principale mostra informaz
 ### <a name="view-the-clusters-nodes"></a>Visualizzare i nodi del cluster
 La visualizzazione dei nodi mostra il layout fisico del cluster. Per un determinato nodo, è possibile esaminare le applicazioni con il codice distribuito in quel nodo. In particolare, è possibile visualizzare le repliche attualmente in esecuzione.
 
-## <a name="actions"></a>Azioni
+## <a name="actions"></a>Actions
 Service Fabric Explorer offre un modo rapido per richiamare le azioni su nodi, applicazioni e servizi all'interno del cluster.
 
 Ad esempio, per eliminare un'istanza dell'applicazione, è sufficiente scegliere l'applicazione dall'albero a sinistra e quindi scegliere **Azioni** > **Elimina applicazione**.
@@ -129,7 +129,11 @@ Image Store Viewer è una funzionalità offerta se si usa archivio immagini nati
 ![Mappa del cluster di Service Fabric Explorer][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>Backup e ripristino
-Service Fabric Explorer offre la possibilità di interfacciarsi con il [backup e il ripristino](./service-fabric-reliable-services-backup-restore.md). Sono possibili le operazioni seguenti:
+Service Fabric Explorer offre la possibilità di interfacciarsi con il [backup e il ripristino](./service-fabric-reliable-services-backup-restore.md). Per visualizzare le funzionalità di backup e ripristino in SFX, è necessario abilitare la modalità avanzata.
+
+![Abilita modalità avanzata][0]
+ 
+Sono possibili le operazioni seguenti:
 
 * Creare, modificare ed eliminare un criterio di backup.
 * Abilitare e disabilitare il backup per un'applicazione, un servizio o una partizione.
@@ -151,3 +155,4 @@ Per altre informazioni sul servizio di backup e ripristino, vedere le informazio
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/sfx-create-app-instance.png
 [sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png
 [sfx-imagestore]: ./media/service-fabric-visualizing-your-cluster/sfx-image-store.png
+[0]: ./media/service-fabric-backuprestoreservice/advanced-mode.png

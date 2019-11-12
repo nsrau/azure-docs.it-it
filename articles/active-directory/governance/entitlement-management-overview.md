@@ -16,16 +16,16 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1c054bf354b5cdc5e0803ba6849af19fab40f3c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 1fd72bba6e8c01644adebaa333c8fe588c35b8c7
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174165"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927307"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Cos'è Gestione entitlement di Azure AD?
 
-Azure Active Directory (Azure AD) la gestione dei diritti è una funzionalità di [governance delle identità](identity-governance-overview.md) che consente alle organizzazioni di gestire il ciclo di vita delle identità e dell'accesso su larga scala, automatizzando i flussi di lavoro delle richieste di accesso, le assegnazioni di accesso, scadenza.
+La gestione dei diritti di Azure Active Directory (Azure AD) è una funzionalità di [governance delle identità](identity-governance-overview.md) che consente alle organizzazioni di gestire il ciclo di vita delle identità e dell'accesso su larga scala, automatizzando i flussi di lavoro delle richieste di accesso, le assegnazioni di accesso, le verifiche
 
 Per svolgere il proprio lavoro, i dipendenti delle organizzazioni devono accedere a diversi gruppi, applicazioni e siti. La gestione di questo accesso è problematica, in quanto i requisiti cambiano: vengono aggiunte nuove applicazioni o gli utenti necessitano di diritti di accesso aggiuntivi.  Questo scenario diventa più complicato quando si collabora con organizzazioni esterne. è possibile che non si conosca chi nell'altra organizzazione debba accedere alle risorse dell'organizzazione e che non conoscano le applicazioni, i gruppi o i siti utilizzati dall'organizzazione.
 
@@ -38,7 +38,7 @@ Le organizzazioni aziendali spesso affrontano problemi durante la gestione dell'
 - È possibile che gli utenti non conoscano l'accesso che devono avere e, anche in caso affermativo, potrebbero avere difficoltà nell'individuare gli individui giusti per approvare l'accesso
 - Una volta che gli utenti trovano e ricevono l'accesso a una risorsa, possono mantenere l'accesso più a lungo di quanto richiesto per scopi aziendali
 
-Questi problemi sono composti per gli utenti che necessitano dell'accesso da un'altra organizzazione, ad esempio gli utenti esterni che appartengono a organizzazioni di supply chain o altri partner commerciali. ad esempio:
+Questi problemi sono composti per gli utenti che necessitano dell'accesso da un'altra organizzazione, ad esempio gli utenti esterni che appartengono a organizzazioni di supply chain o altri partner commerciali. Ad esempio:
 
 - Non è possibile che una persona conosca tutti gli utenti specifici nelle directory di altre organizzazioni per poterli invitare
 - Anche se sono stati in grado di invitare questi utenti, nessuno in tale organizzazione potrebbe ricordare di gestire in modo coerente tutti gli accessi degli utenti
@@ -71,7 +71,7 @@ La gestione dei diritti introduce la Azure AD il concetto di *pacchetto di acces
 - Assegnazione a Azure AD applicazioni aziendali, incluse applicazioni SaaS e applicazioni personalizzate che supportano la Federazione/Single Sign-on e/o il provisioning
 - Appartenenza ai siti di SharePoint Online
 
-È anche possibile controllare l'accesso ad altre risorse che si basano su Azure AD gruppi di sicurezza o gruppi di Office 365.  ad esempio:
+È anche possibile controllare l'accesso ad altre risorse che si basano su Azure AD gruppi di sicurezza o gruppi di Office 365.  Ad esempio:
 
 - È possibile concedere agli utenti le licenze per Microsoft Office 365 usando un gruppo di sicurezza Azure AD in un pacchetto di accesso e configurando le [licenze basate sui gruppi](../users-groups-roles/licensing-groups-assign.md) per quel gruppo
 - È possibile concedere agli utenti l'accesso per gestire le risorse di Azure usando un gruppo di sicurezza Azure AD in un pacchetto di accesso e creando un' [assegnazione di ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) per quel gruppo
@@ -114,13 +114,13 @@ I pacchetti di accesso non sostituiscono altri meccanismi per l'assegnazione di 
 
 Per comprendere meglio la gestione dei diritti e la relativa documentazione, è possibile fare riferimento all'elenco di termini seguente.
 
-| Durata | Description |
+| Termine | DESCRIZIONE |
 | --- | --- |
 | pacchetto di accesso | Un bundle di risorse necessarie a un team o a un progetto e viene regolato con i criteri. Un pacchetto di accesso è sempre contenuto in un catalogo. È possibile creare un nuovo pacchetto di accesso per uno scenario in cui gli utenti devono richiedere l'accesso.  |
 | richiesta di accesso | Richiesta di accesso alle risorse in un pacchetto di accesso. Una richiesta viene in genere attraversata da un flusso di lavoro di approvazione.  Se approvata, l'utente richiedente riceve un'assegnazione del pacchetto di accesso. |
 | assegnazione | Un'assegnazione di un pacchetto di accesso a un utente garantisce che l'utente disponga di tutti i ruoli delle risorse del pacchetto di accesso.  Le assegnazioni dei pacchetti di accesso in genere hanno un limite di tempo prima della scadenza. |
 | catalog | Contenitore di risorse correlate e pacchetti di accesso.  I cataloghi vengono usati per la delega, in modo che gli amministratori non possano creare i propri pacchetti di accesso. I proprietari del catalogo possono aggiungere risorse di cui sono proprietari in un catalogo. |
-| Creatore del catalogo | Raccolta di utenti autorizzati a creare nuovi cataloghi.  Quando un utente non amministratore autorizzato a essere un creatore del catalogo crea un nuovo catalogo, diventa automaticamente il proprietario di tale catalogo. |
+| creatore del catalogo | Raccolta di utenti autorizzati a creare nuovi cataloghi.  Quando un utente non amministratore autorizzato a essere un creatore del catalogo crea un nuovo catalogo, diventa automaticamente il proprietario di tale catalogo. |
 | organizzazione connessa | Una directory o un dominio di Azure AD esterno con una relazione. Gli utenti di un'organizzazione connessa possono essere specificati in un criterio come consentito per richiedere l'accesso. |
 | policy | Set di regole che definisce il ciclo di vita dell'accesso, ad esempio il modo in cui gli utenti ottengono l'accesso, gli utenti che possono approvare e il tempo di accesso degli utenti attraverso un'assegnazione. Un criterio è collegato a un pacchetto di accesso. Un pacchetto di accesso, ad esempio, può avere due criteri, uno per i dipendenti per richiedere l'accesso e un secondo per consentire agli utenti esterni di richiedere l'accesso. |
 | resource | Un asset, ad esempio un gruppo di Office, un gruppo di sicurezza, un'applicazione o un sito di SharePoint Online, con un ruolo a cui un utente può concedere le autorizzazioni. |

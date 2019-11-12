@@ -1,18 +1,18 @@
 ---
-title: Integrazione del partner immagini
+title: Integrazione di partner di immagini
 description: Descrive l'integrazione del partner immagini
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 2b15cc56cb4f804fac0b047819ccf166950e1cf3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 232ade55350ad1ac85612cf8c69117c19cb20d0c
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890979"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927787"
 ---
-# <a name="imagery-partner-integration"></a>Integrazione del partner immagini
+# <a name="imagery-partner-integration"></a>Integrazione di partner di immagini
 
 Questo articolo descrive come usare il componente Azure FarmBeats Translator per inviare dati di immagini a FarmBeats. I dati di immagini agricoli possono provenire da diverse origini, tra cui fotocamere multispettrali, satelliti e droni. I partner di immagini agricole possono integrarsi con FarmBeats per fornire ai clienti mappe personalizzate generate per le proprie farm.
 
@@ -33,8 +33,8 @@ Per il collegamento di FarmBeats è necessario usare le credenziali seguenti nel
 
 - Endpoint API
 - ID tenant
-- ID client
-- Client Secret
+- ID Client
+- Segreto client
 
 ## <a name="api-development"></a>Sviluppo di API
 
@@ -48,8 +48,8 @@ Per ulteriori informazioni su, vedere [Azure Active Directory](https://docs.micr
 
 FarmBeats Data Hub USA l'autenticazione della porta, che richiede le credenziali seguenti:
 
-- ID client
-- Client Secret
+- ID Client
+- Segreto client
 - ID tenant
 
 Usando le credenziali sopra riportate, il chiamante può richiedere un token di accesso, che deve essere inviato nelle richieste API successive, nella sezione dell'intestazione come indicato di seguito:
@@ -97,7 +97,7 @@ Facoltativamente, è possibile includere i parametri di query sulle chiamate GET
 
 La richiesta di esempio seguente consente di ottenere l'elenco dei dispositivi:
 
-```azurepowershell-interactive
+```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>”
@@ -108,7 +108,7 @@ Per la maggior parte delle chiamate GET, POST e PUT è necessario un corpo della
 La richiesta di esempio seguente consiste nel creare un dispositivo (con un JSON di input con il corpo della richiesta).
 
 
-```azurepowershell-interactive
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  
 "accept: application/json" -H  
 "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d
@@ -326,6 +326,7 @@ Di seguito sono riportati i valori definiti dal sistema:
   ]
 }
 ```
+
 Si tratta di un'installazione monouso e l'ambito di questo nuovo SceneType è limitato alla sottoscrizione in cui viene distribuito il progetto FarmBeats.
 
 Esempio: per aggiungere SceneSource: "SlantRange", è necessario inserire l'ID del/ExtendedType con il payload di input Key: "SceneSource":

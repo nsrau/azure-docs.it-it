@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: dcdc9c6a22f5d291b3773da02a79cc5ceebc3db1
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 9ac22461e04b447fe34d5647eb5ec7847d25a09d
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73101466"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931279"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Effettuare il provisioning della velocità effettiva per contenitori e database
 
@@ -28,7 +28,7 @@ La velocità effettiva di cui è stato effettuato il provisioning in un contenit
 
 L'impostazione della velocità effettiva con provisioning in un contenitore è l'opzione utilizzata più di frequente. È possibile ridimensionare in modo elastico la velocità effettiva per un contenitore effettuando il provisioning di qualsiasi quantità di velocità effettiva usando [unità richiesta (UR)](request-units.md). 
 
-Presumendo una chiave di partizione efficace che distribuisca equamente le partizioni logiche tra le partizioni fisiche, la velocità effettiva viene distribuita anche in modo uniforme tra tutte le partizioni logiche del contenitore. Non è possibile specificare selettivamente la velocità effettiva per le partizioni logiche. Poiché una o più partizioni logiche di un contenitore sono ospitate da una partizione fisica, le partizioni fisiche appartengono esclusivamente al contenitore e supportano la velocità effettiva di cui è stato effettuato il provisioning nel contenitore. 
+La velocità effettiva di cui viene effettuato il provisioning per un contenitore viene distribuita uniformemente tra le partizioni fisiche e supponendo una chiave di partizione efficace che distribuisca equamente le partizioni logiche tra le partizioni fisiche, la velocità effettiva viene distribuita anche in modo uniforme tra tutti i partizioni logiche del contenitore. Non è possibile specificare selettivamente la velocità effettiva per le partizioni logiche. Poiché una o più partizioni logiche di un contenitore sono ospitate da una partizione fisica, le partizioni fisiche appartengono esclusivamente al contenitore e supportano la velocità effettiva di cui è stato effettuato il provisioning nel contenitore. 
 
 Se il carico di lavoro in esecuzione in una partizione logica consuma più della velocità effettiva allocata a tale partizione logica, le operazioni vengono eseguite con limitazione della frequenza. Quando si verifica una limitazione della frequenza, è possibile aumentare la velocità effettiva con provisioning per l'intero contenitore oppure ripetere le operazioni. Per altre informazioni sul partizionamento, vedere [Partizioni logiche](partition-data.md).
 
@@ -126,7 +126,7 @@ Quando si usa .NET SDK, il metodo [DocumentClient. ReadOfferAsync](https://docs.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Partizionamento e scalabilità orizzontale in Azure Cosmos DB](partition-data.md)
-* [Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md)
+* Altre informazioni sulle [partizioni logiche](partition-data.md).
+* Informazioni su [come effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md).
 * [Effettuare il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md)
 

@@ -10,18 +10,21 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 2c1e6ef84a472ccec5116b12e18ad80c92b68960
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d308623a323fecd39efa90639da71fb981936fe5
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681891"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930570"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Guida introduttiva: sintesi asincrona per audio a lungo termine in Python (anteprima)
 
 In questa Guida introduttiva si userà l'API Long audio per convertire in modo asincrono il testo in sintesi vocale e recuperare l'output audio da un URI fornito dal servizio. Questa API REST è ideale per i provider di contenuti che devono convertire file di testo di dimensioni superiori a 10.000 caratteri o 50 paragrafi in sintesi vocale. Per altre informazioni, vedere [API audio lungo](../../long-audio-api.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+> [!NOTE]
+> La sintesi asincrona per l'audio a lungo termine può essere usata solo con le [voci neurali personalizzate](../../how-to-custom-voice.md#custom-neural-voices).
+
+## <a name="prerequisites"></a>prerequisiti
 
 Questa guida introduttiva richiede:
 

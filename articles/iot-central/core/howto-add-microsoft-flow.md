@@ -1,5 +1,5 @@
 ---
-title: Creare flussi di lavoro con il connettore IoT Central di Azure in Microsoft Flow | Microsoft Docs
+title: Usare il connettore Azure IoT Central in Microsoft Flow | Microsoft Docs
 description: Usare il connettore IoT Central in Microsoft Flow per attivare i flussi di lavoro e creare, ottenere, aggiornare ed eliminare i dispositivi ed eseguire comandi nei flussi di lavoro.
 services: iot-central
 author: viv-liu
@@ -8,12 +8,12 @@ ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 258020c8ccd690c524460873387293e73fc89125
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f1912b90df75f3d85f6ba5d730c723cf42803237
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951731"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930371"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Creare flussi di lavoro con il connettore IoT Central in Microsoft Flow
 
@@ -30,7 +30,7 @@ Usare Microsoft Flow per automatizzare i flussi di lavoro nelle molte applicazio
 
 Consultare [questi modelli di Microsoft Flow](https://aka.ms/iotcentralflowtemplates) che connettono IoT Central ad altri servizi, quali le notifiche per dispositivi mobili e Microsoft Teams.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Un'applicazione con pagamento in base al consumo
 - Un account Microsoft personale, aziendale o dell'Istituto di istruzione da usare Microsoft Flow ([altre informazioni sui piani Microsoft Flow](https://aka.ms/microsoftflowplans))
@@ -157,7 +157,7 @@ Segue un flusso di lavoro di esempio che consente di eliminare un dispositivo qu
 
    ![Flusso di lavoro di eliminazione dispositivo di Microsoft Flow](./media/howto-add-microsoft-flow/flowdeletedevice.png)
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si incontrano difficoltà a creare una connessione al connettore di Azure IoT Central, leggere questi suggerimenti.
 

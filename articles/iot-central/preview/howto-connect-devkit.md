@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 7d8ed5ebde946134bc7e4779ec79c9ea853a6ef4
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 178f518ed7ab24fc0d3678f77ae75933a7163b58
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895189"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930139"
 ---
-# <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central
+# <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application-preview-features"></a>Connettere un dispositivo MXChip DevKit all'applicazione IoT Central di Azure (funzionalità di anteprima)
 
 Questo articolo illustra come connettere un dispositivo MXChip DevKit (DevKit) a un'applicazione IoT Central di Azure. Il dispositivo usa il modello di Plug and Play delle cose certificate per il dispositivo DevKit per configurare la connessione a IoT Central.
 
@@ -25,7 +25,7 @@ Questo articolo illustra come eseguire le operazioni seguenti:
 - Preparare il dispositivo e connetterlo all'applicazione IoT Central.
 - Visualizzare i dati di telemetria e le proprietà dal dispositivo in IoT Central.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare i passaggi descritti in questo articolo, sono necessarie le risorse seguenti:
 

@@ -18,19 +18,19 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f15f6480c2dc77fb1f6e229b62a0114f0f6fb735
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a8cf7b7004097ef5a4d915d8fdff60cc9606c5be
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802828"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927069"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inizializzare applicazioni client usando MSAL.NET
 Questo articolo descrive l'inizializzazione di applicazioni client pubbliche e riservate con Microsoft Authentication Library per .NET (MSAL.NET).  Per altre informazioni sui tipi di applicazioni client e sulle opzioni di configurazione dell'applicazione, vedere la [Panoramica](msal-client-applications.md).
 
 Con MSAL.NET 3. x, la modalità consigliata per creare un'istanza di un'applicazione consiste nell'usare i generatori di applicazioni: `PublicClientApplicationBuilder` e `ConfidentialClientApplicationBuilder`. Offrono un meccanismo potente per configurare l'applicazione dal codice, da un file di configurazione o persino combinando entrambi gli approcci.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di inizializzare un'applicazione, è prima necessario [registrarla](quickstart-register-app.md) in modo che l'app possa essere integrata con la piattaforma di identità Microsoft.  Dopo la registrazione, è possibile che siano necessarie le informazioni seguenti (disponibili nella portale di Azure):
 
 - ID client (una stringa che rappresenta un GUID)
@@ -101,7 +101,7 @@ Nei frammenti di codice che usano i generatori di applicazioni è possibile appl
 
 I modificatori che è possibile impostare in un client pubblico o in un generatore di applicazioni client riservate sono:
 
-|Parametro | Description|
+|Modificatore | DESCRIZIONE|
 |--------- | --------- |
 |override di `.WithAuthority()` 7 | Imposta l'autorità predefinita dell'applicazione su un'autorità di Azure AD, con la possibilità di scegliere il cloud di Azure, i destinatari, il tenant (ID tenant o nome di dominio) o fornire direttamente l'URI dell'autorità.|
 |`.WithAdfsAuthority(string)` | Imposta l'autorità predefinita dell'applicazione in modo che sia un'autorità ADFS.|
@@ -120,7 +120,7 @@ I modificatori che è possibile impostare in un client pubblico o in un generato
 
 I modificatori che è possibile impostare in un generatore di applicazioni client pubbliche in Novell. iOS sono:
 
-|Parametro | Description|
+|Modificatore | DESCRIZIONE|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Solo Novell. iOS**: imposta il gruppo di sicurezza della catena di chiavi iOS (per la persistenza della cache).|
 
@@ -128,7 +128,7 @@ I modificatori che è possibile impostare in un generatore di applicazioni clien
 
 I modificatori che è possibile impostare in un generatore di applicazioni client riservate sono:
 
-|Parametro | Description|
+|Modificatore | DESCRIZIONE|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Imposta il certificato che identifica l'applicazione con Azure AD.|
 |`.WithClientSecret(string clientSecret)` | Imposta il segreto client (password dell'app) che identifica l'applicazione con Azure AD.|

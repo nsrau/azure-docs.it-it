@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 59f2db8ec4dd8affe1c87ca2bb85a7ff7b8a4d7c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b073c4244d2a7abc7c2c066c3fad036f0caa5faa
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485392"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929536"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Data Science con Linux Data Science Virtual Machine in Azure
 
@@ -24,7 +24,7 @@ Le attività data science illustrate in questa procedura dettagliata seguono i p
 
 In questa procedura dettagliata viene analizzato il set di dati [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) . Spambase è un set di messaggi di posta elettronica contrassegnati come posta indesiderata o prosciutto (non posta indesiderata). Spambase contiene anche alcune statistiche sul contenuto dei messaggi di posta elettronica. Le statistiche vengono illustrate più avanti nella procedura dettagliata.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di poter usare un DSVM Linux, è necessario che siano soddisfatti i prerequisiti seguenti:
 
@@ -58,8 +58,8 @@ Quindi, concatenare i due file insieme:
 
 Il set di dati include diversi tipi di statistiche per ogni messaggio di posta elettronica:
 
-* Colonne come **word\_freq\_* Word*** indicano la percentuale di parole nel messaggio di posta elettronica che corrisponde a *Word*. Se, ad esempio, **word\_freq\_make** è **1**, l'1% di tutte le parole nel messaggio di posta elettronica è stato *creato*.
-* Colonne quali **char\_freq\_* char*** indicano la percentuale di tutti i caratteri nel messaggio di posta elettronica che sono di tipo *char*.
+* Colonne come **word\_freq\__Word_**  indicano la percentuale di parole nel messaggio di posta elettronica che corrisponde a *Word*. Se, ad esempio, **word\_freq\_make** è **1**, l'1% di tutte le parole nel messaggio di posta elettronica è stato *creato*.
+* Colonne quali **char\_freq\__char_**  indicano la percentuale di tutti i caratteri nel messaggio di posta elettronica che sono di tipo *char*.
 * **capital\_run\_length\_longest** è la lunghezza massima di una sequenza di lettere maiuscole.
 * **capital\_run\_length\_average** è la lunghezza media di tutte le sequenze di lettere maiuscole.
 * **capital\_run\_length\_total** è la lunghezza totale di tutte le sequenze di lettere maiuscole.
@@ -487,7 +487,7 @@ Per iniziare, aprire SQuirreL SQL dal menu **applicazioni** . Per configurare il
 1. Fare clic con il pulsante destro del mouse su **PostgreSQL** e scegliere **modifica driver**.
 1. Selezionare il **percorso della classe aggiuntivo** > **Aggiungi**.
 1. Per **nome file**immettere **/usr/share/java/jdbcdrivers/PostgreSQL-9.4.1208.jre6.jar**.
-1. Scegliere **Open**(Apri).
+1. Selezionare **Apri**.
 1. Selezionare **Elenca driver**. Per **nome classe**selezionare **org. PostgreSQL. driver**e quindi fare clic su **OK**.
 
 Per configurare la connessione al server locale:

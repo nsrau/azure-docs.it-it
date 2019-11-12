@@ -1,5 +1,5 @@
 ---
-title: Proteggere i tramite SSL
+title: Proteggere i servizi Web tramite SSL
 titleSuffix: Azure Machine Learning
 description: Informazioni su come abilitare HTTPS in modo da proteggere un servizio Web distribuito tramite Azure Machine Learning.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1455ec17898e82ed0f39fea66c44d2e9b4f57280
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f1021ad1983f78252d924a5d3cb674419732d66e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489552"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932049"
 ---
 # <a name="use-ssl-to-secure-a--through-azure-machine-learning"></a>Usare SSL per proteggere un tramite Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -71,7 +71,7 @@ Quando si richiede un certificato, è necessario fornire il nome di dominio comp
 
 ## <a id="enable"></a>Abilitare SSL e distribuire
 
-Per distribuire (o ridistribuire) il servizio con SSL abilitato, impostare il parametro *ssl_enabled* su "true" laddove applicabile. Impostare il parametro *ssl_certificate* sul valore del file del *certificato* . Impostare *ssl_key* sul valore del file di *chiave* .
+Per distribuire (o ridistribuire) il servizio con SSL abilitato, impostare il parametro *ssl_enabled* su "true" laddove applicabile. Impostare il parametro *ssl_certificate* sul valore del file del *certificato* . Impostare il *ssl_key* sul valore del file di *chiave* .
 
 ### <a name="deploy-on-aks-and-field-programmable-gate-array-fpga"></a>Distribuire su AKS e Field-Programmable Gate Array (FPGA)
 
@@ -83,11 +83,11 @@ Quando si esegue la distribuzione in AKS, è possibile creare un nuovo cluster A
 -  Se si crea un nuovo cluster, usare **[AksCompute. provisionining_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none-)** .
 - Se si connette un cluster esistente, usare **[AksCompute. attach_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Entrambi restituiscono un oggetto di configurazione con un metodo **enable_ssl** .
 
-Il metodo **enable_ssl** può usare un certificato fornito da Microsoft o da un certificato acquistato.
+Il metodo **enable_ssl** può utilizzare un certificato fornito da Microsoft o da un certificato acquistato.
 
-  * Quando si usa un certificato di Microsoft, è necessario usare il parametro *leaf_domain_label* . Questo parametro genera il nome DNS per il servizio. Il valore "MyServices", ad esempio, crea un nome di dominio "MyServices\<sei caratteri casuali >.\<azureregion >. cloudapp. Azure. com ", dove \<azureregion > è l'area che contiene il servizio. Facoltativamente, è possibile usare il parametro *overwrite_existing_domain* per sovrascrivere il *leaf_domain_label*esistente.
+  * Quando si usa un certificato di Microsoft, è necessario usare il parametro *leaf_domain_label* . Questo parametro genera il nome DNS per il servizio. Il valore "MyServices", ad esempio, crea un nome di dominio "MyServices\<sei caratteri casuali >.\<azureregion >. cloudapp. Azure. com ", dove \<azureregion > è l'area che contiene il servizio. Facoltativamente, è possibile usare il parametro *overwrite_existing_domain* per sovrascrivere la *leaf_domain_label*esistente.
 
-    Per distribuire (o ridistribuire) il servizio con SSL abilitato, impostare il parametro *ssl_enabled* su "true" laddove applicabile. Impostare il parametro *ssl_certificate* sul valore del file del *certificato* . Impostare *ssl_key* sul valore del file di *chiave* .
+    Per distribuire (o ridistribuire) il servizio con SSL abilitato, impostare il parametro *ssl_enabled* su "true" laddove applicabile. Impostare il parametro *ssl_certificate* sul valore del file del *certificato* . Impostare il *ssl_key* sul valore del file di *chiave* .
 
     > [!IMPORTANT]
     > Quando si usa un certificato di Microsoft, non è necessario acquistare un certificato o un nome di dominio personalizzato.
@@ -160,7 +160,7 @@ I certificati SSL scadono e devono essere rinnovati. Questa situazione si verifi
 
 ### <a name="update-a-microsoft-generated-certificate"></a>Aggiornare un certificato generato da Microsoft
 
-Se il certificato è stato originariamente generato da Microsoft (quando si usa *leaf_domain_label* per creare il servizio), usare uno degli esempi seguenti per aggiornare il certificato:
+Se il certificato è stato originariamente generato da Microsoft (quando si usa il *leaf_domain_label* per creare il servizio), usare uno degli esempi seguenti per aggiornare il certificato:
 
 **Usare l'SDK**
 
@@ -248,6 +248,6 @@ aks_target.update(update_config)
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Scopri come:
+È possibile passare agli argomenti seguenti:
 + [Utilizzare un modello di apprendimento automatico distribuito come](how-to-consume-web-service.md)
 + [Eseguire in modo sicuro gli esperimenti e l'inferenza all'interno di una rete virtuale di Azure](how-to-enable-virtual-network.md)

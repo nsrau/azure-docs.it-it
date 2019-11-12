@@ -16,12 +16,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38235e90ccf79cf1322ce0f26ed426d8c3a693cc
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 52e15aa62043ba394ae6e8cfe2cc7f27709c7d33
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847171"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927447"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -43,9 +43,18 @@ Download| [Scaricare Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=6
 Durante questo processo, il numero di versione della versione verrà visualizzato con una "X" nella posizione del numero di versione secondario, come in "1.3. X. 0", che indica che le note sulla versione di questo documento sono valide per tutte le versioni che iniziano con "1,3". Non appena è stato completato il processo di rilascio, il numero di versione di rilascio verrà aggiornato alla versione rilasciata più di recente e lo stato della versione verrà aggiornato a "rilasciato per il download e l'aggiornamento automatico".
 Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornamento automatico. Lo stato della versione indicherà se una versione sarà disponibile per l'aggiornamento automatico o solo per il download. Se l'aggiornamento automatico è stato abilitato nel server di Azure AD Connect, tale server eseguirà automaticamente l'aggiornamento per la versione più recente di Azure AD Connect, rilasciata per l'aggiornamento automatico. Si noti che non tutte le configurazioni di Azure AD Connect sono idonee per l'aggiornamento automatico. Seguire questo collegamento per altre informazioni sull'[aggiornamento automatico](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
+## <a name="14320"></a>1.4.32.0
+### <a name="release-status"></a>Stato della versione
+08/11/2019: rilasciato per il download. Non disponibile per l'aggiornamento automatico
+
+>[!IMPORTANT]
+>A causa di una modifica dello schema interno in questa versione di Azure AD Connect, se si gestiscono le impostazioni di configurazione della relazione di trust con ADFS usando MSOnline PowerShell, è necessario aggiornare il modulo MSOnline PowerShell alla versione 1.1.183.57 o successiva.
+### <a name="fixed-issues"></a>Problemi risolti
+
+Questa versione corregge un problema con i dispositivi Azure AD ibrido aggiunti a quelli esistenti. Questa versione contiene una nuova regola di sincronizzazione del dispositivo che corregge questo problema.
+Si noti che questa modifica della regola può causare l'eliminazione di dispositivi obsoleti dal Azure AD. Questo non è un problema, perché questi oggetti dispositivo non vengono usati da Azure AD durante l'autorizzazione dell'accesso condizionale. Per alcuni clienti, il numero di dispositivi che verranno eliminati tramite questa modifica della regola può superare la soglia di eliminazione. Se viene visualizzata l'eliminazione degli oggetti dispositivo in Azure AD superando la soglia di eliminazione dell'esportazione, è consigliabile consentire l'eliminazione delle eliminazioni. [Come consentire il flusso delle eliminazioni quando superano la soglia di eliminazione](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes)
+
 ## <a name="14250"></a>1.4.25.0
-
-
 
 ### <a name="release-status"></a>Stato della versione
 9/28/2019: rilasciata per l'aggiornamento automatico per selezionare i tenant. Non disponibile per il download.
@@ -465,12 +474,12 @@ Bloccare l'accesso all'account di Active Directory Domain Services implementando
 *   Rimuovere tutte le voci ACE nell'oggetto specifico, ad eccezione delle voci ACE specifiche di SELF. Le autorizzazioni predefinite devono rimanere inalterate per SELF.
 *   Assegnare le autorizzazioni specifiche seguenti:
 
-Tipo     | Name                          | Accesso               | Si applica a
+digitare     | Nome                          | Access               | Si applica a
 ---------|-------------------------------|----------------------|--------------|
 Consenti    | SYSTEM                        | Controllo completo         | Questo oggetto  |
 Consenti    | Enterprise Admins             | Controllo completo         | Questo oggetto  |
 Consenti    | Domain Admins                 | Controllo completo         | Questo oggetto  |
-Consenti    | Administrators                | Controllo completo         | Questo oggetto  |
+Consenti    | Amministratori:                | Controllo completo         | Questo oggetto  |
 Consenti    | Controller di dominio organizzazione | Contenuto elenco        | Questo oggetto  |
 Consenti    | Controller di dominio organizzazione | Leggi tutte le proprietà  | Questo oggetto  |
 Consenti    | Controller di dominio organizzazione | Autorizzazioni di lettura     | Questo oggetto  |
@@ -834,7 +843,7 @@ CBool(
  
 * L'editor delle regole di sincronizzazione è stato aggiornato in modo da usare Join (anziché Provision) come valore predefinito del tipo di collegamento durante la creazione di regole di sincronizzazione.
 
-### <a name="ad-fs-management"></a>Gestione di AD FS
+### <a name="ad-fs-management"></a>Gestione di AD FS.
 
 #### <a name="issues-fixed"></a>Problemi risolti
 
@@ -924,7 +933,7 @@ Servizio di sincronizzazione Azure AD Connect
 * È stato risolto un problema dell'aggiornamento di DirSync locale che non crea un profilo di esecuzione per il connettore di Azure AD.
 * È stato risolto un problema dell'interfaccia utente di Synchronization Service Manager che non risponde durante la configurazione del connettore LDAP generico.
 
-Gestione di AD FS
+Gestione di AD FS.
 * È stato risolto un problema della procedura guidata di Azure AD Connect che ha esito negativo se il nodo primario di AD FS è stato spostato in un altro server.
 
 Desktop SSO
@@ -964,7 +973,7 @@ Servizio di sincronizzazione Azure AD Connect
 * È stato risolto un problema che causava l'errore "l'immagine ha un ancoraggio diverso dall'immagine" da eseguire in un Azure AD Connect Server in modalità di gestione temporanea, dopo aver escluso temporaneamente un oggetto AD locale dalla sincronizzazione e averlo quindi incluso di nuovo per la sincronizzazione.
 * Risolto un problema che causava l'errore "The object located by DN is a phantom" (L'oggetto localizzato da DN è un fantasma) in un server Azure AD Connect in modalità di gestione temporanea, dopo aver escluso temporaneamente un oggetto AD locale dalla sincronizzazione e averlo nuovamente incluso.
 
-Gestione di AD FS
+Gestione di AD FS.
 * Risolto un problema per cui la procedura guidata di Azure AD Connect non aggiornava la configurazione di AD FS e non impostava le attestazioni corrette nel trust della relying party dopo aver configurato un ID di accesso alternativo.
 * Risolto un problema per cui la procedura guidata di Azure AD Connect non era in grado di gestire correttamente i server AD FS con account di servizio configurati usando il formato userPrincipalName invece del formato sAMAccountName.
 
@@ -981,7 +990,7 @@ Servizio di sincronizzazione Azure AD Connect
 * Il cmdlet Get-ADSyncScheduler restituisce ora una nuova proprietà booleana denominata SyncCycleInProgress. Se il valore restituito è true, significa che è in corso un ciclo di sincronizzazione pianificato.
 * La cartella di destinazione per archiviare i log di installazione e configurazione di Azure AD Connect è stata modificata da %localappdata%\AADConnect a %programdata%\AADConnect per migliorare l'accessibilità.
 
-Gestione di AD FS
+Gestione di AD FS.
 * Aggiunto il supporto per l'aggiornamento del certificato SSL Farm AD FS.
 * Aggiunto il supporto per la gestione di AD FS 2016.
 * È ora possibile specificare un gMSA (account del servizio gestito di gruppo) durante l'installazione di AD FS.
@@ -1226,7 +1235,7 @@ Il nome è stato modificato da Azure AD Sync ad Azure AD Connect.
 
 **Nuove funzionalità:**
 
-* Installazione mediante le [impostazioni rapide](how-to-connect-install-express.md)
+* [impostazioni rapide](how-to-connect-install-express.md)
 * È possibile [configurare la farm AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs)
 * È possibile [aggiornare da DirSync](how-to-dirsync-upgrade-get-started.md)
 * [Impedire eliminazioni accidentali](how-to-connect-sync-feature-prevent-accidental-deletes.md)
@@ -1328,4 +1337,4 @@ Data di rilascio: settembre 2014
 **Rilascio iniziale di Azure AD Sync.**
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

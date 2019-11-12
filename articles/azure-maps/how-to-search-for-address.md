@@ -1,5 +1,5 @@
 ---
-title: Come cercare un indirizzo usando il servizio di ricerca di Mappe di Azure | Microsoft Docs
+title: Trovare un indirizzo usando il servizio di ricerca di Azure Maps | Microsoft Docs
 description: Informazioni su come cercare un indirizzo usando il servizio di ricerca di Mappe di Azure
 author: walsehgal
 ms.author: v-musehg
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a41a811e9313f79c9c3165e02cb5eaa4353b65ab
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 9ce6459dd65c75c6fcff5591d4e4667e4b0c75fa
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914460"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928484"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Trovare un indirizzo usando il servizio di ricerca di Mappe di Azure
 
@@ -26,7 +26,7 @@ In questo articolo si apprenderà come:
 * Eseguire una [ricerca di indirizzi inversi](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) per cercare un indirizzo via
 * Cercare una traversa usando l' [API di ricerca inversa dell'indirizzo di ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per eseguire chiamate alle API del servizio Mappe sono necessari un account di Mappe e una chiave. Per informazioni sulla creazione di un account, seguire le istruzioni in [gestire l'account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) e seguire i passaggi in [ottenere la chiave primaria](./tutorial-search-location.md#getkey) per recuperare una chiave di sottoscrizione primaria per l'account.
 
@@ -46,11 +46,11 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     ![Ricerca fuzzy](./media/how-to-search-for-address/fuzzy_search_url.png)
 
-    | Parametro | Valore consigliato |
+    | . | Valore consigliato |
     |---------------|------------------------------------------------|
     | Metodo HTTP | GET |
     | URL richiesta | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
-    | Authorization | No Auth (Senza autenticazione) |
+    | Autorizzazione | No Auth (Senza autenticazione) |
 
     L'attributo **json** nel percorso URL determina il formato della risposta. In questo articolo viene usato json per motivi di semplicità d'uso e leggibilità. I formati di risposta disponibili sono inclusi nella definizione **Get Search Fuzzy** (Richiesta GET per la ricerca fuzzy) in [Maps Functional API reference](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) (Informazioni di riferimento sull'API funzionale di Mappe).
 
@@ -58,7 +58,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     ![Ricerca fuzzy](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Chiave | Value |
+    | Chiave | Valore |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<la chiave di Mappe di Azure\> |
@@ -72,7 +72,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 5. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Value |
+    | Chiave | Valore |
     |------------------|-------------------------|
     | countrySet | Stati Uniti |
   
@@ -84,7 +84,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     ![Ricerca fuzzy](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | Chiave | Value |
+    | Chiave | Valore |
     |-----|------------|
     | lat | 47.620525 |
     | lon | -122.349274 |
@@ -98,17 +98,17 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     ![Ricerca di indirizzi](./media/how-to-search-for-address/address_search_url.png)
   
-    | Parametro | Valore consigliato |
+    | . | Valore consigliato |
     |---------------|------------------------------------------------|
     | Metodo HTTP | GET |
     | URL richiesta | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) |
-    | Authorization | No Auth (Senza autenticazione) |
+    | Autorizzazione | No Auth (Senza autenticazione) |
 
 3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare come parametri di query o percorso nell'URL della richiesta:
   
     ![Ricerca di indirizzi](./media/how-to-search-for-address/address_search_params.png)
   
-    | Chiave | Value |
+    | Chiave | Valore |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<la chiave di Mappe di Azure\> |
@@ -125,7 +125,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 6. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Value |
+    | Chiave | Valore |
     |-----|------------|
     | typeahead | true |
 
@@ -139,17 +139,17 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
     ![URL di ricerca di indirizzi inversa](./media/how-to-search-for-address/reverse_address_search_url.png)
   
-    | Parametro | Valore consigliato |
+    | . | Valore consigliato |
     |---------------|------------------------------------------------|
     | Metodo HTTP | GET |
     | URL richiesta | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
-    | Authorization | No Auth (Senza autenticazione) |
+    | Autorizzazione | No Auth (Senza autenticazione) |
   
 3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare come parametri di query o percorso nell'URL della richiesta:
   
     ![Parametri di ricerca di indirizzi inversa](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | Chiave | Value |
+    | Chiave | Valore |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<la chiave di Mappe di Azure\> |
@@ -161,7 +161,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
 5. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Value |
+    | Chiave | Valore |
     |-----|------------|
     | number | true |
 
@@ -169,7 +169,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
 6. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Value |
+    | Chiave | Valore |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -177,7 +177,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 7. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Value |
+    | Chiave | Valore |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -185,7 +185,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 8. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Value |
+    | Chiave | Valore |
     |-----|------------|
     | roadUse | true |
 
@@ -199,15 +199,15 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
     ![Ricerca di strade secondarie inversa](./media/how-to-search-for-address/reverse_address_search_url.png)
   
-    | Parametro | Valore consigliato |
+    | . | Valore consigliato |
     |---------------|------------------------------------------------|
     | Metodo HTTP | GET |
     | URL richiesta | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
-    | Authorization | No Auth (Senza autenticazione) |
+    | Autorizzazione | No Auth (Senza autenticazione) |
   
 3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare come parametri di query o percorso nell'URL della richiesta:
   
-    | Chiave | Value |
+    | Chiave | Valore |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<la chiave di Mappe di Azure\> |

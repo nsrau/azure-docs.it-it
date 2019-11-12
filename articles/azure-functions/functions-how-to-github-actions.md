@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 483ac9380fa8d58f294112cb6c80e0393fa01589
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 486033ef4120d721458add7f23cdf9b78a44a388
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028988"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928360"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Recapito continuo tramite l'azione GitHub
 
@@ -27,13 +27,16 @@ Un flusso di lavoro viene definito da un file YAML (. yml) nel percorso `/.githu
 
 Per un flusso di lavoro di funzioni di Azure, il file è costituito da tre sezioni: 
 
-| `Section` | Attività |
+| Sezione | Attività |
 | ------- | ----- |
 | **Autenticazione** | <ol><li>Definire un'entità servizio.</li><li>Scaricare il profilo di pubblicazione.</li><li>Creare un segreto GitHub.</li></ol>|
 | **Build** | <ol><li>Configurare l'ambiente.</li><li>Compilare l'app per le funzioni.</li></ol> |
-| **Distribuire** | <ol><li>Distribuire l'app per le funzioni.</li></ol>|
+| **Distribuzione** | <ol><li>Distribuire l'app per le funzioni.</li></ol>|
 
-## <a name="create-a-service-principal"></a>Creare un'entità servizio
+> [!NOTE]
+> Non è necessario creare un'entità servizio se si decide di usare il profilo di pubblicazione per l'autenticazione.
+
+## <a name="create-a-service-principal"></a>Creare un’entità servizio
 
 È possibile creare un' [entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) usando il comando [AZ ad SP create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) nell'interfaccia della riga di comando di [Azure](/cli/azure/). È possibile eseguire questo comando usando [Azure cloud Shell](https://shell.azure.com) nel portale di Azure o selezionando il pulsante **prova** .
 
@@ -42,9 +45,6 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 ```
 
 In questo esempio, sostituire i segnaposto nella risorsa con l'ID sottoscrizione, il gruppo di risorse e il nome dell'app per le funzioni. L'output corrisponde alle credenziali di assegnazione di ruolo che consentono di accedere all'app per le funzioni. Copiare questo oggetto JSON, che è possibile usare per eseguire l'autenticazione da GitHub.
-
-> [!NOTE]
-> Non è necessario creare un'entità servizio se si decide di usare il profilo di pubblicazione per l'autenticazione.
 
 > [!IMPORTANT]
 > È sempre consigliabile concedere l'accesso minimo. Questo è il motivo per cui l'ambito nell'esempio precedente è limitato all'app per le funzioni specifica e non all'intero gruppo di risorse.
@@ -59,11 +59,11 @@ Copiare il contenuto del file.
 
 ## <a name="configure-the-github-secret"></a>Configurare il segreto di GitHub
 
-1. In [GitHub](https://github.com), esplorare il repository, selezionare **Impostazioni** > **segreti** > **aggiungere un nuovo segreto**.
+1. In [GitHub](https://github.com)esplorare il repository, selezionare **Impostazioni** > **Secrets** > **aggiungere un nuovo segreto**.
 
    ![Aggiungi segreto](media/functions-how-to-github-actions/add-secret.png)
 
-1. Utilizzare `AZURE_CREDENTIALS` per il **nome** e l'output del comando copiato per **valore**, se si seleziona **Aggiungi segreto**. Se si utilizza il profilo di pubblicazione, utilizzare `SCM_CREDENTIALS` per il **nome** e il contenuto del file per **valore**.
+1. Usare `AZURE_CREDENTIALS` per il **nome** e l'output del comando copiato per **valore**, se si seleziona **Aggiungi segreto**. Se si utilizza il profilo di pubblicazione, utilizzare `SCM_CREDENTIALS` per il **nome** e il contenuto del file per **valore**.
 
 GitHub è ora in grado di eseguire l'autenticazione all'app per le funzioni in Azure.
 
@@ -71,7 +71,7 @@ GitHub è ora in grado di eseguire l'autenticazione all'app per le funzioni in A
 
 La configurazione dell'ambiente può essere eseguita tramite una delle azioni di pubblicazione di installazione.
 
-|Linguaggio | Azione di installazione |
+|Lingua | Azione di installazione |
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
 |**Java**    | `actions/setup-java` |
@@ -200,13 +200,13 @@ Gli esempi seguenti illustrano la parte del flusso di lavoro che compila l'app p
 
 Per distribuire il codice in un'app per le funzioni, è necessario usare l'azione `Azure/functions-action`. Questa azione è costituita da due parametri:
 
-|Parametro |Spiegazione  |
+|. |Spiegazione  |
 |---------|---------|
 |**_Nome app_** | Obbligatorio Nome dell'app per le funzioni. |
 |_**nome slot**_ | Opzionale Nome dello slot di [distribuzione](functions-deployment-slots.md) in cui si desidera eseguire la distribuzione. Lo slot deve essere già definito nell'app per le funzioni. |
 
 
-Nell'esempio seguente viene usata la versione 1 del `functions-action`:
+Nell'esempio seguente viene utilizzata la versione 1 del `functions-action`:
 
 ```yaml
     - name: 'Run Azure Functions Action'

@@ -1,6 +1,6 @@
 ---
 title: Pianificare le attività di Container Registry di Azure
-description: Impostare i timer per eseguire un'attività di Container Registry di Azure in base a una pianificazione definita.
+description: Informazioni su come eseguire un'attività di Container Registry di Azure in base a una pianificazione definita impostando uno o più trigger timer
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: a4a1099d90b619be383d440067a692c51a2430ac
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 6272b5467aff10171814152eb4188554a22c7a51
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509061"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931461"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Eseguire un'attività ACR in base a una pianificazione definita
 
@@ -40,9 +40,9 @@ Per eseguire gli esempi in questo articolo, è possibile usare l'Azure Cloud She
 
 ## <a name="create-a-task-with-a-timer-trigger"></a>Creare un'attività con un trigger timer
 
-Quando si crea un'attività con il comando [AZ ACR task create][az-acr-task-create] , è possibile aggiungere facoltativamente un trigger timer. Aggiungere il `--schedule` parametro e passare un'espressione cron per il timer.
+Quando si crea un'attività con il comando [AZ ACR task create][az-acr-task-create] , è possibile aggiungere facoltativamente un trigger timer. Aggiungere il parametro `--schedule` e passare un'espressione cron per il timer.
 
-Come semplice esempio, il comando seguente attiva l'esecuzione dell' `hello-world` immagine dall'hub Docker ogni giorno alle 21:00 UTC. L'attività viene eseguita senza un contesto del codice sorgente.
+Come semplice esempio, il comando seguente attiva l'esecuzione dell'immagine `hello-world` dall'hub Docker ogni giorno alle 21:00 UTC. L'attività viene eseguita senza un contesto del codice sorgente.
 
 ```azurecli
 az acr task create \
@@ -170,11 +170,11 @@ Le attività ACR usano la libreria [NCronTab](https://github.com/atifaziz/NCront
 Il fuso orario utilizzato con le espressioni cron è Coordinated Universal Time (UTC). Le ore sono in formato 24 ore.
 
 > [!NOTE]
-> Le attività ACR non supportano il `{second}` campo `{year}` o nelle espressioni cron. Se si copia un'espressione cron usata in un altro sistema, assicurarsi di rimuovere i campi, se usati.
+> Le attività ACR non supportano il campo `{second}` o `{year}` nelle espressioni cron. Se si copia un'espressione cron usata in un altro sistema, assicurarsi di rimuovere i campi, se usati.
 
 Ogni campo può avere uno dei tipi di valori seguenti:
 
-|Type  |Esempio  |Quando viene attivato  |
+|digitare  |Esempio  |Quando viene attivato  |
 |---------|---------|---------|
 |Valore specifico |<nobr>`"5 * * * *"`</nobr>|ogni ora a 5 minuti dopo l'ora|
 |Tutti i valori (`*`)|<nobr>`"* 5 * * *"`</nobr>|ogni minuto dell'ora inizia 5:00 UTC (60 volte al giorno)|
@@ -201,7 +201,7 @@ Ogni campo può avere uno dei tipi di valori seguenti:
 
 Per un esempio di come usare un'attività pianificata per pulire i repository in un registro, vedere [eliminare automaticamente le immagini da un registro contenitori di Azure](container-registry-auto-purge.md).
 
-Per esempi di attività avviate da commit del codice sorgente o aggiornamenti di immagini di base, vedere la serie di esercitazioni sulle [attività di ACR](container-registry-tutorial-quick-task.md).
+Per esempi di attività avviate da commit del codice sorgente o aggiornamenti di immagini di base, vedere la [serie di esercitazioni sulle attività di ACR](container-registry-tutorial-quick-task.md).
 
 
 

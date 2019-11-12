@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ab2180c54f07ff5009e2c57d8522f2eb0b81aad
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c0a73f5257bf763633052aab89f92ea0e5d5c000
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718378"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927107"
 ---
 # <a name="authentication-basics"></a>Nozioni di base sull'autenticazione
 
@@ -74,7 +74,7 @@ Per informazioni più dettagliate sulle attestazioni, vedere token di [accesso](
 
 I token sono validi solo per un periodo di tempo limitato. In genere il servizio token di protezione fornisce una coppia di token: un token di accesso per accedere all'applicazione o alla risorsa protetta e un token di aggiornamento usato per aggiornare il token di accesso quando il token di accesso è prossimo alla scadenza. 
 
-I token di accesso vengono passati a un'API Web come bearer token nell'intestazione `Authenticate`. Un'app può fornire un token di aggiornamento al servizio token di accesso e, se l'accesso dell'utente all'app non è stato revocato, otterrà un nuovo token di accesso e un nuovo token di aggiornamento. Questo è il modo in cui viene gestito lo scenario di un utente che lascia l'organizzazione. Quando il servizio token di accesso riceve il token di aggiornamento, non emette un altro token di accesso valido se l'utente non è più autorizzato.
+I token di accesso vengono passati a un'API Web come bearer token nell'intestazione `Authorization`. Un'app può fornire un token di aggiornamento al servizio token di accesso e, se l'accesso dell'utente all'app non è stato revocato, otterrà un nuovo token di accesso e un nuovo token di aggiornamento. Questo è il modo in cui viene gestito lo scenario di un utente che lascia l'organizzazione. Quando il servizio token di accesso riceve il token di aggiornamento, non emette un altro token di accesso valido se l'utente non è più autorizzato.
 
 ## <a name="application-model"></a>Modello di applicazione
 

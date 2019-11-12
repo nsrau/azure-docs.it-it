@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 0708b1dd2d272757949d014d768c1da649b50146
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 76ff8a63c2fbda3ddbaed794d24f7adb66a4dd95
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889689"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930367"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Elaborazione dati e funzioni definite dall'utente
 
@@ -97,7 +97,7 @@ I matcher definiscono un set di condizioni che valutano quali azioni vengono ese
 
 Una funzione definita dall'utente è una funzione personalizzata eseguita all'interno di un ambiente di Gemelli digitali di Azure isolato. Le funzioni definite dall'utente hanno accesso al messaggio di telemetria del sensore non elaborato al momento della ricezione. Hanno inoltre accesso al grafico spaziale e al servizio dispatcher. Dopo che la funzione definita dall'utente viene registrata in un grafico, deve venire creato un matcher (descritto in dettaglio [sopra](#matchers)) per specificare quando viene eseguita la funzione. Ad esempio, quando Gemelli digitali di Azure riceve nuovi dati di telemetria da un sensore specifico, la funzione definita dall'utente associata può calcolare una media mobile delle ultime letture del sensore.
 
-Le funzioni definite dall'utente possono essere scritte in JavaScript. I metodi helper interagiscono con il grafico nell'ambiente di esecuzione definito dall'utente. Gli sviluppatori possono eseguire frammenti di codice personalizzati sui messaggi di telemetria dei sensori. Tra gli esempi sono inclusi:
+Le funzioni definite dall'utente possono essere scritte in JavaScript. I metodi helper interagiscono con il grafico nell'ambiente di esecuzione definito dall'utente. Gli sviluppatori possono eseguire frammenti di codice personalizzati sui messaggi di telemetria dei sensori. Alcuni esempi:
 
 - Impostare la lettura del sensore direttamente nell'oggetto del sensore all'interno del grafico.
 - Eseguire un'azione in base a letture del sensore diverse all'interno di uno spazio nel grafico.
@@ -106,7 +106,7 @@ Le funzioni definite dall'utente possono essere scritte in JavaScript. I metodi 
 
 Per altre informazioni, vedere [Come usare le funzioni definite dall'utente](./how-to-user-defined-functions.md).
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>esempi
 
 Il [repository GitHub per l'esempio C# di Gemelli digitali](https://github.com/Azure-Samples/digital-twins-samples-csharp/) contiene alcuni esempi delle funzioni definite dall'utente:
 - [Questa funzione](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) cerca i valori relativi ad anidride carbonica, movimento e temperatura per determinare se una stanza è disponibile con questi valori compresi nell'intervallo. Le [esercitazioni per Gemelli digitali](tutorial-facilities-udf.md) illustrano più in dettaglio questa funzione. 

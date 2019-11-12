@@ -1,5 +1,5 @@
 ---
-title: Connettere un'applicazione client Node.js generica ad Azure IoT Central | Microsoft Docs
+title: Connettere un'app client Node. js generica ad Azure IoT Central | Microsoft Docs
 description: Come sviluppatore di dispositivi, come connettere un dispositivo node. js generico all'applicazione IoT Central di Azure.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 76ab6a229de14af1e3808326c62a7bdbbd188e81
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 87dbd7ab4d75150d09a8c26db50ce2e3b1a085db
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951367"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930248"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Connettere un'applicazione client generica all'applicazione Azure IoT Central (Node.js)
 
@@ -36,11 +36,11 @@ Nell'applicazione IoT Central di Azure è necessario un modello di dispositivo c
 
 Aggiungere i dati di telemetria seguenti nella pagina **misure** :
 
-| Nome visualizzato | Nome campo  | Unità | Min | Max | Cifre decimali |
+| Nome visualizzato | Nome campo  | Unità | Min | max | Cifre decimali |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | Temperatura  | temperatura | F     | 60  | 110 | 0              |
 | Umidità     | umidità    | %     | 0   | 100 | 0              |
-| Pressure (Pressione)     | pressure    | kPa   | 80  | 110 | 0              |
+| Pressione     | pressure    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
 > Il tipo di dati della misura telemetrica è un numero in virgola mobile.
@@ -53,7 +53,7 @@ Aggiungere lo stato seguente nella pagina **misure** :
 
 | Nome visualizzato | Nome campo  | Valore 1 | Nome visualizzato | Valore 2 | Nome visualizzato |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
-| Modalità ventola     | fanmode     | 1       | Running      | 0       | Arrestata      |
+| Modalità ventola     | fanmode     | 1       | In esecuzione      | 0       | Stopped      |
 
 > [!NOTE]
 > Il tipo di dati della misura dello stato è di tipo stringa.
@@ -64,9 +64,9 @@ Immettere nel modello di dispositivo i nomi dei campi esattamente come sono visu
 
 Aggiungere l'evento seguente nella pagina **misure** :
 
-| Nome visualizzato | Nome campo  | Severity |
+| Nome visualizzato | Nome campo  | Gravità |
 | ------------ | ----------- | -------- |
-| Surriscaldamento  | overheat    | Errore    |
+| Surriscaldamento  | overheat    | Tipi di errore    |
 
 > [!NOTE]
 > Il tipo di dati della misura dell'evento è di tipo stringa.
@@ -77,7 +77,7 @@ Aggiungere la misurazione percorso seguente nella pagina **misure** :
 
 | Nome visualizzato | Nome campo  |
 | ------------ | ----------- |
-| Località     | location    |
+| Location     | location    |
 
 Il tipo di dati di misurazione della posizione è costituito da due numeri a virgola mobile per longitudine e latitudine e da un numero a virgola mobile facoltativo per l'altitudine.
 
@@ -94,11 +94,11 @@ Aggiungere le seguenti proprietà del dispositivo nella pagina delle **Propriet�
 
 Immettere nel modello di dispositivo i nomi dei campi esattamente come sono visualizzati nella tabella. Se i nomi dei campi non corrispondono ai nomi delle proprietà nel codice del dispositivo corrispondente, le proprietà non possono essere visualizzate nell'applicazione.
 
-### <a name="settings"></a>Impostazioni
+### <a name="settings"></a>Settings
 
 Aggiungere le seguenti impostazioni di **numero** nella pagina **Impostazioni** :
 
-| Nome visualizzato    | Nome campo     | Unità | Decimali | Min | Max  | Initial |
+| Nome visualizzato    | Nome campo     | Unità | Decimali | Min | max  | Initial |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Velocità della ventola       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | Imposta temperatura | setTemperature | F     | 0        | 20  | 200  | 80      |
@@ -111,13 +111,13 @@ Aggiungere il comando seguente nella pagina **comandi** :
 
 | Nome visualizzato    | Nome campo     | Timeout predefinito | Tipo di dati |
 | --------------- | -------------- | --------------- | --------- |
-| Conto alla rovescia       | conto alla rovescia      | 30              | d'acquisto    |
+| Conto alla rovescia       | Conto alla rovescia      | 30              | number    |
 
 Aggiungere il campo di input seguente al comando Countdown:
 
-| Nome visualizzato    | Nome campo     | Tipo di dati | Value |
+| Nome visualizzato    | Nome campo     | Tipo di dati | Valore |
 | --------------- | -------------- | --------- | ----- |
-| Conteggio da      | countFrom      | d'acquisto    | 10    |
+| Conteggio da      | countFrom      | number    | 10    |
 
 Immettere i nomi dei campi esattamente come illustrato nelle tabelle nel modello di dispositivo. Se i nomi dei campi non corrispondono ai nomi delle proprietà nel codice del dispositivo corrispondente, il dispositivo non è in grado di elaborare il comando.
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 55b59802116eb10d2e7eeb3b13ecb3da2d475c6d
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: acc64486ac8bd15a9abab1f2010ea56b752a1e86
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906983"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927677"
 ---
 # <a name="deploy-farmbeats"></a>Distribuire FarmBeats
 
@@ -60,8 +60,8 @@ Seguire questa procedura per creare un'offerta Azure FarmBeats nel Marketplace:
 1. Accedere al portale di Azure e selezionare l'account nell'angolo in alto a destra e passare al tenant di Azure AD in cui si vuole distribuire Microsoft Azure FarmBeats.
 2. Azure FarmBeats è disponibile in Azure Marketplace. Nella pagina Marketplace selezionare "Get it Now".
 3. Selezionare Crea e immettere le informazioni seguenti:
-  - nome della sottoscrizione.
-  - un nome del gruppo di risorse esistente (solo gruppo di risorse vuoto) o creare un nuovo gruppo di risorse per la distribuzione di Azure FarmBeats. Prendere nota di questo gruppo di risorse nelle sezioni successive.
+    - nome della sottoscrizione.
+    - un nome del gruppo di risorse esistente (solo gruppo di risorse vuoto) o creare un nuovo gruppo di risorse per la distribuzione di Azure FarmBeats. Prendere nota di questo gruppo di risorse nelle sezioni successive.
 4. Area in cui si vuole installare Azure FarmBeats. Attualmente FarmBeats le aree seguenti: Stati Uniti centrali, Europa occidentale, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti occidentali, Asia sudorientale, Stati Uniti orientali, Australia orientale, Stati Uniti occidentali 2.
 5. Selezionare **OK**.
 Viene visualizzata la pagina Condizioni per l'utilizzo. Esaminare le condizioni standard del Marketplace oppure selezionare il collegamento ipertestuale per esaminare le condizioni per l'utilizzo.
@@ -131,7 +131,7 @@ Per eseguire lo script di registrazione dell'applicazione Azure AD, attenersi al
 
 Come parte dell'installazione, creare un file input. JSON come indicato di seguito:
 
-    ```
+```json
     {  
        "sku":"both",
        "subscriptionId":"da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx",
@@ -144,7 +144,7 @@ Come parte dell'installazione, creare un file input. JSON come indicato di segui
        "notificationEmailAddress":"dummy@yourorg.com",
        "updateIfExists":true
     }
-    ```
+```
 
 Questo file è il file di input per Azure Cloud Shell e i parametri i cui valori vengono usati durante l'installazione. Tutti i parametri in JSON devono essere sostituiti con valori appropriati o rimossi. Se rimosso, il programma di installazione richiederà l'utente durante l'installazione
 
@@ -210,9 +210,9 @@ Input JSON di esempio:
 4. Passare alla Home directory in cloud Shell. Per impostazione predefinita, è/Home/<username>
 5. Digitare o incollare il comando seguente nella Cloud Shell. Assicurarsi di modificare il percorso di input. File JSON e premere INVIO.
 
-      ```azurepowershell-interactive
+   ```bash
       wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
-     ```
+    ```
      Il programma di installazione scarica automaticamente tutte le dipendenze e compila il deployer. Verrà richiesto di accettare il contratto di licenza con l'utente finale (EULA) di Azure FarmBeats.
 
      - Immettere "Y" Se si accettano e si procederà al passaggio successivo.
@@ -266,7 +266,7 @@ Seguire i passaggi rimanenti:
 4. Passare alla Home directory in cloud Shell. Per impostazione predefinita, è/Home/<username>
 5. Digitare o incollare il comando seguente nella Cloud Shell. Assicurarsi di modificare il percorso di input. File JSON e premere INVIO.
 
-    ```azurepowershell-interactive
+    ```bash
     wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 
@@ -324,7 +324,7 @@ I passaggi per l'aggiornamento sono simili alla prima installazione. Seguire que
 5. Caricare il file input. JSON in Azure Cloud Shell.
 6. Digitare o incollare i due comandi seguenti nel Cloud Shell. Assicurarsi di modificare il percorso del file input. JSON e premere INVIO.
 
-    ```azurepowershell-interactive
+    ```bash
     wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 Seguire le istruzioni visualizzate:

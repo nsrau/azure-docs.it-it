@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/04/2017
-ms.openlocfilehash: 28881403e4938376cc1912227bdff51aa5f069cf
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 61bd5898c494018a2bacbd894d4dc2aac97f53b4
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817378"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928409"
 ---
 # <a name="how-do-i--in-application-insights"></a>Cosa fare in Application Insights?
 ## <a name="get-an-email-when-"></a>Per ricevere un messaggio di posta elettronica quando...
@@ -72,14 +72,14 @@ Alcune informazioni da considerare:
 [Usare PowerShell per creare nuovi avvisi](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Usare PowerShell per gestire Application Insights
-* [Creare nuove risorse](../../azure-monitor/app/powershell-script-create-resource.md)
+* [Creare nuove risorse](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Creare nuovi avvisi](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Separare la telemetria da diverse versioni
 
-* Più ruoli in un'app: usare una singola risorsa Application Insights e filtrare in [cloud_Rolename](../../azure-monitor/app/app-map.md).
+* Più ruoli in un'app: usare una singola risorsa di Application Insights e filtrare su [cloud_Rolename](../../azure-monitor/app/app-map.md).
 * Separazione di sviluppo, test e versioni di rilascio: usare diverse risorse di Application Insights. Preleva le chiavi di strumentazione da Web. config. [Altre informazioni](../../azure-monitor/app/separate-resources.md)
-* Creazione di rapporti sulle versioni di compilazione: aggiungere una proprietà usando un inizializzatore di telemetria. [Ulteriori informazioni](../../azure-monitor/app/separate-resources.md)
+* Creazione di rapporti sulle versioni di compilazione: aggiungere una proprietà usando un inizializzatore di telemetria. [Altre informazioni](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Monitorare i server back-end e le app desktop
 [Usare il modulo di Windows Server SDK](../../azure-monitor/app/windows-desktop.md).
@@ -91,18 +91,18 @@ Alcune informazioni da considerare:
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Dashboard con dati provenienti da altre fonti e Application Insights
 * [Esportare dati di telemetria in Power BI](../../azure-monitor/app/export-power-bi.md ).
 
-Oppure
+oppure
 
 * Usare SharePoint come dashboard, dove i dati vengono visualizzati in Web part di SharePoint. [Usare l'esportazione continua e l'analisi dei flussi per eseguire l'esportazione in SQL](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md).  Usare PowerView per esaminare il database e creare una Web part di SharePoint per PowerView.
 
 <a name="search-specific-users"></a>
 
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>Filtrare gli utenti anonimi o autenticati
-Se gli utenti effettuano l'accesso, è possibile impostare l' [ID utente autenticato](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). Non viene eseguita automaticamente.
+Se gli utenti effettuano l'accesso, è possibile impostare l' [ID utente autenticato](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). Questa operazione non viene eseguita automaticamente.
 
 È quindi possibile:
 
-* Eseguire ricerche in base a ID utente specifici
+* Cerca in ID utente specifici
 
 ![](./media/how-do-i/110-search.png)
 
@@ -114,12 +114,12 @@ Se gli utenti effettuano l'accesso, è possibile impostare l' [ID utente autenti
 Creare un [filtro](../../azure-monitor/app/api-filtering-sampling.md#filtering). Consente di modificare o filtrare la telemetria prima che venga inviata dall'app ad Application Insights.
 
 ## <a name="list-specific-users-and-their-usage"></a>Elencare utenti specifici e il relativo uso
-Se si desidera [cercare utenti specifici](#search-specific-users), è possibile impostare l'[ID dell'utente autenticato](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
+Se si vuole solo [cercare utenti specifici](#search-specific-users), è possibile impostare l' [ID utente autenticato](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
 
 Se si desidera un elenco di utenti con i dati quali, ad esempio, le pagine visualizzate o la frequenza di accesso, sono disponibili due opzioni:
 
-* [Impostare l'ID dell'utente autenticato](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), [eseguire l'esportazione in un database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) e usare gli strumenti appropriati per analizzare i dati utente.
-* Se si dispone solo di un numero limitato di utenti, inviare gli eventi o le metriche personalizzati usando i dati di interesse quali, ad esempio, il valore della metrica o il nome dell'evento, quindi impostando l'ID utente come proprietà. Per analizzare le visualizzazioni di pagina, sostituire la chiamata standard JavaScript trackPageView. Per analizzare i dati di telemetria sul lato server, usare un inizializzatore di telemetria per aggiungere l'ID utente a tutti i dati di telemetria del server. È quindi possibile filtrare e segmentare le metriche e le ricerche in base all'ID utente.
+* [Imposta l'ID utente autenticato](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), [Esporta in un database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) e usa gli strumenti appropriati per analizzare i dati utente.
+* Se si dispone solo di un numero limitato di utenti, inviare metriche o eventi personalizzati, usando i dati di interesse come valore della metrica o il nome dell'evento e impostando l'ID utente come proprietà. Per analizzare le visualizzazioni di pagina, sostituire la chiamata standard JavaScript trackPageView. Per analizzare i dati di telemetria lato server, usare un inizializzatore di telemetria per aggiungere l'ID utente a tutti i dati di telemetria del server. È quindi possibile filtrare e segmentare le metriche e le ricerche nell'ID utente.
 
 ## <a name="reduce-traffic-from-my-app-to-application-insights"></a>Ridurre il traffico dall'app ad Application Insights
 * In [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)disabilitare tutti i moduli non necessari, come gli agenti di raccolta del contatore delle prestazioni.

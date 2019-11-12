@@ -1,6 +1,6 @@
 ---
-title: Connettere un dispositivo Windows IoT Core all'applicazione Azure IoT Central | Microsoft Docs
-description: Informazioni su come connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central in qualità di sviluppatore di dispositivi.
+title: Connettere Windows Internet core all'applicazione IoT Central di Azure | Microsoft Docs
+description: Informazioni su come connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central nello sviluppo di dispositivi.
 author: miriambrus
 ms.author: miriamb
 ms.date: 08/22/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d880130e114b2bd3e4f978c2ae3fc7bacf0648c4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 43e99c54249738436f24369ed3525e78ff971a12
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953902"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930198"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo Windows IoT Core all'applicazione Azure IoT Central
 
@@ -90,7 +90,7 @@ Dopo alcuni minuti, è possibile visualizzare i dati di telemetria dal dispositi
 Il [portale per dispositivi Windows](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) include gli strumenti che è possibile usare per risolvere i problemi relativi al dispositivo:
 
 - La pagina **App Manager** consente di controllare le app in esecuzione nel dispositivo.
-- Se non si dispone di un monitoraggio connesso al dispositivo, è possibile usare la pagina **Impostazioni dispositivo** per acquisire screenshot dal dispositivo. ad esempio:
+- Se non si dispone di un monitoraggio connesso al dispositivo, è possibile usare la pagina **Impostazioni dispositivo** per acquisire screenshot dal dispositivo. Ad esempio:
 
     ![Screenshot dell'app](media/howto-connect-windowsiotcore/iot-hub-foreground-client.png)
 
@@ -110,7 +110,7 @@ Un'applicazione creata dal modello di applicazione **Sample Devkits** include un
 | temp           | °C     | -40     | 120     | 0              |
 | pressure       | hPa    | 260     | 1260    | 0              |
 
-### <a name="settings"></a>Impostazioni
+### <a name="settings"></a>Settings
 
 Impostazioni numeriche
 
@@ -118,12 +118,12 @@ Impostazioni numeriche
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Velocità della ventola    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Proprietà
 
-| Type            | Nome visualizzato | Nome campo | Tipo di dati |
+| digitare            | Nome visualizzato | Nome campo | Tipo di dati |
 | --------------- | ------------ | ---------- | --------- |
-| Proprietà dispositivo | Numero stampo   | dieNumber  | d'acquisto    |
-| Testo            | Località     | location   | N/D       |
+| Proprietà dispositivo | Numero stampo   | dieNumber  | number    |
+| Text            | Location     | location   | N/D       |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

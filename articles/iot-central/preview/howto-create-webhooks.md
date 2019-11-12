@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 85dbf773a27600fddf8fe7e5570ff332241f0ebc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d1f99be5f21cbf8f1dcfe4a32595a639d3760494
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894955"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929942"
 ---
-# <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Creare webhook per le regole in Azure IoT Central
+# <a name="create-webhook-actions-on-rules-in-azure-iot-central-preview-features"></a>Creare azioni webhook sulle regole in IoT Central di Azure (funzionalità di anteprima)
 
 *Questo argomento è rivolto ai responsabili della compilazione e agli amministratori.*
 

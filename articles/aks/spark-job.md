@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: c4fca9b8f4c8a01124074396985b1ec3f1c896c6
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 5ecfa1853479c1cdc705a1a465a1de6318917a72
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675155"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929004"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Esecuzione di processi Apache Spark in servizio Azure Kubernetes
 
 [Apache Spark][apache-spark] è un motore rapido per l'elaborazione di dati su larga scala. A partire dalla [versione Spark 2.3.0][spark-latest-release], Apache Spark supporta l'integrazione nativa con i cluster Kubernetes. Il servizio Azure Kubernetes è un ambiente Kubernetes gestito in esecuzione in Azure. Questo documento descrive la preparazione e l'esecuzione di processi Apache Spark in un cluster del servizio Azure Kubernetes.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare la procedura descritta in questo articolo è necessario quanto segue.
 
@@ -49,7 +49,7 @@ Creare un'entità servizio per il cluster. Al termine della creazione, sarà nec
 az ad sp create-for-rbac --name SparkSP
 ```
 
-Creare il cluster AKS con nodi di dimensioni `Standard_D3_v2` e valori di appId e password passati come parametri di entità servizio e client-Secret.
+Creare il cluster AKS con nodi di dimensioni `Standard_D3_v2`e valori di appId e password passati come parametri di entità servizio e client-Secret.
 
 ```azurecli
 az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
@@ -322,6 +322,7 @@ Quando si esegue il processo, anziché indicare un URL JAR remoto, è possibile 
     --name spark-pi \
     --class org.apache.spark.examples.SparkPi \
     --conf spark.executor.instances=3 \
+    --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
     --conf spark.kubernetes.container.image=<spark-image> \
     local:///opt/spark/work-dir/<your-jar-name>.jar
 ```

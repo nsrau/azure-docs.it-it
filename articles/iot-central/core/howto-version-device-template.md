@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulle versioni dei modelli di dispositivo per le app Azure IoT Central | Microsoft Docs
+title: Controllo delle versioni dei modelli di dispositivo per app IoT Central di Azure | Microsoft Docs
 description: Eseguire iterazioni con i modelli di dispositivo creando nuove versioni, senza determinare conseguenze per i dispositivi collegati
 author: sandeeppujar
 ms.author: sandeepu
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8d4e3b304000113e7ecbf748767780a3fcf17bb3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: feaa8abcb6635573b3680b77befa5ccb462ec73a
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952602"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930119"
 ---
 # <a name="create-a-new-device-template-version"></a>Creare una nuova versione di un modello di dispositivo
 
@@ -42,7 +42,7 @@ L'elenco seguente descrive le azioni dell'utente che potrebbero richiedere una n
     * Eliminazione di una proprietà facoltativa
     * Modifica del nome di campo di una proprietà, nome di campo che viene usato dai dispositivi per inviare messaggi.
     * Modifica di una proprietà facoltativa in obbligatoria
-*  Impostazioni
+*  Settings
     * Aggiunta o eliminazione di un'impostazione
     * Modifica del nome di campo di un'impostazione, nome di campo utilizzato per inviare e ricevere messaggi dai dispositivi.
 

@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/06/2019
-ms.openlocfilehash: 178c60d82c8337987e9858a409fcdef7063c9559
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 743007d3636516a39dd36caf3d44d3edb650c030
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684906"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929531"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio di Azure Machine Learning
 
@@ -27,7 +27,7 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 
 ### <a name="amlcomputejobevents-table"></a>Tabella AmlComputeJobEvents
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:---|
 | TimeGenerated | Ora di generazione della voce di log |
 | OperationName | Nome dell'operazione associata all'evento del log |
@@ -56,27 +56,27 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 
 ### <a name="amlcomputeclusterevents-table"></a>Tabella AmlComputeClusterEvents
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | TimeGenerated | Ora di generazione della voce di log |
 | OperationName | Nome dell'operazione associata all'evento del log |
 | Categoria | Nome dell'evento del log, AmlComputeClusterNodeEvent |
 | ProvisioningState | Stato del provisioning del cluster |
 | ClusterName | Nome del cluster |
-| clusterType | Tipo di cluster |
+| ClusterType | Tipo di cluster |
 | CreatedBy | Utente che ha creato il cluster |
 | CoreCount | Conteggio dei core nel cluster |
-| vmSize | Dimensioni della macchina virtuale del cluster |
+| VmSize | Dimensioni della macchina virtuale del cluster |
 | VmPriority | Priorità dei nodi creati all'interno di un cluster dedicato/LowPriority |
 | ScalingType | Tipo di ridimensionamento manuale/automatico del cluster |
 | InitialNodeCount | Numero iniziale di nodi del cluster |
 | MinimumNodeCount | Numero minimo di nodi del cluster |
 | MaximumNodeCount | Numero massimo di nodi del cluster |
 | NodeDeallocationOption | Come deallocare il nodo |
-| Editore | Server di pubblicazione del tipo di cluster |
+| Autore | Server di pubblicazione del tipo di cluster |
 | Offerta | Offerta con cui viene creato il cluster |
 | Sku | SKU del nodo/VM creato nel cluster |
-| Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |
+| Version | Versione dell'immagine usata durante la creazione del nodo o della VM |
 | SubnetId | SubnetId del cluster |
 | AllocationState | Stato di allocazione cluster |
 | CurrentNodeCount | Numero corrente di nodi del cluster |
@@ -99,20 +99,20 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 
 ### <a name="amlcomputeclusternodeevents-table"></a>Tabella AmlComputeClusterNodeEvents
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | TimeGenerated | Ora di generazione della voce di log |
 | OperationName | Nome dell'operazione associata all'evento del log |
 | Categoria | Nome dell'evento del log, AmlComputeClusterNodeEvent |
 | ClusterName | Nome del cluster |
 | NodeId | ID del nodo del cluster creato |
-| vmSize | Dimensioni della macchina virtuale del nodo |
+| VmSize | Dimensioni della macchina virtuale del nodo |
 | VmFamilyName | Famiglia di macchine virtuali a cui appartiene il nodo |
 | VmPriority | Priorità del nodo creato/LowPriority dedicato |
-| Editore | Autore dell'immagine della macchina virtuale, ad esempio Microsoft-dsvm |
+| Autore | Autore dell'immagine della macchina virtuale, ad esempio Microsoft-dsvm |
 | Offerta | Offerta associata alla creazione della macchina virtuale |
 | Sku | SKU del nodo o della macchina virtuale creata |
-| Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |
+| Version | Versione dell'immagine usata durante la creazione del nodo o della VM |
 | ClusterCreationTime | Ora di creazione del cluster |
 | ResizeStartTime | Ora di inizio/discesa della scalabilità del cluster |
 | ResizeEndTime | Ora di fine della scalabilità verticale del cluster |
@@ -122,13 +122,13 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 | StartTaskEndTime | Ora di fine dell'attività assegnata a un nodo |
 | TotalE2ETimeInSeconds | Tempo totale nodo attivo |
 
-### <a name="metrics"></a>Metriche
+### <a name="metrics"></a>Metrica
 
 Le tabelle seguenti elencano le metriche della piattaforma raccolte per Azure Machine Learning tutte le metriche vengono archiviate nello spazio dei nomi **Azure machine learning area di lavoro del servizio**.
 
 **Modello**
 
-| Modello | Unità | Descrizione |
+| Metrica | Unità | DESCRIZIONE |
 | ----- | ----- | ----- |
 | Distribuzione del modello non riuscita | Numero | Numero di distribuzioni di modelli non riuscite. |
 | Distribuzione modello avviata | Numero | Numero di distribuzioni di modelli avviate. |
@@ -140,7 +140,7 @@ Le tabelle seguenti elencano le metriche della piattaforma raccolte per Azure Ma
 
 Le informazioni sulle quote sono destinate solo ai Azure Machine Learning di calcolo.
 
-| Metrica | Unità | Descrizione |
+| Metrica | Unità | DESCRIZIONE |
 | ----- | ----- | ----- |
 | Core attivi | Numero | Numero di core di calcolo attivi. |
 | Nodi attivi | Numero | Numero di nodi attivi. |
@@ -158,7 +158,7 @@ Le informazioni sulle quote sono destinate solo ai Azure Machine Learning di cal
 
 Di seguito sono riportate le dimensioni che possono essere usate per filtrare le metriche delle quote:
 
-| Dimensione | Metriche disponibili con | Descrizione |
+| Dimensione | Metriche disponibili con | DESCRIZIONE |
 | ---- | ---- | ---- |
 | Nome cluster | Tutte le metriche della quota | Nome dell'istanza di calcolo. |
 | Nome della famiglia di macchine virtuali | Percentuale di utilizzo della quota | Nome della famiglia di macchine virtuali usata dal cluster. |
@@ -168,7 +168,7 @@ Di seguito sono riportate le dimensioni che possono essere usate per filtrare le
 
 Informazioni sulle esecuzioni di training.
 
-| Metrica | Unità | Descrizione |
+| Metrica | Unità | DESCRIZIONE |
 | ----- | ----- | ----- |
 | Esecuzioni completate | Numero | Numero di esecuzioni completate. |
 | Esecuzioni non riuscite | Numero | Numero di esecuzioni non riuscite. |
@@ -176,7 +176,7 @@ Informazioni sulle esecuzioni di training.
 
 Di seguito sono riportate le dimensioni che possono essere usate per filtrare le metriche di esecuzione:
 
-| Dimensione | Descrizione |
+| Dimensione | DESCRIZIONE |
 | ---- | ---- |
 | ComputeType | Tipo di calcolo utilizzato dall'esecuzione. |
 | PipelineStepType | Tipo di [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) utilizzato nell'esecuzione. |
@@ -185,7 +185,7 @@ Di seguito sono riportate le dimensioni che possono essere usate per filtrare le
 
 I valori validi per la dimensione RunType sono i seguenti:
 
-| Valore | Descrizione |
+| Valore | DESCRIZIONE |
 | ----- | ----- |
 | Esperimento | Esecuzioni non pipeline. |
 | PipelineRun | Esecuzione di una pipeline, che è l'elemento padre di un StepRun. |

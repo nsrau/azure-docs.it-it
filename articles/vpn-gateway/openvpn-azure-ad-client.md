@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: alzam
-ms.openlocfilehash: da863144da5ec4361673c913392495d3d622f5a9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 714cabc204c9ec9a0c3bbc93be287957c91d1936
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837975"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932342"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication-preview"></a>Configurare un client VPN per le connessioni del protocollo OpenVPN P2S: autenticazione Azure AD (anteprima)
 
@@ -24,7 +24,11 @@ Questo articolo illustra come configurare un client VPN per connettersi a una re
 
 ## <a name="profile"></a>Utilizzo dei profili client
 
-Per connettersi, è necessario [scaricare](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) il client VPN di Azure e configurare un profilo client VPN in ogni computer che desidera connettersi a VNet. È possibile creare un profilo client in un computer, esportarlo e quindi importarlo in altri computer.
+Per connettersi, è necessario scaricare il client VPN di Azure (anteprima) e configurare un profilo client VPN in ogni computer che desidera connettersi a VNet. È possibile creare un profilo client in un computer, esportarlo e quindi importarlo in altri computer.
+
+### <a name="to-download-the-azure-vpn-client"></a>Per scaricare il client VPN di Azure
+
+Usare questo [collegamento](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) per scaricare il client VPN di Azure (anteprima).
 
 ### <a name="cert"></a>Per creare un profilo client basato su certificati
 
@@ -42,11 +46,11 @@ Quando si dispone di un profilo di lavoro ed è necessario distribuirlo ad altri
 
 1. Evidenziare il profilo client VPN che si vuole esportare, selezionare il **...** e quindi selezionare **Esporta**.
 
-    ![Esportazione](./media/openvpn-azure-ad-client/export/export1.jpg)
+    ![esportazione](./media/openvpn-azure-ad-client/export/export1.jpg)
 
 2. Selezionare il percorso in cui si desidera salvare il profilo, lasciare il nome del file così com'è, quindi selezionare **Salva** per salvare il file XML.
 
-    ![Esportazione](./media/openvpn-azure-ad-client/export/export2.jpg)
+    ![esportazione](./media/openvpn-azure-ad-client/export/export2.jpg)
 
 ### <a name="import"></a>Per importare un profilo client
 
@@ -84,23 +88,23 @@ Quando si dispone di un profilo di lavoro ed è necessario distribuirlo ad altri
 
 1. Nella pagina selezionare **+** , quindi **+ Aggiungi**.
 
-    ![connessione](./media/openvpn-azure-ad-client/create/create1.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create1.jpg)
 
 2. Inserire le informazioni di connessione. Se non si è certi dei valori, contattare l'amministratore. Dopo aver compilato i valori, selezionare **Salva**.
 
-    ![connessione](./media/openvpn-azure-ad-client/create/create2.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create2.jpg)
 
 3. Selezionare **Connetti** per connettersi alla VPN.
 
-    ![connessione](./media/openvpn-azure-ad-client/create/create3.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create3.jpg)
 
 4. Selezionare le credenziali appropriate e quindi fare clic su **continua**.
 
-    ![connessione](./media/openvpn-azure-ad-client/create/create4.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create4.jpg)
 
 5. Una volta stabilita la connessione, l'icona diventerà verde e si **disconnetterà**.
 
-    ![connessione](./media/openvpn-azure-ad-client/create/create5.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create5.jpg)
 
 ### <a name="autoconnect"></a>Per connettersi automaticamente
 

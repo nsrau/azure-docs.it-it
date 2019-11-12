@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: dd58ec08c6ec372cf53a79b75162748cfe336b23
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/11/2019
+ms.openlocfilehash: f2a33f96f77678e02c5b72c36563781e7d7ac334
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73477129"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928292"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Come abilitare monitoraggio di Azure per i contenitori
 
@@ -25,7 +25,7 @@ Monitoraggio di Azure per i contenitori può essere abilitato per le nuove distr
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, verificare di disporre degli elementi seguenti:
 
@@ -43,6 +43,13 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 * Le metriche Prometeo non vengono raccolte per impostazione predefinita. Prima di [configurare l'agente](container-insights-prometheus-integration.md) per raccoglierli, è importante esaminare la [documentazione](https://prometheus.io/) di Prometeo per capire cosa è possibile definire.
 
+## <a name="supported-configurations"></a>Configurazioni supportate
+
+Il codice seguente è ufficialmente supportato con monitoraggio di Azure per i contenitori.
+
+- Ambienti: Kubernetes locale, motore AKS in Azure e Azure Stack. Per altre informazioni, vedere [motore AKS su Azure stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+- Le versioni di Kubernetes e i criteri di supporto corrispondono alle versioni di [AKS supportate](../../aks/supported-kubernetes-versions.md). 
+
 ## <a name="network-firewall-requirements"></a>Requisiti del firewall di rete
 
 Le informazioni nella tabella seguente elencano le informazioni di configurazione del proxy e del firewall necessarie per la comunicazione dell'agente in contenitori con monitoraggio di Azure per i contenitori. Tutto il traffico di rete dall'agente è in uscita in monitoraggio di Azure.
@@ -59,7 +66,7 @@ Le informazioni nella tabella seguente elencano le informazioni di configurazion
 
 Le informazioni nella tabella seguente elencano le informazioni di configurazione del proxy e del firewall per Azure Cina.
 
-|Risorsa agente|Porte |Descrizione | 
+|Risorsa agente|Porte |DESCRIZIONE | 
 |--------------|------|-------------|
 | *. ods.opinsights.azure.cn | 443 | Inserimento di dati |
 | *. oms.opinsights.azure.cn | 443 | Onboarding di OMS |
@@ -69,7 +76,7 @@ Le informazioni nella tabella seguente elencano le informazioni di configurazion
 
 Le informazioni nella tabella seguente elencano le informazioni di configurazione del proxy e del firewall per il governo degli Stati Uniti di Azure.
 
-|Risorsa agente|Porte |Descrizione | 
+|Risorsa agente|Porte |DESCRIZIONE | 
 |--------------|------|-------------|
 | *.ods.opinsights.azure.us | 443 | Inserimento di dati |
 | *.oms.opinsights.azure.us | 443 | Onboarding di OMS |
@@ -93,7 +100,7 @@ Quando viene rilasciata una nuova versione dell'agente, questo viene aggiornato 
 
 Per abilitare monitoraggio di Azure per i contenitori, usare uno dei metodi seguenti descritti nella tabella seguente.
 
-| Stato della distribuzione | Metodo | Descrizione |
+| Stato della distribuzione | Metodo | DESCRIZIONE |
 |------------------|--------|-------------|
 | Nuovo cluster AKS | [Creare cluster usando l'interfaccia della riga di comando di Azure](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| È possibile abilitare il monitoraggio di un nuovo cluster AKS creato con l'interfaccia della riga di comando di Azure. |
 | | [Creare un cluster usando la bonifica](container-insights-enable-new-cluster.md#enable-using-terraform)| È possibile abilitare il monitoraggio di un nuovo cluster AKS creato usando lo strumento open source per la bonifica. |

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 057037807a75e50eb2305bfab19d1fcff7fe77ce
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: efd294910531509d736dbda274406bd7c801c124
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889600"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931208"
 ---
 # <a name="references"></a>Riferimenti
 
@@ -40,7 +40,7 @@ DeviceModel  | DeviceModel corrisponde ai metadati del dispositivo, ad esempio i
 Sensore  | Il sensore corrisponde a un sensore fisico che registra i valori. Un sensore è in genere connesso a un dispositivo con un ID dispositivo.
 SensorModel  | SensorModel corrisponde ai metadati del sensore, ad esempio il produttore, il tipo di sensore analogico o digitale, misura sensore come temperatura ambiente, pressione e così via.
 Telemetria  | La telemetria fornisce la possibilità di leggere i messaggi di telemetria per un determinato sensore e intervallo di tempo.
-Processo  | Il processo corrisponde a qualsiasi flusso di lavoro delle attività, che vengono eseguite nel sistema FarmBeats per ottenere un output desiderato. Ogni processo è associato a un ID processo e a un tipo di processo.
+processo  | Il processo corrisponde a qualsiasi flusso di lavoro delle attività, che vengono eseguite nel sistema FarmBeats per ottenere un output desiderato. Ogni processo è associato a un ID processo e a un tipo di processo.
 Tipoprocesso  | Tipoprocesso corrisponde a tipi di processi diversi supportati dal sistema. Sono inclusi i tipi di processo definiti dall'utente di sistema &.
 ExtendedType  | ExtendedType corrisponde all'elenco dei tipi di sistema & definiti dall'utente nel sistema. Questo consente di configurare un nuovo tipo di sensore o scena o Scenefile nel sistema FarmBeats.
 Partner  | Partner corrisponde al partner di integrazione Sensor/Imagery per FarmBeats
@@ -85,7 +85,7 @@ L'URL del servizio API è l'URL dell'hub dati https://\<yourdatahub-website-name
 
 La richiesta di esempio seguente consente di ottenere l'elenco dei dispositivi:
 
-```azurepowershell-interactive
+```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
 ```
 
@@ -93,7 +93,7 @@ Per la maggior parte delle chiamate GET, POST e PUT è necessario un corpo della
 
 La richiesta di esempio seguente consiste nel creare un dispositivo (con un JSON di input con il corpo della richiesta).
 
-```json
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
@@ -108,9 +108,9 @@ Ad esempio, quando si esegue una query sull'elenco di dispositivi (GET Call on/d
 
 Le API di Azure FarmBeats Data Hub restituiscono gli errori HTTP standard. I codici di errore più comuni sono i seguenti:
 
- |Codice di errore             | Descrizione |
+ |Codice di errore             | DESCRIZIONE |
  |---                    | --- |
- |200                    | Success |
+ |200                    | Operazione completata |
  |201                    | Creazione (post) riuscita |
  |400                    | Richiesta non valida. Si è verificato un errore nella richiesta |
  |401                    | Non autorizzato. Il chiamante dell'API non è autorizzato ad accedere alla risorsa |
@@ -120,25 +120,25 @@ Le API di Azure FarmBeats Data Hub restituiscono gli errori HTTP standard. I cod
 
 Oltre agli errori HTTP standard, le API dell'hub dati di Azure FarmBeats restituiscono anche errori interni nel formato seguente:
 
-    ```
+```json
     {
       "message": "<More information on the error>",
       "status": "<error code>”,
       "code": "<InternalErrorCode>",
       "moreInfo": "<Details of the error>"
     }
-    ```
+```
 
 Esempio: quando si crea una farm, nel payload di input non è stato specificato un campo obbligatorio "Name". Il messaggio di errore risultante sarà:
 
-    ```json
+ ```json    
     {
       "message": "Model validation failed",
       "status": 400,
       "code": "ModelValidationFailed",
       "moreInfo": "[\"The Name field is required.\"]"
     }
-    ```
+  ```
 
 ## <a name="adding-users-or-app-registrations-to-azure-active-directory"></a>Aggiunta di utenti o registrazioni di app a Azure Active Directory
 

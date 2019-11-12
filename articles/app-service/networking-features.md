@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 102f3e131b20534dc2f192b6485a3fdc95070315
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 801692c53ef268f15edc60d31743aefa6a247a78
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470252"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928499"
 ---
 # <a name="app-service-networking-features"></a>Funzionalità di rete del servizio app
 
@@ -33,7 +33,7 @@ Il servizio app Azure è un sistema distribuito. I ruoli che gestiscono le richi
 
 | Funzionalità in ingresso | Funzionalità in uscita |
 |---------------------|-------------------|
-| Indirizzo assegnato dall'app | connessioni ibride |
+| Indirizzo assegnato dall'app | Connessioni ibride |
 | Restrizioni di accesso | Integrazione VNet necessaria per il gateway |
 | Endpoint servizio | Integrazione di VNet (anteprima) |
 
@@ -62,7 +62,7 @@ I seguenti casi di utilizzo in uscita suggeriscono come usare le funzionalità d
 | Accedere alle risorse in una Rete in ingresso virtuale di Azure nella stessa area | Integrazione rete virtuale </br> ASE |
 | Accedere alle risorse in una Rete in ingresso virtuale di Azure in un'area diversa | Integrazione VNet necessaria per il gateway </br> Peering ASE e VNet |
 | Accedere alle risorse protette con gli endpoint di servizio | Integrazione rete virtuale </br> ASE |
-| Accedere alle risorse in una rete privata non connessa ad Azure | connessioni ibride |
+| Accedere alle risorse in una rete privata non connessa ad Azure | Connessioni ibride |
 | Accedere alle risorse tra circuiti ExpressRoute | Integrazione di VNet (limitata agli indirizzi RFC 1918 per il momento) </br> ASE | 
 
 
@@ -91,7 +91,7 @@ Per informazioni su come impostare un indirizzo nell'app, vedere l'esercitazione
 
 ### <a name="access-restrictions"></a>Restrizioni di accesso 
 
-La funzionalità restrizioni di accesso consente di filtrare le richieste in **ingresso** in base all'indirizzo IP di origine. L'azione di filtro si verifica nei ruoli front-end che sono upstream dai rotoli di lavoro in cui sono in esecuzione le app. Poiché i ruoli front-end sono upstream dai ruoli di lavoro, la funzionalità restrizioni di accesso può essere considerata come protezione a livello di rete per le app. La funzionalità consente di compilare un elenco di blocchi di indirizzi allow e Deny che vengono valutati in ordine di priorità. È simile alla funzionalità del gruppo di sicurezza di rete (NSG) presente nella rete di Azure.  È possibile usare questa funzionalità in un ambiente del servizio app o nel servizio multi-tenant. Quando viene usato con un ambiente del servizio app ILB, è possibile limitare l'accesso da blocchi di indirizzi privati.
+La funzionalità restrizioni di accesso consente di filtrare le richieste in **ingresso** in base all'indirizzo IP di origine. L'azione di filtro si verifica nei ruoli front-end che sono upstream dai ruoli di lavoro in cui sono in esecuzione le app. Poiché i ruoli front-end sono upstream dai ruoli di lavoro, la funzionalità restrizioni di accesso può essere considerata come protezione a livello di rete per le app. La funzionalità consente di compilare un elenco di blocchi di indirizzi allow e Deny che vengono valutati in ordine di priorità. È simile alla funzionalità del gruppo di sicurezza di rete (NSG) presente nella rete di Azure.  È possibile usare questa funzionalità in un ambiente del servizio app o nel servizio multi-tenant. Quando viene usato con un ambiente del servizio app ILB, è possibile limitare l'accesso da blocchi di indirizzi privati.
 
 ![Restrizioni di accesso](media/networking-features/access-restrictions.png)
 
@@ -117,7 +117,7 @@ Gli endpoint di servizio consentono di bloccare l'accesso in **ingresso** all'ap
 
 Per altre informazioni sulla configurazione degli endpoint di servizio con l'app, vedere l'esercitazione sulla [configurazione delle restrizioni di accesso agli endpoint di servizio][serviceendpoints]
  
-### <a name="hybrid-connections"></a>connessioni ibride
+### <a name="hybrid-connections"></a>Connessioni ibride
 
 Il servizio app Connessioni ibride consente alle app di effettuare chiamate in **uscita** agli endpoint TCP specificati. L'endpoint può trovarsi in locale, in una VNet o ovunque, che consente il traffico in uscita verso Azure sulla porta 443. La funzionalità richiede l'installazione di un agente di inoltro denominato Gestione connessione ibrida (HCM) in un host Windows Server 2012 o versione successiva. Gestione connessione ibrida deve essere in grado di raggiungere il relè di Azure sulla porta 443. È possibile scaricare gestione connessione ibrida dal servizio app Connessioni ibride interfaccia utente nel portale. 
 

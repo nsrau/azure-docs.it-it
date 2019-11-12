@@ -1,5 +1,5 @@
 ---
-title: Automatizzare la creazione e l'applicazione di patch alle immagini del contenitore con le attività di Container Registry di Azure (attività ACR)
+title: Attività Container Registry di Azure-Panoramica
 description: Introduzione alle attività di ACR, una suite di funzionalità in Azure Container Registry che fornisce la compilazione, la gestione e l'applicazione di patch di immagini del contenitore sicure e automatizzate nel cloud.
 services: container-registry
 author: dlepow
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: danlep
-ms.openlocfilehash: e2686dcd5615c42abf78cbf4575bab6008024718
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 45fdd68273ed2cd5cfccf37765935ce9f7bfdc13
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001395"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931483"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizzare le compilazioni e la manutenzione delle immagini del contenitore con le attività ACR
 
@@ -44,7 +44,7 @@ Il ciclo di sviluppo interno, processo iterativo di scrittura di codice, compila
 
 Prima di eseguire il commit della prima riga di codice, la funzione [attività rapida](container-registry-tutorial-quick-task.md) di Attività del Registro Azure Container può offrire un'esperienza di sviluppo integrato eseguendo l'offload delle build di un'immagine del contenitore in Azure. Con questa funzionalità è possibile verificare le definizioni delle compilazioni automatiche e rilevare problemi potenziali prima di eseguire il commit di codice.
 
-Con il noto formato `docker build`, il comando [AZ ACR Build][az-acr-build] nell'interfaccia della riga di comando di Azure accetta un [contesto](#context-locations) (il set di file da compilare), invia le attività ACR e, per impostazione predefinita, effettua il push dell'immagine compilata al relativo registro al termine del completamento.
+Usando il formato di `docker build` familiare, il comando [AZ ACR Build][az-acr-build] nell'interfaccia della riga di comando di Azure accetta un [contesto](#context-locations) (il set di file da compilare), invia le attività ACR e, per impostazione predefinita, effettua il push dell'immagine compilata al relativo registro al termine del completamento.
 
 Per un'introduzione, vedere la Guida introduttiva per [compilare ed eseguire un'immagine del contenitore](container-registry-quickstart-task-cli.md) in Azure container Registry.  
 
@@ -63,7 +63,7 @@ Le attività ACR supportano i trigger seguenti quando si imposta un repository G
 
 | Trigger | Abilitato per impostazione predefinita |
 | ------- | ------------------ |
-| Commit | Yes |
+| Commit | Sì |
 | Richiesta pull | No |
 
 Per configurare il trigger, è necessario fornire all'attività un token di accesso personale (PAT) per impostare il webhook nel repository GitHub o Azure DevOps.
@@ -74,7 +74,7 @@ Per informazioni su come attivare compilazioni in caso di commit del codice sorg
 
 ACR Tasks può realmente migliorare il flusso di lavoro di compilazione dei contenitori grazie alla capacità di rilevare un aggiornamento di un'immagine di base. Quando viene effettuato il push dell'immagine di base aggiornata nel registro di sistema o un'immagine di base viene aggiornata in un repository pubblico, ad esempio in Docker Hub, le attività di ACR possono compilare automaticamente eventuali immagini dell'applicazione basate su di esso.
 
-Le immagini dei contenitori possono essere suddivise in linea di massima in immagini di *base* e immagini di *applicazioni*. Le immagini di base includono in genere il sistema operativo e i framework applicazioni su cui è basata l'applicazione, insieme ad altre personalizzazioni. Tali immagini di base sono in genere basate a propria volta su immagini upstream pubbliche, ad esempio: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet]o [node. js][base-node]. Diverse immagini di applicazioni possono condividere un'immagine di base comune.
+Le immagini dei contenitori possono essere suddivise in linea di massima in immagini di *base* e immagini di *applicazioni*. Le immagini di base includono in genere il sistema operativo e i framework applicazioni su cui è basata l'applicazione, insieme ad altre personalizzazioni. Queste immagini di base sono in genere basate su immagini upstream pubbliche, ad esempio [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet]o [node. js][base-node]. Diverse immagini di applicazioni possono condividere un'immagine di base comune.
 
 Quando un'immagine del sistema operativo o del framework app viene aggiornata dal gestore upstream, ad esempio con una patch di sicurezza critica del sistema operativo, è necessario aggiornare anche le immagini di base in modo da includere l'aggiornamento critico. È quindi necessario anche ricompilare ogni immagine di applicazione per includere gli aggiornamenti upstream ora inclusi nell'immagine di base.
 
@@ -118,7 +118,7 @@ Altre informazioni sulle attività in più passaggi in [Run multi-step build, te
 
 La tabella seguente mostra alcuni esempi di percorsi di contesto supportati per ACR Tasks:
 
-| Posizione contesto | Descrizione | Esempio |
+| Posizione contesto | DESCRIZIONE | Esempio |
 | ---------------- | ----------- | ------- |
 | File system locale | File contenuti in una directory nel file System locale. | `/home/user/projects/myapp` |
 | Ramo master GitHub | File nel master (o altra impostazione predefinita) di un repository GitHub.  | `https://github.com/gituser/myapp-repo.git` |
@@ -129,9 +129,9 @@ La tabella seguente mostra alcuni esempi di percorsi di contesto supportati per 
 
 ## <a name="image-platforms"></a>Piattaforme immagine
 
-Per impostazione predefinita, le attività ACR compilano immagini per il sistema operativo Linux e l'architettura amd64. Specificare il tag `--platform` per compilare immagini Windows o immagini Linux per altre architetture. Specificare il sistema operativo e, facoltativamente, un'architettura supportata nel formato del sistema operativo/architettura (ad esempio, `--platform Linux/arm`). Per le architetture ARM, è possibile specificare facoltativamente una variante nel formato sistema operativo/architettura/variante, ad esempio `--platform Linux/arm64/v8`:
+Per impostazione predefinita, le attività ACR compilano immagini per il sistema operativo Linux e l'architettura amd64. Specificare il tag `--platform` per compilare immagini Windows o immagini Linux per altre architetture. Specificare il sistema operativo e, facoltativamente, un'architettura supportata nel formato del sistema operativo/architettura, ad esempio `--platform Linux/arm`. Per le architetture ARM, è possibile specificare facoltativamente una variante nel formato sistema operativo/architettura/variante (ad esempio, `--platform Linux/arm64/v8`):
 
-| OS | Architettura|
+| SO | Architettura|
 | --- | ------- | 
 | Linux | amd64<br/>ARM<br/>arm64<br/>386 |
 | Windows | amd64 |
