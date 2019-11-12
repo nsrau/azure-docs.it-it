@@ -17,16 +17,16 @@ ms.date: 07/17/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b30b6463ed3d58ec1565f3c49f98388ad09ed4
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: a43c5849dcd037915a46de182064b3e630a663ec
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186282"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907180"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
 
-Con i report Azure Active Directory (Azure AD), è possibile ottenere le informazioni necessarie per determinare la modalità di funzionamento dell'ambiente.
+I report di Azure Active Directory (Azure AD) offrono tutte le informazioni necessarie per determinare le prestazioni dell'ambiente.
 
 L'architettura di report è costituita dai componenti seguenti:
 
@@ -42,7 +42,7 @@ Questo articolo fornisce una panoramica del report di controllo.
 ## <a name="who-can-access-the-data"></a>Chi può accedere ai dati?
 
 * Utenti nei ruoli amministratore **sicurezza**, **lettore sicurezza**, **lettore report** o **amministratore globale**
-* Inoltre, tutti gli utenti (non amministratori) possono visualizzare le proprie attività di controllo
+* Inoltre, tutti gli utenti (non amministratori) possono visualizzare le proprie attività di accesso
 
 ## <a name="audit-logs"></a>Log di controllo
 
@@ -78,8 +78,8 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 
 È possibile filtrare i dati di controllo in base ai campi seguenti:
 
-- Service
-- Category
+- Servizio
+- Categoria
 - Attività
 - Stato
 - Destinazione
@@ -92,7 +92,7 @@ Il filtro del **servizio** consente di effettuare una selezione da un elenco a d
 
 - Tutti
 - Verifiche di accesso
-- Provisioning account 
+- Provisioning degli account 
 - SSO applicazione
 - Metodi di autenticazione
 - B2C
@@ -111,15 +111,15 @@ Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 - Tutti
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
-- Authorization
+- Autenticazione
+- Autorizzazione
 - Contatto
 - Dispositivo
 - DeviceConfiguration
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Altro
+- Altre
 - Criteri
 - ResourceManagement
 - RoleManagement
@@ -127,13 +127,13 @@ Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 
 Il filtro **attività** è basato sulla selezione del tipo di risorsa Activity e Category effettuata dall'utente. È possibile selezionare un'attività specifica da visualizzare o selezionarle tutte. 
 
-È possibile ottenere l'elenco di tutte le attività di controllo usando il API Graph:`https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
+È possibile ottenere l'elenco di tutte le attività di controllo usando il API Graph: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
 Il filtro di **stato** consente di filtrare in base allo stato di un'operazione di controllo. Lo stato può essere uno dei seguenti:
 
 - Tutti
-- Riuscito
-- Errore
+- Operazione completata
+- Esito negativo
 
 Il filtro di **destinazione** consente di cercare una determinata destinazione in base al nome o al nome dell'entità utente (UPN). Il nome di destinazione e l'UPN fanno distinzione tra maiuscole e minuscole. 
 
@@ -145,7 +145,7 @@ I valori possibili sono:
 - 1 mese
 - 7 giorni
 - 24 ore
-- Personalizzato
+- Personalizzate
 
 Quando si seleziona un intervallo di tempo personalizzato, è possibile configurare un'ora di inizio e un'ora di fine.
 

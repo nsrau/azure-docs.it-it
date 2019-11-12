@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 4ac6ac52d6d950d814a37e94ea2801c2ba8e4170
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 45a27be400753b56c42310a340334feba8a420c5
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521188"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906878"
 ---
 # <a name="working-with-security-policies"></a>Utilizzo dei criteri di sicurezza
 
@@ -104,6 +104,10 @@ Per ulteriori informazioni sulle raccomandazioni, vedere [gestione delle raccoma
 
    > [!NOTE]
    > Tenere presente che un gruppo di gestione applica i criteri alle relative sottoscrizioni. Se pertanto si disabilitano i criteri di una sottoscrizione e la sottoscrizione appartiene a un gruppo di gestione che utilizza ancora gli stessi criteri, si continuerà a ricevere le raccomandazioni relative ai criteri. I criteri verranno comunque applicati dal livello di gestione e le raccomandazioni verranno comunque generate.
+
+1. Fare clic su **Visualizza criterio valido**.
+
+   ![disabilitare i criteri](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. Fare clic sul criterio assegnato.
 

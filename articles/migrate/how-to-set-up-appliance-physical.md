@@ -4,18 +4,21 @@ description: Viene descritto come configurare un'appliance per la valutazione de
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 11/11/2019
 ms.author: raynew
-ms.openlocfilehash: ddd659e8cbcb54a36868848d0c6327f294d531b1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a3212e4dac6856a5fd032c731d877453965584ae
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512626"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907173"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurare un'appliance per i server fisici
 
 Questo articolo descrive come configurare l'appliance Azure Migrate se si sta valutando server fisici con lo strumento di valutazione Azure Migrate: Server.
+
+> [!NOTE]
+> Se le funzionalità sono indicate qui, non è ancora possibile vedere il portale di Azure Migrate, bloccarsi. Verranno visualizzati nella settimana successiva.
 
 Il Azure Migrate Appliance è un'appliance semplice, usata da Azure Migrate Assessment server per eseguire le operazioni seguenti:
 
@@ -28,9 +31,9 @@ Il Azure Migrate Appliance è un'appliance semplice, usata da Azure Migrate Asse
 ## <a name="appliance-deployment-steps"></a>Passaggi di distribuzione dell'appliance
 
 Per configurare l'appliance occorre:
-- Scaricare un file compresso con Azure Migrate script del programma di installazione dall'portale di Azure.
-- Estrarre il contenuto dal file compresso. Avviare la console di PowerShell con privilegi amministrativi.
-- Eseguire lo script di PowerShell per avviare l'applicazione Web Appliance.
+- Scaricare un file compresso con lo script del programma di installazione di Azure Migrate dal portale di Azure.
+- Estrarre il contenuto del file compresso. Avviare la console PowerShell con privilegi amministrativi.
+- Eseguire lo script di PowerShell per avviare l'applicazione Web dell'appliance.
 - Configurare l'appliance per la prima volta e registrarla nel progetto di Azure Migrate.
 
 ## <a name="download-the-installer-script"></a>Scaricare lo script del programma di installazione
@@ -39,7 +42,7 @@ Scaricare il file compresso per l'appliance.
 
 1. In **obiettivi di migrazione** > **Server** > **Azure migrate: server Assessment**, fare clic su **individua**.
 2. In **Individua macchine virtuali** > **I computer sono virtualizzati?** selezionare **Sì, con Hyper-V**.
-3. Fare clic su **download** per scaricare il file compresso.
+3. Fare clic su **Scarica** per scaricare il file compresso.
 
     ![Scaricare la VM](./media/how-to-set-up-appliance-hyper-v/download-appliance-hyperv.png)
 
@@ -52,7 +55,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 2. Eseguire il comando seguente per generare il codice hash per il disco rigido virtuale
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  Per la versione appliance 1.19.05.10, l'hash generato deve corrispondere a queste impostazioni.
+3.  Per la versione 1.19.05.10 dell'appliance, l'hash generato deve corrispondere a queste impostazioni.
 
   **Algoritmo** | **Valore hash**
   --- | ---
@@ -60,27 +63,27 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 
 
   
-## <a name="run-the-azure-migrate-installer-script"></a>Eseguire lo script del programma di installazione Azure Migrate
-= Lo script del programma di installazione esegue le operazioni seguenti:
+## <a name="run-the-azure-migrate-installer-script"></a>Eseguire lo script del programma di installazione di Azure Migrate
+= Il programma di installazione esegue le operazioni seguenti:
 
 - Installa gli agenti e un'applicazione Web per l'individuazione e la valutazione dei server fisici.
-- Installare i ruoli di Windows, tra cui il servizio Attivazione Windows, IIS e PowerShell ISE.
-- Scaricare e installare un modulo riscrivibile di IIS. [Altre informazioni](https://www.microsoft.com/download/details.aspx?id=7435).
-- Aggiorna una chiave del registro di sistema (HKLM) con i dettagli delle impostazioni permanenti per Azure Migrate.
-- Crea i file seguenti nel percorso:
-    - **File di configurazione**:%ProgramData%\Microsoft Azure\Config
-    - **File di log**:%ProgramData%\Microsoft Azure\Logs
+- Installa i ruoli di Windows, tra cui il Servizio Attivazione Windows, IIS e PowerShell ISE.
+- Scarica e installa un modulo di IIS riscrivibile. [Altre informazioni](https://www.microsoft.com/download/details.aspx?id=7435).
+- Aggiorna una chiave del Registro di sistema (HKLM) con i dettagli delle impostazioni permanenti per Azure Migrate.
+- Crea i seguenti file nei relativi percorsi:
+    - **File di configurazione**: %Programdata%\Microsoft Azure\Config
+    - **File di log**: %Programdata%\Microsoft Azure\Logs
 
 Eseguire lo script nel modo seguente:
 
 1. Estrarre il file compresso in una cartella nel server che ospiterà l'appliance.
-2. Avviare PowerShell nel server precedente con privilegi amministrativi (elevati).
-3. Modificare la directory di PowerShell nella cartella in cui è stato estratto il contenuto dal file compresso scaricato.
+2. Avviare PowerShell nello stesso server con privilegi amministrativi (elevati).
+3. Modificare la directory di PowerShell nella cartella in cui è stato estratto il contenuto del file compresso scaricato.
 4. Eseguire lo script eseguendo il comando seguente:
     ```
     PS C:\Users\Administrators\Desktop> AzureMigrateInstaller-physical.ps1
     ```
-Quando viene completata correttamente, lo script avvierà l'applicazione Web Appliance.
+Lo script avvierà l'applicazione Web dell'appliance al termine dell'operazione.
 
 
 
@@ -94,7 +97,7 @@ Configurare l'appliance per la prima volta.
 
 1. Aprire un browser in qualsiasi computer in grado di connettersi alla macchina virtuale e aprire l'URL dell'app Web dell'appliance: ***nome dell'appliance https://o indirizzo IP*: 44368**.
 
-   In alternativa, è possibile aprire l'app dal desktop facendo clic sul collegamento all'app.
+   In alternativa, è possibile aprire l'app dal desktop facendo clic sul relativo collegamento.
 2. Nell'app Web selezionare **Set up prerequisites** (Configura i prerequisiti) ed eseguire le operazioni seguenti:
     - **Licenza**: accettare le condizioni di licenza e leggere le informazioni di terze parti.
     - **Connettività**: l'app verifica che la macchina virtuale abbia accesso a Internet. Se la VM usa un proxy:
@@ -108,7 +111,7 @@ Configurare l'appliance per la prima volta.
 
 1. Fare clic su **Log in** (Accedi). Se l'opzione non è visualizzata, verificare di aver disabilitato il blocco popup nel browser.
 2. Nella nuova scheda accedere con le credenziali di Azure. 
-    - Accedere con il proprio nome utente e la password.
+    - Accedere con il nome utente e la password.
     - L'accesso con un PIN non è supportato.
 3. Dopo aver eseguito l'accesso, tornare all'app Web.
 4. Selezionare la sottoscrizione in cui è stato creato il progetto di Azure Migrate. Quindi selezionare il progetto.
@@ -120,12 +123,12 @@ Configurare l'appliance per la prima volta.
 
 Connettersi dal dispositivo ai server fisici e avviare l'individuazione.
 
-1. Fare clic su **Aggiungi credenziali** per specificare le credenziali dell'account che l'appliance utilizzerà per individuare i server.  
-2. Specificare il **sistema operativo**, il nome descrittivo per le credenziali, il nome **utente** e la **password** e fare clic su **Aggiungi**.
+1. Fare clic su **Aggiungi credenziali** per specificare le credenziali dell'account che verranno usate dall'appliance per individuare i server.  
+2. Specificare il **sistema operativo**, il nome descrittivo per le credenziali, il **nome utente**, la **password** e fare clic su **Aggiungi**.
 È possibile aggiungere un set di credenziali per ogni server Windows e Linux.
-4. Fare clic su **Aggiungi server**e specificare i dettagli del server-FQDN/indirizzo IP e nome descrittivo delle credenziali (una voce per riga) per connettersi al server.
+4. Fare clic su **Aggiungi server** e specificarne i dettagli, FQDN/indirizzo IP e nome descrittivo delle credenziali (una voce per riga), per eseguire la connessione.
 3. Fare clic su **Convalida**. Dopo la convalida, viene visualizzato l'elenco dei server che è possibile individuare.
-    - Se la convalida non riesce per un server, esaminare l'errore passando il puntatore del mouse sull'icona nella colonna **stato** . Risolvere i problemi e ripetere la convalida.
+    - Se la convalida non riesce per un server, esaminare l'errore passando il puntatore del mouse sull'icona nella colonna **Stato**. Risolvere i problemi e ripetere la convalida.
     - Per rimuovere un server, selezionare > **Elimina**.
 4. Dopo la convalida fare clic su **Salva e avvia individuazione** per avviare il processo di individuazione.
 

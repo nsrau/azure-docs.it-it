@@ -1,6 +1,6 @@
 ---
 title: Rilevamento delle minacce per i servizi dati nel centro sicurezza di Azure | Microsoft Docs
-description: Questo argomento presenta gli avvisi di servizi dati disponibili nel centro sicurezza di Azure.
+description: Questo articolo presenta gli avvisi di servizi dati disponibili nel centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -10,16 +10,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: memildin
-ms.openlocfilehash: c69352b8ff11edfce8bd800a0d3aad4584557572
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: d23d9d2712923f37b3ab9da5ae5369342cd82f5d
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621335"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907001"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Rilevamento delle minacce per i servizi dati nel centro sicurezza di Azure
 
- Il Centro sicurezza di Azure analizza i log dei servizi di archiviazione dei dati e attiva gli avvisi quando rileva una minaccia per le risorse di dati. Questo argomento elenca gli avvisi generati dal centro sicurezza per i servizi seguenti:
+ Il Centro sicurezza di Azure analizza i log dei servizi di archiviazione dei dati e attiva gli avvisi quando rileva una minaccia per le risorse di dati. Questo articolo elenca gli avvisi generati dal centro sicurezza per i servizi seguenti:
 
 * [Database SQL di Azure e SQL Data Warehouse di Azure](#data-sql)
 * [Archiviazione di Azure](#azure-storage)
@@ -29,7 +29,7 @@ ms.locfileid: "73621335"
 
 Rilevamento minacce SQL identifica le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. 
 
-|Avviso|Descrizione|
+|Avviso|DESCRIZIONE|
 |---|---|
 |**Vulnerabilità a SQL injection**|Un'applicazione ha generato un'istruzione SQL non corretta nel database. Questo può indicare una possibile vulnerabilità agli attacchi intrusivi nel codice SQL. Esistono due possibili motivi per un'istruzione difettosa. Un difetto nel codice dell'applicazione potrebbe avere creato l'istruzione SQL non funzionante. In alternativa, il codice dell'applicazione o le stored procedure non hanno purificato l'input dell'utente durante la creazione dell'istruzione SQL difettosa, che può essere sfruttata per SQL injection.|
 |**Potenziale attacco SQL injection**|Si è verificato un exploit attivo in un'applicazione identificata vulnerabile a SQL injection. Ciò significa che un utente malintenzionato sta provando a inserire istruzioni SQL dannose usando il codice dell'applicazione vulnerabile o le stored procedure.|
@@ -51,9 +51,9 @@ Il Centro sicurezza analizza i log di diagnostica delle richieste di lettura, sc
 
 > [!div class="mx-tableFixed"]
 
-|Avviso|Descrizione|
+|Avviso|DESCRIZIONE|
 |---|---|
-|**Anomalia di accesso al percorso insolito**|L'analisi del traffico di rete campionata ha rilevato una comunicazione in uscita Remote Desktop Protocol (RDP) anomala, originata da una risorsa nella distribuzione. Questa attività viene considerata anomala per questo ambiente. Può indicare che la risorsa è stata compromessa e viene ora usata per l'attacco di forza bruta a un endpoint RDP esterno. Questo tipo di attività potrebbe causare la segnalazione dell'indirizzo IP come dannoso da entità esterne.|
+|**Accesso da una posizione insolita**|Indica che è stata apportata una modifica nel modello di accesso a un account di archiviazione di Azure. Un utente ha eseguito l'accesso a questo account da un indirizzo IP considerato non noto quando viene confrontato con l'attività recente. Un utente malintenzionato ha ottenuto l'accesso all'account oppure un utente legittimo si è connesso da una posizione geografica nuova o insolita. Un esempio di quest'ultimo è la manutenzione remota di una nuova applicazione o di uno sviluppatore.|
 |**Anomalie di accesso all'applicazione**|Indica che l'account di archiviazione ha eseguito l'accesso a un'applicazione insolita. Una causa potenziale è che un utente malintenzionato ha eseguito l'accesso all'account di archiviazione utilizzando una nuova applicazione.|
 |**Anomalia accesso anonimo**|Indica la presenza di una modifica nel modello di accesso a un account di archiviazione. Ad esempio, è stato eseguito l'accesso anonimo all'account (senza autenticazione), che è imprevisto rispetto al modello di accesso recente su questo account. Una possibile provocazione è che un utente malintenzionato ha sfruttato l'accesso in lettura pubblico a un contenitore che contiene l'archiviazione BLOB.|
 |**Anomalia Tor**|Indica che l'accesso a questo account è stato eseguito correttamente da un indirizzo IP noto come nodo di uscita attivo di Tor (un proxy anonime). La gravità di questo avviso considera il tipo di autenticazione usato, se presente, e se questo è il primo caso di tale accesso. Le possibili cause possono essere un utente malintenzionato che ha eseguito l'accesso all'account di archiviazione usando Tor o un utente legittimo che ha eseguito l'accesso all'account di archiviazione usando Tor.|
@@ -74,7 +74,7 @@ Per altre informazioni sugli avvisi per l'archiviazione, vedere [Advanced Threat
 
 Gli avvisi seguenti vengono generati da tentativi insoliti e potenzialmente dannosi di accesso o exploit Azure Cosmos DB account:
 
-|Avviso|Descrizione|
+|Avviso|DESCRIZIONE|
 |---|---|
 |**Accesso da una posizione insolita**|Indica che è stata apportata una modifica nel modello di accesso a un account Azure Cosmos DB. Un utente ha eseguito l'accesso a questo account da un indirizzo IP non noto, rispetto alle attività recenti. Un utente malintenzionato ha eseguito l'accesso all'account oppure un utente legittimo ha eseguito l'accesso a tale account da una posizione geografica nuova e insolita. Un esempio di quest'ultimo è la manutenzione remota di una nuova applicazione o di uno sviluppatore.|
 |**Exfiltration dati insoliti**|Indica che è stata apportata una modifica al modello di estrazione dei dati da un account Azure Cosmos DB. Un utente ha estratto una quantità di dati insolita rispetto alle attività recenti. Un utente malintenzionato potrebbe avere estratto una grande quantità di dati da un database di Azure Cosmos DB (ad esempio, exfiltration o perdita di dati o un trasferimento non autorizzato di dati). In alternativa, un utente o un'applicazione legittima potrebbe avere estratto una quantità di dati insolita da un contenitore, ad esempio per attività di backup di manutenzione.|

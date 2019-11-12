@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: sutalasi
-ms.openlocfilehash: fc97f9d78e84882675c3dd011a64e1e50c4cc907
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 5c2cd96ccfa3a26a9009188ad424eefaaeb7ce48
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968340"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906836"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informazioni sulle reti per la replica da Azure ad Azure
 
@@ -62,7 +62,7 @@ Se si usa un proxy firewall basato su IP o regole NSG per controllare la connett
     - Consentire questi indirizzi in modo che i dati possano essere scritti nell'account di archiviazione della cache dalla macchina virtuale.
 - Creare una regola NSG basata su [tag del servizio Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) per consentire l'accesso a tutti gli indirizzi IP corrispondenti ad AAD
     - Se in futuro vengono aggiunti nuovi indirizzi ad Azure Active Directory (AAD), è necessario creare nuove regole NSG.
-- Indirizzi IP dell'endpoint di servizio di Site Recovery, disponibili in un [file XML](https://aka.ms/site-recovery-public-ips) e che variano a seconda della posizione di destinazione. Si consiglia di consentire l'accesso al tag **"AzureSiteRecovery"** per l'accesso al servizio Site Recovery.
+- Indirizzi IP dell'endpoint di servizio di Site Recovery, disponibili in un [file XML](https://aka.ms/site-recovery-public-ips) e che variano a seconda della posizione di destinazione. 
 - Prima di creare le regole in un gruppo di sicurezza di rete di produzione, è consigliabile creare le regole del gruppo di sicurezza di rete necessarie in un NSG di test e verificare che non siano presenti problemi.
 
 
@@ -71,7 +71,7 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    **Destinazione** | **IP di Site Recovery** |  **IP di monitoraggio di Site Recovery**
    --- | --- | ---
    Asia orientale | 52.175.17.132 | 13.94.47.61
-   Asia sud-orientale | 52.187.58.193 | 13.76.179.223
+   Asia sudorientale | 52.187.58.193 | 13.76.179.223
    India centrale | 52.172.187.37 | 104.211.98.185
    India meridionale | 52.172.46.220 | 104.211.224.190
    Stati Uniti centro-settentrionali | 23.96.195.247 | 168.62.249.226
@@ -86,7 +86,7 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    Giappone occidentale | 52.175.146.69 | 138.91.17.38
    Brasile meridionale | 191.234.185.172 | 23.97.97.36
    Australia orientale | 104.210.113.114 | 191.239.64.144
-   Australia sud-orientale | 13.70.159.158 | 191.239.160.45
+   Australia sudorientale | 13.70.159.158 | 191.239.160.45
    Canada centrale | 52.228.36.192 | 40.85.226.62
    Canada orientale | 52.229.125.98 | 40.86.225.142
    Stati Uniti centro-occidentali | 52.161.20.168 | 13.78.149.209
@@ -95,20 +95,20 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    Regno Unito meridionale | 51.140.43.158 | 51.140.189.52
    Regno Unito meridionale 2 | 13.87.37.4| 13.87.34.139
    Regno Unito settentrionale | 51.142.209.167 | 13.87.102.68
-   Corea centrale | 52.231.28.253 | 52.231.32.85
-   Corea meridionale | 52.231.198.185 | 52.231.200.144
+   Corea del Sud centrale | 52.231.28.253 | 52.231.32.85
+   Corea del Sud meridionale | 52.231.198.185 | 52.231.200.144
    Francia centrale | 52.143.138.106 | 52.143.136.55
    Francia meridionale | 52.136.139.227 |52.136.136.62
    Australia centrale| 20.36.34.70 | 20.36.46.142
    Australia centrale 2| 20.36.69.62 | 20.36.74.130
    Sudafrica occidentale | 102.133.72.51 | 102.133.26.128
    Sudafrica settentrionale | 102.133.160.44 | 102.133.154.128
-   US Gov Virginia | 52.227.178.114 | 23.97.0.197
+   Governo degli Stati Uniti - Virginia | 52.227.178.114 | 23.97.0.197
    Governo degli Stati Uniti - Iowa | 13.72.184.23 | 23.97.16.186
-   US Gov Arizona | 52.244.205.45 | 52.244.48.85
-   US Gov Texas | 52.238.119.218 | 52.238.116.60
-   US DoD (area orientale) | 52.181.164.103 | 52.181.162.129
-   US DoD (area centrale) | 52.182.95.237 | 52.182.90.133
+   Governo degli Stati Uniti - Arizona | 52.244.205.45 | 52.244.48.85
+   Governo degli Stati Uniti - Texas | 52.238.119.218 | 52.238.116.60
+   Dipartimento della difesa Stati Uniti orientali | 52.181.164.103 | 52.181.162.129
+   Dipartimento della difesa Stati Uniti centrali | 52.182.95.237 | 52.182.90.133
    Cina settentrionale | 40.125.202.254 | 42.159.4.151
    Cina settentrionale 2 | 40.73.35.193 | 40.73.33.230
    Cina orientale | 42.159.205.45 | 42.159.132.40
@@ -126,9 +126,6 @@ In questo esempio viene illustrato come configurare le regole NSG per una macchi
 
 - Se si usano regole NSG per controllare la connettività in uscita, usare regole che consentano HTTPS in uscita per la porta 443 per tutti gli intervalli di indirizzi IP necessari.
 - Nell'esempio si presuppone che il percorso di origine della macchina virtuale sia "Stati Uniti orientali" e che il percorso di destinazione sia "Stati Uniti centrali".
-
-> [!NOTE]
-> È consigliabile usare un **tag AzureSiteRecovery** anziché indirizzi IP per consentire l'accesso al **servizio Site Recovery**.
 
 ### <a name="nsg-rules---east-us"></a>Regole NSG - Stati Uniti orientali
 

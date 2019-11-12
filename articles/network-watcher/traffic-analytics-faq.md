@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: b232df010190a95d12d5a57f076a4c1bf336cea4
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 991bb91c5bc1f6d695d5b363cdb08268f1ee83df
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026590"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907091"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -65,10 +65,10 @@ Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbo
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>In quali aree di Azure è disponibile Analisi del traffico?
 
-È possibile usare l'analisi del traffico per i gruppi di sicurezza di rete in una qualsiasi delle aree supportate seguenti:
+È possibile usare l'analisi del traffico per NSG in una qualsiasi delle aree supportate seguenti:
 - Canada centrale
 - Stati Uniti centro-occidentali
-- East US
+- Stati Uniti Orientali
 - Stati Uniti orientali 2
 - Stati Uniti centro-settentrionali
 - Stati Uniti centro-meridionali
@@ -82,37 +82,41 @@ Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbo
 - Regno Unito occidentale
 - Regno Unito meridionale
 - Australia orientale
-- Australia sud-orientale 
+- Australia sudorientale 
 - Asia orientale
-- Asia sud-orientale
+- Asia sudorientale
 - Corea del Sud centrale
 - India centrale
 - India meridionale
 - Giappone orientale
 - Giappone occidentale
-- US Gov Virginia
+- Governo degli Stati Uniti - Virginia
+- Cina orientale 2
 
 L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 - Canada centrale
 - Stati Uniti centro-occidentali
-- Stati Uniti occidentali
-- Stati Uniti occidentali 2
+- Stati Uniti Orientali
+- Stati Uniti orientali 2
+- Stati Uniti centro-settentrionali
 - Stati Uniti centro-meridionali
 - Stati Uniti centrali
-- East US
-- Stati Uniti orientali 2
+- Stati Uniti occidentali
+- Stati Uniti occidentali 2
 - Francia centrale
 - Europa occidentale
 - Europa settentrionale
+- Regno Unito occidentale
 - Regno Unito meridionale
 - Australia orientale
-- Australia sud-orientale
+- Australia sudorientale
 - Asia orientale
-- Asia sud-orientale 
+- Asia sudorientale 
 - Corea del Sud centrale
 - India centrale
 - Giappone orientale
-- US Gov Virginia
+- Governo degli Stati Uniti - Virginia
+- Cina orientale 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>I gruppi di sicurezza di rete per cui vengono abilitati i log dei flussi possono trovarsi in aree differenti dalla propria area di lavoro?
 
@@ -151,7 +155,7 @@ Per il corretto funzionamento della registrazione dei flussi, è necessario regi
 
 La prima visualizzazione del dashboard può richiedere fino a 30 minuti. La soluzione deve aggregare dati sufficienti per poter ottenere informazioni significative, prima di generare i report. 
 
-## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Cosa accade se viene visualizzato un messaggio simile al seguente: "Non sono stati trovati dati per l'intervallo di tempo specificato in questa area di lavoro. Provare a modificare l'intervallo di tempo o a selezionare un'altra area di lavoro."?
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Cosa succede se viene visualizzato il messaggio seguente: "Non sono stati trovati dati in questa area di lavoro per l'intervallo di tempo selezionato. Provare a modificare l'intervallo di tempo o a selezionare un'altra area di lavoro."?
 
 Provare le opzioni seguenti:
 - Modificare l'intervallo di tempo nella barra superiore.
@@ -160,7 +164,7 @@ Provare le opzioni seguenti:
     
 Se i problemi persistono, chiedere assistenza nel [forum di suggerimenti per gli utenti](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Cosa accade se viene visualizzato un messaggio simile al seguente: "È in corso l'analisi dei log del flusso del gruppo di sicurezza di rete per la prima volta. L'operazione potrebbe richiedere circa 20-30 minuti. Verificare più tardi". 2) Controllare qui l'utilizzo dell'area di lavoro per convalidare la quota in eccedenza altrimenti fare riferimento alle FAQ per ulteriori informazioni, se l'area di lavoro si trova nello SKU gratuito e il passaggio precedente non funziona"?
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Cosa succede se viene visualizzato il seguente messaggio: "È in corso l'analisi dei log del flusso del gruppo di sicurezza di rete per la prima volta. L'operazione potrebbe richiedere circa 20-30 minuti. Verificare più tardi". 2) Controllare qui l'utilizzo dell'area di lavoro per convalidare la quota in eccedenza altrimenti fare riferimento alle FAQ per ulteriori informazioni, se l'area di lavoro si trova nello SKU gratuito e il passaggio precedente non funziona"?
 
 È possibile che venga visualizzato questo messaggio perché:
 - Analisi del traffico è stato abilitato di recente ed è possibile che non abbia già aggregato dati sufficienti per ricavare informazioni dettagliate significative.
@@ -168,7 +172,7 @@ Se i problemi persistono, chiedere assistenza nel [forum di suggerimenti per gli
     
 Se i problemi persistono, chiedere assistenza nel [forum di suggerimenti per gli utenti](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
-## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Cosa accade se viene visualizzato un messaggio simile al seguente: "Sono disponibili solo i dati delle risorse (topologia) e nessuna informazione sui flussi. Nel frattempo, fare clic per visualizzare solo i dati delle risorse e fare riferimento alle FAQ per ulteriori informazioni"?
+## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Cosa succede se viene visualizzato il seguente È stato visualizzato il messaggio seguente: "Sono disponibili solo i dati delle risorse (topologia) e nessuna informazione sui flussi. Nel frattempo, fare clic per visualizzare solo i dati delle risorse e fare riferimento alle FAQ per ulteriori informazioni"?
 
 Le informazioni sulle risorse sono visualizzate nel dashboard, tuttavia non sono presenti le statistiche relative ai flussi. I dati potrebbero non essere presenti a causa della mancanza di flussi di comunicazione tra le risorse. Attendere 60 minuti e ricontrollare lo stato. Se il problema non viene risolto e si è certi dell'esistenza dei flussi di comunicazione tra le risorse, chiedere assistenza nel [forum di suggerimenti per gli utenti](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
@@ -244,7 +248,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 Viene eseguita la misurazione di Analisi del traffico. La misurazione si basa sull'elaborazione dei dati del registro di flusso da parte del servizio e sulla memorizzazione dei registri avanzati risultanti in un'area di lavoro Log Analytics. 
 
-Si consideri ad esempio il [piano tariffario](https://azure.microsoft.com/pricing/details/network-watcher/) dell'area Stati Uniti centro-occidentali. Se i dati archiviati per i log dei flussi in un account di archiviazione elaborato da Analisi del traffico corrispondono a 10 GB e i log avanzati inseriti nell'area di lavoro Log Analytics sono pari a 1 GB, gli addebiti applicabili saranno: 10 x $ 2,3 + 1 x $ 2,76 = $ 25,76
+Ad esempio, in base il [piano tariffario](https://azure.microsoft.com/pricing/details/network-watcher/), prendere in considerazione l'area degli Stati Uniti centrali. Se i dati archiviati per i log dei flussi in un account di archiviazione elaborato da Analisi del traffico è 10 GB e i log avanzati inseriti nell'area di lavoro Log Analytics sono pari a 1 GB, gli addebiti applicabili saranno: 10 x 2.3$ + 1 x 2.76$ = 25.76$
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>Con quale frequenza Analisi del traffico elaborare i dati?
 
@@ -266,8 +270,8 @@ Analisi del traffico non dispone del supporto incorporato per gli avvisi. Tuttav
 
 La pagina della mappa geografica contiene due sezioni principali:
     
-- **Banner**: Il banner nella parte superiore della mappa geografica include i pulsanti per selezionare i filtri per la distribuzione del traffico, ad esempio la distribuzione, il traffico da paesi/aree geografiche e dannosi. Quando si seleziona un pulsante, il filtro corrispondente viene applicato sulla mappa. Ad esempio, se si seleziona il pulsante Attivo, la mappa evidenzia i centri dati attivi nella distribuzione remota.
-- **Mappa**: Sotto il banner, la sezione della mappa mostra la distribuzione del traffico tra i Data Center di Azure e i paesi/aree geografiche.
+- **Banner**: il banner nella parte superiore della mappa geografica include i pulsanti per selezionare i filtri per la distribuzione del traffico, ad esempio la distribuzione, il traffico da paesi/aree geografiche e dannosi. Quando si seleziona un pulsante, il filtro corrispondente viene applicato sulla mappa. Ad esempio, se si seleziona il pulsante Attivo, la mappa evidenzia i centri dati attivi nella distribuzione remota.
+- **Map**: sotto l'intestazione la sezione Map mostra la distribuzione del traffico tra Data Center di Azure e paesi/aree geografiche.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navigazione da tastiera sul banner
     
@@ -296,7 +300,7 @@ La pagina della mappa geografica contiene due sezioni principali:
 
 La pagina della topologia di rete virtuale contiene due sezioni principali:
     
-- **Banner**: il banner nella parte superiore della topologia di reti virtuale fornisce i pulsanti per selezionare i filtri di distribuzione del traffico (ad esempio, reti virtuali connesse, reti virtuali disconnesse e IP pubblici). Quando si seleziona un pulsante, il filtro corrispondente viene applicato sulla topologia. Ad esempio, se si seleziona il pulsante Attivo, la topologia evidenzia le reti virtuali attive nella distribuzione remota.
+- **Banner**: il banner nella parte superiore della topologia di rete virtuale fornisce i pulsanti per selezionare i filtri di distribuzione del traffico (ad esempio, Reti virtuali connesse, Reti virtuali disconnesse e IP pubblici). Quando si seleziona un pulsante, il filtro corrispondente viene applicato sulla topologia. Ad esempio, se si seleziona il pulsante Attivo, la topologia evidenzia le reti virtuali attive nella distribuzione remota.
 - **Topologia**: sotto al banner, la sezione topologia mostra la distribuzione del traffico tra le reti virtuali.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navigazione da tastiera sul banner

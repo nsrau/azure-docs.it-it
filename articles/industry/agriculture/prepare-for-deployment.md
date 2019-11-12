@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 10ff3cc940ac3d11154f1dec6c06ff3681328d38
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 55b59802116eb10d2e7eeb3b13ecb3da2d475c6d
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890947"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906983"
 ---
 # <a name="deploy-farmbeats"></a>Distribuire FarmBeats
 
@@ -60,7 +60,7 @@ Seguire questa procedura per creare un'offerta Azure FarmBeats nel Marketplace:
 1. Accedere al portale di Azure e selezionare l'account nell'angolo in alto a destra e passare al tenant di Azure AD in cui si vuole distribuire Microsoft Azure FarmBeats.
 2. Azure FarmBeats è disponibile in Azure Marketplace. Nella pagina Marketplace selezionare "Get it Now".
 3. Selezionare Crea e immettere le informazioni seguenti:
-  - Nome della sottoscrizione.
+  - nome della sottoscrizione.
   - un nome del gruppo di risorse esistente (solo gruppo di risorse vuoto) o creare un nuovo gruppo di risorse per la distribuzione di Azure FarmBeats. Prendere nota di questo gruppo di risorse nelle sezioni successive.
 4. Area in cui si vuole installare Azure FarmBeats. Attualmente FarmBeats le aree seguenti: Stati Uniti centrali, Europa occidentale, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti occidentali, Asia sudorientale, Stati Uniti orientali, Australia orientale, Stati Uniti occidentali 2.
 5. Selezionare **OK**.
@@ -69,7 +69,7 @@ Viene visualizzata la pagina Condizioni per l'utilizzo. Esaminare le condizioni 
 7. Il contratto di licenza con l'utente finale (EULA) di Azure FarmBeats è stato firmato sul Marketplace.  
 7. Per continuare con la distribuzione, seguire i passaggi successivi di questa guida.
 
-## <a name="prepare"></a>Preparazione
+## <a name="prepare"></a>Preparare
 
 Per la distribuzione di Azure FarmBeats sono necessarie le autorizzazioni seguenti:
 
@@ -82,14 +82,13 @@ Per la distribuzione di Azure FarmBeats sono necessarie le autorizzazioni seguen
 Prima di avviare la distribuzione, assicurarsi di disporre di quanto segue:
 
 - Account Sentinel
-- Azure Active Directory (registrazione app)
-- Azure FarmBeats
+- Registrazione dell'app Azure Active Directory (AD)
 
 ## <a name="create-a-sentinel-account"></a>Creare un account Sentinel    
 
 Un account con Sentinel consente di scaricare le immagini satellite Sentinel dal sito web ufficiale al dispositivo. Per creare un account gratuito, seguire questa procedura:
 
-1. Passare a https://scihub.copernicus.eu/dhus/#/self-registration. Nella pagina di registrazione specificare un nome, un cognome, un nome utente, una password e un indirizzo di posta elettronica.
+Passare a https://scihub.copernicus.eu/dhus/#/self-registration. Nella pagina di registrazione specificare un nome, un cognome, un nome utente, una password e un indirizzo di posta elettronica.
 Un messaggio di posta elettronica di verifica verrà inviato all'indirizzo di posta elettronica registrato per la conferma. Selezionare il collegamento e confermare. Il processo di registrazione è stato completato.
 
 ## <a name="create-azure-ad-app-registration"></a>Creazione della registrazione dell'app Azure AD
@@ -103,7 +102,7 @@ Per l'autenticazione e l'autorizzazione in Azure FarmBeats, è necessario avere 
 
 Se si dispone già di una sottoscrizione, è possibile spostarla direttamente alla procedura successiva.
 
-**Caso 2**: questo metodo è il passaggio preferito quando non si dispone di diritti sufficienti per creare e configurare un Azure ad la registrazione dell'app all'interno della sottoscrizione. Richiedere all'amministratore di usare lo [script personalizzato](https://aka.ms/FarmBeatsMarketplace), che consentirà all'amministratore IT di generare e configurare automaticamente la registrazione dell'app Azure AD nel portale di Azure. Come output per l'esecuzione di questo script personalizzato con l'ambiente PowerShell, l'amministratore IT deve condividere un ID client dell'applicazione Azure Active Directory e il segreto della password. Prendere nota dei valori seguenti.
+**Caso 2**: questo metodo è il passaggio preferito quando non si dispone di diritti sufficienti per creare e configurare un Azure ad la registrazione dell'app all'interno della sottoscrizione. Richiedere all'amministratore di usare lo [script personalizzato](https://aka.ms/FarmBeatsAADScript), che consentirà all'amministratore IT di generare e configurare automaticamente la registrazione dell'app Azure AD nel portale di Azure. Come output per l'esecuzione di questo script personalizzato con l'ambiente PowerShell, l'amministratore IT deve condividere un ID client dell'applicazione Azure Active Directory e il segreto della password. Prendere nota dei valori seguenti.
 
 Per eseguire lo script di registrazione dell'applicazione Azure AD, attenersi alla procedura seguente:
 
@@ -132,7 +131,7 @@ Per eseguire lo script di registrazione dell'applicazione Azure AD, attenersi al
 
 Come parte dell'installazione, creare un file input. JSON come indicato di seguito:
 
-    ```json
+    ```
     {  
        "sku":"both",
        "subscriptionId":"da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx",
@@ -150,24 +149,22 @@ Come parte dell'installazione, creare un file input. JSON come indicato di segui
 Questo file è il file di input per Azure Cloud Shell e i parametri i cui valori vengono usati durante l'installazione. Tutti i parametri in JSON devono essere sostituiti con valori appropriati o rimossi. Se rimosso, il programma di installazione richiederà l'utente durante l'installazione
 
 
-> [!NOTE]
-> Questo file immette i valori da Azure Cloud Shell.  Per risparmiare tempo, durante la distribuzione non verranno richiesti i parametri aggiunti a questo file. Verranno richiesti parametri mancanti.
-
 Verificare i parametri prima di preparare il file.
 
-|Comando | Descrizione|
+|Comando | DESCRIZIONE|
 |--- | ---|
 |sku  | Offre la possibilità di scaricare uno o entrambi i componenti di Azure FarmBeats. Specifica i componenti da scaricare. Per installare solo l'hub dati, usare "onlydatabhub". Per installare hub dati e acceleratore, usare "both"|
-|SubscriptionId  | Specifica la sottoscrizione per l'installazione di FarmBeats|
-|"datahubResourceGroup"  | Nome del gruppo di risorse per le risorse dell'hub dati|
-|"acceleratorWebsiteName"  |Prefisso URL univoco per assegnare un nome all'hub dati|
-|"acceleratorResourceGroup"  | Prefisso URL univoco per assegnare un nome al sito Web Accelerator.|
-|"datahubWebsiteName"  | Prefisso URL UUnique per assegnare un nome al sito Web dell'hub dati. |
-|''sentinelUsername'' | nome utente a cui accedere: https://scihub.copernicus.eu/dhus/#/self-registration.|
-|"notificationEmailAddress"  | Indirizzo di posta elettronica per ricevere le notifiche per gli avvisi configurati all'interno dell'hub dati.|
-|"updateIfExists" "  |Opzionale Parametro da includere in input. JSON solo se si vuole aggiornare un'istanza di FarmBeats esistente. Per l'aggiornamento, altri dettagli, ad esempio. i nomi dei gruppi di risorse, le località e così via devono essere uguali.|
-|"aadAppClientId"  | [**Facoltativo**] Parametro da includere in input. JSON solo se Azure AD app esiste già.  |
-|"aadAppClientSecret"   | [**Facoltativo**] Parametro da includere in input. JSON solo se Azure AD app esiste già.|
+|subscriptionId | Specifica la sottoscrizione per l'installazione di FarmBeats|
+|datahubResourceGroup| Nome del gruppo di risorse per le risorse dell'hub dati|
+|location |Località in cui si desidera creare le risorse|
+|acceleratorWebsiteName |Prefisso URL univoco per assegnare un nome all'hub dati|
+|acceleratorResourceGroup  | Prefisso URL univoco per assegnare un nome al sito Web Accelerator.|
+|datahubWebsiteName  | Prefisso URL UUnique per assegnare un nome al sito Web dell'hub dati. |
+|sentinelUsername | nome utente a cui accedere: https://scihub.copernicus.eu/dhus/#/self-registration.|
+|notificationEmailAddress  | Indirizzo di posta elettronica per ricevere le notifiche per gli avvisi configurati all'interno dell'hub dati.|
+|updateIfExists|Opzionale Parametro da includere in input. JSON solo se si vuole aggiornare un'istanza di FarmBeats esistente. Per l'aggiornamento, altri dettagli, ad esempio. i nomi dei gruppi di risorse, le località e così via devono essere uguali.|
+|aadAppClientId | [**Facoltativo**] Parametro da includere in input. JSON solo se Azure AD app esiste già.  |
+|aadAppClientSecret  | [**Facoltativo**] Parametro da includere in input. JSON solo se Azure AD app esiste già.|
 
 ## <a name="deploy-within-cloud-shell-browser-based-command-line"></a>Distribuire all'interno di Cloud Shell riga di comando basata su browser
 
@@ -193,17 +190,15 @@ Input JSON di esempio:
     ```json
     {  
        "sku":"both", 
-       "subscriptionId": "da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx", 
-       "datahubResourceGroup": "dummy-test-dh1", 
-       "datahubLocation": "westus2", 
-       "datahubWebsiteName": "dummy-test-dh1", 
-       "acceleratorResourceGroup": "dummy-test-acc1", 
-       "acceleratorLocation": "westus2", 
-       "acceleratorWebsiteName": "dummy-test-acc1", 
-       "sentinelUsername": "dummy-dev", 
-       "farmbeatsAppId": "c3cb3xxx-27xx-4xxb-8xx6-3xxx2xxdxxx5c", 
-       "notificationEmailAddress": "dummy@microsoft.com", 
-       "updateIfExists": true
+       "subscriptionId":"da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx", 
+       "datahubResourceGroup":"dummy-test-dh1", 
+       "location":"eastus2", 
+       "datahubWebsiteName":"dummy-test-dh1", 
+       "acceleratorResourceGroup":" dummy-test-acc1",   
+       "acceleratorWebsiteName":" dummy-test-acc1", 
+       "sentinelUsername":"dummy-dev", 
+       "notificationEmailAddress":" dummy@microsoft.com", 
+       "updateIfExists":true 
     }
     ```
 
@@ -213,10 +208,10 @@ Input JSON di esempio:
     ![Beat Farm progetto](./media/prepare-for-deployment/bash-2-1.png)
 
 4. Passare alla Home directory in cloud Shell. Per impostazione predefinita, è/Home/<username>
-5. Digitare o incollare i due comandi seguenti nel Cloud Shell. Assicurarsi di modificare il percorso di input. File JSON e premere INVIO.
+5. Digitare o incollare il comando seguente nella Cloud Shell. Assicurarsi di modificare il percorso di input. File JSON e premere INVIO.
 
       ```azurepowershell-interactive
-      wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScriptbash farmbeats-installer.sh /home/<username>/input.json
+      wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
      ```
      Il programma di installazione scarica automaticamente tutte le dipendenze e compila il deployer. Verrà richiesto di accettare il contratto di licenza con l'utente finale (EULA) di Azure FarmBeats.
 
@@ -269,10 +264,10 @@ Seguire i passaggi rimanenti:
     ![Beat Farm progetto](./media/prepare-for-deployment/bash-2-1.png)
 
 4. Passare alla Home directory in cloud Shell. Per impostazione predefinita, è/Home/<username>
-5. Digitare o incollare i due comandi seguenti nel Cloud Shell. Assicurarsi di modificare il percorso di input. File JSON e premere INVIO.
+5. Digitare o incollare il comando seguente nella Cloud Shell. Assicurarsi di modificare il percorso di input. File JSON e premere INVIO.
 
     ```azurepowershell-interactive
-    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScriptbash farmbeats-installer.sh /home/<username>/input.json
+    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 
 Seguire le istruzioni visualizzate.
@@ -314,15 +309,10 @@ Al termine dell'installazione dell'acceleratore, si riceverà l'URL per accedere
 
 1. Per accedere da Accelerator, copiare e incollare l'URL nel browser.
 2. Accedere con le credenziali portale di Azure.
-3. Eseguire un test di integrità facoltativo.
-
-    - Controllare se è possibile accedere al portale Accelerator usando il collegamento di accelerazione ricevuto come output per una distribuzione corretta.
-    - Selezionare **Crea Farm**.
-    - Sotto l'icona "?" aprire le guide FarmBeats usando il pulsante **Get Started** (attività iniziali).
 
 ## <a name="upgrade"></a>Aggiornamento
 
-I passaggi per l'aggiornamento sono simili alla prima installazione. A tale scopo, seguire questa procedura:
+I passaggi per l'aggiornamento sono simili alla prima installazione. Seguire questa procedura:
 
 1. Accedere a portale di Azure e selezionare la sottoscrizione desiderata e il tenant di Active Directory.
 2. Avviare Cloud Shell dal riquadro di spostamento in alto nel portale di Azure.
@@ -335,7 +325,7 @@ I passaggi per l'aggiornamento sono simili alla prima installazione. A tale scop
 6. Digitare o incollare i due comandi seguenti nel Cloud Shell. Assicurarsi di modificare il percorso del file input. JSON e premere INVIO.
 
     ```azurepowershell-interactive
-    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScriptbash farmbeats-installer.sh /home/<username>/input.json
+    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 Seguire le istruzioni visualizzate:
 

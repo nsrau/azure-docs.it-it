@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/11/2019
 ms.author: memildin
-ms.openlocfilehash: 93e52b393db288f5b19afde4a31e08d0bb91b471
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 068fb9f61b7dcb3948e4f03c284ddfa680522c85
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571569"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907019"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Sicurezza dei dati avanzata per SQL Server in macchine virtuali di Azure (anteprima)
 La protezione avanzata dei dati per SQL Server in macchine virtuali di Azure è un pacchetto unificato per le funzionalità avanzate di sicurezza di SQL. Questa funzionalità di anteprima include funzionalità per l'identificazione e la mitigazione di potenziali vulnerabilità del database e per il rilevamento di attività anomale che potrebbero indicare minacce per il database. 
@@ -26,7 +26,7 @@ La protezione avanzata dei dati per SQL Server in macchine virtuali di Azure è 
 Questa offerta di sicurezza per le macchine virtuali di Azure SQL Server è basata sulla stessa tecnologia fondamentale usata nel [pacchetto di sicurezza dei dati avanzato del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Advanced Data Security offre un set di funzionalità avanzate per la sicurezza di SQL, costituite da valutazione della vulnerabilità e da Advanced Threat Protection.
 
@@ -54,7 +54,7 @@ Abilitare la sicurezza dei dati avanzata per SQL Server in macchine virtuali a l
     La protezione avanzata dei dati per SQL Server verrà abilitata in tutti i server SQL connessi all'area di lavoro selezionata o nell'area di lavoro predefinita della sottoscrizione selezionata.
 
     >[!NOTE]
-    > La soluzione sarà attiva dopo il primo riavvio del SQL Server. 
+    > La soluzione sarà completamente attiva dopo il primo riavvio del SQL Server. 
 
 Per creare una nuova area di lavoro, seguire le istruzioni riportate in [creare un'area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
@@ -72,7 +72,7 @@ Per connettere l'host del SQL Server a un'area di lavoro, seguire le istruzioni 
 1. Scegliere **notifiche tramite posta elettronica**dal menu impostazioni. 
 1. Nella casella di testo **indirizzo di posta elettronica** immettere gli indirizzi di posta elettronica per ricevere le notifiche. È possibile immettere più di un indirizzo di posta elettronica separando gli indirizzi di posta elettronica con una virgola (,).  Ad esempio admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com
 
-      ![Impostazioni di posta elettronica](./media/security-center-advanced-iaas-data/email-settings.png)
+    ![Impostazioni di posta elettronica](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. Nelle impostazioni di **notifica tramite posta elettronica** impostare le opzioni seguenti:
   
@@ -88,29 +88,27 @@ Per connettere l'host del SQL Server a un'area di lavoro, seguire le istruzioni 
 
 Il dashboard della valutazione della vulnerabilità fornisce una panoramica dei risultati della valutazione in tutti i database. È possibile visualizzare la distribuzione dei database in base alla versione SQL Server, insieme a un riepilogo del mancato rispetto del passaggio dei database e di un riepilogo generale dei controlli non riusciti in base alla distribuzione dei rischi.
 
-È possibile visualizzare i risultati e i report di valutazione della vulnerabilità direttamente da Log Analytics.
+È possibile visualizzare i risultati della valutazione della vulnerabilità direttamente dal centro sicurezza.
 
-1. Passare all'area di lavoro Log Analytics con la soluzione di sicurezza dei dati avanzata.
-1. Passare a **soluzioni** e selezionare la soluzione di **valutazione della vulnerabilità di SQL** .
-1. Nel riquadro **Riepilogo** fare clic su **Visualizza riepilogo** e selezionare il **report di valutazione della vulnerabilità SQL**.
+1. Dall'intestazione laterale del Centro sicurezza, in igiene sicurezza risorse selezionare **dati & archiviazione**.
 
-    ![Report Valutazione SQL](./media/security-center-advanced-iaas-data/ads-sql-server-1.png)
+1. Selezionare le vulnerabilità di raccomandazione nei **database SQL nelle VM da correggere (anteprima)** . Per altre informazioni, vedere [raccomandazioni del Centro sicurezza](security-center-recommendations.md). 
 
-    Il dashboard del report viene caricato. Verificare che l'intervallo di tempo sia impostato su almeno gli **ultimi 7 giorni** dall'esecuzione delle analisi di valutazione della vulnerabilità sui database in base a una pianificazione fissa, una volta ogni sette giorni.
+    [![* * le vulnerabilità nei database SQL nelle macchine virtuali devono essere risolte (anteprima) * * Raccomandazione](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
-    ![Imposta ultimi 7 giorni](./media/security-center-advanced-iaas-data/ads-sql-server-2.png)
+    Viene visualizzata la visualizzazione dettagliata di questa raccomandazione.
 
-1. Per eseguire il drill-down per altri dettagli, fare clic su uno degli elementi del dashboard. Ad esempio:
+    [![visualizzazione dettagliata per la * * vulnerabilità nei database SQL nelle macchine virtuali deve essere risolta (anteprima) * * Raccomandazione](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
-   1. Fare clic su un controllo della vulnerabilità nella sezione **Riepilogo controlli non riusciti** per visualizzare una tabella log Analytics con i risultati per questo controllo in tutti i database. Quelli con risultati vengono elencati per primi.
+1. Per eseguire il drill-down per altri dettagli:
 
-   1. Fare quindi clic per visualizzare i dettagli di ogni vulnerabilità, incluse la descrizione della vulnerabilità e l'effetto, lo stato, il rischio associato e i risultati effettivi sul database. È anche possibile visualizzare la query effettiva che è stata eseguita per eseguire questo controllo e le informazioni di monitoraggio e aggiornamento per la risoluzione di questa vulnerabilità.
+    * Per una panoramica delle risorse analizzate (database) e l'elenco dei controlli di sicurezza testati, fare clic sul server di interesse.
+    [![vulnerabilità raggruppate in SQL Server](media/security-center-advanced-iaas-data/single-server-view.png)](media/security-center-advanced-iaas-data/single-server-view.png#lightbox)
 
-    ![Selezionare l'area di lavoro](./media/security-center-advanced-iaas-data/ads-sql-server-3.png)
+    * Per una panoramica delle vulnerabilità raggruppate in base a un database SQL specifico, fare clic sul database di interesse.
+    [![vulnerabilità raggruppate in SQL Server](media/security-center-advanced-iaas-data/single-database-view.png)](media/security-center-advanced-iaas-data/single-database-view.png#lightbox)
 
-    ![Selezionare l'area di lavoro](./media/security-center-advanced-iaas-data/ads-sql-server-4.png)
-
-1. È possibile eseguire qualsiasi query Log Analytics sui dati dei risultati della valutazione della vulnerabilità, per sezionare e tagliare i dati in base alle esigenze.
+    In ogni visualizzazione, i controlli di sicurezza sono ordinati in base alla **gravità**. Fare clic su un controllo di sicurezza specifico per visualizzare un riquadro dei dettagli con una **Descrizione**, **come risolverlo e altre** informazioni correlate, ad esempio **Impact** o **benchmark**.
 
 ## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Avvisi di Advanced Threat Protection per SQL Server in macchine virtuali di Azure
 Gli avvisi vengono generati da tentativi insoliti e potenzialmente dannosi di accesso o exploit di SQL Server. Questi eventi possono attivare gli avvisi seguenti:

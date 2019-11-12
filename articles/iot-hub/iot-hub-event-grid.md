@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 7d5a232d92c37a94ff427a3bf203f6f20764060e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: a2bb961989d5bb1cc879b197e45d25b566c56e83
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748590"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906769"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni
 
@@ -25,13 +25,13 @@ L'hub IoT di Azure si integra con Griglia di eventi di Azure per poter inviare l
 
 ## <a name="regional-availability"></a>Disponibilità internazionale
 
-L'integrazione di Griglia di eventi è disponibile per gli hub IoT situati nelle aree in cui Griglia di eventi è supportata. Tutti gli eventi dispositivo tranne gli eventi di telemetria del dispositivo sono disponibili a livello generale. L'evento di telemetria del dispositivo è in anteprima pubblica ed è disponibile in tutte le aree, ad eccezione degli Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale, [Azure per enti pubblici](/azure/azure-government/documentation-government-welcome), [Azure Cina 21ViaNet](/azure/china)e [Azure Germania](https://azure.microsoft.com/global-infrastructure/germany/). Per l'elenco aggiornato delle aree, vedere [Introduzione a Griglia di eventi di Azure](../event-grid/overview.md).
+L'integrazione di Griglia di eventi è disponibile per gli hub IoT situati nelle aree in cui Griglia di eventi è supportata. Per l'elenco aggiornato delle aree, vedere [Introduzione a Griglia di eventi di Azure](../event-grid/overview.md).
 
 ## <a name="event-types"></a>Tipi di eventi
 
 L'hub IoT pubblica i tipi di eventi seguenti:
 
-| Tipo evento | Descrizione |
+| Tipo evento | DESCRIZIONE |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Pubblicato quando un dispositivo viene registrato in un hub IoT. |
 | Microsoft.Devices.DeviceDeleted | Pubblicato quando un dispositivo viene eliminato da un hub IoT. |
@@ -198,7 +198,7 @@ Le applicazioni che gestiscono gli eventi dell'hub IoT devono seguire queste pro
 
 * [Try the IoT Hub events tutorial (Provare l'esercitazione sugli eventi dell'hub IoT)](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 
-* [Informazioni sull'ordinamento di eventi di connessione e disconnessione dispositivi](iot-hub-how-to-order-connection-state-events.md)
+* [Informazioni sull'ordinamento di eventi di connessione e disconnessione dispositivi](iot-hub-how-to-order-connection-state-events.md).
 
 * [Altre informazioni su Griglia di eventi](../event-grid/overview.md)
 

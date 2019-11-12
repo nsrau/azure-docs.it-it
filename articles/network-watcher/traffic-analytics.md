@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: vinigam
-ms.openlocfilehash: 831e75ba2d3f6af62496d437da3d1413dc612594
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 91fb4551f4651f44a1f7358951c5d4cc0ff70644
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686564"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907147"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -63,7 +63,7 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
 
 * Canada centrale
 * Stati Uniti centro-occidentali
-* Stati Uniti orientali
+* Stati Uniti Orientali
 * Stati Uniti orientali 2
 * Stati Uniti centro-settentrionali
 * Stati Uniti centro-meridionali
@@ -93,15 +93,19 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
 L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 * Canada centrale
 * Stati Uniti centro-occidentali
-* Stati Uniti orientali
+* Stati Uniti Orientali
 * Stati Uniti orientali 2
+* Stati Uniti centro-settentrionali
 * Stati Uniti centro-meridionali
+* Stati Uniti centrali
 * Stati Uniti occidentali
 * Stati Uniti occidentali 2
 * Stati Uniti centrali
 * Francia centrale
-* Europa settentrionale
 * Europa occidentale
+* Europa settentrionale
+* Brasile meridionale
+* Regno Unito occidentale
 * Regno Unito meridionale
 * Australia orientale
 * Australia sudorientale
@@ -113,7 +117,7 @@ L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 * Governo degli Stati Uniti - Virginia
 * Cina orientale 2
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 ### <a name="user-access-requirements"></a>Requisiti di accesso utente
 
@@ -123,7 +127,7 @@ L'account deve essere un membro di uno de seguenti [ruoli predefiniti](../role-b
 |---------          |---------               |
 |Gestione risorse   | Proprietario                  |
 |                   | Collaboratore            |
-|                   | Lettore                 |
+|                   | reader                 |
 |                   | Collaboratore di rete    |
 
 Se l'account non è assegnato a uno dei ruoli predefiniti, deve essere assegnato a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) al quale vengono assegnate le seguenti azioni, a livello di sottoscrizione:
@@ -198,7 +202,7 @@ Selezionare le opzioni seguenti, come illustrato nell'immagine:
 
 Ripetere i passaggi precedenti per qualsiasi altro gruppo di sicurezza di rete per il quale si vuole abilitare Analisi del traffico. I dati dai log dei flussi vengono inviati all'area di lavoro, quindi assicurarsi che le leggi locali e le normative in vigore nel proprio paese consentano l'archiviazione dei dati nell'area in cui è presente l'area di lavoro. Se sono stati impostati intervalli di elaborazione diversi per gruppi diversi, i dati verranno raccolti a intervalli diversi. Ad esempio, è possibile scegliere di abilitare l'intervallo di elaborazione di 10 minuti per reti virtuali critico e 1 ora per reti virtuali non critici.
 
-È anche possibile configurare analisi del traffico usando il cmdlet di PowerShell [set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) in Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
+È anche possibile configurare analisi del traffico usando il cmdlet di PowerShell [set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) in Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installare il modulo di Azure PowerShell).
 
 ## <a name="view-traffic-analytics"></a>Visualizzare Analisi del traffico
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/07/2019
+ms.date: 11/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 76e01055043932f2c7e7d57bd7eed6265d666a8c
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 49c5fc4a9d4fed2176baf220e3fcc8f887757a36
+ms.sourcegitcommit: f226cdd6406372b5693d46b6d04900f2f0cda4e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302782"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906219"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montare o smontare un volume per macchine virtuali Windows o Linux 
 
@@ -32,4 +32,8 @@ ms.locfileid: "72302782"
 
     ![Istruzioni di montaggio SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)
     
-Se si usa NFSv 4.1, usare il comando seguente per montare il file system: `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`
+Se si usa NFSv 4.1, usare il comando seguente per montare i file system:  
+
+`sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+
+Vedere [configurare il dominio predefinito NFSv 4.1 per Azure NetApp files](azure-netapp-files-configure-nfsv41-domain.md).
