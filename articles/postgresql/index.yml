@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentazione del Database di Azure per PostgreSQL
-summary: Il database di Azure per PostgreSQL è un servizio di database relazionale basato sul motore di database Postgres open source. Si tratta di un database distribuito come servizio completamente gestito in grado di gestire carichi di lavoro cruciali con prestazioni prevedibili, sicurezza, disponibilità elevata e scalabilità dinamica. Prevede due opzioni di distribuzione, ovvero server singolo e cluster Hyperscale (Citus) (anteprima). L'opzione Hyperscale (Citus) scala orizzontalmente le query tra più computer tramite partizionamento orizzontale e risponde ai requisiti di scalabilità e prestazioni superiori delle applicazioni. Informazioni su come usare il database di Azure per PostgreSQL con le guide rapide, le esercitazioni e gli esempi.
+summary: Il database di Azure per PostgreSQL è un servizio di database relazionale basato sul motore di database Postgres open source. Si tratta di un database distribuito come servizio completamente gestito in grado di gestire carichi di lavoro cruciali con prestazioni prevedibili, sicurezza, disponibilità elevata e scalabilità dinamica. Prevede due opzioni di distribuzione, ovvero server singolo e cluster Hyperscale (Citus). L'opzione Hyperscale (Citus) scala orizzontalmente le query tra più computer tramite partizionamento orizzontale e risponde ai requisiti di scalabilità e prestazioni superiori delle applicazioni. Informazioni su come usare il database di Azure per PostgreSQL con le guide rapide, le esercitazioni e gli esempi.
 metadata:
   description: Database di Azure per PostgreSQL è un servizio di database relazionale incluso in Microsoft Cloud, creato per gli sviluppatori e basato sul motore di database PostgreSQL open source.
   author: rachel-msft
@@ -8,12 +8,12 @@ metadata:
   ms.date: 08/30/2019
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 70888f27f346c930d37652a3ddd02a0c4d5f65c1
-  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.openlocfilehash: 4deeec3686d2e3b0a150b74a222f7f1eab0a93fd
+  ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73499907"
+  ms.lasthandoff: 11/12/2019
+  ms.locfileid: "73932235"
 landingContent:
 - title: Informazioni su Database di Azure per PostgreSQL
   linkLists:
@@ -57,11 +57,11 @@ landingContent:
       url: /azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json
     - text: Monitorare e ottimizzare il servizio
       url: tutorial-monitor-and-tune.md
-- title: Creare un cluster Hyperscale (Citus) (anteprima)
+- title: Creare un cluster Hyperscale (Citus)
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Creare un cluster Hyperscale (Citus) (anteprima) nel portale di Azure
+    - text: Creare un cluster Hyperscale (Citus) nel portale di Azure
       url: quickstart-create-hyperscale-portal.md
   - linkListType: tutorial
     links:

@@ -11,12 +11,12 @@ metadata:
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 08/30/2019
-  ms.openlocfilehash: 8227f36ecaeb868f022ad036cf727fee8448da75
-  ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+  ms.openlocfilehash: 277036368f9bd5f7b0afb8131cfc61c8a7d8f233
+  ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/30/2019
-  ms.locfileid: "73063176"
+  ms.lasthandoff: 11/12/2019
+  ms.locfileid: "73931196"
 landingContent:
 - title: Informazioni su HDInsight
   linkLists:
@@ -28,6 +28,8 @@ landingContent:
     links:
     - text: Componenti e versioni di HDInsight
       url: ./hdinsight-component-versioning.md
+    - text: Selezione delle dimensioni appropriate per le macchine virtuali
+      url: ./hdinsight-selecting-vm-size.md
     - text: Tipi di VM supportati da HDInsight
       url: ./hdinsight-supported-node-configuration.md
     - text: Confrontare le opzioni di archiviazione

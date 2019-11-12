@@ -134,6 +134,8 @@
               href: azure-expressroute-connection.md
             - name: Configurare la risoluzione dei nomi DNS
               href: on-premises-dns-setup.md
+            - name: Configurare connessioni VPN da sito a sito a disponibilità elevata
+              href: high-availability-vpn-connection.md
         - name: Piattaforma VMware
           items:
             - name: Informazioni sul modello di autorizzazioni del cloud privato

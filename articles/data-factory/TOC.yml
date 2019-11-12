@@ -616,6 +616,8 @@
           href: connector-troubleshoot-guide.md
         - name: Risoluzione dei problemi di gestione di Azure-SSIS IR
           href: ssis-integration-runtime-management-troubleshoot.md
+        - name: Risoluzione dei problemi del runtime di integrazione self-hosted
+          href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Risoluzione dei problemi dell'esecuzione di pacchetti in Azure-SSIS IR
           href: ssis-integration-runtime-ssis-activity-faq.md
         - name: Risoluzione dei problemi dei flussi di dati
