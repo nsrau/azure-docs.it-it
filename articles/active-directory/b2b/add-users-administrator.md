@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 11/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21117e551642571d5b974e66d0769ed9906b9d50
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 85905e31b9375bac7f813782cbc224a6e770b7ce
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018206"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013135"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure
 
@@ -25,7 +25,7 @@ Gli utenti a cui viene assegnato uno dei ruoli della directory amministratore li
 In seguito all'aggiunta di un utente guest alla directory, è possibile inviare all'utente guest un collegamento diretto a un'app condivisa oppure l'utente guest può selezionare l'URL di riscatto nel messaggio di posta elettronica di invito. Per informazioni sul processo di riscatto, vedere [Riscatto dell'invito di Collaborazione B2B](redemption-experience.md).
 
 > [!IMPORTANT]
-> È necessario seguire le procedure illustrate in [Procedura: Aggiungere le informazioni sulla privacy dell'organizzazione in Azure Active Directory](https://aka.ms/adprivacystatement) per aggiungere l'URL dell'informativa sulla privacy dell'organizzazione. Come parte del primo processo riscatto per il primo invito, un utente invitato deve accettare le condizioni sulla privacy per continuare. 
+> È necessario seguire i passaggi descritti in [Procedura: Aggiungere le informazioni sulla privacy della propria organizzazione in Azure Active Directory](https://aka.ms/adprivacystatement) per aggiungere l'URL dell'informativa sulla privacy della propria organizzazione. Come parte del primo processo riscatto per il primo invito, un utente invitato deve accettare le condizioni sulla privacy per continuare. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -45,14 +45,18 @@ Per aggiungere utenti di Collaborazione B2B alla directory, seguire questa proce
    > [!NOTE]
    > L'opzione **Nuovo utente guest** è disponibile anche nella pagina **Relazioni aziendali**. In **Azure Active Directory**, nell'area **Gestisci**, selezionare **Relazioni aziendali**.
 
-5. In **Nome utente** immettere l'indirizzo di posta elettronica dell'utente esterno. Se si vuole, includere un messaggio di benvenuto. Esempio:
-
-   ![Mostra la posizione dell'opzione Nuovo utente guest nell'interfaccia utente](./media/add-users-administrator/InviteGuest.png) 
+5. Nella pagina **nuovo utente** selezionare **invita utente** e quindi aggiungere le informazioni dell'utente Guest. 
 
     > [!NOTE]
     > Gli indirizzi e-mail di gruppo non sono supportati; inserire l'indirizzo e-mail di una sola persona. Alcuni provider di posta elettronica consentono agli utenti di aggiungere il simbolo più (+) e il testo aggiuntivo ai relativi indirizzi e-mail per consentire operazioni come il filtraggio della posta in arrivo. Tuttavia, Azure AD attualmente non supporta più simboli in indirizzi di posta elettronica. Per evitare problemi di recapito, omettere il simbolo di segno più e tutti i caratteri seguenti fino al simbolo @.
 
-6. Selezionare **Invita** per inviare automaticamente l'invito all'utente guest. 
+   - **Nome.** Il primo e il cognome dell'utente Guest.
+   - **Indirizzo di posta elettronica (obbligatorio)** . Indirizzo di posta elettronica dell'utente Guest.
+   - **Messaggio personale (facoltativo)** Includere un messaggio di benvenuto personale per l'utente Guest.
+   - **Gruppi**: è possibile aggiungere l'utente Guest a uno o più gruppi esistenti oppure è possibile eseguire questa operazione in un secondo momento.
+   - **Ruolo della directory**: se è necessario Azure ad autorizzazioni amministrative per l'utente, è possibile aggiungerle a un ruolo di Azure ad. 
+
+7. Selezionare **Invita** per inviare automaticamente l'invito all'utente guest. 
  
 Dopo aver inviato l'invito, l'account utente viene automaticamente aggiunto alla directory come guest.
 
@@ -67,7 +71,7 @@ Se è necessario aggiungere manualmente gli utenti di collaborazione B2B a un gr
 3. In **Gestisci** selezionare **Gruppi**.
 4. Selezionare un gruppo o fare clic su **Nuovo gruppo** per crearne uno nuovo. È consigliabile indicare nella descrizione del gruppo che il gruppo contiene utenti guest B2B.
 5. Selezionare **Membri**. 
-6. Eseguire una di queste operazioni:
+6. Eseguire una delle operazioni seguenti:
    - Se l'utente guest esiste già nella directory, cercare l'utente B2B. Selezionare l'utente e quindi fare clic su **Seleziona** per aggiungerlo al gruppo.
    - Se l'utente guest non esiste già nella directory, invitarlo nel gruppo immettendo l'indirizzo di posta elettronica nella casella di ricerca, digitando un messaggio personale facoltativo e quindi facendo clic su **Seleziona**. L'invito viene inviato automaticamente all'utente invitato.
      
@@ -89,7 +93,7 @@ Per aggiungere utenti di collaborazione B2B a un'applicazione, seguire questa pr
 
 6. Selezionare **Aggiungi utente**.
 7. In **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
-8. Eseguire una di queste operazioni:
+8. Eseguire una delle operazioni seguenti:
    - Se l'utente guest esiste già nella directory, cercare l'utente B2B. Selezionare l'utente, fare clic su **Seleziona** e quindi fare clic su **Assegna** per aggiungere l'utente all'app.
    - Se l'utente guest non è già presente nella directory, in **Selezionare un membro o invitare un utente esterno** digitare l'indirizzo di posta elettronica dell'utente. Nella finestra di messaggio digitare un messaggio personale facoltativo. Nella finestra di messaggio fare clic su **Invita**.
            

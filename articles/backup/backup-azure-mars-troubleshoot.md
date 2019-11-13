@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: dacurwin
-ms.openlocfilehash: a59ac45d157f8674374c894a280e51392038524b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: abd4e91b8fd3332191b58acf38daed06d03801be
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747404"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012847"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Risolvere i problemi relativi all'agente Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -46,7 +46,7 @@ Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di 
 | Causa | Azioni consigliate |
 | ---     | ---    |
 | **Le credenziali dell'insieme di credenziali non sono valide** <br/> <br/> È possibile che i file dell'insieme di credenziali siano danneggiati o che siano scaduti. (Ad esempio, potrebbero essere state scaricate più di 48 ore prima dell'ora di registrazione).| Scaricare le nuove credenziali dall'insieme di credenziali di servizi di ripristino nel portale di Azure. Vedere il passaggio 6 nella sezione [scaricare l'agente Mars](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) . Eseguire quindi la procedura seguente, in base alle esigenze: <ul><li> Se è già stato installato e registrato MARS, aprire la console MMC di Backup di Microsoft Azure Agent, quindi selezionare **Registra server** nel riquadro **azioni** per completare la registrazione con le nuove credenziali. <br/> <li> Se la nuova installazione non riesce, provare a reinstallare con le nuove credenziali.</ul> **Nota**: se sono stati scaricati più file di credenziali dell'insieme di credenziali, solo il file più recente è valido per le ore 48 successive. Si consiglia di scaricare un nuovo file dell'insieme di credenziali.
-| **Il server proxy/firewall sta bloccando la registrazione** <br/>oppure <br/>**Nessuna connettività Internet** <br/><br/> Se il computer o il server proxy ha una connettività Internet limitata e non si garantisce l'accesso per gli URL necessari, la registrazione avrà esito negativo.| Eseguire questi passaggi:<br/> <ul><li> Collaborare con il team IT per verificare che il sistema abbia la connettività Internet.<li> Se non si dispone di un server proxy, assicurarsi che l'opzione proxy non sia selezionata quando si registra l'agente. [Controllare le impostazioni del proxy](#verifying-proxy-settings-for-windows).<li> Se si dispone di un server proxy/firewall, collaborare con il team di rete per assicurarsi che gli URL e gli indirizzi IP abbiano accesso:<br/> <br> **URL**<br> `www.msftncsi.com` <br> . Microsoft.com <br> . WindowsAzure.com <br> . microsoftonline.com <br> . windows.net <br>**Indirizzi IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Ripetere la registrazione dopo aver completato i passaggi precedenti per la risoluzione dei problemi.
+| **Il server proxy/firewall sta bloccando la registrazione** <br/>oppure <br/>**Nessuna connettività Internet** <br/><br/> Se il computer o il server proxy ha una connettività Internet limitata e non si garantisce l'accesso per gli URL necessari, la registrazione avrà esito negativo.| Eseguire questi passaggi:<br/> <ul><li> Collaborare con il team IT per verificare che il sistema abbia la connettività Internet.<li> Se non si dispone di un server proxy, assicurarsi che l'opzione proxy non sia selezionata quando si registra l'agente. [Controllare le impostazioni del proxy](#verifying-proxy-settings-for-windows).<li> Se si dispone di un server proxy/firewall, collaborare con il team di rete per assicurarsi che gli URL e gli indirizzi IP abbiano accesso:<br/> <br> **URL**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Indirizzi IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Ripetere la registrazione dopo aver completato i passaggi precedenti per la risoluzione dei problemi.
 | **Il software antivirus sta bloccando la registrazione** | Se nel server è installato un software antivirus, aggiungere le regole di esclusione necessarie all'analisi antivirus per i file e le cartelle seguenti: <br/><ul> <li> CBengine.exe <li> CSC. exe<li> Cartella Scratch. Il percorso predefinito è c:\Programmi\Microsoft Azure Recovery Services Agent\Scratch. <li> La cartella bin in C:\Programmi\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Suggerimenti aggiuntivi
@@ -119,11 +119,13 @@ Se i backup pianificati non vengono attivati automaticamente, ma i backup manual
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- Se i criteri di esecuzione di PowerShell per `LocalMachine` sono impostati su con restrizioni, il cmdlet di PowerShell che attiva l'attività di backup potrebbe non riuscire. Eseguire questi comandi in modalità con privilegi elevati per controllare e impostare i criteri di esecuzione su `Unrestricted` o `RemoteSigned`:
+- Se i criteri di esecuzione di PowerShell per `LocalMachine` sono impostati su `restricted`, il cmdlet di PowerShell che attiva l'attività di backup potrebbe non riuscire. Eseguire questi comandi in modalità con privilegi elevati per controllare e impostare i criteri di esecuzione su `Unrestricted` o `RemoteSigned`:
 
-  `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
+ ```PowerShell
+ Get-ExecutionPolicy -List
 
-  `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
+Set-ExecutionPolicy Unrestricted
+```
 
 - Assicurarsi che non siano presenti file MSOnlineBackup del modulo di PowerShell mancanti o danneggiati. Se sono presenti file danneggiati o mancanti, seguire questa procedura:
 
@@ -167,7 +169,7 @@ Se il ripristino ha ancora esito negativo, riavviare il server o il client. Se n
 
 L'operazione di backup potrebbe non riuscire se la cartella della cache (detta anche cartella Scratch) non è configurata correttamente, mancano i prerequisiti o l'accesso è limitato.
 
-### <a name="pre-requisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 Affinché le operazioni dell'agente MARS abbiano esito positivo, la cartella della cache deve rispettare i requisiti seguenti:
 
@@ -215,13 +217,13 @@ Agente di Servizi di ripristino di Microsoft Azure non è riuscito ad accedere a
 
 Messaggio di errore | Azione consigliata |
 -- | --
-Il backup non è riuscito a causa di spazio di archiviazione insufficiente nel volume in cui si trova la cartella Scratch | Per risolvere questo problema, verificare i passaggi seguenti e ripetere l'operazione:<br/>- [verificare che l'agente Mars sia più recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [verificare e risolvere i problemi di archiviazione che incidono sull'area scratch del backup](#pre-requisites)
+Il backup non è riuscito a causa di spazio di archiviazione insufficiente nel volume in cui si trova la cartella Scratch | Per risolvere questo problema, verificare i passaggi seguenti e ripetere l'operazione:<br/>- [verificare che l'agente Mars sia più recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [verificare e risolvere i problemi di archiviazione che incidono sull'area scratch del backup](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
 Messaggio di errore | Azione consigliata |
 -- | --
-Impossibile trovare le modifiche in un file. Il problema potrebbe essere legato a vari motivi. Ripetere l'operazione | Per risolvere questo problema, verificare i passaggi seguenti e ripetere l'operazione:<br/> - [verificare che l'agente Mars sia più recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [verificare e risolvere i problemi di archiviazione che incidono sull'area scratch del backup](#pre-requisites)
+Impossibile trovare le modifiche in un file. Il problema potrebbe essere legato a vari motivi. Ripetere l'operazione | Per risolvere questo problema, verificare i passaggi seguenti e ripetere l'operazione:<br/> - [verificare che l'agente Mars sia più recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [verificare e risolvere i problemi di archiviazione che incidono sull'area scratch del backup](#prerequisites)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

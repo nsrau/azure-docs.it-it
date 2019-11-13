@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7993810343f6bd925afd54cc38a8302420d6aec
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 47a60ed44ddf057ef983f8f76f23fd784bc3efd5
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72439376"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961828"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>Eliminare una directory in Azure Active Directory
 
@@ -97,7 +97,7 @@ Deprovisioning eseguito (30 giorni dopo la disattivazione) | Dati eliminati (eli
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Ho una sottoscrizione di valutazione che blocca l'eliminazione
 
-Sono disponibili [prodotti di iscrizione self-service](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) come Microsoft Power BI, Rights Management Services, Microsoft Power Apps o Dynamics 365, i singoli utenti possono iscriversi tramite Office 365, che crea anche un utente Guest per l'autenticazione nella directory Azure ad . Questi prodotti self-service bloccano le eliminazioni di directory fino a quando non vengono eliminati completamente dalla directory, per evitare la perdita di dati. Possono essere eliminati solo dall'amministratore Azure AD se l'utente ha effettuato l'iscrizione singolarmente o è stato assegnato al prodotto.
+Sono disponibili [prodotti di iscrizione self-service](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) come Microsoft Power BI, Rights Management Services, Microsoft Power Apps o Dynamics 365, i singoli utenti possono iscriversi tramite Office 365, che crea anche un utente Guest per l'autenticazione nella directory Azure ad. Questi prodotti self-service bloccano le eliminazioni di directory fino a quando non vengono eliminati completamente dalla directory, per evitare la perdita di dati. Possono essere eliminati solo dall'amministratore Azure AD se l'utente ha effettuato l'iscrizione singolarmente o è stato assegnato al prodotto.
 
 Esistono due tipi di prodotti di iscrizione self-service in modalità di assegnazione: 
 
@@ -108,24 +108,24 @@ Quando si inizia l'eliminazione del prodotto di iscrizione self-service, l'azion
 
 Per ulteriori informazioni sui prodotti e i servizi di iscrizione self-service attualmente disponibili, vedere la pagina relativa ai [programmi self-service disponibili](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
 
-Per sapere come comportarsi quando una sottoscrizione della versione di prova gratuita di Office 365 scade (esclusi Partner/CSP a pagamento, Enterprise Agreement o Contratti multilicenza), vedere la tabella seguente. Per altre informazioni sul ciclo di vita delle sottoscrizioni e sulla conservazione dei dati di Office 365, vedere [cosa accade ai dati e all'accesso quando termina la sottoscrizione di office 365 for business?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+Per sapere come comportarsi quando una sottoscrizione della versione di prova gratuita di Office 365 scade (esclusi Partner/CSP a pagamento, Enterprise Agreement o Contratti multilicenza), vedere la tabella seguente. Per altre informazioni sulla conservazione dei dati di Office 365 dati e il ciclo di vita della sottoscrizione, vedere [Cosa accade ai dati e all'accesso quando la sottoscrizione aziendale a Office 365 termina?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
 Stato del prodotto | Dati | Accesso ai dati
 ------------- | ---- | --------------
 Attivo (30 giorni per la versione di prova gratuita) | Dati accessibili a tutti | Gli utenti hanno accesso normale a prodotto, file o app di iscrizione self-service<br>Gli amministratori hanno accesso normale a Microsoft 365 interfaccia di amministrazione e risorse
-Eliminato | Dati eliminati | Gli utenti non possono accedere al prodotto, ai file o alle app di iscrizione self-service<br>Gli amministratori possono accedere al centro di amministrazione di Microsoft 365 per acquistare e gestire altre sottoscrizioni
+Deleted | Dati eliminati | Gli utenti non possono accedere al prodotto, ai file o alle app di iscrizione self-service<br>Gli amministratori possono accedere al centro di amministrazione di Microsoft 365 per acquistare e gestire altre sottoscrizioni
 
 ## <a name="how-can-i-delete-a-self-service-sign-up-product-in-the-azure-portal"></a>Come è possibile eliminare un prodotto di iscrizione self-service nel portale di Azure?
 
 È possibile inserire un prodotto di iscrizione self-service, ad esempio Microsoft Power BI o Azure Rights Management Services in uno stato di eliminazione, da **eliminare** immediatamente nel portale di Azure ad.
 
-1. Accedere al centro di [amministrazione di Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) With un account che sia un amministratore globale dell'organizzazione. Se si sta tentando di eliminare la directory "contoso" con il dominio predefinito iniziale contoso.onmicrosoft.com, effettuare l'accesso con un UPN, ad esempio admin@contoso.onmicrosoft.com.
+1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con un account che sia un amministratore globale dell'organizzazione. Se si sta tentando di eliminare la directory "contoso" con il dominio predefinito iniziale contoso.onmicrosoft.com, effettuare l'accesso con un UPN, ad esempio admin@contoso.onmicrosoft.com.
 
-2. Selezionare **licenze**e quindi selezionare **prodotti di iscrizione self-service**. È possibile visualizzare tutti i prodotti di iscrizione self-service separatamente dalle sottoscrizioni basate su postazione. Scegliere il prodotto che si desidera eliminare definitivamente. Di seguito è riportato un esempio in Microsoft Power BI:
+2. Selezionare **licenze**e quindi selezionare **prodotti di iscrizione self-service**. È possibile visualizzare tutti i prodotti di iscrizione self-service separatamente dalle sottoscrizioni basate su postazione. Scegliere il prodotto che si desidera eliminare definitivamente. Di seguito è riportato un esempio in Microsoft Power BI:
 
     ![il nome utente non è tipizzato o non è stato trovato](./media/directory-delete-howto/licenses-page.png)
 
-3. Selezionare **delete** per Elimina il prodotto e accettare le condizioni che i dati vengono eliminati immediatamente e irrevocabilmente. Questa azione di eliminazione rimuove tutti gli utenti e rimuove l'accesso dell'organizzazione al prodotto. Fare clic su Sì per procedere con l'eliminazione.  
+3. Selezionare **Elimina** per eliminare il prodotto e accettare le condizioni che i dati vengono eliminati immediatamente e irrevocabilmente. Questa azione di eliminazione rimuove tutti gli utenti e rimuove l'accesso dell'organizzazione al prodotto. Fare clic su Sì per procedere con l'eliminazione.  
 
     ![il nome utente non è tipizzato o non è stato trovato](./media/directory-delete-howto/delete-product.png)
 

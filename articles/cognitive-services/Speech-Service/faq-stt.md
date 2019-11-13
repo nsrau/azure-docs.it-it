@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: 3b957181015cba06eb361272ca1004ba3e7a7008
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2d0a05c763b21b0cf22a724f9a5faa9d70b5b557
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579688"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010651"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
 Se in questo documento non sono presenti risposte alle domande di proprio interesse, vedere le [altre opzioni di supporto](support.md).
 
-## <a name="general"></a>Generale
+## <a name="general"></a>General
 
 **D: Qual è la differenza tra un modello di base e un modello di riconoscimento vocale personalizzato?**
 
@@ -59,7 +59,7 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 I set di dati precedente e nuovo devono essere combinati in un unico file ZIP (per dati acustici) o in un file con estensione txt (per dati linguistici). Dopo aver terminato l'adattamento, per ottenere un nuovo endpoint è necessario ridistribuire il nuovo modello aggiornato
 
-**D: Quando è disponibile una nuova versione di una baseline, la distribuzione viene aggiornata automaticamente?**
+**D: quando è disponibile una nuova versione di una linea di base, la distribuzione viene aggiornata automaticamente?**
 
 **R**: Le distribuzioni NON vengono aggiornate automaticamente.
 
@@ -71,26 +71,31 @@ Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzi
 
 Se è necessaria una scala più elevata, contattare il [supporto vocale](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) .
 
-Per aumentare la concorrenza per un modello personalizzato, sono necessarie le informazioni seguenti:
+Per aumentare la concorrenza per un ***modello personalizzato***, sono necessarie le informazioni seguenti:
 
 - Area in cui viene distribuito il modello.
-- ID dell'endpoint del modello distribuito.
+- ID dell'endpoint del modello distribuito:
+  - Si è arrivati al [portale di riconoscimento vocale personalizzato](https://aka.ms/customspeech),
+  - Accedi (se necessario),
+  - Selezionare il progetto e la distribuzione,
+  - Selezionare l'endpoint per cui è necessario l'incremento della concorrenza,
+  - Copiare il `Endpoint ID`.
 
-Per aumentare la concorrenza per i modelli di base, sono necessarie le informazioni seguenti:
+Per aumentare la concorrenza per un ***modello di base***, sono necessarie le informazioni seguenti:
 
 - Area del servizio
 
 e uno
 
-- un token di accesso per l'utente subrscription (vedere [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
+- un token di accesso per la sottoscrizione (vedere [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
 
 oppure
 
 - ID risorsa per la sottoscrizione:
-  - Passare a https://portal.azure.com,
+  - Passare alla [portale di Azure](https://portal.azure.com),
   - Selezionare `Cognitive Services` nella casella di ricerca.
   - dai servizi visualizzati selezionare il servizio di riconoscimento vocale per il quale si desidera aumentare la concorrenza,
-  - visualizzare le proprietà del servizio.
+  - Visualizza la `Properties` per il servizio,
   - Copiare il `Resource ID`completo.
 
 **D: È possibile scaricare il modello ed eseguirlo in locale?**
@@ -107,7 +112,7 @@ oppure
 
 **D: come viene addebitato l'audio a doppio canale?**
 
-**R**: se si invia ogni canale separatamente (ogni canale nel relativo file), l'addebito verrà addebitato in base alla durata di ogni file. Se si invia un singolo file con ogni canale multiplexato insieme, verrà addebitato il costo della durata del singolo file.
+**R**: se si invia ogni canale separatamente (ogni canale nel relativo file), verrà addebitato il costo per ogni durata del file. Se si invia un singolo file con ogni canale multiplexato insieme, verrà addebitato il costo della durata del singolo file.
 
 > [!IMPORTANT]
 > In caso di altri problemi di privacy che impediscono l'uso del Servizio di riconoscimento vocale personalizzato, contattare uno dei canali di supporto.
@@ -184,8 +189,8 @@ oppure
  
 **D: quali esperienze vocali sono migliorate con il modello tenant?**
 
-**R:** Quando il modello tenant è abilitato, creato e pubblicato, viene utilizzato per migliorare il riconoscimento per tutte le applicazioni aziendali compilate mediante il servizio di riconoscimento vocale. che passano anche un token AAD utente che indica l'appartenenza all'azienda. 
- 
+**R:** Quando il modello tenant è abilitato, creato e pubblicato, viene utilizzato per migliorare il riconoscimento per tutte le applicazioni aziendali compilate mediante il servizio di riconoscimento vocale. che passa anche un token AAD utente che indica l'appartenenza all'azienda.
+
 Le esperienze di sintesi vocale integrate in Office 365, ad esempio la dettatura e la didascalia di PowerPoint, non vengono modificate quando si crea un modello tenant per le applicazioni di servizio vocale.
 
 ## <a name="next-steps"></a>Passaggi successivi

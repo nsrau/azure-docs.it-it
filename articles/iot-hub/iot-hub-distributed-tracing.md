@@ -1,5 +1,5 @@
 ---
-title: Aggiungere ID di correlazione a messaggi IoT con la traccia distribuita (anteprima)
+title: Aggiungere ID di correlazione ai messaggi dell'Internet Internet (pre)
 description: Informazioni su come usare la funzionalità di traccia distribuita per tracciare i messaggi dell'intero nei servizi di Azure usati dalla soluzione.
 author: jlian
 manager: briz
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: a6e7d2dc9b6274c07fda011bff8ec9dc59f74f95
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 835a359d3b5781ad814e423e4a69e8d60379c97b
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889450"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953143"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Tracciare i messaggi da un dispositivo al cloud di Azure IoT con la traccia distribuita (anteprima)
 
@@ -30,7 +30,7 @@ L'abilitazione della traccia distribuita per l'hub IoT consente di:
 
 In questo articolo si usa [Azure IoT SDK per dispositivi per C](iot-hub-device-sdk-c-intro.md) con la traccia distribuita. Il supporto della traccia distribuita è ancora in corso per gli altri SDK.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - L'anteprima della traccia distribuita è supportata attualmente solo per gli hub IoT creati nelle aree seguenti:
 
@@ -240,7 +240,7 @@ Per aggiornare la configurazione di campionamento della traccia distribuita per 
 }
 ```
 
-| Nome dell'elemento | Obbligatorio | Tipo | Descrizione |
+| Nome dell'elemento | obbligatori | digitare | DESCRIZIONE |
 |-----------------|----------|---------|-----------------------------------------------------|
 | `sampling_mode` | Sì | Integer | Sono attualmente supportati i valori di due modalità per attivare e disattivare il campionamento. `1` per attivare e `2` per disattivare. |
 | `sampling_rate` | Sì | Integer | Questo valore indica una percentuale. Sono consentiti solo valori compresi tra `0` e `100` (estremi inclusi).  |
@@ -263,7 +263,7 @@ AzureDiagnostics
 
 Log di esempio mostrati da Log Analytics:
 
-| TimeGenerated | OperationName | Categoria | Level | CorrelationId | DurationMs | Proprietà |
+| TimeGenerated | OperationName | Categoria | Livello | CorrelationId | DurationMs | Proprietà |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Informazioni | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informazioni | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |

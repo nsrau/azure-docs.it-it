@@ -1,6 +1,6 @@
 ---
 title: Come aggiungere BLOB a oggetti-dispositivi gemelli digitali di Azure | Microsoft Docs
-description: Informazioni su come aggiungere BLOB agli oggetti in Gemelli digitali di Azure.
+description: Informazioni su come aggiungere BLOB a utenti, dispositivi e spazi nei dispositivi gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a278501f1110da0ab332d0e1acf170892be26ee
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 0a6629db50d0cec13d866d28a0823ccd3ed43f42
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949126"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014203"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Aggiungere BLOB agli oggetti in Gemelli digitali di Azure
 
@@ -36,7 +36,7 @@ Oltre a **Content-Type** e **Content-Disposition**, le richieste multipart BLOB 
 
 I quattro schemi JSON principali sono i seguenti:
 
-[schemi ![JSON](media/how-to-add-blobs/blob-models-img.png)](media/how-to-add-blobs/blob-models-img.png#lightbox)
+[![schemi JSON](media/how-to-add-blobs/blob-models-img.png)](media/how-to-add-blobs/blob-models-img.png#lightbox)
 
 I metadati dei BLOB JSON sono conformi al modello seguente:
 
@@ -51,16 +51,16 @@ I metadati dei BLOB JSON sono conformi al modello seguente:
   }
 ```
 
-| Attributo | Type | Descrizione |
+| Attribute | digitare | DESCRIZIONE |
 | --- | --- | --- |
-| **parentId** | Stringa | Entità padre a cui associare il BLOB (spazi, dispositivi o utenti) |
-| **name** |Stringa | Nome descrittivo per il BLOB |
-| **type** | Stringa | Tipo di BLOB: non è possibile usare *type* e *typeId*  |
-| **typeId** | Intero | ID del tipo di BLOB: non è possibile usare *type* e *typeId* |
-| **subtype** | Stringa | Sottotipo di BLOB: non è possibile usare *type* e *subtypeId* |
-| **subtypeId** | Intero | ID del sottotipo di BLOB: non è possibile usare *subtype* e *subtypeId* |
-| **description** | Stringa | Descrizione personalizzata del BLOB |
-| **sharing** | Stringa | Indica se il BLOB può essere condiviso: enumerazione [`None`, `Tree`, `Global`] |
+| **parentId** | String | Entità padre a cui associare il BLOB (spazi, dispositivi o utenti) |
+| **nome** |String | Nome descrittivo per il BLOB |
+| **type** | String | Tipo di BLOB: non è possibile usare *type* e *typeId*  |
+| **typeId** | Integer | ID del tipo di BLOB: non è possibile usare *type* e *typeId* |
+| **subtype** | String | Sottotipo di BLOB: non è possibile usare *type* e *subtypeId* |
+| **subtypeId** | Integer | ID del sottotipo di BLOB: non è possibile usare *subtype* e *subtypeId* |
+| **description** | String | Descrizione personalizzata del BLOB |
+| **sharing** | String | Indica se il BLOB può essere condiviso: enumerazione [`None`, `Tree`, `Global`] |
 
 I metadati del BLOB deve sempre essere specificati come primo blocco con **Content-Type** `application/json` o come file `.json`. I dati dei file vengono specificati nel secondo blocco e possono essere di qualsiasi tipo MIME supportato.
 
@@ -106,20 +106,20 @@ I BLOB restituiti singolarmente sono conformi allo schema JSON seguente:
 }
 ```
 
-| Attributo | Type | Descrizione |
+| Attribute | digitare | DESCRIZIONE |
 | --- | --- | --- |
-| **id** | Stringa | Identificatore univoco per il BLOB |
-| **name** |Stringa | Nome descrittivo per il BLOB |
-| **parentId** | Stringa | Entità padre a cui associare il BLOB (spazi, dispositivi o utenti) |
-| **type** | Stringa | Tipo di BLOB: non è possibile usare *type* e *typeId*  |
-| **typeId** | Intero | ID del tipo di BLOB: non è possibile usare *type* e *typeId* |
-| **subtype** | Stringa | Sottotipo di BLOB: non è possibile usare *type* e *subtypeId* |
-| **subtypeId** | Intero | ID del sottotipo di BLOB: non è possibile usare *subtype* e *subtypeId* |
-| **sharing** | Stringa | Indica se il BLOB può essere condiviso: enumerazione [`None`, `Tree`, `Global`] |
-| **description** | Stringa | Descrizione personalizzata del BLOB |
-| **contentInfos** | Matrice | Specifica le informazioni dei metadati non strutturati, inclusa la versione |
-| **fullName** | Stringa | Nome completo del BLOB |
-| **spacePaths** | Stringa | Percorso dello spazio |
+| **id** | String | Identificatore univoco per il BLOB |
+| **nome** |String | Nome descrittivo per il BLOB |
+| **parentId** | String | Entità padre a cui associare il BLOB (spazi, dispositivi o utenti) |
+| **type** | String | Tipo di BLOB: non è possibile usare *type* e *typeId*  |
+| **typeId** | Integer | ID del tipo di BLOB: non è possibile usare *type* e *typeId* |
+| **subtype** | String | Sottotipo di BLOB: non è possibile usare *type* e *subtypeId* |
+| **subtypeId** | Integer | ID del sottotipo di BLOB: non è possibile usare *subtype* e *subtypeId* |
+| **sharing** | String | Indica se il BLOB può essere condiviso: enumerazione [`None`, `Tree`, `Global`] |
+| **description** | String | Descrizione personalizzata del BLOB |
+| **contentInfos** | Array | Specifica le informazioni dei metadati non strutturati, inclusa la versione |
+| **fullName** | String | Nome completo del BLOB |
+| **spacePaths** | String | Percorso dello spazio |
 
 I metadati del BLOB deve sempre essere specificati come primo blocco con **Content-Type** `application/json` o come file `.json`. I dati dei file vengono specificati nel secondo blocco e possono essere di qualsiasi tipo MIME supportato.
 
@@ -157,9 +157,9 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Value | Sostituire con |
+| Valore | Sostituire con |
 | --- | --- |
-| USER_DEFINED_BOUNDARY | Nome di un limite di contenuto multipart |
+| USER_DEFINED_BOUNDARY | Un nome di limite del contenuto costituito da più parti |
 
 Il codice seguente è un'implementazione .NET dello stesso caricamento di BLOB tramite la classe [MultipartFormDataContent](https://docs.microsoft.com/dotnet/api/system.net.http.multipartformdatacontent):
 
@@ -181,7 +181,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 Gli utenti di [cURL](https://curl.haxx.se/) possono infine eseguire richieste di moduli multipart nello stesso modo:
 
-[BLOB @no__t 1Device](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
+[esempio di ![cURL](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
 
 ```bash
 curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
@@ -192,7 +192,7 @@ curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
-| Value | Sostituire con |
+| Valore | Sostituire con |
 | --- | --- |
 | YOUR_TOKEN | Il proprio token OAuth 2.0 valido |
 | YOUR_SPACE_ID | L'ID dello spazio a cui associare il BLOB |
@@ -208,7 +208,7 @@ Le sezioni seguenti descrivono i principali endpoint API correlati ai BLOB e le 
 
 È possibile associare i BLOB a dispositivi. L'immagine seguente illustra la documentazione di riferimento di Swagger per le API Gestione. Specifica gli endpoint API associati al dispositivo per l'uso di BLOB ed eventuali parametri di percorso richiesti da passare al loro interno.
 
-[BLOB @no__t 1Device](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
+[BLOB del dispositivo ![](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
 
 Ad esempio, per aggiornare o creare un BLOB e collegarlo a un dispositivo inviare una richiesta HTTP PATCH autenticata al percorso seguente:
 
@@ -216,7 +216,7 @@ Ad esempio, per aggiornare o creare un BLOB e collegarlo a un dispositivo inviar
 YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 ```
 
-| Parametro | Sostituire con |
+| . | Sostituire con |
 | --- | --- |
 | *YOUR_BLOB_ID* | ID del BLOB desiderato |
 
@@ -226,7 +226,7 @@ Le richieste con esito positivo restituiscono un oggetto JSON, come [descritto i
 
 È anche possibile associare i BLOB a spazi. L'immagine seguente elenca tutti gli endpoint API di spazi responsabili della gestione di BLOB. Elenca anche i parametri di percorso da passare in tali endpoint.
 
-[BLOB @no__t 1Space](media/how-to-add-blobs/blobs-space-api-img.png)](media/how-to-add-blobs/blobs-space-api-img.png#lightbox)
+[BLOB di spazio ![](media/how-to-add-blobs/blobs-space-api-img.png)](media/how-to-add-blobs/blobs-space-api-img.png#lightbox)
 
 Ad esempio, per restituire un BLOB collegato a uno spazio, inviare una richiesta HTTP GET autenticata al percorso seguente:
 
@@ -234,7 +234,7 @@ Ad esempio, per restituire un BLOB collegato a uno spazio, inviare una richiesta
 YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 ```
 
-| Parametro | Sostituire con |
+| . | Sostituire con |
 | --- | --- |
 | *YOUR_BLOB_ID* | ID del BLOB desiderato |
 
@@ -242,11 +242,11 @@ Le richieste con esito positivo restituiscono un oggetto JSON, come [descritto i
 
 Una richiesta PATCH allo stesso endpoint aggiorna le descrizioni dei metadati e crea le versioni del BLOB. La richiesta HTTP viene effettuata tramite il metodo PATCH con tutti i metadati e i dati modulo multipart necessari.
 
-### <a name="users"></a>Utenti
+### <a name="users"></a>Users
 
 È possibile collegare BLOB a modelli utente (ad esempio per associare un'immagine del profilo). L'immagine seguente illustra gli endpoint API utente pertinenti e i parametri di percorso necessari, ad esempio `id`:
 
-[BLOB @no__t 1User](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
+[BLOB utente ![](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
 
 Ad esempio, per recuperare un BLOB collegato a un utente, inviare una richiesta HTTP GET autenticata con tutti i dati modulo necessari:
 
@@ -254,7 +254,7 @@ Ad esempio, per recuperare un BLOB collegato a un utente, inviare una richiesta 
 YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 ```
 
-| Parametro | Sostituire con |
+| . | Sostituire con |
 | --- | --- |
 | *YOUR_BLOB_ID* | ID del BLOB desiderato |
 

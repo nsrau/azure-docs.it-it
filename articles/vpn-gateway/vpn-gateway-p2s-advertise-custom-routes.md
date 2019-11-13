@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 11/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 38250d1cd9853013ba9721ece0201a8df6dd1b4a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 6678efd04125e6ae0e0b66e8bcc011c0f319c0fb
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336286"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954295"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Annunciare route personalizzate per client VPN P2S
 
@@ -22,9 +22,9 @@ Si consiglia di annunciare route personalizzate a tutti i client VPN da punto a 
 
 ## <a name="to-advertise-custom-routes"></a>Per annunciare route personalizzate
 
-Per annunciare route personalizzate, usare `Set-AzVirtualNetworkGateway cmdlet`. Nell'esempio seguente viene illustrato come annunciare l'IP per le [tabelle dell'account di archiviazione contoso](https://contoso.table.core.windows.net).
+Per annunciare route personalizzate, usare il `Set-AzVirtualNetworkGateway cmdlet`. Nell'esempio seguente viene illustrato come annunciare l'IP per le [tabelle dell'account di archiviazione contoso](https://contoso.table.core.windows.net).
 
-1. Ping *contoso.Table.Core.Windows.NET* e annotare l'indirizzo IP. Esempio:
+1. Ping *contoso.Table.Core.Windows.NET* e annotare l'indirizzo IP. Ad esempio:
 
     ```cmd
     C:\>ping contoso.table.core.windows.net
@@ -38,7 +38,7 @@ Per annunciare route personalizzate, usare `Set-AzVirtualNetworkGateway cmdlet`.
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 13.88.144.250/32
     ```
 
-3. Per aggiungere più route personalizzate, usare un coma e spazi per separare gli indirizzi. Esempio:
+3. Per aggiungere più route personalizzate, usare un coma e spazi per separare gli indirizzi. Ad esempio:
 
     ```azurepowershell-interactive
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute x.x.x.x/xx , y.y.y.y/yy
@@ -51,7 +51,14 @@ Usare l'esempio seguente per visualizzare le route personalizzate:
   $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
   $gw.CustomRoutes | Format-List
   ```
+## <a name="to-delete-custom-routes"></a>Per eliminare route personalizzate
 
+Per eliminare route personalizzate, usare l'esempio seguente:
+
+  ```azurepowershell-interactive
+  $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
+  Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute @0
+  ```
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per ulteriori informazioni sul routing di P2S, vedere informazioni [sul routing da punto a sito](vpn-gateway-about-point-to-site-routing.md).

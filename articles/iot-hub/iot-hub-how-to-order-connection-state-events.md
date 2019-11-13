@@ -1,5 +1,5 @@
 ---
-title: Ordinare gli eventi di connessione dei dispositivi dall'hub IoT di Azure tramite Azure Cosmos DB | Microsoft Docs
+title: Ordinare gli eventi di connessione del dispositivo fr Azure Internet Azure Cosmos DB Hub
 description: Questo articolo descrive come ordinare e registrare gli eventi di connessione dei dispositivi dall'hub IoT di Azure tramite Azure Cosmos DB per mantenere lo stato di connessione più recente
 services: iot-hub
 ms.service: iot-hub
@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: a020221d841682d1e18d2b728a732ec4dfc35ef3
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 210c2e74305ba99b4ac3a12625d0b7f5fc47ba43
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67988296"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954261"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordinare gli eventi di connessione dei dispositivi dall'hub IoT di Azure tramite Azure Cosmos DB
 
@@ -20,13 +20,13 @@ Griglia di eventi di Azure consente di compilare applicazioni basate su eventi e
 
 Il numero di sequenza è una rappresentazione in formato stringa di un numero esadecimale. È possibile usare il confronto tra stringhe per identificare il numero maggiore. Se si converte la stringa in formato esadecimale, il numero sarà a 256 bit. Il numero di sequenza è sempre in aumento e all'evento più recente viene associato un numero superiore rispetto a quello di altri eventi. Ciò è utile se le connessioni e le disconnessioni del dispositivo sono frequenti e se è necessario assicurarsi che solo l'evento più recente venga usato per attivare un'azione downstream, poiché Griglia di eventi di Azure non supporta l'ordinamento degli eventi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un account Azure attivo. Se non si ha un account, è possibile [crearne uno gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
 * Un account API SQL di Azure Cosmos DB attivo. Se non ne è ancora stato creato un', vedere la procedura dettagliata [Creare un account di database](../cosmos-db/create-sql-api-java.md#create-a-database-account).
 
-* Una raccolta nel database. Vedere la procedura dettagliata [Aggiungere una raccolta](../cosmos-db/create-sql-api-java.md#add-a-container). Quando si crea la raccolta, utilizzare `/id` per la chiave di partizione.
+* Una raccolta nel database. Vedere la procedura dettagliata [Aggiungere una raccolta](../cosmos-db/create-sql-api-java.md#add-a-container). Quando si crea la raccolta, usare `/id` per la chiave di partizione.
 
 * Un hub IoT in Azure. Se l'hub non è stato ancora creato, vedere [Introduzione all'hub IoT](iot-hub-csharp-csharp-getstarted.md) per la procedura dettagliata.
 
@@ -218,9 +218,9 @@ Nel flusso di lavoro dell'app per la logica, le condizioni consentono di eseguir
 
 4. Compilare **cosmosdb-Connection** per il **nome della connessione** e selezionare la voce nella tabella e quindi selezionare **Create (crea**). Viene visualizzato il pannello **Execute stored procedure** . Immettere i valori per i campi:
 
-   **ID database**: ToDoList
+   **ID database**: todo
 
-   **ID raccolta**: Elementi
+   **ID raccolta**: elementi
 
    **ID SPROC**: LatestDeviceConnectionState
 
@@ -264,7 +264,7 @@ In questa sezione viene configurato l'hub IoT per la pubblicazione degli eventi 
 
    ![Creare una nuova sottoscrizione di eventi](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
-4. Immettere **i dettagli della sottoscrizione di eventi**: fornire un nome descrittivo e selezionare **Schema Griglia di eventi**.
+4. Immettere **i dettagli della sottoscrizione di eventi**: specificare un nome descrittivo e selezionare **schema griglia di eventi**.
 
 5. Compilare i campi **tipi di evento** . Nell'elenco a discesa selezionare solo **dispositivo connesso** e **dispositivo disconnesso** dal menu. Fare clic in un punto qualsiasi della schermata per chiudere l'elenco e salvare le selezioni.
 

@@ -3,7 +3,7 @@ title: Esercitazione per l'API di creazione report di Active Directory con certi
 description: Questa esercitazione spiega come usare l'API di creazione report di Azure AD con le credenziali del certificato per ottenere i dati provenienti da directory senza intervento dell'utente.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fe5f2a6d1957a544c63cb8a7c223ba9734786f8
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 4d723af5d994006c4ae4f90905ede73fa87326bf
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895136"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014275"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Esercitazione: Ottenere i dati usando l'API di creazione report di Azure Active Directory con i certificati
 
@@ -29,9 +29,9 @@ Le [API di creazione report di Azure Active Directory (Azure AD)](concept-report
 
 In questa esercitazione si apprenderà come usare un certificato di test per accedere all'API Graph Microsoft e creare report. Non è consigliabile usare certificati di test in un ambiente di produzione. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-1. Per accedere a dati di accesso, assicurarsi di avere un tenant di Azure Active Directory con una licenza Premium (P1/P2). Per l'aggiornamento dell'edizione Azure Active Directory, vedere [Introduzione a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) . Si noti che se i dati sulle attività non fosseso disponibili prima dell'aggiornamento, saranno necessari un paio di giorni per visualizzare i dati nei report dopo aver eseguito l'aggiornamento a una licenza Premium. 
+1. Per accedere a dati di accesso, assicurarsi di avere un tenant di Azure Active Directory con una licenza Premium (P1/P2). vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) per aggiornare l'edizione di Azure Active Directory in uso. Si noti che se i dati sulle attività non erano disponibili prima dell'aggiornamento, ci vorranno un paio di giorni per visualizzare i dati nei report dopo aver eseguito l'aggiornamento a una licenza premium. 
 
 2. Creare o passare a un account utente nel ruolo **Amministratore globale**, **Amministratore della sicurezza**, **Ruolo con autorizzazioni di lettura per la sicurezza** o **Ruolo con autorizzazioni di lettura per i report** per il tenant. 
 
@@ -87,15 +87,15 @@ In questa esercitazione si apprenderà come usare un certificato di test per acc
   
 7. A questo punto è possibile ottenere un token di accesso per l'API Graph usando questo certificato. Usare il cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** dal modulo MSCloudIdUtils di PowerShell passando l'ID dell'applicazione e l'identificazione personale ottenuta nel passaggio precedente. 
 
-   ![Portale di Azure](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![portale di Azure](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 8. Usare il token di accesso nello script di PowerShell per eseguire una query sull'API Graph. Usare il cmdlet **Invoke-MSCloudIdMSGraphQuery** da MSCloudIDUtils per enumerare l'endpoit Signins e directoryAudits. Questo cmdlet gestisce i risultati di multi-paging e li invia alla pipeline di PowerShell.
 
 9. Eseguire una query sull'endpoint directoryAudits per recuperare i log di controllo. 
-   ![Azure portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+   ![Portale di Azure](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
 10. Eseguire una query dell'endpoint Signins per recuperare i log di accesso.
-    ![Azure portal](./media/tutorial-access-api-with-certificates/query-signins.png)
+    ![Portale di Azure](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 11. È ora possibile scegliere di esportare i dati in un file CSV e salvarlo in un sistema SIEM. È anche possibile eseguire il wrapping dello script in un'attività pianificata per ottenere periodicamente i dati di Azure AD dal tenant senza dover archiviare le chiavi dell'applicazione nel codice sorgente. 
 

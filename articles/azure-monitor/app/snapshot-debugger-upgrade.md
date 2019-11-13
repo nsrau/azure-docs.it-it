@@ -4,16 +4,16 @@ description: Come aggiornare Snapshot Debugger alla versione più recente nei se
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: MarioHewardt
-ms.author: marioh
+author: pharring
+ms.author: pharring
 ms.date: 03/28/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: e2b21b7cbb6b04da0c93e73c0cacb8a05c338bde
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 51642dde3de16f2bed3ca247e573237effb30917
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899845"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73935938"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>Aggiornamento del Snapshot Debugger
 
@@ -21,35 +21,45 @@ Per fornire la migliore sicurezza possibile per i dati, Microsoft si allontana d
 
 ## <a name="upgrading-the-site-extension"></a>Aggiornamento dell'estensione del sito
 
-Se è stato abilitato snapshot debugger usando l'estensione del sito, è possibile eseguire facilmente l'aggiornamento usando la procedura seguente:
+> [!IMPORTANT]
+> Le versioni precedenti di Application Insights usavano un'estensione del sito privata denominata _Application Insights Extension per app Azure Service_. L'esperienza di Application Insights corrente è abilitata impostando le impostazioni dell'app in modo da illuminare un'estensione del sito preinstallata.
+> Per evitare conflitti, che potrebbero causare l'interruzione del funzionamento del sito, è importante eliminare prima l'estensione del sito privato. Vedere il passaggio 4 seguente.
+
+Se è stato abilitato snapshot debugger usando l'estensione del sito, è possibile eseguire l'aggiornamento usando la procedura seguente:
 
 1. Accedere al portale di Azure.
 2. Passare alla risorsa in cui è abilitato Application Insights e snapshot debugger. Per un'app Web, ad esempio, passare alla risorsa del servizio app:
 
    ![Screenshot delle singole risorse del servizio App denominate DiagService01](./media/snapshot-debugger-upgrade/app-service-resource.png)
 
-3. Dopo aver eseguito la navigazione alla risorsa, fare clic su Application Insights nel pannello Panoramica:
+3. Dopo aver eseguito l'esplorazione della risorsa, fare clic sul pannello estensioni e attendere il popolamento dell'elenco di estensioni:
+
+   ![Screenshot delle estensioni del servizio app che visualizzano Application Insights estensione per app Azure servizio installato](./media/snapshot-debugger-upgrade/application-insights-site-extension-to-be-deleted.png)
+
+4. Se è installata una versione di _Application Insights estensione per il servizio app Azure_ , selezionarla e fare clic su Elimina. Confermare **Sì** per eliminare l'estensione e attendere il completamento dell'eliminazione prima di passare al passaggio successivo.
+
+   ![Screenshot delle estensioni del servizio app che visualizzano Application Insights estensione per app Azure servizio con il pulsante Elimina evidenziato](./media/snapshot-debugger-upgrade/application-insights-site-extension-delete.png)
+
+5. Passare al pannello panoramica della risorsa e fare clic su Application Insights:
 
    ![Screenshot di tre pulsanti. Il pulsante centrale con nome Application Insights è selezionato](./media/snapshot-debugger-upgrade/application-insights-button.png)
 
-4. Viene aperto un nuovo pannello con le impostazioni correnti. A meno che non si desideri modificare le impostazioni, è possibile lasciarle invariate. Il pulsante **applica** nella parte inferiore del pannello non è abilitato per impostazione predefinita e sarà necessario attivare o disattivare una delle impostazioni per attivare il pulsante. Non è necessario modificare le impostazioni effettive, ma è possibile modificare l'impostazione e quindi modificarla immediatamente. Si consiglia di abilitare o disabilitare l'impostazione del profiler e quindi di selezionare **applica**.
+6. Se è la prima volta che si Visualizza il pannello Application Insights per questo servizio app, verrà richiesto di attivare Application Insights. Selezionare **attiva Application Insights**.
+ 
+   ![Screenshot della prima esperienza per il pannello Application Insights con il pulsante attiva Application Insights evidenziato](./media/snapshot-debugger-upgrade/turn-on-application-insights.png)
+
+7. Verranno visualizzate le impostazioni Application Insights correnti. A meno che non si desideri modificare le impostazioni, è possibile lasciarle invariate. Il pulsante **applica** nella parte inferiore del pannello non è abilitato per impostazione predefinita ed è necessario attivare o disattivare una delle impostazioni per attivare il pulsante. Non è necessario modificare le impostazioni effettive, ma è possibile modificare l'impostazione e quindi modificarla immediatamente. Si consiglia di abilitare o disabilitare l'impostazione del profiler e quindi di selezionare **applica**.
 
    ![Screenshot della pagina di configurazione del servizio app Application Insights con il pulsante Applica evidenziato in rosso](./media/snapshot-debugger-upgrade/view-application-insights-data.png)
 
-5. Quando si fa clic su **applica**, verrà chiesto di confermare le modifiche.
+8. Quando si fa clic su **applica**, verrà chiesto di confermare le modifiche.
 
     > [!NOTE]
     > Il sito verrà riavviato come parte del processo di aggiornamento.
 
    ![Screenshot del prompt dei comandi applica monitoraggio del servizio app. Nella casella di testo viene visualizzato il messaggio: "verranno apportate modifiche alle impostazioni dell'app e verranno installati gli strumenti per collegare la risorsa Application Insights all'app Web. Il sito verrà riavviato. Continuare?"](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
 
-6. Fare clic su **Sì** per applicare le modifiche. Durante il processo verrà visualizzata una notifica che indica che sono state applicate le modifiche:
-
-   ![Screenshot del messaggio Apply Changes-aggiornamento delle estensioni visualizzato nell'angolo superiore destro](./media/snapshot-debugger-upgrade/updating-extensions.png)
-
-Al termine, verrà visualizzata la notifica **"modifiche applicate"** .
-
-   ![Screenshot del messaggio che indica che le modifiche sono state applicate](./media/snapshot-debugger-upgrade/changes-are-applied.png)
+9. Fare clic su **Sì** per applicare le modifiche e attendere il completamento del processo.
 
 Il sito è stato aggiornato ed è pronto per l'uso.
 

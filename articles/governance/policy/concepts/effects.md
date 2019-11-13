@@ -1,17 +1,14 @@
 ---
 title: Comprendere il funzionamento degli effetti
 description: Le definizioni di criteri di Azure hanno diversi effetti che determinano la modalità di gestione e di segnalazione della conformità.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: c448ab889ad263f4f8b6c9a59048551ca761d69a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c345f96ef5176c4afb3d46aaca2e9903c7911fb1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464044"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959895"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -24,7 +21,7 @@ Questi effetti sono attualmente supportati in una definizione dei criteri:
 - [AuditIfNotExists](#auditifnotexists)
 - [Negare](#deny)
 - [DeployIfNotExists](#deployifnotexists)
-- [Disabilitato](#disabled)
+- [Disabilitata](#disabled)
 - [EnforceOPAConstraint](#enforceopaconstraint) (anteprima)
 - [EnforceRegoPolicy](#enforceregopolicy) (anteprima)
 - [Modificare](#modify)
@@ -161,15 +158,15 @@ La matrice di proprietà **Operations** consente di modificare diversi tag in mo
 
 Per la proprietà **Operation** sono disponibili le opzioni seguenti:
 
-|Operazione |Description |
+|Operazione |DESCRIZIONE |
 |-|-|
 |addOrReplace |Aggiunge il tag e il valore definiti alla risorsa, anche se il tag esiste già con un valore diverso. |
-|Aggiungi |Aggiunge il tag e il valore definiti alla risorsa. |
-|Rimuovi |Rimuove il tag definito dalla risorsa. |
+|Add |Aggiunge il tag e il valore definiti alla risorsa. |
+|Rimuovere |Rimuove il tag definito dalla risorsa. |
 
 ### <a name="modify-examples"></a>Modificare esempi
 
-Esempio 1: aggiungere il tag `environment` e sostituire i tag esistenti `environment` con "test":
+Esempio 1: aggiungere il tag `environment` e sostituire i tag di `environment` esistenti con "test":
 
 ```json
 "then": {
@@ -189,7 +186,7 @@ Esempio 1: aggiungere il tag `environment` e sostituire i tag esistenti `environ
 }
 ```
 
-Esempio 2: rimuovere il tag `env` e aggiungere il tag `environment` o sostituire i tag `environment` esistenti con un valore con parametri:
+Esempio 2: rimuovere il tag `env` e aggiungere il tag `environment` o sostituire i tag di `environment` esistenti con un valore con parametri:
 
 ```json
 "then": {
@@ -213,7 +210,7 @@ Esempio 2: rimuovere il tag `env` e aggiungere il tag `environment` o sostituire
 }
 ```
 
-## <a name="deny"></a>Deny
+## <a name="deny"></a>NEGA
 
 Deny viene usato per impedire una richiesta di risorse che non corrisponde agli standard definiti tramite una definizione dei criteri e che genera un errore della richiesta.
 
@@ -243,7 +240,7 @@ Audit viene usato per creare un evento di avviso nel log attività quando viene 
 
 ### <a name="audit-evaluation"></a>Valutazione di Audit
 
-Il controllo è l'ultimo effetto controllato dai criteri di Azure durante la creazione o l'aggiornamento di una risorsa. I criteri di Azure inviano quindi la risorsa al provider di risorse. Audit funziona allo stesso modo per una richiesta di risorse e un ciclo di valutazione. Criteri di Azure aggiunge un'operazione `Microsoft.Authorization/policies/audit/action` al log attività e contrassegna la risorsa come non conforme.
+Il controllo è l'ultimo effetto controllato dai criteri di Azure durante la creazione o l'aggiornamento di una risorsa. I criteri di Azure inviano quindi la risorsa al provider di risorse. Audit funziona allo stesso modo per una richiesta di risorse e un ciclo di valutazione. Criteri di Azure aggiunge un'operazione di `Microsoft.Authorization/policies/audit/action` al log attività e contrassegna la risorsa come non conforme.
 
 ### <a name="audit-properties"></a>Proprietà di Audit
 
@@ -265,7 +262,7 @@ AuditIfNotExists consente il controllo sulle risorse che corrispondono alla cond
 
 ### <a name="auditifnotexists-evaluation"></a>Valutazione di AuditIfNotExists
 
-AuditIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento di risorse e ha restituito un codice di stato con esito positivo. L'effetto Audit si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true. Criteri di Azure aggiunge un'operazione `Microsoft.Authorization/policies/audit/action` al log attività allo stesso modo dell'effetto di controllo. Quando è attivato, la risorsa che ha soddisfatto la condizione **if** è la risorsa contrassegnata come non conforme.
+AuditIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento di risorse e ha restituito un codice di stato con esito positivo. L'effetto Audit si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true. Criteri di Azure aggiunge un'operazione di `Microsoft.Authorization/policies/audit/action` al log attività allo stesso modo dell'effetto di controllo. Quando è attivato, la risorsa che ha soddisfatto la condizione **if** è la risorsa contrassegnata come non conforme.
 
 ### <a name="auditifnotexists-properties"></a>Proprietà di AuditIfNotExists
 
@@ -542,7 +539,7 @@ Esempio: regola di controllo dell'ammissione di Gatekeeper V2 per consentire sol
 
 ## <a name="layering-policies"></a>Livelli dei criteri
 
-Una risorsa potrebbe essere interessata da diverse assegnazioni. Queste assegnazioni possono essere nello stesso ambito o in ambiti diversi. È anche probabile che ognuna di queste assegnazioni abbia un effetto diverso definito. La condizione e l'effetto per ogni criterio vengono valutati in modo indipendente. ad esempio:
+Una risorsa potrebbe essere interessata da diverse assegnazioni. Queste assegnazioni possono essere nello stesso ambito o in ambiti diversi. È anche probabile che ognuna di queste assegnazioni abbia un effetto diverso definito. La condizione e l'effetto per ogni criterio vengono valutati in modo indipendente. Ad esempio:
 
 - Criterio 1
   - Limita la posizione delle risorse a "westus"

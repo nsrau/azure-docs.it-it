@@ -1,6 +1,6 @@
 ---
-title: Configurare la replica per macchine virtuali con Spazi di archiviazione diretta (S2D) in Azure Site Recovery | Microsoft Docs
-description: Questo articolo illustra come configurare la replica di macchine virtuali con S2D da un'area di Azure a un'altra mediante Site Recovery.
+title: Replicare le macchine virtuali di Azure che eseguono Spazi di archiviazione diretta usando Azure Site Recovery
+description: Questo articolo descrive come replicare le macchine virtuali di Azure che eseguono Spazi di archiviazione diretta usando Azure Site Recovery.
 services: site-recovery
 author: asgang
 manager: rochakm
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: asgang
-ms.openlocfilehash: 6c639d4503b170660abed5767e3571c8a2bf24b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25ac7fa577aa33eda036c0f8544cc5ab03b12cd7
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790343"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954456"
 ---
-# <a name="replicate-azure-virtual-machines-using-storage-spaces-direct-to-another-azure-region"></a>Replicare macchine virtuali di Azure con Spazi di archiviazione diretta in un'altra area di Azure
+# <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replicare le macchine virtuali di Azure che eseguono Spazi di archiviazione diretta in un'altra area
 
 Questo articolo descrive come abilitare il ripristino di emergenza di macchine virtuali di Azure che eseguono Spazi di archiviazione diretta.
 

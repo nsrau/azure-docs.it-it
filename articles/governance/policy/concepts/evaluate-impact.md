@@ -1,17 +1,14 @@
 ---
 title: Valutare l'effetto di un nuovo criterio di Azure
 description: Comprendere il processo da seguire quando si introduce un nuovo criterio nell'ambiente Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 2aee31d3e874f709d5ec30ed4ddc0ba0445d4130
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 6c1a3ea764aedec7de5eab1f564176eaafead70b
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980753"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959836"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Valutare l'effetto di un nuovo criterio di Azure
 
@@ -25,7 +22,7 @@ L'approccio consigliato per la convalida di una nuova definizione dei criteri co
 - Controllare le risorse esistenti
 - Controlla richieste di risorse nuove o aggiornate
 - Distribuire i criteri alle risorse
-- Continuous Monitoring
+- Monitoraggio continuo
 
 ## <a name="tightly-define-your-policy"></a>Definire strettamente i criteri
 
@@ -37,7 +34,7 @@ Per questo motivo, le definizioni dei criteri devono essere definite strettament
 ## <a name="audit-existing-resources"></a>Controllare le risorse esistenti
 
 Prima di cercare di gestire risorse nuove o aggiornate con la nuova definizione dei criteri, è consigliabile vedere come valuta un subset limitato di risorse esistenti, ad esempio un gruppo di risorse di test. Utilizzare la [modalità di imposizione](./assignment-structure.md#enforcement-mode)
-_disabled_ (DoNotEnforce) nell' [assegnazione dei criteri](./effects.md) per impedire che venga creato il trigger o le voci del log attività.
+_disabilitato_ (DoNotEnforce) nell' [assegnazione dei criteri](./effects.md) per impedire che venga creato il trigger o le voci del log attività.
 
 Questo passaggio consente di valutare i risultati di conformità del nuovo criterio sulle risorse esistenti senza influire sul flusso di lavoro. Verificare che non siano presenti risorse conformi contrassegnate come non conformi (_falso positivo_) e che tutte le risorse che si prevede siano non conformi siano contrassegnate correttamente.
 Dopo che il subset iniziale di risorse è stato convalidato come previsto, espandere lentamente la valutazione per tutte le risorse esistenti.
