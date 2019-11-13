@@ -20,6 +20,8 @@
   items:
     - name: Eseguire un backup delle macchine virtuali di Azure su larga scala
       href: tutorial-backup-vm-at-scale.md
+    - name: Eseguire il backup di macchine virtuali di Azure con PowerShell
+      href: tutorial-backup-azure-vm.md
     - name: Ripristinare un disco
       href: tutorial-restore-disk.md
     - name: Ripristinare singoli file

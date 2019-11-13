@@ -154,6 +154,8 @@
         - name: Distribuire - API REST
           displayName: deployment
           href: resource-group-template-deploy-rest.md
+        - name: Distribuzione di simulazione
+          href: template-deploy-what-if.md
         - name: Ridistribuire in caso di errore
           displayName: rollback
           href: rollback-on-error.md

@@ -166,9 +166,7 @@
       items:
         - name: Aggiungere una finalità
           href: luis-how-to-add-intents.md
-        - name: Aggiungere un'entità a un'espressione
-          href: luis-how-to-add-example-utterances.md
-        - name: Aggiungere un'entità senza espressione
+        - name: Aggiungere un'entità per estrarre i dati
           href: luis-how-to-add-entities.md
           displayName: 'roles, import'
         - name: Usare modelli predefiniti
@@ -306,6 +304,8 @@
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
     - name: Informazioni di riferimento sulle entità personalizzate
       items:
+        - name: Entità basata su Machine Learning
+          href: reference-entity-machine-learned-entity.md
         - name: Entità composita
           href: reference-entity-composite.md
         - name: Entità elenco
@@ -316,6 +316,8 @@
           href: reference-entity-regular-expression.md
         - name: Entità semplice
           href: reference-entity-simple.md
+    - name: Sintassi dei criteri
+      href: reference-pattern-syntax.md
     - name: Valutazione
       href: luis-reference-prebuilt-sentiment.md
     - name: Risorse per sviluppatori
