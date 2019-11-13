@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: marsma
-ms.openlocfilehash: 462c1fca0ecd706c1bf04ac5a0ef8561321e05bc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ce49e9e26160017d64d745c9c7ad5402bc3ae2ca
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474847"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641570"
 ---
 #### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
 
@@ -27,9 +27,9 @@ ms.locfileid: "73474847"
 1. In **Autorizzazioni configurate** selezionare **Aggiungi un'autorizzazione**.
 1. Selezionare la scheda **Le mie API**.
 1. Selezionare l'API per cui è necessario concedere l'accesso all'applicazione Web. Ad esempio, *webapi1*.
-1. In **AUTORIZZAZIONE** espandere **demo** e quindi selezionare gli ambiti definiti in precedenza. Ad esempio, *demo.read* e *demo.write*.
+1. In **Autorizzazione** espandere **demo** e quindi selezionare gli ambiti definiti in precedenza. Ad esempio, *demo.read* e *demo.write*.
 1. Selezionare **Aggiungi autorizzazioni**. Come indicato, attendere alcuni minuti prima di procedere con il passaggio successivo.
 1. Selezionare **Concedi consenso amministratore per (nome del tenant)** .
 1. Selezionare l'account amministratore attualmente connesso oppure accedere con un account nel tenant di Azure AD B2C a cui sia stato assegnato almeno il ruolo di *amministratore applicazione cloud*.
 1. Selezionare **Accetto**.
-1. Selezionare **Aggiorna** e quindi verificare che il testo "Concesso per..." sia visualizzato in **STATO** per entrambi gli ambiti. La propagazione delle autorizzazioni potrebbe richiedere alcuni minuti.
+1. Selezionare **Aggiorna** e quindi verificare che il testo "Concesso per..." sia visualizzato in **Stato** per entrambi gli ambiti. La propagazione delle autorizzazioni potrebbe richiedere alcuni minuti.

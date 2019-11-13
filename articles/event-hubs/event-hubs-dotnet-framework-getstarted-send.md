@@ -1,6 +1,6 @@
 ---
-title: Inviare e ricevere eventi usando .NET Framework - hub eventi di Azure | Microsoft Docs
-description: Questo articolo fornisce una procedura dettagliata per la creazione di un'applicazione .NET Framework che invia eventi all'hub eventi di Azure.
+title: 'Guida introduttiva: Inviare e ricevere eventi tramite .NET Framework - Hub eventi di Azure'
+description: "Guida introduttiva: Questo articolo offre una procedura dettagliata per la creazione di un'applicazione .NET Framework che invia eventi a Hub eventi di Azure."
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,27 +11,27 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 04/15/2019
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 96ce71a7b3076adec169f103060a167b61c42d5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 89419e9a3ef364d4095800a617a84ff2f63c09a0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65603515"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720660"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Inviare eventi a o ricevere eventi da hub eventi di Azure usando .NET Framework
+# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Guida introduttiva: Inviare o ricevere eventi da Hub eventi di Azure tramite .NET Framework
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
 
-Questa esercitazione illustra come creare applicazioni console .NET Framework in C# per inviare eventi a o ricevere eventi da un hub eventi. 
+Questa esercitazione illustra come creare applicazioni console .NET Framework in C# per inviare o ricevere eventi da un hub eventi. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
 - [Microsoft Visual Studio 2019](https://visualstudio.com).
-- **Creare uno spazio dei nomi di hub eventi e un hub eventi**. Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md). Quindi, ottenere il **stringa di connessione per lo spazio dei nomi dell'hub eventi** seguendo le istruzioni disponibili nell'articolo: [Ottenere una stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). La stringa di connessione sarà necessaria più avanti nell'esercitazione.
+- **Creare uno spazio dei nomi di Hub eventi e un hub eventi**. Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md). Ottenere quindi la **stringa di connessione per lo spazio dei nomi dell'hub eventi** seguendo le istruzioni disponibili nell'articolo [Ottenere una stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). La stringa di connessione sarà necessaria più avanti nell'esercitazione.
 
 ## <a name="send-events"></a>Inviare eventi 
 Questa sezione illustra come creare un'applicazione console .NET Framework per inviare eventi a un hub eventi. 
@@ -103,7 +103,7 @@ In Visual Studio creare un nuovo progetto di app desktop di Visual C# usando il 
 5. Eseguire il programma e assicurarsi che non siano presenti errori.
   
 ## <a name="receive-events"></a>Ricevere eventi
-In questa sezione si scrive un'applicazione console .NET Framework che riceve i messaggi da un hub eventi usando il [Host processore di eventi](event-hubs-event-processor-host.md). L'[host processore di eventi](event-hubs-event-processor-host.md) è una classe .NET che semplifica la ricezione di eventi dagli hub eventi gestendo checkpoint persistenti e ricezioni parallele da tali hub. Usando l'host processore di eventi è possibile suddividere gli eventi su più ricevitori, anche se ospitati in nodi diversi. 
+In questa sezione si scriverà un'applicazione console .NET Framework che riceve messaggi da un hub eventi usando l'[host processore di eventi](event-hubs-event-processor-host.md). L'[host processore di eventi](event-hubs-event-processor-host.md) è una classe .NET che semplifica la ricezione di eventi dagli hub eventi gestendo checkpoint persistenti e ricezioni parallele da tali hub. Usando l'host processore di eventi è possibile suddividere gli eventi su più ricevitori, anche se ospitati in nodi diversi. 
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
@@ -218,7 +218,7 @@ In Visual Studio creare un nuovo progetto di app desktop di Visual C# usando il 
 Leggere gli articoli seguenti: 
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Le funzionalità e la terminologia nell'hub eventi di Azure](event-hubs-features.md).
+- [Funzionalità e terminologia di Hub eventi di Azure](event-hubs-features.md).
 - [Domande frequenti su Hub eventi](event-hubs-faq.md)
 
 

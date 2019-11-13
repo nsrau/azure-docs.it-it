@@ -5,36 +5,39 @@ services: redis-cache
 author: wesmc7777
 ms.service: cache
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 11/05/2019
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: f059f23031c2cdd74daaa856213d7e06f87dc27c
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 3c064aa8e57a77b96161da06847f543816be1217
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273900"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719105"
 ---
-1. Per creare una cache, accedere al [portale di Azure](https://portal.azure.com). Selezionare quindi **Crea una risorsa** > **Database** > **Azure Cache for Redis** (Cache Redis di Azure).
-
-    ![Nuovo menu di Azure Cache for Redis](media/redis-cache-create/redis-cache-new-cache-menu.png)
-
-2. In **New Azure Cache for Redis** (Nuova cache Redis di Azure) configurare le impostazioni per la nuova cache.
-
-    | Impostazione      | Valore consigliato  | DESCRIZIONE |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Nome DNS** | Nome globalmente univoco | Nome della cache. Deve essere una stringa contenente da 1 a 63 caratteri che possono includere solo numeri, lettere e il carattere `-`. Il nome della cache non può iniziare o terminare con il carattere `-` e i caratteri `-` consecutivi non sono validi.  | 
-    | **Sottoscrizione** | Sottoscrizione in uso | Sottoscrizione in cui viene creata questa nuova istanza di Cache Redis di Azure. | 
-    | **Gruppo di risorse** |  *TestResources* | Nome del nuovo gruppo di risorse in cui creare la cache. Inserendo tutte le risorse per un'app in un gruppo è possibile gestirle insieme. Ad esempio, eliminando il gruppo di risorse si eliminano tutte le risorse associate all'app. | 
-    | **Posizione** | Stati Uniti orientali | Scegliere una [regione](https://azure.microsoft.com/regions/) nelle vicinanze di altri servizi che utilizzeranno la cache. |
-    | **[Piano tariffario](https://azure.microsoft.com/pricing/details/cache/)** |  C0 Basic (cache da 250 MB) |  Il piano tariffario determina le dimensioni, le prestazioni e le funzionalità disponibili per la cache. Per altre informazioni, vedere la [panoramica su Cache Redis di Azure](../articles/azure-cache-for-redis/cache-overview.md). |
-    | **Aggiungi al dashboard** |  Selezionato | Aggiungere la nuova cache al dashboard per renderla più semplice da trovare. |
-
-    ![Creare un'istanza di Azure Cache for Redis](media/redis-cache-create/redis-cache-cache-create.png) 
-
-3. Dopo aver configurato le impostazioni della nuova cache, selezionare **Crea**. 
-
-    La creazione della cache può richiedere alcuni minuti. Per verificare lo stato è possibile monitorare l'avanzamento nel dashboard. Dopo la creazione, lo stato della cache sarà **In esecuzione** e sarà possibile usarla subito.
-
-    ![Istanza di Azure Cache for Redis creata](media/redis-cache-create/redis-cache-cache-created.png)
+1. Per creare una cache, accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**. 
+   
+   ![Selezionare Crea una risorsa](media/redis-cache-create/create-a-resource.png)
+   
+1. Nella pagina **Nuovo** selezionare **Database** e quindi **Cache di Azure per Redis**.
+   
+   ![Selezionare Cache di Azure per Redis](media/redis-cache-create/redis-cache-new-cache-menu.png)
+   
+1. Nella pagina **Nuova cache Redis** configurare le impostazioni per la nuova cache.
+   
+   | Impostazione      | Valore consigliato  | DESCRIZIONE |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Nome DNS** | Immettere un nome univoco globale. | Il nome della cache deve essere una stringa compresa tra 1 e 63 caratteri contenente solo numeri, lettere o trattini. Il nome deve iniziare e terminare con un numero o una lettera e non può contenere trattini consecutivi. Il *nome host* dell'istanza della cache sarà *\<Nome DNS>.redis.cache.windows.net*. | 
+   | **Sottoscrizione** | Nell'elenco a discesa selezionare la sottoscrizione. | Sottoscrizione in cui creare la nuova istanza della cache di Azure per Redis. | 
+   | **Gruppo di risorse** | Nell'elenco a discesa selezionare un gruppo di risorse oppure scegliere **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse. | Nome del gruppo di risorse in cui creare la cache e altre risorse. L'inserimento di tutte le risorse di un'app in un unico gruppo di risorse ne semplifica la gestione o l'eliminazione. | 
+   | **Posizione** | Nell'elenco a discesa selezionare una località. | Selezionare un'[area](https://azure.microsoft.com/regions/) in prossimità di altri servizi che useranno la cache. |
+   | **Piano tariffario** | Nell'elenco a discesa selezionare un [piano tariffario](https://azure.microsoft.com/pricing/details/cache/). |  Il piano tariffario determina le dimensioni, le prestazioni e le funzionalità disponibili per la cache. Per altre informazioni, vedere la [panoramica su Cache Redis di Azure](../articles/azure-cache-for-redis/cache-overview.md). |
+   
+1. Selezionare **Create** (Crea). 
+   
+   ![Creare un'istanza di Azure Cache for Redis](media/redis-cache-create/redis-cache-cache-create.png) 
+   
+   La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione**, la cache è pronta per l'uso.
+   
+   ![Istanza di Azure Cache for Redis creata](media/redis-cache-create/redis-cache-cache-created.png)
 

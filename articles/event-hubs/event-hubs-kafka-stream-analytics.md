@@ -1,26 +1,26 @@
 ---
-title: Elaborare gli eventi di Apache Kafka mediante Analisi di flusso - Hub eventi di Azure | Microsoft Docs
-description: Questo articolo illustra come elaborare gli eventi di Kafka che vengono inseriti tramite hub eventi usando Analisi di flusso di Azure
+title: 'Esercitazione: Elaborare gli eventi di Apache Kafka tramite Analisi di flusso - Hub eventi di Azure'
+description: 'Esercitazione: Questo articolo illustra come elaborare gli eventi di Kafka che vengono inseriti tramite hub eventi usando Analisi di flusso di Azure'
 services: event-hubs
 documentationcenter: ''
 author: spelluru
 manager: ''
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 0c4beede2508104fc9af934d3f9a2bbcce791292
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
-ms.translationtype: MT
+ms.openlocfilehash: 7801b3252ab13df1f92e7aa5e0eba071195cb76c
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626177"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720625"
 ---
-# <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Elaborare gli eventi di Apache Kafka per Hub eventi mediante Analisi di flusso 
+# <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Esercitazione: Elaborare gli eventi di Apache Kafka per Hub eventi mediante Analisi di flusso 
 Questo articolo illustra come trasmettere i dati in Hub eventi abilitati per Kafka ed elaborarli con Analisi di flusso di Azure. L'articolo include le istruzioni dettagliate per le operazioni seguenti: 
 
 1. Creare uno spazio dei nomi per Hub eventi abilitati per Kafka.
@@ -133,7 +133,7 @@ La query nel processo di Analisi di flusso di Azure attraversa i dati senza eseg
 
 ### <a name="configure-job-input"></a>Configurare l'input del processo
 
-1. Nel messaggio di notifica, selezionare **Vai alla risorsa** per visualizzare i **processo di Stream Analitica** pagina. 
+1. Nel messaggio di notifica selezionare **Vai alla risorsa** per visualizzare la pagina **Processo di Analisi di flusso**. 
 2. Selezionare **Input** nella sezione **TOPOLOGIA PROCESSO** nel menu di sinistra.
 3. Selezionare **Aggiungi input del flusso** e selezionare **Hub eventi**. 
 

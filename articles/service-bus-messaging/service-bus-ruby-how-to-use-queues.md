@@ -1,6 +1,6 @@
 ---
-title: Come usare le code del bus di servizio di Azure con Ruby | Microsoft Docs
-description: Informazioni su come usare le code del bus di servizio in Azure. Gli esempi di codice sono scritti in Ruby.
+title: 'Guida introduttiva: Come usare le code del bus di servizio di Azure con Ruby'
+description: 'Guida introduttiva: Informazioni su come usare le code del bus di servizio in Azure. Gli esempi di codice sono scritti in Ruby.'
 services: service-bus-messaging
 documentationcenter: ruby
 author: axisc
@@ -11,31 +11,31 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 48f60b7c07cc16b4d9994d5644069fdcb4881e0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 09fdc58254d260b6ffeff958b6bbda50332adfac
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991872"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718766"
 ---
-# <a name="how-to-use-service-bus-queues-with-ruby"></a>Come usare le code del bus di servizio con Ruby
+# <a name="quickstart-how-to-use-service-bus-queues-with-ruby"></a>Guida introduttiva: Come usare le code del bus di servizio con Ruby
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-In questa esercitazione descrive come creare applicazioni Ruby per inviare e ricevere messaggi da una coda del Bus di servizio. Gli esempi sono scritti in Ruby e utilizzano la gemma di Azure.
+Questa esercitazione illustra come creare applicazioni Ruby per inviare e ricevere messaggi da una coda del bus di servizio. Gli esempi sono scritti in Ruby e utilizzano la gemma di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Seguire i passaggi nel [portale di Azure Usa per creare una coda del Bus di servizio](service-bus-quickstart-portal.md) articolo.
-    1. Leggere la rapida **overview** del Bus di servizio **code**. 
-    2. Creare un Bus di servizio **dello spazio dei nomi**. 
-    3. Ottenere il **stringa di connessione**. 
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Seguire i passaggi descritti nell'articolo [Usare il portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md).
+    1. Leggere la breve **panoramica** delle **code** del bus di servizio. 
+    2. Creare uno **spazio dei nomi** del bus di servizio. 
+    3. Ottenere la **stringa di connessione**. 
 
         > [!NOTE]
-        > Si creerà una **coda** nello spazio dei nomi del Bus di servizio con Ruby in questa esercitazione. 
+        > In questa esercitazione verrà creata una **coda** nello spazio dei nomi del bus di servizio usando Ruby. 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
@@ -79,7 +79,7 @@ I messaggi vengono ricevuti da una coda tramite il metodo `receive_queue_message
 
 In base al comportamento predefinito, la lettura e l'eliminazione vengono incluse in un'operazione di ricezione suddivisa in due fasi, in modo da consentire anche il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione esegue la seconda fase del processo di ricezione chiamando il metodo `delete_queue_message()` e specificando il messaggio da eliminare come parametro. Il metodo `delete_queue_message()` contrassegna il messaggio come usato e lo rimuove dalla coda.
 
-Se il `:peek_lock` parametro è impostato su **false**, la lettura e l'eliminazione del messaggio costituiscono il modello più semplice ed è adatta per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio ha contrassegnato il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a usare nuovamente i messaggi, il messaggio usato prima dell'arresto anomalo del sistema risulterà perso.
+Se il parametro `:peek_lock` è impostato su **false**, la lettura e l'eliminazione del messaggio costituiscono il modello più semplice, adatto a scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio ha contrassegnato il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a usare nuovamente i messaggi, il messaggio usato prima dell'arresto anomalo del sistema risulterà perso.
 
 Nell'esempio seguente viene illustrato come ricevere ed elaborare i messaggi tramite `receive_queue_message()`. Nell'esempio viene prima ricevuto ed eliminato un messaggio tramite `:peek_lock` impostato su **false** e successivamente viene ricevuto ed eliminato un altro messaggio tramite `delete_queue_message()`:
 

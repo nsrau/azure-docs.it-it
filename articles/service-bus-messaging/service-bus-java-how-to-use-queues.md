@@ -1,6 +1,6 @@
 ---
-title: Usare le code del bus di servizio di Azure con Java
-description: Informazioni su come usare le code del bus di servizio in Azure. Gli esempi di codice sono scritti in Java.
+title: 'Guida introduttiva: Usare le code del bus di servizio di Azure con Java'
+description: 'Guida introduttiva: Informazioni su come usare le code del bus di servizio in Azure. Gli esempi di codice sono scritti in Java.'
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -11,38 +11,39 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 19cfd2c5dd4229e4687fcb1a3286509c9b768d7a
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
-ms.translationtype: MT
+ms.openlocfilehash: bb51f30a69294cd78d0664a5bdae70c969da1972
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155479"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721698"
 ---
-# <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Usare le code del bus di servizio di Azure con Java per inviare e ricevere messaggi
+# <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Guida introduttiva: Usare le code del bus di servizio di Azure con Java per inviare e ricevere messaggi
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-In questa esercitazione si apprenderà come creare applicazioni Java per inviare e ricevere messaggi da una coda del bus di servizio di Azure. 
+Questa esercitazione illustra come creare applicazioni Java per inviare e ricevere messaggi da una coda del bus di servizio di Azure. 
 
 > [!NOTE]
 > È possibile trovare esempi di Java in GitHub nel [repository azure-service-bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Se non si ha una coda da usare, seguire i passaggi nell'articolo [usare portale di Azure per creare una](service-bus-quickstart-portal.md) coda del bus di servizio per creare una coda.
-    1. Leggere la breve **Panoramica** delle **Code**del bus di servizio. 
-    2. Creare uno **spazio dei nomi**del bus di servizio. 
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Se non si ha una coda da usare, seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md) per crearne una.
+    1. Leggere la breve **panoramica** delle **code** del bus di servizio. 
+    2. Creare uno **spazio dei nomi** del bus di servizio. 
     3. Ottenere la **stringa di connessione**.
-    4. Creare una **coda**del bus di servizio.
+    4. Creare una **coda** del bus di servizio.
 3. Installare [Azure SDK per Java][Azure SDK for Java]. 
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
 Assicurarsi di aver installato [Azure SDK per Java][Azure SDK for Java] prima di compilare questo esempio. Se si usa Eclipse, è possibile installare [Toolkit di Azure per Eclipse][Azure Toolkit for Eclipse] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto:
 
-![Aggiungere librerie di Microsoft Azure per Java al progetto Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
+![Aggiungere le librerie di Microsoft Azure per Java al progetto Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
 Aggiungere le seguenti istruzioni `import` all'inizio del file Java:
 
