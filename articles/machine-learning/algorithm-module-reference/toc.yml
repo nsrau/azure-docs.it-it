@@ -1,147 +1,142 @@
-- name: Informazioni di riferimento sui moduli della finestra di progettazione di Azure Machine Learning
+- name: Algoritmi e moduli della finestra di progettazione
   href: module-reference.md
-- name: Documentazione di Azure Machine Learning
-  href: ../index.yml
-- name: Categorie di moduli
-  expanded: true
+- name: Input e output dei dati
   items:
-    - name: Input e output dei dati
+    - name: Importazione dei dati
+      href: import-data.md
+    - name: Immettere i dati manualmente
+      href: enter-data-manually.md
+    - name: Esportare dati
+      href: export-data.md
+- name: Trasformazione dei dati
+  items:
+    - name: Aggiungere colonne
+      href: add-columns.md
+    - name: Aggiungere righe
+      href: add-rows.md
+    - name: Applicare la trasformazione SQL
+      href: apply-sql-transformation.md
+    - name: Eseguire la conversione in CSV
+      href: convert-to-csv.md
+    - name: Eseguire la conversione in set di dati
+      href: convert-to-dataset.md
+    - name: Pulire i dati mancanti
+      href: clean-missing-data.md
+    - name: Modificare i metadati
+      href: edit-metadata.md
+    - name: Unire dati
+      href: join-data.md
+    - name: Normalizzare i dati
+      href: normalize-data.md
+    - name: Rimuovere righe duplicate
+      href: remove-duplicate-rows.md
+    - name: Select Columns Transform
+      href: select-columns-transform.md
+    - name: Select Columns in Dataset
+      href: select-columns-in-dataset.md
+- name: campionamento
+  items:
+    - name: Cross Validate Model
+      href: cross-validate-model.md
+    - name: Creare partizioni ed eseguire campionamenti
+      href: partition-and-sample.md
+    - name: SMOTE
+      href: smote.md
+    - name: Dividere dati
+      href: split-data.md
+- name: Selezione delle funzionalità
+  items:
+    - name: Filter Based Feature Selection
+      href: filter-based-feature-selection.md
+    - name: Permutation Feature Importance
+      href: permutation-feature-importance.md
+- name: Python e R
+  items:
+    - name: Creare il modello Python
+      href: create-python-model.md
+    - name: Eseguire lo script Python
+      href: execute-python-script.md
+    - name: Execute R Script
+      href: execute-r-script.md
+- name: Analisi del testo
+  items:
+    - name: Extract N Gram Features from Text
+      href: extract-n-gram-features-from-text.md
+    - name: Feature Hashing
+      href: feature-hashing.md
+    - name: Preprocess Text
+      href: preprocess-text.md
+- name: Algoritmi di apprendimento automatico
+  items:
+    - name: classificazione
       items:
-        - name: Importazione dei dati
-          href: import-data.md
-        - name: Immettere i dati manualmente
-          href: enter-data-manually.md
-        - name: Esportare dati
-          href: export-data.md
-    - name: Trasformazione dei dati
+        - name: Foresta delle decisioni multiclasse
+          href: multiclass-decision-forest.md
+        - name: Albero delle decisioni incrementato a più classi
+          href: multiclass-boosted-decision-tree.md
+        - name: Regressione logistica multiclasse
+          href: multiclass-logistic-regression.md
+        - name: Rete neurale multiclasse
+          href: multiclass-neural-network.md
+        - name: One vs. All Multiclass
+          href: one-vs-all-multiclass.md
+        - name: Regressione logistica a due classi
+          href: two-class-logistic-regression.md
+        - name: Percettrone medio a due classi
+          href: two-class-averaged-perceptron.md
+        - name: Two-Class Boosted Decision Tree
+          href: two-class-boosted-decision-tree.md
+        - name: Foresta delle decisioni a due classi
+          href: two-class-decision-forest.md
+        - name: Rete neurale a due classi
+          href: two-class-neural-network.md
+        - name: Two-Class Support Vector Machine
+          href: two-class-support-vector-machine.md
+    - name: Clustering
       items:
-        - name: Aggiungere colonne
-          href: add-columns.md
-        - name: Aggiungere righe
-          href: add-rows.md
-        - name: Applicare la trasformazione SQL
-          href: apply-sql-transformation.md
-        - name: Eseguire la conversione in CSV
-          href: convert-to-csv.md
-        - name: Eseguire la conversione in set di dati
-          href: convert-to-dataset.md
-        - name: Pulire i dati mancanti
-          href: clean-missing-data.md
-        - name: Modificare i metadati
-          href: edit-metadata.md
-        - name: Unire dati
-          href: join-data.md
-        - name: Normalizzare i dati
-          href: normalize-data.md
-        - name: Rimuovere righe duplicate
-          href: remove-duplicate-rows.md
-        - name: Select Columns Transform
-          href: select-columns-transform.md
-        - name: Select Columns in Dataset
-          href: select-columns-in-dataset.md
-    - name: campionamento
+        - name: Clustering K-means
+          href: k-means-clustering.md
+    - name: Regressione
       items:
-        - name: Cross Validate Model
-          href: cross-validate-model.md
-        - name: Creare partizioni ed eseguire campionamenti
-          href: partition-and-sample.md
-        - name: SMOTE
-          href: smote.md
-        - name: Dividere dati
-          href: split-data.md
-    - name: Selezione delle funzionalità
+        - name: Regressione albero delle decisioni incrementato
+          href: boosted-decision-tree-regression.md
+        - name: Regressione foresta delle decisioni
+          href: decision-forest-regression.md
+        - name: Linear Regression
+          href: linear-regression.md
+        - name: Regressione rete neurale
+          href: neural-network-regression.md
+    - name: Moduli di raccomandazione
       items:
-        - name: Filter Based Feature Selection
-          href: filter-based-feature-selection.md
-        - name: Permutation Feature Importance
-          href: permutation-feature-importance.md
-    - name: Python e R
-      items:
-        - name: Creare il modello Python
-          href: create-python-model.md
-        - name: Eseguire lo script Python
-          href: execute-python-script.md
-        - name: Execute R Script
-          href: execute-r-script.md
-    - name: Analisi del testo
-      items:
-        - name: Extract N Gram Features from Text
-          href: extract-n-gram-features-from-text.md
-        - name: Feature Hashing
-          href: feature-hashing.md
-        - name: Preprocess Text
-          href: preprocess-text.md
-    - name: Algoritmi di apprendimento automatico
-      items:
-        - name: classificazione
-          items:
-            - name: Foresta delle decisioni multiclasse
-              href: multiclass-decision-forest.md
-            - name: Albero delle decisioni incrementato a più classi
-              href: multiclass-boosted-decision-tree.md
-            - name: Regressione logistica multiclasse
-              href: multiclass-logistic-regression.md
-            - name: Rete neurale multiclasse
-              href: multiclass-neural-network.md
-            - name: One vs. All Multiclass
-              href: one-vs-all-multiclass.md
-            - name: Regressione logistica a due classi
-              href: two-class-logistic-regression.md
-            - name: Percettrone medio a due classi
-              href: two-class-averaged-perceptron.md
-            - name: Two-Class Boosted Decision Tree
-              href: two-class-boosted-decision-tree.md
-            - name: Foresta delle decisioni a due classi
-              href: two-class-decision-forest.md
-            - name: Rete neurale a due classi
-              href: two-class-neural-network.md
-            - name: Two-Class Support Vector Machine
-              href: two-class-support-vector-machine.md
-        - name: Clustering
-          items:
-            - name: Clustering K-means
-              href: k-means-clustering.md
-        - name: Regressione
-          items:
-            - name: Regressione albero delle decisioni incrementato
-              href: boosted-decision-tree-regression.md
-            - name: Regressione foresta delle decisioni
-              href: decision-forest-regression.md
-            - name: Linear Regression
-              href: linear-regression.md
-            - name: Regressione rete neurale
-              href: neural-network-regression.md
-        - name: Moduli di raccomandazione
-          items:
-            - name: Train SVD Recommender
-              href: train-svd-recommender.md
+        - name: Train SVD Recommender
+          href: train-svd-recommender.md
+- name: Eseguire il training del modello
+  items:
     - name: Eseguire il training del modello
-      items:
-        - name: Eseguire il training del modello
-          href: train-model.md
-        - name: Eseguire il training del modello di clustering
-          href: train-clustering-model.md
-        - name: Tune Model Hyperparameters
-          href: tune-model-hyperparameters.md
-    - name: Valutazione del modello
-      items:
-        - name: Valutare il modello
-          href: evaluate-model.md
-        - name: Evaluate Recommender
-          href: evaluate-recommender.md
-    - name: Assegnazione del punteggio al modello
-      items:
-        - name: Applicare la trasformazione
-          href: apply-transformation.md
-        - name: Assign Data to Clusters
-          href: assign-data-to-clusters.md
-        - name: Assegnare il punteggio al modello
-          href: score-model.md
-        - name: Score SVD Recommender
-          href: score-svd-recommender.md
-    - name: Funzioni statistiche
-      items:
-        - name: Applicare operazioni matematiche
-          href: apply-math-operation.md
-        - name: Riepilogare i dati
-          href: summarize-data.md
+      href: train-model.md
+    - name: Eseguire il training del modello di clustering
+      href: train-clustering-model.md
+    - name: Tune Model Hyperparameters
+      href: tune-model-hyperparameters.md
+- name: Valutazione del modello
+  items:
+    - name: Valutare il modello
+      href: evaluate-model.md
+    - name: Evaluate Recommender
+      href: evaluate-recommender.md
+- name: Assegnazione del punteggio al modello
+  items:
+    - name: Applicare la trasformazione
+      href: apply-transformation.md
+    - name: Assign Data to Clusters
+      href: assign-data-to-clusters.md
+    - name: Assegnare il punteggio al modello
+      href: score-model.md
+    - name: Score SVD Recommender
+      href: score-svd-recommender.md
+- name: Funzioni statistiche
+  items:
+    - name: Applicare operazioni matematiche
+      href: apply-math-operation.md
+    - name: Riepilogare i dati
+      href: summarize-data.md
