@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e075091461949639fc36ffb9feab69ac5399ae61
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0196e6fb4b2cd52fd66a26e07e8d4ce71983bc16
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491987"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013204"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Archiviazione con ridondanza della zona (ZRS) per la creazione di applicazioni di archiviazione di Azure a disponibilità elevata
 
@@ -24,7 +24,7 @@ ms.locfileid: "73491987"
 
 ZRS supporta attualmente i tipi di account di archiviazione standard per utilizzo generico V2 e filestorage. Per altre informazioni sui tipi di account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md).
 
-L'archiviazione con ridondanza della zona è disponibile per BLOB in blocchi, BLOB di pagine non del disco, file, tabelle e code.
+ZRS è disponibile per i BLOB in blocchi, i BLOB di pagine non disco, le condivisioni file standard, le tabelle e le code.
 
 Per gli account per utilizzo generico V2, ZRS è disponibile a livello generale nelle aree seguenti:
 
@@ -39,7 +39,7 @@ Per gli account per utilizzo generico V2, ZRS è disponibile a livello generale 
 - Stati Uniti orientali 2
 - Stati Uniti occidentali 2
 
-Per gli account filestorage, ZRS è disponibile a livello generale nelle aree seguenti:
+Per gli account filestorage (condivisioni file Premium), ZRS è disponibile a livello generale nelle aree seguenti:
 
 - Europa occidentale
 - Stati Uniti orientali
@@ -91,7 +91,7 @@ Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
 - L'account deve contenere dati.
 - È possibile migrare solo i dati nella stessa area. Se si vuole eseguire la migrazione dei dati in un account di archiviazione con ridondanza della zona che si trova in un'area diversa rispetto all'account di origine, è necessario eseguire una migrazione manuale.
 - Solo gli account di archiviazione standard supportano la migrazione in tempo reale. Per gli account di archiviazione premium, è necessario usare la migrazione manuale.
-- La migrazione in tempo reale da ZRS a con ridondanza locale, GRS o RA-GRS non è supportata. Sarà necessario spostare manualmente i dati in un account di archiviazione nuovo o esistente.
+- La migrazione in tempo reale da ZRS a con ridondanza locale, GRS o RA-GRS non è supportata. Sarà necessario spostare manualmente i dati su un account di archiviazione nuovo o esistente.
 - I dischi gestiti sono disponibili solo per con ridondanza locale e non è possibile eseguirne la migrazione a ZRS. È possibile archiviare snapshot e immagini per SDD Standard Managed Disks nell'archiviazione HDD Standard e [scegliere tra le opzioni con ridondanza locale e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Per l'integrazione con i set di disponibilità, vedere [Introduzione a Managed Disks di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
 - Non è possibile eseguire la migrazione di account con ridondanza locale o GRS con dati archiviati in ZRS.
 
@@ -107,7 +107,7 @@ Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
     - **Dettagli**: digitare ulteriori dettagli nella casella **Dettagli** , ad esempio, si desidera eseguire la migrazione a ZRS da [con ridondanza locale, GRS] nell'area \_\_. 
 5. Selezionare **Avanti**.
 6. Verificare che le informazioni di contatto nel pannello **Informazioni contatto** siano corrette.
-7. Selezionare **Crea**.
+7. Selezionare **Create**.
 
 Un addetto del supporto tecnico contatterà l'utente e fornirà l'assistenza necessaria.
 

@@ -1,5 +1,5 @@
 ---
-title: Modificare i prefissi degli indirizzi IP per il gateway di rete locale e l'indirizzo IP del gateway VPN | Azure| PowerShell| Microsoft Docs
+title: "Gateway VPN: modificare le impostazioni dell'indirizzo IP del gateway: Azure PowerShell"
 description: Questo articolo illustra in modo dettagliato come modificare i prefissi degli indirizzi IP per il gateway di rete locale usando PowerShell
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: 923c478909e0393f36da06802023b3f40ee63a3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6aae2c87615ae0e250d7f9460bde483e3448c46e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64723890"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014893"
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>Modificare le impostazioni del gateway di rete locale usando PowerShell
 

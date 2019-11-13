@@ -1,19 +1,19 @@
 ---
-title: Creare una tabella di route dell'hub virtuale della rete WAN virtuale di Azure per l'indirizzamento a un'appliance virtuale di rete | Microsoft Docs
+title: "Rete WAN virtuale: creare una tabella di route dell'hub virtuale in appliance virtuale di rete: Azure PowerShell"
 description: Tabella di route dell'hub virtuale della rete WAN virtuale per indirizzare il traffico a un'appliance virtuale di rete.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 18af56f6924484c6267871cf3fed34f80a8f12a4
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 2d8922084dbe30c2dbe494028f2e5a1497fb3759
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744704"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74015000"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Creare una tabella di route dell'hub virtuale per indirizzare il traffico a un'appliance virtuale di rete
 
@@ -43,7 +43,7 @@ Verificare di aver soddisfatto i criteri seguenti:
 5. Verificare di avere 2 reti virtuali già create. Queste verranno usate come reti virtuali spoke. Per questo articolo, gli spazi di indirizzi della rete virtuale spoke sono 10.0.2.0/24 e 10.0.3.0/24. Se sono necessarie informazioni su come creare una rete virtuale, vedere [Creare una rete virtuale usando PowerShell](../virtual-network/quick-create-powershell.md).
 6. Assicurarsi che non ci siano gateway di rete virtuale in nessuna rete virtuale.
 
-## <a name="signin"></a>1. Accesso
+## <a name="signin"></a>1. accedi
 
 Assicurarsi di installare la versione più recente dei cmdlet di PowerShell per Resource Manager. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Questo elemento è importante perché le versioni precedenti dei cmdlet non contengono i valori correnti necessari per questo esercizio.
 
@@ -63,7 +63,7 @@ Assicurarsi di installare la versione più recente dei cmdlet di PowerShell per 
    Select-AzSubscription -SubscriptionName "Name of subscription"
    ```
 
-## <a name="rg"></a>2. Crea risorse
+## <a name="rg"></a>2. creare le risorse
 
 1. Creare un gruppo di risorse.
 
@@ -81,7 +81,7 @@ Assicurarsi di installare la versione più recente dei cmdlet di PowerShell per 
    New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24" -Location "West US"
    ```
 
-## <a name="connections"></a>3. Creare le connessioni
+## <a name="connections"></a>3. creare connessioni
 
 Creare le connessioni dell'hub di rete virtuale dalla rete virtuale spoke indiretta e dalla rete virtuale di rete perimetrale all'hub virtuale.
 
@@ -95,7 +95,7 @@ Creare le connessioni dell'hub di rete virtuale dalla rete virtuale spoke indire
   New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection3" -RemoteVirtualNetwork $remoteVirtualNetwork3
   ```
 
-## <a name="route"></a>4. Creare una route dell'hub virtuale
+## <a name="route"></a>4. creare una route di hub virtuale
 
 Per questo articolo, gli spazi di indirizzi della rete virtuale spoke indiretta sono 10.0.2.0/24 e 10.0.3.0/24 e l'indirizzo IP privato dell'interfaccia di rete della rete virtuale della rete perimetrale è 10.0.4.5.
 
@@ -103,7 +103,7 @@ Per questo articolo, gli spazi di indirizzi della rete virtuale spoke indiretta 
 $route1 = New-AzVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/24") -NextHopIpAddress "10.0.4.5"
 ```
 
-## <a name="applyroute"></a>5. Creare una tabella di route dell'hub virtuale
+## <a name="applyroute"></a>5. creare una tabella di route dell'hub virtuale
 
 Creare una tabella di route dell'hub virtuale, quindi applicarvi la route creata.
  
@@ -111,7 +111,7 @@ Creare una tabella di route dell'hub virtuale, quindi applicarvi la route creata
 $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 ```
 
-## <a name="commit"></a>6. Eseguire il commit delle modifiche
+## <a name="commit"></a>6. eseguire il commit delle modifiche
 
 Eseguire il commit delle modifiche nell'hub virtuale.
 

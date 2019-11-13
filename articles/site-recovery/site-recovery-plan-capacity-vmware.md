@@ -1,5 +1,5 @@
 ---
-title: Pianificare la capacità e la scalabilità per il ripristino di emergenza da VMware ad Azure tramite Azure Site Recovery | Microsoft Docs
+title: Pianificare la capacità per il ripristino di emergenza di VMware con Azure Site Recovery
 description: Questo articolo aiuta a pianificare la capacità e la scalabilità quando si configura il ripristino di emergenza di macchine virtuali di VMware in Azure tramite Azure Site Recovery.
 author: nsoneji
 manager: garavd
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 0bf1b34295d827124198206e743bc21d5f7eb904
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747895"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961363"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Pianificare la capacità e la scalabilità per il ripristino di emergenza di VMware in Azure
 
@@ -92,7 +92,7 @@ Dopo aver usato [Site Recovery Deployment Planner](site-recovery-deployment-plan
 
     ![Screenshot della finestra di dialogo Proprietà di Azure Backup](./media/site-recovery-vmware-to-azure/throttle2.png)
 
-È anche possibile usare il cmdlet [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) per impostare la limitazione. Ad esempio:
+È anche possibile usare il cmdlet [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) per impostare la limitazione. Ecco un esempio:
 
     $mon = [System.DayOfWeek]::Monday
     $tue = [System.DayOfWeek]::Tuesday

@@ -6,14 +6,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 12/17/2018
+ms.date: 11/12/2019
 ms.reviewer: carlrab
-ms.openlocfilehash: 75e8cffea08c7db4526c647a32ed92be2d1779f1
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b092c547edf37b31e6099227d8cc0e69048bad7a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899134"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961978"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorare il database SQL di Azure usando Analisi SQL di Azure (anteprima)
 
@@ -32,13 +32,28 @@ Per una panoramica pratica sull'uso della soluzione Analisi SQL di Azure e per s
 
 Analisi SQL di Azure è una soluzione di monitoraggio solo per cloud che supporta il flusso dei dati di telemetria di diagnostica per i database SQL di Azure: singoli, in pool e dell'istanza gestita. Poiché la soluzione non usa gli agenti per connettersi a monitoraggio di Azure, la soluzione non supporta il monitoraggio di SQL Server ospitati in locale o in macchine virtuali, vedere la tabella compatibilità riportata di seguito.
 
-| Origine connessa | Supportato | Description |
+| Origine connessa | Supportato | DESCRIZIONE |
 | --- | --- | --- |
 | [Impostazioni di diagnostica](../platform/diagnostic-settings.md) | **Sì** | I dati relativi alle metriche e ai log di Azure vengono inviati ai log di monitoraggio di Azure direttamente da Azure. |
 | [Account di archiviazione di Azure](../platform/collect-azure-metrics-logs.md) | No | Monitoraggio di Azure non legge i dati da un account di archiviazione. |
-| [Agenti di Windows](../platform/agent-windows.md) | No | Gli agenti Windows diretti non vengono usati dalla soluzione. |
+| [Agenti Windows](../platform/agent-windows.md) | No | Gli agenti Windows diretti non vengono usati dalla soluzione. |
 | [Agenti Linux](../learn/quick-collect-linux-computer.md) | No | Gli agenti Linux diretti non vengono usati dalla soluzione. |
 | [Gruppo di gestione di System Center Operations Manager](../platform/om-agents.md) | No | Una connessione diretta dall'agente Operations Manager al monitoraggio di Azure non viene usata dalla soluzione. |
+
+## <a name="azure-sql-analytics-options"></a>Opzioni di Analisi SQL di Azure
+
+La tabella seguente descrive le opzioni supportate per due versioni del dashboard di Analisi SQL di Azure, una per il database SQL di Azure e i pool elastici e l'altra per Istanza gestita.
+
+| Opzione Analisi SQL di Azure | DESCRIZIONE | Supporto per il database SQL e i pool elastici | Supporto per Istanza gestita |
+| --- | ------- | ----- | ----- |
+| Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. | Sì | Sì |
+| Informazioni dettagliate | Fornisce il drill-down gerarchico per Intelligent Insights per le prestazioni. | Sì | Sì |
+| Errori | Fornisce il drill-down gerarchico per gli errori SQL verificatisi nei database. | Sì | Sì |
+| Timeouts | Fornisce il drill-down gerarchico per i timeout SQL verificatisi nei database. | Sì | No |
+| Blocchi | Fornisce il drill-down gerarchico per i blocchi SQL verificatisi nei database. | Sì | No |
+| Attese del database | Fornisce il drill-down gerarchico per le statistiche di attesa SQL a livello di database. Include il riepilogo del tempo di attesa totale e del tempo di attesa per tipo di attesa. |Sì | Sì |
+| Durata delle query | Fornisce il drill-down gerarchico per le statistiche di esecuzione delle query, ad esempio la durata della query, l'utilizzo della CPU, l'utilizzo dei dati di I/O e l'utilizzo dei log di I/O. | Sì | Sì |
+| Attese query | Fornisce il drill-down gerarchico per le statistiche di attesa delle query per categoria di attesa. | Sì | Sì |
 
 ## <a name="configuration"></a>Configurazione
 Usare la procedura descritta in [aggiungere soluzioni di monitoraggio di Azure dalla raccolta di soluzioni](../../azure-monitor/insights/solutions.md) per aggiungere la soluzione analisi SQL di Azure (anteprima) all'area di lavoro log Analytics.
@@ -94,21 +109,6 @@ La selezione di uno dei riquadri consente di visualizzare un report drill-down n
 Selezionando la visualizzazione di Istanza gestita, vengono visualizzate informazioni dettagliate sull'utilizzo di Istanza gestita, i database in essa contenuti e i dati di telemetria sulle query eseguite all'interno dell'istanza.
 
 ![Timeout di Analisi SQL di Azure](./media/azure-sql/azure-sql-sol-metrics-mi.png)
-
-### <a name="perspectives"></a>Prospettive
-
-La tabella seguente descrive le prospettive supportate per due versioni del dashboard, una per il database SQL di Azure e i pool elastici e l'altra per Istanza gestita.
-
-| Prospettiva | Description | Supporto per il database SQL e i pool elastici | Supporto per Istanza gestita |
-| --- | ------- | ----- | ----- |
-| Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. | SÌ | SÌ |
-| Informazioni approfondite | Fornisce il drill-down gerarchico per Intelligent Insights per le prestazioni. | SÌ | SÌ |
-| Errors | Fornisce il drill-down gerarchico per gli errori SQL verificatisi nei database. | SÌ | SÌ |
-| Timeout | Fornisce il drill-down gerarchico per i timeout SQL verificatisi nei database. | SÌ | No |
-| Blocchi | Fornisce il drill-down gerarchico per i blocchi SQL verificatisi nei database. | SÌ | No |
-| Attese del database | Fornisce il drill-down gerarchico per le statistiche di attesa SQL a livello di database. Include il riepilogo del tempo di attesa totale e del tempo di attesa per tipo di attesa. |SÌ | SÌ |
-| Durata delle query | Fornisce il drill-down gerarchico per le statistiche di esecuzione delle query, ad esempio la durata della query, l'utilizzo della CPU, l'utilizzo dei dati di I/O e l'utilizzo dei log di I/O. | SÌ | SÌ |
-| Attese query | Fornisce il drill-down gerarchico per le statistiche di attesa delle query per categoria di attesa. | SÌ | SÌ |
 
 ### <a name="intelligent-insights-report"></a>Report di Intelligent Insights
 

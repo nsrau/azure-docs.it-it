@@ -3,7 +3,7 @@ title: Latenze dei report di Azure Active Directory | Microsoft Docs
 description: Informazioni sul tempo necessario per la visualizzazione nel portale di Azure degli eventi dei report
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 05/13/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce62a5059304fe83d933a46ae69f4b8e0c276ba7
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127041"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007698"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latenze dei report di Azure Active Directory
 
@@ -59,18 +59,18 @@ Esistono due tipi di report sulla sicurezza:
 
 Nella tabella seguente sono elencate le informazioni sulla latenza per i report di sicurezza.
 
-| Report | Minima | Average | Massima |
+| Report | Minima | Media | Massima |
 | :-- | --- | --- | --- |
 | Utenti a rischio.          | 5 minuti   | 15 minuti  | 2 ore  |
 | Accessi a rischio         | 5 minuti   | 15 minuti  | 2 ore  |
 
-## <a name="risk-detections"></a>Rilevamento del rischio
+## <a name="risk-detections"></a>Rilevamenti dei rischi
 
 Azure AD usa l'euristica e gli algoritmi adattivi di Machine Learning per rilevare azioni sospette correlate agli account dell'utente. Ogni azione sospetta rilevata viene archiviata in un record denominato **rilevamento del rischio**.
 
 Nella tabella seguente sono elencate le informazioni sulla latenza per i rilevamenti dei rischi.
 
-| Report | Minima | Average | Massima |
+| Report | Minima | Media | Massima |
 | :-- | --- | --- | --- |
 | Accessi da indirizzi IP anonimi |5 minuti |15 minuti |2 ore |
 | Accessi da posizioni non note |5 minuti |15 minuti |2 ore |

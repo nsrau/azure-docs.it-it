@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: alzam
-ms.openlocfilehash: 6730cad4f65648516769476740813c2e3384fe6a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: bd8a9413efc4f2130bd71f15f0da2a605b8c03e1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837916"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960689"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creare un tenant di Azure Active Directory per le connessioni del protocollo OpenVPN P2S
 
@@ -40,7 +40,7 @@ Successivamente, creare due account utente. Creare un account amministratore glo
 Usare la procedura descritta in [questo articolo](../active-directory/fundamentals/add-users-azure-active-directory.md) per creare almeno due utenti per il tenant di Azure ad. Assicurarsi di modificare il **ruolo della directory** per creare i tipi di account:
 
 * Amministratore globale
-* Utente
+* User
 
 ## <a name="enable-authentication"></a>3. abilitare l'autenticazione Azure AD nel gateway VPN
 
@@ -100,7 +100,7 @@ Usare la procedura descritta in [questo articolo](../active-directory/fundamenta
 9. Creare e scaricare il profilo eseguendo i comandi seguenti. Modificare i valori-ResourcGroupName e-Name in modo che corrispondano a quelli personalizzati.
 
     ```azurepowershell-interactive
-    $profile = New-AzVpnClientConfiguration -ResourceGroupName AADAuth -Name AADauthGW -AuthenticationMethod "EapTls"
+    $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
     $PROFILE.VpnProfileSASUrl
     ```
 

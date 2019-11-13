@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 11/11/2019
 ms.author: dapine
-ms.openlocfilehash: 958acd042acba2a8c6c38ad1e6bac614db509da8
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: fc4b9469d8634cbb46eccb842c9795a155384eb7
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604437"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961898"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Supporto dei contenitori in Servizi cognitivi di Azure
 
@@ -29,7 +29,6 @@ Il supporto dei contenitori in Servizi cognitivi di Azure consente agli sviluppa
 > * [Language Understanding (LUIS)][lu-containers]
 > * [API servizio Voce][sp-containers]
 > * [Analisi del testo][ta-containers]
-> * [Traduzione testuale][tt-containers]
 
 > [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
@@ -48,7 +47,7 @@ Le risorse di servizi cognitivi sono disponibili in [Microsoft Azure](https://az
 
 I contenitori di Servizi cognitivi di Azure offrono il set seguente di contenitori Docker, ognuno dei quali contiene un subset di funzionalità dei servizi disponibili in Servizi cognitivi di Azure:
 
-| Service | Piano tariffario supportato | Contenitore | Descrizione |
+| Servizio | Piano tariffario supportato | Contenitore: | DESCRIZIONE |
 |---------|----------|----------|-------------|
 |[Rilevamento anomalie][ad-containers] |F0, S0|**Rilevamento anomalie** |L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dati di serie temporali con l'apprendimento automatico.<br>[Richiedere l'accesso](https://aka.ms/adcontainer)|
 |[Visione artificiale][cv-containers] |F0, S1|**Lettura** |Estre testo stampato dalle immagini di diversi oggetti con superfici e sfondi diversi, ad esempio ricette, poster e biglietti da visita. Il contenitore di lettura rileva anche il *testo scritto a mano* nelle immagini e fornisce il supporto per PDF/TIFF/più pagine.<br/><br/>**Importante:** Il contenitore di lettura attualmente funziona solo con l'inglese.|
@@ -62,7 +61,6 @@ I contenitori di Servizi cognitivi di Azure offrono il set seguente di contenito
 |[Analisi del testo][ta-containers] |F0, S|**Estrazione frasi chiave** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Estrae le frasi chiave per identificare i punti principali. Ad esempio, per il testo di input "Il cibo era delizioso e il personale era meraviglioso", l'API restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso". |
 |[Analisi del testo][ta-containers]|F0, S|**Rilevamento lingua** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |Per un massimo di 120 lingue, rileva la lingua in cui è scritto il testo di input e crea un report relativo a un codice lingua singolo per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità. |
 |[Analisi del testo][ta-containers]|F0, S|**Analisi del sentiment** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analizza testo non elaborato per indicazioni su una valutazione positiva o negativa. L'API restituisce un punteggio sentiment compreso tra 0 e 1 per ogni documento, dove 1 è il risultato più positivo. Viene eseguito un training preliminare dei modelli di analisi usando un ampio corpus di testi e tecnologie per l'elaborazione del linguaggio naturale di Microsoft. Per [alcune lingue](./text-analytics/language-support.md), l'API può analizzare e assegnare punteggi a qualsiasi testo non elaborato fornito dall'utente, restituendo direttamente i risultati all'applicazione chiamante. |
-|[Traduzione testuale][tt-containers]| **N/D** | **Traduzione testuale** | Traduzione testuale è un servizio di traduzione automatica basato su cloud che può essere usato per tradurre il testo quasi in tempo reale tramite una semplice chiamata API REST.<br>[Richiedere l'accesso](https://aka.ms/translatorcontainerform) |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -86,11 +84,10 @@ I contenitori di Servizi cognitivi di Azure sono disponibili pubblicamente attra
 > * [Riconoscimento moduli](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
 > * [Lettura](computer-vision/computer-vision-how-to-install-containers.md)
 > * [Sintesi vocale e sintesi vocale](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
-> * [Traduzione testuale](translator/how-to-install-containers.md#request-access-to-the-container-registry)
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per usare i contenitori di Servizi cognitivi di Azure, è necessario soddisfare i prerequisiti seguenti:
 
@@ -121,7 +118,6 @@ Installare ed esplorare le funzionalità fornite dai contenitori in Servizi cogn
 * [Contenitori Language Understanding (LUIS)][lu-containers]
 * [Contenitori dell'API del servizio vocale][sp-containers]
 * [Contenitori di Analisi del testo][ta-containers]
-* [Contenitori di Traduzione testuale][tt-containers]
 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 -->
@@ -137,4 +133,3 @@ Installare ed esplorare le funzionalità fornite dai contenitori in Servizi cogn
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
-[tt-containers]: translator/how-to-install-containers.md

@@ -1,5 +1,5 @@
 ---
-title: Aggiungere un Azure Active Directory usando Servizi connessi in Visual Studio | Azure
+title: Aggiungere un Azure Active Directory usando Servizi connessi | Azure
 description: Aggiungere un'istanza di Azure Active Directory usando la finestra di dialogo Aggiungi Servizi connessi di Visual Studio
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04c8b6bfeaabfa20b9b9b884584d40de7f09e9ac
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 36827401060e330d57b6afac3db0abbde0c27dc2
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802484"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73941936"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Aggiunta di Azure Active Directory mediante servizi connessi in Visual Studio
 
@@ -27,7 +27,7 @@ Questo articolo e gli articoli correlati forniscono i dettagli dell'uso del serv
 
 Al momento, il servizio connesso di Active Directory non supporta applicazioni ASP.NET Core.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Account di Azure: se non si ha un account di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i vantaggi della sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 - **Visual Studio 2015** o versione successiva. [Scarica subito Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).

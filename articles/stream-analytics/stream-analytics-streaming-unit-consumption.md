@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: d9c4169176707f98181f2a479e470cf89ff2e04f
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 25105847b7134b7119252a66ac7e8502771ce5db
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988240"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961269"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
@@ -86,7 +86,7 @@ Ad esempio, nella query seguente il numero associato a `clusterid` è la cardina
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-Per attenuare i problemi causati dalla cardinalità elevata nella query precedente, è possibile inviare eventi a hub eventi partizionati in base `clusterid`e scalare la query consentendo al sistema di elaborare ogni partizione di input separatamente usando **Partition by** , come illustrato Nell'esempio seguente:
+Per attenuare i problemi causati dalla cardinalità elevata nella query precedente, è possibile inviare eventi a hub eventi partizionati in base `clusterid`e scalare la query consentendo al sistema di elaborare ogni partizione di input separatamente usando **Partition by** , come illustrato nell'esempio seguente:
 
    ```sql
    SELECT count(*) 
@@ -99,7 +99,7 @@ In seguito al partizionamento, la query viene distribuita su più nodi. Di conse
 Le partizioni di Hub eventi devono essere create in base alla chiave di raggruppamento per evitare la necessità di un passaggio di riduzione. Per altre informazioni, vedere [Panoramica di Hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md). 
 
 ## <a name="temporal-joins"></a>Join temporali
-La memoria utilizzata (dimensione dello stato) per un join temporale è proporzionale al numero di eventi all'interno del margine di manovra temporale del join, che corrisponde alla frequenza di input degli eventi moltiplicata per la dimensione del margine di manovra. In altre parole, la memoria utilizzata dai join è proporzionale all'intervallo di tempo DateDiff moltiplicato per la frequenza media degli eventi.
+La memoria utilizzata (dimensione dello stato) di un join temporale è proporzionale al numero di eventi nell'area di ridimensionamento temporale del join, che corrisponde alla frequenza di input degli eventi moltiplicata per la dimensione della stanza di wiggle. In altre parole, la memoria utilizzata dai join è proporzionale all'intervallo di tempo DateDiff moltiplicato per la frequenza media degli eventi.
 
 Il numero di eventi senza corrispondenza nel join influisce sull'utilizzo della memoria per la query. La query seguente cerca le impressioni di annunci che generano clic:
 

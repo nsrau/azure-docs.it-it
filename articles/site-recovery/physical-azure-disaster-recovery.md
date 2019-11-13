@@ -1,39 +1,38 @@
 ---
-title: Configurare il ripristino di emergenza in Azure per server fisici locali con Azure Site Recovery
+title: Configurare il ripristino di emergenza di server fisici locali con Azure Site Recovery
 description: Informazioni su come configurare il ripristino di emergenza in Azure per server Windows e Linux locali con Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 55b375c1e98518a6c3bc2926030cfe072963216c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: a298505779def353834c294f7b5a406720fdd46c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814547"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936174"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurare il ripristino di emergenza in Azure per server fisici locali
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) favorisce l'attuazione della strategia di ripristino di emergenza gestendo e coordinando le operazioni di replica, failover e failback di computer locali e macchine virtuali di Azure.
 
-In questa esercitazione viene illustrato come configurare il ripristino di emergenza per server Windows e Linux fisici locali in Azure. In questa esercitazione si imparerà a:
+In questa esercitazione viene illustrato come configurare il ripristino di emergenza per server Windows e Linux fisici locali in Azure. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Configurare i prerequisiti locali e di Azure
-> * Creare un insieme di credenziali dei servizi di ripristino per Site Recovery 
+> * Creare un insieme di credenziali di Servizi di ripristino per Site Recovery 
 > * Configurare gli ambienti di replica di origine e di destinazione
 > * Creare un criterio di replica
 > * Abilitare la replica per un server
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 
 - Assicurarsi di aver compreso [l'architettura e i componenti](physical-azure-architecture.md) di questo scenario.
-- Verificare i [requisiti di supporto](vmware-physical-secondary-support-matrix.md) per tutti i componenti.
+- Esaminare i [requisiti di supporto](vmware-physical-secondary-support-matrix.md) per tutti i componenti.
 - Assicurarsi che i server da replicare siano conformi ai [requisiti di Azure per le macchine virtuali](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Preparare Azure. Sono necessari una sottoscrizione di Azure, una rete virtuale di Azure e un account di archiviazione di Azure.
 - Preparare un account per l'installazione automatica del servizio Mobility su ogni server da replicare.
@@ -69,14 +68,14 @@ Verificare che l'account di Azure disponga delle autorizzazioni per la replica d
 Configurare una [rete di Azure](../virtual-network/quick-create-portal.md).
 
 - Le VM di Azure create dopo il failover verranno inserite in questa rete.
-- La rete deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
+- La rete deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino
 
 
 ## <a name="set-up-an-azure-storage-account"></a>Configurare un account di archiviazione di Azure
 
 Configurare un [account di archiviazione di Azure](../storage/common/storage-quickstart-create-account.md).
 
-- Site Recovery replica le macchine locali in Archiviazione di Azure. Le VM di Azure vengono create dalla risorsa di archiviazione dopo il failover.
+- Site Recovery replica le macchine locali in Archiviazione di Azure. Le macchine virtuali di Azure vengono create dalla risorsa di archiviazione dopo che si verifica il failover.
 - L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali dei servizi di ripristino.
 
 
@@ -84,7 +83,7 @@ Configurare un [account di archiviazione di Azure](../storage/common/storage-qui
 
 Il servizio Mobility deve essere installato in ogni server da replicare. Site Recovery installa il servizio automaticamente quando si abilita la replica per il server. Per l'installazione automatica è necessario preparare un account che Site Recovery userà per accedere al server.
 
-- È possibile usare un account di dominio o locale
+- È possibile usare un account di dominio o locale.
 - Per le macchine virtuali Windows, se non si usa un account di dominio, disabilitare il Controllo dell'accesso utente remoto nel computer locale. A questo scopo, aggiungere la voce DWORD **LocalAccountTokenFilterPolicy** con un valore di 1 nel Registro di sistema in **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**.
 - Per aggiungere la voce di registro per disabilitare l'impostazione da CLI, digitare:       ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - Per Linux, l'account deve essere radice nel server Linux di origine.
@@ -110,7 +109,7 @@ Configurare il server di configurazione, registrarlo nell'insieme di credenziali
 2. Se non è disponibile un server di configurazione, fare clic su **+Server di configurazione**.
 3. In **Aggiungi server** verificare che **Tipo di server** contenga **Server di configurazione**.
 4. Scaricare il file di installazione per l'Installazione unificata di Azure Site Recovery.
-5. Scaricare la chiave di registrazione dell'insieme di credenziali. che sarà necessaria quando si esegue l'Installazione unificata. La chiave è valida per cinque giorni dal momento in cui viene generata.
+5. Scaricare la chiave di registrazione dell'insieme di credenziali, che sarà necessaria quando si esegue l'Installazione unificata. La chiave è valida per cinque giorni dal momento in cui viene generata.
 
    ![Impostare l'origine](./media/physical-azure-disaster-recovery/source-environment.png)
 
@@ -163,7 +162,7 @@ Selezionare e verificare le risorse di destinazione.
 
 I criteri vengono automaticamente associati al server di configurazione. Per impostazione predefinita vengono creati automaticamente criteri corrispondenti per il failback. Se, ad esempio, il criterio di replica è **rep-policy**, il criterio di failback creato sarà **rep-policy-failback**. Questi criteri non vengono usati fino a quando non si avvia un failback da Azure.
 
-## <a name="enable-replication"></a>Abilita replica
+## <a name="enable-replication"></a>Abilitare la replica
 
 Abilitare la replica per ogni server.
 

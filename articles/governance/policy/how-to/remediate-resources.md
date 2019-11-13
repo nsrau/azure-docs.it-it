@@ -1,17 +1,14 @@
 ---
 title: Correggere le risorse non conformi
 description: Questa guida illustra la correzione di risorse non conformi ai criteri in criteri di Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 219a3c56f9e4e4c9e132fa759b017fac63ade766
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 53ca21e4b8a1f3e7973706acd10601593efc3448
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977983"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959493"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Correggere le risorse non conformi con Criteri di Azure
 
@@ -25,7 +22,7 @@ Criteri di Azure crea un'identità gestita per ogni assegnazione, ma deve avere 
 ![Entità gestita - ruolo mancante](../media/remediate-resources/missing-role.png)
 
 > [!IMPORTANT]
-> Se una risorsa modificata da **deployIfNotExists** o **Modify** esula dall'ambito dell'assegnazione di criteri oppure il modello accede alle proprietà delle risorse al di fuori dell'ambito dell'assegnazione dei criteri, l'identità gestita dell'assegnazione deve essere [ l'accesso è stato concesso manualmente](#manually-configure-the-managed-identity) o la distribuzione di monitoraggio e aggiornamento avrà esito negativo.
+> Se una risorsa modificata da **deployIfNotExists** o **Modify** esula dall'ambito dell'assegnazione di criteri oppure il modello accede alle proprietà delle risorse al di fuori dell'ambito dell'assegnazione dei criteri, l'identità gestita dell'assegnazione deve essere [concessa manualmente](#manually-configure-the-managed-identity) , altrimenti la distribuzione di monitoraggio e aggiornamento avrà esito negativo.
 
 ## <a name="configure-policy-definition"></a>Configurare la definizione dei criteri
 
@@ -173,7 +170,7 @@ Per altri comandi ed esempi di monitoraggio e aggiornamento, vedere i comandi [A
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>Creare un'attività di correzione tramite Azure PowerShell
 
-Per creare un' **attività di correzione** con Azure PowerShell, usare i comandi `Start-AzPolicyRemediation`. Sostituire `{subscriptionId}` con l'ID sottoscrizione e `{myAssignmentId}` con il **deployIfNotExists** o **modificare** l'ID di assegnazione dei criteri.
+Per creare un' **attività di correzione** con Azure PowerShell, usare i comandi di `Start-AzPolicyRemediation`. Sostituire `{subscriptionId}` con l'ID sottoscrizione e `{myAssignmentId}` con il **deployIfNotExists** o **modificare** l'ID di assegnazione dei criteri.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

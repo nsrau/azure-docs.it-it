@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 9dc26e50e1c0f43e816e422f0fee91a246ea04a9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8e91a475c7fd7f207c8b38d3da8abe7affd668b2
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487594"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013506"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entità e relativo scopo in LUIS
 
@@ -53,10 +53,10 @@ Non è necessario utilizzare lo scopo previsto nell'applicazione client, ma vien
 
 Le entità sono dati di cui si intende eseguire il pull dall'espressione. Può trattarsi di un nome, di una data, del nome di un prodotto o di un qualsiasi gruppo di parole. 
 
-|Espressione|Persona giuridica|Dati|
+|Espressione|Entità|Dati|
 |--|--|--|
 |Buy 3 tickets to New York|Number predefinito<br>Location.Destination|3<br>New York|
-|Buy a ticket from New York to London on March 5|Location.Origin<br>Location.Destination<br>DatetimeV2 predefinito|New York<br>Londra<br>5 marzo 2018|
+|Buy a ticket from New York to London on March 5|Location.Origin<br>Location.Destination<br>DatetimeV2 predefinito|New York<br>Londra<br>March 5, 2018|
 
 ## <a name="entities-are-optional-but-highly-recommended"></a>Le entità sono facoltative ma consigliate
 
@@ -89,13 +89,13 @@ I **vincoli** sono entità corrispondenti al testo esatto che applicano regole p
 
 Scegliere l'entità in base a come devono essere estratti i dati e a come devono essere rappresentati dopo l'estrazione.
 
-|Tipo di entità|Finalità|
+|Tipo di entità|Scopo|
 |--|--|
-|[**Apprendimento automatico**](#composite-entity)|Raggruppamento padre di entità, indipendentemente dal tipo di entità. Le entità apprese dal computer imparano dal contesto nell'espressione. In questo modo la variazione del posizionamento in espressioni di esempio è significativa. |
-|[**Elenco**](#list-entity)|Elenco di elementi e relativi sinonimi estratti con la **corrispondenza esatta del testo**.|
-|[**Pattern.any**](#patternany-entity)|Entità di cui è difficile determinare la fine. |
-|[**Predefinita**](#prebuilt-entity)|È già stato eseguito il training per estrarre un tipo specifico di dati, ad esempio URL o posta elettronica. Alcune di queste entità predefinite sono definite nel progetto open source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Se una lingua o un'entità specifica non è attualmente supportata, è possibile collaborare al progetto.|
-|[**Espressione regolare**](#regular-expression-entity)|Usa l'espressione regolare per la **corrispondenza esatta del testo**.|
+|[**Apprendimento automatico**](tutorial-machine-learned-entity.md)|Raggruppamento padre di entità, indipendentemente dal tipo di entità. Le entità apprese dal computer imparano dal contesto nell'espressione. In questo modo la variazione del posizionamento in espressioni di esempio è significativa. |
+|[**Elenco**](reference-entity-list.md)|Elenco di elementi e relativi sinonimi estratti con la **corrispondenza esatta del testo**.|
+|[**Pattern.any**](reference-entity-pattern-any.md)|Entità di cui è difficile determinare la fine. |
+|[**Predefinita**](luis-reference-prebuilt-entities.md)|È già stato eseguito il training per estrarre un tipo specifico di dati, ad esempio URL o posta elettronica. Alcune di queste entità predefinite sono definite nel progetto open source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Se una lingua o un'entità specifica non è attualmente supportata, è possibile collaborare al progetto.|
+|[**Espressione regolare**](reference-entity-regular-expression.md)|Usa l'espressione regolare per la **corrispondenza esatta del testo**.|
 
 ### <a name="entity-role-defines-context"></a>Il ruolo entità definisce il contesto
 
@@ -113,7 +113,7 @@ Se l'espressione include un elenco di percorsi, `I want to travel to Seattle, Ca
 
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Se sono necessarie più entità rispetto al numero massimo 
 
-Se è necessario più del limite, contattare il supporto tecnico. A tale scopo, raccogliere informazioni dettagliate relative al sistema, visitare il sito Web [LUIS](luis-reference-regions.md#luis-website) e quindi selezionare l'opzione relativa al **supporto**. Se la sottoscrizione di Azure include servizi di supporto tecnico, contattare [il supporto tecnico Azure](https://azure.microsoft.com/support/options/). 
+Se è necessario più del limite, contattare il supporto tecnico. A tale scopo, raccogliere informazioni dettagliate relative al sistema, visitare il sito Web [LUIS](luis-reference-regions.md#luis-website) e quindi selezionare l'opzione relativa al **supporto**. Se la sottoscrizione di Azure include servizi di assistenza, contattare [il team di supporto di Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="entity-prediction-status"></a>Stato stima entità
 
@@ -123,4 +123,4 @@ Il portale LUIS Mostra quando l'entità, in un enunciato di esempio, ha una stim
 
 Informazioni sui concetti delle [espressioni](luis-concept-utterance.md) valide. 
 
-Vedere [Aggiungere entità](luis-how-to-add-entities.md) per altre informazioni sull'aggiunta di entità all'app LUIS.
+Vedere [Aggiungere entità](luis-how-to-add-entities.md) per ulteriori informazioni sull'aggiunta di entità all'app LUIS.

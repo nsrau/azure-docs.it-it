@@ -1,5 +1,5 @@
 ---
-title: Raspberry Pi al cloud (Node. js) - Connettere Raspberry Pi ad Azure IoT Hub | Microsoft Docs
+title: Connettere Raspberry Pi all'hub delle cose di Azure nel cloud (node. js)
 description: Informazioni su come configurare e connettere Raspberry Pi all'hub Azure per l'invio di dati alla piattaforma cloud di Azure in questa esercitazione.
 author: wesmc7777
 manager: philmea
@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 79e565668db661d02833d22d2ef619fc67708115
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 28897ca6f80632210032b7f800404fc921143adf
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266146"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954550"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Connettere Raspberry Pi ad Azure IoT Hub (Node. js)
 
@@ -104,7 +104,7 @@ Preparare la scheda microSD per l'installazione dell'immagine di Raspbian.
 
    b. Eseguire Etcher e selezionare l'immagine di Raspbian estratta nel passaggio 1.
 
-   c. Selezionare l'unità della scheda microSD. Etcher potrebbe avere già selezionato l'unità corretta.
+   C. Selezionare l'unità della scheda microSD. Etcher potrebbe avere già selezionato l'unità corretta.
 
    d. Fare clic su Flash per installare Raspbian nella scheda microSD.
 
@@ -173,11 +173,11 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
 
    a. Scaricare e installare [PuTTY](https://www.putty.org/) per Windows.
 
-   b. Copiare l'indirizzo IP di Pi nella sezione relativa a nome host o indirizzo IP e selezionare SSH come tipo di connessione.
+   b. Copiare l'indirizzo IP di Pi nella sezione del nome host (o indirizzo IP) e selezionare SSH come tipo di connessione.
 
    ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7-putty-windows.png)
 
-   **Utenti Mac e Ubuntu**
+   **Utenti di Mac e Ubuntu**
 
    Usare il client SSH predefinito in Ubuntu o macOS. Per connettere Pi tramite SSH potrebbe essere necessario eseguire `ssh pi@<ip address of pi>`.
 
@@ -229,7 +229,7 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
 
    Se **non si dispone del sensore**, impostare il valore `simulatedData` su `true` per permettere all'applicazione di esempio di creare e usare i dati del sensore simulati.
 
-   *Nota: Per impostazione predefinita, l'indirizzo I2C usato in questa esercitazione è 0x77. A seconda della configurazione, potrebbe anche essere 0x76: se si verifica un errore I2C, provare a modificare il valore in 118 e verificare se il funzionamento è migliore. Per individuare l'indirizzo usato dal sensore, eseguirlo `sudo i2cdetect -y 1` in una shell in Raspberry Pi*
+   *Nota: per impostazione predefinita, l'indirizzo I2C usato in questa esercitazione è 0x77. A seconda della configurazione, potrebbe anche essere 0x76: se si verifica un errore I2C, provare a modificare il valore in 118 e verificare se il funzionamento è migliore. Per vedere quale indirizzo viene usato dal sensore, eseguire `sudo i2cdetect -y 1` in una shell in Raspberry Pi*
 
 2. Salvare e uscire premendo CTRL-O > INVIO > CTRL-X.
 

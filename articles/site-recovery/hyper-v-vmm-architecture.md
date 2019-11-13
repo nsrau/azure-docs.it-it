@@ -1,18 +1,18 @@
 ---
-title: Architettura per il ripristino di emergenza di Hyper-V in un sito locale secondario con Azure Site Recovery
+title: 'Architettura: ripristino di emergenza Hyper-V in un sito secondario con Azure Site Recovery'
 description: Questo articolo offre una panoramica dell'architettura per il ripristino di emergenza di macchine virtuali Hyper-V locali in un sito System Center VMM secondario con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 98cc20ee8a6308350ffc142a13413bd26567a3e1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 716f8e053ad05ba701b3415946cd8d3a56044e62
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933513"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953988"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Architettura per la replica di Hyper-V in un sito secondario
 
@@ -27,7 +27,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 
 **Componente** | **Requisito** | **Dettagli**
 --- | --- | ---
-**Azure** | Sottoscrizione di Azure | Creare un insieme di credenziali di Servizi di ripristino nella sottoscrizione di Azure per orchestrare e gestire la replica tra i percorsi VMM.
+**Azzurro** | Sottoscrizione di Azure | Creare un insieme di credenziali di Servizi di ripristino nella sottoscrizione di Azure per orchestrare e gestire la replica tra i percorsi VMM.
 **Server VMM** | È necessario avere a disposizione un percorso VMM primario e uno secondario. | È consigliabile distribuire un server VMM in un sito primario e uno nel sito secondario.
 **Server Hyper-V** |  Uno o più server host Hyper-V nei cloud VMM primario e secondario. | I dati vengono replicati tra il server host Hyper-V primario e secondario su LAN o VPN usando l'autenticazione Kerberos o del certificato.  
 **VM Hyper-V** | Nel server host Hyper-V. | Il server host di origine deve avere almeno una VM che si vuole replicare.

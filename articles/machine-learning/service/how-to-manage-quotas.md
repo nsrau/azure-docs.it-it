@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 11/04/2019
-ms.openlocfilehash: 2206afc45c7ea35c41f51839b66dca33982939ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d44fb94978c450808c8a1c0852d4c771a100857e
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489826"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961726"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gestire e richiedere quote per risorse di Azure
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -50,7 +50,7 @@ I core delle macchine virtuali hanno un limite totale regionale e un limite per 
 
 Per un elenco più dettagliato e aggiornato dei limiti di quota, vedere l'articolo sulle quote a livello di Azure [qui](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
-### <a name="azure-machine-learning-compute"></a>Ambiente di calcolo di Machine Learning
+### <a name="azure-machine-learning-compute"></a>Ambiente di calcolo di Azure Machine Learning
 Nell'ambiente di calcolo di Azure Machine Learning è previsto un limite di quota predefinito per il numero di core e per il numero di risorse di calcolo consentite per ogni area in una sottoscrizione. Questa quota è separata dalla quota di core della VM precedente e i limiti di base non vengono condivisi tra i due tipi di risorse, poiché AmlCompute è un servizio gestito che distribuisce le risorse in un modello ospitato per conto dell'utente.
 
 Risorse disponibili:
@@ -92,7 +92,7 @@ Per Azure Machine Learning pipeline, esiste un limite di quota per il numero di 
 Per un elenco più dettagliato e aggiornato dei limiti di quota, vedere l'articolo sulle quote a livello di Azure [qui](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Archiviazione
-È previsto un limite sul numero di account di archiviazione per ogni area, nonché in una sottoscrizione specifica. Il limite predefinito è 200 e include sia l'account di archiviazione Standard sia l'account di archiviazione Premium. Se sono necessari più di 200 account di archiviazione in una determinata area, inviare una richiesta tramite il [supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Il team di Archiviazione di Azure esaminerà il caso aziendale e potrà approvare fino a un massimo di 250 account di archiviazione per una determinata area.
+È previsto un limite sul numero di account di archiviazione per ogni area, nonché in una sottoscrizione specifica. Il limite predefinito è 250 e include gli account di archiviazione standard e Premium. Se sono necessari più di 250 account di archiviazione in una determinata area, effettuare una richiesta tramite il [supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Il team di Archiviazione di Azure esaminerà il caso aziendale e potrà approvare fino a un massimo di 250 account di archiviazione per una determinata area.
 
 
 ## <a name="workspace-level-quota"></a>Quota a livello di area di lavoro

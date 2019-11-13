@@ -1,6 +1,6 @@
 ---
-title: Condividere le visualizzazioni personalizzate di Azure Time Series Insights con gli URL con parametri | Microsoft Docs
-description: Questo articolo descrive come sviluppare URL con parametri in Azure Time Series Insights, per poter condividere facilmente una visualizzazione di un cliente.
+title: Condividere visualizzazioni personalizzate con URL con parametri-Azure Time Series Insights | Microsoft Docs
+description: Informazioni su come sviluppare URL con parametri in Azure Time Series Insights per condividere facilmente le visualizzazioni personalizzate.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: e62455a0c8412a579c0fab9d7fabd6016f47dbf3
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 145af35f8c36d7f4659c3937209cb0d4d5b221a3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991120"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006381"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Condividere una visualizzazione personalizzata usando un URL con parametri
 
@@ -67,27 +67,27 @@ I valori accettati corrispondono al menu **ora rapido** Esplora Time Series Insi
 
 Il parametro `timeSeriesDefinitions=<collection of term objects>` specifica i termini di una visualizzazione Time Series Insights:
 
-| Parametro | Elemento URL | Descrizione |
+| . | Elemento URL | DESCRIZIONE |
 | --- | --- | --- |
 | **nome** | `\<string>` | Nome del *termine*. |
 | **splitBy** | `\<string>` | Nome della colonna *in base a cui dividere*. |
 | **measureName** | `\<string>` | Nome della colonna della *misura*. |
-| **predicato** | `\<string>` | Clausola *where* per i filtri lato server. |
-| **USA** | `true` | Parametro facoltativo che specifica l'utilizzo di Sum per la misura. </br>  Si noti che se `Events` è la misura selezionata, il conteggio è selezionato per impostazione predefinita.  </br>  Se `Events` non è selezionata, per impostazione predefinita viene selezionata l'opzione media. |
+| **predicate** | `\<string>` | Clausola *where* per i filtri lato server. |
+| **useSum** | `true` | Parametro facoltativo che specifica l'utilizzo di Sum per la misura. </br>  Si noti che se `Events` è la misura selezionata, il conteggio è selezionato per impostazione predefinita.  </br>  Se `Events` non è selezionata, per impostazione predefinita viene selezionata l'opzione media. |
 
 * Il `multiChartStack=<true/false>` coppia chiave-valore consente lo stacking nel grafico.
 * La coppia chiave-valore `multiChartSameScale=<true/false>` Abilita la stessa scala dell'asse Y in tutti i termini all'interno di un parametro facoltativo.  
 * Il `timeBucketUnit=<Unit>&timeBucketSize=<integer>` consente di regolare il dispositivo di scorrimento intervallo per fornire una visualizzazione più granulare o più uniforme del grafico.  
 * Il `timezoneOffset=<integer>` parametro consente di impostare il fuso orario affinché il grafico venga visualizzato in come offset per l'ora UTC.
 
-| Coppie | Descrizione |
+| Coppie | DESCRIZIONE |
 | --- | --- |
 | `multiChartStack=false` | `true` è abilitato per impostazione predefinita, quindi passare `false` allo stack. |
 | `multiChartStack=false&multiChartSameScale=true` | È necessario abilitare l'impilamento per usare la stessa scala dell'asse Y in tutti i termini.  È `false` per impostazione predefinita, quindi il passaggio di ' true ' Abilita questa funzionalità. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unità = giorni, ore, minuti, secondi, millisecondi.  Scrivere sempre in lettere maiuscole l'unità. </br> Definire il numero di unità, passando l'intero desiderato per timeBucketSize.  Si noti che l'arco temporale è di 7 giorni.  |
 | `timezoneOffset=-<integer>` | L'intero viene sempre espresso in millisecondi. </br> Si noti che questa funzionalità è leggermente diversa rispetto a quella consentita in Esplora Time Series Insights, in cui è possibile scegliere locale (tempo del browser) o ora UTC. |
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 
 Per aggiungere definizioni di serie temporali a un ambiente Time Series Insights come parametro URL, aggiungere:
 

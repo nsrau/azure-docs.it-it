@@ -1,18 +1,18 @@
 ---
-title: Configurare il ripristino di emergenza per macchine virtuali Hyper-V locali in cloud VMM in Azure con Site Recovery
+title: Configurare il ripristino di emergenza di Hyper-V (con VMM) con Azure Site Recovery
 description: Informazioni su come configurare il ripristino di emergenza di macchine virtuali Hyper-V locali in Cloud System Center VMM in Azure usando Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f686a02e363025daa5d0c3b3d4e53e07da636544
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fdf6d9674305ca13af51f3f7b97e0a40568738b6
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933827"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953961"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurare il ripristino di emergenza in Azure di macchine virtuali Hyper-V locali di cloud VMM
 
@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 > Le esercitazioni illustrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, esaminare gli articoli nella sezione **Guide pratiche** della [documentazione di Site Recovery](https://docs.microsoft.com/azure/site-recovery).
 
 > [!WARNING]
-> Si noti che il supporto di ASR per l'uso della configurazione SCVMM sarà presto deprecato e pertanto si consiglia di leggere i dettagli relativi alla [deprecazione](scvmm-site-recovery-deprecation.md) prima di procedere.
+> Il supporto per il ripristino di emergenza di macchine virtuali Hyper-V con System Center VMM sarà deprecato nel prossimo futuro. Prima di procedere, è consigliabile leggere i dettagli relativi a elementi [deprecati](scvmm-site-recovery-deprecation.md) .
 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
@@ -74,7 +74,7 @@ Quando si configura l'ambiente di origine, è necessario installare il provider 
 
 ### <a name="install-the-provider-on-the-vmm-server"></a>Installare il provider nel server VMM
 
-1. Nell'installazione guidata del provider di Azure Site Recovery > **Microsoft Update** acconsentire esplicitamente a usare Microsoft Update per verificare la disponibilità degli aggiornamenti del provider.
+1. Nell'installazione guidata del provider di Azure Site Recovery > **Microsoft Update**, accettare esplicitamente di usare Microsoft Update per verificare la disponibilità degli aggiornamenti del provider.
 2. In **installazione**accettare il percorso di installazione predefinito per il provider e selezionare **Installa**.
 3. Dopo l'installazione, nella Microsoft Azure Site Recovery registrazione guidata > **Impostazioni**dell'insieme di credenziali selezionare **Sfoglia**e in **file di chiave**selezionare il file di chiave dell'insieme di credenziali scaricato.
 4. Specificare la sottoscrizione di Azure Site Recovery e il nome dell'insieme di credenziali (**ContosoVMVault**). Specificare un nome descrittivo per identificare il server VMM nell'insieme di credenziali.
@@ -137,4 +137,4 @@ Site Recovery verifica la disponibilità di uno o più account di archiviazione 
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Eseguire un'analisi del ripristino di emergenza](tutorial-dr-drill-azure.md)
+> [Eseguire un'esercitazione sul ripristino di emergenza](tutorial-dr-drill-azure.md)

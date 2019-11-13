@@ -1,6 +1,6 @@
 ---
-title: Gestione dell'ambiente di Azure Time Series Insights tramite i modelli di Azure Resource Manager | Microsoft Docs
-description: In questo articolo viene descritto come gestire l'ambiente di Azure Time Series Insights a livello di programmazione tramite Azure Resource Manager.
+title: Gestire l'ambiente usando modelli di Azure Resource Manager-Azure Time Series Insights | Microsoft Docs
+description: Informazioni su come gestire l'ambiente di Azure Time Series Insights a livello di codice usando Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: f7a88dafb9662e404cedf10334b22af149a3cd16
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: acafb9aab756507bb073b3e883ee190c72b4f9f8
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991208"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006762"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creare risorse di Time Series Insights tramite i modelli di Azure Resource Manager
 
@@ -24,7 +24,7 @@ Questo articolo descrive come creare e distribuire Time Series Insights risorse 
 
 Time Series Insights supporta le risorse seguenti:
 
-   | Risorsa | Descrizione |
+   | Risorsa | DESCRIZIONE |
    | --- | --- |
    | Environment | Un ambiente Time Series Insights è un raggruppamento logico di eventi che vengono letti dai broker di eventi, archiviati e resi disponibili per la query. Per altre informazioni, vedere [pianificare l'ambiente di Azure Time Series Insights](time-series-insights-environment-planning.md) |
    | Origine evento | Un'origine evento è una connessione a un gestore eventi da cui Time Series Insights legge e inserisce gli eventi nell'ambiente. Le origini eventi attualmente supportate sono hub IoT e hub eventi. |
@@ -59,19 +59,19 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
    * Parametri obbligatori
 
-     | Parametro | Descrizione |
+     | . | DESCRIZIONE |
      | --- | --- |
      | eventHubNamespaceName | Lo spazio dei nomi dello hub eventi di origine. |
      | eventHubName | Il nome dello hub eventi di origine. |
      | consumerGroupName | Il nome del gruppo di consumer che verrà usato dal servizio Time Series Insights per leggere i dati dall'hub eventi. **NOTA:** per evitare conflitti di risorse, questo gruppo di consumer deve essere dedicato al servizio Time Series Insights e non condiviso con altri lettori. |
-     | environmentName | Il nome dell'ambiente. Il nome non può includere: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` ed eventuali caratteri di controllo. Sono consentiti tutti gli altri caratteri.|
-     | eventSourceName | Specificare il nome della risorsa figlio dell'origine evento. Il nome non può includere: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` ed eventuali caratteri di controllo. Sono consentiti tutti gli altri caratteri. |
+     | environmentName | Il nome dell'ambiente. Il nome non può includere: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`ed eventuali caratteri di controllo. Sono consentiti tutti gli altri caratteri.|
+     | eventSourceName | Specificare il nome della risorsa figlio dell'origine evento. Il nome non può includere: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`ed eventuali caratteri di controllo. Sono consentiti tutti gli altri caratteri. |
 
     <div id="optional-parameters"></div>
 
    * Parametri facoltativi
 
-     | Parametro | Descrizione |
+     | . | DESCRIZIONE |
      | --- | --- |
      | existingEventHubResourceId | Un ID di risorsa facoltativo di un hub eventi esistente che verrà connesso all'ambiente di Time Series Insights tramite l'origine evento. **NOTA:** l'utente che distribuisce il modello deve disporre delle autorizzazioni necessarie per eseguire l'operazione listkey nell'hub eventi di origine. Se non viene superato alcun valore, verrà creato un nuovo hub eventi dal modello. |
      | environmentDisplayName | Un nome descrittivo facoltativo da visualizzare nelle interfacce degli strumenti o utente al posto del nome dell'ambiente. |

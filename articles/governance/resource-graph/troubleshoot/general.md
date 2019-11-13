@@ -1,17 +1,14 @@
 ---
 title: Risoluzione dei problemi comuni
 description: Informazioni su come risolvere i problemi relativi all'esecuzione di query sulle risorse di Azure con Azure Resource Graph.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: troubleshooting
-ms.service: resource-graph
-ms.openlocfilehash: 030fe26a0aa8fc4ed855fb7744e576366f4fd2e2
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e8f42650265b1ca400731365203408eeb22a4e4c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389695"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958529"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Risolvere gli errori usando il grafico delle risorse di Azure
 
@@ -94,4 +91,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 - Ottieni risposte dagli esperti di Azure tramite i [Forum di Azure](https://azure.microsoft.com/support/forums/).
 - Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale per il miglioramento dell'esperienza dei clienti che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.
-- Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Richiedi supporto**.
+- Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.

@@ -18,14 +18,14 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26ef28be328e01f8edcf898f123db55f262f286c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 3558e589004e0488e5b96b0e39bd3f5ceea69658
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803335"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013068"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Procedura: configurare un dominio di pubblicazione di un'applicazione (anteprima)
+# <a name="how-to-configure-an-applications-publisher-domain"></a>Procedura: configurare un dominio di pubblicazione di un'applicazione
 
 Il dominio di pubblicazione di un'applicazione viene visualizzato agli utenti nella [richiesta di consenso dell'applicazione](application-consent-experience.md) per consentire agli utenti di stabilire dove vengono inviate le informazioni. Le applicazioni multi-tenant registrate dopo il 21 maggio 2019 che non hanno un dominio di pubblicazione vengono visualizzate come non **verificate**. Le applicazioni multi-tenant sono applicazioni che supportano account esterni a una singola directory organizzativa; ad esempio, supporta tutti gli account Azure AD o supporta tutti gli account Azure AD e gli account Microsoft personali.
 

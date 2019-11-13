@@ -1,5 +1,5 @@
 ---
-title: Esempi di manifesto dell'applicazione contenitore di Azure Service Fabric | Microsoft Docs
+title: Esempi di manifesto dell'applicazione contenitore di Azure Service Fabric
 description: Informazioni su come configurare le informazioni del manifesto dell'applicazione e del manifesto del servizio per un'applicazione di Service Fabric con più contenitori.
 services: service-fabric
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: pepogors
-ms.openlocfilehash: ece0b763a2dbe501b0f46d026c59e1294a448c59
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 2d79f7dbf492b9473bcff147891df308674a8cf0
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650616"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013253"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Esempi di manifesti dell'applicazione e del servizio per applicazioni multicontenitore
 Di seguito sono riportati alcuni esempi di manifesto dell'applicazione e del servizio per un'applicazione di Service Fabric con più contenitori. Lo scopo di questi esempi è mostrare le impostazioni disponibili e come usarle. Questi manifesti dell'applicazione e del servizio sono basati sui manifesti descritti nell'[esempio di contenitore di Windows Server 2016](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows).
@@ -305,7 +305,7 @@ Specifica il volume da associare al contenitore. Per altre informazioni, vedere 
 Opzioni del driver da passare al driver. Per altre informazioni, vedere [Elemento DriverOption](service-fabric-service-model-schema-elements.md#DriverOptionElementDriverOptionTypeComplexTypeDefinedInContainerLoggingDriverTypecomplexTypeDefinedInContainerVolumeTypecomplexType)
 
 ### <a name="imageoverrides-element"></a>Elemento ImageOverrides
-I contenitori di Windows Server potrebbero non essere compatibili nelle diverse versioni del sistema operativo.  È possibile specificare più immagini del sistema operativo per ogni contenitore e contrassegnarle con le versioni della build del sistema operativo. Ottenere la versione della build del sistema operativo eseguendo "winver" al prompt dei comandi di Windows. Se la versione della build del sistema operativo sottostante è 16299 (Windows Server versione 1709), Service Fabric seleziona l'immagine del contenitore contrassegnata da Os="16299". Si presuppone che se un'immagine contenitore non è contrassegnata possa funzionare in tutte le versioni del sistema operativo e possa eseguire l'override dell'immagine specificata nel manifesto del servizio. Per altre informazioni, vedere [Elemento ImageOverrides](service-fabric-service-model-schema-elements.md#ImageOverridesElementImageOverridesTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
+I contenitori di Windows Server potrebbero non essere compatibili con le diverse versioni del sistema operativo.  È possibile specificare più immagini del sistema operativo per ogni contenitore e contrassegnarle con le versioni della build del sistema operativo. Ottenere la versione della build del sistema operativo eseguendo "winver" al prompt dei comandi di Windows. Se la versione della build del sistema operativo sottostante è 16299 (Windows Server versione 1709), Service Fabric seleziona l'immagine del contenitore contrassegnata da Os="16299". Si presuppone che se un'immagine contenitore non è contrassegnata possa funzionare in tutte le versioni del sistema operativo e possa eseguire l'override dell'immagine specificata nel manifesto del servizio. Per altre informazioni, vedere [Elemento ImageOverrides](service-fabric-service-model-schema-elements.md#ImageOverridesElementImageOverridesTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
 ### <a name="image-element"></a>Elemento immagine
 Immagine del contenitore corrispondente al numero di versione della build del sistema operativo da avviare. Se l'attributo del sistema operativo non è specificato, si presuppone che l'immagine del contenitore possa funzionare in tutte le versioni del sistema operativo ed eseguire l'override dell'immagine specificata nel manifesto del servizio. Per altre informazioni, vedere [Elemento Image](service-fabric-service-model-schema-elements.md#ImageElementImageTypeComplexTypeDefinedInImageOverridesTypecomplexType)

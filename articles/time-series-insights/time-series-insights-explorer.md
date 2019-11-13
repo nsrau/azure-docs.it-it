@@ -1,6 +1,6 @@
 ---
-title: Esplorare i dati tramite Esplora Azure Time Series Insights | Microsoft Docs
-description: In questo articolo viene descritto come usare lo strumento di esplorazione di Azure Time Series Insights nel Web browser per avere in modo semplice e rapido una visualizzazione globale dei Big Data e convalidare l'ambiente IoT.
+title: Esplorare i dati tramite Esplora risorse-Azure Time Series Insights | Microsoft Docs
+description: Informazioni su come usare Esplora Azure Time Series Insights per visualizzare i dati relativi alle cose.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 25f2c07678217b69699b881d53ee9d5f92f84be1
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: df895f99b64d30506bc9457fb5bdc54a2182b5fe
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990115"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012641"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Strumento di esplorazione di Azure Time Series Insights
 
@@ -37,13 +37,13 @@ Azure Time Series Insights è un servizio completamente gestito per analisi, arc
 >[!NOTE]
 >Vedere il video precedente <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Introduzione a Time Series Insights usando un acceleratore di soluzioni di Azure."</a>
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di poter usare lo strumento di esplorazione di Time Series Insights, è necessario:
 
 - Creare un ambiente Time Series Insights Per ulteriori informazioni, vedere [come iniziare a usare Time Series Insights](./time-series-insights-get-started.md).
 - [Fornire l'accesso](time-series-insights-data-access.md) all'account nell'ambiente.
-- Aggiungere un' [origine eventi dell'hub](time-series-insights-how-to-add-an-event-source-iothub.md) eventi o dell' [Hub eventi](time-series-insights-how-to-add-an-event-source-eventhub.md) .
+- Aggiungere un'origine eventi dell'[hub IoT](time-series-insights-how-to-add-an-event-source-iothub.md) o dell' [Hub eventi](time-series-insights-how-to-add-an-event-source-eventhub.md).
 
 ## <a name="explore-and-query-data"></a>Esplorare ed eseguire query sui dati
 
@@ -71,7 +71,7 @@ Dopo aver connesso l'origine evento all'ambiente Time Series Insights, è possib
 
       - **Predicato**: usare il predicato per filtrare rapidamente gli eventi usando il set di operandi elencati nella tabella seguente. Se si esegue una ricerca selezionando o facendo clic su, il predicato viene aggiornato automaticamente in base a tale ricerca. I tipi di operandi supportati includono:
 
-         |Operazione  |Tipi supportati  |Note  |
+         |Operazione  |Tipi supportati  |note  |
          |---------|---------|---------|
          |`<`, `>`, `<=`, `>=`     |  Double, DateTime, TimeSpan       |         |
          |`=`, `!=`, `<>`     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |

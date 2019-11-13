@@ -8,14 +8,13 @@ ms.topic: include
 ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 6cd721fdd7841df279bbe24cab1057ea5e16e0e2
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 4b2dcf8f156f231041d7636d103eea59816ec65f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850470"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008458"
 ---
-# <a name="regions-for-virtual-machines-in-azure"></a>Aree per le macchine virtuali in Azure
 È importante comprendere dove e come funzionano le macchine virtuali (VM) in Azure, così come le possibilità di ottimizzare le prestazioni, la disponibilità e la ridondanza. Questo articolo offre una panoramica delle funzionalità di disponibilità e ridondanza di Azure.
 
 
@@ -43,11 +42,11 @@ Ogni area di Azure è associata a un'altra area con la stessa collocazione geogr
 
 Esempi di coppie di aree includono:
 
-| Primario | Secondario |
+| Primaria | Secondaria |
 |:--- |:--- |
-| Stati Uniti occidentali |East US |
+| Stati Uniti occidentali |Stati Uniti Orientali |
 | Europa settentrionale |Europa occidentale |
-| Asia sud-orientale |Asia orientale |
+| Asia sudorientale |Asia orientale |
 
 Consultare [qui l'elenco completo delle coppie di aree](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
@@ -75,7 +74,7 @@ La tabella seguente fornisce una rapida panoramica delle differenze tra i tipi d
 
 | Strategia di replica | Archiviazione con ridondanza locale | ZRS | Archiviazione con ridondanza geografica | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| I dati vengono replicati in più strutture |No |Yes |Sì |Sì |
+| I dati vengono replicati in più strutture |No |Sì |Sì |Sì |
 | I dati possono essere letti dalla località secondaria e da quella primaria. |No |No |No |Sì |
 | Numero di copie di dati mantenute in nodi distinti |3 |3 |6 |6 |
 

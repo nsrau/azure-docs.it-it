@@ -1,6 +1,6 @@
 ---
-title: Riproteggere macchine virtuali di Azure sottoposte a failover nell'area di Azure primaria con Azure Site Recovery | Microsoft Docs
-description: Descrive come riproteggere macchine virtuali di Azure in un'area secondaria, dopo il failover da un'area primaria, tramite Azure Site Recovery.
+title: Riproteggere le macchine virtuali di Azure nell'area primaria con Azure Site Recovery | Microsoft Docs
+description: Viene descritto come riproteggere le macchine virtuali di Azure dopo il failover, dall'area secondaria a quella primaria, usando Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: eabb7d194a3ef65282befab1ae59e85ba56f2f5b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 955e1b84f897a5eb877033e0a58b8d661f143a14
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65472150"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954196"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Riproteggere macchine virtuali di Azure sottoposte a failover nell'area primaria
 
@@ -23,7 +23,7 @@ Quando si [effettua il failover](site-recovery-failover.md) di macchine virtuali
 - Riproteggere le macchine virtuali nell'area secondaria, in modo da avviare la replica nell'area primaria.
 - Dopo la riprotezione e durante la replica delle macchine virtuali, è possibile effettuare il failover dall'area secondaria all'area primaria.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 1. È necessario eseguire il commit del failover delle macchine virtuali dall'area primaria all'area secondaria.
 2. Il sito di destinazione primario deve essere disponibile e deve essere possibile accedere a quell'area o crearvi risorse.
 
@@ -44,7 +44,7 @@ Durante la riprotezione è possibile personalizzare le proprietà della macchina
 
 ![Personalizza](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
-|Proprietà |Note  |
+|Proprietà |note  |
 |---------|---------|
 |Gruppo di risorse di destinazione     | Consente di modificare il gruppo di risorse di destinazione in cui viene creata la macchina virtuale. Durante la riprotezione, la macchina virtuale di destinazione viene eliminata. È possibile scegliere un nuovo gruppo di risorse in cui creare la macchina virtuale dopo il failover.        |
 |Rete virtuale di destinazione     | Durante il processo di riprotezione, la rete di destinazione non può essere modificata. Per modificare la rete, ripetere il mapping di rete.         |
@@ -68,7 +68,7 @@ Quando si attiva un processo di riprotezione e la macchina virtuale di destinazi
 1. Se la macchina virtuale sul lato di destinazione è in esecuzione, viene arrestata.
 2. Se la macchina virtuale usa dischi gestiti, viene creata una copia dei dischi originali con "-ASRReplica". I dischi originali vengono eliminati. Le copie "-ASRReplica" vengono usate per la replica.
 3. Se la macchina virtuale usa dischi non gestiti, i dischi dati della macchina virtuale di destinazione vengono scollegati e usati per la replica. Una copia del disco del sistema operativo viene creata e collegata alla macchina virtuale. Il disco del sistema operativo originale viene scollegato e usato per la replica.
-4. Vengono sincronizzate solo le modifiche tra il disco di origine e il disco di destinazione. I backup differenziali vengono calcolati confrontando entrambi i dischi e quindi trasferiti. Per trovare il controllo di tempo stimato riportato di seguito.
+4. Vengono sincronizzate solo le modifiche tra il disco di origine e il disco di destinazione. I backup differenziali vengono calcolati confrontando entrambi i dischi e quindi trasferiti. Per trovare il controllo del tempo stimato riportato di seguito.
 5. Al termine della sincronizzazione inizia la replica differenziale, che crea un punto di ripristino in base ai criteri di replica.
 
 Quando si attiva un processo di riprotezione e non esistono i dischi e la macchina virtuale di destinazione, si verifica quanto segue:
@@ -77,17 +77,17 @@ Quando si attiva un processo di riprotezione e non esistono i dischi e la macchi
 3. I dischi interi vengono copiati dall'area sottoposta a failover nella nuova area di destinazione.
 4. Al termine della sincronizzazione inizia la replica differenziale, che crea un punto di ripristino in base ai criteri di replica.
 
-#### <a name="estimated-time--to-do-the-reprotection"></a>Tempo stimato per eseguire la riprotezione 
+#### <a name="estimated-time--to-do-the-reprotection"></a>Tempo stimato per la riprotezione 
 
-Nella maggior parte dei casi, Azure Site Recovery non esegue la replica dei dati completi all'area di origine. Di seguito sono indicate le condizioni che determina la quantità di dati verranno tuttavia replicate:
+Nella maggior parte dei casi, Azure Site Recovery non replica i dati completi nell'area di origine. Di seguito sono riportate le condizioni che determinano la quantità di dati da replicare:
 
-1.  Se l'origine dati della macchina virtuale viene eliminato, danneggiato o è inaccessibile a causa di un qualche motivo, ad esempio gruppo di risorse modifica/eliminazione quindi durante il runtime di integrazione completato la riprotezione verrà eseguito perché non sono presenti dati disponibili sull'area di origine da utilizzare.
-2.  Se l'origine dati della macchina virtuale è accessibile solo backup differenziali vengono calcolati confrontando entrambi i dischi e quindi trasferiti. Controllare la tabella seguente per ottenere il tempo stimato 
+1.  Se i dati della VM di origine vengono eliminati, danneggiati o inaccessibili a causa di qualche motivo, ad esempio modifica/eliminazione del gruppo di risorse, durante la riprotezione, il runtime di integrazione viene completato perché non sono disponibili dati nell'area di origine da usare.
+2.  Se i dati della VM di origine sono accessibili, vengono calcolati solo i differenziali confrontando entrambi i dischi e quindi trasferiti. Controllare la tabella seguente per ottenere il tempo stimato 
 
-|\* * Situazione esempio * * | \* * Tempo impiegato per la Riprotezione * * |
+|\* * Situazione di esempio * * | \* * Tempo impiegato per la riprotezione * * |
 |--- | --- |
-|Area di origine con 1 macchina virtuale con dischi standard di 1 TB<br/>-Solo i dati di 127 GB vengono usati e rest del disco è vuoto<br/>-Disco è di tipo standard con 60 MiB/S di velocità effettiva<br/>-Nessuna modifica dei dati dopo il failover| Ora approssimativa in 45 minuti-1,5 ore<br/> -Durante la riprotezione Site Recovery popolerà il valore di checksum di dati intere che conducono 127 GB / 45 MB circa 45 minuti<br/>-Tempo overhead è necessaria per configurare la scalabilità che è di circa 20-30 minuti automatica tramite Site Recovery<br/>-Nessun spese di uscita |
-|Area di origine con 1 macchina virtuale con dischi standard di 1 TB<br/>-Solo i dati di 127 GB vengono usati e rest del disco è vuoto<br/>-Disco è di tipo standard con 60 MiB/S di velocità effettiva<br/>-Le modifiche ai dati 45 GB dopo il failover| Ora approssimativa in ore 1 – 2 ore<br/>-Durante la riprotezione Site Recovery popolerà il valore di checksum di dati intere che conducono 127 GB / 45 MB circa 45 minuti<br/>-Tempo di applicare le modifiche di 45 GB che è 45 GB di trasferimento / 45 MBps ~ 17 minuti<br/>-I costi di uscita sarebbe solo per 45 GB di dati non per il valore di checksum|
+|L'area di origine ha 1 VM con disco standard da 1 TB<br/>-Vengono usati solo i dati 127 GB e il resto del disco è vuoto<br/>-Il tipo di disco è standard con velocità effettiva di 60 MiB/S<br/>-Nessuna modifica dei dati dopo il failover| Tempo approssimativo 45 minuti-1,5 ore<br/> -Durante la riprotezione Site Recovery compilerà il checksum di dati interi che importerà 127 GB/45 MB ~ 45 minuti<br/>-È necessario un tempo di overhead per Site Recovery per eseguire la scalabilità automatica 20-30 minuti<br/>-Nessun costo in uscita |
+|L'area di origine ha 1 VM con disco standard da 1 TB<br/>-Vengono usati solo i dati 127 GB e il resto del disco è vuoto<br/>-Il tipo di disco è standard con velocità effettiva di 60 MiB/S<br/>-45 GB di modifiche ai dati dopo il failover| Tempo approssimativo di 1 ora-2 ore<br/>-Durante la riprotezione Site Recovery compilerà il checksum di dati interi che importerà 127 GB/45 MB ~ 45 minuti<br/>-Tempo di trasferimento per applicare le modifiche di 45 GB 45 GB/45 MBps ~ 17 minuti<br/>-Le tariffe in uscita sono solo per i dati di 45 GB non per il checksum|
  
 
 

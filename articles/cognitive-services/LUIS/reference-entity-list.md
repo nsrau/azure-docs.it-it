@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
+ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 1757faf8ab2be0b62956b6939ee068929f9275a4
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 1307e6cfca0debe7623eb775c69527a74584033d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695246"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011997"
 ---
 # <a name="list-entity"></a>Entità elenco 
 
@@ -28,11 +28,36 @@ Un'entità elenco non è stata acquisita dal computer. Si tratta di una corrispo
 * Sono un set noto.
 * Non cambia spesso. Se è necessario modificare spesso l'elenco o si desidera che l'elenco si espanda in modo automatico, è preferibile usare un'entità semplice con boosting con un elenco di frasi. 
 * Il set non supera i [limiti](luis-boundaries.md) massimi di LUIS per questo tipo di entità.
-* Il testo nell'espressione è una corrispondenza esatta con un sinonimo o il nome canonico. LUIS non usa l'elenco di là delle corrispondenze esatte del testo. Le corrispondenze fuzzy, senza distinzione tra maiuscole e minuscole, stemming, plurali e altre varianti non vengono risolte con un'entità List. Per gestire le variazioni, è consigliabile usare un [criterio](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintassi del testo facoltativo.
+* Il testo nell'espressione è una corrispondenza esatta con un sinonimo o il nome canonico. LUIS non usa l'elenco di là delle corrispondenze esatte del testo. Le corrispondenze fuzzy, senza distinzione tra maiuscole e minuscole, stemming, plurali e altre varianti non vengono risolte con un'entità List. Per gestire le variazioni, è consigliabile usare un [criterio](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintassi del testo facoltativo.
 
 ![entità elenco](./media/luis-concept-entities/list-entity.png)
 
-## <a name="example-json"></a>JSON di esempio
+## <a name="example-json-to-import-into-list-entity"></a>Esempio. JSON da importare nell'entità elenco
+
+  È possibile importare i valori in un'entità List esistente usando il formato JSON seguente:
+
+  ```JSON
+  [
+      {
+          "canonicalForm": "Blue",
+          "list": [
+              "navy",
+              "royal",
+              "baby"
+          ]
+      },
+      {
+          "canonicalForm": "Green",
+          "list": [
+              "kelly",
+              "forest",
+              "avacado"
+          ]
+      }
+  ]  
+  ```
+
+## <a name="example-json-response"></a>Risposta JSON di esempio
 
 Si supponga che l'app disponga di un elenco, di nome `Cities`, consentendo variazioni di nomi di città, tra cui città dell'aeroporto (Sea-tac), codice dell'aeroporto (SEA), codice postale (98101) e prefisso telefonico (206).
 
@@ -45,7 +70,7 @@ Si supponga che l'app disponga di un elenco, di nome `Cities`, consentendo varia
 
 Nell'espressione precedente la parola `paris` viene mappata all'elemento parigi come parte dell'entità elenco `Cities`. L'entità elenco corrisponde al nome normalizzato dell'elemento e ai sinonimi dell'elemento.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Risposta dell'endpoint di previsione V2](#tab/V2)
 
 ```JSON
   "entities": [
@@ -63,7 +88,7 @@ Nell'espressione precedente la parola `paris` viene mappata all'elemento parigi 
   ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
 
 Si tratta del codice JSON se `verbose=false` è impostato nella stringa di query:
@@ -107,7 +132,7 @@ Si tratta del codice JSON se `verbose=true` è impostato nella stringa di query:
 
 * * * 
 
-|Oggetto dati|Nome dell'entità|Value|
+|Oggetto dati|Nome dell'entità|Valore|
 |--|--|--|
 |Elenca entità|`Cities`|`paris`|
 

@@ -1,5 +1,5 @@
 ---
-title: Distribuzione dell'applicazione Azure Service Fabric | Microsoft Docs
+title: Distribuzione di Service Fabric di Azure con FabricClient
 description: Usare le API del client Fabric per distribuire e rimuovere le applicazioni in Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: c04306b417c8e68f2e93c0e5e064f5873b00ddd5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cdb5ae4efbd4119422101eb8a05ce71e7b58d51f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599636"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013303"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Distribuire e rimuovere applicazioni con il client Fabric
 > [!div class="op_single_selector"]
 > * [Gestione risorse](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Interfaccia della riga di comando di Service Fabric](service-fabric-application-lifecycle-sfctl.md)
-> * [API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
+> * [API client Fabric](service-fabric-deploy-remove-applications-fabricclient.md)
 > 
 > 
 
@@ -55,7 +55,7 @@ FabricClient fabricClient = new FabricClient();
 ```
 
 ## <a name="upload-the-application-package"></a>Caricare il pacchetto applicazione
-Si supponga di compilare e assemblare un'applicazione denominata *MyApplication* in Visual Studio. Per impostazione predefinita, il nome del tipo di applicazione elencato nel file ApplicationManifest.xml è "MyApplicationType".  Il pacchetto dell'applicazione, che contiene il manifesto dell'applicazione necessario, i manifesti del servizio e i pacchetti di codice/configurazione/dati, si trova in *\&C:\Users lt; nomeutente&gt;\Documenti\Visual Studio 2019 \ Projects\MyApplication\ MyApplication\pkg\Debug*.
+Si supponga di compilare e assemblare un'applicazione denominata *MyApplication* in Visual Studio. Per impostazione predefinita, il nome del tipo di applicazione elencato nel file ApplicationManifest.xml è "MyApplicationType".  Il pacchetto dell'applicazione, che contiene il manifesto dell'applicazione necessario, i manifesti del servizio e i pacchetti di codice/configurazione/dati, si trova in *C:\Users\&lt; username&gt;\Documenti\visual Studio 2019 \ Projects\MyApplication\MyApplication\pkg\Debug*.
 
 Quando si carica il pacchetto dell'applicazione, lo si inserisce in un percorso accessibile ai componenti interni di Service Fabric. Service Fabric verifica il pacchetto dell'applicazione durante la registrazione. Tuttavia, se si desidera verificare il pacchetto dell'applicazione in locale, ovvero prima di caricarlo, utilizzare il cmdlet [test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) .
 
@@ -73,7 +73,7 @@ L'API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applica
 L'API [GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) fornisce informazioni su tutti i tipi di applicazioni registrati correttamente. È possibile usare questa API per determinare quando viene eseguita la registrazione.
 
 ## <a name="remove-an-application-package-from-the-image-store"></a>Rimuovere il pacchetto di un'applicazione dall'archivio di immagini
-Al termine della registrazione dell'applicazione, è consigliabile rimuovere il pacchetto dell'applicazione.  L'eliminazione dei pacchetti di applicazioni dall'archivio immagini consente di liberare risorse di sistema.  Se si conservano i pacchetti dell'applicazione non usati, viene utilizzato spazio di archiviazione su disco e sorgono problemi di prestazioni dell'applicazione. Eliminare il pacchetto dell'applicazione dall'archivio immagini usando l'API [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage).
+Al termine della registrazione dell'applicazione, è consigliabile rimuovere il pacchetto dell'applicazione.  L'eliminazione dei pacchetti di applicazioni dall'archivio immagini consente di liberare risorse di sistema.  Conservando pacchetti inutilizzati, viene occupato spazio di archiviazione su disco e si verificano problemi di prestazioni delle applicazioni. Eliminare il pacchetto dell'applicazione dall'archivio immagini usando l'API [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage).
 
 ## <a name="create-an-application-instance"></a>Creare un'istanza dell'applicazione
 È possibile creare un'istanza di un'applicazione da qualsiasi tipo di applicazione registrato correttamente usando l'API [CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync). Il nome di ogni applicazione deve iniziare con lo schema *"fabric:"* e deve essere univoco per ogni istanza dell'applicazione (all'interno di un cluster). Vengono creati anche i servizi predefiniti specificati nel manifesto dell'applicazione del tipo di applicazione di destinazione.
@@ -100,7 +100,7 @@ Quando un'istanza dell'applicazione non è più necessaria, è possibile rimuove
 ## <a name="unregister-an-application-type"></a>Annullare la registrazione di un tipo di applicazione
 Quando una determinata versione di un tipo di applicazione non è più necessaria, è consigliabile annullare la registrazione di quella specifica versione del tipo di applicazione usando l'API [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync). L'annullamento della registrazione delle versioni inutilizzate dei tipi di applicazioni rilascia lo spazio di archiviazione usato dall'archivio immagini. È possibile annullare la registrazione di una versione di un tipo di applicazione purché non venga creata un'istanza di alcuna applicazione rispetto a quella versione del tipo di applicazione. Il tipo di applicazione, inoltre, non può contenere aggiornamenti di applicazioni in sospeso che fanno riferimento a quella versione del tipo di applicazione.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage chiede un parametro ImageStoreConnectionString
 Nell'ambiente Service Fabric SDK dovrebbero già essere configurate le impostazioni predefinite corrette. Tuttavia, se necessario, ImageStoreConnectionString per tutti i comandi deve corrispondere al valore che viene usato dal cluster Service Fabric. È possibile trovare ImageStoreConnectionString nel manifesto del cluster, recuperato tramite i comandi [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) e Get-ImageStoreConnectionStringFromClusterManifest:
 
@@ -132,20 +132,20 @@ ImageStoreConnectionString è disponibile nel manifesto del cluster:
 Per informazioni agguntive sull'archivio di immagini e ImageStoreConnectionString, vedere [Understand the image store connection string](service-fabric-image-store-connection-string.md) (Comprendere la stringa di connessione dell'archivio di immagini).
 
 ### <a name="deploy-large-application-package"></a>Distribuire un pacchetto dell'applicazione di grandi dimensioni
-Problema: [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) Timeout dell'API per un pacchetto di applicazioni di grandi dimensioni (ordine di GB).
+Problema: l'API [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) raggiunge il timeout per un pacchetto dell'applicazione di grandi dimensioni (nell'ordine di GB).
 Soluzione:
 - Specificare un timeout maggiore per il metodo [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) con il parametro `timeout`. Il timeout è di 30 minuti per impostazione predefinita.
 - Controllare la connessione di rete tra il computer di origine e il cluster. Se la connessione è lenta, provare a usare una macchina con una connessione di rete più veloce.
 Se il computer client si trova in un'area diversa dal cluster, si consiglia di usare un computer cliente in un'area più vicina o nella stessa area del cluster.
 - Controllare se si stiano raggiungendo le limitazioni esterne. Ad esempio, quando l'archivio immagini è configurato per usare l'archiviazione di Azure, il caricamento potrebbe essere limitato.
 
-Problema: Il pacchetto di caricamento è stato completato, ma si verifica il timeout dell'API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) . Soluzione:
+Problema: il pacchetto di caricamento è stato completato correttamente, ma il timeout dell'API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) . Provare
 - [Comprimere il pacchetto](service-fabric-package-apps.md#compress-a-package) prima di copiarlo nell'archivio immagini.
 La compressione riduce le dimensioni e il numero di file, cosa che a sua volta riduce il traffico e le operazioni di Service Fabric. L'operazione di caricamento può essere più lenta, soprattutto se si include il tempo di compressione, ma la registrazione e l'annullamento della registrazione del tipo di applicazione sono più veloci.
 - Specificare un timeout maggiore per l'API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) con il parametro `timeout`.
 
 ### <a name="deploy-application-package-with-many-files"></a>Distribuire un pacchetto di applicazione con numerosi file
-Problema: Si verifica il timeout di [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) per un pacchetto di applicazione con molti file (ordine di migliaia).
+Problema: si verifica un timeout di [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) per un pacchetto di applicazione con molti file (nell'ordine di migliaia).
 Soluzione:
 - [Comprimere il pacchetto](service-fabric-package-apps.md#compress-a-package) prima di copiarlo nell'archivio immagini. La compressione riduce il numero dei file.
 - Specificare un timeout maggiore per il metodo [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) con il parametro `timeout`.

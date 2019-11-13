@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 95fe5471789b66c253aa21d73433f5192cd01e6b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 92aa28c131d81c41d515762ac2a346048c143790
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612102"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008583"
 ---
-# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
-
 Questo articolo risponde alle domande frequenti su Managed Disks e i dischi SSD Premium di Azure.
 
 ## <a name="managed-disks"></a>Managed Disks
@@ -151,7 +149,7 @@ Snapshot di supporto SSD Premium, SSD standard e HDD standard. Per questi tre ti
 La prenotazione del disco è la possibilità di acquistare un anno di spazio di archiviazione su disco in anticipo, riducendo i costi totali.
 
 **Quali sono le opzioni offerte dalla prenotazione dischi di Azure?**
-Prenotazione dischi di Azure offre la possibilità di acquistare SSD Premium negli SKU specificati da P30 (1 TiB) fino a P80 (32 TiB) per un periodo di validità di un anno. Non esiste alcuna limitazione sulla quantità minima di dischi necessaria per acquistare una prenotazione su disco. Inoltre, è possibile scegliere di pagare con un singolo pagamento iniziale o pagamenti mensili. Non è stato applicato alcun costo transazionale aggiuntivo per SSD Premium Managed Disks.
+Prenotazione dischi di Azure offre la possibilità di acquistare SSD Premium negli SKU specificati da P30 (1 TiB) fino a P80 (32 TiB) per un periodo di validità di un anno. Non esiste alcuna limitazione sulla quantità minima di dischi necessaria per acquistare una prenotazione su disco. Puoi inoltre scegliere di pagare con un unico pagamento anticipato o con pagamenti mensili. Non è stato applicato alcun costo transazionale aggiuntivo per SSD Premium Managed Disks.
 
 Le prenotazioni vengono effettuate sotto forma di dischi, non di capacità. In altre parole, quando si riserva un disco P80 (32 TiB), si ottiene un singolo disco P80, quindi non è possibile i tale prenotazione specifica in due dischi P70 (16 TiB) più piccoli. Naturalmente, è possibile riservare il numero di dischi desiderato, inclusi due dischi P70 (16 TiB) distinti.
 
@@ -350,18 +348,6 @@ No. Se però si esporta un disco rigido virtuale da un disco gestito o uno snaps
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Dischi Premium, gestiti e non gestiti
 
-**Quali aree supportano la funzionalità di espansione per le dimensioni dei dischi SSD Premium applicabili?**
-
-La funzionalità di espansione è attualmente supportata negli Stati Uniti centro-occidentali di Azure.
-
-**Quali aree sono le dimensioni del disco gestito 4/8/16 GiB (P1/P2/P3, E1/E2/E3) supportate in?**
-
-Queste nuove dimensioni dei dischi sono attualmente supportate negli Stati Uniti centro-occidentali di Azure.
-
-**Le dimensioni dei dischi P1/P2/P3 sono supportate per i dischi non gestiti o i BLOB di pagine?**
-
-No, è supportato solo in SSD Premium Managed Disks. 
-
 **Se una macchina virtuale usa una serie di dimensioni che supporta i dischi SSD Premium, ad esempio DSv2, è possibile collegare dischi dati sia Premium che Standard?** 
 
 Sì.
@@ -391,6 +377,22 @@ L'unità SSD locale è un archivio temporaneo che è incluso in una macchina vir
 L'uso di TRIM su dischi Azure Premium o Standard non ha alcun impatto negativo.
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Dimensioni dei nuovi dischi, gestiti e non gestiti
+
+**Quali aree supportano la funzionalità di espansione per le dimensioni dei dischi SSD Premium applicabili?**
+
+La funzionalità di espansione è attualmente supportata negli Stati Uniti centro-occidentali di Azure.
+
+**Quali aree sono le dimensioni del disco gestito 4/8/16 GiB (P1/P2/P3, E1/E2/E3) supportate in?**
+
+Queste nuove dimensioni dei dischi sono attualmente supportate negli Stati Uniti centro-occidentali di Azure.
+
+**Le dimensioni dei dischi P1/P2/P3 sono supportate per i dischi non gestiti o i BLOB di pagine?**
+
+No, è supportato solo nei dischi gestiti da unità SSD Premium. 
+
+**Le dimensioni dei dischi E1/E2/E3 sono supportate per i dischi non gestiti o i BLOB di pagine?**
+
+No, non è possibile usare dischi gestiti SSD standard di qualsiasi dimensione con dischi non gestiti o BLOB di pagine.
 
 **Qual è la dimensioni massima supportata per i dischi gestiti e il sistema operativo?**
 

@@ -1,22 +1,18 @@
 ---
-title: Creare un gateway applicazione con la terminazione SSL - Azure PowerShell | Microsoft Docs
+title: Terminazione SSL con PowerShell-applicazione Azure gateway
 description: Informazioni su come creare un gateway applicazione e aggiungere un certificato per la terminazione SSL con Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/25/2018
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: e49706c529ca7d2c99f2c50f8de27063dbcd4da9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 154c3780bd0f7e00f0f6edf41f7dc78c1b4f7ac8
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65202893"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012271"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Creare un gateway applicazione con la terminazione SSL tramite Azure PowerShell
 
@@ -34,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Questa esercitazione richiede il modulo Azure PowerShell 1.0.0 o versioni successive. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Questa esercitazione richiede il modulo Azure PowerShell 1.0.0 o versioni successive. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installare il modulo di Azure PowerShell). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Creare un certificato autofirmato
 
@@ -267,7 +263,7 @@ Per accettare l'avviso di sicurezza se si è usato un certificato autofirmato, s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare un certificato autofirmato

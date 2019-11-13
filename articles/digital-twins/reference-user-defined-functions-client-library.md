@@ -1,5 +1,5 @@
 ---
-title: Guida di riferimento alle funzioni definite dall'utente di Azure Digital gemelli | Microsoft Docs
+title: Informazioni di riferimento sulla libreria client di funzioni definite dall'utente-dispositivi gemelli digitali di Azure | Microsoft Docs
 description: Informazioni di riferimento sulla libreria client delle funzioni definite dall'utente di Gemelli digitali di Azure
 ms.author: alinast
 author: alinamstanciu
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: article
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: daab63067087267c12cef75178b5f974043e0fd9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 0bbf247adbeab89cf8b16ed089eb13e53cf501f5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931235"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009227"
 ---
 # <a name="user-defined-functions-client-library-reference"></a>Informazioni di riferimento sulla libreria client delle funzioni definite dall'utente
 

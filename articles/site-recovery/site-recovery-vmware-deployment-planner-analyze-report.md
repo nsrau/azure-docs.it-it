@@ -1,20 +1,20 @@
 ---
-title: Analizzare il report di Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure| Microsoft Docs
-description: Questo articolo descrive come analizzare un report generato da Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure.
+title: Analizzare il report Deployment Planner per il ripristino di emergenza di VMware con Azure Site Recovery
+description: Questo articolo descrive come analizzare il report generato dalla Deployment Planner di ripristino per il ripristino di emergenza di VMware in Azure, usando Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: 4240e17320cc62dc1a0e74db2f40a452a63f2982
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: b6ac10b47a8bbc987eb1e338991100ee17eacd61
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690721"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961385"
 ---
-# <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analizzare il report di Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
+# <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analizzare il report Deployment Planner per il ripristino di emergenza di VMware in Azure
 
 Il report di Microsoft Excel generato contiene i fogli riportati di seguito.
 ## <a name="on-premises-summary"></a>Riepilogo ambiente locale
@@ -40,7 +40,7 @@ Il foglio di lavoro On-premises summary (Riepilogo ambiente locale) offre una pa
 
 **Observed typical data churn per day (GB)** (Varianza dei dati giornaliera tipica osservata - GB): varianza media dei dati osservata in tutti i giorni di profilatura. Questo numero viene usato come uno degli input per stabilire il numero di server di configurazione e di server di elaborazione aggiuntivi da usare nella distribuzione.
 
-## <a name="recommendations"></a>Raccomandazioni
+## <a name="recommendations"></a>Recommendations
 
 Il foglio Recommendations (Raccomandazioni) del report per lo scenario da VMware ad Azure contiene i dettagli seguenti, in base al valore RPO desiderato che è stato selezionato:
 
@@ -122,11 +122,11 @@ Nell'anteprima pubblica il report non specifica quali VM includere in un batch. 
 ![Dimensioni raccomandate per i batch di VM](media/site-recovery-vmware-deployment-planner-analyze-report/ir-batching-v2a.png)
 
 ### <a name="cost-estimation"></a>Stima dei costi
-Il grafico offre la visualizzazione di riepilogo del costo stimato totale del ripristino di emergenza in Azure per l'area di destinazione scelta e la valuta specificata per la generazione del report.
+Il grafico mostra una vista di riepilogo del costo totale stimato per il ripristino di emergenza in Azure per l'area di destinazione scelta e la valuta specificata per la generazione del report.
 
 ![Riepilogo della stima dei costi](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
 
-Il riepilogo consente di conoscere il costo che è necessario sostenere per archiviazione, calcolo, rete e licenza in caso di protezione di tutte le VM compatibili in Azure con Azure Site Recovery. Il costo viene calcolato sulle VM compatibili e non su tutte le VM profilate.  
+Il riepilogo consente di conoscere il costo che è necessario sostenere per archiviazione, calcolo, rete e licenza in caso di protezione di tutte le VM compatibili in Azure con Azure Site Recovery. Il costo viene calcolato per le macchine virtuali compatibili e non per tutte le macchine virtuali profilate.  
 
 È possibile visualizzare i costi su base mensile o annuale. Vedere altre informazioni sulle [aree di destinazione supportate](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) e sulle [valute supportate](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
@@ -178,7 +178,7 @@ Si possono verificare situazioni in cui non è possibile impostare una larghezza
 
 **VM Name** (Nome macchina virtuale): nome o indirizzo IP della VM usato in VMListFile quando viene generato un report. Questa colonna elenca anche i dischi (VMDK) collegati alle VM. Per distinguere le VM vCenter con nomi o indirizzi IP duplicati, i nomi includono il nome dell'host ESXi. L'host ESXi elencato è quello in cui la VM è stata inserita quando lo strumento l'ha rilevata durante il periodo di profilatura.
 
-**VM Compatibility** (Compatibilità VM): i valori sono **Yes** e **Yes**\*. **Yes**\* è per i casi in cui la macchina virtuale è idonea per i [dischi SSD Premium](../virtual-machines/windows/disks-types.md). Qui, il disco con varianza elevata o operazioni di I/O al secondo profilato è idoneo per la categoria P20 o P30, ma le dimensioni del disco prevedono la mappatura alla categoria P10 o P20. In base alle dimensioni, l'account di archiviazione decide a quale tipo di disco di archiviazione Premium mappare un disco. ad esempio:
+**VM Compatibility** (Compatibilità VM): i valori sono **Yes** e **Yes**\*. **Yes**\* è per i casi in cui la macchina virtuale è idonea per i [dischi SSD Premium](../virtual-machines/windows/disks-types.md). Qui, il disco con varianza elevata o operazioni di I/O al secondo profilato è idoneo per la categoria P20 o P30, ma le dimensioni del disco prevedono la mappatura alla categoria P10 o P20. In base alle dimensioni, l'account di archiviazione decide a quale tipo di disco di archiviazione Premium mappare un disco. Ad esempio:
 * <128 GB rientrano nella categoria P10.
 * Da 128 GB a 256 GB rientrano nella categoria P15.
 * Da 256 GB a 512 GB rientrano nella categoria P20.
@@ -233,8 +233,6 @@ Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla
 
 * La varianza media dei dati supera il limite supportato Site Recovery limite di 20 MB/s per le dimensioni I/O medie del disco.
 
-* La varianza media dei dati supera il limite supportato da Site Recovery di 25 MB/s per le dimensioni di I/O medie della VM (somma della varianza di tutti i dischi).
-
 * Il picco di varianza dei dati per tutti i dischi nella VM supera il limite massimo supportato da Site Recovery di 54 MB/s per VM.
 
 * Le operazioni di I/O al secondo in scrittura superano il limite supportato da Site Recovery di 840 operazioni per disco.
@@ -274,7 +272,7 @@ Disco P10 o P15 Premium | 32 KB o superiori | 8 MB/s | 672 GB per disco
 Disco P20, P30, P40 o P50 Premium | 8 KB    | 5 MB/s | 421 GB per disco
 Disco P20, P30, P40 o P50 Premium | 16 KB o superiori | 20 MB/s | 1684 GB per disco
 
-**Varianza dati di origine** | **Limite Massimo**
+**Varianza dati di origine** | **Limite massimo**
 ---|---
 Picco di varianza dei dati su tutti i dischi in una VM | 54 MB/s
 Varianza massima dei dati al giorno supportata da un server di elaborazione | 2 TB

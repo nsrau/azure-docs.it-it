@@ -3,7 +3,7 @@ title: Report delle attività di accesso nel portale di Azure Active Directory |
 description: Introduzione ai report delle attività di accesso nel portale di Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 10/28/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 553d882600203d0fa01cd876562d9ced7985d7a8
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 778353621491f912d3237900785e6dee17bf975e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043681"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014482"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -37,7 +37,7 @@ L'architettura di report in Azure Active Directory (Azure AD) include i componen
 
 Questo articolo fornisce una panoramica del report degli accessi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 ### <a name="who-can-access-the-data"></a>Chi può accedere ai dati?
 
@@ -47,7 +47,7 @@ Questo articolo fornisce una panoramica del report degli accessi.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Quale licenza di Azure AD è necessaria per visualizzare le attività di accesso?
 
-* Per visualizzare il report completo delle attività di accesso, è necessario che al tenant sia associata una licenza di Azure AD Premium. Per l'aggiornamento dell'edizione Azure Active Directory, vedere [Introduzione a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) . Verranno visualizzati alcuni giorni prima che i dati vengano visualizzati nei report dopo l'aggiornamento a una licenza Premium senza attività di dati prima dell'aggiornamento.
+* Per visualizzare il report completo delle attività di accesso, è necessario che al tenant sia associata una licenza di Azure AD Premium. vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) per aggiornare l'edizione di Azure Active Directory in uso. Verranno visualizzati alcuni giorni prima che i dati vengano visualizzati nei report dopo l'aggiornamento a una licenza Premium senza attività di dati prima dell'aggiornamento.
 
 ## <a name="sign-ins-report"></a>Report sugli accessi
 
@@ -105,15 +105,15 @@ Il filtro **Applicazione** permette di specificare il nome dell'applicazione ric
 
 Il filtro **Stato accesso** permette di selezionare:
 
-- Tutto
-- Success
+- Tutti
+- Operazione completata
 - Esito negativo
 
 Il filtro **Accesso condizionale** consente di selezionare lo stato dei criteri di accesso condizionale per l'accesso:
 
-- Tutto
+- Tutti
 - Non applicato
-- Success
+- Operazione completata
 - Esito negativo
 
 Il filtro **Date** (Data) permette di definire un intervallo di tempo per i dati restituiti.  
@@ -144,7 +144,7 @@ Se si aggiungono altri campi alla visualizzazione degli accessi, questi campi ve
         Office 2013, in cui ADAL è abilitato e utilizza MAPI.
     - **Client Office precedenti**  
         Office 2013 nella configurazione predefinita in cui ADAL non è abilitato ed è in uso MAPI oppure Office 2016 dove ADAL è stato disabilitato.
-    - **POPUP**  
+    - **POP**  
         Un client di posta legacy che usa POP3 per recuperare la posta elettronica.
     - **SMTP**  
         Un client di posta legacy che usa SMTP per inviare messaggi di posta elettronica.
@@ -153,7 +153,7 @@ Se si aggiungono altri campi alla visualizzazione degli accessi, questi campi ve
 
 Fare clic sull'opzione di **download** per creare un file CSV o JSON dei record 250.000 più recenti. Iniziare a [scaricare i dati di accesso](quickstart-download-sign-in-report.md) se si vuole usarli al di fuori della portale di Azure.  
 
-![Scaricare](./media/concept-sign-ins/71.png "Download")
+![Scaricare](./media/concept-sign-ins/71.png "Scaricare")
 
 > [!IMPORTANT]
 > Il numero di record che è possibile scaricare è limitato dai [criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).  
@@ -164,7 +164,7 @@ Fare clic sull'opzione di **download** per creare un file CSV o JSON dei record 
 Azure AD e i portale di Azure forniscono punti di ingresso aggiuntivi per i dati di accesso:
 
 - Panoramica Identity Security e Protection
-- Utenti
+- Users
 - Gruppi
 - Applicazioni aziendali
 
@@ -186,14 +186,14 @@ Ogni riga dell'elenco delle attività di accesso mostra:
 Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di accesso:
 
 - ID utente
-- Utente
-- Username
+- User
+- Nome utente
 - ID applicazione
-- Richiesta
+- Applicazione
 - Client
-- Località
+- Location
 - Indirizzo IP
-- Data
+- Date
 - Autenticazione a più fattori obbligatoria
 - Stato accesso
 
@@ -222,7 +222,7 @@ I grafici dell'utilizzo delle app sono aggregazioni settimanali degli accessi pe
 
 Se si preferisce, è possibile mettere in evidenza un'applicazione specifica.
 
-![Creazione di report](./media/concept-sign-ins/single-app-usage-graph.png "Creazione report")
+![Creazione di report](./media/concept-sign-ins/single-app-usage-graph.png "Creazione di report")
 
 Quando si fa clic su un giorno nel grafico dell'utilizzo dell'app, si ottiene un elenco dettagliato delle attività di accesso.
 

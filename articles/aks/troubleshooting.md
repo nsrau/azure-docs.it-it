@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 270dbb24d851645ff7a7f0bcf5f78bfb95bcd095
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 5ae97f18bb15b5ab2fe092a1e3b857ea3ef0aed0
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604737"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012979"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -118,7 +118,8 @@ Seguire i passaggi *prima di iniziare* nel documento appropriato per creare corr
 
 Le restrizioni di denominazione sono implementate sia dalla piattaforma Azure che da AKS. Se un nome di risorsa o un parametro interrompe una di queste restrizioni, viene restituito un errore in cui viene chiesto di fornire un input diverso. Si applicano le linee guida di denominazione comuni seguenti:
 
-* Il nome del gruppo di risorse *MC_* AKS combina il nome del gruppo di risorse e il nome della risorsa. La sintassi generata automaticamente da `MC_resourceGroupName_resourceName_AzureRegion` non deve essere maggiore di 80 caratteri. Se necessario, ridurre la lunghezza del nome del gruppo di risorse o del cluster AKS.
+* I nomi dei cluster devono essere di 1-63 caratteri. Gli unici caratteri consentiti sono lettere, numeri, trattini e caratteri di sottolineatura. Il primo e l'ultimo carattere devono essere una lettera o un numero.
+* Il nome del gruppo di risorse *MC_* AKS combina il nome del gruppo di risorse e il nome della risorsa. La sintassi generata automaticamente di `MC_resourceGroupName_resourceName_AzureRegion` non deve essere maggiore di 80 caratteri. Se necessario, ridurre la lunghezza del nome del gruppo di risorse o del cluster AKS.
 * Il *dnsPrefix* deve iniziare e terminare con valori alfanumerici. I caratteri validi includono valori alfanumerici e trattini (-). Il *dnsPrefix* non può includere caratteri speciali, ad esempio un punto (.).
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Si ricevono errori durante il tentativo di creare, aggiornare, ridimensionare, eliminare o aggiornare il cluster. tale operazione non è consentita perché è in corso un'altra operazione.
@@ -144,7 +145,7 @@ Usare le soluzioni alternative seguenti:
 
 ## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>Si ricevono errori dopo la limitazione del traffico in uscita
 
-Quando si limita il traffico in uscita da un cluster AKS, sono disponibili le porte in uscita e le regole di rete [consigliate e facoltative](limit-egress-traffic.md) e le regole di dominio/FQDN/applicazione per AKS. Se le impostazioni sono in conflitto con una di queste regole, potrebbe non essere possibile eseguire determinati comandi `kubectl`. È anche possibile che vengano visualizzati errori durante la creazione di un cluster AKS.
+Quando si limita il traffico in uscita da un cluster AKS, sono disponibili le porte in uscita e le regole di rete [consigliate e facoltative](limit-egress-traffic.md) e le regole di dominio/FQDN/applicazione per AKS. Se le impostazioni sono in conflitto con una di queste regole, potrebbe non essere possibile eseguire determinati comandi di `kubectl`. È anche possibile che vengano visualizzati errori durante la creazione di un cluster AKS.
 
 Verificare che le impostazioni non siano in conflitto con le porte in uscita, le regole di rete e le regole di dominio FQDN/applicazione consigliate o facoltative.
 

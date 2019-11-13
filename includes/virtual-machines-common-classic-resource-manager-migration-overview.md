@@ -8,14 +8,13 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: de2e33ceb182383d9529bfe41afffbbf28e1e493
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 40da2016026c8a7e02d1b243a783d01559e8c197
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671304"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005516"
 ---
-# <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager
 L'articolo descrive come eseguire la migrazione di risorse di infrastruttura distribuita come servizio (IaaS) dai modelli di distribuzione classica ad Azure Resource Manager e illustra in modo dettagliato come collegare le risorse da due modelli di distribuzione che coesistono nella sottoscrizione con gateway da sito a sito di rete virtuale. Altre informazioni su [funzionalità e vantaggi di Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). 
 
 ## <a name="goal-for-migration"></a>Obiettivo della migrazione
@@ -75,19 +74,19 @@ Se all'account di archiviazione non sono associati dischi o dati di macchine vir
 > [!NOTE]
 > Il modello di distribuzione Resource Manager non prevede il concetto di immagini e dischi classici. Quando viene migrato l'account di archiviazione, le immagini e i dischi classici non sono visualizzati nello stack di Resource Manager ma i VHD di supporto rimangono nell'account di archiviazione.
 
-Gli screenshot seguenti illustrano come eseguire l'aggiornamento di un account di archiviazione classico a un account di archiviazione di Azure Resource Manager usando il portale di Azure:
+Gli screenshot seguenti illustrano come aggiornare un account di archiviazione classico a un account di archiviazione Azure Resource Manager usando portale di Azure:
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare all'account di archiviazione.
-3. Nel **le impostazioni** fare clic su **eseguire la migrazione a ARM**.
-4. Fare clic su **Validate** per determinare la fattibilità di migrazione.
-5. Se la convalida riesce, fare clic su **Prepare** per creare un account di archiviazione migrato.
-6. Tipo di **yes** per confermare la migrazione e fare clic su **Commit** al termine della migrazione.
+3. Nella sezione **Impostazioni** fare clic su **Esegui migrazione a ARM**.
+4. Fare clic su **convalida** per determinare la fattibilità della migrazione.
+5. Se la convalida passa, fare clic su **prepara** per creare un account di archiviazione migrato.
+6. Digitare **Yes** per confermare la migrazione e fare clic su **commit** per terminare la migrazione.
 
-    ![Convalidare l'Account di archiviazione](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
+    ![Convalida dell'account di archiviazione](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
     
-    ![Preparare Account di archiviazione](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
+    ![Preparare l'account di archiviazione](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
     
-    ![Finalizza la migrazione di Account di archiviazione](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
+    ![Finalizzare la migrazione dell'account di archiviazione](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
 
 ### <a name="migration-of-unattached-resources"></a>Migrazione di risorse scollegate
 È possibile effettuare la migrazione di account di archiviazione senza dischi o dati di macchine virtuali associati in modo indipendente.
@@ -102,20 +101,20 @@ Alcune funzioni e configurazioni non sono attualmente supportate; nella sezione 
 ### <a name="unsupported-features"></a>Funzionalità non supportate
 Le seguenti funzionalità non sono attualmente supportate. È possibile rimuovere facoltativamente queste impostazioni, eseguire la migrazione delle macchine virtuali e quindi riabilitare le impostazioni nel modello di distribuzione di Resource Manager.
 
-| Provider di risorse | Funzionalità | Recommendation |
+| Provider di risorse | Funzionalità | Raccomandazione |
 | --- | --- | --- |
 | Calcolo | Dischi di macchine virtuali non associati. | La migrazione dei BLOB VHD dietro questi dischi verrà eseguita al momento della migrazione dell'account di archiviazione |
 | Calcolo | Immagini di macchine virtuali. | La migrazione dei BLOB VHD dietro questi dischi verrà eseguita al momento della migrazione dell'account di archiviazione |
-| Rete | ACL endpoint. | Rimuovere gli ACL endpoint e ripetere la migrazione. |
-| Rete | Gateway applicazione | Rimuovere il gateway applicazione prima di iniziare la migrazione e quindi ricrearlo al termine. |
-| Rete | Reti virtuali usando il peering delle reti virtuali. | Eseguire la migrazione della rete virtuale in Resource Manager, quindi eseguire il peering. Altre informazioni sul [peering reti virtuali](../articles/virtual-network/virtual-network-peering-overview.md). |
+| Network | ACL endpoint. | Rimuovere gli ACL endpoint e ripetere la migrazione. |
+| Network | Gateway applicazione | Rimuovere il gateway applicazione prima di iniziare la migrazione e quindi ricrearlo al termine. |
+| Network | Reti virtuali usando il peering delle reti virtuali | Eseguire la migrazione della rete virtuale in Resource Manager, quindi eseguire il peering. Altre informazioni sul [peering reti virtuali](../articles/virtual-network/virtual-network-peering-overview.md). |
 
 ### <a name="unsupported-configurations"></a>Configurazioni non supportate
 Le seguenti configurazioni non sono attualmente supportate.
 
-| Service | Configurazione | Recommendation |
+| Servizio | Configurazione | Raccomandazione |
 | --- | --- | --- |
-| Gestione risorse |In base al ruolo di controllo di accesso (RBAC) per le risorse classiche |Poiché l'URI delle risorse viene modificato dopo la migrazione, è consigliabile pianificare gli aggiornamenti dei criteri RBAC che devono essere eseguiti dopo la migrazione. |
+| Gestione risorse |Controllo degli accessi in base al ruolo (RBAC) per le risorse classiche |Poiché l'URI delle risorse viene modificato dopo la migrazione, è consigliabile pianificare gli aggiornamenti dei criteri RBAC che devono essere eseguiti dopo la migrazione. |
 | Calcolo |Più subnet associate a una macchina virtuale |Aggiornare la configurazione delle subnet in modo che faccia riferimento solo a una subnet. Ciò potrebbe richiedere la rimozione di una scheda di interfaccia di rete secondaria (che fa riferimento a un'altra subnet) dalla macchina virtuale e quindi il suo ricollegamento al termine della migrazione. |
 | Calcolo |Macchine virtuali appartenenti a una rete virtuale, ma senza assegnazione esplicita di una subnet |È facoltativamente possibile eliminare la VM. |
 | Calcolo |Macchine virtuali con avvisi e criteri di ridimensionamento automatico |La migrazione viene eseguita e queste impostazioni vengono eliminate. È quindi consigliabile valutare l'ambiente prima di eseguire la migrazione. In alternativa, è possibile riconfigurare le impostazioni relative agli avvisi al termine della migrazione. |
@@ -125,9 +124,9 @@ Le seguenti configurazioni non sono attualmente supportate.
 | Calcolo | Servizi cloud contenenti più di un set di disponibilità o set di disponibilità multipli. |Non supportato attualmente. Spostare le macchine virtuali nello stesso set di disponibilità prima della migrazione. |
 | Calcolo | VM con estensione Centro sicurezza di Azure | Il Centro sicurezza di Azure installa automaticamente le estensioni nelle macchine virtuali per monitorarne la protezione e generare avvisi. Queste estensioni vengono in genere installate automaticamente se i criteri di sicurezza del Centro sicurezza di Azure sono abilitati nella sottoscrizione. Per eseguire la migrazione delle macchine virtuali, disabilitare i criteri del Centro sicurezza nella sottoscrizione per rimuovere l'estensione di monitoraggio del Centro sicurezza dalle macchine virtuali. |
 | Calcolo | VM con estensione di backup o snapshot | Queste estensioni vengono installate in una macchina virtuale configurata con il servizio Backup di Azure. Mentre la migrazione di queste macchine virtuali non è supportata, seguire le indicazioni fornite [qui](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault) per conservare i backup eseguiti prima della migrazione.  |
-| Rete |Reti virtuali contenenti macchine virtuali e ruoli Web/di lavoro |Non supportato attualmente. Spostare i ruoli Web/di lavoro nella rispettiva rete virtuale prima della migrazione. Dopo la migrazione della rete virtuale classica, è possibile eseguire il peering della rete virtuale di Azure Resource Manager di cui è stata eseguita la migrazione con la rete virtuale classica per ottenere una configurazione simile a prima.|
-| Rete | Circuiti ExpressRoute classici |Non supportato attualmente. È necessario eseguire la migrazione di questi circuiti in Azure Resource Manager prima di iniziare la migrazione IaaS. Per altre informazioni, vedere [Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager](../articles/expressroute/expressroute-move.md).|
-| Servizio app di Azure |Rete virtuale contenente ambienti del servizio app |Non supportato attualmente. |
+| Network |Reti virtuali contenenti macchine virtuali e ruoli Web/di lavoro |Non supportato attualmente. Spostare i ruoli Web/di lavoro nella rispettiva rete virtuale prima della migrazione. Dopo la migrazione della rete virtuale classica, è possibile eseguire il peering della rete virtuale di Azure Resource Manager di cui è stata eseguita la migrazione con la rete virtuale classica per ottenere una configurazione simile a prima.|
+| Network | Circuiti ExpressRoute classici |Non supportato attualmente. È necessario eseguire la migrazione di questi circuiti in Azure Resource Manager prima di iniziare la migrazione IaaS. Per altre informazioni, vedere [Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager](../articles/expressroute/expressroute-move.md).|
+| servizio app di Azure |Rete virtuale contenente ambienti del servizio app |Non supportato attualmente. |
 | HDInsight di Azure |Rete virtuale contenente servizi HDInsight |Non supportato attualmente. |
 | Servizi del ciclo di vita Microsoft Dynamics |Rete virtuale contenente macchine virtuali gestite da Dynamics Lifecycle Services |Non supportato attualmente. |
 | Servizi di dominio Azure Active Directory |Reti virtuali che contengono i servizi di dominio Azure AD |Non supportato attualmente. |

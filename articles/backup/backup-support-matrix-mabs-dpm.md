@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: cb3561030cfd86137d7d668ca14db605cc365e86
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: d9c55773772b4f331de95bd98b1973225357c0cd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969019"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012781"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matrice di supporto per il backup con Backup di Microsoft Azure server o System Center DPM
 
@@ -30,7 +30,7 @@ MAB si basa su System Center DPM e fornisce funzionalità simili con alcune diff
 - Per gli oggetti MAB e DPM, Azure offre un'archiviazione di backup a lungo termine. DPM inoltre consente di eseguire il backup dei dati per l'archiviazione a lungo termine su nastro. Questa funzionalità non è disponibile con il server di Backup di Microsoft Azure.
 - È possibile eseguire il backup di un server DPM primario con un server DPM secondario. Il server secondario proteggerà il database del server primario e le repliche delle origini dati archiviate nel server primario. Se si verifica un errore nel server primario, il server secondario può continuare a proteggere i carichi di lavoro protetti dal server primario, finché il server primario non sarà nuovamente disponibile.  Questa funzionalità non è disponibile con il server di Backup di Microsoft Azure.
 
-È possibile scaricare MAB dall' [area download Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=57520). Può essere eseguito in locale o in una macchina virtuale di Azure.
+È possibile scaricare MAB dall' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=57520). Può essere eseguito in locale o in una macchina virtuale di Azure.
 
 DPM e il server di Backup di Microsoft Azure supportano il backup di una vasta gamma di app e di sistemi operativi server e client. Essi offrono diversi scenari di backup:
 
@@ -72,7 +72,7 @@ DPM/MAB può essere distribuito come riepilogato nella tabella seguente.
 
 Backup di Azure può eseguire il backup di istanze di DPM/MAB che eseguono uno dei sistemi operativi seguenti. Devono essere in uso gli ultimi Service Pack e aggiornamenti dei sistemi operativi.
 
-**Scenario** | **DPM/MAB**
+**Scenario** | **DPM/MABS**
 --- | ---
 **Server di Backup di Microsoft Azure in una macchina virtuale di Azure** | Windows Server 2012 R2.<br/><br/> Windows 2016 datacenter.<br/><br/> Windows 2019 datacenter.<br/><br/> Si consiglia di iniziare con un'immagine del Marketplace.<br/><br/> Standard a2 minimo con due core e 3,5 GB di RAM.
 **DPM in una macchina virtuale di Azure** | System Center 2012 R2 con Update 3 o versioni successive.<br/><br/> Sistema operativo Windows [richiesto da System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Si consiglia di iniziare con un'immagine del Marketplace.<br/><br/> Standard a2 minimo con due core e 3,5 GB di RAM.
@@ -190,7 +190,7 @@ La tabella seguente riepiloga gli elementi di cui è possibile eseguire il backu
 **SQL Server 2016 con SP1** | Non viene fornito il supporto per DPM 2012 R2; viene fornito il supporto per DPM SAC, DPM 2016 con l'aggiornamento cumulativo 4 o versioni successive.<br/><br/> In locale/macchina virtuale di Azure.| Backup del database di SQL Server.<br/><br/> Backup di cluster di SQL Server supportato.<br/><br/>Database archiviati in volumi condivisi cluster non supportati.
 **SQL Server 2016** | Non viene fornito il supporto per DPM 2012 R2. Supportato per DPM SAC, DPM 2016 dall'aggiornamento cumulativo 2 e versioni successive.<br/><br/> In locale/macchina virtuale di Azure.| Backup del database di SQL Server.<br/><br/> Backup di cluster di SQL Server supportato.<br/><br/>Database archiviati in volumi condivisi cluster non supportati.
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | SQL Server 2014 con DPM 2012 R2 che esegue l'aggiornamento cumulativo 4 e versioni successive.<br/><br/> In locale/macchina virtuale di Azure.| Backup del database di SQL Server.<br/><br/> Backup di cluster di SQL Server supportato.<br/><br/>Database archiviati in volumi condivisi cluster non supportati.
-**Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | Per Exchange 2016, DPM 2012 R2 richiede l'aggiornamento cumulativo 9 o versioni successive.<br/><br/> Ambiente locale | Eseguire il backup di Exchange Server autonomo, database in un DAG.<br/><br/> Ripristino della cassetta postale e del database delle cassette postali in un DAG.<br/><br/> ReFS non supportato.<br/><br/> Backup di cluster di dischi non condivisi.<br/><br/> Backup del server Exchange configurato per la replica continua.
+**Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | Per Exchange 2016, DPM 2012 R2 richiede l'aggiornamento cumulativo 9 o versioni successive.<br/><br/> Locale | Eseguire il backup di Exchange Server autonomo, database in un DAG.<br/><br/> Ripristino della cassetta postale e del database delle cassette postali in un DAG.<br/><br/> ReFS non supportato.<br/><br/> Backup di cluster di dischi non condivisi.<br/><br/> Backup del server Exchange configurato per la replica continua.
 **SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | SharePoint 2016 in DPM 2016 e versioni successive.<br/><br/>In locale/macchina virtuale di Azure. | Backup farm, server Web front-end.<br/><br/> Ripristinare Farm, database, app Web, file o elemento elenco, ricerca di SharePoint, server Web front-end.<br/><br/> Non è possibile eseguire il backup di una farm utilizzando SQL Server AlwaysOn per i database del contenuto.
 **Hyper-V in Windows Server 2016**<br/><br/> **Windows Server 2012 R2/2012** (Datacenter/Standard)<br/><br/> **Windows Server 2008 R2 (con SP1)** | Hyper-V su 2016 supportato per DPM 2016 e versioni successive.<br/><br/> In locale. | **Agente MAB nell'host Hyper-V**: eseguire il backup di intere macchine virtuali e file di dati host. Backup di macchine virtuali con archiviazione locale, macchine virtuali in cluster con archiviazione in volumi condivisi cluster e macchine virtuali con archiviazione in file server SMB.<br/><br/> **Agente MAB nella macchina virtuale Guest**: eseguire il backup dei carichi di lavoro in esecuzione nella macchina virtuale. Volumi condivisi cluster.<br/><br/> **Ripristino**: VM, ripristino a livello di elemento di VHD/volume/cartelle/file.<br/><br/> **Macchine virtuali Linux**: backup quando Hyper-V è in esecuzione in Windows Server 2012 R2 e versioni successive. Il ripristino per le macchine virtuali Linux è per l'intera macchina.
 **Macchine virtuali VMware: vCenter/vSphere ESXi 5.5/6.0/6.5** | Server di Backup di Microsoft Azure v3, v2 <br/><br/> DPM 2012 R2 richiede l'aggiornamento cumulativo 1 di System Center <br/><br/>In locale. | Eseguire il backup di macchine virtuali VMware in CSVs, NFS e archiviazione SAN.<br/><br/> Ripristino dell'intera macchina virtuale.<br/><br/> Backup di Windows/Linux.<br/><br/> Ripristino a livello di elemento di cartella/file solo per le macchine virtuali Windows.<br/><br/> Le vApp VMware non sono supportate.<br/><br/> Il ripristino per le macchine virtuali Linux è per l'intera macchina.

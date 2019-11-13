@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7547db502056304307094541dcfd2474eda999d8
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: c8aa3fb124420c933e17b0e9f7e52b7f114a7f61
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620427"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012915"
 ---
 # <a name="access-and-customize-developer-portal"></a>Accedere e personalizzare il portale per sviluppatori
 
@@ -38,9 +38,9 @@ Per ulteriori informazioni, vedere il portale per sviluppatori nel [portale per 
 
 > [!WARNING]
 > Il portale per sviluppatori è attualmente in fase di implementazione nei servizi gestione API.
-> Se il servizio è stato appena creato o è un servizio di livello Developer, è necessario avere già la versione più recente. In caso contrario, è possibile che si verifichino problemi, ad esempio con la funzionalità di pubblicazione. L'implementazione della funzionalità viene completata il lunedì 11 novembre 2019. 
+> Se il servizio è stato appena creato o è un servizio di livello Developer, è necessario avere già la versione più recente. In caso contrario, è possibile che si verifichino problemi, ad esempio con la funzionalità di pubblicazione. L'implementazione della funzionalità dovrebbe essere completata entro il venerdì 22 novembre 2019. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 - Importare e pubblicare un'istanza di Gestione API di Azure. Per altre informazioni, vedere [importare e pubblicare](import-and-publish.md)
@@ -84,9 +84,9 @@ La Guida di stile è un pannello creato con le finestre di progettazione. Consen
 
 Per modificare una variante, fare clic su di essa e selezionare l'icona a matita visualizzata sopra. Dopo aver apportato le modifiche nella finestra popup, chiuderla.
 
-### <a name="save-button"></a>Pulsante per il salvataggio
+### <a name="save-button"></a>Pulsante Salva
 
-![Pulsante per il salvataggio](media/api-management-howto-developer-portal-customize/save-button.png)
+![Pulsante Salva](media/api-management-howto-developer-portal-customize/save-button.png)
 
 Ogni volta che si apportano modifiche nel portale, è necessario salvarle manualmente premendo il pulsante **Salva** nel menu in basso. Quando si salvano le modifiche, il contenuto modificato viene caricato automaticamente nel servizio gestione API.
 
@@ -131,4 +131,4 @@ Dopo aver pubblicato il portale, è possibile accedervi con lo stesso URL del pa
 
 Altre informazioni sul portale per sviluppatori:
 
-- [Panoramica del portale per sviluppatori di gestione API di Azure](api-management-howto-developer-portal.md)
+- [Panoramica del portale per sviluppatori di Gestione API](api-management-howto-developer-portal.md)

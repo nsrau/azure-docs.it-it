@@ -4,32 +4,32 @@ description: Usare i modelli di Azure Resource Manager per creare e configurare 
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: d71847da4b395be230bce5773a5ba7a472a412f4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f09ab6958eb768895a2d16f129354074cb6f00c8
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832695"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961877"
 ---
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>Gestire Azure Cosmos DB API Cassandra risorse tramite modelli Azure Resource Manager
 
-Questo articolo descrive come eseguire diverse operazioni per automatizzare la gestione degli account Azure Cosmos DB, dei database e dei contenitori usando i modelli Azure Resource Manager. Questo articolo contiene esempi solo per gli account API SQL, per trovare esempi per altri account di tipo API vedere: usare Gestione risorse modelli con l'API Azure Cosmos DB per [SQL](manage-sql-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), articoli di [tabella](manage-table-with-resource-manager.md) .
+Questo articolo descrive come eseguire diverse operazioni per automatizzare la gestione degli account Azure Cosmos DB, dei database e dei contenitori usando i modelli Azure Resource Manager. Questo articolo contiene esempi solo per gli account API SQL, per trovare esempi per altri account di tipo API vedere: usare Azure Resource Manager modelli con l'API Azure Cosmos DB per [SQL](manage-sql-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), articoli di [tabella](manage-table-with-resource-manager.md) .
 
 ## Creare un account Azure Cosmos, spazio di spazio e tabella<a id="create-resource"></a>
 
 Creare Azure Cosmos DB risorse usando un modello di Azure Resource Manager. Questo modello creerà un account Azure Cosmos per API Cassandra con due tabelle che condividono la velocità effettiva 400 ur/s a livello di spazio dei nomi. Copiare il modello e distribuirlo come illustrato di seguito oppure visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra/) e distribuire dal portale di Azure. È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il parametro `--template-file`.
 
 > [!NOTE]
-> I nomi degli account devono essere minuscoli e < 44 caratteri.
+> I nomi degli account devono essere minuscoli e 44 o un numero inferiore di caratteri.
 > Per aggiornare ur/s, inviare nuovamente il modello con i valori di proprietà della velocità effettiva aggiornati.
 
 [!code-json[create-cosmos-Cassandra](~/quickstart-templates/101-cosmosdb-cassandra/azuredeploy.json)]
 
-## <a name="deploy-with-azure-cli"></a>Distribuire con l'interfaccia della riga di comando di Azure
+## <a name="deploy-with-the-azure-cli"></a>Distribuire con l'interfaccia della riga di comando di Azure
 
-Per distribuire il modello di Gestione risorse usando l'interfaccia della riga di comando di Azure, **copiare** lo script e selezionare **prova** per aprire Azure cloud Shell. Per incollare lo script, fare clic con il pulsante destro del mouse sulla shell, quindi scegliere **Incolla**:
+Per distribuire il modello di Azure Resource Manager usando l'interfaccia della riga di comando di Azure, **copiare** lo script e selezionare **prova** per aprirlo Azure cloud Shell. Per incollare lo script, fare clic con il pulsante destro del mouse sulla shell, quindi scegliere **Incolla**:
 
 ```azurecli-interactive
 
@@ -51,7 +51,7 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-Il comando `az cosmosdb show` Mostra l'account Azure Cosmos appena creato dopo che è stato effettuato il provisioning. Se si sceglie di usare una versione installata localmente dell'interfaccia della riga di comando di Azure invece di usare CloudShell, vedere l'articolo dell' [interfaccia della riga di comando di Azure (CLI)](/cli/azure/) .
+Il comando `az cosmosdb show` Mostra l'account Azure Cosmos appena creato dopo che è stato effettuato il provisioning. Se si sceglie di usare una versione installata localmente dell'interfaccia della riga di comando di Azure invece di usare Cloud Shell, vedere l'articolo dell'interfaccia della riga di comando di [Azure](/cli/azure/) .
 
 
 ## <a name="next-steps"></a>Passaggi successivi

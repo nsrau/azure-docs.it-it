@@ -3,7 +3,7 @@ title: Azure Active Directory log attività in monitoraggio di Azure | Microsoft
 description: Introduzione ai log attività Azure Active Directory in monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/22/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f62ad020d2ec3b5ab712f50dca2dddd3b981f098
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 46e29fff3308f35b16dbff2f9cead82abc222a5c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656474"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014510"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure AD log attività in monitoraggio di Azure
 
@@ -41,14 +41,14 @@ ms.locfileid: "69656474"
 
 Usando questa funzionalità, è possibile instradare i log di accesso e i log di controllo di Azure AD all'account di archiviazione di Azure, a un hub eventi, ai log di Monitoraggio di Azure o a una soluzione personalizzata. 
 
-* **Log di controllo**: Il [report delle attività del log di controllo](concept-audit-logs.md) consente di accedere alla cronologia di ogni attività eseguita nel tenant.
-* **Log di accesso**: Il [report delle attività di accesso](concept-sign-ins.md) consente di determinare chi ha eseguito le attività segnalate nei log di controllo.
+* **Log di controllo**: il [report sull'attività relativo ai log di controllo](concept-audit-logs.md) consente di accedere alla cronologia di ogni attività eseguita nel tenant.
+* **Log di accesso**: il [report sull'attività di accesso](concept-sign-ins.md) consente di determinare chi ha eseguito le attività segnalate nei log di controllo.
 
 > [!NOTE]
 > I log attività di controllo e di accesso correlati a B2C non sono al momento supportati.
 >
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per usare questa funzionalità, sono necessari:
 
@@ -78,10 +78,10 @@ La tabella seguente contiene una stima del costo, a seconda delle dimensioni del
 
 | Categoria di log | Numero di utenti | Eventi al giorno | Volume di dati mensile (stima) | Costo mensile (stima) | Costo annuale (stima) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
-| Audit | 100,000 | 1,5&nbsp;milioni | 90 GB | $1,93 | $23,12 |
+| Audit | 100.000 | 1,5&nbsp;milioni | 90 GB | $1,93 | $23,12 |
 | Audit | 1\.000 | 15.000 | 900 MB | $0,02 | $0,24 |
 | Accessi | 1\.000 | 34.800 | 4 GB | $0,13 | $1,56 |
-| Accessi | 100,000 | 15&nbsp;milioni | 1,7 TB | $35,41 | $424,92 |
+| Accessi | 100.000 | 15&nbsp;milioni | 1,7 TB | $35,41 | $424,92 |
  
 
 
@@ -102,7 +102,7 @@ La tabella seguente contiene una stima del costo mensile per un hub eventi di ba
 
 | Categoria di log | Numero di utenti | Eventi al secondo | Eventi per intervallo di cinque minuti | Volume per intervallo | Messaggi per intervallo | Messaggi al mese | Costo mensile (stima) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
-| Audit | 100,000 | 18 | 5\.400 | 10,8 MB | 43 | 371.520 | $10,83 |
+| Audit | 100.000 | 18 | 5\.400 | 10,8 MB | 43 | 371.520 | $10,83 |
 | Audit | 1\.000 | 0,1 | 52 | 104 KB | 1 | 8\.640 | $10,80 |
 | Accessi | 1\.000 | 178 | 53.400 | 106,8&nbsp;MB | 418 | 3\.611.520 | $11,06 |  
 
@@ -112,9 +112,9 @@ La tabella seguente contiene una stima del costo mensile per un hub eventi di ba
 
 | Categoria di log       | Numero di utenti | Eventi al giorno | Eventi al mese (30 giorni) | Costo al mese in USD (est) |
 | :--                | ---             | ---            | ---                        | --:                          |
-| Controllo e accessi | 100,000         | 16,5 milioni     | 495 milioni                |  $1093,00                       |
-| Audit              | 100,000         | 1,5 milioni      | 45.000.000                 |  $246,66                     |
-| Accessi           | 100,000         | 15.000.000     | 450 milioni                |  $847,28                     |
+| Controllo e accessi | 100.000         | 16,5 milioni     | 495 milioni                |  $1093,00                       |
+| Audit              | 100.000         | 1,5 milioni      | 45.000.000                 |  $246,66                     |
+| Accessi           | 100.000         | 15.000.000     | 450 milioni                |  $847,28                     |
 
 
 
@@ -139,7 +139,7 @@ Questa sezione contiene risposte a domande frequenti e i problemi noti relativi 
 
 **D: Quanto tempo dopo un'azione i log corrispondenti vengono visualizzati nell'hub eventi?**
 
-**R**: I log verranno visualizzati nell'hub eventi entro 2-5 minuti dall'esecuzione dell'azione. Per altre informazioni su Hub eventi, vedere [Informazioni su Hub eventi di Azure](../../event-hubs/event-hubs-about.md).
+**R**: i log verranno visualizzati nell'hub eventi entro 2-5 minuti dall'esecuzione dell'azione. Per altre informazioni su Hub eventi, vedere [Informazioni su Hub eventi di Azure](../../event-hubs/event-hubs-about.md).
 
 ---
 
@@ -149,9 +149,9 @@ Questa sezione contiene risposte a domande frequenti e i problemi noti relativi 
 
 ---
 
-**D: Cosa accade se un amministratore modifica il periodo di conservazione di un'impostazione di diagnostica?**
+**D: cosa accade se un amministratore modifica il periodo di conservazione di un'impostazione di diagnostica?**
 
-**R**: Verrà applicato il nuovo criterio di conservazione ai log raccolti dopo la modifica. I log raccolti prima della modifica dei criteri non saranno interessati.
+**R**: i nuovi criteri di conservazione verranno applicati ai log raccolti dopo la modifica. I log raccolti prima della modifica dei criteri non saranno interessati.
 
 ---
 
@@ -163,13 +163,13 @@ Questa sezione contiene risposte a domande frequenti e i problemi noti relativi 
 
 **D: Qual è il costo della trasmissione dei dati ad Hub eventi?**
 
-**R**: Il costo per la trasmissione dipende dal numero di messaggi ricevuti al minuto. Questo articolo illustra come vengono calcolati i costi ed elenca le stime dei costi, che si basano sul numero di messaggi. 
+**R:** Il costo per la trasmissione dipende dal numero di messaggi ricevuti al minuto. Questo articolo illustra come vengono calcolati i costi ed elenca le stime dei costi, che si basano sul numero di messaggi. 
 
 ---
 
 **D: Come è possibile integrare i log attività di Azure AD con il sistema di informazioni di sicurezza e gestione degli eventi?**
 
-**R**: Questa operazione può essere eseguita in due modi:
+**R**: È possibile procedere in due modi:
 
 - Usare Monitoraggio di Azure con Hub eventi per trasmettere i log nel sistema di informazioni di sicurezza e gestione degli eventi. Prima di tutto, [trasmettere i log a un hub eventi](tutorial-azure-monitor-stream-logs-to-event-hub.md) e quindi [configurare il sistema di informazioni di sicurezza e gestione degli eventi](tutorial-azure-monitor-stream-logs-to-event-hub.md#access-data-from-your-event-hub) con l'hub eventi configurato. 
 

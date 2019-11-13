@@ -1,17 +1,14 @@
 ---
 title: Come creare i criteri di configurazione Guest
 description: Informazioni su come creare criteri di configurazione Guest di criteri di Azure per macchine virtuali Windows o Linux.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 0be6afc2d4d7f97717200b86d5e5b3bc2194afee
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 3c7b214a07b89f4b66aa32724259b01129b9b7e9
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376179"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959470"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Come creare i criteri di configurazione Guest
 
@@ -61,7 +58,7 @@ Se la configurazione richiede solo risorse compilate con l'installazione dell'ag
 
 ### <a name="requirements-for-guest-configuration-custom-resources"></a>Requisiti per le risorse personalizzate di configurazione Guest
 
-Quando la configurazione Guest controlla una macchina, viene eseguita prima di tutto `Test-TargetResource` per determinare se è nello stato corretto. Il valore booleano restituito dalla funzione determina se lo stato del Azure Resource Manager per l'assegnazione Guest deve essere conforme/non conforme. Se il valore booleano è `$false` per qualsiasi risorsa nella configurazione, il provider verrà eseguito `Get-TargetResource`. Se il valore booleano è `$true`, `Get-TargetResource` non viene chiamato.
+Quando la configurazione Guest controlla una macchina, viene eseguita prima di tutto `Test-TargetResource` per determinare se si trova nello stato corretto. Il valore booleano restituito dalla funzione determina se lo stato del Azure Resource Manager per l'assegnazione Guest deve essere conforme/non conforme. Se il valore booleano è `$false` per qualsiasi risorsa nella configurazione, il provider verrà eseguito `Get-TargetResource`. Se il valore booleano è `$true`, `Get-TargetResource` non viene chiamato.
 
 La funzione `Get-TargetResource` presenta requisiti speciali per la configurazione Guest che non sono stati necessari per la configurazione dello stato desiderato di Windows.
 
@@ -298,7 +295,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-Per i criteri di Linux, includere la proprietà **AttributesYmlContent** nella configurazione e sovrascrivere i valori di conseguenza. L'agente di configurazione Guest crea automaticamente il file YaML usato da INSPEC per archiviare gli attributi. Vedi l'esempio seguente.
+Per i criteri di Linux, includere la proprietà **AttributesYmlContent** nella configurazione e sovrascrivere i valori di conseguenza. L'agente di configurazione Guest crea automaticamente il file YaML usato da INSPEC per archiviare gli attributi. Vedere l'esempio seguente.
 
 ```azurepowershell-interactive
 Configuration FirewalldEnabled {
@@ -361,7 +358,7 @@ Con le definizioni di criteri e iniziative create in Azure, l'ultimo passaggio c
 Dopo aver pubblicato un criterio personalizzato di Azure usando il pacchetto di contenuto personalizzato, è necessario aggiornare due campi se si vuole pubblicare una nuova versione.
 
 - **Versione**: quando si esegue il cmdlet `New-GuestConfigurationPolicy`, è necessario specificare un numero di versione maggiore di quello attualmente pubblicato. Tramite la proprietà viene aggiornata la versione dell'assegnazione di configurazione Guest nel nuovo file dei criteri in modo che l'estensione riconosca che il pacchetto è stato aggiornato.
-- **contentHash**: questa proprietà viene aggiornata automaticamente dal cmdlet `New-GuestConfigurationPolicy`. Si tratta di un valore hash del pacchetto creato da `New-GuestConfigurationPackage`. La proprietà deve essere corretta per il file `.zip` da pubblicare. Se viene aggiornata solo la proprietà **contentUri** , ad esempio nel caso in cui un utente possa apportare una modifica manuale alla definizione dei criteri dal portale, l'estensione non accetterà il pacchetto di contenuto.
+- **contentHash**: questa proprietà viene aggiornata automaticamente dal cmdlet `New-GuestConfigurationPolicy`. Si tratta di un valore hash del pacchetto creato da `New-GuestConfigurationPackage`. La proprietà deve essere corretta per il file di `.zip` da pubblicare. Se viene aggiornata solo la proprietà **contentUri** , ad esempio nel caso in cui un utente possa apportare una modifica manuale alla definizione dei criteri dal portale, l'estensione non accetterà il pacchetto di contenuto.
 
 Il modo più semplice per rilasciare un pacchetto aggiornato consiste nel ripetere il processo descritto in questo articolo e fornire un numero di versione aggiornato. Questo processo garantisce che tutte le proprietà siano state aggiornate correttamente.
 
@@ -403,7 +400,7 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 
 Un utile riferimento per la creazione di chiavi GPG da usare con i computer Linux è fornito da un articolo su GitHub, che [genera una nuova chiave GPG](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
-Una volta pubblicato il contenuto, aggiungere un tag denominato `GuestConfigPolicyCertificateValidation` e il valore `enabled` a tutte le macchine virtuali in cui deve essere richiesta la firma del codice. Questo tag può essere distribuito su vasta scala usando criteri di Azure. Vedere l'esempio [Applica tag e il relativo valore predefinito](../samples/apply-tag-default-value.md) . Una volta che questo tag è stato inserito, la definizione dei criteri generata con il cmdlet `New-GuestConfigurationPolicy` Abilita il requisito tramite l'estensione di configurazione Guest.
+Una volta pubblicato il contenuto, aggiungere un tag con il nome `GuestConfigPolicyCertificateValidation` e il valore `enabled` a tutte le macchine virtuali in cui deve essere richiesta la firma del codice. Questo tag può essere distribuito su vasta scala usando criteri di Azure. Vedere l'esempio [Applica tag e il relativo valore predefinito](../samples/apply-tag-default-value.md) . Una volta che questo tag è stato inserito, la definizione dei criteri generata usando il cmdlet `New-GuestConfigurationPolicy` Abilita il requisito tramite l'estensione di configurazione Guest.
 
 ## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>ANTEPRIMA Risoluzione dei problemi relativi alle assegnazioni dei criteri di configurazione Guest
 

@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 11/12/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 178628db11b95fbd345e94111ebf15809da3fc35
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 55abdab6a427547ee8bd498500deee94b8f67453
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684290"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954734"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>Configurare il runtime di integrazione self-hosted come proxy per Azure-SSIS IR in ADF
 Questo articolo descrive come eseguire pacchetti SQL Server Integration Services (SSIS) in Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF) con il runtime di integrazione self-hosted configurato come proxy.  Questa funzionalità consente di accedere ai dati in locale senza [aggiungerli alla Azure-SSIS IR a una rete virtuale](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).  Questa operazione è utile quando la rete aziendale ha un criterio eccessivamente complesso di configurazione/restrittiva per inserire i Azure-SSIS IR al suo interno.
@@ -87,10 +87,10 @@ Le seconde attività di gestione temporanea in esecuzione nel Azure-SSIS IR non 
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
-- Attualmente sono supportate solo le gestioni connessioni file flat e OLEDB o le origini file flat. 
+- Attualmente sono supportate solo le attività flusso di dati con gestioni connessioni ODBC/OLEDB/flat file e origini file ODBC/OLEDB/flat. 
 - Attualmente sono supportati solo i servizi collegati di archiviazione BLOB di Azure configurati con la **chiave dell'Account**/**URI SAS**/l'autenticazione dell' **entità servizio** .
 - È attualmente supportato solo il runtime di integrazione self-hosted con provisioning nello stesso ADF in cui è stato eseguito il provisioning del Azure-SSIS IR.
-- Non è supportato l'uso di parametri/variabili SSIS all'interno delle proprietà delle origini file e delle gestioni connessioni di OLEDB/flat.
+- L'utilizzo di parametri/variabili SSIS all'interno delle proprietà delle origini file ODBC/OLEDB/flat e delle gestioni connessioni non è al momento supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver configurato il runtime di integrazione self-hosted come proxy per la Azure-SSIS IR, è possibile distribuire ed eseguire i pacchetti per accedere ai dati locali come attività Esegui pacchetto SSIS nelle pipeline di ADF, vedere [eseguire pacchetti SSIS come attività Esegui pacchetto SSIS nelle pipeline di ADF ](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

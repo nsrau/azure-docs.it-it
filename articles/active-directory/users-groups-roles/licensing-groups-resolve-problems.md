@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 247dee2cfbb00b185e941fde05c2198459a05e20
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 73dc95260e7beb306834d094957518f36106b0f4
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815730"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73945758"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificare e risolvere i problemi relativi alle licenze per un gruppo in Azure Active Directory
 
@@ -29,11 +29,6 @@ Le licenze basate sui gruppi in Azure Active Directory (Azure AD) introducono il
 Quando si assegnano le licenze direttamente a utenti singoli, senza l'uso di licenze basate sui gruppi, l'operazione di assegnazione può avere esito negativo. Ad esempio, quando si esegue il cmdlet `Set-MsolUserLicense` di PowerShell su un sistema utente, è possibile che il cmdlet non riesca per vari motivi correlati alla logica di business. Il numero di licenze potrebbe ad esempio essere insufficiente o è possibile che siano presenti conflitti tra due piani di servizio che non possono essere assegnati contemporaneamente. Il problema viene segnalato immediatamente all'utente.
 
 Quando si usano le licenze basate sui gruppi, è possibile che si verifichino gli stessi errori, che però rimangono in background mentre il servizio Azure AD assegna le licenze. Per questo motivo gli errori non possono essere comunicati immediatamente all'utente. Vengono invece registrati nell'oggetto utente e segnalati tramite il portale amministrativo. L'intento originale di assegnare una licenza all'utente resta, ma la licenza viene registrata in stato di errore che è possibile analizzare e risolvere in un secondo momento.
-
-## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicenseAssignmentAttributeConcurrencyException nei log di controllo
-
-**Problema:** L'utente ha LicenseAssignmentAttributeConcurrencyException per l'assegnazione delle licenze nei log di controllo.
-Quando le licenze basate sui gruppi tentano di elaborare l'assegnazione di licenze simultanee della stessa licenza a un utente, questa eccezione viene registrata nell'utente. Questa situazione si verifica in genere quando un utente è membro di più di un gruppo con la stessa licenza assegnata. AZure AD tenterà di ritentare l'elaborazione della licenza utente e risolverà il problema. Non è richiesta alcuna azione da parte del cliente per risolvere il problema.
 
 ## <a name="find-license-assignment-errors"></a>Individuare gli errori di assegnazione delle licenze
 
@@ -121,6 +116,11 @@ Dopo aver risolto i problemi di indirizzo proxy per gli utenti interessati, forz
 **Problema:** Durante l'aggiornamento dell'assegnazione delle licenze per un utente o un gruppo, è possibile notare che l'attributo Azure AD mail e ProxyAddresses di alcuni utenti sono stati modificati.
 
 L'aggiornamento dell'assegnazione delle licenze per un utente comporta l'attivazione del calcolo dell'indirizzo del proxy, che può modificare gli attributi utente. Per comprendere il motivo esatto della modifica e risolvere il problema, vedere questo articolo su [come viene popolato l'attributo proxyAddresses in Azure ad](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+
+## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicenseAssignmentAttributeConcurrencyException nei log di controllo
+
+**Problema:** L'utente ha LicenseAssignmentAttributeConcurrencyException per l'assegnazione delle licenze nei log di controllo.
+Quando le licenze basate sui gruppi tentano di elaborare l'assegnazione di licenze simultanee della stessa licenza a un utente, questa eccezione viene registrata nell'utente. Questa situazione si verifica in genere quando un utente è membro di più di un gruppo con la stessa licenza assegnata. AZure AD tenterà di ritentare l'elaborazione della licenza utente e risolverà il problema. Non è richiesta alcuna azione da parte del cliente per risolvere il problema.
 
 ## <a name="more-than-one-product-license-assigned-to-a-group"></a>È stata assegnata più di una licenza del prodotto a un gruppo
 

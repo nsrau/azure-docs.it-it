@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 71a2b73ab3570539a566f708ea8b1a41963d4e81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: eb8bf1891f5ce96507c20e196d20ae499f30fe34
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747314"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012120"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Risolvere i problemi di backup dello stato del sistema
 
@@ -45,9 +45,9 @@ Prima di iniziare la risoluzione dei problemi relativi al backup dello stato del
 - Il ripristino dello stato del sistema in un hardware diverso non è consigliato
 - Il backup dello stato del sistema supporta attualmente server Windows "locali", questa funzionalità non è disponibile per le macchine virtuali di Azure.
 
-## <a name="pre-requisite"></a>Prerequisito.
+## <a name="prerequisites"></a>prerequisiti
 
-Prima di risolvere i problemi di backup dello stato del sistema con backup di Azure, eseguire il controllo dei prerequisiti seguenti.  
+Prima di risolvere i problemi relativi al backup dello stato del sistema con backup di Azure, eseguire il controllo dei prerequisiti riportato di seguito.  
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Verificare che Windows Server Backup sia installato
 

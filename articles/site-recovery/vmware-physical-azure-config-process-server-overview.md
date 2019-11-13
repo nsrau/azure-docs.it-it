@@ -1,18 +1,18 @@
 ---
-title: Informazioni sui server di configurazione, elaborazione e destinazione master di Azure Site Recovery | Microsoft Docs
+title: Informazioni sui server di configurazione/processo/di destinazione master di Azure Site Recovery
 description: Questo articolo fornisce una panoramica dei server di configurazione, di elaborazione e di destinazione master usando quando si configura il ripristino di emergenza di macchine virtuali VMware locali in Azure con Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a70400a1d0c710b939b4dd6d157cb06e729f53cb
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ad816f39dd4182dfa41fca975c99824a5d77f860
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747812"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961315"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Informazioni sui componenti di Site Recovery (configurazione, processo, destinazione master)
 

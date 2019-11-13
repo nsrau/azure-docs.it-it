@@ -1,6 +1,6 @@
 ---
-title: Come configurare la conservazione nell'ambiente Azure Time Series Insights | Microsoft Docs
-description: Questo articolo descrive come configurare la conservazione nell'ambiente Time Series Insights.
+title: Come configurare la conservazione nell'ambiente-Azure Time Series Insights | Microsoft Docs
+description: Informazioni su come configurare la conservazione nell'ambiente Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,20 +10,20 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff4d326af691ae27894dc94d7581ba68951f090e
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: aa905d1686939346827d07419a62fd6f299387ec
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990067"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012602"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configurazione della conservazione in Time Series Insights
 
 Questo articolo descrive come configurare il **periodo di conservazione dei dati** e il **comportamento limite di archiviazione superato** in Azure Time Series Insights.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>summary
 
-Ogni ambiente Azure Time Series Insights dispone di un'impostazione per configurare il **periodo di conservazione dei dati**. Il valore va da 1 a 400 giorni. I dati vengono eliminati in base alla capacità di archiviazione dell'ambiente o alla durata dell'assorbimento, che va da 1 a 400 giorni, a seconda della condizione che si verifica per prima.
+Ogni ambiente Azure Time Series Insights dispone di un'impostazione per configurare il **periodo di conservazione dei dati**. Il valore va da 1 a 400 giorni. I dati vengono eliminati in base alla capacità di archiviazione dell'ambiente o alla durata della conservazione, che va da 1 a 400 giorni, a seconda della condizione che si verifica per prima.
 
 Ogni ambiente Time Series Insights ha un'impostazione aggiuntiva del **limite di archiviazione superato il comportamento**. Questa impostazione controlla il comportamento di traffico in ingresso e pulizia quando viene raggiunta la capacità massima di un ambiente. È possibile scegliere tra due tipi di comportamento:
 

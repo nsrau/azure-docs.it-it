@@ -3,7 +3,7 @@ title: Risolvere i problemi relativi ai dati mancanti nei log attività | Micros
 description: Offre una risoluzione per i dati mancanti nei log attività di Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/15/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aeac1180292ea5200e9eabc30ee01db05b67e75
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 9c335a4d30846f7c1b4dbd6b6aedc4d100a9b43a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820862"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014281"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Risolvere i problemi relativi ai dati mancanti nei log attività di Azure Active Directory 
 
@@ -32,13 +32,13 @@ ms.locfileid: "72820862"
 
 Sono state eseguite alcune azioni nel portale di Azure e si prevedeva la visualizzazione dei log di controllo per tali azioni nel pannello `Activity logs > Audit Logs`, ma non è possibile trovarli.
 
- ![Creazione report](./media/troubleshoot-missing-audit-data/01.png)
+ ![Creazione di report](./media/troubleshoot-missing-audit-data/01.png)
  
 ### <a name="cause"></a>Causa
 
 Le azioni non vengono visualizzate immediatamente nei log attività. La tabella seguente elenca i numeri di latenza per i log attività. 
 
-| Documentazione | &nbsp; | Latenza (P95) | Latenza (P99) |
+| Report | &nbsp; | Latenza (P95) | Latenza (P99) |
 |--------|--------|---------------|---------------|
 | Directory Audit (Controllo directory) | &nbsp; | 2 min | 5 min |
 | Attività di accesso | &nbsp; | 2 min | 5 min | 
@@ -53,13 +53,13 @@ Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate
 
 Di recente si è eseguito l'accesso al portale di Azure e si prevedeva la visualizzazione dei log di accesso per tali azioni nel pannello `Activity logs > Sign-ins`, ma non è possibile trovarli.
 
- ![Creazione report](./media/troubleshoot-missing-audit-data/02.png)
+ ![Creazione di report](./media/troubleshoot-missing-audit-data/02.png)
  
 ### <a name="cause"></a>Causa
 
 Le azioni non vengono visualizzate immediatamente nei log attività. La tabella seguente elenca i numeri di latenza per i log attività. 
 
-| Documentazione | &nbsp; | Latenza (P95) | Latenza (P99) |
+| Report | &nbsp; | Latenza (P95) | Latenza (P99) |
 |--------|--------|---------------|---------------|
 | Directory Audit (Controllo directory) | &nbsp; | 2 min | 5 min |
 | Attività di accesso | &nbsp; | 2 min | 5 min | 
@@ -74,13 +74,13 @@ Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate
 
 Non è possibile visualizzare più di 30 giorni di dati di accesso e controllo nel portale di Azure. Perché? 
 
- ![Creazione report](./media/troubleshoot-missing-audit-data/03.png)
+ ![Creazione di report](./media/troubleshoot-missing-audit-data/03.png)
 
 ### <a name="cause"></a>Causa
 
 In base alla licenza, Azioni di Azure Active Directory archivia i report delle attività per le durate seguenti:
 
-| Documentazione           | &nbsp; |  Azure AD Free | Azure AD P1 Premium | Azure AD P2 Premium |
+| Report           | &nbsp; |  Azure AD Free | Azure AD P1 Premium | Azure AD P2 Premium |
 | ---              | ----   |  ---           | ---                 | ---                 |
 | Directory Audit (Controllo directory)  | &nbsp; |   7 giorni     | 30 giorni             | 30 giorni             |
 | Attività di accesso | &nbsp; | Non disponibile. È possibile accedere alle informazioni di accesso per 7 giorni dal pannello del singolo profilo utente | 30 giorni | 30 giorni             |

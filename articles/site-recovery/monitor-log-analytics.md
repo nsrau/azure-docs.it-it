@@ -1,18 +1,18 @@
 ---
-title: Monitorare Azure Site Recovery con i log di monitoraggio di Azure (Log Analytics) | Microsoft Docs
+title: Monitorare Azure Site Recovery con i log di monitoraggio di Azure
 description: Informazioni su come monitorare Azure Site Recovery con i log di monitoraggio di Azure (Log Analytics)
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/13/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 889fa3bee17aa3b0300431b058332c5ec10d9faf
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b5bf568e03d4949b8798dd2e0f4c2d8cbcbbe0c7
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331929"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936083"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorare Site Recovery con i log di Monitoraggio di Azure
 
@@ -42,7 +42,7 @@ Prima di iniziare, è consigliabile esaminare le [domande di monitoraggio più c
 
 ## <a name="configure-site-recovery-to-send-logs"></a>Configurare Site Recovery per inviare i log
 
-1. Nell'insieme di credenziali fare clic su **impostazioni di diagnostica** >  Aggiungi impostazioni di**diagnostica**.
+1. Nell'insieme di credenziali fare clic su **impostazioni di diagnostica** > **Aggiungi impostazione di diagnostica**.
 
     ![Selezione registrazione diagnostica](./media/monitoring-log-analytics/add-diagnostic.png)
 
@@ -61,7 +61,7 @@ I log Site Recovery iniziano a essere inseriti in una tabella (**AzureDiagnostic
 È possibile recuperare i dati dai log usando le query di log scritte con il [linguaggio di query kusto](../azure-monitor/log-query/get-started-queries.md). In questa sezione vengono forniti alcuni esempi di query comuni che è possibile utilizzare per il monitoraggio Site Recovery.
 
 > [!NOTE]
-> In alcuni degli esempi viene utilizzato **replicationProviderName_s** impostato su **A2A**. In questo modo vengono recuperate le macchine virtuali di Azure replicate in un'area di Azure secondaria usando Site Recovery. In questi esempi, è possibile sostituire **A2A** con **InMageAzureV2**se si vuole recuperare macchine virtuali VMware locali o server fisici replicati in Azure usando Site Recovery.
+> Alcuni esempi utilizzano **replicationProviderName_s** impostato su **A2A**. In questo modo vengono recuperate le macchine virtuali di Azure replicate in un'area di Azure secondaria usando Site Recovery. In questi esempi, è possibile sostituire **A2A** con **InMageAzureV2**se si vuole recuperare macchine virtuali VMware locali o server fisici replicati in Azure usando Site Recovery.
 
 
 ### <a name="query-replication-health"></a>Stato replica query
@@ -223,7 +223,7 @@ AzureDiagnostics 
 È possibile configurare Site Recovery avvisi in base ai dati di monitoraggio di Azure. [Altre](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal) informazioni sulla configurazione degli avvisi del log. 
 
 > [!NOTE]
-> In alcuni degli esempi viene utilizzato **replicationProviderName_s** impostato su **A2A**. Questo consente di impostare gli avvisi per le macchine virtuali di Azure replicate in un'area di Azure secondaria. In questi esempi, è possibile sostituire **A2A** con **InMageAzureV2** se si vuole impostare avvisi per macchine virtuali VMware locali o server fisici replicati in Azure.
+> Alcuni esempi utilizzano **replicationProviderName_s** impostato su **A2A**. Questo consente di impostare gli avvisi per le macchine virtuali di Azure replicate in un'area di Azure secondaria. In questi esempi, è possibile sostituire **A2A** con **InMageAzureV2** se si vuole impostare avvisi per macchine virtuali VMware locali o server fisici replicati in Azure.
 
 ### <a name="multiple-machines-in-a-critical-state"></a>Più computer in uno stato critico
 

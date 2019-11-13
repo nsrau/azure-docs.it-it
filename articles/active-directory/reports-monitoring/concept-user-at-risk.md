@@ -2,7 +2,7 @@
 title: Report di sicurezza Utenti contrassegnati per il rischio nel portale di Azure Active Directory | Microsoft Docs
 description: Informazioni sul report di sicurezza Utenti contrassegnati per il rischio nel portale di Azure Active Directory
 services: active-directory
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/17/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e6b79c7d5c2ed9744dc00eb1588c35f8ea94a76
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 894d8dfb7f870ec4a2a11f1d75ee0376b25d8c7f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127644"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014459"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Report Utenti contrassegnati per il rischio nel portale di Azure
 
@@ -61,7 +61,7 @@ La selezione di un utente fornisce le informazioni di accesso. Analizzare la cro
 Questa finestra di dialogo offre la possibilità di:
 
 - Scaricare il report
-- Cerca utenti
+- Cercare gli utenti
 
     ![Accessi a rischio](./media/concept-user-at-risk/16.png)
 
@@ -87,7 +87,7 @@ Quando si seleziona un utente, si ottiene la visualizzazione di un report dettag
 
 - Reimpostare la password dell'utente
 
-- Elimina tutti gli eventi
+- eliminare tutti gli eventi
 
 - Esaminare i rilevamenti dei rischi segnalati per l'utente. 
 

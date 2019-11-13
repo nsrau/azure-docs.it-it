@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 529665a03d2203dcb501b59d7647f4390bdaeb78
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 5bae9f565dd37fbd3bcae38833662e13e0b7ac6d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936747"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960644"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>API Web che chiama API Web-configurazione del codice
 
@@ -70,13 +70,13 @@ public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollec
 Il metodo AddAccountToCacheFromJwt () deve:
 
 - Creare un'istanza di un'applicazione client riservata MSAL.
-- Chiamare `AcquireTokenOnBehalf` per scambiare la Bearer token acquisita dal client per l'API Web, rispetto a una Bearer token per lo stesso utente, ma affinché l'API chiami un'API downstream.
+- Chiamare `AcquireTokenOnBehalf` per scambiare la bearer token acquisita dal client per l'API Web, rispetto a un bearer token per lo stesso utente, ma affinché l'API chiami un'API downstream.
 
 ### <a name="instantiate-a-confidential-client-application"></a>Creare un'istanza di un'applicazione client riservata
 
-Questo flusso è disponibile solo nel flusso client riservato, quindi l'API Web protetta fornisce le credenziali client (segreto client o certificato) a [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) tramite i `WithClientSecret` metodi `WithCertificate` o, rispettivamente.
+Questo flusso è disponibile solo nel flusso client riservato, in modo che l'API Web protetta fornisca le credenziali client (segreto client o certificato) al [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) tramite i metodi `WithClientSecret` o `WithCertificate`, rispettivamente.
 
-![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
+![immagine](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
 ```CSharp
 IConfidentialClientApplication app;
@@ -99,11 +99,11 @@ Questo scenario avanzato è dettagliato in [asserzioni client](msal-net-client-a
 
 ### <a name="how-to-call-on-behalf-of"></a>Come chiamare per conto di
 
-La chiamata a per conto di (OBO) viene eseguita chiamando il metodo [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) sull' `IConfidentialClientApplication` interfaccia.
+La chiamata a per conto di (OBO) viene eseguita chiamando il metodo [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) sull'interfaccia `IConfidentialClientApplication`.
 
-`UserAssertion` Viene compilato dalla Bearer token ricevuta dall'API Web dai propri client. Sono disponibili [due costruttori](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), uno che accetta un Bearer token JWT, e uno che accetta qualsiasi tipo di asserzione utente (un altro tipo di token di sicurezza, il cui tipo viene quindi specificato in un `assertionType`parametro aggiuntivo denominato).
+Il `UserAssertion` viene creato dalla bearer token ricevuta dall'API Web dai propri client. Sono disponibili [due costruttori](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), uno che accetta un Bearer token JWT, e uno che accetta qualsiasi tipo di asserzione utente (un altro tipo di token di sicurezza, il quale viene quindi specificato in un parametro aggiuntivo denominato `assertionType`).
 
-![image](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
+![immagine](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
 
 In pratica, il flusso OBO viene spesso usato per acquisire un token per un'API downstream e archiviarlo nella cache dei token utente di MSAL.NET in modo che altre parti dell'API Web possano chiamare in un secondo momento le [sostituzioni](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) di ``AcquireTokenOnSilent`` per chiamare le API downstream. Questa chiamata ha l'effetto di aggiornare i token, se necessario.
 
@@ -140,6 +140,8 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
      }
 }
 ```
+
+È anche possibile vedere un esempio di per conto dell'implementazione di Flow in [NodeJS e funzioni di Azure](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61).
 
 ## <a name="protocol"></a>Protocol
 

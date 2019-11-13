@@ -3,7 +3,7 @@ title: Integrare i log con ArcSight usando monitoraggio di Azure | Microsoft Doc
 description: Informazioni su come integrare i log di Azure Active Directory con ArcSight usando monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: b37bef0d-982e-4e28-86b2-6c61ca524ae1
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/19/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b6a65eee10c7c5547cc433c663a4294ec842047
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 2fbd658d610fba27bdaed2af4bc27ed40a138fac
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199727"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008022"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrare i log di Azure Active Directory con ArcSight usando monitoraggio di Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "73199727"
 
 In questo articolo viene descritto come indirizzare i log di Azure AD ad ArcSight tramite Monitoraggio di Azure. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per usare questa funzionalità, sono necessari:
 * Un hub eventi di Azure contenente i log attività di Azure AD. Informazioni su come [trasmettere i log attività a un hub eventi](quickstart-azure-monitor-stream-logs-to-event-hub.md). 

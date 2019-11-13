@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 229d960f7851b5fab8504b6c2a109bece6c7b31f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 34a8b27442fc3f755cbe33f61857aa13d3be700b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969101"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012828"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di database SQL in macchine virtuali di Azure con PowerShell
 
@@ -24,6 +24,7 @@ Questo articolo descrive come usare Azure PowerShell per eseguire il backup e il
 In questa esercitazione viene illustrato come:
 
 > [!div class="checklist"]
+>
 > * Configurare PowerShell e registrare il provider di servizi di ripristino di Azure.
 > * Creare un insieme di credenziali dei servizi di ripristino.
 > * Configurare il backup per il database SQL in una macchina virtuale di Azure.
@@ -270,10 +271,10 @@ Una volta assegnato lo scopo di protezione automatica, la richiesta di recupero 
 
 Backup di Azure è in grado di ripristinare SQL Server database in esecuzione in macchine virtuali di Azure, come indicato di seguito:
 
-1. Ripristinare una data o un'ora specifica (al secondo) utilizzando i backup del log delle transazioni. Backup di Azure determina automaticamente il backup completo differenziale appropriato e la catena di backup del log necessari per il ripristino in base all'ora selezionata.
-2. Ripristinare un backup completo o differenziale specifico per eseguire il ripristino in un punto di ripristino specifico.
+* Ripristinare una data o un'ora specifica (al secondo) utilizzando i backup del log delle transazioni. Backup di Azure determina automaticamente il backup completo differenziale appropriato e la catena di backup del log necessari per il ripristino in base all'ora selezionata.
+* Ripristinare un backup completo o differenziale specifico per eseguire il ripristino in un punto di ripristino specifico.
 
-Verificare i [prerequisiti indicati in precedenza prima](restore-sql-database-azure-vm.md#prerequisites) di ripristinare il database SQL.
+Verificare i prerequisiti indicati [qui](restore-sql-database-azure-vm.md#prerequisites) prima di ripristinare database SQL.
 
 Recuperare prima di tutto il database SQL di cui è stato eseguito il backup usando il cmdlet [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem?view=azps-1.5.0) PS.
 
@@ -335,9 +336,9 @@ L'output precedente indica che l'utente può eseguire il ripristino in qualsiasi
 
 In caso di ripristino del database SQL, sono supportati i seguenti scenari di ripristino.
 
-1. Override del database SQL di cui è stato eseguito il backup con i dati di un altro punto di ripristino-OriginalWorkloadRestore
-2. Ripristino del database SQL come nuovo database nella stessa istanza di SQL-AlternateWorkloadRestore
-3. Ripristino del database SQL come nuovo database in un'altra istanza di SQL in un'altra VM SQL-AlternateWorkloadRestore
+* Override del database SQL di cui è stato eseguito il backup con i dati di un altro punto di ripristino-OriginalWorkloadRestore
+* Ripristino del database SQL come nuovo database nella stessa istanza di SQL-AlternateWorkloadRestore
+* Ripristino del database SQL come nuovo database in un'altra istanza di SQL in un'altra VM SQL-AlternateWorkloadRestore
 
 Dopo aver recuperato il punto di ripristino pertinente (separato o temporizzato del log), usare il cmdlet [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) PS per recuperare l'oggetto di configurazione di ripristino in base al piano di ripristino desiderato.
 
@@ -501,7 +502,7 @@ Register-AzRecoveryServicesBackupContainer -Container $SQLContainer -BackupManag
 
 ### <a name="stop-protection"></a>Arresta protezione
 
-#### <a name="retain-data"></a>Mantieni dati
+#### <a name="retain-data"></a>Conserva dati
 
 Se l'utente desidera arrestare la protezione, può usare il cmdlet [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS. Questa operazione arresterà i backup pianificati, ma i dati di cui è stato eseguito il backup fino a questo momento verranno conservati per sempre.
 
@@ -510,7 +511,7 @@ $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload 
 Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID
 ````
 
-#### <a name="delete-backup-data"></a>Elimina dati di backup
+#### <a name="delete-backup-data"></a>Eliminare i dati di backup
 
 Per rimuovere completamente i dati di backup archiviati nell'insieme di credenziali, è sufficiente aggiungere il flag '-RemoveRecoveryPoints '/passare al [comando di protezione ' Disable '](#retain-data).
 
@@ -560,12 +561,12 @@ Per i gruppi di disponibilità SQL Always On, assicurarsi di [registrare tutti i
 
 Si supponga, ad esempio, che un gruppo di disponibilità di SQL Server disponga di due nodi: "SQL-Server-0" e "SQL-Server-1" e 1 database AG di SQL Server. Una volta registrati entrambi questi nodi, se [l'utente elenca gli elementi da proteggere](#fetching-sql-dbs), elenca i componenti seguenti
 
-1. Tipo di elemento da proteggere con oggetti di SQL AG come SQLAvailabilityGroup
-2. Tipo di elemento da proteggere con database di SQL AG come SQLDatabase
-3. tipo di elemento da proteggere con SQL-Server-0 come SQLInstance
-4. tipo di elemento da proteggere con SQL-Server-1 come SQLInstance
-5. Qualsiasi database SQL predefinito (Master, Model, msdb) nel tipo di elemento da proteggere con SQL-Server-0 come SQLDatabase
-6. Qualsiasi database SQL predefinito (Master, Model, msdb) nel tipo di elemento da proteggere con SQL-Server-1 come SQLDatabase
+* Tipo di elemento da proteggere con oggetti di SQL AG come SQLAvailabilityGroup
+* Tipo di elemento da proteggere con database di SQL AG come SQLDatabase
+* tipo di elemento da proteggere con SQL-Server-0 come SQLInstance
+* tipo di elemento da proteggere con SQL-Server-1 come SQLInstance
+* Qualsiasi database SQL predefinito (Master, Model, msdb) nel tipo di elemento da proteggere con SQL-Server-0 come SQLDatabase
+* Qualsiasi database SQL predefinito (Master, Model, msdb) nel tipo di elemento da proteggere con SQL-Server-1 come SQLDatabase
 
 SQL-Server-0, SQL-Server-1 verrà elencato anche come "AzureVMAppContainer" quando [vengono elencati i contenitori di backup](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0).
 

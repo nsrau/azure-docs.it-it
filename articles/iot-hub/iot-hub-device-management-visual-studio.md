@@ -1,5 +1,5 @@
 ---
-title: Gestione dei dispositivi IoT di Azure con Cloud Explorer per Visual Studio | Microsoft Docs
+title: Gestione dei dispositivi Azure Internet con Visual Studio Cloud Explorer
 description: Usare Cloud Explorer per Visual Studio per la gestione dei dispositivi dell'hub IoT di Azure, con opzioni di gestione come i metodi diretti e le proprietà desiderate in dispositivi gemelli.
 author: shizn
 ms.service: iot-hub
@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
-ms.openlocfilehash: e05ba421a4535e6e424e65a1f2271d19f9d9abf4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 6fe5a45dda6632c56b3c6714827950e25e7d26af
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048724"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953192"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Usare Cloud Explorer per Visual Studio per la gestione dei dispositivi dell'hub IoT di Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "70048724"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Opzione di gestione          | Attività                    |
+| Opzione di gestione          | attività                    |
 |----------------------------|--------------------------------|
 | Metodi diretti             | Far eseguire un'attività al dispositivo, quale l'avvio o l'arresto dell'invio di messaggi o il riavvio del dispositivo.                                        |
 | Lettura dispositivo gemello           | Ottenere lo stato restituito da un dispositivo. Ad esempio, il dispositivo segnala che il LED sta lampeggiando.                                    |
@@ -43,7 +43,7 @@ In questo articolo, eseguire Cloud Explorer per Visual Studio con diverse opzion
 
 ## <a name="what-you-need"></a>Elementi necessari
 
-Sono necessari i prerequisiti seguenti:
+È necessario soddisfare i prerequisiti seguenti:
 
 - Una sottoscrizione di Azure attiva.
 
@@ -59,7 +59,7 @@ Il componente Cloud Explorer da Programma di installazione di Visual Studio per 
 
 ## <a name="sign-in-to-access-your-hub"></a>Accedi per accedere all'hub
 
-1. In Visual Studio selezionare **Visualizza** > **Cloud Explorer** per aprire Cloud Explorer.
+1. In Visual Studio selezionare **visualizza** > **Cloud Explorer** per aprire Cloud Explorer.
 
 1. Selezionare l'icona di gestione account per visualizzare le sottoscrizioni.
 
@@ -91,7 +91,7 @@ Per modificare un dispositivo gemello, seguire questa procedura:
 
    Viene aperto un file **Azure-Internet per dispositivi gemelli. JSON** con il contenuto del dispositivo gemello.
 
-1. Apportare alcune modifiche ai **tag** o alle **Proprietà.** i campi desiderati nel file **Azure-Internet.**
+1. Apportare alcune modifiche ai **tag** o alle **Proprietà. i campi desiderati** nel file **Azure-Internet.**
 
 1. Premere **CTRL+S** per aggiornare il dispositivo gemello.
 

@@ -1,5 +1,5 @@
 ---
-title: Modificare i prefissi degli indirizzi IP per il gateway di rete locale e l'indirizzo IP del Gateway VPN | Azure| Interfaccia della riga di comando | Microsoft Docs
+title: 'Gateway VPN: modificare le impostazioni degli indirizzi IP del gateway: CLI di Azure'
 description: Questo articolo illustra in modo dettagliato come modificare i prefissi degli indirizzi IP per il gateway di rete locale usando l'interfaccia della riga di comando di Azure.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/29/2017
 ms.author: cherylmc
-ms.openlocfilehash: 20e8269f0ee7463dcff9a5f66e46ebd81cb3df84
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 26462f73680d35371c6a03c3224742626e8f2090
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60652855"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014959"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Modificare le impostazioni del gateway di rete locale usando l'interfaccia della riga di comando di Azure
 

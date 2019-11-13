@@ -1,6 +1,6 @@
 ---
-title: Visualizzazione dei dati nello strumento di esplorazione di Anteprima di Azure Time Series Insights | Microsoft Docs
-description: Questo articolo descrive le funzionalità e le opzioni disponibili nell'app Web dello strumento di esplorazione di Anteprima di Azure Time Series Insights.
+title: Visualizzare i dati in Esplora anteprime-Azure Time Series Insights | Microsoft Docs
+description: Informazioni sulle funzionalità e le opzioni disponibili in Esplora Azure Time Series Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,18 +10,18 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f6c03ace13b9b6cb1bda004799502e1f382051d
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f09de6fee4c9de39d98ec66714686ab1e805c4cd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989964"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014874"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Visualizzare i dati nella versione di anteprima dello strumento di esplorazione
 
 Questo documento descrive le funzionalità dell'interfaccia utente e dell'esperienza utente e l'interfaccia dell' [app Web demo](https://insights.timeseries.azure.com/preview/demo)Azure Time Series Insights Preview. In particolare, viene illustrato il layout dell'esempio ospitato, le opzioni di personalizzazione dell'interfaccia e la navigazione attraverso la demo fornita.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per iniziare a usare Esplora Azure Time Series Insights Preview, è necessario:
 
@@ -203,7 +203,7 @@ Il pannello dell'editor delle condizioni di Anteprima di Time Series Insights ac
 
 **Where**: utilizzare la clausola WHERE per filtrare rapidamente gli eventi utilizzando il set di operandi elencati nella tabella seguente. Se si esegue una ricerca selezionando un operando, il predicato viene automaticamente aggiornato in base a tale ricerca. I tipi di operando supportati sono i seguenti:
 
-| Operazione | Tipi supportati   | Note |
+| Operazione | Tipi supportati   | note |
 | --- | --- | --- |
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |

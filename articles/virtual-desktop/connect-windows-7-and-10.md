@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 11/12/2019
 ms.author: helohr
-ms.openlocfilehash: 2552fcbd860a0cc98aa7e2a6c7f92796a8d588ca
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 420978e79da99847f16e5c85b2d2510083ca97a7
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605778"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006249"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Connettersi con il client desktop di Windows
 
@@ -28,8 +28,8 @@ ms.locfileid: "73605778"
 Scegliere il client che corrisponde alla versione di Windows:
 
 - [Windows a 64 bit](https://go.microsoft.com/fwlink/?linkid=2068602)
-- [Anteprima di Windows a 32 bit](https://go.microsoft.com/fwlink/?linkid=2098960)
-- [Anteprima di Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2098961)
+- [Windows a 32 bit](https://go.microsoft.com/fwlink/?linkid=2098960)
+- [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2098961)
 
 È possibile installare il client per l'utente corrente, che non richiede diritti di amministratore, oppure l'amministratore può installare e configurare il client in modo che tutti gli utenti del dispositivo possano accedervi.
 

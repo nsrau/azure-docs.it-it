@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9af85d8d9b181d619d8895542f142708626649d1
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 594534f64c984f4afb986d3366f388e412bde27c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620825"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961461"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -49,7 +49,7 @@ Configurazione della macchina virtuale | Le VM che eseguono la replica in Azure 
 Sistema operativo guest | Qualsiasi sistema operativo guest [supportato per Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases).<br/><br/> Windows Server 2016 Nano Server non è supportato.
 
 
-## <a name="vmdisk-management"></a>Gestione della macchina virtuale/del disco
+## <a name="vmdisk-management"></a>Gestione della macchina virtuale e del disco
 
 **Azione** | **Dettagli**
 --- | ---
@@ -96,7 +96,7 @@ Rete accelerata | No | No
 NFS | ND | ND
 SMB 3.0 | Sì | Sì
 SAN (iSCSI) | Sì | Sì
-Percorsi multipli (MPIO). Testato con:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | Sì | Sì
+Percorsi multipli (MPIO). Testato con:<br></br> DSM Microsoft, EMC PowerPath 5,7 SP4, DSM EMC PowerPath per CLARiiON | Sì | Sì
 
 ## <a name="hyper-v-vm-guest-storage"></a>Archiviazione VM guest Hyper-V
 
@@ -105,7 +105,7 @@ Percorsi multipli (MPIO). Testato con:<br></br> Microsoft DSM, EMC PowerPath 5.7
 VMDK | ND | ND
 VHD/VHDX | Sì | Sì
 VM Gen 2 | Sì | Sì
-EFI/UEFI| Sì | Sì
+EFI/UEFI<br></br>La macchina virtuale di cui è stata eseguita la migrazione in Azure verrà automaticamente convertita in una macchina virtuale di avvio BIOS. Nella macchina virtuale deve essere in esecuzione solo Windows Server 2012 e versioni successive. Il disco del sistema operativo deve avere fino a cinque partizioni o meno e la dimensione del disco del sistema operativo deve essere inferiore a 300 GB.| Sì | Sì
 Disco cluster condiviso | No | No
 Disco crittografato | No | No
 NFS | ND | ND
@@ -132,6 +132,7 @@ Archiviazione ad accesso sporadico | No | No
 Archiviazione ad accesso frequente| No | No
 BLOB in blocchi | No | No
 Crittografia per dati inattivi (SSE)| Sì | Sì
+Crittografia inattiva (CMK)| No | No
 Archiviazione Premium | Sì | Sì
 Servizio di importazione/esportazione | No | No
 Account di archiviazione di Azure con firewall abilitato | Sì. Per l'archiviazione e la cache di destinazione. | Sì. Per l'archiviazione e la cache di destinazione.
@@ -159,11 +160,11 @@ Conteggio dischi del sistema operativo | 1 | Il controllo dei prerequisiti ha es
 Conteggio dischi dati | Fino a 16  | Il controllo dei prerequisiti ha esito negativo se non supportato.
 Dimensioni VHD dischi dati | Fino a 4.095 GB | Il controllo dei prerequisiti ha esito negativo se non supportato.
 Schede di rete | Sono supportate più schede |
-VHD condiviso | Non supportate | Il controllo dei prerequisiti ha esito negativo se non supportato.
-Disco FC | Non supportate | Il controllo dei prerequisiti ha esito negativo se non supportato.
+VHD condiviso | Non supportato | Il controllo dei prerequisiti ha esito negativo se non supportato.
+Disco FC | Non supportato | Il controllo dei prerequisiti ha esito negativo se non supportato.
 Formato disco rigido | VHD <br/><br/> VHDX | In Site Recovery VHDX viene convertito automaticamente in VHD quando si esegue il failover in Azure. Quando si esegue il failback in locale, le macchine virtuali continuano a usare il formato VHDX.
-BitLocker | Non supportate | Prima di abilitare la replica per una macchina virtuale occorre disabilitare BitLocker.
-Nome della VM. | Tra 1 e 63 caratteri. Limitato a lettere, numeri e trattini. Il nome della macchina virtuale deve iniziare e terminare con una lettera o un numero. | Aggiornare il valore nelle proprietà della VM in Site Recovery.
+BitLocker | Non supportato | Prima di abilitare la replica per una macchina virtuale occorre disabilitare BitLocker.
+Nome della VM | Tra 1 e 63 caratteri. Limitato a lettere, numeri e trattini. Il nome della macchina virtuale deve iniziare e terminare con una lettera o un numero. | Aggiornare il valore nelle proprietà della VM in Site Recovery.
 Tipo di macchina virtuale | Prima generazione<br/><br/> Seconda generazione - Windows | Sono supportate le macchine virtuali di seconda generazione con disco del sistema operativo di base che include uno o più volumi di dati in formato VHDX e inferiori a 300 GB di spazio su disco.<br></br>Le macchine virtuali Linux di seconda generazione non sono supportate. [Altre informazioni](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 
 ## <a name="recovery-services-vault-actions"></a>Azioni dell'insieme di credenziali dei Servizi di ripristino

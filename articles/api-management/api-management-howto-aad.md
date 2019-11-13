@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1def431bd24019c5f7d15cf7ac0e7550b85d17c4
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 5d2b43599c1e1f95f505d7987675e5fd40810fa4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176715"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012954"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
 
 Questo articolo illustra come abilitare l'accesso al portale per sviluppatori per gli utenti da Azure Active Directory (Azure AD). Spiega anche come gestire gruppi di utenti di Azure AD aggiungendo gruppi esterni contenenti gli utenti.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 - Importare e pubblicare un'istanza di Gestione API di Azure. Per altre informazioni, vedere [Importare e pubblicare un'API](import-and-publish.md).
@@ -33,7 +33,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizzare gli account per sviluppatori usando Azure AD
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
-2. Seleziona ![freccia](./media/api-management-howto-aad/arrow.png).
+2. Selezionare ![freccia](./media/api-management-howto-aad/arrow.png).
 3. Nella casella di ricerca digitare **api**.
 4. Selezionare **Servizi Gestione API**.
 5. Selezionare l'istanza del servizio Gestione API in esecuzione.
@@ -73,7 +73,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 > [!NOTE]
 > Nella sezione **Tenant consentiti** si possono specificare più domini. Per consentire a un utente di accedere da un dominio diverso da quello originale in cui è stata registrata l'applicazione, un amministratore globale dell'altro dominio deve concedere l'autorizzazione che permette all'applicazione di accedere ai dati della directory. Per concedere l'autorizzazione, l'amministratore globale deve: a. Passare a `https://<URL of your developer portal>/aadadminconsent` (ad esempio, https://contoso.portal.azure-api.net/aadadminconsent).
 > b. Digitare il nome di dominio del tenant di Azure AD a cui concedere l'accesso.
-> c. Selezionare **Submit** (Invia). 
+> C. Selezionare **Submit** (Invia). 
 
 20.  Dopo aver specificato la configurazione desiderata, selezionare **Aggiungi**.
 
@@ -100,11 +100,11 @@ Ora gli utenti dell'istanza di Azure AD configurata possono accedere al portale 
 
 ## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a>portale per sviluppatori <a id="log_in_to_dev_portal"/>-aggiungere l'autenticazione dell'account Azure AD
 
-Per abilitare l'accesso con AAD nel portale per sviluppatori, è necessario aggiungere il widget dei **pulsanti OAuth** al modulo di accesso.
+Nel portale per sviluppatori l'accesso con AAD è possibile con il widget dei **pulsanti OAuth** . Il widget è già incluso nella pagina di accesso del contenuto predefinito del portale per sviluppatori.
 
 ![Widget pulsanti AAD](./media/api-management-howto-aad/portal-oauth-widget.png)
 
-Sebbene venga creato automaticamente un nuovo account ogni volta che un nuovo utente accede con AAD, è possibile aggiungere lo stesso widget nel modulo di iscrizione.
+Sebbene venga creato automaticamente un nuovo account ogni volta che un nuovo utente accede con AAD, è possibile aggiungere lo stesso widget alla pagina di iscrizione.
 
 ## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>Portale per sviluppatori Legacy-come accedere con Azure AD
 

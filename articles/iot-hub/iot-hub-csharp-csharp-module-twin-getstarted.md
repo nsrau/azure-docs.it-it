@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'identità del modulo e ai moduli gemelli dell'hub IoT di Azure (.NET) | Microsoft Docs
+title: Introduzione a identità del modulo dell'hub Azure Internet e & modulo gemello (.NET)
 description: Come creare l'identità del modulo e aggiornare il modulo gemello usando gli SDK per IoT per .NET.
 author: chrissie926
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
-ms.openlocfilehash: abf8b18d13e2990f053dd4273645dd7b9a324c77
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: e728d0ef8f52927687d56bd1d4c64f03c53ef401
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147751"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73947671"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Introduzione all'identità del modulo dell'hub Internet e al modulo gemello (.NET)
 
@@ -31,7 +31,7 @@ Al termine di questa esercitazione si ottengono due app console .NET:
 > [!NOTE]
 > Per informazioni sugli Azure IoT SDK che consentono di compilare le applicazioni da eseguire nei dispositivi e i back-end della soluzione, vedere [Azure IoT SDK](iot-hub-devguide-sdks.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Visual Studio.
 
@@ -57,7 +57,7 @@ Prima di iniziare, ottenere la stringa di connessione del modulo. Accedere al [p
 
    ![Dettagli del modulo nel portale di Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 
-1. In Visual Studio aggiungere un nuovo progetto alla soluzione selezionando **file** > **nuovo** > **progetto**. In crea un nuovo progetto selezionare **app console (.NET Framework)** e fare clic su **Avanti**.
+1. In Visual Studio aggiungere un nuovo progetto alla soluzione selezionando **File** > **nuovo** > **progetto**. In crea un nuovo progetto selezionare **app console (.NET Framework)** e fare clic su **Avanti**.
 
 1. Assegnare al progetto il nome *UpdateModuleTwinReportedProperties*. Per **soluzione**selezionare **Aggiungi a soluzione**. Verificare che la versione di .NET Framework sia 4.6.1 o successiva.
 
@@ -65,7 +65,7 @@ Prima di iniziare, ottenere la stringa di connessione del modulo. Accedere al [p
 
 1. Selezionare **Crea** per creare il progetto.
 
-1. In Visual Studio aprire **strumenti** >  > **Gestione pacchetti NuGet** **Gestisci pacchetti NuGet per la soluzione**. Selezionare la scheda **Sfoglia**.
+1. In Visual Studio aprire **strumenti** > **gestione pacchetti NuGet** > **gestire i pacchetti NuGet per la soluzione**. Selezionare la scheda **Sfoglia**.
 
 1. Cercare e selezionare **Microsoft. Azure. Devices. client**, quindi selezionare **Install (installa**).
 
@@ -151,7 +151,7 @@ Prima di iniziare, ottenere la stringa di connessione del modulo. Accedere al [p
 
     Questo esempio di codice mostra come recuperare il modulo gemello e aggiornare le proprietà segnalate con il protocollo AMQP. L'anteprima pubblica supporta AMQP solo per le operazioni di modulo gemello.
 
-1. Facoltativamente, è possibile aggiungere queste istruzioni al metodo **Main** per inviare un evento all'hub delle cose dal modulo. Posizionare queste righe sotto il `try catch` blocco.
+1. Facoltativamente, è possibile aggiungere queste istruzioni al metodo **Main** per inviare un evento all'hub delle cose dal modulo. Inserire queste righe al di sotto del blocco `try catch`.
 
     ```csharp
     Byte[] bytes = new Byte[2];

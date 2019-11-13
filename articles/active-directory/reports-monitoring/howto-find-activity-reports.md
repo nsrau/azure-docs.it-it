@@ -3,7 +3,7 @@ title: Trovare i report attività utente in portale di Azure | Microsoft Docs
 description: Informazioni su dove trovare i report attività utente di Azure Active Directory nel portale di Azure.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7fdf8c17c8dcbdc8203cb46342c8474b3d9832f
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820917"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008221"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
 
@@ -52,19 +52,19 @@ Il report dei log di controllo consente di consolidare i report seguenti:
 
 Le categorie includono:
 
-- Tutto
+- Tutti
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
-- Authorization
+- Autenticazione
+- Autorizzazione
 - Contatto
 - Dispositivo
 - DeviceConfiguration
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Altro
-- Policy
+- Altre
+- Criteri
 - ResourceManagement
 - RoleManagement
 - UserManagement
@@ -73,7 +73,7 @@ Le categorie includono:
 
 I servizi includono:
 
-- Tutto
+- Tutti
 - Verifiche di accesso
 - Provisioning degli account 
 - SSO applicazione
@@ -82,7 +82,7 @@ I servizi includono:
 - Accesso condizionale
 - Directory principale
 - Gestione entitlement
-- Protezione delle identità
+- Identity Protection
 - Utenti invitati
 - PIM
 - Gestione gruppi self-service
@@ -149,7 +149,7 @@ I report di sicurezza delle attività anomale Azure AD seguenti non sono inclusi
 
 I log attività (controllo o accessi) sono stati scaricati ma non vengono visualizzati tutti i record per l'orario scelto. Perché? 
 
- ![Creazione report](./media/troubleshoot-missing-data-download/01.png)
+ ![Creazione di report](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>Causa
 
@@ -165,13 +165,13 @@ Quando si scaricano i log attività nel portale di Azure, viene limitata la scal
 
 Sono state eseguite alcune azioni nel portale di Azure e si prevedeva la visualizzazione dei log di controllo per tali azioni nel pannello `Activity logs > Audit Logs`, ma non è possibile trovarli.
 
- ![Creazione report](./media/troubleshoot-missing-audit-data/01.png)
+ ![Creazione di report](./media/troubleshoot-missing-audit-data/01.png)
  
 #### <a name="cause"></a>Causa
 
 Le azioni non vengono visualizzate immediatamente nei log attività. La tabella seguente elenca i numeri di latenza per i log attività. 
 
-| Documentazione | &nbsp; | Latenza (P95) | Latenza (P99) |
+| Report | &nbsp; | Latenza (P95) | Latenza (P99) |
 |--------|--------|---------------|---------------|
 | Directory Audit (Controllo directory) | &nbsp; | 2 min | 5 min |
 | Attività di accesso | &nbsp; | 2 min | 5 min | 
@@ -186,13 +186,13 @@ Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate
 
 Di recente si è eseguito l'accesso al portale di Azure e si prevedeva la visualizzazione dei log di accesso per tali azioni nel pannello `Activity logs > Sign-ins`, ma non è possibile trovarli.
 
- ![Creazione report](./media/troubleshoot-missing-audit-data/02.png)
+ ![Creazione di report](./media/troubleshoot-missing-audit-data/02.png)
  
 #### <a name="cause"></a>Causa
 
 Le azioni non vengono visualizzate immediatamente nei log attività. La tabella seguente elenca i numeri di latenza per i log attività. 
 
-| Documentazione | &nbsp; | Latenza (P95) | Latenza (P99) |
+| Report | &nbsp; | Latenza (P95) | Latenza (P99) |
 |--------|--------|---------------|---------------|
 | Directory Audit (Controllo directory) | &nbsp; | 2 min | 5 min |
 | Attività di accesso | &nbsp; | 2 min | 5 min | 
@@ -207,13 +207,13 @@ Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate
 
 Non è possibile visualizzare più di 30 giorni di dati di accesso e controllo nel portale di Azure. Perché? 
 
- ![Creazione report](./media/troubleshoot-missing-audit-data/03.png)
+ ![Creazione di report](./media/troubleshoot-missing-audit-data/03.png)
 
 #### <a name="cause"></a>Causa
 
 In base alla licenza, Azioni di Azure Active Directory archivia i report delle attività per le durate seguenti:
 
-| Documentazione           | &nbsp; |  Azure AD Free | Azure AD P1 Premium | Azure AD P2 Premium |
+| Report           | &nbsp; |  Azure AD Free | Azure AD P1 Premium | Azure AD P2 Premium |
 | ---              | ----   |  ---           | ---                 | ---                 |
 | Directory Audit (Controllo directory)  | &nbsp; |   7 giorni     | 30 giorni             | 30 giorni             |
 | Attività di accesso | &nbsp; | Non disponibile. È possibile accedere alle informazioni di accesso per 7 giorni dal pannello del singolo profilo utente | 30 giorni | 30 giorni             |

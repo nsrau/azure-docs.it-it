@@ -8,12 +8,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 10/28/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: eedb9d811e35d606f4d3e1df55d9303d68678b3c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1749fb4c27a1bfa3048ec0e35c8a09556b0e995b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478748"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007745"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -32,7 +32,7 @@ Il prezzo per [applicazione Azure Insights][start] è un modello con **pagamento
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Stima dei costi per la gestione dell'applicazione 
 
-Se non si usa ancora Application Insights, è possibile usare il [calcolatore dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/calculator/?service=monitor) per stimare il costo dell'uso di Application Insights. Per iniziare, immettere "monitoraggio di Azure" nella casella di ricerca e fare clic sul riquadro Monitoraggio di Azure risultante. Scorrere la pagina verso il basso fino a monitoraggio di Azure e selezionare Application Insights dall'elenco a discesa tipo.  Qui è possibile immettere il numero di GB di dati che si prevede di raccogliere al mese, in modo che si metta in discussione la quantità di dati che Application Insights raccogliere il monitoraggio dell'applicazione. 
+Se non si usa ancora Application Insights, è possibile usare il [calcolatore dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/calculator/?service=monitor) per stimare il costo dell'uso di Application Insights. Per iniziare, immettere "monitoraggio di Azure" nella casella di ricerca e fare clic sul riquadro Monitoraggio di Azure risultante. Scorrere la pagina verso il basso fino a monitoraggio di Azure e selezionare Application Insights dall'elenco a discesa tipo.  Qui è possibile immettere il numero di GB di dati che si prevede di raccogliere al mese, quindi la domanda è la quantità di dati che Application Insights raccogliere il monitoraggio dell'applicazione. 
 
 Esistono due approcci per risolvere questo problema: l'uso del monitoraggio predefinito e del campionamento adattivo, disponibile in ASP.NET SDK, o la stima dell'inserimento di dati probabilmente in base a ciò che altri clienti simili hanno visto.
 
@@ -52,9 +52,9 @@ Application Insights offre informazioni per comprendere con facilità i possibil
 
 ![Scegliere i prezzi](./media/pricing/pricing-001.png)
 
-R. Esaminare il volume di dati per il mese. Sono inclusi tutti i dati ricevuti e conservati (dopo un [campionamento](../../azure-monitor/app/sampling.md)) dal server e dalle app client, oltre che dai test di disponibilità.  
+a. Esaminare il volume di dati per il mese. Sono inclusi tutti i dati ricevuti e conservati (dopo un [campionamento](../../azure-monitor/app/sampling.md)) dal server e dalle app client, oltre che dai test di disponibilità.  
 B. I costi per i [test Web in più passaggi](../../azure-monitor/app/availability-multistep.md) vengono addebitati separatamente. Non sono inclusi i test di disponibilità semplici, il cui costo viene addebitato con il volume di dati.  
-C. Visualizzare le tendenze del volume dei dati relative all'ultimo mese.  
+c. Visualizzare le tendenze del volume dei dati relative all'ultimo mese.  
 D. Abilitare il [campionamento](../../azure-monitor/app/sampling.md) per l'inserimento dei dati.   
 E. Impostare il limite giornaliero di utilizzo per volume dati.  
 
@@ -167,9 +167,9 @@ Per modificare il limite giornaliero, nella sezione **Configura** della risorsa 
 
 ![Regolazione del limite del volume dei dati di telemetria giornaliero](./media/pricing/pricing-003.png)
 
-Per [modificare il limite giornaliero tramite Azure Resource Manager](../../azure-monitor/app/powershell.md), la proprietà da modificare è la `dailyQuota`.  Tramite Azure Resource Manager è anche possibile impostare i `dailyQuotaResetTime` e il limite giornaliero `warningThreshold`. 
+Per [modificare il limite giornaliero tramite Azure Resource Manager](../../azure-monitor/app/powershell.md), la proprietà da modificare è la `dailyQuota`.  Tramite Azure Resource Manager è anche possibile impostare il `dailyQuotaResetTime` e la `warningThreshold`del Cap giornaliero. 
 
-## <a name="sampling"></a>campionamento
+## <a name="sampling"></a>Campionamento
 Il [campionamento](../../azure-monitor/app/sampling.md) è un metodo che consente di ridurre la velocità con cui i dati di telemetria vengono inviati all'app, pur mantenendo la possibilità di trovare gli eventi correlati durante le ricerche di diagnostica e il conteggio corretto degli eventi.
 
 Il campionamento consente di ridurre in modo efficace i costi e di non superare la quota mensile. L'algoritmo di campionamento conserva gli elementi correlati ai dati di telemetria, in modo che, quando si usa la ricerca, ad esempio, è possibile trovare la richiesta correlata a una particolare eccezione. L'algoritmo mantiene anche i conteggi corretti e consente di visualizzare in Esplora metriche i valori corretti della frequenza delle richieste, della frequenza delle eccezioni e di altri contatori.

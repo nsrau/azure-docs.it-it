@@ -1,6 +1,6 @@
 ---
-title: Come monitorare e ridurre la limitazione in Azure Time Series Insights | Microsoft Docs
-description: Questo articolo illustra come monitorare, diagnosticare e attenuare i problemi di prestazioni che causano latenza e limitazione in Azure Time Series Insights.
+title: Come monitorare e ridurre la limitazione delle richieste-Azure Time Series Insights | Microsoft Docs
+description: Informazioni su come monitorare, diagnosticare e attenuare i problemi di prestazioni che provocano la latenza e la limitazione delle richieste in Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4e82cdf43f568b6415cb7cb00ce0244654559b7d
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 7ea98baa9cb202e2584c18998c5ab96d1c1f9e5a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990142"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012647"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorare e ridurre la limitazione per evitare la latenza in Azure Time Series Insights
 
@@ -30,7 +30,7 @@ Quando la quantità di dati in ingresso è superiore alla configurazione dell'am
 - Aggiunta di un'origine eventi contenente dati meno recenti che potrebbero superare la velocità in ingresso assegnata, imponendo a Time Series Insights di recuperare.
 - Aggiunta di più origini eventi a un ambiente con conseguente picco a causa degli eventi aggiuntivi, che potrebbero superare la capacità dell'ambiente.
 - Push di grandi quantità di dati cronologici a un'origine eventi, che potrebbe determinare un ritardo imponendo a Time Series Insights di recuperare.
-- Aggiunta di dati di riferimento alla telemetria, che determina un aumento delle dimensioni degli eventi.  Dal punto di vista della limitazione, un pacchetto di dati in ingresso la cui dimensione è 32 KB viene interpretato come 32 eventi, ciascuno con dimensioni pari a 1 KB. La dimensione massima consentita per ogni evento è pari a 32 KB. Pertanto, i pacchetti di dati con dimensioni maggiori di 32 KB vengono troncati.
+- Aggiunta di dati di riferimento alla telemetria, che determina un aumento delle dimensioni degli eventi.  Dal punto di vista della limitazione, un pacchetto di dati in ingresso di dimensioni pari a 32 KB viene considerato come 32 eventi, ognuno di 1 KB di dimensioni. Le dimensioni massime degli eventi consentite sono 32 KB e i pacchetti di dati di dimensioni superiori a 32 KB vengono troncati.
 
 ## <a name="video"></a>Video
 
@@ -44,7 +44,7 @@ Gli avvisi consentono di diagnosticare e attenuare i problemi di latenza causati
 
 1. Nella portale di Azure selezionare **avvisi**.
 
-   [Avvisi![](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
+   [Avvisi ![](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
 
 1. Verrà quindi visualizzato il pannello **Crea regola** . Selezionare **Aggiungi** in **condizione**.
 
@@ -56,7 +56,7 @@ Gli avvisi consentono di diagnosticare e attenuare i problemi di latenza causati
 
    Da qui è possibile configurare gli avvisi usando alcune delle condizioni seguenti:
 
-   |Metrica  |Description  |
+   |Metrica  |DESCRIZIONE  |
    |---------|---------|
    |**Ingress Received Bytes** (Byte ricevuti in ingresso)     | Numero di byte non elaborati letti dalle origini eventi. Include in genere il nome e il valore delle proprietà.  |  
    |**Ingress Received Invalid Messages** (Messaggi non validi ricevuti in ingresso)     | Numero dei messaggi non validi letti da tutte le origini eventi di Hub eventi di Azure o Hub IoT di Azure.      |
@@ -66,15 +66,15 @@ Gli avvisi consentono di diagnosticare e attenuare i problemi di latenza causati
    |**Ingress Received Message Time Lag** (Tempo di ritardo messaggi ricevuti in ingresso)    |  Differenza in secondi tra l'ora in cui il messaggio viene accodato nell'origine eventi e l'ora di elaborazione in ingresso.      |
    |**Ingress Received Message Count Lag** (Ritardo numero di messaggi ricevuti in ingresso)    |  Differenza tra il numero di sequenza dell'ultimo messaggio accodato nella partizione di origine eventi e il numero di sequenza del messaggio elaborato in ingresso.      |
 
-   Selezionare **Operazione completata**.
+   Selezionare **Done**(Fine).
 
 1. Dopo aver configurato la logica del segnale desiderata, esaminare visivamente la regola di avviso scelta.
 
-   [ingresso![](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+   [ingresso ![](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
 
 ## <a name="throttling-and-ingress-management"></a>Limitazione e gestione in ingresso
 
-* Se si sta eseguendo la limitazione, verrà visualizzato un valore per l'intervallo di *tempo del messaggio in ingresso ricevuto*, che indica il numero di secondi di ritardo dell'ambiente Time Series Insights dall'ora effettiva in cui il messaggio raggiunge l'origine evento (escluso il tempo di indicizzazione di appx. 30-60 secondi.  
+* Se si sta eseguendo la limitazione, verrà visualizzato un valore per l'intervallo di *tempo del messaggio in ingresso ricevuto*, che indica il numero di secondi per cui l'ambiente Time Series Insights è compreso nell'ora effettiva in cui il messaggio raggiunge l'origine evento, escluso il tempo di indicizzazione di appx. 30-60 secondi.  
 
   Anche per *Ingress Received Message Count Lag* (Differenza numero messaggi ricevuti in ingresso) deve essere disponibile un valore, che consente di determinare di quanti messaggi si è in ritardo.  Il modo più semplice per mettersi in pari consiste nell'aumentare la capacità dell'ambiente fino a dimensioni che consentono di recuperare la differenza.  
 

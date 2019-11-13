@@ -1,19 +1,18 @@
 ---
-title: Escludere dischi dalla replica quando si configura il ripristino di emergenza con il servizio Azure Site Recovery | Microsoft Docs
+title: Escludere i dischi dalla replica nel ripristino di emergenza con Azure Site Recovery
 description: Questo articolo descrive come escludere dalla replica dischi di macchine virtuali durante il ripristino di emergenza in Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 11/12/2019
 ms.author: mayg
-ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12304067e1a92559c2313fd7382f271249a8c784
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773940"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961447"
 ---
 # <a name="exclude-disks-from-replication"></a>Escludere dischi dalla replica
 Questo articolo descrive come escludere dischi dalla replica, in modo da ottimizzare la larghezza di banda di replica usata o le risorse lato destinazione usate dai dischi.
@@ -22,7 +21,7 @@ Questo articolo descrive come escludere dischi dalla replica, in modo da ottimiz
 
 **Funzionalità** | **Da VMware ad Azure** | **Da Hyper-V ad Azure** | **Da Azure ad Azure**| **Da Hyper-V a Hyper-V** 
 --|--|--|--|--
-Esclusione disco | Yes | Sì | No | No
+Esclusione disco | Sì | Sì | No | No
 
 ## <a name="why-exclude-disks-from-replication"></a>Perché escludere dischi dalla replica
 Spesso è necessario escludere dischi dalla replica per i motivi riportati di seguito:
@@ -135,7 +134,7 @@ Per creare questo percorso, è possibile procedere in due modi:
 Vedere le linee guida di Azure seguenti per il disco di archiviazione temporanea:
 
 * [Using SSDs in Azure VMs to store SQL Server TempDB and Buffer Pool Extensions](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) (Uso di SSD in VM di Azure per archiviare estensioni del pool di buffer e del tempdb di SQL Server)
-* [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
+* [Performance best practices for SQL Server in Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance) (Procedure consigliate sulle prestazioni per SQL Server nelle macchine virtuali di Azure)
 
 ## <a name="failback-from-azure-to-an-on-premises-host"></a>Failback da Azure a un host locale
 Questa sezione illustra quali dischi vengono replicati quando si esegue il failover da Azure all'host Hyper-V locale. Per i dischi creati manualmente in Azure non viene eseguita la replica. Se, ad esempio, si esegue il failover di tre dischi e se ne creano due direttamente in Macchine virtuali di Azure, viene eseguito il failback solo dei tre dischi sottoposti a failover. Non è possibile includere i dischi creati manualmente nel failback o nella riprotezione da locale ad Azure. Negli host locali non viene eseguita la replica neppure del disco di archiviazione temporanea.
@@ -163,7 +162,7 @@ DB-Disk2 (disco escluso) | Disk2 | E:\ | File temporanei
 DB-Disk3 (disco escluso) | Disk3 | F:\ | Database tempdb SQL (percorso della cartella, F:\MSSQL\Data\)
 DB-Disk4 | Disk4 | G:\ | Database2 dell'utente
 
-## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Esempio 2 Escludere il disco del file di paging (pagefile.sys)
+## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Esempio 2: Escludere il disco del file di paging (pagefile.sys)
 
 Si prenda ad esempio una macchina virtuale con un disco del file di paging che è possibile escludere.
 I casi possibili sono due:

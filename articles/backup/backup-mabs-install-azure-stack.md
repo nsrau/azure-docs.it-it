@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: bdcd7cbd24ca7023070585df46aa8cea7bdc70eb
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 7716fba7a16b393143ffb9c97e7203e15bc07d82
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747298"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012946"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installare il server di Backup di Azure in Azure Stack
 
@@ -124,7 +124,7 @@ Per modificare le impostazioni di replica di archiviazione:
 
 ## <a name="download-azure-backup-server-installer"></a>Scaricare il programma di installazione del server di Backup di Azure
 
-Esistono due modi per scaricare il programma di installazione del server di Backup di Azure. Il programma di installazione del server di Backup di Azure può essere scaricato dall'[Area download Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55269). È inoltre possibile scaricare il programma di installazione del server di Backup di Azure durante la configurazione di un insieme di credenziali di Servizi di ripristino. I passaggi seguenti consentono di eseguire il download del programma di installazione dal portale di Azure durante la configurazione di un insieme di credenziali di Servizi di ripristino.
+Esistono due modi per scaricare il programma di installazione del server di Backup di Azure. Il programma di installazione del server di Backup di Azure può essere scaricato dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=55269). È inoltre possibile scaricare il programma di installazione del server di Backup di Azure durante la configurazione di un insieme di credenziali di Servizi di ripristino. I passaggi seguenti consentono di eseguire il download del programma di installazione dal portale di Azure durante la configurazione di un insieme di credenziali di Servizi di ripristino.
 
 1. Dalla macchina virtuale di Azure Stack [accedere alla propria sottoscrizione di Azure nel portale di Azure](https://portal.azure.com/).
 2. Nel menu a sinistra selezionare **Tutti i servizi**.
@@ -223,7 +223,7 @@ Il server di Backup di Azure condivide codice con Data Protection Manager. Verra
 
     ![Server di backup di Azure - Pagina iniziale e controllo dei prerequisiti](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    Se l'ambiente soddisfa tutti i prerequisiti, verrà visualizzato un messaggio che indica che il computer soddisfa i requisiti. Fare clic su **Avanti**.  
+    Se l'ambiente soddisfa tutti i prerequisiti, verrà visualizzato un messaggio che indica che il computer soddisfa i requisiti. Fare clic su **Next** (Avanti).  
 
     ![Server di Backup di Azure - Controllo dei prerequisiti superato](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 
@@ -326,18 +326,18 @@ La prima copia di backup viene salvata in una risorsa di archiviazione collegata
 
 Per il corretto funzionamento del prodotto, il server di Backup di Azure richiede la connettività al servizio Backup di Azure. Per convalidare la connettività del computer ad Azure, usare il cmdlet ```Get-DPMCloudConnection``` nella console di PowerShell del server di Backup di Azure. C'è connettività solo se l'output del cmdlet è TRUE.
 
-Allo stesso tempo, è necessario che la sottoscrizione di Azure sia in uno stato integro. Per verificare lo stato della sottoscrizione e gestirla, accedere al [portale delle sottoscrizioni](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+Allo stesso tempo è necessario che la sottoscrizione di Azure sia in uno stato integro. Per conoscere lo stato della sottoscrizione e gestirla, accedere al [portale di sottoscrizione](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 Dopo avere verificato lo stato della connettività di Azure e della sottoscrizione di Azure, è possibile usare la tabella seguente per scoprire l'impatto della funzionalità di backup/ripristino offerta.
 
 | Stato di connettività | Sottoscrizione di Azure | Eseguire il backup in Azure | Eseguire il backup su disco | Ripristino da Azure | Ripristino da disco |
 | --- | --- | --- | --- | --- | --- |
 | Connesso |Attivo |Consentito |Consentito |Consentito |Consentito |
-| Connesso |Scaduto |Arrestato |Arrestato |Consentito |Consentito |
-| Connesso |Deprovisioning eseguito |Arrestato |Arrestato |Arrestato e punti di ripristino di Azure eliminati |Arrestato |
-| Connettività persa > 15 giorni |Attivo |Arrestato |Arrestato |Consentito |Consentito |
-| Connettività persa > 15 giorni |Scaduto |Arrestato |Arrestato |Consentito |Consentito |
-| Connettività persa > 15 giorni |Deprovisioning eseguito |Arrestato |Arrestato |Arrestato e punti di ripristino di Azure eliminati |Arrestato |
+| Connesso |Scaduto |Stopped |Stopped |Consentito |Consentito |
+| Connesso |Deprovisioning eseguito |Stopped |Stopped |Arrestato e punti di ripristino di Azure eliminati |Stopped |
+| Connettività persa > 15 giorni |Attivo |Stopped |Stopped |Consentito |Consentito |
+| Connettività persa > 15 giorni |Scaduto |Stopped |Stopped |Consentito |Consentito |
+| Connettività persa > 15 giorni |Deprovisioning eseguito |Stopped |Stopped |Arrestato e punti di ripristino di Azure eliminati |Stopped |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recupero dalla perdita di connettività
 

@@ -1,5 +1,5 @@
 ---
-title: Come gestire le funzionalità di connettività e messaggistica affidabile con gli Azure IoT Hub SDK per dispositivi
+title: Gestire la connettività dell'hub Internet & la messaggistica affidabile con SDK per dispositivi
 description: Informazioni su come migliorare le funzionalità di connettività e messaggistica dei dispositivi quando si usano gli SDK per dispositivi dell'hub IoT di Azure
 services: iot-hub
 author: robinsh
@@ -7,12 +7,12 @@ ms.author: robinsh
 ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
-ms.openlocfilehash: b5fe47bf066568960f9819a780a1281bedd1902b
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8774129b3a1d3c9a1095e7a7c478dd94086b5867
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000000"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954487"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Gestire le funzionalità di connettività e messaggistica affidabile con gli Azure IoT Hub SDK per dispositivi
 
@@ -34,7 +34,7 @@ I dettagli di implementazione possono variare in base alla lingua. Per altre inf
 
 * [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
-* [SDK Python](https://github.com/Azure/azure-iot-sdk-python) (Affidabilità non ancora implementata)
+* [Python SDK](https://github.com/Azure/azure-iot-sdk-python) (affidabilità non ancora implementata)
 
 ## <a name="designing-for-resiliency"></a>Progettazione per la resilienza
 
@@ -79,7 +79,7 @@ Gli SDK prevedono tre criteri di ripetizione dei tentativi:
 
 * **Interruzione temporanea esponenziale con instabilità**: criteri di ripetizione dei tentativi predefiniti che tendono a essere aggressivi all'inizio e rallentano fino a raggiungere il ritardo massimo. La progettazione si basa sulle [indicazioni relative alla ripetizione dei tentativi](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific) del Centro architetture Azure. 
 
-* **Ripetizione dei tentativi personalizzata**: per alcuni linguaggi dell'SDK, è possibile progettare i criteri di ripetizione dei tentativi più adatti al proprio scenario e inserirli in RetryPolicy. La ripetizione dei tentativi personalizzata non è disponibile nell'SDK per il linguaggio C.
+* **Ripetizione dei tentativi personalizzata**: per alcuni linguaggi SDK, è possibile progettare i criteri di ripetizione dei tentativi più adatti al proprio scenario e inserirli in RetryPolicy. La ripetizione dei tentativi personalizzata non è disponibile nell'SDK per il linguaggio C.
 
 * **Nessun tentativo**: è possibile impostare i criteri di ripetizione su "Nessun tentativo", in modo da disabilitare la logica di ripetizione dei tentativi. L'SDK prova a connettersi e a inviare un messaggio una sola volta, supponendo che la connessione sia stata stabilita. Questi criteri vengono solitamente usati nei casi in cui sono presenti problemi relativi alla larghezza di banda o ai costi. Se si sceglie questa opzione, i messaggi non inviati vengono persi e non possono essere recuperati.
 

@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 4680804017a9b08248bb41ff999c6ba6371e99c8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: aae502b350f2cf2e98849b2b6e25543516a0c547
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675921"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961830"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Trasformazione join nel flusso di dati di mapping
 
@@ -36,7 +36,7 @@ Right outer join restituisce tutte le righe dal flusso destro e i record corrisp
 
 ### <a name="full-outer"></a>Full outer join
 
-Il outer join completo restituisce tutte le colonne e le righe da entrambi i lati con valori NULL per le colonne non corrispondenti.
+Il outer join completo restituisce tutte le colonne e le righe di entrambi i lati con valori NULL per le colonne non corrispondenti.
 
 ### <a name="cross-join"></a>Cross join
 

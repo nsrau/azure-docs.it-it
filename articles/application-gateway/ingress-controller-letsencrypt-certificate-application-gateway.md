@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 2e91a888d0dc98a4f94b956e15336d75291f733e
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 92e9747865f1a0910c8bae4001cc597ae9ea3da6
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795909"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73957975"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>Usare i certificati con LetsEncrypt.org nel gateway applicazione per i cluster AKS
 
@@ -130,8 +130,12 @@ Attenersi alla procedura seguente per installare [Cert-Manager](https://docs.cer
     Dopo alcuni secondi, è possibile accedere al servizio `guestbook` tramite l'URL HTTPS del gateway applicazione usando il certificato `Lets Encrypt` di **gestione temporanea** emesso automaticamente.
     Il browser potrebbe avvertire l'utente di un'autorità di certificazione non valida. Il certificato di gestione temporanea viene emesso dal `CN=Fake LE Intermediate X1`. Ciò indica che il sistema ha funzionato come previsto e che si è pronti per il certificato di produzione.
 
-4. Certificato di produzione dopo che il certificato di gestione temporanea è stato configurato correttamente, è possibile passare a un server ACME di produzione:
+4. Certificato di produzione
+
+    Quando il certificato di gestione temporanea è stato configurato correttamente, è possibile passare a un server ACME di produzione:
     1. Sostituire l'annotazione di gestione temporanea nella risorsa in ingresso con: `certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
     1. Eliminare il `ClusterIssuer` di staging esistente creato nel passaggio precedente e crearne uno nuovo sostituendo il server ACME dal ClusterIssuer YAML precedente con `https://acme-v02.api.letsencrypt.org/directory`
 
-5. Scadenza e rinnovo del certificato prima della scadenza del certificato `Lets Encrypt`, `cert-manager` aggiornerà automaticamente il certificato nell'archivio segreto Kubernetes. A questo punto, il controller di ingresso del gateway applicazione applicherà il segreto aggiornato a cui viene fatto riferimento nelle risorse di ingresso usate per configurare il gateway applicazione.
+5. Scadenza e rinnovo del certificato
+
+    Prima della scadenza del certificato `Lets Encrypt`, `cert-manager` aggiornerà automaticamente il certificato nell'archivio segreto Kubernetes. A questo punto, il controller di ingresso del gateway applicazione applicherà il segreto aggiornato a cui viene fatto riferimento nelle risorse di ingresso usate per configurare il gateway applicazione.

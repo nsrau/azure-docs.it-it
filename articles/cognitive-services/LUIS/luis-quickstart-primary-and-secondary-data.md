@@ -95,7 +95,7 @@ Dopo che le entità sono contrassegnate nelle espressioni di esempio, è importa
 
 1. Nell'espressione `I want to apply for the new accounting job` selezionare `accounting` immettere `Job` nel campo in alto nel menu a comparsa e quindi scegliere **Create new entity** (Crea nuova entità) dal menu a comparsa. 
 
-    [![Screenshot di LUIS con la finalità "ApplyForJob" con i passaggi di creazione dell'entità evidenziati](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Screenshot di LUIS con la finalità "ApplyForJob" con i passaggi di creazione dell'entità evidenziati")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![Screenshot di LUIS con la finalità ApplyForJob con i passaggi di creazione dell'entità evidenziati](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Screenshot di LUIS con la finalità ApplyForJob con i passaggi di creazione dell'entità evidenziati")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 1. Nella finestra popup verificare il nome dell'entità e selezionare **Done** (Fine).
 

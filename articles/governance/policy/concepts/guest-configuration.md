@@ -1,27 +1,24 @@
 ---
 title: Informazioni su come controllare il contenuto delle macchine virtuali
 description: Informazioni su come i criteri di Azure usano la configurazione Guest per controllare le impostazioni all'interno di una macchina di Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 0e5592f629646db3132ffd65fd56b1a0d5d5be39
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 5148ecb2f10a2ac517c5cf6c7f682a0f25808910
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581438"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959775"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
-Oltre al controllo e alla [correzione](../how-to/remediate-resources.md) delle risorse di Azure, i criteri di Azure possono controllare le impostazioni all'interno di un computer. La convalida viene eseguita dall'estensione della configurazione guest e dal client. L'estensione, tramite il client, convalida le impostazioni come:
+Oltre al controllo e alla [correzione](../how-to/remediate-resources.md) delle risorse di Azure, i criteri di Azure possono controllare le impostazioni all'interno di un computer. La convalida viene eseguita dall'estensione della configurazione guest e dal client. L'estensione, tramite il client, convalida impostazioni come:
 
 - Configurazione del sistema operativo
 - Configurazione o presenza di applicazioni
 - Impostazioni dell'ambiente
 
-A questo punto, la configurazione Guest di criteri di Azure controlla solo le impostazioni all'interno della macchina. Non applica le configurazioni.
+Al momento, Configurazione guest di Criteri di Azure controlla solo le impostazioni all'interno del computer. Non applica le configurazioni.
 
 ## <a name="extension-and-client"></a>Estensione e client
 
@@ -62,7 +59,7 @@ All'interno del computer, il client di configurazione Guest utilizza gli strumen
 
 La tabella seguente elenca gli strumenti locali usati on ciascun sistema operativo supportato:
 
-|Sistema operativo|Strumento di convalida|Note|
+|Sistema operativo|Strumento di convalida|note|
 |-|-|-|
 |Windows|[Microsoft DSC (Desired State Configuration)](/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby e Python vengono installati dall'estensione della configurazione guest. |
@@ -75,12 +72,12 @@ Il client della configurazione guest verifica la presenza di nuovi contenuti ogn
 
 La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
 
-|Editore|Name|Versioni|
+|Autore|Nome|Versioni|
 |-|-|-|
 |Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
-|Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 datacenter, 2019 Datacenter|
-|Microsoft|Client Windows|Windows 10|
+|Macchina virtuale|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 datacenter, 2019 Datacenter|
+|Macchina virtuale|Client Windows|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
 |Red Hat|Red Hat Enterprise Linux.|7.4, 7.5|
 |SUSE|SLES|12 SP3|
@@ -159,7 +156,7 @@ Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindo
 
 Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
 
-Dove `<version>` si riferisce al numero di versione corrente.
+Dove `<version>` fa riferimento al numero di versione corrente.
 
 ### <a name="collecting-logs-remotely"></a>Raccolta di log in modalità remota
 

@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'identità del modulo e ai moduli gemelli dell'hub IoT di Azure (portale e .NET) | Microsoft Docs
+title: Identità del modulo Hub Azure Internet delle cose & modulo gemello (portale e .NET)
 description: Come creare l'identità del modulo e aggiornare il modulo gemello usando il portale e .NET.
 author: robinsh
 manager: philmea
@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 395b1fd3301925db0607f775c6b7367979ba367b
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 289c269100eb6ab672bb8d60562c1fa77d8d091a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147425"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954610"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Creare l'identità del modulo e i moduli gemelli dell'hub IoT con il portale e l'SDK per dispositivi .NET
 
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà:
 > Per informazioni sugli SDK di Azure per le cose che è possibile usare per compilare entrambe le applicazioni da eseguire nei dispositivi e il back-end della soluzione, vedere gli [SDK di Azure](iot-hub-devguide-sdks.md).
 >
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Visual Studio.
 
@@ -82,7 +82,7 @@ Per creare un'app che aggiorna le proprietà segnalate dal modulo gemello, atten
 
 Le funzionalità di identità del modulo e di modulo gemello sono disponibili in anteprima pubblica. È disponibile solo nella versione non definitiva degli SDK per dispositivi. Per installarlo, attenersi alla seguente procedura:
 
-1. In Visual Studio aprire **strumenti** >  > **Gestione pacchetti NuGet** **Gestisci pacchetti NuGet per la soluzione**.
+1. In Visual Studio aprire **strumenti** > **gestione pacchetti NuGet** > **gestire i pacchetti NuGet per la soluzione**.
 
 1. Selezionare **Sfoglia**, quindi selezionare **Includi versione preliminare**. Cercare *Microsoft. Azure. Devices. client*. Selezionare la versione più recente e installarla.
 
@@ -92,7 +92,7 @@ Le funzionalità di identità del modulo e di modulo gemello sono disponibili in
 
 ### <a name="get-your-module-connection-string"></a>Ottenere la stringa di connessione del modulo
 
-È necessaria la stringa di connessione del modulo per l'app console. A tale scopo, seguire questa procedura:
+È necessaria la stringa di connessione del modulo per l'app console. Seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 

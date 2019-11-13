@@ -1,6 +1,6 @@
 ---
-title: Come configurare Postman in Gemelli digitali di Azure | Microsoft Docs
-description: Come configurare Postman per Gemelli digitali di Azure.
+title: Come configurare un post per i dispositivi gemelli digitali di Azure | Microsoft Docs
+description: Informazioni su come configurare e usare il post per testare le API di dispositivi gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 14e6a52f86586eaae019d9658c2f813a15fc3474
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 5a357a246f2ba6c294b107e447218f386623f5c5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949216"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014186"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Come configurare Postman per Gemelli digitali di Azure
 
@@ -37,7 +37,7 @@ Configurare l'app di Azure Active Directory per usare il flusso di concessione i
 
 1. Aprire il riquadro **Autorizzazioni API** per la app registrazione app. Selezionare il pulsante **Aggiungi un'autorizzazione**. Nel riquadro **Richiedi le autorizzazioni dell'API** selezionare la scheda **API usate dall'organizzazione** e quindi cercare:
     
-    1. `Azure Digital Twins` (Indici per tabelle con ottimizzazione per la memoria). Selezionare l'API **Gemelli digitali di Azure**.
+    1. `Azure Digital Twins`. Selezionare l'API **Gemelli digitali di Azure**.
 
         [![Cercare l'API Gemelli digitali di Azure](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
@@ -46,7 +46,7 @@ Configurare l'app di Azure Active Directory per usare il flusso di concessione i
         [![Cercare l'API Azure Smart Spaces](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
 
     > [!IMPORTANT]
-    > Il nome e l'ID dell'API Azure AD che verranno visualizzati dipendono dal tenant:
+    > Il nome e l'ID dell'API di Azure AD che verranno visualizzati dipendono dal tenant:
     > * Gli account dei clienti e dei tenant di test devono cercare `Azure Digital Twins`.
     > * Gli altri account Microsoft devono cercare `Azure Smart Spaces Service`.
 
@@ -56,7 +56,7 @@ Configurare l'app di Azure Active Directory per usare il flusso di concessione i
 
 1. A seconda delle impostazioni dell'organizzazione, potrebbe essere necessario eseguire passaggi aggiuntivi per concedere l'accesso amministratore a questa API. Contattare l'amministratore per altre informazioni. Una volta approvato l'accesso amministratore, la colonna **CONSENSO AMMINISTRATORE OBBLIGATORIO** nel riquadro **Autorizzazioni API** sarà simile a quanto illustrato di seguito per le API:
 
-    [![Aggiungere autorizzazioni API](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
+    [approvazione del consenso dell'amministratore di ![](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
 
 1. Selezionare **manifesto** per aprire il manifesto dell'applicazione per l'app. Impostare *oauth2AllowImplicitFlow* su `true`.
@@ -65,7 +65,7 @@ Configurare l'app di Azure Active Directory per usare il flusso di concessione i
 
 1. Configurare un **URL di risposta** su `https://www.getpostman.com/oauth2/callback`.
 
-    [![Azure Active Directory URL di risposta](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
+    [URL di risposta ![Azure Active Directory](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
 
 1. Copiare e conservare l'**ID applicazione** dell'app di Azure Active Directory. Viene usato nei passaggi seguenti.
 
@@ -85,25 +85,25 @@ Configurare e configurare il post per ottenere un token di Azure Active Director
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | Attività  | Sostituire con | Esempio |
+    | Nome  | Sostituire con | Esempio |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | Il nome del tenant o dell'organizzazione | `microsoft` |
 
 1. Selezionare la scheda **Authorization** (Autorizzazione), **OAuth 2.0** e quindi **Get New Access Token** (Ottieni nuovo token di accesso).
 
-    | Campo  | Value |
+    | Campo  | Valore |
     |---------|---------|
     | Grant Type (Tipo di concessione) | `Implicit` |
     | Callback URL (URL callback) | `https://www.getpostman.com/oauth2/callback` |
     | Auth URL (URL autorizzazione) | Usare l' **URL di autorizzazione** del **passaggio 2** |
-    | ID client | Usare l' **ID applicazione** per l'app Azure Active Directory creata o riutilizzata nella sezione precedente |
-    | `Scope` | Lasciare vuoto |
-    | State | Lasciare vuoto |
-    | Autenticazione client | `Send as Basic Auth header` |
+    | ID Client | Usare l' **ID applicazione** per l'app Azure Active Directory creata o riutilizzata nella sezione precedente |
+    | Ambito | Lasciare vuoto |
+    | Stato | Lasciare vuoto |
+    | Client Authentication (Autenticazione client) | `Send as Basic Auth header` |
 
 1. Il client ora dovrebbe essere visualizzato come:
 
-    [esempio di client ![Postman](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
+    [esempio di client Post ![](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
 1. Selezionare **Request Token** (Richiedi token).
 
@@ -119,14 +119,14 @@ Dopo aver completato i passaggi precedenti, configurare Postman per eseguire una
 
 1. Nella scheda **Intestazione** aggiungere una chiave dell'intestazione della richiesta HTTP **Content-Type** con valore `multipart/mixed`.
 
-   [tipo ![Content multipart/mixed](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
+   [tipo di contenuto ![multipart/mixed](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. Serializzare i dati non di testo nel file. I dati JSON verranno salvati come un file JSON.
 1. Nella scheda **corpo** selezionare `form-data`. 
 1. Aggiungere ogni file assegnando un nome di **chiave** , selezionando `file`.
 1. Quindi, selezionare ogni file tramite il pulsante **Scegliere un file**.
 
-   [esempio di client ![Postman](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
+   [esempio di client Post ![](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
 
    >[!NOTE]
    > * Il client di Postman non richiede che ai blocchi multipart sia assegnata manualmente un'informazione **Content-Type** oppure **Content-Disposition**.

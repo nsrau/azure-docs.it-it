@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 0fbd8404e326ecc6fabef8c89991009809b1448b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 78f8b7097060f1091bfed30722c9ea456feed384
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820520"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007285"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Un mondo senza password con Azure Active Directory
 
@@ -24,7 +24,7 @@ Tre tipi di attacchi comunemente usati per compromettere gli account utente sono
 
 Questo articolo è l'inizio del viaggio per facilitare la comprensione e l'implementazione delle soluzioni di Microsoft per la password e consente di scegliere tra una o più delle opzioni seguenti:
 
-* **Windows Hello for business**. In Windows 10, Windows Hello for business sostituisce le password con l'autenticazione a due fattori avanzata nei PC e nei dispositivi mobili. Questo processo di autenticazione è costituito da un nuovo tipo di credenziale utente, che è associata a un dispositivo e usa un sensore biometrico o un PIN.
+* **Windows Hello for business**. In Windows 10, Windows Hello for business sostituisce le password con l'autenticazione a due fattori avanzata nei PC e nei dispositivi mobili. Questa autenticazione è costituita da un nuovo tipo di credenziale utente associato a un dispositivo e che usa un riconoscimento biometrico o un PIN.
 
 * **Accesso senza password con Microsoft Authenticator**. L'app Microsoft Authenticator può essere usata per accedere a un account Azure AD senza usare una password. Analogamente alla tecnologia di Windows Hello for business, il Microsoft Authenticator usa l'autenticazione basata su chiavi per abilitare le credenziali utente associate a un dispositivo e usa una metrica o un PIN.
 
@@ -293,13 +293,13 @@ Usare la tabella seguente per scegliere il metodo che supporterà i requisiti e 
 
 |Utente tipo|Scenario|Environment|Tecnologia con password|
 |:-|:-|:-|:-|
-|**Admin**|Proteggere l'accesso a un dispositivo per le attività di gestione|Dispositivo Windows 10 assegnato|Chiave di sicurezza di Windows Hello for business e/o FIDO2|
-|**Admin**|Attività di gestione su dispositivi non Windows| Dispositivo mobile o non Windows|Accesso senza password con l'app Microsoft Authenticator|
+|**Administration**|Proteggere l'accesso a un dispositivo per le attività di gestione|Dispositivo Windows 10 assegnato|Chiave di sicurezza di Windows Hello for business e/o FIDO2|
+|**Administration**|Attività di gestione su dispositivi non Windows| Dispositivo mobile o non Windows|Accesso senza password con l'app Microsoft Authenticator|
 |**Information Worker**|Lavoro di produttività|Dispositivo Windows 10 assegnato|Chiave di sicurezza di Windows Hello for business e/o FIDO2|
 |**Information Worker**|Lavoro di produttività| Dispositivo mobile o non Windows|Accesso senza password con l'app Microsoft Authenticator|
 |**Ruolo di lavoro Frontline**|Chioschi in una fabbrica, impianto, vendita al dettaglio o immissione di dati|Dispositivi Windows 10 condivisi|Chiavi di sicurezza FIDO2|
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Per iniziare
 
 L'autenticazione senza password è l'onda del futuro e il percorso di un ambiente più sicuro. È consigliabile che le organizzazioni inizino a pianificare questa modifica e ridurne le dipendenze sulle password. Per iniziare, considerare gli obiettivi seguenti:
 

@@ -1,5 +1,5 @@
 ---
-title: Configurare il ripristino di emergenza per un'applicazione Web basata su IIS multilivello con Azure Site Recovery | Microsoft Docs
+title: Configurare il ripristino di emergenza per un'app Web IIS usando Azure Site Recovery
 description: Informazioni su come eseguire la replica di macchine virtuali Web farm IIS usando Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 66b9342f1a67c4c9d35fda447a297cc64d048c1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 513a0f28fc03cbf24e35112245c9756d5ce00783
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480301"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954657"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurare il ripristino di emergenza per un'applicazione Web basata su IIS multilivello
 
@@ -26,7 +26,7 @@ Una buona soluzione di ripristino di emergenza supporta la modellazione di piani
 
 Questo articolo descrive come proteggere un'applicazione Web basata su Internet Information Services (IIS) usando [Azure Site Recovery](site-recovery-overview.md). L'articolo illustra le procedure consigliate per la replica di un'applicazione Web a tre livelli basata su IIS in Azure. Spiega anche come eseguire un'analisi di ripristino di emergenza e come effettuare il failover dell'applicazione in Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, assicurarsi di conoscere le procedure per eseguire le attività seguenti:
 
@@ -60,10 +60,10 @@ Ai fini di questo articolo sono state usate macchine virtuali VMware con IIS 7.5
 
 Scenario | In un sito secondario | In Azure
 --- | --- | ---
-Hyper-V | Yes | Yes
-VMware | Yes | Yes
-Server fisico | No | Yes
-Azure|NA|Yes
+Hyper-V | Sì | Sì
+VMware | Sì | Sì
+Server fisico | No | Sì
+Azure|ND|Sì
 
 ## <a name="replicate-virtual-machines"></a>Replicare le macchine virtuali
 

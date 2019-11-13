@@ -1,6 +1,6 @@
 ---
-title: Eseguire query sui dati da un ambiente Azure Time Series Insights C# anteprima usando il codice | Microsoft Docs
-description: Questo articolo descrive come eseguire query sui dati di un ambiente Azure Time Series Insights mediante la codifica di un'app personalizzata scritta nel linguaggio C# (C-sharp) .NET.
+title: Eseguire query sui dati da un ambiente C# di anteprima utilizzando-Azure Time Series Insights | Microsoft Docs
+description: Informazioni su come eseguire query sui dati da un ambiente di Azure Time Series Insights usando un'app C#scritta in.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 46ade3ed6e8712a074974c81e51b2dd6c834db26
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 806460e5e4336624c6b0ead59dd5632e730c69e5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989672"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014723"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Eseguire query sui dati dall'ambiente Azure Time Series Insights anteprima usandoC#
 

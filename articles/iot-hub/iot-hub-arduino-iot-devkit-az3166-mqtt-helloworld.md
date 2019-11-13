@@ -1,5 +1,5 @@
 ---
-title: Inviare messaggi a un server MQTT usando la libreria client MQTT di Azure| Microsoft Docs
+title: Inviare messaggi a un server MQTT usando la libreria client di Azure MQTT
 description: Informazioni su come usare la libreria client MQTT per inviare messaggi a un broker MQTT. Informazioni su come configurare il DevKit di mXChip in modo che sia un client MQTT.
 author: liydu
 manager: jeffya
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 4de8b0910a2be48cc626775c5c9bc873c6e780dc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 14feb02fbac800cd37da882a1872beb8269d9938
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889542"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954234"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Inviare messaggi a un server MQTT
 

@@ -1,5 +1,5 @@
 ---
-title: Configurare il ripristino di emergenza di macchine virtuali VMware in Azure tramite PowerShell in Azure Site Recovery | Microsoft Docs
+title: Configurare il ripristino di emergenza di VMware con PowerShell in Azure site Revo
 description: Informazioni su come configurare la replica e il failover in Azure per il ripristino di emergenza delle macchine virtuali VMware tramite PowerShell in Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 06/30/2019
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 7c13bb8586995a82ee240df39a9c95a67743e2a8
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 9546ae590918cdf6f3a6a95b9a68e9208054dcee
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503350"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953937"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurare il ripristino di emergenza di VM VMware in Azure con PowerShell
 
@@ -25,28 +25,28 @@ Si apprenderà come:
 > - Convalidare la registrazione di server nell'insieme di credenziali.
 > - Configurare la replica, tra cui un criterio di replica. Aggiungere il server vCenter e individuare le macchine virtuali.
 > - Aggiungere un server vCenter e individuare
-> - Creare account di archiviazione per contenere dati o i log di replica e replicare le macchine virtuali.
-> - Eseguire un failover. Configurare le impostazioni di failover, eseguire delle impostazioni per la replica di macchine virtuali.
+> - Creare gli account di archiviazione per conservare i log o i dati di replica e replicare le macchine virtuali.
+> - Eseguire un failover. Configurare le impostazioni di failover, eseguire le impostazioni per la replica delle macchine virtuali.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare:
 
 - Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](vmware-azure-architecture.md).
-- Verificare i [requisiti di supporto](site-recovery-support-matrix-to-azure.md) per tutti i componenti.
-- Si dispone di Azure PowerShell `Az` modulo. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
+- Esaminare i [requisiti di supporto](site-recovery-support-matrix-to-azure.md) per tutti i componenti.
+- Il modulo Azure PowerShell `Az`. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Accedere ad Azure
 
-Accedere alla propria sottoscrizione di Azure usando il cmdlet Connect-AzAccount:
+Accedere alla sottoscrizione di Azure usando il cmdlet Connect-AzAccount:
 
 ```azurepowershell
 Connect-AzAccount
 ```
-Selezionare la sottoscrizione di Azure in cui si vogliono replicare le macchine virtuali VMware. Usare il cmdlet Get-AzSubscription per ottenere l'elenco delle sottoscrizioni di Azure che ha accesso a. Selezionare la sottoscrizione di Azure da usare tramite il cmdlet Select-AzSubscription.
+Selezionare la sottoscrizione di Azure in cui si vogliono replicare le macchine virtuali VMware. Usare il cmdlet Get-AzSubscription per ottenere l'elenco delle sottoscrizioni di Azure a cui si ha accesso. Selezionare la sottoscrizione di Azure da usare con il cmdlet Select-AzSubscription.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionName "ASR Test Subscription"
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Impostare il contesto dell'insieme di credenziali usando il cmdlet Set-ASRVaultContext. In questo modo, le successive operazioni di Azure Site Recovery nella sessione di PowerShell verranno eseguite nel contesto dell'insieme di credenziali selezionato.
 
 > [!TIP]
-> Il modulo di PowerShell per Azure Site Recovery (modulo Az.RecoveryServices) viene fornito con alias di facile utilizzo per la maggior parte dei cmdlet. I cmdlet nel modulo assumono la forma  *\<operazione >-**AzRecoveryServicesAsr**\<oggetto >* e hanno alias equivalenti che assumono la forma  *\< Operazione >-**Azure Site Recovery**\<oggetto >* . È possibile sostituire gli alias di cmdlet per semplicità d'uso.
+> Il modulo Azure Site Recovery PowerShell (AZ. RecoveryServices Module) è dotato di alias facili da usare per la maggior parte dei cmdlet. I cmdlet nel modulo accettano il formato *\<operazione >-**AzRecoveryServicesAsr**\<oggetto >* e hanno alias equivalenti che accettano il formato *\<operazione >-**ASR**\<oggetto*>. È possibile sostituire gli alias dei cmdlet per facilitarne l'uso.
 
 Nell'esempio seguente, vengono usati i dettagli dell'insieme di credenziali ottenuti dalla variabile $vault per specificare il contesto dell'insieme di credenziali per la sessione di PowerShell.
 
@@ -118,7 +118,7 @@ Nell'esempio seguente, vengono usati i dettagli dell'insieme di credenziali otte
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-In alternativa al cmdlet Set-ASRVaultContext uno anche possibile usare il cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile per impostare il contesto dell'insieme di credenziali. Specificare il percorso in cui si trova come parametro - path al cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile il file di chiave di registrazione dell'insieme di credenziali. Ad esempio:
+In alternativa al cmdlet Set-ASRVaultContext, è anche possibile usare il cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile per impostare il contesto dell'insieme di credenziali. Specificare il percorso in cui si trova il file della chiave di registrazione dell'insieme di credenziali come parametro-Path del cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile. Ad esempio:
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
@@ -316,9 +316,9 @@ Errors           : {}
 
 ## <a name="create-storage-accounts-for-replication"></a>Creare gli account di archiviazione per la replica
 
-**Per scrivere sul disco gestito, usare [modulo di Powershell Az.RecoveryServices 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) e versioni successive.** Richiede solo la creazione di un account di archiviazione di log. È consigliabile usare un tipo di conto standard e ridondanza di archiviazione con ridondanza locale, poiché viene usato per archiviare solo i log temporanei. Assicurarsi che l'account di archiviazione viene creato nella stessa area di Azure dell'insieme di credenziali.
+**Per scrivere nel disco gestito, usare il [modulo RecoveryServices di PowerShell 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) e versioni successive.** Richiede solo la creazione di un account di archiviazione di log. Si consiglia di utilizzare un tipo di account standard e una ridondanza con ridondanza locale poiché viene utilizzata per archiviare solo i log temporanei. Verificare che l'account di archiviazione sia stato creato nella stessa area di Azure dell'insieme di credenziali.
 
-Se si usa una versione del modulo Az.RecoveryServices antecedente a 2.0.0, utilizzare la procedura seguente per creare gli account di archiviazione. Questi account di archiviazione verranno usati in un secondo momento per replicare le macchine virtuali. Verificare che gli account di archiviazione vengano creati nella stessa area di Azure in cui è stato creato l'insieme di credenziali. È possibile ignorare questo passaggio se si prevede di usare un account di archiviazione esistente per la replica.
+Se si usa una versione del modulo AZ. RecoveryServices precedente alla 2.0.0, seguire questa procedura per creare gli account di archiviazione. Questi account di archiviazione verranno usati in un secondo momento per replicare le macchine virtuali. Verificare che gli account di archiviazione vengano creati nella stessa area di Azure in cui è stato creato l'insieme di credenziali. È possibile ignorare questo passaggio se si prevede di usare un account di archiviazione esistente per la replica.
 
 > [!NOTE]
 > Durante la replica di macchine virtuali locali in un account di archiviazione Premium, è necessario specificare un account di archiviazione Standard aggiuntivo (account di archiviazione log). L'account di archiviazione log svolge la funzione di archivio intermedio in cui vengono conservati i log di replica fino a quando non possono essere applicati nella destinazione di archiviazione Premium.
@@ -340,8 +340,8 @@ Per individuare le macchine virtuali, il server vCenter impiega un intervallo di
 Per proteggere una macchina virtuale individuata sono necessari i dettagli seguenti:
 
 * L'elemento da proteggere che deve essere replicato.
-* L'account di archiviazione per replicare la macchina virtuale (solo se si esegue la replica in account di archiviazione). 
-* Una risorsa di archiviazione di log è necessaria per proteggere le macchine virtuali a un account di archiviazione premium o in un disco gestito.
+* L'account di archiviazione in cui replicare la macchina virtuale (solo se si sta eseguendo la replica nell'account di archiviazione). 
+* Per proteggere le macchine virtuali in un account di archiviazione Premium o in un disco gestito, è necessario disporre di un archivio log.
 * Il server di elaborazione usato per la replica. L'elenco dei server di elaborazione disponibili è stato recuperato e salvato nelle variabili ***$ProcessServers[0]*** *(ScaleOut-ProcessServer)* e ***$ProcessServers[1]*** *(ConfigurationServer)* .
 * L'account da usare per eseguire nei computer l'installazione push del software del servizio Mobility. L'elenco degli account disponibili è stato recuperato e archiviato nella variabile ***$AccountHandles***.
 * Il mapping del contenitore di protezione per i criteri di replica da usare per la replica.
@@ -351,7 +351,7 @@ Per proteggere una macchina virtuale individuata sono necessari i dettagli segue
 Replicare ora le macchine virtuali seguenti usando le impostazioni specificate in questa tabella
 
 
-|Macchina virtuale  |Server di elaborazione        |Account di archiviazione              |Account di archiviazione log  |Criterio           |Account per l'installazione del servizio Mobility|Gruppo di risorse di destinazione  | Rete virtuale di destinazione  |Subnet di destinazione  |
+|Macchine virtuali  |Server di elaborazione        |Account di archiviazione              |Account di archiviazione log  |Criteri           |Account per l'installazione del servizio Mobility|Gruppo di risorse di destinazione  | Rete virtuale di destinazione  |Subnet di destinazione  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |CentOSVM1       |ConfigurationServer   |N/D| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
 |Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
@@ -493,4 +493,4 @@ In questo passaggio viene eseguito il failover della macchina virtuale Win2K12VM
 2. Al termine del failover, è possibile eseguire il commit dell'operazione di failover e configurare la replica inversa da Azure al sito VMware locale.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Informazioni su come automatizzare le attività più utilizzando il [riferimento di PowerShell per Azure Site Recovery](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).
+Informazioni su come automatizzare più attività usando il [riferimento Azure Site Recovery PowerShell](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).

@@ -1,20 +1,20 @@
 ---
-title: Matrice di supporto per il ripristino di emergenza di VM di Azure tra aree di Azure con Azure Site Recovery | Microsoft Docs
-description: Riepiloga i prerequisiti e il supporto per il ripristino di emergenza di macchine virtuali di Azure da un'area a un'altra con Azure Site Recovery
+title: Matrice di supporto per il ripristino di emergenza di macchine virtuali di Azure con Azure Site Recovery
+description: Riepiloga il supporto per il ripristino di emergenza di macchine virtuali di Azure in un'area secondaria con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/26/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 726b7ebd21dadf0e179f2752a9783d63492cb4c3
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 881c41ea7a28e64d2840f4a92bd64fab5dbd12ba
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622463"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961517"
 ---
-# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice di supporto per la replica di macchine virtuali di Azure da un'area a un'altra
+# <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali di Azure tra aree di Azure
 
 Questo articolo riepiloga il supporto e i prerequisiti per il ripristino di emergenza di macchine virtuali di Azure da un'area di Azure a un'altra, usando il servizio [Azure Site Recovery](site-recovery-overview.md) .
 
@@ -33,7 +33,7 @@ Questo articolo riepiloga il supporto e i prerequisiti per il ripristino di emer
 
 **Azione risorsa** | **Dettagli**
 --- | --- 
-**Spostare insiemi di credenziali tra gruppi di risorse** | Non supportate
+**Spostare insiemi di credenziali tra gruppi di risorse** | Non supportato
 **Spostamento di risorse di calcolo, archiviazione e rete tra gruppi di risorse** | Non supportati.<br/><br/> Se si sposta una macchina virtuale o componenti associati come archiviazione o rete dopo la replica della VM, è necessario disabilitare la replica e riabilitarla per la VM.
 **Replica di macchine virtuali di Azure da una sottoscrizione a un'altra per il ripristino di emergenza** | Supportate nello stesso tenant di Azure Active Directory.
 **Eseguire la migrazione di macchine virtuali tra aree all'interno dei cluster geografici supportati (all'interno e tra sottoscrizioni)** | Supportate nello stesso tenant di Azure Active Directory.
@@ -72,7 +72,7 @@ Questa tabella riepiloga il supporto per l'account di archiviazione della cache 
 **Impostazione** | **Supporto** | **Dettagli**
 --- | --- | ---
 Account di archiviazione V2 di utilizzo generico (livelli di accesso frequente e sporadico) | Supportato | L'utilizzo di GPv2 non è consigliato perché i costi delle transazioni per V2 sono sostanzialmente più elevati di V1 account di archiviazione.
-Archiviazione Premium | Non supportate | Gli account di archiviazione standard vengono usati per l'archiviazione della cache, per ottimizzare i costi.
+Archiviazione Premium | Non supportato | Gli account di archiviazione standard vengono usati per l'archiviazione della cache, per ottimizzare i costi.
 Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si usano account di archiviazione cache o di archiviazione di destinazione abilitati per il firewall, assicurarsi di selezionare ["Consenti ai servizi Microsoft attendibili"](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
@@ -102,7 +102,7 @@ Windows 7 (x64) con SP1 e versioni successive | Dalla versione 9.30. x. x (previ
 
 **Sistema operativo** | **Dettagli**
 --- | ---
-Red Hat Enterprise Linux. | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, 8,0
+Red Hat Enterprise Linux. | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8,0](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery)
 CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, 8,0
 Server Ubuntu 14.04 LTS | [Versioni del kernel supportate](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Server Ubuntu 16.04 LTS | [Versioni del kernel supportate](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> I server Ubuntu che usano l'autenticazione basata su password e l'accesso e il pacchetto cloud-init per configurare le macchine virtuali cloud possono avere un accesso basato su password disabilitato al failover (a seconda della configurazione di cloudinit). È possibile riabilitare l'accesso basato su password nella macchina virtuale reimpostando la password dal menu Supporto > risoluzione dei problemi > Impostazioni (della macchina virtuale di cui è stato eseguito il failover nella portale di Azure.
@@ -112,7 +112,7 @@ Debian 8 | [Versioni del kernel supportate](#supported-debian-kernel-versions-fo
 SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [(Versioni del kernel supportate)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> L'aggiornamento dei computer di replica da SP3 a SP4 non è supportato. Se un computer replicato è stato aggiornato, è necessario disabilitare la replica e riabilitarla dopo l'aggiornamento.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7<br/><br/> Esecuzione del kernel compatibile Red Hat o Unbreakable Enterprise kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5) 
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) <br/><br/> Esecuzione del kernel compatibile Red Hat o Unbreakable Enterprise kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5) 
 
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versioni del kernel Ubuntu supportate per macchine virtuali di Azure
@@ -124,14 +124,15 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 14.04 LTS | 9,26 | 3.13.0-24-generico per 3.13.0-170-generico,<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>4.4.0-21-generico per 4.4.0-148-generico,<br/>4.15.0-1023-Azure a 4.15.0-1045-Azure |
 14.04 LTS | 9,25 | 3.13.0-24-generico per 3.13.0-169-generico,<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>4.4.0-21-generico per 4.4.0-146-generico,<br/>4.15.0-1023-da Azure a 4.15.0-1042-Azure |
 |||
+16.04 LTS | [9,30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | da 4.4.0-21-generico a 4.4.0-166-generico,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>4.15.0-13-generico a 4.15.0-66-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure in 4.15.0-1061-Azure|
 16.04 LTS | 9,28 | 4.4.0-21-generico a 4.4.0-159-Generic,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>da 4.15.0-13-generico a 4.15.0-58-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure a 4.15.0-1055-Azure|
 16.04 LTS | 9,27 | 4.4.0-21-generico a 4.4.0-154-Generic,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>4.15.0-13-generico a 4.15.0-55-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure in 4.15.0-1051-Azure|
 16.04 LTS | 9,26 | 4.4.0-21-generico per 4.4.0-148-generico,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>da 4.15.0-13-generico a 4.15.0-50-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure a 4.15.0-1045-Azure|
 16.04 LTS | 9,25 | 4.4.0-21-generico per 4.4.0-146-generico,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>da 4.15.0-13-generico a 4.15.0-48-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure a 4.15.0-1042-Azure|
 16.04 LTS | 9,24 | 4.4.0-21-generico per 4.4.0-143-generico,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>da 4.15.0-13-generico a 4.15.0-46-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure a 4.15.0-1040-Azure|
 |||
-18,04 LTS | [9,29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 4.15.0-20-generico a 4.15.0-64-generico </br> 4.18.0-13-generico a 4.18.0-25-generico </br> 5.0.0-15-generico a 5.0.0-29-generico </br> 4.15.0-1009-Azure a 4.15.0-1037-Azure </br> 4.18.0-1006-da Azure a 4.18.0-1025-Azure </br> da 5.0.0-1012-da Azure a 5.0.0-1020-Azure
-
+18,04 LTS | [9,29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 4.15.0-20-generico a 4.15.0-64-generico </br> 4.18.0-13-generico a 4.18.0-25-generico </br> 5.0.0-15-generico a 5.0.0-29-generico </br> 4.15.0-1009-Azure a 4.15.0-1037-Azure </br> 4.18.0-1006-da Azure a 4.18.0-1025-Azure </br> da 5.0.0-1012-da Azure a 5.0.0-1020-Azure|
+18,04 LTS | [9,30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.15.0-20-generico a 4.15.0-66-generico </br> 4.18.0-13-generico a 4.18.0-25-generico </br> 5.0.0-15-generico a 5.0.0-32-generico </br> 4.15.0-1009-Azure a 4.15.0-1037-Azure </br> 4.18.0-1006-da Azure a 4.18.0-1025-Azure </br> 5.0.0-1012-Azure a 5.0.0-1023-Azure
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versioni del kernel Debian supportate per macchine virtuali di Azure
 
@@ -167,13 +168,13 @@ Dimensione | Macchine virtuali di Azure di qualsiasi dimensione con almeno 2 cor
 Set di disponibilità | Supportato | Se si Abilita la replica per una macchina virtuale di Azure con le opzioni predefinite, viene creato automaticamente un set di disponibilità in base alle impostazioni dell'area di origine. È possibile modificare queste impostazioni.
 Zone di disponibilità | Supportato |
 Vantaggio Hybrid Use (HUB) | Supportato | Se la macchina virtuale di origine dispone di una licenza HUB abilitata, anche la macchina virtuale di failover o il failover di test userà la licenza HUB.
-set di scalabilità di macchine virtuali | Non supportate |
+set di scalabilità di macchine virtuali | Non supportato |
 Immagini della raccolta di Azure - Pubblicate da Microsoft | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Immagini della raccolta di Azure - Pubblicate da terze parti | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Immagini personalizzate - Pubblicate da terze parti | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Macchine virtuali migrate tramite Site Recovery | Supportato | Se una VM VMware o un computer fisico è stato migrato ad Azure tramite Site Recovery, è necessario disinstallare la versione precedente del servizio di mobilità in esecuzione nel computer e riavviare il computer prima di eseguirne la replica in un'altra area di Azure.
-Criteri RBAC | Non supportate | I criteri di controllo degli accessi in base al ruolo nelle VM non vengono replicati nella macchina virtuale di failover nell'area di destinazione.
-Estensioni | Non supportate | Le estensioni non vengono replicate nella macchina virtuale di failover nell'area di destinazione. Deve essere installato manualmente dopo il failover.
+Criteri RBAC | Non supportato | I criteri di controllo degli accessi in base al ruolo nelle VM non vengono replicati nella macchina virtuale di failover nell'area di destinazione.
+Estensioni | Non supportato | Le estensioni non vengono replicate nella macchina virtuale di failover nell'area di destinazione. Deve essere installato manualmente dopo il failover.
 
 ## <a name="replicated-machines---disk-actions"></a>Computer replicati - Azioni del disco
 
@@ -193,7 +194,7 @@ Questa tabella riepiloga il supporto per il disco del sistema operativo, il disc
 **Componente** | **Supporto** | **Dettagli**
 --- | --- | ---
 Dimensione massima del disco del sistema operativo | 2048 GB | [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md) sui dischi delle VM.
-Disco temporaneo | Non supportate | Il disco temporaneo è sempre escluso dalla replica.<br/><br/> Non conservare dati persistenti sul disco temporaneo. [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md).
+Disco temporaneo | Non supportato | Il disco temporaneo è sempre escluso dalla replica.<br/><br/> Non conservare dati persistenti sul disco temporaneo. [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md).
 Dimensione massima del disco dati | 8192 GB per Managed Disks<br></br>4095 GB per dischi non gestiti|
 Dimensioni minime disco dati | Nessuna restrizione per i dischi non gestiti. 2 GB per Managed Disks | 
 Numero massimo di dischi dati | Fino a 64, in conformità con il supporto per una specifica dimensione di VM di Azure | [Altre informazioni](../virtual-machines/windows/sizes.md) sulle dimensioni delle VM.
@@ -204,23 +205,25 @@ Managed Disks - Standard | Supportato nelle aree di Azure in cui è supportato A
 Managed Disks - Premium | Supportato nelle aree di Azure in cui è supportato Azure Site Recovery. |
 SSD Standard | Supportato |
 Ridondanza | Sono supportate le archiviazioni con ridondanza locale e geografica.<br/><br/> L'archiviazione con ridondanza della zona non è supportata.
-Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
+Archiviazione ad accesso frequente e sporadico | Non supportato | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
 Spazi di archiviazione | Supportato |
 Crittografia per dati inattivi (SSE) | Supportato | La crittografia per dati inattivi (SSE) è l'impostazione predefinita per gli account di archiviazione.   
+Crittografia inattiva (CMK) | Non supportato |   
 Crittografia dischi di Azure (ADE) per sistema operativo Windows | Supportato per le macchine virtuali con dischi gestiti. Le macchine virtuali che usano dischi non gestiti non sono supportate |
-Crittografia dischi di Azure (ADE) per sistema operativo Linux | Non supportate |
+Crittografia dischi di Azure (ADE) per sistema operativo Linux | Non supportato |
 Aggiunta a caldo | Supportato | L'abilitazione della replica per un disco dati aggiunto a una macchina virtuale di Azure replicata è supportata per le macchine virtuali che usano dischi gestiti.
-Disco di rimozione a caldo | Non supportate | Se si rimuove un disco dati nella macchina virtuale, è necessario disabilitare la replica e abilitare di nuovo la replica per la macchina virtuale.
+Disco di rimozione a caldo | Non supportato | Se si rimuove un disco dati nella macchina virtuale, è necessario disabilitare la replica e abilitare di nuovo la replica per la macchina virtuale.
 Esclusione disco | Supporto. Per configurare, è necessario usare [PowerShell](azure-to-azure-exclude-disks.md) . |  Per impostazione predefinita, i dischi temporanei sono esclusi.
 Spazi di archiviazione diretta  | Supportato per i punti di ripristino coerenti con l'arresto anomalo. I punti di ripristino coerenti con l'applicazione non sono supportati. |
 File server di scalabilità orizzontale  | Supportato per i punti di ripristino coerenti con l'arresto anomalo. I punti di ripristino coerenti con l'applicazione non sono supportati. |
 Archiviazione con ridondanza locale | Supportato |
 Archiviazione con ridondanza geografica | Supportato |
 RA-GRS | Supportato |
-ZRS | Non supportate |
-Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
+ZRS | Non supportato |
+Archiviazione ad accesso frequente e sporadico | Non supportato | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
 Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si limita l'accesso alla rete virtuale agli account di archiviazione, abilitare [Consenti servizi Microsoft attendibili](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
-Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | Sì | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
+Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | Supportato | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
+Generazione 2 (avvio UEFI) | Supportato
 
 >[!IMPORTANT]
 > Per evitare problemi di prestazioni, assicurarsi di seguire gli obiettivi di scalabilità e prestazioni del disco della macchina virtuale per macchine virtuali [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md) . Se si usano le impostazioni predefinite, Site Recovery crea i dischi e gli account di archiviazione necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni personalizzate, seguire gli obiettivi di scalabilità e prestazioni del disco per le macchine virtuali di origine.
@@ -232,7 +235,6 @@ La tabella seguente riepiloga Site Recovery limiti.
 - Questi limiti sono basati sui test, ma ovviamente non coprono tutte le possibili combinazioni di I/O delle applicazioni.
 - I risultati effettivi possono variare in base alla combinazione di I/O delle app.
 - È necessario considerare due limiti, la varianza dei dati per disco e la varianza dei dati per ogni macchina virtuale.
-- Ad esempio, se si usa un disco P20 Premium come descritto nella tabella seguente, Site Recovery possibile gestire 5 MB di varianza per disco, con un massimo di cinque dischi per macchina virtuale, a causa del limite di 25 MB/s di varianza totale per macchina virtuale.
 
 **Destinazione di archiviazione** | **I/O del disco di origine medio** |**Varianza dati media disco di origine** | **Varianza dati totale giornaliera disco di origine**
 ---|---|---|---
@@ -254,12 +256,12 @@ Gruppo di sicurezza di rete o scheda di interfaccia di rete | Supportato | Assoc
 Gruppo di sicurezza di rete o subnet | Supportato | Associare il gruppo di sicurezza di rete alla subnet tramite uno script di Automazione di Azure in un piano di ripristino.
 Indirizzo IP riservato (statico) | Supportato | Se la scheda di rete sulla macchina virtuale di origine ha un indirizzo IP statico e la subnet di destinazione dispone dello stesso IP, viene assegnato alla macchina virtuale di failover.<br/><br/> Se la subnet di destinazione non ha lo stesso indirizzo IP, uno degli IP disponibili nella subnet viene riservato per la macchina virtuale.<br/><br/> È anche possibile specificare un indirizzo IP fisso e una subnet in **Elementi replicati** > **Impostazioni** > **Calcolo e rete** > **Interfacce di rete**.
 Indirizzo IP dinamico | Supportato | Se la scheda di interfaccia di rete nella macchina virtuale di origine ha indirizzi IP dinamici, anche la scheda sulla macchina virtuale di failover è dinamica per impostazione predefinita.<br/><br/> Se necessario, è possibile modificare questa opzione in un indirizzo IP fisso.
-Più indirizzi IP | Non supportate | Quando si esegue il failover di una macchina virtuale con una scheda di interfaccia di rete con più indirizzi IP, viene mantenuto solo l'indirizzo IP primario della scheda di interfaccia di rete nell'area di origine. Per assegnare più indirizzi IP, è possibile aggiungere macchine virtuali a un [piano di ripristino](recovery-plan-overview.md) e associare uno script per assegnare indirizzi IP aggiuntivi al piano oppure è possibile apportare la modifica manualmente o con uno script dopo il failover. 
+Indirizzi IP multipli | Non supportato | Quando si esegue il failover di una macchina virtuale con una scheda di interfaccia di rete con più indirizzi IP, viene mantenuto solo l'indirizzo IP primario della scheda di interfaccia di rete nell'area di origine. Per assegnare più indirizzi IP, è possibile aggiungere macchine virtuali a un [piano di ripristino](recovery-plan-overview.md) e associare uno script per assegnare indirizzi IP aggiuntivi al piano oppure è possibile apportare la modifica manualmente o con uno script dopo il failover. 
 Gestione traffico     | Supportato | È possibile preconfigurare Gestione traffico in modo che il traffico venga regolarmente indirizzato all'endpoint nell'area di origine e all'endpoint nell'area di destinazione in caso di failover.
 DNS di Azure | Supportato |
 DNS personalizzato  | Supportato |
 Proxy non autenticato | Supportato | [Altre informazioni](site-recovery-azure-to-azure-networking-guidance.md)    
-Proxy autenticato | Non supportate | Se la macchina virtuale utilizza un proxy autenticato per la connettività in uscita, non può essere replicata tramite Azure Site Recovery.    
+Proxy autenticato | Non supportato | Se la macchina virtuale utilizza un proxy autenticato per la connettività in uscita, non può essere replicata tramite Azure Site Recovery.    
 Connessione da sito a sito VPN a locale<br/><br/>(con o senza ExpressRoute)| Supportato | Verificare che UdR e gruppi siano configurati in modo tale che il traffico Site Recovery non venga indirizzato in locale. [Altre informazioni](site-recovery-azure-to-azure-networking-guidance.md)    
 Connessione da rete virtuale a rete virtuale | Supportato | [Altre informazioni](site-recovery-azure-to-azure-networking-guidance.md)  
 Endpoint servizio di rete virtuale | Supportato | Se si limita l'accesso alla rete virtuale agli account di archiviazione, assicurarsi che ai servizi Microsoft attendibili sia consentito l'accesso all'account di archiviazione.

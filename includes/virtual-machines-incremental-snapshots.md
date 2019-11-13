@@ -8,15 +8,14 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f30518c3bfc9876cbddaf8295ff9e8b667a70200
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180131"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014539"
 ---
-# <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Eseguire il backup dei dischi di VM non gestiti con snapshot incrementali
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Archiviazione di Azure offre la possibilità di creare snapshot di BLOB. Gli snapshot acquisiscono lo stato del BLOB in un dato momento. Questo articolo illustra uno scenario che permette di mantenere backup dei dischi delle macchine virtuali tramite snapshot. Quando si sceglie di non utilizzare Backup di Azure e il servizio di ripristino e si desidera creare una strategia di backup personalizzata per i dischi delle macchine virtuali, è possibile utilizzare questa metodologia.
 
 I dischi delle macchine virtuali di Azure vengono archiviati come BLOB di pagine in Archiviazione di Azure. L'articolo descrive la strategia di backup per i dischi delle macchine virtuali e si fa riferimento agli snapshot nel contesto dei BLOB di pagine. Per ulteriori informazioni sugli snapshot, fare riferimento a [Creazione di uno snapshot di un BLOB](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
@@ -58,7 +57,7 @@ A condizione che siano soddisfatte le condizioni seguenti:
 * Il BLOB è stato creato il 1° gennaio 2016 o in seguito.
 * Il BLOB non è stato sovrascritto con [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) o [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) tra due snapshot.
 
-**Nota**: Questa funzionalità è disponibile per BLOB di pagine di Azure Standard e Premium.
+**Nota**: questa funzionalità è disponibile per i BLOB di pagine di Azure Standard e Premium.
 
 Quando si ha una strategia di backup personalizzata che usa gli snapshot, copiare gli snapshot da un account di archiviazione a un altro può richiedere molto tempo e utilizzare molto spazio di archiviazione. Anziché copiare l'intero snapshot in un account di archiviazione di backup, è possibile scrivere la differenza tra snapshot consecutivi in un BLOB di pagine di backup. In questo modo, il tempo di esecuzione della copia e lo spazio di archiviazione dei backup risultano notevolmente ridotti.
 
@@ -109,7 +108,7 @@ La procedura seguente illustra come ripristinare il disco Premium *mypremiumdisk
 
 ![Ripristino del disco da snapshot](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-2.png)
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla creazione di snapshot di un BLOB e la pianificazione dell'infrastruttura di backup delle macchine virtuali, usare i collegamenti riportati di seguito.
 
 * [Creazione di uno snapshot di un BLOB](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)

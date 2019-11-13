@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate per scegliere un ID serie temporale in Anteprima di Azure Time Series Insights | Microsoft Docs
-description: Informazioni sulle procedure consigliate per scegliere un ID serie temporale in Anteprima di Azure Time Series Insights.
+title: Procedure consigliate per la scelta di un ID di serie temporali-Azure Time Series Insights | Microsoft Docs
+description: Informazioni sulle procedure consigliate per la scelta di un ID di serie temporale in Azure Time Series Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 48f1fb542f5e28c7b8130d03cd86442390a8ad56
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: cf826c47c61e3714a05dd81fe3eea4e6ee0b03f4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989947"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012503"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedure consigliate per la scelta di un ID serie temporale
 

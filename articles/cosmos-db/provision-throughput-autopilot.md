@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e0c3c88119c3d064326442881854920b411f5ed4
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 0e9f909aba11d35307e02a98a41ffa04e36e4db2
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748379"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953113"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Creare contenitori e database di Azure Cosmos in modalità Autopilot (anteprima)
 
@@ -24,7 +24,7 @@ Oltre al provisioning manuale della velocità effettiva, è ora possibile config
 
 Non è più necessario gestire manualmente la velocità effettiva con provisioning o gestire i problemi di limitazione della frequenza. I contenitori di Azure Cosmos configurati in modalità Autopilot possono essere ridimensionati immediatamente in risposta al carico di lavoro senza alcun effetto sulla disponibilità, sulla latenza, sulla velocità effettiva o sulle prestazioni del carico di lavoro a livello globale. Con un utilizzo elevato, i contenitori di Azure Cosmos configurati in modalità Autopilot possono essere aumentati o ridotti senza compromettere le operazioni in corso.
 
-Quando si configurano i contenitori e i database in modalità Autopilot, è necessario specificare la velocità effettiva massima `Tmax` non essere superata. I contenitori possono quindi essere ridimensionati immediatamente in base alle esigenze del carico di lavoro entro l'intervallo di `0.1*Tmax < T < Tmax`. In altre parole, i contenitori e i database si ridimensionano immediatamente in base alle esigenze del carico di lavoro, dal minimo del 10% del valore di velocità effettiva massimo configurato e fino al valore massimo della velocità effettiva configurata. È possibile modificare l'impostazione di velocità effettiva massima (tmax) per il database o il contenitore Autopilot in qualsiasi momento.
+Quando si configurano i contenitori e i database in modalità Autopilot, è necessario specificare la velocità effettiva massima `Tmax` non essere superata. I contenitori possono quindi essere ridimensionati immediatamente in base alle esigenze del carico di lavoro entro l'intervallo di `0.1*Tmax < T < Tmax`. In altre parole, i contenitori e i database si ridimensionano immediatamente in base alle esigenze del carico di lavoro, dal minimo del 10% del valore di velocità effettiva massimo configurato e fino al valore massimo della velocità effettiva configurata. È possibile modificare l'impostazione di velocità effettiva massima (tmax) per il database o il contenitore Autopilot in qualsiasi momento. Con l'opzione Autopilot la velocità effettiva minima 400 ur/s per ogni contenitore o database non è più applicabile.
 
 Durante l'anteprima di Autopilot, per la velocità effettiva massima specificata nel contenitore o nel database, il sistema consente il funzionamento entro il limite di archiviazione calcolato. Se viene superato il limite di archiviazione, la velocità effettiva massima viene regolata automaticamente in un valore superiore. Quando si usa la velocità effettiva a livello di database con la modalità Autopilot, il numero di contenitori consentiti all'interno di un database viene calcolato come: (0,001 * velocità effettiva massima). Se, ad esempio, si esegue il provisioning di 20.000 Autopilot ur/sec, il database può contenere 20 contenitori.
 
@@ -96,6 +96,6 @@ Con una procedura analoga, è anche possibile creare un database con la velocit�
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Partizionamento e scalabilità orizzontale in Azure Cosmos DB](partition-data.md)
-* [Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md)
+* Altre informazioni sulle [partizioni logiche](partition-data.md).
+* Informazioni su [come effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md).
 * [Effettuare il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md)

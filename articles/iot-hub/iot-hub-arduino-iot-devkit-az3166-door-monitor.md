@@ -1,22 +1,21 @@
 ---
-title: Ricevere un messaggio di posta elettronica quando la porta viene aperta usando il servizio SendGrid e Funzioni di Azure | Microsoft Docs
+title: Invia un messaggio di posta elettronica quando viene aperta la porta con funzioni di Azure
 description: Monitorare il sensore magnetico per rilevare quando viene aperta una porta e usare Funzioni di Azure per inviare una notifica tramite posta elettronica.
 author: liydu
-manager: jeffya
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 6cbf3f906b511d9d76319f57f5508a2c584213cb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 23607b52f866bb7b0be760e49be7d62d1732d43c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484062"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954744"
 ---
-# <a name="door-monitor"></a>Monitoraggio della porta          
+# <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitoraggio sportello: con funzioni di Azure e SendGrid, inviare un messaggio di posta elettronica quando viene aperta una porta           
 
 MXChip IoT DevKit contiene un sensore magnetico predefinito. In questo progetto si rileva la presenza o l'assenza di un campo magnetico forte nelle vicinanze, in questo caso, proveniente da un piccolo magnete permanente.
 
@@ -56,7 +55,7 @@ Per effettuare il provisioning dei servizi di Azure, usare il pulsante **Distrib
 
 Fare clic sul pulsante **Distribuisci in Azure** sotto. 
 
-[![Distribuisci in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2FSendGridDeploy%2Fazuredeploy.json)
+[![Distribuzione in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2FSendGridDeploy%2Fazuredeploy.json)
 
 Se non è già stato eseguito l'accesso all'account Azure, accedere ora. 
 
@@ -98,7 +97,7 @@ La procedura seguente effettuerà il provisioning di altri servizi correlati ad 
 
 Fare clic sul pulsante **Distribuisci in Azure** sotto. 
 
-[![Distribuisci in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2Fazuredeploy.json)
+[![Distribuzione in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2Fazuredeploy.json)
 
 Viene visualizzato il modulo di iscrizione.
 

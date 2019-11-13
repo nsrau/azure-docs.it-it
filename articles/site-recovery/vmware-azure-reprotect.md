@@ -1,5 +1,5 @@
 ---
-title: Ristabilire la protezione delle macchine virtuali di Azure in un sito locale durante il ripristino di emergenza di macchine virtuali VMware e server fisici | Microsoft Docs
+title: Riproteggere le macchine virtuali VMware/server fisici in un sito locale con Azure Site Recovery
 description: Informazioni su come eseguire il failback nel sito locale dopo il failover in Azure durante il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: mayg
-ms.openlocfilehash: cf1ccdf953781ca9b9bd17152f2cf32677997d12
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f3d5f38d940b99c6a74d784f174c91d4127353dc
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791809"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961337"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Ristabilire la protezione ed eseguire il failback su macchine in un sito locale dopo il failover in Azure
 

@@ -1,17 +1,14 @@
 ---
 title: Usare i parametri per creare progetti dinamici
 description: Informazioni sui parametri statici e dinamici e su come usarli per creare progetti dinamici.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 2bb38e0698d7504ba1bb139ca1bd5e3b14e5cdd4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: da0670bdc880c47c3b715dc8344896a6c695924c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981062"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960507"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
 
@@ -25,7 +22,7 @@ Un esempio semplice è l'artefatto gruppo di risorse. Quando si crea un gruppo d
 
 La soluzione a questo problema è rappresentata dai parametri. I progetti consentono di definire il valore per ogni proprietà dell'artefatto durante l'assegnazione a una sottoscrizione. Questo parametro rende possibile riutilizzare un progetto che crea un gruppo di risorse e altre risorse all'interno di una singola sottoscrizione senza conflitti.
 
-## <a name="blueprint-parameters"></a>Parametri del progetto
+## <a name="blueprint-parameters"></a>Parametri di progetto
 
 I parametri possono essere creati nel progetto stesso tramite l'API REST. Questi parametri sono diversi da quelli presenti in ciascuno degli elementi supportati. Quando nel progetto viene creato un parametro, questo può essere usato dagli artefatti in tale progetto. Un esempio può essere il prefisso per la denominazione del gruppo di risorse. L'artefatto può usare il parametro del progetto per crearne uno "principalmente dinamico". Poiché il parametro può essere definito anche durante l'assegnazione, questo modello consente una coerenza che può essere conforme alle regole di denominazione. Per la procedura, vedere [Impostazione di parametri statici - Parametro a livello di progetto](#blueprint-level-parameter).
 
@@ -75,7 +72,7 @@ Un valore di parametro definito nella definizione di un progetto viene chiamato 
 
 In ogni URI dell'API REST vengono usate variabili che è necessario sostituire con i propri valori:
 
-- `{YourMG}`: sostituire con il nome del gruppo di gestione
+- `{YourMG}` - Sostituire con il nome del gruppo di gestione
 - `{subscriptionId}`: sostituire con l'ID sottoscrizione
 
 ##### <a name="blueprint-level-parameter"></a>Parametro a livello di progetto
@@ -88,7 +85,7 @@ Quando si crea un progetto tramite l'API REST, è possibile creare [parametri de
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
   ```
 
-- Request Body
+- Corpo della richiesta
 
   ```json
   {
@@ -121,7 +118,7 @@ L'esempio di API REST seguente crea un artefatto assegnazione di ruolo nel proge
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2018-11-01-preview
   ```
 
-- Request Body
+- Corpo della richiesta
 
   ```json
   {
@@ -146,7 +143,7 @@ La creazione di **parametri statici** su un artefatto è simile, ma accetta un v
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2018-11-01-preview
   ```
 
-- Request Body
+- Corpo della richiesta
 
   ```json
   {
@@ -192,7 +189,7 @@ L'impostazione dei **parametri dinamici** durante l'assegnazione si esegue inser
   PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
-- Request Body
+- Corpo della richiesta
 
   ```json
   {

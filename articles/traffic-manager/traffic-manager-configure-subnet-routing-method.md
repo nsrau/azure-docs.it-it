@@ -1,5 +1,5 @@
 ---
-title: Configurare il metodo di routing del traffico subnet con Gestione traffico di Azure
+title: Configurare il routing del traffico della subnet-gestione traffico di Azure
 description: Questo articolo descrive come configurare Gestione traffico per instradare il traffico da subnet specifiche.
 services: traffic-manager
 documentationcenter: ''
@@ -12,29 +12,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: 1a7bc38a91dc7621a3b09d7901c70eecb21101d6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3751a14e8c317d6a4f23c1aa051b7e13305acf5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060954"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014601"
 ---
-# <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Indirizzare il traffico a endpoint specifici basati sulla subnet dell'utente usando Gestione traffico
+# <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Indirizzare il traffico a endpoint specifici basati sulla subnet di utente usando Gestione traffico
 
-Questo articolo descrive come configurare il metodo di routing del traffico della subnet. Il metodo di routing del traffico **Subnet** consente di eseguire il mapping di un set di intervalli di indirizzi IP a endpoint specifici e quando riceve una richiesta, Gestione traffico controlla l'indirizzo IP di origine della richiesta e restituisce l'endpoint associato.
+Questo articolo descrive come configurare il metodo di routing del traffico della subnet. Il metodo di routing del traffico**Subnet** consente di eseguire il mapping di un set di intervalli di indirizzi IP a endpoint specifici e quando si riceve una richiesta da Gestione traffico, controlla l'indirizzo IP di origine della richiesta e restituisce l'endpoint associato.
 
 Nello scenario descritto in questo articolo, se si usa il routing della subnet, in base all'indirizzo IP della query dell'utente, il traffico viene indirizzato a un sito Web interno o a un sito Web di produzione.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per visualizzare Gestione traffico in azione, è necessario implementare quanto segue:
-- due siti Web di base in esecuzione in diverse aree di Azure: **Stati Uniti orientali** (usato come sito Web interno) e **Europa occidentale** (usato come sito Web di produzione).
+- due siti Web di base in esecuzione in diverse aree di Azure - **Stati Uniti orientali** (usato come sito Web interno) e **Europa occidentale** (usato come sito Web di produzione).
 - Due macchine virtuali (VM) per il test di Gestione traffico: una in **Stati Uniti orientali** e la seconda in **Europa occidentale**.
 
 Le macchine virtuali per il test vengono usate per illustrare come Gestione traffico indirizza il traffico utente al sito Web interno o al sito Web di produzione, a seconda della subnet da cui ha origine la query dell'utente.
 
-### <a name="sign-in-to-azure"></a>Accedi ad Azure
+### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
@@ -52,11 +52,11 @@ In questa sezione si creano due VM *myEndopointVMEastUS* e *myEndpointVMWEurope*
 
     |Impostazione|Valore|
     |---|---|
-    |Name|myIISVMEastUS|
+    |Nome|myIISVMEastUS|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Gruppo di risorse| Selezionare **Nuovo** e quindi digitare *myResourceGroupTM1*.|
-    |Località| Selezionare **Stati Uniti orientali**.|
+    |Resource group| Selezionare **Nuovo** e quindi digitare *myResourceGroupTM1*.|
+    |Location| Selezionare **Stati Uniti orientali**.|
     |||
 
 4. Selezionare le dimensioni della macchina virtuale in **Scegli una dimensione**.
@@ -64,7 +64,7 @@ In questa sezione si creano due VM *myEndopointVMEastUS* e *myEndpointVMWEurope*
     
     |Impostazione|Valore|
     |---|---|
-    |Rete virtuale| Selezionare **Rete virtuale** in **Crea rete virtuale**, immettere **myVNet1** per *Nome* e *mySubnet* per la subnet.|
+    |rete virtuale| Selezionare **Rete virtuale** in **Crea rete virtuale**, immettere **myVNet1** per *Nome* e *mySubnet* per la subnet.|
     |Gruppo di sicurezza di rete|Selezionare **Base** e dall'elenco a discesa **Selezionare le porte in ingresso pubbliche** selezionare **HTTP** e **RDP**. |
     |Diagnostica di avvio|Selezionare **Disabilitata**.|
     |||
@@ -73,12 +73,12 @@ In questa sezione si creano due VM *myEndopointVMEastUS* e *myEndpointVMWEurope*
 
 7. Ripetere i passaggi da 1 a 6, con le modifiche seguenti:
 
-    |Impostazione|Value|
+    |Impostazione|Valore|
     |---|---|
-    |Gruppo di risorse | Selezionare **Nuovo** e quindi digitare *myResourceGroupTM2*|
-    |Località|Europa occidentale|
+    |Resource group | Selezionare **Nuovo** e quindi digitare *myResourceGroupTM2*|
+    |Location|Europa occidentale|
     |Nome macchina virtuale | myIISVMWEurope|
-    |Rete virtuale | Selezionare **Rete virtuale** in **Crea rete virtuale**, immettere **myVNet2** per *Nome* e *mySubnet* per la subnet.|
+    |rete virtuale | Selezionare **Rete virtuale** in **Crea rete virtuale**, immettere **myVNet2** per *Nome* e *mySubnet* per la subnet.|
     |||
 
 8. La creazione delle macchine virtuali può richiedere alcuni minuti. Non procedere con i passaggi rimanenti finché non sono state create entrambe le macchine virtuali.
@@ -138,10 +138,10 @@ In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area d
 
     |Impostazione|Valore|
     |---|---|
-    |NOME|myVMEastUS|
+    |Nome|myVMEastUS|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Gruppo di risorse| Selezionare **Esistente** e quindi *myResourceGroupTM1*.|
+    |Resource group| Selezionare **Esistente** e quindi *myResourceGroupTM1*.|
     |||
 
 4. Selezionare le dimensioni della macchina virtuale in **Scegli una dimensione**.
@@ -149,7 +149,7 @@ In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area d
 
     |Impostazione|Valore|
     |---|---|
-    |Rete virtuale| Selezionare **Rete virtuale**, nella sezione **Creare rete virtuale**, per il **Nome** immettere *myVNet3*, per la subnet immettere *mySubnet3*.|
+    |rete virtuale| Selezionare **Rete virtuale**, nella sezione **Creare rete virtuale**, per il **Nome** immettere *myVNet3*, per la subnet immettere *mySubnet3*.|
     |Gruppo di sicurezza di rete|Selezionare **Base** e dall'elenco a discesa **Selezionare le porte in ingresso pubbliche** selezionare **HTTP** e **RDP**. |
     |Diagnostica di avvio|Selezionare **Disabilitata**.|
     |||
@@ -158,11 +158,11 @@ In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area d
 
 7. Ripetere i passaggi da 1 a 5, con le modifiche seguenti:
 
-    |Impostazione|Value|
+    |Impostazione|Valore|
     |---|---|
     |Nome macchina virtuale | *myVMWEurope*|
-    |Gruppo di risorse | Selezionare **Esistente** e quindi digitare *myResourceGroupTM2*.|
-    |Rete virtuale | Selezionare **Rete virtuale**, nella sezione **Creare rete virtuale**, per il **Nome** immettere *myVNet4*, per la subnet immettere *mySubnet4*.|
+    |Resource group | Selezionare **Esistente** e quindi digitare *myResourceGroupTM2*.|
+    |rete virtuale | Selezionare **Rete virtuale**, nella sezione **Creare rete virtuale**, per il **Nome** immettere *myVNet4*, per la subnet immettere *mySubnet4*.|
     |||
 
 8. La creazione delle macchine virtuali può richiedere alcuni minuti. Non procedere con i passaggi rimanenti finché non sono state create entrambe le macchine virtuali.
@@ -175,10 +175,10 @@ Creare un profilo di Gestione traffico che consente di restituire specifici endp
 
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | NOME                   | Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
+    | Nome                   | Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
     | Metodo di routing          | Selezionare il metodo di routing **Subnet**.                                       |
-    | Sottoscrizione            | Selezionare la propria sottoscrizione.                          |
-    | Gruppo di risorse          | Selezionare **Esistente** e immettere *myResourceGroupTM1*. |
+    | sottoscrizione            | Selezionare la propria sottoscrizione.                          |
+    | Resource group          | Selezionare **Esistente** e immettere *myResourceGroupTM1*. |
     | |                              |
     |
 
@@ -192,10 +192,10 @@ Aggiungere le due macchine virtuali in esecuzione sui server IIS, *myIISVMEastUS
 2. In **Profilo di Gestione traffico**, nella sezione **Impostazioni**, fare clic su **Endpoint** e quindi su **Aggiungi**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
-    | Impostazione                 | Value                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | Type                    | Endpoint di Azure                                   |
-    | Name           | myTestWebSiteEndpoint                                        |
+    | digitare                    | Endpoint di Azure                                   |
+    | Nome           | myTestWebSiteEndpoint                                        |
     | Tipo di risorsa di destinazione           | Indirizzo IP pubblico                          |
     | Risorsa di destinazione          | **Scegliere un indirizzo IP pubblico** per visualizzare l'elenco delle risorse con gli indirizzi IP pubblici inclusi nella stessa sottoscrizione. In **Risorsa** selezionare l'indirizzo IP pubblico denominato *myIISVMEastUS-ip*. Questo è l'indirizzo IP pubblico della VM del server IIS nell'area Stati Uniti orientali.|
     |  Impostazioni del routing della subnet    |   Aggiungere l'indirizzo IP della VM di test *myVMEastUS*. Tutte le query dell'utente provenienti da questa VM vengono indirizzate a *myTestWebSiteEndpoint*.    |

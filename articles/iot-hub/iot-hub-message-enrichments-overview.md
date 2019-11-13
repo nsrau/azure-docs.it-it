@@ -1,6 +1,6 @@
 ---
 title: Panoramica degli arricchimenti dei messaggi dell'hub Azure
-description: Panoramica degli arricchimenti dei messaggi per i messaggi dell'hub Azure
+description: In questo articolo vengono illustrati gli arricchimenti dei messaggi, che consentono all'hub delle cose di contrassegnare i messaggi con informazioni aggiuntive prima che i messaggi vengano inviati all'endpoint designato.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 40ce5c4f73daac2b88d3a59e46d43dba10db0954
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 83114023eb35221bfa53e3ce4de8a861948c7a3a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177985"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005836"
 ---
-# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Arricchimento dei messaggi per i messaggi dell'hub da dispositivo a cloud (anteprima)
+# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Arricchimento dei messaggi per i messaggi dell'hub da dispositivo a cloud
 
 I miglioramenti apportati ai *messaggi sono la* possibilità dell'hub Internet di *contrassegnare* i messaggi con informazioni aggiuntive prima che i messaggi vengano inviati all'endpoint designato. Un motivo per utilizzare gli arricchimenti dei messaggi consiste nell'includere dati che possono essere utilizzati per semplificare l'elaborazione downstream. Ad esempio, l'arricchimento dei messaggi di telemetria del dispositivo con un tag del dispositivo gemello può ridurre il carico sui clienti per effettuare chiamate API dei dispositivi gemelli per queste informazioni.
 
@@ -29,7 +29,7 @@ Un arricchimento del messaggio ha tre elementi chiave:
 
 * Uno o più [endpoint](iot-hub-devguide-endpoints.md) per i quali deve essere applicata l'arricchimento.
 
-La **chiave** è una stringa. Una chiave può contenere solo caratteri alfanumerici o i caratteri speciali seguenti: il trattino (`-`), il carattere di sottolineatura (`_`) e il punto (`.`).
+La **chiave** è una stringa. Una chiave può contenere solo caratteri alfanumerici o i caratteri speciali seguenti: il segno meno (`-`), il carattere di sottolineatura (`_`) e il punto (`.`).
 
 Il **valore** può essere uno degli esempi seguenti:
 
@@ -82,10 +82,6 @@ Per informazioni su come provare gli arricchimenti dei messaggi, vedere l' [eser
 
 Gli arricchimenti dei messaggi sono disponibili senza costi aggiuntivi. Attualmente viene addebitato un addebito quando si invia un messaggio a un hub Internet. Viene addebitata una sola volta per il messaggio, anche se il messaggio viene indirizzato a più endpoint.
 
-## <a name="availability"></a>Disponibilità
-
-Questa funzionalità è disponibile in anteprima ed è disponibile in tutte le aree, ad eccezione degli Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale, [Azure per enti pubblici](/azure/azure-government/documentation-government-welcome), [Azure Cina 21ViaNet](/azure/china)e [Azure Germania](https://azure.microsoft.com/global-infrastructure/germany/).
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere questi articoli per altre informazioni sul routing dei messaggi a un hub Internet:
@@ -94,4 +90,4 @@ Vedere questi articoli per altre informazioni sul routing dei messaggi a un hub 
 
 * [Usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a endpoint diversi](iot-hub-devguide-messages-d2c.md)
 
-* [Esercitazione: Routing hub Internet delle cose @ no__t-0
+* [Esercitazione: routing dell'hub Internet](tutorial-routing.md)

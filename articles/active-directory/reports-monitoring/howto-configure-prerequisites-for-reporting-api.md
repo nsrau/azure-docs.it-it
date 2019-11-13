@@ -3,7 +3,7 @@ title: Prerequisiti per l'API per la creazione di report Azure Active Directory 
 description: Informazioni sui prerequisiti di accesso all'API di creazione report di Azure AD
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/30/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af5e198a900241bc7bb0b6aff9a57eed59d1cd86
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 3a9559f85e31a38c50034d6aacc8f65e4d68aec2
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895238"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014431"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
 
@@ -80,7 +80,7 @@ Per configurare la directory per l'accesso all'API di creazione report di Azure 
 
     b. Per **tipo di account supportati**, selezionare **account solo in questa organizzazione**.
 
-    c. Nella casella di testo **URL di reindirizzamento** selezionare **Web** digitare `https://localhost`.
+    C. Nella casella di testo **URL di reindirizzamento** selezionare **Web** digitare `https://localhost`.
 
     d. Selezionare **Registra**. 
 
@@ -89,7 +89,7 @@ Per configurare la directory per l'accesso all'API di creazione report di Azure 
 
 A seconda delle API a cui si desidera accedere, è necessario concedere all'app le autorizzazioni seguenti:  
 
-| API SmartBear Ready! | Autorizzazione |
+| API | Autorizzazione |
 | --- | --- |
 | Microsoft Azure Active Directory | Leggi i dati della directory |
 | Microsoft Graph | Leggere tutti i dati dei log di controllo |
@@ -127,7 +127,7 @@ Nella sezione seguente viene elencata la procedura per entrambe le API. Se non s
 Questa sezione illustra come ottenere le impostazioni seguenti dalla directory:
 
 - Nome di dominio
-- ID client
+- ID Client
 - Segreto client
 
 Questi valori sono necessari quando si configurano le chiamate all'API di creazione report. 
@@ -183,7 +183,7 @@ Questi valori sono necessari quando si configurano le chiamate all'API di creazi
 
     b. Per **Scadenza** selezionare **In 2 years** (In 2 anni).
 
-    c. Fare clic su **Salva**
+    C. Fare clic su **Save**.
 
     d. Copiare il valore della chiave.
 

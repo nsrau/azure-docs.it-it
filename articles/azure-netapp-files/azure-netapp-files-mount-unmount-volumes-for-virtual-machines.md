@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 49c5fc4a9d4fed2176baf220e3fcc8f887757a36
-ms.sourcegitcommit: f226cdd6406372b5693d46b6d04900f2f0cda4e6
+ms.openlocfilehash: 4cd3bc7e4f95869d3efd2d92a7cdf1addc7ce5b2
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906219"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953104"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montare o smontare un volume per macchine virtuali Windows o Linux 
 
@@ -36,4 +36,7 @@ Se si usa NFSv 4.1, usare il comando seguente per montare i file system:
 
 `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
 
-Vedere [configurare il dominio predefinito NFSv 4.1 per Azure NetApp files](azure-netapp-files-configure-nfsv41-domain.md).
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Configurare il dominio predefinito NFSv 4.1 per Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
+* Vedere [domande frequenti su NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs) su come avere un volume NFS montato automaticamente quando una macchina virtuale di Azure viene avviata o riavviata.

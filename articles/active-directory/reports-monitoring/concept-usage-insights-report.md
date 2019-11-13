@@ -3,7 +3,7 @@ title: Report di utilizzo e informazioni dettagliate | Microsoft Docs
 description: Introduzione ai report di utilizzo e informazioni dettagliate nel portale Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 3fba300d-18fc-4355-9924-d8662f563a1f
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 05/13/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 568eaa358f6788af525a69cd8ecda76a0591879f
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b3db86137207ae726c7befc393f62590fd1456d7
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820949"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008258"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Report sull'utilizzo e le informazioni dettagliate nel portale Azure Active Directory
 
@@ -31,7 +31,7 @@ Con il report utilizzo e informazioni dettagliate è possibile ottenere una visu
 *   Quali applicazioni hanno gli accessi più non riusciti? 
 *   Quali sono gli errori di accesso principali per ogni applicazione?
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>prerequisiti 
 
 Per accedere ai dati dal report utilizzo e informazioni dettagliate, è necessario:
 

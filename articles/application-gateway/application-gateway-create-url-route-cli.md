@@ -1,21 +1,18 @@
 ---
-title: Creare un gateway applicazione con regole di routing basato su percorsi URL - Interfaccia della riga di comando di Azure | Microsoft Docs
+title: Regole di routing basato su percorso URL con l'interfaccia della riga di comando-applicazione Azure gateway
 description: Informazioni su come creare regole di routing basato su percorsi URL per un gateway applicazione e un set di scalabilità di macchine virtuali usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 061156a455664a5a3f0b4c4497d24f4e8ff6eea7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7198e68530a51e6c2002b3beb08f14615a5c70fb
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66135696"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012332"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Creare un gateway applicazione con regole di routing basato su percorsi URL usando l'interfaccia della riga di comando di Azure
 
@@ -94,7 +91,7 @@ az network application-gateway create \
 - *appGatewayBackendHttpSettings*: specifica che per le comunicazioni vengono usati la porta 80 e il protocollo HTTP.
 - *appGatewayHttpListener*: il listener predefinito associato ad *appGatewayBackendPool*.
 - *appGatewayFrontendIP*: assegna *myAGPublicIPAddress* ad *appGatewayHttpListener*.
-- *rule1*: la regola di routing predefinita associata ad *appGatewayHttpListener*.
+- *rule1*: regola di routing predefinita associata ad *appGatewayHttpListener*.
 
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>Aggiungere i pool back-end di immagini e video e la porta
@@ -232,17 +229,17 @@ az network public-ip show \
 
 ![Testare l'URL di base nel gateway applicazione](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-Modificare l'URL in `http://<ip-address>:8080/video/test.html` alla fine dell'URL di base e si otterrà un risultato simile al seguente:
+Modificare l'URL in `http://<ip-address>:8080/video/test.html` alla fine dell'URL di base e dovrebbe essere visualizzato qualcosa di simile all'esempio seguente:
 
 ![Testare l'URL delle immagini nel gateway applicazione](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
-Modificare l'URL in `http://<ip-address>:8080/video/test.html` dovrebbe essere simile al seguente.
+Modificare l'URL in `http://<ip-address>:8080/video/test.html` e dovrebbe essere visualizzato qualcosa di simile all'esempio seguente.
 
 ![Testare l'URL video nel gateway applicazione](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Configurare la rete

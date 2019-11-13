@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: f733e29fc5fbce764fef9a713747d6793d2ebd43
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 62f298e0efb5c54efdcd15cf470ed4640f720058
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489319"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73957851"
 ---
-# <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>Creazione e gestione di ambienti riutilizzabili per il training e la distribuzione con Azure Machine Learning.
+# <a name="reuse-environments-for-training--deployment-with-azure-machine-learning"></a>Riutilizza gli ambienti per il Training & la distribuzione con Azure Machine Learning.
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In questo articolo viene illustrato come creare e gestire [ambienti](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) di Azure Machine Learning in modo da tenere traccia e riprodurre le dipendenze del software dei progetti man mano che si evolvono.
@@ -51,7 +51,7 @@ Per un ambiente gestito dall'utente è necessario configurare l'ambiente e insta
 
 Gli ambienti gestiti dal sistema vengono usati quando si vuole [conda](https://conda.io/docs/) per gestire l'ambiente Python e le dipendenze di script. Per impostazione predefinita, il servizio presuppone questo tipo di ambiente, a causa dell'utilità delle destinazioni di calcolo remote che non possono essere configurate manualmente.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * SDK Azure Machine Learning per Python [installato](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 * [Area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
@@ -105,7 +105,7 @@ Environment(name="myenv")
 ### <a name="conda-and-pip-specification-files"></a>File delle specifiche conda e PIP
 
 È anche possibile creare un ambiente da una specifica conda o da un file di requisiti PIP.
-Usare il metodo [from_conda_specification ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-conda-specification-name--file-path-) o [from_pip_requirements ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-) e includere il nome dell'ambiente e il percorso del file desiderato nell'argomento del metodo.
+Usare il metodo [from_conda_specification ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-conda-specification-name--file-path-) o il [from_pip_requirements ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-) e includere il nome dell'ambiente e il percorso del file desiderato nell'argomento del metodo.
 
 ```python
 # From a Conda specification file
@@ -121,7 +121,7 @@ myenv = Environment.from_pip_requirements(name = "myenv"
 
 Se si dispone di un ambiente conda esistente nel computer locale, il servizio offre una soluzione per la creazione di un oggetto ambiente. In questo modo è possibile riutilizzare l'ambiente interattivo locale nelle esecuzioni remote.
 
-Il codice seguente crea un oggetto Environment dall'ambiente conda esistente `mycondaenv` con il metodo [from_existing_conda_environment ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-existing-conda-environment-name--conda-environment-name-) .
+Il codice seguente crea un oggetto ambiente fuori dall'ambiente conda esistente `mycondaenv` con il metodo [from_existing_conda_environment ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-existing-conda-environment-name--conda-environment-name-) .
 
 ``` python
 myenv = Environment.from_existing_conda_environment(name = "myenv",
@@ -240,7 +240,7 @@ Per aggiornare una versione del pacchetto python di un ambiente esistente, speci
 
 ### <a name="debug-the-image-build"></a>Eseguire il debug della compilazione dell'immagine
 
-Questo esempio usa il metodo [Build ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#build-workspace-) per creare manualmente un ambiente come immagine Docker e monitora i log di output dalla compilazione dell'immagine tramite [wait_for_completion ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-). L'immagine compilata viene quindi visualizzata sotto l'area di lavoro Azure Container Registry, che risulta utile per il debug.
+Questo esempio usa il metodo [Build ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#build-workspace-) per creare manualmente un ambiente come immagine Docker e monitora i log di output dalla compilazione dell'immagine usando [wait_for_completion ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-). L'immagine compilata viene quindi visualizzata sotto l'area di lavoro Azure Container Registry, che risulta utile per il debug.
 
 ```python
 from azureml.core import Image
@@ -309,7 +309,7 @@ Se non si specifica l'ambiente nella configurazione di esecuzione, il servizio c
 
 Se si usa un [estimatore](how-to-train-ml-models.md) per il training, è sufficiente inviare direttamente l'istanza di Estimator, perché include già l'ambiente e la destinazione di calcolo.
 
-Il codice seguente usa un estimatore per un training a nodo singolo eseguito in un calcolo remoto per un modello Scikit-learn e presuppone che un oggetto di destinazione di calcolo creato in precedenza, `compute_target` e l'oggetto datastore, `ds`.
+Il codice seguente usa un estimatore per un training a nodo singolo eseguito in un calcolo remoto per un modello Scikit-learn e presuppone che un oggetto di destinazione di calcolo creato in precedenza, `compute_target` e un oggetto archivio dati, `ds`.
 
 ```python
 from azureml.train.estimator import Estimator

@@ -4,14 +4,13 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 90ccc89f80da7c2abce324c077f0fb1a436b8d44
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1a18812c6447266d34f2c8aa1ccff8984f68570a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72171014"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008815"
 ---
-# <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usare strumenti di automazione dell'infrastruttura con macchine virtuali in Azure
 Per creare e gestire macchine virtuali (VM) in modo coerente e scalabile, è in genere consigliabile una certa parte di automazione. Sono disponibili numerosi strumenti e soluzioni che consentono di automatizzare l'intero ciclo di vita di distribuzione e gestione dell'infrastruttura di Azure. Questo articolo presenta alcuni degli strumenti di automazione dell'infrastruttura che è possibile usare in Azure. Questi strumenti sono in genere associati a uno degli approcci seguenti:
 
 - Automatizzare la configurazione delle macchine virtuali

@@ -1,6 +1,6 @@
 ---
-title: Funzionalità di richiesta dei dati dei clienti in Azure Time Series Insights | Microsoft Docs
-description: Riepilogo delle funzionalità di richiesta dei dati dei clienti in Azure Time Series Insights.
+title: Funzionalità di richiesta dati del cliente-Azure Time Series Insights | Microsoft Docs
+description: Informazioni sulle funzionalità di richiesta dei dati dei clienti in Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: ba883ec3ce8f8ca4491b8576e6633ba2837bb5b2
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: d134c7cbe220e6aa6b1471b50aa23e17d09734d5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990099"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007017"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dati dei clienti
 
@@ -28,7 +28,7 @@ Per visualizzare, esportare ed eliminare i dati personali che possono essere ogg
 
 Azure Time Series Insights considera i dati personali come dati associati agli amministratori e agli utenti di Time Series Insights. Time Series Insights archivia l'ID oggetto di Azure Active Directory degli utenti con accesso all'ambiente. Nel portale di Azure vengono visualizzati gli indirizzi di posta elettronica degli utenti, ma tali indirizzi di posta elettronica non vengono archiviati in Time Series Insights, vengono cercati in modo dinamico mediante l'ID oggetto di Azure Active Directory in Azure Active Directory.
 
-## <a name="deleting-customer-data"></a>Eliminazione di dati del cliente
+## <a name="deleting-customer-data"></a>Eliminazione dei dati del cliente
 
 L'amministratore del tenant può eliminare i dati dei clienti tramite il portale di Azure.
 

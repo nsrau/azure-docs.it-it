@@ -1,5 +1,5 @@
 ---
-title: Modificare la visualizzazione della sessione della macchina virtuale in schermo intero in Azure Bastion | Microsoft Docs
+title: 'Azure Bastion: visualizzare la sessione della macchina virtuale: schermo intero'
 description: In questo articolo viene illustrato come modificare la visualizzazione a schermo intero.
 services: bastion
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: a8c9cab825644fe797713c80d3a710c7a2d54850
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 87a6c046d5f20b8f38381acbfefbfef43b09092c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498049"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014235"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Passare alla visualizzazione a schermo intero per una sessione VM: Azure Bastion
 

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f9a3c4875f01c650485034fe46f53bb5aa1fd75b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: cb7ebe5d9519f1a3967a29f4c883c420a892817f
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722645"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958008"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Copertura per il traffico in Mappe di Azure
 
 Mappe di Azure offre informazioni avanzate sul traffico sotto forma di **flusso** del traffico e **incidenti** stradali. Questi dati possono essere visualizzati sulle mappe o usati per generare itinerari più intelligenti che tengano in considerazione le condizioni di guida reali.
 
-Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte le aree. La tabella seguente indica la tipologia di informazioni sul traffico che è possibile richiedere per ogni area: 
+Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per tutti i paesi o le aree geografiche. La tabella seguente fornisce informazioni sul tipo di informazioni sul traffico che è possibile richiedere da ogni paese o area geografica: 
 
 ## <a name="americas"></a>Americhe
 
@@ -43,7 +43,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 |---------|:---------:|:---------:|
 |Australia     |✓         |✓        |
 |Brunei   |✓         |✓        |
-|RAS di Hong Kong     |✓         |✓         |
+|Hong Kong - R.A.S.     |✓         |✓         |
 |India   |✓         |✓         |
 |Indonesia     |✓         |✓         |
 |RAS di Macao     |✓         |✓         |
@@ -129,7 +129,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 |Oman     |✓         |✓         |
 |Qatar     |✓         |✓         |
 |Arabia Saudita     |✓         |✓         |
-|Sudafrica     |✓         |✓         |
+|Sud Africa     |✓         |✓         |
 |Emirati Arabi Uniti  |✓         |✓         |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Instradare il traffico per la disponibilità elevata delle applicazioni | Microsoft Docs
+title: Instradare il traffico per la disponibilità elevata di applicazioni-Gestione traffico di Azure
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Instradare il traffico per la disponibilità elevata delle applicazioni
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: allensu
-ms.openlocfilehash: 2bf993dad3b9452424c5d3b450bf3908b38983c2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 02807d3773b5d27d59ab6b03a22f7637bae95aca
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050978"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006389"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Instradare il traffico per la disponibilità elevata delle applicazioni con l'interfaccia della riga di comando di Azure
 
@@ -48,7 +48,7 @@ az group delete --name myResourceGroup2 --yes
 
 Questo script usa i comandi seguenti per creare un gruppo di risorse, un'App Web, un profilo di Gestione traffico e tutte le risorse correlate. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
-| Comando | Note |
+| Comando | note |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan) | Consente di creare un piano di servizio app. Equivale a una server farm per l'App Web di Azure. |

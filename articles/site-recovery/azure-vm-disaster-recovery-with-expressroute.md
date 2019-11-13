@@ -1,5 +1,5 @@
 ---
-title: Integrare Azure ExpressRoute con il ripristino di emergenza per le macchine virtuali di Azure con il servizio Azure Site Recovery | Microsoft Docs
+title: Integrare il ripristino di emergenza delle macchine virtuali di Azure ExpressRoute con Azure Site Recovery
 description: Viene descritto come configurare il ripristino di emergenza per le macchine virtuali di Azure tramite Azure Site Recovery e Azure ExpressRoute
 services: site-recovery
 author: mayurigupta13
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 0974e2ed78e557168357c51b5c77a94de2f56dc5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722111"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954091"
 ---
-# <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrare Azure ExpressRoute con il ripristino di emergenza per le macchine virtuali di Azure
+# <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrare ExpressRoute con il ripristino di emergenza per macchine virtuali di Azure
 
 
 Questo articolo descrive come integrare Azure ExpressRoute con [Azure Site Recovery](site-recovery-overview.md), quando si configura il ripristino di emergenza per le macchine virtuali di Azure in un'area di Azure secondaria.
@@ -28,7 +28,7 @@ Site Recovery consente il ripristino di emergenza delle macchine virtuali di Azu
 
 ExpressRoute consente di estendere le reti locali nel cloud Microsoft Azure tramite una connessione privata fornita da un provider di connettività. Se è stato configurato ExpressRoute, questo si integra con Site Recovery nel modo seguente:
 
-- **Durante la replica tra aree di Azure**: il traffico di replica per il ripristino di emergenza delle macchine virtuali di Azure è solo all'interno di Azure; ExpressRoute non è necessario o usato per la replica. Tuttavia, se ci si connette da un sito locale alle macchine virtuali di Azure nel sito di Azure primario, è necessario tenere presenti alcuni aspetti durante la configurazione del ripristino di emergenza per le macchine virtuali di Azure.
+- **Durante la replica tra aree di Azure**: il traffico di replica per il ripristino di emergenza delle macchine virtuali di Azure è solo all'interno di Azure ed ExpressRoute non è necessario o usato per la replica. Tuttavia, se ci si connette da un sito locale alle macchine virtuali di Azure nel sito di Azure primario, è necessario tenere presenti alcuni aspetti durante la configurazione del ripristino di emergenza per le macchine virtuali di Azure.
 - **Failover tra aree di Azure**: quando si verificano interruzioni, eseguire il failover delle macchine virtuali di Azure dal server primario all'area di Azure secondaria. Dopo il failover in un'area secondaria, esistono una serie di passaggi da effettuare per poter accedere alle macchine virtuali di Azure nell'area secondaria tramite ExpressRoute.
 
 
@@ -95,7 +95,7 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
   - Tutte le comunicazioni tra le subnet passano attraverso questo hub.
     - **Subnet VNet Hub**. La rete virtuale hub comprende due subnet:
     - **NVA subnet**: 10.10.10.0/25. Questa subnet contiene un'appliance virtuale di rete (10.10.10.10).
-    - **Subnet del gateway**: 10.10.10.128/25. Questa subnet contiene un gateway ExpressRoute collegato a una connessione ExpressRoute che indirizza al sito locale tramite un dominio di routing di peering privato.
+    - **Gateway subnet**: 10.10.10.128/25. Questa subnet contiene un gateway ExpressRoute collegato a una connessione ExpressRoute che indirizza al sito locale tramite un dominio di routing di peering privato.
 - Il data center locale dispone di una connessione al circuito ExpressRoute tramite un'appliance perimetrale partner a Hong Kong.
 - Tutto il routing è controllato tramite le tabelle di route di Azure (routing definito dall'utente).
 - Tutto il traffico in uscita tra le reti virtuali o al data center locale viene instradato tramite NVA Subnet.
@@ -104,7 +104,7 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
 
 #### <a name="spoke-to-hub"></a>Da spoke a hub
 
-**Direzione** | **Impostazione** | **Stato**
+**Direzione** | **Impostazione** | **State**
 --- | --- | ---
 Da spoke a hub | Allow virtual network address (Consenti indirizzo rete virtuale) | Enabled
 Da spoke a hub | Consenti traffico inoltrato | Enabled
@@ -115,7 +115,7 @@ Da spoke a hub | Usa gateway remoti | Enabled
 
 #### <a name="hub-to-spoke"></a>Da hub a spoke
 
-**Direzione** | **Impostazione** | **Stato**
+**Direzione** | **Impostazione** | **State**
 --- | --- | ---
 Da hub a spoke | Allow virtual network address (Consenti indirizzo rete virtuale) | Enabled
 Da hub a spoke | Consenti traffico inoltrato | Enabled
@@ -197,7 +197,7 @@ Per automatizzare il ripristino in questo esempio, ecco come procedere:
 
     b. Creare la connessione dalla rete virtuale dell'hub di destinazione al circuito ExpressRoute di destinazione.
 
-    c. Configurare i peering delle reti virtuali tra l'hub dell'area di destinazione e le reti virtuali spoke. Le proprietà di peering nell'area di destinazione saranno identiche a quelle dell'area di origine.
+    C. Configurare i peering delle reti virtuali tra l'hub dell'area di destinazione e le reti virtuali spoke. Le proprietà di peering nell'area di destinazione saranno identiche a quelle dell'area di origine.
 
     d. Configurare gli UDR nella rete virtuale hub e nelle due reti virtuali spoke.
 

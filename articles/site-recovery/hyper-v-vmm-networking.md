@@ -1,18 +1,18 @@
 ---
-title: Configurare gli indirizzi IP per la connessione a un sito secondario locale dopo il failover con Azure Site Recovery
+title: Configurare gli indirizzi IP dopo il failover in un sito secondario con Azure Site Recovery
 description: Descrive come configurare l'indirizzo IP per la connessione alle macchine virtuali in un sito secondario locale dopo il ripristino di emergenza e il failover con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: f158c6b71bb53d6b683577401e625e24808eb7eb
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813692"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961435"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurare l'indirizzo IP per la connessione a un sito secondario locale dopo il failover
 
@@ -22,8 +22,8 @@ Dopo avere eseguito il failover delle macchine virtuali Hyper-V nei cloud System
 
 Dopo il failover, è possibile gestire gli indirizzi IP per le macchine virtuali di replica in un paio di modi: 
 
-- **Conservare lo stesso indirizzo IP dopo il failover**: In questo scenario la macchina virtuale di replica ha lo stesso indirizzo IP di quella primaria. Questa operazione semplifica i problemi correlati alla rete dopo il failover, ma richiede alcuni interventi di infrastruttura.
-- **Usare un indirizzo IP diverso dopo il failover**: In questo scenario, la macchina virtuale ottiene un nuovo indirizzo IP dopo il failover. 
+- **Mantenere lo stesso indirizzo IP dopo il failover**: in questo scenario la macchina virtuale di replica ha lo stesso indirizzo IP di quella primaria. Questa operazione semplifica i problemi correlati alla rete dopo il failover, ma richiede alcuni interventi di infrastruttura.
+- **Usare un indirizzo IP diverso dopo il failover**: in questo scenario la macchina virtuale ottiene un nuovo indirizzo IP dopo il failover. 
  
 
 ## <a name="retain-the-ip-address"></a>Mantenere l'indirizzo IP

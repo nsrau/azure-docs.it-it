@@ -1,5 +1,5 @@
 ---
-title: Configurare e gestire i criteri per la replica del ripristino di emergenza di VMware con Azure Site Recovery | Microsoft Docs
+title: Configurare i criteri di replica per il ripristino di emergenza di VMware con Azure Site Recovery | Microsoft Docs
 description: Descrive come configurare le impostazioni per la replica del ripristino di emergenza di VMware in Azure con Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -7,17 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 019f9f2019619053f87a7923d656513a419d4675
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231451"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954331"
 ---
-# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Configurare e gestire i criteri per la replica del ripristino di emergenza di VMware in Azure
+# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Configurare e gestire i criteri di replica per il ripristino di emergenza di VMware
+
 Questo articolo illustra come configurare criteri di replica quando si esegue la replica di macchine virtuali VMware in Azure usando il servizio [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="create-a-policy"></a>Crea un criterio
+## <a name="create-a-policy"></a>Creare un criterio
 
 1. Selezionare **Gestisci** > **Site Recovery Infrastructure** (Infrastruttura di Site Recovery).
 2. In **For VMware and Physical machines** (Per VMware e computer fisici) selezionare **Criteri di replica**.
@@ -48,7 +49,7 @@ Associare il criterio di replica al server di configurazione locale.
 - Se si desidera associare computer replicati a criteri di replica diversi, è necessario disabilitare e riabilitare la protezione per i computer pertinenti.
 
 Modificare i criteri come indicato di seguito:
-1. Selezionare **Gestisci** > **Site Recovery** > **criteri di replica**infrastruttura.
+1. Selezionare **gestisci** > **infrastruttura Site Recovery** > **criteri di replica**.
 2. Selezionare i criteri di replica che si desidera modificare.
 3. Fare clic su **Modifica impostazioni**e aggiornare i campi soglia RPO/ore di conservazione del punto di ripristino/frequenza snapshot coerenti con l'app secondo le esigenze.
 4. Se si desidera disattivare la generazione di punti di coerenza dell'applicazione, scegliere valore "disattivato" nell'elenco a discesa della **frequenza di snapshot coerenti**con l'app campo.

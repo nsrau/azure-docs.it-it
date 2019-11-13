@@ -1,22 +1,22 @@
 ---
-title: Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite il portale di Azure
+title: Reindirizzamento da HTTP a HTTPS nel portale applicazione Azure gateway
 description: Informazioni su come creare un gateway applicazione con traffico reindirizzato da HTTP a HTTPS usando il portale di Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 12/7/2018
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 17eef2fc2608ca4ccbabff8179cd63798d275582
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d67270896792ea506d2df04dcc3745a43d3d8251
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101462"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012873"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite il portale di Azure
 
-È possibile usare il portale di Azure per creare un [gateway applicazione](overview.md) con un certificato per la terminazione SSL. Viene usata una regola di routing per reindirizzare il traffico HTTP verso la porta HTTPS nel gateway applicazione. In questo esempio viene creato anche un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per il pool back-end del gateway applicazione che contiene due istanze di macchine virtuali.
+È possibile usare il portale di Azure per creare un [gateway applicazione](overview.md) con un certificato per la terminazione SSL. Per reindirizzare il traffico HTTP verso la porta HTTPS del gateway applicazione viene usata una regola di routing. In questo esempio viene creato anche un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per il pool back-end del gateway applicazione che contiene due istanze di macchine virtuali.
 
 In questo articolo viene spiegato come:
 
@@ -31,11 +31,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Questa esercitazione richiede il modulo Azure PowerShell versione 1.0.0 o è in un secondo momento per creare un certificato e installare IIS. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Per eseguire i comandi in questa esercitazione, è anche necessario eseguire `Login-AzAccount` per creare una connessione con Azure.
+Per questa esercitazione è necessario il modulo Azure PowerShell versione 1.0.0 o successiva per creare un certificato e installare IIS. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installare il modulo di Azure PowerShell). Per eseguire i comandi in questa esercitazione, è anche necessario eseguire `Login-AzAccount` per creare una connessione con Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Creare un certificato autofirmato
 
-Per l'uso in ambiente di produzione è necessario importare un certificato valido firmato da un provider attendibile. Per questa esercitazione viene creato un certificato autofirmato usando il comando [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). È possibile usare [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) con l'identificazione personale restituita per esportare un file pfx dal certificato.
+Per la produzione è necessario importare un certificato valido firmato da un provider attendibile. Per questa esercitazione viene creato un certificato autofirmato usando il comando [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). È possibile usare [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) con l'identificazione personale restituita per esportare un file pfx dal certificato.
 
 ```powershell
 New-SelfSignedCertificate `
@@ -215,7 +215,7 @@ Dopo aver modificato le istanze con IIS, è necessario aggiornare di nuovo il se
 1. Selezionare **myAppGateway**.
 2. Nella pagina **Panoramica** prendere nota dell'indirizzo IP in **Indirizzo IP pubblico front-end**.
 
-3. Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Ad esempio: http://52.170.203.149
+3. Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Ad esempio, http://52.170.203.149
 
    ![Avviso di sicurezza](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 

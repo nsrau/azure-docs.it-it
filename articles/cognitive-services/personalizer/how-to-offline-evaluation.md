@@ -1,7 +1,7 @@
 ---
 title: Come eseguire la valutazione offline-personalizzatore
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come analizzare il ciclo di apprendimento con una valutazione offline
+description: Questo articolo illustra come usare la valutazione offline per misurare l'efficacia dell'app e analizzare il ciclo di apprendimento.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 9d7336fb933ee5e9781d15214fa3e59446aa5b6a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c2aec0db2d1f9865188f2749a0eeb765a14d04ed
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490737"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73952985"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analizzare il ciclo di apprendimento con una valutazione offline
 
@@ -26,7 +26,7 @@ Le valutazioni offline consentono di misurare il modo in cui il Personalizzatore
 Altre informazioni sulle [valutazioni offline](concepts-offline-evaluation.md).
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un ciclo di personalizzazione configurato
 * Il ciclo di personalizzazione deve avere una quantità rappresentativa di dati, come Ballpark, per ottenere risultati di valutazione significativi è consigliabile usare almeno 50.000 eventi nei log. Facoltativamente, è anche possibile confrontare e testare i file dei _criteri di valutazione_ esportati in precedenza.

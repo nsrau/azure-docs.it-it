@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 996006c60e754437f8f863c7e7a72c929ed77f2c
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 0dc1c52e65090acd5f63d1b23d8da6f37e3cf567
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166216"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960736"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuire l'applicazione nei set di scalabilità delle macchine virtuali
 
@@ -37,7 +37,7 @@ Per ridurre la gestione della configurazione e il tempo per eseguire il provisio
 
 
 ## <a name="already-provisioned"></a>Installare un'app con l'estensione dello script personalizzata
-L'estensione script personalizzata scarica ed esegue gli script sulle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Gli script possono essere scaricati dall'archiviazione di Azure o da GitHub oppure possono essere forniti al portale di Azure durante il runtime dell'estensione. Per altre informazioni su come creare e usare un'immagine di VM personalizzata con un set di scalabilità, vedere le esercitazioni seguenti:
+L'estensione script personalizzata scarica ed esegue gli script sulle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Gli script possono essere scaricati dall'archiviazione di Azure o da GitHub oppure possono essere forniti al portale di Azure durante il runtime dell'estensione. Per altre informazioni su come installare un'app con un'estensione di script personalizzata, vedere le esercitazioni seguenti:
 
 - [Interfaccia della riga di comando di Azure](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)

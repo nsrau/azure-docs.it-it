@@ -1,7 +1,7 @@
 ---
 title: Esporta & eliminare i dati-LUIS
 titleSuffix: Azure Cognitive Services
-description: Elimina i dati dei clienti per garantire la privacy e la conformità.
+description: Si ha il controllo completo sulla visualizzazione, l'esportazione e l'eliminazione dei dati. Elimina i dati dei clienti per garantire la privacy e la conformità.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: e234f88d6e735f33be253cacb373baef63c605c0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 061f019fe36e4d5495a41fc81e56d9673ad595fc
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559984"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953449"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Esportare ed eliminare i dati dei clienti in Language Understanding (LUIS) in Servizi cognitivi
 
 Elimina i dati dei clienti per garantire la privacy e la conformità. 
 
-## <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dei dati dei clienti
+## <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dati dei clienti
 Language Understanding Intelligent Service (LUIS) conserva i contenuti dei clienti per consentire il funzionamento del servizio, ma l'utente LUIS ha il controllo completo su visualizzazione, esportazione ed eliminazione dei propri dati. Questa operazione può essere eseguita tramite il [portale](luis-reference-regions.md) Web Luis o le [API Luis authoring (note anche come programmatiche)](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
@@ -34,7 +34,7 @@ I contenuti dei clienti vengono archiviati e crittografati in archivi Azure a li
 - Query utente registrate utilizzate da [Active Learning](luis-concept-review-endpoint-utterances.md) per contribuire al miglioramento del modello
   - Gli utenti possono disattivare la registrazione delle query aggiungendo `&log=false` alla richiesta. Informazioni dettagliate sono disponibili [qui](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
-## <a name="deleting-customer-data"></a>Eliminazione dei dati dei clienti
+## <a name="deleting-customer-data"></a>Eliminazione dei dati del cliente
 Gli utenti LUIS hanno il controllo completo per eliminare qualsiasi contenuto utente, tramite il portale Web LUIS o le API LUIS authoring (noto anche come programmatico). Nella tabella seguente sono disponibili i collegamenti per entrambe le opzioni:
 
 | | **Account utente** | **Applicazione** | **Espressioni di esempio** | **Query utente finale** |
@@ -43,7 +43,7 @@ Gli utenti LUIS hanno il controllo completo per eliminare qualsiasi contenuto ut
 | **API** | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 
-## <a name="exporting-customer-data"></a>Esportazione dei dati dei clienti
+## <a name="exporting-customer-data"></a>Esportazione di dati dei clienti
 Gli utenti LUIS hanno il controllo completo per visualizzare i dati nel portale, ma devono essere esportati tramite le API LUIS authoring (noto anche come programmatico). La tabella seguente contiene i collegamenti che assistono alle esportazioni di dati tramite le API di authoring LUIS (note anche a livello di codice):
 
 | | **Account utente** | **Applicazione** | **Espressione/i** | **Query utente finale** |

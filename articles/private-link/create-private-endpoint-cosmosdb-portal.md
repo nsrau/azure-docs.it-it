@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sngun
-ms.openlocfilehash: 80a0a3440a7fb5d056d1d76fb9d82931721b6e16
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 32595e561736b5f22f109d0caff1f3990300d2bc
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514212"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007322"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Connettersi privatamente a un account Azure Cosmos usando il collegamento privato di Azure
 
@@ -35,18 +35,18 @@ In questa sezione si creerà una rete virtuale e la subnet per ospitare la macch
 
     | Impostazione | Valore |
     | ------- | ----- |
-    | Name | Immettere *MyVirtualNetwork*. |
+    | Nome | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
-    | Sottoscrizione | Selezionare la propria sottoscrizione.|
+    | sottoscrizione | Selezionare la propria sottoscrizione.|
     | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
-    | Percorso | Selezionare **Stati Uniti centro-occidentali**.|
+    | Location | Selezionare **Stati Uniti centro-occidentali**.|
     | Subnet - Nome | Immettere *mySubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
     |||
 
 1. Lasciare le altre impostazioni sui valori predefiniti e selezionare **Crea**.
 
-### <a name="create-the-virtual-machine"></a>Creare la macchina virtuale
+### <a name="create-the-virtual-machine"></a>Creazione della macchina virtuale
 
 1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** > **calcolo** > **macchina virtuale**.
 
@@ -55,11 +55,11 @@ In questa sezione si creerà una rete virtuale e la subnet per ospitare la macch
     | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
-    | Sottoscrizione | Selezionare la propria sottoscrizione. |
+    | sottoscrizione | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome macchina virtuale | Immettere *myVm*. |
-    | Region | Selezionare **Stati Uniti centro-occidentali**. |
+    | Area | Selezionare **Stati Uniti centro-occidentali**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
     | Image | Selezionare **Windows Server 2019 Datacenter**. |
     | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
@@ -81,7 +81,7 @@ In questa sezione si creerà una rete virtuale e la subnet per ospitare la macch
 
     | Impostazione | Valore |
     | ------- | ----- |
-    | Rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
+    | rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
     | Spazio degli indirizzi | Lasciare l'impostazione predefinita **10.1.0.0/24**.|
     | Subnet | Lasciare l'impostazione predefinita **mySubnet (10.1.0.0/24)** .|
     | IP pubblico | Lasciare l'impostazione predefinita **(nuovo) myVm-ip**. |
@@ -99,7 +99,7 @@ Creare un [account API di Azure Cosmos SQL](../cosmos-db/create-cosmosdb-resourc
 
 ## <a name="create-a-private-endpoint-for-your-azure-cosmos-account"></a>Creare un endpoint privato per l'account Azure Cosmos
 
-Creare un collegamento privato per l'account Azure Cosmos, come descritto nella sezione [creare un collegamento privato usando la portale di Azure](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-link-using-the-azure-portal) dell'articolo collegato.
+Creare un collegamento privato per l'account Azure Cosmos, come descritto nella sezione [creare un collegamento privato usando la portale di Azure](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal) dell'articolo collegato.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Connettersi a una VM da Internet
 
@@ -109,7 +109,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 1. Scegliere il pulsante **Connetti**. Dopo aver selezionato il pulsante **Connetti** viene aperta la finestra **Connetti alla macchina virtuale**.
 
-1. Selezionare **Scarica file RDP**. Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *rdp*.
+1. Selezionare **Scarica file RDP**. Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp*.
 
 1. Aprire il file con estensione *.rdp* scaricato.
 
@@ -168,7 +168,7 @@ In questa sezione si effettuerà la connessione privata all'account Azure Cosmos
 
 Al termine dell'operazione, eliminare il gruppo di risorse e tutte le risorse in esso contenute usando l'endpoint privato, l'account Azure Cosmos e la macchina virtuale: 
 
-1. Immettere *myResourceGroup* nella casella di **ricerca** nella parte superiore del portale e selezionare *myResourceGroup* dai risultati della ricerca.
+1. Immettere *myResourceGroup* nella casella **Cerca** nella parte superiore del portale e selezionare *myResourceGroup* nei risultati della ricerca.
 
 1. Selezionare **Elimina gruppo di risorse**.
 

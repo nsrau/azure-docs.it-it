@@ -1,17 +1,14 @@
 ---
 title: Risoluzione dei problemi comuni
 description: Informazioni su come risolvere i problemi di creazione, assegnazione e rimozione dei progetti.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 12/11/2018
 ms.topic: troubleshooting
-ms.service: blueprints
-ms.openlocfilehash: b99e94bfdcbf12e82a094f14995b6b93aa3354ed
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: b6f1d6c40f7268e90f09457e680a3ef33996c341
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978218"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960298"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Risoluzione errori con Azure Blueprint
 
@@ -33,7 +30,7 @@ In genere l'errore è dovuto a un artefatto e non al progetto stesso. Se un arte
 
 ## <a name="general-errors"></a>Errori generali
 
-### <a name="policy-violation"></a>Scenario: Violazione dei criteri
+### <a name="policy-violation"></a>Scenario: violazione dei criteri
 
 #### <a name="issue"></a>Problema
 
@@ -50,7 +47,7 @@ I criteri possono entrare in conflitto con la distribuzione per diversi motivi:
 
 Modificare il progetto in modo che non entri in conflitto con i criteri nei dettagli dell'errore. Nel caso in cui la modifica non sia possibile, l'alternativa consiste nel modificare l'ambito di assegnazione dei criteri in modo che il progetto non entri più in conflitto con i criteri.
 
-### <a name="escape-function-parameter"></a>Scenario: Il parametro del progetto è una funzione
+### <a name="escape-function-parameter"></a>Scenario: il parametro Blueprint è una funzione
 
 #### <a name="issue"></a>Problema
 

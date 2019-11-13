@@ -1,5 +1,5 @@
 ---
-title: Gestire le interfacce di rete in Azure Site Recovery per il ripristino di emergenza dall'ambiente locale ad Azure | Microsoft Docs
+title: Gestire le schede di rete per il ripristino di emergenza locale con Azure Site Recovery
 description: Questo articolo descrive come gestire le interfacce di rete per il ripristino di emergenza dall'ambiente locale ad Azure con Azure Site Recovery
 author: mayurigupta13
 manager: rochakm
@@ -7,14 +7,15 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 5d5dd7bc3f6b60c2f9d7c2179f2bd356ca101dc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a4752b501e40f9e8a4f3bc82cb2533c11f9e526
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471775"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954597"
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gestire le interfacce di rete delle macchine virtuali per il ripristino di emergenza dall'ambiente locale ad Azure
+# <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gestire le interfacce di rete VM per il ripristino di emergenza locale in Azure
+
 Una macchina virtuale (VM) in Azure deve avere almeno un'interfaccia di rete collegata, fino al numero massimo supportato dalle dimensioni della macchina virtuale stessa.
 
 Per impostazione predefinita, la prima interfaccia di rete collegata a una macchina virtuale di Azure è definita interfaccia di rete primaria. Tutte le altre interfacce di rete nella macchina virtuale sono interfacce di rete secondarie. Sempre per impostazione predefinita, tutto il traffico in uscita dalla macchina virtuale viene inviato all'indirizzo IP assegnato alla configurazione IP primaria dell'interfaccia di rete primaria.

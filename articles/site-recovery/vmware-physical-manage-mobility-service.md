@@ -1,5 +1,5 @@
 ---
-title: Gestire l'agente di mobilità nei server per il ripristino di emergenza di macchine virtuali VMware e server fisici con Azure Site Recovery | Microsoft Docs
+title: Gestire l'agente di mobilità per i server VMware/fisici con Azure Site Recovery
 description: Gestire l'agente del servizio Mobility per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure usando il servizio Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 0a8b3a8bcfc2aa8270d7be140a94e5b83973f3e5
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: e6e7beeb4c10098f36636aad2709e03d1a1a0fea
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972120"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953636"
 ---
-# <a name="manage-mobility-agent-on-protected-machines"></a>Gestire l'agente Mobility nei computer protetti
+# <a name="manage-the-mobility-agent"></a>Gestire l'agente di mobilità 
 
 Quando si usa Azure Site Recovery per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure, si configura l'agente di mobilità nel server. L'agente di mobilità coordina le comunicazioni tra il computer protetto, il server di configurazione/server di elaborazione con scalabilità orizzontale e gestisce la replica dei dati. Questo articolo riepiloga le attività comuni per la gestione dell'agente di mobilità dopo la distribuzione.
 
@@ -54,7 +54,7 @@ Quando è stato distribuito Site Recovery, per consentire l'installazione push d
 Eseguire la disinstallazione dall'interfaccia utente o da un prompt dei comandi.
 
 - **Dall'interfaccia utente**: nel Pannello di controllo della macchina selezionare **Programmi**. Selezionare **Servizio Mobility di Microsoft Azure Site Recovery/server di destinazione master** > **Disinstalla**.
-- **Da un prompt dei comandi:** : aprire una finestra del prompt dei comandi come amministratore nel computer. Eseguire il comando seguente: 
+- **Da un prompt dei comandi**: aprire una finestra dei comandi con privilegi di amministratore sul computer. Eseguire il comando seguente: 
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
     ```

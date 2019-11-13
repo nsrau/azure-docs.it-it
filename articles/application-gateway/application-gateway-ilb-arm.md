@@ -1,47 +1,40 @@
 ---
-title: Uso di un gateway applicazione di Azure con un servizio di bilanciamento del carico interno - PowerShell | Documentazione Microsoft
+title: Usare con il gateway interno di Load Balancer applicazione Azure
 description: Questa pagina fornisce istruzioni per la creazione, la configurazione, l'avvio e l'eliminazione di un gateway applicazione di Azure con un dispositivo di bilanciamento del carico interno (ILB) per Gestione risorse di Azure
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-ms.assetid: 75cfd5a2-e378-4365-99ee-a2b2abda2e0d
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/23/2018
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 70b350e228785e47a41cb83ce0d80b93c8a601c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0dedb13bf7365e011eb3403fb7ec110a4290ec9
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66135233"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012887"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Creare un gateway applicazione con un servizio di bilanciamento del carico interno
 
 Un gateway applicazione di Azure può essere configurato con un indirizzo VIP con connessione Internet o con un endpoint interno non esposto a Internet, detto anche endpoint del dispositivo di bilanciamento del carico interno (ILB). Configurare il gateway con un ILB è utile per le applicazioni line-of-business interne non esposte a Internet. È utile anche per servizi e livelli in un'applicazione a più livelli posti entro un limite di sicurezza non esposto a Internet, ma che richiedono la distribuzione del carico round robin, la persistenza delle sessioni o la terminazione Secure Sockets Layer (SSL).
 
-In questo articolo verrà illustrata la procedura per configurare un gateway applicazione con un ILB.
+Questo articolo illustra la procedura per configurare un gateway applicazione con un ILB.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Installare la versione più recente del modulo Azure PowerShell seguendo la [istruzioni di installazione](/powershell/azure/install-az-ps).
+1. Installare la versione più recente del modulo Azure PowerShell seguendo le [istruzioni di installazione](/powershell/azure/install-az-ps).
 2. Creare una rete virtuale e una subnet per il gateway applicazione. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
 3. È necessario che i server configurati per l'uso del gateway applicazione esistano oppure che i relativi endpoint siano stati creati nella rete virtuale o con un indirizzo IP/VIP pubblico assegnato.
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>Elementi necessari per creare un gateway applicazione
 
-* **Pool di server back-end:** L’elenco di indirizzi IP dei server di back-end. Gli indirizzi IP elencati devono appartenere alla rete virtuale, ma devono trovarsi in una subnet diversa per il gateway applicazione, o devono essere un indirizzo IP/VIP pubblico.
-* **Impostazioni del pool di server back-end:** Ogni pool ha impostazioni quali porta, protocollo e affinità basate sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+* **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla rete virtuale, ma devono trovarsi in una subnet diversa per il gateway applicazione, o devono essere un indirizzo IP/VIP pubblico.
+* **Impostazioni del pool di server back-end:** ogni pool ha impostazioni come porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
 * **Porta front-end:** porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
-* **Listener:** ha una porta front-end, un protocollo (Http o Https, con distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
-* **Regola:** associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic* . La regola *basic* è una distribuzione del carico di tipo round robin.
+* **Listener** : ha una porta front-end, un protocollo (Http o Https, con distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
+* **Regola** : associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic* . La regola *basic* è una distribuzione del carico di tipo round robin.
 
 ## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
 
@@ -77,7 +70,7 @@ Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
 
 ### <a name="step-3"></a>Passaggio 3
 
-Scegliere quali sottoscrizioni Azure usare.
+Scegliere le sottoscrizioni ad Azure da usare.
 
 ```powershell
 Select-AzSubscription -Subscriptionid "GUID of subscription"
@@ -91,7 +84,7 @@ Creare un nuovo gruppo di risorse. Ignorare questo passaggio se si sta usando un
 New-AzResourceGroup -Name appgw-rg -location "West US"
 ```
 
-Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un gateway applicazione usino lo stesso gruppo di risorse.
+Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una località. che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un gateway applicazione usino lo stesso gruppo di risorse.
 
 Nell'esempio precedente è stato creato un gruppo di risorse denominato "appgw-rg" e la località "Stati Uniti occidentali".
 
@@ -194,7 +187,7 @@ Questo passaggio configura le dimensioni dell'istanza del gateway applicazione.
 
 ## <a name="create-an-application-gateway-by-using-new-azureapplicationgateway"></a>Creare un gateway applicazione usando New-AzureApplicationGateway
 
-Crea un gateway applicazione con tutti gli elementi di configurazione illustrati nei passaggi precedenti. Nell'esempio, il gateway applicazione è denominato "appgwtest".
+Crea un gateway applicazione con tutti gli elementi di configurazione illustrati nei passaggi precedenti. Nell'esempio il gateway applicazione è denominato "appgwtest".
 
 ```powershell
 $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku

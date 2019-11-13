@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 9331f13bd85d9df0d47f8fa9d0964974764691f7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4cbc4044b5d1270cecd1a271d2a1db02801650dd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815111"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012778"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Aggiungere Key Vault all'applicazione Web usando Servizi connessi di Visual Studio
 
@@ -22,7 +22,7 @@ In questa esercitazione si apprenderà come aggiungere facilmente tutto ciò che
 
 Per i dettagli sulle modifiche apportate da Servizi connessi al progetto per abilitare Key Vault, vedere [Key Vault Connected Service - What happened to my ASP.NET 4.7.1 project](#how-your-aspnet-framework-project-is-modified) (Modifiche apportate al progetto ASP.NET - Servizio connesso Key Vault con Visual Studio) o [Key Vault Connected Service - What happened to my ASP.NET Core project](#how-your-aspnet-core-project-is-modified) (Modifiche apportate al progetto ASP.NET Core - Servizio connesso Key Vault con Visual Studio).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - **Una sottoscrizione di Azure**. Se non si ha una sottoscrizione, iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual studio 2019 versione 16,3 Preview 1** o successiva o **Visual studio 2017 versione 15,7** con il carico di lavoro **sviluppo Web** installato. [Scaricarla qui](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -135,6 +135,21 @@ Quando non è più necessario, eliminare il gruppo di risorse. In questo modo ve
 2. Selezionare **Elimina gruppo di risorse**.
 3. Nella casella **digitare il nome del gruppo di risorse:** immettere il nome del gruppo di risorse e selezionare **Elimina**.
 
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Se l'insieme di credenziali delle chiavi è in esecuzione in un account Microsoft diverso da quello con cui si è connessi a Visual Studio (ad esempio, l'insieme di credenziali delle chiavi è in esecuzione nell'account di lavoro, ma Visual Studio usa l'account privato), si riceve un errore nel file Program.cs , che Visual Studio non può ottenere l'accesso all'insieme di credenziali delle chiavi. Per risolvere il problema:
+
+1. Passare alla [portale di Azure](https://portal.azure.com) e aprire il Key Vault.
+
+1. Scegliere **criteri di accesso**, quindi **Aggiungi criteri di accesso**e scegliere l'account con cui si è connessi come entità.
+
+1. In Visual Studio scegliere **File** > **Impostazioni account**.
+Selezionare **Aggiungi un account** dalla sezione **tutti gli account** . Accedere con l'account scelto come principale dei criteri di accesso.
+
+1. Scegliere **strumenti** > **Opzioni**e cercare autenticazione dei **servizi di Azure**. Selezionare quindi l'account appena aggiunto a Visual Studio.
+
+A questo punto, quando si esegue il debug dell'applicazione, Visual Studio si connette all'account in cui si trova l'insieme di credenziali delle chiavi.
+
 ## <a name="how-your-aspnet-core-project-is-modified"></a>Modalità di modifica del progetto ASP.NET Core
 
 Questa sezione identifica le modifiche esatte apportate a un progetto ASP.NET quando si aggiunge il Key Vault servizio connesso usando Visual Studio.
@@ -143,7 +158,7 @@ Questa sezione identifica le modifiche esatte apportate a un progetto ASP.NET qu
 
 Influiscono sul file di progetto riferimenti .NET e sui riferimenti ai pacchetti NuGet.
 
-| Tipo | Riferimenti |
+| digitare | riferimento |
 | --- | --- |
 | NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
@@ -179,7 +194,7 @@ Questa sezione identifica le modifiche esatte apportate a un progetto ASP.NET qu
 
 Influiscono sul file di progetto .NET References e `packages.config` (riferimenti NuGet).
 
-| Tipo | Riferimenti |
+| digitare | riferimento |
 | --- | --- |
 | .NET; NuGet | Microsoft.Azure.KeyVault |
 | .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |

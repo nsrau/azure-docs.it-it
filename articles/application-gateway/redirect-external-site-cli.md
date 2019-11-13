@@ -1,23 +1,18 @@
 ---
-title: Creare un gateway applicazione con reindirizzamento del traffico esterno - Interfaccia della riga di comando di Azure | Microsoft Docs
+title: Reindirizzamento del traffico esterno tramite l'interfaccia della riga di comando-applicazione Azure gateway
 description: Informazioni su come creare un gateway applicazione che reindirizza il traffico Web interno al pool appropriato usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/24/2018
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: e1fb25a9d5bfe6538d081169d163d7b280733cc1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: fc955b4959bb20628463f7699a0b66ec2b89a393
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382024"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011605"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento esterno tramite l'interfaccia della riga di comando di Azure
 
@@ -93,7 +88,7 @@ Il processo di creazione del gateway applicazione può richiedere alcuni minuti.
 
 ### <a name="add-the-redirection-configuration"></a>Aggiungere la configurazione di reindirizzamento
 
-Aggiungere la configurazione di reindirizzamento che invia il traffico da *www\.consoto.org* al listener per *www\.contoso.com* al gateway applicazione usando [AZ Network Application-Gateway redirect-config create ](/cli/azure/network/application-gateway/redirect-config).
+Aggiungere la configurazione di reindirizzamento che invia il traffico da *www\.consoto.org* al listener per *www\.contoso.com* al gateway applicazione usando [AZ Network Application-Gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -137,7 +132,7 @@ Nel browser dovrebbe essere visualizzato *bing.com*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > * Configurare la rete
 > * Creare un listener e una regola di reindirizzamento

@@ -1,5 +1,5 @@
 ---
-title: Esempio di script di Azure PowerShell - Instradare il traffico per la disponibilità elevata delle applicazioni | Microsoft Docs
+title: Instradare il traffico per la disponibilità elevata di applicazioni-Azure PowerShell-Traffic Manager
 description: Esempio di script di Azure PowerShell - Instradare il traffico per la disponibilità elevata delle applicazioni
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 05/16/2017
 ms.author: allensu
-ms.openlocfilehash: 2f3b4ef9abdfae2c0400f54a90694db468470c94
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 99768afa9de22767d73576143a5c747be6a3bef9
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889486"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013358"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>Instradare il traffico per la disponibilità elevata delle applicazioni
 
@@ -46,7 +46,7 @@ Remove-AzResourceGroup -Name myResourceGroup2
 
 Questo script usa i comandi seguenti per creare un gruppo di risorse, un'App Web, un profilo di Gestione traffico e tutte le risorse correlate. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
-| Comando | Note |
+| Comando | note |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)  | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Consente di creare un piano di servizio app. Equivale a una server farm per l'App Web di Azure. |

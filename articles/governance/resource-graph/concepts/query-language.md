@@ -1,17 +1,14 @@
 ---
 title: Informazioni sul linguaggio di query
 description: Descrive le tabelle di grafici delle risorse e i tipi di dati, gli operatori e le funzioni di Kusto disponibili utilizzabili con Azure Resource Graph.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: conceptual
-ms.service: resource-graph
-ms.openlocfilehash: d0ba3195aef246ff49042f61dcec0b4397b5dde6
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: baef46f4ba6f899c2c0a1392f87006223d75a4e1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622627"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959043"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
 
@@ -27,7 +24,7 @@ Questo articolo illustra i componenti del linguaggio supportati da Resource Grap
 
 Il grafico risorse fornisce diverse tabelle per i dati archiviati su Gestione risorse tipi di risorse e le relative proprietà. Queste tabelle possono essere utilizzate con operatori `join` o `union` per ottenere proprietà da tipi di risorse correlati. Ecco l'elenco di tabelle disponibili nel grafico delle risorse:
 
-|Tabelle di grafici delle risorse |Descrizione |
+|Tabelle di grafici delle risorse |DESCRIZIONE |
 |---|---|
 |Risorse |Tabella predefinita se non ne è stata definita alcuna nella query. La maggior parte dei Gestione risorse tipi di risorse e le proprietà sono disponibili qui. |
 |ResourceContainers |Include i dati e i tipi di risorse della sottoscrizione (in anteprima-`Microsoft.Resources/subscriptions`) e del gruppo di risorse (`Microsoft.Resources/subscriptions/resourcegroups`). |
@@ -47,7 +44,7 @@ Resources
 | limit 1
 ```
 
-La query seguente illustra un uso più complesso di `join`. La query limita la tabella unita in join alle risorse delle sottoscrizioni e con `project` includere solo il campo originale _SubscriptionId_ e il campo _nome_ rinominato in _subname_. La ridenominazione dei campi evita di `join` aggiungerla come _name1_ poiché il campo esiste già nelle _risorse_. La tabella originale viene filtrata con `where` e il `project` seguente include le colonne di entrambe le tabelle. Il risultato della query è un singolo insieme di credenziali delle chiavi che Visualizza il tipo, il nome dell'insieme di credenziali delle chiavi e il nome della sottoscrizione in cui si trova.
+La query seguente illustra un uso più complesso di `join`. La query limita la tabella aggiunta alle risorse della sottoscrizione e usa `project` per includere solo il campo _subscriptionId_ originale e il campo _name_ rinominato in _SubName_. La ridenominazione dei campi evita di `join` aggiungerla come _name1_ poiché il campo esiste già nelle _risorse_. La tabella originale viene filtrata con `where` e l'elemento `project` seguente include colonne di entrambe le tabelle. Il risultato della query è un singolo insieme di credenziali delle chiavi che visualizza il tipo, il nome dell'insieme di credenziali delle chiavi e il nome della sottoscrizione in cui è incluso.
 
 ```kusto
 Resources
@@ -68,22 +65,22 @@ Il grafico risorse supporta tutti [i tipi di dati](/azure/kusto/query/scalar-dat
 
 Di seguito è riportato l'elenco degli operatori tabulari KQL supportati da Resource Graph con esempi specifici:
 
-|KQL |Query di esempio sul grafico delle risorse |Note |
+|KQL |Query di esempio sul grafico delle risorse |note |
 |---|---|---|
 |[count](/azure/kusto/query/countoperator) |[Conteggio insiemi di credenziali delle chiavi](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[Mostrare valori distinti per un alias specifico](../samples/starter.md#distinct-alias-values) | |
 |[extend](/azure/kusto/query/extendoperator) |[Contare le macchine virtuali per tipo di sistema operativo](../samples/starter.md#count-os) | |
-|[join](/azure/kusto/query/joinoperator) |[Key Vault con nome sottoscrizione](../samples/advanced.md#join) |Tipi di join supportati: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [LeftOuter](/azure/kusto/query/joinoperator#left-outer-join). Limite di 3 `join` in una singola query. Le strategie di join personalizzate, ad esempio broadcast join, non sono consentite. Può essere utilizzato all'interno di una singola tabella o tra le _risorse_ e le tabelle _ResourceContainers_ . |
+|[join](/azure/kusto/query/joinoperator) |[Insieme di credenziali delle chiavi con il nome della sottoscrizione](../samples/advanced.md#join) |Tipi di join supportati: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [LeftOuter](/azure/kusto/query/joinoperator#left-outer-join). Limite di 3 `join` in una singola query. Le strategie di join personalizzate, ad esempio broadcast join, non sono consentite. Può essere utilizzato all'interno di una singola tabella o tra le _risorse_ e le tabelle _ResourceContainers_ . |
 |[limit](/azure/kusto/query/limitoperator) |[Elencare tutti gli indirizzi IP pubblici](../samples/starter.md#list-publicip) |Sinonimo di `take` |
-|[MV-Espandi](/azure/kusto/query/mvexpandoperator) |[Elenca Cosmos DB con percorsi di scrittura specifici](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max di 400 |
+|[MV-Espandi](/azure/kusto/query/mvexpandoperator) |[Visualizzare Cosmos DB con specifiche posizioni di scrittura](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max di 400 |
 |[ordine](/azure/kusto/query/orderoperator) |[Elencare le risorse ordinate per nome](../samples/starter.md#list-resources) |Sinonimo di `sort` |
 |[project](/azure/kusto/query/projectoperator) |[Elencare le risorse ordinate per nome](../samples/starter.md#list-resources) | |
-|[project-away](/azure/kusto/query/projectawayoperator) |[Rimuovi colonne dai risultati](../samples/advanced.md#remove-column) | |
+|[project-away](/azure/kusto/query/projectawayoperator) |[Rimuovere colonne dai risultati](../samples/advanced.md#remove-column) | |
 |[sort](/azure/kusto/query/sortoperator) |[Elencare le risorse ordinate per nome](../samples/starter.md#list-resources) |Sinonimo di `order` |
 |[summarize](/azure/kusto/query/summarizeoperator) |[Contare le risorse di Azure](../samples/starter.md#count-resources) |Solo la prima pagina è stata semplificata |
 |[take](/azure/kusto/query/takeoperator) |[Elencare tutti gli indirizzi IP pubblici](../samples/starter.md#list-publicip) |Sinonimo di `limit` |
 |[top](/azure/kusto/query/topoperator) |[Mostrare le prime cinque macchine virtuali per nome e tipo di sistema operativo](../samples/starter.md#show-sorted) | |
-|[union](/azure/kusto/query/unionoperator) |[Combinare i risultati di due query in un unico risultato](../samples/advanced.md#unionresults) |Singola tabella consentita: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_tabella_ _ColumnName_\]. Limite di 3 `union` gambe in un'unica query. La risoluzione fuzzy delle tabelle di `union` Leg non è consentita. Può essere utilizzato all'interno di una singola tabella o tra le _risorse_ e le tabelle _ResourceContainers_ . |
+|[union](/azure/kusto/query/unionoperator) |[Combinare i risultati di due query in un singolo risultato](../samples/advanced.md#unionresults) |Singola tabella consentita: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_tabella_ _ColumnName_\]. Limite di 3 `union` gambe in un'unica query. La risoluzione fuzzy delle tabelle di `union` Leg non è consentita. Può essere utilizzato all'interno di una singola tabella o tra le _risorse_ e le tabelle _ResourceContainers_ . |
 |[where](/azure/kusto/query/whereoperator) |[Mostrare le risorse che contengono archivi](../samples/starter.md#show-storage) | |
 
 ## <a name="escape-characters"></a>Caratteri di escape

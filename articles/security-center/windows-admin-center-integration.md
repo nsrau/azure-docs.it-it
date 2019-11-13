@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 48bf2cc3feb9ea3983200a2ef778669b5cfe36fa
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 842c7c81e3bf9615eb56d50ee2d6fce794845b6e
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521592"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960702"
 ---
-# <a name="integrate-azure-security-center-with-windows-admin-center"></a>Integrare il Centro sicurezza di Azure con l'interfaccia di amministrazione di Windows
+# <a name="integrate-azure-security-center-with-windows-admin-center-preview"></a>Integrare il Centro sicurezza di Azure con l'interfaccia di amministrazione di Windows (anteprima)
 
 Centro di amministrazione di Windows è uno strumento di gestione per i server Windows. Si tratta di un'unica posizione per gli amministratori di sistema per accedere alla maggior parte degli strumenti di amministrazione usati più di frequente. Nell'interfaccia di amministrazione di Windows è possibile caricare direttamente i server locali nel centro sicurezza di Azure. È quindi possibile visualizzare un riepilogo delle raccomandazioni e degli avvisi di sicurezza direttamente nell'esperienza dell'interfaccia di amministrazione di Windows.
 

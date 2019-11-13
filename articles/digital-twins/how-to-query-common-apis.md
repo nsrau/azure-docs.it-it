@@ -1,6 +1,6 @@
 ---
-title: Modelli di query comuni di Gemelli digitali di Azure | Microsoft Docs
-description: Informazioni sui modelli comuni di query delle API di gestione di Gemelli digitali di Azure.
+title: Modelli di query comuni-dispositivi gemelli digitali di Azure | Microsoft Docs
+description: Informazioni sui modelli di query API comuni per le API di gestione di dispositivi digitali gemelli di Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/27/2019
-ms.openlocfilehash: ef9e7a41f1de05e4d21a9ad7b45ed2b99885b6b8
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: c821524b344c8b741047ba415127cffe59a74ca2
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044442"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005903"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Come eseguire una query delle API di Gemelli digitali di Azure per trovare le attività comuni
 

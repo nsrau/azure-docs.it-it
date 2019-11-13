@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2019
+ms.date: 11/12/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 8c3c0574389fc9808af3cd70c928ede82d375076
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c4de8b0d78d66709d13526c69f9d33b16dbad1dc
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720719"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010230"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 > * Creare un budget nel portale di Azure
 > * Modificare un budget
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Sono supportati i budget per un'ampia gamma di tipi di account Azure. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). Per visualizzare i budget, è necessario effettuare almeno l'accesso in lettura per l'account Azure.
 
@@ -90,7 +90,9 @@ Nell'esempio precedente, è stato creato un budget per una sottoscrizione. Tutta
 
 ## <a name="trigger-an-action-group"></a>Attivare un gruppo di azione
 
-Quando si crea o si modifica un budget per un ambito di sottoscrizione o di gruppo di risorse, è possibile configurarlo in modo che chiami un gruppo di azione. Il gruppo di azioni può eseguire una serie di azioni diverse quando viene soddisfatta la soglia del budget. Per ulteriori informazioni sui gruppi di azioni, vedere [creare e gestire gruppi di azioni nella portale di Azure](../azure-monitor/platform/action-groups.md). Per altre informazioni sull'uso dell'automazione basata sul budget con i gruppi di azioni, vedere [gestire i costi con i budget di Azure](../billing/billing-cost-management-budget-scenario.md).
+Quando si crea o si modifica un budget per un ambito di sottoscrizione o di gruppo di risorse, è possibile configurarlo in modo che chiami un gruppo di azione. Il gruppo di azioni può eseguire una serie di azioni diverse quando viene soddisfatta la soglia del budget. I gruppi di azioni sono attualmente supportati solo per gli ambiti della sottoscrizione e del gruppo di risorse. Per ulteriori informazioni sui gruppi di azioni, vedere [creare e gestire gruppi di azioni nella portale di Azure](../azure-monitor/platform/action-groups.md). Per altre informazioni sull'uso dell'automazione basata sul budget con i gruppi di azioni, vedere [gestire i costi con i budget di Azure](../billing/billing-cost-management-budget-scenario.md).
+
+
 
 Per creare o aggiornare i gruppi di azioni, fare clic su **Gestisci gruppi di azioni** durante la creazione o la modifica di un budget.
 

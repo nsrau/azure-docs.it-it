@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulle reti da Azure a ripristino di emergenza di Azure tramite Azure Site Recovery | Microsoft Docs
+title: Informazioni sulla rete in ripristino di emergenza per macchine virtuali di Azure con Azure Site Recovery
 description: Viene fornita una panoramica delle reti per la replica delle macchine virtuali di Azure tramite Azure Site Recovery.
 services: site-recovery
 author: sujayt
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5c2cd96ccfa3a26a9009188ad424eefaaeb7ce48
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 09cd814ade25be438a17b83fb73e74b89c14e22f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906836"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954200"
 ---
-# <a name="about-networking-in-azure-to-azure-replication"></a>Informazioni sulle reti per la replica da Azure ad Azure
+# <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informazioni sulle reti in ripristino di emergenza per macchine virtuali di Azure
 
 
 

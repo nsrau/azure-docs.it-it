@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a79c95d627bbdec3a91a1d048a48ff061b308ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cb0f373000d09cb387fb73eec344997381fe45d1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489370"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961670"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Risoluzione dei problemi relativi a Azure Machine Learning servizio Azure Kubernetes e alla distribuzione di istanze di contenitore di Azure
 
@@ -41,6 +41,16 @@ Quando si distribuisce un modello in Azure Machine Learning, il sistema esegue u
 4. Avviare uno o più nuovi contenitori in uno di questi due servizi. 
 
 Per altre informazioni su questa procedura, vedere [Gestire e distribuire modelli con il servizio Azure Machine Learning](concept-model-management-and-deployment.md).
+
+## <a name="prerequisites"></a>prerequisiti
+
+* Una **sottoscrizione di Azure**. Se non si dispone di un, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
+* [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Estensione dell'interfaccia della riga [di comando per Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* Per eseguire il debug in locale, è necessario disporre di un'installazione Docker funzionante nel sistema locale.
+
+    Per verificare l'installazione di Docker, usare il comando `docker run hello-world` da un terminale o da un prompt dei comandi. Per informazioni sull'installazione di Docker o sulla risoluzione dei problemi relativi agli errori di Docker, vedere la [documentazione](https://docs.docker.com/)di Docker.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -156,9 +166,6 @@ Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
 
 Se si verificano problemi durante la distribuzione di un modello in ACI o AKS, provare a distribuirlo come locale. L'uso di un locale rende più semplice la risoluzione dei problemi. L'immagine Docker contenente il modello viene scaricata e avviata nel sistema locale.
 
-> [!IMPORTANT]
-> Per le distribuzioni locali è necessaria un'installazione Docker funzionante nel sistema locale. Docker deve essere in esecuzione prima di distribuire un locale. Per informazioni sull'installazione e sull'uso di Docker, vedere [https://www.docker.com/](https://www.docker.com/).
-
 > [!WARNING]
 > Le distribuzioni locali non sono supportate per gli scenari di produzione.
 
@@ -245,7 +252,7 @@ Usare le informazioni nella sezione [esaminare il registro Docker](#dockerlog) p
 
 ## <a name="function-fails-get_model_path"></a>Errore della funzione: get_model_path()
 
-Spesso, nella funzione `init()` nello script di assegnazione dei punteggi, viene chiamata la funzione [Model. Get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) per individuare un file di modello o una cartella di file di modello nel contenitore. Se non è possibile trovare il file o la cartella del modello, la funzione ha esito negativo. Il modo più semplice per eseguire il debug di questo errore consiste nell'eseguire il codice Python seguente nella shell del contenitore:
+Spesso, nella funzione `init()` nello script di assegnazione dei punteggi, viene chiamata la funzione [Model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) per individuare un file di modello o una cartella di file di modello nel contenitore. Se non è possibile trovare il file o la cartella del modello, la funzione ha esito negativo. Il modo più semplice per eseguire il debug di questo errore consiste nell'eseguire il codice Python seguente nella shell del contenitore:
 
 ```python
 from azureml.core.model import Model
@@ -325,8 +332,8 @@ In alcuni casi, potrebbe essere necessario eseguire il debug interattivo del cod
 
 > [!IMPORTANT]
 > Questo metodo di debug non funziona quando si usa `Model.deploy()` e `LocalWebservice.deploy_configuration` per distribuire un modello localmente. È invece necessario creare un'immagine utilizzando la classe [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) . 
->
-> Per le distribuzioni locali è necessaria un'installazione Docker funzionante nel sistema locale. Docker deve essere in esecuzione prima di distribuire un locale. Per informazioni sull'installazione e sull'uso di Docker, vedere [https://www.docker.com/](https://www.docker.com/).
+
+Per le distribuzioni locali è necessaria un'installazione Docker funzionante nel sistema locale. Per altre informazioni sull'uso di Docker, vedere la [documentazione di Docker](https://docs.docker.com/).
 
 ### <a name="configure-development-environment"></a>Configurare l'ambiente di sviluppo
 

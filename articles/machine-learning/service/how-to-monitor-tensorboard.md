@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
-ms.date: 06/28/2019
-ms.openlocfilehash: 272dbbbc335574456feebfb85e4c5eafd544f8d6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/08/2019
+ms.openlocfilehash: fc8159b3deba373948f513cb11540695362ecaf1
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574301"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954555"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualizzare le esecuzioni e le metriche degli esperimenti con TensorBoard e Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ La modalità di avvio di TensorBoard con Azure Machine Learning esperimenti dipe
 > [!TIP]
 > Le informazioni contenute in questo documento sono destinate principalmente a data scientist e sviluppatori che desiderano monitorare il processo di training del modello. Se si è un amministratore interessato al monitoraggio dell'utilizzo delle risorse e degli eventi di Azure Machine Learning, ad esempio le quote, le esecuzioni di training completate o le distribuzioni del modello completate, vedere [monitoraggio Azure Machine Learning](monitor-azure-machine-learning.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Per avviare TensorBoard e visualizzare le cronologie di esecuzione dell'esperimento, è necessario che gli esperimenti abbiano abilitato in precedenza la registrazione per tenere traccia delle metriche e delle prestazioni.  
 
@@ -41,16 +41,18 @@ La modalità di avvio di TensorBoard con Azure Machine Learning esperimenti dipe
 
         * Completare l' [esercitazione: configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md) per creare un server notebook dedicato precaricato con l'SDK e il repository di esempio.
 
-        * Nella cartella Samples sul server notebook trovare due notebook completati e espansi passando a questa directory: **How-to-use-azureml > Training-with-Deep-Learning**.
-        * Export-Run-History-to-Run-History. ipynb
-        * tensorboard. ipynb
+        * Nella cartella Samples sul server notebook trovare due notebook completati e espansi passando a queste directory:
+            * **How-to-use-azureml > Training-with-Deep-Learning > Export-Run-History-to-tensorboard > Export-Run-History-to-tensorboard. ipynb**
+
+            * **How-to-use-azureml > Track-and-monitor-Experiments > tensorboard. ipynb**
 
     * Il proprio server Juptyer notebook
-          * [Installare l'SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) con il `tensorboard`
-          * [Creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).  
-          * [Creare un file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
+       * [Installare l'SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) con il `tensorboard`
+        * [Creare un'area di lavoro di Azure Machine Learning](how-to-manage-workspace.md).  
+        * [Creare un file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
   
 <a name="direct"></a>
+
 ## <a name="option-1-directly-view-run-history-in-tensorboard"></a>Opzione 1: visualizzare direttamente la cronologia di esecuzione in TensorBoard
 
 Questa opzione è valida per gli esperimenti che restituiscono in modo nativo i file di log utilizzabili da TensorBoard, ad esempio gli esperimenti PyTorch, Chainer e TensorFlow. Se questo non è il caso dell'esperimento, usare invece [il metodo `export_to_tensorboard()`](#export) .
@@ -243,7 +245,7 @@ for alpha in tqdm(alphas):
 
 ### <a name="export-runs-to-tensorboard"></a>Esporta esecuzioni in TensorBoard
 
-Con il metodo [export_to_tensorboard ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py) dell'SDK è possibile esportare la cronologia di esecuzione dell'esperimento di Azure Machine Learning nei log di tensorboard, in modo che sia possibile visualizzarli tramite tensorboard.  
+Con il metodo [export_to_tensorboard ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py) dell'SDK, è possibile esportare la cronologia di esecuzione dell'esperimento di Azure Machine Learning nei log di tensorboard, in modo che sia possibile visualizzarli tramite tensorboard.  
 
 Nel codice seguente viene creata la cartella `logdir` nella directory di lavoro corrente. Questa cartella consente di esportare la cronologia di esecuzione dell'esperimento e i log da `root_run` e quindi contrassegnare l'esecuzione come completata. 
 

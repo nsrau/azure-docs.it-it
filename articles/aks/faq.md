@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 2f24f5cacb8b6e115d7fe91c6ef0a7a333676ae1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e68ce5a198165c4187cbad9e86ce61f67694a82d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472842"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961595"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -64,7 +64,7 @@ AKS si basa su una serie di risorse dell'infrastruttura di Azure, inclusi i set 
 Per abilitare questa architettura, ogni distribuzione di AKS si estende su due gruppi di risorse:
 
 1. Si crea il primo gruppo di risorse. Questo gruppo contiene solo la risorsa del servizio Kubernetes. Il provider di risorse AKS crea automaticamente il secondo gruppo di risorse durante la distribuzione. Un esempio del secondo gruppo di risorse è *MC_myResourceGroup_myAKSCluster_eastus*. Per informazioni su come specificare il nome del secondo gruppo di risorse, vedere la sezione successiva.
-1. Il secondo gruppo di risorse, noto come *gruppo di risorse nodo*, contiene tutte le risorse dell'infrastruttura associate al cluster. come ad esempio le macchine virtuali dei nodi Kubernetes, le risorse della rete virtuale e di archiviazione. Per impostazione predefinita, il gruppo di risorse del nodo ha un nome come *MC_myResourceGroup_myAKSCluster_eastus*. AKS Elimina automaticamente la risorsa del nodo ogni volta che il cluster viene eliminato, quindi deve essere usato solo per le risorse che condividono il ciclo di vita del cluster.
+1. Il secondo gruppo di risorse, noto come *gruppo di risorse nodo*, contiene tutte le risorse dell'infrastruttura associate al cluster. come ad esempio le macchine virtuali dei nodi Kubernetes, le risorse della rete virtuale e di archiviazione. Per impostazione predefinita, il nome del gruppo di risorse del nodo è come *MC_myResourceGroup_myAKSCluster_eastus*. AKS Elimina automaticamente la risorsa del nodo ogni volta che il cluster viene eliminato, quindi deve essere usato solo per le risorse che condividono il ciclo di vita del cluster.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>È possibile specificare un nome personalizzato per il gruppo di risorse del nodo AKS?
 
@@ -129,7 +129,7 @@ In AKS è possibile impostare il valore `maxPods` quando si crea il cluster usan
 | Azure CNI | 30 | 250 |
 | Kubenet | 30 | 110 |
 
-Poiché AKS è un servizio gestito, i componenti aggiuntivi e i pod vengono distribuiti e gestiti come parte del cluster. In passato, gli utenti potevano definire un valore di `maxPods` inferiore al valore che i pod gestiti richiedevano di eseguire (ad esempio, 30). AKS calcola ora il numero minimo di pod usando la formula seguente: ((maxPods o (maxPods * vm_count)) > il numero minimo di Pod del componente aggiuntivo gestito.
+Poiché AKS è un servizio gestito, i componenti aggiuntivi e i pod vengono distribuiti e gestiti come parte del cluster. In passato, gli utenti potevano definire un valore di `maxPods` inferiore al valore che i pod gestiti richiedevano di eseguire (ad esempio, 30). Il servizio AKS calcola ora il numero minimo di pod usando la formula seguente: ((maxPods o (maxPods * vm_count)) > i pod aggiuntivi gestiti sono minimi.
 
 Gli utenti non possono eseguire l'override della convalida `maxPods` minima.
 
@@ -194,7 +194,6 @@ Nessun AKS è un servizio gestito e la manipolazione delle risorse IaaS non è s
 [aks-regions]: ./quotas-skus-regions.md#region-availability
 [aks-upgrade]: ./upgrade-cluster.md
 [aks-cluster-autoscale]: ./autoscaler.md
-[virtual-kubelet]: virtual-kubelet.md
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md

@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 789cc1d835024babb2482b2601503dbaf7247fc2
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 5b1e417ecd41f93d7919b67ebdd3faf32521d8a4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747434"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012920"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 
 > [!div class="op_single_selector"]
 >
-> * [Server di backup di Azure](backup-azure-microsoft-azure-backup.md)
+> * [Server di Backup di Azure](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
 >
 >
@@ -36,7 +36,7 @@ Questo articolo illustra come preparare l'ambiente per eseguire il backup dei ca
 I MAB distribuiti in una macchina virtuale di Azure possono eseguire il backup di macchine virtuali in Azure, ma devono trovarsi nello stesso dominio per abilitare l'operazione di backup. Il processo di backup di una macchina virtuale di Azure rimane uguale al backup di macchine virtuali in locale, tuttavia la distribuzione di Mab in Azure presenta alcune limitazioni. Per ulteriori informazioni sulle limitazioni, vedere [DPM come macchina virtuale di Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e il modello classico](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo include informazioni e procedure per il ripristino di VM distribuite con il modello Resource Manager.
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Resource Manager e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo include informazioni e procedure per il ripristino di VM distribuite con il modello Resource Manager.
 >
 >
 
@@ -56,12 +56,12 @@ La protezione dei carichi di lavoro con il server di Backup di Azure è piuttost
 
 Se non si vuole eseguire il server di base in Azure, è possibile eseguire il server in una VM Hyper-V o VMware oppure in un host fisico. I requisiti minimi consigliati per l'hardware del server sono due core e 8 GB di RAM. Nella tabella seguente sono elencati i sistemi operativi supportati:
 
-| Sistema operativo | Piattaforma | SKU |
+| Sistema operativo | Piattaforma | Sku |
 |:--- | --- |:--- |
 | Windows Server 2019 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2016 e versioni più recenti di SP |64 bit |Standard, Datacenter, Essentials  |
 
-È possibile deduplicare la risorsa di archiviazione DPM usando la deduplicazione di Windows Server. Vedere altre informazioni sulla combinazione di [DPM e deduplicazione](https://technet.microsoft.com/library/dn891438.aspx) in caso di distribuzione in VM Hyper-V.
+È possibile deduplicare la risorsa di archiviazione DPM usando la deduplicazione di Windows Server. Vedere altre informazioni sull'interazione di [DPM e deduplicazione](https://technet.microsoft.com/library/dn891438.aspx) in caso di distribuzione in macchine virtuali Hyper-V.
 
 > [!NOTE]
 > Il server di Backup di Azure è progettato per essere eseguito su un server dedicato, con un unico scopo. Non è possibile installare il server di Backup di Azure su:
@@ -72,7 +72,7 @@ Se non si vuole eseguire il server di base in Azure, è possibile eseguire il se
 > * Un computer su cui è in esecuzione Exchange Server
 > * Un computer che sia un nodo di un cluster
 
-Aggiungere sempre il server di backup di Azure a un dominio. Se si prevede di spostare il server in un dominio diverso, per prima cosa installare il server di Backup di Azure, quindi aggiungere il server al nuovo dominio. Lo spostamento di un server di Backup di Azure esistente in un nuovo dominio dopo la distribuzione *non è supportato*.
+Aggiungere sempre il server di backup di Azure a un dominio. Se si prevede di spostare il server in un dominio diverso, per prima cosa installare il server di Backup di Azure, quindi aggiungere il server al nuovo dominio. *Non è supportato*lo spostamento di un server di Backup di Azure esistente in un nuovo dominio dopo la distribuzione.
 
 Se si inviano dati di backup in Azure o se si vuole mantenerli in locale, è necessario registrare il server di Backup di Azure in un insieme di credenziali di Servizi di ripristino.
 
@@ -98,7 +98,7 @@ Per modificare le impostazioni di replica di archiviazione:
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Se è già aperto un insieme di credenziali dei servizi di ripristino, procedere al passaggio 3. Se non è aperto alcun insieme di credenziali di Servizi di ripristino ma si è nel portale di Azure, nel menu principale fare clic su **Esplora**.
 
-   * Nell'elenco di risorse digitare **servizi di ripristino**.
+   * Nell'elenco di risorse digitare **Servizi di ripristino**.
    * Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzato, fare clic su **Insiemi di credenziali dei servizi di ripristino**.
 
      ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
@@ -185,14 +185,14 @@ Al termine del processo di estrazione, selezionare la casella per avviare il fil
 
     Per la configurazione di SSRS, usare i valori seguenti:
     * Account del servizio:' utilizza account predefinito ' deve essere servizio di rete
-    * URL servizio Web:' directory virtuale ' deve essere ReportServer_<SQLInstanceName>
-    * Database: DatabaseName deve essere ReportServer $<SQLInstanceName>
-    * URL del portale Web:' directory virtuale ' deve essere reports_<SQLInstanceName>
+    * URL servizio Web:' directory virtuale ' deve essere ReportServer_\<SqlInstanceName >
+    * Database: DatabaseName deve essere ReportServer $\<SqlInstanceName >
+    * URL del portale Web:' directory virtuale ' deve essere Reports_\<SqlInstanceName >
 
     [Altre informazioni](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sulla configurazione di SSRS.
 
     > [!NOTE]
-    > Le licenze per SQL Server utilizzate come database per MAB sono regolate dalle [condizioni di Microsoft Online Services](https://www.microsoft.com/en-us/licensing/product-licensing/products) (OST). Secondo OST, è possibile usare SQL Server in bundle con MAB solo come database per MAB.
+    > Le licenze per SQL Server utilizzate come database per MAB sono regolate dalle [condizioni di Microsoft Online Services](https://www.microsoft.com/licensing/product-licensing/products) (OST). Secondo OST, è possibile usare SQL Server in bundle con MAB solo come database per MAB.
 
 4. Specificare un percorso di installazione dei file del server di Backup di Microsoft Azure e fare clic su **Avanti**.
 
@@ -284,18 +284,18 @@ Ecco i passaggi necessari se si vuole spostare MABS in un nuovo server, mantenen
 
 Per il corretto funzionamento del prodotto, il server di Backup di Azure richiede la connettività al servizio Backup di Azure. Per convalidare la connettività del computer ad Azure, usare il cmdlet ```Get-DPMCloudConnection``` nella console di PowerShell del server di Backup di Azure. C'è connettività solo se l'output del cmdlet è TRUE.
 
-Allo stesso tempo, è necessario che la sottoscrizione di Azure sia in uno stato integro. Per conoscere lo stato della sottoscrizione e gestirla, accedere al [portale di sottoscrizione](https://account.windowsazure.com/Subscriptions).
+Allo stesso tempo è necessario che la sottoscrizione di Azure sia in uno stato integro. Per conoscere lo stato della sottoscrizione e gestirla, accedere al [portale di sottoscrizione](https://account.windowsazure.com/Subscriptions).
 
 Dopo avere verificato lo stato della connettività di Azure e della sottoscrizione di Azure, è possibile usare la tabella seguente per scoprire l'impatto della funzionalità di backup/ripristino offerta.
 
 | Stato di connettività | Sottoscrizione di Azure | Eseguire il backup in Azure | Eseguire il backup su disco | Ripristino da Azure | Ripristino da disco |
 | --- | --- | --- | --- | --- | --- |
 | Connesso |Attivo |Consentito |Consentito |Consentito |Consentito |
-| Connesso |Scaduto |Arrestato |Arrestato |Consentito |Consentito |
-| Connesso |Deprovisioning eseguito |Arrestato |Arrestato |Arrestato e punti di ripristino di Azure eliminati |Arrestato |
-| Connettività persa > 15 giorni |Attivo |Arrestato |Arrestato |Consentito |Consentito |
-| Connettività persa > 15 giorni |Scaduto |Arrestato |Arrestato |Consentito |Consentito |
-| Connettività persa > 15 giorni |Deprovisioning eseguito |Arrestato |Arrestato |Arrestato e punti di ripristino di Azure eliminati |Arrestato |
+| Connesso |Scaduto |Stopped |Stopped |Consentito |Consentito |
+| Connesso |Deprovisioning eseguito |Stopped |Stopped |Arrestato e punti di ripristino di Azure eliminati |Stopped |
+| Connettività persa > 15 giorni |Attivo |Stopped |Stopped |Consentito |Consentito |
+| Connettività persa > 15 giorni |Scaduto |Stopped |Stopped |Consentito |Consentito |
+| Connettività persa > 15 giorni |Deprovisioning eseguito |Stopped |Stopped |Arrestato e punti di ripristino di Azure eliminati |Stopped |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recupero dalla perdita di connettività
 
@@ -336,7 +336,7 @@ Per aggiornare MABS, usare i passaggi seguenti:
    >
    > Non uscire mentre si sta aggiornando l'istanza di SQL, l'uscita disinstallerà l'istanza di report SQL e di conseguenza un tentativo di eseguire nuovamente l'aggiornamento di MABS avrà esito negativo.
 
-   Aspetti importanti da notare:
+
 
    > [!IMPORTANT]
    >

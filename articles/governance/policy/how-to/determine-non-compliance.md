@@ -1,17 +1,14 @@
 ---
 title: Determinare le cause di non conformità
 description: Quando una risorsa non è conforme, esistono molti motivi possibili. Scopri cosa ha causato la mancata conformità.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 04/26/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 556a8029b9b5f831ac3ace7ed0fcc474fb2e262e
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 6f113080ab84fe7d159766e6543ff61b28f4ead2
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978101"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959608"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
 
@@ -84,7 +81,7 @@ Questi dettagli spiegano il motivo per cui una risorsa non è attualmente confor
 
 Nella matrice seguente viene eseguito il mapping di ogni _motivo_ possibile alla [condizione](../concepts/definition-structure.md#conditions) responsabile nella definizione dei criteri:
 
-|`Reason` | Condizione |
+|Motivo | Condizione |
 |-|-|
 |Il valore corrente deve contenere il valore di destinazione come chiave. |containsKey o **not** notContainsKey |
 |Il valore corrente deve contenere il valore di destinazione. |contiene o **non** notContains |
@@ -93,7 +90,7 @@ Nella matrice seguente viene eseguito il mapping di ogni _motivo_ possibile alla
 |Il valore corrente deve essere maggiore o uguale al valore di destinazione. |greaterOrEquals o **meno** |
 |Il valore corrente deve essere maggiore del valore di destinazione. |maggiore o **non** lessOrEquals |
 |Il valore corrente deve essere minore o uguale al valore di destinazione. |lessOrEquals o **non** superiore |
-|Il valore corrente deve esistere. |esiste |
+|Il valore corrente deve esistere. |exists |
 |Il valore corrente deve essere nel valore di destinazione. |in o **non** notIn |
 |Il valore corrente deve essere simile al valore di destinazione. |like o **not** notLike |
 |Il valore corrente deve corrispondere al valore di destinazione con distinzione tra maiuscole e minuscole. |corrisponde o **non** notMatch |
@@ -114,7 +111,7 @@ Per i criteri _auditIfNotExists_ nella categoria _configurazione Guest_ , è pos
 
 Inoltre, potrebbe non essere possibile accedere direttamente alla macchina virtuale, ma è necessario segnalare il motivo per cui la macchina virtuale _non è conforme_.
 
-### <a name="azure-portal"></a>Portale di Azure
+### <a name="azure-portal"></a>portale di Azure
 
 Per iniziare, seguire la stessa procedura descritta nella sezione precedente per visualizzare i dettagli di conformità dei criteri.
 
@@ -124,7 +121,7 @@ Nella visualizzazione riquadro **Dettagli conformità** fare clic sul collegamen
 
 Nella pagina **assegnazione Guest** vengono visualizzati tutti i dettagli di conformità disponibili. Ogni riga della vista rappresenta una valutazione eseguita all'interno del computer. Nella colonna **reason** viene visualizzata una frase che descrive il motivo per cui l'assegnazione Guest è _non conforme_ . Se, ad esempio, si controllano i criteri password, nella colonna **motivo** verrà visualizzato testo con il valore corrente per ogni impostazione.
 
-![Visualizzare i dettagli sulla conformità.](../media/determine-non-compliance/guestconfig-compliance-details.png)
+![Visualizza i dettagli di conformità](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -191,7 +188,7 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="a-namechange-historychange-history-preview"></a>cronologia di @no__t 0Change (anteprima)
+## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>cronologia modifiche (anteprima)
 
 Come parte di una nuova versione di **anteprima pubblica**, gli ultimi 14 giorni di cronologia delle modifiche sono disponibili per tutte le risorse di Azure che supportano l' [eliminazione in modalità completa](../../../azure-resource-manager/complete-mode-deletion.md). La cronologia modifiche fornisce informazioni dettagliate su quando è stata rilevata una modifica e offre un _diff visivo_ per ogni modifica. Il rilevamento delle modifiche viene attivato quando vengono aggiunte, rimosse o modificate le proprietà del Gestione risorse.
 

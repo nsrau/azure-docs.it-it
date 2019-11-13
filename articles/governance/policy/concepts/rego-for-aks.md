@@ -1,17 +1,14 @@
 ---
 title: Informazioni su criteri di Azure per il servizio Azure Kubernetes
 description: Informazioni su come i criteri di Azure usano Rego e Open Policy Agent per gestire i cluster nel servizio Azure Kubernetes.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 248f96b4385e97605986b53bd94fd83236ec8f08
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dbac1ee762066fb59cd57c04839666026a2bd89b
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480902"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959790"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Informazioni sui criteri di Azure per il servizio Azure Kubernetes
 
@@ -21,7 +18,7 @@ Estendendo l'uso di [Gatekeeper](https://github.com/open-policy-agent/gatekeeper
 > [!NOTE]
 > Criteri di Azure per AKS è in anteprima limitata e supporta solo le definizioni predefinite dei criteri.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Per abilitare e usare criteri di Azure per AKS con il cluster AKS, intraprendere le azioni seguenti:
 
@@ -92,7 +89,7 @@ Il _componente aggiuntivo criteri di Azure_ per Kubernetes connette il servizio 
 
 ### <a name="installing-the-add-on"></a>Installazione del componente aggiuntivo
 
-#### <a name="prerequisites"></a>Prerequisiti
+#### <a name="prerequisites"></a>prerequisiti
 
 Prima di installare il componente aggiuntivo nel cluster AKS, è necessario installare l'estensione di anteprima. Questa operazione viene eseguita con l'interfaccia della riga di comando di Azure:
 
@@ -126,7 +123,7 @@ Prima di installare il componente aggiuntivo nel cluster AKS, è necessario inst
 
 Una volta completati i prerequisiti, installare il componente aggiuntivo criteri di Azure nel cluster AKS che si vuole gestire.
 
-- Portale di Azure
+- portale di Azure
 
   1. Avviare il servizio AKS nella portale di Azure facendo clic su **tutti i servizi**, quindi cercando e selezionando **Servizi Kubernetes**.
 
@@ -209,7 +206,7 @@ Per visualizzare i log dei contenitori gatekeeper, seguire i passaggi descritti 
 
 Per rimuovere il componente aggiuntivo criteri di Azure dal cluster AKS, usare l'interfaccia della riga di comando portale di Azure o Azure:
 
-- Portale di Azure
+- portale di Azure
 
   1. Avviare il servizio AKS nella portale di Azure facendo clic su **tutti i servizi**, quindi cercando e selezionando **Servizi Kubernetes**.
 
@@ -257,7 +254,7 @@ Le informazioni raccolte dal componente aggiuntivo non sono dati personali. Sono
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esaminare gli esempi in [esempi di criteri di Azure](../samples/index.md).
-- Vedere [Struttura delle definizioni di criteri di Azure](definition-structure.md).
+- Vedere la [struttura delle definizioni dei criteri](definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).

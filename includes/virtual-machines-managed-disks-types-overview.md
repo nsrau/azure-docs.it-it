@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 60d0425a7dbc532e856c7bf3c91065d2548c9b9a
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 45168c23964c735a4bd51ba11c2340d4ff95fed4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601398"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012407"
 ---
-# <a name="what-disk-types-are-available-in-azure"></a>Quali tipi di dischi sono disponibili in Azure?
-
 Azure Managed Disks offre attualmente quattro tipi di dischi, ciascuno dei quali è destinato a scenari specifici del cliente.
 
 ## <a name="disk-comparison"></a>Confronto dei dischi

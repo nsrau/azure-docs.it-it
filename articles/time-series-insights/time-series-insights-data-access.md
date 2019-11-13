@@ -1,6 +1,6 @@
 ---
-title: Configurare la sicurezza per l'accesso e la gestione dell'anteprima di Azure Time Series Insights | Microsoft Docs
-description: Questo articolo descrive come configurare la sicurezza e le autorizzazioni come criteri di accesso per la gestione e di accesso ai dati per proteggere Azure Time Series Insights.
+title: Configurare la sicurezza per concedere l'accesso ai dati-Azure Time Series Insights anteprima | Microsoft Docs
+description: Informazioni su come configurare la sicurezza, le autorizzazioni e gestire i criteri di accesso ai dati nell'ambiente di Azure Time Series Insights Preview.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d835916ab1a9d99149800a50690876080a8c5fd
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f49567b8060be2bf2a9ca2b8a1bdee23f58fdd6b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990159"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012693"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Concedere l'accesso ai dati in un ambiente
 
@@ -38,7 +38,7 @@ Per concedere l'accesso ai dati per un'entità utente, eseguire queste operazion
 
 1. Scegliere **Seleziona utente**. Cercare il nome utente o l'indirizzo di posta elettronica per individuare l'utente che si vuole aggiungere. Selezionare **Seleziona** per confermare la selezione.
 
-    [accesso ai dati ![-due](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
+    [![Data-access-two](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
 1. Scegliere **Seleziona ruolo**. Scegliere il ruolo di accesso appropriato per l'utente:
 
@@ -78,7 +78,7 @@ Per concedere l'accesso guest in un ambiente Time Series Insights a un utente AA
 
 1. Scegliere **Seleziona utente**. Cercare l'indirizzo di posta elettronica dell'utente guest invitato per individuare l'utente da aggiungere. **Selezionare** quindi per confermare la selezione.
 
-    [accesso ai dati ![-Nine](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
+    [![Data-access-nine](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 
 1. Scegliere **Seleziona ruolo**. Scegliere il ruolo di accesso appropriato per l'utente guest:
 

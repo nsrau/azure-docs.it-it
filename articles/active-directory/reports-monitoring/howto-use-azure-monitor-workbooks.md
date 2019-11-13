@@ -2,7 +2,7 @@
 title: Cartelle di lavoro di monitoraggio di Azure per i report | Microsoft Docs
 description: Informazioni su come usare le cartelle di lavoro di monitoraggio di Azure per i report Azure Active Directory.
 services: active-directory
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 10/30/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b88648ce68a7359a842ec975d8633d6200b1a507
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200120"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014373"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Come usare le cartelle di lavoro di monitoraggio di Azure per i report Azure Active Directory
 
@@ -54,7 +54,7 @@ Questo articolo:
  
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per utilizzare le cartelle di lavoro di monitoraggio, è necessario:
 
@@ -97,7 +97,7 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Tutti gli accessi
 
-- Success
+- Operazione completata
 
 - Azione utente in sospeso
 
@@ -109,14 +109,14 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - App
 
-- Utenti
+- Users
 
 ![Analisi di accesso](./media/howto-use-azure-monitor-workbooks/43.png)
 
 
 Per ogni tendenza si ottiene una suddivisione in base alle categorie seguenti:
 
-- Località
+- Location
 
     ![Accessi per località](./media/howto-use-azure-monitor-workbooks/45.png)
 
@@ -134,7 +134,7 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Tutti gli accessi
 
-- Success
+- Operazione completata
 
 
 È possibile filtrare ogni tendenza in base alle categorie seguenti:
@@ -143,7 +143,7 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - App
 
-- Utenti
+- Users
 
 - Protocolli
 
@@ -167,7 +167,7 @@ Questa cartella di lavoro Mostra le tendenze per gli accessi disabilitati. È po
 
 - App
 
-- Utenti
+- Users
 
 ![Accessi con accesso condizionale](./media/howto-use-azure-monitor-workbooks/49.png)
 
@@ -179,7 +179,7 @@ Per gli accessi disabilitati, si ottiene una suddivisione in base allo stato di 
 
 ## <a name="conditional-access-insights"></a>Informazioni dettagliate su accesso condizionale
 
-### <a name="overview"></a>Panoramica
+### <a name="overview"></a>Overview
 
 Le cartelle di lavoro contengono query di log di accesso che consentono agli amministratori IT di monitorare l'effetto dei criteri di accesso condizionale nel tenant. Si ha la possibilità di segnalare il numero di utenti a cui è stato concesso o negato l'accesso. La cartella di lavoro contiene informazioni dettagliate sul numero di utenti che hanno ignorato i criteri di accesso condizionale in base agli attributi degli utenti al momento dell'accesso. Contiene i dettagli per ogni condizione, in modo che l'effetto di un criterio possa essere contestuale per condizione, tra cui la piattaforma del dispositivo, lo stato del dispositivo, l'app client, il rischio di accesso, la posizione e l'applicazione.
 
@@ -231,7 +231,7 @@ Questa cartella di lavoro Mostra le tendenze di accesso disabilitate seguenti:
 
 - Richiedi informativa sulla privacy
 
-- Altro
+- Altre
 
 
 È possibile filtrare ogni tendenza in base alle categorie seguenti:
@@ -240,7 +240,7 @@ Questa cartella di lavoro Mostra le tendenze di accesso disabilitate seguenti:
 
 - App
 
-- Utenti
+- Users
 
 ![Accessi tramite i controlli Grant](./media/howto-use-azure-monitor-workbooks/50.png)
 
@@ -267,7 +267,7 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Tutti gli accessi
 
-- Success
+- Operazione completata
 
 - Azione in sospeso
 
@@ -280,7 +280,7 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - App
 
-- Utenti
+- Users
 
 ![Risoluzione dei problemi relativi agli accessi](./media/howto-use-azure-monitor-workbooks/52.png)
 

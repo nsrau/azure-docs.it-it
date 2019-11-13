@@ -1,5 +1,5 @@
 ---
-title: Come diagnosticare gli errori con il servizio connesso di Azure Active Directory
+title: Diagnosticare gli errori con Azure Active Directory servizio connesso
 description: Il servizio connesso di Active Directory ha rilevato un tipo di autenticazione incompatibile.
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e544942029532fdbe998c36917e688d70ce4ed5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 26f25daa01288959c38520f9713d35eb975d2df2
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851986"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73941391"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnosi degli errori con il servizio connesso di Azure Active Directory
 
@@ -27,7 +27,7 @@ Per rilevare correttamente il precedente codice di autenticazione in un progetto
 
 ## <a name="project-types"></a>Tipi di progetto
 
-Il servizio connesso verifica il tipo di progetto in corso di sviluppo, in modo da potervi inserire la logica di autenticazione corretta. Se nel progetto è presente un controller che deriva `ApiController` da, il progetto viene considerato un progetto WebAPI. Se nel progetto sono presenti solo controller che derivano da `MVC.Controller`, il progetto verrà considerato come un progetto MVC. Il servizio connesso non supporta altri tipi di progetto.
+Il servizio connesso verifica il tipo di progetto in corso di sviluppo, in modo da potervi inserire la logica di autenticazione corretta. Se è presente un controller che deriva da `ApiController` nel progetto, il progetto viene considerato un progetto WebAPI. Se nel progetto sono presenti solo controller che derivano da `MVC.Controller`, il progetto verrà considerato come un progetto MVC. Il servizio connesso non supporta altri tipi di progetto.
 
 ## <a name="compatible-authentication-code"></a>Codice di autenticazione compatibile
 

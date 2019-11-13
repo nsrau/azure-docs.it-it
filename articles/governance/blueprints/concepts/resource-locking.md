@@ -1,17 +1,14 @@
 ---
 title: Informazioni sul blocco delle risorse
 description: Informazioni sulle opzioni di blocco per proteggere le risorse durante l'assegnazione di un progetto.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 04/24/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 5c62fdb698dddf293d339904fd0c854052d636eb
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 754b9d7f73c6111abf7505e222a1ca5a8712ae45
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981054"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960473"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
@@ -19,15 +16,15 @@ La creazione di ambienti coerenti su larga scala è davvero efficace solo se esi
 
 ## <a name="locking-modes-and-states"></a>Modalità di blocco e stati
 
-La modalità di blocco si applica all'assegnazione del progetto e presenta tre opzioni: **Non bloccare**, **Sola lettura** e **Non eliminare**. La modalità di blocco viene configurata durante la distribuzione degli artefatti nel corso dell'assegnazione di un progetto. È possibile impostare una modalità di blocco diversa aggiornando l'assegnazione del progetto.
+La modalità di blocco si applica all'assegnazione del progetto ed è costituita da tre opzioni: **non bloccare**, **sola lettura**o non **eliminare**. La modalità di blocco viene configurata durante la distribuzione degli artefatti nel corso dell'assegnazione di un progetto. È possibile impostare una modalità di blocco diversa aggiornando l'assegnazione del progetto.
 Le modalità di blocco non possono tuttavia essere modificate al di fuori di Blueprints.
 
-Le risorse create dagli artefatti nell'assegnazione di un progetto hanno quattro stati: **Non bloccato**, **Sola lettura**, **Impossibile modificare/eliminare** e **Impossibile eliminare**. Ciascun tipo di artefatto può essere in stato **Non bloccato**. La tabella seguente può essere usata per determinare lo stato di una risorsa:
+Le risorse create da elementi in un'assegnazione di progetto hanno quattro stati: **non bloccato**, di **sola lettura**, **non è possibile modificare/eliminare**o **eliminare**. Ciascun tipo di artefatto può essere in stato **Non bloccato**. La tabella seguente può essere usata per determinare lo stato di una risorsa:
 
-|Modalità|Tipo di risorsa artefatto|State|Descrizione|
+|Mode|Tipo di risorsa artefatto|Stato|DESCRIZIONE|
 |-|-|-|-|
 |Non bloccare|*|Non bloccato|Le risorse non sono protette da Blueprints. Questo stato viene usato anche per le risorse aggiunte a un artefatto del gruppo di risorse **Sola lettura** o **Non eliminare** all'esterno dell'assegnazione di un progetto.|
-|Sola lettura|Gruppo di risorse|Impossibile modificare/eliminare|Il gruppo di risorse è di sola lettura e i relativi tag non possono essere modificati. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
+|Sola lettura|Resource group|Impossibile modificare/eliminare|Il gruppo di risorse è di sola lettura e i relativi tag non possono essere modificati. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
 |Sola lettura|Diverso da gruppo di risorse|Sola lettura|Non è possibile modificare la risorsa in alcun modo: non sono consentite modifiche e la risorsa non può essere eliminata.|
 |Non eliminare|*|Impossibile eliminare|Le risorse possono essere modificate, ma non possono essere eliminate. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
 
@@ -54,7 +51,7 @@ In virtù del controllo degli accessi in base al ruolo, alle risorse artefatto v
 
 Le [proprietà di assegnazione Deny](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) di ogni modalità sono le seguenti:
 
-|Modalità |Autorizzazioni. azioni |Permissions. notacts |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
+|Mode |Autorizzazioni. azioni |Permissions. notacts |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
 |Sola lettura |**\*** |**\*/read** |SystemDefined (Everyone) |assegnazione di progetto e definito dall'utente in **excludedPrincipals** |Gruppo di risorse- _true_; Risorsa- _false_ |
 |Non eliminare |**\*/Delete** | |SystemDefined (Everyone) |assegnazione di progetto e definito dall'utente in **excludedPrincipals** |Gruppo di risorse- _true_; Risorsa- _false_ |

@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate per definire la struttura del codice JSON nelle query di Azure Time Series Insights | Microsoft Docs
-description: Informazioni su come migliorare l'efficienza delle query di Azure Time Series Insights.
+title: Procedure consigliate per il data shaping di query Azure Time Series Insights JSON | Microsoft Docs
+description: Informazioni su come migliorare l'efficienza delle query Azure Time Series Insights tramite il data shaping JSON.
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 10/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 09090354012d2cd3ba050ff9c94593947f27b006
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 386d10c8e4bd7d5f46d2081d5a26371fb37ff30f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990272"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006993"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Formato JSON per ottimizzare le prestazioni delle query 
 

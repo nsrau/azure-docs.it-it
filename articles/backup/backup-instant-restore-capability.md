@@ -8,17 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: aad3ca34ab9db5ec910e70e70ba5a31afa94e417
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1faa8efc5cbb39f94a390a0cf32dd2cd1ef0793c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611992"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012100"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ottenere prestazioni migliori per backup e ripristino con la funzionalità Ripristino istantaneo di Backup di Azure
 
 > [!NOTE]
-> In base al feedback degli utenti lo **stack di backup di macchine virtuali V2** viene rinominato **Ripristino istantaneo** per evitare confusione con la funzionalità Azure Stack.<br/><br/> Tutti gli utenti di backup di Azure sono stati aggiornati per il **ripristino immediato**.
+> In base al feedback degli utenti lo **stack di backup di macchine virtuali V2** viene rinominato **Ripristino istantaneo** per evitare confusione con la funzionalità Azure Stack.
+> Tutti gli utenti di backup di Azure sono stati aggiornati per il **ripristino immediato**.
 
 Il nuovo modello per Ripristino istantaneo offre i miglioramenti delle funzionalità seguenti:
 
@@ -29,13 +30,12 @@ Il nuovo modello per Ripristino istantaneo offre i miglioramenti delle funzional
 * Possibilità di usare gli account di archiviazione originali di macchine virtuali non gestite (per disco) durante il ripristino. Questa possibilità vale anche quando i dischi della macchina virtuale sono distribuiti negli account di archiviazione. Le operazioni di ripristino per un'ampia gamma di configurazioni di macchine virtuali vengono velocizzate.
 * Per il backup delle macchine virtuali che usano archiviazione Premium, con il ripristino immediato è consigliabile allocare lo spazio disponibile del *50%* dello spazio di archiviazione totale allocato, che è necessario **solo** per il primo backup. Il 50% di spazio disponibile non è un requisito per i backup dopo il completamento del primo backup.
 
-
 ## <a name="whats-new-in-this-feature"></a>Novità di questa funzionalità
 
 Il processo di backup è attualmente costituito da due fasi:
 
-1.  Acquisizione di uno snapshot della macchina virtuale.
-2.  Trasferimento dello snapshot della macchina virtuale all'insieme di credenziali di Servizi di ripristino.
+1. Acquisizione di uno snapshot della macchina virtuale.
+2. Trasferimento dello snapshot della macchina virtuale all'insieme di credenziali di Servizi di ripristino.
 
 Un punto di ripristino si considera creato solo dopo il completamento delle fasi 1 e 2. Come parte di questo aggiornamento, viene creato un punto di ripristino non appena lo snapshot viene completato e tale punto di ripristino di tipo snapshot può essere usato per eseguire un ripristino con lo stesso flusso di ripristino. È possibile identificare questo punto di ripristino nel portale di Azure usando "snapshot" come tipo di punto di ripristino e dopo che lo snapshot è stato trasferito nell'insieme di credenziali, il tipo di punto di ripristino viene modificato in "snapshot and Vault".
 
@@ -47,7 +47,7 @@ Per impostazione predefinita, gli snapshot vengono conservati per due giorni. Qu
 
 * Gli snapshot vengono archiviati insieme ai dischi per ottimizzare la creazione del punto di ripristino e velocizzare le operazioni di ripristino. Verranno pertanto addebitati costi di archiviazione corrispondenti agli snapshot creati durante questo periodo.
 * Gli snapshot incrementali vengono archiviati come BLOB di pagine. A tutti i clienti che usano dischi non gestiti vengono addebitati i costi per gli snapshot archiviati nell'account di archiviazione locale. Poiché le raccolte di punti di ripristino usate dai backup delle macchine virtuali gestite usano snapshot BLOB a livello di archiviazione sottostante, per i dischi gestiti verranno addebitati i costi corrispondenti ai prezzi degli snapshot BLOB, che sono incrementali.
-* Per gli account di archiviazione Premium, gli snapshot presi per i punti di ripristino istantanei vengono conteggiati fino al limite di 10 TB di spazio allocato.
+* Per gli account di archiviazione Premium, gli snapshot creati per i punti di ripristino istantaneo vengono inclusi nel conteggio relativo al limite di 10 TB di spazio allocato.
 * Si ottiene la possibilità di configurare la conservazione degli snapshot in base alle esigenze di ripristino. A seconda delle esigenze, è possibile impostare il periodo di conservazione degli snapshot su un minimo di un giorno nel pannello dei criteri di backup, come spiegato di seguito. Ciò consentirà di risparmiare sui costi per la conservazione degli snapshot se i ripristini non vengono eseguiti di frequente.
 * Si tratta di un aggiornamento direzionale, una volta aggiornato a un ripristino immediato, non è possibile tornare indietro.
 
@@ -56,7 +56,7 @@ Per impostazione predefinita, gli snapshot vengono conservati per due giorni. Qu
 
 ## <a name="cost-impact"></a>Impatto sui costi
 
-Gli snapshot incrementali vengono archiviati nell'account di archiviazione delle macchine virtuali, che viene usato per il ripristino istantaneo. Snapshot incrementale significa che lo spazio occupato da uno snapshot è uguale allo spazio occupato dalle pagine scritte dopo la creazione dello snapshot. La fatturazione è ancora basata sullo spazio usato in GB occupato dallo snapshot e il prezzo per GB è quello indicato nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/managed-disks/).
+Gli snapshot incrementali vengono archiviati nell'account di archiviazione della macchina virtuale, usato per il ripristino istantaneo. Snapshot incrementale significa che lo spazio occupato da uno snapshot è uguale allo spazio occupato dalle pagine scritte dopo la creazione dello snapshot. La fatturazione è ancora basata sullo spazio usato in GB occupato dallo snapshot e il prezzo per GB è quello indicato nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 >[!NOTE]
 > La conservazione degli snapshot è fissata a 5 giorni per i criteri settimanali.
@@ -75,34 +75,43 @@ Nella portale di Azure è possibile visualizzare un campo aggiunto nel pannello 
 > Da AZ PowerShell versione 1.6.0 in poi, è possibile aggiornare il periodo di conservazione degli snapshot di ripristino istantaneo nei criteri usando PowerShell
 
 ```powershell
-PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
-La conservazione predefinita degli snapshot per ciascun criterio è impostata su 2 giorni. L'utente può modificare il valore con un minimo di 1 e un massimo di 5 giorni. Per i criteri settimanali, la conservazione dello snapshot è fissata a 5 giorni.
+
+La conservazione predefinita degli snapshot per ciascun criterio è impostata su due giorni. L'utente può modificare il valore in un minimo di 1 e un massimo di cinque giorni. Per i criteri settimanali, la conservazione dello snapshot è fissata a cinque giorni.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 ### <a name="what-are-the-cost-implications-of-instant-restore"></a>Quali sono le implicazioni a livello di costi di Ripristino istantaneo?
+
 Gli snapshot vengono archiviati insieme ai dischi per velocizzare la creazione del punto di ripristino e le operazioni di ripristino. Di conseguenza, si noteranno costi di archiviazione corrispondenti al periodo di conservazione degli snapshot selezionato come parte dei criteri di backup della macchina virtuale.
 
-### <a name="in-premium-storage-accounts-do-the-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Negli account di archiviazione Premium, gli snapshot presi per il punto di ripristino istantaneo occupano il limite di snapshot di 10 TB?
+### <a name="in-premium-storage-accounts-do-the-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Negli account di archiviazione Premium gli snapshot creati per un punto di ripristino istantaneo contribuiscono al limite per gli snapshot di 10 TB?
+
 Sì, per gli account di archiviazione Premium gli snapshot presi per il punto di ripristino istantaneo occupano 10 TB di spazio di snapshot allocato.
 
 ### <a name="how-does-the-snapshot-retention-work-during-the-five-day-period"></a>Come funziona la conservazione degli snapshot durante il periodo di cinque giorni?
+
 Ogni giorno viene creato un nuovo snapshot, quindi esistono cinque singoli snapshot incrementali. Le dimensioni dello snapshot dipendono dalla varianza dei dati, che nella maggior parte dei casi è intorno al 2%-7%.
 
 ### <a name="is-an-instant-restore-snapshot-an-incremental-snapshot-or-full-snapshot"></a>Uno snapshot di ripristino istantaneo è uno snapshot incrementale o completo?
+
 Gli snapshot creati come parte della funzionalità di ripristino istantaneo sono snapshot incrementali.
 
 ### <a name="how-can-i-calculate-the-approximate-cost-increase-due-to-instant-restore-feature"></a>Come è possibile calcolare l'aumento dei costi approssimativo correlato alla funzionalità di ripristino istantaneo?
-Dipende dalla varianza della macchina virtuale. In uno stato stabile, si può presupporre che l'aumento dei costi sia uguale a: periodo di conservazione snapshot *varianza giornaliera per ogni macchina virtuale* costi di archiviazione per GB.
+
+Dipende dalla varianza della macchina virtuale. In uno stato stabile, si può presupporre che l'aumento dei costi sia uguale a: periodo di conservazione snapshot * varianza giornaliera per ogni macchina virtuale * costi di archiviazione per GB.
 
 ### <a name="if-the-recovery-type-for-a-restore-point-is-snapshot-and-vault-and-i-perform-a-restore-operation-which-recovery-type-will-be-used"></a>Se il tipo di ripristino per un punto di ripristino è "Snapshot e insieme di credenziali" e si esegue un'operazione di ripristino, quale tipo di ripristino verrà usato?
+
 Se il tipo di ripristino è "Snapshot e insieme di credenziali", il ripristino verrà eseguito automaticamente dallo snapshot locale e l'operazione sarà molto più veloce rispetto al ripristino eseguito dall'insieme di credenziali.
 
 ### <a name="what-happens-if-i-select-retention-period-of-restore-point-tier-2-less-than-the-snapshot-tier1-retention-period"></a>Che cosa accade se si seleziona un periodo di conservazione del punto di ripristino (livello 2) inferiore a quello dello snapshot (livello 1)?
+
 Il nuovo modello non consente di eliminare il punto di ripristino (livello 2) senza eliminare lo snapshot (livello 1). È consigliabile pianificare un periodo di conservazione del punto di ripristino (livello 2) superiore al periodo di conservazione degli snapshot.
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Perché lo snapshot è disponibile anche dopo il periodo di conservazione impostato nei criteri di backup?
+
 Se il punto di ripristino contiene snapshot e si tratta dell'ultimo punto di ripristino disponibile, viene conservato fino al corretto completamento di un backup successivo. Questo è possibile in base ai criteri di "Garbage Collection" progettati (GC) che impone che almeno un RP più recente sia sempre presente nel caso in cui tutti i backup abbiano esito negativo a causa di un problema nella macchina virtuale. Negli scenari normali, i punti di ripristino vengono puliti entro 24 ore dalla relativa scadenza.

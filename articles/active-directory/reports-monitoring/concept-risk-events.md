@@ -3,7 +3,7 @@ title: Rilevamento Azure Active Directory rischi | Microsoft Docs
 description: Questo Artice offre una panoramica dettagliata dei rilevamenti dei rischi.
 services: active-directory
 keywords: Azure Active Directory Identity Protection, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 523ae8e1ba31a4fe2c9683007f717149dfdc3bc6
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: e1f3755d61b5fa082665cfdb9aa91d1e31e2d4e4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127329"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014472"
 ---
 # <a name="azure-active-directory-risk-detections"></a>Rilevamento del rischio Azure Active Directory
 
@@ -47,12 +47,12 @@ Attualmente, Azure Active Directory rileva sei tipi di rilevamento dei rischi:
 ![Rilevamento del rischio](./media/concept-risk-events/91.png)
 
 > [!IMPORTANT]
-> In alcuni casi, è possibile che si verifichi un rilevamento dei rischi senza una voce di accesso corrispondente nel [report](concept-sign-ins.md)degli accessi. Questo avviene perché Identity Protection valuta il rischio per gli accessi sia **interattivi** che **non interattivi** mentre il report sugli accessi mostra solo gli accessi interattivi.
+> In alcuni casi, è possibile che si verifichi un rilevamento dei rischi senza una voce di accesso corrispondente nel [report degli accessi](concept-sign-ins.md). Questo avviene perché Identity Protection valuta il rischio per gli accessi sia **interattivi** che **non interattivi** mentre il report sugli accessi mostra solo gli accessi interattivi.
 
 Le informazioni che si ottengono per un rilevamento dei rischi rilevato sono legate alla sottoscrizione del Azure AD. 
 
 * Con l'**edizione Azure AD Premium P2**, si ottengono le informazioni più dettagliate su tutti i rilevamenti sottostanti. 
-* Con l' **edizione Azure ad Premium P1**, i rilevamenti avanzati (ad esempio le proprietà di accesso non note) non sono coperti dalla licenza e verranno visualizzati sotto il nome **accesso con rischi aggiuntivi**rilevati. Inoltre, i campi livello di rischio e dettagli rischio sono nascosti.
+* Con l' **edizione Azure ad Premium P1**, i rilevamenti avanzati (ad esempio le proprietà di accesso non note) non sono coperti dalla licenza e verranno visualizzati sotto il nome **accesso con rischi aggiuntivi rilevati**. Inoltre, i campi livello di rischio e dettagli rischio sono nascosti.
 
 Sebbene il rilevamento dei rilevamenti dei rischi rappresenti già un aspetto importante della protezione delle identità, è anche possibile indirizzarli manualmente o implementare risposte automatiche configurando i criteri di accesso condizionale. Per altre informazioni, vedere [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
@@ -129,13 +129,13 @@ La proprietà livello di rischio di un rilevamento dei rischi è un indicatore (
 
 La gravità del rilevamento dei rischi rappresenta il livello di attendibilità del segnale come un predittore della compromissione dell'identità. Il livello di affidabilità è un indicatore della possibile presenza di falsi positivi. 
 
-Ad esempio, 
+Ad esempio: 
 
-* **Alta**: Sicurezza elevata e rilevamento del rischio di gravità elevata. Questi eventi sono fortemente indicativi di una compromissione dell'identità dell'utente e tutti gli account utente interessati devono essere corretti.
+* **Alta**: rilevamento di rischi elevati e di gravità elevata. Questi eventi sono fortemente indicativi di una compromissione dell'identità dell'utente e tutti gli account utente interessati devono essere corretti.
 
-* **Medium**: Gravità elevata, ma rilevamento del rischio di confidenza inferiore o viceversa. Questi eventi sono potenzialmente rischiosi e tutti gli account utente interessati devono essere corretti.
+* **Media**: gravità elevata, ma rilevamento del rischio di confidenza inferiore o viceversa. Questi eventi sono potenzialmente rischiosi e tutti gli account utente interessati devono essere corretti.
 
-* **Bassa**: Rilevamento del rischio basso e a bassa sicurezza. Questo evento potrebbe non richiedere un'azione immediata, ma se combinato con altri rilevamenti dei rischi, può fornire un'indicazione sicura che l'identità sia compromessa.
+* **Bassa**: rilevamento del rischio basso e con livello di gravità basso. Questo evento potrebbe non richiedere un'azione immediata, ma se combinato con altri rilevamenti dei rischi, può fornire un'indicazione sicura che l'identità sia compromessa.
 
 ![Livello di rischio](./media/concept-risk-events/01.png)
 
@@ -153,7 +153,7 @@ Il livello di rischio per questo tipo di rilevamento dei rischi è **medio** , p
 Il trasferimento impossibile indica in genere che un pirata informatico è riuscito a ottenere l'accesso. Possono, tuttavia, verificarsi falsi positivi quando un utente è in viaggio e usa un nuovo dispositivo o una VPN che non viene in genere usata da altri utenti nell'organizzazione. Un'altra origine di falsi positivi è costituita dalle applicazioni che passano in modo errato gli indirizzi IP di server come indirizzi IP di client. Questo può dare l'impressione che gli accessi si verifichino dal data center in cui è ospitato il back-end dell'applicazione. Spesso si tratta di data center Microsoft e gli accessi possono risultare eseguiti da indirizzi IP di proprietà di Microsoft. In seguito a questi falsi positivi, il livello di rischio per questo rilevamento dei rischi è **medio**.
 
 > [!TIP]
-> È possibile ridurre la quantità di falsi positivi segnalati per questo tipo di rilevamento del rischio configurando le [località](../active-directory-named-locations.md)denominate. 
+> È possibile ridurre la quantità di falsi positivi segnalati per questo tipo di rilevamento del rischio configurando le [località denominate](../active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Accessi da posizioni non note
 
@@ -172,7 +172,7 @@ Per altre informazioni su come risolvere problemi correlati alle infezioni malwa
 È consigliabile contattare l'utente per verificare se ha effettivamente eseguito l'accesso da un indirizzo IP contrassegnato come sospetto. Il livello di rischio per questo tipo di evento è "**medio**" perché lo stesso indirizzo IP può essere usato da più dispositivi, mentre solo alcuni di essi potrebbero essere responsabili dell'attività sospetta. 
 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Report di sicurezza Utenti contrassegnati per il rischio](concept-user-at-risk.md)
 * [Report degli accessi a rischio](concept-risky-sign-ins.md)

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 1059dd463529f4c357038225f2f9ef11d0092802
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a0965dc4011b449e617f6dbaeafb68bfa796b620
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679596"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953957"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configura accelerazione GPU (Graphics Processing Unit) per desktop virtuale Windows
 
@@ -26,17 +26,14 @@ Azure offre una serie di [dimensioni di macchine virtuali ottimizzate per GPU](/
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Creare un pool host, effettuare il provisioning della macchina virtuale e configurare un gruppo di app
 
-Creare un nuovo pool host usando una macchina virtuale di dimensioni selezionate. Per istruzioni, vedere [Tutorial: Creare un pool di host con Azure Marketplace @ no__t-0.
+Creare un nuovo pool host usando una macchina virtuale di dimensioni selezionate. Per istruzioni, vedere [esercitazione: creare un pool di host con Azure Marketplace](/azure/virtual-desktop/create-host-pools-azure-marketplace).
 
 Desktop virtuale Windows supporta il rendering e la codifica con accelerazione GPU nei sistemi operativi seguenti:
 
 * Windows 10 versione 1511 o successiva
 * Windows Server 2016 o versioni successive
 
-È anche necessario configurare un gruppo di app o usare il gruppo di app desktop predefinito (denominato "gruppo di applicazioni desktop") che viene creato automaticamente quando si crea un nuovo pool host. Per istruzioni, vedere [Tutorial: Gestire i gruppi di app per desktop virtuale Windows @ no__t-0.
-
->[!NOTE]
->Desktop virtuale Windows supporta solo il tipo di gruppo di app "desktop" per i pool host abilitati per GPU. I gruppi di app di tipo "RemoteApp" non sono supportati per i pool host abilitati per GPU.
+È anche necessario configurare un gruppo di app o usare il gruppo di app desktop predefinito (denominato "gruppo di applicazioni desktop") che viene creato automaticamente quando si crea un nuovo pool host. Per istruzioni, vedere [esercitazione: gestire i gruppi di app per desktop virtuale di Windows](/azure/virtual-desktop/manage-app-groups).
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Installare i driver grafici supportati nella macchina virtuale
 
@@ -52,7 +49,7 @@ Per impostazione predefinita, le app e i desktop eseguiti in configurazioni con 
 
 1. Connettersi al desktop della macchina virtuale usando un account con privilegi di amministratore locale.
 2. Aprire il menu Start e digitare "gpedit. msc" per aprire l'Editor Criteri di gruppo.
-3. Spostarsi nell'albero a **Configurazione Computer** > **modelli amministrativi** > **componenti di Windows** > **Servizi Desktop remoto** > **host sessione Desktop remoto** > **remoto Ambiente della sessione**.
+3. Spostarsi nell'albero a **Configurazione Computer** > **modelli amministrativi** > **componenti di Windows** > **Servizi Desktop remoto** > **host sessione Desktop remoto > ** **ambiente sessione remota**.
 4. Selezionare criterio **usare la scheda grafica predefinita hardware per tutte le sessioni di Servizi Desktop remoto** e impostare questo criterio su **abilitato** per abilitare il rendering della GPU nella sessione remota.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Configurare la codifica del frame con accelerazione GPU
@@ -77,7 +74,7 @@ Desktop remoto codifica tutti i grafici sottoposti a rendering dalle app e dai d
 
 Per verificare che le app stiano usando la GPU per il rendering, provare a eseguire una delle operazioni seguenti:
 
-* Usare l'utilità `nvidia-smi`, come descritto in [verificare l'installazione del driver](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) per verificare l'utilizzo della GPU durante l'esecuzione delle app.
+* Usare l'utilità `nvidia-smi` come descritto in [verificare l'installazione del driver](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) per verificare l'utilizzo della GPU durante l'esecuzione delle app.
 * Nelle versioni supportate del sistema operativo, è possibile utilizzare Gestione attività per verificare l'utilizzo della GPU. Selezionare la GPU nella scheda "prestazioni" per vedere se le app utilizzano la GPU.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Verificare la codifica del frame con accelerazione GPU
@@ -85,9 +82,9 @@ Per verificare che le app stiano usando la GPU per il rendering, provare a esegu
 Per verificare che Desktop remoto usi la codifica con accelerazione GPU:
 
 1. Connettersi al desktop della macchina virtuale usando il client desktop virtuale di Windows.
-2. Avviare il Visualizzatore eventi e passare al nodo seguente: **Registri applicazioni e servizi** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** > **operativo**
-3. Per determinare se viene usata la codifica con accelerazione GPU, cercare l'ID evento 170. Se viene visualizzato "AVC hardware encoder Enabled: 1 "viene usata la codifica GPU.
-4. Per determinare se viene utilizzata la modalità AVC 444, cercare l'ID evento 162. Se viene visualizzato "AVC disponibile: 1 profilo iniziale: 2048 "viene usato AVC 444.
+2. Avviare il Visualizzatore eventi e passare al nodo seguente: **registri applicazioni e servizi** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** > **operativo**
+3. Per determinare se viene usata la codifica con accelerazione GPU, cercare l'ID evento 170. Se viene visualizzato "AVC hardware encoder Enabled: 1", viene usata la codifica GPU.
+4. Per determinare se viene utilizzata la modalità AVC 444, cercare l'ID evento 162. Se viene visualizzato "AVC disponibile: 1 profilo iniziale: 2048", viene usato AVC 444.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,17 +1,14 @@
 ---
 title: Dettagli della struttura delle definizioni dei criteri
 description: Descrizione di come la definizione dei criteri delle risorse viene usata da Criteri di Azure per stabilire le convenzioni per le risorse all'interno dell'organizzazione grazie alla definizione di quando i criteri vengono applicati e dell'azione da eseguire.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: d415075bda4ff58d4a3a633fe820f22d8a157459
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 50edf2941aeb24d800752eec1e93f69abf4211ea
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464038"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960009"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -23,9 +20,9 @@ Lo schema di definizione dei criteri è disponibile qui: [https://schema.managem
 Per creare una definizione di criterio è possibile usare JSON. La definizione dei criteri contiene gli elementi per:
 
 - mode
-- Parametri
+- parameters
 - nome visualizzato
-- description
+- Descrizione
 - regola dei criteri
   - valutazione logica
   - effetto
@@ -93,7 +90,7 @@ Le modalità del provider di risorse seguenti sono attualmente supportate durant
 > [!NOTE]
 > Le modalità del provider di risorse supportano solo le definizioni dei criteri predefinite e non supportano le iniziative in fase di anteprima.
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>parametri
 
 I parametri consentono di semplificare la gestione dei criteri, riducendone il numero di definizioni. I parametri possono essere paragonati ai campi di un modulo: `name`, `address`, `city`, `state`. Questi parametri rimangono sempre invariati, ma i loro valori cambiano a seconda dei dati immessi durante la compilazione del modulo da parte dei singoli utenti.
 I parametri funzionano nello stesso modo durante la creazione di criteri. L'inclusione dei parametri in una definizione dei criteri consente di riutilizzare i singoli criteri in vari scenari mediante l'uso di valori diversi.
@@ -254,7 +251,7 @@ Il valore non deve contenere più di un carattere jolly `*`.
 Quando si usano le condizioni **match** e **notMatch** , fornire `#` per trovare la corrispondenza con una cifra, `?` per una lettera, `.` in modo che corrisponda a qualsiasi carattere e qualsiasi altro carattere in modo che corrisponda al carattere effettivo.
 **match** e **notMatch** fanno distinzione tra maiuscole e minuscole. Alternative senza distinzione tra maiuscole e minuscole sono disponibili in **matchInsensitively** e **notMatchInsensitively**. Ad esempio, vedere [Consentire modelli nome multipli](../samples/allow-multiple-name-patterns.md).
 
-### <a name="fields"></a>Campi
+### <a name="fields"></a>Fields
 
 Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà nel payload delle richieste di risorse e descrive lo stato della risorsa.
 
@@ -311,7 +308,7 @@ Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di 
 }
 ```
 
-### <a name="value"></a>Value
+### <a name="value"></a>Valore
 
 Le condizioni possono essere formate anche usando **value**. **value** controlla le condizioni rispetto a [parametri](#parameters), [funzioni di modello supportate](#policy-functions) o valori letterali.
 **value** è associato a qualsiasi [condizione](#conditions) supportata.
@@ -321,7 +318,7 @@ Le condizioni possono essere formate anche usando **value**. **value** controlla
 
 #### <a name="value-examples"></a>Esempi d'uso di value
 
-Questa regola dei criteri usa **value** per confrontare il risultato della funzione `resourceGroup()` e la proprietà restituita **name** rispetto a una condizione **like** di `*netrg`. La regola respinge qualsiasi risorsa che non faccia parte di **type** `Microsoft.Network/*` in qualsiasi gruppo di risorse il cui nome termina con `*netrg`.
+Questa regola dei criteri usa **value** per confrontare il risultato della funzione `resourceGroup()` e la proprietà restituita **name** rispetto a una condizione **like** di `*netrg`. La regola respinge qualsiasi risorsa che non faccia parte di `Microsoft.Network/*`type in qualsiasi gruppo di risorse il cui nome termina con `*netrg`.
 
 ```json
 {
@@ -429,7 +426,7 @@ Tutte le [funzioni di modello di gestione risorse](../../../azure-resource-manag
 
 Le funzioni seguenti sono disponibili per l'uso in una regola dei criteri, ma sono diverse da quelle usate in un modello di Azure Resource Manager:
 
-- addDays (dateTime, numberOfDaysToAdd)
+- addDays(dateTime, numberOfDaysToAdd)
   - **DateTime**: [Required] stringa stringa nel formato DateTime universale ISO 8601' aaaa-mm-ggThh: mm: SS. fffffffZ '
   - **numberOfDaysToAdd**: [Required] numero intero di giorni da aggiungere
 - utcNow (): diversamente da un modello di Gestione risorse, può essere usato all'esterno di defaultValue.
@@ -493,7 +490,7 @@ L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attu
 
 ### <a name="understanding-the--alias"></a>Informazioni sull'alias [*]
 
-Molti degli alias disponibili hanno una versione che viene visualizzata come un nome "normale" e un'altra a cui viene aggiunto **[\*]** . ad esempio:
+Molti degli alias disponibili hanno una versione che viene visualizzata come un nome "normale" e un'altra a cui viene aggiunto **[\*]** . Ad esempio:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

@@ -1,5 +1,5 @@
 ---
-title: Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza di macchine virtuali Hyper-V in Azure | Microsoft Docs
+title: Deployment Planner per il ripristino di emergenza di Hyper-V con Azure Site Recovery
 description: Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: 6e7da548eb2cc6e314d446270cc04d1c57be7ae3
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 72b1311227f5c9f9efc35b2940d3c843a21dc261
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618827"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954025"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure
 
@@ -79,12 +79,12 @@ Numero di server che è possibile profilare per ogni istanza in esecuzione di Az
 
 *Lo strumento è destinato principalmente allo scenario di ripristino di emergenza da Hyper-V ad Azure. Per il ripristino di emergenza da Hyper-V al sito secondario, può essere usato solo per conoscere le raccomandazioni sul lato di origine, ad esempio larghezza di banda di rete necessaria, spazio di archiviazione libero necessario in ogni server Hyper-V di origine e numeri di invio in batch e definizioni dei batch della replica iniziale.  Ignorare le raccomandazioni di Azure e i costi del report. L'operazione per misurare la velocità effettiva non è inoltre applicabile per lo scenario di ripristino di emergenza da Hyper-V al sito secondario.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Lo strumento ha tre fasi principali per Hyper-V: ottenere l'elenco di VM, profilatura e generazione di report. È anche disponibile una quarta opzione per calcolare solo la velocità effettiva. I requisiti per il server in cui devono essere eseguite le diverse fasi sono elencati nella tabella seguente:
 
 | Requisito server | DESCRIZIONE |
 |---|---|
-|Ottenere l'elenco di VM, profilatura e misurazione della velocità effettiva |<ul><li>Sistema operativo: Microsoft Windows Server 2016 o Microsoft Windows Server 2012 R2 </li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, HDD da 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso Internet ad Azure da questo server</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>La VM da cui si esegue lo strumento Azure Site Recovery Deployment Planner deve essere aggiunta all'elenco TrustedHosts di tutti i server Hyper-V.</li><li>Tutti i server Hyper-V da profilare devono essere aggiunti all'elenco TrustedHosts della VM client da cui lo strumento viene eseguito. [Altre informazioni per aggiungere i server nell'elenco TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> Lo strumento deve essere eseguito con privilegi amministrativi da PowerShell o dalla console della riga di comando</ul></ul>|
+|Ottenere l'elenco di VM, profilatura e misurazione della velocità effettiva |<ul><li>Sistema operativo: Microsoft Windows Server 2016 o Microsoft Windows Server 2012 R2 </li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, disco rigido da 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso Internet ad Azure da questo server</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>La VM da cui si esegue lo strumento Azure Site Recovery Deployment Planner deve essere aggiunta all'elenco TrustedHosts di tutti i server Hyper-V.</li><li>Tutti i server Hyper-V da profilare devono essere aggiunti all'elenco TrustedHosts della VM client da cui lo strumento viene eseguito. [Altre informazioni per aggiungere i server nell'elenco TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> Lo strumento deve essere eseguito con privilegi amministrativi da PowerShell o dalla console della riga di comando</ul></ul>|
 | Generazione di report | Un PC o server Windows con Microsoft Excel 2013 o versione successiva |
 | Autorizzazioni utente | Account amministratore per accedere al cluster Hyper-V/host Hyper-V durante le operazioni di acquisizione dell'elenco di VM e di profilatura.<br>Tutti gli host da profilare devono avere un account amministratore di dominio con le stesse credenziali, ovvero nome utente e password
  |
@@ -110,12 +110,12 @@ Lo strumento ha tre fasi principali per Hyper-V: ottenere l'elenco di VM, profil
 Lo strumento è compresso in una cartella ZIP. Lo stesso strumento supporta entrambi gli scenari di ripristino di emergenza da VMware ad Azure e da Hyper-V ad Azure. È possibile usare questo strumento anche per lo scenario di ripristino di emergenza da Hyper-V al sito secondario, ignorando però la raccomandazione del report sull'infrastruttura di Azure.
 
 1.  Copiare la cartella ZIP nel server Windows nel quale si intende eseguire lo strumento. È possibile eseguire lo strumento in Windows Server 2012 R2 o Windows Server 2016. Il server deve avere accesso alla rete per connettersi al cluster Hyper-V o all'host Hyper-V in cui si trovano le VM da profilare. È consigliabile che la VM su cui lo strumento verrà eseguito abbia la stessa configurazione hardware del server Hyper-V che si vuole proteggere. Tale configurazione assicura che la velocità effettiva ottenuta segnalata dallo strumento corrisponda alla velocità effettiva che Azure Site Recovery può raggiungere durante la replica. Il calcolo della velocità effettiva dipende dalla larghezza di banda di rete disponibile nel server e dalla configurazione hardware (CPU, memoria e così via) del server. La velocità effettiva viene calcolata dal server in cui lo strumento è in esecuzione in Azure. Se la configurazione hardware del server è diversa da quella del server Hyper-V, la velocità effettiva ottenuta che viene segnalata dallo strumento non sarà corretta.
-Configurazione consigliata della macchina virtuale: 8 vCPUs, 16 GB di RAM, HDD da 300 GB.
+Configurazione consigliata della VM: 8 vCPU, 16 GB di RAM, 300 GB di HDD.
 
 1.  Estrarre la cartella ZIP.
 La cartella contiene più file e sottocartelle. Il file eseguibile è ASRDeploymentPlanner.exe e si trova nella cartella padre.
 
-Esempio: Copiare il file ZIP nell'unità E:\ ed estrarlo. E:\ASR Deployment Planner_v2.3.zip
+Esempio: copiare il file ZIP nell'unità E:\ ed estrarlo. E:\ASR Deployment Planner_v2.3.zip
 
 E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 

@@ -1,7 +1,7 @@
 ---
 title: Novità-Language Understanding (LUIS)
 titleSuffix: Azure Cognitive Services
-description: Questo articolo contiene informazioni su Language Understanding.
+description: Questo articolo viene aggiornato regolarmente con le notizie sui servizi cognitivi di Azure API Language Understanding.
 author: diberry
 manager: nitinme
 ms.custom: experiment-luis-0519
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2e32d0f4906dea69d6eab27faca4a2e41106ed73
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 62ce0ac36223098d013cc75b7f62fc2c68e358ed
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836829"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953369"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novità di Language Understanding
 
-Informazioni sulle novità del servizio. Questi elementi includono note sulla versione, video, post di Blog e altri tipi di informazioni. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati con il servizio.  
+Ecco cosa c'è di nuovo nel servizio. Questi elementi includono note sulla versione, video, post di Blog e altri tipi di informazioni. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati sul servizio.  
 
 ## <a name="release-notes"></a>Note sulla versione 
 
@@ -90,4 +90,4 @@ Le funzionalità seguenti sono state rilasciate alla conferenza Build 2019:
 
 ## <a name="service-updates"></a>Aggiornamenti del servizio
 
-[Annunci di Azure Update per servizi cognitivi](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Annunci di aggiornamento di Azure per Servizi cognitivi](https://azure.microsoft.com/updates/?product=cognitive-services)

@@ -1,6 +1,6 @@
 ---
 title: Configurazione e uso dell'emulatore di archiviazione con Visual Studio | Documentazione Microsoft
-description: Configurazione e uso dell'emulatore di archiviazione con Visual Studio
+description: Configurazione e uso dell'emulatore di archiviazione, un'utilità che simula i servizi BLOB, di Accodamento e di archiviazione tabelle disponibili in Azure nel computer di sviluppo locale.
 services: visual-studio-online
 author: ghogen
 manager: jillfra
@@ -12,17 +12,17 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: 08e3f5d5bb32d15b9d8d164c898d2b8d7a90108c
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: aca4bf5017a4ee23d69016b937673443c1a0e200
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969704"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73935842"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configurazione e uso dell'emulatore di archiviazione con Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 L'ambiente di sviluppo di Azure SDK include l'emulatore di archiviazione, ovvero un'utilità che simula i servizi BLOB, di coda e di tabella disponibili in Azure nel computer di sviluppo locale. Se si sta compilando un servizio cloud che usa i servizi di archiviazione di Azure o si sta scrivendo una qualsiasi applicazione esterna che chiama i servizi di archiviazione, è possibile testare il codice in locale in relazione all'emulatore di archiviazione. Gli strumenti di Azure per Microsoft Visual Studio integrano la gestione dell'emulatore di archiviazione in Visual Studio. Gli strumenti di Azure inizializzano il database dell'emulatore di archiviazione al primo uso, avviano il servizio dell'emulatore di archiviazione quando si esegue o si sottopone a debug il codice da Visual Studio e forniscono l'accesso di sola lettura ai dati dell'emulatore di archiviazione in Esplora archivi Azure.
 
 Per informazioni dettagliate sull'emulatore di archiviazione, inclusi i requisiti di sistema e le istruzioni per la configurazione personalizzata, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](storage/common/storage-use-emulator.md).

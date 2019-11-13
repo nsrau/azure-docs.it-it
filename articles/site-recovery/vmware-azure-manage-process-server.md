@@ -1,18 +1,18 @@
 ---
-title: Gestire un server di elaborazione usato per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery | Microsoft Docs
-description: Questo articolo descrive come gestire un server di elaborazione configurato per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure usando Azure Site Recovery.
+title: Gestire un server di elaborazione per il ripristino di emergenza di macchine virtuali VMware/server fisici in Azure Site Recovery
+description: Questo articolo descrive come gestire un server di elaborazione per il ripristino di emergenza di macchine virtuali VMware/server fisici con Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: 509b9aed9f5daebb70a18336837da2152667a458
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242848"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954344"
 ---
 # <a name="manage-process-servers"></a>Gestire server di elaborazione
 

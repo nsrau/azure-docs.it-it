@@ -1,6 +1,6 @@
 ---
-title: Traffico in uscita ed endpoint in Gemelli digitali di Azure | Microsoft Docs
-description: Linee guida sulla creazione di endpoint con Gemelli digitali di Azure.
+title: Uscita ed endpoint-dispositivi gemelli digitali di Azure | Microsoft Docs
+description: Informazioni su come creare ed estrarre gli endpoint evento nei dispositivi gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,14 +8,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 9a5e060d6248d3144720930fe960e0a371a73d6e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 33e8a6a281fbc6620a4608c7b0821b196043423e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822261"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010061"
 ---
-# <a name="egress-and-endpoints"></a>Traffico in uscita ed endpoint
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Uscita ed endpoint nei dispositivi gemelli digitali di Azure
 
 Gli *endpoint* di Gemelli digitali di Azure rappresentano un broker messaggi o eventi nella sottoscrizione di Azure dell'utente. Messaggi ed eventi possono essere inviati ad argomenti di Hub eventi di Azure, Griglia di eventi di Azure e Bus di servizio di Azure.
 
@@ -47,7 +47,7 @@ Gli eventi vengono inviati da oggetti IoT, come dispositivi e sensori, per esser
 }
 ```
 
-| Attributo | Tipo | Descrizione |
+| Attribute | digitare | DESCRIZIONE |
 | --- | --- | --- |
 | id | stringa | Identificatore univoco dell'evento. |
 | subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
@@ -95,8 +95,8 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 - SpaceExtendedProperty
 - SpaceResource
 - SpaceRoleAssignment
-- Sistema
-- Utente
+- System
+- User
 - UserBlobMetadata
 - UserExtendedProperty
 

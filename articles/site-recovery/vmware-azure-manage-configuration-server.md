@@ -1,20 +1,19 @@
 ---
-title: Gestire il server di configurazione per il ripristino di emergenza di VMware e di server fisici con Azure Site Recovery | Microsoft Docs
-description: Questo articolo descrive come gestire un server di configurazione esistente per il ripristino di emergenza di macchine virtuali VMware e di server fisici in Azure con Azure Site Recovery.
+title: Gestire il server di configurazione per il ripristino di emergenza con Azure Site Recovery
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 42e1e283736d8a1e3d4ece33c861185df2d72da7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791831"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954351"
 ---
-# <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di macchine virtuali VMware
+# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di macchine virtuali VMware/server fisici
 
 Un server di configurazione locale viene impostato quando si usa [Azure Site Recovery](site-recovery-overview.md) per il ripristino di emergenza di server fisici e macchine virtuali VMware in Azure. Il server di configurazione coordina le comunicazioni tra VMware locale e Azure e gestisce la replica dei dati. Questo articolo riepiloga le attività comuni per la gestione del server di configurazione dopo che è stato distribuito.
 
@@ -105,7 +104,7 @@ Il modello OVF (Open Virtualization Format) distribuisce la macchina virtuale de
 3. Accedere al computer del server di configurazione.
 4. In **%ProgramData%\ASR\home\svsystems\bin** aprire **cspsconfigtool.exe**.
 5. Nella scheda **Registrazione insieme di credenziali** selezionare **Sfoglia** e individuare il file di credenziali dell'insieme di credenziali scaricato.
-6. Se necessario, fornire i dettagli del server proxy. Selezionare quindi **Register** (Registra).
+6. Se necessario, fornire i dettagli del server proxy. Selezionare quindi **Registra**.
 7. Aprire una finestra dei comandi di PowerShell per amministratore ed eseguire il comando seguente:
    ```
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -139,7 +138,7 @@ Il modello OVF (Open Virtualization Format) distribuisce la macchina virtuale de
 
 ## <a name="upgrade-the-configuration-server"></a>Aggiornare il server di configurazione
 
-Per aggiornare il server di configurazione si eseguono aggiornamenti cumulativi. È possibile applicare gli aggiornamenti a un massimo di N-4 versioni. ad esempio:
+Per aggiornare il server di configurazione si eseguono aggiornamenti cumulativi. È possibile applicare gli aggiornamenti a un massimo di N-4 versioni. Ad esempio:
 
 - Se si esegue la versione 9.7, 9.8, 9.9 o 9.10, è possibile eseguire l'aggiornamento direttamente alla versione 9.11.
 - Se si esegue la versione 9.6 o una versione precedente e si desidera eseguire l'aggiornamento alla 9.11, è necessario prima eseguire l'aggiornamento alla versione 9.7 e poi alla 9.11.
@@ -155,16 +154,16 @@ Per aggiornare il server, seguire questa procedura:
 
 1. Nell'insieme di credenziali passare a **Gestisci** > **Infrastruttura di Site Recovery** > **Server di configurazione**.
 2. Se è disponibile un aggiornamento, verrà visualizzato un collegamento nella colonna **Versione agente**.
-    ![Aggiornamento](./media/vmware-azure-manage-configuration-server/update2.png)
+    ![Aggiornare](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Scaricare il file del programma di installazione dell'aggiornamento nel server di configurazione.
 
-    ![Aggiornare](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Update](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Fare doppio clic per eseguire il programma di installazione.
 5. Il programma di installazione rileva la versione corrente in esecuzione nel computer. Fare clic su **Sì** per avviare l'aggiornamento.
 6. Al termine dell'aggiornamento viene convalidata la configurazione del server.
 
-    ![Aggiornare](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Fare clic su **Fine** per chiudere il programma di installazione.
 8. Per eseguire l'aggiornamento degli altri componenti di Site Recovery, vedere le [indicazioni sugli aggiornamenti](https://aka.ms/asr_vmware_upgrades).
@@ -185,23 +184,23 @@ Eseguire il file di installazione come segue:
   ```
 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>parametri
 
-|Nome parametro| Type | Description| Valori|
+|Nome parametro| digitare | DESCRIZIONE| Valori|
 |-|-|-|-|
-| /Modalità server|Obbligatoria|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
-|/InstallLocation|Obbligatoria|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
-|/MySQLCredsFilePath|Obbligatoria|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
-|/VaultCredsFilePath|Obbligatoria|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
-|/EnvType|Obbligatoria|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
-|/PSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
-|/CSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
-|/PassphraseFilePath|Obbligatoria|Percorso completo del file della passphrase|Percorso del file valido|
+| /Modalità server|obbligatori|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
+|/InstallLocation|obbligatori|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
+|/MySQLCredsFilePath|obbligatori|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
+|/VaultCredsFilePath|obbligatori|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
+|/EnvType|obbligatori|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
+|/PSIP|obbligatori|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
+|/CSIP|obbligatori|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
+|/PassphraseFilePath|obbligatori|Percorso completo del file della passphrase|Percorso del file valido|
 |/BypassProxy|Facoltativo|Specifica che il server di configurazione si connette ad Azure senza un proxy|Per ottenere questo valore da Venu|
 |/ProxySettingsFilePath|Facoltativo|Impostazioni proxy, il proxy predefinito richiede l'autenticazione o un proxy personalizzato|Il file deve essere nel formato specificato di seguito|
 |DataTransferSecurePort|Facoltativo|Numero di porta su PSIP da usare per i dati di replica| Numero di porta valido (il valore predefinito è 9433)|
 |/SkipSpaceCheck|Facoltativo|Ignora la verifica dello spazio per il disco della cache| |
-|/AcceptThirdpartyEULA|Obbligatoria|Il flag implica l'accettazione dell'EULA di terze parti| |
+|/AcceptThirdpartyEULA|obbligatori|Il flag implica l'accettazione dell'EULA di terze parti| |
 |/ShowThirdpartyEULA|Facoltativo|Visualizza le condizioni di licenza di terze parti. Se specificato come input, tutti gli altri parametri vengono ignorati| |
 
 

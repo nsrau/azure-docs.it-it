@@ -1,6 +1,6 @@
 ---
-title: Modellazione dei dati in Anteprima di Azure Time Series Insights | Microsoft Docs
-description: Informazioni sulla modellazione dei dati in Anteprima di Azure Time Series Insights.
+title: Modellazione dei dati in ambienti di anteprima-Azure Time Series Insights | Microsoft Docs
+description: Informazioni sulla modellazione dei dati in Azure Time Series Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81c2c2af78f5f066e1b27e14fa774df04d7c5868
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: fb1bfb30d531f8b93489c8fc1dfbc6b8172339a3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063995"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006470"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modellazione dei dati in Anteprima di Azure Time Series Insights
 
@@ -23,7 +23,7 @@ Questo articolo descrive come usare il modello Time Series in Azure Time Series 
 
 Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplorazione di Anteprima di Azure Time Series Insights](./time-series-insights-update-explorer.md).
 
-## <a name="types"></a>Tipi
+## <a name="types"></a>Types
 
 ### <a name="create-a-single-type"></a>Creare un singolo tipo
 
@@ -42,7 +42,7 @@ Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplo
 1. Selezionare il file che contiene il payload del tipo.
 1. Selezionare **Carica**.
 
-    [Selezione ![per il caricamento bulk di uno o più tipi](media/v2-update-how-to-tsm/portal-three.png)](media/v2-update-how-to-tsm/portal-three.png#lightbox)
+    [Selezione![per il caricamento bulk di uno o più tipi](media/v2-update-how-to-tsm/portal-three.png)](media/v2-update-how-to-tsm/portal-three.png#lightbox)
 
 ### <a name="edit-a-single-type"></a>Modificare un singolo tipo
 
@@ -64,7 +64,7 @@ Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplo
 
 1. Passare al pannello di selezione del modello Time Series e selezionare **gerarchie** dal menu. Comprimere il pannello per concentrarsi sulle gerarchie del modello Time Series.
 
-    [riquadro !["gerarchie"](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
+    [riquadro!["gerarchie"](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
 
 1. Selezionare **+ Aggiungi**.
 
@@ -76,7 +76,7 @@ Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplo
 
 1. Immettere i dettagli della gerarchia e selezionare **Crea**.
 
-    [![i dettagli e il pulsante "Crea" di ObjectType](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
+    [![i dettagli della gerarchia e il pulsante "Crea"](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-hierarchies"></a>Caricamento in blocco di una o più gerarchie
 

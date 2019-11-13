@@ -1,17 +1,14 @@
 ---
 title: Importare ed esportare definizioni di progetto con PowerShell
 description: Informazioni su come usare le definizioni di progetto come codice. Condividere, controllare il codice sorgente e gestirli usando i comandi Export e Import.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/03/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 30e734c99a87364acfba9a58d83fe9a377958607
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: ca756ed093d5d423f6f83e5ca3953a8ecfce7d5a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978451"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960378"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importare ed esportare definizioni di progetto con PowerShell
 
@@ -26,7 +23,7 @@ I progetti di Azure possono essere completamente gestiti tramite portale di Azur
 
 Qualunque sia il motivo, la gestione delle definizioni del progetto come codice presenta vantaggi. Questo articolo illustra come usare i comandi `Import-AzBlueprintWithArtifact` e `Export-AzBlueprintWithArtifact` nel modulo [AZ. Blueprint](https://powershellgallery.com/packages/Az.Blueprint/) .
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questo articolo presuppone una conoscenza professionale moderata dei progetti di Azure. Se non è ancora stato fatto, utilizzare gli articoli seguenti:
 
@@ -34,7 +31,7 @@ Questo articolo presuppone una conoscenza professionale moderata dei progetti di
 - Informazioni sulle [fasi di distribuzione](../concepts/deployment-stages.md) e [il ciclo di vita del progetto](../concepts/lifecycle.md)
 - [Creazione](../create-blueprint-powershell.md) e [gestione](./manage-assignments-ps.md) delle definizioni e delle assegnazioni del progetto con PowerShell
 
-Se il modulo **Az.Blueprint** non è già installato, seguire le istruzioni contenute in [Aggiungere il modulo Az.Blueprint](./manage-assignments-ps.md#add-the-azblueprint-module) per installarlo e convalidarlo da PowerShell Gallery.
+Se il modulo [Az.Blueprint](./manage-assignments-ps.md#add-the-azblueprint-module) non è già installato, seguire le istruzioni contenute in **Aggiungere il modulo Az.Blueprint** per installarlo e convalidarlo da PowerShell Gallery.
 
 ## <a name="folder-structure-of-a-blueprint-definition"></a>Struttura di cartelle di una definizione di progetto
 
@@ -43,7 +40,7 @@ Prima di esaminare l'esportazione e l'importazione di progetti, esaminiamo il mo
 > [!IMPORTANT]
 > Se non viene passato alcun valore al parametro **Name** del cmdlet `Import-AzBlueprintWithArtifact`, viene usato il nome della cartella in cui viene archiviata la definizione del progetto.
 
-Insieme alla definizione del progetto, che deve essere denominata `blueprint.json`, sono gli elementi in cui è costituita la definizione del progetto. Ogni artefatto deve trovarsi nella sottocartella denominata `artifacts`.
+Insieme alla definizione del progetto, che deve essere denominata `blueprint.json`, sono gli elementi di cui è composta la definizione del progetto. Ogni artefatto deve trovarsi nella sottocartella denominata `artifacts`.
 Insieme, la struttura della definizione del progetto come file JSON nelle cartelle dovrebbe essere simile alla seguente:
 
 ```text

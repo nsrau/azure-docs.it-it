@@ -1,5 +1,5 @@
 ---
-title: Come creare funzioni definite dall'utente in Gemelli digitali di Azure | Microsoft Docs
+title: Come creare funzioni definite dall'utente-in dispositivi gemelli digitali di Azure | Microsoft Docs
 description: Linee guida su come creare funzioni definite dall'utente, matcher e assegnazioni di ruolo con Gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5271b14ec008579d18a152a229b9768339927bb7
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 4db6f0052c92d4532917a996eda82a27d97d3063
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888853"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009558"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Come creare funzioni definite dall'utente in Gemelli digitali di Azure
 
@@ -111,7 +111,7 @@ function process(telemetry, executionContext) {
 
 | Valore | Sostituire con |
 | --- | --- |
-| USER_DEFINED_BOUNDARY | Nome di un limite di contenuto multipart |
+| USER_DEFINED_BOUNDARY | Un nome di limite del contenuto costituito da più parti |
 | YOUR_SPACE_IDENTIFIER | Identificatore dello spazio  |
 | YOUR_MATCHER_IDENTIFIER | ID del matcher da usare |
 

@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad3cd612200dc33fe37036146b00f52073403ecc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 929479f2816ef979edb26ba5aa00cf449c49b70a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852033"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73942163"
 ---
 # <a name="supported-account-types"></a>Tipi di account supportati
 
@@ -41,7 +41,7 @@ Nel cloud pubblico di Microsoft Azure la maggior parte dei tipi di app può cons
   - Con l'account aziendale o dell'istituto di istruzione oppure con l'account Microsoft personale.
   - Solo con l'account Microsoft personale.
     > [!NOTE]
-    > Microsoft Identity Platform attualmente supporta solo gli account Microsoft personali tramite la registrazione di un'app per gli **account personali Microsoft aziendali o dell'istituto di istruzione**, quindi è necessario limitare l'accesso nel codice dell'applicazione specificando un'autorità di Azure AD quando si compila l'applicazione, ad esempio `https://login.onmicrosoftonline.com/consumers`.
+    > Microsoft Identity Platform attualmente supporta solo gli account Microsoft personali tramite la registrazione di un'app per gli **account personali Microsoft aziendali o dell'istituto di istruzione**, quindi è necessario limitare l'accesso nel codice dell'applicazione specificando un'autorità di Azure AD quando si compila l'applicazione, ad esempio `https://login.microsoftonline.com/consumers`.
 
 - Se si sta scrivendo un'applicazione Business to Consumer, è anche possibile consentire l'accesso per gli utenti con le identità dei social network, usando Azure AD B2C.
 

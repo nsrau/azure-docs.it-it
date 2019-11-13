@@ -1,5 +1,5 @@
 ---
-title: Esempi di manifesto dell'applicazione Reliable Services di Azure Service Fabric | Microsoft Docs
+title: Esempi di manifesto dell'applicazione di Azure Service Fabric Reliable Services
 description: Informazioni su come configurare le impostazioni del manifesto dell'applicazione e del servizio per un'applicazione Reliable Services di Service Fabric.
 services: service-fabric
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: a5678b4c4c0f7a9d8d3f3cf6e838580de2059a8f
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 9cc79610b6dc9f9d2869a41e0b483168087368cc
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035647"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013238"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Esempi di manifesti dell'applicazione e del servizio per Reliable Services
 Di seguito sono riportati esempi dei manifesti dell'applicazione e del servizio per un'applicazione di Service Fabric con un front-end Web ASP.NET Core e un back-end con stato. Lo scopo di questi esempi è mostrare le impostazioni disponibili e come usarle. Questi manifesti dell'applicazione e del servizio sono basati sui manifesti descritti nella [guida introduttiva su .NET per Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).
@@ -399,7 +399,7 @@ Nome dell'eseguibile.  Ad esempio, "MySetup.bat" o "MyServiceHost.exe". Per altr
  Per altre informazioni, vedere [Elemento Arguments](service-fabric-service-model-schema-elements.md#ArgumentsElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>Elemento WorkingFolder
-Directory di lavoro per il processo nel pacchetto di codice sul nodo del cluster in cui viene distribuita l'applicazione. È possibile specificare tre valori: Work (predefinito), CodePackage o CodeBase. CodeBase specifica che la directory di lavoro è impostata sulla directory in cui è definito il file EXE nel pacchetto di codice. CodePackage imposta la directory di lavoro sulla radice del pacchetto di codice, indipendentemente dalla posizione in cui è definito il file EXE nella directory del pacchetto di codice. Work imposta la directory di lavoro su una cartella univoca creata nel nodo.  Questa cartella è la stessa per l'intera istanza dell'applicazione. Per impostazione predefinita, la directory di lavoro di tutti i processi nell'applicazione è impostata sulla cartella di lavoro dell'applicazione. Si tratta della posizione in cui i processi possono scrivere i dati. La scrittura dei dati nel pacchetto di codice o nella base di codice non è consigliata, perché tali cartelle possono essere condivise tra diverse istanze dell'applicazione e potrebbero essere eliminate. Per altre informazioni, vedere [Elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+Directory di lavoro per il processo nel pacchetto di codice sul nodo del cluster in cui viene distribuita l'applicazione. È possibile specificare tre valori: Work (valore predefinito), CodePackage o CodeBase. CodeBase specifica che la directory di lavoro è impostata sulla directory in cui è definito il file EXE nel pacchetto di codice. CodePackage imposta la directory di lavoro sulla radice del pacchetto di codice, indipendentemente dalla posizione in cui è definito il file EXE nella directory del pacchetto di codice. Work imposta la directory di lavoro su una cartella univoca creata nel nodo.  Questa cartella è la stessa per l'intera istanza dell'applicazione. Per impostazione predefinita, la directory di lavoro di tutti i processi nell'applicazione è impostata sulla cartella di lavoro dell'applicazione. Si tratta della posizione in cui i processi possono scrivere i dati. La scrittura dei dati nel pacchetto di codice o nella base di codice non è consigliata, perché tali cartelle possono essere condivise tra diverse istanze dell'applicazione e potrebbero essere eliminate. Per altre informazioni, vedere [Elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="consoleredirection-element"></a>Elemento ConsoleRedirection
 
@@ -449,7 +449,7 @@ L'eseguibile specificato da EntryPoint è in genere l'host servizio a esecuzione
 Nome dell'eseguibile.  Ad esempio, "MySetup.bat" o "MyServiceHost.exe". Per altre informazioni, vedere [Elemento Program](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>Elemento WorkingFolder
-Directory di lavoro per il processo nel pacchetto di codice sul nodo del cluster in cui viene distribuita l'applicazione. È possibile specificare tre valori: Work (predefinito), CodePackage o CodeBase. CodeBase specifica che la directory di lavoro è impostata sulla directory in cui è definito il file EXE nel pacchetto di codice. CodePackage imposta la directory di lavoro sulla radice del pacchetto di codice, indipendentemente dalla posizione in cui è definito il file EXE nella directory del pacchetto di codice. Work imposta la directory di lavoro su una cartella univoca creata nel nodo.  Questa cartella è la stessa per l'intera istanza dell'applicazione. Per impostazione predefinita, la directory di lavoro di tutti i processi nell'applicazione è impostata sulla cartella di lavoro dell'applicazione. Si tratta della posizione in cui i processi possono scrivere i dati. La scrittura dei dati nel pacchetto di codice o nella base di codice non è consigliata, perché tali cartelle possono essere condivise tra diverse istanze dell'applicazione e potrebbero essere eliminate. Per altre informazioni, vedere [Elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+Directory di lavoro per il processo nel pacchetto di codice sul nodo del cluster in cui viene distribuita l'applicazione. È possibile specificare tre valori: Work (valore predefinito), CodePackage o CodeBase. CodeBase specifica che la directory di lavoro è impostata sulla directory in cui è definito il file EXE nel pacchetto di codice. CodePackage imposta la directory di lavoro sulla radice del pacchetto di codice, indipendentemente dalla posizione in cui è definito il file EXE nella directory del pacchetto di codice. Work imposta la directory di lavoro su una cartella univoca creata nel nodo.  Questa cartella è la stessa per l'intera istanza dell'applicazione. Per impostazione predefinita, la directory di lavoro di tutti i processi nell'applicazione è impostata sulla cartella di lavoro dell'applicazione. Si tratta della posizione in cui i processi possono scrivere i dati. La scrittura dei dati nel pacchetto di codice o nella base di codice non è consigliata, perché tali cartelle possono essere condivise tra diverse istanze dell'applicazione e potrebbero essere eliminate. Per altre informazioni, vedere [Elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="configpackage-element"></a>Elemento ConfigPackage
 Dichiara una cartella, denominata dall'attributo Name in PackageRoot, che contiene un file Settings.xml. Questo file contiene sezioni di impostazioni di coppie chiave-valore che possono essere lette dal processo in fase di esecuzione. Se durante un aggiornamento viene modificata solo la versione del pacchetto di configurazione, il processo in esecuzione non viene riavviato. Un callback piuttosto notifica al processo che le impostazioni di configurazione sono cambiate affinché vengano ricaricate in modo dinamico. Per altre informazioni, vedere [Elemento ConfigPackage](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)

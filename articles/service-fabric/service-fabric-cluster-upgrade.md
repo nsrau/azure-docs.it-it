@@ -1,5 +1,5 @@
 ---
-title: Aggiornare un cluster di Azure Service Fabric | Documentazione Microsoft
+title: Aggiornare un cluster di Azure Service Fabric
 description: Informazioni sull'aggiornamento della versione o della configurazione di un cluster di Service Fabric.  Questo articolo descrive l'impostazione della modalità di aggiornamento di un cluster, l'aggiornamento dei certificati, l'aggiunta di porte dell'applicazione e l'applicazione di patch del sistema operativo. Descrive anche cosa aspettarsi quando vengono eseguiti gli aggiornamenti
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: atsenthi
-ms.openlocfilehash: 2c8465a3aba4a21efaa20a118807d739dd501b09
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 161c720fbcc9370aaf273b241e88a7184f47371b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599774"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013311"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Aggiornamento di un cluster di Azure Service Fabric
 

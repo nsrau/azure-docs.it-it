@@ -4,18 +4,18 @@ description: Viene descritto come specificare se usare una modalità di distribu
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 11/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 10a9917d8ed763b133fbd33aedd16da399a224b2
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 762b0e74e8da20d1b48703385853765d5cc643af
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881646"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953240"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modelli di distribuzione Azure Resource Manager
 
-Quando si distribuiscono le risorse, specificare se la distribuzione è un aggiornamento incrementale o completo.  La differenza principale tra le due modalità è il modo in cui Resource Manager gestisce le risorse esistenti nel gruppo di risorse che non sono presenti nel modello. La modalità predefinita è incrementale.
+Quando si distribuiscono le risorse, specificare se la distribuzione è un aggiornamento incrementale o completo.  La differenza tra queste due modalità è il modo in cui Gestione risorse gestisce le risorse esistenti nel gruppo di risorse che non sono incluse nel modello. La modalità predefinita è incrementale.
 
 Per entrambe le modalità, Resource Manager prova a creare tutte le risorse specificate nel modello. Se la risorsa esiste già nel gruppo di risorse e le relative impostazioni sono identiche, non viene eseguita alcuna operazione per tale risorsa. Se si modificano i valori della proprietà per una risorsa, questa viene aggiornata con i nuovi valori. Se si prova ad aggiornare il percorso o il tipo di una risorsa esistente, la distribuzione ha esito negativo e restituisce un errore. È invece necessario distribuire una nuova risorsa con il percorso o il tipo necessari.
 
@@ -26,6 +26,8 @@ Nella modalità di completamento, Resource Manager **elimina** le risorse esiste
 Se il modello include una risorsa che non viene distribuita perché la [condizione](conditional-resource-deployment.md) restituisce false, il risultato dipende dalla versione dell'API REST usata per distribuire il modello. Se si usa una versione precedente alla 2019-05-10, la risorsa **non viene eliminata**. Con 2019-05-10 o versioni successive, la risorsa **viene eliminata**. Le versioni più recenti di Azure PowerShell e dell'interfaccia della riga di comando di Azure Elimina la risorsa.
 
 Prestare attenzione usando la modalità completa con i [cicli di copia](resource-group-create-multiple.md). Tutte le risorse non specificate nel modello dopo la risoluzione del ciclo di copia verranno eliminate.
+
+Se si esegue la distribuzione in [più di un gruppo di risorse in un modello](resource-manager-cross-resource-group-deployment.md), le risorse nel gruppo di risorse specificato nell'operazione di distribuzione sono idonee per essere eliminate. Le risorse nei gruppi di risorse secondarie non vengono eliminate.
 
 Esistono alcune differenze nel modo in cui i tipi di risorse gestiscono le eliminazioni in modalità completa. Le risorse padre vengono eliminate automaticamente quando non sono specificate in un modello distribuito in modalità completa. Alcune risorse figlio non vengono eliminate automaticamente quando non sono specificate nel modello. Tuttavia, queste risorse figlio vengono eliminate se la risorsa padre viene eliminata. 
 

@@ -1,5 +1,5 @@
 ---
-title: Esplorare le API di Gemelli digitali di Azure | Microsoft Docs
+title: Esplorare le API-dispositivi gemelli digitali di Azure | Microsoft Docs
 description: Informazioni sui modelli comuni di query delle API di gestione di Gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/27/2019
-ms.openlocfilehash: b0c3d72085e008524811f479ccbdeec013e26c4c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 135c760919f094f7b2d242ad37cc1cadb614e36e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822256"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009996"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Come usare le API di gestione di Gemelli digitali di Azure
 
@@ -72,7 +72,7 @@ Le API di Gemelli digitali supportano il filtro e lo spostamento in tutto il gra
    - **Span**: filtra una parte orizzontale del grafico spaziale, allo stesso livello dell'ID di spazio specificato. È necessario che **minRelative** o **maxRelative** sia impostato su true. 
 
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 
 L'elenco seguente illustra alcuni esempi di spostamento nelle API [/devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices). Si noti che il segnaposto `YOUR_MANAGEMENT_API_URL` si riferisce all'URI delle API di Gemelli digitali nel formato `https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/`, dove `YOUR_INSTANCE_NAME` è il nome dell'istanza di Gemelli digitali di Azure e `YOUR_LOCATION` è l'area in cui è ospitata l'istanza.
 
@@ -99,7 +99,7 @@ La maggior parte delle API che restituiscono raccolte, ad esempio una chiamata G
 > [!NOTE]
 > Alcune opzioni OData, ad esempio le opzioni di query **$count**, **$expand**e **$Search**, non sono attualmente supportate.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 
 Nell'elenco seguente vengono illustrate diverse query con sintassi OData valida:
 

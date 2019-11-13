@@ -1,6 +1,6 @@
 ---
-title: Modello Time Series in Anteprima di Azure Time Series Insights | Microsoft Docs
-description: Informazioni sul modello di serie temporale di Azure Time Series.
+title: Modello Time Series-Azure Time Series Insights | Microsoft Docs
+description: Informazioni sul modello Time Series in Azure Time Series Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c9bface359df020cea0bfff8f82e25e25efbc47
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a550643640afeefeb4cf79e35265f13557b6ffb0
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585239"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014687"
 ---
-# <a name="time-series-model"></a>Modello Time Series
+# <a name="time-series-model-in-azure-time-series-insights-preview"></a>Modello Time Series in Azure Time Series Insights Preview
 
 Questo articolo descrive il modello Time Series, le funzionalità e come iniziare a creare e aggiornare i propri modelli nell'ambiente di Azure Time Series Insights Preview.
 
@@ -25,7 +25,7 @@ Questo articolo descrive il modello Time Series, le funzionalità e come iniziar
 >  * Passare all'ambiente [demo di Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) per un esempio di modello Live Time Series.
 > * Per informazioni su come spostarsi nell'interfaccia utente del modello Time Series, vedere informazioni su [Azure Time Series Insights Preview Explorer](time-series-insights-update-explorer.md) .
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>summary
 
 I dati raccolti dai dispositivi IoT non includono in genere informazioni contestuali, cosa che rende difficile trovare e analizzare rapidamente i sensori. La motivazione principale per il modello Time Series è semplificare la ricerca e l'analisi dei dati delle serie temporali o degli Internet. Questo obiettivo viene raggiunto consentendo la cura, la manutenzione e l'arricchimento dei dati relativi alle serie temporali per preparare i set di dati pronti per il consumo per l'analisi.
 
@@ -96,12 +96,12 @@ La [demo di Contoso Wind Farm](https://insights.timeseries.azure.com/preview/sam
 
 Le istanze sono definite da **timeSeriesId**, **typeid**, **Name**, **Description**, **hierarchyids**e **instanceFields**. Ogni istanza esegue il mapping a un solo *tipo*e una o più *gerarchie*.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | ---|
 | timeSeriesId | UUID della serie temporale a cui è associata l'istanza. |
 | typeId | UUID del tipo di modello Time Series a cui è associata l'istanza. Per impostazione predefinita, tutte le nuove istanze individuate vengono associate a un tipo predefinito.
-| name | La proprietà **name** è facoltativa e fa distinzione tra maiuscole e minuscole. Se il **nome** non è disponibile, il valore predefinito è **timeSeriesId**. Se viene specificato un nome, **timeSeriesId** è ancora disponibile nel [pozzetto](time-series-insights-update-explorer.md#preview-well). |
-| description | Descrizione di testo dell'istanza. |
+| Nome | La proprietà **name** è facoltativa e fa distinzione tra maiuscole e minuscole. Se il **nome** non è disponibile, il valore predefinito è **timeSeriesId**. Se viene specificato un nome, **timeSeriesId** è ancora disponibile nel [pozzetto](time-series-insights-update-explorer.md#preview-well). |
+| Descrizione | Descrizione di testo dell'istanza. |
 | hierarchyId | Definisce le gerarchie a cui appartiene l'istanza. |
 | instanceFields | Gli elementi **instanceFields** sono proprietà di un'istanza e dei dati statici che definiscono un'istanza. Definiscono i valori delle proprietà non di gerarchia o di gerarchia, supportando anche l'indicizzazione per eseguire operazioni di ricerca. |
 
@@ -144,11 +144,11 @@ L'interfaccia client [demo di Contoso Wind Farm](https://insights.timeseries.azu
 
 Le gerarchie sono definite in base all' **ID**, al **nome**e all' **origine**della gerarchia.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | ---| ---|
 | id | Identificatore univoco per la gerarchia, che viene utilizzato, ad esempio, quando si definisce un'istanza di. |
-| name | Stringa utilizzata per fornire un nome per la gerarchia. |
-| una sezione source | Specifica la gerarchia organizzativa o il percorso, ovvero un ordine padre-figlio dall'alto verso il basso della gerarchia che gli utenti desiderano creare. I campi dell'istanza della mappa delle proprietà padre-figlio. |
+| Nome | Stringa utilizzata per fornire un nome per la gerarchia. |
+| source | Specifica la gerarchia organizzativa o il percorso, ovvero un ordine padre-figlio dall'alto verso il basso della gerarchia che gli utenti desiderano creare. I campi dell'istanza della mappa delle proprietà padre-figlio. |
 
 Le gerarchie sono rappresentate in JSON come:
 
@@ -236,11 +236,11 @@ La [demo di Contoso Wind Farm](https://insights.timeseries.azure.com/preview/sam
 
 I tipi di modello Time Series sono definiti in base all' **ID**, al **nome**, alla **Descrizione**e alle **variabili**.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | ---| ---|
 | id | UUID per il tipo. |
-| name | Stringa utilizzata per fornire un nome per il tipo. |
-| description | Descrizione della stringa per il tipo. |
+| Nome | Stringa utilizzata per fornire un nome per il tipo. |
+| Descrizione | Descrizione della stringa per il tipo. |
 | variables | Specificare le variabili associate al tipo. |
 
 I tipi sono conformi all'esempio JSON seguente:
@@ -299,7 +299,7 @@ Nella tabella seguente vengono illustrate le proprietà rilevanti per ogni tipo 
 
 #### <a name="numeric-variables"></a>Variabili numeriche
 
-| Proprietà Variable | Descrizione |
+| Proprietà Variable | DESCRIZIONE |
 | --- | ---|
 | Filtro di variabile | I filtri sono clausole condizionali facoltative per limitare il numero di righe da considerare per il calcolo. |
 | Valore di variabile | Valori di telemetria usati per il calcolo proveniente dal dispositivo o dai sensori oppure trasformati usando le espressioni della serie temporale. Le variabili di tipo numerico devono essere di tipo *Double*.|
@@ -329,7 +329,7 @@ Le variabili sono conformi all'esempio JSON seguente:
 
 #### <a name="categorical-variables"></a>Variabili categoriche
 
-| Proprietà Variable | Descrizione |
+| Proprietà Variable | DESCRIZIONE |
 | --- | ---|
 | Filtro di variabile | I filtri sono clausole condizionali facoltative per limitare il numero di righe da considerare per il calcolo. |
 | Valore di variabile | Valori di telemetria usati per il calcolo proveniente dal dispositivo o dai sensori. Le variabili di tipo categorico devono essere *Long* o *String*. |
@@ -367,7 +367,7 @@ Le variabili sono conformi all'esempio JSON seguente:
 
 #### <a name="aggregate-variables"></a>Variabili di aggregazione
 
-| Proprietà Variable | Descrizione |
+| Proprietà Variable | DESCRIZIONE |
 | --- | ---|
 | Filtro di variabile | I filtri sono clausole condizionali facoltative per limitare il numero di righe da considerare per il calcolo. |
 | Aggregazione di variabile | Supporto del calcolo tramite *AVG*, *min*, *Max*, *Sum*, *count*, *First*, *Last*. |

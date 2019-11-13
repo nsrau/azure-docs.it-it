@@ -1,17 +1,14 @@
 ---
 title: Come gestire le assegnazioni con PowerShell
 description: Informazioni su come gestire le assegnazioni di progetto con il modulo di PowerShell ufficiale di Azure Blueprints, AZ. Blueprint.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/30/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: ef9674165533ef3e4887bba68507344406ca128c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 98c2173568f65d029b00ca6c8b25d2195094a5e3
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755935"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961613"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Come gestire le assegnazioni con PowerShell
 
@@ -171,7 +168,7 @@ Se l'assegnazione del progetto non esiste ancora, è possibile crearla con il cm
 
 ### <a name="example-1-provide-parameters"></a>Esempio 1: specificare i parametri
 
-L'esempio seguente crea una nuova assegnazione della versione ' 1,1' della definizione di progetto ' My-Blueprint ' recuperata con `Get-AzBlueprint`, imposta il percorso dell'oggetto di assegnazione e dell'identità gestita su' westus2', blocca le risorse con _AllResourcesReadOnly_, e imposta le tabelle hash per il **parametro** e **ResourceGroupParameter** per una sottoscrizione specifica rappresentata come `{subId}`:
+Nell'esempio seguente viene creata una nuova assegnazione della versione ' 1,1' della definizione di progetto ' My-Blueprint ' recuperata con `Get-AzBlueprint`, viene impostato il percorso dell'oggetto di assegnazione e di identità gestito su' westus2', vengono bloccate le risorse con _AllResourcesReadOnly_e vengono impostate le tabelle hash per il **parametro** e per **ResourceGroupParameter** in una sottoscrizione specifica rappresentata come `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

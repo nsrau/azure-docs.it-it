@@ -1,24 +1,24 @@
 ---
-title: Eseguire il mapping di reti virtuali tra due aree di Azure in Azure Site Recovery | Microsoft Docs
-description: Azure Site Recovery coordina la replica, il failover e il ripristino di macchine virtuali e server fisici. Informazioni sul failover in Azure o in un centro dati secondario.
+title: Eseguire il mapping di reti virtuali tra due aree in Azure Site Recovery
+description: Informazioni sul mapping di reti virtuali tra due aree di Azure per il ripristino di emergenza di macchine virtuali di Azure con Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mayg
-ms.openlocfilehash: 687c21170c0397b89270e9c3a6af1e994c758179
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b8f0512f978f25ca196ad6e9a7a03243c47f0662
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331118"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954147"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurare il mapping di rete e gli indirizzi IP per reti virtuali
 
 Questo articolo descrive come eseguire il mapping tra due istanze delle reti virtuali di Azure (VNet) di due aree di Azure diverse e come configurare gli indirizzi IP tra le reti. Il mapping di rete fornisce un comportamento predefinito per la selezione della rete di destinazione basata sulla rete di origine al momento dell'abilitazione della replica.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima eseguire il mapping di reti, è necessario disporre di [reti virtuali di Azure](../virtual-network/virtual-networks-overview.md) nelle aree di origine e di destinazione di Azure. 
 

@@ -1,5 +1,5 @@
 ---
-title: Installare un server di destinazione master Linux per il failback in un sito di Azure locale | Microsoft Docs
+title: Installare un server di destinazione master per il failback della VM Linux con Azure Site Recovery
 description: Informazioni su come configurare un server di destinazione master Linux per eseguire il failback in un sito locale durante il ripristino di emergenza di macchine virtuali VMware in Azure tramite Azure Site Recovery.
 author: mayurigupta13
 services: site-recovery
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 5b4b3f5025edef242b87215665fd65f131157943
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 5b4d625d28584bb601905e9439c112c845219e54
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904408"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954372"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installare un server di destinazione master Linux per il failback
 Dopo avere effettuato il failover delle macchine virtuali in Azure, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
@@ -24,12 +24,12 @@ Se quella protetta è una macchina virtuale Windows, è necessario un server di 
 > A partire dalla versione 9.10.0 del server di destinazione master, il server di destinazione master più recente può essere installato solo in un server Ubuntu 16.04. Le nuove installazioni non sono consentite nei server CentOS6.6. È comunque possibile continuare ad aggiornare i server di destinazione master precedenti con la versione 9.10.0.
 > Il server master di destinazione su LVM non è supportato.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Questo articolo contiene istruzioni per l'installazione di un server di destinazione master Linux.
 
 Per inviare commenti o domande è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Per scegliere l'host in cui distribuire il server di destinazione master, determinare se il failback verrà eseguito in una macchina virtuale locale esistente o in una macchina virtuale nuova. 
     * Se viene eseguito in una macchina virtuale esistente, l'host del server di destinazione master deve poter accedere agli archivi dati della macchina virtuale.
@@ -44,7 +44,7 @@ Creare il server di destinazione master in base alle linee guida per il ridimens
 - **RAM**: almeno 6 GB
 - **Dimensioni disco sistema operativo**: almeno 100 GB (per installare il sistema operativo)
 - **Dimensioni disco aggiuntive per l'unità di conservazione**: 1 TB
-- **Core CPU**: almeno 4
+- **Core CPU**: almeno 4 core
 
 Sono supportati i kernel Ubuntu seguenti.
 
@@ -244,7 +244,7 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
 
     ![ID percorsi multipli](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formattare l'unità e quindi creare un file System nella nuova unità: **mkfs. ext4/dev/mapper/\<multipath ID del disco di conservazione >** .
+3. Formattare l'unità e quindi creare un file system nella nuova unità: **mkfs. ext4/dev/mapper/\<> ID percorsi multipli del disco di conservazione**.
     
     ![File system](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -261,7 +261,7 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
     
     Selezionare **Inserisci** per iniziare a modificare il file. Creare una nuova riga e inserirvi il testo seguente. Modificare l'ID a percorsi multipli disco in base all'ID a percorsi multipli evidenziato dal comando precedente.
 
-    **ID\<percorsi multipli dei dischi di conservazione/dev/mapper/>/mnt/retention ext4 RW 0 0**
+    **/dev/mapper/\<conservazione dei dischi con ID percorsi multipli >/mnt/retention ext4 RW 0 0**
 
     Premere **Esc** e digitare **:wq**, che sta per scrivi ed esci, per chiudere la finestra dell'editor.
 
@@ -335,7 +335,7 @@ Dopo aver completato l'installazione, registrare il server di configurazione tra
 
 ### <a name="upgrade-the-master-target-server"></a>Aggiornare il server di destinazione master
 
-Eseguire il programma di installazione. Tale programma rileva automaticamente che l'agente è installato nella destinazione master. Selezionare **Y** per eseguire l'aggiornamento.  Al termine dell'installazione, controllare la versione del server di destinazione master installata usando il comando seguente:
+Eseguire il programma di installazione. Tale programma rileva automaticamente che l'agente è installato nella destinazione master. Per eseguire l'aggiornamento, selezionare **Y**.  Al termine dell'installazione, controllare la versione della destinazione master installata usando il comando seguente:
 
 `cat /usr/local/.vx_version`
 

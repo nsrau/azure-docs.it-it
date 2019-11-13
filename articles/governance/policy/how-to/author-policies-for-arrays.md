@@ -1,17 +1,14 @@
 ---
 title: Criteri autore per le proprietà delle matrici sulle risorse
 description: Informazioni su come creare parametri di matrice, creare regole per le espressioni di linguaggio di matrici, valutare l'alias [*] e aggiungere elementi a una matrice esistente con le regole di definizione di criteri di Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/06/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 33607d790f564075623d6f61d1b7b8b70a119f98
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: f28cffcf928f9c4da6b2dae2a0811200397c1f0d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255819"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959704"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Modificare i criteri per le proprietà delle matrici nelle risorse di Azure
 
@@ -19,7 +16,7 @@ Azure Resource Manager proprietà sono comunemente definite come stringhe e valo
 
 - Tipo di un [parametro di definizione](../concepts/definition-structure.md#parameters)per fornire più opzioni
 - Parte di una [regola di criteri](../concepts/definition-structure.md#policy-rule) che usa le condizioni **in** o **notIn**
-- Parte di una regola di criteri che valuta l' [alias \[ @ no__t-2 @ no__t-3](../concepts/definition-structure.md#understanding-the--alias) per valutare scenari specifici come **None**, **any**o **All**
+- Parte di una regola di criteri che valuta il [\[\*\] alias](../concepts/definition-structure.md#understanding-the--alias) per valutare scenari specifici come **None**, **any**o **All**
 - Nell' [effetto di Accodamento](../concepts/effects.md#append) da sostituire o aggiungere a una matrice esistente
 
 Questo articolo descrive ogni uso di criteri di Azure e offre diverse definizioni di esempio.
@@ -96,16 +93,16 @@ Il formato del valore del parametro è diverso quando si usa l'interfaccia della
 
 Per usare questa stringa con ogni SDK, usare i comandi seguenti:
 
-- Interfaccia della riga di comando di Azure: Comando [AZ Policy Assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) with Parameter **params**
-- Azure PowerShell: Cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) con il parametro **PolicyParameter**
-- API REST: Nell'operazione _put_ [create](/rest/api/resources/policyassignments/create) come parte del corpo della richiesta come valore della proprietà **Properties. Parameters**
+- INTERFACCIA della riga di comando di Azure: comando [AZ Policy Assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) with Parameter **params**
+- Azure PowerShell: cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) con il parametro **PolicyParameter**
+- API REST: nell'operazione _put_ [create](/rest/api/resources/policyassignments/create) come parte del corpo della richiesta come valore della proprietà **Properties. Parameters**
 
 ## <a name="policy-rules-and-arrays"></a>Regole e matrici di criteri
 
 ### <a name="array-conditions"></a>Condizioni di matrice
 
-Le [condizioni](../concepts/definition-structure.md#conditions) della regola dei criteri per le quali è possibile _utilizzare un_**tipo** 
- del parametro è limitata a `in` e `notIn`. Adottare la definizione di criteri seguente con Condition `equals` come esempio:
+Le [condizioni](../concepts/definition-structure.md#conditions) della regola dei criteri per le quali è possibile utilizzare una _matrice_
+**tipo** di parametro sono limitate a `in` e `notIn`. Usare la definizione di criteri seguente con la condizione `equals` come esempio:
 
 ```json
 {
@@ -137,14 +134,14 @@ Il tentativo di creare la definizione di criteri tramite il portale di Azure gen
 
 - "Impossibile parametrizzare il criterio ' {GUID}' a causa di errori di convalida. Verificare che i parametri dei criteri siano definiti correttamente. L'eccezione interna ' risultato della valutazione dell'espressione del linguaggio ' [Parameters (' allowedLocations ')]' è di tipo ' array '. il tipo previsto è' String ' .'. "
 
-Il **tipo** di condizione previsto `equals` è _String_. Poiché **allowedLocations** è definito come _matrice_di tipi, il motore dei criteri valuta l'espressione del linguaggio e genera l'errore. Con la condizione `in` e `notIn`, il motore dei criteri prevede la _matrice_ di tipi nell'espressione del linguaggio. Per correggere questo messaggio di errore, impostare `equals` su `in` o `notIn`.
+Il **tipo** di condizione previsto `equals` è _String_. Poiché **allowedLocations** è definito come _matrice_di tipi, il motore dei criteri valuta l'espressione del linguaggio e genera l'errore. Con il `in` e la condizione `notIn`, il motore dei criteri prevede la _matrice_ di **tipi** nell'espressione del linguaggio. Per correggere questo messaggio di errore, modificare `equals` in `in` o `notIn`.
 
 ### <a name="evaluating-the--alias"></a>Valutazione dell'alias [*]
 
-Gli alias con **[\*]** associati al nome indicano che il **tipo** è una _matrice_. Anziché valutare il valore dell'intera matrice, **[\*]** consente di valutare ogni elemento della matrice. Esistono tre scenari in cui questa valutazione per elemento è utile in: None, any e all.
+Gli alias con **[\*]** associati al nome indicano che il **tipo** è una _matrice_. Anziché valutare il valore dell'intera matrice, **[\*]** consente di valutare ogni elemento della matrice. Esistono tre scenari in cui questa valutazione per elemento è utile in: nessuno, nessuno e tutti.
 
 Il motore dei criteri attiva l' **effetto** in **quindi** solo quando la regola **if** restituisce true.
-Questo è un aspetto importante da comprendere nel contesto del modo in cui **[\*]** valuta ogni singolo elemento della matrice.
+Questo aspetto è importante per comprendere nel contesto del modo in cui **[\*]** valuta ogni singolo elemento della matrice.
 
 La regola dei criteri di esempio per la tabella dello scenario seguente:
 

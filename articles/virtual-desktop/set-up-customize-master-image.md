@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 7a0cce6b72240b95943fbece08cfbf61eaee3524
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 30895af3e973fd5c9ae0de559df440f18cec1563
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891697"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013137"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparare e personalizzare un'immagine master di disco rigido virtuale
 
-Questo articolo illustra come preparare un'immagine del disco rigido virtuale (VHD) master per il caricamento in Azure, tra cui come creare macchine virtuali (VM) e installare software su di essi. Queste istruzioni sono relative a una configurazione specifica di un desktop virtuale di Windows che può essere usata con i processi esistenti dell'organizzazione.
+Questo articolo illustra come preparare un'immagine del disco rigido virtuale (VHD) master per il caricamento in Azure, tra cui come creare macchine virtuali (VM) e installare software su di essi. Le istruzioni riguardano una configurazione specifica di Desktop virtuale Windows che può essere usata con processi esistenti dell'organizzazione.
 
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 
@@ -101,28 +101,6 @@ Eseguire questo comando per specificare un layout iniziale per i PC Windows 10.
 
 ```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
-```
-
-### <a name="configure-session-timeout-policies"></a>Configurare i criteri di timeout della sessione
-
-I criteri di sessione remota possono essere applicati a livello di Criteri di gruppo perché tutte le macchine virtuali in un pool di host fanno parte dello stesso gruppo di sicurezza.
-
-Per configurare i criteri di sessione remota:
-
-1. Passare a **Modelli amministrativi** > **componenti** di Windows > Servizi Desktop remoto ** > ** host sessione Desktop remoto **limiti di tempo della sessione**. > 
-2. Nel pannello sul lato destro selezionare il criterio **Imposta limite di tempo per le sessioni di Servizi Desktop remoto attive ma inattive** .
-3. Quando viene visualizzata la finestra modale, modificare l'opzione dei criteri da **non configurato** in **abilitato** per attivare il criterio.
-4. Nel menu a discesa sotto l'opzione policy impostare la quantità di tempo su **3 ore**.
-
-È anche possibile configurare manualmente i criteri di sessione remota eseguendo i comandi seguenti:
-
-```batch
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fResetBroken /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 10800000 /f
 ```
 
 ### <a name="set-up-time-zone-redirection"></a>Configurare il reindirizzamento del fuso orario

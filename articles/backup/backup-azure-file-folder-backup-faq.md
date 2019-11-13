@@ -7,18 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: c30b918be5e4185d6fb4fdd2fcfc47f8dd4d25ef
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: a77227aca70a48d625f9e20fff9c9fe7df87c000
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969157"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012148"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Domande frequenti sul backup di file e cartelle
 
 Questo articolo contiene le risposte alle domande più comuni che comportano il backup di file e cartelle con l'agente di Servizi di ripristino di Microsoft Azure (MARS) nel servizio [backup di Azure](backup-overview.md) .
-
-## <a name="general"></a>Informazioni di carattere generale
 
 ## <a name="configure-backups"></a>Configurare i backup
 
@@ -104,7 +102,7 @@ La dimensione della cartella della cache determina la quantità di dati sottopos
 1. Per impostazione predefinita, la cartella Scratch si trova in `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Verificare che il percorso della cartella dei file temporanei corrisponda ai valori delle voci della chiave del registro di sistema mostrate di seguito:
 
-  | Percorso del Registro | Chiave del Registro | Value |
+  | Percorso del Registro | Chiave del Registro | Valore |
   | --- | --- | --- |
   | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso della cartella della cache* |
   | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso della cartella della cache* |
@@ -113,22 +111,24 @@ La dimensione della cartella della cache determina la quantità di dati sottopos
 
 1. Eseguire questo comando in un prompt dei comandi con privilegi elevati per arrestare il motore di backup:
 
-    ```PS C:\> Net stop obengine```
+    ```Net stop obengine```
 
 2. Se è stato configurato il backup dello stato del sistema, aprire Gestione disco e smontare i dischi con nomi nel formato `"CBSSBVol_<ID>"`.
 3. Non spostare i file. Copiare invece la cartella dello spazio della cache in un'unità diversa con spazio sufficiente.
-4. Aggiornare le voci del registro di sistema seguenti con il percorso della nuova cartella della cache.<br/>
+4. Aggiornare le voci del registro di sistema seguenti con il percorso della nuova cartella della cache.
 
-    | Percorso del Registro | Chiave del Registro | Value |
+    | Percorso del Registro | Chiave del Registro | Valore |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso della cartella della cache* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso della cartella della cache* |
 
 5. Riavviare il motore di backup a un prompt dei comandi con privilegi elevati:
 
-    ```PS C:\> Net stop obengine```
+  ```command
+  Net stop obengine
 
-    ```PS C:\> Net start obengine```
+  Net start obengine
+  ```
 
 6. Eseguire un backup ad hoc. Al termine del backup con il nuovo percorso, è possibile rimuovere la cartella della cache originale.
 
@@ -155,7 +155,7 @@ La cartella della cache e il disco rigido virtuale dei metadati non hanno gli at
 
 Sì, è possibile usare l'opzione **modifica proprietà** nell'agente Mars per regolare la larghezza di banda e l'intervallo di tempo. [Altre informazioni](backup-configure-vault.md#enable-network-throttling).
 
-## <a name="restore"></a>Ripristinare
+## <a name="restore"></a>Ripristino
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Cosa accade se si annulla un processo di ripristino in corso?
 

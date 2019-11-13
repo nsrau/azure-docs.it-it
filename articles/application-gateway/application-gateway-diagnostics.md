@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: 9e1fe0e5bae462715a8cb2950cca100f0f409325
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: fa930d4ab420708e6abfdf1765703afbe20fa25e
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718739"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958270"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Log di diagnostica e integrità back-end per il gateway applicazione
 
@@ -33,7 +33,7 @@ Il gateway applicazione consente di monitorare l'integrità dei singoli membri d
 Il report sull'integrità back-end riflette l'output del probe di integrità del gateway applicazione nelle istanze back-end. Quando l'esecuzione del probe ha esito positivo e il back-end può ricevere il traffico, il membro è considerato integro. In caso contrario, viene considerato non integro.
 
 > [!IMPORTANT]
-> Se nella subnet del gateway applicazione è presente un gruppo di sicurezza di rete, aprire gli intervalli di porte 65503-65534 nella subnet del gateway applicazione per il traffico in ingresso. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Sono protette (bloccate) dai certificati di Azure. Senza certificati appropriati, le entità esterne, compresi i clienti di questi gateway, non saranno in grado di avviare alcuna modifica su tali endpoint.
+> Se è presente un gruppo di sicurezza di rete (NSG) in una subnet del gateway applicazione, aprire gli intervalli di porte 65503-65534 per gli SKU V1 e 65200-65535 per gli SKU V2 nella subnet del gateway applicazione per il traffico in ingresso. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Sono protette (bloccate) dai certificati di Azure. Senza certificati appropriati, le entità esterne, compresi i clienti di questi gateway, non saranno in grado di avviare alcuna modifica su tali endpoint.
 
 
 ### <a name="view-back-end-health-through-the-portal"></a>Visualizzare l'integrità back-end tramite il portale
@@ -157,7 +157,7 @@ Azure genera il log attività per impostazione predefinita. I log vengono conser
 
 Il log di accesso viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Ogni accesso del gateway applicazione viene registrato in formato JSON, come illustrato nell'esempio seguente per V1:
 
-|Valore  |Descrizione  |
+|Valore  |DESCRIZIONE  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione che ha gestito la richiesta.        |
 |clientIP     | IP di origine della richiesta.        |
@@ -201,7 +201,7 @@ Il log di accesso viene generato solo se è stato abilitato in ogni istanza del 
 ```
 Per il gateway applicazione e WAF V2, i log mostrano alcune altre informazioni:
 
-|Valore  |Descrizione  |
+|Valore  |DESCRIZIONE  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione che ha gestito la richiesta.        |
 |clientIP     | IP di origine della richiesta.        |
@@ -255,7 +255,7 @@ Per il gateway applicazione e WAF V2, i log mostrano alcune altre informazioni:
 Il log delle prestazioni viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. I dati del log delle prestazioni vengono generati a intervalli di un minuto. È disponibile solo per lo SKU V1. Per lo SKU V2, usare le [metriche](application-gateway-metrics.md) per i dati sulle prestazioni. Vengono registrati i dati seguenti:
 
 
-|Valore  |Descrizione  |
+|Valore  |DESCRIZIONE  |
 |---------|---------|
 |instanceId     |  Istanza del gateway applicazione per cui vengono generati i dati delle prestazioni. Per un gateway applicazione a più istanze viene visualizzata una riga per ogni istanza.        |
 |healthyHostCount     | Numero di host integri nel pool back-end.        |
@@ -292,7 +292,7 @@ Il log delle prestazioni viene generato solo se è stato abilitato in ogni istan
 Il log del firewall viene generato solo se è stato abilitato in ogni gateway applicazione, come descritto nei passaggi precedenti. Questo log richiede anche che il web application firewall sia configurato in un gateway applicazione. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Vengono registrati i dati seguenti:
 
 
-|Valore  |Descrizione  |
+|Valore  |DESCRIZIONE  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione per cui vengono generati i dati del firewall. Per un gateway applicazione a più istanze viene visualizzata una riga per ogni istanza.         |
 |clientIp     |   IP di origine della richiesta.      |
@@ -301,7 +301,7 @@ Il log del firewall viene generato solo se è stato abilitato in ogni gateway ap
 |ruleSetType     | Tipo di set di regole. Il valore disponibile è OWASP.        |
 |ruleSetVersion     | Versione del set di regole usata. I valori disponibili sono 2.2.9 e 3.0.     |
 |ruleId     | ID regola dell'evento di attivazione.        |
-|Message     | Messaggio descrittivo dell'evento di attivazione. Altre informazioni sono disponibili nella sezione dei dettagli.        |
+|message     | Messaggio descrittivo dell'evento di attivazione. Altre informazioni sono disponibili nella sezione dei dettagli.        |
 |action     |  Azione eseguita sulla richiesta. I valori disponibili sono Blocked e Allowed.      |
 |site     | Sito per cui è stato generato il log. Attualmente viene visualizzato solo Global poiché le regole sono globali.|
 |informazioni dettagliate     | Dettagli dell'evento di attivazione.        |
