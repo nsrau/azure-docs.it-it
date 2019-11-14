@@ -1,10 +1,10 @@
 ---
-title: Visualizzare la cronologia di controllo per i ruoli Azure AD in PIM-Azure Active Directory | Microsoft Docs
+title: Visualizzare il report di controllo per i ruoli Azure AD in PIM-Azure AD | Microsoft Docs
 description: Informazioni su come visualizzare la cronologia di controllo per i ruoli Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aa1c5121c723148884584ca3f00522c1c459859
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 7c4a157d8d5bcd281ca9fee488e58c455034e898
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809007"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022070"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Visualizzare la cronologia di controllo per i ruoli Azure AD in PIM
 
@@ -43,9 +43,9 @@ Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi a
 
     Nella parte inferiore della pagina viene visualizzata una tabella con informazioni su ogni azione nella cronologia di controllo disponibile. Le colonne hanno i significati seguenti:
 
-    | Colonna | Description |
+    | Colonna | DESCRIZIONE |
     | --- | --- |
-    | Durata | Quando si è verificata l'azione. |
+    | Time | Quando si è verificata l'azione. |
     | Richiedente | Utente che ha richiesto l'attivazione o la modifica del ruolo. Se il valore è **Azure System**, controllare la cronologia di controllo di Azure per altre informazioni. |
     | Azione | Azioni eseguite dal richiedente. Le azioni possono includere Assign, Unassign, Activate, disactivate o AddedOutsidePIM. |
     | Membro | Utente che sta attivando o assegnata a un ruolo. |

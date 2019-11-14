@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: rkarlin
-ms.openlocfilehash: fe7ba0f6daec0b85ec73611ba4e48d72f16146e3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 45351cc29b2b7028863aff06ab5a511674604d6f
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515135"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048948"
 ---
 # <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Connettere l'accesso a Internet di zScaler ad Azure Sentinel
 
@@ -48,7 +48,7 @@ Assicurarsi di configurare la sicurezza del computer in base ai criteri di sicur
 Per usare la comunicazione TLS tra la soluzione di sicurezza e il computer syslog, è necessario configurare il daemon syslog (rsyslog o syslog-ng) per la comunicazione in TLS: [crittografia del traffico syslog con TLS-rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [crittografia dei messaggi di log con TLS- syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 
  
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Verificare che il computer Linux usato come proxy esegua uno dei sistemi operativi seguenti:
 
 - 64 bit
@@ -106,7 +106,7 @@ In questo passaggio è necessario selezionare il computer Linux che fungerà da 
     - Porta = 514
     - Formato = CEF
     - Indirizzo IP: assicurarsi di inviare i messaggi CEF all'indirizzo IP della macchina virtuale dedicata a questo scopo.
- Per ulteriori informazioni, vedere la [Guida all'integrazione di zScaler di Azure Sentinel](https://aka.ms/ZscalerCEFInstructions).
+ Per altre informazioni, vedere la [Guida alla distribuzione di zScaler e Azure Sentinel](https://aka.ms/ZscalerCEFInstructions).
  
    > [!NOTE]
    > Questa soluzione supporta syslog RFC 3164 o RFC 5424.

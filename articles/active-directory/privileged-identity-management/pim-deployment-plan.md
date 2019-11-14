@@ -1,25 +1,25 @@
 ---
-title: Distribuire Privileged Identity Management (PIM)-Azure Active Directory | Microsoft Docs
+title: Distribuire Privileged Identity Management (PIM)-Azure AD | Microsoft Docs
 description: Descrive come pianificare la distribuzione di Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/08/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a1263d494ff26ff6ab87d39bc864271f14457b3
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: eef096322c8a8cfbf1618447529d46f6fbfd13b1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756272"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021860"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuire Azure AD Privileged Identity Management (PIM)
 
@@ -58,7 +58,7 @@ Per ulteriori informazioni, vedere [requisiti di licenza per l'utilizzo di Privi
 
 ### <a name="key-terminology"></a>Terminologia chiave
 
-| Termine o concetto | Description |
+| Termine o concetto | DESCRIZIONE |
 | --- | --- |
 | idoneo | Un'assegnazione di ruolo che richiede a un utente di eseguire una o più azioni per usare il ruolo. Se un utente è stato reso idoneo per un ruolo, potrà attivare il ruolo quando avrà bisogno di svolgere le attività con privilegi. Non esiste alcuna differenza sostanziale tra l'accesso concesso a un utente con l'assegnazione permanente e quello con l'assegnazione di idoneità al ruolo. L'unica differenza è che alcuni utenti non necessitano dell'accesso continuo. |
 | activate | Il processo di esecuzione di una o più azioni per usare un ruolo per cui un utente è idoneo. Le azioni possono includere il completamento di un controllo di autenticazione a più fattori (MFA), l'indicazione di una motivazione aziendale e la richiesta di approvazione da parte di responsabili dell'approvazione designati. |
@@ -99,7 +99,7 @@ La sezione seguente consente di identificare tutti gli stakeholder coinvolti nel
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Parti interessate: Privileged Identity Management per i ruoli di Azure AD
 
-| name | Ruolo | Azione |
+| Nome | Ruolo | Azione |
 | --- | --- | --- |
 | Nome e indirizzo di posta elettronica | **Architetto delle identità o Amministratore globale di Azure**<br/>Un rappresentante del team di gestione delle identità che è responsabile di definire come questa modifica è allineata all'infrastruttura di base per la gestione delle identità all'interno dell'organizzazione. | A/R/I |
 | Nome e indirizzo di posta elettronica | **Proprietario del servizio o diretto superiore**<br/>Un rappresentante dei proprietari IT di un servizio o di un gruppo di servizi. Sono essenziali per prendere decisioni e contribuire a implementare Privileged Identity Management per il team. | A/R/I |
@@ -109,7 +109,7 @@ La sezione seguente consente di identificare tutti gli stakeholder coinvolti nel
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>Stakeholder: Privileged Identity Management per i ruoli delle risorse di Azure
 
-| name | Ruolo | Azione |
+| Nome | Ruolo | Azione |
 | --- | --- | --- |
 | Nome e indirizzo di posta elettronica | **Proprietario delle risorse o delle sottoscrizioni**<br/>Un rappresentante dei proprietari IT di ogni sottoscrizione o risorsa che si desidera distribuire Privileged Identity Management per | A/R/I |
 | Nome e indirizzo di posta elettronica | **Responsabile della sicurezza**<br/>Un rappresentante del team addetto alla sicurezza che può approvare la conformità del piano ai requisiti di sicurezza dell'organizzazione. | A/R |
@@ -196,7 +196,7 @@ La scelta dei ruoli da proteggere con Privileged Identity Management può essere
 Se hanno utenti guest assegnati, i ruoli sono particolarmente vulnerabili agli attacchi.
 
 > [!TIP]
-> : heavy_check_mark: **Microsoft consiglia** di gestire tutti i ruoli con gli utenti guest usando Privileged Identity Management per ridurre i rischi associati agli account utente Guest compromessi.
+> : heavy_check_mark: **Microsoft consiglia** di gestire tutti i ruoli con gli utenti guest utilizzando Privileged Identity Management per ridurre i rischi associati agli account utente Guest compromessi.
 
 I ruoli di lettore, come quelli con autorizzazioni di lettura nella directory, per il Centro messaggi e per la sicurezza, sono talvolta considerati meno importanti rispetto ad altri poiché non dispongono dell'autorizzazione di scrittura. Alcuni clienti, tuttavia, proteggono anche questi ruoli perché gli utenti malintenzionati che hanno accesso a questi account possono riuscire a leggere dati sensibili, ad esempio informazioni personali. È necessario tenere in considerazione questo aspetto quando si decide se i ruoli di Reader nell'organizzazione devono essere gestiti con Privileged Identity Management.
 
@@ -210,7 +210,7 @@ Quando si decide quali assegnazioni di ruolo devono essere gestite usando Privil
 Se come amministratore globale si ha difficoltà a decidere quali sottoscrizioni e risorse sono più importanti, è opportuno contattare i proprietari delle sottoscrizioni nell'organizzazione per raccogliere un elenco delle risorse gestite per ogni sottoscrizione. Collaborare quindi con i proprietari delle sottoscrizioni per raggruppare le risorse in base al livello di gravità nel caso in cui vengano compromesse (basso, medio, alto). È consigliabile assegnare priorità alla gestione delle risorse con Privileged Identity Management in base a questo livello di gravità.
 
 > [!TIP]
-> : heavy_check_mark: **Microsoft consiglia** di collaborare con i proprietari di sottoscrizioni o risorse di servizi critici per configurare Privileged Identity Management flusso di lavoro per tutti i ruoli all'interno di sottoscrizioni o risorse sensibili.
+> : heavy_check_mark: **Microsoft consiglia** di collaborare con i proprietari di sottoscrizioni o risorse di servizi critici per configurare il flusso di lavoro Privileged Identity Management per tutti i ruoli all'interno di sottoscrizioni o risorse sensibili.
 
 Privileged Identity Management per le risorse di Azure supporta gli account del servizio con associazione temporale. È consigliabile gestire questi account di servizio esattamente come un account utente normale.
 
@@ -224,7 +224,7 @@ Per sottoscrizioni o risorse non cruciali, non è necessario configurare Privile
 Una volta deciso l'elenco dei ruoli da gestire con Privileged Identity Management, è necessario decidere quali utenti devono ottenere il ruolo idoneo rispetto al ruolo attivo permanente. I ruoli attivi in modo permanente sono i normali ruoli assegnati tramite Azure Active Directory e le risorse di Azure, mentre i ruoli idonei possono essere assegnati solo in Privileged Identity Management.
 
 > [!TIP]
-> : heavy_check_mark: **Microsoft consiglia** di avere zero assegnazioni attive in modo permanente sia per i ruoli Azure ad che per i ruoli delle risorse di Azure, ad eccezione dei [due account di accesso di emergenza break-Glass](../users-groups-roles/directory-emergency-access.md)consigliati, che devono avere il Ruolo di amministratore globale.
+> : heavy_check_mark: **Microsoft consiglia** di avere zero assegnazioni attive in modo permanente sia per i ruoli Azure ad che per i ruoli delle risorse di Azure, ad eccezione dei [due account di accesso di emergenza break-Glass](../users-groups-roles/directory-emergency-access.md), che devono avere il ruolo di amministratore globale permanente.
 
 Anche se è consigliabile una configurazione senza amministratori permanenti, talvolta le organizzazioni possono avere difficoltà a implementare immediatamente una configurazione di questo tipo. Ecco alcuni aspetti da considerare nel prendere questa decisione:
 
@@ -243,29 +243,29 @@ Prima di implementare la soluzione di Privileged Identity Management, è consigl
 | Ruolo | Richiedere l'autenticazione MFA | Notifica | Ticket di evento imprevisto | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Amministratore globale | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri amministratori globali | 1 ora | Account di accesso di emergenza |
-| Amministratore di Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nessuno | 2 ore | Nessuno |
-| Amministratore del supporto tecnico | :x: | :x: | :heavy_check_mark: | :x: | Nessuno | 8 ore | Nessuno |
+| Amministratore di Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | nessuno | 2 ore | nessuno |
+| Amministratore del supporto tecnico | :x: | :x: | :heavy_check_mark: | :x: | nessuno | 8 ore | nessuno |
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Impostazioni Privileged Identity Management per i ruoli delle risorse di Azure
 
 | Ruolo | Richiedere l'autenticazione MFA | Notifica | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore attivo | Scadenza assegnazioni attive | Scadenza assegnazioni idonee |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Proprietario di sottoscrizioni critiche | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri proprietari della sottoscrizione | 1 ora | Nessuno | N/D | 3 mesi |
-| Amministratore Accesso utenti di sottoscrizioni meno critiche | :heavy_check_mark: | :heavy_check_mark: | :x: | Nessuno | 1 ora | Nessuno | N/D | 3 mesi |
-| Collaboratore macchine virtuali | :x: | :heavy_check_mark: | :x: | Nessuno | 3 ore | Nessuno | N/D | 6 mesi |
+| Proprietario di sottoscrizioni critiche | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri proprietari della sottoscrizione | 1 ora | nessuno | N/D | 3 mesi |
+| Amministratore Accesso utenti di sottoscrizioni meno critiche | :heavy_check_mark: | :heavy_check_mark: | :x: | nessuno | 1 ora | nessuno | N/D | 3 mesi |
+| Collaboratore macchine virtuali | :x: | :heavy_check_mark: | :x: | nessuno | 3 ore | nessuno | N/D | 6 mesi |
 
 La tabella seguente include le descrizioni per ciascuna delle impostazioni.
 
-| Impostazione | Description |
+| Impostazione | DESCRIZIONE |
 | --- | --- |
 | Ruolo | Nome del ruolo per cui si definiscono le impostazioni. |
 | Richiedere l'autenticazione MFA | Indica se l'utente idoneo deve eseguire l'autenticazione a più fattori (MFA) prima dell'attivazione del ruolo.<br/><br/> : heavy_check_mark: **Microsoft consiglia** di applicare l'autenticazione a più fattori per tutti i ruoli di amministratore, soprattutto se i ruoli hanno utenti guest. |
 | Notifica | Se è impostato l'invio di notifiche, gli utenti dell'organizzazione con i ruoli Amministratore globale, Amministratore dei ruoli con privilegi e Amministratore della sicurezza ricevono una notifica di posta elettronica quando un utente idoneo attiva il ruolo.<br/><br/>**Nota:** Alcune organizzazioni non dispongono di un indirizzo di posta elettronica associato agli account di amministratore. per ricevere queste notifiche di posta elettronica, è necessario impostare un indirizzo di posta elettronica alternativo in modo che gli amministratori ricevano questi messaggi. |
-| Ticket di evento imprevisto | Indica se l'utente idoneo deve registrare un numero di ticket di evento imprevisto quando attiva il proprio ruolo. Questa impostazione consente a un'organizzazione di identificare ogni attivazione con un numero di evento imprevisto interno per limitare le attivazioni indesiderate.<br/><br/> : heavy_check_mark: **Microsoft consiglia** di sfruttare i numeri di ticket per gli eventi imprevisti per associare Privileged Identity Management al sistema interno. Questo è particolarmente utile per i responsabili dell'approvazione che devono conoscere il contesto dell'attivazione. |
+| Ticket di evento imprevisto | Indica se l'utente idoneo deve registrare un numero di ticket di evento imprevisto quando attiva il proprio ruolo. Questa impostazione consente a un'organizzazione di identificare ogni attivazione con un numero di evento imprevisto interno per limitare le attivazioni indesiderate.<br/><br/> : heavy_check_mark: **Microsoft consiglia** di sfruttare i numeri dei biglietti per gli eventi imprevisti per associare Privileged Identity Management al sistema interno. Questo è particolarmente utile per i responsabili dell'approvazione che devono conoscere il contesto dell'attivazione. |
 | Richiedi approvazione | Indica se l'utente idoneo deve ottenere l'approvazione per attivare il ruolo.<br/><br/> : heavy_check_mark: **Microsoft consiglia** di impostare l'approvazione per i ruoli con la massima autorizzazione. In base ai modelli di utilizzo di tutti i Privileged Identity Management clienti, amministratore globale, amministratore utente, amministratore di Exchange, amministratore della sicurezza e amministratore password sono i ruoli più comuni con la configurazione dell'approvazione. |
-| Responsabile approvazione | Se per attivare il ruolo idoneo è richiesta l'approvazione, indicare le persone che dovrebbero approvare la richiesta. Per impostazione predefinita, Privileged Identity Management imposta il responsabile approvazione come tutti gli utenti che sono amministratori dei ruoli con privilegi, che siano permanenti o idonei.<br/><br/>**Nota:** Se un utente è idoneo per un ruolo Azure AD e un responsabile approvazione del ruolo, non sarà in grado di approvare se stesso.<br/><br/> : heavy_check_mark: **Microsoft consiglia** di scegliere responsabili approvazione come quelli più esperti del ruolo specifico e dei relativi utenti frequenti anziché un amministratore globale. |
+| Responsabile approvazione | Se per attivare il ruolo idoneo è richiesta l'approvazione, indicare le persone che dovrebbero approvare la richiesta. Per impostazione predefinita, Privileged Identity Management imposta il responsabile approvazione come tutti gli utenti che sono amministratori dei ruoli con privilegi, che siano permanenti o idonei.<br/><br/>**Nota:** Se un utente è idoneo per un ruolo Azure AD e un responsabile approvazione del ruolo, non sarà in grado di approvare se stesso.<br/><br/> : heavy_check_mark: **Microsoft consiglia** di scegliere responsabili approvazione come utenti più esperti del ruolo specifico e degli utenti frequenti anziché di un amministratore globale. |
 | Durata attivazione | Periodo di tempo durante il quale il ruolo di un utente rimarrà attivo prima della scadenza. |
-| Amministratore permanente | Elenco degli utenti che saranno amministratori permanenti per il ruolo (l'attivazione non è mai necessaria).<br/><br/> : heavy_check_mark: **Microsoft consiglia** di avere un amministratore con zero diritti per tutti i ruoli, ad eccezione degli amministratori globali. Per altre informazioni, vedere la sezione di questo piano che contiene suggerimenti per decidere quali assegnazioni di ruolo devono essere idonee e quali devono essere attive in modo permanente. |
+| Amministratore permanente | Elenco degli utenti che saranno amministratori permanenti per il ruolo (l'attivazione non è mai necessaria).<br/><br/> : heavy_check_mark: **Microsoft consiglia** di disporre di un amministratore con zero diritti per tutti i ruoli, ad eccezione degli amministratori globali. Per altre informazioni, vedere la sezione di questo piano che contiene suggerimenti per decidere quali assegnazioni di ruolo devono essere idonee e quali devono essere attive in modo permanente. |
 | Amministratore attivo | Per le risorse di Azure, un amministratore attivo è uno degli utenti che non devono eseguire l'attivazione per usare il ruolo. Per questo amministratore non viene usato l'aggettivo permanente, come nei ruoli di Azure AD, perché è possibile impostare un termine di scadenza oltre il quale l'utente perderà il ruolo. |
 | Scadenza assegnazioni attive | Un'assegnazione attiva per i ruoli delle risorse di Azure scade dopo il periodo di tempo configurato. È possibile scegliere tra 15 giorni, 1 mese, 3 mesi, 6 mesi, 1 anno oppure impostare un'assegnazione attiva in modo permanente. |
 | Scadenza assegnazioni idonee | Un'assegnazione idonea per i ruoli delle risorse di Azure scade dopo il periodo di tempo configurato. È possibile scegliere tra 15 giorni, 1 mese, 3 mesi, 6 mesi, 1 anno oppure impostare un'assegnazione idonea in modo permanente. |
@@ -279,7 +279,7 @@ Una pianificazione appropriata deve avere alla base la possibilità di distribui
 Usare questa sezione per identificare un set di utenti e/o gruppi di utenti per convalidare l'implementazione. In base alle impostazioni selezionate nella sezione dedicata alla pianificazione, identificare gli utenti desiderati per testare ogni ruolo.
 
 > [!TIP]
-> : heavy_check_mark: **Microsoft consiglia** di fare in modo che i proprietari del servizio di ogni ruolo Azure ad siano gli utenti di test in modo che possano acquisire familiarità con il processo e diventare un sostenitore interno per la distribuzione.
+> : heavy_check_mark: **Microsoft consiglia** di fare in modo che i proprietari del servizio di ogni ruolo di Azure ad siano gli utenti di test in modo che possano acquisire familiarità con il processo e diventare un sostenitore interno per la distribuzione.
 
 In questa tabella identificare gli utenti di test che verificheranno il corretto funzionamento delle impostazioni per ogni ruolo.
 
@@ -290,7 +290,7 @@ In questa tabella identificare gli utenti di test che verificheranno il corretto
 
 ### <a name="test-implementation"></a>Testare l'implementazione
 
-Ora che sono stati identificati gli utenti di test, usare questo passaggio per configurare Privileged Identity Management per gli utenti di test. Se l'organizzazione vuole incorporare Privileged Identity Management flusso di lavoro nella propria applicazione interna invece di usare Privileged Identity Management nel portale di Azure, sono supportate anche tutte le operazioni in Privileged Identity Management tramite l' [API Graph](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-root).
+Ora che sono stati identificati gli utenti di test, usare questo passaggio per configurare Privileged Identity Management per gli utenti di test. Se l'organizzazione vuole incorporare Privileged Identity Management flusso di lavoro nella propria applicazione interna invece di usare Privileged Identity Management nel portale di Azure, tutte le operazioni in Privileged Identity Management sono supportate anche tramite l' [API Graph](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-root).
 
 #### <a name="configure-privileged-identity-management-for-azure-ad-roles"></a>Configurare Privileged Identity Management per i ruoli di Azure AD
 

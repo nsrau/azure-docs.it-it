@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ab0d3aac6944e331223d91eb98b50b3308be12c3
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 567110b2e0429930720abf6af5f2727e4ad9d3bb
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797634"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048268"
 ---
 # <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -251,7 +251,7 @@ Nel dashboard del gruppo di risorse cercare l'account di archiviazione (datahubl
 
 **Significato**: la configurazione della registrazione dell'app Azure ad non è stata eseguita correttamente.  
 
-**Azione correttiva**: chiedere all'amministratore IT (con accesso in lettura al tenant) di usare lo [script](https://aka.ms/PPCreateAADappregistration) per la creazione della registrazione dell'app Azure ad. Questo script si occuperà automaticamente anche dei passaggi di configurazione. come  
+**Azione correttiva**: chiedere all'amministratore IT (con accesso in lettura al tenant) di usare lo [script](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) per la creazione della registrazione dell'app Azure ad. Questo script si occuperà automaticamente anche dei passaggi di configurazione.
 
 **Errore**: non è stato possibile creare la nuova applicazione Active Directory "fittiziname" in questo tenant. esiste già un altro oggetto con lo stesso valore per gli URI dell'identificatore di proprietà
 

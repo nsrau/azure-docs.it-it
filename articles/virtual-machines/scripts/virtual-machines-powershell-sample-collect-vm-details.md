@@ -1,5 +1,5 @@
 ---
-title: Raccogliere informazioni dettagliate su tutte le macchine virtuali in una sottoscrizione con PowerShell | Microsoft Docs
+title: Raccogliere informazioni dettagliate su tutte le macchine virtuali in una sottoscrizione con PowerShell
 description: Raccogliere informazioni dettagliate su tutte le macchine virtuali in una sottoscrizione con PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
-ms.openlocfilehash: dc5dc187bf23c9391108b24df9836645756fd62c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: d3931d2affd77ce53b6ace9cc043e0272eaaf954
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165285"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040085"
 ---
 # <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>Raccogliere informazioni dettagliate su tutte le macchine virtuali in una sottoscrizione con PowerShell
 
@@ -72,7 +72,7 @@ $report | Export-CSV "$home/$reportName"
 ## <a name="script-explanation"></a>Spiegazione dello script
 Questo script usa i comandi seguenti per creare un'esportazione CSV dei dettagli delle macchine virtuali in una sottoscrizione. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
-|Comando|Note|
+|Comando|note|
 |-|-|
 |[Select-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext)|Imposta il tenant, la sottoscrizione e l'ambiente per i cmdlet da utilizzare nella sessione corrente.|
 |[Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM)|Ottiene le proprietà di una macchina virtuale.|

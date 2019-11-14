@@ -1,14 +1,14 @@
 ---
 title: Fasi della distribuzione di un progetto
 description: Informazioni sui passaggi eseguiti dai servizi Azure Blueprint durante una distribuzione.
-ms.date: 03/14/2019
+ms.date: 11/13/2019
 ms.topic: conceptual
-ms.openlocfilehash: d0d97ed01c4ae2ef96da151e1ab4ddc13a4b1d3e
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b329613e4e4954a1ea1452017a6e6c8b7343f2d3
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960530"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048620"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Fasi della distribuzione di un progetto
 
@@ -25,7 +25,7 @@ La distribuzione del progetto viene attivata assegnando un progetto a una sottos
 
 ## <a name="blueprints-granted-owner-rights"></a>Progetti concessi diritti di proprietario
 
-All'entità servizio di Azure Blueprints vengono concessi diritti di proprietario per la sottoscrizione o le sottoscrizioni assegnate. Il ruolo concesso consente ai progettisti di creare e revocare successivamente l' [identità gestita assegnata dal sistema](../../../active-directory/managed-identities-azure-resources/overview.md).
+All'entità servizio di Azure Blueprints vengono concessi i diritti di proprietario per la sottoscrizione o le sottoscrizioni assegnate quando viene usata un'identità gestita gestita da un' [identità gestita assegnata dal sistema](../../../active-directory/managed-identities-azure-resources/overview.md) . Il ruolo concesso consente ai progettisti di creare e revocare successivamente l'identità gestita **assegnata dal sistema** . Se si usa un'identità gestita **assegnata dall'utente** , l'entità servizio di Azure Blueprints non ottiene e non necessita dei diritti di proprietario per la sottoscrizione.
 
 I diritti vengono concessi automaticamente se l'assegnazione viene eseguita tramite il portale. Tuttavia, se l'assegnazione viene eseguita tramite l'API REST, la concessione dei diritti deve essere eseguita con una chiamata API separata. Il Azure Blueprint AppId è `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, ma l'entità servizio varia in base al tenant. Usare [Azure Active Directory API Graph](../../../active-directory/develop/active-directory-graph-api.md) e l'endpoint REST [entità servizio](/graph/api/resources/serviceprincipal) per ottenere l'entità servizio. Quindi, concedere al modello di Azure il ruolo di _proprietario_ tramite il [portale](../../../role-based-access-control/role-assignments-portal.md), l' [interfaccia](../../../role-based-access-control/role-assignments-cli.md)della riga di comando di Azure, [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), l' [API REST](../../../role-based-access-control/role-assignments-rest.md)o un [modello di gestione risorse](../../../role-based-access-control/role-assignments-template.md).
 
@@ -35,7 +35,7 @@ Il servizio Blueprints non distribuisce direttamente le risorse.
 
 Un utente, un gruppo o un'entità servizio assegna un progetto a una sottoscrizione. L'oggetto di assegnazione esiste a livello di sottoscrizione a cui è stato assegnato il progetto. Le risorse create dalla distribuzione non vengono eseguite nel contesto dell'entità di distribuzione.
 
-Durante la creazione dell'assegnazione del progetto, viene selezionato il tipo di [identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md) . Il valore predefinito è un'identità gestita **assegnata dal sistema** . È possibile scegliere un'identità gestita **assegnata dall'utente** . Quando si usa un'identità gestita **assegnata dall'utente** , è necessario definire e concedere le autorizzazioni prima della creazione dell'assegnazione del progetto.
+Durante la creazione dell'assegnazione del progetto, viene selezionato il tipo di [identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md) . Il valore predefinito è un'identità gestita **assegnata dal sistema** . È possibile scegliere un'identità gestita **assegnata dall'utente** . Quando si usa un'identità gestita **assegnata dall'utente** , è necessario definire e concedere le autorizzazioni prima della creazione dell'assegnazione del progetto. Sia i ruoli predefiniti dell' [operatore](../../../role-based-access-control/built-in-roles.md#blueprint-operator) [proprietario](../../../role-based-access-control/built-in-roles.md#owner) e progetto hanno l'autorizzazione `blueprintAssignment/write` necessaria per creare un'assegnazione che usa un'identità gestita **assegnata dall'utente** .
 
 ## <a name="optional---blueprints-creates-system-assigned-managed-identity"></a>Facoltativo-Blueprints crea un'identità gestita assegnata dal sistema
 

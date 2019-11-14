@@ -1,19 +1,20 @@
 ---
-title: Creare un gateway applicazione che ospita più siti Web - Interfaccia della riga di comando di Azure
+title: Ospitare più siti Web usando l'interfaccia della riga di comando
+titleSuffix: Azure Application Gateway
 description: Informazioni su come creare un gateway applicazione che ospita più siti Web usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: eceb380112002ef951d6d5e74998d944da01bd7a
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0a92d0f7d17f6bb83efbe94434c25072975dbe57
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688224"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047349"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Creare un gateway applicazione che ospita più siti Web usando l'interfaccia della riga di comando di Azure
 
@@ -140,7 +141,7 @@ az network application-gateway http-listener create \
   --host-name www.fabrikam.com   
   ```
 
-### <a name="add-routing-rules"></a>Aggiungere le regole di routing
+### <a name="add-routing-rules"></a>Aggiunta delle regole di routing
 
 Le regole vengono elaborate nell'ordine in cui sono elencate. Il traffico viene indirizzato usando la prima regola corrispondente indipendentemente dalla specificità. Se ad esempio si dispone di due regole, una che usa un listener di base e una che usa un listener multisito, entrambe sulla stessa porta, la regola con il listener multisito deve essere elencata prima della regola con il listener di base per funzionare come previsto. 
 
@@ -235,7 +236,7 @@ Non è consigliabile usare record A perché l'indirizzo VIP può cambiare al ria
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http:\//www.contoso.com.
+Immettere il nome di dominio nella barra degli indirizzi del browser, Ad esempio, http:\//www.contoso.com.
 
 ![Testare il sito contoso nel gateway applicazione](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest1.png)
 

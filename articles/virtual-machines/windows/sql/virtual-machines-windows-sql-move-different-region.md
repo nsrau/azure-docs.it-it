@@ -1,5 +1,5 @@
 ---
-title: Spostare SQL Server VM in un'altra area all'interno di Azure con Azure Site Recovery Services | Microsoft Docs
+title: Spostare una macchina virtuale in un'altra area (Azure Site Recovery)
 description: Informazioni su come eseguire la migrazione della macchina virtuale SQL Server da un'area a un'altra in Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,23 +14,24 @@ ms.workload: iaas-sql-server
 ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 063876316c92780d061388283a55c7f50dd3d78a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 3b84119cdcc1bb7e8603de64e3d23c69dac70cc3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100536"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022298"
 ---
 # <a name="move-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery-services"></a>Spostare SQL Server VM in un'altra area all'interno di Azure con Azure Site Recovery Services
 
 Questo articolo illustra come usare Azure Site Recovery per eseguire la migrazione di una macchina virtuale SQL Server da un'area a un'altra in Azure. 
 
 Per lo trasferimento di una macchina virtuale SQL Server in un'area diversa è necessario eseguire le operazioni seguenti:
-1. [**Preparazione**](#prepare-to-move)in corso: Verificare che sia la macchina virtuale SQL Server di origine sia l'area di destinazione siano adeguatamente preparati per lo spostamento. 
-1. [**Configurazione**](#configure-azure-site-recovery-vault)di: Lo stato di trasferimento della macchina virtuale SQL Server richiede che si tratta di un oggetto replicato all'interno dell'insieme di credenziali Azure Site Recovery. È necessario aggiungere la macchina virtuale SQL Server all'insieme di credenziali Azure Site Recovery. 
-1. [**Test**](#test-move-process): Per eseguire la migrazione della macchina virtuale SQL Server è necessario eseguirne il failover dall'area di origine all'area di destinazione replicata. Per assicurarsi che il processo di spostamento abbia esito positivo, è prima di tutto necessario verificare che la macchina virtuale SQL Server possa eseguire correttamente il failover nell'area di destinazione. Questo consente di esporre eventuali problemi ed evitarli quando si esegue lo spostamento effettivo. 
-1. In [**trasferimento**](#move-the-sql-server-vm): Dopo che il failover di test è stato superato e si è certi di essere sicuri di eseguire la migrazione della macchina virtuale SQL Server, è possibile eseguire lo spostamento della macchina virtuale nell'area di destinazione. 
-1. [**Pulizia**](#clean-up-source-resources): Per evitare addebiti per la fatturazione, rimuovere la macchina virtuale SQL Server dall'insieme di credenziali e tutte le risorse non necessarie rimaste nel gruppo di risorse. 
+1. [**Preparazione**](#prepare-to-move): verificare che sia la macchina virtuale SQL Server di origine che l'area di destinazione siano adeguatamente preparate per lo spostamento. 
+1. [**Configurazione**](#configure-azure-site-recovery-vault): lo stato di trasferimento della macchina virtuale SQL Server richiede che si tratta di un oggetto replicato all'interno dell'insieme di credenziali Azure Site Recovery. È necessario aggiungere la macchina virtuale SQL Server all'insieme di credenziali Azure Site Recovery. 
+1. [**Test**](#test-move-process): la migrazione della macchina virtuale SQL Server richiede il failover dall'area di origine all'area di destinazione replicata. Per assicurarsi che il processo di spostamento abbia esito positivo, è prima di tutto necessario verificare che la macchina virtuale SQL Server possa eseguire correttamente il failover nell'area di destinazione. Questo consente di esporre eventuali problemi ed evitarli quando si esegue lo spostamento effettivo. 
+1. [**Spostamento**](#move-the-sql-server-vm): dopo che il failover di test è stato superato e si è sicuri di eseguire la migrazione della macchina virtuale SQL Server, è possibile eseguire lo spostamento della macchina virtuale nell'area di destinazione. 
+1. [**Pulizia**](#clean-up-source-resources): per evitare addebiti per la fatturazione, rimuovere la macchina virtuale SQL Server dall'insieme di credenziali e tutte le risorse non necessarie rimaste nel gruppo di risorse. 
 
 ## <a name="verify-prerequisites"></a>Verificare i prerequisiti 
 
@@ -50,7 +51,7 @@ Preparare la macchina virtuale di origine SQL Server e l'area di destinazione pe
 
 - Verificare che tutti i certificati radice più recenti si trovino nella macchina virtuale SQL Server che si desidera spostare. Se i certificati radice più recenti non sono presenti, i vincoli di sicurezza impediranno la copia dei dati nell'area di destinazione. 
 - Per le macchine virtuali Windows, installare tutti gli aggiornamenti di Windows più recenti nella macchina virtuale, in modo che tutti i certificati radice trusted siano presenti nel computer. In un ambiente disconnesso, seguire il processo di aggiornamento standard di Windows e del certificato per l'organizzazione. 
-- Per le macchine virtuali Linux, seguire le indicazioni fornite dal distributore di Linux per ottenere i certificati radice trusted più recenti e l'elenco di revoche di certificati nella macchina virtuale. 
+- Per le VM Linux, seguire le indicazioni fornite dal distributore di Linux per ottenere i certificati radice trusted più recenti e l'elenco di revoche di certificati nella VM. 
 - Assicurarsi che non si stia usando un proxy di autenticazione per controllare la connettività di rete per le macchine virtuali che si desidera spostare. 
 - Se la macchina virtuale che si sta tentando di spostare non ha accesso a Internet o se usa un proxy firewall per controllare l'accesso in uscita, verificare i requisiti. 
 - Identificare il layout di rete di origine e tutte le risorse attualmente in uso, tra cui i servizi di bilanciamenti del carico, i gruppi di sicurezza di rete e gli indirizzi IP pubblici. 
@@ -113,7 +114,7 @@ I passaggi seguenti illustrano come usare Azure Site Recovery per testare il pro
    ![Monitorare lo stato di avanzamento del test di failover](media/virtual-machines-windows-sql-move-to-new-region/monitor-failover-test-job.png)
 
 1. Al termine del test, passare a **macchine virtuali** nel portale ed esaminare la macchina virtuale appena creata. Assicurarsi che la macchina virtuale SQL Server sia in esecuzione, sia dimensionata in modo appropriato ed è connessa alla rete appropriata. 
-1. Eliminare la macchina virtuale creata come parte del test, poiché l'opzione di **failover** verrà disattivata fino a quando non viene eseguita la pulizia delle risorse di test del failover. Tornare all'insieme di credenziali, selezionare gli **elementi replicati**, selezionare la macchina virtuale SQL Server, quindi selezionare **Cleanup test failover**. Registrare e salvare le eventuali osservazioni associate al test nella sezione **Note** , quindi selezionare la casella di controllo **accanto a test completata. Elimina le macchine**virtuali del failover di test. Selezionare **OK** per pulire le risorse dopo il test. 
+1. Eliminare la macchina virtuale creata come parte del test, poiché l'opzione di **failover** verrà disattivata fino a quando non viene eseguita la pulizia delle risorse di test del failover. Tornare all'insieme di credenziali, selezionare gli **elementi replicati**, selezionare la macchina virtuale SQL Server, quindi selezionare **Cleanup test failover**. Registrare e salvare le eventuali osservazioni associate al test nella sezione **Note** , quindi selezionare la casella di controllo accanto a **test completata. Elimina le macchine virtuali del failover di test**. Selezionare **OK** per pulire le risorse dopo il test. 
 
    ![Pulisci elementi dopo il test di failover](media/virtual-machines-windows-sql-move-to-new-region/cleanup-test-items.png)
 
@@ -122,7 +123,7 @@ I passaggi seguenti illustrano come spostare la macchina virtuale SQL Server dal
 
 1. Passare all'insieme di credenziali **dei servizi di ripristino** , selezionare **elementi replicati**, selezionare la macchina virtuale e quindi fare clic su **failover**. 
 
-   ![Avvia failover](media/virtual-machines-windows-sql-move-to-new-region/initiate-failover.png)
+   ![Avviare il failover](media/virtual-machines-windows-sql-move-to-new-region/initiate-failover.png)
 
 1. Selezionare il punto di ripristino coerente con l' **app più recente** in **punto di ripristino**. 
 1. Selezionare la casella di controllo accanto a **Arresta il computer prima di avviare il failover**. Site Recovery tenterà di arrestare la macchina virtuale di origine prima di attivare il failover. Il failover continuerà anche se l'arresto non riesce. 
@@ -149,7 +150,7 @@ Per evitare addebiti per la fatturazione, rimuovere la macchina virtuale SQL Ser
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere i seguenti articoli: 
+Per altre informazioni, vedere gli articoli seguenti: 
 
 * [Panoramica di SQL Server in una macchina virtuale Windows](virtual-machines-windows-sql-server-iaas-overview.md)
 * [SQL Server sulle domande frequenti di una macchina virtuale Windows](virtual-machines-windows-sql-server-iaas-faq.md)

@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5d2770c3f51c05354ff331fe8de723fb6ebd5c65
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f37c54699329f43a5bbdd5c4543ae3a7b2166f5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498401"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048837"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Impostazioni di proxy e firewall di Sincronizzazione file di Azure
 Sincronizzazione file di Azure connette i server locali a File di Azure abilitando la sincronizzazione tra più siti e funzionalità di suddivisione in livelli cloud. È necessario quindi che un server locale sia connesso a Internet e che un amministratore IT scelga il percorso migliore per consentire al server di accedere ai servizi cloud di Azure.
 
 Questo articolo offre informazioni dettagliate sui requisiti e le opzioni disponibili per connettere un server a Sincronizzazione file di Azure in modo sicuro ed efficiente.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Sincronizzazione file di Azure svolge la funzione di servizio di orchestrazione tra Windows Server, la condivisione file di Azure e altri servizi di Azure per la sincronizzazione dei dati, come descritto nel gruppo di sincronizzazione. Per consentire il corretto funzionamento di Sincronizzazione file di Azure, è necessario configurare i server in modo che possano comunicare con i servizi di Azure seguenti:
 
 - Archiviazione di Azure
@@ -89,14 +89,14 @@ Come indicato in una sezione precedente, la porta 443 deve essere aperta in usci
 
 La tabella seguente illustra i domini necessari per la comunicazione:
 
-| Service | Endpoint cloud pubblico | Endpoint di Azure per enti pubblici | Utilizzo |
+| Servizio | Endpoint cloud pubblico | Endpoint di Azure per enti pubblici | Utilizzo |
 |---------|----------------|---------------|------------------------------|
 | **Gestione risorse di Azure** | https://management.azure.com | https://management.usgovcloudapi.net | Qualsiasi chiamata utente (ad esempio, PowerShell) giunge o passa attraverso questo URL, inclusa la chiamata di registrazione iniziale del server. |
 | **Azure Active Directory** | https://login.windows.net<br>https://login.microsoftonline.com | https://login.microsoftonline.us | Le chiamate di Azure Resource Manager devono essere effettuate da un utente autenticato. Per l'autenticazione utente viene usato questo URL. |
 | **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Nel corso del processo di distribuzione di Sincronizzazione file di Azure verrà creata un'entità servizio nella sessione di Azure Active Directory associata alla sottoscrizione. A tale scopo viene usato questo URL. Questa entità viene usata per delegare una quantità minima di diritti al servizio Sincronizzazione file di Azure. L'utente che esegue la configurazione iniziale di Sincronizzazione file di Azure deve essere un utente autenticato con privilegi di proprietario della sottoscrizione. |
-| **Archiviazione di Azure** | &ast;.core.windows.net | &ast;. core.usgovcloudapi.net | Quando il server scarica un file, esegue lo spostamento dati in modo più efficiente se comunica direttamente con la condivisione file di Azure nell'account di archiviazione. Il server ha una chiave di firma di accesso condiviso che consente l'accesso solo a specifiche condivisioni file. |
-| **Sincronizzazione file di Azure** | &ast;.one.microsoft.com<br>&ast;. afs.azure.net | &ast;. afs.azure.us | Dopo la registrazione iniziale, il server riceve un URL regionale relativo all'istanza del servizio Sincronizzazione file di Azure disponibile in quell'area. Il server può usare l'URL per comunicare direttamente e in modo efficiente con l'istanza che gestisce la sincronizzazione. |
-| **Infrastruttura a chiave pubblica Microsoft** | https://www.microsoft.com/pki/mscorp<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp<br><http://ocsp.msocsp.com> | Dopo l'installazione dell'agente di Sincronizzazione file di Azure, l'URL dell'infrastruttura a chiave pubblica viene usato per scaricare i certificati intermedi necessari per comunicare con il servizio Sincronizzazione file di Azure e la condivisione file di Azure. L'URL OCSP viene usato per controllare lo stato di un certificato. |
+| **Archiviazione di Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quando il server scarica un file, esegue lo spostamento dati in modo più efficiente se comunica direttamente con la condivisione file di Azure nell'account di archiviazione. Il server ha una chiave di firma di accesso condiviso che consente l'accesso solo a specifiche condivisioni file. |
+| **Sincronizzazione file di Azure** | &ast;.one.microsoft.com<br>&ast;. afs.azure.net | &ast;.afs.azure.us | Dopo la registrazione iniziale, il server riceve un URL regionale relativo all'istanza del servizio Sincronizzazione file di Azure disponibile in quell'area. Il server può usare l'URL per comunicare direttamente e in modo efficiente con l'istanza che gestisce la sincronizzazione. |
+| **Infrastruttura a chiave pubblica Microsoft** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Dopo l'installazione dell'agente di Sincronizzazione file di Azure, l'URL dell'infrastruttura a chiave pubblica viene usato per scaricare i certificati intermedi necessari per comunicare con il servizio Sincronizzazione file di Azure e la condivisione file di Azure. L'URL OCSP viene usato per controllare lo stato di un certificato. |
 
 > [!Important]
 > Quando si consente il traffico a &ast;.one.microsoft.com, il traffico dal server non è più limitato solo al servizio di sincronizzazione. Nei sottodomini sono infatti disponibili molti altri servizi Microsoft.
@@ -105,7 +105,7 @@ If &ast;.one.microsoft.com è troppo ampio, è possibile limitare le comunicazio
 
 Per ragioni di continuità aziendale e ripristino di emergenza (BCDR) è possibile che siano state specificate condivisioni file di Azure in un account di archiviazione con ridondanza geografica (GRS). In tal caso, le condivisioni file di Azure eseguiranno il failover nell'area abbinata se si verifica un'interruzione duratura a livello di area. Sincronizzazione file di Azure usa le stesse associazioni a livello di area della risorsa di archiviazione. Quindi, se si usano gli account di archiviazione GRS, è necessario abilitare URL aggiuntivi per consentire al server di comunicare con l'area abbinata per Sincronizzazione file di Azure. La tabella seguente chiama questa "area abbinata". Inoltre, vi è anche un URL del profilo di gestione traffico che deve essere abilitato. In questo modo il traffico di rete può essere indirizzato di nuovo con facilità all'area abbinata in caso di failover ed è chiamato "URL di individuazione" nella tabella seguente.
 
-| Cloud  | Region | URL dell'endpoint primario | Area associata | URL di individuazione |
+| Cloud  | Area | URL dell'endpoint primario | Area associata | URL di individuazione |
 |--------|--------|----------------------|---------------|---------------|
 | Pubblico |Australia orientale | https:\//kailani-aue.one.microsoft.com | Australia sudorientale | https:\//tm-kailani-aue.one.microsoft.com |
 | Pubblico |Australia sudorientale | https:\//kailani-aus.one.microsoft.com | Australia orientale | https:\//tm-kailani-aus.one.microsoft.com |
@@ -115,7 +115,7 @@ Per ragioni di continuità aziendale e ripristino di emergenza (BCDR) è possibi
 | Pubblico | India centrale | https:\//kailani-cin.one.microsoft.com | India meridionale | https:\//tm-kailani-cin.one.microsoft.com |
 | Pubblico | Stati Uniti centrali | https:\//kailani-cus.one.microsoft.com | Stati Uniti orientali 2 | https:\//tm-kailani-cus.one.microsoft.com |
 | Pubblico | Asia orientale | https:\//kailani11.one.microsoft.com | Asia sudorientale | https:\//tm-kailani11.one.microsoft.com |
-| Pubblico | Stati Uniti orientali | https:\//kailani1.one.microsoft.com | Stati Uniti occidentali | https:\//tm-kailani1.one.microsoft.com |
+| Pubblico | Stati Uniti Orientali | https:\//kailani1.one.microsoft.com | Stati Uniti occidentali | https:\//tm-kailani1.one.microsoft.com |
 | Pubblico | Stati Uniti orientali 2 | https:\//kailani-ess.one.microsoft.com | Stati Uniti centrali | https:\//tm-kailani-ess.one.microsoft.com |
 | Pubblico | Giappone orientale | https:\//japaneast01.afs.azure.net | Giappone occidentale | https:\//tm-japaneast01.afs.azure.net |
 | Pubblico | Giappone occidentale | https:\//japanwest01.afs.azure.net | Giappone orientale | https:\//tm-japanwest01.afs.azure.net |
@@ -130,7 +130,7 @@ Per ragioni di continuità aziendale e ripristino di emergenza (BCDR) è possibi
 | Pubblico | Regno Unito occidentale | https:\//kailani-ukw.one.microsoft.com | Regno Unito meridionale | https:\//tm-kailani-ukw.one.microsoft.com |
 | Pubblico | Stati Uniti centro-occidentali | https:\//westcentralus01.afs.azure.net | Stati Uniti occidentali 2 | https:\//tm-westcentralus01.afs.azure.net |
 | Pubblico | Europa occidentale | https:\//kailani6.one.microsoft.com | Europa settentrionale | https:\//tm-kailani6.one.microsoft.com |
-| Pubblico | Stati Uniti occidentali | https:\//kailani.one.microsoft.com | Stati Uniti orientali | https:\//tm-kailani.one.microsoft.com |
+| Pubblico | Stati Uniti occidentali | https:\//kailani.one.microsoft.com | Stati Uniti Orientali | https:\//tm-kailani.one.microsoft.com |
 | Pubblico | Stati Uniti occidentali 2 | https:\//westus201.afs.azure.net | Stati Uniti centro-occidentali | https:\//tm-westus201.afs.azure.net |
 | Government | Governo degli Stati Uniti - Arizona | https:\//usgovarizona01.afs.azure.us | Governo degli Stati Uniti - Texas | https:\//tm-usgovarizona01.afs.azure.us |
 | Government | Governo degli Stati Uniti - Texas | https:\//usgovtexas01.afs.azure.us | Governo degli Stati Uniti - Arizona | https:\//tm-usgovtexas01.afs.azure.us |

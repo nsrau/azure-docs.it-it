@@ -1,5 +1,5 @@
 ---
-title: 'Configurare la modalità di trasporto IPsec per host Windows - peering privato: ExpressRoute: Azure | Microsoft Docs'
+title: 'Peering privato di Azure ExpressRoute: configurare la modalità di trasporto IPsec-host Windows'
 description: Come abilitare la modalità trasporto IPSec tra macchine virtuali Windows di Azure e host Windows locali tramite il peering privato ExpressRoute usando oggetti Criteri di gruppo e unità organizzative.
 services: expressroute
 author: fabferri
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
-ms.openlocfilehash: d728980517988e2dc39be4e4b64d20157a1aef54
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1bc33047d31262af443cddc418853fbacd88aec1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367272"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021999"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurare la modalità trasporto IPSec per il peering privato ExpressRoute
 
@@ -47,9 +47,9 @@ I **criteri IPSec** sono composti dagli elementi seguenti: **elenchi di filtri**
 
 Quando si configurano i criteri IPSec, è importante comprendere la terminologia seguente:
 
-* **Criteri IPsec:** una raccolta di regole. In un determinato momento può essere attivo ("assegnato") un solo criterio. Ogni criterio può avere una o più regole, che possono essere attive contemporaneamente. A un computer può venire assegnato solo un criterio IPSec attivo in un determinato momento. Tuttavia, all'interno di un criterio IPSec, è possibile definire più operazioni che possono essere eseguite in situazioni diverse. Ogni set di regole IPSec è associato a un elenco di filtri che influiscono sul tipo di traffico di rete a cui si applica la regola.
+* **Criteri IPSec:** raccolta di regole. In un determinato momento può essere attivo ("assegnato") un solo criterio. Ogni criterio può avere una o più regole, che possono essere attive contemporaneamente. A un computer può venire assegnato solo un criterio IPSec attivo in un determinato momento. Tuttavia, all'interno di un criterio IPSec, è possibile definire più operazioni che possono essere eseguite in situazioni diverse. Ogni set di regole IPSec è associato a un elenco di filtri che influiscono sul tipo di traffico di rete a cui si applica la regola.
 
-* **Elenchi di filtri:** gli elenchi di filtri sono aggregazioni di uno o più filtri. Un elenco può contenere più filtri. Un filtro definisce se la comunicazione è consentita, protetta o bloccata, in base a intervalli di indirizzi IP, protocolli o anche porte specifiche dei protocolli. Ogni filtro corrisponde a un particolare set di condizioni, ad esempio i pacchetti inviati da una subnet specifica a un determinato computer su una porta di destinazione specifica. Quando le condizioni di rete corrispondono a uno o più filtri, l'elenco di filtri viene attivato. Ogni filtro è definito all'interno di un elenco di filtri specifico. I filtri non possono essere condivisi tra elenchi di filtri. Un determinato elenco di filtri può tuttavia essere incorporato in diversi criteri IPSec. 
+* **Elenchi di filtri:** gli elenchi di filtri sono gruppi di uno o più filtri. Un elenco può contenere più filtri. Un filtro definisce se la comunicazione è consentita, protetta o bloccata, in base a intervalli di indirizzi IP, protocolli o anche porte specifiche dei protocolli. Ogni filtro corrisponde a un particolare set di condizioni, ad esempio i pacchetti inviati da una subnet specifica a un determinato computer su una porta di destinazione specifica. Quando le condizioni di rete corrispondono a uno o più filtri, l'elenco di filtri viene attivato. Ogni filtro è definito all'interno di un elenco di filtri specifico. I filtri non possono essere condivisi tra elenchi di filtri. Un determinato elenco di filtri può tuttavia essere incorporato in diversi criteri IPSec. 
 
 * **Operazioni di filtro:** un metodo di sicurezza definisce un set di algoritmi di sicurezza, protocolli e chiavi offerti da un computer durante le negoziazioni IKE. Le operazioni di filtro sono elenchi di metodi di sicurezza, classificati in ordine di preferenza.  Quando un computer negozia una sessione IPSec, accetta o invia proposte in base all'impostazione di sicurezza archiviata nell'elenco di operazioni di filtro.
 
@@ -99,7 +99,7 @@ Accertarsi che siano soddisfatti i prerequisiti seguenti:
 
 * **Macchine virtuali Windows di Azure:** vm1, vm2
 
-## <a name="creategpo"></a>1. Creare un oggetto Criteri di gruppo
+## <a name="creategpo"></a>1. creare un oggetto Criteri di gruppo
 
 1. Per creare un nuovo oggetto Criteri di gruppo collegato a un'unità organizzativa, aprire lo snap-in Gestione Criteri di gruppo e individuare l'unità organizzativa a cui l'oggetto Criteri di gruppo verrà collegato. Nell'esempio il nome dell'unità organizzativa è **IPSecOU**. 
 
@@ -111,7 +111,7 @@ Accertarsi che siano soddisfatti i prerequisiti seguenti:
 
    [![11]][11]
 
-## <a name="enablelink"></a>2. Abilitare il collegamento dell'oggetto Criteri di gruppo
+## <a name="enablelink"></a>2. abilitare il collegamento dell'oggetto Criteri di gruppo
 
 Per applicare l'oggetto Criteri di gruppo all'unità organizzativa, non è sufficiente che l'oggetto Criteri di gruppo sia collegato all'unità organizzativa, ma è anche necessario abilitare il collegamento.
 
@@ -120,7 +120,7 @@ Per applicare l'oggetto Criteri di gruppo all'unità organizzativa, non è suffi
 
    [![12]][12]
 
-## <a name="filteraction"></a>3. Definire l'operazione di filtro IP
+## <a name="filteraction"></a>3. definire l'azione del filtro IP
 
 1. Nell'elenco a discesa fare clic con il pulsante destro del mouse su **Criteri di sicurezza IP su Active Directory** e quindi scegliere **Gestisci elenchi filtri IP e operazioni filtro**.
 
@@ -151,7 +151,7 @@ Per applicare l'oggetto Criteri di gruppo all'unità organizzativa, non è suffi
 
    [![23]][23]
 
-## <a name="filterlist1"></a>4. Definire un elenco di filtri IP
+## <a name="filterlist1"></a>4. definire un elenco di filtri IP
 
 Creare un elenco di filtri che specifica il traffico HTTP crittografato destinato alla porta 8080.
 
@@ -170,7 +170,7 @@ Creare un elenco di filtri che specifica il traffico HTTP crittografato destinat
 5. Specificare l'indirizzo di origine in **Subnet o indirizzo IP** per il traffico IP e quindi fare clic su **Avanti**.
 
    [![28]][28]
-6. Specificare il **Tipo di indirizzo di destinazione:** indirizzo IP o subnet. Quindi fare clic su **Next**.
+6. Specificare il valore di Subnet o indirizzo IP in **Indirizzo di destinazione**. Quindi fare clic su **Next**.
 
    [![29]][29]
 7. Nella pagina **Tipo protocollo IP** selezionare **TCP**. Quindi fare clic su **Next**.
@@ -188,7 +188,7 @@ Creare un elenco di filtri che specifica il traffico HTTP crittografato destinat
 
    [![32]][32]
 
-## <a name="filterlist2"></a>5. Modificare l'elenco di filtri IP
+## <a name="filterlist2"></a>5. modificare l'elenco di filtri IP
 
 Per crittografare lo stesso tipo di traffico nella direzione opposta (dall'host locale alla macchina virtuale di Azure) è necessario un secondo filtro IP. Il processo di configurazione del nuovo filtro corrisponde a quello usato per configurare il primo filtro IP. Le uniche differenze sono la subnet di origine e la subnet di destinazione.
 
@@ -207,7 +207,7 @@ Per crittografare lo stesso tipo di traffico nella direzione opposta (dall'host 
 
 Se è necessaria la crittografia tra una posizione locale e una subnet di Azure per proteggere un'applicazione, invece di modificare l'elenco di filtri IP esistente è possibile aggiungere un nuovo elenco di filtri IP. L'associazione di due elenchi di filtri IP allo stesso criterio IPSec offre una maggiore flessibilità, perché un elenco di filtri IP specifico può essere modificato o rimosso in qualsiasi momento senza alcun impatto sugli altri elenchi di filtri IP.
 
-## <a name="ipsecpolicy"></a>6. Creare un criterio di sicurezza IPSec 
+## <a name="ipsecpolicy"></a>6. creare un criterio di sicurezza IPsec 
 
 Creare un criterio IPSec con regole di sicurezza.
 
@@ -224,7 +224,7 @@ Creare un criterio IPSec con regole di sicurezza.
 
    [![40]][40]
 
-## <a name="editipsec"></a>7. Modificare i criteri di sicurezza IPSec
+## <a name="editipsec"></a>7. modificare i criteri di sicurezza IPsec
 
 Aggiungere i criteri IPSec all'**elenco di filtri IP** e all'**operazione di filtro** configurati in precedenza.
 
@@ -252,7 +252,7 @@ Aggiungere i criteri IPSec all'**elenco di filtri IP** e all'**operazione di fil
 6. Selezionare l'operazione di filtro esistente **myEncryption** creata in precedenza.
 
    [![46]][46]
-7. Windows supporta quattro diversi tipi di autenticazione: Kerberos, con certificati, NTLMv2 e con chiave precondivisa. Poiché si stanno usando host aggiunti al dominio, selezionare **Impostazione predefinita di Active Directory (protocollo V5 Kerberos)** e quindi fare clic su **Avanti**.
+7. Windows supporta quattro tipi diversi di autenticazioni: Kerberos, certificati, NTLMv2 e chiave già condivisa. Poiché si stanno usando host aggiunti al dominio, selezionare **Impostazione predefinita di Active Directory (protocollo V5 Kerberos)** e quindi fare clic su **Avanti**.
 
    [![47]][47]
 8. Il nuovo criterio crea la regola di sicurezza: **azure-onpremises-HTTP8080**. Fare clic su **OK**.
@@ -261,7 +261,7 @@ Aggiungere i criteri IPSec all'**elenco di filtri IP** e all'**operazione di fil
 
 Il criterio IPSec richiede che tutte le connessioni HTTP sulla porta di destinazione 8080 usino la modalità trasporto IPSec. Poiché HTTP è un protocollo di testo non crittografato, l'abilitazione del criterio di sicurezza garantisce che i dati vengano crittografati quando vengono trasferiti tramite il peering privato ExpressRoute. I criteri di sicurezza IP per Active Directory sono più complessi da configurare rispetto a Windows Firewall con sicurezza avanzata, ma consentono una maggiore personalizzazione della connessione IPSec.
 
-## <a name="assigngpo"></a>8. Assegnare l'oggetto Criteri di gruppo IPSec all'unità organizzativa
+## <a name="assigngpo"></a>8. assegnare l'oggetto Criteri di gruppo IPsec all'unità organizzativa
 
 1. Visualizzare il criterio. Il criterio di gruppo di sicurezza è definito ma non ancora assegnato.
 

@@ -1,18 +1,19 @@
 ---
-title: Creare e usare le regole personalizzate di Azure Web Application Firewall (WAF) V2
+title: Creare e usare le regole personalizzate V2
+titleSuffix: Azure Web Application Firewall
 description: Questo articolo fornisce informazioni su come creare regole personalizzate di Web Application Firewall (WAF) V2 in applicazione Azure gateway.
 services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/04/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: d8ba105e15a825b6b53d941ed2f3847fa597d538
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4efa60a48a540efdd835b106afa5872057ae3d53
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516656"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046425"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Creare e usare le regole personalizzate del Web Application Firewall v2 sul gateway applicazione
 

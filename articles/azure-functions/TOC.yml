@@ -395,5 +395,5 @@
       href: 'https://feedback.azure.com/forums/355860-azure-functions'
     - name: Repository GitHub di Funzioni di Azure
       href: 'https://github.com/Azure/Azure-Functions/'
-    - name: Aggiornamenti del servizio
+    - name: Aggiornamenti di Azure
       href: 'https://azure.microsoft.com/updates/?product=functions&updatetype=&platform='

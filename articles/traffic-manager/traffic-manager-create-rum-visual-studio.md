@@ -1,5 +1,5 @@
 ---
-title: Misurazioni utente reale in Gestione traffico di Azure con Visual Studio Mobile Center | Microsoft Docs
+title: Misurazioni utente reale con Visual Studio Mobile Center-gestione traffico di Azure
 description: Configurare l'applicazione per dispositivi mobili sviluppata usando Visual Studio Mobile Center per inviare Misurazioni utente reale a Gestione traffico
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 95207cea5988a22b0b3caa23be39b481f9fd687b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 734049a45eca2688b2ad309ee3245bbb7bf152de
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071246"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040308"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Come inviare Misurazioni utente reale a Gestione traffico con Visual Studio Mobile Center
 
@@ -29,7 +29,7 @@ ms.locfileid: "67071246"
 
 Per configurare Misurazioni utente reale, è necessario ottenere una chiave e instrumentare l'app con il pacchetto RUM.
 
-## <a name="step-1-obtain-a-key"></a>Passaggio 1: Ottenere una chiave
+## <a name="step-1-obtain-a-key"></a>Passaggio 1: ottenere una chiave
     
 Le misurazioni prese e inviate a Gestione traffico dall'applicazione client vengono identificate dal servizio usando una stringa univoca, chiamata chiave delle Misurazioni utente reale (RUM). È possibile ottenere una chiave RUM attraverso il portale di Azure, un'API REST, oppure tramite PowerShell o le interfacce della riga di comando.
 
@@ -41,17 +41,17 @@ Per ottenere la chiave RUM usando il portale di Azure attenersi alla procedura s
         
    ![Generare una chiave delle Misurazioni utente reale](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Figura 1: Generazione della chiave delle misurazioni utente reale**
+   **Figura 1: Generazione della chiave per le Misurazioni utente reale**
 
 5. La pagina visualizzata include la chiave RUM generata e un frammento di codice JavaScript che deve essere incorporato nella pagina HTML.
  
    ![Codice JavaScript per la chiave delle Misurazioni utente reale](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
 
-   **Figura 2: Chiave delle misurazioni utente reale e JavaScript per le misurazioni**
+   **Figura 2: Chiave delle Misurazioni utente reale e JavaScript per le misurazioni**
  
 6. Fare clic sul pulsante **Copia** per copiare la chiave RUM. 
 
-## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Passaggio 2: Instrumentare l'app con il pacchetto RUM del Mobile Center SDK
+## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Passaggio 2: Instrumentare un'app con il pacchetto RUM del Mobile Center SDK
 
 Se non si ha familiarità con Visual Studio Mobile Center, visitare il relativo [sito Web](https://mobile.azure.com). Per istruzioni dettagliate sull'integrazione SDK, vedere [Introduzione ad Android SDK](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android).
 

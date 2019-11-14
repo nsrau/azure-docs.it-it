@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 4a0736267ca00b67f35abc7cf263e7cf19543d81
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 6ab01cf42dac280e64470355f7ea5804cad669d7
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932117"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048798"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -233,7 +233,7 @@ Quando si registra un modello, è necessario specificare un nome di modello util
 Quando si registra un modello, è necessario assegnargli un nome. Il nome corrisponde alla posizione in cui viene inserito il modello, localmente o durante la distribuzione del servizio.
 
 > [!IMPORTANT]
-> Se è stato usato Machine Learning automatico per eseguire il training di un modello, viene usato un valore `model_id` come nome del modello. Per un esempio di registrazione e distribuzione di un modello con training automatico, vedere [Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment) su GitHub.
+> Se è stato usato Machine Learning automatico per eseguire il training di un modello, viene usato un valore `model_id` come nome del modello. Per un esempio di registrazione e distribuzione di un modello con training automatico, vedere [Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features) su GitHub.
 
 Nell'esempio seguente viene restituito un percorso a un singolo file denominato `sklearn_mnist_model.pkl` (registrato con il nome `sklearn_mnist`):
 
@@ -375,8 +375,8 @@ def run(data):
 
 Per altri esempi, vedere gli script seguenti:
 
-* [PyTorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
-* [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
+* [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
+* [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
 * [Keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
 * [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
 
@@ -572,7 +572,7 @@ Per informazioni sull'uso della profilatura dall'interfaccia della riga di coman
 Per ulteriori informazioni, vedere i documenti seguenti:
 
 * [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
-* [profilo ()](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
+* [profilo ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
 * [Schema del file di configurazione dell'inferenza](reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## <a name="deploy-to-target"></a>Distribuisci nella destinazione
@@ -584,7 +584,7 @@ La distribuzione usa la configurazione di distribuzione per la configurazione de
 Per distribuire un modello localmente, è necessario che Docker sia installato nel computer locale.
 
 #### <a name="using-the-sdk"></a>Uso dell'SDK
-
+ZZS
 ```python
 from azureml.core.webservice import LocalWebservice, Webservice
 

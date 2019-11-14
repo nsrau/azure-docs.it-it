@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0c263e1353a07ca388ea9a7fb48ebcf99be07fc1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 79f1bd95451709485f92050a882c790f9e281eb5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820627"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049021"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Sviluppo con le API di servizi multimediali V3
 
@@ -108,7 +108,7 @@ Servizi multimediali prevede le seguenti operazioni a esecuzione prolungata:
 
 Al termine dell'invio di un'operazione di lunga durata si riceve un valore "202 accepted" ed è necessario eseguire il polling del completamento dell'operazione utilizzando l'ID operazione restituito.
 
-L'articolo [tenere traccia delle operazioni asincrone di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) illustra in dettaglio come tenere traccia dello stato delle operazioni di Azure asincrone tramite i valori restituiti nella risposta.
+L'articolo [Tenere traccia delle operazioni asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) spiega in maniera approfondita come tenere traccia dello stato delle operazioni asincrone di Azure tramite i valori restituiti nella risposta.
 
 È supportata una sola operazione a esecuzione prolungata per un evento Live specificato o uno qualsiasi degli output Live associati. Una volta avviata, è necessario completare un'operazione a esecuzione prolungata prima di avviare una successiva operazione a esecuzione prolungata nello stesso Live o in qualsiasi output Live associato. Per gli eventi live con più output Live, è necessario attendere il completamento di un'operazione a esecuzione prolungata su un output Live prima di attivare un'operazione a esecuzione prolungata su un altro output Live. 
 
@@ -117,12 +117,12 @@ L'articolo [tenere traccia delle operazioni asincrone di Azure](https://docs.mic
 > [!NOTE]
 > Gli SDK di Servizi multimediali di Azure v3 non sono garantiti come thread-safe. Quando si sviluppa un'applicazione multithreading, è necessario aggiungere la propria logica di sincronizzazione thread per proteggere il client oppure usare un nuovo oggetto AzureMediaServicesClient per ogni thread. È anche necessario prestare attenzione ai problemi di multithreading introdotti da oggetti facoltativi forniti dal codice al client (ad esempio, un'istanza di HttpClient in .NET).
 
-|SDK|Riferimenti|
+|SDK|riferimento|
 |---|---|
 |[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[Informazioni di riferimento su .NET](https://aka.ms/ams-v3-dotnet-ref)|
 |[SDK per Java](https://aka.ms/ams-v3-java-sdk)|[Informazioni di riferimento su Java](https://aka.ms/ams-v3-java-ref)|
 |[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Informazioni di riferimento su Python](https://aka.ms/ams-v3-python-ref)|
-|[SDK per Node.js](https://aka.ms/ams-v3-nodejs-sdk) |[Informazioni di riferimento su Node.js](https://aka.ms/ams-v3-nodejs-ref)| 
+|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Informazioni di riferimento su Node.js](/javascript/api/overview/azure/mediaservices/management)| 
 |[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Informazioni di riferimento su Go](https://aka.ms/ams-v3-go-ref)|
 |[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 

@@ -8,12 +8,12 @@ ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 78e3f1d4f457e041d386ac7754d089b8b3635b08
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f5aafbb22ecbff416d90aa5b98eb027c33872b35
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686644"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048553"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Trasferire i dati con AzCopy e l'archiviazione BLOB
 
@@ -70,7 +70,7 @@ Per informazioni dettagliate sulla documentazione di riferimento, vedere [azcopy
 | **Esempio** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
 | **Esempio** (spazio dei nomi gerarchico) | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'` |
 
-È anche possibile caricare un file usando un carattere jolly (*) in qualsiasi punto del percorso o del nome file. Ad esempio: `'C:\myDirectory\*.txt'` o `C:\my*\*.txt`.
+È anche possibile caricare un file usando un carattere jolly (*) in qualsiasi punto del percorso o del nome file. Ad esempio: `'C:\myDirectory\*.txt'`o `C:\my*\*.txt`.
 
 > [!NOTE]
 > Per impostazione predefinita, AzCopy carica i dati in BLOB in blocchi. Per caricare i file come BLOB di accodamento o BLOB di pagine, usare il flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
@@ -105,7 +105,7 @@ Se si specifica il nome di una directory che non esiste nel contenitore, AzCopy 
 | **Esempio** (spazio dei nomi gerarchico) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory'` |
 
 > [!NOTE]
-> Aggiungere il flag `--recursive` per caricare i file in tutte le sottodirectory.
+> Aggiungere il flag di `--recursive` per caricare i file in tutte le sottodirectory.
 
 ### <a name="upload-specific-files"></a>Carica file specifici
 
@@ -121,7 +121,7 @@ Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l'opzione `--incl
 | **Esempio** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive` |
 | **Esempio** (spazio dei nomi gerarchico) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive` |
 
-In questo esempio, AzCopy trasferisce la directory `C:\myDirectory\photos` e il file `C:\myDirectory\documents\myFile.txt`. È necessario includere l'opzione `--recursive` per trasferire tutti i file nella directory `C:\myDirectory\photos`.
+In questo esempio, AzCopy trasferisce la directory `C:\myDirectory\photos` e il file di `C:\myDirectory\documents\myFile.txt`. È necessario includere l'opzione `--recursive` per trasferire tutti i file nella directory `C:\myDirectory\photos`.
 
 È anche possibile escludere i file utilizzando l'opzione `--exclude-path`. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
@@ -137,7 +137,7 @@ Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l'opzione `--incl
 
 È anche possibile escludere i file utilizzando l'opzione `--exclude-pattern`. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
-Le opzioni `--include-pattern` e `--exclude-pattern` si applicano solo ai nomi file e non al percorso.  Se si desidera copiare tutti i file di testo presenti in un albero di directory, utilizzare l'opzione `–recursive` per ottenere l'intero albero di directory e quindi utilizzare il `–include-pattern` e specificare `*.txt` per ottenere tutti i file di testo.
+Le opzioni `--include-pattern` e `--exclude-pattern` sono valide solo per i nomi file e non per il percorso.  Se si desidera copiare tutti i file di testo presenti in un albero di directory, utilizzare l'opzione `–recursive` per ottenere l'intero albero di directory, quindi utilizzare l'`–include-pattern` e specificare `*.txt` per ottenere tutti i file di testo.
 
 ## <a name="download-files"></a>Download dei file
 
@@ -190,7 +190,7 @@ Questo esempio genera una directory denominata `C:\myDirectory\myBlobDirectory` 
 | **Esempio** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/*' 'C:\myDirectory'` |
 
 > [!NOTE]
-> Aggiungere il flag `--recursive` per scaricare i file in tutte le sottodirectory.
+> Aggiungere il flag di `--recursive` per scaricare i file in tutte le sottodirectory.
 
 ### <a name="download-specific-files"></a>Scarica file specifici
 
@@ -206,7 +206,7 @@ Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l'opzione `--incl
 | **Esempio** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
 | **Esempio** (spazio dei nomi gerarchico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt'--recursive` |
 
-In questo esempio, AzCopy trasferisce la directory `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` e il file `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/documents/myFile.txt`. È necessario includere l'opzione `--recursive` per trasferire tutti i file nella directory `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos`.
+In questo esempio, AzCopy trasferisce la directory `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` e il file di `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/documents/myFile.txt`. È necessario includere l'opzione `--recursive` per trasferire tutti i file nella directory `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos`.
 
 È anche possibile escludere i file utilizzando l'opzione `--exclude-path`. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
@@ -222,7 +222,7 @@ Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l'opzione `--incl
 
 È anche possibile escludere i file utilizzando l'opzione `--exclude-pattern`. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
-Le opzioni `--include-pattern` e `--exclude-pattern` si applicano solo ai nomi file e non al percorso.  Se si desidera copiare tutti i file di testo presenti in un albero di directory, utilizzare l'opzione `–recursive` per ottenere l'intero albero di directory e quindi utilizzare il `–include-pattern` e specificare `*.txt` per ottenere tutti i file di testo.
+Le opzioni `--include-pattern` e `--exclude-pattern` sono valide solo per i nomi file e non per il percorso.  Se si desidera copiare tutti i file di testo presenti in un albero di directory, utilizzare l'opzione `–recursive` per ottenere l'intero albero di directory, quindi utilizzare l'`–include-pattern` e specificare `*.txt` per ottenere tutti i file di testo.
 
 ## <a name="copy-blobs-between-storage-accounts"></a>Copiare i BLOB tra gli account di archiviazione
 
@@ -235,7 +235,7 @@ AzCopy usa le [API](https://docs.microsoft.com/rest/api/storageservices/put-page
 >
 > - Sono supportati solo gli account che non dispongono di uno spazio dei nomi gerarchico.
 > - È necessario aggiungere un token SAS a ogni URL di origine. Se si forniscono le credenziali di autorizzazione usando Azure Active Directory (AD), è possibile omettere il token SAS solo dall'URL di destinazione.
->-  Gli account di archiviazione BLOB in blocchi Premium non supportano i livelli di accesso. Omettere il livello di accesso di un BLOB dall'operazione di copia impostando il `s2s-preserve-access-tier` su `false` (ad esempio: `--s2s-preserve-access-tier=false`).
+>-  Gli account di archiviazione BLOB in blocchi Premium non supportano i livelli di accesso. Omettere il livello di accesso di un BLOB dall'operazione di copia impostando il `s2s-preserve-access-tier` su `false`, ad esempio `--s2s-preserve-access-tier=false`.
 
 Questa sezione contiene gli esempi seguenti:
 
@@ -275,7 +275,7 @@ Per informazioni dettagliate sulla documentazione di riferimento, vedere [azcopy
 
 |    |     |
 |--------|-----------|
-| **Sintassi** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/?<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/' --recursive'` |
+| **Sintassi** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/?<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/' --recursive` |
 | **Esempio** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
 
 ## <a name="synchronize-files"></a>Sincronizzare i file
@@ -285,9 +285,9 @@ Per informazioni dettagliate sulla documentazione di riferimento, vedere [azcopy
 > [!NOTE]
 > Attualmente, questo scenario è supportato solo per gli account che non dispongono di uno spazio dei nomi gerarchico. La versione corrente di AzCopy non esegue la sincronizzazione tra altre origini e destinazioni, ad esempio file storage o Amazon Web Services (AWS) S3 bucket).
 
-Il comando di [sincronizzazione](storage-ref-azcopy-sync.md) Confronta i nomi di file e i timestamp dell'Ultima modifica. Impostare il flag facoltativo `--delete-destination` sul valore `true` o `prompt` per eliminare i file nella directory di destinazione se tali file non sono più presenti nella directory di origine.
+Il comando di [sincronizzazione](storage-ref-azcopy-sync.md) Confronta i nomi di file e i timestamp dell'Ultima modifica. Impostare il flag `--delete-destination` facoltativo sul valore `true` o `prompt` per eliminare i file nella directory di destinazione se tali file non sono più presenti nella directory di origine.
 
-Se si imposta il flag `--delete-destination` su `true` AzCopy Elimina i file senza specificare un messaggio di richiesta. Se si desidera che venga visualizzata una richiesta prima che AzCopy elimini un file, impostare il flag `--delete-destination` su `prompt`.
+Se si imposta il flag di `--delete-destination` su `true` AzCopy Elimina i file senza fornire un prompt. Se si desidera che venga visualizzato un messaggio prima che AzCopy elimini un file, impostare il flag `--delete-destination` su `prompt`.
 
 > [!NOTE]
 > Per evitare eliminazioni accidentali, assicurarsi di abilitare la funzionalità di [eliminazione](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) temporanea prima di usare il flag di `--delete-destination=prompt|true`.

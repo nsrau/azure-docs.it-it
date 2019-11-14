@@ -1,18 +1,18 @@
 ---
-title: Personalizzare le regole del Web Application Firewall in applicazione Azure gateway-portale di Azure
+title: Personalizzare le regole usando il portale-Web Application Firewall di Azure
 description: Questo articolo fornisce informazioni su come personalizzare le regole del Web Application Firewall nel gateway applicazione con il portale di Azure.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/24/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: ab2722ed4a4aa4fe95be15cd536bfd5d959f9139
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c4635333614ee1c0fd0322c29a659380fb4315c9
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516929"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048373"
 ---
 # <a name="customize-web-application-firewall-rules-using-the-azure-portal"></a>Personalizzare le regole del Web Application Firewall usando il portale di Azure
 

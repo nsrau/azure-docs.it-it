@@ -3,20 +3,20 @@ title: Procedure consigliate per l'uso di Power BI per eseguire query e visualiz
 description: Questo articolo illustra le procedure consigliate per l'uso di Power BI per eseguire query e visualizzare i dati di Esplora dati di Azure.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 39fab02ebc3a80e0aae34a86a1a6b7f3f46c96f3
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: db1d530c9cab77ae612c83a0d4f52478fb9ee270
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286743"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024025"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Procedure consigliate per l'uso di Power BI per eseguire query e visualizzare i dati di Azure Esplora dati
 
-Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. [Power bi](https://docs.microsoft.com/power-bi/) è una soluzione di analisi business che consente di visualizzare i dati e condividere i risultati nell'intera organizzazione. Azure Esplora dati offre tre opzioni per la connessione ai dati Power BI. Usare il [connettore incorporato](power-bi-connector.md), [importare una query da Azure Esplora dati in Power bi](power-bi-imported-query.md)oppure usare una [query SQL](power-bi-sql-query.md). Questo articolo fornisce suggerimenti per l'esecuzione di query e la visualizzazione dei dati di Azure Esplora dati con Power BI. 
+Esplora dati di Azure è un servizio di esplorazione dei dati rapido e a scalabilità elevata per dati di log e di telemetria. [Power bi](https://docs.microsoft.com/power-bi/) è una soluzione di analisi business che consente di visualizzare i dati e condividere i risultati nell'intera organizzazione. Azure Esplora dati offre tre opzioni per la connessione ai dati Power BI. Usare il [connettore incorporato](power-bi-connector.md), [importare una query da Azure Esplora dati in Power bi](power-bi-imported-query.md)oppure usare una [query SQL](power-bi-sql-query.md). Questo articolo fornisce suggerimenti per l'esecuzione di query e la visualizzazione dei dati di Azure Esplora dati con Power BI. 
 
 ## <a name="best-practices-for-using-power-bi"></a>Procedure consigliate per l'utilizzo di Power BI 
 
@@ -46,7 +46,7 @@ La sezione seguente include suggerimenti e consigli per l'uso del linguaggio di 
 
 ### <a name="complex-queries-in-power-bi"></a>Query complesse in Power BI
 
-Le query complesse sono più facilmente espresse in kusto rispetto a Power Query. Devono essere implementate come [funzioni kusto](/azure/kusto/query/functions)e richiamate in Power bi. Questo metodo è obbligatorio quando si usa **DirectQuery** con le istruzioni `let` nella query kusto. Poiché Power BI unisce due query e le istruzioni `let` non possono essere utilizzate con l'operatore `join`, possono verificarsi errori di sintassi. Quindi, salvare ogni parte del join come funzione kusto e consentire a Power BI di unire queste due funzioni insieme.
+Le query complesse sono più facilmente espresse in kusto rispetto a Power Query. Devono essere implementate come [funzioni kusto](/azure/kusto/query/functions)e richiamate in Power bi. Questo metodo è obbligatorio quando si usa **DirectQuery** con `let` istruzioni nella query kusto. Poiché Power BI unisce due query e non è possibile usare le istruzioni `let` con l'operatore `join`, possono verificarsi errori di sintassi. Quindi, salvare ogni parte del join come funzione kusto e consentire a Power BI di unire queste due funzioni insieme.
 
 ### <a name="how-to-simulate-a-relative-date-time-operator"></a>Come simulare un operatore di data e ora relativo
 
@@ -90,7 +90,7 @@ Queste opzioni inviano [istruzioni set](/azure/kusto/query/setstatement) con la 
 
 Utilizzare un parametro di query per filtrare le informazioni nella query e ottimizzare le prestazioni di esecuzione delle query.
  
-Nella finestra **modifica query** **Home** > **Editor avanzato**
+Nella finestra **modifica query** , **Home** > **Editor avanzato**
 
 1. Trovare la sezione seguente della query:
 
@@ -98,7 +98,7 @@ Nella finestra **modifica query** **Home** > **Editor avanzato**
     Source = Kusto.Contents("<Cluster>", "<Database>", "<Query>", [])
     ```
    
-   Esempio:
+   Ad esempio:
 
     ```powerquery-m
     Source = Kusto.Contents("Help", "Samples", "StormEvents | where State == 'ALABAMA' | take 100", [])
@@ -142,7 +142,7 @@ Power BI include un'utilità di pianificazione dell'aggiornamento dati che conse
 
 ### <a name="power-bi-can-send-only-short-lt2000-characters-queries-to-kusto"></a>Power BI possibile inviare query brevi (&lt;2000 caratteri) a kusto
 
-Se l'esecuzione di una query in Power BI genera il seguente errore:  _"DataSource. Error: Impossibile per Web. Contents ottenere il contenuto da... "_ la query è probabilmente più lunga di 2000 caratteri. Power BI USA **PowerQuery** per eseguire una query su kusto generando una richiesta HTTP Get che codifica la query come parte dell'URI recuperato. Pertanto, le query kusto rilasciate da Power BI sono limitate alla lunghezza massima di un URI di richiesta (2000 caratteri, meno offset ridotto). Come soluzione alternativa, è possibile definire una [funzione archiviata](/azure/kusto/query/schema-entities/stored-functions) in Kusto e Power bi usare tale funzione nella query.
+Se l'esecuzione di una query in Power BI restituisce l'errore seguente: _"DataSource. Error: Web. Contents non è riuscito a ottenere il contenuto da..."_ la query è probabilmente più lunga di 2000 caratteri. Power BI USA **PowerQuery** per eseguire una query su kusto generando una richiesta HTTP Get che codifica la query come parte dell'URI recuperato. Pertanto, le query kusto rilasciate da Power BI sono limitate alla lunghezza massima di un URI di richiesta (2000 caratteri, meno offset ridotto). Come soluzione alternativa, è possibile definire una [funzione archiviata](/azure/kusto/query/schema-entities/stored-functions) in Kusto e Power bi usare tale funzione nella query.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

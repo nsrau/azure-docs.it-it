@@ -1,18 +1,18 @@
 ---
-title: Risolvere i problemi relativi al Web Application Firewall per applicazione Azure gateway
+title: Risoluzione dei problemi-firewall applicazione Web di Azure
 description: Questo articolo fornisce informazioni sulla risoluzione dei problemi per il Web Application Firewall (WAF) per applicazione Azure gateway
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/22/2019
+ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: fff50417bd7944e125ce1d7c1e1ae52ec22f806f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 33c85752903edd618044ccbab06aff7df9a791da
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516565"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046201"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Risolvere i problemi di Web Application Firewall (WAF) per il gateway applicazione Azure
 
@@ -148,7 +148,7 @@ Per prendere una decisione consapevole sulla gestione di un falso positivo, è i
 
 Un vantaggio dell'uso di un elenco di esclusione è che solo una parte specifica di una richiesta viene disabilitata. Ciò significa tuttavia che un'esclusione specifica è applicabile a tutto il traffico che passa attraverso il WAF perché si tratta di un'impostazione globale. Questo potrebbe, ad esempio, causare un problema se *1 = 1* è una richiesta valida nel corpo di una determinata app, ma non per altri. Un altro vantaggio è che è possibile scegliere tra corpo, intestazioni e cookie da escludere se viene soddisfatta una determinata condizione, anziché escludere l'intera richiesta.
 
-Occasionalmente, esistono casi in cui i parametri specifici vengono passati in WAF in modo che potrebbero non essere intuitivi. Ad esempio, è presente un token che viene passato quando si esegue l'autenticazione con Azure Active Directory. Questo token, *__RequestVerificationToken*, viene in genere passato come cookie di richiesta. Tuttavia, in alcuni casi in cui i cookie sono disabilitati, questo token viene anche passato come attributo della richiesta o "arg". In tal caso, è necessario assicurarsi che *__RequestVerificationToken* venga aggiunto anche all'elenco di esclusione come **nome di attributo della richiesta** .
+Occasionalmente, esistono casi in cui i parametri specifici vengono passati in WAF in modo che potrebbero non essere intuitivi. Ad esempio, è presente un token che viene passato quando si esegue l'autenticazione con Azure Active Directory. Questo token, *__RequestVerificationToken*, viene in genere passato come cookie di richiesta. Tuttavia, in alcuni casi in cui i cookie sono disabilitati, questo token viene anche passato come attributo della richiesta o "arg". In tal caso, è necessario assicurarsi che *__RequestVerificationToken* venga aggiunto anche all'elenco di esclusione come **nome dell'attributo della richiesta** .
 
 ![Esclusioni](../media/web-application-firewall-troubleshoot/exclusion-list.png)
 
@@ -164,7 +164,7 @@ Un vantaggio derivante dalla disabilitazione di una regola è che se si conosce 
 
 Se si vuole usare Azure PowerShell, vedere [personalizzare Web Application Firewall regole tramite PowerShell](application-gateway-customize-waf-rules-powershell.md). Per usare l'interfaccia della riga di comando di Azure, vedere [personalizzare Web Application Firewall regole tramite l'interfaccia della riga di comando di Azure](application-gateway-customize-waf-rules-cli.md).
 
-![Regole WAF](../media/web-application-firewall-troubleshoot/waf-rules.png)
+![Regole di WAF](../media/web-application-firewall-troubleshoot/waf-rules.png)
 
 ## <a name="finding-request-attribute-names"></a>Ricerca dei nomi degli attributi di richiesta
 

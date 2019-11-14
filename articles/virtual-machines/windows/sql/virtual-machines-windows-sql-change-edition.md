@@ -1,5 +1,5 @@
 ---
-title: Eseguire un aggiornamento sul posto di una SQL Server Edition in una macchina virtuale di Azure | Microsoft Docs
+title: Aggiornamento sul posto dell'edizione SQL Server
 description: Informazioni su come modificare l'edizione della macchina virtuale SQL Server in Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 06/26/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: eec2e588b1c2b03e9880dad0848b8213bf5fa449
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 1db45097b0416b680571cb47ec1d9b52f9275c43
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100516"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022209"
 ---
 # <a name="perform-an-in-place-upgrade-of-a-sql-server-edition-on-an-azure-vm"></a>Eseguire un aggiornamento sul posto di una SQL Server Edition in una macchina virtuale di Azure
 
@@ -38,7 +39,7 @@ Se è stata aggiornata l'edizione di SQL Server usando il supporto di installazi
 1. Selezionare **applica** per applicare le modifiche ai metadati dell'edizione. 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per eseguire una modifica sul posto dell'edizione di SQL Server, è necessario quanto segue: 
 
@@ -82,7 +83,7 @@ Per effettuare il downgrade dell'edizione di SQL Server, è necessario disinstal
 
 Dopo il downgrade dell'edizione SQL Server, modificare la proprietà Edition della macchina virtuale SQL Server nel portale di Azure come illustrato in precedenza. I metadati e la fatturazione associati alla macchina virtuale vengono aggiornati.
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - La proprietà Edition della macchina virtuale SQL Server deve corrispondere all'edizione dell'istanza di SQL Server installata per tutte le macchine virtuali SQL Server, inclusi i tipi di licenze con pagamento in base al consumo e Bring your own License.
 - Se si elimina la risorsa SQL Server VM, si tornerà all'impostazione dell'edizione hardcoded dell'immagine.
@@ -91,7 +92,7 @@ Dopo il downgrade dell'edizione SQL Server, modificare la proprietà Edition del
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere i seguenti articoli: 
+Per altre informazioni, vedere gli articoli seguenti: 
 
 * [Panoramica di SQL Server in una macchina virtuale Windows](virtual-machines-windows-sql-server-iaas-overview.md)
 * [Domande frequenti per SQL Server in una macchina virtuale Windows](virtual-machines-windows-sql-server-iaas-faq.md)

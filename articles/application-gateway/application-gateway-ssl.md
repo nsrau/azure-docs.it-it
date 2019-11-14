@@ -1,25 +1,18 @@
 ---
-title: Configurare l'offload SSL - Gateway applicazione di Azure - PowerShell versione classica | Documentazione Microsoft
+title: Offload SSL con PowerShell-applicazione Azure gateway
 description: Questo articolo contiene istruzioni per la creazione di un gateway applicazione con offload SSL tramite il modello di distribuzione classica di Azure.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-ms.assetid: 63f28d96-9c47-410e-97dd-f5ca1ad1b8a4
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 89a88d79b6b93a233dbd4f335d0eb449e49d5289
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c456a0856adb0d36349b5f96ba0ab8bab3eec5c9
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122201"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047911"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurare un gateway applicazione per l'offload SSL tramite il modello di distribuzione classica
 
@@ -56,7 +49,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 Per convalidare la creazione del gateway, è possibile immettere il cmdlet `Get-AzureApplicationGateway`.
 
-In questo esempio **Description**, **InstanceCount** e **GatewaySize** sono parametri facoltativi. Il valore predefinito per **InstanceCount** è **2**, con un valore massimo pari a **10**. Il valore predefinito per **GatewaySize** è **Medium**. Small e Large sono altri valori disponibili. **VirtualIPs** e **DnsName** vengono visualizzati vuoti perché il gateway non è stato ancora avviato. Questi valori vengono creati dopo che il gateway è in esecuzione.
+Nell'esempio **Description**, **InstanceCount** e **GatewaySize** sono parametri facoltativi. Il valore predefinito per **InstanceCount** è **2**, con un valore massimo pari a **10**. Il valore predefinito per **GatewaySize** è **Medium**. Small e Large sono altri valori disponibili. **VirtualIPs** e **DnsName** vengono visualizzati vuoti perché il gateway non è stato ancora avviato. Questi valori vengono creati dopo che il gateway è in esecuzione.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -100,7 +93,7 @@ La configurazione di un gateway applicazione è costituita da più valori. È po
 I valori possibili sono:
 
 * **Pool di server back-end**: elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP o VIP pubblici.
-* **Impostazioni del pool di server back-end**: ogni pool ha impostazioni quali porta, protocollo e affinità basate sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+* **Impostazioni del pool di server back-end**: ogni pool ha impostazioni come porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
 * **Porta front-end**: porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
 * **Listener**: ha una porta front-end, un protocollo (HTTP o HTTPS, con distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura un offload SSL).
 * **Regola**: associa il listener e il pool di server back-end e definisce il pool di server back-end a cui indirizzare il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic* . La regola *basic* è una distribuzione del carico di tipo round robin.

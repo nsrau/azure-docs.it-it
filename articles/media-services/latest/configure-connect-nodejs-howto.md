@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 2ab620ec456610029d699952bb9625abfe4c21dc
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 5361a820da0caa336ccc95ae657407889443268c
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307875"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048426"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Connettersi a servizi multimediali V3 API-Node. js
 
 Questo articolo illustra come connettersi a node. js SDK di servizi multimediali di Azure v3 usando il metodo di accesso dell'entità servizio.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Installare [Node.js](https://nodejs.org/en/download/).
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di servizi multimediali.
@@ -54,7 +54,7 @@ Questo articolo illustra come connettersi a node. js SDK di servizi multimediali
 
 È necessario specificare i pacchetti seguenti:
 
-|Pacchetto|Descrizione|
+|Pacchetto|DESCRIZIONE|
 |---|---|
 |`azure-arm-mediaservices`|SDK di servizi multimediali di Azure. <br/>Per assicurarsi di usare il pacchetto di servizi multimediali di Azure più recente, selezionare [NPM install Azure-ARM-MediaServices](https://www.npmjs.com/package/azure-arm-mediaservices/).|
 |`azure-storage`|SDK di archiviazione. Usato quando si caricano file in asset.|
@@ -130,5 +130,5 @@ node index.js
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare la documentazione [Informazioni di riferimento su Node.js](https://aka.ms/ams-v3-nodejs-ref) di Servizi multimediali e vedere gli [esempi](https://github.com/Azure-Samples/media-services-v3-node-tutorials) che mostrano come usare l'API Servizi multimediali con Node.js.
+Esaminare la documentazione [Informazioni di riferimento su Node.js](/javascript/api/overview/azure/mediaservices/management) di Servizi multimediali e vedere gli [esempi](https://github.com/Azure-Samples/media-services-v3-node-tutorials) che mostrano come usare l'API Servizi multimediali con Node.js.
 

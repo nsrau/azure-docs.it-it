@@ -1,18 +1,19 @@
 ---
-title: Certificati necessari per i backend nell'elenco elementi consentiti in applicazione Azure gateway
-description: Questo articolo fornisce esempi di come un certificato SSL può essere convertito in un certificato di autenticazione e in un certificato radice attendibile necessario per le istanze back-end in applicazione Azure gateway
+title: Certificati necessari per consentire i server back-end
+titleSuffix: Azure Application Gateway
+description: Questo articolo fornisce esempi di come un certificato SSL può essere convertito in un certificato di autenticazione e un certificato radice attendibile necessario per consentire le istanze back-end in applicazione Azure gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: ae1ac3df3da4e5c25e5538f0e8cc4cd12f9186c6
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 48944c513bd075e3859503fdadc4001261dc8c4a
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774783"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048166"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Creare certificati per consentire il back-end con applicazione Azure gateway
 
@@ -25,7 +26,7 @@ In questo articolo viene spiegato come:
 > - Esportare il certificato di autenticazione da un certificato back-end (per lo SKU V1)
 > - Esportare un certificato radice trusted da un certificato back-end (per lo SKU v2)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per generare i certificati di autenticazione o i certificati radice attendibili necessari per consentire le istanze back-end con il gateway applicazione, è necessario un certificato back-end esistente. Il certificato back-end può essere identico a quello del certificato SSL o diverso per la sicurezza aggiuntiva. Il gateway applicazione non fornisce alcun meccanismo per creare o acquistare un certificato SSL. A scopo di test, è possibile creare un certificato autofirmato, ma non è consigliabile usarlo per i carichi di lavoro di produzione. 
 
@@ -37,7 +38,7 @@ Dal certificato SSL esportare il file con estensione cer della chiave pubblica (
 
 1. Per ottenere un file con estensione cer dal certificato, aprire **Gestire i certificati utente**. Individuare il certificato, in genere in ' Certificates-Current Corrente\personale\certificati ' e fare clic con il pulsante destro del mouse. Fare clic su **Tutte le attività** e quindi su **Esporta**. Si avvia la procedura di **Esportazione guidata certificati**. Se non è possibile trovare il certificato in Utente corrente\Personale\Certificati, è possibile aver accidentalmente aperto Certificati - Computer locale" invece di "Certificati - Utente corrente". Se si vuole aprire Gestione certificati nell'ambito dell'utente corrente usando PowerShell, digitare *certmgr* nella finestra della console.
 
-   ![Esportazione](./media/certificates-for-backend-authentication/export.png)
+   ![Export](./media/certificates-for-backend-authentication/export.png)
 
 2. Nella procedura guidata fare clic su **Avanti**.
 
@@ -61,7 +62,7 @@ Dal certificato SSL esportare il file con estensione cer della chiave pubblica (
 
 7. Il certificato è stato esportato correttamente.
 
-   ![Riuscito](./media/certificates-for-backend-authentication/success.png)
+   ![Operazione completata](./media/certificates-for-backend-authentication/success.png)
 
    Il certificato esportato è simile al seguente:
 

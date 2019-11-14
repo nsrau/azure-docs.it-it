@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 6fa7ee6663aae24451af195de4a8225c7a6b351e
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 24b9b120240ffc6f7dd2252d12c9f8af2bcfafbc
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647136"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049182"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Rileva Drift dei dati (anteprima) nei set di dati
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Le metriche e le informazioni dettagliate sono disponibili tramite la risorsa [a
 > [!Important]
 > Si noti che il monitoraggio della tendenza dei dati con l'SDK è disponibile in tutte le edizioni, mentre il monitoraggio della deriva dei dati attraverso lo studio sul Web è solo Enterprise Edition.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per creare e usare i monitoraggi del set di dati, è necessario:
 * Una sottoscrizione di Azure. Se non si dispone di una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
@@ -61,7 +61,7 @@ Con Azure Machine Learning monitoraggi del set di dati è possibile configurare 
 
 A livello concettuale, esistono tre scenari principali per la configurazione dei monitoraggi del set di dati in Azure Machine Learning.
 
-Scenario | Descrizione
+Scenario | DESCRIZIONE
 ---|---
 Monitoraggio dei dati di gestione di un modello per la deriva dai dati di training del modello | I risultati di questo scenario possono essere interpretati come monitoraggio di un proxy per l'accuratezza del modello, dato che l'accuratezza del modello peggiora se i dati di gestione sono derivati dai dati di training.
 Monitoraggio di un set di dati della serie temporale per la deriva da un periodo di tempo precedente. | Questo scenario è più generale e può essere usato per monitorare i set di impostazioni che coinvolgono upstream o downstream della compilazione del modello.  Il set di dati di destinazione deve contenere una colonna timestamp, mentre il set di dati di base può essere qualsiasi set di dati tabulare con caratteristiche in comune con il set di dati di destinazione.
@@ -117,7 +117,7 @@ Nell'esempio seguente vengono presi tutti i dati nella sottocartella *NoaaIsdFlo
 
 Nelle impostazioni **dello schema** specificare la colonna timestamp da una colonna virtuale o reale nel set di dati specificato:
 
-![Timestamp](media/how-to-monitor-datasets/timestamp.png)
+![timestamp](media/how-to-monitor-datasets/timestamp.png)
 
 ## <a name="dataset-monitor-settings"></a>Impostazioni di monitoraggio set di dati
 
@@ -129,9 +129,9 @@ Le varie impostazioni di monitoraggio del set di dati sono suddivise in tre grup
 
 Questa tabella contiene le impostazioni di base utilizzate per il monitoraggio del set di dati.
 
-| Impostazione | Descrizione | Suggerimenti | Modificabile | 
+| Impostazione | DESCRIZIONE | Suggerimenti | Modificabile | 
 | ------- | ----------- | ---- | ------- | 
-| Name | Nome del monitoraggio del set di dati. | | No |
+| Nome | Nome del monitoraggio del set di dati. | | No |
 | Set di dati Baseline | Set di dati tabulare che verrà usato come base per il confronto del set di dati di destinazione nel tempo. | Il set di dati di base deve avere funzionalità in comune con il set di dati di destinazione. In genere, la linea di base deve essere impostata sul set di dati di training di un modello o su una sezione del set di dati di destinazione. | No |
 | Set di dati di destinazione | Set di dati tabulare con colonna timestamp specificata, che verrà analizzata per la deriva dei dati | Il set di dati di destinazione deve avere funzionalità in comune con il set di dati di base e deve essere un set di dati `timeseries` a cui vengono aggiunti nuovi dati. I dati cronologici nel set di dati di destinazione possono essere analizzati oppure è possibile monitorare nuovi dati. | No | 
 | Frequenza | Si tratta della frequenza che verrà usata per pianificare il processo della pipeline e analizzare i dati cronologici se si esegue un recupero dati. Le opzioni includono giornaliera, settimanale o mensile. | Modificare questa impostazione in modo da includere una dimensione paragonabile di dati alla linea di base. | No | 
@@ -142,10 +142,10 @@ Questa tabella contiene le impostazioni di base utilizzate per il monitoraggio d
 
 Queste impostazioni sono per la pipeline di monitoraggio set di dati pianificata che verrà creata. 
 
-| Impostazione | Descrizione | Suggerimenti | Modificabile | 
+| Impostazione | DESCRIZIONE | Suggerimenti | Modificabile | 
 | ------- | ----------- | ---- | ------- |
 | Abilita | Abilitare o disabilitare la pianificazione nella pipeline di monitoraggio del set di dati | Disabilitare questa opzione per analizzare i dati cronologici con l'impostazione di recupero dati. Può essere abilitata dopo la creazione del monitor del set di dati. | Sì | 
-| Latency | Tempo, in ore, necessario per l'arrivo dei dati nel set di dati. Se, ad esempio, sono necessari tre giorni per l'arrivo dei dati nel database SQL incapsulato dal set di dati, impostare la latenza su 72. | Non può essere modificato dopo la creazione del monitor del set di dati | No | 
+| Latenza | Tempo, in ore, necessario per l'arrivo dei dati nel set di dati. Se, ad esempio, sono necessari tre giorni per l'arrivo dei dati nel database SQL incapsulato dal set di dati, impostare la latenza su 72. | Non può essere modificato dopo la creazione del monitor del set di dati | No | 
 | Indirizzi di posta elettronica | Indirizzi di posta elettronica per gli avvisi in base alla violazione della soglia percentuale di drifting dei dati. | I messaggi di posta elettronica vengono inviati tramite monitoraggio di Azure. | Sì | 
 | Soglia | Soglia percentuale di spostamento dei dati per gli avvisi di posta elettronica. | È possibile impostare altri avvisi ed eventi su molte altre metriche nella risorsa Application Insights associata dell'area di lavoro. | Sì | 
 
@@ -153,7 +153,7 @@ Queste impostazioni sono per la pipeline di monitoraggio set di dati pianificata
 
 Queste impostazioni sono destinate all'esecuzione di un'operazione di recupero dati nei dati precedenti per le metriche di spostamento dei dati.
 
-| Impostazione | Descrizione | Suggerimenti |
+| Impostazione | DESCRIZIONE | Suggerimenti |
 | ------- | ----------- | ---- |
 | Data di inizio | Data di inizio del processo di recupero. | | 
 | Data di fine | Data di fine del processo di recupero. | Non può essere superiore a 31 * unità di frequenza di tempo dalla data di inizio. In un monitor del set di dati esistente, è possibile riempire le metriche per analizzare i dati cronologici o sostituire le metriche con le impostazioni aggiornate. |
@@ -179,7 +179,7 @@ Il monitoraggio del set di dati risultante verrà visualizzato nell'elenco. Sele
 
 ### <a name="from-python-sdk"></a>Da Python SDK
 
-Per informazioni dettagliate, vedere la [documentazione di riferimento di Python SDK relativa alla disattivazione dei dati](https://aka.ms/datadriftapi) . 
+Per informazioni dettagliate, vedere la [documentazione di riferimento di Python SDK relativa alla disattivazione dei dati](/python/api/azureml-datadrift/azureml.datadrift) . 
 
 Di seguito è riportato un esempio di creazione di un monitor del set di dati con Python SDK
 
@@ -239,7 +239,7 @@ Il monitoraggio dati produce due gruppi di risultati: Panoramica della deriva e 
 
 La sezione **Panoramica della deviazione** contiene informazioni di base sulla grandezza della deriva dei dati e sulle funzionalità da approfondire. 
 
-| Metrica | Descrizione | Suggerimenti | 
+| Metrica | DESCRIZIONE | Suggerimenti | 
 | ------ | ----------- | ---- | 
 | Grandezza della deviazione dati | Dato come percentuale tra il set di dati di base e di destinazione nel tempo. Compreso tra 0 e 100, dove 0 indica set di dati identici e 100 indica che la funzionalità di spostamento dei dati Azure Machine Learning può indicare completamente i due set di dati separati. | Il rumore nella percentuale esatta misurata è previsto a causa delle tecniche di Machine Learning usate per generare questa grandezza. | 
 | Contributo alla deriva per funzionalità | Contributo di ogni funzionalità nel set di dati di destinazione alla grandezza della deriva misurata. |  A causa di uno spostamento covariato, la distribuzione sottostante di una funzionalità non deve necessariamente essere modificata per avere un'importanza relativamente elevata della funzionalità. | 
@@ -262,7 +262,7 @@ Queste metriche possono anche essere recuperate in Python SDK tramite il metodo 
 
 Le funzionalità numeriche vengono profilate in ogni esecuzione del monitoraggio del set di dati. Le seguenti sono esposte in Azure Machine Learning Studio. Viene visualizzata la densità di probabilità per la distribuzione.
 
-| Metrica | Descrizione |  
+| Metrica | DESCRIZIONE |  
 | ------ | ----------- |  
 | Distanza Wasserstein | Quantità minima di lavoro per trasformare la distribuzione di base nella distribuzione di destinazione. |
 | Valore medio | Valore medio della funzionalità. |
@@ -275,7 +275,7 @@ Le funzionalità numeriche vengono profilate in ogni esecuzione del monitoraggio
 
 Le funzionalità numeriche vengono profilate in ogni esecuzione del monitoraggio del set di dati. Le seguenti sono esposte in Azure Machine Learning Studio. Viene visualizzato un istogramma per la distribuzione.
 
-| Metrica | Descrizione |  
+| Metrica | DESCRIZIONE |  
 | ------ | ----------- |  
 | Distanza euclideo | Distanza geometrica tra le distribuzioni di base e di destinazione. |
 | Valori univoci | Numero di valori univoci (cardinalità) della funzionalità. |

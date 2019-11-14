@@ -7,12 +7,12 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 10/31/2019
-ms.openlocfilehash: 9f8783dc6d3c14b086364639b60273dbae626cee
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 6104a8b01cc9fca5ff8de973e7fc2af77cda8515
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587979"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048197"
 ---
 # <a name="collect-azure-activity-log-with-diagnostic-settings-preview"></a>Raccolta del log attività di Azure con le impostazioni di diagnostica (anteprima)
 Il [log attività di Azure](activity-logs-overview.md) è un [log di piattaforma](platform-logs-overview.md) che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Fino a questo momento, è stato creato un profilo di log per inviare le voci del log attività a [un hub eventi o](activity-log-export.md) a un account di archiviazione e si è usato un connettore per raccoglierle in un' [area di lavoro log Analytics](activity-log-collect.md).
@@ -22,6 +22,8 @@ Il [log attività di Azure](activity-logs-overview.md) è un [log di piattaforma
 - Metodo coerente per la raccolta di tutti i log di piattaforma.
 - Raccogliere il log attività tra più sottoscrizioni e tenant.
 - Filtra raccolta per raccogliere solo i log per determinate categorie.
+- Raccoglie tutte le categorie del log attività. Alcune categorie non vengono raccolte utilizzando il metodo precedente.
+- Latenza più veloce per l'inserimento dei log. Il metodo precedente presenta una latenza di circa 15 minuti mentre le impostazioni di diagnostica aggiungono solo circa 1 minuto.
 
 ## <a name="considerations"></a>Considerazioni
 Prima di abilitare questa funzionalità, prendere in considerazione i dettagli seguenti della raccolta di log attività usando le impostazioni di diagnostica.
@@ -71,5 +73,5 @@ La soluzione di monitoraggio di Azure Log Analytics include più query e visuali
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Altre informazioni sul registro attività](../../azure-resource-manager/resource-group-audit.md)
+* [Altre informazioni sul log attività](../../azure-resource-manager/resource-group-audit.md)
 * [Altre informazioni sulle impostazioni di diagnostica](diagnostic-settings.md)

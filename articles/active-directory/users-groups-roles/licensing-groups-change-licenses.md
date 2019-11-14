@@ -1,27 +1,27 @@
 ---
-title: Come modificare le assegnazioni di licenze per utenti e gruppi-Azure Active Directory | Microsoft Docs
-description: Descrive il processo consigliato per eseguire la migrazione degli utenti all'interno di un gruppo a licenze di servizio diverse (Office 365 Enterprise E1 ed E3) usando le licenze di gruppo
+title: Modificare i piani di licenza per utenti e gruppi-Azure AD | Microsoft Docs
+description: Come eseguire la migrazione di utenti all'interno di un gruppo a piani di servizio diversi usando le licenze di gruppo in Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/27/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7212983470e71ff6d7c1c33de142767ecf38d1f
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: bf2f04e1728f94c89bddcc31c287cc017a79020f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034042"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025898"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Modificare le assegnazioni delle licenze per un utente o un gruppo in Azure Active Directory
 
@@ -46,7 +46,7 @@ Prima di aggiornare le assegnazioni di licenze, è importante verificare che alc
 Nella pagina **Aggiorna assegnazioni licenze** , se si nota che alcune caselle di controllo non sono disponibili, indica che i servizi non possono essere modificati perché sono ereditati da una licenza di gruppo.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando un account amministratore licenze nell'organizzazione Azure ad.
-1. Selezionare **Azure Active Directory** > **Users**, quindi aprire la pagina del **profilo** per un utente.
+1. Selezionare **Azure Active Directory** > **utenti**, quindi aprire la pagina del **profilo** per un utente.
 1. Selezionare **Licenze**.
 1. Selezionare **assegnazioni** per modificare l'assegnazione delle licenze per l'utente o il gruppo. Nella pagina **assegnazioni** è possibile risolvere i conflitti di assegnazione delle licenze.
 1. Selezionare la casella di controllo per Office 366 E3 e assicurarsi che siano selezionati almeno tutti i servizi E1 assegnati all'utente.
@@ -61,7 +61,7 @@ Azure AD applica le nuove licenze e rimuove contemporaneamente le licenze preced
 ## <a name="change-group-license-assignments"></a>Modificare le assegnazioni delle licenze di gruppo
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando un account amministratore licenze nell'organizzazione Azure ad.
-1. Selezionare **Azure Active Directory** > **gruppi**, quindi aprire la pagina **Panoramica** per un gruppo.
+1. Selezionare **Azure Active Directory** **gruppi**di > , quindi aprire la pagina **Panoramica** per un gruppo.
 1. Selezionare **Licenze**.
 1. Selezionare il comando **assegnazioni** per modificare l'assegnazione delle licenze per l'utente o il gruppo.
 1. Selezionare la casella di controllo per Office 366 E3. Per mantenere la continuità del servizio, assicurarsi di selezionare tutti i servizi E1 già assegnati all'utente.

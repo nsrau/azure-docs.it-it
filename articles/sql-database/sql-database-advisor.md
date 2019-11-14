@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
-ms.date: 12/19/2018
-ms.openlocfilehash: fb7ba90724a98a34adf4aa279eefc8e3d7a63bf3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/12/2019
+ms.openlocfilehash: a113ea3fd4828a498d1f53ea7604df7bc8588eb5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811393"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048417"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Raccomandazioni per le prestazioni per il database SQL
 
@@ -25,6 +25,17 @@ Il database SQL di Azure è in grado di apprendere e di adattarsi all'applicazio
 > [!TIP]
 > L'[ottimizzazione automatica](sql-database-automatic-tuning.md) è il metodo consigliato per ottimizzare automaticamente alcuni dei problemi più comuni di prestazioni del database. [Informazioni dettagliate prestazioni query](sql-database-query-performance.md) è il metodo consigliato per le esigenze di monitoraggio di base delle prestazioni del database SQL di Azure. [Analisi SQL di Azure](../azure-monitor/insights/azure-sql.md) è il metodo consigliato per il monitoraggio avanzato delle prestazioni dei database su larga scala, con funzionalità di intelligence integrate per automatizzare la risoluzione dei problemi di prestazioni.
 >
+
+## <a name="performance-recommendations-options"></a>Opzioni raccomandazioni per le prestazioni
+
+Le opzioni di raccomandazione per le prestazioni disponibili nel database SQL di Azure sono:
+
+| Raccomandazione per le prestazioni | Supporto dei database singoli e in pool | Supporto del database dell'istanza |
+| :----------------------------- | ----- | ----- |
+| **Suggerimenti** per la creazione di indici: consiglia di creare indici che possono migliorare le prestazioni del carico di lavoro. | Sì | No | 
+| **Raccomandazioni** per l'eliminazione degli indici: consiglia di rimuovere gli indici ridondanti e duplicati ogni giorno, ad eccezione degli indici univoci e degli indici che non sono stati usati per molto tempo (> 90 giorni). Si noti che questa opzione non è compatibile con le applicazioni che usano cambi di partizione e hint di indice. L'eliminazione degli indici inutilizzati non è supportata per i livelli di servizio Premium e business critical. | Sì | No |
+| **Suggerimenti per le query con parametri (anteprima)** : consiglia parametrizzazione forzati nei casi in cui si dispone di una o più query che vengono ricompilate costantemente ma finiscono con lo stesso piano di esecuzione della query. | Sì | No |
+| **Correzione dei problemi di schema raccomandazioni (anteprima)** : vengono visualizzate le indicazioni per la correzione dello schema quando il servizio di database SQL rileva un'anomalia nel numero di errori SQL correlati allo schema nel database SQL. Le raccomandazioni relative alla correzione dei problemi di schema sono attualmente in fase di deprecazione. | Sì | No |
 
 ## <a name="create-index-recommendations"></a>Raccomandazioni relative alla creazione di indici
 Il database SQL monitora in modo continuo le query in esecuzione e identifica gli indici che potrebbero migliorare le prestazioni. Se la mancanza di un determinato indice è individuata con sufficiente attendibilità, viene creata una nuova raccomandazione **Crea indice**.
@@ -50,8 +61,7 @@ Oltre a rilevare indici mancanti, il database SQL analizza continuamente le pres
 
 Anche le raccomandazioni relative all'eliminazione di indici sono sottoposte a verifica dopo l'implementazione. Se le prestazioni migliorano, il report di impatto diventa disponibile. Se le prestazioni diminuiscono, la raccomandazione viene ripristinata.
 
-
-## <a name="parameterize-queries-recommendations"></a>Raccomandazioni relative alla creazione di query con parametri
+## <a name="parameterize-queries-recommendations-preview"></a>Suggerimenti per le query con parametri (anteprima)
 Le raccomandazioni relative alla *creazione di query con parametri* vengono visualizzate quando sono presenti una o più query che vengono ricompilate costantemente ma finiscono con lo stesso piano di esecuzione di query. Questa determina la possibilità di applicare la parametrizzazione forzata che consente a sua volta di memorizzare nella cache i piani di query e di usarli nuovamente in futuro al fine di migliorare le prestazioni e ridurre l'uso delle risorse. 
 
 Ogni query eseguita inizialmente su SQL Server deve essere compilata per generare un piano di esecuzione e ogni piano generato viene aggiunto alla cache dei piani. Nelle esecuzioni successive della stessa query è possibile usare nuovamente tale piano, condizione che elimina la necessità di un'altra compilazione. 
@@ -76,7 +86,7 @@ Con "Problemi dello schema" si indica una classe di errori di sintassi in SQL Se
 
 Le raccomandazioni relative alla "correzione di problemi di schema" vengono visualizzate quando il servizio di database SQL di Azure rileva un'anomalia nel numero di errori SQL correlati al database SQL. La tabella seguente illustra gli errori correlati ai problemi di schema:
 
-| Codice di errore SQL | Message |
+| Codice di errore SQL | Messaggio |
 | --- | --- |
 | 201 |La procedura o funzione ' *' richiede il parametro '* ', che non è stato specificato. |
 | 207 |Il nome di colonna '*' non è valido. |
