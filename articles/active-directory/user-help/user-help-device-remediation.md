@@ -1,6 +1,6 @@
 ---
-title: Risolvere l'errore "È possibile accedervi da qui" - Azure Active Directory | Microsoft Docs
-description: Risolvere le cause possibili del messaggio d'errore "Non è possibile accedervi da qui".
+title: Correzioni per l'errore "non è possibile ottenere da qui"-Azure AD
+description: Individuare le possibili correzioni per i motivi per cui si riceve il messaggio di errore "non è possibile ottenerlo da qui".
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -14,14 +14,15 @@ ms.author: lizross
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d6385343ed26e5043e1491529fd2454caff4d04
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473804"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028566"
 ---
-# <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Cause possibili del messaggio d'errore "Non è possibile accedervi da qui"
+# <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Possibili correzioni per il messaggio di errore "non è possibile ottenere da qui"
+
 In fase di accesso ai servizi o alle app Web interne dell'organizzazione potrebbe essere visualizzato il messaggio d'errore **Non è possibile accedervi da qui**. Questo messaggio significa che l'organizzazione ha applicato criteri che impediscono al dispositivo di accedere alle risorse dell'organizzazione. Di seguito sono riportate alcune operazioni che è possibile provare, anche se probabilmente si dovrà contattare il supporto tecnico per risolvere il problema.
 
 ## <a name="make-sure-youre-using-a-supported-browser"></a>Assicurarsi di usare un browser supportato

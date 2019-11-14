@@ -1,24 +1,24 @@
 ---
-title: Creare e assegnare un ruolo personalizzato nel controllo degli accessi in base al ruolo Azure AD-Azure Active Directory | Microsoft Docs
+title: Creare ruoli personalizzati nel controllo degli accessi in base al ruolo Azure AD | Microsoft Docs
 description: Creare e assegnare ruoli di Azure AD personalizzati con ambito di risorse sulle risorse Azure Active Directory.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1a5aee1be7580956c32947e9bda7e2928a006c3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c2cb19c82f8c19bf87eeef755adb5756b2452512
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026391"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025282"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Creare e assegnare un ruolo personalizzato in Azure Active Directory
 
@@ -30,8 +30,8 @@ I ruoli personalizzati possono essere creati nella scheda [ruoli e amministrator
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Creare un nuovo ruolo personalizzato per concedere l'accesso per gestire le registrazioni dell'app
 
-1. Accedere all'interfaccia di [amministrazione di Azure AD](https://aad.portal.azure.com)@no__t le autorizzazioni di amministratore del ruolo con privilegi di 1With o amministratore globale nell'organizzazione Azure ad.
-1. Selezionare **Azure Active Directory**ruoli  > **e amministratori** > **nuovo ruolo personalizzato**.
+1. Accedere all'interfaccia di [amministrazione di Azure AD](https://aad.portal.azure.com) con autorizzazioni di amministratore del ruolo con privilegi o di amministratore globale nell'organizzazione Azure ad.
+1. Selezionare **Azure Active Directory** **ruoli di > e amministratori** > **nuovo ruolo personalizzato**.
 
    ![Creazione o modifica dei ruoli dalla pagina ruoli e amministratori](./media/roles-create-custom/new-custom-role.png)
 
@@ -116,13 +116,13 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 
     Richiesta HTTP per creare una definizione di ruolo personalizzata.
 
-    INSERISCI
+    POST
 
     ``` HTTP
     https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
     ```
 
-    Body
+    body
 
     ``` HTTP
    {
@@ -145,13 +145,13 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 
     Richiesta HTTP per creare una definizione di ruolo personalizzata.
 
-    INSERISCI
+    POST
 
     ``` HTTP
     https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
     ```
 
-    Body
+    body
 
     ``` HTTP
    {

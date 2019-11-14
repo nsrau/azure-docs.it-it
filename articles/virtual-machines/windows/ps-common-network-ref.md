@@ -1,5 +1,5 @@
 ---
-title: Comandi di rete di PowerShell comuni per le reti virtuali di Azure | Microsoft Docs
+title: Comandi di rete di PowerShell comuni per le reti virtuali di Azure
 description: Comandi di PowerShell comuni utili per iniziare a creare una rete virtuale e le risorse associate per le macchine virtuali.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: d7ab705291b8705994aed96f1d270f792e4b2fb0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3abde706ddff297094c7fbb1579b534894b349d2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102531"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032923"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Comandi di rete di PowerShell comuni per le reti virtuali di Azure
 
@@ -34,7 +34,7 @@ Alcune di queste variabili potrebbero essere utili se si esegue più di uno tra 
 
 ## <a name="create-network-resources"></a>Creare risorse di rete
 
-| Attività | Comando |
+| attività | Comando |
 | ---- | ------- |
 | Creare configurazioni subnet |$subnet1 = [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) -Name "SubnetUtente1" -AddressPrefix XX.X.X.X/XX<BR>$subnet2 = New-AzVirtualNetworkSubnetConfig -Name "SubnetUtente2" -AddressPrefix XX.X.X.X/XX<BR><BR>Una rete tipica potrebbe disporre di una subnet per un [bilanciamento del carico Internet](../../load-balancer/load-balancer-internet-overview.md) e una subnet separata per un [bilanciamento del carico interno](../../load-balancer/load-balancer-internal-overview.md). |
 | Crea rete virtuale |$vnet = [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) -Name "ReteVirtualeUtente" -ResourceGroupName $myResourceGroup -Location $location -AddressPrefix XX.X.X.X/XX -Subnet $subnet1, $subnet2 |
@@ -50,7 +50,7 @@ Alcune di queste variabili potrebbero essere utili se si esegue più di uno tra 
 
 ## <a name="get-information-about-network-resources"></a>Visualizzare le informazioni sulle risorse di rete
 
-| Attività | Comando |
+| attività | Comando |
 | ---- | ------- |
 | Elencare le reti virtuali |[Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) -ResourceGroupName $myResourceGroup<BR><BR>Elenca tutte le reti virtuali nel gruppo di risorse. |
 | Visualizzare le informazioni su una rete virtuale |Get-AzVirtualNetwork -Name "ReteVirtualeUtente" -ResourceGroupName $myResourceGroup |
@@ -64,7 +64,7 @@ Alcune di queste variabili potrebbero essere utili se si esegue più di uno tra 
 
 ## <a name="manage-network-resources"></a>Gestire le risorse di rete
 
-| Attività | Comando |
+| attività | Comando |
 | ---- | ------- |
 | Aggiungere una subnet a una rete virtuale |[Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworksubnetconfig) -AddressPrefix XX.X.X.X/XX -Name "Subnet1Utente" -VirtualNetwork $vnet<BR><BR>Aggiunge una subnet a una rete virtuale esistente. Il valore $vnet rappresenta l'oggetto restituito da Get-AzVirtualNetwork. |
 | Eliminare una rete virtuale |[Remove-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetwork) -Name "ReteVirtualeUtente" -ResourceGroupName $myResourceGroup<BR><BR>Rimuove la rete virtuale specificata dal gruppo di risorse. |
@@ -72,7 +72,7 @@ Alcune di queste variabili potrebbero essere utili se si esegue più di uno tra 
 | Eliminare un servizio di bilanciamento del carico |[Remove-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/remove-azloadbalancer) -Name "BilanciamentoDelCaricoUtente" -ResourceGroupName $myResourceGroup<BR><BR>Rimuove il servizio di bilanciamento del carico specificato dal gruppo di risorse. |
 | Eliminare un indirizzo IP pubblico |[Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress)-Name "IndirizzoIPUtente" -ResourceGroupName $myResourceGroup<BR><BR>Rimuove l'indirizzo IP pubblico specificato dal gruppo di risorse. |
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * Usare l'interfaccia di rete appena creata quando si [crea una VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Informazioni su come [creare una VM con più interfacce di rete](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md).
 

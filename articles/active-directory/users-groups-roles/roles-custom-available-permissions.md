@@ -1,24 +1,24 @@
 ---
-title: Autorizzazioni del ruolo amministratore personalizzato per la gestione della registrazione di app-Azure Active Directory | Microsoft Docs
+title: Autorizzazioni del ruolo amministratore personalizzato disponibili-Azure AD | Microsoft Docs
 description: Autorizzazioni del ruolo amministratore personalizzato per la delega della gestione delle identità.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ebffbc1c451404d93383a483eecdd4a25acf6b6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d6156857202c1cca94df6d70ec2059daf55178f1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928610"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025160"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Sottotipi e autorizzazioni per la registrazione dell'applicazione in Azure Active Directory
 
@@ -52,7 +52,7 @@ Le autorizzazioni create consentono di concedere l'accesso al nuovo comando di *
 
 Sono disponibili due autorizzazioni per concedere la possibilità di eliminare le registrazioni dell'app:
 
-#### <a name="microsoftdirectoryapplicationsdelete"></a>Microsoft. directory/applicazioni/eliminazione
+#### <a name="microsoftdirectoryapplicationsdelete"></a>microsoft.directory/applications/delete
 
 Concede la possibilità di eliminare registrazioni per l'app indipendentemente dal sottotipo; ovvero applicazioni a tenant singolo e multi-tenant.
 
@@ -65,7 +65,7 @@ Consente di eliminare le registrazioni di app limitate a quelle accessibili solo
 > [!NOTE]
 > Quando si assegna un ruolo che contiene le autorizzazioni di creazione, l'assegnazione di ruolo deve essere eseguita nell'ambito di directory. Un'autorizzazione Create assegnata a un ambito di risorse non concede la possibilità di creare registrazioni per l'app.
 
-### <a name="read"></a>Lettura
+### <a name="read"></a>Read
 
 Per impostazione predefinita, tutti gli utenti membri dell'organizzazione possono leggere le informazioni di registrazione dell'app. Tuttavia, gli utenti guest e le entità servizio dell'applicazione non possono. Se si prevede di assegnare un ruolo a un utente Guest o a un'applicazione, è necessario includere le autorizzazioni di lettura appropriate.
 
@@ -91,7 +91,7 @@ Concede l'accesso per la lettura delle proprietà standard di registrazione dell
 
 Concede le stesse autorizzazioni di Microsoft. directory/Applications/standard/Read, ma solo per le applicazioni a tenant singolo.
 
-### <a name="update"></a>Aggiornare
+### <a name="update"></a>Update
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>Microsoft. directory/Applications/allProperties/Update
 
@@ -101,7 +101,7 @@ Possibilità di aggiornare tutte le proprietà nelle applicazioni a directory si
 
 Concede le stesse autorizzazioni di Microsoft. directory/Applications/allProperties/Update, ma solo per le applicazioni a tenant singolo.
 
-#### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>Microsoft. directory/applicazioni/destinatari/aggiornamento
+#### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.directory/applications/audience/update
 
 Possibilità di aggiornare la proprietà tipo di account supportato (signInAudience) nelle applicazioni a directory singola e multidirectory.
 
@@ -111,7 +111,7 @@ Possibilità di aggiornare la proprietà tipo di account supportato (signInAudie
 
 Concede le stesse autorizzazioni di Microsoft. directory/Applications/audience/Update, ma solo per le applicazioni a tenant singolo.
 
-#### <a name="microsoftdirectoryapplicationsauthenticationupdate"></a>Microsoft. directory/Applications/Authentication/Update
+#### <a name="microsoftdirectoryapplicationsauthenticationupdate"></a>microsoft.directory/applications/authentication/update
 
 Possibilità di aggiornare l'URL di risposta, l'URL di disconnessione, il flusso implicito e le proprietà del dominio dell'editore nelle applicazioni a tenant singolo e multi-tenant. Concede l'accesso a tutti i campi nella pagina di autenticazione per la registrazione dell'applicazione ad eccezione dei tipi di account supportati:
 
@@ -121,7 +121,7 @@ Possibilità di aggiornare l'URL di risposta, l'URL di disconnessione, il flusso
 
 Concede le stesse autorizzazioni di Microsoft. directory/Applications/Authentication/Update, ma solo per le applicazioni a tenant singolo.
 
-#### <a name="microsoftdirectoryapplicationsbasicupdate"></a>Microsoft. directory/Applications/Basic/Update
+#### <a name="microsoftdirectoryapplicationsbasicupdate"></a>microsoft.directory/applications/basic/update
 
 Possibilità di aggiornare il nome, il logo, l'URL della Home page, l'URL delle condizioni di servizio e le proprietà dell'URL dell'informativa sulla privacy per le applicazioni a tenant singolo e multi-tenant. Concede l'accesso a tutti i campi nella pagina Personalizzazione registrazione applicazione:
 
@@ -131,7 +131,7 @@ Possibilità di aggiornare il nome, il logo, l'URL della Home page, l'URL delle 
 
 Concede le stesse autorizzazioni di Microsoft. directory/Applications/Basic/Update, ma solo per le applicazioni a tenant singolo.
 
-#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>Microsoft. directory/applicazioni/credenziali/aggiornamento
+#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>microsoft.directory/applications/credentials/update
 
 Possibilità di aggiornare le proprietà dei certificati e dei segreti client nelle applicazioni a tenant singolo e multi-tenant. Concede l'accesso a tutti i campi nella pagina dei certificati di registrazione dell'applicazione & Secrets:
 
@@ -141,7 +141,7 @@ Possibilità di aggiornare le proprietà dei certificati e dei segreti client ne
 
 Concede le stesse autorizzazioni di Microsoft. directory/Applications/Credentials/Update, ma solo per le applicazioni a directory singola.
 
-#### <a name="microsoftdirectoryapplicationsownersupdate"></a>Microsoft. directory/applicazioni/proprietari/aggiornamento
+#### <a name="microsoftdirectoryapplicationsownersupdate"></a>microsoft.directory/applications/owners/update
 
 Possibilità di aggiornare la proprietà Owner in un tenant singolo e multi-tenant. Concede l'accesso a tutti i campi nella pagina proprietari registrazione applicazione:
 
@@ -151,7 +151,7 @@ Possibilità di aggiornare la proprietà Owner in un tenant singolo e multi-tena
 
 Concede le stesse autorizzazioni di Microsoft. directory/Applications/owners/Update, ma solo per le applicazioni a tenant singolo.
 
-#### <a name="microsoftdirectoryapplicationspermissionsupdate"></a>Microsoft. directory/applicazioni/autorizzazioni/aggiornamento
+#### <a name="microsoftdirectoryapplicationspermissionsupdate"></a>microsoft.directory/applications/permissions/update
 
 Possibilità di aggiornare le autorizzazioni delegate, le autorizzazioni dell'applicazione, le applicazioni client autorizzate, le autorizzazioni necessarie e concedere le proprietà di consenso per le applicazioni a tenant singolo e multi-tenant. Non concede la possibilità di eseguire il consenso. Concede l'accesso a tutti i campi nelle autorizzazioni dell'API di registrazione dell'applicazione ed esporre le pagine dell'API:
 

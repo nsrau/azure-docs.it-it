@@ -1,26 +1,25 @@
 ---
-title: Modificare il tipo di appartenenza a gruppi statica in dinamica - Azure Active Directory | Microsoft Docs
+title: Modificare l'appartenenza a un gruppo statico a Dynamic-Azure AD | Microsoft Docs
 description: Come creare regole di appartenenza per popolare automaticamente i gruppi e informazioni di riferimento sulle regole.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd753ca4994975302a0bc6fede61964f80196d7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 34451fcc4597f77464e5e9566613e21e9fecdbc6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60472072"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027303"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Modificare l'appartenenza a gruppi statica in dinamica in Azure Active Directory
 
@@ -33,7 +32,7 @@ In Azure Active Directory (Azure AD) è possibile modificare l'appartenenza a un
 
 ## <a name="change-the-membership-type-for-a-group"></a>Modificare il tipo di appartenenza per un gruppo
 
-1. Accedi per il [interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account che sia un amministratore globale o un amministratore degli utenti nel tenant.
+1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account che sia amministratore globale o amministratore utente nel tenant.
 2. Selezionare **Gruppi**.
 3. Dall'elenco **Tutti i gruppi** aprire il gruppo che si vuole modificare.
 4. Selezionare **Proprietà**.

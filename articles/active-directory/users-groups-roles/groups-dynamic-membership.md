@@ -1,25 +1,25 @@
 ---
-title: Regole di appartenenza a gruppi dinamica automatica - Azure Active Directory | Microsoft Docs
+title: Regole per l'appartenenza dinamica ai gruppi-Azure AD | Microsoft Docs
 description: Come creare regole di appartenenza per popolare automaticamente i gruppi e informazioni di riferimento sulle regole.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 050bc3cf6b81b9467d9947a4f611477e2fcbcd9a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: a6cfad04d9b0dd3537d60f2651ed341d96bd0210
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885853"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027119"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -145,7 +145,7 @@ Nella tabella seguente sono elencati tutti gli operatori supportati e la relativ
 | Contiene |-contains |
 | Non corrispondente |-notMatch |
 | Corrispondente |-match |
-| In ingresso | -in |
+| In | -in |
 | Non incluso | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>Uso degli operatori -in e -notIn
@@ -373,7 +373,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | Qualsiasi valore stringa. |(Device. displayName-EQ "Rob iPhone")
- deviceOSType | Qualsiasi valore stringa. | (device.deviceOSType -eq "iPad") o (device.deviceOSType -eq "iPhone")<br>(Device. deviceOSType-contiene "AndroidEnterprise")<br>(Device. deviceOSType-EQ "AndroidForWork")
+ deviceOSType | Qualsiasi valore stringa. | (device.deviceOSType -eq "iPad") o (device.deviceOSType -eq "iPhone")<br>(Device. deviceOSType-contiene "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | Qualsiasi valore stringa. | (device.deviceOSVersion -eq "9.1")
  deviceCategory | nome di una categoria di dispositivo valido | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Qualsiasi valore stringa. | (device.deviceManufacturer -eq "Samsung")

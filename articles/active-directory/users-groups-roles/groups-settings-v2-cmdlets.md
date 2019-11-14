@@ -1,31 +1,31 @@
 ---
-title: Esempi di PowerShell per la gestione dei gruppi e l'anteprima del writeback del gruppo in locale-Azure Active Directory | Microsoft Docs
+title: Esempi di PowerShell V2 per la gestione dei gruppi-Azure AD | Microsoft Docs
 description: Questa pagina riporta esempi di PowerShell per la gestione dei gruppi in Azure Active Directory
 keywords: Azure AD, Azure Active Directory, PowerShell, gruppi, gestione dei gruppi
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e22baabda901a34f624cf27c25037ff3ba94e90
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1aa696ccaecc24df700315962c1f01f3a298c56c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381854"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026701"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlet di Azure Active Directory versione 2 per la gestione dei gruppi
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
-> * [PowerShell](groups-settings-v2-cmdlets.md)
+> - [Portale di Azure](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+> - [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
 
@@ -54,7 +54,7 @@ A questo punto è possibile iniziare a usare i cmdlet nel modulo. Per una descri
 
 ## <a name="connect-to-the-directory"></a>Connettersi alla directory
 
-Prima di iniziare la gestione di gruppi mediante i cmdlet PowerShell di Azure AD, è necessario connettere la sessione di PowerShell alla directory da gestire. Usare il comando seguente:
+Prima di iniziare la gestione di gruppi mediante i cmdlet PowerShell di Azure AD, è necessario connettere la sessione di PowerShell alla directory da gestire. Usare il seguente comando:
 
 ```powershell
     PS C:\Windows\system32> Connect-AzureAD
@@ -191,7 +191,7 @@ A questo punto, se il gruppo viene trovato di nuovo, la proprietà Description v
     SecurityEnabled              : True
 ```
 
-## <a name="delete-groups"></a>Elimina gruppi
+## <a name="delete-groups"></a>Eliminare gruppi
 
 Per eliminare gruppi dalla directory, usare il cmdlet Remove-AzureADGroup come segue:
 
@@ -199,7 +199,7 @@ Per eliminare gruppi dalla directory, usare il cmdlet Remove-AzureADGroup come s
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 ```
 
-## <a name="manage-group-membership"></a>Gestisci l'appartenenza ai gruppi
+## <a name="manage-group-membership"></a>Gestire l'appartenenza a gruppi
 
 ### <a name="add-members"></a>Aggiungere membri
 
@@ -224,7 +224,7 @@ Per ottenere i membri di un gruppo esistente, usare il cmdlet Get-AzureADGroupMe
                           8120cc36-64b4-4080-a9e8-23aa98e8b34f User
 ```
 
-### <a name="remove-members"></a>Rimuovi membri
+### <a name="remove-members"></a>Rimuovere membri
 
 Per rimuovere il membro aggiunto al gruppo in precedenza, usare il cmdlet Remove-AzureADGroupMember, come illustrato di seguito:
 
@@ -308,11 +308,11 @@ Per rimuovere un proprietario da un gruppo, usare il cmdlet Remove-AzureADGroupO
 
 ## <a name="reserved-aliases"></a>Alias riservati
 
-Quando viene creato un gruppo, alcuni endpoint consentono all'utente finale di specificare un attributo mailNickname o un alias da usare come parte dell'indirizzo e-mail del gruppo. I gruppi con gli alias di posta elettronica con privilegi elevati seguenti possono essere creati solo da un amministratore globale di Azure AD. 
+Quando viene creato un gruppo, alcuni endpoint consentono all'utente finale di specificare un attributo mailNickname o un alias da usare come parte dell'indirizzo e-mail del gruppo. I gruppi con gli alias di posta elettronica con privilegi elevati seguenti possono essere creati solo da un amministratore globale Azure AD. 
   
 * abuse
 * admin
-* entità
+* administrator
 * hostmaster
 * majordomo
 * postmaster

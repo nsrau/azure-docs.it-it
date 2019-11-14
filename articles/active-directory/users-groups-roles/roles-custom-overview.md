@@ -1,24 +1,24 @@
 ---
-title: Visualizzare in anteprima i ruoli di amministratore di Azure con autorizzazioni personalizzabili-Azure Active Directory | Microsoft Docs
+title: Ruoli di amministratore personalizzato in Azure Active Directory | Microsoft Docs
 description: Visualizzare in anteprima i ruoli di Azure AD personalizzati per delegare la gestione delle identità. Gestire i ruoli di Azure in portale di Azure, PowerShell o API Graph.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c26e77fdf6e10e53f5acc0271986700c98fa690d
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e5c7919dcc89e34831cb4cae7921b60b35eb4c69
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772541"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024960"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Ruoli di amministratore personalizzato in Azure Active Directory (anteprima)
 
@@ -34,9 +34,9 @@ La concessione di autorizzazioni tramite ruoli di Azure AD personalizzati è un 
 
 Una volta creata la definizione di ruolo, è possibile assegnarla a un utente creando un'assegnazione di ruolo. Un'assegnazione di ruolo concede all'utente le autorizzazioni in una definizione di ruolo in un ambito specificato. Questo processo in due passaggi consente di creare una singola definizione di ruolo e di assegnarla più volte in ambiti diversi. Un ambito definisce il set di risorse Azure AD cui il membro del ruolo ha accesso. L'ambito più comune è l'ambito a livello di organizzazione. Un ruolo personalizzato può essere assegnato a livello di organizzazione, vale a dire che il membro del ruolo dispone delle autorizzazioni di ruolo per tutte le risorse dell'organizzazione. È anche possibile assegnare un ruolo personalizzato a un ambito di oggetti. Un esempio di ambito di un oggetto è costituito da una singola applicazione. Lo stesso ruolo può essere assegnato a un utente su tutte le applicazioni dell'organizzazione e quindi a un altro utente con un ambito solo dell'app Contoso Expense Reports.  
 
-Azure AD ruoli predefiniti e personalizzati operano su concetti simili al [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md). La [differenza tra questi due sistemi di controllo degli accessi in base al ruolo](../../role-based-access-control/rbac-and-directory-admin-roles.md) è che il controllo degli accessi in base al ruolo di Azure controlla l'accesso alle risorse di Azure, ad esempio macchine virtuali o archiviazione con Azure Resource Manager, e Azure ad ruoli personalizzati controllano l'Azure ad accesso utilizzando API Graph. Entrambi i sistemi sfruttano il concetto di definizioni di ruolo e assegnazioni di ruolo.
+Azure AD ruoli predefiniti e personalizzati operano su concetti simili al [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md). La [differenza tra questi due sistemi di controllo degli accessi in base al ruolo](../../role-based-access-control/rbac-and-directory-admin-roles.md) è che il controllo degli accessi in base al ruolo di Azure controlla l'accesso alle risorse di Azure, ad esempio le macchine virtuali o l'archiviazione tramite Gestione risorse di azure e Azure ad i ruoli personalizzati controllano l'accesso Azure AD alle API Graph risorse Entrambi i sistemi sfruttano il concetto di definizioni di ruolo e assegnazioni di ruolo.
 
-### <a name="role-assignments"></a>Assegnazioni di ruolo
+### <a name="role-assignments"></a>Assegnazioni di ruoli
 
 Un'assegnazione di ruolo è l'oggetto che connette una definizione di ruolo a un utente in un determinato ambito per concedere Azure AD accesso alle risorse. L'accesso viene concesso mediante la creazione di un'assegnazione di ruolo e viene revocato rimuovendo un'assegnazione di ruolo. Al suo nucleo, un'assegnazione di ruolo è costituita da tre elementi:
 
@@ -54,7 +54,7 @@ Lo schema seguente mostra un esempio di assegnazione di ruolo. In questo esempio
 
 Un'entità di sicurezza rappresenta l'utente a cui deve essere assegnato l'accesso alle risorse Azure AD. Un *utente* è una persona che ha un profilo utente in Azure Active Directory.
 
-### <a name="role"></a>Role
+### <a name="role"></a>Ruolo
 
 Una definizione di ruolo, o Role, è una raccolta di autorizzazioni. In una definizione di ruolo sono elencate le operazioni che possono essere eseguite sulle risorse Azure AD, ad esempio creazione, lettura, aggiornamento ed eliminazione. Esistono due tipi di ruoli in Azure AD:
 

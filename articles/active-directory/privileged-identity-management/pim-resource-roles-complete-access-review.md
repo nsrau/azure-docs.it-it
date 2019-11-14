@@ -1,26 +1,26 @@
 ---
-title: Completare una verifica di accesso dei ruoli delle risorse di Azure in Privileged Identity Management-Azure Active Directory | Microsoft Docs
-description: Informazioni su come completare una verifica di accesso dei ruoli delle risorse di Azure in Azure AD Privileged Identity Management (PIM).
+title: Completare la verifica dell'accesso dei ruoli delle risorse di Azure in PIM-Azure AD | Microsoft Docs
+description: Informazioni su come completare una verifica di accesso dei ruoli delle risorse di Azure Privileged Identity Management in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6761d1d6aea796e0cca708676f69c47328642cc2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 9e45249245aaab97070b7e774d4b6bab6827bdc9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895820"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021990"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Completare una verifica di accesso dei ruoli delle risorse di Azure in Privileged Identity Management
 
@@ -44,19 +44,19 @@ Nella pagina dei dettagli per la verifica dell'accesso sono disponibili diverse 
 
 ![Opzioni per la gestione di una verifica-arresta, Reimposta, applica, Elimina](media/pim-resource-roles-complete-access-review/rbac-access-review-menu.png)
 
-### <a name="stop"></a>Interrompi
+### <a name="stop"></a>Arresto
 
 Tutte le verifiche di accesso hanno una data di fine. Selezionare **Interrompi** per terminarla in anticipo. Tutti gli utenti che non hanno completato la revisione entro questo periodo di tempo non saranno in grado di completare l'operazione dopo aver interrotto la revisione. Non è possibile riavviare una verifica dopo che è stata interrotta.
 
-### <a name="reset"></a>Reimposta
+### <a name="reset"></a>Reimpostazione
 
-È possibile reimpostare una verifica di accesso in modo da rimuovere tutte le decisioni prese. Dopo aver reimpostato una verifica di accesso, tutti gli utenti vengono nuovamente contrassegnati come utenti non verificati.
+È possibile reimpostare una verifica di accesso in modo da rimuovere tutte le decisioni prese. Dopo aver reimpostato una verifica di accesso, tutti gli utenti vengono contrassegnati come non rivisti.
 
-### <a name="apply"></a>Richiesta
+### <a name="apply"></a>Applica
 
 Al termine di una verifica di accesso, selezionare **applica** per implementare il risultato della verifica. Se l'accesso di un utente è stato negato nel corso della verifica, questo passaggio consente di rimuovere la relativa assegnazione di ruolo.  
 
-### <a name="delete"></a>Eliminazione
+### <a name="delete"></a>Elimina
 
 Se la verifica non è più necessaria, eliminarla. Selezionare **Elimina** yo rimuovere la revisione dal servizio Privileged Identity Management.
 

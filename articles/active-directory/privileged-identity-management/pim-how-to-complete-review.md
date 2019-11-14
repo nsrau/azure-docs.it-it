@@ -1,25 +1,25 @@
 ---
-title: Completare una verifica di accesso dei ruoli Azure AD in PIM-Azure Active Directory | Microsoft Docs
+title: Terminare la verifica dell'accesso dei ruoli Azure AD in PIM-Azure AD | Microsoft Docs
 description: Informazioni su come completare una verifica di accesso dei ruoli Azure AD in Azure AD Privileged Identity Management (PIM) e visualizzare i risultati
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 197abc0642d6abf1278a75c2101c195cafeb53b2
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: fe2d85d605b9ee418a5709ddcdb448c56be1d918
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809137"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022271"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Completare una verifica di accesso dei ruoli Azure AD in Privileged Identity Management
 
@@ -41,19 +41,19 @@ Nel pannello dei dettagli della verifica di accesso sono disponibili diverse opz
 
 Se una verifica di accesso è stata impostata in modo che gli utenti verifichino se stessi, il pulsante **Promemoria** invia una notifica.
 
-### <a name="stop"></a>Interrompi
+### <a name="stop"></a>Arresto
 
 Tutte le verifiche di accesso hanno una data di fine, ma il pulsante **Interrompi** consente di completare l'operazione in anticipo. Eventuali utenti non sottoposti a verifica fino a questo momento, non potranno essere controllati dopo l'interruzione della verifica. Non è possibile riavviare una verifica dopo che è stata interrotta.
 
-### <a name="apply"></a>Richiesta
+### <a name="apply"></a>Applica
 
 Al termine di una verifica di accesso in corrispondenza della data di fine o in caso di interruzione manuale, il pulsante **Applica** implementa il risultato della verifica. Se l'accesso di un utente è stato negato nel corso della verifica, questo passaggio consente di rimuovere l'assegnazione di ruolo.  
 
-### <a name="export"></a>Esportazione
+### <a name="export"></a>Export
 
 Per applicare manualmente i risultati della verifica di accesso, è possibile esportare la verifica. Il pulsante **Esporta** avvia il download di un file con estensione csv. È possibile gestire i risultati in Excel o in altri programmi in grado di aprire i file con estensione csv.
 
-### <a name="delete"></a>Eliminazione
+### <a name="delete"></a>Elimina
 
 Se la verifica non è più necessaria, eliminarla. Il pulsante **Elimina** rimuove la revisione dal servizio Privileged Identity Management.
 

@@ -1,5 +1,5 @@
 ---
-title: OpenShift container Platform 3,11 nelle attività post-distribuzione di Azure | Microsoft Docs
+title: OpenShift container Platform 3,11 nelle attività post-distribuzione di Azure
 description: Attività aggiuntive per dopo la distribuzione di un cluster OpenShift container Platform 3,11.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: c1e04f048c081da4777045e5bee43991c95b4625
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d3008e2e2d720b67fcf0846c27d2fed1ef7db307
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392774"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035501"
 ---
 # <a name="post-deployment-tasks"></a>Attività di post-distribuzione
 
@@ -90,7 +90,7 @@ Nel portale di Azure:
 
    ![Accesso alla registrazione dell'app](media/openshift-post-deployment/app-registration-access.png)
 
-8. Selezionare **Operazione completata**.
+8. Selezionare **Done**(Fine).
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Configurare OpenShift per l'autenticazione di Azure AD
 

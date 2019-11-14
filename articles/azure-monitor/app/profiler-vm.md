@@ -6,21 +6,21 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
-ms.date: 08/06/2018
+ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 44f45c53a12c7ac73c3de3f2734f024cb9bc6dd5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: fa1179e55a4826450d30351be0a905efb059780b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899991"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031022"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profilare le app Web in esecuzione in una macchina virtuale di Azure o un set di scalabilità di macchine virtuali usando Application Insights Profiler
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 È anche possibile distribuire Azure Application Insights Profiler in questi servizi:
-* [Informazioni sul servizio app di Azure](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+* [servizio app di Azure](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Servizi cloud di Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
@@ -89,15 +89,15 @@ Non è ancora possibile impostare il sink Application Insights Profiler dal port
 
     ![Controllare se l'estensione WAD è installata][wadextension]
 
-1. Trovare l'estensione diagnostica VM per la VM. Espandere il gruppo di risorse Microsoft. Compute virtualMachines, il nome della macchina virtuale e le estensioni.  
+2. Trovare l'estensione diagnostica VM per la VM. Passare a [https://resources.azure.com](https://resources.azure.com). Espandere il gruppo di risorse Microsoft. Compute virtualMachines, il nome della macchina virtuale e le estensioni.  
 
     ![Passare alla configurazione di WAD in Azure Resource Explorer][azureresourceexplorer]
 
-1. Aggiungere il sink Application Insights Profiler al nodo SinksConfig in WadCfg. Se non si dispone già di una sezione SinksConfig, potrebbe essere necessario aggiungerne una. Assicurarsi di specificare il Application Insights corretto iKey nelle impostazioni. È necessario impostare la modalità esploratori su lettura/scrittura nell'angolo superiore destro e premere il pulsante blu "modifica".
+3. Aggiungere il sink Application Insights Profiler al nodo SinksConfig in WadCfg. Se non si dispone già di una sezione SinksConfig, potrebbe essere necessario aggiungerne una. Assicurarsi di specificare il Application Insights corretto iKey nelle impostazioni. È necessario impostare la modalità esploratori su lettura/scrittura nell'angolo superiore destro e premere il pulsante blu "modifica".
 
     ![Aggiungi Application Insights Profiler sink][resourceexplorersinksconfig]
 
-1. Al termine della modifica della configurazione, premere ' Put '. Se il put ha esito positivo, al centro dello schermo verrà visualizzato un segno di spunta verde.
+4. Al termine della modifica della configurazione, premere ' Put '. Se il put ha esito positivo, al centro dello schermo verrà visualizzato un segno di spunta verde.
 
     ![Inviare una richiesta PUT per applicare le modifiche][resourceexplorerput]
 

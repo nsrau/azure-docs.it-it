@@ -1,5 +1,5 @@
 ---
-title: Convertire l'archiviazione di Azure Managed disks da standard a Premium o Premium a standard | Microsoft Docs
+title: Convertire l'archiviazione di Azure Managed disks da standard a Premium o Premium a standard
 description: Come convertire Azure Managed disks da standard a Premium o Premium a standard usando Azure PowerShell.
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 274697d555974f286c2c71f26280640077c11f81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b63d4d0247fd640e961d03d336d6b211473c48fb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749559"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033917"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Aggiornare il tipo di archiviazione di un disco gestito
 
@@ -22,7 +22,7 @@ Questa funzionalità non è supportata per i dischi non gestiti. Tuttavia, è po
 
  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Poiché la conversione richiede un riavvio della macchina virtuale (VM), è consigliabile pianificare la migrazione dell'archiviazione su disco durante una finestra di manutenzione preesistente.
 * Se il disco non è gestito, [convertirlo in un disco gestito, in](convert-unmanaged-to-managed-disks.md) modo da poter passare tra le opzioni di archiviazione.
@@ -111,7 +111,7 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 
 ## <a name="convert-managed-disks-from-standard-to-premium-in-the-azure-portal"></a>Convertire i dischi gestiti da standard a Premium nella portale di Azure
 
-A tale scopo, seguire questa procedura:
+Seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare la VM dall'elenco di **macchine virtuali** nel portale.

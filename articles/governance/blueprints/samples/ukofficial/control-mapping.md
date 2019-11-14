@@ -1,18 +1,14 @@
 ---
 title: Esempi ufficiali del Regno Unito & UK NHS Blueprint-mapping dei controlli
 description: Controllare il mapping degli esempi di progetto ufficiale UK e del SSN UK. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: e86c7040e94553b032b565e282639047a1ed8750
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5ba7cf481276b236c9299e660acb9668feeea683
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162952"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037774"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Controllo del mapping degli esempi di progetto ufficiale UK e del SSN UK
 
@@ -48,7 +44,7 @@ Identificando le risorse di Azure le cui configurazioni di crittografia potrebbe
 
 ## <a name="52-vulnerability-management"></a>Gestione delle vulnerabilità 5,2
 
-Questo progetto consente di gestire le vulnerabilità del sistema informativo assegnando le definizioni di [criteri di Azure](../../../policy/overview.md) che monitorano la protezione degli endpoint mancanti, gli aggiornamenti del sistema mancanti, le vulnerabilità del sistema operativo, le vulnerabilità SQL e virtuali vulnerabilità del computer. Queste informazioni dettagliate forniscono dati in tempo reale sullo stato di sicurezza delle risorse distribuite e consentono di assegnare priorità alle azioni correttive.
+Questo progetto consente di gestire le vulnerabilità del sistema informativo assegnando le definizioni di [criteri di Azure](../../../policy/overview.md) che monitorano gli endpoint mancanti, gli aggiornamenti del sistema mancanti, le vulnerabilità del sistema operativo, le vulnerabilità SQL e le vulnerabilità della macchina virtuale. Queste informazioni dettagliate forniscono dati in tempo reale sullo stato di sicurezza delle risorse distribuite e consentono di assegnare priorità alle azioni correttive.
 
 - Monitora server senza Endpoint Protection nel Centro sicurezza di Azure
 - Gli aggiornamenti di sistema devono essere installati nelle macchine
@@ -67,13 +63,13 @@ Questo progetto consente di proteggere le risorse del sistema informativo assegn
 
 ## <a name="9-secure-user-management--10-identity-and-authentication"></a>9 gestione sicura degli utenti/10 identità e autenticazione
 
-Azure implementa il controllo degli accessi in base al ruolo (RBAC) per semplificare la gestione degli utenti che hanno accesso alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto consente di limitare e controllare i diritti di accesso assegnando le definizioni di [criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni di proprietario e/o lettura/scrittura e account con autorizzazioni proprietario, lettura e/o scrittura che non dispongono di più fattori autenticazione abilitata.
+Azure implementa il controllo degli accessi in base al ruolo (RBAC) per semplificare la gestione degli utenti che hanno accesso alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto consente di limitare e controllare i diritti di accesso assegnando le definizioni di [criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni di proprietario e/o lettura/scrittura e account con autorizzazioni proprietario, lettura e/o scrittura per le quali non è abilitata l'autenticazione a più fattori.
 
 - L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione
 - L'autenticazione a più fattori deve essere abilitata per gli account con autorizzazioni di scrittura sulla sottoscrizione
 - L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di lettura per la sottoscrizione
 - Gli account esterni con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
-- È consigliabile rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di scrittura
+- Gli account esterni con autorizzazioni di scrittura devono essere rimossi dalla sottoscrizione
 - Gli account esterni con autorizzazioni di lettura devono essere rimossi dalla sottoscrizione
 
 Questo progetto assegna le definizioni di criteri di Azure per controllare l'uso dell'autenticazione Azure Active Directory per SQL Server e Service Fabric. L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft.
@@ -86,7 +82,7 @@ Questo progetto assegna anche le definizioni di criteri di Azure agli account di
 - Gli account deprecati devono essere rimossi dalla sottoscrizione
 - Gli account deprecati con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
 - Gli account esterni con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
-- È consigliabile rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di scrittura
+- Gli account esterni con autorizzazioni di scrittura devono essere rimossi dalla sottoscrizione
 
 Questo progetto assegna anche una definizione di criteri di Azure che controlla le autorizzazioni del file di password della VM Linux per avvisare se sono impostate in modo errato. Questa progettazione consente di intraprendere azioni correttive per garantire che gli autenticatori non siano compromessi.
 
@@ -124,14 +120,14 @@ Oltre a usare più di 25 criteri per una gestione sicura degli utenti appropriat
 
 ## <a name="12-secure-service-administration"></a>12 amministrazione sicura del servizio
 
-Azure implementa il controllo degli accessi in base al ruolo (RBAC) per semplificare la gestione degli utenti che hanno accesso alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto consente di limitare e controllare i diritti di accesso con privilegi assegnando cinque definizioni di [criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni di proprietario e/o scrittura e account con proprietario e/o autorizzazioni di scrittura senza autenticazione a più fattori abilitata.
+Azure implementa il controllo degli accessi in base al ruolo (RBAC) per semplificare la gestione degli utenti che hanno accesso alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto consente di limitare e controllare i diritti di accesso con privilegi assegnando cinque definizioni di [criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni di proprietario e/o scrittura e account con proprietario e/o autorizzazioni di scrittura per cui non è abilitata l'autenticazione a più fattori.
 
 Ai sistemi usati per l'amministrazione di un servizio cloud viene concesso l'accesso al servizio con privilegi elevati. Un'eventuale violazione di questi sistemi avrebbe quindi conseguenze piuttosto gravi, come la possibilità di aggirare i controlli di sicurezza e rubare o modificare grandi volumi di dati. I metodi utilizzati dagli amministratori del provider di servizi per gestire il servizio operativo devono essere progettati per mitigare il rischio di sfruttamento che può compromettere la sicurezza del servizio. Se questo principio non è implementato, un utente malintenzionato potrebbe avere i mezzi per ignorare i controlli di sicurezza e rubare o manipolare grandi volumi di dati.
 
 - L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione
 - L'autenticazione a più fattori deve essere abilitata per gli account con autorizzazioni di scrittura sulla sottoscrizione
 - Gli account esterni con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
-- È consigliabile rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di scrittura
+- Gli account esterni con autorizzazioni di scrittura devono essere rimossi dalla sottoscrizione
 
 Questo progetto assegna le definizioni di criteri di Azure per controllare l'uso dell'autenticazione Azure Active Directory per SQL Server e Service Fabric. L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft.
 
@@ -143,7 +139,7 @@ Questo progetto assegna anche le definizioni di criteri di Azure agli account di
 - Gli account deprecati devono essere rimossi dalla sottoscrizione
 - Gli account deprecati con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
 - Gli account esterni con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
-- È consigliabile rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di scrittura
+- Gli account esterni con autorizzazioni di scrittura devono essere rimossi dalla sottoscrizione
 
 Questo progetto assegna anche una definizione di criteri di Azure che controlla le autorizzazioni del file di password della VM Linux per avvisare se sono impostate in modo errato. Questa progettazione consente di intraprendere azioni correttive per garantire che gli autenticatori non siano compromessi.
 
@@ -168,7 +164,7 @@ Ora che è stata esaminata la mappatura dei controlli del Regno Unito e dei prog
 > [Cianografia del Regno Unito e del SSN](./index.md) del Regno Unito-Panoramica
 > [ufficiale del Regno Unito e progetti NHS UK-procedura di distribuzione](./deploy.md)
 
-Articoli aggiuntivi sui progetti e su come usarli:
+Altri articoli sui progetti e su come usarli:
 
 - Informazioni sul [ciclo di vita del progetto](../../concepts/lifecycle.md).
 - Informazioni su come usare [parametri statici e dinamici](../../concepts/parameters.md).

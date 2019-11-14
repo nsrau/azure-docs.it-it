@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 51a51e63f1d45d67cda63d4491a3bac572434dc0
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: a35cf935d990dbb61f440d2592d59d21f33a2ae8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991905"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037233"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -25,7 +25,7 @@ Azure Data Lake Storage Gen2 implementa un modello di controllo di accesso che s
 
 RBAC usa le assegnazioni di ruolo per applicare in modo efficace i set di autorizzazioni alle *entità di sicurezza*. Un' *entità di sicurezza* è un oggetto che rappresenta un utente, un gruppo, un'entità servizio o un'identità gestita definita in Azure Active Directory (ad) che richiede l'accesso alle risorse di Azure.
 
-In genere, le risorse di Azure sono vincolate alle risorse di primo livello, ad esempio: Account di archiviazione di Azure). Nel caso di archiviazione di Azure e di conseguenza Azure Data Lake Storage Gen2 questo meccanismo è stato esteso alla risorsa contenitore (file system).
+In genere, le risorse di Azure sono vincolate alle risorse di primo livello, ad esempio gli account di archiviazione di Azure. Nel caso di archiviazione di Azure e di conseguenza Azure Data Lake Storage Gen2 questo meccanismo è stato esteso alla risorsa contenitore (file system).
 
 Per informazioni su come assegnare i ruoli alle entità di sicurezza nell'ambito dell'account di archiviazione, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nel portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -36,7 +36,7 @@ Quando si utilizzano assegnazioni di ruolo RBAC è un meccanismo potente per con
 Quando a un'entità di sicurezza vengono concesse le autorizzazioni per i dati RBAC tramite un [ruolo predefinito](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)o tramite un ruolo personalizzato, queste autorizzazioni vengono valutate per prime all'autorizzazione di una richiesta. Se l'operazione richiesta è autorizzata dalle assegnazioni RBAC dell'entità di sicurezza, l'autorizzazione viene immediatamente risolta e non vengono eseguiti controlli ACL aggiuntivi. In alternativa, se l'entità di sicurezza non dispone di un'assegnazione RBAC o se l'operazione della richiesta non corrisponde all'autorizzazione assegnata, vengono eseguiti i controlli ACL per determinare se l'entità di sicurezza è autorizzata a eseguire l'operazione richiesta.
 
 > [!NOTE]
-> Se all'entità di sicurezza è stata assegnata l'assegnazione di ruolo predefinita del proprietario dei dati del BLOB di archiviazione, l'entità di sicurezza viene considerata un *utente con privilegi avanzati* e viene concesso l'accesso completo a tutte le operazioni di mutazione, inclusa l'impostazione del proprietario di una directory o file e ACL per le directory e i file di cui non sono proprietari. L'accesso utente con privilegi avanzati è il solo modo autorizzato di cambiare il proprietario di una risorsa.
+> Se all'entità di sicurezza è stata assegnata l'assegnazione di ruolo incorporata del proprietario dei dati del BLOB di archiviazione, l'entità di sicurezza viene considerata un *utente con privilegi avanzati* e viene concesso l'accesso completo a tutte le operazioni di mutazione, inclusa l'impostazione del proprietario di una directory o di un file, nonché gli ACL per le directory e i file per cui non sono proprietari. L'accesso utente con privilegi avanzati è il solo modo autorizzato di cambiare il proprietario di una risorsa.
 
 ## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Autenticazione con chiave condivisa e firma di accesso condiviso (SAS)
 
@@ -60,17 +60,17 @@ Per impostare le autorizzazioni a livello di file e directory, vedere gli artico
 
 |Se si desidera utilizzare questo strumento:    |Vedere questo articolo:    |
 |--------|-----------|
-|Esplora archivi Azure    |[Impostare autorizzazioni a livello di file e directory usando Azure Storage Explorer con Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
+|Azure Storage Explorer    |[Impostare autorizzazioni a livello di file e directory usando Azure Storage Explorer con Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
 |API REST    |[Percorso-aggiornamento](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
-> Se l'entità di sicurezza è un'entità *servizio* , è importante usare l'ID oggetto dell'entità servizio e non l'ID oggetto della registrazione dell'app correlata. Per ottenere l'ID oggetto dell'entità servizio, aprire l'interfaccia della riga di comando di Azure, quindi `az ad sp show --id <Your App ID> --query objectId`usare il comando seguente:. Assicurarsi di sostituire il `<Your App ID>` segnaposto con l'ID app della registrazione dell'app.
+> Se l'entità di sicurezza è un'entità *servizio* , è importante usare l'ID oggetto dell'entità servizio e non l'ID oggetto della registrazione dell'app correlata. Per ottenere l'ID oggetto dell'entità servizio, aprire l'interfaccia della riga di comando di Azure, quindi usare il comando seguente: `az ad sp show --id <Your App ID> --query objectId`. Assicurarsi di sostituire il segnaposto `<Your App ID>` con l'ID app della registrazione dell'app.
 
 ### <a name="types-of-access-control-lists"></a>Tipi di elenchi di controllo di accesso
 
 Esistono due tipi di elenchi di controllo di accesso: *ACL di accesso* e *ACL predefiniti*.
 
-gli elenchi ACL di accesso controllano l'accesso a un oggetto. Sia i file che le directory hanno ACL di accesso.
+Gli elenchi ACL di accesso controllano l'accesso a un oggetto. Sia i file che le directory hanno ACL di accesso.
 
 Gli ACL predefiniti sono modelli di ACL associati a una directory che determina gli ACL di accesso per tutti gli elementi figlio creati in tale directory. I file non hanno ACL predefiniti.
 
@@ -90,7 +90,7 @@ Le autorizzazioni per un oggetto contenitore sono di **lettura**, **scrittura**e
 | **Esecuzione (X)** | Nessun valore nel contesto di Data Lake Storage Gen2 | È necessaria per attraversare gli elementi figlio di una directory |
 
 > [!NOTE]
-> Se si concedono le autorizzazioni usando solo ACL (nessun controllo degli accessi in base al ruolo), per concedere a un'entità servizio l'accesso in lettura o scrittura a un file, è necessario concedere all'entità servizio le autorizzazioni di **esecuzione** per il contenitore e a ogni cartella nella gerarchia di cartelle che condurre al file.
+> Se si concedono le autorizzazioni usando solo ACL (nessun controllo degli accessi in base al ruolo), per concedere a un'entità di sicurezza l'accesso in lettura o scrittura a un file, è necessario assegnare all'entità di sicurezza le autorizzazioni di **esecuzione** per il contenitore e a ogni cartella nella gerarchia di cartelle che portano al file.
 
 #### <a name="short-forms-for-permissions"></a>Forme brevi per le autorizzazioni
 
@@ -100,7 +100,7 @@ La forma **RWX** viene usata per indicare **Lettura + Scrittura + Esecuzione**. 
 |--------------|------------|------------------------|
 | 7            | `RWX`        | Lettura + Scrittura + Esecuzione |
 | 5            | `R-X`        | Lettura + Esecuzione         |
-| 4            | `R--`        | Lettura                   |
+| 4            | `R--`        | Read                   |
 | 0            | `---`        | Nessuna autorizzazione         |
 
 #### <a name="permissions-inheritance"></a>Ereditarietà delle autorizzazioni
@@ -154,8 +154,8 @@ Negli ACL POSIX ogni utente è associato a un *gruppo primario*. È ad esempio p
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Assegnazione del gruppo proprietario per un nuovo file o directory
 
-* **Caso 1**: directory radice "/". Questa directory viene creata quando viene creato un contenitore Data Lake Storage Gen2. In questo caso, il gruppo proprietario viene impostato sull'utente che ha creato il contenitore se è stato eseguito tramite OAuth. Se il contenitore viene creato usando una chiave condivisa, una firma di accesso condiviso dell'account o una firma di accesso condiviso del servizio, il proprietario e il gruppo proprietario sono impostati su **$superuser**.
-* **Caso 2** (qualsiasi altro caso): quando viene creato un nuovo elemento, il gruppo proprietario viene copiato dalla directory padre.
+* **Caso 1**: la directory radice "/". Questa directory viene creata quando viene creato un contenitore Data Lake Storage Gen2. In questo caso, il gruppo proprietario viene impostato sull'utente che ha creato il contenitore se è stato eseguito tramite OAuth. Se il contenitore viene creato usando una chiave condivisa, una firma di accesso condiviso dell'account o una firma di accesso condiviso del servizio, il proprietario e il gruppo proprietario sono impostati su **$superuser**.
+* **Caso 2** (tutti gli altri casi): quando viene creato un nuovo elemento, il gruppo proprietario viene copiato dalla directory padre.
 
 ##### <a name="changing-the-owning-group"></a>Modifica del gruppo proprietario
 
@@ -281,7 +281,7 @@ Usare sempre i gruppi di sicurezza di Azure AD come entità assegnate negli elen
 
 - Il chiamante ha le autorizzazioni di "utente con privilegi avanzati"
 
-Oppure
+oppure
 
 - Sono necessarie autorizzazioni di Scrittura + Esecuzione per la directory padre.
 - Sono necessarie autorizzazioni di Lettura + Scrittura + Esecuzione per la directory da eliminare e per ogni directory al suo interno.
@@ -297,7 +297,7 @@ Il creatore di un file o una directory ne diventa il proprietario. Nel caso dell
 
 Il gruppo proprietario viene copiato da quello della directory padre in cui si crea il nuovo file o la nuova directory.
 
-### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Se l'utente proprietario di un file non ha le autorizzazioni RWX di cui ha bisogno, Cosa devo fare?
+### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Se l'utente proprietario di un file non ha le autorizzazioni RWX di cui ha bisogno, che cosa occorre fare?
 
 L'utente proprietario può modificare le autorizzazioni del file in modo da assegnarsi tutte le autorizzazioni RWX necessarie.
 
@@ -309,7 +309,7 @@ Viene visualizzato un GUID se la voce rappresenta un utente e tale utente non es
 
 Quando si definiscono gli ACL per le entità servizio, è importante usare l'ID oggetto (OID) dell' *entità servizio* per la registrazione dell'app creata. È importante notare che le app registrate hanno un'entità servizio separata nel tenant di Azure AD specifico. Le app registrate hanno un OID visibile nel portale di Azure, ma l' *entità servizio* presenta un altro OID (diverso).
 
-Per ottenere l'OID per l'entità servizio che corrisponde alla registrazione di un'app, è possibile usare `az ad sp show` il comando. Specificare l'ID applicazione come parametro. Di seguito è riportato un esempio su come ottenere l'OID per l'entità servizio che corrisponde a una registrazione dell'app con ID app = 18218b12-1895-43E9-AD80-6e8fc1ea88ce. Eseguire il comando seguente nell'interfaccia della riga di comando di Azure:
+Per ottenere l'OID per l'entità servizio che corrisponde alla registrazione di un'app, è possibile usare il comando `az ad sp show`. Specificare l'ID applicazione come parametro. Di seguito è riportato un esempio su come ottenere l'OID per l'entità servizio che corrisponde a una registrazione dell'app con ID app = 18218b12-1895-43E9-AD80-6e8fc1ea88ce. Eseguire il comando seguente nell'interfaccia della riga di comando di Azure:
 
 ```
 $ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId

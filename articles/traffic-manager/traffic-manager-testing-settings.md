@@ -1,6 +1,6 @@
 ---
 title: Verificare le impostazioni di Gestione traffico di Azure
-description: Questo articolo illustra come verificare le impostazioni di Gestione traffico.
+description: In questo articolo viene illustrato come verificare le impostazioni di Traffic Manager e testare il metodo di routing del traffico.
 services: traffic-manager
 author: asudbring
 ms.service: traffic-manager
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: allensu
-ms.openlocfilehash: 19ef08a40d0a84aecb070e71bbb8c9b6a88ae059
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ad74e5c51d5939218ebb546993d416b3df1cd04b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070933"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023518"
 ---
 # <a name="verify-traffic-manager-settings"></a>Verificare le impostazioni di Gestione traffico
 

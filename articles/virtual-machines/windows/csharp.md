@@ -1,5 +1,5 @@
 ---
-title: Creare e gestire una macchina virtuale di Azure tramite C# | Microsoft Docs
+title: Creare e gestire una macchina virtuale di Azure usandoC#
 description: Usare C# e Azure Resource Manager per distribuire una macchina virtuale e tutte le relative risorse di supporto.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: c6d092889deec934f1db1f1c93c06aa0dc217df5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe838ade7a65161efaeb60b9e4d8de17a7080da1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079604"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032779"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Creare e gestire macchine virtuali Windows in Azure tramite C# #
 
@@ -107,9 +107,9 @@ Prima di iniziare questo passaggio, assicurarsi di avere accesso a un'[entità s
         .WithDefaultSubscription();
     ```
 
-## <a name="create-resources"></a>Crea risorse
+## <a name="create-resources"></a>Creare le risorse
 
-### <a name="create-the-resource-group"></a>Creare il gruppo di risorse
+### <a name="create-the-resource-group"></a>Creare il gruppo di risorse.
 
 Tutte le risorse devono essere contenute in un [gruppo di risorse](../../azure-resource-manager/resource-group-overview.md).
 
@@ -190,7 +190,7 @@ var networkInterface = azure.NetworkInterfaces.Define("myNIC")
     .Create();
  ```
 
-### <a name="create-the-virtual-machine"></a>Creare la macchina virtuale
+### <a name="create-the-virtual-machine"></a>Creazione della macchina virtuale
 
 Dopo avere creato tutte le risorse di supporto, è possibile creare una macchina virtuale.
 
@@ -212,7 +212,7 @@ azure.VirtualMachines.Define(vmName)
 ```
 
 > [!NOTE]
-> Questa esercitazione illustra come creare una macchina virtuale in cui è in esecuzione una versione del sistema operativo Windows Server. Per altre informazioni sulla selezione di altre immagini, vedere [Esplorare e selezionare immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Questa esercitazione illustra come creare una macchina virtuale in cui è in esecuzione una versione del sistema operativo Windows Server. Per altre informazioni sulla selezione di altre immagini, vedere [Esplorazione e selezione di immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 >
 
@@ -385,7 +385,7 @@ Per eliminare il gruppo di risorse, aggiungere questo codice al metodo Main:
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 
-## <a name="run-the-application"></a>Esecuzione dell'applicazione
+## <a name="run-the-application"></a>Eseguire l'applicazione
 
 L'esecuzione completa dell'applicazione console dall'inizio alla fine richiederà circa cinque minuti. 
 

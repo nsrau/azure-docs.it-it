@@ -1,25 +1,25 @@
 ---
-title: Configurare le impostazioni del ruolo Azure AD in Privileged Identity Management-Azure Active Directory | Microsoft Docs
+title: Configurare le impostazioni del ruolo Azure AD in PIM-Azure AD | Microsoft Docs
 description: Informazioni su come configurare le impostazioni del ruolo Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cff298e24ac185767e6290e396818ccece7b9b55
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: ee99a8e75fe8da85b1cf82623ed110991db24b66
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809161"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021805"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurare le impostazioni del ruolo Azure AD in Privileged Identity Management
 
@@ -33,7 +33,7 @@ Per aprire le impostazioni per un ruolo di Azure AD seguire questa procedura.
 
 1. Fare clic su **Ruoli di Azure AD**.
 
-1. Fare clic su **Settings**.
+1. Fare clic su **Impostazioni**.
 
     ![Ruoli di Azure AD-impostazioni](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
@@ -65,7 +65,7 @@ Per ulteriori informazioni, vedere [notifiche tramite posta elettronica in Privi
 
 Usare l' **opzione** per richiedere agli amministratori idonei di includere un numero di ticket quando attivano il proprio ruolo. Questa procedura può rendere più efficienti i controlli di accesso ai ruoli.
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>Autenticazione a più fattori
 
 Usare l'opzione **Multi-Factor Authentication** per specificare se richiedere agli utenti di verificare la propria identità con MFA prima di attivare i ruoli. È necessario verificarne l'identità una sola volta per ogni sessione, non ogni volta che viene attivato un ruolo. Tenere presente due suggerimenti quando si abilita l'autenticazione MFA:
 

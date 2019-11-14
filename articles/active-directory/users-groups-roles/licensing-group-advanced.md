@@ -1,26 +1,26 @@
 ---
-title: Scenari aggiuntivi relativi alle licenze basate sui gruppi - Azure Active Directory | Microsoft Docs
+title: Scenari aggiuntivi relativi alle licenze basate sui gruppi-Azure AD | Microsoft Docs
 description: Altri scenari relativi alle licenze basate sui gruppi in Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/27/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cfdb8b979d20b77bcbf2f6b0d17855dfa0ac817
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034120"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025955"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenari, limitazioni e problemi noti relativi all'uso dei gruppi per gestire le licenze in Azure Active Directory
 
@@ -28,7 +28,7 @@ Usare le informazioni e gli esempi seguenti per comprendere le licenze basate su
 
 ## <a name="usage-location"></a>Località di utilizzo
 
-Alcuni servizi Microsoft non sono disponibili in tutte le posizioni. Per poter assegnare una licenza a un utente, l'amministratore deve prima specificare la proprietà **Località di utilizzo** per l'utente. Nella [portale di Azure](https://portal.azure.com)è possibile specificare la posizione di utilizzo in **User** &gt; **profile** &gt; **Settings**.
+Alcuni servizi Microsoft non sono disponibili in tutte le posizioni. Per poter assegnare una licenza a un utente, l'amministratore deve prima specificare la proprietà **Località di utilizzo** per l'utente. Nella [portale di Azure](https://portal.azure.com)è possibile specificare la posizione di utilizzo in **Impostazioni**&gt; **profilo** **utente** &gt;.
 
 Per l'assegnazione di licenze ai gruppi, eventuali utenti per cui non è specificata una località d'uso ereditano la località della directory. Se gli utenti sono in più posizioni, assicurarsi di rifletterlo correttamente nelle risorse utente prima di aggiungere utenti ai gruppi con licenze.
 
@@ -70,7 +70,7 @@ Per questo esempio modificare un utente e impostare extensionAttribute1 sul valo
 
 Un utente può essere membro di più gruppi con licenze. Di seguito sono illustrati alcuni aspetti da considerare:
 
-- Più licenze per lo stesso prodotto possono sovrapporsi e di conseguenza tutti i servizi abilitati vengono applicati all'utente. L'esempio seguente mostra due gruppi per la gestione delle licenze: *E3 - base services* (E3 - Servizi di base) contiene i servizi di base da distribuire nella prima fase a tutti gli utenti. *E3 - extended services* (E3 - Servizi estesi) contiene servizi aggiuntivi (Sway e Planner) da distribuire solo ad alcuni utenti. In questo esempio, l'utente è stato aggiunto a entrambi i gruppi:
+- Più licenze per lo stesso prodotto possono sovrapporsi e di conseguenza tutti i servizi abilitati vengono applicati all'utente. L'esempio seguente mostra due gruppi di licenze: *E3 - base services* (E3 - Servizi di base) contiene i servizi di base da distribuire nella prima fase a tutti gli utenti. *E3 - extended services* (E3 - Servizi estesi) contiene servizi aggiuntivi (Sway e Planner) da distribuire solo ad alcuni utenti. In questo esempio, l'utente è stato aggiunto a entrambi i gruppi:
 
   ![Schermata dei servizi abilitati](./media/licensing-group-advanced/view-enabled-services.png)
 
@@ -112,7 +112,7 @@ Ecco un esempio di come potrebbe presentarsi questo processo:
 
 3. Passare al pannello [**Azure Active Directory > Licenze > Tutti i prodotti**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) e selezionare *Office 365 Enterprise E5*, quindi selezionare **Gruppi con licenza** per visualizzare un elenco di tutti i gruppi con quel prodotto.
 
-4. Fare clic sul gruppo che si desidera esaminare, in questo caso *O365 E5 - Exchange only* (O365 E5 - solo Exchange). Verrà visualizzata la scheda **Licenze**. Se si fa clic sulla licenza E5, verrà visualizzato un pannello con un elenco di tutti i servizi abilitati.
+4. Fare clic sul gruppo che si desidera esaminare, in questo caso *O365 E5 - Exchange only* (O365 E5 - solo Exchange). Verrà visualizzata la scheda **licenze** . facendo clic sulla licenza E5 verrà aperto un pannello in cui sono elencati tutti i servizi abilitati.
    > [!NOTE]
    > Il servizio *Microsoft Stream* è stato aggiunto e abilitato automaticamente al gruppo, che già dispone del servizio *Exchange Online*:
 
@@ -193,7 +193,7 @@ Questo output di esempio mostra l'inizio dell'elaborazione, tutte le modifiche u
 
 Non è possibile eliminare un gruppo con una licenza attiva assegnata. Un amministratore può eliminare un gruppo senza avere la consapevolezza che questa operazione implica la rimozione delle licenze dagli utenti; per questo motivo viene richiesto di rimuovere le licenze dal gruppo prima di poter eliminare il gruppo.
 
-Quando si prova a eliminare un gruppo nel portale di Azure, è possibile che venga visualizzata una notifica di errore simile alla seguente: ![screenshot del messaggio visualizzato per segnalare che non è stato possibile eliminare il gruppo](./media/licensing-group-advanced/groupdeletionfailed.png)
+Quando si tenta di eliminare un gruppo nel portale di Azure, è possibile che venga visualizzata una notifica di errore simile alla seguente: ![schermata con eliminazione del gruppo non riuscita.](./media/licensing-group-advanced/groupdeletionfailed.png)
 
 Passare alla scheda **Licenze** per il gruppo e verificare se sono presenti licenze assegnate. In caso affermativo, rimuovere le licenze e provare di nuovo a eliminare il gruppo.
 

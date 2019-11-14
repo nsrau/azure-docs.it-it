@@ -1,6 +1,6 @@
 ---
-title: 'Collegare una rete virtuale a un circuito - ExpressRoute: portale di Azure | Microsoft Docs'
-description: Connettere una rete virtuale a un circuito ExpressRoute. Procedure.
+title: 'ExpressRoute: collegare un VNet a un circuito: portale di Azure'
+description: Connettere una VNet a un circuito ExpressRoute di Azure. Procedure.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 6185540340bba4299eb9307432480c91d531779a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4c7a24ad692086398059d1afd48c8927e9d18582
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088908"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022201"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Connettere una rete virtuale a un circuito ExpressRoute usando il portale
 > [!div class="op_single_selector"]
@@ -33,8 +33,8 @@ Questo articolo consente di creare una connessione per collegare una rete virtua
 * È necessario avere un circuito ExpressRoute attivo.
   * Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) e fare in modo che venga abilitato dal provider di connettività.
   * Assicurarsi di disporre del peering privato di Azure configurato per il circuito. Vedere l'articolo [creare e modificare il peering per un circuito ExpressRoute](expressroute-howto-routing-portal-resource-manager.md) per istruzioni per il peering e il routing.
-  * Per abilitare la connettività end-to-end, assicurarsi che sia configurato il peering privato di Azure e sia attivo il peering BGP tra la rete e Microsoft.
-  * Assicurarsi di disporre di una rete virtuale e di un gateway di rete virtuale creati e con provisioning completo. Seguire le istruzioni per [creare un gateway di rete virtuale per ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Un gateway di rete virtuale per ExpressRoute usa 'ExpressRoute' come GatewayType, non VPN.
+  * Per abilitare la connettività end-to-end è necessario assicurarsi che sia configurato il peering privato di Azure e sia attivo il peering BGP tra la rete e Microsoft.
+  * Assicurarsi di avere una rete virtuale e un gateway di rete virtuale creati e con provisioning completo. Seguire le istruzioni per [creare un gateway di rete virtuale per ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Un gateway di rete virtuale per ExpressRoute usa 'ExpressRoute' come GatewayType, non VPN.
 
 * È possibile collegare fino a 10 reti virtuali a un circuito ExpressRoute standard. Tutte le reti virtuali devono essere nella stessa area geopolitica quando si usa un circuito ExpressRoute standard.
 
@@ -71,7 +71,7 @@ Questo articolo consente di creare una connessione per collegare una rete virtua
 
 - Ciascuno dei cloud più piccoli nel cloud di grandi dimensioni viene usato per rappresentare le sottoscrizioni appartenenti a reparti diversi di un'organizzazione.
 - Ciascun reparto dell'organizzazione può usare la propria sottoscrizione per distribuire i servizi, ma i reparti possono condividere un singolo circuito ExpressRoute per la connessione alla rete locale.
-- Un singolo reparto (in questo esempio, IT) può essere proprietario del circuito ExpressRoute. Altre sottoscrizioni all'interno dell'organizzazione possono usare il circuito ExpressRoute e le autorizzazioni associate al circuito, incluse le sottoscrizioni collegate ad altri tenant di Azure Active Directory e le registrazione di contratti Enterprise.
+- Un singolo reparto (in questo esempio, IT) può possedere il circuito ExpressRoute. Altre sottoscrizioni all'interno dell'organizzazione possono usare il circuito ExpressRoute e le autorizzazioni associate al circuito, incluse le sottoscrizioni collegate ad altri tenant di Azure Active Directory e le registrazione di contratti Enterprise.
 
   > [!NOTE]
   > I costi relativi a connettività e larghezza di banda per il circuito dedicato saranno addebitati al proprietario del circuito ExpressRoute. Tutte le reti virtuali condividono la stessa larghezza di banda.
@@ -96,7 +96,7 @@ Il proprietario del circuito crea un'autorizzazione. Questo comporta la creazion
 
 1. Nella pagina di ExpressRoute fare clic su **Autorizzazioni**, digitare un **nome** per l'autorizzazione e fare clic su **Salva**.
 
-   ![Autorizzazioni](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
+   ![Authorizations](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 2. Dopo che la configurazione è stata salvata, copiare l'**ID risorsa** e la **chiave di autorizzazione**.
 
    ![Chiave di autorizzazione](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)

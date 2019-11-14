@@ -1,5 +1,5 @@
 ---
-title: Assegnare e rimuovere ruoli di amministratore personalizzati usando Microsoft Graph Azure Active Directory API | Microsoft Docs
+title: Assegnare i ruoli di amministratore di Azure AD con Microsoft Graph API | Microsoft Docs
 description: Assegnare e rimuovere i ruoli di amministratore di Azure AD con API Graph in Azure Active Directory
 services: active-directory
 author: curtand
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 898f444e868a469aed5358f49f48f5bcbfab4450
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 2f5be5829843e9857239ca5ea9a7395f569f563a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707578"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025331"
 ---
 # <a name="assign-custom-admin-roles-using-graph-api-in-azure-active-directory"></a>Assegnare ruoli amministrativi personalizzati usando API Graph in Azure Active Directory 
 
@@ -32,13 +32,13 @@ Connettersi al tenant di Azure AD usando un account amministratore globale o un 
 
 Richiesta HTTP per creare un'assegnazione di ruolo tra un utente e una definizione di ruolo.
 
-INSERISCI
+POST
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
 ```
 
-Body
+body
 
 ``` HTTP
 {
@@ -48,7 +48,7 @@ Body
 }
 ```
 
-Risposta
+response
 
 ``` HTTP
 HTTP/1.1 201 Created
@@ -56,13 +56,13 @@ HTTP/1.1 201 Created
 
 Richiesta HTTP per creare un'assegnazione di ruolo in cui la definizione dell'entità o del ruolo non esiste
 
-INSERISCI
+POST
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
 ```
 
-Body
+body
 
 ``` HTTP
 {
@@ -72,7 +72,7 @@ Body
 }
 ```
 
-Risposta
+response
 
 ``` HTTP
 HTTP/1.1 404 Not Found
@@ -83,13 +83,13 @@ Richiesta HTTP per creare una singola assegnazione di ruolo con ambito di risors
 > [!NOTE] 
 > I ruoli predefiniti hanno oggi una limitazione in cui possono avere un ambito solo per l'ambito "/" dell'intera organizzazione o per l'ambito "/AU/*". L'ambito di una singola risorsa non funziona per i ruoli predefiniti, ma funziona per i ruoli personalizzati.
 
-INSERISCI
+POST
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
 ```
 
-Body
+body
 
 ``` HTTP
 {
@@ -99,7 +99,7 @@ Body
 }
 ```
 
-Risposta
+response
 
 ``` HTTP
 HTTP/1.1 400 Bad Request
@@ -133,7 +133,7 @@ GET
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=principalId eq ‘<object-id-of-principal>’
 ```
 
-Risposta
+response
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -159,7 +159,7 @@ GET
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
 ```
 
-Risposta
+response
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -179,7 +179,7 @@ GET
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
 ```
 
-Risposta
+response
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -201,7 +201,7 @@ DELETE
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
 ```
 
-Risposta
+response
 ``` HTTP
 HTTP/1.1 204 No Content
 ```
@@ -214,7 +214,7 @@ DELETE
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
 ```
 
-Risposta
+response
 
 ``` HTTP
 HTTP/1.1 404 Not Found
@@ -228,7 +228,7 @@ DELETE
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
 ```
 
-Risposta
+response
 
 ``` HTTP
 HTTP/1.1 400 Bad Request

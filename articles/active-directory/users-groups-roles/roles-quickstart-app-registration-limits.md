@@ -1,26 +1,26 @@
 ---
-title: Concedere a una singola autorizzazione per superare le restrizioni per le registrazioni di app-Azure Active Directory | Microsoft Docs
-description: Assegnare un ruolo personalizzato per concedere registrazioni di app senza restrizioni nell'Azure AD Active Directory.
+title: Rimuovere i limiti per la creazione di registrazioni di app-Azure AD | Microsoft Docs
+description: Assegnare un ruolo personalizzato per concedere registrazioni di app senza restrizioni nell'Azure AD Active Directory
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c91de3de743d168bea207f27fb162486ea625a63
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 12803e2f65e17155e8bbcaf4842789adc101b0dd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026276"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024399"
 ---
-# <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Avvio rapido: Concedere l'autorizzazione per creare registrazioni di app illimitate
+# <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Guida introduttiva: concedere l'autorizzazione per creare registrazioni di app illimitate
 
 In questa Guida introduttiva verrà creato un ruolo personalizzato con l'autorizzazione per creare un numero illimitato di registrazioni per l'app e quindi assegnare tale ruolo a un utente. L'utente assegnato può quindi usare il portale di Azure AD, Azure AD PowerShell, Azure AD API Graph o l'API Microsoft Graph per creare registrazioni di applicazioni. Diversamente dal ruolo predefinito per sviluppatori di applicazioni, questo ruolo personalizzato concede la possibilità di creare un numero illimitato di registrazioni di applicazioni. Il ruolo sviluppatore di applicazioni concede la possibilità, ma il numero totale di oggetti creati è limitato a 250 per impedire che raggiunga [la quota di oggetti a livello di directory](directory-service-limits-restrictions.md).
 
@@ -32,7 +32,7 @@ Il ruolo con privilegi minimi necessario per creare e assegnare Azure AD ruoli p
 
 ## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>Creare un nuovo ruolo personalizzato usando il portale di Azure AD
 
-1. Accedere all'interfaccia di [amministrazione di Azure AD](https://aad.portal.azure.com)@no__t le autorizzazioni di amministratore del ruolo con privilegi di 1With o amministratore globale nell'organizzazione Azure ad.
+1. Accedere all'interfaccia di [amministrazione di Azure AD](https://aad.portal.azure.com) con autorizzazioni di amministratore del ruolo con privilegi o di amministratore globale nell'organizzazione Azure ad.
 1. Selezionare **Azure Active Directory**, selezionare **ruoli e amministratori**, quindi selezionare **nuovo ruolo personalizzato**.
 
     ![Creazione o modifica dei ruoli dalla pagina ruoli e amministratori](./media/roles-create-custom/new-custom-role.png)
@@ -49,7 +49,7 @@ Il ruolo con privilegi minimi necessario per creare e assegnare Azure AD ruoli p
 
 ### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Assegnare il ruolo a un utente usando il portale di Azure AD
 
-1. Accedere all'interfaccia di [amministrazione di Azure AD](https://aad.portal.azure.com)@no__t 1With amministratore del ruolo con privilegi o autorizzazioni di amministratore globale nell'organizzazione Azure ad.
+1. Accedere all'interfaccia di [amministrazione di Azure AD](https://aad.portal.azure.com) con autorizzazioni di amministratore del ruolo con privilegi o di amministratore globale nell'organizzazione Azure ad.
 1. Selezionare **Azure Active Directory** , quindi selezionare **ruoli e amministratori**.
 1. Selezionare il ruolo Autore registrazione applicazione e selezionare **Aggiungi assegnazione**.
 1. Selezionare l'utente desiderato e fare clic su **Seleziona** per aggiungere l'utente al ruolo.
@@ -63,8 +63,8 @@ La procedura è stata completata. In questa Guida introduttiva è stato creato u
 
 Sono disponibili due autorizzazioni per concedere la possibilità di creare registrazioni di applicazioni, ognuna con un comportamento diverso.
 
-- Microsoft. directory/Applications/createAsOwner: L'assegnazione di questa autorizzazione comporta l'aggiunta del creatore come primo proprietario della registrazione dell'app creata e la registrazione dell'app creata verrà conteggiata in base alla quota degli oggetti creati 250 dell'autore.
-- Microsoft. directory/applicationPolicies/crea: L'assegnazione di questa autorizzazione comporta la mancata aggiunta del creatore come primo proprietario della registrazione dell'app creata e la registrazione dell'app creata non verrà conteggiata con la quota degli oggetti creati 250 dell'autore. Usare questa autorizzazione con cautela, perché non ci sono elementi che impediscono all'assegnatario di creare registrazioni di app fino a quando non viene raggiunta la quota a livello di directory. Se entrambe le autorizzazioni sono assegnate, questa autorizzazione avrà la precedenza.
+- Microsoft. directory/Applications/createAsOwner: l'assegnazione di questa autorizzazione comporta l'aggiunta del creatore come primo proprietario della registrazione dell'app creata e la registrazione dell'app creata verrà conteggiata in base alla quota degli oggetti creati 250 dell'autore.
+- Microsoft. directory/applicationPolicies/create: l'assegnazione di questa autorizzazione comporta la mancata aggiunta del creatore come primo proprietario della registrazione dell'app creata e la registrazione dell'app creata non verrà conteggiata in base alla quota degli oggetti creati 250 dell'autore. Usare questa autorizzazione con cautela, perché non ci sono elementi che impediscono all'assegnatario di creare registrazioni di app fino a quando non viene raggiunta la quota a livello di directory. Se entrambe le autorizzazioni sono assegnate, questa autorizzazione avrà la precedenza.
 
 ## <a name="create-a-custom-role-using-azure-ad-powershell"></a>Creare un ruolo personalizzato usando Azure AD PowerShell
 
@@ -135,13 +135,13 @@ $customRole = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -Displ
 
 Richiesta HTTP per creare il ruolo personalizzato.
 
-INSERISCI
+POST
 
 ``` HTTP
 https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
 ```
 
-Body
+body
 
 ```HTTP
 {
@@ -172,13 +172,13 @@ L'assegnazione di ruolo combina un ID dell'entità di sicurezza, che può essere
 
 Richiesta HTTP per assegnare un ruolo personalizzato.
 
-INSERISCI
+POST
 
 ``` HTTP
 https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
-Body
+body
 
 ``` HTTP
 {

@@ -1,25 +1,25 @@
 ---
-title: Concedere l'accesso ad altri amministratori per la gestione di PIM-Azure Active Directory | Microsoft Docs
+title: Concessione dell'accesso per la gestione di PIM-Azure Active Directory | Microsoft Docs
 description: Informazioni su come concedere l'accesso ad altri amministratori per gestire Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60c0e1bfd457137ddfb8f3ae81fc9044098c1f8d
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 7424e92f8520d13137b6ac8787523095058a005f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809063"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022120"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-privileged-identity-management"></a>Concedere l'accesso ad altri amministratori per gestire Privileged Identity Management
 

@@ -1,5 +1,5 @@
 ---
-title: Immagini Red Hat Enterprise Linux in Azure | Microsoft Docs
+title: Immagini Red Hat Enterprise Linux in Azure
 description: Informazioni sulle immagini Red Hat Enterprise Linux in Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: c11ce31913baa8c638e94bdf92ef622cd8899e03
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: eaabe9da20c22dd3e4d924887adcbc7081857e91
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764312"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035106"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Immagini Red Hat Enterprise Linux in Azure
 Questo articolo illustra le immagini Red Hat Enterprise Linux (RHEL) disponibili in Azure Marketplace con i criteri per la denominazione e conservazione.
@@ -64,7 +64,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 ### <a name="current-naming-convention"></a>Convenzione di denominazione attuale
 Tutte le immagini RHEL attualmente pubblicate utilizzano il modello con pagamento in base al consumo e sono connesse all'[infrastruttura di aggiornamento per Red Hat (RHUI) in Azure](https://aka.ms/rhui-update). È stata adottata una nuova convenzione di denominazione per le immagini della famiglia RHEL 7 in cui lo schema di partizionamento del disco (RAW, LVM) viene specificato nello SKU anziché nella versione. La versione dell'immagine RHEL conterrà 7-RAW o 7-LVM. La denominazione della famiglia RHEL 6 non è stata attualmente modificata.
 
-In questa convenzione di denominazione saranno disponibili 2 tipi di SKU di immagini RHEL 7: SKU che elencano la versione secondaria e SKU che non lo sono. Se si vuole usare uno SKU 7-RAW o 7 LVM, è possibile specificare la versione secondaria RHEL che si vuole distribuire nella versione. Se si sceglie la versione "più recente", verrà effettuato il provisioning della versione secondaria più recente di RHEL.
+In questa convenzione di denominazione saranno disponibili 2 tipi di SKU di immagini RHEL 7: SKU che elencano la versione secondaria e SKU che non lo fanno. Se si vuole usare uno SKU 7-RAW o 7 LVM, è possibile specificare la versione secondaria RHEL che si vuole distribuire nella versione. Se si sceglie la versione "più recente", verrà effettuato il provisioning della versione secondaria più recente di RHEL.
 
 >[!NOTE]
 > Nel set di immagini RHEL per SAP, la versione RHEL rimane fissa. Di conseguenza, la convenzione di denominazione include una versione particolare nello SKU.
@@ -88,7 +88,7 @@ Ad esempio, è possibile visualizzare le 2 immagini RHEL 7,4 seguenti:
 RedHat:RHEL:7-RAW:7.4.2018010506
 RedHat:RHEL:7.4:7.4.2019041718
 ```
-In questo caso, `RedHat:RHEL:7.4:7.4.2019041718` verrà allegato ai repository EUS per impostazione predefinita e `RedHat:RHEL:7-RAW:7.4.2018010506` verrà collegato ai repository non EUS per impostazione predefinita.
+In questo caso, `RedHat:RHEL:7.4:7.4.2019041718` verrà allegato ai repository EUS per impostazione predefinita e `RedHat:RHEL:7-RAW:7.4.2018010506` verrà allegato ai repository non EUS per impostazione predefinita.
 
 ### <a name="for-customers-that-dont-want-to-use-eus-images"></a>Per i clienti che non vogliono usare immagini EUS:
 Se non si vuole usare un'immagine connessa a EUS per impostazione predefinita, effettuare la distribuzione usando un'immagine che non contiene un numero di versione secondario nello SKU.
@@ -112,7 +112,7 @@ RHEL 8,0      |N/D                            | Nessun EUS disponibile da Red Ha
 ## <a name="list-of-rhel-images-available"></a>Elenco di immagini RHEL disponibili
 Le offerte seguenti sono SKU attualmente disponibili per l'uso generale:
 
-Offerta| SKU | Partizionamento | Provisioning | Note
+Offerta| Sku | Partizionamento | Provisioning | note
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 7-RAW    | RAW    | Agente Linux | Famiglia di immagini RHEL 7. x. <br> Per impostazione predefinita, non è collegato ai repository EUS.
 |             | 7-LVM    | LVM    | Agente Linux | Famiglia di immagini RHEL 7. x. <br> Per impostazione predefinita, non è collegato ai repository EUS.
@@ -121,7 +121,7 @@ RHEL          | 7-RAW    | RAW    | Agente Linux | Famiglia di immagini RHEL 7. 
 |             | 6.8      | RAW    | Agente Linux |
 |             | 6.9      | RAW    | Agente Linux |
 |             | 6.10     | RAW    | Agente Linux |
-|             | 7.2      | RAW    | Agente Linux |
+|             | 7,2      | RAW    | Agente Linux |
 |             | 7.3      | RAW    | Agente Linux |
 |             | 7.4      | RAW    | Agente Linux | Allegato ai repository EUS per impostazione predefinita, a partire dal 2019 aprile.
 |             | 7.5      | RAW    | Agente Linux | Allegato ai repository EUS per impostazione predefinita a partire dal 2019 giugno.
@@ -130,7 +130,7 @@ RHEL          | 7-RAW    | RAW    | Agente Linux | Famiglia di immagini RHEL 7. 
 RHEL-SAP      | 7.4      | LVM    | Agente Linux | RHEL 7.4 per SAP HANA e app aziendali
 |             | 7.5      | LVM    | Agente Linux | RHEL 7.5 per SAP HANA e app aziendali
 RHEL-SAP-HANA | 6.7      | RAW    | Agente Linux | RHEL 6.7 per SAP HANA
-|             | 7.2      | LVM    | Agente Linux | RHEL 7.2 per SAP HANA
+|             | 7,2      | LVM    | Agente Linux | RHEL 7.2 per SAP HANA
 |             | 7.3      | LVM    | Agente Linux | RHEL 7.3 per SAP HANA
 RHEL-SAP-APPS | 6.8      | RAW    | Agente Linux | RHEL 6.8 per Business Applications SAP
 |             | 7.3      | LVM    | Agente Linux | RHEL 7.3 per Business Applications SAP
@@ -162,4 +162,4 @@ I criteri attuali prevedono la conservazione di tutte le immagini pubblicate in 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sull'infrastruttura di aggiornamento per Azure Red Hat [in questo articolo](https://aka.ms/rhui-update).
-* Informazioni sui criteri di supporto di Red Hat per tutte le versioni di RHEL sono reperibili alla pagina [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) (Ciclo di vita di Red Hat Enterprise Linux).
+* Informazioni sui criteri di supporto di Red Hat per tutte le versioni di RHEL sono reperibili alla pagina [Red Hat Enterprise Linux Life Cycle (Ciclo di vita di Red Hat Enterprise Linux)](https://access.redhat.com/support/policy/updates/errata).
