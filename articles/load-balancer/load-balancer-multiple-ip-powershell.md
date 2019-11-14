@@ -1,10 +1,10 @@
 ---
 title: Bilanciamento del carico in più configurazioni IP - Interfaccia della riga di comando di Azure
-titlesuffix: Azure Load Balancer
-description: Bilanciamento del carico tra configurazioni IP primarie e secondarie.
+titleSuffix: Azure Load Balancer
+description: In questo articolo vengono fornite informazioni sul bilanciamento del carico tra configurazioni IP primarie e secondarie usando l'interfaccia della riga di comando di Azure.
 services: load-balancer
 documentationcenter: na
-author: anavinahar
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: anavin
-ms.openlocfilehash: bbd21ffeffeaf036909b5ab89f1a07909a03c3f0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: allensu
+ms.openlocfilehash: 6ac9e362314cc45e6adbdcf1390f70cbe6b05de8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621718"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075970"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Bilanciamento del carico in più configurazioni IP tramite PowerShell
 
@@ -143,4 +143,4 @@ Per ottenere lo scenario descritto in questo articolo, seguire questa procedura:
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni su come combinare i servizi di bilanciamento del carico di Azure sono disponibili in [Uso dei servizi di bilanciamento del carico in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Informazioni su come è possibile usare diversi tipi di log in Azure per gestire e risolvere i problemi di bilanciamento del carico nel [log di monitoraggio di Azure per Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Informazioni su come usare diversi tipi di log in Azure per gestire e risolvere i problemi del servizio di bilanciamento del carico nei [log di monitoraggio di Azure per Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

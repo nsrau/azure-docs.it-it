@@ -1,7 +1,7 @@
 ---
 title: Informazioni su Load Balancer Standard di Azure
 titlesuffix: Azure Load Balancer
-description: Panoramica delle funzionalità di Azure Load Balancer Standard
+description: Con questo percorso di apprendimento, iniziare con una panoramica delle funzionalità di Azure Load Balancer Standard.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: allensu
-ms.openlocfilehash: 8eb8134452685add53b9dc339437ac262ecc8a9f
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c14cf572410d02892aa8a2b3e9f0f42fce46d411
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274393"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068771"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Panoramica di Azure Load Balancer Standard
 
@@ -244,7 +244,7 @@ Per informazioni sui prezzi di Load Balancer Standard, visitare la pagina [Prezz
 - Informazioni su [Load Balancer Standard con regole di bilanciamento del carico di porte a disponibilità elevata](load-balancer-ha-ports-overview.md).
 - Informazioni sull'uso di [Load Balancer con più front-end](load-balancer-multivip-overview.md).
 - Informazioni sulle [reti virtuali](../virtual-network/virtual-networks-overview.md).
-- Vedere altre informazioni sui [gruppi di sicurezza di rete](../virtual-network/security-overview.md).
+- Altre informazioni sui [gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 - Informazioni sugli [endpoint del servizio Rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
 - Informazioni su alcune altre [funzionalità di rete](../networking/networking-overview.md) chiave di Azure.
 - Vedere altre informazioni su [Azure Load Balancer](load-balancer-overview.md).

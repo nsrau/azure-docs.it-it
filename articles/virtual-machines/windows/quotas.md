@@ -1,5 +1,5 @@
 ---
-title: Quote vCPU per Azure | Documentazione Microsoft
+title: quote vCPU per Azure
 description: Informazioni sulle quote vCPU per Azure.
 keywords: ''
 services: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 15773ce54370c4557bd760249d4490896f3f5dea
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 29eaad9835b74e9867454dffb35799a01bbb03e1
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749285"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073429"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quote vCPU delle macchine virtuali
 

@@ -1,5 +1,5 @@
 ---
-title: 'Collegare una rete virtuale a un circuito ExpressRoute: Interfaccia della riga di comando: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: collegare un VNet al circuito: interfaccia della riga di comando'
 description: Questo articolo mostra come collegare le reti virtuali ai circuiti di ExpressRoute usando il modello di distribuzione di Resource Manager e dell’interfaccia della riga di comando.
 services: expressroute
 author: cherylmc
@@ -7,14 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.reviewer: anzaman
-ms.custom: seodec18
-ms.openlocfilehash: d858c83fb6669e5348b4256931e080656be0ebad
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a8814030e6c4345227ec05ea1554104e0b21efbc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621069"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076551"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Connettere una rete virtuale a un circuito ExpressRoute usando l'interfaccia della riga di comando
 
@@ -38,7 +36,7 @@ Questo articolo illustra come collegare reti virtuali a circuiti ExpressRoute di
   * Seguire le istruzioni per [creare un circuito ExpressRoute](howto-circuit-cli.md) e fare in modo che venga abilitato dal provider di connettività. 
   * Assicurarsi di disporre del peering privato di Azure configurato per il circuito. Vedere l'articolo relativo alla [configurazione del routing](howto-routing-cli.md) per istruzioni relative al routing. 
   * Verificare che il peering privato di Azure sia configurato. Per abilitare la connettività end-to-end è necessario che il peering BGP tra la rete e Microsoft sia attivo.
-  * Assicurarsi di disporre di una rete virtuale e di un gateway di rete virtuale creati e con provisioning completo. Seguire le istruzioni per [configurare un gateway di rete virtuale per ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Assicurarsi di usare `--gateway-type ExpressRoute`.
+  * Assicurarsi di avere una rete virtuale e un gateway di rete virtuale creati e con provisioning completo. Seguire le istruzioni per [configurare un gateway di rete virtuale per ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Assicurarsi di usare `--gateway-type ExpressRoute`.
 
 * È possibile collegare fino a 10 reti virtuali a un circuito ExpressRoute standard. Tutte le reti virtuali devono essere nella stessa area geopolitica quando si usa un circuito ExpressRoute standard. 
 
@@ -54,11 +52,11 @@ Questo articolo illustra come collegare reti virtuali a circuiti ExpressRoute di
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
 ```
 
-## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Collegare una rete virtuale di un'altra sottoscrizione a un circuito
+## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Connettere a un circuito una rete virtuale che risiede in una sottoscrizione diversa
 
 È possibile condividere un circuito ExpressRoute tra più sottoscrizioni. La figura seguente mostra un semplice schema del funzionamento della condivisione di circuiti ExpressRoute tra più sottoscrizioni.
 
-Ciascuno dei cloud più piccoli nel cloud di grandi dimensioni viene usato per rappresentare le sottoscrizioni appartenenti a reparti diversi di un'organizzazione. Ciascun reparto dell'organizzazione può usare la propria sottoscrizione per distribuire i servizi, ma i reparti possono condividere un singolo circuito ExpressRoute per la connessione alla rete locale. Un singolo reparto (in questo esempio, IT) può essere proprietario del circuito ExpressRoute. Altre sottoscrizioni all'interno dell'organizzazione possono usare il circuito ExpressRoute.
+Ciascuno dei cloud più piccoli nel cloud di grandi dimensioni viene usato per rappresentare le sottoscrizioni appartenenti a reparti diversi di un'organizzazione. Ciascun reparto dell'organizzazione può usare la propria sottoscrizione per distribuire i servizi, ma i reparti possono condividere un singolo circuito ExpressRoute per la connessione alla rete locale. Un singolo reparto (in questo esempio, IT) può possedere il circuito ExpressRoute. Altre sottoscrizioni all'interno dell'organizzazione possono usare il circuito ExpressRoute.
 
 > [!NOTE]
 > I costi relativi a connettività e larghezza di banda per il circuito dedicato saranno addebitati al proprietario del circuito ExpressRoute. Tutte le reti virtuali condividono la stessa larghezza di banda.
@@ -155,10 +153,10 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 L'intervallo di *RoutingWeight* va da 0 a 32.000. Il valore predefinito è 0.
 
 ## <a name="configure-expressroute-fastpath"></a>Configurare ExpressRoute FastPath 
-È possibile abilitare [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) se il circuito ExpressRoute si trova in [ExpressRoute Direct](expressroute-erdirect-about.md) e il gateway virtuale newtork ErGw3AZ o con prestazioni extra. FastPath migliora le prestazioni di percorso dati, ad esempio i pacchetti al secondo e connessioni al secondo tra la rete locale e la rete virtuale. 
+È possibile abilitare [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) se il circuito ExpressRoute si trova su [ExpressRoute Direct](expressroute-erdirect-about.md) e il Gateway rete virtuale è con prestazioni ultra o ErGw3AZ. FastPath migliora la conformità del percorso dati, ad esempio i pacchetti al secondo e le connessioni al secondo tra la rete locale e la rete virtuale. 
 
 > [!NOTE] 
-> Se si ha una connessione di rete virtuale già ma non abilitato FastPath è necessario eliminare la connessione di rete virtuale e crearne uno nuovo. 
+> Se si dispone già di una connessione di rete virtuale ma non è stato abilitato FastPath, è necessario eliminare la connessione alla rete virtuale e crearne una nuova. 
 > 
 >  
 

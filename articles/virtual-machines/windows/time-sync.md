@@ -1,5 +1,5 @@
 ---
-title: Sincronizzazione dell'ora per macchine virtuali Windows in Azure | Microsoft Docs
+title: Sincronizzazione dell'ora per macchine virtuali Windows in Azure
 description: Sincronizzazione dell'ora per macchine virtuali Windows.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 04b2eb70a9e304fb50f4f6cb94daf0a0dda86d63
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 58824b13cfac264c051de6bea45d2dab3aae8fae
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100249"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068112"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Sincronizzazione dell'ora per macchine virtuali Windows in Azure
 
@@ -32,7 +32,7 @@ Azure è ora supportato da un'infrastruttura che esegue Windows Server 2016. Win
 >
 > Per altre informazioni, vedere [Accurate time for Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time) (Ora esatta per Windows Server 2016). 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 La precisione di un orologio del computer viene misurata in base a quanto l'orologio del computer si avvicina allo standard dell'ora UTC. L'ora UTC è definita da un campione multinazionale di orologi atomici precisi che possono essere sfalsati solo di un secondo in 300 anni. Tuttavia, leggere l'ora UTC direttamente richiede un hardware specializzato. Al contrario, i server di riferimento ora vengono sincronizzati con UTC e sono accessibili da altri computer in modo da garantire scalabilità e affidabilità. In ogni computer viene eseguito un servizio di sincronizzazione dell'ora che sa quali server di riferimento ora usare e verifica periodicamente se l'orologio del computer deve essere corretto e, se necessario, regola l'ora. 
 
@@ -73,7 +73,7 @@ Per i computer appartenenti a un dominio, lo stesso dominio stabilisce una gerar
 
 ### <a name="host-only"></a>Solo host 
 
-Poiché time.windows.com è un server NTP pubblico, la sincronizzazione dell'ora con esso richiede l'invio di traffico su Internet, modificare i ritardi dei pacchetti può influire negativamente sulla qualità della sincronizzazione dell'ora. Rimuovere time.windows.com passando alla sincronizzazione solo per l'host a volte può migliorare i risultati della sincronizzazione dell'ora.
+Poiché time.windows.com è un server NTP pubblico, la sincronizzazione con il tempo necessario per l'invio del traffico su Internet, la variazione dei ritardi dei pacchetti può influire negativamente sulla qualità della sincronizzazione dell'ora. La rimozione di time.windows.com passando alla sincronizzazione solo host può talvolta migliorare i risultati della sincronizzazione del tempo.
 
 Il passaggio alla sincronizzazione dell'ora solo per l'host ha senso se si verificano problemi di sincronizzazione dell'ora usando la configurazione predefinita. Provare la sincronizzazione solo per l'host per verificare se contribuisce a migliorare la sincronizzazione dell'ora nella macchina virtuale. 
 
@@ -153,7 +153,7 @@ net stop w32time && net start w32time
 
 ## <a name="windows-server-2012-and-r2-vms"></a>Windows Server 2012 e macchine virtuali R2 
 
-Windows Server 2012 e Windows Server 2012 R2 hanno impostazioni predefinite diverse per la sincronizzazione dell'ora. Per impostazione predefinita, w32time è configurato in modo da preferire un impatto ridotto del servizio rispetto all'ora precisa. 
+Windows Server 2012 e Windows Server 2012 R2 presentano impostazioni predefinite diverse per la sincronizzazione dell'ora. Per impostazione predefinita, la W32Time è configurata in modo che preferisca un sovraccarico ridotto del servizio rispetto all'ora esatta. 
 
 Per spostare le distribuzioni di Windows Server 2012 e 2012 R2 per usare le impostazioni predefinite più recenti, che preferiscono l'ora precisa, è possibile applicare le impostazioni seguenti.
 

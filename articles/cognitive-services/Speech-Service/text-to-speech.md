@@ -1,7 +1,7 @@
 ---
 title: Servizio sintesi vocale
 titleSuffix: Azure Cognitive Services
-description: La funzionalità di sintesi vocale del servizio riconoscimento vocale è una funzionalità che consente a applicazioni, strumenti o dispositivi di convertire testo in sintesi vocale naturale. È possibile scegliere tra le voci standard e neurali oppure creare una voce personalizzata univoca per il prodotto o il marchio. 75 e le voci standard sono disponibili in più di 45 lingue e impostazioni locali e 5 voci neurali sono disponibili in 4 lingue e impostazioni locali.
+description: La funzionalità di sintesi vocale nel servizio di riconoscimento vocale consente a applicazioni, strumenti o dispositivi di convertire testo in sintesi vocale naturale, ad esempio. Scegliere le voci predefinite o creare una voce personalizzata.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,19 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: d3d4777d54e3ef6b20ab0ac0f0890da958411297
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0d233f63879326f05cafb873d2a0243543b00c6b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468672"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075719"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è la sintesi vocale?
 
 La sintesi vocale da servizi vocali di Azure è un servizio che consente a applicazioni, strumenti o dispositivi di convertire testo in sintesi vocale naturale. È possibile scegliere tra le voci standard e neurali oppure creare una voce personalizzata univoca per il prodotto o il marchio. 75 e le voci standard sono disponibili in più di 45 lingue e impostazioni locali e 5 voci neurali sono disponibili in 4 lingue e impostazioni locali. Per un elenco completo, vedere [linguaggi supportati](language-support.md#text-to-speech).
 
 La tecnologia sintesi vocale consente agli autori di contenuti di interagire con gli utenti in modi diversi. La sintesi vocale può migliorare l'accessibilità offrendo agli utenti la possibilità di interagire con il contenuto in modo impercettibile. Indipendentemente dal fatto che l'utente abbia problemi visivi, una disabilità di apprendimento o che richiede informazioni di navigazione durante la guida, la sintesi vocale può migliorare un'esperienza esistente. Il riconoscimento vocale è anche un componente aggiuntivo prezioso per bot vocali e assistenti vocali.
-
 
 Grazie all'uso di SSML (Speech Synthesis Markup Language), un linguaggio di markup basato su XML, gli sviluppatori che usano il servizio di sintesi vocale possono specificare il modo in cui il testo di input viene convertito in sintesi vocale. Con SSML è possibile modificare il pitch, la pronuncia, la velocità di pronuncia, il volume e altro ancora. Per ulteriori informazioni, vedere [SSML](#speech-synthesis-markup-language-ssml).
 
@@ -54,10 +53,10 @@ Tutti gli input di testo inviati al servizio di sintesi vocale devono essere str
 
 Quando si usa il servizio di sintesi vocale, viene addebitato ogni carattere convertito in sintesi vocale, inclusa la punteggiatura. Anche se il documento SSML non è fatturabile, gli elementi facoltativi utilizzati per regolare la conversione del testo in sintesi vocale, ad esempio fonemi e pitch, vengono conteggiati come caratteri fatturabili. Ecco un elenco degli elementi fatturabili:
 
-* Testo passato al servizio di sintesi vocale nel corpo SSML della richiesta
-* Tutti i markup all'interno del campo di testo del corpo della richiesta nel formato SSML, ad eccezione dei tag `<speak>` e `<voice>`
-* Lettere, punteggiatura, spazi, tabulazioni, markup e tutti gli spazi vuoti
-* Ogni elemento di codice definito in Unicode
+- Testo passato al servizio di sintesi vocale nel corpo SSML della richiesta
+- Tutti i markup all'interno del campo di testo del corpo della richiesta nel formato SSML, ad eccezione dei tag `<speak>` e `<voice>`
+- Lettere, punteggiatura, spazi, tabulazioni, markup e tutti gli spazi vuoti
+- Ogni elemento di codice definito in Unicode
 
 Per informazioni dettagliate, vedere [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
@@ -68,16 +67,16 @@ Per informazioni dettagliate, vedere [prezzi](https://azure.microsoft.com/pricin
 
 Questa tabella elenca le funzionalità di base per sintesi vocale:
 
-| Caso d'uso | SDK | REST |
-|----------|-----|------|
-| Converte il testo in sintesi vocale. | SÌ | SÌ |
-| Caricare i set di impostazioni per l'adattamento vocale. | No | Sì\* |
-| Creare e gestire i modelli di tipo carattere voce. | No | Sì\* |
-| Creare e gestire le distribuzioni di tipi di carattere voce. | No | Sì\* |
-| Creare e gestire i test del tipo di carattere voce. | No | Sì\* |
-| Gestisci sottoscrizioni. | No | Sì\* |
+| Caso d'uso                                  | SDK | REST  |
+| ----------------------------------------- | --- | ----- |
+| Converte il testo in sintesi vocale.                   | Sì | Sì   |
+| Caricare i set di impostazioni per l'adattamento vocale.     | No  | Sì\* |
+| Creare e gestire i modelli di tipo carattere voce.      | No  | Sì\* |
+| Creare e gestire le distribuzioni di tipi di carattere voce. | No  | Sì\* |
+| Creare e gestire i test del tipo di carattere voce.       | No  | Sì\* |
+| Gestisci sottoscrizioni.                     | No  | Sì\* |
 
-\* *questi servizi sono disponibili tramite l'endpoint cris.ai. Vedere informazioni di [riferimento su spavalderia](https://westus.cris.ai/swagger/ui/index). Queste API di gestione e formazione vocale personalizzate implementano la limitazione che limita le richieste a 25 per 5 secondi, mentre l'API di sintesi vocale stessa implementa la limitazione che consente 200 richieste al secondo come massime. Quando si verifica la limitazione, si riceverà una notifica tramite le intestazioni del messaggio.*
+\*_questi servizi sono disponibili tramite l'endpoint cris.ai. Vedere informazioni di [riferimento su spavalderia](https://westus.cris.ai/swagger/ui/index). Queste API di gestione e formazione vocale personalizzate implementano la limitazione che limita le richieste a 25 per 5 secondi, mentre l'API di sintesi vocale stessa implementa la limitazione che consente 200 richieste al secondo come massime. Quando si verifica la limitazione, si riceverà una notifica tramite le intestazioni del messaggio._
 
 ## <a name="get-started-with-text-to-speech"></a>Inizia a usare sintesi vocale
 
@@ -86,8 +85,8 @@ Sono disponibili guide introduttive progettate per l'esecuzione di codice in men
 ### <a name="sdk-quickstarts"></a>Guide introduttive per SDK
 
 | Guida introduttiva (SDK) | Piattaforma | Informazioni di riferimento sulle API |
-|------------|----------|---------------|
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| ---------------- | -------- | ------------- |
+| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)  | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C#.NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C#, Unity](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=unity) | Windows, Android | [Browse](https://aka.ms/csspeech/csharpref) |
@@ -97,34 +96,34 @@ Sono disponibili guide introduttive progettate per l'esecuzione di codice in men
 | [Java](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=android) | Android | [Browse](https://aka.ms/csspeech/javaref) |
 | [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/objectivec-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
 | [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/objectivec-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Swift](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/swift-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
+| Swift (~/articles/cognitive-Services/Speech-Service/QuickStarts/Text-to-Speech-langs/Swift-MacOS.MD | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
 | [Swift](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/swift-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
 | [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/pythonref) |
 
 ### <a name="rest-quickstarts"></a>Guide introduttive REST
 
 | Guida introduttiva (REST) | Piattaforma | Informazioni di riferimento sulle API |
-|------------|----------|---------------|
+| ----------------- | -------- | ------------- |
 | [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Finestra, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.JS](quickstart-nodejs-text-to-speech.md) | Finestra, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Python](quickstart-python-text-to-speech.md) | Finestra, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
 ## <a name="sample-code"></a>Codice di esempio
 
 Il codice di esempio per sintesi vocale è disponibile su GitHub. Questi esempi coprono la conversione da sintesi vocale nei linguaggi di programmazione più diffusi.
 
-* [Esempi di sintesi vocale (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS) (Esempi di sintesi vocale (REST))
+- [Esempi di sintesi vocale (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+- [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS) (Esempi di sintesi vocale (REST))
 
-## <a name="reference-docs"></a>Documenti di riferimento
+## <a name="reference-docs"></a>Documentazione di riferimento
 
-* [Speech SDK](speech-sdk-reference.md)
-* [Speech Devices SDK](speech-devices-sdk.md)
-* [API REST: sintesi vocale](rest-speech-to-text.md)
-* [API REST: sintesi vocale](rest-text-to-speech.md)
-* [API REST: trascrizione e personalizzazione di batch](https://westus.cris.ai/swagger/ui/index)
+- [Speech SDK](speech-sdk-reference.md)
+- [Speech Devices SDK](speech-devices-sdk.md)
+- [API REST: sintesi vocale](rest-speech-to-text.md)
+- [API REST: sintesi vocale](rest-text-to-speech.md)
+- [API REST: trascrizione e personalizzazione di batch](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere una sottoscrizione di valutazione gratuita per i servizi Voce](get-started.md)
-* [Creare caratteri voce personalizzati](how-to-customize-voice-font.md)
+- [Ottenere una sottoscrizione di valutazione gratuita per i servizi Voce](get-started.md)
+- [Creare caratteri voce personalizzati](how-to-customize-voice-font.md)

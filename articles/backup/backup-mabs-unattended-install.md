@@ -7,22 +7,22 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3777aecea5e25b33a7010ad90887829406e491ae
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: a02d9f42242b9a762c58ef65a798ff6ab8f53914
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210161"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074786"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Eseguire un'installazione automatica del server di Backup di Azure
 
 Informazioni su come eseguire un'installazione automatica del server di Backup di Azure.
 
-Questa procedura non è applicabile se si installa il server di Backup di Azure V1.
+Questi passaggi non si applicano se si sta installando server di Backup di Azure V1.
 
 ## <a name="install-backup-server"></a>Installare il server di Backup
 
-1. Nel server che ospita il server di Backup di Azure V2 o versione successiva, creare un file di testo (è possibile creare il file nel Blocco note o in un altro editor di testo). Salvare il file con il nome MABSSetup.ini.
+1. Nel server che ospita il server di Backup di Azure V2 o versione successiva, creare un file di testo È possibile creare il file nel blocco note o in un altro editor di testo. Salvare il file come MABSSetup. ini.
 
 2. Incollare il codice seguente nel file MABSSetup.ini. Sostituire il testo all'interno delle parentesi (\< \>) con i valori dell'ambiente. Il testo seguente è un esempio:
 
@@ -60,6 +60,7 @@ Questa procedura non è applicabile se si installa il server di Backup di Azure 
 **/x**: percorso di disinstallazione</br>
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Dopo aver installato il server di backup, leggere le informazioni su come preparare il server o iniziare a proteggere un carico di lavoro.
 
 - [Preparare i carichi di lavoro del server di backup](backup-azure-microsoft-azure-backup.md)

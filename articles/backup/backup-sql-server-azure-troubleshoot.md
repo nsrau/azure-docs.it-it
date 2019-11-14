@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: e4683547a7c305da3d3a3bc7a7d6a50f21ad46f2
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: e600fdb882294d14bb9f9216ac8d621ba5254170
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614388"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074722"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -29,9 +29,9 @@ Per configurare la protezione per un database di SQL Server in una macchina virt
 
 ### <a name="backup-type-unsupported"></a>Tipo di backup non supportato
 
-| Gravità | Descrizione | Possibili cause | Azione consigliata |
+| Gravità | DESCRIZIONE | Possibili cause | Azione consigliata |
 |---|---|---|---|
-| Avviso | Le impostazioni correnti per questo database non supportano determinati tipi di backup presenti nei criteri associati. | <li>Sul database master è possibile eseguire solo un'operazione di backup completo del database. Non è possibile eseguire il backup differenziale o il backup del log delle transazioni. </li> <li>Qualsiasi database nel modello di recupero con registrazione minima non consente il backup dei log delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato oppure il processo di backup non riuscirà per il backup ad hoc.
+| Avviso | Le impostazioni correnti per questo database non supportano determinati tipi di backup presenti nei criteri associati. | <li>Sul database master è possibile eseguire solo un'operazione di backup completo del database. Non è possibile eseguire il backup differenziale o il backup del log delle transazioni. </li> <li>Qualsiasi database nel modello di recupero con registrazione minima non consente il backup dei log delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato oppure il processo di backup non riuscirà per il backup su richiesta.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -50,7 +50,7 @@ Per configurare la protezione per un database di SQL Server in una macchina virt
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| La catena di log è interrotta. | Viene eseguito il backup del database o della macchina virtuale tramite un'altra soluzione di backup, che tronca la catena di log.|<ul><li>Verificare se è in uso un'altra soluzione di backup o uno script. In tal caso, arrestare l'altra soluzione di backup. </li><li>Se il backup era un backup del log ad hoc, attivare un backup completo per avviare una nuova catena di log. Per i backup del log pianificati, non è necessaria alcuna azione perché il servizio backup di Azure attiverà automaticamente un backup completo per risolvere il problema.</li>|
+| La catena di log è interrotta. | Viene eseguito il backup del database o della macchina virtuale tramite un'altra soluzione di backup, che tronca la catena di log.|<ul><li>Verificare se è in uso un'altra soluzione di backup o uno script. In tal caso, arrestare l'altra soluzione di backup. </li><li>Se il backup era un backup del log su richiesta, attivare un backup completo per avviare una nuova catena di log. Per i backup del log pianificati, non è necessaria alcuna azione perché il servizio backup di Azure attiverà automaticamente un backup completo per risolvere il problema.</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
@@ -62,7 +62,7 @@ Per configurare la protezione per un database di SQL Server in una macchina virt
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Manca il primo backup completo per questa origine dati. | Manca un backup completo per il database. I backup di log e differenziali sono elementi padre di un backup completo, quindi assicurarsi di eseguire backup completi prima di attivare backup differenziali o del log. | Attivare un backup completo ad hoc.   |
+| Manca il primo backup completo per questa origine dati. | Manca un backup completo per il database. I backup di log e differenziali sono elementi padre di un backup completo, quindi assicurarsi di eseguire backup completi prima di attivare backup differenziali o del log. | Attivare un backup completo su richiesta.   |
 
 ### <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 
@@ -172,7 +172,7 @@ Ora è possibile disporli nel formato seguente:
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
-Ad esempio:
+Ecco un esempio:
 
 ```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
@@ -201,7 +201,7 @@ Il contenuto del file deve essere nel formato seguente:
 ]
 ```
 
-Ad esempio:
+Ecco un esempio:
 
 ```json
 [

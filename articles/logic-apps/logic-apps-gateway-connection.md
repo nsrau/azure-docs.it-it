@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 356eab6122272162f20e1516a9ef7f4ea0127084
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 20cdcfdd3795a7614c054ed96b82cc99fc2c5894
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049063"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068901"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
 
@@ -27,9 +27,9 @@ Questo articolo illustra come creare una risorsa del gateway di Azure per un [ga
 
 Per informazioni su come usare il gateway con altri servizi, vedere i seguenti articoli:
 
-* [Gateway dati locale di Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Power automatizzare il gateway dati locale](/power-automate/gateway-reference)
-* [Gateway dati locale di Microsoft Power Apps](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Microsoft Power automatizza il gateway dati locale](/power-automate/gateway-reference)
+* [Gateway dati locale di Microsoft Power BI](/power-bi/service-gateway-onprem)
+* [Gateway dati locale di Microsoft Power Apps](/powerapps/maker/canvas-apps/gateway-reference)
 * [Gateway dati locale di Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
 <a name="supported-connections"></a>

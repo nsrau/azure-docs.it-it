@@ -9,17 +9,18 @@ ms.topic: conceptual
 ms.date: 11/22/2018
 ms.author: dacurwin
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: e9c7d5f79f2af77554122b607aeae470a1145954
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 6f00b51cc5ac23aa8d1d39202ca79a9f5d762cbc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827281"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074815"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Note sulla versione per il server di Backup di Microsoft Azure
+
 Questo articolo descrive i problemi noti e le soluzioni alternative per il server di Backup di Microsoft Azure v3.
 
-##  <a name="backup-and-recovery-fails-for-clustered-workloads"></a>Esisto negativo di backup e ripristino per i carichi di lavoro in cluster
+## <a name="backup-and-recovery-fails-for-clustered-workloads"></a>Esisto negativo di backup e ripristino per i carichi di lavoro in cluster
 
 **Descrizione:** il backup/ripristino ha esito negativo per le origini dati in cluster, ad esempio cluster Hyper-V o cluster SQL (SQL AlwaysOn) o Exchange nel gruppo di disponibilità del database dopo l'aggiornamento del server di Backup di Microsoft Azure dalla versione 2 alla versione 3.
 
@@ -52,29 +53,28 @@ Questo articolo descrive i problemi noti e le soluzioni alternative per il serve
     GO
 ```
 
-
-##  <a name="upgrade-to-mabs-v3-fails-in-russian-locale"></a>L'aggiornamento alla versione 3 del server di Backup di Microsoft Azure ha esito negativo nelle impostazioni locali russe
+## <a name="upgrade-to-mabs-v3-fails-in-russian-locale"></a>L'aggiornamento alla versione 3 del server di Backup di Microsoft Azure ha esito negativo nelle impostazioni locali russe
 
 **Descrizione:** l'aggiornamento dalla versione 2 alla versione 3 del server di Backup di Microsoft Azure nelle impostazioni locali russe ha esito negativo con codice di errore **4387**.
 
 **Soluzione alternativa:** seguire questa procedura per eseguire l'aggiornamento alla versione 3 del server di Backup di Microsoft Azure usando il pacchetto di installazione per la lingua russa:
 
-1.  Creare una copia di [backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) del database SQL e disinstallare la versione 2 del server di Backup di Microsoft Azure (scegliere di mantenere i dati protetti durante la disinstallazione).
-2.  Eseguire l'aggiornamento a SQL 2017 (Enterprise) e disinstallare le funzionalità di report nell'ambito dell'aggiornamento.
+1. Creare una copia di [backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) del database SQL e disinstallare la versione 2 del server di Backup di Microsoft Azure (scegliere di mantenere i dati protetti durante la disinstallazione).
+2. Eseguire l'aggiornamento a SQL 2017 (Enterprise) e disinstallare le funzionalità di report nell'ambito dell'aggiornamento.
 3. [Installare](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) SQL Server Reporting Services (SSRS).
-4.  [Installare](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) SQL Server Management Studio (SSMS).
-5.  Configurare le funzionalità di report usando i parametri documentati in [Configurazione di SSRS con SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
-6.  [Installare](backup-azure-microsoft-azure-backup.md) la versione 3 del server di Backup di Microsoft Azure.
+4. [Installare](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) SQL Server Management Studio (SSMS).
+5. Configurare le funzionalità di report usando i parametri documentati in [Configurazione di SSRS con SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
+6. [Installare](backup-azure-microsoft-azure-backup.md) la versione 3 del server di Backup di Microsoft Azure.
 7. [Ripristinare](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL con SSMS ed eseguire lo strumento di sincronizzazione di DPM, come descritto [qui](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
-8.  Aggiornare la proprietà 'DataBaseVersion' nella tabella dbo.tbl_DLS_GlobalSetting usando il comando seguente:
+8. Aggiornare la proprietà 'DataBaseVersion' nella tabella dbo.tbl_DLS_GlobalSetting usando il comando seguente:
+
 ```sql
         UPDATE dbo.tbl_DLS_GlobalSetting
         set PropertyValue = '13.0.415.0'
         where PropertyName = 'DatabaseVersion'
 ```
 
-9.  Avviare il servizio MSDPM.
-
+9. Avviare il servizio MSDPM.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

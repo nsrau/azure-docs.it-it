@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: f17ec7179413bebb8260089abc46856412b78ab5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d6fcbcb7f5d1b6bb25840ad1bddc5327b068c15d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038643"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075476"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Supporto per le macchine virtuali di seconda generazione in Azure
 
@@ -92,7 +92,7 @@ Azure attualmente non supporta alcune delle funzionalità supportate da Hyper-V 
 | Disco del sistema operativo > 2 TB                    | :x:                | :heavy_check_mark: |
 | Sistema operativo disco/immagine/scambio personalizzato         | :heavy_check_mark: | :heavy_check_mark: |
 | Supporto del set di scalabilità di macchine virtuali | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Site Recovery               | :heavy_check_mark: | :x:                |
+| Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/ripristino                    | :heavy_check_mark: | :heavy_check_mark: |
 | Raccolta immagini condivise              | :heavy_check_mark: | :heavy_check_mark: |
 | Crittografia dischi di Azure             | :heavy_check_mark: | :x:                |

@@ -8,42 +8,46 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: 293af600f4bd58efe8383d019ca3d17f724f242c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 757e12f97f95ef856643820e47113521d840f10d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933313"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074982"
 ---
-# <a name="configure-azure-backup-reports"></a>Configurare i report di Backup di Azure
+# <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
+
 Questo articolo illustra i passaggi da seguire per configurare report per Backup di Azure tramite un insieme di credenziali di Servizi di ripristino. Descrive inoltre come accedere ai report con Power BI. Dopo aver completato questi passaggi, sarà possibile passare direttamente a Power BI per visualizzare, personalizzare e creare report.
 
 > [!IMPORTANT]
-> Dall'1 novembre 2018, alcuni clienti potrebbero riscontrare problemi durante il caricamento dei dati nell'app Backup di Azure in Power BI, con il messaggio "Sono stati rilevati caratteri aggiuntivi alla fine dell'input JSON. L'eccezione è stata generata dall'interfaccia IDataReader".
+> Dall'1 novembre 2018, alcuni clienti potrebbero riscontrare problemi durante il caricamento dei dati nell'app Backup di Azure in Power BI, con il messaggio "Sono stati rilevati caratteri aggiuntivi alla fine dell'input JSON. The exception was raised by the IDataReader interface.” (L'eccezione è stata generata dall'interfaccia IDataReader.")
 Ciò è dovuto a una modifica del formato in cui i dati vengono caricati nell'account di archiviazione.
 Scaricare l'app più recente (versione 1.8) per evitare questo problema.
 >
 >
 
 ## <a name="supported-scenarios"></a>Scenari supportati
+
 - I report di Backup di Azure sono supportati per il backup di macchine virtuali di Azure e il backup di file e cartelle nel cloud mediante l'agente di Servizi di ripristino di Azure.
 - I report per il database SQL di Azure, le condivisioni di File di Azure, Data Protection Manager e il server Backup di Azure non sono attualmente supportati.
 - È possibile visualizzare i report negli insiemi di credenziali e nelle sottoscrizioni, se per ogni insieme è configurato lo stesso account di archiviazione. L'account di archiviazione selezionato deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
-- La frequenza di aggiornamento pianificato per il report è 24 ore in Power BI. È anche possibile eseguire un aggiornamento ad hoc dei report in Power BI. In questo caso, vengono usati i dati più recenti nell'account di archiviazione del cliente per il rendering dei report.
+- La frequenza di aggiornamento pianificato per il report è 24 ore in Power BI. È anche possibile eseguire un aggiornamento su richiesta dei report in Power BI. In questo caso, vengono usati i dati più recenti nell'account di archiviazione del cliente per il rendering dei report.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
+
 - Creare un [account di archiviazione di Azure](../storage/common/storage-quickstart-create-account.md) per configurarlo per i report. Questo account di archiviazione viene usato per archiviare i dati correlati ai report.
 - [Creare un account di Power BI](https://powerbi.microsoft.com/landing/signin/) per visualizzare, personalizzare e creare report personalizzati usando il portale di Power BI.
 - Registrare il provider di risorse **Microsoft.Insights**, se non è già registrato. Usare le sottoscrizioni per l'account di archiviazione e l'insieme di credenziali di Servizi di ripristino in modo da consentire il flusso dei dati dei report nell'account di archiviazione. A tale scopo, passare al portale di Azure, selezionare **Sottoscrizione** > **Provider di risorse** e scegliere questo provider per registrarlo.
 
 ## <a name="configure-storage-account-for-reports"></a>Configurare l'account di archiviazione per i report
+
 Usare la procedura seguente per configurare l'account di archiviazione per un insieme di credenziali di Servizi di ripristino tramite il portale di Azure. Si tratta di una configurazione una tantum. Dopo aver configurato l'account di archiviazione, è possibile passare direttamente a Power BI per visualizzare l'app modello e usare i report.
 
 1. Se l'insieme di credenziali di Servizi di ripristino è già aperto, procedere al passaggio successivo. Se non è presente un insieme di credenziali di Servizi di ripristino aperto, nel portale di Azure selezionare **Tutti i servizi**.
 
-   * Nell'elenco di risorse digitare **Servizi di ripristino**.
-   * Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzato **Insiemi di credenziali dei servizi di ripristino**, selezionare questa opzione.
-   * Viene visualizzato l'elenco di insiemi di credenziali dei servizi di ripristino. Nell'elenco di insiemi di credenziali dei servizi di ripristino selezionare un insieme di credenziali.
+   - Nell'elenco di risorse digitare **Servizi di ripristino**.
+   - Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzato **Insiemi di credenziali dei servizi di ripristino**, selezionare questa opzione.
+   - Viene visualizzato l'elenco di insiemi di credenziali dei servizi di ripristino. Nell'elenco di insiemi di credenziali dei servizi di ripristino selezionare un insieme di credenziali.
 
      Viene aperto il dashboard dell'insieme di credenziali selezionato.
 2. Dall'elenco di elementi visualizzato nell'insieme di credenziali, nella sezione **Monitoraggio e report**, selezionare **Report di backup** per configurare l'account di archiviazione per i report.
@@ -76,6 +80,7 @@ Usare la procedura seguente per configurare l'account di archiviazione per un in
 >
 
 ## <a name="view-reports-in-power-bi"></a>Visualizzare i report in Power BI
+
 Dopo aver configurato un account di archiviazione per i report usando un insieme di credenziali di Servizi di ripristino, il trasferimento dei dati dei report inizierà dopo circa 24 ore. Trascorse 24 ore per la configurazione dell'account di archiviazione, seguire questa procedura per visualizzare i report in Power BI.
 Per personalizzare e condividere il report, creare un'area di lavoro e seguire questa procedura
 
@@ -87,7 +92,7 @@ Per personalizzare e condividere il report, creare un'area di lavoro e seguire q
       ![Ottenere l'app modello](./media/backup-azure-configure-reports/template-app-get.png)
 4. Immettere il nome dell'account di archiviazione configurato nel passaggio 5 precedente e selezionare **Avanti**.
 
-    ![Immettere il nome dell'account di archiviazione](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
+    ![Immettere il nome dell'account di archiviazione](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)
 5. Usando il metodo di autenticazione "Chiave", immettere la chiave per l'account di archiviazione. Per [visualizzare e copiare le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys), passare al proprio account di archiviazione nel portale di Azure.
 
      ![Immettere l'account di archiviazione](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
@@ -112,16 +117,17 @@ Per personalizzare e condividere il report, creare un'area di lavoro e seguire q
 
       ![Schede dei report di Backup di Azure](./media/backup-azure-configure-reports/reports-tab-view.png)
 
-
 ## <a name="troubleshooting-errors"></a>Risoluzione dei problemi
+
 | Dettagli errore | Risoluzione |
 | --- | --- |
 | Dopo avere configurato l'account di archiviazione per i report di Backup, **Account di archiviazione** rimane impostato su **Non configurato**. | Se l'account di archiviazione è stato configurato correttamente, i dati fluiranno nonostante questo problema. Per risolvere il problema, accedere al portale di Azure e selezionare **Tutti i servizi** > **Impostazioni di diagnostica** > **insieme di credenziali di Servizi di ripristino** > **Modifica l'impostazione**. Eliminare l'impostazione precedentemente configurata e crearne una nuova nello stesso pannello. In questo caso, nella casella **Nome**, selezionare **servizio**. Viene ora visualizzato l'account di archiviazione configurato. |
 |Dopo aver importato l'app modello di backup di Azure in Power BI, viene visualizzato il messaggio di errore "404-contenitore non trovato". | Come indicato in precedenza, è necessario attendere 24 ore dopo la configurazione dei report nell'insieme di credenziali di Servizi di ripristino per poterli visualizzare correttamente in Power BI. Se si tenta di accedere ai report prima di 24 ore, verrà visualizzato questo messaggio di errore perché non sono ancora presenti i dati completi per visualizzare report validi. |
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Dopo aver configurato l'account di archiviazione e aver importato l'app modello di backup di Azure, la procedura successiva consiste nel personalizzare i report e usare un modello di dati per la creazione di report. Per altre informazioni, vedere gli articoli seguenti.
 
-* [Utilizzo del modello dati di Backup di Azure](backup-azure-reports-data-model.md)
-* [Filtraggio dei report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
-* [Creazione dei report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+- [Utilizzo del modello dati di Backup di Azure](backup-azure-reports-data-model.md)
+- [Filtraggio dei report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+- [Creazione dei report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

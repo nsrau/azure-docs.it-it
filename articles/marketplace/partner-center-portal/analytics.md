@@ -8,22 +8,22 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 2b1d3167828f2c2c49bb22580222fbd0e54d31d8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 53d7cb125f59491190aadb07755954ade78356fa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813182"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075531"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analisi per il Marketplace commerciale nel centro per i partner
 
-Informazioni su come accedere ai report analitici nel centro per i partner Microsoft per monitorare le vendite, valutare le prestazioni e ottimizzare le offerte nel Marketplace. In qualità di partner, è possibile monitorare gli elenchi di offerte usando i grafici di visualizzazione e analisi dei dati supportati dal centro per i partner e trovare i modi per ottimizzare le vendite. Gli strumenti di analisi migliorati consentono di agire sui risultati delle prestazioni e di mantenere relazioni migliori con i clienti e i rivenditori. 
+Informazioni su come accedere ai report analitici nel centro per i partner Microsoft per monitorare le vendite, valutare le prestazioni e ottimizzare le offerte nel Marketplace. In qualità di partner, è possibile monitorare gli elenchi di offerte usando i grafici di visualizzazione e analisi dei dati supportati dal centro per i partner e trovare i modi per ottimizzare le vendite. Gli strumenti di analisi migliorati consentono di agire sui risultati delle prestazioni e di mantenere relazioni migliori con i clienti e i rivenditori.
 
 Per accedere agli strumenti di analisi del centro per i partner, aprire il dashboard **[analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** in Marketplace commerciale.
 
 |**Dashboard**|**Contenuto visualizzato**|
 |:---|:---|
-|[Summary](#summary-dashboard)|Grafici, tendenze e valori di dati aggregati che riepilogano le attività del Marketplace per le offerte|
+|[Riepilogo](#summary-dashboard)|Grafici, tendenze e valori di dati aggregati che riepilogano le attività del Marketplace per le offerte|
 |[Ordini](#orders-dashboard)|Informazioni sugli ordini in formato grafico e scaricabile|
 |[Clienti](#customer-dashboard)|Informazioni sui clienti, incluse le tendenze di crescita, presentate in formato grafico e scaricabile|
 |[Download](#downloads-dashboard)|Elenco delle richieste di download negli ultimi 30 giorni|
@@ -141,7 +141,7 @@ Il grafico **Orders by Marketplace License Type** Visualizza un numero di ordini
 - **Fatturazione tramite Azure**: Microsoft fattura i clienti per conto dell'utente quando si sceglie di [vendere l'offerta tramite Microsoft](./create-new-saas-offer.md#sell-through-microsoft) con questo tipo di licenza. I tipi di pagamento includono il pagamento in base al consumo tramite carta di credito o fatturazione aziendale.
 - **Bring your own License**: Microsoft non addebita ai clienti l'utilizzo di questo tipo di offerta Marketplace. Elencato come **[Get it Now (gratuito)](./create-new-saas-offer.md#get-it-now-free)** nel Marketplace.
 - **Gratuito**: Microsoft non fattura i clienti per l'utilizzo di questo tipo di offerta Marketplace. Elencato come **[versione di valutazione gratuita](./create-new-saas-offer.md##free-trial-listing)** nel Marketplace.
-- **Microsoft As Reseller**: rappresenta le offerte vendute da Microsoft Resellers come parte del **[programma Cloud Solution Provider (CSP)](./create-new-saas-offer.md#csp-program-opt-in)** .
+- **Microsoft As Reseller**: rappresenta le offerte vendute da Microsoft Resellers come parte del **[programma Cloud Solution Provider (CSP)](./create-new-saas-offer.md)** .
 
 ![Il centro per i partner analizza gli ordini per tipo di licenza](./media/analyze-license-type.png)
 
@@ -285,7 +285,7 @@ Si riceverà una notifica popup e un messaggio di posta elettronica contenente u
 | Stato dell'ordine: annullato | Ordine| Il cliente ha precedentemente acquistato un ordine e successivamente ha annullato l'ordine.||
 | Posta elettronica provider| Customer| Indirizzo di posta elettronica del provider che ha richiesto la relazione tra Microsoft e il cliente finale. Se il cliente è un'azienda tramite rivenditore, questo sarà il rivenditore. Se è necessario un provider di soluzioni cloud (CSP), questo sarà il CSP.|
 | Nome provider| Customer| Nome del provider associato alla relazione tra Microsoft e il cliente finale. Se il cliente è un'azienda tramite rivenditore, questo sarà il rivenditore. Se è necessario un provider di soluzioni cloud (CSP), questo sarà il CSP.|
-| SKU| Ordine| Nome dello SKU come definito durante la pubblicazione. Un'offerta può avere molti SKU, ma uno SKU può essere associato solo a una singola offerta.||
+| Sku| Ordine| Nome dello SKU come definito durante la pubblicazione. Un'offerta può avere molti SKU, ma uno SKU può essere associato solo a una singola offerta.||
 | Trial End Date| Ordine| Data di scadenza del periodo di valutazione per questo ordine.||
 
 ## <a name="ratings-and-reviews"></a>Classificazioni e revisioni

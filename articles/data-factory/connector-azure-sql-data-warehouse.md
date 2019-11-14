@@ -1,6 +1,6 @@
 ---
-title: Copiare dati da e verso Azure SQL Data Warehouse tramite Azure Data Factory
-description: Informazioni su come copiare dati da archivi di origine supportati in Azure SQL Data Warehouse o da SQL Data Warehouse in archivi di sink supportati usando Data Factory.
+title: Copiare e trasformare i dati in Azure SQL Data Warehouse tramite Azure Data Factory
+description: Informazioni su come copiare dati da e verso Azure SQL Data Warehouse e trasformare i dati in Azure SQL Data Warehouse tramite Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,21 +10,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: b64bfd046a42a630e7913c45213053e84377a037
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4d08a388e98283ff7bf05e938d7b8c48b7065074
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681156"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076759"
 ---
-# <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare dati da o in Azure SQL Data Warehouse usando Azure Data Factory 
+# <a name="copy-and-transform-data-in-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure SQL Data Warehouse tramite Azure Data Factory 
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Versione corrente](connector-azure-sql-data-warehouse.md)
 
-Questo articolo illustra come copiare dati da e verso Azure SQL Data Warehouse. Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Azure SQL Data Warehouse e usare il flusso di dati per trasformare i dati in Azure Data Lake Storage Gen2. Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -35,10 +35,10 @@ Questo connettore Azure SQL Data Warehouse è supportato per le attività seguen
 - [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività GetMetadata](control-flow-get-metadata-activity.md)
 
-In particolare, il connettore Azure SQL Data Warehouse supporta queste funzioni:
+Per l'attività di copia, questo connettore Azure SQL Data Warehouse supporta le funzioni seguenti:
 
 - La copia di dati tramite l'autenticazione SQL e l'autenticazione token dell'applicazione Azure Active Directory (Azure AD) con entità servizio o identità gestite per le risorse di Azure.
-- Come origine, il recupero di dati tramite query SQL o stored procedure.
+- Come origine, recuperare i dati tramite query SQL o stored procedure.
 - Come sink, il caricamento di dati tramite PolyBase o un inserimento bulk. Per ottimizzare le prestazioni di copia, è consigliabile usare PolyBase.
 
 > [!IMPORTANT]
@@ -58,16 +58,16 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che defi
 
 Per il servizio collegato di Azure SQL Data Warehouse sono supportate le proprietà seguenti:
 
-| Proprietà            | Descrizione                                                  | Obbligatorio                                                     |
+| Proprietà            | DESCRIZIONE                                                  | obbligatori                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | type                | La proprietà type deve essere impostata su **AzureSqlDW**.             | Sì                                                          |
 | connectionString    | Specificare le informazioni necessarie per connettersi all'istanza di Azure SQL Data Warehouse per la proprietà **connectionString**. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password/chiave entità servizio in Azure Key Vault e, se si tratta dell'autenticazione SQL, estrarre la configurazione `password` dalla stringa di connessione. Vedere gli esempi JSON sotto la tabella e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì                                                          |
-| servicePrincipalId  | Specificare l'ID client dell'applicazione.                         | Sì, quando si usa l'autenticazione a Azure AD con entità servizio. |
-| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì, quando si usa l'autenticazione a Azure AD con entità servizio. |
-| tenant              | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì, quando si usa l'autenticazione a Azure AD con entità servizio. |
-| connectVia          | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No                                                           |
+| servicePrincipalId  | Specificare l'ID client dell'applicazione.                         | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio. |
+| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio. |
+| tenant              | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio. |
+| connectVia          | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. | No                                                           |
 
-Per altri tipi di autenticazione, fare riferimento alle sezioni seguenti relative rispettivamente ai prerequisiti e agli esempi JSON:
+Per altri tipi di autenticazione, fare riferimento alle sezioni seguenti relative, rispettivamente, ai prerequisiti e agli esempi JSON:
 
 - [Autenticazione SQL](#sql-authentication)
 - Autenticazione token dell'applicazione Azure AD: [entità servizio](#service-principal-authentication)
@@ -132,7 +132,7 @@ Per altri tipi di autenticazione, fare riferimento alle sezioni seguenti relativ
 
 Per usare l'autenticazione token dell'applicazione Azure AD basata sull'entità servizio, seguire questa procedura:
 
-1. **[Creare un'applicazione di Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** nel portale di Azure. Prendere nota del nome dell'applicazione e dei valori seguenti che definiscono il servizio collegato:
+1. **[Creare un'applicazione Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** nel portale di Azure. Prendere nota del nome dell'applicazione e dei valori seguenti che definiscono il servizio collegato:
 
     - ID applicazione
     - Chiave applicazione
@@ -225,13 +225,13 @@ Per utilizzare l'autenticazione di identità gestita, attenersi alla seguente pr
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà del set di dati
+## <a name="dataset-properties"></a>Proprietà dei set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Azure SQL Data Warehouse.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). 
 
-Per copiare dati da o in Azure SQL Data Warehouse, sono supportate le proprietà seguenti:
+Per Azure SQL Data Warehouse DataSet sono supportate le proprietà seguenti:
 
-| Proprietà  | Descrizione                                                  | Obbligatorio                    |
+| Proprietà  | DESCRIZIONE                                                  | obbligatori                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | La proprietà **type** del set di dati deve essere impostata su **AzureSqlDWTable**. | Sì                         |
 | schema | Nome dello schema. |No per l'origine, Sì per il sink  |
@@ -267,17 +267,17 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Azure SQL Data Warehouse, impostare la proprietà **type** nell'origine dell'attività di copia su **SqlDWSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà                     | Descrizione                                                  | Obbligatorio |
+| Proprietà                     | DESCRIZIONE                                                  | obbligatori |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **SqlDWSource**. | Sì      |
 | sqlReaderQuery               | Usare la query SQL personalizzata per leggere i dati. Esempio: `select * from MyTable`. | No       |
-| sqlReaderStoredProcedureName | Il nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. | No       |
+| sqlReaderStoredProcedureName | Nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. | No       |
 | storedProcedureParameters    | Parametri per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No       |
 
 ### <a name="points-to-note"></a>Punti da notare
 
-- Se per **SqlSource** è specificata la proprietà **sqlReaderQuery**, l'attività di copia esegue questa query nell'origine Azure SQL Data Warehouse per ottenere i dati. In alternativa, è possibile specificare una stored procedure. Indicare i parametri **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se accettati dalla stored procedure).
-- Se non si specifica né **sqlReaderQuery** né **sqlReaderStoredProcedureName**, le colonne definite nella sezione **struttura** del set di dati JSON vengono usate per creare una query. `select column1, column2 from mytable` viene eseguito in Azure SQL Data Warehouse. Se la definizione del set di dati non include la **struttura**, vengono selezionate tutte le colonne della tabella.
+- Se per **SqlSource** è specificata la proprietà **sqlReaderQuery**, l'attività di copia esegue questa query nell'origine Azure SQL Data Warehouse per ottenere i dati. In alternativa è possibile specificare una stored procedure. Indicare i parametri **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se accettati dalla stored procedure).
+- Se non si specifica né **sqlReaderQuery** né **sqlReaderStoredProcedureName**, le colonne definite nella sezione della **struttura** del set di dati JSON vengono usate per creare una query. `select column1, column2 from mytable` viene eseguito in Azure SQL Data Warehouse. Se la definizione del set di dati non include la **struttura**, vengono selezionate tutte le colonne della tabella.
 
 #### <a name="sql-query-example"></a>Esempio di query SQL
 
@@ -370,7 +370,7 @@ GO
 
 Per copiare dati in Azure SQL Data Warehouse, impostare il tipo di sink nell'attività di copia su **SqlDWSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà          | Descrizione                                                  | Obbligatorio                                      |
+| Proprietà          | DESCRIZIONE                                                  | obbligatori                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | La proprietà **type** del sink dell'attività di copia deve essere impostata su **SqlDWSink**. | Sì                                           |
 | allowPolyBase     | Indica se usare PolyBase, quando applicabile, invece del meccanismo BULKINSERT. <br/><br/> È consigliabile caricare dati in SQL Data Warehouse tramite PolyBase. Per informazioni su vincoli e dettagli, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse).<br/><br/>I valori consentiti sono **True** e **False** (predefinito). | No                                            |
@@ -603,10 +603,10 @@ Quando si copiano i dati da o in Azure SQL Data Warehouse, vengono usati i mappi
 | :------------------------------------ | :----------------------------- |
 | bigint                                | Int64                          |
 | binary                                | Byte[]                         |
-| bit                                   | Booleano                        |
+| Bit                                   | Booleano                        |
 | char                                  | String, Char[]                 |
 | date                                  | DateTime                       |
-| DateTime                              | DateTime                       |
+| Datetime                              | DateTime                       |
 | datetime2                             | DateTime                       |
 | Datetimeoffset                        | Datetimeoffset                 |
 | Decimal                               | Decimal                        |

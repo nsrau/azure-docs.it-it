@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: 78b83eb725da09dc98df05865ba4d41c505f0f4c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: bf79957bec4b330ca9acce3f8b92aab1a0944440
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747252"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074867"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
 
@@ -25,7 +25,7 @@ Questo articolo illustra come usare PowerShell per configurare Backup di Azure i
 
 Per iniziare, [installare la versione più recente di PowerShell](/powershell/azure/install-az-ps).
 
-## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali dei servizi di ripristino
+## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
 Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei servizi di ripristino. Un insieme di credenziali dei servizi di ripristino è diverso da un insieme di credenziali di backup.
 
@@ -547,9 +547,9 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### <a name="performing-an-ad-hoc-backup"></a>Esecuzione di un backup ad hoc
+### <a name="performing-an-on-demand-backup"></a>Esecuzione di un backup su richiesta
 
-Una volta impostati i criteri di backup, i backup vengono eseguiti in base alla pianificazione. È possibile attivare un backup ad hoc anche tramite il cmdlet [Start-OBBackup](https://technet.microsoft.com/library/hh770426):
+Una volta impostati i criteri di backup, i backup vengono eseguiti in base alla pianificazione. Per attivare un backup su richiesta, è anche possibile usare il cmdlet [Start-OBBackup](https://technet.microsoft.com/library/hh770426) :
 
 ```powershell
 Get-OBPolicy | Start-OBBackup

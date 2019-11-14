@@ -139,8 +139,6 @@
           href: howto-authentication-passwordless-security-key.md
         - name: "Accesso senza password in Windows\_10"
           href: howto-authentication-passwordless-security-key-windows.md
-        - name: Accesso senza password in locale
-          href: howto-authentication-passwordless-security-key-on-premises.md
         - name: Accesso tramite telefono senza password
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello for Business

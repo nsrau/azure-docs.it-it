@@ -17,12 +17,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: ee1bd413894ff5c12883279ccd8a9e9eac3c1790
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: c84a4472789430524cbf5ff3f1ae24ea10d342b9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048776"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066866"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifiche push sicure con Hub di notifica di Azure - Domande frequenti
 
@@ -30,9 +30,7 @@ ms.locfileid: "74048776"
 
 ### <a name="what-is-the-resource-structure-of-notification-hubs"></a>Che cos'è la struttura di risorse di Hub di notifica?
 
-Hub di notifica di Azure dispone di due livelli di risorse: hub e spazi dei nomi. Un hub è una singola risorsa push in grado di contenere le informazioni push multipiattaforma di un'app. Uno spazio dei nomi è una raccolta di hub in un'area.
-
-Il mapping consigliato abbina uno spazio dei nomi con un'unica app. In uno spazio dei nomi è possibile configurare un hub di produzione che funzioni con l'app di produzione, un hub di test che funzioni con l'app di test e così via.
+Hub di notifica di Azure dispone di due livelli di risorse: hub e spazi dei nomi. Un hub è una singola risorsa push in grado di contenere le informazioni push multipiattaforma di un'app. Uno spazio dei nomi è una raccolta di hub in un'area. Il mapping consigliato abbina uno spazio dei nomi con un'unica app. In uno spazio dei nomi è possibile configurare un hub di produzione che funzioni con l'app di produzione, un hub di test che funzioni con l'app di test e così via.
 
 ### <a name="what-is-the-price-model-for-notification-hubs"></a>Qual è il modello di prezzo di Hub di notifica?
 
@@ -45,7 +43,7 @@ Per informazioni dettagliate e aggiornate sui prezzi, vedere la pagina [Prezzi d
 Funzionalità del livello Standard:
 
 * **Telemetria avanzata**: è possibile usare Hub di notifica per la telemetria per messaggio per tenere traccia delle richieste push e i commenti di Platform Notification System per il debug.
-* **Multi-tenancy**: è possibile lavorare con le credenziali di Platform Notification System a livello di spazio dei nomi. Questa opzione consente di suddividere facilmente i tenant in hub all'interno del medesimo spazio dei nomi.
+* **Multi-tenant**: è possibile usare le credenziali Platform Notification System a livello di spazio dei nomi. Questa opzione consente di suddividere facilmente i tenant in hub all'interno del medesimo spazio dei nomi.
 * **Push pianificati**: è possibile le notifiche da inviare.
 * **Operazioni bulk**: Abilita la funzionalità di esportazione/importazione delle registrazioni come descritto nel documento relativo all' [esportazione/importazione delle registrazioni] .
 
@@ -54,7 +52,7 @@ Funzionalità del livello Standard:
 Per i livelli Basic e Standard di Hub di notifica, le applicazioni correttamente configurate possono inviare notifiche push o eseguire operazioni di gestione delle registrazioni almeno per il 99,9% del tempo. Per altre informazioni sul Contratto di servizio, visitare la pagina del [contratto di servizio per Hub di notifica](https://azure.microsoft.com/support/legal/sla/notification-hubs/).
 
 > [!NOTE]
-> Poiché le notifiche push dipendono da Platform Notification System di terze parti (come Apple APN e Google FCM), non sono presenti contratti di servizio per la consegna di tali messaggi. Dopo che Hub di notifica ha inviato i batch a Platform Notification System, come garantito dal contratto di servizio, è Platform Notification System a dover recapitare i push, senza garanzia del contratto di servizio.
+> Poiché le notifiche push dipendono da sistemi di notifica della piattaforma di terze parti, ad esempio il servizio di notifica push di Apple (APNs) e Firebase Cloud Messaging (FCM) di Google, non esiste alcuna garanzia del contratto di servizio per la consegna di tali messaggi. Dopo che Hub di notifica ha inviato i batch a Platform Notification System, come garantito dal contratto di servizio, è Platform Notification System a dover recapitare i push, senza garanzia del contratto di servizio.
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Come eseguire l'aggiornamento o il downgrade di un hub o di uno spazio dei nomi a un livello diverso?
 
@@ -75,13 +73,7 @@ Sono supportate le notifiche push per [iOS](notification-hubs-ios-apple-push-not
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Sono supportate le notifiche via SMS, messaggi di posta elettronica o Web?
 
-Hub di notifica è progettato principalmente per l'invio di notifiche alle app per dispositivi mobili. Non offre funzionalità di posta elettronica o SMS. Esistono però piattaforme di terze parti che forniscono queste funzionalità e che possono essere integrate con Hub di notifica per inviare notifiche push native tramite [App per dispositivi mobili].
-
-Hub di notifica non fornisce neanche un servizio predefinito per il recapito di notifiche push all'interno del browser. I clienti possono implementare questa funzionalità mediante SignalR su piattaforme sul lato server supportate. 
-
-### <a name="how-are-mobile-apps-and-azure-notification-hubs-related-and-when-do-i-use-them"></a>Come sono correlati App per dispositivi mobili e Hub di notifica di Azure e quando si usano?
-
-Se si ha già un back-end dell'app per dispositivi mobili e si vuole solo aggiungere la funzionalità di invio di notifiche push, è possibile usare Hub di notifica di Azure. Per configurare il back-end dell'app per dispositivi mobili da zero, è consigliabile usare la funzionalità App per dispositivi mobili di Servizio app di Azure. Un'app per dispositivi mobili effettua automaticamente il provisioning di un hub di notifica per consentire l'invio di notifiche push dal back-end dell'app per dispositivi mobili. I prezzi di App per dispositivi mobili includono le spese di base per un hub di notifica. Si paga solo quando si superano i push inclusi. Per altre informazioni sui costi, vedere la pagina [Servizio app Prezzi].
+Hub di notifica invia notifiche ai dispositivi che eseguono app per dispositivi mobili. Non offre funzionalità di posta elettronica o SMS. Hub di notifica non fornisce neanche un servizio predefinito per il recapito di notifiche push all'interno del browser. I clienti possono implementare questa funzionalità mediante SignalR su piattaforme sul lato server supportate. 
 
 ### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>Quanti dispositivi sono supportati se si inviano notifiche push tramite Hub di notifica?
 
@@ -94,7 +86,7 @@ Se è necessario il supporto per più di 10 milioni dispositivi registrati, è n
 A seconda del piano selezionato, Hub di notifica di Azure passa automaticamente a un piano superiore in base al numero di notifiche inviate nel sistema.
 
 > [!NOTE]
-> Il costo di utilizzo generale può aumentare in base al numero di notifiche push gestite. È importante conoscere i limiti dei piani descritti nella pagina [Prezzi di Hub di notifica].
+> Il costo complessivo dell'utilizzo può aumentare in base al numero di notifiche push inviate. È importante conoscere i limiti dei piani descritti nella pagina [Prezzi di Hub di notifica].
 
 I clienti usano Hub di notifica per inviare milioni di notifiche push ogni giorno. Non è necessario eseguire alcuna operazione particolare per ridimensionare la copertura delle notifiche push, purché si usi Hub di notifica di Azure.
 
@@ -135,7 +127,7 @@ Gli spazi dei nomi possono essere usati anche per il raggruppamento di distribuz
 
 #### <a name="geo-distribution"></a>Distribuzione geografica
 
-La distribuzione geografica non è sempre fondamentale negli scenari di notifiche push. Vari PNS (ad esempio APNS o FCM) che recapitano notifiche push ai dispositivi non sono distribuiti uniformemente.
+La distribuzione geografica non è sempre fondamentale negli scenari di notifiche push. Varie PNS (ad esempio, APNs o FCM) che forniscono notifiche push ai dispositivi non sono distribuite in modo uniforme.
 
 Se si ha un'applicazione che viene usata a livello globale, è possibile creare hub in vari spazi dei nomi tramite il servizio Hub di notifica in diverse aree di Azure nel mondo.
 
@@ -157,7 +149,7 @@ Tutte le notifiche vengono recapitate ai dispositivi di destinazione dal PNS del
 Tutte le connessioni, dal mittente a Hub notifiche di Azure al PNS, usano HTTPS.
 
 > [!NOTE]
-> Hub notifica di Azure non registra il payload dei messaggi in alcun modo.
+> Hub di notifica di Azure non registra il payload dei messaggi.
 
 Per l'invio di payload sensibili è consigliabile usare un modello push sicuro. Il mittente invia una notifica ping con un identificatore di messaggio al dispositivo senza il payload sensibile. Quando l'app sul dispositivo riceve il payload, l'applicazione chiama un'API sicura direttamente per recuperare i dettagli del messaggio. Per informazioni di guida su come implementare questo modello, vedere la pagina sull'[Esercitazione sul push sicuro di Hub di notifica].
 
@@ -207,9 +199,8 @@ Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel 
 - [Recupero di metriche e log attività per una risorsa](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
 - [Procedura dettagliata sull'API REST di monitoraggio di Azure](../azure-monitor/platform/rest-api-walkthrough.md)
 
-
 > [!NOTE]
-> La riuscita delle notifiche indica solo che le notifiche push sono state recapitate al PNS esterno, ad esempio servizio APNS per Apple, FCM per Google e così via. È responsabilità del PNS inviare le notifiche ai dispositivi di destinazione. In genere il PNS non espone le metriche di recapito a terze parti.  
+> Le notifiche riuscite significano semplicemente che le notifiche push sono state recapitate al PNS esterno, ad esempio APNs per iOS e macOS o FCM per i dispositivi Android. È responsabilità del PNS inviare le notifiche ai dispositivi di destinazione. In genere il PNS non espone le metriche di recapito a terze parti.  
 
 [Portale di Azure]: https://portal.azure.com
 [Prezzi di Hub di notifica]: https://azure.microsoft.com/pricing/details/notification-hubs/
@@ -226,5 +217,4 @@ Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel 
 [esportazione/importazione delle registrazioni]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
 [Portale di Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
-[App per dispositivi mobili]: https://azure.microsoft.com/services/app-service/mobile/
-[Servizio app Prezzi]: https://azure.microsoft.com/pricing/details/app-service/
+[App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

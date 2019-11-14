@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: e7aa951634dffcafc20f198f85c15f5ac954fe58
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 61736d4f7e6b17c6037837bfdfe6d9cb8a00c5f6
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609060"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076860"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Pagamento anticipato per le risorse di calcolo per database di Azure per MariaDB con capacità riservata
 
@@ -32,7 +32,7 @@ Per informazioni dettagliate sul modo in cui gli acquisti di prenotazioni vengon
 
 Le dimensioni della prenotazione devono essere basate sulla quantità totale di risorse di calcolo usate dall'istanza di database esistente o presto distribuita in un'area specifica e usando lo stesso livello di prestazioni e la stessa generazione dell'hardware.</br>
 
-Si supponga, ad esempio, di eseguire un database quinta generazione-32 vCore MariaDB e due database Vcore MariaDB con ottimizzazione per la memoria. Si supponga, inoltre, di pianificare la distribuzione nel prossimo mese per un ulteriore utilizzo generico, quinta generazione – 32 vCore Elastic pool e un server di database con ottimizzazione per la memoria, quinta generazione – 16 vCore. Supponiamo che tu sappia che ti serviranno queste risorse per almeno un anno. In questo caso, è necessario acquistare una prenotazione di 64 (2x32) Vcore, 1 anno per utilizzo generico per database singolo-quinta generazione e una prenotazione 48 (2x16 + 16) vCore 1 anno per l'ottimizzazione della memoria per database singolo-quinta generazione
+Si supponga, ad esempio, di eseguire un database quinta generazione-32 vCore MariaDB e due database Vcore MariaDB con ottimizzazione per la memoria. Si supponga, inoltre, di pianificare la distribuzione entro il prossimo mese con un server di database vCore, quinta generazione – 32 e un server di database con ottimizzazione per la memoria, quinta generazione – 16 vCore. Supponiamo che tu sappia che ti serviranno queste risorse per almeno un anno. In questo caso, è necessario acquistare una prenotazione di 64 (2x32) Vcore, 1 anno per utilizzo generico per database singolo-quinta generazione e una prenotazione 48 (2x16 + 16) vCore 1 anno per l'ottimizzazione della memoria per database singolo-quinta generazione
 
 
 ## <a name="buy-azure-database-for-mariadb-reserved-capacity"></a>Acquistare la capacità riservata di database di Azure per MariaDB
@@ -48,11 +48,11 @@ Si supponga, ad esempio, di eseguire un database quinta generazione-32 vCore Mar
 
 Nella tabella seguente vengono descritti i campi obbligatori.
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 | :------------ | :------- |
-| Sottoscrizione   | Sottoscrizione usata per pagare la prenotazione di capacità riservata per il database di Azure per MariaDB. Il metodo di pagamento per la sottoscrizione viene addebitato ai costi iniziali per la prenotazione di capacità riservata del database di Azure per MariaDB. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.
-| Scope | L'ambito della prenotazione di vCore può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: </br></br> **Condiviso**, lo sconto di prenotazione vCore viene applicato al database di Azure per i server MariaDB in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</br></br> **Sottoscrizione singola**, lo sconto di prenotazione vCore viene applicato al database di Azure per i server MariaDB in questa sottoscrizione. </br></br> **Gruppo di risorse singolo**, lo sconto relativo alla prenotazione viene applicato al database di Azure per i server MariaDB nella sottoscrizione selezionata e al gruppo di risorse selezionato all'interno di tale sottoscrizione.
-| Region | Area di Azure coperta dalla prenotazione di capacità riservata del database di Azure per MariaDB.
+| sottoscrizione   | Sottoscrizione usata per pagare la prenotazione di capacità riservata per il database di Azure per MariaDB. Il metodo di pagamento per la sottoscrizione viene addebitato ai costi iniziali per la prenotazione di capacità riservata del database di Azure per MariaDB. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.
+| Ambito | L'ambito della prenotazione di vCore può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: </br></br> **Condiviso**, lo sconto di prenotazione vCore viene applicato al database di Azure per i server MariaDB in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</br></br> **Sottoscrizione singola**, lo sconto di prenotazione vCore viene applicato al database di Azure per i server MariaDB in questa sottoscrizione. </br></br> **Gruppo di risorse singolo**, lo sconto relativo alla prenotazione viene applicato al database di Azure per i server MariaDB nella sottoscrizione selezionata e al gruppo di risorse selezionato all'interno di tale sottoscrizione.
+| Area | Area di Azure coperta dalla prenotazione di capacità riservata del database di Azure per MariaDB.
 | Tipo di distribuzione | Tipo di risorsa del database di Azure per MariaDB per cui si vuole acquistare la prenotazione.
 | Livello di prestazioni | Livello di servizio per il database di Azure per i server MariaDB.
 | Termine | Un anno
@@ -66,7 +66,7 @@ Nella tabella seguente vengono descritti i campi obbligatori.
 
 La flessibilità delle dimensioni vCore consente di aumentare o ridurre la quantità di risorse all'interno di un livello di prestazioni e di un'area, senza perdere il vantaggio della capacità riservata. 
 
-## <a name="need-help-contact-us"></a>Opzioni per Contatti
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 
 In caso di domande, creare una [Richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) per assistenza.
 

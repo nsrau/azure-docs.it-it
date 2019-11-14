@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 94e33c855327e70f486746bcd781491823324dec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4bdf496995e8b466f1346bfe16365b251c6853c3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490425"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076048"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura
 
@@ -89,15 +89,18 @@ Ogni elemento nel manifesto della distribuzione contiene informazioni specifiche
 * **Settings. CreateOptions** : stringa passata direttamente al daemon del contenitore Moby all'avvio del contenitore del modulo. L'aggiunta di opzioni in questa proprietà consente configurazioni avanzate, ad esempio il porting o il montaggio di volumi in un contenitore del modulo.  
 * **status**: lo stato in cui l'agente di IoT Edge inserisce il modulo. In genere, questo valore è impostato su *in esecuzione* perché la maggior parte degli utenti desidera che l'agente di IOT Edge avvii immediatamente tutti i moduli nel dispositivo. È tuttavia possibile specificare lo stato iniziale di un modulo come stopped e attendere un secondo momento per indicare all'agente di IoT Edge di avviarlo. L'agente di IoT Edge segnala lo stato di ogni modulo al cloud nelle proprietà segnalate. Una differenza tra la proprietà desiderata e la proprietà segnalata è indicativa del comportamento errato di un dispositivo. Gli stati supportati sono:
    * Download in corso
-   * Running
+   * In esecuzione
    * Non integro
-   * Failed
-   * Arrestata
-* **restartPolicy**: la modalità in cui l'agente di IoT Edge riavvia un modulo. Possibili valori:
+   * Non riuscito
+   * Stopped
+* **restartPolicy**: la modalità in cui l'agente di IoT Edge riavvia un modulo. I valori possibili sono:
    * `never`: l'agente IoT Edge non riavvia mai il modulo.
    * `on-failure`: se il modulo si arresta in modo anomalo, l'agente IoT Edge lo riavvia. Se il modulo viene chiuso correttamente, l'agente di IoT Edge non lo riavvia.
    * `on-unhealthy`: se il modulo si arresta in modo anomalo o viene considerato non integro, l'agente IoT Edge lo riavvia.
    * `always`: se il modulo si arresta in modo anomalo, viene considerato non integro o si arresta in qualsiasi modo, l'agente IoT Edge lo riavvia. 
+* **imagePullPolicy** : indica se l'agente di IOT Edge tenta di estrarre automaticamente l'immagine più recente per un modulo. Se non si specifica un valore, il valore predefinito è *OnCreate*. I valori possibili sono: 
+   * `on-create`: quando si avvia un modulo o si aggiorna un modulo basato su un nuovo manifesto di distribuzione, l'agente di IoT Edge tenterà di eseguire il pull dell'immagine del modulo dal registro contenitori.
+   * `never`: l'agente IoT Edge non tenterà mai di eseguire il pull dell'immagine del modulo dal registro contenitori. Si prevede che l'immagine del modulo venga memorizzata nella cache del dispositivo e che gli aggiornamenti delle immagini del modulo vengano eseguiti manualmente o gestiti da una soluzione di terze parti. 
 
 L'agente di IoT Edge invia la risposta runtime all'hub IoT. Ecco un elenco di risposte possibili:
   * 200 - OK
@@ -109,7 +112,7 @@ L'agente di IoT Edge invia la risposta runtime all'hub IoT. Ecco un elenco di ri
 
 Per ulteriori informazioni, vedere informazioni [su come distribuire moduli e definire route in IOT Edge](module-composition.md).   
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 L'agente di IoT Edge svolge un ruolo fondamentale nella protezione di un dispositivo di IoT Edge. Ad esempio, esegue azioni come la verifica di un'immagine del modulo prima di avviarla. 
 

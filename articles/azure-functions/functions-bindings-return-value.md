@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 1ea7ec0444ba80d3494afba77ad9d7fdabd5f982
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8dd5a4d9d869c879ed402c5450690f0a691e1d2c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086415"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074408"
 ---
 # <a name="using-the-azure-function-return-value"></a>Uso del valore restituito della funzione di Azure
 
@@ -29,15 +29,7 @@ Se sono presenti più associazioni di output, usare il valore restituito per una
 
 Negli script C# e C# è in alternativa possibile inviare dati alle associazioni di output dati tramite i parametri `out` e gli [oggetti dell'agente di raccolta](functions-reference-csharp.md#writing-multiple-output-values).
 
-Vedere l'esempio specifico del linguaggio che mostra l'utilizzo del valore restituito:
-
-* [C#](#c-example)
-* [Script C# (file con estensione csx)](#c-script-example)
-* [F#](#f-example)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
-
-## <a name="c-example"></a>Esempio in C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Di seguito è riportato il codice C# che usa il valore restituito per un'associazione di output, seguito da un esempio asincrono:
 
@@ -63,7 +55,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-## <a name="c-script-example"></a>Esempio di script C#
+# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
 
 Di seguito è riportata l'associazione di output nel file *function.json*:
 
@@ -96,7 +88,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-## <a name="f-example"></a>Esempio F#
+# <a name="ftabfsharp"></a>[F#](#tab/fsharp)
 
 Di seguito è riportata l'associazione di output nel file *function.json*:
 
@@ -118,7 +110,7 @@ let Run(input: WorkItem, log: ILogger) =
     json
 ```
 
-## <a name="javascript-example"></a>Esempio JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Di seguito è riportata l'associazione di output nel file *function.json*:
 
@@ -141,7 +133,7 @@ module.exports = function (context, input) {
 }
 ```
 
-## <a name="python-example"></a>Esempio in Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 Di seguito è riportata l'associazione di output nel file *function.json*:
 
@@ -163,6 +155,8 @@ def main(input: azure.functions.InputStream) -> str:
         'content': input.read().decode('utf-8')
     })
 ```
+
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

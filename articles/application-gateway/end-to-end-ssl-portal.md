@@ -1,19 +1,20 @@
 ---
-title: 'Guida introduttiva: configurare la crittografia SSL end-to-end con applicazione Azure gateway-portale di Azure | Microsoft Docs'
+title: Configurare la crittografia SSL end-to-end tramite il portale
+titleSuffix: Azure Application Gateway
 description: Informazioni su come usare la portale di Azure per creare un gateway applicazione con la crittografia SSL end-to-end.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: ba31b5ebf83edcd08060a2acc3b5639a521e2729
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: a878b966266bdd326db35d266bc14b2f81161e92
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243675"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075132"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Configurare SSL end-to-end usando il gateway applicazione con il portale
 
@@ -60,7 +61,7 @@ Per altre informazioni, vedere [abilitare la terminazione SSL durante la creazio
 
    ![Aggiungere il certificato](./media/end-to-end-ssl-portal/addcert.png)
 
-   Per i gateway applicazione Standard_v2 e WAF_v2, è necessario caricare il certificato radice del certificato del server back-end in formato CER. Se il certificato back-end viene emesso da un'autorità di certificazione (CA) Nota, è possibile selezionare la casella di controllo **Usa certificato CA noto** , quindi non è necessario caricare un certificato.
+   Per Standard_v2 e WAF_v2 gateway applicazione, è necessario caricare il certificato radice del certificato del server back-end in formato CER. Se il certificato back-end viene emesso da un'autorità di certificazione (CA) Nota, è possibile selezionare la casella di controllo **Usa certificato CA noto** , quindi non è necessario caricare un certificato.
 
    ![Aggiungi certificato radice attendibile](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 
@@ -114,7 +115,7 @@ Se si sceglie la seconda opzione, applicare i passaggi descritti nella procedura
 
    ![Aggiungere il certificato](./media/end-to-end-ssl-portal/addcert.png)
 
-   Per i gateway applicazione Standard_v2 e WAF_v2, è necessario caricare il certificato radice del certificato del server back-end in formato CER. Se il certificato back-end viene emesso da un'autorità di certificazione nota, è possibile selezionare la casella di controllo **Usa certificato CA noto** , quindi non è necessario caricare un certificato.
+   Per Standard_v2 e WAF_v2 gateway applicazione, è necessario caricare il certificato radice del certificato del server back-end in formato CER. Se il certificato back-end viene emesso da un'autorità di certificazione nota, è possibile selezionare la casella di controllo **Usa certificato CA noto** , quindi non è necessario caricare un certificato.
 
    ![Aggiungi certificato radice attendibile](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 

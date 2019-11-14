@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb0f373000d09cb387fb73eec344997381fe45d1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: dab79f1d63a20e12f148766db5fcc3fc313a1f3a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961670"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076902"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Risoluzione dei problemi relativi a Azure Machine Learning servizio Azure Kubernetes e alla distribuzione di istanze di contenitore di Azure
 
@@ -164,12 +164,12 @@ Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
 
 ## <a name="debug-locally"></a>Eseguire il debug in locale
 
-Se si verificano problemi durante la distribuzione di un modello in ACI o AKS, provare a distribuirlo come locale. L'uso di un locale rende più semplice la risoluzione dei problemi. L'immagine Docker contenente il modello viene scaricata e avviata nel sistema locale.
+Se si verificano problemi durante la distribuzione di un modello in ACI o AKS, provare a distribuirlo come servizio Web locale. L'utilizzo di un servizio Web locale rende più semplice la risoluzione dei problemi. L'immagine Docker contenente il modello viene scaricata e avviata nel sistema locale.
 
 > [!WARNING]
-> Le distribuzioni locali non sono supportate per gli scenari di produzione.
+> Le distribuzioni di servizi Web locali non sono supportate per gli scenari di produzione.
 
-Per eseguire la distribuzione in locale, modificare il codice per usare `LocalWebservice.deploy_configuration()` per creare una configurazione di distribuzione. Usare quindi `Model.deploy()` per distribuire il servizio. Nell'esempio seguente viene distribuito un modello (contenuto nella variabile `model`) come oggetto locale:
+Per eseguire la distribuzione in locale, modificare il codice per usare `LocalWebservice.deploy_configuration()` per creare una configurazione di distribuzione. Usare quindi `Model.deploy()` per distribuire il servizio. Nell'esempio seguente viene distribuito un modello (contenuto nella variabile `model`) come servizio Web locale:
 
 ```python
 from azureml.core.model import InferenceConfig, Model
@@ -180,14 +180,14 @@ inference_config = InferenceConfig(runtime="python",
                                    entry_script="score.py",
                                    conda_file="myenv.yml")
 
-# Create a local deployment, using port 8890 for the  endpoint
+# Create a local deployment, using port 8890 for the web service endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 # Deploy the service
 service = Model.deploy(
     ws, "mymodel", [model], inference_config, deployment_config)
 # Wait for the deployment to complete
 service.wait_for_deployment(True)
-# Display the port that the  is available on
+# Display the port that the web service is available on
 print(service.port)
 ```
 
@@ -297,7 +297,7 @@ Esistono due elementi che consentono di prevenire i codici di stato 503:
     > [!IMPORTANT]
     > Questa modifica non comporta la creazione di repliche *più veloci*. Vengono invece creati con una soglia di utilizzo inferiore. Anziché attendere fino al 70% del servizio, la modifica del valore sul 30% comporta la creazione di repliche quando si verifica l'utilizzo del 30%.
     
-    Se sta già usando le repliche massime correnti e si stanno ancora visualizzando 503 codici di stato, aumentare il valore di `autoscale_max_replicas` per aumentare il numero massimo di repliche.
+    Se il servizio Web sta già usando le repliche massime correnti e vengono ancora visualizzati 503 codici di stato, aumentare il valore di `autoscale_max_replicas` per aumentare il numero massimo di repliche.
 
 * Modificare il numero minimo di repliche. L'aumento delle repliche minime fornisce un pool più grande per gestire i picchi in ingresso.
 
@@ -333,7 +333,7 @@ In alcuni casi, potrebbe essere necessario eseguire il debug interattivo del cod
 > [!IMPORTANT]
 > Questo metodo di debug non funziona quando si usa `Model.deploy()` e `LocalWebservice.deploy_configuration` per distribuire un modello localmente. È invece necessario creare un'immagine utilizzando la classe [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) . 
 
-Per le distribuzioni locali è necessaria un'installazione Docker funzionante nel sistema locale. Per altre informazioni sull'uso di Docker, vedere la [documentazione di Docker](https://docs.docker.com/).
+Per le distribuzioni di servizi Web locali è necessaria un'installazione Docker funzionante nel sistema locale. Per altre informazioni sull'uso di Docker, vedere la [documentazione di Docker](https://docs.docker.com/).
 
 ### <a name="configure-development-environment"></a>Configurare l'ambiente di sviluppo
 
