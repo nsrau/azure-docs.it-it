@@ -1,5 +1,5 @@
 ---
-title: Montare l'archiviazione file di Azure su VM Linux usando SMB | Microsoft Docs
+title: Montare l'archiviazione file di Azure su VM Linux usando SMB
 description: Come montare l'archiviazione file di Azure su VM Linux usando SMB con l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: effe1169fb531abd3fe8a206f2baf83380fcd28f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 0918cfda81be93982c1ca6eccce0c116ac65ca28
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828405"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035665"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montare l'archiviazione file di Azure su VM Linux usando SMB
 
@@ -39,9 +39,9 @@ Creare un gruppo di risorse denominato *myResourceGroup* nella posizione *Stati 
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-storage-account"></a>Crea un account di archiviazione
+## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Creare un nuovo account di archiviazione nel gruppo di risorse creato usando [az storage account create](/cli/azure/storage/account). Questo esempio crea un account di archiviazione denominato *mySTORAGEACCT @ no__t-1random number >* e inserisce il nome dell'account di archiviazione nella variabile **STORAGEACCT**. I nomi degli account di archiviazione devono essere univoci, usando `$RANDOM` si aggiunge un numero al nome e lo si rende univoco.
+Creare un nuovo account di archiviazione nel gruppo di risorse creato usando [az storage account create](/cli/azure/storage/account). Questo esempio crea un account di archiviazione denominato *mySTORAGEACCT\<numero casuale >* e inserisce il nome dell'account di archiviazione nella variabile **STORAGEACCT**. I nomi degli account di archiviazione devono essere univoci, usando `$RANDOM` si aggiunge un numero al nome e lo si rende univoco.
 
 ```bash
 STORAGEACCT=$(az storage account create \

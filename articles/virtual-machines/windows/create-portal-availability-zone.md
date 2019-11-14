@@ -1,5 +1,5 @@
 ---
-title: Creare una VM Windows suddivisa in zone con il portale di Azure | Microsoft Docs
+title: Creare una VM Windows in zone con la portale di Azure
 description: Creare una VM Windows in una zona di disponibilità con il portale di Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 90c6f7106cbc885c513d47bf80a7b1ec218d8c6c
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: c6f843693ccfa16f9b31027ba370242e0462b138
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168565"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033884"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Creare una macchina virtuale Windows in una zona di disponibilità con il portale di Azure
 
@@ -28,11 +28,11 @@ Questo articolo descrive come usare il portale di Azure per creare una macchina 
 
 Per usare una zona di disponibilità, creare la macchina virtuale in un'[area di Azure supportata](../../availability-zones/az-overview.md#services-support-by-region).
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure 
+## <a name="sign-in-to-azure"></a>Accedere ad Azure 
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
-## <a name="create-virtual-machine"></a>Crea macchina virtuale
+## <a name="create-virtual-machine"></a>Creare una macchina virtuale
 
 1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 

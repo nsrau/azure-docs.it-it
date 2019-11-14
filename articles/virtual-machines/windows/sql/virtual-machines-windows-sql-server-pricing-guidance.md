@@ -1,10 +1,9 @@
 ---
-title: Gestire efficacemente i costi per SQL Server nelle macchine virtuali di Azure | Documentazione Microsoft
+title: Linee guida sui prezzi & gestione dei costi
 description: Fornisce le procedure consigliate per la scelta del modello di prezzo giusto per la macchina virtuale di SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -15,14 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 604f18fe2fbf4d8b4f3778817455d92a2811620b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 076d6fc387aaee85a1cd407fa48e7347ff185ef4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028619"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038868"
 ---
-# <a name="pricing-guidance-for-sql-server-azure-vms"></a>Guida ai prezzi per le VM di SQL Server in Azure
+# <a name="pricing-guidance-for-azure-sql-server-vms"></a>Linee guida sui prezzi per le macchine virtuali SQL Server di Azure
 
 Questo articolo contiene indicazioni sui prezzi per le [macchine virtuali di SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) in Azure. Sono disponibili diverse opzioni che influiscono sul costo ed è importante selezionare l'immagine giusta che consente di bilanciare i costi con i requisiti aziendali.
 
@@ -91,7 +91,7 @@ Per creare una macchina virtuale di Azure SQL Server 2017 con una di queste imma
 >Non include i costi di licenza aggiuntivi di SQL Server per le versioni Enterprise, Standard e Web. Per ottenere una stima più accurata, selezionare il sistema operativo e la versione di SQL Server nella pagina dei prezzi per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 > [!NOTE]
-> È ora possibile cambiare il modello di licenza passando dal pagamento in base all'utilizzo a Bring Your Own License (BYOL) e viceversa. Per altre informazioni, vedere [Come cambiare il modello di licenza per una macchina virtuale SQL](virtual-machines-windows-sql-ahb.md). 
+> È ora possibile cambiare il modello di licenza passando dal pagamento in base all'utilizzo a Bring Your Own License (BYOL) e viceversa. Per altre informazioni, vedere [Come cambiare il livello di licenza per una macchina virtuale SQL](virtual-machines-windows-sql-ahb.md). 
 
 ## <a id="byol"></a> Bring Your Own License (BYOL)
 
@@ -111,7 +111,7 @@ Bringing Your Own License per SQL Server attraverso Mobilità delle licenze è c
 
 Per usare l'opzione BYOL con una macchina virtuale SQL Server è necessario avere una licenza di SQL Server Standard o Enterprise e [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), che è un'opzione obbligatoria per alcuni programmi multilicenza e facoltativa per altri. I livelli di prezzi forniti tramite i programmi multilicenza variano in base al tipo di contratto e alla quantità e/o all'impegno con SQL Server. Ma, come regola generale, l'opzione Bringing Your Own License per i carichi di lavoro di produzione continui presenta i seguenti vantaggi:
 
-| Vantaggio dell'opzione BYOL | Descrizione |
+| Vantaggio dell'opzione BYOL | DESCRIZIONE |
 |-----|-----|
 | **Risparmi sui costi** | Il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) offre risparmi fino al 55%. Per ulteriori informazioni, vedere [Switch licensing model](virtual-machines-windows-sql-ahb.md) |
 | **Replica secondaria passiva gratuita** | Un altro vantaggio dell'opzione Bring Your Own License è la [licenza gratuita per una replica secondaria passiva](https://azure.microsoft.com/pricing/licensing-faq/) per SQL Server per scopi di disponibilità elevata. Questo dimezza il costo della licenza di una distribuzione di SQL Server a disponibilità elevata, ad esempio con gruppi di disponibilità Always On. I diritti per eseguire la replica secondaria passiva sono forniti attraverso i vantaggi di Software Assurance per i server di failover. |
@@ -125,7 +125,7 @@ Per creare una VM di Azure con SQL Server 2017 con una di queste immagini Bring 
 > Si prega di comunicare entro 10 giorni il numero di licenze di SQL Server in uso in Azure. Nei collegamenti alle immagini precedenti sono incluse le istruzioni su come eseguire questa operazione.
 
 > [!NOTE]
-> È ora possibile cambiare il modello di licenza passando dal pagamento in base all'utilizzo a Bring Your Own License (BYOL) e viceversa. Per altre informazioni, vedere [Come cambiare il modello di licenza per una macchina virtuale SQL](virtual-machines-windows-sql-ahb.md). 
+> È ora possibile cambiare il modello di licenza passando dal pagamento in base all'utilizzo a Bring Your Own License (BYOL) e viceversa. Per altre informazioni, vedere [Come cambiare il livello di licenza per una macchina virtuale SQL](virtual-machines-windows-sql-ahb.md). 
 
 
 

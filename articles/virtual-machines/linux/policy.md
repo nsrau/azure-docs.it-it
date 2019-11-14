@@ -1,5 +1,5 @@
 ---
-title: Applicare la sicurezza con criteri su VM Linux in Azure | Documentazione Microsoft
+title: Applicare la sicurezza con i criteri nelle VM Linux in Azure
 description: Come applicare criteri a una macchina virtuale Linux di Azure Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: c0399044e1776d10a70cf4bcb1dca8d87e4981c7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7ab48430ae4d6585c908b53017122096175abac3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091583"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035312"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Applicare criteri alle VM Linux con Azure Resource Manager
 Tramite i criteri è possibile imporre diverse convenzioni e regole in tutta l'organizzazione. L'imposizione del comportamento desiderato consente di attenuare i rischi, contribuendo nello stesso tempo al successo dell'organizzazione. Questo articolo illustra come usare i criteri di Azure Resource Manager per definire il comportamento desiderato per le macchine virtuali dell'organizzazione.
@@ -27,7 +27,7 @@ Tramite i criteri è possibile imporre diverse convenzioni e regole in tutta l'o
 Per un'introduzione ai criteri, vedere [Informazioni su Criteri di Azure](../../governance/policy/overview.md).
 
 ## <a name="permitted-virtual-machines"></a>Macchine virtuali permesse
-Per assicurarsi che le macchine virtuali dell'organizzazione siano compatibili con un'applicazione, è possibile limitare i sistemi operativi consentiti. Questo criterio di esempio consente di creare solo macchine virtuali Ubuntu 14.04.2-LTS.
+Per assicurarsi che le macchine virtuali per l'organizzazione siano compatibili con un'applicazione, è possibile limitare i sistemi operativi consentiti. Questo criterio di esempio consente di creare solo macchine virtuali Ubuntu 14.04.2-LTS.
 
 ```json
 {

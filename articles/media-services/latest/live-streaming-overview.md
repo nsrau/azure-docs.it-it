@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: bac784ea3050111184e2908fe5656a1d16545a99
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 8d7db428d7f71383abf5425d7cc1ddbbab3b7a52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231023"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037887"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -27,7 +27,7 @@ Servizi multimediali di Azure consente di offrire eventi live per i clienti nel 
 - Una fotocamera usata per riprendere l'evento live.<br/>Per alcune idee per la configurazione, vedere [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT) (Configurazione semplice e portabile di attrezzature video per eventi).
 
     Se non si ha accesso a una fotocamera, è possibile usare strumenti come [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) per generare un feed live da un file video.
-- Un codificatore video live in grado di convertire i segnali provenienti da una fotocamera (o da un altro dispositivo, come un portatile) in un feed di contributi inviato a Servizi multimediali. Il feed di contributi può includere segnali relativi alla pubblicità, ad esempio i marcatori SCTE-35.<br/>Per un elenco dei codificatori consigliati di streaming live, vedere [Codificatori di streaming live consigliati](recommended-on-premises-live-encoders.md). Vedere anche questo blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Produzione di streaming live con OBS).
+- Un codificatore video live in grado di convertire i segnali provenienti da una fotocamera (o da un altro dispositivo, come un portatile) in un feed di contributi inviato a Servizi multimediali. Il feed di contributi può includere segnali relativi alla pubblicità, ad esempio i marcatori SCTE-35.<br/>Per un elenco dei codificatori consigliati di streaming live, vedere [Codificatori di streaming live consigliati](recommended-on-premises-live-encoders.md). Vedere anche questo Blog: [produzione di streaming live con OBS](https://link.medium.com/ttuwHpaJeT).
 - I componenti in Servizi multimediali, che consentono di inserire, visualizzare in anteprima, includere in un pacchetto, registrare, crittografare e trasmettere l'evento live ai clienti o a una rete CDN per un'ulteriore distribuzione.
 
 Questo articolo fornisce una panoramica e informazioni aggiuntive sullo streaming live con servizi multimediali e collegamenti ad altri articoli pertinenti.
@@ -61,7 +61,14 @@ Quando si usa l' **evento Live**pass-through, si fa affidamento sul codificatore
 
 ![codifica live](./media/live-streaming/live-encoding.svg)
 
-Quando si usa la codifica cloud con servizi multimediali, è necessario configurare il codificatore Live locale per l'invio di un video a bitrate singolo come feed di contributo (fino a 32Mbps aggregato) per l'evento Live (usando il protocollo di input RTMP o frammentato-MP4). L'evento Live esegue la codifica del flusso in ingresso a bitrate singolo in [flussi video a bitrate multipli](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) con diverse risoluzioni per migliorare la distribuzione e renderlo disponibile per la distribuzione ai dispositivi di riproduzione tramite protocolli standard di settore, ad esempio MPEG-Dash, Apple HTTP Live Streaming (HLS) e Microsoft Smooth Streaming. 
+Quando si usa la codifica cloud con servizi multimediali, è necessario configurare il codificatore Live locale per l'invio di un video a bitrate singolo come feed di contributo (fino a 32Mbps aggregato) per l'evento Live (usando il protocollo di input RTMP o frammentato-MP4). L'evento Live consente di transcodificare il flusso a bitrate singolo in ingresso in [flussi video a bitrate multipli](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) con diverse risoluzioni per migliorare la distribuzione e renderlo disponibile per la distribuzione ai dispositivi di riproduzione tramite protocolli standard di settore, ad esempio MPEG-Dash, Apple http live streaming (HLS) e Microsoft Smooth Streaming. 
+
+### <a name="live-transcription"></a>Trascrizione in tempo reale
+
+La trascrizione in tempo reale è una funzionalità che è possibile usare con gli eventi live che sono pass-through o la codifica live. Per ulteriori informazioni, vedere [trascrizione in tempo reale](live-transcription.md). Quando questa funzionalità è abilitata, il servizio usa la funzionalità di [riconoscimento vocale](../../cognitive-services/speech-service/speech-to-text.md) dei servizi cognitivi per trascrivere le parole pronunciate nell'audio in ingresso nel testo. Questo testo viene quindi reso disponibile per il recapito insieme a video e audio nei protocolli MPEG-DASH e HLS.
+
+> [!NOTE]
+> Attualmente, la trascrizione in tempo reale è disponibile come funzionalità di anteprima negli Stati Uniti occidentali 2.
 
 ## <a name="live-streaming-workflow"></a>Flusso di lavoro dello streaming live
 

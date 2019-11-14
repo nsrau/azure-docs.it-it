@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione a Resource Manager con PowerShell | Microsoft Docs
+title: Eseguire la migrazione a Gestione risorse con PowerShell
 description: Questo articolo illustra la migrazione di risorse IaaS supportata dalla piattaforma come macchine virtuali (VM), reti virtuali (VNET) e account di archiviazione dal modello di distribuzione classica ad Azure Resource Manager (ARM) tramite comandi di Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 01d5670add82291cb91264ab41fcd312a338840c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 99650b090a84fd417fca5bbeb1ce3f58d32729bb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749335"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033218"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite Azure PowerShell
 Questi passaggi mostrano come usare i comandi di Azure PowerShell per eseguire la migrazione di risorse IaaS (infrastruttura distribuita come servizio) dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager.
@@ -33,7 +33,7 @@ Questi passaggi mostrano come usare i comandi di Azure PowerShell per eseguire l
 <br>
 Ecco un diagramma di flusso per identificare l'ordine di esecuzione dei passaggi durante un processo di migrazione
 
-![Screenshot that shows the migration steps](media/migration-classic-resource-manager/migration-flow.png)
+![Schermata che mostra i passaggi di migrazione](media/migration-classic-resource-manager/migration-flow.png)
 
  
 

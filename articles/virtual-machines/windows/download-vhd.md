@@ -1,5 +1,5 @@
 ---
-title: Scaricare un disco rigido virtuale (VHD) Windows da Azure | Microsoft Docs
+title: Scaricare un disco rigido virtuale Linux da Azure
 description: Scaricare un disco rigido virtuale Windows tramite il portale di Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: c1c09382102045dd248b6771d8d0ea1ef090b6eb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c5891d7ea2b53ab3524cfff267e71b4f05779cfc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079611"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033599"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Scaricare un disco rigido virtuale Linux da Azure
 
@@ -27,9 +27,9 @@ Questo articolo illustra come scaricare un file di disco rigido virtuale (VHD) W
 
 ## <a name="stop-the-vm"></a>Arrestare la VM
 
-Un disco rigido virtuale non può essere scaricato da Azure se è collegato a una macchina virtuale in esecuzione. Per scaricare un disco rigido virtuale è quindi necessario arrestare la macchina virtuale. Se si vuole usare un disco rigido virtuale come [immagine](tutorial-custom-images.md) per la creazione di altre macchine virtuali con nuovi dischi, è necessario usare [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) per generalizzare il sistema operativo contenuto nel file e successivamente arrestare la macchina virtuale. Per usare il disco rigido virtuale come disco in cui creare una nuova istanza di un disco dati o di una macchina virtuale esistente, è sufficiente arrestare e deallocare la macchina virtuale.
+Un disco rigido virtuale non può essere scaricato da Azure se è collegato a una macchina virtuale in esecuzione. Per scaricare un disco rigido virtuale, quindi, è necessario arrestare la macchina virtuale. Se si vuole usare un disco rigido virtuale come [immagine](tutorial-custom-images.md) per la creazione di altre macchine virtuali con nuovi dischi, è necessario usare [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) per generalizzare il sistema operativo contenuto nel file e successivamente arrestare la macchina virtuale. Per usare il disco rigido virtuale come disco in cui creare una nuova istanza di un disco dati o di una macchina virtuale esistente, è sufficiente arrestare e deallocare la macchina virtuale.
 
-Per usare il disco rigido virtuale come immagine per la creazione di altre macchine virtuali, seguire questa procedura:
+Per usare il disco rigido virtuale come immagine per la creazione di altre macchine virtuali, completare questi passaggi:
 
 1.  Accedere al [portale di Azure](https://portal.azure.com/), se questa operazione non è già stata eseguita.
 2.  [Connettersi alla VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -38,10 +38,10 @@ Per usare il disco rigido virtuale come immagine per la creazione di altre macch
 5.  Nella finestra di dialogo Utilità preparazione sistema selezionare **Passare alla Configurazione guidata** e verificare che la casella di controllo **Generalizza** sia selezionata.
 6.  In Opzioni di arresto selezionare **Arresta il sistema** e quindi fare clic su **OK**. 
 
-Per usare il disco rigido virtuale come disco in cui creare una nuova istanza di un disco dati o di una macchina virtuale esistente, seguire questa procedura:
+Per usare il disco rigido virtuale come disco in cui creare una nuova istanza di un disco dati o di una macchina virtuale esistente, completare questi passaggi:
 
 1.  Nel menu Hub del portale di Azure fare clic su **Macchine virtuali**.
-2.  Selezionare la VM dall'elenco.
+2.  Selezionare la macchina virtuale dall'elenco.
 3.  Nel pannello della VM fare clic su **Interrompi**.
 
     ![Arrestare la macchina virtuale](./media/download-vhd/export-stop.png)

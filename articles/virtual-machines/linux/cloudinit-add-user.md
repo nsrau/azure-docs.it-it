@@ -1,5 +1,5 @@
 ---
-title: Usare cloud-init per aggiungere un utente a una VM Linux in Azure | Microsoft Docs
+title: Usare cloud-init per aggiungere un utente a una VM Linux in Azure
 description: Come usare il cloud-init per aggiungere un utente a una VM Linux durante la creazione con l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: bcea130652789a84d332247445d8e25b2f7ac42e
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 428f489a24c24b173cb1cef0980dd17c1d8483ce
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671784"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036788"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Usare cloud-init per aggiungere un utente a una VM Linux in Azure
 Questo articolo illustra come usare [cloud-init](https://cloudinit.readthedocs.io) per aggiungere un utente in una macchina virtuale (VM) o un set di scalabilità di macchine virtuali in fase di provisioning in Azure. Questo script cloud-init viene eseguito al primo avvio dopo il provisioning delle risorse da parte di Azure. Per altre informazioni sul funzionamento di cloud-init in modo nativo in Azure e sulle distribuzioni Linux supportate, vedere la [panoramica di cloud-init](using-cloud-init.md).
@@ -27,7 +27,7 @@ Questo articolo illustra come usare [cloud-init](https://cloudinit.readthedocs.i
 ## <a name="add-a-user-to-a-vm-with-cloud-init"></a>Aggiungere un utente a una macchina virtuale con cloud init
 Una delle prime attività eseguite in qualsiasi nuova VM Linux è l'aggiunta di un altro utente per evitare di usare *root*. Le chiavi SSH sono la procedura consigliata per la sicurezza e l'usabilità. Le chiavi vengono aggiunte al file *~/.ssh/authorized_keys* con questo script cloud-init.
 
-Per aggiungere un utente a una VM Linux, creare un file denominato *cloud_init_add_user.txt* nella shell corrente e incollare la configurazione seguente. Per questo esempio, creare il file in Cloud Shell anziché nel computer locale. È possibile usare qualsiasi editor. Immettere `sensible-editor cloud_init_add_user.txt` per creare il file e visualizzare un elenco degli editor disponibili. Scegliere #1 per usare l'editor **nano**. Assicurarsi che l'intero file cloud-init venga copiato correttamente, in particolare la prima riga.  Come valore di `ssh-authorized-keys:` è necessario specificare la propria chiave pubblica (ad esempio il contenuto di *~/.ssh/id_rsa.pub*). Qui è stato abbreviato per semplificare l'esempio.
+Per aggiungere un utente a una VM Linux, creare un file denominato *cloud_init_add_user.txt* nella shell corrente e incollare la configurazione seguente. Per questo esempio, creare il file in Cloud Shell anziché nel computer locale. È possibile usare qualsiasi editor. Immettere `sensible-editor cloud_init_add_user.txt` per creare il file e visualizzare un elenco degli editor disponibili. Scegliere #1 per usare l'editor **nano**. Assicurarsi che l'intero file cloud-init venga copiato correttamente, in particolare la prima riga.  Come valore di *è necessario specificare la propria chiave pubblica (ad esempio il contenuto di*~/.ssh/id_rsa.pub`ssh-authorized-keys:`). Qui è stato abbreviato per semplificare l'esempio.
 
 ```yaml
 #cloud-config

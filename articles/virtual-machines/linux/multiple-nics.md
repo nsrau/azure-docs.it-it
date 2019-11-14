@@ -1,5 +1,5 @@
 ---
-title: Creare una VM Linux in Azure con più schede di interfaccia di rete | Documentazione Microsoft
+title: Creare una VM Linux in Azure con più schede di rete
 description: Informazioni su come creare una VM Linux con più schede di interfaccia di rete collegate utilizzando l'interfaccia della riga di comando di Azure o i modelli di Resource Manager.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 04aaa1da304657ac3cc305b8939ac4fcce126145
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: b4ab46a59bd83bf2d1c08e3a238df3c59797f3e7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671175"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035604"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Come creare una macchina virtuale Linux in Azure con più schede di interfaccia di rete
 
@@ -29,7 +29,7 @@ Questo articolo illustra come creare una macchina virtuale con più schede di in
 ## <a name="create-supporting-resources"></a>Creare risorse di supporto
 Installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e accedere all'account di Azure con il comando [az login](/cli/azure/reference-index).
 
-Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *mystorageaccount* e *myVM*.
+L'esempio seguente sostituisce i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *mystorageaccount* e *myVM*.
 
 Creare prima un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
@@ -87,7 +87,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nics"></a>Creare una macchina virtuale e collegare le schede di interfaccia di rete
 Quando si crea la macchina virtuale, specificare le schede di interfaccia di rete create con `--nics`. L'utente deve anche fare attenzione quando seleziona la dimensione della macchina virtuale. Esistono dei limiti per quanto riguarda il numero totale di schede di rete che è possibile aggiungere. Ulteriori informazioni sulle [dimensioni delle macchine virtuali di Linux](sizes.md).
 
-Creare una VM con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una macchina virtuale denominata *myVM*:
+Creare una macchina virtuale con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una VM denominata *myVM*:
 
 ```azurecli
 az vm create \
@@ -175,7 +175,7 @@ I modelli di Azure Resource Manager utilizzano i file JSON dichiarativi per defi
 
 Ulteriori informazioni sulla [creazione di più istanze utilizzando *Copia*](../../resource-group-create-multiple.md). 
 
-È inoltre possibile utilizzare un `copyIndex()` per poi aggiungere un numero al nome di una risorsa, che consente di creare `myNic1`, `myNic2`, e così via. Di seguito viene riportato un esempio di aggiunta del valore di indice:
+È anche possibile usare un `copyIndex()` per aggiungere un numero al nome di una risorsa, che consente di creare `myNic1`, `myNic2`e così via. Di seguito viene illustrato un esempio di aggiunta del valore di indice:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 

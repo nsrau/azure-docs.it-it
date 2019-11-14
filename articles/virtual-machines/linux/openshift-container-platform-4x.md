@@ -1,5 +1,5 @@
 ---
-title: Distribuire OpenShift container Platform 4. x in Azure | Microsoft Docs
+title: Distribuire OpenShift container Platform 4. x in Azure
 description: Distribuire OpenShift container Platform 4. x in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 9f807823b1d0d8079c43b2ba0e074a1c8a91b458
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 213c02b76f822d134729ebc4c0e6bff40f62089f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392683"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035444"
 ---
 # <a name="deploy-openshift-container-platform-4x-in-azure"></a>Distribuire OpenShift container Platform 4. x in Azure
 
 La distribuzione di OpenShift container Platform (OCP) 4,2 è ora supportata in Azure tramite il modello di provisioning dell'infrastruttura (IPI) del programma di installazione.  La pagina di destinazione per il tentativo di OpenShift 4 è [try.OpenShift.com](https://try.openshift.com/). Per installare OCP 4,2 in Azure, visitare la pagina [Red Hat OpenShift cluster Manager](https://cloud.redhat.com/openshift/install/azure/installer-provisioned) .  Per accedere a questo sito sono necessarie le credenziali di Red Hat.
 
 
-## <a name="notes"></a>Note 
+## <a name="notes"></a>note 
 
  - Per installare ed eseguire OCP 4. x in Azure è necessaria un'entità servizio (SP) Azure Active Directory (AAD)
      - A SP deve essere concessa l'autorizzazione API di **Application. ReadWrite. OwnedBy** per Azure Active Directory Graph
@@ -37,7 +37,7 @@ La distribuzione di OpenShift container Platform (OCP) 4,2 è ora supportata in 
 
 | Descrizione del problema | Punto di contatto |
 |-------------------|---------------|
-| Problemi specifici di Azure (AAD, SP, sottoscrizione di Azure e così via)                              | Microsoft |
+| Problemi specifici di Azure (AAD, SP, sottoscrizione di Azure e così via)                              | Macchina virtuale |
 | Problemi specifici di OpenShift (errori di installazione/errori, sottoscrizione di Red Hat e così via) |  Red Hat  |
 
 

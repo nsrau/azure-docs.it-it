@@ -1,6 +1,6 @@
 ---
 title: Uso di PowerShell per Gestione traffico in Azure
-description: Uso di PowerShell per Gestione traffico con Azure Resource Manager
+description: Con questo percorso di apprendimento, iniziare a usare Azure PowerShell per gestione traffico.
 services: traffic-manager
 documentationcenter: na
 author: asudbring
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: allensu
-ms.openlocfilehash: a2065ba51b74d7f55464a22df0f55cac4c6defcb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f8dd01f22dec58c3345798b391c1c37c968d1025
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071036"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038130"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Uso di PowerShell per Gestione traffico
 
@@ -38,7 +38,7 @@ Ogni profilo di Gestione traffico è rappresentato da una risorsa di tipo "Traff
 
 In queste istruzioni viene usato Microsoft Azure PowerShell. L'articolo seguente illustra come installare e configurare Azure PowerShell.
 
-* [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
+* [modalità di installazione e configurazione di Azure PowerShell](/powershell/azure/overview)
 
 Negli esempi inclusi in questo articolo si presuppone che esista un gruppo di risorse. È possibile creare un gruppo di risorse usando il comando seguente:
 
@@ -59,9 +59,9 @@ $TmProfile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 
 La tabella seguente descrive i parametri:
 
-| Parametro | Descrizione |
+| . | DESCRIZIONE |
 | --- | --- |
-| Name |Il nome della risorsa per la risorsa del profilo di Gestione traffico. I profili dello stesso gruppo di risorse devono disporre di nomi univoci. Tale nome è diverso rispetto a quello DNS utilizzato per le query DNS. |
+| Nome |Il nome della risorsa per la risorsa del profilo di Gestione traffico. I profili dello stesso gruppo di risorse devono disporre di nomi univoci. Tale nome è diverso rispetto a quello DNS utilizzato per le query DNS. |
 | ResourceGroupName |Il nome del gruppo di risorse che include la risorsa del profilo. |
 | TrafficRoutingMethod |Indica il metodo di routing del traffico usato per determinare quale endpoint viene restituito in risposta alle query DNS. I valori possibili sono "Performance", "'Weighted" e "Priority". |
 | RelativeDnsName |Indica la parte hostname del nome DNS fornito da questo profilo di Gestione traffico. Questo valore viene combinato con il nome del dominio DNS usato da Gestione traffico di Azure per formare il nome di dominio completo del profilo. Ad esempio, l'impostazione del valore di "contoso" diventa "contoso.trafficmanager.net". |
@@ -115,17 +115,17 @@ In tutti e tre i casi è possibile aggiungere gli endpoint in due modi:
 
 Gli endpoint di Azure fanno riferimento ai servizi ospitati in Azure. Sono attualmente supportati due tipi di endpoint di Azure:
 
-1. Servizio app di Azure
+1. servizio app di Azure
 2. Risorse di tipo publicIpAddress di Azure, che possono essere associate a un servizio di bilanciamento del carico o a una scheda di interfaccia di rete di una macchina virtuale. La risorsa di tipo PublicIpAddress deve avere un nome DNS assegnato da usare in Gestione traffico.
 
 In ogni caso:
 
 * Il servizio viene specificato usando il parametro "targetResourceId" di `Add-AzTrafficManagerEndpointConfig` o `New-AzTrafficManagerEndpoint`.
 * TargetResourceId usa in modo implicito "Target" ed "EndpointLocation".
-* "Weight" è facoltativo ed è possibile scegliere se specificarlo. I pesi vengono usati solo se il profilo è configurato per l'uso del metodo di routing del traffico "Weighted". In caso contrario, vengono ignorati. Il valore deve essere un numero compreso tra 1 e 1000. il cui valore predefinito è 1.
-* "Priority" è facoltativo ed è possibile scegliere se specificarlo. Le priorità vengono usate solo se il profilo è configurato per l'uso del metodo di routing del traffico "Priority". In caso contrario, vengono ignorate. I valori validi sono compresi tra 1 e 1000 con i valori più bassi che indicano una priorità più alta. Se si specifica questo valore per un endpoint, sarà necessario specificarlo per tutti gli endpoint. Se questo valore viene omesso, verranno applicati i valori predefiniti a partire da "1" nell'ordine in cui sono elencati gli endpoint.
+* "Weight" è facoltativo ed è possibile scegliere se specificarlo. I pesi vengono usati solo se il profilo è configurato per l'uso del metodo di routing del traffico "Weighted". In caso contrario, vengono ignorati. Il valore deve essere un numero compreso tra 1 e 1000. Il valore predefinito è "1".
+* "Priority" è facoltativo ed è possibile scegliere se specificarlo. Le priorità vengono usate solo se il profilo è configurato per l'uso del metodo di routing del traffico "Priority". In caso contrario, vengono ignorati. I valori validi sono compresi tra 1 e 1000 con i valori più bassi che indicano una priorità più alta. Se si specifica questo valore per un endpoint, sarà necessario specificarlo per tutti gli endpoint. Se questo valore viene omesso, verranno applicati i valori predefiniti a partire da "1" nell'ordine in cui sono elencati gli endpoint.
 
-### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>Esempio 1: Aggiunta degli endpoint di servizio app usando `Add-AzTrafficManagerEndpointConfig`
+### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>Esempio 1: aggiunta di endpoint del servizio app con `Add-AzTrafficManagerEndpointConfig`
 
 In questo esempio viene creato un profilo di Gestione traffico e vengono aggiunti due endpoint di servizio app usando il cmdlet `Add-AzTrafficManagerEndpointConfig`.
 
@@ -137,7 +137,7 @@ $webapp2 = Get-AzWebApp -Name webapp2
 Add-AzTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $TmProfile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
 Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
-### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-aztrafficmanagerendpoint"></a>Esempio 2 Aggiunta di un endpoint publicIpAddress usando `New-AzTrafficManagerEndpoint`
+### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-aztrafficmanagerendpoint"></a>Esempio 2: Aggiunta di un endpoint publicIpAddress usando `New-AzTrafficManagerEndpoint`
 
 In questo esempio viene aggiunta una risorsa indirizzo IP pubblico al profilo di Gestione traffico. L'indirizzo IP pubblico deve avere un nome DNS configurato e può essere associato alla NIC di una VM o a un servizio di bilanciamento del carico.
 
@@ -167,7 +167,7 @@ Add-AzTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManagerProf
 Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 
-### <a name="example-2-adding-external-endpoints-using-new-aztrafficmanagerendpoint"></a>Esempio 2 Aggiunta di endpoint esterni usando `New-AzTrafficManagerEndpoint`
+### <a name="example-2-adding-external-endpoints-using-new-aztrafficmanagerendpoint"></a>Esempio 2: Aggiunta di endpoint esterni usando `New-AzTrafficManagerEndpoint`
 
 In questo esempio si aggiunge un endpoint esterno a un profilo esistente. Il profilo viene specificato usando i nomi del gruppo di risorse e del profilo.
 
@@ -199,7 +199,7 @@ Set-AzTrafficManagerProfile -TrafficManagerProfile $parent
 
 Per brevità, in questo esempio, non sono stati aggiunti altri endpoint al profilo padre o figlio.
 
-### <a name="example-2-adding-nested-endpoints-using-new-aztrafficmanagerendpoint"></a>Esempio 2 Aggiunta di endpoint annidati usando `New-AzTrafficManagerEndpoint`
+### <a name="example-2-adding-nested-endpoints-using-new-aztrafficmanagerendpoint"></a>Esempio 2: Aggiunta di endpoint annidati usando `New-AzTrafficManagerEndpoint`
 
 In questo esempio viene aggiunto un profilo figlio esistente come endpoint annidato in un profilo padre esistente. Il profilo viene specificato usando i nomi del gruppo di risorse e del profilo.
 
@@ -210,7 +210,7 @@ New-AzTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceG
 
 ## <a name="adding-endpoints-from-another-subscription"></a>Aggiunta di endpoint da un'altra sottoscrizione
 
-Gestione traffico può usare endpoint da sottoscrizioni diverse. È necessario passare alla sottoscrizione con l'endpoint da aggiungere per recuperare l'input necessario in Gestione traffico. Quindi è necessario passare alle sottoscrizioni con il profilo di gestione traffico e aggiungervi l'endpoint. L'esempio seguente mostra come eseguire questa operazione con un indirizzo IP pubblico.
+Gestione traffico può usare endpoint da sottoscrizioni diverse. È necessario passare alla sottoscrizione con l'endpoint da aggiungere per recuperare l'input necessario in Gestione traffico. Sarà quindi necessario passare alle sottoscrizioni con il profilo di gestione traffico e aggiungervi l'endpoint. L'esempio seguente mostra come eseguire questa operazione con un indirizzo IP pubblico.
 
 ```powershell
 Set-AzContext -SubscriptionId $EndpointSubscription
@@ -238,7 +238,7 @@ $TmProfile.Endpoints[1].Priority = 1
 Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 
-### <a name="example-2-updating-an-endpoint-using-get-aztrafficmanagerendpoint-and-set-aztrafficmanagerendpoint"></a>Esempio 2 Aggiornamento di un endpoint usando `Get-AzTrafficManagerEndpoint` e `Set-AzTrafficManagerEndpoint`
+### <a name="example-2-updating-an-endpoint-using-get-aztrafficmanagerendpoint-and-set-aztrafficmanagerendpoint"></a>Esempio 2: Aggiornamento di un endpoint usando `Get-AzTrafficManagerEndpoint` e `Set-AzTrafficManagerEndpoint`
 
 In questo esempio viene modificato il peso di un singolo endpoint in un profilo esistente.
 
@@ -269,7 +269,7 @@ Disable-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGro
 
 Il cmdlet Disable-AzTrafficManagerProfile chiede la conferma. Questo messaggio può essere soppresso mediante il parametro "-Force".
 
-### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Esempio 2 Abilitazione e disabilitazione di un endpoint di Gestione traffico
+### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Esempio 2: Abilitazione e disabilitazione di un endpoint di Gestione traffico
 
 Per abilitare un endpoint di Gestione traffico, usare `Enable-AzTrafficManagerEndpoint`. È possibile specificare l'endpoint in due modi:
 

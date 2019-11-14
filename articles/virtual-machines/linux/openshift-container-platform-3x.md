@@ -1,5 +1,5 @@
 ---
-title: Distribuire OpenShift container Platform 3,11 in Azure | Microsoft Docs
+title: Distribuire OpenShift container Platform 3,11 in Azure
 description: Distribuire OpenShift container Platform 3,11 in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 4320105c5411e8a01ff6c69bf7d87057c786d092
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 56607de57939be769b1951f0eee9078c46d610c0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392748"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035455"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Distribuire OpenShift container Platform 3,11 in Azure
 
@@ -248,9 +248,9 @@ Versioni diverse possono avere parametri diversi, pertanto occorre verificare i 
 
 ### <a name="azuredeployparametersjson-file-explained"></a>file azuredeploy. Descrizione del file Parameters. JSON
 
-| Proprietà | Description | Opzioni valide | Default value |
+| Proprietà | DESCRIZIONE | Opzioni valide | Valore predefinito |
 |----------|-------------|---------------|---------------|
-| `_artifactsLocation`  | URL per gli artefatti (JSON, script e così via) |  |  https: \//RAW. githubusercontent. com/Microsoft/OpenShift-container-Platform/Master  |
+| `_artifactsLocation`  | URL per gli artefatti (JSON, script e così via) |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | Area di Azure in cui distribuire le risorse |  |  |
 | `masterVmSize` | Dimensioni della macchina virtuale master. Selezionare una delle dimensioni di macchina virtuale consentite elencate nel file file azuredeploy. JSON |  | Standard_E2s_v3 |
 | `infraVmSize` | Dimensioni della VM infra. Selezionare una delle dimensioni di macchina virtuale consentite elencate nel file file azuredeploy. JSON |  | Standard_D4s_v3 |
@@ -281,13 +281,13 @@ Versioni diverse possono avere parametri diversi, pertanto occorre verificare i 
 | `keyVaultName` | Nome del Key Vault creato |  |  |
 | `enableAzure` | Abilita provider di servizi cloud di Azure | true <br> false | true |
 | `aadClientId` | ID client di Azure Active Directory noto anche come ID applicazione per l'entità servizio |  |  |
-| `domainName` | Nome del nome di dominio personalizzato da usare, se applicabile. Impostato su "None" se non si distribuisce un cluster completamente privato |  | None |
-| `masterClusterDnsType` | Tipo di dominio per la console Web OpenShift. con ' default ' viene utilizzata l'etichetta DNS dell'indirizzo IP pubblico del Master infra. ' Custom ' consente di definire un nome personalizzato | default <br> Personalizzato | default |
+| `domainName` | Nome del nome di dominio personalizzato da usare, se applicabile. Impostato su "None" se non si distribuisce un cluster completamente privato |  | nessuno |
+| `masterClusterDnsType` | Tipo di dominio per la console Web OpenShift. con ' default ' viene utilizzata l'etichetta DNS dell'indirizzo IP pubblico del Master infra. ' Custom ' consente di definire un nome personalizzato | default <br> personalizzato | default |
 | `masterClusterDns` | Nome DNS personalizzato da usare per accedere alla console Web di OpenShift se è stata selezionata l'opzione ' Custom ' per `masterClusterDnsType` |  | console.contoso.com |
-| `routingSubDomainType` | Se impostato su' nipio ', `routingSubDomain` utilizzerà nip.io.  Usare "Custom" Se si dispone di un dominio personalizzato che si vuole usare per il routing | nipio <br> Personalizzato | nipio |
+| `routingSubDomainType` | Se impostato su' nipio ', `routingSubDomain` utilizzerà nip.io.  Usare "Custom" Se si dispone di un dominio personalizzato che si vuole usare per il routing | nipio <br> personalizzato | nipio |
 | `routingSubDomain` | Nome DNS con caratteri jolly che si vuole usare per il routing se è stato selezionato "Custom" per `routingSubDomainType` |  | apps.contoso.com |
-| `virtualNetworkNewOrExisting` | Scegliere se usare una rete virtuale esistente o creare una nuova rete virtuale | esistente <br> novità | novità |
-| `virtualNetworkResourceGroupName` | Nome del gruppo di risorse per la nuova rete virtuale se è stato selezionato "nuovo" per `virtualNetworkNewOrExisting` |  | resourceGroup (). nome |
+| `virtualNetworkNewOrExisting` | Scegliere se usare una rete virtuale esistente o creare una nuova rete virtuale | esistente <br> nuovo | nuovo |
+| `virtualNetworkResourceGroupName` | Nome del gruppo di risorse per la nuova rete virtuale se è stata selezionata l'opzione ' nuovo ' per `virtualNetworkNewOrExisting` |  | resourceGroup (). nome |
 | `virtualNetworkName` | Nome della nuova rete virtuale da creare se è stato selezionato "nuovo" per `virtualNetworkNewOrExisting` |  | openshiftvnet |
 | `addressPrefixes` | Prefisso dell'indirizzo della nuova rete virtuale |  | 10.0.0.0/14 |
 | `masterSubnetName` | Nome della subnet master |  | mastersubnet |
@@ -304,8 +304,8 @@ Versioni diverse possono avere parametri diversi, pertanto occorre verificare i 
 | `masterPrivateClusterIp` | Se si selezionano i nodi master privati, è necessario specificare un indirizzo IP privato per l'uso da parte del servizio di bilanciamento del carico interno per i nodi master. Questo indirizzo IP statico deve trovarsi all'interno del blocco CIDR per la subnet master e non è già in uso. Se si selezionano i nodi Master pubblici, questo valore non verrà utilizzato, ma sarà comunque necessario specificarlo |  | 10.1.0.200 |
 | `routerClusterType` | Specificare se il cluster usa i nodi infra privati o pubblici. Se si sceglie private, i nodi infra non verranno esposti a Internet tramite un indirizzo IP pubblico. Utilizzerà invece l'indirizzo IP privato specificato nella `routerPrivateClusterIp` | public <br> Privato | public |
 | `routerPrivateClusterIp` | Se si selezionano i nodi infra privati, è necessario specificare un indirizzo IP privato per l'uso da parte del servizio di bilanciamento del carico interno per i nodi infra. Questo indirizzo IP statico deve trovarsi all'interno del blocco CIDR per la subnet master e non è già in uso. Se si selezionano i nodi infra pubblici, questo valore non verrà utilizzato, ma sarà comunque necessario specificarlo |  | 10.2.0.200 |
-| `routingCertType` | Usa certificato personalizzato per il dominio di routing o il certificato autofirmato predefinito-seguire le istruzioni nella sezione **certificati personalizzati** | selfsigned <br> Personalizzato | selfsigned |
-| `masterCertType` | Usare un certificato personalizzato per il dominio master o il certificato autofirmato predefinito-seguire le istruzioni nella sezione **certificati personalizzati** | selfsigned <br> Personalizzato | selfsigned |
+| `routingCertType` | Usa certificato personalizzato per il dominio di routing o il certificato autofirmato predefinito-seguire le istruzioni nella sezione **certificati personalizzati** | selfsigned <br> personalizzato | selfsigned |
+| `masterCertType` | Usare un certificato personalizzato per il dominio master o il certificato autofirmato predefinito-seguire le istruzioni nella sezione **certificati personalizzati** | selfsigned <br> personalizzato | selfsigned |
 
 <br>
 

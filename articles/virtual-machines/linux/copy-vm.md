@@ -1,5 +1,5 @@
 ---
-title: Copiare una macchina virtuale Linux usando l'interfaccia della riga di comando di Azure |Microsoft Docs
+title: Copiare una VM Linux usando l'interfaccia della riga di comando
 description: Informazioni su come creare una copia della macchina virtuale Linux di Azure usando l'interfaccia della riga di comando di Azure e i dischi gestiti.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 5a77152aea00ca094a78dc0173d48bc8e276cce5
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: a6a8b766efdc781df1fea29da81dc48090875ad7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668067"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036582"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Creare una copia di una macchina virtuale Linux di Azure usando l'interfaccia della riga di comando di Azure e i dischi gestiti
 
@@ -27,7 +27,7 @@ Questo articolo descrive come creare una copia di una macchina virtuale di Azure
 
 È anche possibile [caricare e creare una VM da un disco rigido virtuale](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 -   Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2).
 

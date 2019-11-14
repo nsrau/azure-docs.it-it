@@ -1,5 +1,5 @@
 ---
-title: Aprire porte a una VM tramite il portale di Azure | Microsoft Docs
+title: Aprire le porte per una VM usando il portale di Azure
 description: Informazioni su come aprire una porta o creare un endpoint alla VM Windows tramite il modello di distribuzione di Resource Manager nel portale di Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: f9edee7a0ff19a536d0ea719ede6d0cd2e9d6ac7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe9b0f590dbb728a54ac66fcaa49bf3d00417e41
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102643"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033115"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Come aprire le porte in una macchina virtuale con il portale di Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete

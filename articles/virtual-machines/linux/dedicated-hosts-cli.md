@@ -1,5 +1,5 @@
 ---
-title: Distribuire host dedicati di Azure tramite l'interfaccia della riga di comando | Microsoft Docs
+title: Distribuire host dedicati di Azure tramite l'interfaccia della riga di comando
 description: Distribuire le macchine virtuali in host dedicati usando l'interfaccia della riga di comando di Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/29/2019
 ms.author: cynthn
-ms.openlocfilehash: 0c060e2ab94c0a57d4d4dc897702e115cfabd9a0
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ece9967321cfca44b102d78722f0df3d8f980bdb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827283"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036410"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Anteprima: Distribuire macchine virtuali in host dedicati usando l'interfaccia della riga di comando di Azure
+# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Anteprima: distribuire macchine virtuali in host dedicati usando l'interfaccia della riga di comando di Azure
  
 
 Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di Azure per ospitare le macchine virtuali (VM). 
 
-Assicurarsi di aver installato l'interfaccia della riga di comando di Azure versione 2.0.70 o successiva e di aver eseguito l' `az login`accesso a un account Azure usando. 
+Assicurarsi di aver installato l'interfaccia della riga di comando di Azure versione 2.0.70 o successiva e di aver eseguito l'accesso a un account Azure usando `az login`. 
 
 > [!IMPORTANT]
 > Gli host dedicati di Azure sono attualmente disponibili in anteprima pubblica.
@@ -33,10 +33,10 @@ Assicurarsi di aver installato l'interfaccia della riga di comando di Azure vers
 >
 > **Limitazioni di anteprima note**
 > - I set di scalabilità di macchine virtuali non sono attualmente supportati negli host dedicati.
-> - La versione iniziale di anteprima supporta la serie di macchine virtuali seguente: DSv3 e ESv3. 
+> - La versione iniziale di anteprima supporta la serie di VM seguente: DSv3 e ESv3. 
  
 
-## <a name="create-resource-group"></a>Crea gruppo di risorse 
+## <a name="create-resource-group"></a>Creare un gruppo di risorse 
 Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare il gruppo di risorse con AZ Group create. Nell'esempio seguente viene creato un gruppo di risorse denominato *myDHResourceGroup* nella località *Stati Uniti orientali* .
 
 ```bash
@@ -86,7 +86,7 @@ az vm host group create \
  
 ## <a name="create-a-host"></a>Creazione di un host 
 
-A questo punto è possibile creare un host dedicato nel gruppo host. Oltre a un nome per l'host, è necessario fornire lo SKU per l'host. Lo SKU host acquisisce la serie di macchine virtuali supportate e la generazione dell'hardware per l'host dedicato.  Durante l'anteprima, sono supportati i valori SKU host seguenti: DSv3_Type1 e ESv3_Type1.
+A questo punto è possibile creare un host dedicato nel gruppo host. Oltre a un nome per l'host, è necessario fornire lo SKU per l'host. Lo SKU host acquisisce la serie di macchine virtuali supportate e la generazione dell'hardware per l'host dedicato.  Durante l'anteprima, sono supportati i seguenti valori SKU host: DSv3_Type1 e ESv3_Type1.
 
 
 Per altre informazioni sugli SKU e i prezzi degli host, vedere [prezzi di host dedicati di Azure](https://aka.ms/ADHPricing).

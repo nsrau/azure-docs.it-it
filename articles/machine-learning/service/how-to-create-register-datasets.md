@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 51102962879b43d4ef3ae8662d7c3136bc7441d9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 50728363ffd02e189b4bc0dacebd684a7f13091e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818449"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74030703"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Crea set di impostazioni Azure Machine Learning
 
@@ -32,7 +32,7 @@ Con Azure Machine Learning set di impostazioni è possibile:
 
 * Condividere i dati e collaborare con altri utenti.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per creare e usare i set di impostazioni, è necessario:
 
@@ -55,7 +55,7 @@ Esistono due tipi di set di dati, in base al modo in cui gli utenti li utilizzan
 
 Per altre informazioni sulle modifiche future dell'API, vedere [avviso di modifica dell'API del set di dati](https://aka.ms/tabular-dataset).
 
-## <a name="create-datasets"></a>Creare set di dati
+## <a name="create-datasets"></a>Creare i set di dati
 
 Creando un set di dati, si crea un riferimento al percorso dell'origine dati, insieme a una copia dei relativi metadati. Poiché i dati rimangono nella posizione esistente, non viene addebitato alcun costo aggiuntivo per l'archiviazione. È possibile creare set di dati sia `TabularDataset` che `FileDataset` tramite Python SDK o la pagina di destinazione dell'area di lavoro (anteprima).
 
@@ -112,11 +112,11 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |PassengerId|Rimasti|Pclass|Name|Sesso|Age|SibSp|Parch|Ticket|Tariffe|Abitacolo|Intrapreso
+| |PassengerId|Rimasti|Pclass|Nome|Sesso|Age|SibSp|Parch|Ticket|Tariffe|Abitacolo|Intrapreso
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22,0|1|0|A/5 21171|7,2500||S
-1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|True|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||S
+1|2|true|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
+2|3|true|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 Usare il metodo [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-) sulla classe `TabularDatasetFactory` per leggere dal database SQL di Azure:
 
@@ -155,11 +155,9 @@ data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 Utilizzare il metodo [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) sulla classe `FileDatasetFactory` per caricare file in qualsiasi formato e per creare un oggetto filedataset non registrato:
 
 ```Python
-# create a FileDataset from multiple paths in datastore
+# create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
 datastore_paths = [
-                  (datastore, 'animals/dog/1.jpg'),
-                  (datastore, 'animals/dog/2.jpg'),
-                  (datastore, 'animals/dog/*.jpg')
+                  (datastore, 'animals')
                  ]
 animal_ds = Dataset.File.from_files(path=datastore_paths)
 
@@ -239,7 +237,7 @@ Selezionare un set di dati selezionando il relativo riquadro. È possibile filtr
 
 ![Scegliere il set di dati](media/how-to-create-register-datasets/open-datasets-2.png)
 
-Scegliere un nome con cui registrare il set di dati e, facoltativamente, filtrare i dati usando i filtri disponibili. In questo caso, per il set di dati Public Holidays è possibile filtrare il periodo di tempo a un anno e il codice paese solo negli Stati Uniti. Selezionare **Crea**.
+Scegliere un nome con cui registrare il set di dati e, facoltativamente, filtrare i dati usando i filtri disponibili. In questo caso, per il set di dati Public Holidays è possibile filtrare il periodo di tempo a un anno e il codice paese solo negli Stati Uniti. Selezionare **Create**.
 
 ![Imposta parametri set di dati e crea set di dati](media/how-to-create-register-datasets/open-datasets-3.png)
 

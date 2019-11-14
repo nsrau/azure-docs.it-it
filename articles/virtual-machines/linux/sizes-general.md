@@ -1,5 +1,5 @@
 ---
-title: Dimensioni delle macchine virtuali Linux di Azure - Utilizzo generico | Documentazione Microsoft
+title: Dimensioni delle macchine virtuali Linux di Azure-utilizzo generico
 description: Elenca le diverse dimensioni disponibili per l'utilizzo generico per le macchine virtuali Linux in Azure. Elenca informazioni sul numero di vCPU, dei dischi dati e delle schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per le dimensioni di queste serie.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: jonbeck
-ms.openlocfilehash: 6049103b2ce5b87033509193fe3a000ffa65511c
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 1f04ef5018a8069e5d8430037d986a31f29b5be7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719145"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034923"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali di utilizzo generico
 

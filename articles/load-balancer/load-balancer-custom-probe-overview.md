@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 78e085aae97114e6848b736c40b16c755256d0cd
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: d9873c4d8d4ca2b74532706f079c7384bf38db42
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571109"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033827"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
@@ -84,7 +84,7 @@ Il protocollo usato dal probe di integrità può essere configurato in uno dei s
 
 I protocolli disponibili dipendono dallo SKU Load Balancer usato:
 
-|| TCP | HTTP | HTTPS |
+|| TCP | http | HTTPS |
 | --- | --- | --- | --- |
 | SKU Standard |    &#9989; |   &#9989; |   &#9989; |
 | SKU Basic |   &#9989; |   &#9989; | &#10060; |
@@ -160,7 +160,7 @@ Per impostazione predefinita, i ruoli del servizio cloud, ovvero i ruoli di lavo
 
 Un probe dell'agente guest è un controllo dell'agente guest all'interno della macchina virtuale. L'agente guest è quindi in ascolto e risponde con HTTP 200 OK solo quando l'istanza è in stato Pronto. Gli altri stati sono Occupato, Riciclo in corso o Arresto.
 
-Per altre informazioni, vedere [Configure the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/ee758710.aspx) (Configurare il file csdef per probe di integrità) o [Get started by creating a public load balancer for cloud services](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services) (Introduzione alla creazione di un servizio di bilanciamento del carico pubblico per i servizi cloud).
+Per altre informazioni, vedere [Configure the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/ee758710.aspx) (Configurare il file csdef per probe di integrità) o [Get started by creating a public load balancer for cloud services](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services) (Introduzione alla creazione di un servizio di bilanciamento del carico pubblico per i servizi cloud).
 
 Se l'agente guest non risponde con un messaggio HTTP 200 OK, il servizio di bilanciamento del carico contrassegna l'istanza come istanza che non risponde. Il servizio smette quindi di inviare flussi all'istanza. Il servizio di bilanciamento del carico continua a controllare l'istanza. 
 

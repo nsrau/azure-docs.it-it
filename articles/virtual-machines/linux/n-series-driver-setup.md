@@ -1,5 +1,5 @@
 ---
-title: Installazione di driver GPU serie N di Azure per Linux | Microsoft Docs
+title: Installazione di driver GPU serie N di Azure per Linux
 description: Informazioni su come installare driver GPU NVIDIA per macchine virtuali serie N che eseguono Linux in Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3abc221295a90dfbf7e46e3bd5bff1c8c0937162
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 6ebc991d54ef902eb653cf2d99b2f74f18551568
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035011"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035616"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installare i driver GPU NVIDIA in VM serie N che eseguono Linux
 
@@ -153,7 +153,7 @@ Per controllare lo stato del dispositivo GPU, eseguire una connessione SSH alla 
 
 Se il driver è installato, l'output sarà simile al seguente. Si noti che **GPU-Util** mostra 0% a meno che nella macchina virtuale non sia attualmente in esecuzione un carico di lavoro GPU. La versione del driver e i dettagli GPU possono essere diversi da quelli riportati.
 
-![Stato del dispositivo NVIDIA](./media/n-series-driver-setup/smi.png)
+![Stato dei dispositivi NVIDIA](./media/n-series-driver-setup/smi.png)
 
 ## <a name="rdma-network-connectivity"></a>Connettività di rete RDMA
 
@@ -190,7 +190,7 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv3, eff
    
    sudo apt-get install linux-azure -y
    ```
-3. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Usare il driver NVIDIA solo nelle macchine virtuali NV o NVv2. A tale scopo, creare un file in `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
+3. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. (Usare solo il driver NVIDIA nelle VM NV o NVv2). A tale scopo, creare un file in `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
 
    ```
    blacklist nouveau
@@ -254,7 +254,7 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv3, eff
    sudo yum install hyperv-daemons
    ```
 
-2. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Usare il driver NVIDIA solo nelle macchine virtuali NV o NV2. A tale scopo, creare un file in `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
+2. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. (Usare solo il driver NVIDIA nelle VM NV o NV2). A tale scopo, creare un file in `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
 
    ```
    blacklist nouveau
@@ -317,7 +317,7 @@ Per controllare lo stato del dispositivo GPU, eseguire una connessione SSH alla 
 
 Se il driver è installato, l'output sarà simile al seguente. Si noti che **GPU-Util** mostra 0% a meno che nella macchina virtuale non sia attualmente in esecuzione un carico di lavoro GPU. La versione del driver e i dettagli GPU possono essere diversi da quelli riportati.
 
-![Stato del dispositivo NVIDIA](./media/n-series-driver-setup/smi-nv.png)
+![Stato dei dispositivi NVIDIA](./media/n-series-driver-setup/smi-nv.png)
  
 
 ### <a name="x11-server"></a>Server X11

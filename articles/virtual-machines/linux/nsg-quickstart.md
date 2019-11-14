@@ -1,5 +1,5 @@
 ---
-title: Aprire le porte per una VM Linux con l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: Aprire le porte per una VM Linux con l'interfaccia della riga di comando di Azure
 description: Informazioni su come aprire una porta o creare un endpoint per la VM Linux tramite il modello di distribuzione Azure Resource Manager e l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 1dec41f9c33bba94db2cd75b60d3490fe853482c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 424dfc1dac21f227869f23e7401a083b06cef1d9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671134"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035559"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Aprire porte ed endpoint per una VM Linux con l'interfaccia della riga di comando di Azure
 
@@ -28,7 +28,7 @@ Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tra
 
 Per creare un gruppo di sicurezza di rete e le regole è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure usando [az login](/cli/azure/reference-index).
 
-Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNetworkSecurityGroup* e *myVnet*.
+L'esempio seguente sostituisce i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNetworkSecurityGroup* e *myVnet*.
 
 
 ## <a name="quickly-open-a-port-for-a-vm"></a>Aprire rapidamente una porta per una macchina virtuale

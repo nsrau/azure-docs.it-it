@@ -1,5 +1,5 @@
 ---
-title: Distribuire una macchina virtuale con C# e un modello di Azure Resource Manager | Microsoft Docs
+title: Distribuire una macchina virtuale C# usando e un modello di gestione risorse
 description: Informazioni su come usare C# e un modello di Resource Manager per distribuire una macchina virtuale di Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 65ce7711786e15a5455d91ce829a3bc0bdf4317d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c88b060104a4c17e3edad2e23cfb23a54661b969
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103237"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033808"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuire una macchina virtuale di Azure con C# e un modello di Azure Resource Manager
 
@@ -41,7 +41,7 @@ In questo passaggio, ci si assicura che Visual Studio sia installato e si crea u
 
 I pacchetti NuGet sono il modo più semplice per installare le librerie necessarie per completare questi passaggi. Per ottenere le librerie necessarie in Visual Studio, eseguire questa procedura:
 
-1. Fare clic su **Strumenti** > **Gestione pacchetti Nuget** e quindi su **Console di Gestione Pacchetti**.
+1. Fare clic su **Strumenti** > **Gestione pacchetti NuGet** e quindi su **Console di Gestione pacchetti**.
 2. Nella console digitare questi comandi:
 
     ```powershell
@@ -204,7 +204,7 @@ Prima di poter distribuire un modello, è necessario assicurarsi di avere access
     Sostituire **&lt;subscription-id&gt;** con l'identificatore della sottoscrizione, **&lt;application-id&gt;** con l'identificatore dell'applicazione Active Directory, **&lt;authentication-key&gt;** con la chiave dell'applicazione e **&lt;tenant-id&gt;** con l'identificatore del tenant.
 
 3. Salvare il file azureauth.properties.
-4. Impostare una variabile di ambiente in Windows denominata AZURE_AUTH_LOCATION con il percorso completo del file di autorizzazione creato. ad esempio, è possibile usare il comando di PowerShell seguente:
+4. Impostare una variabile di ambiente in Windows denominata AZURE_AUTH_LOCATION con il percorso completo del file di autorizzazione creato, ad esempio, è possibile usare il comando di PowerShell seguente:
 
     ```powershell
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
@@ -321,7 +321,7 @@ Per eliminare il gruppo di risorse, aggiungere questo codice al metodo Main:
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 
-## <a name="run-the-application"></a>Esecuzione dell'applicazione
+## <a name="run-the-application"></a>Eseguire l'applicazione
 
 L'esecuzione completa dell'applicazione console dall'inizio alla fine richiederà circa cinque minuti. 
 

@@ -3,12 +3,12 @@ title: Istruzioni per le richieste con limitazioni
 description: Informazioni su come creare query migliori per evitare la limitazione delle richieste al grafico delle risorse di Azure.
 ms.date: 10/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 46af11bfea47e37b97fa9492f71be8b5fe1817e3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 651a5daa9e7e19a5dc157ba0cfa17da2c8abe3db
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959211"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038334"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Linee guida per le richieste limitate in Azure Resource Graph
 
@@ -215,11 +215,11 @@ Poiché il grafico risorse di Azure restituisce al massimo 1000 voci in una sing
   Quando si usa l'interfaccia della riga di comando di Azure o Azure PowerShell, le query in Azure Resource Graph vengono impaginate automaticamente per recuperare al massimo 5000 voci. I risultati della query restituiscono un elenco combinato di voci da tutte le chiamate impaginate. In questo caso, a seconda del numero di voci nel risultato della query, una singola query impaginata può utilizzare più di una quota di query. Nell'esempio seguente, ad esempio, una singola esecuzione della query può utilizzare fino a cinque quote di query:
 
   ```azurecli-interactive
-  az graph query -q 'Resources | project id, name, type' -top 5000
+  az graph query -q 'Resources | project id, name, type' --first 5000
   ```
 
   ```azurepowershell-interactive
-  Search-AzGraph -Query 'Resources | project id, name, type' -Top 5000
+  Search-AzGraph -Query 'Resources | project id, name, type' -First 5000
   ```
 
 ## <a name="still-get-throttled"></a>È ancora stato limitato?

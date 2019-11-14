@@ -1,5 +1,5 @@
 ---
-title: Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager | Documentazione Microsoft
+title: Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 description: Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 3cf262f2c2f14ea66a40facfd5b32139fc648e47
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 8dc1ee85b9d17824898de80562ea5bfb251a2c41
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165334"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035707"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 Anche se Azure Resource Manager offre molte funzionalità straordinarie, è fondamentale pianificare la migrazione in modo che avvenga senza problemi. Dedicare tempo alla pianificazione garantisce che non si verifichino problemi durante l'esecuzione delle attività di migrazione. 
@@ -31,7 +31,7 @@ Il percorso di migrazione include quattro fasi generali:
 
 ![Fasi di migrazione](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## <a name="plan"></a>Piano
+## <a name="plan"></a>Pianificare
 
 ### <a name="technical-considerations-and-tradeoffs"></a>Considerazioni tecniche e compromessi
 
@@ -87,14 +87,14 @@ I clienti di successo hanno piani dettagliati in cui le domande precedenti sono 
 
 Di seguito sono elencati i problemi rilevati in molte migrazioni di grandi dimensioni. Non si tratta di un elenco completo. Per altri dettagli fare riferimento a [funzionalità e configurazioni non supportate](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations). Questi problemi tecnici potrebbero anche non verificarsi, ma se vengono risolti prima della migrazione, questa sarà più semplice.
 
-- **Eseguire una convalida/preparazione/interruzione di prova** - Questo passaggio è probabilmente quello più importante per garantire una corretta migrazione dal modello di distribuzione classica ad Azure Resource Manager. L'API di migrazione prevede tre passaggi principali: convalida, preparazione ed esecuzione della migrazione. La convalida leggerà lo stato dell'ambiente di distribuzione classica e restituirà come risultato tutti i problemi. Alcuni problemi tuttavia potrebbero non essere rilevati in quanto presenti nello stack di Azure Resource Manager. Il passaggio successivo nel processo di migrazione, la preparazione, consente di rilevare questi problemi. La preparazione sposterà i metadati dal modello di distribuzione classica ad Azure Resource Manager ma non eseguirà il commit dello spostamento e non rimuoverà o modificherà nulla nel modello di distribuzione classica. L'interruzione di prova consiste nel preparare la migrazione e quindi di interrompere la preparazione ossia **non eseguire il commit**. L'obiettivo di convalida/preparazione/interruzione di prova è visualizzare tutti i metadati nello stack Azure Resource Manager, esaminarli (*a livello di codice o nel portale*), verificare che la migrazione avvenga correttamente e risolvere i problemi tecnici.  Inoltre si avrà un'idea della durata della migrazione in modo che sia possibile pianificare di conseguenza i tempi di inattività.  Una convalida/preparazione/interruzione di prova non causa tempi di inattività e pertanto non crea problemi per l'uso delle applicazioni.
+- **Eseguire una convalida/preparazione/interruzione di prova** - Questo passaggio è probabilmente quello più importante per garantire una corretta migrazione dal modello di distribuzione classica ad Azure Resource Manager. L'API di migrazione prevede tre passaggi principali: Convalida, Preparazione e Commit. La convalida leggerà lo stato dell'ambiente di distribuzione classica e restituirà come risultato tutti i problemi. Alcuni problemi tuttavia potrebbero non essere rilevati in quanto presenti nello stack di Azure Resource Manager. Il passaggio successivo nel processo di migrazione, la preparazione, consente di rilevare questi problemi. La preparazione sposterà i metadati dal modello di distribuzione classica ad Azure Resource Manager ma non eseguirà il commit dello spostamento e non rimuoverà o modificherà nulla nel modello di distribuzione classica. L'interruzione di prova consiste nel preparare la migrazione e quindi di interrompere la preparazione ossia **non eseguire il commit**. L'obiettivo di convalida/preparazione/interruzione di prova è visualizzare tutti i metadati nello stack Azure Resource Manager, esaminarli (*a livello di codice o nel portale*), verificare che la migrazione avvenga correttamente e risolvere i problemi tecnici.  Inoltre si avrà un'idea della durata della migrazione in modo che sia possibile pianificare di conseguenza i tempi di inattività.  Una convalida/preparazione/interruzione di prova non causa tempi di inattività e pertanto non crea problemi per l'uso delle applicazioni.
   - Gli elementi seguenti dovranno essere risolti prima della prova, ma un test di interruzione di prova rileverà anche eventuali passaggi di preparazione mancanti. Durante la migrazione al livello enterprise, è stato rilevato che la prova è un modo sicuro e prezioso per semplificare la migrazione.
   - Nella fase di preparazione il piano di controllo, ossia le operazioni di gestione di Azure, verrà bloccato per tutta la rete virtuale e pertanto non sarà possibile apportare modifiche ai metadati delle macchine virtuali durante la convalida/preparazione/interruzione.  A parte questo, tutte le funzioni delle applicazioni, ad esempio l'uso del desktop remoto, le macchine virtuali e così via, non saranno interessate.  Gli utenti delle VM non sapranno che è in esecuzione la prova.
 
 - **Circuiti ExpressRoute e VPN**. I gateway ExpressRoute con collegamenti di autorizzazione attualmente non possono essere migrati senza tempi di inattività. Per una soluzione vedere [Eseguire la migrazione di circuiti ExpressRoute e delle reti virtuali associate dalla distribuzione classica al modello di distribuzione Resource Manager](../../expressroute/expressroute-migration-classic-resource-manager.md).
 
 - **Estensioni VM** - Le estensioni macchina virtuale sono potenzialmente uno degli ostacoli principali della migrazione di macchine virtuali in esecuzione. Pianificare tenendo conto che la correzione delle estensioni VM potrebbe richiedere fino a 1-2 giorni.  È necessario un agente Azure funzionante per segnalare lo stato delle estensioni VM delle VM in esecuzione. Se per una VM in esecuzione viene restituito uno stato non valido, la migrazione si arresta. L'agente stesso non deve essere funzionante per abilitare la migrazione, ma se esistono estensioni nella macchina virtuale, per il progredire della migrazione saranno necessari sia un agente funzionante SIA una connessione Internet in uscita (con DNS).
-  - Se la connettività a un server DNS viene persa durante la migrazione, tutte le estensioni delle VM tranne BGInfo versione 1.\* devono essere rimosse da ogni VM prima della preparazione della migrazione e quindi aggiunte di nuovo alla VM dopo la migrazione ad Azure Resource Manager.  **Questo vale solo per le VM in esecuzione.**  Se le macchine virtuali sono arrestate (deallocate), non è necessario rimuovere le estensioni VM. **Nota:** Molte estensioni come Diagnostica Azure e il monitoraggio del centro sicurezza si reinstalleranno automaticamente dopo la migrazione, per cui la loro rimozione non è un problema.
+  - Se la connettività a un server DNS viene persa durante la migrazione, tutte le estensioni delle VM tranne BGInfo versione 1.\* devono essere rimosse da ogni VM prima della preparazione della migrazione e quindi aggiunte di nuovo alla VM dopo la migrazione ad Azure Resource Manager.  **Questo vale solo per le VM in esecuzione.**  Se le macchine virtuali sono arrestate (deallocate), non è necessario rimuovere le estensioni VM. **Nota:** molte estensioni come la diagnostica Azure e il monitoraggio del centro sicurezza si reinstalleranno automaticamente dopo la migrazione, per cui la loro rimozione non è un problema.
   - Assicurarsi inoltre che non ci siano Gruppi di sicurezza di rete che limitano l'accesso Internet in uscita. Questa situazione può verificarsi con alcune configurazioni di Gruppi di sicurezza di rete. Per la migrazione delle estensioni VM ad Azure Resource Manager è necessario l'accesso a Internet in uscita e DNS. 
   - Esistono due versioni dell'estensione BGInfo: v1 e v2.  Se la macchina virtuale è stata creata utilizzando il portale di Azure o PowerShell, è probabile che abbia l'estensione v1. Questa estensione non deve essere rimossa e verrà ignorata (non migrata) dall'API di migrazione. Tuttavia, se la macchina virtuale classica è stata creata con il nuovo portale di Azure, probabilmente avrà la versione v2 basata su JSON di BGInfo, che è possibile migrare ad Azure Resource Manager se l'agente funziona e ha accesso a Internet in uscita e DNS. 
   - **Opzione di correzione 1**. Se si prevede che le macchine virtuali non disporranno di accesso a Internet in uscita, di un servizio DNS funzionante e di agenti di Azure funzionanti su di esse, disinstallare tutte le estensioni VM come parte della migrazione prima della preparazione, quindi reinstallarle dopo la migrazione. 
@@ -141,7 +141,7 @@ Di seguito sono elencati i problemi rilevati in molte migrazioni di grandi dimen
     az storage account show-usage
     ```
 
-- **Limitazioni dell'API di Azure Resource Manager** - In presenza di un ambiente sufficientemente grande, ad esempio > 400 VM in una rete virtuale, è possibile che vengano raggiunti i limiti predefiniti per le scritture dell'API (attualmente **1200 scritture/ora**) in Azure Resource Manager. Prima di iniziare la migrazione, è necessario generare un ticket di supporto per aumentare questo limite per la sottoscrizione.
+- **Limitazioni dell'API di Azure Resource Manager** - In presenza di un ambiente sufficientemente grande, ad esempio, > 400 VM in una rete virtuale, è possibile che vengano raggiunti i limiti predefiniti per le scritture dell'API (attualmente **1200 scritture/ora**) in Azure Resource Manager. Prima di iniziare la migrazione, è necessario generare un ticket di supporto per aumentare questo limite per la sottoscrizione.
 
 - **Il provisioning ha raggiunto il timeout dello stato della VM**: se lo stato di qualsiasi VM è **Timeout provisioning**, questo problema deve essere risolto prima della migrazione. L'unico modo per eseguire questa operazione è con il tempo di inattività mediante il deprovisioning/nuovo provisioning della macchina virtuale: eliminarla, mantenere il disco e ricreare la macchina virtuale. 
 
@@ -204,7 +204,7 @@ Tenere a mente il motivo per cui è stata eseguita la migrazione dalla distribuz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica sulla migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica al modello Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Panoramica sulla migrazione supportata dalla piattaforma per risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager)
 * [Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager)
 * [Usare PowerShell per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

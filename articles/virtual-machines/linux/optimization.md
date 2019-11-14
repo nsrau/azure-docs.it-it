@@ -1,5 +1,5 @@
 ---
-title: Ottimizzare una macchina virtuale Linux su Azure | Microsoft Docs
+title: Ottimizzare la VM Linux su Azure
 description: Suggerimenti sull'ottimizzazione per assicurare di configurare la VM Linux per prestazioni ottimali su Azure
 keywords: linux macchina virtuale,macchina virtuale linux,macchina virtuale ubuntu
 services: virtual-machines-linux
@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: eb5ef067d4c9be4debd1bdc98ac4eb57a89d1100
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ea0d284b8220e4f8bc7bc1b91684654b32da7065
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091691"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035384"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Ottimizzare la VM Linux su Azure
 La creazione di una macchina virtuale (VM) di Linux è facile da eseguire dalla riga di comando o dal portale. Questa esercitazione illustra come assicurarsi di averla configurata in modo da ottimizzarne le prestazioni sulla piattaforma Microsoft Azure. Questo argomento usa una VM di Ubuntu Server, ma è anche possibile creare una macchina virtuale Linux usando le [proprie immagini come modelli](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questo argomento presuppone che sia disponibile una sottoscrizione di Azure attiva ([registrazione alla versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/)) e che sia già stato eseguito il provisioning di una macchina virtuale nella sottoscrizione di Azure. Assicurarsi che sia installata la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e che sia stato effettuato l'accesso alla sottoscrizione di Azure con [az login](/cli/azure/reference-index) prima di [creare una macchina virtuale](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Disco del sistema operativo di Azure
@@ -59,7 +59,7 @@ Nelle immagini cloud Ubuntu, è necessario usare cloud-init per configurare la p
 
 Per le immagini senza supporto cloud-init, le immagini delle VM distribuite da Azure Marketplace includono un agente Linux integrato per la VM con il sistema operativo, che consente alla VM di interagire con diversi servizi di Azure. Supponendo che sia stata distribuita un'immagine standard da Azure Marketplace, sarà necessario seguire questa procedura per configurare correttamente le impostazioni del file di scambio Linux:
 
-Trovare e modificare due voci nel file **/etc/waagent.conf** . Queste voci controllano l'esistenza di un file di scambio dedicato e le dimensioni del file di scambio. I parametri che è necessario verificare `ResourceDisk.EnableSwap` sono e`ResourceDisk.SwapSizeMB` 
+Trovare e modificare due voci nel file **/etc/waagent.conf** . Queste voci controllano l'esistenza di un file di scambio dedicato e le dimensioni del file di scambio. I parametri che è necessario verificare sono `ResourceDisk.EnableSwap` e `ResourceDisk.SwapSizeMB` 
 
 Per abilitare un disco correttamente abilitato e un file di scambio montato, verificare che i parametri abbiano le impostazioni seguenti:
 
@@ -80,7 +80,7 @@ Swap:       524284          0     524284
 Con il kernel Linux 2.6.18, l'algoritmo di pianificazione I/O predefinito è stato modificato da algoritmo Deadline a CFQ (Completely Fair Queuing). Per modelli I/O ad accesso casuale, la differenza tra le prestazioni per CFQ e Deadline è minima.  Per i dischi basati su SSD in cui il modello I/O del disco è prevalentemente sequenziale, il ritorno all'algoritmo NOOP o Deadline può consentire di ottenere prestazioni migliori per I/O.
 
 ### <a name="view-the-current-io-scheduler"></a>Visualizzare l'utilità di pianificazione di I/O corrente
-Usare il comando seguente:  
+Usare il seguente comando:  
 
 ```bash
 cat /sys/block/sda/queue/scheduler
@@ -103,7 +103,7 @@ root@myVM:~# update-grub
 ```
 
 > [!NOTE]
-> Applicare questa impostazione esclusivamente a **/dev/sda** non serve a niente. È necessario che sia impostata su tutti i dischi dati in cui la modalità I/O sequenziale domina il modello I/O.  
+> Applicare questa impostazione esclusivamente a **/dev/sda** non serve. È necessario che sia impostata su tutti i dischi dati in cui la modalità I/O sequenziale domina il modello I/O.  
 
 Si dovrebbe visualizzare l'output seguente, che indica che **grub.cfg** è stato ricompilato correttamente e che l'utilità di pianificazione predefinita è stata aggiornata a NOOP.  
 
@@ -129,7 +129,7 @@ Se i carichi di lavoro richiedono un valore di IOps superiore a quello consentit
 
 In alternativa a una configurazione RAID tradizionale, è anche possibile scegliere di installare Logical Volume Manager (LVM) per configurare un numero di dischi fisici in un unico volume di archiviazione logica con striping. In questa configurazione le letture e le scritture vengono distribuite in più dischi contenuti nel gruppo di volumi (simile a RAID0). Per motivi di prestazioni, è probabile che sia necessario eseguire lo striping dei volumi logici in modo che le letture e le scritture usino tutti i dischi dati associati.  Per altri dettagli sulla configurazione di un volume logico con striping nella VM Linux in Azure, vedere il documento **[configurare LVM in una macchina virtuale Linux in Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Come per tutte le considerazioni sull'ottimizzazione, sarà necessario eseguire test prima e dopo ogni modifica per misurare l'impatto della modifica stessa.  L'ottimizzazione è un processo graduale che potrà avere risultati diversi in diversi computer nell'ambiente.  Le impostazioni ottimali per una configurazione potrebbero non essere appropriate per altre.
 
 Ecco alcuni collegamenti utili a risorse aggiuntive:

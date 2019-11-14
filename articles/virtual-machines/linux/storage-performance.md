@@ -1,5 +1,5 @@
 ---
-title: Ottimizzare le prestazioni nelle macchine virtuali della serie Lsv2 di Azure-archiviazione | Microsoft Docs
+title: Ottimizzare le prestazioni nelle macchine virtuali della serie Lsv2 di Azure-archiviazione
 description: Informazioni su come ottimizzare le prestazioni per la soluzione nelle macchine virtuali della serie Lsv2.
 services: virtual-machines-linux
 author: laurenhughes
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: ea64a4274eda947aebf0f693657c17a120bec560
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8d99f63ae084b4f1dae3c0125420eaecf5655e2d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081793"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034764"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Ottimizzare le prestazioni nelle macchine virtuali della serie Lsv2
 
@@ -37,7 +37,7 @@ Le macchine virtuali della serie Lsv2 usano processori AMD EYPC™ server basati
 
 ## <a name="tips-to-maximize-performance"></a>Suggerimenti per ottimizzare le prestazioni
 
-* Se si sta caricando un guest di Linux personalizzato per il carico di lavoro, si noti che la rete accelerata sarà disattivata per impostazione predefinita. Se si intende abilitare la rete accelerata, abilitarla al momento della creazione della macchina virtuale per ottenere prestazioni ottimali.
+* Se si sta caricando un guest di Linux personalizzato per il carico di lavoro, si noti che la rete accelerata sarà **disattivata** per impostazione predefinita. Se si intende abilitare la rete accelerata, abilitarla al momento della creazione della macchina virtuale per ottenere prestazioni ottimali.
 
 * L'hardware che alimenta le macchine virtuali della serie Lsv2 usa dispositivi NVMe con otto coppie di coda di I/O (QP) s. Ogni coda di I/O dei dispositivi NVMe è effettivamente una coppia: una coda di invio e una coda di completamento. Il driver NVMe è configurato per ottimizzare l'utilizzo di queste otto query al secondo di I/O distribuendo I/O in una pianificazione round robin. Per ottenere prestazioni massime, eseguire otto processi per dispositivo per la corrispondenza.
 
@@ -45,7 +45,7 @@ Le macchine virtuali della serie Lsv2 usano processori AMD EYPC™ server basati
 
 * Gli utenti di Lsv2 non devono basarsi sulle informazioni NUMA sul dispositivo (tutte 0) segnalate dall'interno della macchina virtuale per le unità dati per stabilire l'affinità NUMA per le proprie app. Il modo consigliato per ottenere prestazioni migliori consiste nel distribuire i carichi di lavoro tra le CPU, se possibile.
 
-* La profondità massima della coda supportata per ogni coppia di coda I/O per il dispositivo NVMe della macchina virtuale Lsv2 è 1024 (rispetto a Limite 32 per Amazon i3. Gli utenti di Lsv2 devono limitare i carichi di lavoro di benchmarking (sintetici) alla profondità della coda 1024 o inferiore per evitare di attivare le condizioni di coda completa, che possono ridurre le prestazioni.
+* La profondità massima della coda supportata per ogni coppia di coda I/O per il dispositivo NVMe della macchina virtuale Lsv2 è 1024 (rispetto al limite 32 di Amazon i3). Gli utenti di Lsv2 devono limitare i carichi di lavoro di benchmarking (sintetici) alla profondità della coda 1024 o inferiore per evitare di attivare le condizioni di coda completa, che possono ridurre le prestazioni.
 
 ## <a name="utilizing-local-nvme-storage"></a>Utilizzo dell'archiviazione NVMe locale
 
@@ -94,10 +94,10 @@ Per altre informazioni sulle opzioni per il backup dei dati nella risorsa di arc
    Se viene rilevato un errore del disco sul nodo hardware, l'hardware si trova in stato di errore. Quando si verifica questa situazione, tutte le macchine virtuali nel nodo vengono automaticamente deallocate e spostate in un nodo integro. Per le macchine virtuali della serie Lsv2, questo significa che anche i dati del cliente nel nodo in errore vengono cancellati in modo sicuro e dovranno essere ricreati dal cliente nel nuovo nodo. Come indicato, prima della disponibilità della migrazione in tempo reale in Lsv2, i dati nel nodo in errore verranno spostati in modo proattivo con le VM mentre vengono trasferiti a un altro nodo.
 
 * **È necessario apportare modifiche a rq_affinity per le prestazioni?**  
-   Quando si usano le operazioni di input/output massime al secondo (IOPS), l'impostazione rq_affinity è una regolazione secondaria. Quando tutto il resto funziona correttamente, provare a impostare rq_affinity su 0 per verificare se fa una differenza.
+   L'impostazione rq_affinity è una lieve regolazione quando si usa il numero massimo assoluto di operazioni di input/output al secondo (IOPS). Quando tutto il resto funziona correttamente, provare a impostare rq_affinity su 0 per verificare se fa una differenza.
 
 * **È necessario modificare le impostazioni di blk_mq?**  
-   RHEL/CentOS 7. x usa automaticamente BLK-mq per i dispositivi NVMe. Non sono necessarie modifiche o impostazioni di configurazione. L'impostazione scsi_mod. use _blk_mq è solo per SCSI ed è stata usata durante l'anteprima di Lsv2 perché i dispositivi NVMe erano visibili nelle macchine virtuali guest come dispositivi SCSI. Attualmente, i dispositivi NVMe sono visibili come dispositivi NVMe, quindi l'impostazione SCSI BLK-mq è irrilevante.
+   RHEL/CentOS 7. x usa automaticamente BLK-mq per i dispositivi NVMe. Non sono necessarie modifiche o impostazioni di configurazione. L'impostazione scsi_mod. use_blk_mq è solo per SCSI ed è stata usata durante l'anteprima di Lsv2 perché i dispositivi NVMe sono visibili nelle macchine virtuali guest come dispositivi SCSI. Attualmente, i dispositivi NVMe sono visibili come dispositivi NVMe, quindi l'impostazione SCSI BLK-mq è irrilevante.
 
 * **È necessario modificare "fio"?**  
    Per ottenere il numero massimo di IOPS con uno strumento di misurazione delle prestazioni come ' Fio ' nelle dimensioni delle macchine virtuali L64v2 e L80v2, impostare "rq_affinity" su 0 in ogni dispositivo NVMe.  Questa riga di comando, ad esempio, imposterà "rq_affinity" su zero per tutti i 10 dispositivi NVMe in una macchina virtuale L80v2:
@@ -106,7 +106,7 @@ Per altre informazioni sulle opzioni per il backup dei dati nella risorsa di arc
    for i in `seq 0 9`; do echo 0 >/sys/block/nvme${i}n1/queue/rq_affinity; done
    ```
 
-   Si noti inoltre che le prestazioni migliori si ottengono quando l'I/O viene eseguito direttamente in ogni dispositivo NVMe non elaborato senza partizionamento, nessun file System, nessuna configurazione RAID 0 e così via. Prima di avviare una sessione di test, assicurarsi che `blkdiscard` la configurazione sia in uno stato di aggiornamento/pulizia noto eseguendo in ogni dispositivo NVMe.
+   Si noti inoltre che le prestazioni migliori si ottengono quando l'I/O viene eseguito direttamente in ogni dispositivo NVMe non elaborato senza partizionamento, nessun file System, nessuna configurazione RAID 0 e così via. Prima di avviare una sessione di test, assicurarsi che la configurazione sia in uno stato di aggiornamento/pulizia noto eseguendo `blkdiscard` su ogni dispositivo NVMe.
    
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Come ridimensionare una VM Linux con l'interfaccia della riga di comando di Azure | Documentazione Microsoft
+title: Come ridimensionare una VM Linux con l'interfaccia della riga di comando di Azure
 description: Come ridimensionare una macchina virtuale di Linux, modificando le dimensioni della VM.
 services: virtual-machines-linux
 documentationcenter: na
@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46baa3d4dbcd466944d7a91e446e380c89f53f2b
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: b6f3f0a937b33b1c5dd1a68d86f80f870a7311d0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671730"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036889"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Ridimensionare una macchina virtuale Linux tramite l'interfaccia della riga di comando di Azure 
 
-Dopo il provisioning di una macchina virtuale (VM), è possibile scalare la macchina virtuale verso l'alto o verso il basso modificando la [dimensioni della macchina virtuale][vm-sizes]. In alcuni casi, è necessario prima deallocare la macchina virtuale. Se le dimensioni desiderate non sono disponibili nel cluster hardware che ospita la VM, è necessario deallocare la VM. Questo articolo illustra come ridimensionare una VM Linux con l'interfaccia della riga di comando di Azure. 
+Dopo aver effettuato il provisioning di una macchina virtuale (VM), è possibile aumentare o ridurre le [dimensioni][vm-sizes]della VM modificando le dimensioni della VM. In alcuni casi, è necessario prima deallocare la macchina virtuale. Se le dimensioni desiderate non sono disponibili nel cluster hardware che ospita la VM, è necessario deallocare la VM. Questo articolo illustra come ridimensionare una VM Linux con l'interfaccia della riga di comando di Azure. 
 
 ## <a name="resize-a-vm"></a>Ridimensionare una VM
 Per ridimensionare una VM, è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure ](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure con il comando [az login](/cli/azure/reference-index).
@@ -56,7 +56,7 @@ Per ridimensionare una VM, è necessario aver installato la versione più recent
    > La deallocazione della VM rilascia anche degli indirizzi IP dinamici assegnati alla VM. I dischi del sistema operativo e dei dati non sono coinvolti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per una maggiore scalabilità, eseguire più istanze di VM e la scalabilità orizzontale. Per altre informazioni, vedere [ridimensionare automaticamente macchine virtuali Linux in un Set di scalabilità di macchine virtuali][scale-set]. 
+Per una maggiore scalabilità, eseguire più istanze di VM e scalare in orizzontale. Per altre informazioni, vedere [ridimensionare automaticamente i computer Linux in un set di scalabilità di macchine virtuali][scale-set]. 
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/

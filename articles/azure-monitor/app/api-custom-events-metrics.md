@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: 8bb144c78c5346f3351a6ada779a808410dbb30d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5f138314fd536d0264f8d40e1ac78da954c19e74
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73667996"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74030687"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -80,7 +80,7 @@ Private Dim telemetry As New TelemetryClient
 private TelemetryClient telemetry = new TelemetryClient();
 ``` 
 
-*Node.js*
+*Node.JS*
 
 ```javascript
 var telemetry = applicationInsights.defaultClient;
@@ -138,7 +138,7 @@ telemetry.TrackEvent("WinGame")
 telemetry.trackEvent("WinGame");
 ```
 
-*Node.js*
+*Node.JS*
 
 ```javascript
 telemetry.trackEvent({name: "WinGame"});
@@ -152,7 +152,7 @@ Se il [campionamento](../../azure-monitor/app/sampling.md) è attivo, la proprie
 
 ## <a name="getmetric"></a>GetMetric
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 
 *C#*
 
@@ -252,7 +252,7 @@ Per inviare le metriche ad Application Insights, è possibile usare l'API `Track
 
 * Aggregazione. Quando si usano le metriche non si considera mai una sola misura. È importante invece il riepilogo delle operazioni eseguite in un periodo di tempo specifico. Tale riepilogo viene chiamato _aggregazione_. Nell'esempio precedente la somma della metrica di aggregazione per quel periodo di tempo è `1` e il conteggio dei valori della metrica è `2`. Quando si usa l'approccio di aggregazione, si chiama `TrackMetric` solo una volta per periodo di tempo e si inviano i valori di aggregazione. Questo è l'approccio consigliato in quanto può ridurre notevolmente i costi e le prestazioni generali inviando meno punti dati ad Application Insights, durante la raccolta di tutte le informazioni pertinenti.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 
 #### <a name="single-values"></a>Valori singoli
 
@@ -279,7 +279,7 @@ telemetryClient.TrackMetric(sample);
 telemetry.trackMetric("queueLength", 42.0);
 ```
 
-*Node.js*
+*Node.JS*
 
  ```javascript
 telemetry.trackMetric({name: "queueLength", value: 42.0});
@@ -485,7 +485,7 @@ catch (ex)
 }
 ```
 
-*Node.js*
+*Node.JS*
 
 ```javascript
 try
@@ -556,7 +556,7 @@ telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 telemetry.trackTrace(message, SeverityLevel.Warning, properties);
 ```
 
-*Node.js*
+*Node.JS*
 
 ```javascript
 telemetry.trackTrace({
@@ -574,7 +574,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 
 Registrare un evento di diagnostica, ad esempio inserire o rimuovere un metodo.
 
- Parametro | Descrizione
+ . | DESCRIZIONE
 ---|---
 `message` | Dati di diagnostica. Possono essere molto più lunghi di un nome.
 `properties` | Mappa della stringa alla stringa: dati aggiuntivi usati per [filtrare le eccezioni](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) nel portale. Per impostazione predefinita è vuoto.
@@ -643,16 +643,16 @@ finally
 
 ```java
 boolean success = false;
-long startTime = System.currentTimeMillis();
+Instant startTime = Instant.now();
 try {
     success = dependency.call();
 }
 finally {
-    long endTime = System.currentTimeMillis();
-    long delta = endTime - startTime;
+    Instant endTime = Instant.now();
+    Duration delta = Duration.between(startTime, endTime);
     RemoteDependencyTelemetry dependencyTelemetry = new RemoteDependencyTelemetry("My Dependency", "myCall", delta, success);
-    telemetry.setTimeStamp(startTime);
-    telemetry.trackDependency(dependencyTelemetry);
+    RemoteDependencyTelemetry.setTimeStamp(startTime);
+    RemoteDependencyTelemetry.trackDependency(dependencyTelemetry);
 }
 ```
 
@@ -723,7 +723,7 @@ telemetry.flush();
 Thread.sleep(5000);
 ```
 
-*Node.js*
+*Node.JS*
 
 ```javascript
 telemetry.flush();
@@ -733,7 +733,7 @@ La funzione è asincrona per il [canale di telemetria del server](https://www.nu
 
 In teoria, il metodo Flush () deve essere utilizzato nell'attività di arresto dell'applicazione.
 
-## <a name="authenticated-users"></a>utenti autenticati
+## <a name="authenticated-users"></a>Utenti autenticati
 
 In un'app Web gli utenti sono identificati dai cookie per impostazione predefinita. Un utente può essere conteggiato più volte se accede all'app da un computer o da un browser diverso o se elimina i cookie.
 
@@ -826,7 +826,7 @@ var metrics = new Dictionary <string, double>
 telemetry.TrackEvent("WinGame", properties, metrics);
 ```
 
-*Node.js*
+*Node.JS*
 
 ```javascript
 // Set up some properties and metrics:
@@ -992,7 +992,7 @@ context.getProperties().put("Game", currentGame.Name);
 gameTelemetry.TrackEvent("WinGame");
 ```
 
-*Node.js*
+*Node.JS*
 
 ```javascript
 var gameTelemetry = new applicationInsights.TelemetryClient();
@@ -1039,7 +1039,7 @@ telemetry.getConfiguration().setTrackingDisabled(true);
 
 Per disabilitare gli agenti di *raccolta standard selezionati*, ad esempio i contatori delle prestazioni, le richieste HTTP o le dipendenze, eliminare o impostare come commento le righe pertinenti in [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Questa operazione può essere eseguita, ad esempio, se si desidera inviare i propri dati TrackRequest.
 
-*Node.js*
+*Node.JS*
 
 ```javascript
 telemetry.config.disableAppInsights = true;
@@ -1075,7 +1075,7 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 ```
 
-*Node.js*
+*Node.JS*
 
 Per node. js, è possibile abilitare la modalità sviluppatore abilitando la registrazione interna tramite `setInternalLogging` e impostando `maxBatchSize` su 0, che causa l'invio dei dati di telemetria non appena vengono raccolti.
 
@@ -1168,7 +1168,7 @@ Se si imposta uno di questi valori manualmente, provare a rimuovere la riga pert
 * **Sessione**: la sessione dell'utente. L'ID viene impostato su un valore generato, che viene modificato quando l'utente non è stato attivo per un periodo di tempo specifico.
 * **Utente**: le informazioni dell'utente.
 
-## <a name="limits"></a>Limiti
+## <a name="limits"></a>limiti
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
@@ -1189,7 +1189,7 @@ Per determinare quanto tempo vengono conservati i dati, vedere [Raccolta, conser
 * [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Pacchetti per Windows Server](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [SDK per Java](https://github.com/Microsoft/ApplicationInsights-Java)
-* [SDK per Node.js](https://github.com/Microsoft/ApplicationInsights-Node.js)
+* [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 

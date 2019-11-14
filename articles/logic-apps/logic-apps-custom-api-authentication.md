@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: ecec237eab42cf434ab8627ebdf9b1e34f3ab3f1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fb9f986c2711e0cbc8ac3facd073f1a72f46043d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838121"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039120"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteggere le chiamate alle API personalizzate da App per la logica di Azure
 
@@ -200,7 +200,7 @@ Aprire la definizione dell'app per la logica nella visualizzazione codice, passa
 }
 ```
 
-| Proprietà | Obbligatorio | Descrizione | 
+| Proprietà | obbligatori | DESCRIZIONE | 
 | -------- | -------- | ----------- | 
 | tenant | Sì | Il GUID per il tenant di Azure AD | 
 | audience | Sì | GUID per la risorsa di destinazione cui si vuole accedere, che è l'ID client dall'identità di applicazione per l'app Web o l'app per le API | 
@@ -251,12 +251,12 @@ Nella sezione **autorizzazione** includere le proprietà seguenti:
 } 
 ```
 
-| Proprietà | Obbligatorio | Descrizione | 
-| -------- | -------- | ----------- | 
-| type | Sì | Il tipo di autenticazione. Per i certificati client SSL, il valore deve essere `ClientCertificate`. | 
-| password | Sì | La password per accedere al certificato client (file PFX) | 
-| pfx | Sì | Contenuti del certificato client con codifica Base64 (file PFX) | 
-|||| 
+| Proprietà | obbligatori | DESCRIZIONE |
+| -------- | -------- | ----------- |
+| `type` | Sì | Il tipo di autenticazione. Per i certificati client SSL, il valore deve essere `ClientCertificate`. |
+| `password` | No | La password per accedere al certificato client (file PFX) |
+| `pfx` | Sì | Contenuti del certificato client con codifica Base64 (file PFX) |
+||||
 
 <a name="basic"></a>
 
@@ -274,11 +274,11 @@ Nella sezione **autorizzazione** includere le proprietà seguenti:
 }
 ```
 
-| Proprietà | Obbligatorio | Descrizione | 
+| Proprietà | obbligatori | DESCRIZIONE | 
 | -------- | -------- | ----------- | 
 | type | Sì | Tipo di autenticazione che si vuole usare. Per l'autenticazione di base il valore deve essere `Basic`. | 
-| Nome utente | Sì | Nome utente che si vuole usare per l'autenticazione | 
-| password | Sì | Password che si vuole usare per l'autenticazione | 
+| username | Sì | Nome utente che si vuole usare per l'autenticazione | 
+| Password | Sì | Password che si vuole usare per l'autenticazione | 
 |||| 
 
 <a name="azure-ad-code"></a>

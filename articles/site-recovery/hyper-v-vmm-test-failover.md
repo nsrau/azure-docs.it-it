@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 444868f1716ae55f1851e50c057b172f5e3eb3d1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4a1b5f804986d2bda85980d01cdaaa130d86b50d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961388"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039742"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V in un sito secondario
 
@@ -22,7 +22,7 @@ Questo articolo illustra come eseguire un esercitazione sul ripristino di emerge
 Viene eseguito un failover di testper convalidare la strategia di replica ed eseguire un'esercitazione sul ripristino di emergenza senza perdita di dati o tempi di inattività. Un failover di test non ha alcun impatto sulla replica in corso o sull'ambiente di produzione. 
 
 > [!WARNING]
-> Si noti che il supporto di ASR per l'uso della configurazione SCVMM sarà presto deprecato e pertanto si consiglia di leggere i dettagli relativi alla [deprecazione](scvmm-site-recovery-deprecation.md) prima di procedere.
+> Si noti che il supporto di ASR per l'uso della configurazione SCVMM sarà presto deprecato e pertanto si consiglia di leggere i dettagli relativi alla [deprecazione](site-to-site-deprecation.md) prima di procedere.
 
 
 ## <a name="how-do-test-failovers-work"></a>Come funziona il failover di test?

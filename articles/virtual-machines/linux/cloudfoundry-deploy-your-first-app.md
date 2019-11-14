@@ -1,5 +1,5 @@
 ---
-title: Distribuire la prima app a Cloud Foundry in Microsoft Azure | Microsoft Docs
+title: Distribuire la prima app a Cloud Foundry in Microsoft Azure
 description: Distribuire un'applicazione a Cloud Foundry in Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: c4088e593ca7d48a3e7a5c1a6699f316b57fff31
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b1f9ab5289a41aacb5514e954f1ca01f6ad66152
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083951"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036835"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Distribuire la prima app a Cloud Foundry in Microsoft Azure
 
@@ -112,7 +112,7 @@ Per visualizzare l'applicazione hello-spring-cloud, aprire l'URL specificato nel
 ![Interfaccia utente predefinita per Hello Spring Cloud][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> Per ulteriori informazioni su ciò che accade `cf push`durante, vedere la pagina relativa alla gestione [temporanea delle applicazioni][cf-push-docs] nella documentazione Cloud Foundry.
+> Per ulteriori informazioni su ciò che accade durante `cf push`, vedere la pagina relativa alla gestione [temporanea delle applicazioni][cf-push-docs] nella documentazione di Cloud Foundry.
 
 ## <a name="view-application-logs"></a>Visualizzare i log applicazioni
 

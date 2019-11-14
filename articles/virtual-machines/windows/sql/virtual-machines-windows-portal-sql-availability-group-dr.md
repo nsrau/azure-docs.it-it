@@ -1,5 +1,5 @@
 ---
-title: 'Gruppi di disponibilità di SQL Server: Macchine virtuali di Azure: ripristino di emergenza | Documentazione Microsoft'
+title: Configurare il gruppo di disponibilità in aree diverse
 description: Questo articolo illustra come configurare un gruppo di disponibilità SQL Server nelle macchine virtuali di Azure con una replica in un'area diversa.
 services: virtual-machines
 documentationCenter: na
@@ -9,20 +9,20 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
-ms.custom: na
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 9949c389ad0511c3ed5923e0451bc96e7063621f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 96b7c3cf59f947d1476ad840ae81695356d869b6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159736"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037543"
 ---
-# <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurare un gruppo di disponibilità AlwaysOn in macchine virtuali di Azure in aree diverse
+# <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>Configurare un gruppo di disponibilità in Azure SQL Server macchine virtuali in aree diverse
 
 Questo articolo descrive come configurare la replica di un gruppo di disponibilità SQL Server AlwaysOn in macchine virtuali di Azure in una località di Azure remota. Usare questa configurazione per supportare il ripristino di emergenza.
 
@@ -164,11 +164,11 @@ Per testare la connettività del listener all'area remota, è possibile effettua
 
 Dopo avere testato la connettività, spostare di nuovo la replica primaria nel data center primario e configurare di nuovo la modalità di disponibilità sulle normali impostazioni operative. La tabella seguente indica le normali impostazioni operative per l'architettura descritta in questo documento:
 
-| Località | Istanza del server | Ruolo | Modalità di disponibilità | Modalità di failover
+| Location | Istanza del server | Ruolo | Modalità di disponibilità | Modalità di failover
 | ----- | ----- | ----- | ----- | -----
-| Data center primario | SQL-1 | Primario | Sincrono | Automatico
-| Data center primario | SQL-2 | Secondario | Sincrono | Automatico
-| Data center secondario o remoto | SQL-3 | Secondario | Asincrono | Manual
+| Data center primario | SQL-1 | Primaria | Sincrono | Automatico
+| Data center primario | SQL-2 | Secondaria | Sincrono | Automatico
+| Data center secondario o remoto | SQL-3 | Secondaria | Asincrono | Manuale
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Altre informazioni sul failover manuale forzato e pianificato

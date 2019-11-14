@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fdf6d9674305ca13af51f3f7b97e0a40568738b6
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 0c570702e4c3899ef2847883e6fc8649e603a787
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953961"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039679"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurare il ripristino di emergenza in Azure di macchine virtuali Hyper-V locali di cloud VMM
 
@@ -32,8 +32,6 @@ In questa esercitazione si apprenderà come:
 > [!NOTE]
 > Le esercitazioni illustrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, esaminare gli articoli nella sezione **Guide pratiche** della [documentazione di Site Recovery](https://docs.microsoft.com/azure/site-recovery).
 
-> [!WARNING]
-> Il supporto per il ripristino di emergenza di macchine virtuali Hyper-V con System Center VMM sarà deprecato nel prossimo futuro. Prima di procedere, è consigliabile leggere i dettagli relativi a elementi [deprecati](scvmm-site-recovery-deprecation.md) .
 
 
 ## <a name="before-you-begin"></a>Prima di iniziare

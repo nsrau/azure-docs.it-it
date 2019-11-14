@@ -1,5 +1,5 @@
 ---
-title: Creare un listener per i gruppi di disponibilità di SQL Server nelle macchine virtuali di Azure | Microsoft Docs
+title: Configurare i listener del gruppo di disponibilità & servizio di bilanciamento del carico (portale di Azure)
 description: Istruzioni dettagliate per creare un listener per un gruppo di disponibilità Always On per SQL Server nelle macchine virtuali di Azure
 services: virtual-machines
 documentationcenter: na
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: c9c8379787619608421256120139f07c8dbd8d14
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: aefd7a55090da7f55404d6f551ab61268582ff5a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102249"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039661"
 ---
-# <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurare un servizio di bilanciamento del carico interno per un gruppo di disponibilità Always On in Azure
+# <a name="configure-a-load-balancer-for-an-availability-group-on-azure-sql-server-vms"></a>Configurare un servizio di bilanciamento del carico per un gruppo di disponibilità in macchine virtuali SQL Server di Azure
 In questo articolo viene illustrato come creare un servizio di bilanciamento del carico per un gruppo di disponibilità SQL Server Always On nelle macchine virtuali in esecuzione con Azure Resource Manager. Un gruppo di disponibilità richiede un servizio di bilanciamento del carico quando le istanze di SQL Server sono in macchine virtuali di Azure. Il servizio di bilanciamento del carico archivia l'indirizzo IP per il listener del gruppo di disponibilità. Se un gruppo di disponibilità si estende su più aree, è necessario un servizio di bilanciamento del carico per ogni area.
 
 Per completare questa attività, è necessario disporre di un gruppo di disponibilità di SQL Server distribuito nelle macchine virtuali di Azure in esecuzione con Resource Manager. Entrambe le macchine virtuali di SQL Server devono appartenere allo stesso set di disponibilità. È possibile usare il [modello di Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) per creare automaticamente il gruppo di disponibilità in Resource Manager. Questo modello crea automaticamente un servizio di bilanciamento del carico interno. 
@@ -49,7 +50,7 @@ In questa parte dell'attività eseguire questi passaggi:
 > 
 > 
 
-### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>Passaggio 1: Creare il servizio di bilanciamento del carico e configurare l'indirizzo IP
+### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>Passaggio1: Creare il servizio di bilanciamento del carico e configurare l'indirizzo IP
 Per prima cosa creare il servizio di bilanciamento del carico. 
 
 1. Nel portale di Azure aprire il gruppo di risorse contenente le macchine virtuali di SQL Server. 
@@ -65,14 +66,14 @@ Per prima cosa creare il servizio di bilanciamento del carico.
    | Impostazione | Valore |
    | --- | --- |
    | **Nome** |Nome che rappresenta il servizio di bilanciamento del carico. Ad esempio **sqlLB**. |
-   | **Tipo** |**Interna**: La maggior parte delle implementazioni usa un servizio di bilanciamento del carico interno, che consente alle applicazioni all'interno della stessa rete virtuale di connettersi al gruppo di disponibilità.  </br> **Esterna**: consente alle applicazioni di connettersi al gruppo di disponibilità tramite una connessione Internet pubblica. |
+   | **Tipo** |**Interno**: la maggior parte delle implementazioni usano un servizio di bilanciamento del carico interno, che consente alle applicazioni all'interno della stessa rete virtuale di connettersi al gruppo di disponibilità.  </br> **Esterno**: consente alle applicazioni di connettersi al gruppo di disponibilità tramite una connessione Internet pubblica. |
    | **Rete virtuale** |Selezionare la rete virtuale in cui si trovano le istanze di SQL Server. |
    | **Subnet** |Selezionare la subnet in cui si trovano le istanze di SQL Server. |
    | **Assegnazione indirizzi IP** |**Statico** |
    | **Indirizzo IP privato** |Specificare un indirizzo IP disponibile della subnet. che verrà usato quando si creerà un listener nel cluster. Più avanti in questo articolo si userà questo indirizzo per la variabile `$ILBIP` in uno script di PowerShell. |
    | **Sottoscrizione** |Se si hanno più sottoscrizioni, può essere visualizzato questo campo. Selezionare la sottoscrizione da associare a questa risorsa. In genere è la stessa sottoscrizione di tutte le risorse del gruppo di disponibilità. |
    | **Gruppo di risorse** |Selezionare il gruppo di risorse in cui si trovano le istanze di SQL Server. |
-   | **Location** |Selezionare il percorso di Azure in cui si trovano le istanze di SQL Server. |
+   | **Località** |Selezionare il percorso di Azure in cui si trovano le istanze di SQL Server. |
 
 6. Fare clic su **Create**(Crea). 
 
@@ -108,7 +109,7 @@ Il probe definisce come Azure deve verificare quali istanze di SQL Server sono a
 
 3. Configurare il probe nel pannello **Aggiungi probe** . Usare i valori seguenti per configurare il probe.
 
-   | Impostazione | Value |
+   | Impostazione | Valore |
    | --- | --- |
    | **Nome** |Nome che rappresenta il probe. Ad esempio **SQLAlwaysOnEndPointProbe**. |
    | **Protocollo** |**TCP** |
@@ -134,14 +135,14 @@ Le regole di bilanciamento del carico determinano come il servizio di bilanciame
 
 3. Nel pannello **Aggiungi regola di bilanciamento del carico** configurare la regola di bilanciamento del carico. Usare le seguenti impostazioni: 
 
-   | Impostazione | Value |
+   | Impostazione | Valore |
    | --- | --- |
    | **Nome** |Nome che rappresenta la regola di bilanciamento del carico. Ad esempio **SQLAlwaysOnEndPointListener**. |
    | **Protocollo** |**TCP** |
    | **Porta** |*1433* |
-   | **Porta back-end** |*1433*. Questo valore verrà ignorato perché questa regola usa **IP mobile (Direct Server Return)** . |
+   | **Porta back-end** |*1433*. questo valore viene ignorato perché questa regola USA **IP mobile (Direct Server Return)** . |
    | **Probe** |Usare il nome del probe creato per questo servizio di bilanciamento del carico. |
-   | **Persistenza della sessione** |**None** |
+   | **Persistenza della sessione** |**Nessuno** |
    | **Timeout di inattività (minuti)** |*4* |
    | **IP mobile (Direct Server Return)** |**Enabled** |
 
@@ -160,7 +161,7 @@ A questo punto il gruppo di risorse dispone di un servizio di bilanciamento del 
 > 
 
 ## <a name="configure-the-cluster-to-use-the-load-balancer-ip-address"></a>Configurare il cluster per usare l'indirizzo IP del servizio di bilanciamento del carico
-Il passaggio successivo consiste nel configurare il listener nel cluster e nel portare il listener online. Seguire questa procedura: 
+Il passaggio successivo consiste nel configurare il listener nel cluster e nel portare il listener online. Eseguire le operazioni seguenti: 
 
 1. Creare il listener del gruppo di disponibilità nel cluster di failover. 
 
@@ -220,7 +221,7 @@ Per aggiungere un indirizzo IP a un bilanciamento del carico con il portale di A
 
 7. Aggiungere un probe integrità usando le impostazioni seguenti:
 
-   |Impostazione |Value
+   |Impostazione |Valore
    |:-----|:----
    |**Nome** |Un nome per identificare il probe.
    |**Protocollo** |TCP
@@ -243,7 +244,7 @@ Per aggiungere un indirizzo IP a un bilanciamento del carico con il portale di A
     |**Porta back-end** |Usare lo stesso valore di **Porta**.
     |**Pool back-end** |Il pool che contiene le macchine virtuali con le istanze di SQL Server. 
     |**Probe di integrità** |Scegliere il probe che è stato creato.
-    |**Persistenza della sessione** |Nessuna
+    |**Persistenza della sessione** |nessuno
     |**Timeout di inattività (minuti)** |Valore predefinito (4)
     |**IP mobile (Direct Server Return)** | Enabled
 
@@ -283,7 +284,7 @@ Se un gruppo di disponibilità fa parte di un gruppo di disponibilità distribui
 
 1. Creare la regola di bilanciamento del carico con le impostazioni seguenti:
 
-   |Impostazione |Value
+   |Impostazione |Valore
    |:-----|:----
    |**Nome** |Aggiungere il nome per identificare la regola di bilanciamento del carico per il gruppo di disponibilità distribuito. 
    |**Indirizzo IP front-end IP** |Usare lo stesso indirizzo IP front-end del gruppo di disponibilità.
@@ -292,7 +293,7 @@ Se un gruppo di disponibilità fa parte di un gruppo di disponibilità distribui
    |**Porta back-end** | 5022: usare lo stesso valore di **Porta**.
    |**Pool back-end** |Il pool che contiene le macchine virtuali con le istanze di SQL Server. 
    |**Probe di integrità** |Scegliere il probe che è stato creato.
-   |**Persistenza della sessione** |Nessuna
+   |**Persistenza della sessione** |nessuno
    |**Timeout di inattività (minuti)** |Valore predefinito (4)
    |**IP mobile (Direct Server Return)** | Enabled
 

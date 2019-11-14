@@ -1,5 +1,5 @@
 ---
-title: Gestire gli avvisi di manutenzione per macchine virtuali Windows in Azure | Microsoft Docs
+title: Gestione delle notifiche di manutenzione per le macchine virtuali Windows in Azure
 description: Visualizzare gli avvisi relativi alla manutenzione per macchine virtuali Windows in esecuzione in Azure e avviare la manutenzione self-service.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: 2e7f51ecb948764f6ac4c3e7a52dc14ef5d00741
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6e269e9b21fe16a1d77b4e1f714517f91fa531d4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749363"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039202"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Gestire gli avvisi relativi alla manutenzione pianificata per le macchine virtuali Windows
 
@@ -88,7 +88,7 @@ Get-AzVM -ResourceGroupName rgName -Name vmName -Status
 
 MaintenanceRedeployStatus restituisce le proprietà seguenti: 
 
-| Valore | Descrizione   |
+| Valore | DESCRIZIONE   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se in questo momento è possibile avviare la manutenzione per la macchina virtuale |
 | PreMaintenanceWindowStartTime         | Inizio della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della VM |
@@ -158,7 +158,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 ```
 
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>Domande frequenti
 
 
 **D: Perché è necessario riavviare ora le macchine virtuali?**
@@ -199,7 +199,7 @@ Per altre informazioni sulla disponibilità elevata, vedere [disponibilità per 
 
 **R:** I motivi per cui non vengono visualizzate informazioni sulla manutenzione per le VM sono diversi:
 1.  Si usa una sottoscrizione contrassegnata come Microsoft (interno).
-2.  Le VM non sono pianificate per la manutenzione. La manutenzione potrebbe essere terminata oppure essere stata annullata o modificata e di conseguenza le VM non sono più interessate.
+2.  Le VM non sono pianificate per la manutenzione. La manutenzione potrebbe essere terminata oppure essere stata annullata o modificata e di conseguenza le macchine virtuali non sono più interessate.
 3.  La colonna **Manutenzione** non è stata aggiunta alla visualizzazione elenco delle macchine virtuali. Anche se questa colonna è stata aggiunta alla visualizzazione predefinita, i clienti con una configurazione che non prevede la visualizzazione delle colonne non predefinite devono aggiungere manualmente la colonna **Manutenzione** alla visualizzazione elenco delle VM.
 
 **D: la macchina virtuale è pianificata per la manutenzione per la seconda volta. Perché?**
