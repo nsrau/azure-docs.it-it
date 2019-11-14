@@ -1,5 +1,5 @@
 ---
-title: Creare una VM Linux suddivisa in zone con l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: Creare una VM Linux in zone con l'interfaccia della riga di comando di Azure
 description: Creare una VM Linux in una zona di disponibilità con l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: e732693a63b3c866dc767e98bbe298474286f178
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 1cb8222b5e7bf2efee36673f9b80738500345754
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173881"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036552"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Creare una macchina virtuale Linux in una zona di disponibilità con l'interfaccia della riga di comando di Azure
 
@@ -59,7 +59,7 @@ virtualMachines   eastus2    Standard_E4_v3              Standard   E4_v3    1,2
 ```
 
 
-## <a name="create-resource-group"></a>Crea gruppo di risorse
+## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
 Creare un gruppo di risorse con il comando [az group create](/cli/azure/group).  
 
@@ -71,7 +71,7 @@ az group create --name myResourceGroupVM --location eastus2
 
 Il gruppo di risorse viene specificato quando si crea o si modifica una VM, come viene illustrato in questo articolo.
 
-## <a name="create-virtual-machine"></a>Crea macchina virtuale
+## <a name="create-virtual-machine"></a>Creare una macchina virtuale
 
 Crea una macchina virtuale usando il comando [az vm create](/cli/azure/vm). 
 

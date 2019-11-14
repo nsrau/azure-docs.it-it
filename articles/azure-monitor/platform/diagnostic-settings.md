@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: c1b7f81c62217d9e113f3293a8f351d908a6a576
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b90e5ccf38e95d33c4b5b6f3b8da0e91a4facb5a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887278"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023748"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure
 I [log della piattaforma](resource-logs-overview.md) in Azure forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Questo articolo fornisce informazioni dettagliate sulla creazione e la configurazione delle impostazioni di diagnostica per raccogliere i log della piattaforma in destinazioni diverse.
@@ -35,14 +35,15 @@ Una singola impostazione di diagnostica può definire una delle destinazioni. Se
 ## <a name="destinations"></a>Destinations 
 I log della piattaforma possono essere inviati alle destinazioni nella tabella seguente. La configurazione per ogni destinazione viene eseguita usando lo stesso processo per la creazione di impostazioni di diagnostica descritte in questo articolo. Per informazioni dettagliate sull'invio di dati a tale destinazione, seguire ogni collegamento nella tabella seguente.
 
-| Destination | Descrizione |
+| Destination | DESCRIZIONE |
 |:---|:---|
 | [area di lavoro Log Analytics](resource-logs-collect-workspace.md) | La raccolta di log in un'area di lavoro di Log Analytics consente di analizzarli con altri dati di monitoraggio raccolti da monitoraggio di Azure con potenti query di log e anche per sfruttare altre funzionalità di monitoraggio di Azure, ad esempio avvisi e visualizzazioni. |
 | [Hub eventi](resource-logs-stream-event-hubs.md) | L'invio di log a hub eventi consente di trasmettere i dati a sistemi esterni, ad esempio SIEM di terze parti e altre soluzioni di log Analytics. |
 | [Account di archiviazione di Azure](resource-logs-collect-storage.md) | L'archiviazione dei log in un account di archiviazione di Azure è utile per il controllo, l'analisi statica o il backup. |
 
 
-
+> [!IMPORTANT]
+> Gli account Azure Data Lake Storage Gen2 non sono attualmente supportati come destinazione per le impostazioni di diagnostica anche se possono essere elencati come un'opzione valida nel portale di Azure.
 
 ## <a name="create-diagnostic-settings-in-azure-portal"></a>Creare impostazioni di diagnostica in portale di Azure
 È possibile configurare le impostazioni di diagnostica nella portale di Azure dal menu monitoraggio di Azure o dal menu della risorsa.
@@ -66,7 +67,7 @@ I log della piattaforma possono essere inviati alle destinazioni nella tabella s
 3. Assegnare un nome all'impostazione se non ne è già presente uno.
 4. Selezionare la casella per ogni destinazione per inviare i log. Fare clic su **Configura** per specificare le impostazioni come descritto nella tabella seguente.
 
-    | Impostazione | Descrizione |
+    | Impostazione | DESCRIZIONE |
     |:---|:---|
     | Area di lavoro Log Analytics | Nome dell'area di lavoro. |
     | Account di archiviazione | Nome dell'account di archiviazione. |

@@ -1,5 +1,5 @@
 ---
-title: Distribuire l'offerta OpenShift container Platform 3,11 self-Managed Marketplace in Azure | Microsoft Docs
+title: Distribuire l'offerta OpenShift container Platform 3,11 self-Managed Marketplace in Azure
 description: Distribuisci l'offerta OpenShift container Platform 3,11 self-Managed Marketplace in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: d5028ff6378fec5939aee3218071fe6f4eb1e843
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 20a17e52064c5beb09ce4db5815ddd6faf7cbcba
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791622"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035529"
 ---
 # <a name="configure-prerequisites"></a>Configurazione dei prerequisiti
 
@@ -67,9 +67,9 @@ Immettere i valori per i parametri di input e fare clic su **OK**.
 |-----------------------|-----------------|
 | Nome utente amministratore VM | Utente amministratore da creare in tutte le istanze di macchina virtuale |
 | Chiave pubblica SSH per l'utente amministratore | Chiave pubblica SSH usata per accedere alla macchina virtuale: non deve avere una passphrase |
-| Sottoscrizione | Sottoscrizione di Azure in cui distribuire il cluster |
-| Gruppo di risorse | Creare un nuovo gruppo di risorse o selezionare un gruppo di risorse vuoto esistente per le risorse cluster |
-| Località | Area di Azure in cui distribuire il cluster |
+| sottoscrizione | Sottoscrizione di Azure in cui distribuire il cluster |
+| gruppo di risorse | Creare un nuovo gruppo di risorse o selezionare un gruppo di risorse vuoto esistente per le risorse cluster |
+| Location | Area di Azure in cui distribuire il cluster |
 
    ![Pannello nozioni di base sull'offerta](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>
@@ -172,7 +172,7 @@ Immettere i valori per i parametri di input e fare clic su **OK** .
    ![Offrire un'installazione aggiuntiva del sistema nervoso](media/openshift-marketplace-self-managed/ocp-additionalcnsall.png)  
 <br>
 
-**Summary**
+**Riepilogo**
 
 La convalida viene eseguita in questa fase per verificare che la quota di Core sia sufficiente per distribuire il numero totale di macchine virtuali selezionate per il cluster.  Esaminare tutti i parametri immessi.  Se gli input sono accettabili, fare clic su **OK** per continuare.
 

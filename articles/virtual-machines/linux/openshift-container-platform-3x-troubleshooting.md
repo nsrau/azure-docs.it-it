@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi della distribuzione di OpenShift container Platform 3,11 in Azure | Microsoft Docs
+title: Risolvere i problemi della distribuzione di OpenShift container Platform 3,11 in Azure
 description: Risolvere i problemi della distribuzione di OpenShift container Platform 3,11 in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 4301d81a4d14c36c34d29a54bc146bc8985dfc00
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 1915cce1878b9b7ec058c13167e03c3c318f3668
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392761"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035482"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Risolvere i problemi della distribuzione di OpenShift container Platform 3,11 in Azure
 
@@ -96,7 +96,7 @@ Verrà visualizzato un errore per cui è stata negata l'autorizzazione per SSH. 
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>Il segreto dell'insieme di credenziali delle chiavi con chiave privata non è stato creato correttamente
 
-La chiave privata viene copiata nell'host PlayBook di Ansible-~/.ssh/id_rsa. Verificare che il file sia corretto. Eseguire un test aprendo una sessione SSH in uno dei nodi del cluster dall'host del playbook di Ansible.
+La chiave privata viene copiata in Ansible PlayBook host-~/.ssh/id_rsa. Verificare che il file sia corretto. Eseguire un test aprendo una sessione SSH in uno dei nodi del cluster dall'host del playbook di Ansible.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>Le credenziali dell'entità servizio non sono state immesse in modo corretto
 
@@ -118,5 +118,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 Per alcuni errori, è anche possibile usare i comandi seguenti per ottenere ulteriori informazioni:
 
-1. stato systemctl \<service >
+1. > del servizio \<stato systemctl
 2. journalctl -xe

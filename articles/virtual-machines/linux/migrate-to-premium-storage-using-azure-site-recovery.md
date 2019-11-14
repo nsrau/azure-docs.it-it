@@ -1,5 +1,5 @@
 ---
-title: Migrare le VM Linux ad Archiviazione Premium di Azure con Azure Site Recovery | Microsoft Docs
+title: Eseguire la migrazione delle macchine virtuali Linux in archiviazione Premium di Azure con Azure Site Recovery
 description: Eseguire la migrazione delle macchine virtuali esistenti ad Archiviazione Premium di Azure usando Site Recovery. Archiviazione Premium offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con I/O intensivo in esecuzione su Macchine virtuali di Azure.
 services: virtual-machines-linux,storage
 cloud: Azure
@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: ffcc2f46a30569979879ff302cde1e3b146d3b50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8c299869da003d8dc4e9ac111ba8c5e8bb27345
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60543684"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035836"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrazione ad Archiviazione Premium con Azure Site Recovery
 
@@ -65,7 +65,7 @@ Questi sono i requisiti di Azure per questo scenario di migrazione:
 * Una rete virtuale di Azure a cui le macchine virtuali di Azure possano connettersi quando vengono create in fase di failover. La rete virtuale di Azure deve trovarsi nella stessa area dell'insieme di esecuzione di Site Recovery.
 * Un account di archiviazione Standard di Azure in cui archiviare i log delle repliche. Può essere lo stesso account di archiviazione dei dischi delle macchine virtuali di cui viene eseguita la migrazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Conoscere i componenti dello scenario di migrazione pertinenti nella sezione precedente.
 * Pianificare il tempo di inattività dopo avere letto le informazioni sul [failover in Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -74,7 +74,7 @@ Questi sono i requisiti di Azure per questo scenario di migrazione:
 
 È possibile usare Site Recovery per eseguire la migrazione di VM IaaS di Azure tra aree geografiche o nella stessa area. Le istruzioni seguenti sono adattate a questo scenario di migrazione dall'articolo [Eseguire la replica di macchine virtuali VMware o server fisici in Azure](../../site-recovery/vmware-walkthrough-overview.md). Seguire i collegamenti per conoscere i passaggi dettagliati a completamento delle istruzioni del presente articolo.
 
-### <a name="step-1-create-a-recovery-services-vault"></a>Passaggio 1: Creare un insieme di credenziali di Servizi di ripristino
+### <a name="step-1-create-a-recovery-services-vault"></a>Passaggio 1: Creare l'insieme di credenziali dei servizi di ripristino
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
 2. Selezionare **Crea una risorsa** > **Gestione** > **Backup** e **Site Recovery (OMS)** . In alternativa, è possibile selezionare **Sfoglia** > **Insieme di credenziali dei servizi di ripristino** > **Aggiungi**. 
@@ -83,7 +83,7 @@ Questi sono i requisiti di Azure per questo scenario di migrazione:
 ### <a name="step-2-choose-your-protection-goals"></a>Passaggio 2: Scegliere gli obiettivi della protezione 
 
 1. Nella VM in cui si vuole installare il server di configurazione aprire il [portale di Azure](https://portal.azure.com).
-2. Andare su **Insieme di credenziali di Servizi di ripristino** > **Impostazioni** > **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Obiettivo di protezione**.
+2. Andare su **Insiemi di credenziali di Recovery Services**  > **Impostazioni** > **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Obiettivo di protezione**.
 
    ![Passare al riquadro Obiettivo di protezione][2]
 
@@ -146,7 +146,7 @@ Seguire [Configurare le impostazioni di replica](../../site-recovery/vmware-walk
 
    ![Casella per confermare di aver completato la pianificazione della capacità][11]
 
-### <a name="step-7-install-the-mobility-service-and-enable-replication"></a>Passaggio 7: Installare il servizio Mobility e abilitare la replica
+### <a name="step-7-install-the-mobility-service-and-enable-replication"></a>Passaggio 7:Installare il servizio Mobility e abilitare la replica
 
 1. È possibile scegliere di [effettuare il push dell'installazione](../../site-recovery/vmware-walkthrough-overview.md) nelle macchine virtuali di origine o di [installare manualmente il servizio Mobility](../../site-recovery/site-recovery-vmware-to-azure-install-mob-svc.md) nelle macchine virtuali di origine. È possibile trovare il requisito del push dell'installazione e il percorso del programma di installazione manuale nel collegamento fornito. Se si esegue un'installazione manuale, potrebbe essere necessario usare un indirizzo IP interno per trovare il server di configurazione.
 
@@ -160,7 +160,7 @@ Seguire [Configurare le impostazioni di replica](../../site-recovery/vmware-walk
    3. Nel passaggio 2 specificare il modello di distribuzione successivo al failover, un account di archiviazione Premium a cui eseguire la migrazione, un account di archiviazione Standard per salvare i log e una rete virtuale in cui effettuare il failover.
    4. Nel passaggio 3, aggiungere macchine virtuali protette in base all'indirizzo IP. (Potrebbe essere necessario un indirizzo IP interno per trovarle).
    5. Nel passaggio 4, configurare le proprietà selezionando gli account configurati prima nel server di elaborazione.
-   6. Nel passaggio 5, scegliere i criteri di replica creati precedentemente al "Passaggio 5: Configurare le impostazioni di replica".
+   6. Nel passaggio 5, scegliere i criteri di replica creati prima al "Passaggio 5: Configurare le impostazioni di replica".
    7. Selezionare **OK**.
 
    > [!NOTE]
@@ -196,14 +196,14 @@ Site Recovery creerà un'istanza di una macchina virtuale di tipo uguale o simil
 ## <a name="post-migration-steps"></a>Passaggi post-migrazione
 
 1. **Configurare le VM replicate per il set di disponibilità, se applicabile**. Site Recovery non supporta la migrazione di VM con il set di disponibilità. A seconda della distribuzione della VM replicata, eseguire una di queste operazioni:
-   * Per una VM creata tramite il modello di distribuzione classica: aggiungere la VM al set di disponibilità nel portale di Azure. Per i passaggi dettagliati, vedere [Aggiungere una macchina virtuale esistente a un set di disponibilità](../linux/classic/configure-availability-classic.md).
-   * Per una VM creata tramite il modello di distribuzione Resource Manager: salvare la configurazione della VM e quindi eliminare e ricreare le VM nel set di disponibilità. A questo scopo, usare lo script in [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4) (Impostare il set di disponibilità di VM di Azure Resource Manager). Prima di eseguire questo script, controllare le relative limitazioni e pianificare il tempo di inattività.
+   * Per una macchina virtuale creata usando il modello di distribuzione classica: aggiungere la macchina virtuale al set di disponibilità nel portale di Azure. Per i passaggi dettagliati, vedere [Aggiungere una macchina virtuale esistente a un set di disponibilità](../linux/classic/configure-availability-classic.md).
+   * Per le macchine virtuali create tramite il modello di distribuzione Resource Manager: salvare la configurazione della macchina virtuale e quindi eliminare e ricreare le macchine virtuali nel set di disponibilità. A questo scopo, usare lo script in [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4) (Impostare il set di disponibilità di VM di Azure Resource Manager). Prima di eseguire questo script, controllare le relative limitazioni e pianificare il tempo di inattività.
 
 2. **Eliminare le VM e i dischi precedenti**. Verificare che i dischi Premium siano coerenti con i dischi di origine e che le nuove macchine virtuali eseguano la stessa funzione delle macchine virtuali di origine. Eliminare la macchina virtuale e i dischi dagli account di archiviazione di origine nel portale di Azure. Se si verifica un problema per cui il disco non viene eliminato anche se è stata eliminata la macchina virtuale, vedere [Risolvere gli errori di eliminazione delle risorse di archiviazione](storage-resource-deletion-errors.md).
 
 3. **Pulire l'infrastruttura di Azure Site Recovery**. Se Site Recovery non è più necessario, è possibile rimuovere l'infrastruttura. Eliminare gli elementi replicati, il server di configurazione e i criteri di ripristino, quindi eliminare l'insieme di credenziali di Azure Site Recovery.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 * [Monitorare e risolvere i problemi di protezione per le macchine virtuali e i server fisici](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Forum di Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)

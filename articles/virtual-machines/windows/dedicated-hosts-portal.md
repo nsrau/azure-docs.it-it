@@ -1,5 +1,5 @@
 ---
-title: Distribuire host dedicati di Azure usando il portale di Azure | Microsoft Docs
+title: Distribuire host dedicati di Azure usando il portale di Azure
 description: Distribuire le macchine virtuali in host dedicati usando il portale di Azure.
 services: virtual-machines-windows
 author: cynthn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/26/2019
 ms.author: cynthn
-ms.openlocfilehash: 0a3cb76d1e28559727957c1007b0992fb8e90f2b
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 7abfa00b01f2e5e32b2486d69f36ac62f844c5ad
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700561"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033846"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-portal"></a>Anteprima: Distribuire macchine virtuali in host dedicati tramite il portale
+# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-portal"></a>Anteprima: distribuire macchine virtuali in host dedicati usando il portale
 
 Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di Azure per ospitare le macchine virtuali (VM). 
 
@@ -35,8 +35,8 @@ Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di A
 1. Per dimensioni selezionare **modifica dimensioni**. Nell'elenco delle dimensioni disponibili scegliere una dalla serie Esv3, ad esempio **E2S standard V3**. Potrebbe essere necessario cancellare il filtro per visualizzare tutte le dimensioni disponibili.
 1. Sotto **Account amministratore**, specificare un nome utente, ad esempio *azureuser*, e una password. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 1. In **Regole porta in ingresso** scegliere **Consenti porte selezionate**, quindi selezionare **RDP (3389)** dall'elenco a discesa.
-1. Nella parte superiore della pagina selezionare la scheda **Avanzate** e nella sezione **host** Selezionare *myHostGroup* per **gruppo host** *e host* **host.** 
-    ![Seleziona gruppo host e host](./media/dedicated-hosts-portal/advanced.png)
+1. Nella parte superiore della pagina **selezionare la scheda** **Avanzate** e nella sezione **host** Selezionare *myHostGroup* per **gruppo host** *e host host.* 
+    ![selezionare il gruppo host e l'host](./media/dedicated-hosts-portal/advanced.png)
 1. Lasciare invariate le impostazioni predefinite rimanenti, quindi selezionare il pulsante **Rivedi + Crea** nella parte inferiore della pagina.
 1. Quando viene visualizzato il messaggio che la convalida è stata superata, selezionare **Crea**.
 
@@ -45,6 +45,6 @@ Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di A
 
 - Per ulteriori informazioni, vedere Cenni preliminari sugli [host dedicati](dedicated-hosts.md) . 
 
-- È [disponibile un](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)modello di esempio, che usa sia le zone che i domini di errore per la resilienza massima in un'area.
+- È disponibile un [modello di esempio](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), che usa sia le zone che i domini di errore per la resilienza massima in un'area.
 
 - È inoltre possibile distribuire un host dedicato utilizzando [Azure PowerShell](dedicated-hosts-powershell.md).

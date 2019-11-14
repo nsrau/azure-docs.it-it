@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 78482b5d7013ffa3bbb0a34dd04c8c48626dc77a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0c1b09fbc425a80fe1f8d075c5a83455167073c3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72926661"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74029995"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -34,7 +34,14 @@ Copia i dati di origine in un percorso di destinazione. Le direzioni supportate 
 
 Per ulteriori informazioni, fare riferimento agli esempi.
 
-## <a name="advanced"></a>Funzionalità avanzate
+## <a name="related-conceptual-articles"></a>Articoli concettuali correlati
+
+- [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
+- [Trasferire i dati con AzCopy e l'archiviazione BLOB](storage-use-azcopy-blobs.md)
+- [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
+- [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
+
+## <a name="advanced"></a>Avanzate
 
 AzCopy rileva automaticamente il tipo di contenuto dei file durante il caricamento dal disco locale, in base all'estensione o al contenuto del file (se non è specificata alcuna estensione).
 
@@ -74,7 +81,7 @@ Caricare un'intera directory usando un token SAS:
   
 - azcopy CP "/Path/to/dir" "https:///[account]. blob. Core. Windows. NET/[Container]/[path/to/directory]? [SAS] "--ricorsivo = true
 
-Oppure
+oppure
 
 - azcopy CP "/Path/to/dir" "https:///[account]. blob. Core. Windows. NET/[Container]/[path/to/directory]? [SAS] "--ricorsivo = true--put-MD5
 
@@ -140,25 +147,25 @@ Copiare tutti i contenitori BLOB, le directory e i BLOB dall'account di archivia
 
 Copiare un singolo oggetto nell'archivio BLOB da Amazon Web Services (AWS) S3 usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
   
-- azcopy CP "https://s3.amazonaws.com/ [bucket]/[oggetto]" "https://[destaccount]. blob. Core. Windows. NET/[contenitore]/[percorso/a/BLOB]? [SAS] "
+- azcopy CP "https://s3.amazonaws.com/[bucket]/[oggetto]" "https://[destaccount]. blob. Core. Windows. NET/[contenitore]/[percorso/a/BLOB]? [SAS] "
 
 Copiare un'intera directory nell'archivio BLOB da AWS S3 usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
 
-- azcopy CP "https://s3.amazonaws.com/ [bucket]/[cartella]" "https://[destaccount]. blob. Core. Windows. NET/[contenitore]/[percorso/a/directory]? [SAS] "--ricorsivo = true
+- azcopy CP "https://s3.amazonaws.com/[bucket]/[cartella]" "https://[destaccount]. blob. Core. Windows. NET/[contenitore]/[percorso/a/directory]? [SAS] "--ricorsivo = true
 
 Per comprendere meglio il segnaposto [cartella], vedere https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html.
 
 Copiare tutti i bucket nell'archiviazione BLOB da Amazon Web Services (AWS) usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
 
-- azcopy CP "https://s3.amazonaws.com/ " "https:///[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
+- azcopy CP "https://s3.amazonaws.com/" "https:///[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
 
 Copiare tutti i bucket nell'archiviazione BLOB da un'area Amazon Web Services (AWS) usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
 
-- azcopy CP "https://s3- [Region]. amazonaws. com/" "https:///[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
+- azcopy CP "https://s3-[Region]. amazonaws. com/" "https:///[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
 
 Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. Come gli esempi precedenti, sono necessari una chiave di accesso e un token di firma di accesso condiviso. Assicurarsi di impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
 
-- azcopy CP "https://s3.amazonaws.com/ [bucket * Name]/" "https://[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
+- azcopy CP "https://s3.amazonaws.com/[bucket * Name]/" "https://[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
 
 ## <a name="options"></a>Opzioni
 
@@ -234,6 +241,6 @@ Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. C
 
 **--output-** formato stringa di tipo dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text". (impostazione predefinita "testo")
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [azcopy](storage-ref-azcopy.md)

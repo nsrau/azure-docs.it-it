@@ -1,30 +1,29 @@
 ---
-title: Acquisizione di una directory non gestita da un amministratore-Azure Active Directory | Microsoft Docs
-description: Come acquisire la proprietà di un nome di dominio DNS in una directory non gestita (tenant shadow) in Azure Active Directory.
+title: Acquisizione di un amministratore di una directory non gestita-Azure AD | Microsoft Docs
+description: Come assumere un nome di dominio DNS in un'organizzazione Azure AD non gestita (tenant Shadow).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 08/01/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44276c911768f588064245c37a1284adeda8138f
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 7a0697e151c50b9722fef908eeb2c7498503b8c0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315732"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027381"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
 
-Questo articolo illustra due modi per acquisire la proprietà di un nome di dominio DNS in una directory non gestita in Azure Active Directory (Azure AD). Quando un utente self-service si iscrive a un servizio cloud che usa Azure AD, viene aggiunto a una directory di Azure AD non gestita basata sul dominio di posta elettronica. Per altre informazioni sull'iscrizione self-service o "virale" per un servizio, vedere [Informazioni sull'iscrizione self-service per Azure Active Directory](directory-self-service-signup.md).
+Questo articolo illustra due modi per acquisire la proprietà di un nome di dominio DNS in una directory non gestita in Azure Active Directory (Azure AD). Quando un utente self-service si iscrive a un servizio cloud che usa Azure AD, viene aggiunto a una directory di Azure AD non gestita basata sul dominio di posta elettronica. Per ulteriori informazioni sull'iscrizione self-service o "virale" per un servizio, vedere informazioni sull' [iscrizione self-service per Azure Active Directory](directory-self-service-signup.md)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Decidere come acquisire la proprietà di una directory non gestita
 Durante il processo di acquisizione della proprietà da parte di un amministratore, è possibile dimostrare la proprietà come illustrato in [Aggiungere un nome di dominio personalizzato ad Azure AD](../fundamentals/add-custom-domain.md). Nelle sezioni successive viene illustrata l'esperienza di amministratore in modo più dettagliato; in ogni caso qui di seguito è riportato un riepilogo:
@@ -64,7 +63,7 @@ Dopo avere completato i passaggi precedenti, si è l'amministratore globale del 
   
    ![Rimuove il nome di dominio da Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Se in Office 365 sono presenti utenti o gruppi che fanno riferimento al nome di dominio rimosso, devono essere ridenominati nel dominio .onmicrosoft.com. Se si forza l'eliminazione del nome di dominio, tutti gli utenti vengono automaticamente rinominati, in questo esempio, in *fourthcoffeexyz.onmicrosoft.com utente\@* .
+5. Se in Office 365 sono presenti utenti o gruppi che fanno riferimento al nome di dominio rimosso, devono essere ridenominati nel dominio .onmicrosoft.com. Se si forza l'eliminazione del nome di dominio, tutti gli utenti vengono rinominati automaticamente, in questo esempio in *user\@fourthcoffeexyz.onmicrosoft.com*.
   
 6. Accedere all'[interfaccia di amministrazione di Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con un account amministratore globale per il tenant di Azure AD.
   
@@ -73,7 +72,7 @@ Dopo avere completato i passaggi precedenti, si è l'amministratore globale del 
    ![dominio verificato come aggiunto al Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Gli utenti di Power BI o del servizio Azure Rights Management con licenze assegnate nel tenant di Office 365 devono salvare i dashboard se il nome di dominio viene rimosso. Devono accedere con un nome utente come *\@User fourthcoffeexyz.onmicrosoft.com* anziché *User\@fourthcoffee. xyz*.
+> Gli utenti di Power BI o del servizio Azure Rights Management con licenze assegnate nel tenant di Office 365 devono salvare i dashboard se il nome di dominio viene rimosso. Devono accedere con un nome utente come *user\@fourthcoffeexyz.onmicrosoft.com* anziché *User\@fourthcoffee. xyz*.
 
 ## <a name="external-admin-takeover"></a>Acquisizione esterna della proprietà da parte dell'amministratore
 
@@ -81,7 +80,7 @@ Se si gestisce già un tenant con i servizi di Azure o Office 365, non è possib
 
 Quando si verifica la proprietà del nome di dominio, Azure AD lo rimuove dal tenant non gestito e lo sposta nel tenant esistente. L'acquisizione esterna della proprietà di una directory non gestita da parte di un amministratore richiede lo stesso processo convalida di convalida TXT DNS dell'acquisizione interna della proprietà da parte di un amministratore, con la differenza che anche gli elementi seguenti vengono spostati con il nome di dominio:
 
-- Utenti
+- Users
 - Sottoscrizioni
 - Assegnazioni di licenze
 
@@ -150,7 +149,7 @@ Cmdlet | Utilizzo
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. Copiare il valore (la richiesta di verifica) restituita da questo comando. Esempio:
+4. Copiare il valore (la richiesta di verifica) restituita da questo comando. Ad esempio:
    ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -161,7 +160,7 @@ Cmdlet | Utilizzo
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
    ```
   
-   Esempio:
+   Ad esempio:
   
    ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
@@ -172,7 +171,7 @@ Una richiesta di verifica riporta al prompt senza errori.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Aggiungere un nome di dominio personalizzato ad Azure AD](../fundamentals/add-custom-domain.md)
-* [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
+* [modalità di installazione e configurazione di Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Informazioni di riferimento sui cmdlet di Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)

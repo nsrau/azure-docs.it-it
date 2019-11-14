@@ -1,5 +1,5 @@
 ---
-title: Procedura dettagliata per un'infrastruttura di esempio di Azure | Microsoft Docs
+title: Procedura dettagliata di esempio dell'infrastruttura di Azure
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione di un'infrastruttura di esempio in Azure.
 documentationcenter: ''
 services: virtual-machines-linux
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71b0dd15d183f3209c7424c537dde1e3df29d097
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cf63db18dac5fa202bbf339723c6555c4acb2ca2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083131"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036025"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Procedura dettagliata per un'infrastruttura di esempio di Azure per macchine virtuali Linux
 Questo articolo illustra le modalità di compilazione di un'infrastruttura di applicazione di esempio. Sarà trattata la progettazione di un'infrastruttura per un semplice negozio online che riunisce tutte le linee guida e le decisioni sulle convenzioni di denominazione, i set di disponibilità, le reti virtuali e i servizi di bilanciamento del carico e l'effettiva distribuzione delle macchine virtuali.
@@ -72,10 +72,10 @@ Poiché la rete virtuale non necessita di connettività costante alla rete local
 Contoso ha creato una rete virtuale solo cloud con le impostazioni seguenti tramite il portale di Azure:
 
 * Nome: AZOS-USE-VN01
-* Percorso: Stati Uniti orientali 2
+* Sede: Stati Uniti orientali 2
 * Spazio degli indirizzi della rete virtuale: 10.0.0.0/8
 * Prima subnet:
-  * Nome: Front-end
+  * Nome: FrontEnd
   * Spazio degli indirizzi: 10.0.1.0/24
 * Seconda subnet:
   * Nome: BackEnd

@@ -1,5 +1,5 @@
 ---
-title: Caricare un disco Linux personalizzato con l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: Caricare un disco Linux personalizzato con l'interfaccia della riga di comando di Azure
 description: Creare e caricare un disco rigido virtuale in Azure usando il modello di distribuzione di Resource Manager e l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 9614614782179f9160aebdc4deca88f067778060
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ef2db7f13ea5192634855b69a0d355e0f1e11ecb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708362"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035088"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Caricare e creare una VM Linux da un disco personalizzato usando l'interfaccia della riga di comando di Azure
 
@@ -33,7 +33,7 @@ Se si vuole eseguire rapidamente l'attività, la sezione seguente indica in dett
 
 Assicurarsi di avere installato la versione più recente dell'[Interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure mediante il comando [az login](/cli/azure/reference-index).
 
-Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `mydisks`.
+L'esempio seguente sostituisce i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `mydisks`.
 
 Creare prima un gruppo di risorse con [az group create](/cli/azure/group). Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella località `WestUs`:
 
@@ -99,7 +99,7 @@ Per completare la procedura seguente, è necessario:
 
 Assicurarsi di avere installato la versione più recente dell'[Interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure mediante il comando [az login](/cli/azure/reference-index).
 
-Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `mydisks`.
+L'esempio seguente sostituisce i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `mydisks`.
 
 <a id="prepimage"> </a>
 

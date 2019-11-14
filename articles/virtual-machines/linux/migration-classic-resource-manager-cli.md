@@ -1,5 +1,5 @@
 ---
-title: Migrazione di macchine virtuali in Azure Resource Manager tramite l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: Eseguire la migrazione di VM a Gestione risorse usando l'interfaccia della riga
 description: Questo articolo illustra la migrazione supportata dalla piattaforma di risorse dal modello classico al modello di Azure Resource Manager tramite l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 7af101b036e8e40a14ad5d9931cc897cb1758ea0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 69107052d84f28dfd08f59dec40ea66eca79ecaa
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082775"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035785"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite l'interfaccia della riga di comando di Azure
 Questi passaggi mostrano come usare i comandi dell'interfaccia della riga di comando di Azure per eseguire la migrazione dalle risorse IaaS (infrastruttura distribuita come servizio) dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager. Ai fini dell'articolo, è necessario usare l'[interfaccia della riga di comando classica di Azure](../../cli-install-nodejs.md). Poiché l'interfaccia della riga di comando di Azure è disponibile solo per le risorse di Azure Resource Manager, non può essere usata per la migrazione.
@@ -32,7 +32,7 @@ Questi passaggi mostrano come usare i comandi dell'interfaccia della riga di com
 <br>
 Ecco un diagramma di flusso per identificare l'ordine di esecuzione dei passaggi durante un processo di migrazione
 
-![Screenshot that shows the migration steps](../windows/media/migration-classic-resource-manager/migration-flow.png)
+![Schermata che mostra i passaggi di migrazione](../windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="step-1-prepare-for-migration"></a>Passaggio 1: Preparare la migrazione
 Ecco alcune procedure consigliate per valutare la migrazione delle risorse IaaS dal modello classico al modello di Resource Manager:
@@ -61,11 +61,11 @@ Selezionare la sottoscrizione di Azure usando il comando seguente.
 > [!NOTE]
 > La registrazione è un passaggio da eseguire un'unica volta, tuttavia deve essere eseguita prima di tentare la migrazione. Senza la registrazione verrà visualizzato il seguente messaggio di errore 
 > 
-> *BadRequest: La sottoscrizione non è registrata per la migrazione.* 
+> *BadRequest: Subscription is not registered for migration* (Richiesta non valida: la sottoscrizione non è registrata per la migrazione) 
 > 
 > 
 
-Registrarsi con il provider di risorse di migrazione utilizzando il comando seguente. Si noti che in alcuni casi si verifica il timeout del comando. Tuttavia, la registrazione verrà completata.
+Registrarsi con il provider di risorse di migrazione utilizzando il comando seguente. Si noti che in alcuni casi si verifica il timeout di questo comando. Tuttavia, la registrazione avrà esito positivo.
 
     azure provider register Microsoft.ClassicInfrastructureMigrate
 
@@ -77,7 +77,7 @@ Passare ora dall'interfaccia della riga di comando alla modalità `asm` .
 
     azure config mode asm
 
-## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Passaggio 3: Verificare che siano disponibili sufficienti CPU virtuali delle macchine virtuali di Azure Resource Manager nell'area di Azure di cui fa parte la distribuzione corrente o la rete virtuale
+## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Passaggio 3: verificare che siano disponibili sufficienti CPU virtuali delle macchine virtuali di Azure Resource Manager nell'area di Azure di cui fa parte la distribuzione corrente o la rete virtuale
 Per questo passaggio è necessario passare alla modalità `arm` . A tale scopo, eseguire il comando seguente.
 
 ```
@@ -95,7 +95,7 @@ Dopo aver verificato questo passaggio, è possibile passare nuovamente alla moda
     azure config mode asm
 
 
-## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Passaggio 4: Opzione 1: eseguire la migrazione di macchine virtuali in un servizio cloud
+## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Passaggio 4: Opzione 1 - Eseguire la migrazione delle macchine virtuali a un servizio cloud
 Ottenere l'elenco dei servizi cloud con il comando seguente e selezionare il servizio cloud di cui si vuole eseguire la migrazione. Si noti che se le VM nel servizio cloud si trovano in una rete virtuale o hanno ruoli Web/di lavoro, verrà visualizzato un messaggio di errore.
 
     azure service list
@@ -134,7 +134,7 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
 
 
 
-## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>Passaggio 4: Opzione 2: eseguire la migrazione di macchine virtuali in una rete virtuale
+## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>Passaggio 4: Opzione 2 - Eseguire la migrazione delle macchine virtuali a una rete virtuale
 Selezionare la rete virtuale per cui si vuole eseguire la migrazione. Si noti che se la rete virtuale contiene ruoli Web/di lavoro o VM con configurazioni non supportate, verrà visualizzato un messaggio di errore di convalida.
 
 Ottenere tutte le reti virtuali nella sottoscrizione con il comando seguente.
@@ -165,7 +165,7 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
 
     azure network vnet commit-migration <virtualNetworkName>
 
-## <a name="step-5-migrate-a-storage-account"></a>Passaggio 5: Migrare un account di archiviazione
+## <a name="step-5-migrate-a-storage-account"></a>Passaggio 5: Eseguire la migrazione di un account di archiviazione
 Dopo aver completato la migrazione delle macchine virtuali, si consiglia di migrare l'account di archiviazione.
 
 Preparare l'account di archiviazione per la migrazione con il comando seguente.
@@ -182,7 +182,7 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica sulla migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica al modello Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Panoramica sulla migrazione supportata dalla piattaforma per risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager)
 * [Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager)
 * [Usare PowerShell per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

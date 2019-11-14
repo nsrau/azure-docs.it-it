@@ -1,31 +1,31 @@
 ---
-title: Aggiungere utenti con licenza individualmente alle licenze basate sui gruppi-Azure Active Directory | Microsoft Docs
+title: Aggiungere utenti con licenze dirette al gruppo Licensing-Azure AD | Microsoft Docs
 description: Come eseguire la migrazione da licenze utente singole a licenze basate sui gruppi usando Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/26/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29ec9c05a7e7d594c64a450fe64e5bb0e0d1b7d0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 6c06d81f2f3f6cee781889d05ae08a1fd125df52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034735"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025671"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Come eseguire la migrazione di utenti con licenze singole a gruppi per la gestione delle licenze
 
-Le licenze esistenti potrebbero essere state distribuite agli utenti nelle organizzazioni tramite "assegnazione diretta", vale a dire usando script di PowerShell o altri strumenti per assegnare le licenze utente individuali. Prima di iniziare a usare le licenze basate sui gruppi per gestire le licenze nell'organizzazione, è possibile usare questo piano di migrazione per sostituire facilmente le soluzioni esistenti con le licenze basate sui gruppi.
+Le licenze esistenti potrebbero essere state distribuite agli utenti nelle organizzazioni tramite assegnazione diretta; ovvero usando gli script di PowerShell o altri strumenti per assegnare le licenze utente individuali. Prima di iniziare a usare le licenze basate sui gruppi per gestire le licenze nell'organizzazione, è possibile usare questo piano di migrazione per sostituire facilmente le soluzioni esistenti con le licenze basate sui gruppi.
 
 È importante evitare situazioni in cui la migrazione di licenze basate sui gruppi possa causare una perdita temporanea delle licenze attualmente assegnate agli utenti. Per non rischiare che gli utenti perdano l'accesso ai servizi e ai loro dati, è consigliabile evitare qualsiasi processo che possa comportare la rimozione delle licenze.
 
@@ -49,7 +49,7 @@ Le licenze esistenti potrebbero essere state distribuite agli utenti nelle organ
 
 Provare a rimuovere le assegnazioni dirette originali. Si consiglia di eseguire questa operazione gradualmente e di monitorare prima il risultato in un subset di utenti. Se è possibile lasciare le assegnazioni dirette originali agli utenti, ma quando gli utenti lasciano i gruppi con licenza, mantengono le licenze assegnate direttamente, che potrebbero non essere quelle desiderate.
 
-## <a name="an-example"></a>Esempio
+## <a name="an-example"></a>un esempio
 
 Un'organizzazione ha 1.000 utenti. Tutti gli utenti richiedono licenze di Office 365 Enterprise E3. Attualmente l'organizzazione ha uno script di PowerShell, in esecuzione in locale, che aggiunge e rimuove le licenze dagli utenti man mano che vengono aggiunti e rimossi. Tuttavia l'organizzazione vuole sostituire lo script con licenze basate sui gruppi in modo che queste ultime possano essere gestite automaticamente da Azure AD.
 

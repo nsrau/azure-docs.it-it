@@ -1,18 +1,14 @@
 ---
 title: Esempi ufficiali del Regno Unito & UK NHS Blueprint-passaggi di distribuzione
 description: Consente di distribuire i passaggi per gli esempi ufficiali del Regno Unito e del piano NHS UK, inclusi i dettagli del parametro dell'artefatto
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 1898820276d1906a49a95bc513a6689fce177f7d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1905e5fee894575d5ee85ce1bffb536813d34287
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162943"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037741"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuire gli esempi ufficiali del Regno Unito e del piano NHS UK
 
@@ -95,7 +91,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
 La tabella seguente contiene un elenco dei parametri degli artefatti del progetto:
 
-Nome dell'artefatto|Tipo di artefatto|Nome parametro|Description|
+Nome dell'artefatto|Tipo di artefatto|Nome parametro|DESCRIZIONE|
 |-|-|-|-|
 |Progetto Initiative per il Regno Unito ufficiale o il NHS UK|Assegnazione di criteri |Tipi di risorse per controllare i log di diagnostica (criteri: progetto Initiative per il Regno Unito ufficiale o UK NHS) |Elenco di tipi di risorse da controllare se l'impostazione del log di diagnostica è nota abilitata.  Per i valori accettabili, vedere [servizi, schemi e categorie supportati per i log di diagnostica di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
 |\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione di criteri |Facoltativo: elenco di immagini di macchina virtuale con sistema operativo Linux supportato da aggiungere all'ambito (criteri: \[anteprima\]: Distribuisci agente di Log Analytics per VM Linux) |Opzionale Il valore predefinito è _None_. Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
@@ -109,7 +105,7 @@ Ora che sono stati esaminati i passaggi per distribuire gli esempi ufficiale del
 > [Cianografia del Regno Unito e](./index.md) dei piani NHS del Regno Unito-Panoramica
 > [ufficiale del Regno Unito e il mapping del SSN](./control-mapping.md) del Regno Unito
 
-Articoli aggiuntivi sui progetti e su come usarli:
+Altri articoli sui progetti e su come usarli:
 
 - Informazioni sul [ciclo di vita del progetto](../../concepts/lifecycle.md).
 - Informazioni su come usare [parametri statici e dinamici](../../concepts/parameters.md).

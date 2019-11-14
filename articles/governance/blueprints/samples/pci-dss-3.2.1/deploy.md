@@ -1,18 +1,14 @@
 ---
 title: Esempio di progetto PCI-DSS v 3.2.1-passaggi di distribuzione
 description: Consente di distribuire i passaggi per l'esempio di progetto della carta di credito Industry Data Security Standard v 3.2.1, inclusi i dettagli del parametro dell'elemento Blueprint.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: b765782adfa5fd63bc270ad28b74cf3bd1ca1d4a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b29a1a66b7407558769e506deed5e65f7ecb064c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163042"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037264"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Distribuire l'esempio di progetto PCI-DSS v 3.2.1
 
@@ -95,7 +91,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
 La tabella seguente contiene un elenco dei parametri degli artefatti del progetto:
 
-|Nome dell'artefatto|Tipo di artefatto|Nome parametro|Description|
+|Nome dell'artefatto|Tipo di artefatto|Nome parametro|DESCRIZIONE|
 |-|-|-|-|
 |\[Preview\] controllare PCI v 3.2.1:2018 controlla e distribuire estensioni VM specifiche per supportare i requisiti di controllo|Assegnazione dei criteri|Elenco di tipi di risorse | Controlla l'impostazione di diagnostica per i tipi di risorse selezionati. Il valore predefinito è tutte le risorse selezionate| 
 |Percorsi consentiti|Assegnazione dei criteri|Elenco di percorsi consentiti|Elenco di percorsi di data center consentiti per la distribuzione di qualsiasi risorsa in. Questo elenco è personalizzabile nelle località di Azure desiderate a livello globale. Selezionare le località che si desidera consentire.| 
@@ -111,7 +107,7 @@ Ora che sono stati esaminati i passaggi per distribuire l'esempio di progetto PC
 > [PCI-DSS v 3.2.1 Blueprint-panoramica](./index.md)
 > [PCI-DSS v 3.2.1 Blueprint-Control mapping](./control-mapping.md)
 
-Articoli aggiuntivi sui progetti e su come usarli:
+Altri articoli sui progetti e su come usarli:
 
 - Informazioni sul [ciclo di vita del progetto](../../concepts/lifecycle.md).
 - Informazioni su come usare [parametri statici e dinamici](../../concepts/parameters.md).

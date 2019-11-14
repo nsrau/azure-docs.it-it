@@ -1,6 +1,6 @@
 ---
-title: Eseguire l'accesso con la verifica in due passaggi o le informazioni di sicurezza-Azure Active Directory | Microsoft Docs
-description: Informazioni su come eseguire l'accesso usando i vari metodi di verifica dell'identità disponibili nelle informazioni di sicurezza.
+title: Accesso con le informazioni sull'autenticazione delle identità-Azure AD
+description: Informazioni su come eseguire l'accesso usando i vari metodi di verifica dell'identità nelle informazioni di sicurezza.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,12 +13,12 @@ ms.date: 07/18/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b20ea1131ceda0527ed35d1a1082d05f25da6bac
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1c79e82680ae81137ee4164e88e62235f934565a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382324"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028521"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Eseguire l'accesso usando la verifica in due passaggi o le informazioni di sicurezza
 

@@ -1,5 +1,5 @@
 ---
-title: Dimensioni delle macchine virtuali Linux di Azure - Archiviazione | Documentazione Microsoft
+title: Dimensioni delle macchine virtuali Linux di Azure-archiviazione
 description: Elenca le diverse dimensioni ottimizzate per l'archiviazione per le macchine virtuali Linux disponibili in Azure. Elenca informazioni sul numero di vCPU, dei dischi dati e delle schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per le dimensioni di queste serie.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/15/2019
 ms.author: jonbeck
-ms.openlocfilehash: 7320acc3a00702b66800af5bfd9a240f4b146670
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 26fb9b285658b9bf3d3df67849e9ccd15b8b5f61
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100839"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034835"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per l'archiviazione
 

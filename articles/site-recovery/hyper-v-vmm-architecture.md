@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 716f8e053ad05ba701b3415946cd8d3a56044e62
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: f7fa5d7ef68613301c30e26d21f69a80559dbcb9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953988"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74030022"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Architettura per la replica di Hyper-V in un sito secondario
 
 Questo articolo descrive i componenti e i processi coinvolti durante la replica in un sito VMM secondario di macchine virtuali Hyper-V locali presenti in cloud System Center Virtual Machine Manager (VMM) tramite il servizio [Azure Site Recovery](site-recovery-overview.md) nel portale di Azure.
 
 > [!WARNING]
-> Si noti che il supporto di ASR per l'uso della configurazione SCVMM sarà presto deprecato e pertanto si consiglia di leggere i dettagli relativi alla [deprecazione](scvmm-site-recovery-deprecation.md) prima di procedere.
+> Si noti che il supporto di ASR per l'uso della configurazione SCVMM sarà presto deprecato e pertanto si consiglia di leggere i dettagli relativi alla [deprecazione](site-to-site-deprecation.md) prima di procedere.
 
 ## <a name="architectural-components"></a>Componenti dell'architettura
 

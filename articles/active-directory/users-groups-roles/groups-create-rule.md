@@ -1,25 +1,25 @@
 ---
-title: Creare un gruppo dinamico e controllare lo stato - Azure Active Directory | Microsoft Docs
+title: Creare un gruppo dinamico e controllare lo stato-Azure AD | Microsoft Docs
 description: Come creare una regola di appartenenza a un gruppo nella portale di Azure, controllare lo stato.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343acce228c38e38152fc2ea9d8fe0a59d8254d4
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: c487ed02abda652a384f2f295c3edac4b56fc654
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193936"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027236"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Creare un gruppo dinamico e controllare lo stato
 
@@ -35,7 +35,7 @@ Di seguito sono riportati alcuni esempi di regole avanzate o sintassi per cui è
 - Regola con più di cinque espressioni
 - Regola dei report diretti
 - Impostazione della [precedenza degli operatori](groups-dynamic-membership.md#operator-precedence)
-- [Regole con espressioni complesse](groups-dynamic-membership.md#rules-with-complex-expressions); Per esempio`(user.proxyAddresses -any (_ -contains "contoso"))`
+- [Regole con espressioni complesse](groups-dynamic-membership.md#rules-with-complex-expressions); ad esempio `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > Il generatore regole potrebbe non essere in grado di visualizzare alcune regole costruite nella casella di testo. Potrebbe essere visualizzato un messaggio quando il generatore regole non è in grado di visualizzare la regola. Il generatore regole non modifica in alcun modo la sintassi, la convalida o l'elaborazione delle regole di gruppo dinamiche supportate.
@@ -76,17 +76,17 @@ Quando viene creato un nuovo gruppo di Office 365, viene inviata una notifica di
 
 I seguenti messaggi di stato possono essere visualizzati per lo stato di **Elaborazione appartenenza**:
 
-- **Valutazione**:  la modifica dei gruppi è stata ricevuta e gli aggiornamenti sono in fase di valutazione.
+- **Valutazione**: la modifica dei gruppi è stata ricevuta e gli aggiornamenti sono in fase di valutazione.
 - **Elaborazione**: gli aggiornamenti sono in fase di elaborazione.
-- **Aggiornamento completato**: l'elaborazione è stata completata e tutti gli aggiornamenti sono stati apportati.
-- **Errore di elaborazione**:  Non è stato possibile completare l'elaborazione a causa di un errore durante la valutazione della regola di appartenenza.
-- **Aggiornamento sospeso**: gli aggiornamenti della regola di appartenenza dinamica sono stati sospesi dall'amministratore. MembershipRuleProcessingState è impostato su "Paused".
+- **Aggiornamento completato**: l’elaborazione è stata completata e tutti gli aggiornamenti sono stati apportati.
+- **Errore di elaborazione**: non è stato possibile completare l'elaborazione a causa di un errore durante la valutazione della regola di appartenenza.
+- **Aggiornamento sospeso**: regola di appartenenza dinamica, gli aggiornamenti sono stati sospesi dall'amministratore. MembershipRuleProcessingState è impostato su "Paused".
 
 I seguenti messaggi di stato possono essere visualizzati per lo stato dell'**Ultimo aggiornamento dell'appartenenza**:
 
 - &lt;**Data e ora**&gt;: ora dell'ultimo aggiornamento dell'appartenenza.
 - **In corso**: aggiornamenti in corso.
-- **Sconosciuto**: Non è possibile recuperare l'ora dell'ultimo aggiornamento. Il gruppo potrebbe essere nuovo.
+- **Sconosciuto**: non è possibile recuperare l'ora dell'ultimo aggiornamento. Il gruppo potrebbe essere nuovo.
 
 Se si verifica un errore durante l'elaborazione della regola di appartenenza per un gruppo specifico, un avviso viene visualizzato nella parte superiore della **Pagina di panoramica** per il gruppo. Se non è possibile elaborare aggiornamenti in sospeso per l'appartenenza dinamica per tutti i gruppi all'interno del tenant per oltre 24 ore, viene visualizzato un avviso nella parte superiore di **Tutti i gruppi** .
 

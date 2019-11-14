@@ -1,5 +1,5 @@
 ---
-title: Console seriale di Azure per le chiamate SysRq e NMI | Microsoft Docs
+title: Console seriale di Azure per le chiamate a SysRq e NMI
 description: Uso della console seriale per chiamate SysRq e NMI nelle macchine virtuali di Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 81fb9f99f4f7e4f77b39855445639369f65f0966
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5eba50e7cfc00c081622972ca09f305b34c19c47
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091308"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034988"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Console seriale per le chiamate SysRq e NMI
 
@@ -62,7 +62,7 @@ Dalla Guida dell'amministratore SysRq precedente:
 |``h``  |   Verrà visualizzata la Guida (anche qualsiasi altra chiave rispetto a quelle elencate di seguito visualizza la Guida, ma ``h`` è facile da ricordare :-)
 |``i``  |    Inviare un SIGKILL a tutti i processi, ad eccezione di init.
 |``j``  |    "Semplicemente sbloccalo" in modo forzato - file system bloccato dall’ioctl FIFREEZE.
-|``k``  |    Chiave di accesso sicuro (SAK) termina tutti i programmi nella console virtuale corrente. NOTA:  vedere i commenti importanti nella sezione SAK.
+|``k``  |    Chiave di accesso sicuro (SAK) termina tutti i programmi nella console virtuale corrente. Nota: vedere i commenti importanti nella sezione SAK.
 |``l``  |    Mostra una traccia dello stack per tutte le CPU attive.
 |``m``  |    Viene eseguito il dump delle informazioni sulla memoria corrente per la console.
 |``n``  |    Consente di eseguire attività RT interessanti
@@ -110,7 +110,7 @@ Per i sistemi Linux che supportano sysctl per la configurazione dei parametri de
 1. Riavviare o aggiornare sysctl eseguendo <br>
     `sysctl -p`
 
-Per altre informazioni sulle configurazioni di kernel di Linux, inclusi `unknown_nmi_panic`, `panic_on_io_nmi` e `panic_on_unrecovered_nmi`, consultare: [Documentation for /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt) (Documentazione per /proc/sys/kernel/*). Per la documentazione specifica per la distribuzione in NMI e per i passaggi per configurare Linux per creare un dump di arresto anomalo del sistema quando riceve un NMI, vedere i collegamenti seguenti:
+Per altre informazioni sulle configurazioni di kernel di Linux, inclusi `unknown_nmi_panic`, `panic_on_io_nmi`, e `panic_on_unrecovered_nmi`, vedere: [documentazione per /proc/sys/kernel / *](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Per la documentazione specifica per la distribuzione in NMI e per i passaggi per configurare Linux per creare un dump di arresto anomalo del sistema quando riceve un NMI, vedere i collegamenti seguenti:
  
 ### <a name="ubuntu"></a>Ubuntu 
  - [Dump di arresto anomalo del kernel](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)

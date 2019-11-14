@@ -1,10 +1,11 @@
 ---
-title: Gestire gli account amministratore di accesso di emergenza-Azure Active Directory | Microsoft Docs
+title: Gestire gli account amministrativi di accesso di emergenza-Azure AD | Microsoft Docs
 description: Questo articolo descrive come usare gli account di accesso di emergenza per impedire che vengano inavvertitamente bloccati dall'organizzazione Azure Active Directory (Azure AD).
 services: active-directory
 author: markwahl-msft
+manager: daveba
 ms.author: curtand
-ms.date: 09/09/2019
+ms.date: 11/08/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -12,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04016df86a9bed06f2cbb79d459b10486a9b7d67
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 80ab7e0603f63fb395832b0da887916dc032c3bf
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772393"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028137"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gestire gli account di accesso di emergenza in Azure AD
 
@@ -51,7 +52,7 @@ Durante la configurazione di questi account, devono essere soddisfatti i requisi
 
 Per ridurre il rischio di attacchi derivanti da una password compromessa, in Azure AD è consigliabile richiedere l'autenticazione a più fattori per tutti gli utenti singoli. Questo gruppo include gli amministratori e tutti gli altri utenti (ad esempio dirigenti del reparto finanziario) per cui un account compromesso avrebbe un impatto significativo.
 
-Tuttavia, almeno uno degli account di accesso di emergenza deve avere un meccanismo di autenticazione a più fattori diverso rispetto agli altri account non di emergenza. Questo include le soluzioni di autenticazione a più fattori di terze parti. Se si dispone di un criterio di accesso condizionale per richiedere [l'autenticazione a più fattori per ogni amministratore](../authentication/howto-mfa-userstates.md) per Azure ad e altre app connesse software as a Service (SaaS), è consigliabile escludere gli account di accesso di emergenza da questo requisito e configurare un meccanismo diverso. Inoltre, assicurarsi che gli account non abbiano criteri di autenticazione a più fattori per utente.
+Tuttavia, almeno uno degli account di accesso di emergenza deve avere un meccanismo di autenticazione a più fattori diverso rispetto agli altri account non di emergenza. Questo include le soluzioni di autenticazione a più fattori di terze parti. Se si dispone di un criterio di accesso condizionale per richiedere [l'autenticazione a più fattori per ogni amministratore](../authentication/howto-mfa-userstates.md) per Azure ad e altre app connesse software as a Service (SaaS), è consigliabile escludere gli account di accesso di emergenza da questo requisito e configurare invece un meccanismo diverso. Inoltre, assicurarsi che gli account non abbiano criteri di autenticazione a più fattori per utente.
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Escludere almeno un account dai criteri di accesso condizionale
 
@@ -71,7 +72,7 @@ Se si usano password, assicurarsi che gli account abbiano password complesse sen
 
 Le organizzazioni devono monitorare l'attività di accesso e log di controllo dagli account di emergenza e attivare le notifiche ad altri amministratori. Quando si monitora l'attività sugli account break Glass, è possibile verificare che questi account vengano utilizzati solo per i test o per le emergenze effettive. È possibile usare Log Analytics di Azure per monitorare i log di accesso e attivare gli avvisi di posta elettronica e SMS agli amministratori ogni volta che gli account break Glass accedono.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 1. [Inviare i log di accesso Azure ad](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) a monitoraggio di Azure.
 
@@ -101,14 +102,14 @@ Le organizzazioni devono monitorare l'attività di accesso e log di controllo da
     1. In **logica avvisi**immettere quanto segue:
 
         - In base a: Numero di risultati
-        - Operator: Maggiore di
+        - Operatore: maggiore di
         - Valore soglia: 0
 
     1. In **valutata in base a**, selezionare il **periodo (in minuti)** per il tempo di esecuzione della query e la **frequenza (in minuti)** per la frequenza con cui si desidera eseguire la query. La frequenza deve essere minore o uguale al punto.
 
         ![logica di avviso](./media/directory-emergency-access/alert-image2.png)
 
-    1. Selezionare **Operazione completata**. È ora possibile visualizzare il costo mensile stimato di questo avviso.
+    1. Selezionare **Done**(Fine). È ora possibile visualizzare il costo mensile stimato di questo avviso.
 1. Consente di selezionare un gruppo di utenti di azione a cui inviare una notifica tramite l'avviso. Se si vuole crearne uno, vedere [creare un gruppo di azione](#create-an-action-group).
 1. Per personalizzare la notifica di posta elettronica inviata ai membri del gruppo di azione, selezionare azioni in **Personalizza azioni**.
 1. In **Dettagli avviso**specificare il nome della regola di avviso e aggiungere una descrizione facoltativa.

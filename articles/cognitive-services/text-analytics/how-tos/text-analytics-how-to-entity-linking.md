@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 11/12/2019
 ms.author: aahi
-ms.openlocfilehash: b139f473bb20dbecde75c3b08dd92371849f096e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 5933c7ec56ded971e4daf96ea6d4302c04921f2f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835657"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031438"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 
@@ -33,7 +33,7 @@ Il riconoscimento delle entità denominate (NER) è la possibilità di identific
 
 ## <a name="named-entity-recognition-v3-public-preview"></a>Anteprima pubblica di riconoscimento entità denominata V3
 
-La [versione successiva di riconoscimento entità denominata](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c7/console) è ora disponibile per l'anteprima pubblica. Fornisce aggiornamenti per il collegamento di entità e il riconoscimento di entità denominate. 
+La [versione successiva di riconoscimento entità denominata]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) è ora disponibile per l'anteprima pubblica. Fornisce aggiornamenti per il collegamento di entità e il riconoscimento di entità denominate. 
 
 :::row:::
     :::column span="":::
@@ -75,7 +75,7 @@ La [versione successiva di riconoscimento entità denominata](https://cognitiveu
 
 Il riconoscimento delle entità denominate V3 fornisce il rilevamento espanso tra più tipi. Attualmente, NER V3 è in grado di riconoscere le categorie di entità seguenti. Per un elenco dettagliato delle entità e dei linguaggi supportati, vedere l'articolo [tipi di entità denominati](../named-entity-types.md) .
 
-* Generale
+* General
 * Informazioni personali 
 
 ### <a name="request-endpoints"></a>Endpoint di richiesta
@@ -99,12 +99,12 @@ Collegamento di entità
 > [!NOTE]
 > Le entità seguenti sono supportate da NER (Named Entity Recognition) versione 2. [Ner V3](#named-entity-recognition-v3-public-preview) è in versione di anteprima pubblica e espande in modo sostanziale il numero e la profondità delle entità riconosciute nel testo.   
 
-| Tipo  | SubType | Esempio |
+| digitare  | SubType | Esempio |
 |:-----------   |:------------- |:---------|
 | Person        | N/D\*         | "Jeff", "Bill Gates"     |
-| Percorso      | N/D\*         | "Redmond, Washington", "Parigi"  |
+| Location      | N/D\*         | "Redmond, Washington", "Parigi"  |
 | Organizzazione  | N/D\*         | "Microsoft"   |
-| Quantità      | Number        | "6", "sei"     |
+| Quantità      | NUMBER        | "6", "sei"     |
 | Quantità      | Percentuale    | "50%", "cinquanta percento"|
 | Quantità      | Ordinale       | "2°", "secondo"     |
 | Quantità      | Age           | "90 giorni", "30 anni"    |
@@ -112,7 +112,7 @@ Collegamento di entità
 | Quantità      | Dimensione     | "10 miglia", "40 cm"     |
 | Quantità      | Temperatura   | "32 gradi"    |
 | DateTime      | N/D\*         | "4 febbraio 2012 18:30"      |
-| DateTime      | Data          | "2 maggio 2017", "02/05/2017"   |
+| DateTime      | Date          | "2 maggio 2017", "02/05/2017"   |
 | DateTime      | Time          | "8", "8:00"  |
 | DateTime      | DateRange     | "Dal 2 maggio al 5 maggio"    |
 | DateTime      | TimeRange     | "dalle 18 alle 19"     |
@@ -152,7 +152,7 @@ Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per docume
     }
 ```
 
-## <a name="step-1-structure-the-request"></a>Passaggio 1: Struttura della richiesta
+## <a name="step-1-structure-the-request"></a>Passaggio 1: Strutturare la richiesta
 
 I dettagli sulla definizione della richiesta sono reperibili in [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Come chiamare l'API Analisi del testo). Per comodità si ridefiniscono i punti seguenti:
 
@@ -337,9 +337,9 @@ Un esempio dell'output del collegamento delle entità è il seguente:
     }
 ```
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>summary
 
-In questo articolo si sono appresi i concetti e il flusso di lavoro per il collegamento delle entità usando Analisi del testo nei Servizi cognitivi. In breve:
+In questo articolo si sono appresi i concetti e il flusso di lavoro per il collegamento delle entità usando Analisi del testo nei Servizi cognitivi. In sintesi:
 
 + L'[API entità](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) è disponibile per le lingue selezionate.
 + I documenti JSON nel corpo della richiesta includono un ID, il testo e il codice della lingua.
