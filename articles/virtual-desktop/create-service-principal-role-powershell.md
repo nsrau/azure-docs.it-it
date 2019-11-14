@@ -1,5 +1,5 @@
 ---
-title: Creare entità servizio e assegnazioni di ruolo di Desktop virtuale Windows usando PowerShell - Azure
+title: Assegnazione di ruolo dell'entità servizio di Desktop virtuale Windows - Azure
 description: Come creare entità servizio e assegnare ruoli usando PowerShell in Desktop virtuale Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: 87057d29d9d95ac0ebca298e40ca0d8c2aa9b0b1
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 1141731697c9f649a4a8d4052cd550605049b52e
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679626"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606944"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Esercitazione: Creare entità servizio e assegnazioni di ruolo con PowerShell
 

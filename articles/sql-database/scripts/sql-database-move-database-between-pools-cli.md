@@ -1,5 +1,5 @@
 ---
-title: Script di esempio dell'interfaccia della riga di comando di Azure per lo spostamento di un database SQL di Azure in un pool elastico SQL | Microsoft Docs
+title: "Esempio dell'interfaccia della riga di comando: Spostare un database SQL di Azure in un pool elastico SQL"
 description: Script di esempio dell'interfaccia della riga di comando di Azure per lo spostamento di un database SQL in un pool elastico SQL
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 166643231e9f98cc3b8205bf0e9a8bb949ffbc3b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d974685040d2a5759ca7719e82be02a7ec8950c5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569885"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691581"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Usare l'interfaccia della riga di comando per spostare un database SQL di Azure in un pool elastico SQL
 

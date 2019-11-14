@@ -1,6 +1,6 @@
 ---
 title: Esempi PowerShell di Backup di Azure
-description: Esempi PowerShell di Backup di Azure
+description: In questo articolo sono inclusi i collegamenti a script di esempio di PowerShell che usano Backup di Azure per eseguire il backup e ripristinare i dati.
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: af21ee3aa807228c5a6f0e70e22442bc15b59ddf
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 4283871d17f01a3b70884e898397794ae7e4eb84
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639447"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747109"
 ---
 # <a name="azure-backup-powershell-samples"></a>Esempi PowerShell di Backup di Azure
 
@@ -24,4 +24,3 @@ Nella tabella seguente è disponibile il collegamento a esempi di script PowerSh
 |**Eseguire il backup di macchine virtuali**||
 | [Back up an encrypted virtual machine to Azure](./scripts/backup-powershell-sample-backup-encrypted-vm.md) (Eseguire il backup di una macchina virtuale in Azure | Eseguire il backup di tutti i dati in una macchina virtuale crittografata.|
 | | |
-

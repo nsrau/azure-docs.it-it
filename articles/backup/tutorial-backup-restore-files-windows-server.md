@@ -1,6 +1,6 @@
 ---
 title: Recuperare i file da Azure in un'istanza di Windows Server
-description: Questa esercitazione illustra nei dettagli come recuperare gli elementi da Azure in Windows Server.
+description: Questa esercitazione illustra come usare Agente servizi di ripristino di Microsoft Azure per recuperare elementi da Azure a un'istanza di Windows Server.
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -8,27 +8,28 @@ ms.topic: tutorial
 ms.date: 02/14/2018
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: e03c085a9671ba84d3af63da658f749f09ebcdef
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: a0945c70b271d5213e8eb5b6adbd768ec390f40b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210077"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73746925"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Recuperare i file da Azure in un'istanza di Windows Server
 
 Backup di Azure consente il ripristino dei singoli elementi dai backup di Windows Server. Il recupero dei singoli file è utile se è necessario ripristinare rapidamente i file eliminati per errore. Questa esercitazione illustra come usare l'agente di Servizi di ripristino di Microsoft Azure (MARS) per recuperare gli elementi dai backup già eseguiti in Azure. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Avviare il ripristino di singoli elementi 
-> * selezione di un punto di ripristino 
+>
+> * Avviare il ripristino di singoli elementi
+> * selezione di un punto di ripristino
 > * Ripristinare gli elementi da un punto di ripristino
 
 Questa esercitazione presuppone che sia già stata eseguita la procedura per [eseguire il backup di un'istanza di Windows Server in Azure](backup-configure-vault.md) e sia abbia a disposizione almeno un backup dei file di Windows Server in Azure.
 
 ## <a name="initiate-recovery-of-individual-items"></a>Avviare il ripristino di singoli elementi
 
-Insieme all'agente di Servizi di ripristino di Microsoft Azure (MARS) viene installata un'utile procedura guidata dell'interfaccia utente denominata Backup di Microsoft Azure. La procedura guidata di Backup di Microsoft Azure, insieme all'agente di Servizi di ripristino di Microsoft Azure (MARS), recupera i dati di backup dai punti di ripristino archiviati in Azure. Usare la procedura guidata di Backup di Microsoft Azure per identificare i file o le cartelle da ripristinare in Windows Server. 
+Insieme all'agente di Servizi di ripristino di Microsoft Azure (MARS) viene installata un'utile procedura guidata dell'interfaccia utente denominata Backup di Microsoft Azure. La procedura guidata di Backup di Microsoft Azure, insieme all'agente di Servizi di ripristino di Microsoft Azure (MARS), recupera i dati di backup dai punti di ripristino archiviati in Azure. Usare la procedura guidata di Backup di Microsoft Azure per identificare i file o le cartelle da ripristinare in Windows Server.
 
 1. Aprire lo snap-in di **Backup di Microsoft Azure** . È possibile trovarlo se si cerca **Backup di Microsoft Azure**nel computer.
 
@@ -41,16 +42,16 @@ Insieme all'agente di Servizi di ripristino di Microsoft Azure (MARS) viene inst
 3. Nella pagina **Attività iniziale** selezionare **Questo server (nome server)** e fare clic su **Avanti**.
 
 4. Nella pagina **Seleziona modalità di ripristino** selezionare **Singoli file e cartelle** e fare clic su **Avanti** per iniziare il processo di selezione del punto di ripristino.
- 
+
 5. Nella pagina **Seleziona volume e data** selezionare il volume che contiene i file o le cartelle da ripristinare e fare clic su **Monta**. Selezionare una data e un'ora dal menu a discesa che corrisponde a un punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino nel giorno specificato.
 
     ![Backup in sospeso](./media/tutorial-backup-restore-files-windows-server/mars-select-date.png)
- 
+
     Quando si seleziona **Monta**, Backup di Azure rende disponibile il punto di ripristino come disco. Selezionare e recuperare i file dal disco.
 
 ## <a name="restore-items-from-a-recovery-point"></a>Ripristinare gli elementi da un punto di ripristino
 
-1. Dopo aver montato il volume di ripristino, fare clic su **Sfoglia** per aprire Esplora risorse e individuare i file e le cartelle da recuperare. 
+1. Dopo aver montato il volume di ripristino, fare clic su **Sfoglia** per aprire Esplora risorse e individuare i file e le cartelle da recuperare.
 
     ![Backup in sospeso](./media/tutorial-backup-restore-files-windows-server/mars-browse-recover.png)
 
@@ -60,11 +61,11 @@ Insieme all'agente di Servizi di ripristino di Microsoft Azure (MARS) viene inst
 
     ![Backup in sospeso](./media/tutorial-backup-restore-files-windows-server/mars-final.png)
 
-3. Dopo aver terminato il ripristino di file e/o cartelle, nella pagina **Browse and Recovery File** (Cerca e ripristina file) della procedura guidata di **ripristino dati** fare clic su **Smonta**. 
+3. Dopo aver terminato il ripristino di file e/o cartelle, nella pagina **Browse and Recovery File** (Cerca e ripristina file) della procedura guidata di **ripristino dati** fare clic su **Smonta**.
 
     ![Backup in sospeso](./media/tutorial-backup-restore-files-windows-server/unmount-and-confirm.png)
 
-4.  Fare clic su **Sì** per confermare che si vuole smontare il volume.
+4. Fare clic su **Sì** per confermare che si vuole smontare il volume.
 
     Dopo aver smontato lo snapshot, viene visualizzato il messaggio **Processo completato** nel riquadro **Processi** nella console dell'agente.
 

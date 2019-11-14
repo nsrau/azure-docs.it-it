@@ -1,6 +1,6 @@
 ---
 title: Eseguire un backup delle macchine virtuali di Azure su larga scala
-description: Eseguire il backup contemporaneo di più macchine virtuali di Azure
+description: Questa esercitazione illustra come creare un insieme di credenziali di Servizi di ripristino, definire un criterio di backup e contemporaneamente eseguire il backup di più macchine virtuali.
 keywords: backup di macchine virtuali; back up di macchine virtuali; back up di VM; backup di VM; backup di macchine virtuali di Azure; backup e ripristino di emergenza
 author: dcurwin
 manager: carmonm
@@ -9,26 +9,27 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: fa9f13bf4f4e06973f7b9125897366ad53d06857
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 99a842704325e38cbf1ab9203a56a25bc2273827
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688441"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747025"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Usare il portale di Azure per eseguire il backup di più macchine virtuali
 
-Quando si esegue il backup di dati in Azure, i dati vengono archiviati in una risorsa di Azure denominata un insieme di credenziali di Servizi di ripristino. La risorsa dell'insieme di credenziali di Servizi di ripristino è disponibile dal menu Impostazioni della maggior parte dei servizi di Azure. Il vantaggio di disporre di un insieme di credenziali di Servizi di ripristino integrato nel menu Impostazioni della maggior parte dei servizi di Azure rende molto semplice eseguire il backup dei dati. Tuttavia, lavorare con ogni singola macchina virtuale o database dell'azienda è noioso. Cosa accade se si desidera eseguire il backup dei dati per tutte le macchine virtuali di un reparto o di un'unica posizione? Il backup di più macchine virtuali può essere eseguito facilmente creando un criterio di backup e applicando tale criterio alle macchine virtuali desiderate. In questa esercitazione viene illustrato come:
+Quando si esegue il backup di dati in Azure, i dati vengono archiviati in una risorsa di Azure denominata un insieme di credenziali di Servizi di ripristino. La risorsa dell'insieme di credenziali di Servizi di ripristino è disponibile dal menu Impostazioni della maggior parte dei servizi di Azure. Il vantaggio di disporre di un insieme di credenziali di Servizi di ripristino integrato nel menu Impostazioni della maggior parte dei servizi di Azure semplifica notevolmente il backup dei dati. Tuttavia, lavorare con ogni singola macchina virtuale o database dell'azienda è noioso. Cosa accade se si desidera eseguire il backup dei dati per tutte le macchine virtuali di un reparto o di un'unica posizione? Il backup di più macchine virtuali può essere eseguito facilmente creando un criterio di backup e applicando tale criterio alle macchine virtuali desiderate. In questa esercitazione viene illustrato come:
 
 > [!div class="checklist"]
+>
 > * Creare un insieme di credenziali di Servizi di ripristino
 > * Definire un criterio di backup
 > * Applicare un criterio di backup per proteggere più macchine virtuali
 > * Attivare un processo di backup su richiesta per le macchine virtuali protette
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
+## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-Accedere al [Portale di Azure](https://portal.azure.com/).
+Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -44,11 +45,11 @@ L'insieme di credenziali dei Servizi di ripristino contiene i dati di backup e i
 
 3. Nel menu dell'insieme di credenziali dei Servizi di ripristino,
 
-    - digitare *myRecoveryServicesVault* in **Nome**.
-    - L'ID di sottoscrizione corrente viene visualizzato in **Sottoscrizione**. Se si dispone di sottoscrizioni aggiuntive, è possibile scegliere un'altra sottoscrizione per il nuovo insieme di credenziali.
-    - Per **Gruppo di risorse**, selezionare **Usa esistente** e scegliere *myResourceGroup*. Se *myResourceGroup* non esiste, selezionare **Crea nuovo** e digitare *myResourceGroup*.
-    - Dal menu a discesa **Percorso**, scegliere *Europa occidentale*.
-    - Fare clic su **Crea** per creare l'insieme di credenziali di Servizi di ripristino.
+    * digitare *myRecoveryServicesVault* in **Nome**.
+    * L'ID di sottoscrizione corrente viene visualizzato in **Sottoscrizione**. Se si dispone di sottoscrizioni aggiuntive, è possibile scegliere un'altra sottoscrizione per il nuovo insieme di credenziali.
+    * Per **Gruppo di risorse**, selezionare **Usa esistente** e scegliere *myResourceGroup*. Se *myResourceGroup* non esiste, selezionare **Crea nuovo** e digitare *myResourceGroup*.
+    * Dal menu a discesa **Percorso**, scegliere *Europa occidentale*.
+    * Fare clic su **Crea** per creare l'insieme di credenziali di Servizi di ripristino.
 
 Un insieme di credenziali di Servizi di ripristino deve trovarsi nello stesso percorso delle macchine virtuali da proteggere. Se si hanno macchine virtuali in più aree, creare un insieme di credenziali di Servizi di ripristino in ogni area. Questa esercitazione consente di creare un insieme di credenziali di Servizi di ripristino in *Europa occidentale*, dove *myVM* (macchina virtuale creata con la Guida introduttiva) è stata creata.
 
@@ -58,7 +59,7 @@ Quando si crea un insieme di credenziali di Servizi di ripristino, per impostazi
 
 ## <a name="set-backup-policy-to-protect-vms"></a>Impostare dei criteri di backup per proteggere le macchine virtuali
 
-Dopo aver creato l'insieme di credenziali di Servizi di ripristino, il passaggio successivo consiste nel configurare l'insieme di credenziali per il tipo di dati e impostare i criteri di backup. I criteri di backup determinano la pianificazione relativa alla frequenza e al momento in cui acquisiti i punti di ripristino. I criteri includono anche il periodo di mantenimento dati per i punti di ripristino. Per questa esercitazione si supponga che l'azienda sia un complesso sportivo con un hotel, stadio, ristoranti e pertinenze e che si desideri proteggere i dati nelle macchine virtuali. La seguente procedura crea un criterio di backup per i dati finanziari.
+Dopo aver creato l'insieme di credenziali di Servizi di ripristino, il passaggio successivo consiste nel configurare l'insieme di credenziali per il tipo di dati e impostare i criteri di backup. I criteri di backup determinano la pianificazione relativa alla frequenza e al momento in cui acquisiti i punti di ripristino. I criteri includono anche il periodo di mantenimento dati per i punti di ripristino. Per questa esercitazione si supponga che l'azienda sia un complesso sportivo con un hotel, stadio, ristoranti e pertinenze e che si intenda proteggere i dati nelle macchine virtuali. La seguente procedura crea un criterio di backup per i dati finanziari.
 
 1. Nell'elenco degli insiemi di credenziali dei Servizi di ripristino, **myRecoveryServicesVault** per aprire il relativo dashboard.
 
@@ -77,18 +78,18 @@ Dopo aver creato l'insieme di credenziali di Servizi di ripristino, il passaggio
     ![Selezionare il carico di lavoro](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
 5. Nel menu **Criteri di Backup**, per **Nome criterio** digitare *Finance*. Immettere le seguenti modifiche per il criterio di Backup:
-   - Per **Frequenza di backup**, impostare il fuso orario su *Fuso cen.* Poiché il complesso sportivo si trova in Texas, il proprietario desidera che il fuso orario sia quello locale. Lasciare la frequenza di backup impostata su Ogni giorno alle 03:30.
-   - Per **Conservazione del punto di backup giornaliero**, impostare un periodo di 90 giorni.
-   - Per **Conservazione del punto di backup settimanale**, usare il punto di recupero *Lunedì* e mantenerlo per 52 settimane.
-   - Per **Conservazione del punto di backup mensile**, usare il punto di recupero dalla prima domenica del mese e mantenerlo per 36 mesi.
-   - Deselezionare l'opzione **Conservazione del punto di backup annuale**. Il responsabile del criterio Finance non desidera conservare i dati oltre 36 mesi.
-   - Fare clic su **OK** per creare il criterio di backup.
+   * Per **Frequenza di backup**, impostare il fuso orario su *Fuso cen.* Poiché il complesso sportivo si trova in Texas, il proprietario desidera che il fuso orario sia quello locale. Lasciare la frequenza di backup impostata su Ogni giorno alle 03:30.
+   * Per **Conservazione del punto di backup giornaliero**, impostare un periodo di 90 giorni.
+   * Per **Conservazione del punto di backup settimanale**, usare il punto di recupero *Lunedì* e mantenerlo per 52 settimane.
+   * Per **Conservazione del punto di backup mensile**, usare il punto di recupero dalla prima domenica del mese e mantenerlo per 36 mesi.
+   * Deselezionare l'opzione **Conservazione del punto di backup annuale**. Il responsabile del criterio Finance non desidera conservare i dati oltre 36 mesi.
+   * Fare clic su **OK** per creare il criterio di backup.
 
      ![Selezionare il carico di lavoro](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
      Dopo avere creato il criterio di backup, associarlo alle macchine virtuali.
 
-6. Nella finestra di dialogo **Seleziona macchine virtuali**, selezionare *myVM* e fare clic su **OK** per distribuire il criterio di backup alle macchine virtuali.
+6. Nella finestra di dialogo **Seleziona macchine virtuali** selezionare *myVM* e fare clic su **OK** per distribuire il criterio di backup alle macchine virtuali.
 
     Verranno visualizzate tutte le macchine virtuali che si trovano sullo stesso percorso e non sono già associate a un criterio di backup. *myVMH1* e *myVMR1* vengono selezionati per essere associati al criterio *Finance*.
 
@@ -142,7 +143,6 @@ Se si prevede di continuare a usare le esercitazioni successive, non eliminare l
 
     ![Icona Impostazioni](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
-
 2. Nel menu **Elementi di backup**, fare clic su **Macchina virtuale di Azure** per aprire l'elenco di macchine virtuali associate all'insieme di credenziali.
 
     ![Icona Impostazioni](./media/tutorial-backup-vm-at-scale/three-virtual-machines.png)
@@ -153,7 +153,7 @@ Se si prevede di continuare a usare le esercitazioni successive, non eliminare l
 
     ![Icona Impostazioni](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
-4. Nel menu di scelta rapida selezionare **Interrompi backup** per aprire il menu Interrompi Backup.
+4. Nel menu di scelta rapida selezionare **Interrompi backup** per aprire il menu corrispondente.
 
     ![Icona Impostazioni](./media/tutorial-backup-vm-at-scale/context-menu-for-delete.png)
 
@@ -161,7 +161,7 @@ Se si prevede di continuare a usare le esercitazioni successive, non eliminare l
 
 6. Nella finestra di dialogo **Type the name of the Backup item** (Digita nome dell'elemento di backup), digitare *myVM*.
 
-7. Una volta verificato l'elemento di backup (viene visualizzato un segno di spunta), il pulsante **Interrompi backup** è abilitato. Fare clic su **Interrompi Backup** per arrestare il criterio ed eliminare i punti di ripristino.
+7. Dopo la verifica dell'elemento di backup (viene visualizzato un segno di spunta), il pulsante **Interrompi backup** è abilitato. Fare clic su **Interrompi Backup** per arrestare il criterio ed eliminare i punti di ripristino.
 
     ![Fare clic su Interrompi backup per eliminare l'insieme di credenziali](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
 
@@ -171,12 +171,12 @@ Se si prevede di continuare a usare le esercitazioni successive, non eliminare l
 
     Una volta eliminato l'insieme di credenziali, tornare all'elenco degli insiemi di credenziali di Servizi di ripristino.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione è stato usato il portale di Azure per eseguire le operazioni seguenti:
 
 > [!div class="checklist"]
+>
 > * Creare un insieme di credenziali di Servizi di ripristino
 > * Impostare l'insieme di credenziali per proteggere le macchine virtuali
 > * Creare un criterio di backup e conservazione personalizzato

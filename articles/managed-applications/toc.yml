@@ -75,6 +75,8 @@
           href: key-vault-access.md
         - name: Distribuire con Identità gestita
           href: publish-managed-identity.md
+        - name: Distribuire con le notifiche
+          href: publish-notifications.md
     - name: Consumer
       items:
         - name: Monitorare un'applicazione gestita

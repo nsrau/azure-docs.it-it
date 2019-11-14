@@ -1,6 +1,6 @@
 ---
-title: 'Esempio di PowerShell: Aggiungere un singolo database del database SQL di Azure a un gruppo di failover'
-description: Script di esempio di Azure PowerShell per creare un database singolo di database SQL di Azure, aggiungerlo a un gruppo di failover e testare il failover.
+title: 'Esempio di PowerShell: Aggiungere un pool elastico del database SQL di Azure a un gruppo di failover'
+description: Script di esempio di Azure PowerShell per creare un pool elastico del database SQL di Azure, aggiungerlo a un gruppo di failover e testare il failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,16 +11,16 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 7315f747fb7319521b25e2eb6e7af72449867888
+ms.openlocfilehash: a8c9b7dbddba59408808e1c33de045ad0b7ffd7a
 ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691779"
+ms.locfileid: "73691798"
 ---
-# <a name="use-powershell-to-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Usare PowerShell per aggiungere un database singolo di database SQL di Azure a un gruppo di failover 
+# <a name="use-powershell-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Usare PowerShell per aggiungere un pool elastico del database SQL di Azure a un gruppo di failover 
 
-Questo esempio di script di PowerShell crea un database singolo, un gruppo di failover, aggiunge il database al gruppo di failover e testa il failover. 
+Questo esempio di script di PowerShell crea un database singolo, lo aggiunge a un pool elastico, crea un gruppo di failover e testa il failover. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -30,7 +30,7 @@ Se si sceglie di installare e usare PowerShell in locale, per questa esercitazio
 
 ## <a name="sample-scripts"></a>Script di esempio
 
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add single database to a failover group")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic pool to a failover group")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
@@ -50,6 +50,8 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Crea un server di database SQL che ospita database singoli e pool elastici. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Crea una regola del firewall per un server logico. | 
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Crea un nuovo database singolo di Database SQL di Azure. | 
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Crea un pool di database elastico per un'istanza del database SQL di Azure.| 
+| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Imposta le proprietà per un database oppure sposta un database esistente in un pool elastico. | 
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Crea un nuovo gruppo di failover. |
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Ottiene uno o più database SQL. |
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Aggiunge uno o più database SQL di Azure a un gruppo di failover. |

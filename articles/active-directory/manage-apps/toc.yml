@@ -24,6 +24,8 @@
 - name: Concetti
   expanded: true
   items:
+    - name: Procedure consigliate per la gestione delle app
+      href: application-management-fundamentals.md
     - name: App cloud e Single Sign-On
       items:
         - name: Pianificazione dell'integrazione di app cloud

@@ -1,5 +1,5 @@
 ---
-title: Creare la prima data factory di Azure con il Portale di Azure | Microsoft Docs
+title: Creare la prima data factory di Azure (portale di Azure)
 description: In questa esercitazione viene creata una pipeline di esempio di Azure Data Factory usando l'editor di Data Factory nel portale di Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: b60f6adf6c13bc86fb4c4604dda7d4b92963b7ca
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 012b13c440b8d0873e387c7d185803dc07852bf7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140562"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683026"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Esercitazione: Creare la prima data factory con il portale di Azure
 > [!div class="op_single_selector"]
@@ -210,11 +210,11 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
 
    | Proprietà | Annidata in | DESCRIZIONE |
    |:--- |:--- |:--- |
-   | type | properties |La proprietà type è impostata su **AzureBlob** perché i dati risiedono nell'archivio BLOB. |
+   | Tipo | properties |La proprietà type è impostata su **AzureBlob** perché i dati risiedono nell'archivio BLOB. |
    | linkedServiceName | format |Fa riferimento all'oggetto AzureStorageLinkedService creato in precedenza. |
    | folderPath | typeProperties | Specifica il contenitore BLOB e la cartella che contiene i BLOB di input. | 
    | fileName | typeProperties |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In questo tutorial viene elaborato solo il file input.log. |
-   | type | format |I file di log sono in formato testo, quindi si usa **TextFormat**. |
+   | Tipo | format |I file di log sono in formato testo, quindi si usa **TextFormat**. |
    | columnDelimiter | format |Le colonne nei file di log sono delimitate dalla virgola (`,`). |
    | frequency/interval | availability |La frequenza è impostata su **Month** e l'intervallo è **1**; ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
    | external | properties | Questa proprietà è impostata su **true** se i dati di input non vengono generati dalla pipeline. In questa esercitazione, il file input.log non viene generato dalla pipeline, quindi la proprietà viene impostata su **true**. |

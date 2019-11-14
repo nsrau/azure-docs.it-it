@@ -1,5 +1,5 @@
 ---
-title: Creare la prima data factory (PowerShell) | Documentazione Microsoft
+title: Creare la prima data factory (PowerShell)
 description: In questa esercitazione viene creata una pipeline di esempio di Azure Data Factory usando Azure PowerShell.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 3e60e31f62d74a22a87c60f70e62bd5148906607
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 0209b004ba54417a26cd41716687d328ec1431cf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140408"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682991"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Esercitazione: Creare la prima data factory di Azure con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -214,10 +214,10 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
 
    | Proprietà | DESCRIZIONE |
    |:--- |:--- |
-   | type |La proprietà type è impostata su AzureBlob perché i dati si trovano nell'archiviazione BLOB di Azure. |
+   | Tipo |La proprietà type è impostata su AzureBlob perché i dati si trovano nell'archiviazione BLOB di Azure. |
    | linkedServiceName |Fa riferimento all'oggetto StorageLinkedService creato in precedenza. |
    | fileName |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In tal caso viene elaborato solo il file input.log. |
-   | type |I file di log sono in formato testo, quindi viene usato TextFormat. |
+   | Tipo |I file di log sono in formato testo, quindi viene usato TextFormat. |
    | columnDelimiter |Le colonne nei file di log sono delimitate da virgola (,). |
    | frequency/interval |La frequenza è impostata su Month e l'intervallo è 1, ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
    | external |Questa proprietà è impostata su true se i dati di input non vengono generati dal servizio Data factory. |
