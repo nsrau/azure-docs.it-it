@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Documentazione di Azure IoT Central (funzionalità di anteprima)
-summary: Azure IoT Central è una soluzione SaaS (Software as a Service) completamente gestita che semplifica la connessione, il monitoraggio e la gestione dei dispositivi IoT su vasta scala. Azure IoT Central semplifica la configurazione iniziale della soluzione IoT e riduce le attività di gestione, i costi operativi e l'overhead di un tipico progetto IoT. È possibile ottenere informazioni su come creare, personalizzare, gestire e usare un'applicazione Azure IoT Central con le guide introduttive e le esercitazioni.
+summary: Azure IoT Central è una piattaforma di applicazioni IoT che semplifica la creazione di soluzioni Internet. Azure IoT Central semplifica la configurazione iniziale della soluzione IoT e riduce le attività di gestione, i costi operativi e l'overhead di un tipico progetto IoT. È possibile ottenere informazioni su come creare, personalizzare, gestire e usare un'applicazione Azure IoT Central con le guide introduttive e le esercitazioni.
 metadata:
   title: Documentazione di Azure IoT Central
-  description: Azure IoT Central è una soluzione SaaS (Software as a Service) completamente gestita che semplifica la connessione, il monitoraggio e la gestione dei dispositivi IoT su vasta scala. Azure IoT Central semplifica la configurazione iniziale della soluzione IoT e riduce le attività di gestione, i costi operativi e l'overhead di un tipico progetto IoT. È possibile ottenere informazioni su come creare, personalizzare, gestire e usare un'applicazione Azure IoT Central con le guide introduttive e le esercitazioni.
+  description: Azure IoT Central è una piattaforma di applicazioni IoT che semplifica la creazione di soluzioni Internet. Azure IoT Central semplifica la configurazione iniziale della soluzione IoT e riduce le attività di gestione, i costi operativi e l'overhead di un tipico progetto IoT. È possibile ottenere informazioni su come creare, personalizzare, gestire e usare un'applicazione Azure IoT Central con le guide introduttive e le esercitazioni.
   services: iot-central
   ms.service: iot-central
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 90faa0b7422814011096a10164a6f2bdfceba4d5
-  ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+  ms.openlocfilehash: 97a378eaab323391ccfcc0b03f337f6693a2a761
+  ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/12/2019
-  ms.locfileid: "73929853"
+  ms.lasthandoff: 11/13/2019
+  ms.locfileid: "74048317"
 landingContent:
 - title: Informazioni su Azure IoT Central (funzionalità di anteprima)
   linkLists:

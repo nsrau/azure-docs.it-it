@@ -539,11 +539,11 @@
           items:
             - name: Microsoft.Azure.Storage.Common (versione 11.x)
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
-            - name: Azure.Storage.Common (versione 12.x - anteprima)
+            - name: Azure.Storage.Common (versione 12.x)
               href: 'https://www.nuget.org/packages/Azure.Storage.Common/'
             - name: Microsoft.Azure.Storage.Blob (versione 11.x)
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/'
-            - name: Azure.Storage.Blob (versione 12.x - anteprima)
+            - name: Azure.Storage.Blob (versione 12.x)
               href: 'https://www.nuget.org/packages/Azure.Storage.Blobs/'
             - name: Gestione configurazione di Azure
               href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
@@ -557,7 +557,7 @@
               items:
                 - name: Libreria client di Archiviazione di Azure
                   items:
-                    - name: Versione 12.x (anteprima)
+                    - name: Versione 12.x
                       href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage'
                     - name: Versione 11. x e versioni precedenti
                       href: 'https://github.com/Azure/azure-storage-net'
@@ -567,19 +567,19 @@
                   href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage'
             - name: Java
               items:
-                - name: Libreria del client di Archiviazione di Azure versione 12.x (anteprima)
+                - name: Libreria del client di Archiviazione di Azure versione 12.x
                   href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage'
                 - name: Libreria del client di Archiviazione di Azure versione 8.x e versioni precedenti
                   href: 'https://github.com/Azure/azure-storage-java'
             - name: Node.js
               items:
-                - name: Libreria del client di Archiviazione di Azure versione 12.x (anteprima)
+                - name: Libreria del client di Archiviazione di Azure versione 12.x
                   href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage'
                 - name: Libreria del client di Archiviazione di Azure versione 10.x
                   href: 'https://github.com/Azure/azure-storage-node'
             - name: Python
               items:
-                - name: Libreria del client di Archiviazione di Azure versione 12.x (anteprima)
+                - name: Libreria del client di Archiviazione di Azure versione 12.x
                   href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage'
                 - name: Libreria del client di Archiviazione di Azure versione 2.1
                   href: 'https://github.com/Azure/azure-storage-python'
@@ -754,7 +754,7 @@
             - name: Provider delle risorse di archiviazione
               href: /java/api/overview/azure/storage/management
         - name: JavaScript (versione 12.x)
-          href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+          href: /javascript/api/@azure/storage-blob/
         - name: Python (versione 12.x)
           href: /python/api/azure-storage-blob/
         - name: REST

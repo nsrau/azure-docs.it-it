@@ -138,6 +138,8 @@
         - name: Time-shifting e VOD in diretta
           displayName: 'archive, dvr'
           href: live-event-cloud-dvr.md
+        - name: Trascrizione in tempo reale
+          href: live-transcription.md
         - name: Confronto tra le funzionalità
           href: live-event-types-comparison.md
         - name: Stati e fatturazione
