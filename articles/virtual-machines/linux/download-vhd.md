@@ -1,5 +1,5 @@
 ---
-title: Scaricare un disco rigido virtuale Linux da Azure | Microsoft Docs
+title: Scaricare un disco rigido virtuale Linux da Azure
 description: Scaricare un disco rigido virtuale Linux usando l'interfaccia della riga di comando di Azure e il portale di Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: cynthn
-ms.openlocfilehash: ed79df03a42c1558b975cd1c21c79716d50d4616
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 257f3f723fc8a971b8253699f4beb002cf46ce52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083496"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036281"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Scaricare un disco rigido virtuale Linux da Azure
 
@@ -58,7 +58,7 @@ Per usare il disco rigido virtuale come disco in cui creare una nuova istanza di
 
 1.  Accedere al [portale di Azure](https://portal.azure.com/).
 2.  Nel menu a sinistra selezionare **Macchine virtuali**.
-3.  Selezionare la VM dall'elenco.
+3.  Selezionare la macchina virtuale dall'elenco.
 4.  Nella pagina della macchina virtuale selezionare **Arresta**.
 
     ![Arrestare la macchina virtuale](./media/download-vhd/export-stop.png)
@@ -71,13 +71,13 @@ Per scaricare il file VHD, è necessario generare un URL di [firma di accesso co
 2.  Selezionare il disco del sistema operativo per la macchina virtuale e quindi selezionare **esportazione disco**.
 3.  Selezionare **genera URL**.
 
-    ![Genera URL](./media/download-vhd/export-generate.png)
+    ![Generare l'URL](./media/download-vhd/export-generate.png)
 
 ## <a name="download-vhd"></a>Scaricare il disco rigido virtuale
 
 1.  In URL generato selezionare **scaricare il file VHD**.
 **
-    ![Scarica VHD](./media/download-vhd/export-download.png)
+    ![il download del VHD](./media/download-vhd/export-download.png)
 
 2.  Potrebbe essere necessario selezionare **Salva** nel browser per avviare il download. Il nome predefinito per il file VHD è *abcd*.
 

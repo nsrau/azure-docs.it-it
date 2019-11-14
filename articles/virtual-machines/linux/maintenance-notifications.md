@@ -1,5 +1,5 @@
 ---
-title: Gestire gli avvisi di manutenzione per macchine virtuali Linux in Azure | Microsoft Docs
+title: Gestione delle notifiche di manutenzione per le VM Linux in Azure
 description: Visualizzare gli avvisi relativi alla manutenzione per macchine virtuali Linux in esecuzione in Azure e avviare la manutenzione self-service.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: shants
-ms.openlocfilehash: 626af4a056274e11ae15670f2f2e2a979eb94fff
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cf4a909b4bb79886f85f1f6a5027bb9157912c0b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082858"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035882"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Gestire gli avvisi relativi alla manutenzione pianificata per le macchine virtuali Linux
 
@@ -83,7 +83,7 @@ az vm get-instance-view -g rgName -n vmName
 
 MaintenanceRedeployStatus restituisce i valori seguenti: 
 
-| Valore | Descrizione   |
+| Valore | DESCRIZIONE   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se in questo momento è possibile avviare la manutenzione per la macchina virtuale |
 | PreMaintenanceWindowStartTime         | Inizio della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della VM |
@@ -143,9 +143,9 @@ Per altre informazioni sulla disponibilità elevata, vedere [disponibilità per 
 
 **D: Come si ricevono le notifiche relative alla manutenzione pianificata?**
 
-**R:** un ciclo di manutenzione pianificata viene avviato impostando una programmazione su una o più aree di Azure. Una notifica di posta elettronica viene inviata poco dopo ai proprietari della sottoscrizione (un messaggio di posta elettronica per ogni sottoscrizione). Si possono configurare altri canali e destinatari per questa notifica usando gli avvisi del log attività. Se si distribuisce una macchina virtuale in un'area in cui la manutenzione pianificata è già programmata, non si riceverà la notifica, ma sarà necessario controllare lo stato della manutenzione della VM.
+**R:** Un ciclo di manutenzione pianificata viene avviato impostando una programmazione su una o più aree di Azure. Una notifica di posta elettronica viene inviata poco dopo ai proprietari della sottoscrizione (un messaggio di posta elettronica per ogni sottoscrizione). Si possono configurare altri canali e destinatari per questa notifica usando gli avvisi del log attività. Se si distribuisce una macchina virtuale in un'area in cui la manutenzione pianificata è già programmata, non si riceverà la notifica, ma sarà necessario controllare lo stato della manutenzione della VM.
 
-**D: Non sono presenti indicazioni relative alla manutenzione pianificata nel portale, in PowerShell o nell'interfaccia della riga di comando. Qual è il problema?**
+**D: non viene visualizzata alcuna indicazione di manutenzione pianificata nel portale, in PowerShell o nell'interfaccia della riga di comando. Cosa c'è che non va?**
 
 **R:** Le informazioni relative alla manutenzione pianificata sono disponibili durante un ciclo di manutenzione pianificata solo per le macchine virtuali che ne saranno interessate. In altre parole, se non sono visualizzati dati, il ciclo di manutenzione potrebbe essere già stato completato (o non avviato) o la macchina virtuale potrebbe essere già ospitata in un server aggiornato.
 
@@ -155,26 +155,26 @@ Per altre informazioni sulla disponibilità elevata, vedere [disponibilità per 
 
 **D: Quanto tempo sarà necessario per riavviare la macchina virtuale?**
 
-**R:**  A seconda delle dimensioni della macchina virtuale, il riavvio potrebbe richiedere alcuni minuti durante l'intervallo di manutenzione self-service. Durante i riavvii avviati da Azure nell'intervallo di manutenzione pianificato, il riavvio richiede in genere circa 25 minuti. Si noti che nel caso in cui si usino Servizi cloud (ruolo Web o di lavoro), set di scalabilità di macchine virtuali o set di disponibilità, saranno disponibili 30 minuti tra ogni gruppo di macchine virtuali (domini di aggiornamento) durante l'intervallo di manutenzione pianificato.
+**R:** A seconda delle dimensioni della macchina virtuale, il riavvio potrebbe richiedere alcuni minuti durante l'intervallo di manutenzione self-service. Durante i riavvii avviati da Azure nell'intervallo di manutenzione pianificato, il riavvio richiede in genere circa 25 minuti. Si noti che nel caso in cui si usino Servizi cloud (ruolo Web o di lavoro), set di scalabilità di macchine virtuali o set di disponibilità, saranno disponibili 30 minuti tra ogni gruppo di macchine virtuali (domini di aggiornamento) durante l'intervallo di manutenzione pianificato.
 
 **D: Qual è l'esperienza nel caso di set di scalabilità di macchine virtuali?**
 
-**R:** La manutenzione pianificata è ora disponibile per i set di scalabilità di macchine virtuali. Per istruzioni su come avviare la manutenzione Self-Service, fare riferimento alla [manutenzione pianificata per i set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) .
+**R:** La manutenzione pianificata è ora disponibile per il set di scalabilità di macchine virtuali. Per istruzioni su come avviare la manutenzione Self-Service, fare riferimento alla [manutenzione pianificata per i set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) .
 
 **D: Qual è l'esperienza nel caso di Servizi cloud (ruolo Web o di lavoro) e Service Fabric?**
 
-**R:** Anche se queste piattaforme sono interessate dalla manutenzione pianificata, i clienti che le usano sono considerati sicuri perché solo le macchine virtuali di un singolo dominio di aggiornamento saranno interessate a una determinata ora. La manutenzione self-service non è attualmente disponibile per Servizi cloud (ruolo Web o di lavoro) e Service Fabric.
+**R:** Anche se queste piattaforme sono interessate dalla manutenzione pianificata, i clienti che le usano sono considerati sicuri perché solo le VM di un singolo dominio di aggiornamento saranno interessate a una determinata ora. La manutenzione self-service non è attualmente disponibile per Servizi cloud (ruolo Web o di lavoro) e Service Fabric.
 
-**D: Non sono disponibili informazioni sulla manutenzione per le macchine virtuali. Perché?**
+**D: non vengono visualizzate informazioni di manutenzione sulle VM. Cosa è successo?**
 
-**R:** I motivi per cui non vengono visualizzate informazioni sulla manutenzione per le macchine virtuali sono diversi:
+**R:** I motivi per cui non vengono visualizzate informazioni sulla manutenzione per le VM sono diversi:
 1.  Si usa una sottoscrizione contrassegnata come Microsoft (interno).
 2.  Le VM non sono pianificate per la manutenzione. La manutenzione potrebbe essere terminata oppure essere stata annullata o modificata e di conseguenza le macchine virtuali non sono più interessate.
 3.  La colonna **Manutenzione** non è stata aggiunta alla visualizzazione elenco delle macchine virtuali. Anche se questa colonna è stata aggiunta alla visualizzazione predefinita, i clienti con una configurazione che non prevede la visualizzazione delle colonne non predefinite devono aggiungere manualmente la colonna **Manutenzione** alla visualizzazione elenco delle VM.
 
-**D: La VM è pianificata per la manutenzione per la seconda volta. Perché?**
+**D: la macchina virtuale è pianificata per la manutenzione per la seconda volta. Perché?**
 
-**R:** In diversi casi d'uso la macchina virtuale risulterà pianificata per la manutenzione dopo avere già completato la ridistribuzione della manutenzione:
+**R:** In diversi casi d'uso la VM risulterà pianificata per la manutenzione dopo avere già completato la ridistribuzione della manutenzione:
 1.  Il ciclo di manutenzione è stato annullato e riavviato con un payload diverso. Potrebbe essere stato rilevato un payload con errori e potrebbe essere stato semplicemente necessario distribuire un payload aggiuntivo.
 2.  È stato *ripristinato il servizio* della VM in un altro nodo a causa di un errore hardware.
 3.  Si è scelto di arrestare (deallocare) e riavviare la VM.

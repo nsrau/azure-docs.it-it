@@ -1,5 +1,5 @@
 ---
-title: OpenShift container Platform 3,11 in Prerequisiti di Azure | Microsoft Docs
+title: Prerequisiti di OpenShift container Platform 3,11 in Azure
 description: Prerequisiti per la distribuzione della piattaforma OpenShift container 3,11 in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 0b7eaaf68c1b0907b6d687b823ef71a7c9bd0102
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 069561c4bed55bf6021b594d693e076ef8d313bd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882407"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035466"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Prerequisiti comuni per la distribuzione di OpenShift container Platform 3,11 in Azure
 
@@ -51,7 +51,7 @@ Questa guida descrive come creare gli artefatti associati ai prerequisiti.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure 
+## <a name="sign-in-to-azure"></a>Accedere ad Azure 
 Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/reference-index) e seguire le istruzioni visualizzate oppure fare clic su **Prova** per usare Cloud Shell.
 
 ```azurecli 
@@ -97,7 +97,7 @@ La distribuzione di OpenShift usa la chiave SSH che è stata creata per protegge
 az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift_rsa
 ```
 
-## <a name="create-a-service-principal"></a>Creare un'entità servizio 
+## <a name="create-a-service-principal"></a>Creare un’entità servizio 
 OpenShift comunica con Azure usando un nome utente e una password o un'entità servizio. Un'entità servizio di Azure è un'identità di sicurezza che è possibile usare con le app, con i servizi e con strumenti di automazione come OpenShift. Le autorizzazioni per le operazioni che l'entità servizio può eseguire in Azure vengono controllate e definite dall'utente. È consigliabile definire come ambito le autorizzazioni dell'entità servizio per gruppi di risorse specifici anziché per l'intera sottoscrizione.
 
 Creare un'entità servizio con [az ad sp create-for-rbac](/cli/azure/ad/sp) e generare l'output delle credenziali necessarie per OpenShift.
@@ -139,7 +139,7 @@ Per altre informazioni sulle entità servizio, vedere [Creare un'entità servizi
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Prerequisiti applicabili solo al modello di Gestione risorse
 
-È necessario creare i segreti per la chiave privata SSH (**sshPrivateKey**), il segreto client Azure ad (**aadClientSecret**), la password amministratore OpenShift (**openshiftPassword**) e la password o la chiave di attivazione di Red Hat Subscription Manager ( **rhsmPasswordOrActivationKey**).  Inoltre, se si usano certificati SSL personalizzati, sarà necessario creare sei segreti aggiuntivi, ovvero **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**e  **masterkeyfile**.  Questi parametri verranno illustrati in modo più dettagliato.
+È necessario creare segreti per la chiave privata SSH (**sshPrivateKey**), il segreto client Azure ad (**aadClientSecret**), la password amministratore OpenShift (**openshiftPassword**) e la password o la chiave di attivazione di Red Hat Subscription Manager (**rhsmPasswordOrActivationKey**).  Inoltre, se si usano certificati SSL personalizzati, sarà necessario creare sei segreti aggiuntivi, ovvero **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**e **masterkeyfile**.  Questi parametri verranno illustrati in modo più dettagliato.
 
 Il modello fa riferimento a nomi di segreti specifici, quindi è **necessario** usare i nomi in grassetto elencati sopra (maiuscole/minuscole).
 

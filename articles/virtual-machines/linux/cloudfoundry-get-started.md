@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Cloud Foundry in Microsoft Azure | Documentazione Microsoft
+title: Introduzione con Cloud Foundry su Microsoft Azure
 description: Eseguire OSS o Pivotal Cloud Foundry in Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: d91ad0bea7f79dd67edd4f0bb9e06a37a0f86bea
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 447550d2f6bca570869c9fa93724e4dbaba02132
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091930"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036812"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry in Azure
 
@@ -28,7 +28,7 @@ Cloud Foundry è una piattaforma distribuita come servizio (PaaS) open source pe
 
 ## <a name="cloud-foundry-offerings"></a>Offerte Cloud Foundry
 
-Esistono due soluzioni Cloud Foundry eseguibili in Azure: Open-Source Cloud Foundry (OSS CF) e Pivotal Cloud Foundry (PCF). OSS CF è una versione [open source](https://github.com/cloudfoundry) di Cloud Foundry gestita da Cloud Foundry Foundation. Pivotal Cloud Foundry è una distribuzione aziendale di Cloud Foundry da Pivotal Software Inc. Si osserveranno alcune delle differenze tra le due offerte.
+Esistono due soluzioni Cloud Foundry eseguibili in Azure: Open-Source Cloud Foundry (OSS CF) e Pivotal Cloud Foundry (PCF). OSS CF è una versione [open source](https://github.com/cloudfoundry) di Cloud Foundry gestita da Cloud Foundry Foundation. Pivotal Cloud Foundry è una distribuzione aziendale di Cloud Foundry fornita da Pivotal Software Inc. Verranno ora esaminate alcune differenze tra le due offerte.
 
 ### <a name="open-source-cloud-foundry"></a>Open-Source Cloud Foundry
 

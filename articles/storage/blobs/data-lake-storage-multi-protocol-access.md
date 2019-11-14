@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f782c5abe611086baae5d2ad71bc38516039a231
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 3470e27f64a672db0165b0132996db91a1447c08
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796045"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033971"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Accesso a più protocolli su Azure Data Lake Storage
 
@@ -49,12 +49,13 @@ Gli elementi visualizzati in questa tabella cambieranno nel tempo in quanto il s
 |---|---|
 |[Livello accesso sporadico](storage-blob-storage-tiers.md)|Disponibile a livello generale|
 |SDK per BLOB |Disponibile a livello generale|
+|API REST BLOB|Disponibile a livello generale|
 |[PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Disponibile a livello generale|
 |[CLI](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Disponibile a livello generale|
-|[Log di diagnostica](../common/storage-analytics-logging.md)| Preview|
-|[Criteri di gestione del ciclo di vita](storage-lifecycle-management-concepts.md)| Preview|
-|[Notifiche tramite griglia di eventi di Azure](data-lake-storage-events.md)|Preview|
-|[Livello di accesso archivio](storage-blob-storage-tiers.md)| Preview|
+|[Log di diagnostica](../common/storage-analytics-logging.md)| Anteprima|
+|[Criteri di gestione del ciclo di vita](storage-lifecycle-management-concepts.md)| Anteprima|
+|[Notifiche tramite griglia di eventi di Azure](data-lake-storage-events.md)|Anteprima|
+|[Livello di accesso archivio](storage-blob-storage-tiers.md)| Anteprima|
 |[blobfuse](storage-how-to-mount-container-linux.md)|Non ancora supportato|
 |[Archiviazione non modificabile](storage-blob-immutable-storage.md)|Non ancora supportato|
 |[Snapshot](storage-blob-snapshots.md)|Non ancora supportato|
@@ -76,10 +77,10 @@ Analogamente all'elenco delle funzionalità di archiviazione BLOB supportate, gl
 |---|---|
 |[Azure Data Box](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|Disponibile a livello generale|
 |[Acquisizione di hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|Disponibile a livello generale|
-|[Analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Disponibile a livello generale|
+|[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Disponibile a livello generale|
 |[Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|Disponibile a livello generale|
 |[App per la logica](https://azure.microsoft.com/services/logic-apps/)|Disponibile a livello generale|
-|[ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|Preview|
+|[ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|Anteprima|
 
 Per l'elenco completo del supporto ecosistema di Azure per Data Lake Storage Gen2, vedere [integrare Azure Data Lake storage con i servizi di Azure](data-lake-storage-integrate-with-azure-services.md).
 

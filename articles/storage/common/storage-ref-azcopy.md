@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0772446b0259b12d3f76b2020eeed4c9c2de1119
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 5da3a2e5d003a191bff66af6599cae4d34ab60c6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882210"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038084"
 ---
 # <a name="azcopy"></a>azcopy
 
@@ -25,6 +25,13 @@ Il formato generale dei comandi è: `azcopy [command] [arguments] --[flag-name]=
 
 Per segnalare problemi o per ulteriori informazioni sullo strumento, vedere [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy).
 
+## <a name="related-conceptual-articles"></a>Articoli concettuali correlati
+
+- [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
+- [Trasferire i dati con AzCopy e l'archiviazione BLOB](storage-use-azcopy-blobs.md)
+- [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
+- [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
+
 ## <a name="options"></a>Opzioni
 
 **--Cap-Mbps UInt32**   Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.
@@ -33,7 +40,7 @@ Per segnalare problemi o per ulteriori informazioni sullo strumento, vedere [htt
       
 **--output-tipo**  Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text". (impostazione predefinita "testo")
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
 - [azcopy panca](storage-ref-azcopy-bench.md)

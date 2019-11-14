@@ -1,5 +1,5 @@
 ---
-title: Automatizzare le attività di gestione in macchine virtuali di Azure usando l'estensione SQL Server agente IaaS | Microsoft Docs
+title: Automatizzare le attività di gestione con l'estensione dell'agente IaaS
 description: Questo articolo descrive come gestire l'estensione dell'agente IaaS SQL Server, che consente di automatizzare attività di amministrazione SQL Server specifiche. Sono inclusi backup automatizzato, applicazione automatica di patch e integrazione Azure Key Vault.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,12 +16,13 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3240bb689447c16de8c62e9e8118b0b0df2b1ea3
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 9aae386e21df6711fc4984a7abfd34f418399f76
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259419"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034188"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatizzare le attività di gestione in macchine virtuali di Azure usando l'estensione SQL Server IaaS Agent
 > [!div class="op_single_selector"]
@@ -38,18 +39,18 @@ Per visualizzare la versione classica di questo articolo, vedere [SQL Server est
 ## <a name="supported-services"></a>Servizi supportati
 L'Estensione Agente IaaS di SQL Server supporta le attività di amministrazione seguenti:
 
-| Funzionalità di amministrazione | Descrizione |
+| Funzionalità di amministrazione | DESCRIZIONE |
 | --- | --- |
 | **SQL Server backup automatico** |Automatizza la pianificazione dei backup per tutti i database per l'istanza predefinita o un'istanza denominata [corretta installata](virtual-machines-windows-sql-server-iaas-faq.md#administration) di SQL Server nella macchina virtuale. Per ulteriori informazioni, vedere [backup automatico per SQL Server in macchine virtuali di Azure (Gestione risorse)](virtual-machines-windows-sql-automated-backup.md). |
 | **SQL Server applicazione automatica di patch** |Consente di configurare una finestra di manutenzione durante la quale è possibile eseguire aggiornamenti importanti di Windows nella macchina virtuale, evitandone l'esecuzione nei periodi di picco del carico di lavoro. Per ulteriori informazioni, vedere applicazione [automatica di patch per SQL Server in macchine virtuali di Azure (Gestione risorse)](virtual-machines-windows-sql-automated-patching.md). |
-| **Integrazione di Azure Key Vault** |Consente di installare e configurare automaticamente l'insieme di credenziali delle chiavi di Azure nella VM di SQL Server. Per ulteriori informazioni, vedere [configurare l'integrazione Azure Key Vault per SQL Server in macchine virtuali di Azure (Gestione risorse)](virtual-machines-windows-ps-sql-keyvault.md). |
+| **Integrazione di Azure Key Vault** |Consente di installare e configurare automaticamente Azure Key Vault nella VM di SQL Server. Per ulteriori informazioni, vedere [configurare l'integrazione Azure Key Vault per SQL Server in macchine virtuali di Azure (Gestione risorse)](virtual-machines-windows-ps-sql-keyvault.md). |
 
 Dopo l'installazione e l'esecuzione dell'estensione dell'agente IaaS SQL Server, rende disponibili le funzionalità di amministrazione:
 
 * Nel pannello SQL Server della macchina virtuale nella portale di Azure e Azure PowerShell per le immagini SQL Server in Azure Marketplace.
 * Tramite Azure PowerShell per le installazioni manuali dell'estensione. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Di seguito sono riportati i requisiti per l'uso dell'estensione SQL Server IaaS Agent nella macchina virtuale:
 
 **Sistema operativo**:
@@ -76,7 +77,7 @@ Di seguito sono riportati i requisiti per l'uso dell'estensione SQL Server IaaS 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 
-##  <a name="installation"></a>Installazione
+##  <a name="installation"></a>Installare
 L'estensione IaaS SQL Server viene installata quando si registra la VM SQL Server con il [provider di risorse della macchina virtuale SQL](virtual-machines-windows-sql-register-with-resource-provider.md). Se necessario, è possibile installare manualmente l'agente di SQL Server IaaS usando il comando PowerShell seguente: 
 
   ```powershell-interactive

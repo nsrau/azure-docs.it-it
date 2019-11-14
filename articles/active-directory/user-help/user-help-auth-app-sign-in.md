@@ -1,5 +1,5 @@
 ---
-title: Accedere agli account usando l'app Microsoft Authenticator - Azure Active Directory | Microsoft Docs
+title: Accedere con l'app Microsoft Authenticator-Azure AD
 description: Usare l'app Microsoft Authenticator per accedere all'account aziendale o dell'istituto di istruzione oppure agli account personali Microsoft e non Microsoft, con la verifica a due fattori o l'accesso tramite telefono.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9af3549984bd29a6e896e498bf4a2e6c67d7e0e2
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4cf9b92793d6c769751590dd0a375cbc8894759c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616006"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028979"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Accedere agli account con l'app Microsoft Authenticator
 
@@ -32,7 +32,7 @@ L'app Microsoft Authenticator consente di accedere ai propri account se si usa l
   >[!Important]
   >Questo metodo di accesso tramite telefono funziona solo con gli account Microsoft personali, aziendali o dell'istituto. Con gli account non Microsoft è necessario usare il processo di verifica a due fattori standard.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di poter usare l'app Microsoft Authenticator, è necessario:
 

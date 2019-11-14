@@ -1,5 +1,5 @@
 ---
-title: Caricare o copiare una macchina virtuale Linux personalizzata con l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: Caricare o copiare una VM Linux personalizzata con l'interfaccia della riga di comando di Azure
 description: Caricare o copiare una macchina virtuale personalizzata usando il modello di distribuzione di Resource Manager e l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 6cc01266bb6e7f122868257e8a5b9e88e78dddea
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 95486208f52b2faa2fbb3db5bf1ef968c330dab6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553495"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034295"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Creare una macchina virtuale Linux da un disco personalizzato tramite l'interfaccia della riga di comando di Azure
 
@@ -31,7 +31,7 @@ Questo articolo descrive come caricare un disco rigido virtuale personalizzato (
 Per creare più macchine virtuali dal disco personalizzato, creare prima di tutto un'immagine dalla macchina virtuale o dal disco rigido virtuale. Per altre informazioni, vedere [Creare un'immagine personalizzata di una macchina virtuale di Azure tramite l'interfaccia della riga di comando](tutorial-custom-images.md).
 
 Sono disponibili due opzioni per creare un disco personalizzato:
-* Caricare un disco rigido virtuale
+* Caricare il VHD
 * Copiare una VM di Azure esistente
 
 
@@ -51,7 +51,7 @@ Per completare la procedura seguente, è necessario:
 
 - Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure tramite [az login](/cli/azure/reference-index#az-login).
 
-Negli esempi seguenti sostituire i nomi dei parametri di esempio con i propri valori, ad esempio `myResourceGroup`, `mystorageaccount` e `mydisks`.
+Negli esempi seguenti sostituire i nomi dei parametri di esempio con i propri valori, ad esempio `myResourceGroup`, `mystorageaccount`e `mydisks`.
 
 <a id="prepimage"> </a>
 

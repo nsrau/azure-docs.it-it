@@ -1,5 +1,5 @@
 ---
-title: Configurare i listener dei gruppi di disponibilità AlwaysOn - Microsoft Azure | Microsoft Docs
+title: Configurare i listener del gruppo di disponibilità & servizio di bilanciamento del carico (PowerShell)
 description: Configurare i listener dei gruppi di disponibilità nel modello di Azure Resource Manager usando un servizio di bilanciamento del carico interno con uno o più indirizzi IP.
 services: virtual-machines
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: 7d6427e88960ec3ff550affb1624dd82e561a6bb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 83910c2209b5d3d3d67578ae41afb902bc885171
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102183"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037464"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurare uno o più listener di gruppi di disponibilità AlwaysOn - Resource Manager
 Questo argomento illustra come:
@@ -57,7 +58,7 @@ Se si limita l'accesso con un gruppo di sicurezza di rete di Azure, assicurarsi 
 
 ## <a name="determine-the-load-balancer-sku-required"></a>Determinare lo SKU di Load Balancer necessario
 
-Per [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) sono disponibili 2 SKU: Basic e Standard. È consigliato l'uso di Load Balancer Standard. Se, tuttavia, le macchine virtuali sono in un set di disponibilità, è consentito l'uso di Load Balancer Basic. Load Balancer Standard richiede che tutti gli indirizzi IP delle macchine virtuali usino indirizzi IP standard.
+Il servizio di [bilanciamento del carico di Azure](../../../load-balancer/load-balancer-overview.md) è disponibile in due SKU: Basic & standard. È consigliato l'uso di Load Balancer Standard. Se, tuttavia, le macchine virtuali sono in un set di disponibilità, è consentito l'uso di Load Balancer Basic. Load Balancer Standard richiede che tutti gli indirizzi IP delle macchine virtuali usino indirizzi IP standard.
 
 Il [modello Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) corrente per un gruppo di disponibilità usa un'istanza di Load Balancer Basic con indirizzi IP di base.
 
@@ -73,7 +74,7 @@ Per creare un'istanza di Load Balancer Basic, rimuovere `-sku Standard` dalla ri
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
 ```
 
-## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script di esempio: Creare un servizio di bilanciamento del carico interno con PowerShell
+## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script di esempio: creare un servizio di bilanciamento del carico interno con PowerShell
 
 > [!NOTE]
 > Se il gruppo di disponibilità è stato creato con il [modello Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), il bilanciamento del carico interno è già stato creato.
@@ -128,7 +129,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a> Script di esempio: Aggiungere un indirizzo IP a un servizio di bilanciamento del carico esistente con PowerShell
+## <a name="Add-IP"></a> Script di esempio: aggiungere un indirizzo IP a un servizio di bilanciamento del carico esistente con PowerShell
 Per usare più di un gruppo di disponibilità, aggiungere un altro indirizzo IP al bilanciamento del carico. Ogni indirizzo IP richiede la sua regola di bilanciamento, la sua porta probe e la sua porta front-end.
 
 La porta front-end è quella usata dalle applicazioni per connettersi all'istanza di SQL Server. Gli indirizzi IP per i diversi gruppi di disponibilità possono usare la stessa porta front-end.

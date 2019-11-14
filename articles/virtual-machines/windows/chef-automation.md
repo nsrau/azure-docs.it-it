@@ -1,5 +1,5 @@
 ---
-title: Distribuzione delle macchine virtuali di Azure con Chef | Microsoft Docs
+title: Distribuzione di macchine virtuali di Azure con chef
 description: Imparare a utilizzare Chef per effettuare la distribuzione automatizzata della macchina virtuale e la configurazione in Microsoft Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 07/09/2019
 ms.author: diviso
-ms.openlocfilehash: 5cbf53da5a0af0a511350b9f30153e2fefe72dcf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 58642cdbf164523390d5e4925290b43f6c05549b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080135"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039553"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automazione della distribuzione delle macchine virtuali di Azure con Chef
 
@@ -36,7 +36,7 @@ Il seguente diagramma illustra l'architettura di alto livello di Chef.
 
 ![][2]
 
-Chef ha tre componenti principali dell'architettura: server Chef, client Chef (nodo) e workstation Chef.
+Chef ha tre componenti principali dell'architettura: Chef Workstation, Chef Server e Chef Client (nodo).
 
 Il server Chef rappresenta il punto di gestione per cui sono disponibili due opzioni: una soluzione in hosting e una soluzione locale.
 
@@ -149,7 +149,7 @@ Aggiungere le informazioni seguenti al file knife.rb:
 
 validation_client_name "MyOrg-validator"
 
-validation_key "#{current_dir}/myorg.pem"
+validation_key "# {current_dir}/MyOrg.pem"
 
 knife[:azure_tenant_id] =         "0000000-1111-aaaa-bbbb-222222222222"
 
@@ -193,7 +193,7 @@ knife[:azure_client_secret] = "#1234p$wdchef19"
 [Scaricare e installare](https://downloads.chef.io/chef-workstation/) la workstation Chef.
 Installare la workstation Chef nel percorso predefinito. Questa installazione potrebbe richiedere alcuni minuti.
 
-Nel desktop verrà visualizzato "CW PowerShell", un ambiente caricato con lo strumento, necessario per interagire con i prodotti Chef. Il PowerShell CW rende disponibili nuovi comandi ad hoc, ad `chef-run` esempio, nonché i comandi dell'interfaccia della riga di comando chef tradizionali, `chef`ad esempio. Per conoscere la versione installata della workstation Chef e degli strumenti Chef, eseguire `chef -v`. È anche possibile controllare la versione della workstation selezionando "About Chef Workstation" (Informazioni sulla workstation Chef) nell'app della workstation Chef.
+Nel desktop verrà visualizzato "CW PowerShell", un ambiente caricato con lo strumento, necessario per interagire con i prodotti Chef. Il PowerShell CW rende disponibili nuovi comandi ad hoc, ad esempio `chef-run`, oltre ai comandi dell'interfaccia della riga di comando chef tradizionali, ad esempio `chef`. Per conoscere la versione installata della workstation Chef e degli strumenti Chef, eseguire `chef -v`. È anche possibile controllare la versione della workstation selezionando "About Chef Workstation" (Informazioni sulla workstation Chef) nell'app della workstation Chef.
 
 `chef --version` restituirà un output simile al seguente:
 
@@ -219,7 +219,7 @@ Questa esercitazione presuppone che si usi Azure Resource Manager per interagire
 
 Installare l'estensione Knife Azure. che fornisce il "plug-in Azure" a Knife.
 
-Eseguire il seguente comando.
+Eseguire il comando indicato di seguito.
 
     chef gem install knife-azure ––pre
 
@@ -238,7 +238,7 @@ Per assicurarsi che tutto sia configurato correttamente, eseguire il seguente co
 
 Se tutto è stato configurato correttamente, verrà visualizzato un elenco delle immagini di Azure disponibili.
 
-Il visualizzatore la workstation è configurata.
+A questo punto la workstation è configurata.
 
 ## <a name="creating-a-cookbook"></a>Creazione di un cookbook
 
@@ -309,7 +309,7 @@ Un esempio del comando è visualizzato qui di seguito.
     -r "recipe[webserver]"
 
 
-Nell'esempio precedente viene creata una macchina virtuale Standard_DS2_v2 con Windows Server 2016 installato all'interno dell'area Stati Uniti occidentali. Sostituire le variabili desiderate ed eseguire il comando.
+Nell'esempio precedente viene creato un Standard_DS2_v2 macchina virtuale con Windows Server 2016 installato all'interno dell'area Stati Uniti occidentali. Sostituire le variabili desiderate ed eseguire il comando.
 
 > [!NOTE]
 > Nella riga di comando sono state automatizzate anche le regole di filtro per la rete degli endpoint mediante il parametro –tcp-endpoints. Ho aperto le porte 80 e 3389 per consentire l'accesso alla pagina Web e alla sessione RDP.

@@ -1,5 +1,5 @@
 ---
-title: Creare un ambiente Linux completo tramite l'interfaccia della riga di comando di Azure Classic | Documentazione Microsoft
+title: Creare un ambiente Linux completo con l'interfaccia della riga di comando di Azure Classic
 description: Usare l'interfaccia della riga di comando di Azure Classico per creare da zero una risorsa di archiviazione, una VM di Linux, una rete virtuale con subnet, il bilanciamento del carico, una scheda NIC, un IP pubblico e un gruppo di sicurezza di rete.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: aaf91aa81be5fc4c5944dde804798a61ceffc5a6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1ee89ce18600685f3f82bfb49d4d8ecbaf192b04
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083708"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036517"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Creare un ambiente Linux completo con l'interfaccia della riga di comando di Azure Classic
 In questo articolo viene spiegato come creare una semplice rete con un servizio di bilanciamento del carico e un paio di VM utili per lo sviluppo e per calcoli semplici. Viene presentato in dettaglio l'intero processo, comando dopo comando, fino a creare due VM Linux funzionanti e sicure a cui è possibile connettersi da qualsiasi posizione in Internet. Si potrà quindi passare a reti e ambienti più complessi.
@@ -39,7 +39,7 @@ Per creare questo ambiente personalizzato, è necessario aver installato la vers
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure Classic](#quick-commands): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia della riga di comando avanzata per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure Classic](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia avanzata per il modello di distribuzione di gestione delle risorse
 
 
 ## <a name="quick-commands"></a>Comandi rapidi
@@ -51,7 +51,7 @@ Assicurarsi di aver effettuato l'accesso a [Interfaccia della riga di comando di
 azure config mode arm
 ```
 
-Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `myVM`.
+L'esempio seguente sostituisce i nomi dei parametri di esempio con i valori desiderati. Alcuni esempi di nomi dei parametri sono `myResourceGroup`, `mystorageaccount` e `myVM`.
 
 Creare il gruppo di risorse. Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella località `westeurope`:
 
@@ -65,7 +65,7 @@ Verificare il gruppo di risorse utilizzando il parser JSON:
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Creare l'account di archiviazione. Nell'esempio seguente viene creato un nuovo account di archiviazione denominato `mystorageaccount`. Il nome dell'account di archiviazione deve essere univoco; assegnare quindi all'account il proprio nome.
+Creare l'account di archiviazione. L'esempio seguente crea un nuovo account di archiviazione denominato `mystorageaccount`. Il nome dell'account di archiviazione deve essere univoco; specificare quindi il proprio nome univoco.
 
 ```azurecli
 azure storage account create -g myResourceGroup -l westeurope \
@@ -98,7 +98,7 @@ Verificare la rete virtuale e la subnet utilizzando il parser JSON:
 azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
-Creare un indirizzo IP pubblico. Nell'esempio seguente viene aggiunto un indirizzo IP pubblico chiamato `myPublicIP` con il nome DNS `mypublicdns`. Il nome DNS deve essere univoco, quindi specificare il proprio nome DNS.
+Creare un indirizzo IP pubblico. Nell'esempio seguente viene aggiunto un indirizzo IP pubblico chiamato `myPublicIP` con il nome DNS `mypublicdns`. Il nome DNS deve essere univoco; specificare quindi il proprio nome univoco.
 
 ```azurecli
 azure network public-ip create -g myResourceGroup -l westeurope \
@@ -182,7 +182,7 @@ azure network nic show myResourceGroup myNic1 --json | jq '.'
 azure network nic show myResourceGroup myNic2 --json | jq '.'
 ```
 
-Creare il gruppo di sicurezza di rete. Nell'esempio seguente viene creato un gruppo di sicurezza di rete denominato `myNetworkSecurityGroup`:
+Creare il gruppo di sicurezza di rete. L'esempio seguente crea un gruppo di sicurezza di rete denominato `myNetworkSecurityGroup`:
 
 ```azurecli
 azure network nsg create -g myResourceGroup -l westeurope \
@@ -217,7 +217,7 @@ Creare il set di disponibilità. Nell'esempio seguente viene creato un set di di
 azure availset create -g myResourceGroup -l westeurope -n myAvailabilitySet
 ```
 
-Creare la prima VM Linux. Nell'esempio seguente viene creata una VM chiamata `myVM1`:
+Creare la prima VM Linux. Nell'esempio seguente viene creata una VM denominata `myVM1`:
 
 ```azurecli
 azure vm create \
@@ -235,7 +235,7 @@ azure vm create \
     --admin-username azureuser
 ```
 
-Creare la seconda VM Linux. Nell'esempio seguente viene creata una VM chiamata `myVM2`:
+Creare la seconda VM Linux. Nell'esempio seguente viene creata una VM denominata `myVM2`:
 
 ```azurecli
 azure vm create \
@@ -275,7 +275,7 @@ Assicurarsi di aver effettuato l'accesso a [Interfaccia della riga di comando di
 azure config mode arm
 ```
 
-Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. Alcuni esempi di nomi dei parametri sono `myResourceGroup`, `mystorageaccount` e `myVM`.
+L'esempio seguente sostituisce i nomi dei parametri di esempio con i valori desiderati. Alcuni esempi di nomi dei parametri sono `myResourceGroup`, `mystorageaccount` e `myVM`.
 
 ## <a name="create-resource-groups-and-choose-deployment-locations"></a>Creare i gruppi di risorse e scegliere i percorsi di distribuzione
 I gruppi di risorse di Azure sono entità di distribuzione logiche che contengono informazioni di configurazione e altri metadati per abilitare la gestione logica delle distribuzioni di risorse. Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella località `westeurope`:
@@ -1053,7 +1053,7 @@ azure network nic create --resource-group myResourceGroup --location westeurope 
 ```
 
 ## <a name="create-a-network-security-group-and-rules"></a>Creare un gruppo di sicurezza di rete e le regole corrispondenti
-Vengono ora creati il gruppo di sicurezza di rete e le regole in ingresso che regolano l'accesso alla scheda di interfaccia di rete. Per una scheda di interfaccia di rete o una subnet è possibile usare un gruppo di sicurezza di rete. Si definiscono regole per controllare il flusso del traffico da e verso le VM. Nell'esempio seguente viene creato un gruppo di sicurezza di rete denominato `myNetworkSecurityGroup`:
+Vengono ora creati il gruppo di sicurezza di rete e le regole in ingresso che regolano l'accesso alla scheda di interfaccia di rete. Per una scheda di interfaccia di rete o una subnet è possibile usare un gruppo di sicurezza di rete. Si definiscono regole per controllare il flusso del traffico da e verso le VM. L'esempio seguente crea un gruppo di sicurezza di rete denominato `myNetworkSecurityGroup`:
 
 ```azurecli
 azure network nsg create --resource-group myResourceGroup --location westeurope \
@@ -1096,7 +1096,7 @@ azure network nic set --resource-group myResourceGroup --name myNic2 \
   --network-security-group-name myNetworkSecurityGroup
 ```
 
-## <a name="create-an-availability-set"></a>Crea set di disponibilità
+## <a name="create-an-availability-set"></a>Creare un set di disponibilità
 I set di disponibilità agevolano la distribuzione delle VM nei domini di errore e domini di aggiornamento. Si creerà un set di disponibilità per le VM. Nell'esempio seguente viene creato un set di disponibilità chiamato `myAvailabilitySet`:
 
 ```azurecli

@@ -1,5 +1,5 @@
 ---
-title: Supporto di Azure per le macchine virtuali di seconda generazione | Microsoft Docs
+title: Supporto di Azure per le macchine virtuali di seconda generazione
 description: Panoramica del supporto di Azure per le macchine virtuali di seconda generazione
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: 4cb6d684171ac6e7e9e1cb7da556250f857cf2af
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f17ec7179413bebb8260089abc46856412b78ab5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891491"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038643"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Supporto per le macchine virtuali di seconda generazione in Azure
 
@@ -103,7 +103,7 @@ Azure attualmente non supporta alcune delle funzionalità supportate da Hyper-V 
 
 Nel portale di Azure o nell'interfaccia della riga di comando di Azure è possibile creare macchine virtuali di seconda generazione da un'immagine del Marketplace che supporta l'avvio UEFI.
 
-#### <a name="azure-portal"></a>Portale di Azure
+#### <a name="azure-portal"></a>portale di Azure
 
 Le immagini di generazione 2 per Windows e SLES sono incluse nella stessa offerta server delle immagini Gen1. Ciò significa che, dal punto di vista del flusso, si seleziona l'offerta e lo SKU dal portale per la VM. Se lo SKU supporta le immagini di prima e di seconda generazione, è possibile scegliere di creare una VM di seconda generazione dalla scheda *Avanzate* nel flusso di creazione della macchina virtuale.
 

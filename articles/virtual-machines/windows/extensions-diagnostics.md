@@ -1,5 +1,5 @@
 ---
-title: Estensione Diagnostica di Azure per Windows | Microsoft Docs
+title: Estensione Diagnostica di Azure per Windows
 description: Monitorare le macchine virtuali Windows di Azure usando l'estensione Diagnostica di Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 4230e2aac8d386c759a403b9008029d68049569c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 3fcdcd4565ed0512b3efcf9b23ca349a3bbf3a6c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749400"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033487"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Estensione Diagnostica di Azure per macchine virtuali Windows
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 L'estensione Diagnostica di Azure per le macchine virtuali consente di raccogliere i dati di monitoraggio, ad esempio i contatori delle prestazioni e i log eventi, dalle macchine virtuali Windows. È possibile specificare in modo granulare i dati da raccogliere e dove inviare i dati, ad esempio in un account di Archiviazione di Azure o un hub eventi di Azure. È anche possibile usare questi dati per creare grafici nel portale di Azure oppure per creare avvisi sulle metriche.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -78,7 +78,7 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
 
 ### <a name="troubleshoot"></a>Risolvere i problemi
 
-I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata VM, eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
+I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table

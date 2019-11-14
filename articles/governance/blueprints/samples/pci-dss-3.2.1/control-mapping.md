@@ -1,18 +1,14 @@
 ---
 title: Esempio di progetto PCI-DSS v 3.2.1-mapping dei controlli
 description: Mapping di controllo dell'esempio di progetto della carta di pagamento Industry Data Security Standard v 3.2.1 a criteri di Azure e RBAC.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: c1e04cb2bfd5ae532b556ed53d585aae90c312e6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d3e72f923ea3d752d829731d1f741bda090ae9fd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163055"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037274"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapping di controllo dell'esempio di progetto PCI-DSS v 3.2.1
 
@@ -48,7 +44,7 @@ Questo progetto consente di applicare i criteri con l'uso dei controlli di critt
 
 ## <a name="51-62-66-and-1121-vulnerability-scanning-and-system-updates"></a>5,1, 6,2, 6,6 e 11.2.1 di analisi delle vulnerabilità e aggiornamenti del sistema
 
-Questo progetto consente di gestire le vulnerabilità del sistema informativo assegnando definizioni di [criteri di Azure](../../../policy/overview.md) che monitorano gli aggiornamenti del sistema mancanti, le vulnerabilità del sistema operativo, le vulnerabilità SQL e le vulnerabilità delle macchine virtuali in Azure Centro sicurezza. Centro sicurezza di Azure fornisce funzionalità di report che consentono di ricevere informazioni dettagliate in tempo reale sullo stato di sicurezza delle risorse di Azure distribuite.
+Questo progetto consente di gestire le vulnerabilità del sistema informativo assegnando definizioni di [criteri di Azure](../../../policy/overview.md) che monitorano gli aggiornamenti del sistema mancanti, le vulnerabilità del sistema operativo, le vulnerabilità SQL e le vulnerabilità delle macchine virtuali nel centro sicurezza di Azure. Centro sicurezza di Azure fornisce funzionalità di report che consentono di ricevere informazioni dettagliate in tempo reale sullo stato di sicurezza delle risorse di Azure distribuite.
 
 - Monitora server senza Endpoint Protection nel Centro sicurezza di Azure
 - Distribuisci estensione IaaSAntimalware Microsoft predefinita per Windows Server
@@ -67,11 +63,11 @@ La presenza di un solo proprietario di sottoscrizioni di Azure non consente la r
 
 ## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3,2, 7.2.1, 8.3.1. a e 8.3.1. b gestione dei diritti di accesso con privilegi
 
-Questo progetto consente di limitare e controllare i diritti di accesso con privilegi assegnando le definizioni di [criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni proprietario, scrittura e/o lettura e account dipendente con autorizzazioni di proprietario e/o scrittura senza autenticazione a più fattori abilitata. Azure implementa il controllo degli accessi in base al ruolo per gestire chi ha accesso alle risorse di Azure. Identificando dove vengono implementate regole personalizzate del controllo degli accessi in base al ruolo, è possibile verificare l'esigenza e la corretta implementazione, perché tali regole sono soggette a errore. Questo progetto assegna anche le definizioni di [criteri di Azure](../../../policy/overview.md) per controllare l'uso dell'autenticazione Azure Active Directory per SQL Server. L'uso dell'autenticazione Azure Active Directory semplifica la gestione delle autorizzazioni e centralizza la gestione delle identità degli utenti del database e di altri Microsoft  
+Questo progetto consente di limitare e controllare i diritti di accesso con privilegi assegnando le definizioni di [criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni proprietario, scrittura e/o lettura e account dipendente con autorizzazioni di proprietario e/o scrittura per le quali non è abilitata l'autenticazione a più fattori. Azure implementa il controllo degli accessi in base al ruolo per gestire chi ha accesso alle risorse di Azure. Identificando dove vengono implementate regole personalizzate del controllo degli accessi in base al ruolo, è possibile verificare l'esigenza e la corretta implementazione, perché tali regole sono soggette a errore. Questo progetto assegna anche le definizioni di [criteri di Azure](../../../policy/overview.md) per controllare l'uso dell'autenticazione Azure Active Directory per SQL Server. L'uso dell'autenticazione Azure Active Directory semplifica la gestione delle autorizzazioni e centralizza la gestione delle identità degli utenti del database e di altri Microsoft  
 Servizi.
  
 - Gli account esterni con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
-- È consigliabile rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di scrittura
+- Gli account esterni con autorizzazioni di scrittura devono essere rimossi dalla sottoscrizione
 - Gli account esterni con autorizzazioni di lettura devono essere rimossi dalla sottoscrizione
 - L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione
 - L'autenticazione a più fattori deve essere abilitata per gli account con autorizzazioni di scrittura sulla sottoscrizione
@@ -86,7 +82,7 @@ Azure implementa il controllo degli accessi in base al ruolo (RBAC) per semplifi
 - Gli account deprecati devono essere rimossi dalla sottoscrizione
 - Gli account deprecati con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
 - Gli account esterni con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
-- È consigliabile rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di scrittura
+- Gli account esterni con autorizzazioni di scrittura devono essere rimossi dalla sottoscrizione
 - Gli account esterni con autorizzazioni di lettura devono essere rimossi dalla sottoscrizione
 
 ## <a name="813-removal-or-adjustment-of-access-rights"></a>rimozione o modifica 8.1.3 dei diritti di accesso
@@ -134,7 +130,7 @@ Ora che è stato esaminato il mapping dei controlli del modello PCI-DSS v 3.2.1,
 > [PCI-DSS v 3.2.1 Blueprint-panoramica](./index.md)
 > [PCI-DSS v 3.2.1 Blueprint-procedura di distribuzione](./deploy.md)
 
-Articoli aggiuntivi sui progetti e su come usarli:
+Altri articoli sui progetti e su come usarli:
 
 - Informazioni sul [ciclo di vita del progetto](../../concepts/lifecycle.md).
 - Informazioni su come usare [parametri statici e dinamici](../../concepts/parameters.md).

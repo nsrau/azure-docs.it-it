@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 95f2dbdbb34ff349d14be430b4e5a4fa84df0f5a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 78693dceaac119279b1c1d06a6c3a18cc4fdb485
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581480"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033949"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -57,7 +57,7 @@ La tabella seguente elenca tutte le altre funzionalità e gli strumenti non anco
 | **Criteri di gestione del ciclo di vita dell'archiviazione BLOB di Azure** | Sono supportati tutti i livelli di accesso. Il livello di accesso all'archivio è attualmente in anteprima. L'eliminazione degli snapshot BLOB non è ancora supportata. |
 | **Rete per la distribuzione di contenuti (CDN) di Azure** | Non ancora supportato|
 | **Ricerca di Azure** |Supportato (anteprima)|
-| **Azure Storage Explorer** | Supporto specifico della versione <br><br>Usare solo la versione `1.6.0` o successiva. <br>La versione `1.6.0` è disponibile come [download gratuito](https://azure.microsoft.com/features/storage-explorer/).|
+| **Azure Storage Explorer** | Supporto specifico della versione <br><br>Utilizzare solo le versioni `1.6.0` tramite `1.10.0`. <br> La versione `1.10.0` è disponibile come [download gratuito](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). La versione `1.11.0` non è ancora supportata.|
 | **ACL del contenitore BLOB** |Non ancora supportato|
 | **Blobfuse** |Non ancora supportato|
 | **Domini personalizzati** |Non ancora supportato|

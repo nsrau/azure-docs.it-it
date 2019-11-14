@@ -1,5 +1,5 @@
 ---
-title: Panoramica degli host dedicati di Azure per le macchine virtuali | Microsoft Docs
+title: Panoramica degli host dedicati di Azure per le macchine virtuali
 description: Altre informazioni sul modo in cui è possibile usare gli host dedicati di Azure per la distribuzione di macchine virtuali.
 services: virtual-machines-windows
 author: cynthn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 011bfeb337f3c04b2d9041abedac50affe1f86b0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: cfcc8aeb3d1cc1f199b19abc16cc54db416a307e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977253"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033387"
 ---
-# <a name="preview-azure-dedicated-hosts"></a>Anteprima: Host dedicati di Azure
+# <a name="preview-azure-dedicated-hosts"></a>Anteprima: host dedicati di Azure
 
 Host dedicato di Azure è un servizio che fornisce server fisici in grado di ospitare una o più macchine virtuali, dedicate a una sottoscrizione di Azure. Gli host dedicati sono gli stessi server fisici usati nei data center, forniti come risorsa. È possibile eseguire il provisioning di host dedicati in un'area, una zona di disponibilità e un dominio di errore. Quindi, è possibile inserire le VM direttamente negli host di cui è stato eseguito il provisioning, in base a qualsiasi configurazione più adatta alle proprie esigenze.
 

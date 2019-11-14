@@ -1,5 +1,5 @@
 ---
-title: Come abilitare la virtualizzazione annidata in macchine virtuali di Azure | Microsoft Docs
+title: Come abilitare la virtualizzazione annidata in macchine virtuali di Azure
 description: Come abilitare la virtualizzazione annidata in macchine virtuali di Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 843dfa64cdf0af3ad6cfd3a9f83c16f0ce85fcd0
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 16f5bed5a2342bb1d120d0d3dc853e0bc44376dc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720217"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033130"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Come abilitare la virtualizzazione annidata in una macchina virtuale di Azure
 
@@ -26,7 +26,7 @@ Questo articolo illustra come abilitare Hyper-V in una macchina virtuale di Azur
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Creare una VM di Azure in grado di supportare l'annidamento
 
-Creare una nuova VM Azure di Windows Server 2016.  Per riferimento rapido, tutte le macchine virtuali v3 supporta la virtualizzazione annidata. Per un elenco completo delle dimensioni delle macchine virtuali che supportano l'annidamento, consultare l'[articolo sulle unità di calcolo di Azure](acu.md).
+Creare una nuova VM Azure di Windows Server 2016.  Per riferimento rapido, tutte le macchine virtuali V3 supportano la virtualizzazione nidificata. Per un elenco completo delle dimensioni delle macchine virtuali che supportano l'annidamento, consultare l'[articolo sulle unità di calcolo di Azure](acu.md).
 
 Ricordarsi di scegliere dimensioni di macchina virtuale sufficienti a supportare le richieste di una macchina virtuale guest. In questo esempio viene usata una macchina virtuale di Azure di dimensioni D3_v3. 
 
@@ -52,7 +52,7 @@ Creare una connessione Desktop remoto alla macchina virtuale.
 È possibile configurare queste impostazioni manualmente oppure usare lo script di PowerShell fornito da Microsoft per automatizzare la configurazione.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Opzione 1: Usare uno script di PowerShell per configurare la virtualizzazione annidata
-Lo script di PowerShell per abilitare la virtualizzazione annidata in un host Windows Server 2016 è disponibile in [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Lo script verifica i prerequisiti e quindi configura la virtualizzazione annidata nella macchina virtuale di Azure. Per completare la configurazione, è necessario riavviare la macchina virtuale di Azure. Questo script potrebbe funzionare anche in altri ambienti, ma non vengono fornite garanzie in tal senso. Per una dimostrazione video sulla virtualizzazione annidata in esecuzione in Azure, vedere il post di blog di Azure [https://login.microsoftonline.com/consumers/](https://aka.ms/AzureNVblog ).
+Lo script di PowerShell per abilitare la virtualizzazione annidata in un host Windows Server 2016 è disponibile in [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Lo script verifica i prerequisiti e quindi configura la virtualizzazione annidata nella macchina virtuale di Azure. Per completare la configurazione, è necessario riavviare la macchina virtuale di Azure. Questo script potrebbe funzionare anche in altri ambienti, ma non vengono fornite garanzie in tal senso. Per una dimostrazione video sulla virtualizzazione annidata in esecuzione in Azure, vedere il post di blog di Azure https://aka.ms/AzureNVblog.
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Opzione 2: Configurare manualmente la virtualizzazione annidata
 
@@ -122,7 +122,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 >[!IMPORTANT] 
 >
->L'agente guest di Azure non è supportata nelle macchine virtuali annidate e potrebbe causare problemi dell'host e macchine virtuali annidate. Non installare l'agente di Azure nelle macchine virtuali annidate e non usare un'immagine per la creazione di macchine virtuali annidate che è già installato l'agente guest di Azure.
+>L'agente guest di Azure non è supportato nelle VM annidate e può causare problemi sia nell'host che nelle VM nidificate. Non installare l'agente di Azure nelle VM annidate e non usare un'immagine per la creazione delle VM nidificate in cui è già installato l'agente guest di Azure.
 
 1. Aprire la console di gestione di Hyper-V e creare una nuova macchina virtuale. Configurare la macchina virtuale per l'uso della nuova rete interna creata.
     

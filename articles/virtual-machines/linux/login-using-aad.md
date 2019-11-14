@@ -1,5 +1,5 @@
 ---
-title: Accedere a una macchina virtuale Linux con le credenziali di Azure Active Directory | Microsoft Docs
+title: Accedere a una VM Linux con Azure Active Directory credenziali
 description: Informazioni su come creare e configurare una macchina virtuale Linux per accedere usando l'autenticazione Azure Active Directory.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: b473844f1507285e0052ca1f8de00f6ca3207e6f
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a67d3a9fb74b1a4f07fc4995c268bb40a84834f7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327084"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035938"
 ---
-# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: Accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory
+# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory
 
 Per migliorare la sicurezza delle macchine virtuali Linux in Azure, è possibile eseguire l'integrazione con l'autenticazione di Azure Active Directory. Quando si usa l'autenticazione di Azure AD per le macchine virtuali Linux, i criteri che consentono o negano l'accesso alle macchine virtuali sono controllati e applicati dall'utente a livello centrale. Questo articolo illustra come creare e configurare una macchina virtuale Linux per usare l'autenticazione di Azure AD.
 
@@ -48,7 +48,7 @@ L'uso dell'autenticazione di Azure AD per accedere alle macchine virtuali Linux 
 
 Durante l'anteprima di questa funzionalità sono attualmente supportate le distribuzioni di Linux seguenti:
 
-| Distribuzione | Versione |
+| Distribuzione | Version |
 | --- | --- |
 | CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
@@ -106,7 +106,7 @@ Il *provisioningState* di *succeeded* viene visualizzato dopo che l'estensione �
 
 I criteri del controllo degli accessi in base al ruolo determinano chi può accedere alla macchina virtuale. Per autorizzare l'account alla VM vengono usati due ruoli Controllo degli accessi in base al ruolo:
 
-- **Accesso amministratore alle macchine virtuali**: gli utenti a cui è stato assegnato questo ruolo possono accedere a una macchina virtuale di Azure con i privilegi di amministratore di Windows o di utente root di Linux.
+- **Accesso amministratore alle macchine virtuali**: gli utenti a cui è stato assegnato questo ruolo possono accedere a una macchina virtuale di Azure con i privilegi di utente ROOT di Windows o Linux.
 - **Accesso utente alle macchine virtuali**: gli utenti a cui è stato assegnato questo ruolo possono accedere a una macchina virtuale di Azure con i privilegi di utente normale.
 
 > [!NOTE]
@@ -149,11 +149,11 @@ Viene richiesto di eseguire l'accesso ad Azure AD con un codice monouso all'indi
 
 Quando richiesto, immettere le credenziali di accesso di Azure AD nella pagina di accesso. 
 
-Il messaggio seguente viene visualizzato nel Web browser dopo che è stata eseguita l'autenticazione:`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+Il messaggio seguente viene visualizzato nel Web browser dopo la corretta autenticazione: `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
 Chiudere la finestra del browser, tornare al prompt di SSH e premere il tasto **Invio**. 
 
-È stato effettuato l'accesso alla macchina virtuale Linux di Azure con le autorizzazioni del ruolo assegnato, ad esempio come *utente della macchina virtuale* oppure *amministratore della macchina virtuale*. Se all'account utente viene assegnato il ruolo di *accesso amministratore macchina virtuale* , è possibile `sudo` utilizzare per eseguire comandi che richiedono privilegi radice.
+È stato effettuato l'accesso alla macchina virtuale Linux di Azure con le autorizzazioni del ruolo assegnato, ad esempio come *utente della macchina virtuale* oppure *amministratore della macchina virtuale*. Se all'account utente viene assegnato il ruolo di *accesso amministratore macchina virtuale* , è possibile utilizzare `sudo` per eseguire comandi che richiedono privilegi radice.
 
 ## <a name="sudo-and-aad-login"></a>Accesso AAD e sudo
 
@@ -190,7 +190,7 @@ Access denied
 
 Dopo aver completato correttamente il passaggio di autenticazione in un Web browser, è possibile che venga subito richiesto di eseguire di nuovo l'accesso con un codice aggiornato. Questo errore è in genere causato da una mancata corrispondenza tra il nome di accesso specificato nel prompt SSH e l'account con cui è stato effettuato l'accesso ad Azure AD. Per correggere questo problema:
 
-- Verificare che il nome di accesso specificato nel prompt SSH sia corretto. Un errore di battitura nel nome di accesso potrebbe causare una mancata corrispondenza tra il nome di accesso specificato nel prompt di SSH e l'account con cui è stato effettuato l'accesso ad Azure AD. Ad esempio, è stato digitato *azuresuer\@contoso.onmicrosoft.com* *\@anziché azureuser contoso.onmicrosoft.com*.
+- Verificare che il nome di accesso specificato nel prompt SSH sia corretto. Un errore di battitura nel nome di accesso potrebbe causare una mancata corrispondenza tra il nome di accesso specificato nel prompt di SSH e l'account con cui è stato effettuato l'accesso ad Azure AD. Si digitano, ad esempio, *azuresuer\@contoso.onmicrosoft.com* anziché *azureuser\@contoso.onmicrosoft.com*.
 - Se si dispone di più account utente, assicurarsi che non si indichi un account utente diverso nella finestra del browser quando si accede ad Azure AD.
 - Linux è un sistema operativo che distingue tra maiuscole e minuscole. Quindi "Azureuser@contoso.onmicrosoft.com" e "azureuser@contoso.onmicrosoft.com" sono diversi e questo può causare una mancata corrispondenza. Assicurarsi di specificare l'UPN usando correttamente le maiuscole e le minuscole nel prompt SSH.
 

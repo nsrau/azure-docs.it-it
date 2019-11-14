@@ -1,5 +1,5 @@
 ---
-title: Distribuire host dedicati di Azure usando il Azure PowerShell | Microsoft Docs
+title: Distribuire host dedicati di Azure usando il Azure PowerShell
 description: Distribuire le macchine virtuali in host dedicati usando Azure PowerShell.
 services: virtual-machines-windows
 author: cynthn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 1dcea4f56d778b0e6320634286a25d478c78a5bc
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 92dca6f4f41ff426aebcb8e580653afaa71afff8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261702"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033359"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Anteprima: Distribuire macchine virtuali in host dedicati usando il Azure PowerShell
+# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Anteprima: distribuire macchine virtuali in host dedicati usando il Azure PowerShell
 
 Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di Azure per ospitare le macchine virtuali (VM). 
 
@@ -42,7 +42,7 @@ Install-Module -Name PowerShellGet -Repository PSGallery -Force
 >
 > **Limitazioni di anteprima note**
 > - I set di scalabilità di macchine virtuali non sono attualmente supportati negli host dedicati.
-> - La versione iniziale di anteprima supporta la serie di macchine virtuali seguente: DSv3 e ESv3. 
+> - La versione iniziale di anteprima supporta la serie di VM seguente: DSv3 e ESv3. 
 
 
 
@@ -72,7 +72,7 @@ $hostGroup = New-AzHostGroup `
 
 ## <a name="create-a-host"></a>Creazione di un host
 
-A questo punto è possibile creare un host dedicato nel gruppo host. Oltre a un nome per l'host, è necessario fornire lo SKU per l'host. Lo SKU host acquisisce la serie di macchine virtuali supportate e la generazione dell'hardware per l'host dedicato.  Durante l'anteprima, sono supportati i valori SKU host seguenti: DSv3_Type1 e ESv3_Type1.
+A questo punto è possibile creare un host dedicato nel gruppo host. Oltre a un nome per l'host, è necessario fornire lo SKU per l'host. Lo SKU host acquisisce la serie di macchine virtuali supportate e la generazione dell'hardware per l'host dedicato.  Durante l'anteprima, sono supportati i seguenti valori SKU host: DSv3_Type1 e ESv3_Type1.
 
 
 Per altre informazioni sugli SKU e i prezzi degli host, vedere [prezzi di host dedicati di Azure](https://aka.ms/ADHPricing).

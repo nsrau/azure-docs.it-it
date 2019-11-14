@@ -8,18 +8,23 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 8a1802f0f24ba5ccad3ec1c45f3baa29dfe6909f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 306f6cb0b50b7befcbf51e6164a5da887d35616e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262557"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74030883"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Archiviare i log delle risorse di Azure nell'account di archiviazione
 I [log delle risorse](resource-logs-overview.md) in Azure forniscono dati avanzati e frequenti sul funzionamento interno di una risorsa di Azure. Questo articolo descrive come raccogliere i log delle risorse in un account di archiviazione di Azure per conservare i dati per l'archiviazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 È necessario [creare un account di archiviazione di Azure](../../storage/common/storage-quickstart-create-account.md) , se non ne è già presente uno. L'account di archiviazione non deve trovarsi nella stessa sottoscrizione della risorsa che invia log, purché l'utente che configura l'impostazione disponga dell'accesso RBAC appropriato a entrambe le sottoscrizioni.
+
+
+> [!IMPORTANT]
+> Gli account Azure Data Lake Storage Gen2 non sono attualmente supportati come destinazione per le impostazioni di diagnostica anche se possono essere elencati come un'opzione valida nel portale di Azure.
+
 
 Non usare un account di archiviazione esistente con altri dati non di monitoraggio archiviati, in modo da poter controllare meglio l'accesso ai dati di monitoraggio. Se tuttavia si archivia anche il [log attività](activity-logs-overview.md) in un account di archiviazione, è possibile scegliere di usare lo stesso account di archiviazione per conservare tutti i dati di monitoraggio in una posizione centrale.
 
@@ -30,7 +35,7 @@ I log delle risorse non vengono raccolti per impostazione predefinita. Raccoglie
 ## <a name="data-retention"></a>Conservazione dei dati
 I criteri di conservazione definiscono il numero di giorni per cui conservare i dati di ogni categoria di log e i dati delle metriche archiviati in un account di archiviazione. Un criterio di conservazione può essere un numero qualsiasi di giorni compreso tra 0 e 365. Un criterio di conservazione pari a zero specifica che gli eventi per tale categoria di log vengono archiviati per un periodo illimitato.
 
-I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata, i log relativi a tale giornata non rientrano quindi più nei criteri di conservazione e verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente. Il processo di eliminazione inizia a mezzanotte UTC, ma si noti che possono essere necessarie fino a 24 ore per l'eliminazione dei log dall'account di archiviazione. 
+I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata, i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata attuale vengono eliminati i log relativi alla giornata precedente a ieri. Il processo di eliminazione inizia a mezzanotte UTC, ma si noti che possono essere necessarie fino a 24 ore per l'eliminazione dei log dall'account di archiviazione. 
 
 
 ## <a name="schema-of-resource-logs-in-storage-account"></a>Schema dei log delle risorse nell'account di archiviazione

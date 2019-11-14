@@ -1,5 +1,5 @@
 ---
-title: 'Gruppi di disponibilità di SQL Server: Macchine virtuali di Azure: panoramica | Documentazione Microsoft'
+title: Panoramica dei gruppi di disponibilità
 description: Questo articolo offre una panoramica sui gruppi di disponibilità di SQL Server in macchine virtuali di Azure.
 services: virtual-machines
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: d89e25b6a39649bb8421fd32b8842c3c76807268
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8119990ab4ab4a918e325976092100086a547aa4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102158"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037490"
 ---
-# <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Panoramica sui gruppi di disponibilità AlwaysOn di SQL Server in macchine virtuali di Azure #
+# <a name="introducing-sql-server-availability-groups-on-azure-virtual-machines"></a>Introduzione ai gruppi di disponibilità SQL Server in macchine virtuali di Azure
 
 Questo articolo offre una panoramica sui gruppi di disponibilità di SQL Server in macchine virtuali di Azure. 
 
@@ -37,12 +38,12 @@ Inoltre, in un cluster di failover guest VM IaaS di Azure è consigliabile usare
 
 Per aumentare la ridondanza e la disponibilità elevata, le macchine virtuali SQL Server devono trovarsi nello stesso [set di disponibilità](virtual-machines-windows-portal-sql-availability-group-prereq.md#create-availability-sets)o in diverse [zone di disponibilità](/azure/availability-zones/az-overview). 
 
-|  | Versione di Windows Server | Versione di SQL Server | Edizione di SQL Server | Configurazione quorum WSFC | RIPRISTINO di emergenza con più aree | Supporto di più subnet | Supporto per un annuncio esistente | RIPRISTINO di emergenza con una stessa area geografica | Supporto di dist-AG senza dominio AD | Supporto di dist-AG senza cluster |  
+|  | Versione di Windows Server | Versione SQL Server | Edizione di SQL Server | Configurazione quorum WSFC | RIPRISTINO di emergenza con più aree | Supporto di più subnet | Supporto per un annuncio esistente | RIPRISTINO di emergenza con una stessa area geografica | Supporto di dist-AG senza dominio AD | Supporto di dist-AG senza cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| [INTERFACCIA DELLA RIGA DI COMANDO DI SQL VM](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | ENT | Cloud di controllo | No | Yes | Sì | Sì | No | No |
-| [Modelli di avvio rapido](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | ENT | Cloud di controllo | No | Yes | Sì | Sì | No | No |
+| [INTERFACCIA DELLA RIGA DI COMANDO DI SQL VM](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | ENT | Cloud di controllo | No | Sì | Sì | Sì | No | No |
+| [Modelli di avvio rapido](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | ENT | Cloud di controllo | No | Sì | Sì | Sì | No | No |
 | [Modello di portale](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | ENT | Condivisione file | No | No | No | No | No | No |
-| [Manuale](virtual-machines-windows-portal-sql-availability-group-prereq.md) | Tutti | Tutti | Tutti | Tutti | Sì | Sì | Sì | Sì | Sì | Yes |
+| [Manuale](virtual-machines-windows-portal-sql-availability-group-prereq.md) | Tutti | Tutti | Tutti | Tutti | Sì | Sì | Sì | Sì | Sì | Sì |
 | &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
 
 Per compilare un gruppo di disponibilità di SQL Server in macchine virtuali di Azure, vedere le esercitazioni indicate di seguito.

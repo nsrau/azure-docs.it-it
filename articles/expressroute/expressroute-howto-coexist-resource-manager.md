@@ -1,5 +1,5 @@
 ---
-title: 'Configurare connessioni VPN da sito a sito e ExpressRoute-coesistenza: PowerShell: Azure | Microsoft Docs'
+title: 'Configurare connessioni coesistenti VPN ExpressRoute e S2S: Azure PowerShell'
 description: Come configurare connessioni VPN da sito a sito ed ExpressRoute coesistenti per il modello di distribuzione di Azure Resource Manager tramite PowerShell.
 services: expressroute
 author: charwen
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 8a89c5121d5010245ce16cade921bb96346fcbf5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: e25d6ff0bf0c27926040fcfe190724a666713a05
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748309"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031756"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurare connessioni coesistenti da sito a sito ed ExpressRoute usando PowerShell
 > [!div class="op_single_selector"]
@@ -154,7 +154,7 @@ Questa procedura illustra come creare una rete virtuale e connessioni da sito a 
    $localAddressPrefix = $localBGPPeeringIP + "/32"
    $localVpn = New-AzLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress $localVPNPublicIP -AddressPrefix $localAddressPrefix -BgpPeeringAddress $localBGPPeeringIP -Asn $localBGPASN
    ```
-6. Configurare il dispositivo VPN locale per la connessione al nuovo gateway VPN di Azure. Per altre informazioni sulla configurazione del dispositivo VPN, vedere la pagina relativa alla [configurazione del dispositivo VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
+6. Configurare il dispositivo VPN locale per la connessione al nuovo gateway VPN di Azure. Per altre informazioni sulla configurazione del dispositivo VPN, vedere l'articolo relativo alla [configurazione del dispositivo VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
 7. Collegare il gateway VPN da sito a sito in Azure al gateway locale.
 

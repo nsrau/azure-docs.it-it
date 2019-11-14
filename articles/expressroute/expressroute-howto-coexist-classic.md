@@ -1,5 +1,5 @@
 ---
-title: 'Configurare connessioni VPN da sito a sito e ExpressRoute-coesistenza: classica: Azure | Microsoft Docs'
+title: 'Configurare connessioni coesistenti VPN ExpressRoute e S2S: versione classica'
 description: Questo articolo illustra come configurare connessioni ExpressRoute e VPN da sito a sito ai fini della coesistenza per il modello di distribuzione classica.
 documentationcenter: na
 services: expressroute
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: b8eb1d7da9c588aedaedb37dc50c69970fe79ac2
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0643ce99ce4ba9328abc3f7a8c8e7061026611b9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162719"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031785"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurare connessioni coesistenti ExpressRoute e da sito a sito (versione classica)
 > [!div class="op_single_selector"]
@@ -177,7 +177,7 @@ Questa procedura illustra come creare una rete virtuale e connessioni da sito a 
         OperationStatus      : Succeeded
 
 
-1. Configurare il dispositivo VPN locale per la connessione al nuovo gateway. Quando si configura il dispositivo VPN, usare le informazioni recuperate nel passaggio 6. Per altre informazioni sulla configurazione del dispositivo VPN, vedere la pagina relativa alla [configurazione del dispositivo VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
+1. Configurare il dispositivo VPN locale per la connessione al nuovo gateway. Quando si configura il dispositivo VPN, usare le informazioni recuperate nel passaggio 6. Per altre informazioni sulla configurazione del dispositivo VPN, vedere l'articolo relativo alla [configurazione del dispositivo VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 2. Collegare il gateway VPN da sito a sito in Azure al gateway locale.
    
     In questo esempio connectedEntityId è l'ID del gateway locale, che è possibile trovare eseguendo `Get-AzureLocalNetworkGateway`. È possibile trovare virtualNetworkGatewayId usando il cmdlet `Get-AzureVirtualNetworkGateway` . Dopo questo passaggio, viene stabilita la connessione tra la rete locale e Azure tramite la connessione VPN da sito a sito.

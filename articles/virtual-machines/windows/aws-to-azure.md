@@ -1,5 +1,5 @@
 ---
-title: Spostare macchine virtuali AWS Windows in Azure | Microsoft Docs
+title: Spostare le macchine virtuali di Windows AWS in Azure
 description: Spostare un'istanza Windows di Amazon Web Services (AWS) EC2 in una macchina virtuale di Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 31f6ffc4f114039e0c53c1994f8c4364dea18298
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9bd01f24ac2cada02f51089d238519cd6c7e0248
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089514"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039275"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Spostare una VM Windows da Amazon Web Services (AWS) a una macchina virtuale di Azure
 
@@ -47,7 +47,7 @@ Questo articolo illustra lo spostamento di una singola macchina virtuale da AWS 
 
 Esportare l'istanza EC2 in un disco rigido virtuale in un bucket Amazon S3. Seguire la procedura illustrata nell'articolo [Exporting an Instance as a VM Using VM Import/Export](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) (Esportazione di un'istanza come VM tramite l'importazione/esportazione della VM) della documentazione di Amazon ed eseguire il comando [create-instance-export-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) per esportare l'istanza EC2 in un file di disco rigido virtuale. 
 
-Il file di disco rigido virtuale esportato viene salvato nel bucket Amazon S3 indicato. La sintassi di base per l'esportazione del disco rigido virtuale è riportata di seguito. \<è sufficiente sostituire il testo segnaposto tra parentesi > con le informazioni.
+Il file di disco rigido virtuale esportato viene salvato nel bucket Amazon S3 indicato. La sintassi di base per l'esportazione del disco rigido virtuale è riportata di seguito. è sufficiente sostituire il testo segnaposto in \<parentesi quadre > con le informazioni.
 
 ```
 aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft \

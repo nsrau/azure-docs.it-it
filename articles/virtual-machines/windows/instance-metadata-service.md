@@ -1,5 +1,5 @@
 ---
-title: Servizio metadati dell'istanza di Azure | Microsoft Docs
+title: Servizio metadati dell'istanza di Azure
 description: Interfaccia RESTful per ottenere informazioni sugli eventi di calcolo, di rete e di manutenzione imminenti della macchina virtuale Windows.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 658830e37a453075100cd3aaf132bb1d3aedfaea
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 4e411d986ffe88c0cf498262688afd2ecc71e51c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240383"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038535"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
@@ -36,7 +36,7 @@ L'endpoint è disponibile a un indirizzo IP non instradabile noto (`169.254.169.
 
 Il servizio è disponibile a livello generale nelle aree di Azure. Le versioni API potrebbero non essere tutte disponibili in tutte le aree di Azure.
 
-Regions                                        | Disponibilità                                 | Versioni supportate
+Regioni                                        | Disponibilità                                 | Versioni supportate
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
@@ -81,7 +81,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance"
 }
 ```
 
-### <a name="using-headers"></a>Uso delle intestazioni
+### <a name="using-headers"></a>Utilizzo delle intestazioni
 
 Quando si eseguono query sul Servizio metadati dell'istanza, è necessario specificare l'intestazione `Metadata: true` per garantire che la richiesta non sia stata reindirizzata accidentalmente.
 
@@ -105,31 +105,31 @@ API | Formato dati predefinito | Altri formati
 --------|---------------------|--------------
 /instance | json | text
 /scheduledevents | json | nessuno
-/attested | JSON | nessuno
+/attested | json | nessuno
 
-Per accedere a un formato di risposta non predefinito, specificare il formato richiesto come parametro della stringa di query nella richiesta. Esempio:
+Per accedere a un formato di risposta non predefinito, specificare il formato richiesto come parametro della stringa di query nella richiesta. Ad esempio:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 > [!NOTE]
-> Per i nodi foglia `format=json` il non funziona. Per queste query `format=text` è necessario specificare in modo esplicito se il formato predefinito è JSON.
+> Per i nodi foglia il `format=json` non funziona. Per queste query `format=text` necessario specificare in modo esplicito se il formato predefinito è JSON.
 
 ### <a name="security"></a>Security
 
 L'endpoint del Servizio metadati dell'istanza è accessibile solo dall'istanza della macchina virtuale in esecuzione su un indirizzo IP non instradabile. Inoltre, qualsiasi richiesta con intestazione `X-Forwarded-For` viene rifiutata dal servizio.
 È necessario anche che le richieste includano l'intestazione `Metadata: true` per garantire che la richiesta sia stata destinata direttamente e non faccia parte di un reindirizzamento non intenzionale.
 
-### <a name="error"></a>Errore
+### <a name="error"></a>Tipi di errore
 
-In caso di elementi dati non trovati o di richiesta non valida, il Servizio metadati dell'istanza restituisce errori HTTP standard. ad esempio:
+In caso di elementi dati non trovati o di richiesta non valida, il Servizio metadati dell'istanza restituisce errori HTTP standard. Ad esempio:
 
 Codice di stato HTTP | Motivo
 ----------------|-------
 200 - OK |
-400 - Richiesta non valida | Manca `Metadata: true` l'intestazione o il formato quando si esegue una query su un nodo foglia
-404 Non trovato | L'elemento richiesto non esiste
+400 - Richiesta non valida | Manca l'intestazione del `Metadata: true` o il formato non è presente durante l'esecuzione di query su un nodo foglia
+404 - Non trovato | L'elemento richiesto non esiste
 405 - Metodo non consentito | Sono supportate solo le richieste `GET` e `POST`
 429 - Numero eccessivo di richieste | L'API supporta attualmente un massimo di 5 query al secondo
 500 - Errore del servizio     | Ripetere l'operazione in un secondo momento
@@ -341,11 +341,11 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 #### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>Le API seguenti sono disponibili tramite l'endpoint dei metadati:
 
-Data | Descrizione | Versione introdotta
+Dati | DESCRIZIONE | Versione introdotta
 -----|-------------|-----------------------
 attested | Vedere [Dati con attestazione](#attested-data) | 2018-10-01
 identity | Identità gestite per le risorse di Azure. Vedere [Acquisire un token di accesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-istanza | Vedere [API dell'istanza](#instance-api) | 2017-04-02
+instance | Vedere [API dell'istanza](#instance-api) | 2017-04-02
 scheduledevents | Vedere [Eventi pianificati](scheduled-events.md) | 2017-08-01
 
 #### <a name="instance-api"></a>API dell'istanza
@@ -354,28 +354,28 @@ scheduledevents | Vedere [Eventi pianificati](scheduled-events.md) | 2017-08-01
 > [!NOTE]
 > Tramite l'endpoint dei metadati, si accede alle seguenti categorie tramite istanza/calcolo
 
-Data | Descrizione | Versione introdotta
+Dati | DESCRIZIONE | Versione introdotta
 -----|-------------|-----------------------
 azEnvironment | Ambiente Azure in cui è in esecuzione la macchina virtuale | 2018-10-01
 customData | Vedere [dati personalizzati](#custom-data) | 2019-02-01
 location | Area di Azure in cui la macchina virtuale è in esecuzione | 2017-04-02
-name | Nome della VM | 2017-04-02
-offerta | Fornire informazioni per l'immagine di macchina virtuale ed è presente solo per le immagini distribuite dalla raccolta immagini di Azure | 2017-04-02
+Nome | Nome della VM | 2017-04-02
+offer | Fornire informazioni per l'immagine di macchina virtuale ed è presente solo per le immagini distribuite dalla raccolta immagini di Azure | 2017-04-02
 osType | Linux o Windows | 2017-04-02
 placementGroupId | [Gruppo di posizionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) del set di scalabilità di macchine virtuali | 2017-08-01
 piano | [Piano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) contenente il nome, il prodotto e il server di pubblicazione per una macchina virtuale se è un'immagine di Azure Marketplace | 2018-04-02
 platformUpdateDomain |  [Dominio di aggiornamento](manage-availability.md) in cui è in esecuzione la macchina virtuale | 2017-04-02
 platformFaultDomain | [Dominio di errore](manage-availability.md) in cui è in esecuzione la macchina virtuale | 2017-04-02
-un provider | Provider della macchina virtuale | 2018-10-01
+provider | Provider della macchina virtuale | 2018-10-01
 publicKeys | [Raccolta di chiavi pubbliche](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assegnate alla VM e ai percorsi | 2018-04-02
 publisher | Autore dell'immagine della macchina virtuale | 2017-04-02
 resourceGroupName | [Gruppo di risorse](../../azure-resource-manager/resource-group-overview.md) per la macchina virtuale | 2017-08-01
-resourceId | ID [completo](https://docs.microsoft.com/rest/api/resources/resources/getbyid) della risorsa | 2019-03-11
+resourceId | ID [completo della risorsa](https://docs.microsoft.com/rest/api/resources/resources/getbyid) | 2019-03-11
 sku | SKU specifica per l'immagine della macchina virtuale | 2017-04-02
 subscriptionId | Sottoscrizione di Azure per la macchina virtuale | 2017-08-01
-tags | [Tag](../../azure-resource-manager/resource-group-using-tags.md) per la macchina virtuale  | 2017-08-01
+Tag | [Tag](../../azure-resource-manager/resource-group-using-tags.md) per la macchina virtuale  | 2017-08-01
 Tag | Tag formattati come matrice JSON per un'analisi più semplice a livello di codice  | 2019-06-04
-versione | Versione dell'immagine della macchina virtuale | 2017-04-02
+version | Versione dell'immagine della macchina virtuale | 2017-04-02
 vmId | [Identificatore univoco](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) della macchina virtuale | 2017-04-02
 vmScaleSetName | [Nome del set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) del proprio set di scalabilità di macchine virtuali | 2017-12-01
 vmSize | [Dimensioni macchina virtuale](sizes.md) | 2017-04-02
@@ -386,7 +386,7 @@ zona | [Zona di disponibilità](../../availability-zones/az-overview.md) della m
 > [!NOTE]
 > Tramite l'endpoint dei metadati, si accede alle seguenti categorie tramite istanza/rete/interfaccia
 
-Data | Descrizione | Versione introdotta
+Dati | DESCRIZIONE | Versione introdotta
 -----|-------------|-----------------------
 ipv4/privateIpAddress | Indirizzo IPv4 locale della macchina virtuale | 2017-04-02
 ipv4/publicIpAddress | Indirizzo IPv4 pubblico della macchina virtuale | 2017-04-02
@@ -545,7 +545,7 @@ AzurePublicCloud
 
 Le aree e i valori dell'ambiente Azure sono elencati di seguito.
 
- Regions | Ambiente Azure
+ Regioni | Ambiente Azure
 ---------|-----------------
 [Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
@@ -568,7 +568,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api
 Department:IT;Environment:Test;Role:WebRole
 ```
 
-Il `tags` campo è una stringa con i tag delimitati da punti e virgola. Questo può costituire un problema se i punti e virgola vengono usati nei tag stessi. Se viene scritto un parser per estrarre i tag a livello di codice, è necessario basarsi sul `tagsList` campo che è una matrice JSON senza delimitatori e, di conseguenza, è più facile da analizzare.
+Il campo `tags` è una stringa con i tag delimitati da punti e virgola. Questo può costituire un problema se i punti e virgola vengono usati nei tag stessi. Se viene scritto un parser per estrarre i tag a livello di codice, è necessario basarsi sul campo `tagsList`, che è una matrice JSON senza delimitatori e, di conseguenza, più semplice da analizzare.
 
 **Richiesta**
 
@@ -641,14 +641,14 @@ Verification successful
 }
 ```
 
-Data | Descrizione
+Dati | DESCRIZIONE
 -----|------------
 nonce | Stringa facoltativa fornita dall'utente con la richiesta. Se nella richiesta non è presente l'elemento nonce, viene restituito il timestamp UTC corrente
 piano | [Piano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) per una macchina virtuale in un'immagine di Azure Marketplace, che contiene nome, prodotto ed editore
 timestamp/createdOn | Timestamp relativo alla creazione del primo documento firmato
 timestamp/expiresOn | Timestamp relativo alla scadenza del documento firmato
 vmId |  [Identificatore univoco](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) della macchina virtuale
-subscriptionId | Sottoscrizione di Azure per la macchina virtuale, introdotta in`2019-04-30`
+subscriptionId | Sottoscrizione di Azure per la macchina virtuale, introdotta in `2019-04-30`
 
 #### <a name="verifying-the-signature"></a>Verifica della firma
 
@@ -657,7 +657,7 @@ Dopo aver ottenuto la firma sopra indicata, è possibile verificare che provenga
 > [!NOTE]
 > Il certificato per il cloud pubblico e il cloud sovrano sarà diverso.
 
- cloud | Certificato
+ Cloud | Certificate
 ---------|-----------------
 [Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
@@ -758,7 +758,7 @@ My custom data.
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Esempi di chiamate del Servizio metadati con diversi linguaggi all'interno della macchina virtuale 
 
-Linguaggio | Esempio
+Lingua | Esempio
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go

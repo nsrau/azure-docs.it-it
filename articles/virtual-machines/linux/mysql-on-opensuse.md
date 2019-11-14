@@ -1,5 +1,5 @@
 ---
-title: Installare MySQL in una macchina virtuale OpenSUSE in Azure | Microsoft Docs
+title: Installare MySQL in una VM OpenSUSE in Azure
 description: Informazioni su come installare MySQL in una macchina virtuale OpenSUSE Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 223a5a5b77ded9eb26a5cf3f0003bc9d393615db
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d5f2ef2d82cbcced6202ad2c09f23dd734d373b3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300850"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035590"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installazione di MySQL in una macchina virtuale che esegue OpenSUSE Linux in Azure
 
@@ -134,7 +134,7 @@ CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 Il punto e virgola (;) alla fine della riga è essenziale per la conclusione del comando.
 
 
-## <a name="create-a-database"></a>Creazione di un database
+## <a name="create-a-database"></a>Creare un database
 
 
 Creare un database e concedere le autorizzazioni all'utente `mysqluser`.

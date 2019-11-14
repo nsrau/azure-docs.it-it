@@ -1,5 +1,5 @@
 ---
-title: Distribuzioni di Linux approvate in Azure | Microsoft Docs
+title: Distribuzioni di Linux approvate in Azure
 description: Informazioni sulle distribuzioni di Linux approvate in Azure, che includono le linee guida per Ubuntu, CentOS, Oracle e SUSE.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: szark
-ms.openlocfilehash: c9537ec39e58d5703ed3bc1774520a12b25147b0
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 66717222b505b7dd91f7f270cab27ec4ca97038e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615589"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036223"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuzioni di Linux approvate in Azure
 In Azure Marketplace sono disponibili immagini Linux fornite da partner. Microsoft collabora con diverse community Linux per aggiungere altre versioni all'elenco delle distribuzioni approvate. Nel frattempo, per le distribuzioni non disponibili in Marketplace, è possibile portare il proprio sistema Linux attenendosi alle linee guida in [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
@@ -32,7 +32,7 @@ I driver di Linux Integration Services (LIS) per Hyper-V e Azure sono moduli ker
 L'agente Linux di Azure è già preinstallato nelle immagini di Azure Marketplace ed è in genere disponibile dal repository del pacchetto della distribuzione. Il codice sorgente è disponibile su [GitHub](https://github.com/azure/walinuxagent).
 
 
-| Distribuzione | Versione | Driver | Agente |
+| Distribuzione | Version | Driver | Agente |
 | --- | --- | --- | --- |
 | CentOS |CentOS 6.3 +, 7.0 +, 8.0 + |CentOS 6.3: [download LIS](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: nel kernel |Pacchetto: in [repo](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) sotto "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |Nel kernel |Codice sorgente: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |

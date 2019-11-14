@@ -1,5 +1,5 @@
 ---
-title: Gruppi di disponibilità di SQL Server - Macchine virtuali di Azure - Prerequisiti | Microsoft Docs
+title: 'Esercitazione: prerequisiti per il gruppo di disponibilità'
 description: Questa esercitazione illustra come configurare i prerequisiti per la creazione di un gruppo di disponibilità AlwaysOn di SQL Server nelle VM di Azure.
 services: virtual-machines
 documentationCenter: na
@@ -9,24 +9,24 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
-ms.custom: na
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 62232283fb0b2f499601615702fef3292bb88317
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 17b1f58a950f2e0589986e9f1da1295671599341
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100725"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037483"
 ---
-# <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Completare i prerequisiti per la creazione di gruppi di disponibilità AlwaysOn in Macchine virtuali di Azure
+# <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Prerequisiti per la creazione di Gruppi di disponibilità Always On in SQL Server in macchine virtuali di Azure
 
 Questa esercitazione illustra come completare i prerequisiti per la creazione di un [gruppo di disponibilità AlwaysOn di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md). Dopo il completamento dei prerequisiti, sono presenti un controller di dominio, due VM di SQL Server e un server di controllo in un unico gruppo di risorse.
 
-**Tempo stimato**: il completamento dei prerequisiti potrebbe richiedere un paio d'ore. Il tempo è dedicato principalmente alla creazione delle macchine virtuali.
+**Tempo stimato**: il completamento dei prerequisiti potrebbe richiedere due ore circa. Il tempo è dedicato principalmente alla creazione delle macchine virtuali.
 
 Il diagramma seguente illustra le operazioni di compilazione nell'esercitazione.
 
@@ -48,7 +48,7 @@ L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità A
 
 3. Digitare **gruppo di risorse** nella finestra di ricerca del **Marketplace**.
 
-   ![Gruppo di risorse](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
+   ![Resource group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. Fare clic su **Gruppo di risorse**.
 5. Fare clic su **Create**(Crea).
 6. In **Nome gruppo di risorse** digitare un nome per il gruppo di risorse. ad esempio digitare **sql-ha-rg**.
@@ -56,7 +56,7 @@ L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità A
 8. Selezionare una località. La località corrisponde all'area di Azure in cui si vuole creare il gruppo di disponibilità. Questo articolo illustra la creazione di tutte le risorse in un'unica località di Azure.
 9. Verificare che l'opzione **Aggiungi al dashboard** sia selezionata. Questa impostazione facoltativa inserisce un collegamento per il gruppo di risorse nel dashboard del portale di Azure.
 
-   ![Gruppo di risorse](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
+   ![Resource group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
 
 10. Fare clic su **Crea** per creare il gruppo di risorse.
 
@@ -80,19 +80,19 @@ Per creare la rete virtuale:
 
     La tabella seguente descrive le impostazioni per la rete virtuale:
 
-   | **Campo** | Value |
+   | **Campo** | Valore |
    | --- | --- |
    | **Nome** |autoHAVNET |
    | **Spazio degli indirizzi** |10.33.0.0/24 |
-   | **Nome della subnet** |Admin |
+   | **Nome della subnet** |Amministratore |
    | **Intervallo di indirizzi subnet** |10.33.0.0/29 |
    | **Sottoscrizione** |Specificare la sottoscrizione da usare. Se è disponibile una sola sottoscrizione, il valore di **Sottoscrizione** non è impostato. |
    | **Gruppo di risorse** |Scegliere **Utilizza esistente** e selezionare il nome del gruppo di risorse. |
-   | **Location** |Specificare la località di Azure. |
+   | **Località** |Specificare la località di Azure. |
 
    Lo spazio indirizzi e l'intervallo di indirizzi subnet possono essere diversi da quelli della tabella. A seconda della sottoscrizione, sul portale verrà suggerito uno spazio indirizzi disponibile e un intervallo di indirizzi subnet corrispondente. Se non è disponibile uno spazio indirizzi sufficiente, usare un'altra sottoscrizione.
 
-   L'esempio usa il nome di subnet **Admin**. Questa subnet verrà usata per i controller di dominio.
+   Nell'esempio viene usato il nome della subnet **admin**. Questa subnet è per i controller di dominio.
 
 5. Fare clic su **Create**(Crea).
 
@@ -101,7 +101,7 @@ Per creare la rete virtuale:
 In questo modo, si torna al dashboard del portale e Azure invia una notifica dopo la creazione della rete.
 
 ### <a name="create-a-second-subnet"></a>Creare una seconda subnet
-La nuova rete virtuale dispone di una subnet, denominata **Admin**. I controller di dominio usano questa subnet. Le VM di SQL Server usano una seconda subnet denominata **SQL**. Per configurare questa subnet:
+La nuova rete virtuale ha una subnet, denominata **admin**. I controller di dominio utilizzano questa subnet. Le VM di SQL Server usano una seconda subnet denominata **SQL**. Per configurare questa subnet:
 
 1. Nel dashboard fare clic sul gruppo di risorse creato, **SQL-HA-RG**. Trovare la rete nel gruppo di risorse in **Risorse**.
 
@@ -120,7 +120,7 @@ La nuova rete virtuale dispone di una subnet, denominata **Admin**. I controller
 
 La tabella seguente riepiloga le impostazioni di configurazione della rete:
 
-| **Campo** | Value |
+| **Campo** | Valore |
 | --- | --- |
 | **Nome** |**autoHAVNET** |
 | **Spazio degli indirizzi** |Questo valore dipende dagli spazi indirizzi disponibili nella sottoscrizione. Un valore tipico è 10.0.0.0/16. |
@@ -130,7 +130,7 @@ La tabella seguente riepiloga le impostazioni di configurazione della rete:
 | **Intervallo di indirizzi subnet** |Questo valore dipende dagli intervalli di indirizzi disponibili nella sottoscrizione. Un valore tipico è 10.0.1.0/24 |
 | **Sottoscrizione** |Specificare la sottoscrizione da usare. |
 | **Gruppo di risorse** |**SQL-HA-RG** |
-| **Location** |Specificare la stessa località scelta per il gruppo di risorse. |
+| **Località** |Specificare la stessa località scelta per il gruppo di risorse. |
 
 ## <a name="create-availability-sets"></a>Creare set di disponibilità
 
@@ -173,7 +173,7 @@ Ripetere i passaggi precedenti per creare due macchine virtuali. Assegnare un no
 
 La tabella seguente descrive le impostazioni per queste due macchine:
 
-| **Campo** | Value |
+| **Campo** | Valore |
 | --- | --- |
 | **Nome** |Primo controller di dominio: *ad-primary-dc*.</br>Secondo controller di dominio: *ad-secondary-dc*. |
 | **Tipo di disco VM** |SSD |
@@ -181,7 +181,7 @@ La tabella seguente descrive le impostazioni per queste due macchine:
 | **Password** |Contoso!0000 |
 | **Sottoscrizione** |*Sottoscrizione in uso* |
 | **Gruppo di risorse** |Nome gruppo di risorse |
-| **Location** |*Località corrente* |
+| **Località** |*Località corrente* |
 | **Dimensione** |DS1_V2 |
 | **Archiviazione** | **Usa dischi gestiti** - **Sì** |
 | **Rete virtuale** |autoHAVNET |
@@ -233,7 +233,7 @@ Nei passaggi seguenti configurare la macchina virtuale **ad-primary-dc** come co
     | --- | --- |
     | **Configurazione distribuzione** |**Aggiungi una nuova foresta**<br/> **Nome di dominio radice** = corp.contoso.com |
     | **Opzioni controller di dominio** |**Password DSRM** = Contoso!0000<br/>**Conferma password** = Contoso!0000 |
-14. Fare clic su **Avanti** per procedere nelle altre pagine della procedura guidata. Nella pagina **Controllo dei prerequisiti** verificare che venga visualizzato il messaggio seguente: **Tutti i controlli dei prerequisiti sono riusciti**. È possibile leggere tutti i messaggi di avviso applicabili o continuare con l'installazione.
+14. Fare clic su **Avanti** per procedere nelle altre pagine della procedura guidata. Nella pagina **Controllo dei prerequisiti** verificare che venga visualizzato il seguente messaggio: **Tutti i controlli dei prerequisiti sono riusciti**. È possibile leggere tutti i messaggi di avviso applicabili o continuare con l'installazione.
 15. Fare clic su **Installa**. La macchina virtuale **ad-primary-dc** viene riavviata automaticamente.
 
 ### <a name="note-the-ip-address-of-the-primary-domain-controller"></a>Annotare l'indirizzo IP del controller di dominio primario
@@ -313,8 +313,8 @@ Nei passaggi successivi vengono configurati gli account Active Directory (AD). L
 
 | |Account di installazione<br/> |sqlserver-0 <br/>Account del servizio SQL Agent e SQL Server |sqlserver-1<br/>Account del servizio SQL Agent e SQL Server
 | --- | --- | --- | ---
-|**Nome** |Installa |SQLSvc1 | SQLSvc2
-|**Utente SamAccountName** |Installazione |SQLSvc1 | SQLSvc2
+|**Nome** |Install |SQLSvc1 | SQLSvc2
+|**Utente SamAccountName** |Install |SQLSvc1 | SQLSvc2
 
 Usare i passaggi seguenti per creare ogni account.
 
@@ -369,7 +369,7 @@ Creare successivamente tre VM, tra cui due VM di SQL Server e una VM per un nodo
 | Selezionare l'elemento della raccolta appropriato |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise on Windows Server 2016** |**SQL Server 2016 SP1 Enterprise on Windows Server 2016** |
 | **Elementi di base** |**Nome** = cluster-fsw<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = sottoscrizione<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = posizione di Azure |**Nome** = sqlserver-0<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = sottoscrizione<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = posizione di Azure |**Nome** = sqlserver-1<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = sottoscrizione<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = posizione di Azure |
 | Configurazione della macchina virtuale - **Dimensioni** |**DIMENSIONI** = DS1\_V2 (1 vCPU, 3,5 GB) |**DIMENSIONI** = DS2\_V2 (2 vCPU, 7 GB)</br>Le dimensioni devono supportare l'archiviazione su unità SSD (Supporto disco Premium )) |**DIMENSIONI** = DS2\_V2 (2 vCPU, 7 GB) |
-| Configurazione della macchina virtuale - **Impostazioni** |**Archiviazione**: Usare dischi gestiti.<br/>**Rete virtuale** = autoHAVNET<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Indirizzo IP pubblico** generato automaticamente.<br/>**Gruppo di sicurezza di rete** = nessuno<br/>**Monitoraggio e diagnostica** = abilitato<br/>**Account di archiviazione di diagnostica**: usare un account di archiviazione generato automaticamente<br/>**Set di disponibilità** = sqlAvailabilitySet<br/> |**Archiviazione**: Usare dischi gestiti.<br/>**Rete virtuale** = autoHAVNET<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Indirizzo IP pubblico** generato automaticamente.<br/>**Gruppo di sicurezza di rete** = nessuno<br/>**Monitoraggio e diagnostica** = abilitato<br/>**Account di archiviazione di diagnostica**: usare un account di archiviazione generato automaticamente<br/>**Set di disponibilità** = sqlAvailabilitySet<br/> |**Archiviazione**: Usare dischi gestiti.<br/>**Rete virtuale** = autoHAVNET<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Indirizzo IP pubblico** generato automaticamente.<br/>**Gruppo di sicurezza di rete** = nessuno<br/>**Monitoraggio e diagnostica** = abilitato<br/>**Account di archiviazione di diagnostica**: usare un account di archiviazione generato automaticamente<br/>**Set di disponibilità** = sqlAvailabilitySet<br/> |
+| Configurazione della macchina virtuale - **Impostazioni** |**Archiviazione**: Usa dischi gestiti.<br/>**Rete virtuale** = autoHAVNET<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Indirizzo IP pubblico** generato automaticamente.<br/>**Gruppo di sicurezza di rete** = nessuno<br/>**Monitoraggio e diagnostica** = abilitato<br/>**Account di archiviazione di diagnostica**: usare un account di archiviazione generato automaticamente<br/>**Set di disponibilità** = sqlAvailabilitySet<br/> |**Archiviazione**: Usa dischi gestiti.<br/>**Rete virtuale** = autoHAVNET<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Indirizzo IP pubblico** generato automaticamente.<br/>**Gruppo di sicurezza di rete** = nessuno<br/>**Monitoraggio e diagnostica** = abilitato<br/>**Account di archiviazione di diagnostica**: usare un account di archiviazione generato automaticamente<br/>**Set di disponibilità** = sqlAvailabilitySet<br/> |**Archiviazione**: Usa dischi gestiti.<br/>**Rete virtuale** = autoHAVNET<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Indirizzo IP pubblico** generato automaticamente.<br/>**Gruppo di sicurezza di rete** = nessuno<br/>**Monitoraggio e diagnostica** = abilitato<br/>**Account di archiviazione di diagnostica**: usare un account di archiviazione generato automaticamente<br/>**Set di disponibilità** = sqlAvailabilitySet<br/> |
 | Configurazione della macchina virtuale - **Impostazioni SQL Server** |Non applicabile |**Connettività SQL** = privata (nella rete virtuale)<br/>**Porta** = 1433<br/>**Autenticazione SQL** = disabilitata<br/>**Configurazione dell'archiviazione** = generale<br/>**Applicazione automatica delle patch** = domenica alle 2:00<br/>**Backup automatizzato** = disabilitato</br>**Integrazione dell'insieme di credenziali delle chiavi di Azure** = Disabilitata |**Connettività SQL** = privata (nella rete virtuale)<br/>**Porta** = 1433<br/>**Autenticazione SQL** = disabilitata<br/>**Configurazione dell'archiviazione** = generale<br/>**Applicazione automatica delle patch** = domenica alle 2:00<br/>**Backup automatizzato** = disabilitato</br>**Integrazione dell'insieme di credenziali delle chiavi di Azure** = Disabilitata |
 
 <br/>
@@ -490,9 +490,9 @@ Il metodo per aprire le porte dipende dalla soluzione firewall in uso. La sezion
 
    ![Firewall SQL](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/35-tcpports.png)
 
-5. Fare clic su **Avanti**.
-6. Nella pagina **Azione** mantenere selezionata l'opzione **Consenti la connessione** e fare clic su **Avanti**.
-7. Nella pagina **Profilo** accettare le impostazioni predefinite e fare clic su **Avanti**.
+5. Fare clic su **Next** (Avanti).
+6. Nella pagina **Azione** mantenere selezionata l'opzione **Consenti la connessione** e quindi fare clic su **Avanti**.
+7. Nella pagina **Profilo** accettare le impostazioni predefinite e quindi fare clic su **Avanti**.
 8. Nella pagina **Nome** specificare un nome per la regola, ad esempio **Probe per Azure LB** nella casella di testo **Nome**, quindi fare clic su **Fine**.
 
 Ripetere questi passaggi per la seconda VM di SQL Server.

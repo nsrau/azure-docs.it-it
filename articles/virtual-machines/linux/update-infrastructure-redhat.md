@@ -1,5 +1,5 @@
 ---
-title: Red Hat Update Infrastructure | Microsoft Docs
+title: Red Hat Update Infrastructure
 description: Informazioni su Red Hat Update Infrastructure per istanze di Red Hat Enterprise Linux su richiesta in Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: 6b332af53f421230b3fb5401e525bd77c5e87ed9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b19ccad5254418092446aaf781d49fa7edf0e4f4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081377"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034313"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure per VM Red Hat Enterprise Linux su richiesta in Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) consente ai provider di servizi cloud (come Azure) di eseguire il mirroring del contenuto dei repository ospitati in Red Hat, creare repository personalizzati con contenuto specifico di Azure e garantirne la disponibilità per le VM degli utenti finali.
@@ -40,13 +40,13 @@ Informazioni sui criteri di supporto di Red Hat per tutte le versioni di RHEL so
 
 ## <a name="image-update-behavior"></a>Comportamento aggiornamento immagine
 
-A partire dal 2019 aprile, Azure offre immagini RHEL connesse a repository EUS (Extended Update Support) per impostazione predefinita e immagini RHEL connesse ai repository regolari (non EUS) per impostazione predefinita. Altre informazioni su RHEL EUS sono disponibili nella [documentazione del ciclo](https://access.redhat.com/support/policy/updates/errata) di vita della versione di Red Hat e nella [documentazione di EUS](https://access.redhat.com/articles/rhel-eus). Il comportamento predefinito di `sudo yum update` varia a seconda dell'immagine RHEL da cui è stato effettuato il provisioning, in quanto le diverse immagini sono connesse a repository diversi.
+A partire dal 2019 aprile, Azure offre immagini RHEL connesse a repository EUS (Extended Update Support) per impostazione predefinita e immagini RHEL connesse ai repository regolari (non EUS) per impostazione predefinita. Altre informazioni su RHEL EUS sono disponibili nella [documentazione del ciclo](https://access.redhat.com/support/policy/updates/errata) di vita della versione di Red Hat e nella [documentazione di EUS](https://access.redhat.com/articles/rhel-eus). Il comportamento predefinito di `sudo yum update` varierà a seconda dell'immagine RHEL di cui è stato effettuato il provisioning, in quanto le diverse immagini sono connesse a repository diversi.
 
-Per un elenco completo di immagini, `az vm image list --publisher redhat --all` eseguire usando l'interfaccia della riga di comando di Azure.
+Per un elenco completo di immagini, eseguire `az vm image list --publisher redhat --all` usando l'interfaccia della riga di comando di Azure.
 
 ### <a name="images-connected-to-non-eus-repositories"></a>Immagini connesse a repository non EUS
 
-Se si esegue il provisioning di una macchina virtuale da un'immagine RHEL connessa a repository non EUS, verrà eseguito l'aggiornamento alla versione secondaria di RHEL più recente `sudo yum update`quando si esegue. Ad esempio, se si esegue il provisioning di una macchina virtuale da un' `sudo yum update`immagine RHEL 7,4 PAYG e si esegue, si finisce con una VM RHEL 7,7 (la versione secondaria più recente della famiglia RHEL7).
+Se si esegue il provisioning di una macchina virtuale da un'immagine RHEL connessa a repository non EUS, verrà eseguito l'aggiornamento alla versione secondaria di RHEL più recente quando si esegue `sudo yum update`. Se, ad esempio, si esegue il provisioning di una macchina virtuale da un'immagine RHEL 7,4 PAYG e si esegue `sudo yum update`, si finisce con una VM RHEL 7,7 (la versione secondaria più recente della famiglia RHEL7).
 
 Le immagini connesse a repository non EUS non conterranno un numero di versione secondario nello SKU. Lo SKU è il terzo elemento dell'URN (nome completo dell'immagine). Ad esempio, tutte le immagini seguenti vengono associate a repository non EUS:
 
@@ -63,7 +63,7 @@ Si noti che gli SKU sono 7-LVM o 7-RAW. La versione secondaria è indicata nella
 
 ### <a name="images-connected-to-eus-repositories"></a>Immagini connesse a repository EUS
 
-Se si esegue il provisioning di una macchina virtuale da un'immagine RHEL connessa a repository EUS, non verrà eseguito l'aggiornamento alla versione secondaria di RHEL più `sudo yum update`recente quando si esegue. Questo perché le immagini connesse ai repository EUS sono anche bloccate alla versione secondaria specifica.
+Se si esegue il provisioning di una macchina virtuale da un'immagine RHEL connessa a repository EUS, non verrà eseguito l'aggiornamento alla versione secondaria di RHEL più recente quando si esegue `sudo yum update`. Questo perché le immagini connesse ai repository EUS sono anche bloccate alla versione secondaria specifica.
 
 Le immagini connesse ai repository EUS conterranno un numero di versione secondario nello SKU. Ad esempio, tutte le immagini seguenti vengono associate ai repository EUS:
 
@@ -167,7 +167,7 @@ Se si usa una configurazione di rete per limitare ulteriormente l'accesso da VM 
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Aggiornare il certificato client RHUI scaduto in una macchina virtuale
 
-Se si usa un'immagine di macchina virtuale RHEL di una versione precedente, ad esempio RHEL 7.4 (URN immagine: `RedHat:RHEL:7.4:7.4.2018010506`), si riscontreranno problemi di connettività a RHUI dovuti a un certificato client SSL ormai scaduto. Verrà visualizzato un errore simile al seguente: _"Il peer SSL ha rifiutato il certificato considerandolo scaduto"_ oppure _Errore: impossibile recuperare i metadati del repository (repomd.xml) per il repository:... Si prega di verificare il suo percorso e riprovare"_ . Per risolvere il problema, aggiornare il pacchetto client RHUI nella macchina virtuale usando il comando seguente:
+Se si usa un'immagine di macchina virtuale RHEL di una versione precedente, ad esempio RHEL 7.4 (URN immagine: `RedHat:RHEL:7.4:7.4.2018010506`), si riscontreranno problemi di connettività a RHUI dovuti a un certificato client SSL ormai scaduto. L'errore visualizzato potrebbe essere simile a _"il peer SSL ha rifiutato il certificato come scaduto"_ o _"errore: Impossibile recuperare i metadati del repository (repomd. Xml) per il repository:... Verificare il percorso e riprovare "_ . Per risolvere il problema, aggiornare il pacchetto client RHUI nella macchina virtuale usando il comando seguente:
 
 ```bash
 sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
@@ -175,7 +175,7 @@ sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 
 In alternativa, anche l'esecuzione di `sudo yum update` potrebbe aggiornare il pacchetto del certificato client (a seconda della versione RHEL), nonostante gli errori di "certificato SSL scaduto" visualizzati per altri repository. Se l'aggiornamento ha esito positivo, dovrebbe essere ripristinata la normale connettività agli altri repository RHUI e sarà possibile eseguire `sudo yum update`.
 
-Se si esegue un errore 404 durante l'esecuzione di `yum update`un, provare a eseguire le operazioni seguenti per aggiornare la cache yum:
+Se si esegue un errore 404 durante l'esecuzione di un `yum update`, provare a eseguire le operazioni seguenti per aggiornare la cache yum:
 ```bash
 sudo yum clean all;
 sudo yum makecache
@@ -186,7 +186,7 @@ Se si verificano problemi di connessione all'infrastruttura RHUI di Azure da una
 
 1. Individuare nella configurazione della VM un endpoint dell'infrastruttura RHUI di Azure:
 
-    1. Controllare se la sezione `[rhui-microsoft-azure-rhel*]` del file `/etc/yum.repos.d/rh-cloud.repo` contiene un riferimento a `rhui-[1-3].microsoft.com` in `baseurl`. In questo caso si sta usando la nuova infrastruttura RHUI di Azure.
+    1. Controllare se la sezione `/etc/yum.repos.d/rh-cloud.repo` del file `rhui-[1-3].microsoft.com` contiene un riferimento a `baseurl` in `[rhui-microsoft-azure-rhel*]`. In questo caso si sta usando la nuova infrastruttura RHUI di Azure.
 
     1. Se punta a un percorso con il modello `mirrorlist.*cds[1-4].cloudapp.net`, è necessario un aggiornamento della configurazione. Se si sta usando uno snapshot di VM precedente, è necessario aggiornarlo in modo che punti alla nuova infrastruttura RHUI di Azure.
 

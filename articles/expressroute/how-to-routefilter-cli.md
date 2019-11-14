@@ -1,5 +1,5 @@
 ---
-title: 'Configurare i filtri di route per il peering Microsoft - ExpressRoute: Interfaccia della riga di comando di Azure | Microsoft Docs'
+title: 'ExpressRoute: filtri di route-peering Microsoft: interfaccia della riga di comando di Azure'
 description: Questo articolo descrive come configurare i filtri di route per il peering Microsoft usando l'interfaccia della riga di comando di Azure
 services: expressroute
 author: anzaman
@@ -7,14 +7,14 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: f60bf8de33cd9552bf7c903f4c8921d50e911643
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c3c50a005e119890fb17fcf7b3114a747bbe34bf
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123342"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033422"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurare i filtri di route per il peering Microsoft: Interfaccia della riga di comando di Azure
+# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurare i filtri di route per il peering Microsoft: interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](how-to-routefilter-portal.md)
@@ -41,7 +41,7 @@ Un filtro di route consente di identificare i servizi da usare tramite il peerin
 Per poter associare i filtri di route ai servizi Office 365, è necessario essere autorizzati all'uso dei servizi Office 365 tramite ExpressRoute. Se non si è autorizzati a usare i servizi Office 365 tramite ExpressRoute, l'operazione di associazione dei filtri di route non riesce. Per altre informazioni sul processo di autorizzazione, vedere [Azure ExpressRoute per Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd).
 
 > [!IMPORTANT]
-> Il peering Microsoft dei circuiti ExpressRoute che sono stati configurati prima del 1° agosto 2017, avranno tutti i prefissi di servizio pubblicati tramite il peering Microsoft, anche se non sono definiti i filtri di route. Il peering Microsoft dei circuiti ExpressRoute che vengono configurati dopo il 1° agosto 2017 non avrà alcun prefisso annunciato fino a quando non viene associato un filtro di route per il circuito.
+> Per i circuiti ExpressRoute configurati prima del 1 agosto 2017, tutti i prefissi dei servizi verranno annunciati tramite il peering Microsoft, anche in mancanza di filtri di route definiti. Per il peering Microsoft dei circuiti ExpressRoute configurati dopo il 1 agosto 2017 non verrà annunciato alcun prefisso fino a quando non viene associato un filtro di route al circuito.
 > 
 > 
 
@@ -92,14 +92,14 @@ az account set --subscription "<subscription ID>"
 
 ## <a name="prefixes"></a>Passaggio 1: Ottenere un elenco di prefissi e di valori di community BGP
 
-### <a name="1-get-a-list-of-bgp-community-values"></a>1. Ottenere un elenco dei valori di community BGP
+### <a name="1-get-a-list-of-bgp-community-values"></a>1. ottenere un elenco di valori di community BGP
 
 Usare il cmdlet seguente per ottenere l'elenco dei valori di community BGP associati ai servizi accessibili tramite il peering Microsoft e l'elenco dei prefissi associati:
 
 ```azurecli-interactive
 az network route-filter rule list-service-communities
 ```
-### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Creare un elenco dei valori che si vuole usare
+### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. creare un elenco dei valori che si desidera utilizzare
 
 Creare un elenco dei valori di community BGP che si vuole usare nel filtro di route.
 
@@ -107,7 +107,7 @@ Creare un elenco dei valori di community BGP che si vuole usare nel filtro di ro
 
 Un filtro di route può includere una sola regola di tipo 'Consenti'. A questa regola può essere associato un elenco di valori di community BGP.
 
-### <a name="1-create-a-route-filter"></a>1. Creare un filtro di route
+### <a name="1-create-a-route-filter"></a>1. creare un filtro di route
 
 Creare prima di tutto il filtro di route. Il comando `az network route-filter create` crea solo una risorsa filtro di route. Dopo aver creato la risorsa, è necessario creare una regola e associarla all'oggetto filtro di route. Eseguire il comando seguente per creare una risorsa filtro di route:
 
@@ -115,7 +115,7 @@ Creare prima di tutto il filtro di route. Il comando `az network route-filter cr
 az network route-filter create -n MyRouteFilter -g MyResourceGroup
 ```
 
-### <a name="2-create-a-filter-rule"></a>2. Creare una regola di filtro
+### <a name="2-create-a-filter-rule"></a>2. creare una regola di filtro
 
 Eseguire il comando seguente per creare una nuova regola:
  

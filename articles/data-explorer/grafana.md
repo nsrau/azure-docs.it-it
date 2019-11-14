@@ -1,32 +1,32 @@
 ---
 title: Visualizzare i dati da Esplora dati di Azure con Grafana
-description: In questa procedura viene descritto come configurare Esplora dati di Azure come origine dati per Grafana e quindi come visualizzare i dati da un cluster di esempio.
+description: Questo articolo illustra come configurare Esplora dati di Azure come origine dati per Grafana e quindi visualizzare i dati da un cluster di esempio.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 6/30/2019
-ms.openlocfilehash: f1eb9fb0d81d1e9cdf3dd8628a6d7ad1f0ccce92
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/13/2019
+ms.openlocfilehash: a1c52007ea86ca0812c4a73a92ce81db6ddadc7b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581927"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037990"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualizzare i dati da Esplora dati di Azure in Grafana
 
-Grafana è una piattaforma di analisi che consente di visualizzare i dati ed eseguirvi query, quindi di creare e condividere dashboard basati sulle visualizzazioni. Grafana fornisce un *plugin* di Esplora dati di Azure che consente di connettersi ai dati e di visualizzarli da Esplora dati di Azure. In questo articolo viene descritto come configurare Esplora dati di Azure come origine dati per Grafana e quindi come visualizzare i dati da un cluster di esempio.
+Grafana è una piattaforma di analisi che consente di visualizzare i dati ed eseguirvi query, quindi di creare e condividere dashboard basati sulle visualizzazioni. Grafana fornisce un *plugin* di Esplora dati di Azure che consente di connettersi ai dati e di visualizzarli da Esplora dati di Azure. Questo articolo illustra come configurare Esplora dati di Azure come origine dati per Grafana e quindi visualizzare i dati da un cluster di esempio.
 
-Usando il video seguente, è possibile imparare a usare il plug-in Azure Esplora dati di Grafana, configurare Esplora dati di Azure come origine dati per Grafana e quindi visualizzare i dati. 
+Usare il video seguente per informazioni su come usare il plug-in Azure Esplora dati di Grafana, configurare Esplora dati di Azure come origine dati per Grafana e quindi visualizzare i dati. 
 
 > [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
 
 In alternativa, è possibile [configurare l'origine dati](#configure-the-data-source) e [visualizzare i dati](#visualize-data) come descritto in dettaglio nell'articolo seguente.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per completare questa procedura, sono necessari gli elementi seguenti:
+Per completare questo articolo, è necessario quanto segue:
 
 * [Grafana versione 5.3.0 o versioni successive](https://docs.grafana.org/installation/) per il sistema operativo usato
 
@@ -56,17 +56,17 @@ Con l'entità servizio assegnata al ruolo di *visualizzatori* è ora possibile s
 
     ![Connection properties (Proprietà connessione)](media/grafana/connection-properties.png)
 
-    | Interfaccia utente Grafana | Portale di Azure | Interfaccia della riga di comando di Azure |
+    | Interfaccia utente Grafana | portale di Azure | Interfaccia della riga di comando di Azure |
     | --- | --- | --- |
     | ID sottoscrizione | ID SOTTOSCRIZIONE | SubscriptionId |
     | ID tenant | ID directory | tenant |
     | ID client | ID applicazione | appId |
-    | Segreto client | Password | password |
+    | Segreto client | Password | Password |
     | | | |
 
 1. Selezionare **Salva e verifica**.
 
-    Se il test ha esito positivo, passare alla sezione successiva. Se si verificano problemi, controllare i valori specificati in Grafana e rivedere i passaggi precedenti.
+    Se il test ha esito positivo, passare alla sezione successiva. In caso di problemi, controllare i valori specificati in Grafana ed esaminare i passaggi precedenti.
 
 ## <a name="visualize-data"></a>Visualizzare i dati
 
@@ -111,8 +111,26 @@ Dopo aver completato la configurazione di Esplora dati di Azure come origine dat
 
 1. Nel menu in alto selezionare l'icona di salvataggio: ![Icona Salva](media/grafana/save-icon.png).
 
+## <a name="create-alerts"></a>Creare avvisi
+
+1. Nel dashboard Home selezionare **avvisi** > canali di **notifica** per creare un nuovo canale di notifica
+
+    ![Crea canale di notifica](media/grafana/create-notification-channel.png)
+
+1. Creare un nuovo **canale di notifica**, quindi **salvare**.
+
+    ![Crea nuovo canale di notifica](media/grafana/new-notification-channel-adx.png)
+
+1. Nel **Dashboard**selezionare **modifica** nell'elenco a discesa.
+
+    ![selezionare modifica nel dashboard](media/grafana/edit-panel-4-alert.png)
+
+1. Selezionare l'icona a campana avviso per aprire il riquadro **avviso** . Selezionare **Crea avviso**. Nel riquadro degli **avvisi** completare le seguenti proprietà.
+
+    ![Proprietà avviso](media/grafana/alert-properties.png)
+
+1. Selezionare l'icona **Salva dashboard** per salvare le modifiche.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Scrivere query per Esplora dati di Azure](write-queries.md)
-
-* [Esercitazione: visualizzare i dati da Esplora dati di Azure in Power BI](visualize-power-bi.md)

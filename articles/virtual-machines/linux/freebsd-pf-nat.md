@@ -1,5 +1,5 @@
 ---
-title: Come usare Packet Filter di FreeBSD per creare un firewall in Azure | Microsoft Docs
+title: Usare il filtro pacchetti di FreeBSD per creare un firewall in Azure
 description: Informazioni su come distribuire un firewall NAT usando PF di FreeBSD in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 8f06762fd84767ac4c6dfce67d547a1f311afcba
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5daceeb2c8f2497288c7891dbe3fb3e0771b2ed5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083230"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036107"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Procedura: usare Packet Filter di FreeBSD per creare un firewall sicuro in Azure
 In questo articolo viene illustrato come distribuire un firewall NAT usando Packet Filter di FreeBSD tramite un modello di Azure Resource Manager per uno scenario server Web comune.
@@ -27,7 +27,7 @@ In questo articolo viene illustrato come distribuire un firewall NAT usando Pack
 ## <a name="what-is-pf"></a>Informazioni su PF
 PF (Packet Filter, chiamato anche pf) è un filtro di pacchetti con stato con licenza BSD, un componente software fondamentale per un firewall. Dalla sua creazione, PF si è rapidamente evoluto e ora dispone di numerosi vantaggi rispetto ad altri firewall disponibili. La funzionalità Network Address Translation (NAT) è sempre stata presente in PF. In seguito sono state aggiunte le funzionalità di pianificazione dei pacchetti e di gestione della coda attiva, integrando ALTQ e rendendolo configurabile tramite PF. Anche le funzionalità come pfsync e CARP per il failover e la ridondanza, authpf per l'autenticazione delle sessione e ftp-proxy per facilitare le operazioni del firewall sul complesso protocollo FTP dispongono di PF esteso. In breve, PF è un firewall potente e ricco di funzionalità. 
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 Se si desidera configurare un firewall sicuro nel cloud per i server Web, proseguire nella lettura dell'articolo. È inoltre possibile applicare gli script usati in questo modello di Azure Resource Manager per configurare la topologia di rete.
 Il modello Azure Resource Manager configura una macchina virtuale FreeBSD che esegue operazioni NAT/reindirizzamento tramite PF e due macchine virtuali FreeBSD con installato e configurato il server Web Nginx. Oltre a eseguire NAT per i il traffico in uscita dei due server Web, la macchina virtuale di NAT/reindirizzamento intercetta le richieste HTTP e le reindirizza ai due server Web in modo round robin. La rete virtuale usa lo spazio di indirizzi IP non instradabile 10.0.0.2/24 ed è possibile modificare i parametri del modello. Il modello di Azure Resource Manager definisce inoltre una tabella route per l'intera rete virtuale, ovvero una raccolta di route individuali usate per sostituire quelle predefinite di Azure in base all'indirizzo IP di destinazione. 
 

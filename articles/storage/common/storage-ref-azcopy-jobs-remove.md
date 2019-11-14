@@ -8,14 +8,14 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 82c399580322334e67c0c9c2b88d1edf6f175e0c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ba403c8d823b7ead0414521ebd51dc6f6601ccd8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72518291"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034170"
 ---
-# <a name="azcopy-jobs-remove"></a>rimozione processi azcopy
+# <a name="azcopy-jobs-remove"></a>azcopy jobs remove
 
 Rimuovere tutti i file associati all'ID processo specificato.
 
@@ -25,6 +25,13 @@ Rimuovere tutti i file associati all'ID processo specificato.
 ```
 azcopy jobs remove [jobID] [flags]
 ```
+
+## <a name="related-conceptual-articles"></a>Articoli concettuali correlati
+
+- [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
+- [Trasferire i dati con AzCopy e l'archiviazione BLOB](storage-use-azcopy-blobs.md)
+- [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
+- [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>esempi
 
@@ -42,6 +49,6 @@ azcopy jobs remove [jobID] [flags]
 
 **--output-** formato stringa di tipo dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text". (impostazione predefinita "testo")
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [processi azcopy](storage-ref-azcopy-jobs.md)
