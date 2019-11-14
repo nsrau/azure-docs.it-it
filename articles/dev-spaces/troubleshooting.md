@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.topic: conceptual
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 0afdc0ac246e4cacbd4f45cca36c3c57b1c26e02
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5d327dd1041172bc546b2e0cb5ec3a140f401d84
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005982"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072199"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -94,9 +94,13 @@ Nonostante il messaggio di errore quando si esegue `az aks use-dev-spaces` con u
 
 Per risolvere questo problema, aggiornare l'installazione dell'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) a 2.0.63 o versione successiva. Questo aggiornamento risolverà il messaggio di errore ricevuto durante l'esecuzione `az aks use-dev-spaces`. In alternativa, è possibile continuare a usare la versione corrente dell'interfaccia della riga di comando di Azure e l'interfaccia della riga di comando Azure Dev Spaces.
 
-### <a name="aks-clusters-with-api-server-authorized-ip-address-ranges-enabled"></a>Cluster AKS con intervalli di indirizzi IP autorizzati del server API abilitati
+### <a name="error-unable-to-reach-kube-apiserver"></a>Errore "Impossibile raggiungere Kube-apiserver"
 
-Se per il cluster AKS sono abilitati gli [intervalli di indirizzi IP autorizzati per il server API](../aks/api-server-authorized-ip-ranges.md) , è necessario [creare](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) o [aggiornare](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) anche il cluster per [consentire intervalli aggiuntivi in base all'area geografica](https://github.com/Azure/dev-spaces/tree/master/public-ips).
+Questo errore può essere visualizzato quando Azure Dev Spaces non riesce a connettersi al server API del cluster AKS. 
+
+Se l'accesso al server dell'API del cluster AKS è bloccato o se sono stati abilitati gli [intervalli di indirizzi IP autorizzati](../aks/api-server-authorized-ip-ranges.md) per il cluster AKS, è [necessario creare](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) o [aggiornare](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) anche il cluster per [consentire intervalli aggiuntivi in base all'area geografica](https://github.com/Azure/dev-spaces/tree/master/public-ips).
+
+Verificare che il server API sia disponibile eseguendo i comandi kubectl. Se il server API non è disponibile, contattare il supporto di AKS e riprovare quando il server API funziona.
 
 ## <a name="common-issues-when-preparing-your-project-for-azure-dev-spaces"></a>Problemi comuni durante la preparazione del progetto per Azure Dev Spaces
 

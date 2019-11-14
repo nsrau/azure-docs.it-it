@@ -1,7 +1,7 @@
 ---
 title: Controllare la qualità dei dati per il servizio di Riconoscimento vocale personalizzato vocale
 titleSuffix: Azure Cognitive Services
-description: Riconoscimento vocale personalizzato offre strumenti che consentono di esaminare visivamente la qualità del riconoscimento di un modello confrontando i dati audio con il risultato del riconoscimento corrispondente. Dal portale di Riconoscimento vocale personalizzato è possibile riprodurre l'audio caricato e determinare se il risultato del riconoscimento fornito è corretto.  Questo strumento consente di controllare rapidamente la qualità del modello di sintesi vocale o di un modello personalizzato con training senza dover trascrivere i dati audio.
+description: Riconoscimento vocale personalizzato offre strumenti che consentono di esaminare visivamente la qualità del riconoscimento di un modello confrontando i dati audio con il risultato del riconoscimento corrispondente. È possibile riprodurre l'audio caricato e determinare se il risultato del riconoscimento specificato è corretto.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0b5f064204c5bca35ccb1a628cb06978180c318c
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: cf0deffb6fe484f7e3ee38b95f285bb4b7cc809c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801452"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072568"
 ---
 # <a name="inspect-custom-speech-data"></a>Esaminare i dati Riconoscimento vocale personalizzato
 
@@ -43,18 +43,18 @@ Una volta creato correttamente un test, è possibile confrontare i modelli affia
 
 ## <a name="side-by-side-model-comparisons"></a>Confronto tra modelli affiancati
 
-Quando lo stato del test ha *esito positivo*, fare clic sul nome dell'elemento del test per visualizzare i dettagli del test. Questa pagina di dettaglio elenca tutte le espressioni del set di dati, indicando i risultati del riconoscimento dei due modelli insieme alla trascrizione dal set di dati inviato.
+Quando lo stato del test ha _esito positivo_, fare clic sul nome dell'elemento del test per visualizzare i dettagli del test. Questa pagina di dettaglio elenca tutte le espressioni del set di dati, indicando i risultati del riconoscimento dei due modelli insieme alla trascrizione dal set di dati inviato.
 
 Per esaminare il confronto affiancato, è possibile abilitare o disabilitare vari tipi di errore, tra cui inserimento, eliminazione e sostituzione. Ascoltando l'audio e confrontando i risultati del riconoscimento in ogni colonna (mostrando la trascrizione con etichetta umana e i risultati di due modelli di riconoscimento vocale), è possibile decidere quale modello soddisfi le proprie esigenze e dove siano necessari miglioramenti.
 
-Il controllo della qualità dei test è utile per verificare se la qualità di un endpoint di riconoscimento vocale è sufficiente per un'applicazione.  Per una misura oggettiva di accuratezza, che richiede l'audio trascritto, seguire le istruzioni disponibili in [valutare l'accuratezza](how-to-custom-speech-evaluate-data.md).
+Il controllo della qualità dei test è utile per verificare se la qualità di un endpoint di riconoscimento vocale è sufficiente per un'applicazione. Per una misura oggettiva di accuratezza, che richiede l'audio trascritto, seguire le istruzioni disponibili in [valutare l'accuratezza](how-to-custom-speech-evaluate-data.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Valutazione dei dati](how-to-custom-speech-evaluate-data.md)
-* [Eseguire il training del modello](how-to-custom-speech-train-model.md)
-* [Distribuire il modello](how-to-custom-speech-deploy-model.md)
+- [Valutazione dei dati](how-to-custom-speech-evaluate-data.md)
+- [Eseguire il training del modello](how-to-custom-speech-train-model.md)
+- [Distribuire il modello](how-to-custom-speech-deploy-model.md)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Preparare i dati di test per Riconoscimento vocale personalizzato](how-to-custom-speech-test-data.md)
+- [Preparare i dati di test per Riconoscimento vocale personalizzato](how-to-custom-speech-test-data.md)

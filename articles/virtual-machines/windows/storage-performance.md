@@ -1,5 +1,5 @@
 ---
-title: Ottimizzare le prestazioni nelle macchine virtuali della serie Lsv2 di Azure-archiviazione | Microsoft Docs
+title: Ottimizzare le prestazioni nelle macchine virtuali della serie Lsv2 di Azure-archiviazione
 description: Informazioni su come ottimizzare le prestazioni per la soluzione nelle macchine virtuali della serie Lsv2.
 services: virtual-machines-windows
 author: laurenhughes
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 5728afe8195a8f25e5aafcb815b0c61558b32547
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a14e38cd93e7d6273282e209db8ce83ec99f16db
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101795"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068171"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Ottimizzare le prestazioni nelle macchine virtuali della serie Lsv2
 
@@ -39,7 +39,7 @@ Le macchine virtuali della serie Lsv2 usano processori AMD EYPC™ server basati
 
 * Gli utenti di Lsv2 non devono basarsi sulle informazioni NUMA sul dispositivo (tutte 0) segnalate dall'interno della macchina virtuale per le unità dati per stabilire l'affinità NUMA per le proprie app. Il modo consigliato per ottenere prestazioni migliori consiste nel distribuire i carichi di lavoro tra le CPU, se possibile. 
 
-* La profondità massima della coda supportata per ogni coppia di coda I/O per il dispositivo NVMe della macchina virtuale Lsv2 è 1024 (rispetto a Limite 32 per Amazon i3. Gli utenti di Lsv2 devono limitare i carichi di lavoro di benchmarking (sintetici) alla profondità della coda 1024 o inferiore per evitare di attivare le condizioni di coda completa, che possono ridurre le prestazioni.
+* La profondità massima della coda supportata per ogni coppia di coda I/O per il dispositivo NVMe della macchina virtuale Lsv2 è 1024 (rispetto al limite 32 di Amazon i3). Gli utenti di Lsv2 devono limitare i carichi di lavoro di benchmarking (sintetici) alla profondità della coda 1024 o inferiore per evitare di attivare le condizioni di coda completa, che possono ridurre le prestazioni.
 
 ## <a name="utilizing-local-nvme-storage"></a>Utilizzo dell'archiviazione NVMe locale
 

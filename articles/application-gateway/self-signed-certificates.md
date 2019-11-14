@@ -1,5 +1,6 @@
 ---
-title: Generare un certificato autofirmato applicazione Azure gateway con una CA radice personalizzata
+title: Generare un certificato autofirmato con una CA radice personalizzata
+titleSuffix: Azure Application Gateway
 description: Informazioni su come generare un certificato autofirmato applicazione Azure gateway con una CA radice personalizzata
 services: application-gateway
 author: vhorne
@@ -7,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 84a46e66bb6c36950a84fbeb2dacc3a8d6bcc241
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fb3d2e70d9485c63d6de156abe9d192afa818814
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833364"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075078"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generare un certificato autofirmato applicazione Azure gateway con una CA radice personalizzata
 
@@ -29,7 +30,7 @@ In questo articolo verrà spiegato come:
 - Creare un certificato autofirmato firmato dalla CA personalizzata
 - Caricare un certificato radice autofirmato in un gateway applicazione per autenticare il server back-end
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - **[Openssl](https://www.openssl.org/) in un computer che esegue Windows o Linux** 
 
@@ -178,7 +179,7 @@ openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
 
 Per caricare il certificato nel gateway applicazione, è necessario esportare il certificato. CRT in un formato con estensione cer con codifica base-64. Poiché. CRT contiene già la chiave pubblica nel formato con codifica base 64, è sufficiente rinominare l'estensione di file da. CRT a. cer. 
 
-### <a name="azure-portal"></a>Portale di Azure
+### <a name="azure-portal"></a>portale di Azure
 
 Per caricare il certificato radice attendibile dal portale, selezionare le **impostazioni http** e scegliere il protocollo **https** .
 

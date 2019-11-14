@@ -1,5 +1,5 @@
 ---
-title: Creare una macchina virtuale di Azure gestita da un disco rigido virtuale locale generalizzato | Microsoft Docs
+title: Creare una macchina virtuale di Azure gestita da un disco rigido virtuale generalizzato locale
 description: Caricare un disco rigido virtuale generalizzato in Azure e usarlo per creare nuove macchine virtuali nel modello di distribuzione Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: ead44c321ffb7afb69295d1bf8c0e1acd26cb9ce
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: d0995fed61d169cc173ca01767c2e48f4f798b0d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749083"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067443"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Caricare un disco rigido virtuale generalizzato e usarlo per creare nuove macchine virtuali in Azure
 
@@ -49,7 +49,7 @@ Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da 
 1. Accedere alla macchina virtuale Windows.
 2. Aprire la finestra del prompt dei comandi come amministratore. Impostare la directory su %windir%\system32\sysprep e quindi eseguire `sysprep.exe`.
 3. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Passare alla Configurazione guidata** e verificare che la casella di controllo **Generalizza** sia selezionata.
-4. In **Opzioni di arresto del sistema** selezionare **Arresta il sistema**.
+4. In **Opzioni di arresto** selezionare **Arresta il sistema**.
 5. Selezionare **OK**.
    
     ![Avvio di Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)

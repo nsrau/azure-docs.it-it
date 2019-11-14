@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 90f69371457bbfe37789b12971343f738ff35e8e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e873980ce7aab1c5454a28e88df24bdb189c4860
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639722"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074840"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Abilitare il backup quando si crea una macchina virtuale di Azure
 
@@ -24,7 +24,7 @@ Questo articolo illustra come abilitare il backup quando si crea una macchina vi
 
 - [Controllare](backup-support-matrix-iaas.md#supported-backup-actions) quali sistemi operativi sono supportati se si Abilita il backup quando si crea una macchina virtuale.
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Se non è già stato effettuato l'accesso al proprio account, accedere al [portale di Azure](https://portal.azure.com).
 
@@ -52,11 +52,8 @@ Se non è già stato effettuato l'accesso al proprio account, accedere al [porta
 
       ![Criteri di backup predefiniti](./media/backup-during-vm-creation/daily-policy.png)
 
-
 > [!NOTE]
-> Il servizio backup di Azure crea un gruppo di risorse distinto (diverso dal gruppo di risorse VM) per archiviare gli snapshot, con il formato di denominazione **AzureBackupRG_geography_number** (esempio: AzureBackupRG_northeurope_1). I dati in questo gruppo di risorse verranno conservati per la durata in giorni, come specificato nella sezione *Mantieni snapshot Instant Recovery* del criterio di backup della macchina virtuale di Azure.  L'applicazione di un blocco a questo gruppo di risorse può causare errori di backup.<br>
-Questo gruppo di risorse deve essere escluso da qualsiasi restrizione relativa a nome/tag poiché i criteri di restrizione bloccano la creazione di raccolte di punti risorse in un nuovo errore causando errori di backup.
-
+> Il servizio backup di Azure crea un gruppo di risorse distinto (diverso dal gruppo di risorse VM) per archiviare gli snapshot, con il formato di denominazione **AzureBackupRG_geography_number** (ad esempio: AzureBackupRG_northeurope_1). I dati in questo gruppo di risorse verranno conservati per la durata in giorni, come specificato nella sezione *Mantieni snapshot Instant Recovery* del criterio di backup della macchina virtuale di Azure.  L'applicazione di un blocco a questo gruppo di risorse può causare errori di backup. <br> Questo gruppo di risorse deve essere escluso da qualsiasi restrizione relativa a nome/tag poiché i criteri di restrizione bloccano la creazione di raccolte di punti risorse in un nuovo errore causando errori di backup.
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Avviare un backup dopo la creazione della macchina virtuale
 
@@ -72,8 +69,6 @@ Dopo aver creato la macchina virtuale, eseguire le operazioni seguenti:
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Usare un modello di Gestione risorse per distribuire una macchina virtuale protetta
 
 I passaggi precedenti illustrano come usare la portale di Azure per creare una macchina virtuale e proteggerla in un insieme di credenziali di servizi di ripristino. Per distribuire rapidamente una o più macchine virtuali e proteggerle in un insieme di credenziali di servizi di ripristino, vedere il modello [distribuire una macchina virtuale Windows e abilitare il backup](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

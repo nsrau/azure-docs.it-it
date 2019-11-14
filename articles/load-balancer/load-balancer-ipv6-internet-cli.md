@@ -1,7 +1,7 @@
 ---
 title: Creare un servizio di bilanciamento del carico pubblico con IPv6 - Interfaccia della riga di comando di Azure
-titlesuffix: Azure Load Balancer
-description: Informazioni su come creare un servizio di bilanciamento del carico pubblico con IPv6 tramite l'interfaccia della riga di comando di Azure.
+titleSuffix: Azure Load Balancer
+description: Con questo percorso di apprendimento, iniziare a creare un servizio di bilanciamento del carico pubblico con IPv6 usando l'interfaccia della riga di comando di Azure.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 3d92f1a7067d4b3717ecdfd5b8cb16ec0234bdec
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: f7c0eb9bd258d2efbdb4df78f2cf86861f77a975
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025715"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076023"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Creare un servizio di bilanciamento del carico pubblico con IPv6 tramite l'interfaccia della riga di comando di Azure
 
->[! Nota: modificare la procedura consigliata per IPv6] in questo articolo viene descritta una funzionalità IPv6 introduttiva per consentire ai bilanciamenti del carico di base di fornire connettività IPv4 e IPv6.  Connettività IPv6 più completa è ora disponibile con [IPv6 per Azure reti virtuali](../virtual-network/ipv6-overview.md) , che integra la connettività IPv6 con le reti virtuali e include funzionalità chiave quali le regole del gruppo di sicurezza di rete IPv6, il routing definito dall'utente IPv6, il servizio di base IPv6 e Bilanciamento del carico standard e altro ancora.  IPv6 per Azure reti virtuali è la procedura consigliata per le applicazioni IPv6 in Azure. 
+>[! Nota: modificare la procedura consigliata per IPv6] in questo articolo viene descritta una funzionalità IPv6 introduttiva per consentire ai bilanciamenti del carico di base di fornire connettività IPv4 e IPv6.  Connettività IPv6 più completa è ora disponibile con [IPv6 per Azure reti virtuali](../virtual-network/ipv6-overview.md) , che integra la connettività IPv6 con le reti virtuali e include funzionalità chiave quali le regole del gruppo di sicurezza di rete IPv6, il routing definito dall'utente IPv6, il bilanciamento del carico di base e standard IPv6 e altro ancora.  IPv6 per Azure reti virtuali è la procedura consigliata per le applicazioni IPv6 in Azure. 
 >Vedere [IPv6 per la distribuzione dell'interfaccia della riga di comando di Azure VNET](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md)
 
 Azure Load Balancer è un servizio di bilanciamento del carico di livello 4 (TCP, UDP). I servizi id bilanciamento del carico offrono disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico. I servizi di bilanciamento del carico possono anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
@@ -90,7 +90,7 @@ In questo esempio gli strumenti dell'interfaccia della riga di comando di Azure 
     $lb = az network lb create --resource-group $rgname --location $location --name $lbName
     ```
 
-3. Creare una rete virtuale:
+3. Crea una rete virtuale:
 
     ```azurecli
     $vnet = az network vnet create  --resource-group $rgname --name $vnetName --location $location --address-prefixes $vnetPrefix

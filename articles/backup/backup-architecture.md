@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: e072923c2c8b1d8e5bb281a5bcff992b25289b4d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d914c2988b5f28940021de24dcfe1183c68b15cc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888496"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074357"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
@@ -96,7 +96,7 @@ L'utilizzo dell'archiviazione, l'obiettivo del tempo di ripristino (RTO) e l'uti
 
 Nella tabella seguente sono riepilogate le funzionalità supportate per i diversi tipi di backup:
 
-**Funzionalità** | **Computer Windows Server locali (Direct)** | **Macchine virtuali di Azure** | **Computer o app con DPM/MAB**
+**Funzionalità** | **Computer Windows Server locali (Direct)** | **VM di Azure** | **Computer o app con DPM/MAB**
 --- | --- | --- | ---
 Backup nell'insieme di credenziali | ![Sì][green] | ![Sì][green] | ![Sì][green]
 Esegui il backup nel disco di DPM/MAB, quindi in Azure | | | ![Sì][green]
@@ -134,7 +134,7 @@ Le macchine virtuali di Azure richiedono l'accesso a Internet per i comandi di c
     - L'agente MARS usa solo l'operazione di scrittura del sistema Windows per acquisire lo snapshot.
     - Poiché l'agente non usa alcun writer VSS dell'applicazione, non acquisisce snapshot coerenti con l'app.
 1. Dopo l'acquisizione dello snapshot con VSS, l'agente MARS crea un disco rigido virtuale (VHD) nella cartella della cache specificata al momento della configurazione del backup. L'agente archivia inoltre i checksum per ogni blocco di dati.
-1. I backup incrementali vengono eseguiti in base alla pianificazione specificata, a meno che non si esegua un backup ad hoc.
+1. I backup incrementali vengono eseguiti in base alla pianificazione specificata, a meno che non si esegua un backup su richiesta.
 1. Nei backup incrementali, i file modificati vengono identificati e viene creato un nuovo disco rigido virtuale, Il disco rigido virtuale viene compresso e crittografato, quindi viene inviato all'insieme di credenziali.
 1. Al termine del backup incrementale, il nuovo disco rigido virtuale viene unito al VHD creato dopo la replica iniziale. Questo VHD Unito fornisce lo stato più recente da usare per il confronto per il backup in corso.
 
@@ -148,7 +148,7 @@ Le macchine virtuali di Azure richiedono l'accesso a Internet per i comandi di c
     - Con DPM/MAB è possibile proteggere i volumi di backup, le condivisioni, i file e le cartelle. È anche possibile proteggere lo stato del sistema di un computer (Bare Metal) ed è possibile proteggere app specifiche con impostazioni di backup compatibili con le app.
 1. Quando si configura la protezione per un computer o un'app in DPM/MAB, si sceglie di eseguire il backup nel disco locale di MAB/DPM per l'archiviazione a breve termine e in Azure per la protezione dati online. Si specifica anche quando deve essere eseguito il backup sull'archiviazione DPM/MAB locale e quando deve essere eseguito il backup online in Azure.
 1. Viene eseguito il backup del disco del carico di lavoro protetto nei dischi MAB/DPM locali, in base alla pianificazione specificata.
-4. Viene eseguito il backup dei dischi DPM/MAB nell'insieme di credenziali da parte dell'agente MARS in esecuzione nel server DPM/MAB.
+1. Viene eseguito il backup dei dischi DPM/MAB nell'insieme di credenziali da parte dell'agente MARS in esecuzione nel server DPM/MAB.
 
 ![Backup di computer e carichi di lavoro protetti da DPM o MAB](./media/backup-architecture/architecture-dpm-mabs.png)
 

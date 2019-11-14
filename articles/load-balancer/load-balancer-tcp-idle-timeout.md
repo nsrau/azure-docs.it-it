@@ -1,7 +1,7 @@
 ---
-title: Configurare il timeout di inattività TCP di Load Balancer in Azure
-titlesuffix: Azure Load Balancer
-description: Configurazione del timeout di inattività TCP di Load Balancer
+title: Configurare il timeout di inattività TCP del servizio di bilanciamento del carico in Azure
+titleSuffix: Azure Load Balancer
+description: In questo articolo viene illustrato come configurare Azure Load Balancer timeout di inattività TCP.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: b3df1ead7a3164ffd9a4b4acf8820d0f5b82cee3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 530bfbe85a564b3dd517e14df819586dee332a78
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274173"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076975"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Configurazione del timeout di inattività TCP di Azure Load Balancer
 
@@ -26,7 +26,7 @@ ms.locfileid: "68274173"
 
 La configurazione predefinita di Azure Load Balancer prevede che il timeout di inattività sia impostato su 4 minuti. Se un periodo di inattività è più lungo del valore di timeout, non ci sono garanzie che venga mantenuta la sessione TCP o HTTP tra il client e il servizio cloud.
 
-Quando la connessione viene chiusa, l'applicazione client potrebbe ricevere il messaggio di errore seguente: "La connessione sottostante è stata chiusa: una connessione che doveva restare attiva è stata chiusa dal server in modo imprevisto".
+Quando la connessione viene chiusa, l'applicazione client potrebbe ricevere il messaggio di errore seguente: "Connessione sottostante chiusa: una connessione che doveva restare attiva è stata chiusa dal server in modo imprevisto".
 
 Una prassi comune consiste nell'usare una connessione TCP keep-alive per mantenere la connessione attiva per un periodo più lungo. Per altre informazioni, vedere questi [esempi .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Con la connessione keep-alive abilitata, i pacchetti vengono inviati durante i periodi di inattività della connessione. Questi pacchetti keep-alive garantiscono che il valore del timeout di inattività non venga mai raggiunto e che la connessione sia mantenuta per un lungo periodo.
 
@@ -115,11 +115,11 @@ Le modifiche al file .cscfg per l'impostazione di timeout negli indirizzi IP pub
 
 È possibile configurare il timeout di inattività TCP l'API Gestione dei servizi. Controllare che l'intestazione `x-ms-version` sia impostata sulla versione `2014-06-01` o successiva. Aggiornare la configurazione degli endpoint di input specificati con carico bilanciato in tutte le macchine virtuali di una distribuzione.
 
-### <a name="request"></a>Richiesta
+### <a name="request"></a>Request
 
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>response
 
 ```xml
 <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">

@@ -1,5 +1,5 @@
 ---
-title: Crittografia dischi di Azure per Linux | Microsoft Docs
+title: Crittografia dischi di Azure per Linux
 description: Consente la distribuzione di Crittografia dischi di Azure per Linux in una macchina virtuale usando un'estensione macchina virtuale.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 1801ca8bd59153de81ef680253da229e2bd4a338
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4fa7f7d1419a8cd1006a632ba67587ab3434bf5a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597861"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073801"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Crittografia dischi di Azure per Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Crittografia dischi di Azure sfrutta il sottosistema di dm-crypt di Linux per fornire la crittografia completa del disco nelle [distribuzioni di Linux Azure selezionate](https://aka.ms/adelinux).  Questa soluzione è integrata con Azure Key Vault per gestire le chiavi e i segreti di crittografia dei dischi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per un elenco completo dei prerequisiti, vedere [crittografia dischi di Azure per macchine virtuali Linux](../linux/disk-encryption-overview.md), in particolare le sezioni seguenti:
 
@@ -132,23 +132,23 @@ Utilizzo di `AADClientCertificate`:
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| name | Valore/Esempio | Tipo di dati |
+| Nome | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | string |
-| type | AzureDiskEncryptionForLinux | string |
+| publisher | Microsoft.Azure.Security | stringa |
+| type | AzureDiskEncryptionForLinux | stringa |
 | typeHandlerVersion | 0,1, 1,1 | int |
-| (schema 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (schema 0,1) AADClientSecret | password | string |
-| (schema 0,1) AADClientCertificate | thumbprint | string |
+| (schema 0.1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (schema 0.1) AADClientSecret | Password | stringa |
+| (schema 0.1) AADClientCertificate | thumbprint | stringa |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dizionario JSON |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
-| KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | string |
-| KeyEncryptionKeyURL | url | string |
-| opzionale KeyVaultURL | url | string |
-| Passphrase | password | string | 
-| SequenceVersion | uniqueidentifier | string |
-| VolumeType | Sistema operativo, dati, tutti | string |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | stringa | 
+| KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | stringa |
+| KeyEncryptionKeyURL | URL | stringa |
+| opzionale KeyVaultURL | URL | stringa |
+| Passphrase | Password | stringa | 
+| SequenceVersion | uniqueidentifier | stringa |
+| VolumeType | Sistema operativo, dati, tutti | stringa |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
@@ -160,7 +160,7 @@ Le istruzioni sono disponibili nella versione più recente della [documentazione
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere problemi
+### <a name="troubleshoot"></a>Risolvere i problemi
 
 Per la risoluzione di problemi, consultare la [guida alla risoluzione dei problemi di Crittografia dischi di Azure](../../security/azure-security-disk-encryption-tsg.md).
 

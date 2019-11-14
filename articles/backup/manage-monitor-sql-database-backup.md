@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7440859748a613f7d6af751974e07289175ed7ac
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: b9a292d06ce68d211b5c758e287f2935411c6f12
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968361"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074772"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
 
@@ -96,7 +96,7 @@ Per interrompere la protezione per un database:
 >
 >
 
-## <a name="resume-protection-for-a-sql-database"></a>Riprendere la protezione per un database SQL
+## <a name="resume-protection-for-a-sql-database"></a>Ripresa della protezione per un database SQL
 
 Quando si arresta la protezione per il database SQL, se si seleziona l'opzione **Mantieni dati di backup** , sarà possibile riprendere la protezione in un secondo momento. Se non si conservano i dati di backup, non è possibile riprendere la protezione.
 
@@ -117,7 +117,7 @@ Per riprendere la protezione per un database SQL:
 - Backup differenziale
 - Backup dei log
 
-Anche se è necessario specificare la durata di conservazione per il backup completo di sola copia, il periodo di mantenimento dati per il backup completo ad hoc verrà impostato automaticamente su 45 giorni dall'ora corrente.
+Anche se è necessario specificare la durata di conservazione per il backup completo di sola copia, il periodo di mantenimento dati per il backup completo su richiesta verrà impostato automaticamente su 45 giorni dall'ora corrente.
 
 Per ulteriori informazioni, vedere [SQL Server tipi di backup](backup-architecture.md#sql-server-backup-types).
 

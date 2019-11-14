@@ -1,7 +1,6 @@
 ---
 title: Risolvere i problemi di Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Risolvere i problemi noti di Azure Load Balancer
+description: Informazioni su come risolvere i problemi noti con Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: chadmath
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 4e0e3cf6067467947bcb799a915a93d1bb342ea1
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: d1c10fa8267131f13d3148ace6c97218a18fd494
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154932"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076913"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Risolvere i problemi di Azure Load Balancer
 
@@ -29,7 +28,7 @@ Questa pagina fornisce informazioni sulla risoluzione dei problemi comuni di Azu
 - Le macchine virtuali controllate da Load Balancer non rispondono ai probe di integrità 
 - Le macchine virtuali dietro Load Balancer non rispondono al traffico nella porta configurata
 
-## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Sintomo: Le macchine virtuali controllate da Load Balancer non rispondono ai probe di integrità
+## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Sintomo: le macchine virtuali dietro Load Balancer non rispondono ai probe di integrità
 Per partecipare al set di bilanciamento del carico, i server back-end devono superare il controllo del probe. Per altre informazioni sui probe di integrità, vedere [Informazioni sui probe di bilanciamento del carico](load-balancer-custom-probe-overview.md). 
 
 Le macchine virtuali del pool back-end di Load Balancer possono non rispondere ai probe per i motivi seguenti: 
@@ -38,13 +37,13 @@ Le macchine virtuali del pool back-end di Load Balancer possono non rispondere a
 - Un firewall o un gruppo di sicurezza di rete blocca la porta nelle macchine virtuali del pool back-end di Load Balancer 
 - Altri errori di configurazione in Load Balancer
 
-### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>Causa 1: La macchina virtuale del pool back-end di Load Balancer non è integra 
+### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>Causa 1: la macchina virtuale del pool back-end di Load Balancer non è integra 
 
 **Convalida e la risoluzione**
 
 Per risolvere questo problema, accedere alle macchine virtuali partecipanti e verificare se la macchina virtuale è integra e può rispondere a richieste **PsPing** o **TCPing** inviate da un'altra macchina virtuale nel pool. Se la macchina virtuale non è integra o non riesce a rispondere al probe, è necessario risolvere il problema e ripristinare l'integrità della macchina virtuale prima che questa possa partecipare al bilanciamento del carico.
 
-### <a name="cause-2-load-balancer-backend-pool-vm-is-not-listening-on-the-probe-port"></a>Causa 2: La macchina virtuale del pool back-end di Load Balancer non è in ascolto nella porta probe
+### <a name="cause-2-load-balancer-backend-pool-vm-is-not-listening-on-the-probe-port"></a>Causa 2: la macchina virtuale del pool back-end di Load Balancer non è in ascolto nella porta probe
 Se la macchina virtuale è integra, ma non risponde al probe, è possibile che la porta probe non sia aperta nella macchina virtuale partecipante o che la macchina virtuale non sia in ascolto su tale porta.
 
 **Convalida e la risoluzione**
@@ -55,7 +54,7 @@ Se la macchina virtuale è integra, ma non risponde al probe, è possibile che l
 3. Se lo stato della porta non è elencato come **LISTENING**, configurare la porta corretta. 
 4. In alternativa, selezionare un'altra porta che sia elencata come **LISTENING** e aggiornare la configurazione di Load Balancer di conseguenza.              
 
-### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Causa 3: Un firewall o un gruppo di sicurezza di rete blocca la porta nelle macchine virtuali del pool back-end di Load Balancer  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Causa 3: un firewall o un gruppo di sicurezza di rete blocca la porta nelle macchine virtuali del pool back-end di Load Balancer  
 Se il firewall nella macchina virtuale blocca la porta probe oppure uno o più gruppi di sicurezza di rete configurati nella subnet o nella macchina virtuale non consentono al probe di raggiungere la porta, la macchina virtuale non può rispondere al probe di integrità.          
 
 **Convalida e la risoluzione**
@@ -66,7 +65,7 @@ Se il firewall nella macchina virtuale blocca la porta probe oppure uno o più g
 * Se alcune di queste regole bloccano il traffico probe, rimuoverle e riconfigurarle per consentire il traffico probe.  
 * Verificare se la macchina virtuale ha ora iniziato a rispondere ai probe di integrità. 
 
-### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>Causa 4: Altri errori di configurazione in Load Balancer
+### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>Causa 4: altri errori di configurazione in Load Balancer
 Se tutte le cause precedenti sembrano essere state verificate e risolte correttamente, ma la macchina virtuale back-end continua a non rispondere al probe di integrità, testare manualmente la connettività e raccogliere alcune tracce per ottenere informazioni sulla connettività stessa.
 
 **Convalida e la risoluzione**
@@ -81,7 +80,7 @@ Se tutte le cause precedenti sembrano essere state verificate e risolte corretta
     - Verificare se i pacchetti probe vengono forzati verso un'altra destinazione, magari tramite impostazioni delle route definite dall'utente, prima di raggiungere il servizio di bilanciamento del carico. Ciò può impedire costantemente al traffico di raggiungere la macchina virtuale back-end. 
 * Modificare il tipo di probe, ad esempio da HTTP a TCP, e configurare la porta corrispondente negli ACL dei gruppi di sicurezza di rete e nel firewall per verificare se il problema è la configurazione della risposta probe. Per altre informazioni sulla configurazione del probe di integrità, vedere la [configurazione del probe di integrità di bilanciamento del carico con endpoint](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
 
-## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Sintomo: le macchine virtuali dietro Load Balancer non rispondono al traffico sulla porta dati configurata
+## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Sintomo: le macchine virtuali dietro Load Balancer non rispondono al traffico nella porta di dati configurata
 
 Se una macchina virtuale del pool back-end è elencata come integra e risponde ai probe di integrità, ma comunque non partecipa al bilanciamento del carico o non risponde al traffico dati, i motivi potrebbero essere i seguenti: 
 * La macchina virtuale del pool back-end di Load Balancer non è in ascolto nella porta dati 
@@ -89,7 +88,7 @@ Se una macchina virtuale del pool back-end è elencata come integra e risponde a
 * Accesso a Load Balancer dalla stessa macchina virtuale e interfaccia di rete 
 * Accesso al front-end del servizio di bilanciamento del carico Internet dalla macchina virtuale del pool back-end di Load Balancer 
 
-### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>Causa 1: la macchina virtuale del pool back-end di Load Balancer non è in ascolto sulla porta dati 
+### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>Causa 1: la macchina virtuale del pool back-end di Load Balancer non è in ascolto nella porta dati 
 Se una macchina virtuale non risponde al traffico dati, è possibile che la porta di destinazione non sia aperta nella macchina virtuale partecipante oppure che la macchina virtuale non sia in ascolto nella porta. 
 
 **Convalida e la risoluzione**
@@ -99,7 +98,7 @@ Se una macchina virtuale non risponde al traffico dati, è possibile che la port
 3. Se lo stato della porta non è elencato come "LISTENING", configurare la porta di attesa corretta. 
 4. Se la porta è contrassegnata come LISTENING, verificare se sono presenti problemi nell'applicazione di destinazione in ascolto su tale porta. 
 
-### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Causa 2: Un gruppo di sicurezza di rete blocca la porta nella macchina virtuale del pool back-end di Load Balancer  
+### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Causa 2: un gruppo di sicurezza di rete blocca la porta nella macchina virtuale del pool back-end di Load Balancer  
 
 Se uno o più gruppi di sicurezza di rete configurati nella subnet o nella macchina virtuale bloccano l'indirizzo IP o la porta di origine, la macchina virtuale non potrà rispondere.
 
@@ -118,7 +117,7 @@ Se l'applicazione ospitata nella macchina virtuale back-end di un servizio di bi
 * Configurare macchine virtuali del pool back-end separate per ogni applicazione. 
 * Configurare l'applicazione in macchine virtuali con due schede di interfaccia di rete in modo che ogni applicazione usi un'interfaccia di rete e un indirizzo IP propri. 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Causa 4: accesso al front-end di Load Balancer interno dalla macchina virtuale del pool back-end di Load Balancer
+### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Causa 4: accesso al front-end del servizio di bilanciamento del carico interno dalla macchina virtuale del pool back-end di Load Balancer
 
 Se è configurato un servizio di bilanciamento del carico interno in una rete virtuale e una delle macchine virtuali del back-end sta tentando di accedere al front-end del servizio di bilanciamento del carico interno, potrebbero verificarsi errori durante il mapping del flusso alla macchina virtuale di origine. Questo scenario non è supportato. Per informazioni più dettagliate, vedere [Limitazioni](load-balancer-overview.md#limitations).
 

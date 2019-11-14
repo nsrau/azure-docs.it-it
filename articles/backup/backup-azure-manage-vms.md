@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3781ac1be547f6733417c4f0cae9f3e8681ea9e8
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 800acb622a54ae922300d4c1b188f7ec19f5a95f
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969228"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074257"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gestire i backup delle macchine virtuali di Azure con il servizio backup di Azure
 
@@ -35,7 +35,7 @@ Nel portale di Azure il dashboard dell'insieme di credenziali dei servizi di rip
 Per visualizzare le macchine virtuali nel dashboard dell'insieme di credenziali:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Scegliere **Sfoglia**dal menu hub. Nell'elenco di risorse digitare **servizi di ripristino**. Durante la digitazione, l'elenco viene filtrato in base all'input. Selezionare **Insiemi di credenziali dei servizi di ripristino**.
+2. Scegliere **Sfoglia**dal menu hub. Nell'elenco di risorse digitare **Servizi di ripristino**. Durante la digitazione, l'elenco viene filtrato in base all'input. Selezionare **Insiemi di credenziali dei servizi di ripristino**.
 
     ![Creare un insieme di credenziali di Servizi di ripristino](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
@@ -71,7 +71,7 @@ Per gestire i criteri di backup:
 
 4. Dal dashboard dell'elemento dell'insieme di credenziali è possibile selezionare un criterio di backup.
 
-   * Per modificare i criteri, selezionare un criterio diverso e quindi fare clic su **Salva**. Il nuovo criterio verrà immediatamente applicato all'insieme di credenziali.
+   * Per modificare i criteri, selezionare un criterio diverso e quindi fare clic su **Salva**. I nuovi criteri verranno applicati immediatamente all'insieme di credenziali.
 
      ![Scegliere un criterio di backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
@@ -128,7 +128,7 @@ Per arrestare la protezione ed eliminare i dati di una macchina virtuale:
 1. Nel [Dashboard dell'elemento](#view-vms-on-the-dashboard)dell'insieme di credenziali selezionare **Arresta backup**.
 2. Scegliere **Elimina dati di backup**e confermare la selezione in base alle esigenze. Immettere il nome dell'elemento di backup e aggiungere un commento, se lo si desidera.
 
-    ![Elimina dati di backup](./media/backup-azure-manage-vms/delete-backup-data1.png)
+    ![Eliminare i dati di backup](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
 ## <a name="resume-protection-of-a-vm"></a>Riprendere la protezione di una macchina virtuale
 
@@ -143,7 +143,7 @@ Per riprendere la protezione per una macchina virtuale:
 
     ![Messaggio che indica una macchina virtuale correttamente protetta](./media/backup-azure-manage-vms/success-message.png)
 
-## <a name="delete-backup-data"></a>Elimina dati di backup
+## <a name="delete-backup-data"></a>Eliminare i dati di backup
 
 Esistono due modi per eliminare i dati di backup di una macchina virtuale:
 
@@ -158,7 +158,7 @@ Esistono due modi per eliminare i dati di backup di una macchina virtuale:
   * Nel [Dashboard dell'elemento](#view-vms-on-the-dashboard)dell'insieme di credenziali selezionare **Elimina dati di backup**.
   * Digitare il nome dell'elemento di backup per confermare che si desidera eliminare i punti di ripristino.
 
-    ![Elimina dati di backup](./media/backup-azure-manage-vms/delete-backup-data1.png)
+    ![Eliminare i dati di backup](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
   * Per eliminare i dati di backup per l'elemento, selezionare **Elimina**. Un messaggio di notifica informa che i dati di backup sono stati eliminati.
 
@@ -167,9 +167,9 @@ Esistono due modi per eliminare i dati di backup di una macchina virtuale:
 
 ### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Elemento di backup in cui l'origine dati primaria non esiste più
 
-* Se le macchine virtuali di Azure configurate per backup di Azure vengono eliminate o spostate senza arrestare la protezione, i processi di backup pianificati e su richiesta (ad-hoc) avranno esito negativo con l'errore UserErrorVmNotFoundV2. Il controllo preliminare di backup verrà visualizzato come critico solo per i processi di backup ad hoc non riusciti (i processi pianificati non riusciti non vengono visualizzati).
+* Se le macchine virtuali di Azure configurate per backup di Azure vengono eliminate o spostate senza arrestare la protezione, i processi di backup pianificati e su richiesta (ad-hoc) avranno esito negativo con l'errore UserErrorVmNotFoundV2. Il controllo preliminare di backup verrà visualizzato come critico solo per i processi di backup su richiesta non riusciti (i processi pianificati non riusciti non vengono visualizzati).
 * Questi elementi di backup rimangono attivi nel sistema rispettando i criteri di backup e conservazione impostati dall'utente. I dati di cui è stato eseguito il backup per queste macchine virtuali di Azure verranno conservati in base ai criteri di conservazione. I punti di ripristino scaduti, ad eccezione dell'ultimo punto di ripristino, vengono puliti in base al periodo di mantenimento dati impostato nei criteri di backup.
-* Si consiglia agli utenti di eliminare gli elementi di backup in cui l'origine dati primaria non esiste più per evitare costi aggiuntivi, se l'elemento o i dati di backup per le risorse di eliminazione non sono più necessari, perché l'ultimo punto di ripristino viene mantenuto per sempre e l'utente viene addebitato come per i prezzi di backup applicabili.
+* Si consiglia agli utenti di eliminare gli elementi di backup in cui l'origine dati primaria non esiste più per evitare costi aggiuntivi, se l'elemento o i dati di backup per le risorse di eliminazione non sono più necessari, perché l'ultimo punto di ripristino viene mantenuto per sempre e l'utente viene addebitato in base ai prezzi di backup applicabili.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

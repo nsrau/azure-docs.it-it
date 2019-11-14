@@ -1,7 +1,7 @@
 ---
 title: Configurare DHCPv6 per macchine virtuali Linux
 titlesuffix: Azure Load Balancer
-description: Come configurare DHCPv6 per VM Linux.
+description: Questo articolo illustra come configurare DHCPv6 per macchine virtuali Linux.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: allensu
-ms.openlocfilehash: 3e987b6718ead6b7014ec302d1a186dabef11126
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 1eea6d71b06bac47dcc4fdca9302ee937e0fd54d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274922"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077045"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Configurare DHCPv6 per macchine virtuali Linux
 
@@ -64,7 +64,7 @@ Includere un'istruzione *dhcp6: true* per ogni interfaccia Ethernet nella config
             eno1:
               dhcp6: true
 
-Durante l'avvio anticipato, il Netplan "Network renderer" scrive la configurazione in/Run per passare il controllo dei dispositivi al daemon di rete specificato per informazioni di riferimento https://netplan.io/reference su Netplan, vedere.
+Durante l'avvio anticipato, il Netplan "Network renderer" scrive la configurazione in/Run per passare il controllo dei dispositivi al daemon di rete specificato per informazioni di riferimento su NETPLAN, vedere https://netplan.io/reference.
  
 ## <a name="debian"></a>Debian
 

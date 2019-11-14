@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: ee9594e7aa3b55f7eb6fc7ba41783708555bd15e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d33c5f75234ad7165a9062ecc3bb2a00d502f8c3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513770"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075279"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Effettuare il provisioning di un gateway self-hosted in gestione API di Azure
 
@@ -26,7 +26,7 @@ Il provisioning di una risorsa gateway nell'istanza di gestione API di Azure è 
 > [!NOTE]
 > La funzionalità gateway self-hosted è in anteprima. Durante l'anteprima, il gateway self-hosted è disponibile solo nei livelli Developer e Premium senza costi aggiuntivi. Il livello Developer è limitato a una singola distribuzione del gateway self-hosted.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 
@@ -39,6 +39,7 @@ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di
 3. Immettere il **nome** e l' **area** del gateway.
 > [!TIP]
 > **Region** specifica la posizione desiderata dei nodi del gateway che verranno associati a questa risorsa del gateway. È semanticamente equivalente a una proprietà simile associata a qualsiasi risorsa di Azure, ma è possibile assegnarle un valore stringa arbitrario.
+
 4. Facoltativamente, immettere una **Descrizione** della risorsa del gateway.
 5. Facoltativamente, selezionare **+** in **API** per associare una o più API a questa risorsa del gateway.
 > [!TIP]
@@ -46,6 +47,7 @@ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di
 
 > [!IMPORTANT]
 > Per impostazione predefinita, nessuna delle API esistenti verrà associata alla nuova risorsa del gateway. Pertanto, i tentativi di richiamarli tramite il nuovo gateway comporteranno `404 Resource Not Found` risposte.
+
 6. Fare clic su **Aggiungi**.
 
 A questo punto è stato effettuato il provisioning della risorsa gateway nell'istanza di gestione API. È possibile procedere con la distribuzione del gateway.

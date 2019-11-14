@@ -1,5 +1,5 @@
 ---
-title: Usare Criteri di Azure per limitare l'installazione di estensioni di macchina virtuale | Microsoft Docs
+title: Usare i criteri di Azure per limitare l'installazione dell'estensione VM
 description: Usare Criteri di Azure per limitare le distribuzioni di estensioni di macchina virtuale.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 20099bb32a1984be0bfbbaaa4e7bc6cd4481a806
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 113736198f40510981c80909c862282fa07ac68d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174024"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073781"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Usare Criteri di Azure per limitare l'installazione di estensioni in macchine virtuali Linux
 
@@ -28,7 +28,7 @@ Questa esercitazione usa l'interfaccia della riga di comando in Azure Cloud Shel
 
 ## <a name="create-a-rules-file"></a>Creare un file delle regole
 
-Per limitare le estensioni che è possibile installare, è necessario definire una [regola](../../governance/policy/concepts/definition-structure.md#policy-rule) per fornire la logica necessaria per identificare l'estensione.
+Per limitare le estensioni installabili, è necessario definire una [regola](../../governance/policy/concepts/definition-structure.md#policy-rule) per indicare la logica necessaria a identificare l'estensione.
 
 Questo esempio mostra come negare l'installazione di estensioni pubblicate da "Microsoft.OSTCExtensions" creando un file delle regole in Azure Cloud Shell, ma se si usa l'interfaccia della riga di comando in locale è anche possibile creare un file locale e sostituire il percorso (~/clouddrive) con quello del file locale nel computer in uso.
 
@@ -98,7 +98,7 @@ Al termine, premere **ESC** e quindi digitare **:wq** per salvare e chiudere il 
 
 ## <a name="create-the-policy"></a>Creare i criteri
 
-Una definizione di criteri è un oggetto usato per archiviare la configurazione che si desidera usare. La definizione dei criteri usa i file delle regole e dei parametri per definire i criteri. Creare la definizione dei criteri usando [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest).
+Una definizione di criteri è un oggetto usato per archiviare la configurazione che si desidera usare. La definizione di criteri usa i file di regole e parametri per definire i criteri. Creare la definizione dei criteri usando [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest).
 
 In questo esempio le regole e i parametri sono i file creati e archiviati come file JSON in Cloud Shell.
 

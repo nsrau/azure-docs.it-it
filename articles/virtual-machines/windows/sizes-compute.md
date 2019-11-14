@@ -1,5 +1,5 @@
 ---
-title: Dimensioni delle macchine virtuali Windows di Azure - Ottimizzate per il calcolo | Documentazione Microsoft
+title: Dimensioni delle macchine virtuali Windows di Azure-ottimizzate per il calcolo
 description: Elenca le diverse dimensioni ottimizzate per il calcolo per le macchine virtuali Windows disponibili in Azure. Elenca informazioni sul numero di vCPU, dei dischi dati e delle schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per le dimensioni di queste serie.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 52537a9442d96196f63b55229347a8dfadea8cee
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ae42988aa2c792be5e9cba267c8ebe8c45665147
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102312"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077164"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per il calcolo
 

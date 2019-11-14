@@ -1,23 +1,19 @@
 ---
-title: Creare un gateway applicazione con reindirizzamento interno - Interfaccia della riga di comando di Azure | Microsoft Docs
+title: Reindirizzamento interno tramite l'interfaccia della riga di comando
+titleSuffix: Azure Application Gateway
 description: Informazioni su come creare un gateway applicazione che reindirizza il traffico Web interno al pool appropriato usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/14/2018
 ms.author: victorh
-ms.openlocfilehash: 6a4a47f93054c4c93043b5215371b5eea7244d46
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: eea3f4bb38b0a6a796bc2ba7c8652f20ce159735
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834999"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074464"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento interno tramite l'interfaccia della riga di comando di Azure
 

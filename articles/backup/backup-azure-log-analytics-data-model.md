@@ -1,6 +1,6 @@
 ---
 title: Modello di dati dei log di monitoraggio di Azure per backup di Azure
-description: Questo articolo illustra i dettagli del modello di dati dei log di monitoraggio di Azure per i dati di backup di Azure.
+description: Questo articolo illustra i dettagli del modello di dati Log Analytics di monitoraggio di Azure per i dati di backup di Azure.
 ms.reviewer: adigan
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: dacurwin
-ms.openlocfilehash: 878e4e7508d82f78e82f1fd8bda69079d9468e9f
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 283dc4c1ad4bc683833da3d689d842fa84079a00
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689230"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074938"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modello di dati di Log Analytics per i dati di Backup di Azure
 
@@ -29,16 +29,16 @@ Usare il modello di dati Log Analytics per creare avvisi personalizzati da Log A
 
 Questa tabella offre dettagli sui campi relativi agli avvisi.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | AlertUniqueId_s |Text |Identificatore univoco dell'avviso generato |
 | AlertType_s |Text |Tipo di avviso, ad esempio Backup |
 | AlertStatus_s |Text |Stato dell'avviso, ad esempio Active |
 | AlertOccurrenceDateTime_s |Data/ora |Data e ora in cui è stato creato l'avviso |
 | AlertSeverity_s |Text |Gravità dell'avviso, ad esempio Critical |
-|AlertTimeToResolveInMinutes_s    | Number        |Tempo impiegato per risolvere un avviso. Vuoto per gli avvisi attivi.         |
+|AlertTimeToResolveInMinutes_s    | NUMBER        |Tempo impiegato per risolvere un avviso. Vuoto per gli avvisi attivi.         |
 |AlertConsolidationStatus_s   |Text         |Verificare se l'avviso è un avviso consolidato         |
-|CountOfAlertsConsolidated_s     |Number         |Numero di avvisi consolidati se si tratta di un avviso consolidato          |
+|CountOfAlertsConsolidated_s     |NUMBER         |Numero di avvisi consolidati se si tratta di un avviso consolidato          |
 |AlertRaisedOn_s     |Text         |Tipo di entità in cui viene generato l'avviso         |
 |AlertCode_s     |Text         |Codice per identificare in modo univoco un tipo di avviso         |
 |RecommendedAction_s   |Text         |Azione consigliata per risolvere l'avviso         |
@@ -48,12 +48,12 @@ Questa tabella offre dettagli sui campi relativi agli avvisi.
 | State_s |Text |Stato corrente dell'oggetto avviso, ad esempio Active o Deleted |
 | BackupManagementType_s |Text |Tipo di provider per l'esecuzione del backup, ad esempio IaaSVM o FileFolder a cui appartiene questo avviso |
 | OperationName |Text |Nome dell'operazione corrente, ad esempio, Avviso |
-| Category |Text |Categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure. Sempre AzureBackupReport |
+| Categoria |Text |Categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure. Sempre AzureBackupReport |
 | Risorsa |Text |Si tratta della risorsa per cui sono stati raccolti i dati, verrà visualizzato il nome dell'insieme di credenziali dei servizi di ripristino |
-| ProtectedContainerUniqueId_s |Text |Identificatore univoco del server protetto associato all'avviso (was ProtectedServerUniqueId_s in V1)|
+| ProtectedContainerUniqueId_s |Text |Identificatore univoco del server protetto associato all'avviso (è stato ProtectedServerUniqueId_s in V1)|
 | VaultUniqueId_s |Text |Identificatore univoco dell'insieme di credenziali protette associato all'avviso |
 | SourceSystem |Text |Sistema di origine dei dati correnti - Azure |
-| ResourceId |Text |Identificatore univoco per la risorsa per ia quale vengono raccolti i dati. Ad esempio, un id risorsa dell'insieme di credenziali di Servizi di ripristino |
+| ResourceId |Text |Identificatore univoco per la risorsa per ia quale vengono raccolti i dati. Ad esempio, un ID di risorsa dell'insieme di credenziali di servizi di ripristino |
 | SubscriptionId |Text |Identificatore della sottoscrizione della risorsa (ad es. credenziali di Servizi di ripristino) per il quale vengono raccolti i dati |
 | ResourceGroup |Text |Gruppo di risorse della risorsa (ad es. credenziali di Servizi di ripristino) per il quale vengono raccolti i dati |
 | ResourceProvider |Text |Provider di risorse per il quale vengono raccolti i dati. Ad esempio, Microsoft.RecoveryServices |
@@ -80,10 +80,10 @@ Questa tabella offre dettagli sui campi relativi agli elementi di backup.
 | State_s |Text |Stato dell'oggetto dell'elemento di backup, ad esempio Attivo o Eliminato |
 | BackupManagementType_s |Text |Tipo di provider per l'esecuzione del backup, ad esempio IaaSVM o FileFolder a cui appartiene questo elemento di backup |
 | OperationName |Text |Nome dell'operazione, ad esempio BackupItem |
-| Category |Text |Categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure. Sempre AzureBackupReport |
+| Categoria |Text |Categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure. Sempre AzureBackupReport |
 | Risorsa |Text |Risorsa per cui sono stati raccolti i dati, ad esempio il nome dell'insieme di credenziali dei Servizi di ripristino |
 | SourceSystem |Text |Sistema di origine dei dati correnti - Azure |
-| ResourceId |Text |Id risorsa per i dati raccolti, ad esempio il id dell'insieme di credenziali dei Servizi di ripristino |
+| ResourceId |Text |ID risorsa per i dati raccolti, ad esempio l'ID risorsa dell'insieme di credenziali di servizi di ripristino |
 | SubscriptionId |Text |Identificatore della sottoscrizione della risorsa (ad es. credenziali di Servizi di ripristino) per i dati raccolti |
 | ResourceGroup |Text |Gruppo di risorse della risorsa (ad es. credenziali di Servizi di ripristino) per i dati raccolti |
 | ResourceProvider |Text |Provider di risorse per i dati raccolti, ad esempio, Microsoft. RecoveryServices |
@@ -93,7 +93,7 @@ Questa tabella offre dettagli sui campi relativi agli elementi di backup.
 
 Questa tabella fornisce dettagli sulle associazioni degli elementi di backup con varie entità.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | EventName_s |Text |Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Text |ID univoco dell'elemento di backup |
@@ -102,13 +102,13 @@ Questa tabella fornisce dettagli sulle associazioni degli elementi di backup con
 | BackupManagementType_s |Text |Tipo di provider per processo di backup del server, ad esempio, IaaSVM o FileFolder |
 | BackupItemSourceSize_s |Text | Dimensioni front-end dell'elemento di backup |
 | BackupManagementServerUniqueId_s |Text | Campo per identificare in modo univoco il server di gestione di backup in cui è protetto l'elemento di backup, se applicabile |
-| Category |Text |Questo campo rappresenta la categoria di dati di diagnostica inseriti di Log Analytics, ovvero AzureBackupReport |
+| Categoria |Text |Questo campo rappresenta la categoria di dati di diagnostica inseriti di Log Analytics, ovvero AzureBackupReport |
 | OperationName |Text |Questo campo rappresenta il nome dell'operazione in corso - BackupItemAssociation |
 | Risorsa |Text |Si tratta della risorsa per cui sono stati raccolti i dati, verrà visualizzato il nome dell'insieme di credenziali dei servizi di ripristino |
-| ProtectedContainerUniqueId_s |Text |Identificatore univoco del server protetto associato all'elemento di backup (was ProtectedServerUniqueId_s in V1) |
+| ProtectedContainerUniqueId_s |Text |Identificatore univoco del server protetto associato all'elemento di backup (è stato ProtectedServerUniqueId_s in V1) |
 | VaultUniqueId_s |Text |Identificatore univoco dell'insieme di credenziali contenente l'elemento di backup |
 | SourceSystem |Text |Sistema di origine dei dati correnti - Azure |
-| ResourceId |Text |Identificatore della risorsa per i dati raccolti. Ad esempio, id risorsa dell'insieme di credenziali di Servizi di ripristino |
+| ResourceId |Text |Identificatore della risorsa per i dati raccolti. Ad esempio, l'ID risorsa dell'insieme di credenziali di servizi di ripristino |
 | SubscriptionId |Text |Identificatore della sottoscrizione della risorsa (ad es. credenziali di Servizi di ripristino) per cui i dati sono stati raccolti |
 | ResourceGroup |Text |Gruppo di risorse della risorsa (ad es. credenziali di Servizi di ripristino) per cui i dati sono stati raccolti |
 | ResourceProvider |Text |Provider di risorse per i dati raccolti, ad esempio, Microsoft. RecoveryServices |
@@ -127,13 +127,13 @@ Questa tabella fornisce dettagli sulle associazioni degli elementi di backup con
 |BackupManagementServerType_s     |Text         |Tipo di server di gestione di backup, come MAB, SC DPM|
 |BackupManagementServerUniqueId_s     |Text         |Per identificare in modo univoco il server di gestione di backup       |
 | SourceSystem |Text |Sistema di origine dei dati correnti - Azure |
-| ResourceId |Text |Identificatore della risorsa per i dati raccolti. Ad esempio, id risorsa dell'insieme di credenziali di Servizi di ripristino |
+| ResourceId |Text |Identificatore della risorsa per i dati raccolti. Ad esempio, l'ID risorsa dell'insieme di credenziali di servizi di ripristino |
 | SubscriptionId |Text |Identificatore della sottoscrizione della risorsa (ad es. credenziali di Servizi di ripristino) per cui i dati sono stati raccolti |
 | ResourceGroup |Text |Gruppo di risorse della risorsa (ad es. credenziali di Servizi di ripristino) per cui i dati sono stati raccolti |
 | ResourceProvider |Text |Provider di risorse per i dati raccolti, ad esempio, Microsoft. RecoveryServices |
 | ResourceType |Text |Tipo di risorsa per cui sono stati raccolti i dati, ad esempio, gli Insiemi di credenziali |
 
-### <a name="job"></a>Processo
+### <a name="job"></a>processo
 
 Questa tabella offre dettagli sui campi relativi al processo.
 
@@ -145,7 +145,7 @@ Questa tabella offre dettagli sui campi relativi al processo.
 | State_s |Text |Stato corrente dell'oggetto processo, ad esempio Active o Deleted |
 | BackupManagementType_s |Text |Tipo di provider per processo di backup del server, ad esempio, IaaSVM o FileFolder |
 | OperationName |Text |Questo campo rappresenta il nome dell'operazione in corso - Processo |
-| Category |Text |Questo campo rappresenta la categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure, è AzureBackupReport |
+| Categoria |Text |Questo campo rappresenta la categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure, è AzureBackupReport |
 | Risorsa |Text |Si tratta della risorsa per cui sono stati raccolti i dati, verrà visualizzato il nome dell'insieme di credenziali dei servizi di ripristino |
 | ProtectedServerUniqueId_s |Text |Identificatore univoco del server protetto associato al processo |
 | ProtectedContainerUniqueId_s |Text | ID univoco per identificare il contenitore protetto in cui viene eseguito il processo |
@@ -156,14 +156,14 @@ Questa tabella offre dettagli sui campi relativi al processo.
 | JobStartDateTime_s |Data/ora |Data e ora di avvio dell'esecuzione del processo |
 | BackupStorageDestination_s |Text |Destinazione dell'archiviazione di backup, ad esempio Cloud o Disk  |
 | AdHocOrScheduledJob_s |Text | Campo per specificare se il processo è ad hoc o pianificato |
-| JobDurationInSecs_s | Number |Durata totale del processo in secondi |
-| DataTransferredInMB_s | Number |Dati trasferiti in MB per il processo|
-| JobUniqueId_g |Text |ID univoco per l'identificazione del processo |
+| JobDurationInSecs_s | NUMBER |Durata totale del processo in secondi |
+| DataTransferredInMB_s | NUMBER |Dati trasferiti in MB per il processo|
+| JobUniqueId_g |Text |ID univoco per identificare il processo |
 | RecoveryJobDestination_s |Text | Destinazione di un processo di ripristino in cui vengono recuperati i dati |
 | RecoveryJobRPDateTime_s |DateTime | Data, ora in cui è stato creato il punto di ripristino da ripristinare |
 | RecoveryJobRPLocation_s |Text | Posizione in cui è stato archiviato il punto di ripristino da ripristinare|
 | SourceSystem |Text |Sistema di origine dei dati correnti - Azure |
-| ResourceId |Text |Identificatore della risorsa per i dati raccolti. Ad esempio, id risorsa dell'insieme di credenziali di Servizi di ripristino|
+| ResourceId |Text |Identificatore della risorsa per i dati raccolti. Ad esempio, l'ID risorsa dell'insieme di credenziali di servizi di ripristino|
 | SubscriptionId |Text |Identificatore della sottoscrizione della risorsa (ad es. credenziali di Servizi di ripristino) per il quale vengono raccolti i dati |
 | ResourceGroup |Text |Gruppo di risorse della risorsa (ad es. credenziali di Servizi di ripristino) per il quale vengono raccolti i dati |
 | ResourceProvider |Text |Provider di risorse per il quale vengono raccolti i dati. Ad esempio, Microsoft.RecoveryServices |
@@ -173,16 +173,16 @@ Questa tabella offre dettagli sui campi relativi al processo.
 
 Questa tabella offre dettagli sui campi relativi al criterio.
 
-| Campo | Tipo di dati | Versioni applicabili | Descrizione |
+| Campo | Tipo di dati | Versioni applicabili | DESCRIZIONE |
 | --- | --- | --- | --- |
 | EventName_s |Text ||Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |
 | SchemaVersion_s |Text ||Questo campo indica la versione corrente dello schema, ovvero **v2** |
 | State_s |Text ||Stato corrente dell'oggetto criteri, ad esempio Active o Deleted |
 | BackupManagementType_s |Text ||Tipo di provider per processo di backup del server, ad esempio, IaaSVM o FileFolder |
 | OperationName |Text ||Questo campo rappresenta il nome dell'operazione in corso - Criterio |
-| Category |Text ||Questo campo rappresenta la categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure, è AzureBackupReport |
+| Categoria |Text ||Questo campo rappresenta la categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure, è AzureBackupReport |
 | Risorsa |Text ||Si tratta della risorsa per cui sono stati raccolti i dati, verrà visualizzato il nome dell'insieme di credenziali dei servizi di ripristino |
-| PolicyUniqueId_g |Text ||ID univoco per l'identificazione dei criteri |
+| PolicyUniqueId_g |Text ||ID univoco per identificare il criterio |
 | PolicyName_s |Text ||Nome dei criteri definiti |
 | BackupFrequency_s |Text ||Frequenza con cui vengono eseguiti i backup, ad esempio daily o weekly |
 | BackupTimes_s |Text ||Data e ora in cui sono pianificati backup |
@@ -211,7 +211,7 @@ Questa tabella offre dettagli sui campi relativi al criterio.
 | LogBackupRetentionDuration_s |Numero decimale |v2|Durata del periodo di memorizzazione per i backup del log per SQL nel backup di macchine virtuali di Azure|
 | DiffBackupDaysofTheWeek_s |Text |v2|Giorni della settimana per i backup differenziali per SQL nel backup di macchine virtuali di Azure|
 | SourceSystem |Text ||Sistema di origine dei dati correnti - Azure |
-| ResourceId |Text ||Identificatore della risorsa per i dati raccolti. Ad esempio, id risorsa dell'insieme di credenziali di Servizi di ripristino |
+| ResourceId |Text ||Identificatore della risorsa per i dati raccolti. Ad esempio, l'ID risorsa dell'insieme di credenziali di servizi di ripristino |
 | SubscriptionId |Text ||Identificatore della sottoscrizione della risorsa (ad es. credenziali di Servizi di ripristino) per il quale vengono raccolti i dati |
 | ResourceGroup |Text ||Gruppo di risorse della risorsa (ad es. credenziali di Servizi di ripristino) per il quale vengono raccolti i dati |
 | ResourceProvider |Text ||Provider di risorse per il quale vengono raccolti i dati. Ad esempio, Microsoft.RecoveryServices |
@@ -221,20 +221,20 @@ Questa tabella offre dettagli sui campi relativi al criterio.
 
 Questa tabella fornisce dettagli sulle associazioni dei criteri con varie entità.
 
-| Campo | Tipo di dati | Versioni applicabili | Descrizione |
+| Campo | Tipo di dati | Versioni applicabili | DESCRIZIONE |
 | --- | --- | --- | --- |
 | EventName_s |Text ||Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |
 | SchemaVersion_s |Text ||Questo campo indica la versione corrente dello schema, ovvero **v2** |
 | State_s |Text ||Stato corrente dell'oggetto criteri, ad esempio Active o Deleted |
 | BackupManagementType_s |Text ||Tipo di provider per processo di backup del server, ad esempio, IaaSVM o FileFolder |
 | OperationName |Text ||Questo campo rappresenta il nome dell'operazione in corso - PolicyAssociation |
-| Category |Text ||Questo campo rappresenta la categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure, è AzureBackupReport |
+| Categoria |Text ||Questo campo rappresenta la categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure, è AzureBackupReport |
 | Risorsa |Text ||Si tratta della risorsa per cui sono stati raccolti i dati, verrà visualizzato il nome dell'insieme di credenziali dei servizi di ripristino |
-| PolicyUniqueId_g |Text ||ID univoco per l'identificazione dei criteri |
-| VaultUniqueId_s |Text ||Id univoco dell'insieme di credenziali a cui appartiene questo criterio |
+| PolicyUniqueId_g |Text ||ID univoco per identificare il criterio |
+| VaultUniqueId_s |Text ||ID univoco dell'insieme di credenziali a cui appartiene questo criterio |
 | BackupManagementServerUniqueId_s |Text |v2 |Campo per identificare in modo univoco il server di gestione di backup in cui è protetto l'elemento di backup, se applicabile        |
 | SourceSystem |Text ||Sistema di origine dei dati correnti - Azure |
-| ResourceId |Text ||Identificatore della risorsa per i dati raccolti. Ad esempio, id risorsa dell'insieme di credenziali di Servizi di ripristino |
+| ResourceId |Text ||Identificatore della risorsa per i dati raccolti. Ad esempio, l'ID risorsa dell'insieme di credenziali di servizi di ripristino |
 | SubscriptionId |Text ||Identificatore della sottoscrizione della risorsa (ad es. credenziali di Servizi di ripristino) per il quale vengono raccolti i dati |
 | ResourceGroup |Text ||Gruppo di risorse della risorsa (ad es. credenziali di Servizi di ripristino) per il quale vengono raccolti i dati |
 | ResourceProvider |Text ||Provider di risorse per il quale vengono raccolti i dati. Ad esempio, Microsoft.RecoveryServices |
@@ -244,7 +244,7 @@ Questa tabella fornisce dettagli sulle associazioni dei criteri con varie entit�
 
 Questa tabella fornisce i campi di base sui contenitori protetti. (ProtectedServer in V1)
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | ProtectedContainerUniqueId_s |Text | Campo per identificare in modo univoco un contenitore protetto |
 | ProtectedContainerOSType_s |Text |Tipo di sistema operativo del contenitore protetto |
@@ -257,7 +257,7 @@ Questa tabella fornisce i campi di base sui contenitori protetti. (ProtectedServ
 | ProtectedContainerWorkloadType_s |Text |Tipo del contenitore protetto di cui è stato eseguito il backup. Ad esempio, IaaSVMContainer |
 | ProtectedContainerLocation_s |Text |Indica se il contenitore protetto si trova in locale o in Azure |
 | ProtectedContainerType_s |Text |Indica se il contenitore protetto è un server o un contenitore |
-| ProtectedContainerProtectionState_s'  |Text |Stato di protezione del contenitore protetto |
+| ProtectedContainerProtectionState_s '  |Text |Stato di protezione del contenitore protetto |
 
 ### <a name="storage"></a>Archiviazione
 
@@ -272,12 +272,12 @@ Questa tabella offre dettagli sui campi relativi all'archiviazione.
 | State_s |Text |Stato corrente dell'oggetto archiviazione, ad esempio Active o Deleted |
 | BackupManagementType_s |Text |Tipo di provider per processo di backup del server, ad esempio, IaaSVM o FileFolder |
 | OperationName |Text |Questo campo rappresenta il nome dell'operazione in corso - Archiviazione |
-| Category |Text |Questo campo rappresenta la categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure, è AzureBackupReport |
+| Categoria |Text |Questo campo rappresenta la categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure, è AzureBackupReport |
 | Risorsa |Text |Si tratta della risorsa per cui sono stati raccolti i dati, verrà visualizzato il nome dell'insieme di credenziali dei servizi di ripristino |
-| ProtectedServerUniqueId_s |Text |Id univoco del server protetto per cui viene calcolata l'archiviazione |
-| VaultUniqueId_s |Text |Id univoco dell'insieme di credenziali per cui viene calcolata l'archiviazione |
+| ProtectedServerUniqueId_s |Text |ID univoco del server protetto per cui viene calcolata l'archiviazione |
+| VaultUniqueId_s |Text |Viene calcolato l'ID univoco dell'insieme di credenziali per l'archiviazione |
 | SourceSystem |Text |Sistema di origine dei dati correnti - Azure |
-| ResourceId |Text |Identificatore della risorsa per i dati raccolti. Ad esempio, id risorsa dell'insieme di credenziali di Servizi di ripristino |
+| ResourceId |Text |Identificatore della risorsa per i dati raccolti. Ad esempio, l'ID risorsa dell'insieme di credenziali di servizi di ripristino |
 | SubscriptionId |Text |Identificatore della sottoscrizione della risorsa (ad es. credenziali di Servizi di ripristino) per il quale vengono raccolti i dati |
 | ResourceGroup |Text |Gruppo di risorse della risorsa (ad es. credenziali di Servizi di ripristino) per il quale vengono raccolti i dati |
 | ResourceProvider |Text |Provider di risorse per il quale vengono raccolti i dati. Ad esempio, Microsoft.RecoveryServices |
@@ -298,27 +298,27 @@ Questa tabella fornisce i campi di base relativi all'archiviazione che connetton
 | BackupItemUniqueId_s |Text |ID univoco usato per identificare l'elemento di backup correlato all'entità di archiviazione |
 | BackupManagementServerUniqueId_s |Text |ID univoco usato per identificare il server di gestione di backup correlato all'entità di archiviazione|
 | VaultUniqueId_s |Text |ID univoco usato per identificare l'insieme di credenziali correlato all'entità di archiviazione|
-| StorageConsumedInMBs_s |Number|Dimensioni dello spazio di archiviazione utilizzato dall'elemento di backup corrispondente nell'archivio corrispondente |
-| StorageAllocatedInMBs_s |Number |Dimensioni dello spazio di archiviazione allocato dall'elemento di backup corrispondente nello spazio di archiviazione corrispondente di tipo Disk|
+| StorageConsumedInMBs_s |NUMBER|Dimensioni dello spazio di archiviazione utilizzato dall'elemento di backup corrispondente nell'archivio corrispondente |
+| StorageAllocatedInMBs_s |NUMBER |Dimensioni dello spazio di archiviazione allocato dall'elemento di backup corrispondente nello spazio di archiviazione corrispondente di tipo Disk|
 
-### <a name="vault"></a>Insieme di credenziali
+### <a name="vault"></a>Insiemi di credenziali
 
 Questa tabella offre dettagli sui campi relativi all'insieme di credenziali.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | EventName_s |Text |Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |
 | SchemaVersion_s |Text |Questo campo indica la versione corrente dello schema, ovvero **v2** |
 | State_s |Text |Stato corrente dell'oggetto insieme di credenziali, ad esempio Active o Deleted |
 | OperationName |Text |Questo campo rappresenta il nome dell'operazione in corso - Insieme di credenziali |
-| Category |Text |Questo campo rappresenta la categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure, è AzureBackupReport |
+| Categoria |Text |Questo campo rappresenta la categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure, è AzureBackupReport |
 | Risorsa |Text |Si tratta della risorsa per cui sono stati raccolti i dati, verrà visualizzato il nome dell'insieme di credenziali dei servizi di ripristino |
-| VaultUniqueId_s |Text |Id univoco dell'insieme di credenziali |
+| VaultUniqueId_s |Text |ID univoco dell'insieme di credenziali |
 | VaultName_s |Text |Nome dell'insieme di credenziali |
 | AzureDataCenter_s |Text |Data center in cui si trova l'insieme di credenziali |
 | StorageReplicationType_s |Text |Tipo di replica di archiviazione per l'insieme di credenziali, ad esempio GeoRedundant |
 | SourceSystem |Text |Sistema di origine dei dati correnti - Azure |
-| ResourceId |Text |Identificatore della risorsa per i dati raccolti. Ad esempio, id risorsa dell'insieme di credenziali di Servizi di ripristino |
+| ResourceId |Text |Identificatore della risorsa per i dati raccolti. Ad esempio, l'ID risorsa dell'insieme di credenziali di servizi di ripristino |
 | SubscriptionId |Text |Identificatore della sottoscrizione della risorsa (ad es. credenziali di Servizi di ripristino) per il quale vengono raccolti i dati |
 | ResourceGroup |Text |Gruppo di risorse della risorsa (ad es. credenziali di Servizi di ripristino) per il quale vengono raccolti i dati |
 | ResourceProvider |Text |Provider di risorse per il quale vengono raccolti i dati. Ad esempio, Microsoft.RecoveryServices |
@@ -328,7 +328,7 @@ Questa tabella offre dettagli sui campi relativi all'insieme di credenziali.
 
 Questa tabella fornisce i campi di base relativi ai server di gestione di backup.
 
-|Campo  |Tipo di dati  | Descrizione  |
+|Campo  |Tipo di dati  | DESCRIZIONE  |
 |---------|---------|----------|
 |BackupManagementServerName_s     |Text         |Nome del server di gestione di backup        |
 |AzureBackupAgentVersion_s     |Text         |Versione dell'agente di backup di Azure nel server di gestione di backup          |
@@ -341,7 +341,7 @@ Questa tabella fornisce i campi di base relativi ai server di gestione di backup
 
 Questa tabella specifica i carichi di lavoro a cui è associato un volume.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | StorageUniqueId_s |Text |ID univoco usato per identificare l'entità di archiviazione |
 | BackupItemType_s |Text |Carichi di lavoro per cui il volume è la risorsa di archiviazione preferita|
@@ -350,7 +350,7 @@ Questa tabella specifica i carichi di lavoro a cui è associato un volume.
 
 Questa tabella fornisce i campi correlati alle istanze protette di base.
 
-| Campo | Tipo di dati |Versioni applicabili | Descrizione |
+| Campo | Tipo di dati |Versioni applicabili | DESCRIZIONE |
 | --- | --- | --- | --- |
 | BackupItemUniqueId_s |Text |v2|ID univoco usato per identificare l'elemento di backup per le macchine virtuali di cui è stato eseguito il backup con DPM, MAB|
 | ProtectedContainerUniqueId_s |Text |v2|ID univoco usato per identificare il contenitore protetto per tutti gli elementi eccetto le macchine virtuali di cui è stato eseguito il backup con DPM, MAB|

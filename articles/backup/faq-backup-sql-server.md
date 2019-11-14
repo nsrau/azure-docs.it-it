@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7d09e7839356c040e6632ef728cc579abaa17268
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: d9272aa4a46a5835558be8c695b62ec0770e3827
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968357"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074069"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Domande frequenti sui database SQL Server in esecuzione in un backup di macchine virtuali di Azure
 
@@ -74,7 +74,7 @@ No. I processi di backup con esito positivo non generano avvisi. Gli avvisi veng
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>È possibile visualizzare i processi di backup pianificati nel menu processi di backup?
 
-Il menu **processo di backup** mostrerà solo i processi di backup ad hoc. Per il processo pianificato, usare [monitoraggio di Azure](backup-azure-monitoring-use-azuremonitor.md).
+Il menu **processo di backup** mostrerà solo i processi di backup su richiesta. Per il processo pianificato, usare [monitoraggio di Azure](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>I database futuri vengono aggiunti automaticamente per il backup?
 

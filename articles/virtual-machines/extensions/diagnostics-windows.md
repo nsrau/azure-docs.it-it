@@ -1,5 +1,5 @@
 ---
-title: Usare Azure PowerShell per abilitare la diagnostica in una macchina virtuale Windows | Microsoft Docs
+title: Usare Azure PowerShell per abilitare la diagnostica in una macchina virtuale Windows
 services: virtual-machines-windows
 documentationcenter: ''
 description: Informazioni su come usare PowerShell per abilitare Diagnostica di Azure in una macchina virtuale che esegue Windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 547de4862081b56bf627c3a00564ce6564f2ad09
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: d43859de71b6e41d5df444716b5504ca6b78400b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750095"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073148"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Usare PowerShell per abilitare la Diagnostica di Azure in una macchina virtuale che esegue Windows
 
@@ -42,7 +42,7 @@ Per abilitare l'estensione di diagnostica in una macchina virtuale esistente cre
 
 Se il file di configurazione di diagnostica specifica un elemento **StorageAccount** con il nome di un account di archiviazione, lo script *Set-AzVMDiagnosticsExtension* imposta automaticamente l'estensione di diagnostica per l'invio dei dati di diagnostica all'account di archiviazione specificato. A tal fine, l'account di archiviazione deve trovarsi nella stessa sottoscrizione della VM.
 
-Se nella configurazione di diagnostica non è specificato alcun elemento **StorageAccount** , è necessario passare il parametro *StorageAccountName* al cmdlet. Se il parametro *StorageAccountName* è specificato, il cmdlet userà sempre l'account di archiviazione specificato nel parametro e non quello specificato nel file di configurazione della diagnostica.
+Se nella configurazione di diagnostica non è specificato alcun elemento **StorageAccount** , è necessario passare il parametro *StorageAccountName* al cmdlet. Se viene specificato il parametro *StorageAccountName* , il cmdlet userà sempre l'account di archiviazione specificato nel parametro e non quello specificato nel file di configurazione di diagnostica.
 
 Se l'account di archiviazione di diagnostica si trova in una sottoscrizione diversa da quella della VM, è necessario passare in modo esplicito i parametri *StorageAccountName* e *StorageAccountKey* al cmdlet. Il parametro *StorageAccountKey* non è necessario quando l'account di archiviazione di diagnostica si trova nella stessa sottoscrizione perché il cmdlet può automaticamente eseguire una query e impostare il valore della chiave durante l'abilitazione dell'estensione di diagnostica. Tuttavia, se l'account di archiviazione di diagnostica si trova in una sottoscrizione diversa, il cmdlet potrebbe non essere in grado di ottenere automaticamente la chiave, quindi si deve specificare la chiave in modo esplicito tramite il parametro *StorageAccountKey* .  
 
@@ -88,7 +88,7 @@ La configurazione deve essere aggiornata per includere gli elementi seguenti:
       ```xml
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
       ```
-  * Per altre informazioni sulla generazione delle metriche in base alla configurazione dei contatori delle prestazioni e delle metriche, vedere [Tabella delle metriche di Diagnostica di Azure nell'archiviazione](diagnostics-template.md#wadmetrics-tables-in-storage).
+  * Per ulteriori informazioni sulla generazione delle metriche in base alla configurazione dei contatori delle prestazioni e delle metriche, vedere la [tabella delle metriche della Diagnostica di Azure nell'archiviazione](diagnostics-template.md#wadmetrics-tables-in-storage).
 * L'elemento **StorageAccount** deve essere aggiornato con il nome dell'account di archiviazione di diagnostica.
   
     ```xml

@@ -1,5 +1,5 @@
 ---
-title: 'Configurare Copertura globale di ExpressRoute: Interfaccia della riga di comando di Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: configurare Copertura globale di ExpressRoute: interfaccia della riga di comando'
 description: Questo articolo descrive come collegare circuiti ExpressRoute tra loro per creare una rete privata tra le reti locali e abilitare il servizio Copertura globale.
 services: expressroute
 author: jaredr80
@@ -7,15 +7,14 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 89ada41c5f3c9cf1ca7a2ac707363f57080c361d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eda0011ea4d259d0e60cb894c2b42325ddfc2eb7
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869972"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076621"
 ---
-# <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurare ExpressRoute globale raggiungere tramite la CLI di Azure
+# <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurare ExpressRoute Copertura globale usando l'interfaccia della riga di comando di Azure
 
 Questo articolo illustra come configurare Copertura globale di Azure ExpressRoute usando l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Copertura globale di ExpressRoute](expressroute-global-reach.md).
  
@@ -48,7 +47,7 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>Identificare i circuiti ExpressRoute per la configurazione
 
-È possibile abilitare ExpressRoute globale raggiungere tra qualsiasi due circuiti ExpressRoute, purché che si trovano in paesi e regioni supportati e sono stati creati in diverse località di peering. Se la sottoscrizione include entrambi i circuiti, è possibile scegliere uno dei due per eseguire la configurazione, come spiegato più avanti in questo articolo. Se i due circuiti si trovano in sottoscrizioni di Azure diverse, è necessario avere l'autorizzazione da una sottoscrizione di Azure e passare la relativa chiave di autorizzazione quando si esegue il comando di configurazione nell'altra sottoscrizione di Azure.
+È possibile abilitare ExpressRoute Copertura globale tra due circuiti ExpressRoute diversi, purché si trovino in paesi o aree geografiche supportate e siano stati creati in percorsi di peering diversi. Se la sottoscrizione include entrambi i circuiti, è possibile scegliere uno dei due per eseguire la configurazione, come spiegato più avanti in questo articolo. Se i due circuiti si trovano in sottoscrizioni di Azure diverse, è necessario avere l'autorizzazione da una sottoscrizione di Azure e passare la relativa chiave di autorizzazione quando si esegue il comando di configurazione nell'altra sottoscrizione di Azure.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Abilitare la connettività tra le reti locali
 

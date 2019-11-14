@@ -1,7 +1,7 @@
 ---
 title: Azure Load Balancer Standard e zone di disponibilità
-titlesuffix: Azure Load Balancer
-description: Load Balancer Standard e zone di disponibilità
+titleSuffix: Azure Load Balancer
+description: Con questo percorso di apprendimento, inizia a usare Load Balancer Standard e zone di disponibilità di Azure.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 925e7857d337f7f2fd501e4e4467c05952b0da65
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 63a7db6e7078df978f47a6d53ea82df83c22c800
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882957"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076994"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e zone di disponibilità
 
@@ -88,7 +88,7 @@ Nell'estratto di codice seguente viene illustrata la definizione di un indirizzo
                 ],
 ```
 
-Gli estratti di precedente non sono modelli completi ma hanno lo scopo di mostrare come esprimere le proprietà delle zone di disponibilità.  È necessario incorporare queste istruzioni nei modelli.
+Gli estratti precedenti non sono modelli completi ma hanno lo scopo di mostrare come esprimere le proprietà delle zone di disponibilità.  È necessario incorporare queste istruzioni nei modelli.
 
 #### <a name="optional-zone-isolation"></a>Isolamento della zona facoltativo
 
@@ -98,7 +98,7 @@ Inoltre, è possibile utilizzare i front-end di zona direttamente per gli endpoi
 
 Per un approfondimento di questi concetti (con ridondanza della zona e di zona per lo stesso back-end), consultare [Più front-end per Azure Load Balancer](load-balancer-multivip-overview.md).
 
-Per un Front-End Load Balancer pubblico, aggiungere un parametro Zones alla risorsa IP pubblica a cui fa riferimento la configurazione IP front-end usata dalla rispettiva regola.
+Per un Front-End Load Balancer pubblico, aggiungere un parametro *Zones* alla risorsa IP pubblica a cui fa riferimento la configurazione IP front-end usata dalla rispettiva regola.
 
 Per un front-end di Load Balancer interno, è necessario aggiungere un parametro *zones* alla configurazione IP front-end dell'istanza di Load Balancer interna. Il front-end di zona fa sì che Load Balancer garantisca un indirizzo IP in una subnet per una zona specifica.
 
@@ -165,7 +165,7 @@ Le stesse proprietà con ridondanza della zona e di zona si applicano alle [conn
 
 L'algoritmo di preallocazione della porta SNAT è lo stesso con o senza zone di disponibilità.
 
-### <a name="health-probes"></a>Probe integrità
+### <a name="health-probes"></a>Probe di integrità
 
 Le definizioni dei probe di integrità esistenti rimangono invariate senza zone di disponibilità.  Tuttavia, il modello di integrità è stato espanso a livello di infrastruttura. 
 

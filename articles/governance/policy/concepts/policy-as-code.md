@@ -1,20 +1,16 @@
 ---
-title: Criteri di progettazione come flussi di lavoro di codice
+title: Progettare flussi di lavoro di criteri come codice
 description: Informazioni su come progettare i flussi di lavoro per distribuire le definizioni di criteri di Azure come codice e per convalidare automaticamente le risorse.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: e3fcb9996266af7e952538c7c92c665929bb9492
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 935616145ee32bea8c3b514c495690ce4105cb80
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518697"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072082"
 ---
-# <a name="design-policy-as-code-workflows"></a>Criteri di progettazione come flussi di lavoro di codice
+# <a name="design-policy-as-code-workflows"></a>Progettare flussi di lavoro di criteri come codice
 
 Man mano che si procede con la governance del cloud, è opportuno passare dalla gestione manuale di ogni definizione di criteri nel portale di Azure o tramite i vari SDK a qualcosa di più gestibile e ripetibile su scala aziendale. Due degli approcci principali per la gestione dei sistemi su larga scala nel cloud sono:
 

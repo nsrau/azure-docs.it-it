@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 42c674e236d769d48f6f17fc43494ac006219a8a
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: cfac7fdbbdbf06ae74385fbc33e61d11cb99ff87
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795702"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066306"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Crittografia di archiviazione di Azure per dati inattivi
 
 Archiviazione di Azure crittografa automaticamente i dati in modo permanente nel cloud. La crittografia protegge i dati e ti aiuta a soddisfare gli impegni di sicurezza e conformità dell'organizzazione. I dati in archiviazione di Azure vengono crittografati e decrittografati in modo trasparente usando la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)a 256 bit, una delle crittografie a blocchi più solide disponibili ed è conforme a FIPS 140-2. La crittografia di archiviazione di Azure è simile alla crittografia BitLocker per Windows.
 
-La crittografia di archiviazione di Azure è abilitata per tutti gli account di archiviazione nuovi ed esistenti e non può essere disabilitata. Poiché i dati sono protetti per impostazione predefinita, non è necessario modificare il codice o le applicazioni per sfruttare la crittografia di archiviazione di Azure.
+La crittografia di archiviazione di Azure è abilitata per tutti i nuovi account di archiviazione e non può essere disabilitata. Poiché i dati sono protetti per impostazione predefinita, non è necessario modificare il codice o le applicazioni per sfruttare la crittografia di archiviazione di Azure.
 
 Gli account di archiviazione vengono crittografati indipendentemente dal livello di prestazioni (standard o Premium) o dal modello di distribuzione (Azure Resource Manager o classica). Tutte le opzioni di ridondanza di archiviazione di Azure supportano la crittografia e tutte le copie di un account di archiviazione vengono crittografate. Tutte le risorse di archiviazione di Azure vengono crittografate, inclusi BLOB, dischi, file, code e tabelle. Vengono crittografati anche tutti i metadati degli oggetti.
 
@@ -40,10 +40,10 @@ La tabella seguente confronta le opzioni di gestione delle chiavi per la crittog
 |                                        |    Chiavi gestite da Microsoft                             |    Chiavi gestite dal cliente                                                                                                                        |    Chiavi fornite dal cliente                                                          |
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    Operazioni di crittografia/decrittografia    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    Servizi di archiviazione di Azure supportati    |    Tutti                                                |    Archiviazione BLOB, File di Azure                                                                                                               |    Archiviazione BLOB                                                                  |
-|    Archiviazione chiavi                         |    Archivio chiavi Microsoft    |    Azure Key Vault                                                                                                                              |    Azure Key Vault o qualsiasi altro archivio chiavi                                                                 |
-|    Responsabilità della rotazione delle chiavi         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
-|    Uso della chiave                           |    Microsoft                                          |    Portale di Azure, API REST provider di risorse di archiviazione, librerie di gestione archiviazione di Azure, PowerShell, interfaccia della riga di comando        |    API REST di archiviazione di Azure (archiviazione BLOB), librerie client di archiviazione di Azure    |
+|    Servizi di archiviazione di Azure supportati    |    Tutti                                                |    Archiviazione BLOB, File di Azure                                                                                                               |    Archivio BLOB                                                                  |
+|    Archiviazione chiavi                         |    Archivio chiavi Microsoft    |    insieme di credenziali chiave                                                                                                                              |    Azure Key Vault o qualsiasi altro archivio chiavi                                                                 |
+|    Responsabilità della rotazione delle chiavi         |    Macchina virtuale                                          |    Customer                                                                                                                                     |    Customer                                                                      |
+|    Uso della chiave                           |    Macchina virtuale                                          |    Portale di Azure, API REST provider di risorse di archiviazione, librerie di gestione archiviazione di Azure, PowerShell, interfaccia della riga di comando        |    API REST di archiviazione di Azure (archiviazione BLOB), librerie client di archiviazione di Azure    |
 |    Accesso alle chiavi                          |    Solo Microsoft                                     |    Microsoft, cliente                                                                                                                    |    Solo cliente                                                                 |
 
 Le sezioni seguenti descrivono in modo più dettagliato tutte le opzioni per la gestione delle chiavi.
@@ -105,7 +105,7 @@ Ogni snapshot BLOB può avere una propria chiave di crittografia.
 
 Per le chiamate REST, i client possono usare le intestazioni seguenti per passare in modo sicuro le informazioni sulla chiave di crittografia per una richiesta all'archiviazione BLOB:
 
-|Intestazione di richiesta | Descrizione |
+|Intestazione di richiesta | DESCRIZIONE |
 |---------------|-------------|
 |`x-ms-encryption-key` |Obbligatorio per le richieste di scrittura e di lettura. Valore della chiave di crittografia AES-256 con codifica Base64. |
 |`x-ms-encryption-key-sha256`| Obbligatorio per le richieste di scrittura e di lettura. SHA256 con codifica Base64 della chiave di crittografia. |
@@ -194,7 +194,7 @@ public static void UploadBlobWithClientKey(CloudBlobContainer container)
 
 ## <a name="azure-storage-encryption-versus-disk-encryption"></a>Crittografia di archiviazione di Azure rispetto alla crittografia del disco
 
-Con la crittografia di archiviazione di Azure, tutti gli account di archiviazione di Azure e le risorse che contengono sono crittografati, inclusi i BLOB di pagine che eseguono i dischi delle macchine virtuali di Azure. Inoltre, i dischi delle macchine virtuali di Azure possono essere crittografati con [crittografia dischi di Azure](../../security/azure-security-disk-encryption-overview.md). Crittografia dischi di Azure usa [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) standard del settore in Windows e [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) in Linux per fornire soluzioni di crittografia basate sul sistema operativo integrate con Azure Key Vault.
+La crittografia di archiviazione di Azure crittografa i BLOB di pagine che eseguono il backup dei dischi delle macchine virtuali di Azure. Inoltre, tutti i dischi delle macchine virtuali di Azure, inclusi i dischi temporanei locali, possono essere facoltativamente crittografati con [crittografia dischi di Azure](../../security/azure-security-disk-encryption-overview.md). Crittografia dischi di Azure usa [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) standard del settore in Windows e [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) in Linux per fornire soluzioni di crittografia basate sul sistema operativo integrate con Azure Key Vault.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

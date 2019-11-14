@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 17499fad64c8ae313f7a544015a04cc20e8bbabe
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cba54c65a314919b5509e1de029ad05f8722baa2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495708"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075445"
 ---
 |**VPN<br>Gateway<br>Generation** |**SKU**   | **Tunnel S2S/<br>rete virtuale-rete virtuale** | **P2S<br> Connessioni SSTP** | **P2S<br> Connessioni IKEv2/OpenVPN** | **Benchmark<br>velocità effettiva aggregata** | **BGP** | **Zone-redundant** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
@@ -46,7 +46,7 @@ ms.locfileid: "73495708"
 
 * In un singolo tunnel è possibile ottenere una velocità effettiva massima di 1 Gbps. Il benchmark della velocità effettiva aggregata nella tabella precedente si basa sulle misurazioni di più tunnel aggregati tramite un singolo gateway. Il benchmark della velocità effettiva aggregata per un gateway VPN è S2S + P2S combinati. **Se si hanno molte connessioni P2S, si può avere un impatto negativo su una connessione S2S a causa delle limitazioni relative alla velocità effettiva.** Il benchmark della velocità effettiva aggregata non rappresenta una velocità effettiva garantita, perché può variare anche in funzione delle condizioni del traffico Internet e dei comportamenti dell'applicazione.
 
-* Per aiutare i clienti a comprendere le prestazioni relative degli SKU che usano algoritmi diversi, sono stati usati gli strumenti iPerf e CTSTraffic disponibili pubblicamente per misurare le prestazioni. La tabella seguente elenca i risultati dei test delle prestazioni per gli SKU VpnGw Generation1. È possibile notare come si ottengano le prestazioni migliori quando viene usato l'algoritmo GCMAES256 per la crittografia e l'integrità IPsec. Quando viene usato AES256 per la crittografia IPsec e SHA256 per l'integrità, si ottengono prestazioni medie. Quando infine viene usato DES3 per la crittografia IPsec e SHA256 per l'integrità, si ottengono le prestazioni più basse.
+Per aiutare i clienti a comprendere le prestazioni relative degli SKU che usano algoritmi diversi, sono stati usati gli strumenti iPerf e CTSTraffic disponibili pubblicamente per misurare le prestazioni. La tabella seguente elenca i risultati dei test delle prestazioni per gli SKU VpnGw Generation1. È possibile notare come si ottengano le prestazioni migliori quando viene usato l'algoritmo GCMAES256 per la crittografia e l'integrità IPsec. Quando viene usato AES256 per la crittografia IPsec e SHA256 per l'integrità, si ottengono prestazioni medie. Quando infine viene usato DES3 per la crittografia IPsec e SHA256 per l'integrità, si ottengono le prestazioni più basse.
 
 |**Generazione**|**SKU**   | **Algoritmi<br>usati** | **Velocità effettiva <br>osservata** | **Pacchetti al secondo<br>osservati** |
 |---           |---       | ---                 | ---            | ---                    |

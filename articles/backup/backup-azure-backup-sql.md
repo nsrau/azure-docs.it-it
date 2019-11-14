@@ -8,17 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: d564cc16a1261cdf71d783ce9f40e577177ff74c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 069d1e7cb81fe8d3528b27e676886710f57ea5f1
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954795"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074260"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Backup di SQL Server in Azure come carico di lavoro DPM
+
 In questo articolo viene avviata la procedura di configurazione per il backup dei database SQL Server mediante il Backup di Azure.
 
-Per eseguire il backup dei database di SQL server in Azure è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Per eseguire il backup dei database di SQL server in Azure è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 La gestione delle operazioni di backup del database SQL server in Azure e di ripristino da Azure prevede tre passaggi:
 
@@ -27,18 +28,20 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 3. Ripristinare il database da Azure.
 
 ## <a name="before-you-start"></a>Prima di iniziare
+
 Prima di procedere, assicurarsi che tutti i [prerequisiti](backup-azure-dpm-introduction.md#prerequisites-and-limitations) per l'uso di Backup di Microsoft Azure per proteggere i carichi di lavoro siano stati soddisfatti. I prerequisiti si applicano ad attività quali, ad esempio, la creazione di un archivio di backup, il download delle credenziali dell'insieme di credenziali, l'installazione dell'agente di Backup di Azure e la registrazione del server con l'insieme di credenziali.
 
 ## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Creare un criterio di backup per proteggere i database SQL Server in Azure.
+
 1. Sul server DPM, fare clic nell'area di lavoro **Protezione** .
 2. Nella barra degli strumenti, fare clic su **Nuovo** per creare un nuovo gruppo di protezione.
 
-    ![Creare un gruppo di protezione](./media/backup-azure-backup-sql/protection-group.png)
-3. DPM mostra la schermata iniziale con le linee guida per creare un **Gruppo di protezione**. Fare clic su **Avanti**.
+    ![Creazione di un gruppo di protezione](./media/backup-azure-backup-sql/protection-group.png)
+3. DPM mostra la schermata iniziale con le linee guida per creare un **Gruppo di protezione**. Fare clic su **Next** (Avanti).
 4. Selezione dei **Server**.
 
     ![Selezione del tipo di gruppo di protezione "Server"](./media/backup-azure-backup-sql/pg-servers.png)
-5. Espandere la macchina del server SQL in cui sono presenti i database da includere nel backup. DPM mostra diverse origini dati di cui è possibile eseguire il backup in quel server. Espandere **Tutti i server SQL** e selezionare i database (in questo caso sono stati selezionati ReportServer$MSDPM2012 e ReportServer$MSDPM2012TempDB) di cui eseguire il backup. Fare clic su **Avanti**.
+5. Espandere la macchina del server SQL in cui sono presenti i database da includere nel backup. DPM mostra diverse origini dati di cui è possibile eseguire il backup in quel server. Espandere **Tutti i server SQL** e selezionare i database (in questo caso sono stati selezionati ReportServer$MSDPM2012 e ReportServer$MSDPM2012TempDB) di cui eseguire il backup. Fare clic su **Next** (Avanti).
 
     ![Selezione del database SQL](./media/backup-azure-backup-sql/pg-databases.png)
 6. Specificare un nome per il gruppo di protezione e selezionare la casella di controllo **Desidero la protezione dati online** .
@@ -64,11 +67,11 @@ Prima di procedere, assicurarsi che tutti i [prerequisiti](backup-azure-dpm-intr
     per impostazione predefinita, DPM crea un volume per origine dati (database SQL Server) usato per la creazione della copia di backup iniziale. Con questo approccio, il gestore dischi logici (LDM) limita la protezione DPM a 300 origini dati (database SQL Server). Per porre rimedio a questa limitazione, selezionare l'opzione **Condividi percorso dati nel pool di archiviazione DPM**. Grazie a questa opzione, DPM usa un singolo volume per più origini dati, che consente a DPM di proteggere fino a 2.000 database SQL.
 
     Selezionando l'opzione **Aumenta automaticamente i volumi**, si consente a DPM di adeguare l'aumento del volume di backup all'aumento dei dati di produzione. Deselezionando l'opzione **Aumenta automaticamente i volumi**, DPM limiterà lo spazio di archiviazione backup usato per le origini dati nel gruppo di protezione.
-9. Gli amministratori possono scegliere di trasferire manualmente il backup iniziale (fuori rete) per evitare la congestione della larghezza di banda oppure di trasferirlo in rete. Possono anche configurare la data e l'ora di inizio del trasferimento. Fare clic su **Avanti**.
+9. Gli amministratori possono scegliere di trasferire manualmente il backup iniziale (fuori rete) per evitare la congestione della larghezza di banda oppure di trasferirlo in rete. Possono anche configurare la data e l'ora di inizio del trasferimento. Fare clic su **Next** (Avanti).
 
     ![Metodo di replica iniziale](./media/backup-azure-backup-sql/pg-manual.png)
 
-    La copia di backup iniziale richiede il trasferimento dell'intera origine dati (database SQL Server) dal server di produzione (macchina SQL Server) al server DPM. Tali dati potrebbero essere di grandi dimensioni e trasferimento dei dati sulla rete potrebbe superare la larghezza di banda. Per questo motivo, gli amministratori possono scegliere di trasferire il backup iniziale: **manualmente** (usando supporti rimovibili) per evitare la congestione della larghezza di banda o **automaticamente attraverso la rete** (a un orario specificato).
+    La copia di backup iniziale richiede il trasferimento dell'intera origine dati (database SQL Server) dal server di produzione (macchina SQL Server) al server DPM. Tali dati potrebbero essere di grandi dimensioni e trasferimento dei dati sulla rete potrebbe superare la larghezza di banda. Per questo motivo, gli amministratori possono scegliere di trasferire il backup iniziale: **manualmente** (usando supporti rimovibili) per evitare la congestione della larghezza di banda o **automaticamente tramite la rete** (ad un orario specificato).
 
     Una volta completato il backup iniziale, quelli successivi saranno backup incrementali della copia di backup iniziale. I backup incrementali tendono a essere di piccole dimensioni e facilmente trasferibili sulla rete.
 10. Scegliere quando si vuole eseguire la verifica della coerenza e fare clic su **Avanti**.
@@ -113,6 +116,7 @@ Prima di procedere, assicurarsi che tutti i [prerequisiti](backup-azure-dpm-intr
     ![Creazione di un gruppo di protezione in corso](./media/backup-azure-backup-sql/pg-summary.png)
 
 ## <a name="on-demand-backup-of-a-sql-server-database"></a>Backup su richiesta di un database SQL Server
+
 Mentre nei passaggi precedenti sono stati creati i criteri di backup, un "punto di ripristino" viene creato solo quando si verifica il primo backup. Anziché attendere l'avvio dell'Utilità di pianificazione, i passaggi seguenti attivano la creazione manuale di un punto di ripristino.
 
 1. Prima di creare il punto di ripristino, attendere finché nello stato del gruppo di protezione non viene visualizzato **OK** per il database.
@@ -129,6 +133,7 @@ Mentre nei passaggi precedenti sono stati creati i criteri di backup, un "punto 
     ![Console di monitoraggio](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## <a name="recover-a-sql-server-database-from-azure"></a>Ripristinare un database SQL Server da Azure
+
 I passaggi seguenti sono necessari per ripristinare un'entità protetta (database SQL Server) da Azure.
 
 1. Aprire la console di gestione del server DPM. Passare all'area di lavoro **Ripristino** dove si vedono i server di cui DPM ha eseguito il backup. Passare al database necessario (in questo caso ReportServer$MSDPM2012). Selezionare un **ripristino dal** momento che termina con **online**.
@@ -137,12 +142,12 @@ I passaggi seguenti sono necessari per ripristinare un'entità protetta (databas
 2. Fare clic con il pulsante destro del mouse sul nome del database e scegliere **Ripristina**.
 
     ![Ripristino da Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM mostra i dettagli del punto di ripristino. Fare clic su **Avanti**. Per sovrascrivere il database, selezionare il tipo di ripristino **Ripristina nell'istanza originale di SQL Server**. Fare clic su **Avanti**.
+3. DPM mostra i dettagli del punto di ripristino. Fare clic su **Next** (Avanti). Per sovrascrivere il database, selezionare il tipo di ripristino **Ripristina nell'istanza originale di SQL Server**. Fare clic su **Next** (Avanti).
 
     ![Ripristino nel percorso originale](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     In questo esempio DPM consente il ripristino del database in un'altra istanza di SQL server o in una cartella di rete autonoma.
-4. Nella schermata **Specifica opzioni di ripristino** è possibile selezionare le opzioni di ripristino, ad esempio Limitazione all'utilizzo della larghezza di banda per controllare la larghezza di banda usata dal processo di ripristino. Fare clic su **Avanti**.
+4. Nella schermata **Specifica opzioni di ripristino** è possibile selezionare le opzioni di ripristino, ad esempio Limitazione all'utilizzo della larghezza di banda per controllare la larghezza di banda usata dal processo di ripristino. Fare clic su **Next** (Avanti).
 5. Nella schermata **Riepilogo** vengono visualizzate le configurazioni di ripristino impostate finora. Fare clic su **Ripristina**.
 
     In Stato ripristino è visualizzato il database in corso di ripristino. È possibile fare clic **Chiudi** per chiudere la procedura guidata e visualizzare lo stato di avanzamento nell'area di lavoro **Monitoraggio**.
@@ -151,5 +156,6 @@ I passaggi seguenti sono necessari per ripristinare un'entità protetta (databas
 
     Al termine del ripristino, il database ripristinato sarà coerente con l'applicazione.
 
-### <a name="next-steps"></a>Passaggi successivi:
-[Domande frequenti su Backup di Azure](backup-azure-backup-faq.md)
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)

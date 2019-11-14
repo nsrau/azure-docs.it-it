@@ -7,19 +7,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 486033ef4120d721458add7f23cdf9b78a44a388
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 8decf4622c4043cbac0f2e2f6e2ad59f1b5baaae
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928360"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074003"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Recapito continuo tramite l'azione GitHub
 
 Le [azioni di GitHub](https://github.com/features/actions) consentono di definire un flusso di lavoro per compilare e distribuire automaticamente il codice delle funzioni nell'app per le funzioni in Azure. 
-
-> [!IMPORTANT]  
-> Le azioni di GitHub sono attualmente in versione beta. È prima di tutto necessario [iscriversi per partecipare all'anteprima](https://github.com/features/actions) usando il proprio account github.
 
 Nelle azioni di GitHub un [flusso di lavoro](https://help.github.com/articles/about-github-actions#workflow) è un processo automatico definito nel repository GitHub. Questo processo spiega a GitHub come compilare e distribuire il progetto di app per le funzioni su GitHub. 
 

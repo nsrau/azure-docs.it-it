@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: b88983b4941143e5323ee795908cb332bdd79817
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fa2876b88a520480813ebfb8af8219d53c32057a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678407"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075551"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -52,20 +52,7 @@ Per copiare dati da un'origine a un sink, il servizio che esegue l'attività di 
 
 È possibile usare l'attività di copia per copiare i file così come sono tra due archivi dati basati su file. In questo caso, i dati vengono copiati in modo efficiente senza serializzazione o deserializzazione.
 
-L'attività di copia può inoltre leggere e scrivere nei file nei formati seguenti:
-- Text
-- JSON
-- Avro
-- ORC
-- PARQUET
-
-L'attività di copia può comprimere e decomprimere i file con questi codec: 
-- Gzip
-- Deflate
-- Bzip2
-- ZipDeflate
-
-Per ulteriori informazioni, vedere [formati di compressione e file supportati](supported-file-formats-and-compression-codecs.md).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
 È ad esempio possibile eseguire le attività di copia seguenti:
 
@@ -139,13 +126,13 @@ Il modello seguente di un'attività di copia contiene un elenco completo delle p
 
 #### <a name="syntax-details"></a>Dettagli sintassi
 
-| Proprietà | Descrizione | Obbligatorio? |
+| Proprietà | DESCRIZIONE | Obbligatorio? |
 |:--- |:--- |:--- |
 | type | Per un'attività di copia, impostare su `Copy` | Sì |
 | inputs | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta solo un singolo input. | Sì |
 | outputs | Specificare il set di dati creato che punta ai dati del sink. L'attività di copia supporta solo un singolo output. | Sì |
 | typeProperties | Specificare le proprietà per configurare l'attività di copia. | Sì |
-| una sezione source | Specificare il tipo di origine della copia e le proprietà corrispondenti per il recupero dei dati.<br/><br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
+| source | Specificare il tipo di origine della copia e le proprietà corrispondenti per il recupero dei dati.<br/><br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
 | sink | Specificare il tipo di sink di copia e le proprietà corrispondenti per la scrittura dei dati.<br/><br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
 | translator | Specificare il mapping esplicito di colonne da origine a sink. Questa proprietà si applica quando il comportamento di copia predefinito non soddisfa le proprie esigenze.<br/><br/>Per ulteriori informazioni, vedere [mapping dello schema nell'attività di copia](copy-activity-schema-and-type-mapping.md). | No |
 | dataIntegrationUnits | Specificare una misura che rappresenta la quantità di energia utilizzata dal [runtime di integrazione di Azure](concepts-integration-runtime.md) per la copia dei dati. Queste unità erano precedentemente note come unità di spostamento dati cloud (spostamento dati). <br/><br/>Per ulteriori informazioni, vedere [Data Integration Unit](copy-activity-performance.md#data-integration-units). | No |
@@ -182,7 +169,7 @@ i dettagli dell'esecuzione dell'attività ![monitor](./media/copy-activity-overv
 
 I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle prestazioni vengono restituiti anche nella sezione **Risultati esecuzione attività di copia** > **output** . Di seguito è riportato un elenco completo delle proprietà che possono essere restituite. Verranno visualizzate solo le proprietà applicabili allo scenario di copia. Per informazioni su come monitorare le esecuzioni delle attività, vedere [monitorare un'esecuzione della pipeline](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
-| Nome proprietà  | Descrizione | Unità |
+| Nome proprietà  | DESCRIZIONE | Unità |
 |:--- |:--- |:--- |
 | dataRead | Quantità di dati letti dall'origine. | Valore Int64, in byte |
 | dataWritten | Quantità di dati scritti nel sink. | Valore Int64, in byte |

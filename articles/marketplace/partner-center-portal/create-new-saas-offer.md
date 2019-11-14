@@ -1,19 +1,19 @@
 ---
 title: Creare una nuova offerta SaaS nel Marketplace commerciale
 description: Come creare una nuova offerta SaaS (software as a Service) per l'inserzione o la vendita in Azure Marketplace, AppSource o tramite il programma Cloud Solution Provider (CSP) usando il portale di Marketplace commerciale nel centro per i partner Microsoft.
-author: qianw211
+author: ChJenk
 manager: evansma
-ms.author: v-qiwe
+ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: 9eb283f538759f9591add4b04462de151f2cb014
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/13/2019
+ms.openlocfilehash: a6694d094d185ad70cce8c546e12f48afb69f1ae
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825583"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076952"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -34,7 +34,6 @@ Verrà visualizzata la finestra di dialogo **nuova offerta** .
 
 ![Finestra di dialogo nuova offerta](./media/new-offer-popup.png)
 
-
 ## <a name="offer-id-and-alias"></a>ID offerta e alias
 
 - **ID offerta**: identificatore univoco per ogni offerta nell'account. Questo ID sarà visibile ai clienti nell'indirizzo URL per l'offerta del Marketplace e i modelli Azure Resource Manager (se applicabile). L'ID offerta deve essere minuscolo, alfanumerico (inclusi trattini e caratteri di sottolineatura, ma senza spazi vuoti). Questa operazione è limitata a 50 caratteri e non può essere modificata dopo aver selezionato *Crea*.  
@@ -45,7 +44,7 @@ Esempio: test-offer-1
 
 <br>Esempio: offerta di test 1&#8482;
 
-Selezionare **Crea**.  Viene creata una pagina di **Panoramica dell'offerta** per questa offerta.  
+Selezionare **Create**.  Viene creata una pagina di **Panoramica dell'offerta** per questa offerta.  
 
 <!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
@@ -105,16 +104,6 @@ La tabella seguente illustra un esempio di suddivisione dei costi e dei pagament
 > [!NOTE]
 > **Costo del servizio Marketplace ridotto**: per alcune offerte SaaS pubblicate sul nostro Marketplace commerciale, Microsoft ridurrà la tariffa del servizio Marketplace dal 20% (come descritto nel contratto Microsoft Publisher) al 10%. Per qualificare l'offerta, è necessario che almeno una delle offerte sia stata designata da Microsoft come indirizzo di co-selling IP pronto o co-selling IP in ordine di priorità.  L'idoneità deve essere soddisfatta per almeno cinque (5) giorni lavorativi prima della fine di ogni mese di calendario per poter ricevere questa tariffa per il servizio Marketplace ridotta per il mese.  La tariffa ridotta del servizio Marketplace non si applica alle macchine virtuali, alle app gestite o ad altri prodotti resi disponibili tramite il Marketplace commerciale.  Il costo del servizio Marketplace ridotto sarà disponibile solo per le offerte qualificate per i costi di licenza raccolti da Microsoft tra il 1 ° maggio 2019 e il 30 giugno 2020.  Al termine di questo periodo di tempo, la tariffa del servizio Marketplace tornerà al valore normale. 
 
-
-
-
-#### <a name="csp-program-opt-in"></a>Consenso esplicito al programma CSP
-Il programma [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) consente alle offerte software di raggiungere milioni di clienti Microsoft qualificati con un investimento minimo di marketing e vendite.
-
-- **Canali: rendere disponibile l'offerta nel programma CSP** (casella di controllo)
-
-La scelta di rendere disponibile l'offerta nel programma CSP consente ai provider di soluzioni cloud di vendere il prodotto come parte di una soluzione in bundle ai clienti. 
-
 ### <a name="list-through-microsoft"></a>Elenca tramite Microsoft
 
 Promuovere la propria azienda con Microsoft creando un elenco di Marketplace. Se si seleziona per elencare solo l'offerta e non la transazione tramite Microsoft, Microsoft non partecipa direttamente alle transazioni di licenza software. Non viene addebitata alcuna tariffa per le transazioni e l'editore mantiene il 100% dei costi di licenza software raccolti dal cliente. Tuttavia, il server di pubblicazione è responsabile del supporto di tutti gli aspetti della transazione di licenza software, inclusi, a titolo esemplificativo, evasione degli ordini, misurazione, fatturazione, fatturazione, pagamento e raccolta. 
@@ -141,7 +130,7 @@ Raccogliere le informazioni di contatto del cliente connettendosi al sistema CRM
 
 Un test drive è un ottimo modo per presentare l'offerta ai potenziali clienti offrendo loro la possibilità di provare prima di acquistare, ottenendo una maggiore conversione e la generazione di lead altamente qualificati. [Altre informazioni sulle unità di test.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-- **Abilita una test drive** (casella di controllo) 
+- **Abilita una test drive** (casella di controllo)
 
 Abilitando test drive, verrà richiesto di configurare un ambiente dimostrativo per consentire ai clienti di provare l'offerta per un periodo di tempo fisso. 
 
@@ -250,7 +239,7 @@ Per rendere più accattivante la descrizione dell'offerta, è possibile usare i 
     <p> Questo è il primo paragrafo. </p>
     <p> Questo è il secondo paragrafo. </p>
 
-1. Se si desidera aggiungere un **elenco puntato di elementi**, inserire il testo all'interno dei tag `<li>` di seguito. È possibile copiare e incollare più elementi puntati (elementi tra i tag `<li>` e `</li>`) all'interno dei tag `<ul>` e `</ul>`. Assicurarsi di aggiungere il `<ul></ul>`. 
+1. Se si desidera aggiungere un **elenco puntato di elementi**, inserire il testo all'interno dei tag `<li>` di seguito. È possibile copiare e incollare più elementi puntati (elementi tra i tag `<li>` e `</li>`) all'interno dei tag `<ul>` e `</ul>`. Assicurarsi di aggiungere la `<ul></ul>`. 
 
     **Esempio**:
 
@@ -281,7 +270,7 @@ Per rendere più accattivante la descrizione dell'offerta, è possibile usare i 
 
     **Esempio**:
 
-    Si tratta di una riga di testo. `<br>` si tratta di una riga di testo che verrà avviata in una nuova riga. `<br><br>` questa è una riga che avvierà due righe sotto. 
+    Si tratta di una riga di testo. `<br>` si tratta di una riga di testo che verrà avviata in una nuova riga. `<br><br>` si tratta di una linea che avvierà due righe sotto. 
 
     Il precedente avrà un aspetto simile al seguente:
 
@@ -331,8 +320,7 @@ Ricordarsi di **salvare** prima di procedere alla sezione successiva.
 
 - [Procedure consigliate per gli elenchi di offerte del Marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
-
-## <a name="preview"></a>Preview
+## <a name="preview"></a>Anteprima
 
 La scheda **Anteprima** consente di definire un pubblico di **Anteprima** limitato per il rilascio dell'offerta prima di pubblicare l'offerta in tempo reale per i destinatari più ampi del Marketplace.
 
@@ -352,7 +340,7 @@ La scheda **configurazione tecnica** definisce i dettagli tecnici (percorso URL,
 
 - **URL della pagina di destinazione** (obbligatorio): definire l'URL del sito su cui i clienti potranno atterrare dopo aver acquisito l'offerta dal Marketplace. Questo URL sarà l'endpoint che riceve un token quando un cliente viene indirizzato alla pagina. Questo token può essere scambiato per i dettagli del provisioning usando Risolvi nelle API di evasione. Questi dettagli e altri utenti raccolti possono essere usati come parte di una pagina Web interattiva del cliente integrata nell'esperienza per completare la registrazione e attivare l'acquisto.
 
-- **Webhook di connessione** (obbligatorio): per tutti gli eventi asincroni che Microsoft deve inviare all'utente per conto del cliente (ad esempio: la sottoscrizione SaaS non è più valida), è necessario fornire un webhook di connessione. Se non si dispone già di un sistema di Webhook, la configurazione più semplice consiste nell'avere un'app per la logica endpoint HTTP che resterà in ascolto di tutti gli eventi che vengono inviati e quindi gestirli in modo appropriato, ad esempio https: \//prod-1westus. Logic. Azure. com: 443/work ). Per altre informazioni, vedere [Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Webhook di connessione** (obbligatorio): per tutti gli eventi asincroni che Microsoft deve inviare all'utente per conto del cliente (ad esempio: la sottoscrizione SaaS non è più valida), è necessario fornire un webhook di connessione. Se non si dispone già di un sistema di Webhook, la configurazione più semplice consiste nel disporre di un'app per la logica endpoint HTTP che resterà in ascolto di tutti gli eventi da inviare e quindi di gestirli in modo appropriato, ad esempio https:\//prod-1westus.logic.azure.com:443/work. Per altre informazioni, vedere [Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
 - **Azure ad ID tenant** (obbligatorio): all'interno portale di Azure, è necessario [creare un'app Azure Active Directory (ad)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) in modo che sia possibile convalidare la connessione tra i due servizi sia dietro una comunicazione autenticata. Per trovare l' [ID tenant](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), passare alla Azure Active Directory e selezionare **Proprietà**, quindi cercare il numero **ID directory** elencato (ad esempio 50c464d3-4930-494c-963C-1e951d15360e).
 
@@ -416,8 +404,7 @@ Per ottenere informazioni sulle sottoscrizioni dei clienti che attualmente parte
 
 - **Modificare i mercati** (facoltativo)
 
-Ogni piano deve essere disponibile in almeno un mercato. Selezionare la casella di controllo per qualsiasi località di mercato in cui si desidera rendere disponibile questo piano. Una casella di ricerca e un pulsante per la selezione dei paesi in cui vengono riportate le imposte, in cui Microsoft si impegnano le vendite e le imposte per conto dell'utente, vengono fornite informazioni utili. 
-
+Ogni piano deve essere disponibile in almeno un mercato. Selezionare la casella di controllo per qualsiasi località di mercato in cui si desidera rendere disponibile questo piano. Una casella di ricerca e un pulsante per la selezione dei paesi in cui vengono riportate le imposte, in cui Microsoft si impegnano le vendite e le imposte per conto dell'utente, vengono fornite informazioni utili.
 
 Se sono già stati impostati i prezzi per il piano in Stati Uniti dollari (USD) e si aggiunge un altro percorso di mercato, il prezzo del nuovo mercato verrà calcolato in base ai tassi di cambio correnti. Prima di pubblicare il prezzo di ogni mercato, è sempre necessario esaminarlo. I prezzi possono essere esaminati tramite il collegamento "Esporta prezzi (xlsx)" dopo aver salvato le modifiche.
 
@@ -475,11 +462,15 @@ Sebbene le offerte SaaS usino gli ID tenant per definire un pubblico privato, al
 
 [!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
 
-## <a name="publish"></a>Pubblica
+## <a name="cloud-solution-provider-csp-reseller-audience"></a>Destinatari rivenditore Cloud Solution Provider (CSP)
+
+La scelta di rendere disponibile l'offerta nel programma CSP consente ai provider di soluzioni cloud di vendere il prodotto come parte di una soluzione in bundle ai clienti. Per ulteriori informazioni, vedere [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers.md).
+
+## <a name="publish"></a>Publish
+
+Una volta completate tutte le sezioni obbligatorie dell'offerta, selezionare **pubblica** nell'angolo superiore destro del portale. Si verrà reindirizzati alla pagina di **revisione e pubblicazione** .
 
 #### <a name="submit-offer-to-preview"></a>Invia l'offerta all'anteprima
-
-Una volta completate tutte le sezioni obbligatorie dell'offerta, selezionare **pubblica** nell'angolo superiore destro del portale. Si verrà reindirizzati alla pagina di **revisione e pubblicazione** . 
 
 Se è la prima volta che si pubblica questa offerta, è possibile:
 

@@ -1,19 +1,19 @@
 ---
-title: Modelli di Azure Resource Manager
-description: Viene descritto come usare i modelli di Azure Resource Manager per la distribuzione delle risorse.
+title: Panoramica sui modelli di Azure Resource Manager
+description: Vengono descritti i vantaggi dell'utilizzo di modelli di Azure Resource Manager per la distribuzione delle risorse.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 96f140cfa5e6151ad53ca242d1fc87ba3397316e
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 956450e5a47e4d0e16de44b6bc72c6cb24d05889
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71300161"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074392"
 ---
-# <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
+# <a name="azure-resource-manager-templates-overview"></a>Panoramica sui modelli di Azure Resource Manager
 
 Con il passaggio al cloud, molti team hanno adottato metodi di sviluppo agile. Questi team eseguono un'iterazione rapida. È necessario distribuire ripetutamente le soluzioni nel cloud e verificare che l'infrastruttura sia in uno stato affidabile. Poiché l'infrastruttura è diventata parte del processo iterativo, la divisione tra le operazioni e lo sviluppo è scomparsa. I team devono gestire il codice dell'infrastruttura e dell'applicazione tramite un processo unificato.
 
@@ -125,5 +125,6 @@ Per informazioni sui modelli annidati, vedere [Uso di modelli collegati con Azur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* Per un'esercitazione dettagliata che illustra il processo di creazione di un modello, vedere [esercitazione: creare e distribuire il primo modello di Azure Resource Manager](template-tutorial-create-first-template.md).
 * Per informazioni sulle proprietà nei file di modello, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 * Per informazioni sull'esportazione di modelli, vedere [Guida introduttiva: creare e distribuire modelli di Azure Resource Manager usando il portale di Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).

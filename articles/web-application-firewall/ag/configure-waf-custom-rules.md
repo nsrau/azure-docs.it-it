@@ -1,24 +1,25 @@
 ---
-title: Configurare Web Application Firewall V2 nelle regole personalizzate del gateway applicazione usando Azure PowerShell
+title: Configurare le regole personalizzate V2 usando PowerShell
+titleSuffix: Azure Web Application Firewall
 description: Informazioni su come configurare le regole personalizzate di WAF V2 usando Azure PowerShell
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 8c307ac5553c2c333425b6c14b9b4da4a6582f62
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 48f45629b82e63dfc3f098b68e1be2523a3a0e5c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516799"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075393"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Configurare Web Application Firewall V2 nel gateway applicazione con una regola personalizzata usando Azure PowerShell
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-Le regole personalizzate consentono di creare regole personalizzate valutate per ogni richiesta che passa attraverso il Web Application Firewall (WAF) v2. Queste regole hanno una priorità più elevata rispetto alle altre regole nei set di regole gestiti. Le regole personalizzate hanno un'azione (per consentire o bloccare), una condizione di corrispondenza e un operatore per consentire la personalizzazione completa.
+Le regole personalizzate consentono di creare regole personalizzate valutate per ogni richiesta che passa attraverso il Web Application Firewall (WAF) v2. Queste regole hanno una priorità più elevata rispetto alle altre dei set di regole gestiti. Le regole personalizzate hanno un'azione (per consentire o bloccare), una condizione di corrispondenza e un operatore per consentire la personalizzazione completa.
 
 Questo articolo crea un gateway applicazione WAF V2 che usa una regola personalizzata. La regola personalizzata blocca il traffico se l'intestazione della richiesta contiene l'*evilbot* User-Agent.
 
@@ -26,13 +27,13 @@ Per visualizzare altri esempi di regole personalizzate, vedere [creare e usare r
 
 Se si vuole eseguire il Azure PowerShell in questo articolo in un unico script continuo che è possibile copiare, incollare ed eseguire, vedere [esempi di PowerShell per applicazione Azure gateway](powershell-samples.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 ### <a name="azure-powershell-module"></a>Modulo di Azure PowerShell
 
 Se si sceglie di installare e usare Azure PowerShell in locale, per questo script è necessario il modulo Azure PowerShell versione 2.1.0 o successiva.
 
-1. Per trovare la versione, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
+1. Per trovare la versione, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installare il modulo di Azure PowerShell).
 2. Eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

@@ -1,5 +1,5 @@
 ---
-title: Creare e gestire una macchina virtuale Windows in Azure usando Python | Microsoft Docs
+title: Creare e gestire una macchina virtuale Windows in Azure con Python
 description: Informazioni sull'uso di Python per creare e gestire una macchina virtuale Windows in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: fcbf4e054359534f924b401f2f42e1d4c33890be
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1686e86600fb28165ae44e7ca6c0c406dfa26d72
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102488"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065594"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Creare e gestire macchine virtuali Windows in Azure usando Python
 
@@ -102,7 +102,7 @@ Prima di iniziare questo passaggio, verificare di disporre di un'[entità serviz
     credentials = get_credentials()
     ```
 
-## <a name="create-resources"></a>Crea risorse
+## <a name="create-resources"></a>Creare le risorse
  
 ### <a name="initialize-management-clients"></a>Inizializzare i client di gestione
 
@@ -348,7 +348,7 @@ Dopo avere creato tutte le risorse di supporto, è possibile creare una macchina
     ```
 
     > [!NOTE]
-    > Questa esercitazione illustra come creare una macchina virtuale in cui è in esecuzione una versione del sistema operativo Windows Server. Per altre informazioni sulla selezione di altre immagini, vedere [Esplorare e selezionare immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Questa esercitazione illustra come creare una macchina virtuale in cui è in esecuzione una versione del sistema operativo Windows Server. Per altre informazioni sulla selezione di altre immagini, vedere [Esplorazione e selezione di immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     > 
 
@@ -561,7 +561,7 @@ Dal momento che le risorse usate in Azure vengono addebitate, è sempre consigli
 
 3. Salvare *myPythonProject.py*.
 
-## <a name="run-the-application"></a>Esecuzione dell'applicazione
+## <a name="run-the-application"></a>Eseguire l'applicazione
 
 1. Per eseguire l'applicazione console, fare clic su **Avvia** in Visual Studio.
 

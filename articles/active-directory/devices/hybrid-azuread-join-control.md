@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc5c85aaa3c2128b10ba2e6f9c45a66b44593202
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: d67a73ca47811e7275a6f2177573e10a09b230df
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809218"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073623"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Convalida controllata dell'aggiunta ad Azure AD ibrido
 
@@ -33,7 +33,7 @@ Per eseguire una convalida controllata del join Azure AD ibrido nei dispositivi 
 1. Cancellare la voce del punto di connessione del servizio (SCP) da Active Directory (AD) se esistente
 1. Configurare l'impostazione del registro di sistema sul lato client per SCP nei computer aggiunti a un dominio usando un oggetto Criteri di gruppo (GPO)
 1. Se si utilizza AD FS, è inoltre necessario configurare l'impostazione del registro di sistema sul lato client per SCP nel server AD FS utilizzando un oggetto Criteri di gruppo  
-
+1. Potrebbe anche essere necessario [personalizzare le opzioni di sincronizzazione](../hybrid/how-to-connect-post-installation.md#additional-tasks-available-in-azure-ad-connect) in Azure ad Connect per abilitare la sincronizzazione dei dispositivi. 
 
 
 ### <a name="clear-the-scp-from-ad"></a>Cancellare SCP da AD
@@ -64,7 +64,7 @@ Usare l'esempio seguente per creare un oggetto Criteri di gruppo (GPO) per distr
       1. Nome valore: **TenantId**
       1. Tipo di valore: **REG_SZ**
       1. Dati valore: il GUID o **l'ID di directory** dell'istanza di Azure ad (questo valore è disponibile nella **portale di Azure** > **Azure Active Directory** **Proprietà** >  > **ID directory**)
-   1. Fare clic su **OK**.
+   1. Fare clic su **OK**
 1. Fare clic con il pulsante destro del mouse sul registro e scegliere **nuovo** > **elemento del registro di sistema**
    1. Nella scheda **generale** configurare quanto segue:
       1. Azione: **aggiornamento**
@@ -73,7 +73,7 @@ Usare l'esempio seguente per creare un oggetto Criteri di gruppo (GPO) per distr
       1. Nome valore: **TenantName**
       1. Tipo di valore: **REG_SZ**
       1. Dati valore: il **nome di dominio** verificato se si usa un ambiente federato, ad esempio ad FS. Il **nome di dominio** verificato o il nome di dominio onmicrosoft.com, ad esempio `contoso.onmicrosoft.com` se si usa l'ambiente gestito
-   1. Fare clic su **OK**.
+   1. Fare clic su **OK**
 1. Chiudere l'editor per l'oggetto Criteri di gruppo appena creato
 1. Collegare l'oggetto Criteri di gruppo appena creato all'unità organizzativa desiderata contenente i computer aggiunti a un dominio che appartengono al popolamento di implementazione controllato
 
@@ -82,7 +82,7 @@ Usare l'esempio seguente per creare un oggetto Criteri di gruppo (GPO) per distr
 Se si utilizza AD FS, è necessario innanzitutto configurare SCP sul lato client utilizzando le istruzioni indicate sopra, ma collegando l'oggetto Criteri di gruppo ai server di AD FS. L'oggetto SCP definisce l'origine dell'autorità per gli oggetti dispositivo. Può essere locale o Azure AD. Quando viene configurato per AD FS, l'origine per gli oggetti dispositivo viene stabilita come Azure AD.
 
 > [!NOTE]
-> Se non è stato possibile configurare SCP sul lato client nei server AD FS, l'origine per le identità del dispositivo verrebbe considerata locale e, in caso di writeback dei dispositivi, AD FS inizierà a eliminare gli oggetti dispositivo dal contenitore di dispositivi registrati in locale dopo un periodo stabilito.
+> Se non è stato possibile configurare SCP sul lato client nei server AD FS, l'origine per le identità del dispositivo verrebbe considerata come in locale. ADFS avvierà quindi l'eliminazione degli oggetti dispositivo dalla directory locale dopo il periodo stabilito definito nell'attributo "MaximumInactiveDays" della registrazione del dispositivo ADFS. È possibile trovare gli oggetti di registrazione del dispositivo ADFS usando il [cmdlet Get-AdfsDeviceRegistration](https://docs.microsoft.com/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Convalida controllata del join di Azure AD ibrido nei dispositivi Windows di livello inferiore
 

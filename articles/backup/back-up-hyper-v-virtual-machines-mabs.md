@@ -7,38 +7,37 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 46d9f33dedff5a5682385b9cb22cf310581eefde
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: f15606c83c221e4591a2a1f6a71fc7141bdf3daf
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466850"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074961"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali Hyper-V con server di Backup di Azure
 
 Questo articolo illustra come eseguire il backup di macchine virtuali Hyper-V con Backup di Microsoft Azure Server (MAB).
 
 ## <a name="supported-scenarios"></a>Scenari supportati
+
 MAB può eseguire il backup di macchine virtuali in esecuzione nei server host Hyper-V negli scenari seguenti:
 
--   **Macchine virtuali con archiviazione locale o diretta** -backup di macchine virtuali ospitate in server autonomi host Hyper-V che dispongono di archiviazione locale o collegata direttamente. Ad esempio: un disco rigido, un dispositivo SAN (Storage Area Network) o un dispositivo NAS (Network Attached Storage). È necessario installare l'agente protezione di Mab in tutti gli host.
+- **Macchine virtuali con archiviazione locale o diretta** -backup di macchine virtuali ospitate in server autonomi host Hyper-V che dispongono di archiviazione locale o collegata direttamente. Ad esempio: un disco rigido, un dispositivo SAN (Storage Area Network) o un dispositivo NAS (Network Attached Storage). È necessario installare l'agente protezione di Mab in tutti gli host.
 
--   **Macchine virtuali in un cluster con archiviazione CSV** -eseguire il backup di macchine virtuali ospitate in un cluster Hyper-V con archiviazione volume condiviso cluster (CSV). L'agente protezione di Mab è installato in ogni nodo del cluster.
-
-
+- **Macchine virtuali in un cluster con archiviazione CSV** -eseguire il backup di macchine virtuali ospitate in un cluster Hyper-V con archiviazione volume condiviso cluster (CSV). L'agente protezione di Mab è installato in ogni nodo del cluster.
 
 ## <a name="host-versus-guest-backup"></a>Host rispetto al backup Guest
+
 MAB può eseguire un backup a livello di host o Guest di macchine virtuali Hyper-V. A livello di host, l'agente protezione di Mab è installato nel server o nel cluster host Hyper-V e protegge tutte le macchine virtuali e i file di dati in esecuzione in tale host.   A livello di Guest, l'agente è installato in ogni macchina virtuale e protegge il carico di lavoro presente in tale computer.
 
 Entrambi i metodi hanno vantaggi e svantaggi:
 
--   I backup a livello di host sono flessibili perché funzionano indipendentemente dal tipo di sistema operativo in esecuzione nei computer guest e non richiedono l'installazione dell'agente protezione MAB in ogni macchina virtuale. Se si distribuisce il backup a livello di host, è possibile ripristinare un'intera macchina virtuale o file e cartelle (ripristino a livello di elemento).
+- I backup a livello di host sono flessibili perché funzionano indipendentemente dal tipo di sistema operativo in esecuzione nei computer guest e non richiedono l'installazione dell'agente protezione MAB in ogni macchina virtuale. Se si distribuisce il backup a livello di host, è possibile ripristinare un'intera macchina virtuale o file e cartelle (ripristino a livello di elemento).
 
--   Il backup a livello di Guest è utile se vuoi proteggere specifici carichi di lavoro in esecuzione in una macchina virtuale. A livello di host è possibile ripristinare un'intera macchina virtuale o file specifici, ma non fornirà il ripristino nel contesto di un'applicazione specifica. Ad esempio, per ripristinare elementi specifici di SharePoint da una macchina virtuale di cui è stato eseguito il backup, è necessario eseguire il backup a livello di Guest della macchina virtuale. Usare il backup a livello di Guest se si vuole proteggere i dati archiviati su dischi pass-through. Passthrough consente alla macchina virtuale di accedere direttamente al dispositivo di archiviazione e non archivia i dati del volume virtuale in un file VHD.
-
-
+- Il backup a livello di Guest è utile se vuoi proteggere specifici carichi di lavoro in esecuzione in una macchina virtuale. A livello di host è possibile ripristinare un'intera macchina virtuale o file specifici, ma non fornirà il ripristino nel contesto di un'applicazione specifica. Ad esempio, per ripristinare elementi specifici di SharePoint da una macchina virtuale di cui è stato eseguito il backup, è necessario eseguire il backup a livello di Guest della macchina virtuale. Usare il backup a livello di Guest se si vuole proteggere i dati archiviati su dischi pass-through. Passthrough consente alla macchina virtuale di accedere direttamente al dispositivo di archiviazione e non archivia i dati del volume virtuale in un file VHD.
 
 ## <a name="how-the-backup-process-works"></a>Funzionamento del processo di backup
+
 MAB esegue il backup con VSS come segue. I passaggi descritti in questa descrizione sono numerati per semplificare la chiarezza.
 
 1. Il motore di sincronizzazione basato su blocchi di MAB crea una copia iniziale della macchina virtuale protetta e garantisce che la copia della macchina virtuale sia completa e coerente.
@@ -61,17 +60,17 @@ MAB esegue il backup con VSS come segue. I passaggi descritti in questa descrizi
 >
 >A partire da Windows Server 2016, i dischi rigidi virtuali Hyper-V hanno un rilevamento delle modifiche incorporato noto come rilevamento delle modifiche resilienti (RCT). MAB USA RCT (il rilevamento delle modifiche nativo in Hyper-V), che riduce la necessità di verifiche di coerenza che richiedono molto tempo in scenari come gli arresti anomali delle macchine virtuali. RCT offre una migliore resilienza rispetto al rilevamento delle modifiche offerto dai backup basati su snapshot di VSS. MABS V3 ottimizza ulteriormente il consumo di archiviazione e rete trasferendo solo i dati modificati durante le verifiche della coerenza.
 
-
 ## <a name="backup-prerequisites"></a>Prerequisiti di backup
+
 Questi sono i prerequisiti per il backup di macchine virtuali Hyper-V con MAB:
 
 |Prerequisito|Dettagli|
 |------------|-------|
 |Prerequisiti di MAB|-Se si vuole eseguire il ripristino a livello di elemento per le macchine virtuali (ripristino di file, cartelle, volumi), è necessario installare il ruolo Hyper-V nel server MAB.  Se si vuole solo ripristinare la macchina virtuale e non a livello di elemento, il ruolo non è necessario.<br />-È possibile proteggere fino a 800 macchine virtuali da 100 GB ognuna in un server MAB e consentire più server MAB che supportano cluster più grandi.<br />-MAB esclude il file di paging dai backup incrementali per migliorare le prestazioni del backup delle macchine virtuali.<br />-MAB può eseguire il backup di un server o di un cluster Hyper-V nello stesso dominio del server MAB oppure in un dominio figlio o trusted. Se si vuole eseguire il backup di Hyper-V in un gruppo di lavoro o in un dominio non trusted, è necessario configurare l'autenticazione. Per un server Hyper-V singolo è possibile usare NTLM o l'autenticazione del certificato. Per un cluster, è possibile usare solo l'autenticazione del certificato.<br />-L'uso del backup a livello di host per eseguire il backup dei dati delle macchine virtuali su dischi pass-through non è supportato. In questo scenario è consigliabile usare il backup a livello di host per eseguire il backup dei file VHD e del backup a livello di Guest per eseguire il backup degli altri dati non visibili nell'host.<br />   -È possibile eseguire il backup delle macchine virtuali archiviate in volumi deduplicati.|
-|Prerequisiti della macchina virtuale Hyper-V|-La versione dei componenti di integrazione in esecuzione nella macchina virtuale deve corrispondere alla versione dell'host Hyper-V. <br />-Per ogni backup della macchina virtuale è necessario spazio libero nel volume che ospita i file del disco rigido virtuale per consentire a Hyper-V lo spazio sufficiente per i dischi differenze (AVHD) durante il backup. Lo spazio deve essere almeno uguale all'ora della finestra di **backup della\*frequenza\*di varianza del disco iniziale** di calcolo. Se si eseguono più backup in un cluster, sarà necessaria una capacità di archiviazione sufficiente per gestire il AVHDs per ogni macchina virtuale usando questo calcolo.<br />-Per eseguire il backup di macchine virtuali che si trovano in server host Hyper-V che eseguono Windows Server 2012 R2, è necessario che nella macchina virtuale sia specificato un controller SCSI, anche se non è connesso ad alcun elemento. (In Windows Server 2012 R2 online backup, l'host Hyper-V monta un nuovo disco rigido virtuale nella macchina virtuale e quindi lo smonta in un secondo momento. Solo il controller SCSI può supportare questa operazione e pertanto è necessario per il backup online della macchina virtuale.  Senza questa impostazione, verrà generato l'evento con ID 10103 quando si tenta di eseguire il backup della macchina virtuale.|
+|Prerequisiti della macchina virtuale Hyper-V|-La versione dei componenti di integrazione in esecuzione nella macchina virtuale deve corrispondere alla versione dell'host Hyper-V. <br />-Per ogni backup della macchina virtuale è necessario spazio libero nel volume che ospita i file del disco rigido virtuale per consentire a Hyper-V lo spazio sufficiente per i dischi differenze (AVHD) durante il backup. Lo spazio deve essere almeno uguale alla **dimensione del disco iniziale del calcolo\*frequenza di varianza\*** ora della finestra di backup. Se si eseguono più backup in un cluster, sarà necessaria una capacità di archiviazione sufficiente per gestire il AVHDs per ogni macchina virtuale usando questo calcolo.<br />-Per eseguire il backup di macchine virtuali che si trovano in server host Hyper-V che eseguono Windows Server 2012 R2, è necessario che nella macchina virtuale sia specificato un controller SCSI, anche se non è connesso ad alcun elemento. (In Windows Server 2012 R2 online backup, l'host Hyper-V monta un nuovo disco rigido virtuale nella macchina virtuale e quindi lo smonta in un secondo momento. Solo il controller SCSI può supportare questa operazione e pertanto è necessario per il backup online della macchina virtuale.  Senza questa impostazione, verrà generato l'evento con ID 10103 quando si tenta di eseguire il backup della macchina virtuale.|
 |Prerequisiti per Linux|-È possibile eseguire il backup di macchine virtuali Linux con MAB 2012 R2. Sono supportati solo snapshot coerenti con i file.|
 |Eseguire il backup di macchine virtuali con archiviazione CSV|-Per l'archiviazione CSV, installare il provider hardware servizio Copia Shadow del volume (VSS) nel server Hyper-V. Contattare il fornitore della rete di archiviazione (SAN) per il provider hardware VSS.<br />-Se un singolo nodo si arresta in modo imprevisto in un cluster CSV, viene eseguita una verifica di coerenza per le macchine virtuali in esecuzione in tale nodo.<br />-Se è necessario riavviare un server Hyper-V in cui Crittografia unità BitLocker è abilitato nel cluster CSV, è necessario eseguire una verifica di coerenza per le macchine virtuali Hyper-V.|
-|Eseguire il backup di macchine virtuali con archiviazione SMB|-Attivare il montaggio automatico sul server che esegue Hyper-V per abilitare la protezione della macchina virtuale.<br />   -Disabilitare TCP Chimney Offload.<br />-Assicurarsi che tutti gli account machine $ di Hyper-V dispongano di autorizzazioni complete per le specifiche condivisioni file SMB remote.<br />-Verificare che il percorso del file per tutti i componenti della macchina virtuale durante il ripristino in un percorso alternativo sia inferiore a 260 caratteri. In caso contrario, il ripristino potrebbe avere esito positivo, ma Hyper-V non sarà in grado di montare la macchina virtuale.<br />-Gli scenari seguenti non sono supportati:<br />     Distribuzioni in cui alcuni componenti della macchina virtuale sono in volumi locali e alcuni componenti si trovano su volumi remoti. un indirizzo IPv4 o IPv6 per il percorso di archiviazione file server e il ripristino di una macchina virtuale in un computer che utilizza condivisioni SMB remote.<br />-È necessario abilitare il servizio file Server VSS Agent in ogni server SMB. aggiungerlo in **Aggiungi ruoli e funzionalità** > **Selezione ruoli** > server Servizi file**e archiviazione Servizi** > **file**  >  **Servizio file** **Servizio file Server VSS Agent.**  > |
+|Eseguire il backup di macchine virtuali con archiviazione SMB|-Attivare il montaggio automatico sul server che esegue Hyper-V per abilitare la protezione della macchina virtuale.<br />   -Disabilitare TCP Chimney Offload.<br />-Assicurarsi che tutti gli account machine $ di Hyper-V dispongano di autorizzazioni complete per le specifiche condivisioni file SMB remote.<br />-Verificare che il percorso del file per tutti i componenti della macchina virtuale durante il ripristino in un percorso alternativo sia inferiore a 260 caratteri. In caso contrario, il ripristino potrebbe avere esito positivo, ma Hyper-V non sarà in grado di montare la macchina virtuale.<br />-Gli scenari seguenti non sono supportati:<br />     Distribuzioni in cui alcuni componenti della macchina virtuale sono in volumi locali e alcuni componenti si trovano su volumi remoti. un indirizzo IPv4 o IPv6 per il percorso di archiviazione file server e il ripristino di una macchina virtuale in un computer che utilizza condivisioni SMB remote.<br />-È necessario abilitare il servizio file Server VSS Agent in ogni server SMB. aggiungerlo in **Aggiungi ruoli e funzionalità** > selezionare i **ruoli del server** > **Servizi file e archiviazione** > **Servizi file** > **servizio** file > **servizio file Server VSS Agent**.|
 
 ## <a name="back-up-virtual-machines"></a>Eseguire il backup di macchine virtuali
 
@@ -83,24 +82,21 @@ Questi sono i prerequisiti per il backup di macchine virtuali Hyper-V con MAB:
 
 2. Configurare l'agente protezione di MAB nel server Hyper-V o nei nodi del cluster Hyper-V. Se si esegue un backup a livello di Guest, l'agente verrà installato nelle macchine virtuali di cui si vuole eseguire il backup a livello di Guest.
 
-3. Nella console di amministrazione di MAB fare clic su **protezione** > dati**Crea gruppo protezione** dati per aprire la procedura guidata **Crea nuovo gruppo protezione** dati.
+3. Nella console di amministrazione di MAB fare clic su **protezione** > **Crea gruppo protezione** dati per aprire la procedura guidata **Crea nuovo gruppo protezione** dati.
 
 4. Nella pagina **Seleziona membri del gruppo** selezionare le macchine virtuali che si desidera proteggere dai server host Hyper-V in cui si trovano. Si consiglia di inserire tutte le macchine virtuali che avranno gli stessi criteri di protezione in un solo gruppo protezione dati. Per usare lo spazio in modo efficiente, abilitare la condivisione percorso. La condivisione percorso consente di individuare i dati da diversi gruppi protezione dati sullo stesso spazio di archiviazione su disco o su nastro, in modo che più origini dati dispongano di un singolo volume di replica e di punto di ripristino.
 
-5. Nella pagina **Selezione metodo protezione dati** specificare un nome per il gruppo protezione dati. Selezionare **protezione a breve termine tramite disco** e selezionare protezione dati **online** se si vuole eseguire il backup dei dati in Azure usando il servizio backup di Azure. 
+5. Nella pagina **Selezione metodo protezione dati** specificare un nome per il gruppo protezione dati. Selezionare **protezione a breve termine tramite disco** e selezionare protezione dati **online** se si vuole eseguire il backup dei dati in Azure usando il servizio backup di Azure.
 
-
-6. In **specificare il periodo** > di**mantenimento**degli obiettivi a breve termine specificare per quanto tempo si vogliono mantenere i dati del disco. In **frequenza di sincronizzazione**specificare la frequenza con cui eseguire i backup incrementali dei dati. In alternativa, invece di selezionare un intervallo per i backup incrementali, è possibile abilitare **immediatamente prima di un punto di ripristino**. Se questa impostazione è abilitata, MAB eseguirà un backup completo rapido appena prima di ogni punto di ripristino pianificato.
+6. In **Specifica obiettivi a breve termine > periodo** di **mantenimento**dati specificare per quanto tempo si vogliono mantenere i dati del disco. In **frequenza di sincronizzazione**specificare la frequenza con cui eseguire i backup incrementali dei dati. In alternativa, invece di selezionare un intervallo per i backup incrementali, è possibile abilitare **immediatamente prima di un punto di ripristino**. Se questa impostazione è abilitata, MAB eseguirà un backup completo rapido appena prima di ogni punto di ripristino pianificato.
 
     > [!NOTE]
     >
     >Se si stanno proteggendo i carichi di lavoro dell'applicazione, i punti di ripristino vengono creati in base alla frequenza di sincronizzazione, purché l'applicazione supporti i backup incrementali. In caso contrario, MAB esegue un backup completo rapido, anziché un backup incrementale, e crea punti di ripristino in base alla pianificazione del backup rapido.
 
-    
-
 7. Nella pagina **Verifica allocazione dischi** esaminare lo spazio su disco del pool di archiviazione allocato per il gruppo protezione dati.
 
-   La **dimensione totale dei dati** corrisponde alle dimensioni dei dati di cui si vuole eseguire il backup e lo spazio **su disco di** cui eseguire il provisioning su MAB è lo spazio consigliato da MAB per il gruppo protezione dati. MAB sceglie il volume di backup ideale, in base alle impostazioni. Tuttavia, è possibile modificare le opzioni del volume di backup nei dettagli sull'allocazione dei **dischi**. Per i carichi di lavoro, selezionare la risorsa di archiviazione preferita nel menu a discesa. Le modifiche modificano i valori per **Totale spazio di archiviazione** e **Spazio libero di archiviazione** nel riquadro **Spazio di archiviazione su disco disponibile**. Lo spazio sottoposto a provisioning è la quantità di MAB di archiviazione che suggerisce di aggiungere al volume, per continuare a eseguire i backup in modo semplice in futuro.
+   La **dimensione totale dei dati** corrisponde alle dimensioni dei dati di cui si vuole eseguire il backup e lo spazio **su disco di cui eseguire il provisioning su MAB** è lo spazio consigliato da MAB per il gruppo protezione dati. MAB sceglie il volume di backup ideale, in base alle impostazioni. Tuttavia, è possibile modificare le opzioni del volume di backup nei **Dettagli sull'allocazione dei dischi**. Per i carichi di lavoro, selezionare la risorsa di archiviazione preferita nel menu a discesa. Le modifiche modificano i valori per **Totale spazio di archiviazione** e **Spazio libero di archiviazione** nel riquadro **Spazio di archiviazione su disco disponibile**. Lo spazio sottoposto a provisioning è la quantità di MAB di archiviazione che suggerisce di aggiungere al volume, per continuare a eseguire i backup in modo semplice in futuro.
 
 8. Nella pagina **scelta del metodo** per la creazione della replica specificare il modo in cui verrà eseguita la replica iniziale dei dati nel gruppo protezione dati. Se si sceglie di eseguire **la replica automatica in rete**, è consigliabile scegliere un orario di minore traffico. Per grandi quantità di dati o condizioni di rete non ottimali, è consigliabile selezionare **manualmente**, che richiede la replica dei dati offline mediante supporti rimovibili.
 
@@ -109,11 +105,12 @@ Questi sono i prerequisiti per il backup di macchine virtuali Hyper-V con MAB:
     Dopo aver creato il gruppo protezione dati, la replica iniziale dei dati viene eseguita in base al metodo selezionato. Dopo la replica iniziale, ogni backup viene eseguito in linea con le impostazioni del gruppo protezione dati. Se è necessario ripristinare i dati di cui è stato eseguito il backup, tenere presente quanto segue:
 
 ## <a name="back-up-virtual-machines-configured-for-live-migration"></a>Eseguire il backup di macchine virtuali configurate per Live Migration
+
 Quando le macchine virtuali sono incluse nella migrazione in tempo reale, MAB continua a proteggere le macchine virtuali, purché l'agente protezione di MAB sia installato nell'host Hyper-V. Il modo in cui MAB protegge le macchine virtuali dipende dal tipo di migrazione in tempo reale.
 
-**Migrazione in tempo reale in un cluster** : quando viene eseguita la migrazione di una macchina virtuale all'interno di un cluster, viene rilevata la migrazione e viene eseguito il backup della macchina virtuale dal nuovo nodo del cluster senza richiedere l'intervento dell'utente. Poiché il percorso di archiviazione non è stato modificato, MAB continua con backup completi rapidi. 
+**Migrazione in tempo reale in un cluster** : quando viene eseguita la migrazione di una macchina virtuale all'interno di un cluster, viene rilevata la migrazione e viene eseguito il backup della macchina virtuale dal nuovo nodo del cluster senza richiedere l'intervento dell'utente. Poiché il percorso di archiviazione non è stato modificato, MAB continua con backup completi rapidi.
 
-**Migrazione in tempo reale all'esterno del cluster** : quando viene eseguita la migrazione di una macchina virtuale tra server autonomi, cluster diversi o tra un server autonomo e un cluster, MAB rileva la migrazione ed è in grado di eseguire il backup della macchina virtuale senza utente intervento.
+**Migrazione in tempo reale all'esterno del cluster** : quando viene eseguita la migrazione di una macchina virtuale tra server autonomi, cluster diversi o tra un server autonomo e un cluster, MAB rileva la migrazione e può eseguire il backup della macchina virtuale senza l'intervento dell'utente.
 
 ### <a name="requirements-for-maintaining-protection"></a>Requisiti per la gestione della protezione
 
@@ -131,7 +128,6 @@ Di seguito sono riportati i requisiti per la gestione della protezione durante l
 
 Tenere presente quanto segue per il backup durante la migrazione in tempo reale:
 
-
 - Se una migrazione in tempo reale trasferisce l'archiviazione, MAB esegue una verifica di coerenza completa della macchina virtuale e continua quindi con backup rapidi completi. Quando si verifica la migrazione in tempo reale dell'archiviazione, Hyper-V riorganizza il disco rigido virtuale (VHD) o VHDX, causando un picco monouso nelle dimensioni dei dati di backup di MAB.
 
 - Nell'host macchina virtuale attivare il montaggio automatico per abilitare la protezione virtuale e disabilitare TCP Chimney Offload.
@@ -140,7 +136,7 @@ Tenere presente quanto segue per il backup durante la migrazione in tempo reale:
 
     1. Passare a **HKLM\Software\Microsoft\Microsoft Data Protection Manager\Configuration**.
     2. Creare un valore DWORD a 32 bit: DpmVmmHelperServicePort e scrivere il numero di porta aggiornato come parte della chiave del registro di sistema.
-    3.  Aprire ```<Install directory>\Azure Backup Server\DPM\DPM\VmmHelperService\VmmHelperServiceHost.exe.config```e modificare il numero di porta da 6070 alla nuova porta. Ad esempio: ```<add baseAddress="net.tcp://localhost:6080/VmmHelperService/" />```
+    3. Aprire ```<Install directory>\Azure Backup Server\DPM\DPM\VmmHelperService\VmmHelperServiceHost.exe.config```e modificare il numero di porta da 6070 alla nuova porta. Ad esempio: ```<add baseAddress="net.tcp://localhost:6080/VmmHelperService/" />```
     4. Riavviare il servizio Helper DPM-VMM e riavviare il servizio DPM.
 
 ### <a name="set-up-protection-for-live-migration"></a>Configurare la protezione per la migrazione in tempo reale
@@ -153,7 +149,7 @@ Per configurare la protezione per la migrazione in tempo reale:
 
 3. Assegnare l'account MABSMachineName $ come account amministrativo di sola lettura nel server di gestione VMM.
 
-4. Connettere tutti i server host Hyper-V a tutti i server MAB `Set-DPMGlobalProperty` con il cmdlet di PowerShell. Il cmdlet accetta più nomi di server MAB. Usare il formato: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Per ulteriori informazioni, vedere [Set-DPMGlobalProperty](https://technet.microsoft.com/library/hh881752.aspx).
+4. Connettere tutti i server host Hyper-V a tutti i server MAB con il cmdlet `Set-DPMGlobalProperty` PowerShell. Il cmdlet accetta più nomi di server MAB. Usare il formato: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Per ulteriori informazioni, vedere [Set-DPMGlobalProperty](https://technet.microsoft.com/library/hh881752.aspx).
 
 5. Dopo che tutte le macchine virtuali in esecuzione negli host Hyper-V nei cloud VMM vengono individuate in VMM, configurare un gruppo protezione dati e aggiungere le macchine virtuali che si desidera proteggere. Le verifiche di coerenza automatiche devono essere abilitate a livello di gruppo protezione dati per la protezione in scenari di mobilità delle macchine virtuali.
 
@@ -163,16 +159,15 @@ Per configurare la protezione per la migrazione in tempo reale:
 
    2. Aprire Microsoft SQL Server Management Studio e connettersi all'istanza che ospita il database MAB (DPMDB). In DPMDB eseguire la query seguente: `SELECT TOP 1000 [PropertyName] ,[PropertyValue] FROM[DPMDB].[dbo].[tbl_DLS_GlobalSetting]`.
 
-      Questa query contiene una proprietà denominata `KnownVMMServer`. Questo valore deve corrispondere a quello fornito con il `Set-DPMGlobalProperty` cmdlet.
+      Questa query contiene una proprietà denominata `KnownVMMServer`. Questo valore deve corrispondere a quello fornito con il cmdlet `Set-DPMGlobalProperty`.
 
-   3. Eseguire la query seguente per convalidare il parametro *VMMIdentifier* in `PhysicalPathXML` per una determinata macchina virtuale. Sostituire `VMName` con il nome della macchina virtuale.
+   3. Eseguire la query seguente per convalidare il parametro *VMMIdentifier* nel `PhysicalPathXML` per una determinata macchina virtuale. Sostituire `VMName` con il nome della macchina virtuale.
 
       ```sql
       select cast(PhysicalPath as XML) from tbl_IM_ProtectedObject where DataSourceId in (select datasourceid from tbl_IM_DataSource   where DataSourceName like '%<VMName>%')
       ```
 
    4. Aprire il file XML restituito dalla query e verificare che il campo *VMMIdentifier* contenga un valore.
-
 
 ### <a name="run-manual-migration"></a>Eseguire la migrazione manuale
 
@@ -185,7 +180,6 @@ Dopo aver completato i passaggi nelle sezioni precedenti e completato il process
 3. Nella SQL Server Management Studio espandere **SQL Server Agent**, quindi espandere **processi**. Fare clic con il pulsante destro del mouse su **idpianificazione** annotato e selezionare **inizia processo al passaggio**.
 
 Le prestazioni di backup vengono influenzate durante l'esecuzione del processo. Le dimensioni e la scala della distribuzione determinano il tempo necessario per il completamento del processo.
-
 
 ## <a name="back-up-replica-virtual-machines"></a>Eseguire il backup di macchine virtuali di replica
 
@@ -219,16 +213,16 @@ Quando è possibile ripristinare una macchina virtuale di cui è stato eseguito 
 
 3. Dal menu **azioni** , fare clic su **Ripristina** per aprire il ripristino guidato.
 
-    La macchina virtuale e il punto di ripristino selezionato vengono visualizzati nella schermata **Verifica selezione per ripristino** . Fare clic su **Avanti**.
+    La macchina virtuale e il punto di ripristino selezionato vengono visualizzati nella schermata **Verifica selezione per ripristino** . Fare clic su **Next** (Avanti).
 
 4. Nella schermata **Selezione tipo di ripristino** selezionare la posizione in cui si desidera ripristinare i dati e quindi fare clic su **Avanti**.
 
-    -   **Ripristina nell'istanza originale**: Quando si esegue il ripristino nell'istanza originale, il disco rigido virtuale originale viene eliminato. MAB Recupera il VHD e altri file di configurazione nel percorso originale usando Hyper-V VSS writer. Al termine del processo di ripristino, le macchine virtuali sono ancora a disponibilità elevata.
+    - **Ripristina nell'istanza originale**: quando si esegue il ripristino nell'istanza originale, il disco rigido virtuale originale viene eliminato. MAB Recupera il VHD e altri file di configurazione nel percorso originale usando Hyper-V VSS writer. Al termine del processo di ripristino, le macchine virtuali sono ancora a disponibilità elevata.
         Il gruppo di risorse deve essere presente per il ripristino. Se non è disponibile, eseguire il ripristino in un percorso alternativo, quindi rendere la macchina virtuale a disponibilità elevata.
 
-    -   **Ripristina come macchina virtuale in qualsiasi host**: MAB supporta il ripristino in un percorso alternativo (ALR), che consente un ripristino trasparente di una macchina virtuale Hyper-V protetta in un host Hyper-V diverso, indipendentemente dall'architettura del processore. Le macchine virtuali Hyper-V ripristinate in un nodo cluster non saranno a disponibilità elevata. Se si sceglie questa opzione, il ripristino guidato Visualizza una schermata aggiuntiva per l'identificazione del percorso di destinazione e di destinazione.
+    - **Ripristina come macchina virtuale in qualsiasi host**: MAB supporta il ripristino in un percorso alternativo (ALR), che fornisce un ripristino trasparente di una macchina virtuale Hyper-v protetta in un host Hyper-v diverso, indipendentemente dall'architettura del processore. Le macchine virtuali Hyper-V ripristinate in un nodo cluster non saranno a disponibilità elevata. Se si sceglie questa opzione, il ripristino guidato Visualizza una schermata aggiuntiva per l'identificazione del percorso di destinazione e di destinazione.
 
-    -   **Copia in una cartella di rete**: MAB supporta il ripristino a livello di elemento (ILR), che consente di eseguire il ripristino a livello di elemento di file, cartelle, volumi e dischi rigidi virtuali (VHD) da un backup a livello di host di macchine virtuali Hyper-V in una condivisione di rete o in un volume di un server protetto da MAB. Non è necessario installare l'agente protezione di MAB nel guest per eseguire il ripristino a livello di elemento. Se si sceglie questa opzione, il ripristino guidato Visualizza una schermata aggiuntiva per l'identificazione del percorso di destinazione e di destinazione.
+    - **Copia in una cartella di rete**: MAB supporta il ripristino a livello di elemento (ILR), che consente di eseguire il ripristino a livello di elemento di file, cartelle, volumi e dischi rigidi virtuali (VHD) da un backup a livello di host di macchine virtuali Hyper-V in una condivisione di rete o in un volume di un server protetto da MAB. Non è necessario installare l'agente protezione di MAB nel guest per eseguire il ripristino a livello di elemento. Se si sceglie questa opzione, il ripristino guidato Visualizza una schermata aggiuntiva per l'identificazione del percorso di destinazione e di destinazione.
 
 5. In **specificare le opzioni di ripristino** configurare le opzioni di ripristino e fare clic su **Avanti**:
 
@@ -240,6 +234,6 @@ Quando è possibile ripristinare una macchina virtuale di cui è stato eseguito 
 
 7. Nella schermata **Stato ripristino** vengono fornite informazioni sul processo di ripristino.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
+
 [Ripristinare i dati da un server di Backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server)

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 11/12/2019
 ms.author: yushwang
-ms.openlocfilehash: 23dc017b6ffcca8761966a10bd5cb45b32c7a602
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd012ab94ba47f700230ac761f2dc803988cefd4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65786704"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075399"
 ---
 # <a name="vpn-gateway-faq"></a>Domande frequenti sul gateway VPN
 
@@ -48,7 +48,7 @@ Per altre informazioni sulle connessioni del gateway VPN, vedere [Informazioni s
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>Qual è la differenza tra una connessione da sito a sito e una connessione da punto a sito?
 
-Le configurazioni **da sito a sito** (tunnel VPN IPsec/IKE) connettono il percorso locale ad Azure. È quindi possibile connettersi da qualsiasi computer disponibile in locale a qualsiasi macchina virtuale o istanza del ruolo nella rete virtuale, in base alla configurazione scelta per il routing e le autorizzazioni. Questa opzione è ottimale per una connessione cross-premise sempre disponibile ed è adatta per le configurazioni ibride. Questo tipo di connessione si basa su un dispositivo VPN IPSec (dispositivo hardware o software) che è necessario distribuire in corrispondenza del perimetro della rete. Per creare questo tipo di connessione, è necessario disporre di un indirizzo IPv4 accessibile pubblicamente.
+Le configurazioni **da sito a sito** (tunnel VPN IPsec/IKE) connettono il percorso locale ad Azure. È quindi possibile connettersi da qualsiasi computer disponibile in locale a qualsiasi macchina virtuale o istanza del ruolo nella rete virtuale, in base alla configurazione scelta per il routing e le autorizzazioni. Questa opzione è ottimale per una connessione cross-premise sempre disponibile ed è adatta per le configurazioni ibride. Questo tipo di connessione si basa su un dispositivo VPN IPSec (dispositivo hardware o software) che è necessario distribuire in corrispondenza del perimetro della rete. Per creare questo tipo di connessione, è necessario disporre di un indirizzo IPv4 con connessione esterna.
 
 Le configurazioni **da punto a sito** (VPN tramite SSTP) consentono di connettersi da un computer singolo a qualsiasi elemento disponibile nella rete virtuale. Questo tipo di connessione usa il client VPN incorporato di Windows. La configurazione da spunto a sito prevede l'installazione di un certificato e di un pacchetto di configurazione client VPN che contiene le impostazioni che consentono al computer di connettersi a qualsiasi macchina virtuale o istanza del ruolo all'interno della rete virtuale. Si tratta di un'ottima opzione quando si desidera connettersi a una rete virtuale ma non ci si trova nella sede locale. È utile anche quando non si ha accesso all'hardware VPN o a un indirizzo IP IPv4 accessibile pubblicamente, entrambi necessari per una connessione da sito a sito.
 
@@ -69,7 +69,7 @@ I gateway basati su criteri implementano VPN basate su criteri. Le VPN basate su
 I gateway basati su route implementano VPN basate su route. Le VPN basate su route usano "route" nella tabella di inoltro IP o di routing per reindirizzare i pacchetti nelle interfacce tunnel corrispondenti. Le interfacce tunnel consentono quindi di crittografare o decrittografare i pacchetti all'interno e all'esterno dei tunnel. I criteri o selettori di traffico per le VPN basate su route vengono configurati come any-to-any (o caratteri jolly).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>È possibile aggiornare un gateway VPN basato su criteri in gateway VPN basato su route?
-No. Non è possibile modificare il tipo di tipo di gateway di rete virtuale di Azure da basato su criteri a basato su route o viceversa. È necessario eliminare e ricreare il gateway e il processo richiede circa 60 minuti. L'indirizzo IP del gateway non verrà mantenuto, come pure la chiave precondivisa.
+No. Non è possibile modificare un tipo di gateway Azure VNET da criteri in base a route o viceversa. È necessario eliminare e ricreare il gateway e il processo richiede circa 60 minuti. L'indirizzo IP del gateway non verrà mantenuto, come pure la chiave precondivisa.
 1. Eliminare qualsiasi connessione associata al gateway da eliminare.
 1. Eliminare il gateway:
 1. [Portale di Azure](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -79,7 +79,7 @@ No. Non è possibile modificare il tipo di tipo di gateway di rete virtuale di 
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Il valore 'GatewaySubnet' è necessario?
 
-Sì. La subnet del gateway contiene gli indirizzi IP usati dai servizi del gateway di rete virtuale. È necessario creare una subnet del gateway per la rete virtuale per configurare un gateway di rete virtuale. Per poter funzionare correttamente, tutte le subnet del gateway devono essere denominate 'GatewaySubnet'. Non assegnare un nome diverso alla subnet del gateway. Non distribuire VM o altri elementi alla subnet del gateway.
+Sì. La subnet del gateway contiene gli indirizzi IP usati dal servizio del gateway di rete virtuale. È necessario creare una subnet del gateway per la rete virtuale per configurare un gateway di rete virtuale. Per poter funzionare correttamente, tutte le subnet del gateway devono essere denominate 'GatewaySubnet'. Non assegnare un nome diverso alla subnet del gateway. Non distribuire VM o altri elementi alla subnet del gateway.
 
 Quando si crea la subnet del gateway, si specifica il numero di indirizzi IP inclusi nella subnet. Gli indirizzi IP inclusi nella subnet del gateway sono allocati al servizio del gateway. Alcune configurazioni necessitano dell'allocazione di più indirizzi IP ai servizi del gateway rispetto ad altre. È consigliabile assicurarsi che la subnet del gateway contenga una quantità di indirizzi IP sufficiente per supportare la crescita futura e per possibili nuove configurazioni aggiuntive per la connessione. Anche se è possibile creare una subnet del gateway con dimensioni pari a /29, è consigliabile crearne una con dimensioni pari a /27 o superiori, ad esempio /27, /26, /25 e così via. Esaminare i requisiti per la configurazione da creare e verificare che la subnet del gateway disponibile rispetti tali requisiti.
 
@@ -190,7 +190,7 @@ Con il modello di distribuzione classica il transito del traffico attraverso il 
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Azure genera la stessa chiave precondivisa IPsec/IKE per tutte le connessioni VPN per una stessa rete virtuale?
 
-No, per impostazione predefinita vengono generate chiavi precondivise diverse per connessioni VPN diverse. È tuttavia possibile usare la nuova API REST di impostazione della chiave gateway VPN o il cmdlet di PowerShell per impostare il valore di chiave che si preferisce. La chiave deve essere caratteri ASCII stampabili.
+No, per impostazione predefinita vengono generate chiavi precondivise diverse per connessioni VPN diverse. È tuttavia possibile usare la nuova API REST di impostazione della chiave gateway VPN o il cmdlet di PowerShell per impostare il valore di chiave che si preferisce. La chiave deve essere di caratteri ASCII stampabili.
 
 ### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network"></a>Si ottiene maggiore larghezza di banda con più VPN da sito a sito per una singola rete virtuale?
 
@@ -243,4 +243,4 @@ Vengono visualizzate informazioni sulla rete virtuale aggiuntive in [Domande fre
 * Per altre informazioni sui gateway VPN, vedere [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md).
 * Per altre informazioni sulle impostazioni di configurazione del gateway VPN, vedere [Informazioni sulle impostazioni di configurazione del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-**"OpenVPN" è un marchio registrato di OpenVPN Inc.**
+**"OpenVPN" è un marchio di OpenVPN Inc.**

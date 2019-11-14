@@ -8,26 +8,30 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: dacurwin
-ms.openlocfilehash: 96adca2da28517c28ba3583f5d15f07311d2792a
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f3db0e6a78eada52f2b5936f5194138d97ebcca6
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954500"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074899"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modello di dati per i report di Backup di Azure
-Questo articolo descrive il modello di dati di Power BI usato per creare report di Backup di Azure. Con questo modello di dati è possibile filtrare report esistenti in base ai campi di interesse e, soprattutto, creare report personalizzati usando le tabelle e i campi del modello. 
+
+Questo articolo descrive il modello di dati di Power BI usato per creare report di Backup di Azure. Con questo modello di dati è possibile filtrare report esistenti in base ai campi di interesse e, soprattutto, creare report personalizzati usando le tabelle e i campi del modello.
 
 ## <a name="creating-new-reports-in-power-bi"></a>Creazione di nuovi report in Power BI
+
 Power BI offre funzionalità di personalizzazione che consentono di [creare report tramite il modello di dati](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/).
 
 ## <a name="using-azure-backup-data-model"></a>Uso del modello di dati di Backup di Azure
+
 Per creare nuovi report e personalizzare report esistenti, è possibile usare i campi seguenti, disponibili all'interno del modello di dati.
 
 ### <a name="alert"></a>Avviso
+
 Questa tabella fornisce le aggregazioni e i campi di base per diversi campi relativi agli avvisi.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | #AlertsCreatedInPeriod |Numero intero |Numero di avvisi creati nel periodo di tempo selezionato |
 | %ActiveAlertsCreatedInPeriod |Percentuale |Percentuale di avvisi attivi nel periodo di tempo selezionato |
@@ -42,9 +46,10 @@ Questa tabella fornisce le aggregazioni e i campi di base per diversi campi rela
 | EntityState |Text |Stato corrente dell'oggetto avviso. Ad esempio, Active, Deleted |
 
 ### <a name="backup-item"></a>Elementi di backup
+
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati agli elementi di backup.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | #BackupItems |Numero intero |Numero di elementi di backup |
 | #UnprotectedBackupItems |Numero intero |Numero di elementi di backup arrestati per protezione o configurati per il backup, ma con backup non avviato|
@@ -59,10 +64,11 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 | LastSuccessfulBackupDateTime |Data/ora |Data e ora del backup più recente con esito positivo dell'elemento di backup selezionato |
 | ProtectionState |Text |Stato di protezione corrente dell'elemento di backup. Ad esempio, protected, protected o protectionstopped |
 
-### <a name="calendar"></a>Calendar
+### <a name="calendar"></a>Calendario
+
 Questa tabella offre dettagli sui campi relativi al calendario.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | Date |Date |Data selezionata per il filtro dei dati |
 | DateKey |Text |Chiave univoca per ogni elemento data |
@@ -76,10 +82,11 @@ Questa tabella offre dettagli sui campi relativi al calendario.
 | Year |Text |Anno di calendario selezionato per il filtro dei dati |
 | YearDate |Date |Data della fine dell'anno, selezionata come filtro dei dati |
 
-### <a name="job"></a>Processo
+### <a name="job"></a>processo
+
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati ai processi.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | #JobsCreatedInPeriod |Numero intero |Numero di processi creati nel periodo di tempo selezionato |
 | %FailuresForJobsCreatedInPeriod |Percentuale |Percentuale complessiva degli errori dei processi nel periodo di tempo selezionato |
@@ -94,12 +101,13 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 | JobStartDate |Date |Data di avvio dell'esecuzione del processo |
 | JobStartTime |Time |Ora di avvio dell'esecuzione del processo |
 | Stato processo |Text |Stato del processo completato. Ad esempio, Completed, failed |
-| JobUniqueId |Text |ID univoco per l'identificazione del processo |
+| JobUniqueId |Text |ID univoco per identificare il processo |
 
 ### <a name="policy"></a>Criteri
+
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati ai criteri.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | #Policies |Numero intero |Numero di criteri di backup presenti nel sistema |
 | #PoliciesInUse |Numero intero |Numero di criteri attualmente in uso per la configurazione di backup |
@@ -117,7 +125,7 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 | MonthlyRetentionTimes |Text |Data e ora di configurazione del mantenimento dati mensile |
 | MonthlyRetentionWeeksOfTheMonth |Text |Settimane del mese in cui è configurata la conservazione mensile. Ad esempio, First, Last e così via. |
 | PolicyName |Text |Nome dei criteri definiti |
-| PolicyUniqueId |Text |ID univoco per l'identificazione dei criteri |
+| PolicyUniqueId |Text |ID univoco per identificare il criterio |
 | RetentionType |Text |Tipo di criteri di conservazione. Ad esempio, giornaliera, settimanale, mensile, annuale |
 | WeeklyRetentionDaysOfTheWeek |Text |Giorni della settimana selezionati per il mantenimento dati settimanale |
 | WeeklyRetentionDuration |Numero decimale |Durata totale del mantenimento dati settimanale in settimane per i backup configurati |
@@ -131,9 +139,10 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 | YearlyRetentionWeeksOfTheMonth |Text |Settimane del mese in cui è configurata la conservazione annuale. Ad esempio, First, Last e così via. |
 
 ### <a name="protected-server"></a>Server protetti
+
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati ai server protetti.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | #ProtectedServers |Numero intero |Numero di server protetti |
 | AsOnDateTime |Data/ora |Data e ora dell'aggiornamento più recente della riga selezionata |
@@ -150,9 +159,10 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 | RegisteredContainerId |Text |ID del contenitore registrato per il backup |
 
 ### <a name="storage"></a>Archiviazione
+
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati all'archiviazione.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | #ProtectedInstances |Numero decimale |Numero di istanze protette usato per il calcolo dell'archiviazione front-end a scopo di fatturazione, calcolato in base al valore più recente nel periodo selezionato |
 | AsOnDateTime |Data/ora |Data e ora dell'aggiornamento più recente della riga selezionata |
@@ -161,9 +171,10 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 | LastUpdatedDate |Date |Data dell'aggiornamento più recente della riga selezionata |
 
 ### <a name="time"></a>Time
+
 Questa tabella offre dettagli sui campi relativi al tempo.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | Hour |Time |Ora del giorno. Ad esempio, 1:00:00 PM |
 | HourNumber |Numero decimale |Numero ora del giorno. Ad esempio, 13,00 |
@@ -173,6 +184,7 @@ Questa tabella offre dettagli sui campi relativi al tempo.
 | TimeKey |Text |Valore chiave per rappresentare l'ora |
 
 ### <a name="vault"></a>Insiemi di credenziali
+
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati agli insiemi di credenziali.
 
 | Campo | Tipo di dati | DESCRIZIONE |
@@ -187,6 +199,7 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 | VaultTags |Text |Tag associati all'insieme di credenziali |
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Dopo aver rivisto il modello di dati per la creazione di report di Backup di Azure, fare riferimento agli articoli seguenti per altri dettagli sulla creazione e sulla visualizzazione di report in Power BI.
 
 * [Creazione di report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

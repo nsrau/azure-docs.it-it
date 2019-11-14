@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata | Microsoft Docs
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata
+title: Bilanciare il carico del traffico verso le macchine virtuali per l'Azure Load Balancer interfaccia della riga di comando di Azure
+description: Con questo esempio, iniziare a bilanciare il carico del traffico verso le macchine virtuali per la disponibilità elevata.
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: allensu
-ms.openlocfilehash: bf5f4bb6bd15fa1fd440e679913a370bbe30b663
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8712cd1cff9e3a6623b67e1b39a19df7c6d0172e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890303"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067054"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata
 
@@ -44,7 +44,7 @@ az group delete --name myResourceGroup
 
 Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchina virtuale, il set di disponibilità, il bilanciamento del carico e tutte le risorse correlate. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
-| Comando | Note |
+| Comando | note |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Consente di creare una rete virtuale e una subnet di Azure. |

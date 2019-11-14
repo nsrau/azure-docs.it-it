@@ -1,10 +1,9 @@
 ---
-title: Più front-end per Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Panoramica di più front-end in Azure Load Balancer
+title: Front-end multipli-Azure Load Balancer
+description: Con questo percorso di apprendimento, iniziare con una panoramica di più front-end in Azure Load Balancer
 services: load-balancer
 documentationcenter: na
-author: chkuhtz
+author: asudbring
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
@@ -12,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
-ms.author: chkuhtz
-ms.openlocfilehash: b109e87a8fcbef0bfca356c83716509ebc6cecd4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: allensu
+ms.openlocfilehash: 58309133a46e32f409a0414be71791de73db9bed
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884218"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075956"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Più front-end per Azure Load Balancer
 
@@ -30,7 +29,7 @@ Quando si definisce un'istanza di Azure Load Balancer, viene connessa una config
 
 La tabella seguente contiene alcune configurazioni front-end di esempio:
 
-| Front-end | Indirizzo IP | protocollo | port |
+| Front-end | Indirizzo IP | protocol | port |
 | --- | --- | --- | --- |
 | 1 |65.52.0.1 |TCP |80 |
 | 2 |65.52.0.1 |TCP |*8080* |
@@ -54,7 +53,7 @@ Questi scenari verranno approfonditi iniziando con il comportamento predefinito.
 
 In questo scenario i front-end sono configurati nel modo seguente:
 
-| Front-end | Indirizzo IP | protocollo | port |
+| Front-end | Indirizzo IP | protocol | port |
 | --- | --- | --- | --- |
 | ![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![front-end viola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -66,11 +65,11 @@ Si definiscono due regole:
 | Regola | Mapping frontend | Al pool back-end |
 | --- | --- | --- |
 | 1 |![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 2 |![Indirizzo VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 Il mapping completo in Azure Load Balancer sarà ora il seguente:
 
-| Regola | Indirizzo IP front-end | protocollo | port | Destination | port |
+| Regola | Indirizzo IP front-end | protocol | port | Destination | port |
 | --- | --- | --- | --- | --- | --- |
 | ![regola verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |Indirizzo IP DIP |80 |
 | ![regola viola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |Indirizzo IP DIP |81 |
@@ -104,7 +103,7 @@ Per questo scenario, ogni macchina virtuale nel pool back-end ha tre interfacce 
 
 Si supponga la stessa configurazione front-end dello scenario precedente:
 
-| Front-end | Indirizzo IP | protocollo | port |
+| Front-end | Indirizzo IP | protocol | port |
 | --- | --- | --- | --- |
 | ![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![front-end viola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -113,12 +112,12 @@ Si definiscono due regole:
 
 | Regola | Front-end | Mapping al pool back-end |
 | --- | --- | --- |
-| 1 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (in VM1 e VM2) |
-| 2 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (in VM1 e VM2) |
+| 1 |![Regola](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (in VM1 e VM2) |
+| 2 |![Regola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (in VM1 e VM2) |
 
 La tabella seguente illustra il mapping completo nel servizio di bilanciamento del carico:
 
-| Regola | Indirizzo IP front-end | protocollo | port | Destination | port |
+| Regola | Indirizzo IP front-end | protocol | port | Destination | port |
 | --- | --- | --- | --- | --- | --- |
 | ![regola verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |uguale a front-end (65.52.0.1) |uguale a front-end (80) |
 | ![regola viola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |uguale a front-end (65.52.0.2) |uguale a front-end (80) |

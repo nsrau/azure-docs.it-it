@@ -1,5 +1,5 @@
 ---
-title: Creare una macchina virtuale da un disco specializzato in Azure | Documentazione Microsoft
+title: Creare una macchina virtuale da un disco specializzato in Azure
 description: Creare una nuova macchina virtuale collegando un disco non gestito specializzato nel modello di distribuzione Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cdbf55aae52cec9df1ba34cbeb34c67b8e5fc5d0
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: d887ef2ef74bb433d6e8ae7f53cd0b77f5948303
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749191"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073355"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Creare una VM da un disco rigido virtuale specializzato in un account di archiviazione
 
@@ -118,14 +118,14 @@ Verificare quanto segue:
 ### <a name="deallocate-the-vm"></a>Deallocare la VM
 Deallocare la VM, operazione che consente di liberare il disco rigido virtuale da copiare. 
 
-* **Portale**: fare clic su  **Macchine virtuali** > **myVM** &gt; Stop (Termina)
+* **Portale**: fare clic su  **Macchine virtuali** > **myVM** > Stop (Termina)
 * **PowerShell**: usare [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) per arrestare (deallocare) la macchina virtuale denominata **MyVM** nel gruppo di risorse **myResourceGroup**.
 
 ```powershell
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-Nel portale di Azure lo **stato** della VM passa da **Arrestato** ad **Arrestato (deallocato)** .
+Nel portale di Azure lo **Stato** della VM passa da **Interrotto** a **Arrestato (deallocato)** .
 
 ### <a name="get-the-storage-account-urls"></a>Ottenere gli URL dell'account di archiviazione
 Sono necessari gli URL degli account di archiviazione di origine e destinazione. Gli URL hanno l'aspetto seguente: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. Se si conosce già il nome degli account di archiviazione e dei contenitori, per creare l'URL è sufficiente sostituire le informazioni tra parentesi. 

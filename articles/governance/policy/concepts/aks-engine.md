@@ -1,17 +1,14 @@
 ---
 title: Informazioni su criteri di Azure per il motore AKS
 description: Informazioni su come i criteri di Azure usano CustomResourceDefinitions e aprono l'agente criteri da Gatekeeper V3 per gestire i cluster con il motore AKS.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 71f3f26b9ea7f24d674c911e18c785b0798a072c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 904575680b62233ad5ec7422abbf66cf57dc4e11
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512132"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072054"
 ---
 # <a name="understand-azure-policy-for-aks-engine"></a>Informazioni sui criteri di Azure per il motore AKS
 
@@ -23,7 +20,7 @@ Criteri di Azure si integra con il [motore AKS](https://github.com/Azure/aks-eng
 > [!IMPORTANT]
 > Per ottenere supporto per criteri di Azure per il motore AKS, il motore AKS o Gatekeeper V3, creare un [nuovo problema](https://github.com/Azure/aks-engine/issues/new/choose) nel repository GitHub del motore AKS.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Per abilitare e usare criteri di Azure per il motore AKS con il cluster Kubernetes autogestito in Azure, eseguire le azioni seguenti:
 
@@ -32,7 +29,7 @@ Per abilitare e usare criteri di Azure per il motore AKS con il cluster Kubernet
 - [Assegnare una definizione di criteri per il motore AKS](#built-in-policies)
 - [Attendi convalida](#validation-and-reporting-frequency)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di installare il componente aggiuntivo di criteri di Azure o abilitare le funzionalità del servizio, la sottoscrizione deve abilitare il provider di risorse **Microsoft. PolicyInsights** e creare un'assegnazione di ruolo per l'entità servizio del cluster. 
 
@@ -282,7 +279,7 @@ Le informazioni raccolte dal componente aggiuntivo non sono dati personali. Sono
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esaminare gli esempi in [esempi di criteri di Azure](../samples/index.md).
-- Vedere [Struttura delle definizioni di criteri di Azure](definition-structure.md).
+- Vedere la [struttura delle definizioni dei criteri](definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).

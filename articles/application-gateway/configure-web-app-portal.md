@@ -1,24 +1,25 @@
 ---
-title: Gestire il traffico verso app multi-tenant, ad esempio app Web del servizio app con applicazione Azure gateway-Portal
+title: Gestire il traffico per le app multi-tenant tramite il portale
+titleSuffix: Azure Application Gateway
 description: Questo articolo fornisce indicazioni su come configurare app Azure app Web del servizio come membri del pool back-end in un gateway applicazione nuovo o esistente.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: dee4859c57172a703517848510a31b70ff1f24cd
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 0ec417b3c7a025d2d05bdd74ec683a2891c3b0de
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "68370420"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075170"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurare il servizio app con il gateway applicazione
 
 Poiché il servizio app è un servizio multi-tenant anziché una distribuzione dedicata, usa l'intestazione host nella richiesta in ingresso per risolvere la richiesta all'endpoint corretto del servizio app. In genere, il nome DNS dell'applicazione, che a sua volta è il nome DNS associato al gateway applicazione che precede il servizio app, è diverso dal nome di dominio del servizio app back-end. Pertanto, l'intestazione host nella richiesta originale ricevuta dal gateway applicazione non corrisponde al nome host del servizio back-end. Per questo motivo, a meno che l'intestazione host nella richiesta dal gateway applicazione al back-end non venga modificata nel nome host del servizio back-end, i back-end multi-tenant non sono in grado di risolvere la richiesta nell'endpoint corretto.
 
-Il gateway applicazione fornisce un'opzione `Pick host name from backend address` denominata che sostituisce l'intestazione host nella richiesta con il nome host del back-end quando la richiesta viene instradata dal gateway applicazione al back-end. Questa funzionalità consente il supporto per back-end multi-tenant, ad esempio servizio app di Azure e gestione API. 
+Il gateway applicazione fornisce un'opzione denominata `Pick host name from backend address` che sostituisce l'intestazione host nella richiesta con il nome host del back-end quando la richiesta viene instradata dal gateway applicazione al back-end. Questa funzionalità consente il supporto per back-end multi-tenant, ad esempio servizio app di Azure e gestione API. 
 
 In questo articolo viene spiegato come:
 
@@ -27,10 +28,10 @@ In questo articolo viene spiegato come:
 > - Creare un pool back-end e aggiungervi un servizio app
 > - Creare le impostazioni HTTP e il probe personalizzato con le opzioni "pick hostname" abilitate
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-- Gateway applicazione: Se non si dispone di un gateway applicazione esistente, vedere come [creare un gateway applicazione](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-- Servizio app: Se non si dispone di un servizio app esistente, vedere la [documentazione del servizio app](https://docs.microsoft.com/azure/app-service/).
+- Gateway applicazione: se non è presente un gateway applicazione, vedere come [creare un gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal) applicazione
+- Servizio app: se non si ha un servizio app esistente, vedere la [documentazione del servizio app](https://docs.microsoft.com/azure/app-service/).
 
 ## <a name="add-app-service-as-backend-pool"></a>Aggiungere il servizio app come pool back-end
 
@@ -47,7 +48,7 @@ In questo articolo viene spiegato come:
    ![Back-end del servizio app](./media/configure-web-app-portal/backendpool.png)
    
    > [!NOTE]
-   > L'elenco a discesa compilerà solo i servizi app che si trovano nella stessa sottoscrizione del gateway applicazione. Se si vuole usare un servizio app che si trova in una sottoscrizione diversa da quella in cui si trova il gateway applicazione, anziché scegliere **Servizi app** nell'elenco a discesa **destinazioni** , scegliere **indirizzo IP o opzione nome host** e immettere il nome host (ad esempio, azurewebsites.net) del servizio app.
+   > L'elenco a discesa compilerà solo i servizi app che si trovano nella stessa sottoscrizione del gateway applicazione. Se si vuole usare un servizio app che si trova in una sottoscrizione diversa da quella in cui si trova il gateway applicazione, anziché scegliere **Servizi app** nell'elenco a discesa **destinazioni** , scegliere **indirizzo IP o opzione nome host** e immettere il nome host, ad esempio. azurewebsites.net) del servizio app.
 
 ## <a name="create-http-settings-for-app-service"></a>Creare le impostazioni HTTP per il servizio app
 
@@ -60,11 +61,11 @@ In questo articolo viene spiegato come:
    > [!NOTE]
    > Se si seleziona HTTPS, non è necessario caricare un certificato di autenticazione o un certificato radice trusted nell'elenco elementi consentiti del back-end del servizio app perché il servizio app è un servizio di Azure attendibile.
 
-4. Selezionare la casella da **usare per il servizio app** . Si noti che le `Create a probe with pick host name from backend address` opzioni `Pick host name from backend address` e vengono abilitate automaticamente.`Pick host name from backend address` eseguirà l'override dell'intestazione host nella richiesta con il nome host del back-end quando la richiesta viene instradata dal gateway applicazione al back-end.  
+4. Selezionare la casella da **usare per il servizio app** . Si noti che le opzioni `Create a probe with pick host name from backend address` e `Pick host name from backend address` verranno abilitate automaticamente.`Pick host name from backend address` eseguirà l'override dell'intestazione host nella richiesta con il nome host del back-end quando la richiesta viene instradata dal gateway applicazione al back-end.  
 
-   `Create a probe with pick host name from backend address`creerà automaticamente un probe di integrità e lo associerà a questa impostazione HTTP. Non è necessario creare altri Probe di integrità per questa impostazione HTTP. È possibile verificare che sia stato aggiunto un nuovo probe con il nome <HTTP Setting name> <Unique GUID> nell'elenco di probe di integrità e che sia già presente `Pick host name from backend http settings enabled`l'opzione.
+   `Create a probe with pick host name from backend address` creerà automaticamente un probe di integrità e lo associerà a questa impostazione HTTP. Non è necessario creare altri Probe di integrità per questa impostazione HTTP. È possibile verificare che sia stato aggiunto un nuovo probe con il nome <HTTP Setting name><Unique GUID> nell'elenco dei probe di integrità e che l'opzione sia già `Pick host name from backend http settings enabled`.
 
-   Se si dispone già di una o più impostazioni http che vengono usate per il servizio app e se le impostazioni HTTP usano lo stesso protocollo che si sta usando in quello che si sta creando, anziché l' `Create a probe with pick host name from backend address` opzione, si otterrà un elenco a discesa per selezionare uno dei c Probe ersonalizzata. Questo perché poiché esiste già un'impostazione HTTP con il servizio app, è necessario che esista anche un probe di integrità con l'opzione `Pick host name from backend http settings enabled` . Scegliere il probe personalizzato dall'elenco a discesa.
+   Se si dispone già di una o più impostazioni HTTP che vengono usate per il servizio app e se le impostazioni HTTP usano lo stesso protocollo che si sta usando in quello che si sta creando, anziché l'opzione `Create a probe with pick host name from backend address`, si otterrà un elenco a discesa per selezionare uno dei probe personalizzati. Questo perché poiché esiste già un'impostazione HTTP con il servizio app, è necessario che esista anche un probe di integrità con l'opzione `Pick host name from backend http settings enabled`. Scegliere il probe personalizzato dall'elenco a discesa.
 
 5. Fare clic su **OK** per creare l'impostazione http.
 

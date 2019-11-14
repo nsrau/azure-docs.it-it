@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 5a357a246f2ba6c294b107e447218f386623f5c5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/13/2019
+ms.openlocfilehash: 8967b61115d2e2e644dea93cb236f8a7cdfcfcbd
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014186"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072305"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Come configurare Postman per Gemelli digitali di Azure
 
@@ -58,14 +58,9 @@ Configurare l'app di Azure Active Directory per usare il flusso di concessione i
 
     [approvazione del consenso dell'amministratore di ![](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
+1. Configurare un secondo **URI di reindirizzamento** per `https://www.getpostman.com/oauth2/callback`.
 
-1. Selezionare **manifesto** per aprire il manifesto dell'applicazione per l'app. Impostare *oauth2AllowImplicitFlow* su `true`.
-
-    [![Azure Active Directory flusso implicito](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
-
-1. Configurare un **URL di risposta** su `https://www.getpostman.com/oauth2/callback`.
-
-    [URL di risposta ![Azure Active Directory](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
+    [![aggiungere un URI di reindirizzamento del post](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
 1. Copiare e conservare l'**ID applicazione** dell'app di Azure Active Directory. Viene usato nei passaggi seguenti.
 
@@ -106,10 +101,6 @@ Configurare e configurare il post per ottenere un token di Azure Active Director
     [esempio di client Post ![](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
 1. Selezionare **Request Token** (Richiedi token).
-
-    >[!TIP]
-    >Se viene visualizzato un messaggio di errore che indica che non è stato possibile completare il processo di OAuth 2, provare a eseguire queste operazioni:
-    > * Chiudere Postman, riaprirlo e riprovare.
   
 1. Scorrere verso il basso e selezionare **Use Token** (Usa token).
 
@@ -117,13 +108,13 @@ Configurare e configurare il post per ottenere un token di Azure Active Director
 
 Dopo aver completato i passaggi precedenti, configurare Postman per eseguire una richiesta POST multipart HTTP autenticata:
 
-1. Nella scheda **Intestazione** aggiungere una chiave dell'intestazione della richiesta HTTP **Content-Type** con valore `multipart/mixed`.
+1. Nella scheda **intestazioni** aggiungere una chiave di intestazione della richiesta HTTP **Content-Type** con valore `multipart/mixed`.
 
    [tipo di contenuto ![multipart/mixed](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. Serializzare i dati non di testo nel file. I dati JSON verranno salvati come un file JSON.
 1. Nella scheda **corpo** selezionare `form-data`. 
-1. Aggiungere ogni file assegnando un nome di **chiave** , selezionando `file`.
+1. Aggiungere ogni file assegnando un nome di **chiave** , selezionando `File`.
 1. Quindi, selezionare ogni file tramite il pulsante **Scegliere un file**.
 
    [esempio di client Post ![](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
@@ -133,7 +124,7 @@ Dopo aver completato i passaggi precedenti, configurare Postman per eseguire una
    > * Non è necessario specificare tali intestazioni per ogni parte.
    > * Selezionare `multipart/mixed` o un altro **Content-Type** appropriato per l'intera richiesta.
 
-1. Selezionare infine **Invia** per inviare la richiesta post http multiparte.
+1. Selezionare infine **Invia** per inviare la richiesta post http multiparte. Un codice di stato `200` o `201` indica una richiesta con esito positivo. Viene visualizzato anche il messaggio di risposta appropriato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

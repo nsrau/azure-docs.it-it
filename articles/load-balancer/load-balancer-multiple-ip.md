@@ -1,7 +1,7 @@
 ---
 title: Bilanciamento del carico in più configurazioni IP - Portale di Azure
-titlesuffix: Azure Load Balancer
-description: Bilanciamento del carico tra configurazioni IP primarie e secondarie.
+titleSuffix: Azure Load Balancer
+description: In questo articolo vengono fornite informazioni sul bilanciamento del carico tra configurazioni IP primarie e secondarie usando il portale di Azure.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: dbf8cdd326d3e1c8f32f6dc2bd3486146993e06b
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4bf74986462ecb2659505f8a1261b9b24aba3fee
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274743"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076995"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Bilanciamento del carico in più configurazioni IP tramite il portale di Azure
 
@@ -42,7 +42,7 @@ In questo scenario viene usata la configurazione seguente:
 - Azure Load Balancer viene usato per esporre due indirizzi IP front-end, uno per ogni sito Web. Gli indirizzi front-end vengono usati per distribuire il traffico verso la rispettiva configurazione IP per ciascun sito Web.
 - Lo stesso numero di porta viene usato per gli indirizzi IP front-end e gli indirizzi IP del pool back-end.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questo scenario di esempio presuppone che sia disponibile un gruppo di risorse, denominato **contosofabrikam**, con la configurazione seguente:
 
@@ -168,7 +168,7 @@ Configurare un probe di integrità per il servizio di bilanciamento del carico:
 
 4. Digitare un nome per il probe di integrità, ad esempio **HTTP**. Selezionare **OK**.
 
-### <a name="step-6-configure-load-balancing-rules"></a>Passaggio 6: Configurare le regole del servizio di bilanciamento del carico
+### <a name="step-6-configure-load-balancing-rules"></a>Passaggio 6: Configurare le regole di bilanciamento del carico
 
 Per ognuno dei siti Web (contoso.com e fabrikam.com) configurare le regole di bilanciamento del carico:
     

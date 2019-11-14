@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 48d58ac303a843c627067c9a0287628c35b65f66
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 15bf955d6055ed91b486d34cf9d805de34e9f8f5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019077"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074834"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Aggiungere risorse di archiviazione al server di Backup di Azure
 
@@ -27,13 +27,13 @@ Il server di Backup di Azure V2 e versioni successive supporta Modern Backup Sto
 
 Il server di Backup V2 o versione successiva accetta volumi di archiviazione. Quando si aggiunge un volume, il server di backup formatta il volume in Resilient File System (ReFS), richiesto da Modern Backup Storage. Per aggiungere un volume ed espanderlo in un secondo momento se necessario, è consigliabile utilizzare questo flusso di lavoro:
 
-1.  Configurare il server di Backup in una macchina virtuale.
-2.  Creare un volume su un disco virtuale in un pool di archiviazione:
-    1.  Aggiungere un disco a un pool di archiviazione e creare un disco virtuale con layout semplice.
-    2.  Aggiungere altri dischi ed estendere il disco virtuale.
-    3.  Creare volumi nel disco virtuale.
-3.  Aggiungere i volumi al server di backup.
-4.  Configurare l'archiviazione con riconoscimento del carico di lavoro.
+1. Configurare il server di Backup in una macchina virtuale.
+2. Creare un volume su un disco virtuale in un pool di archiviazione:
+    1. Aggiungere un disco a un pool di archiviazione e creare un disco virtuale con layout semplice.
+    2. Aggiungere altri dischi ed estendere il disco virtuale.
+    3. Creare volumi nel disco virtuale.
+3. Aggiungere i volumi al server di backup.
+4. Configurare l'archiviazione con riconoscimento del carico di lavoro.
 
 ## <a name="create-a-volume-for-modern-backup-storage"></a>Creare un volume per Modern Backup Storage
 
@@ -75,7 +75,7 @@ Con l'archiviazione del carico di lavoro, è possibile selezionare i volumi in c
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-È possibile configurare l'archiviazione in grado di riconoscere il carico di lavoro usando il cmdlet di PowerShell Update-DPMDiskStorage, che aggiorna le proprietà di un volume nel pool di archiviazione in un server di Backup di Azure. 
+È possibile configurare l'archiviazione in grado di riconoscere il carico di lavoro usando il cmdlet di PowerShell Update-DPMDiskStorage, che aggiorna le proprietà di un volume nel pool di archiviazione in un server di Backup di Azure.
 
 Sintassi:
 
@@ -84,6 +84,7 @@ Sintassi:
 ```powershell
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
+
 Nella schermata seguente viene illustrato il cmdlet Update-DPMDiskStorage nella finestra di PowerShell.
 
 ![Comando Update-DPMDiskStorage nella finestra di PowerShell](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
@@ -92,8 +93,8 @@ Le modifiche apportate tramite PowerShell vengono riflesse nella Console di ammi
 
 ![Dischi e volumi nella Console di amministrazione](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
-
 ## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Migrare lo spazio di archiviazione legacy a Modern Backup Storage
+
 Dopo l'aggiornamento o l'istallazione del server di Backup V2 e l'aggiornamento del sistema operativo a Windows Server 2016, aggiornare i gruppi protezione dati per l'uso di Modern Backup Storage. Per impostazione predefinita, i gruppi protezione dati non vengono modificati. Continuano a funzionare nel modo in cui erano stati configurati inizialmente.
 
 L'aggiornamento dei gruppi protezione dati per l'uso di Modern Backup Storage è facoltativo. Per aggiornare il gruppo protezione dati, arrestare la protezione di tutte le origini dati usando l'opzione di conservazione dei dati. Quindi aggiungere le origini dati a un nuovo gruppo protezione dati.
@@ -120,11 +121,12 @@ Per aggiungere spazio di archiviazione su disco:
 
     ![Finestra di dialogo Aggiungi spazio di archiviazione su disco](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
-4. Nella finestra di dialogo **Aggiungi spazio di archiviazione su disco** selezionare **Aggiungi dischi**.
+2. Nella finestra di dialogo **Aggiungi spazio di archiviazione su disco** selezionare **Aggiungi dischi**.
 
-5. Nell'elenco dei dischi disponibili selezionare i dischi che si desidera aggiungere, selezionare **Aggiungi** e poi **OK**.
+3. Nell'elenco dei dischi disponibili selezionare i dischi che si desidera aggiungere, selezionare **Aggiungi** e poi **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Dopo aver installato il server di backup, leggere le informazioni su come preparare il server o iniziare a proteggere un carico di lavoro.
 
 - [Preparare i carichi di lavoro del server di backup](backup-azure-microsoft-azure-backup.md)

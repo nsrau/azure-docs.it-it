@@ -1,18 +1,19 @@
 ---
-title: Configurare la terminazione SSL con Key Vault certificati utilizzando Azure PowerShell
+title: Configurare la terminazione SSL con Key Vault certificati-PowerShell
+titleSuffix: Azure Application Gateway
 description: Informazioni su come integrare applicazione Azure gateway con Key Vault per i certificati del server collegati ai listener abilitati per HTTPS.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/22/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: b7408d6169e1cf42bcda8855a19076c739d086dd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c40c4cf9f25ce17bc7042191324aeb864696995f
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001001"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074593"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configurare la terminazione SSL con Key Vault certificati utilizzando Azure PowerShell
 
@@ -22,11 +23,11 @@ Per ulteriori informazioni, vedere [terminazione SSL con Key Vault Certificates]
 
 Questo articolo illustra come usare uno script di Azure PowerShell per integrare l'insieme di credenziali delle chiavi con il gateway applicazione per i certificati di terminazione SSL.
 
-Questo articolo richiede Azure PowerShell modulo 1.0.0 o versione successiva. Per trovare la versione, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Per eseguire i comandi in questo articolo, è anche necessario creare una connessione con Azure `Connect-AzAccount`eseguendo.
+Questo articolo richiede Azure PowerShell modulo 1.0.0 o versione successiva. Per trovare la versione, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installare il modulo di Azure PowerShell). Per eseguire i comandi in questo articolo, è anche necessario creare una connessione con Azure eseguendo `Connect-AzAccount`.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, è necessario che sia installato il modulo ManagedServiceIdentity:
 

@@ -1,7 +1,7 @@
 ---
 title: Eseguire il training di un modello per il servizio di Riconoscimento vocale personalizzato vocale
 titleSuffix: Azure Cognitive Services
-description: Il training di un riconoscimento vocale è necessario per migliorare l'accuratezza del riconoscimento per il modello di base di Microsoft o per un modello personalizzato che si sta pianificando di creare. Viene eseguito il training di un modello usando trascrizioni con etichetta umana e testo correlato. Questi set di dati, insieme ai dati audio caricati in precedenza, vengono usati per perfezionare ed eseguire il training del modello di riconoscimento vocale per riconoscere parole, frasi, acronimi, nomi e altri termini specifici del prodotto.
+description: Il training di un modello di sintesi vocale può migliorare l'accuratezza del riconoscimento per il modello di base di Microsoft o per un modello personalizzato. Viene eseguito il training di un modello usando trascrizioni con etichetta umana e testo correlato.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,26 +10,27 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 21a0cd5e257f57a9371a30c6fe57afb88e174b53
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 7630659deeece7fbf8d0ca1fd00b539a8de83b0e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801492"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072491"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Eseguire il training di un modello per Riconoscimento vocale personalizzato
 
-Il training di un riconoscimento vocale è necessario per migliorare l'accuratezza del riconoscimento per il modello di base di Microsoft o per un modello personalizzato che si sta pianificando di creare. Viene eseguito il training di un modello usando trascrizioni con etichetta umana e testo correlato. Questi set di dati, insieme ai dati audio caricati in precedenza, vengono usati per perfezionare ed eseguire il training del modello di riconoscimento vocale per riconoscere parole, frasi, acronimi, nomi e altri termini specifici del prodotto. Maggiore è il numero di set di dati nel dominio forniti, ovvero i dati correlati a ciò che gli utenti indicheranno e cosa si prevede di riconoscere, maggiore sarà l'accuratezza del modello, con conseguente miglioramento del riconoscimento. Tenere presente che, inserendo dati non correlati nel training, è possibile ridurre o danneggiare l'accuratezza del modello.
+Il training di un modello di sintesi vocale può migliorare l'accuratezza del riconoscimento per il modello di base di Microsoft o un modello personalizzato che si sta pianificando di creare. Viene eseguito il training di un modello usando trascrizioni con etichetta umana e testo correlato. Questi set di dati, insieme ai dati audio caricati in precedenza, vengono usati per perfezionare ed eseguire il training del modello di riconoscimento vocale per riconoscere parole, frasi, acronimi, nomi e altri termini specifici del prodotto. Maggiore è il numero di set di dati nel dominio forniti, ovvero i dati correlati a ciò che gli utenti indicheranno e cosa si prevede di riconoscere, maggiore sarà l'accuratezza del modello, con conseguente miglioramento del riconoscimento. Tenere presente che, inserendo dati non correlati nel training, è possibile ridurre o danneggiare l'accuratezza del modello.
 
 ## <a name="use-training-to-resolve-accuracy-issues"></a>Usare il training per risolvere i problemi di accuratezza
 
 Se si riscontrano problemi di riconoscimento con il modello, l'uso di trascrizioni con etichetta umana e dati correlati per un training aggiuntivo può contribuire a migliorare la precisione. Usare questa tabella per determinare il set di dati da usare per risolvere i problemi:
 
 | Caso d'uso | Tipo di dati |
-|----------|-----------|
-| Migliorare l'accuratezza del riconoscimento sul vocabolario e sulla grammatica specifici del settore, ad esempio la terminologia medica o il gergo IT | Testo correlato (frasi/espressioni) |
+| -------- | --------- |
+| Migliorare l'accuratezza del riconoscimento su vocabolario e grammatica specifici del settore, ad esempio la terminologia medica o il gergo IT. | Testo correlato (frasi/espressioni) |
 | Definire il form fonetico e visualizzato di una parola o di un termine con una pronuncia non standard, ad esempio nomi di prodotto o acronimi. | Testo correlato (pronuncia) |
-| Migliorare l'accuratezza del riconoscimento su stili di pronuncia, accenti o rumori di fondo specifici | Trascrizioni audio + con etichetta umana |
+| Migliorare l'accuratezza del riconoscimento su stili di pronuncia, accenti o rumori di fondo specifici. | Trascrizioni audio + con etichetta umana |
+
 > [!IMPORTANT]
 > Se non è stato caricato un set di dati, vedere [preparare e testare i dati](how-to-custom-speech-test-data.md). In questo documento vengono fornite istruzioni per il caricamento dei dati e le linee guida per la creazione di set di dati di alta qualità.
 
@@ -46,25 +47,24 @@ Il primo passaggio per eseguire il training di un modello consiste nel caricare 
 7. Una volta completato il training, è possibile scegliere di eseguire test di accuratezza sul modello appena sottoposto a training. Questo passaggio è facoltativo.
 8. Selezionare **Crea** per compilare il modello personalizzato.
 
-Nella tabella training viene visualizzata una nuova voce che corrisponde al modello appena creato. La tabella Visualizza anche lo stato:  Elaborazione, riuscita, non riuscita.
+Nella tabella training viene visualizzata una nuova voce che corrisponde al modello appena creato. La tabella Visualizza anche lo stato: elaborazione, operazione riuscita, non riuscita.
 
 ## <a name="evaluate-the-accuracy-of-a-trained-model"></a>Valutare l'accuratezza di un modello sottoposto a training
 
 È possibile esaminare i dati e valutare l'accuratezza del modello usando i documenti seguenti:
 
-* [Esaminare i dati](how-to-custom-speech-inspect-data.md)
-* [Valutazione dei dati](how-to-custom-speech-evaluate-data.md)
-
+- [Esaminare i dati](how-to-custom-speech-inspect-data.md)
+- [Valutazione dei dati](how-to-custom-speech-evaluate-data.md)
 
 Se si sceglie l'accuratezza dei test, è importante selezionare un set di dati acustico diverso da quello usato con il modello per ottenere un senso realistico delle prestazioni del modello.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Distribuire il modello](how-to-custom-speech-deploy-model.md)
+- [Distribuire il modello](how-to-custom-speech-deploy-model.md)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Preparare e testare i dati](how-to-custom-speech-test-data.md)
-* [Esaminare i dati](how-to-custom-speech-inspect-data.md)
-* [Valutazione dei dati](how-to-custom-speech-evaluate-data.md)
-* [Eseguire il training del modello](how-to-custom-speech-train-model.md)
+- [Preparare e testare i dati](how-to-custom-speech-test-data.md)
+- [Esaminare i dati](how-to-custom-speech-inspect-data.md)
+- [Valutazione dei dati](how-to-custom-speech-evaluate-data.md)
+- [Eseguire il training del modello](how-to-custom-speech-train-model.md)

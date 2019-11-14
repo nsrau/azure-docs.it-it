@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 34a8b27442fc3f755cbe33f61857aa13d3be700b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 85d6b9e00798926bee2d5050767ba47512fc9e86
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012828"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074106"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di database SQL in macchine virtuali di Azure con PowerShell
 
@@ -460,7 +460,7 @@ $endDate = (Get-Date).AddDays(60).ToUniversalTime()
 Backup-AzRecoveryServicesBackupItem -Item $bkpItem -BackupType Full -EnableCompression -VaultId $targetVault.ID -ExpiryDateTimeUTC $endDate
 ````
 
-Il comando di backup ad hoc restituisce un processo da rilevare.
+Il comando di backup su richiesta restituisce un processo da rilevare.
 
 ````powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -541,13 +541,13 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 È importante notare che backup di Azure tiene traccia solo dei processi attivati dall'utente nel backup SQL. I backup pianificati, inclusi i backup del log, non sono visibili nel portale/PowerShell. Tuttavia, in caso di esito negativo di un processo pianificato, viene generato un [avviso di backup](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) che viene visualizzato nel portale. [Usare monitoraggio di Azure](backup-azure-monitoring-use-azuremonitor.md) per tenere traccia di tutti i processi pianificati e altre informazioni rilevanti.
 
-Gli utenti possono tenere traccia delle operazioni attivate dall'utente o ad hoc con JobID restituito nell' [output](#on-demand-backup) di processi asincroni, ad esempio backup. Usare il cmdlet [Get-AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) PS per tenere traccia del processo e dei relativi dettagli.
+Gli utenti possono tenere traccia delle operazioni attivate su richiesta/utente con JobID restituito nell' [output](#on-demand-backup) di processi asincroni, ad esempio backup. Usare il cmdlet [Get-AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) PS per tenere traccia del processo e dei relativi dettagli.
 
 ````powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID
 ````
 
-Per ottenere l'elenco dei processi ad hoc e i relativi stati dal servizio backup di Azure, usare il cmdlet [Get-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJob?view=azps-1.5.0) PS. Nell'esempio seguente vengono restituiti tutti i processi SQL in corso.
+Per ottenere l'elenco dei processi su richiesta e i relativi stati dal servizio backup di Azure, usare il cmdlet [Get-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJob?view=azps-1.5.0) PS. Nell'esempio seguente vengono restituiti tutti i processi SQL in corso.
 
 ```powershell
 Get-AzRecoveryServicesBackupJob -Status InProgress -BackupManagementType AzureWorkload
@@ -570,4 +570,4 @@ Si supponga, ad esempio, che un gruppo di disponibilità di SQL Server disponga 
 
 SQL-Server-0, SQL-Server-1 verrà elencato anche come "AzureVMAppContainer" quando [vengono elencati i contenitori di backup](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0).
 
-È sufficiente recuperare il database SQL pertinente per [abilitare il backup](#configuring-backup) e i [cmdlet](#restore-sql-dbs) di backup e ripristino ad [hoc](#on-demand-backup) sono identici.
+È sufficiente recuperare il database SQL pertinente per [abilitare il backup](#configuring-backup) e i cmdlet di PowerShell per il backup e il [ripristino](#restore-sql-dbs) [su richiesta](#on-demand-backup) sono identici.

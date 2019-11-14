@@ -1,5 +1,5 @@
 ---
-title: Estensione script personalizzata di Azure per Windows | Microsoft Docs
+title: Estensione di script personalizzati di Azure per Windows
 description: Automatizzare le attività di configurazione delle macchine virtuali Windows usando l'estensione script personalizzata
 services: virtual-machines-windows
 manager: carmonm
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: c0c160d9fc2fcfb8da004d02baae1dd410620cbb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b3c355219fcbebc5fda38c33d6eb7f9126b3b2b8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204194"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073830"
 ---
 # <a name="custom-script-extension-for-windows"></a>Estensione Script personalizzato per Windows
 
@@ -23,7 +23,7 @@ L'estensione script personalizzata scarica ed esegue script sulle macchine virtu
 
 Questo documento descrive come usare l'estensione di script personalizzata con il modulo Azure PowerShell e i modelli di Azure Resource Manager e inoltre illustra i passaggi per la risoluzione dei problemi nei sistemi Windows.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 > [!NOTE]  
 > Non usare l'estensione script personalizzata per eseguire Update-AzVM con la stessa macchina virtuale del relativo parametro, poiché attenderà se stessa.  
@@ -63,7 +63,7 @@ La configurazione dell'estensione script personalizzata specifica informazioni c
 
 I dati sensibili possono essere archiviati in una configurazione protetta, che viene crittografata e decrittografata solo all'interno della macchina virtuale. La configurazione protetta è utile quando il comando di esecuzione include segreti, ad esempio una password.
 
-Questi elementi devono essere trattati come dati sensibili ed essere specificati nella configurazione protetta dell'estensione. I dati della configurazione protetta dell'estensione macchina virtuale di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione.
+Questi elementi devono essere trattati come dati sensibili ed essere specificati nella configurazione protetta dell'estensione. I dati della configurazione protetta dell'estensione macchina virtuale di Azure sono crittografati e vengono decrittografati solo nella macchina virtuale di destinazione.
 
 ```json
 {
@@ -106,17 +106,17 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Attività | Valore/Esempio | Tipo di dati |
+| Nome | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute | string |
-| type | CustomScriptExtension | string |
+| publisher | Microsoft.Compute | stringa |
+| type | CustomScriptExtension | stringa |
 | typeHandlerVersion | 1.9 | int |
-| fileUris (es.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matrice |
+| fileUris (es.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp  (esempio) | 123456789 | valore integer a 32 bit |
-| commandToExecute (es.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
-| storageAccountName (es.) | examplestorageacct | string |
-| storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| commandToExecute (es.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | stringa |
+| storageAccountName (es.) | examplestorageacct | stringa |
+| storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | stringa |
 
 >[!NOTE]
 >Questi nomi di proprietà fanno distinzione tra maiuscole e minuscole. Per evitare problemi nella distribuzione, usare i nomi come indicato di seguito.
@@ -137,7 +137,7 @@ L'uso delle impostazioni pubbliche può risultare utile per il debug, ma è cons
 
 Le impostazioni pubbliche vengono inviate in testo non crittografato alla macchina virtuale in cui verrà eseguito lo script.  Le impostazioni protette vengono crittografate usando una chiave nota solo alla macchina virtuale e ad Azure. Le impostazioni vengono salvate nella macchina virtuale così come sono state inviate, ovvero se le impostazioni sono state crittografate, vengono salvate crittografate nella macchina virtuale. Il certificato usato per decrittografare i valori crittografati è archiviato nella macchina virtuale e viene usato per decrittografare le impostazioni (se necessario) in fase di esecuzione.
 
-## <a name="template-deployment"></a>Distribuzione modello
+## <a name="template-deployment"></a>Distribuzione del modello
 
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. Lo schema JSON, illustrato in dettaglio nella sezione precedente, può essere usato in un modello di Azure Resource Manager per eseguire l'estensione dello script personalizzato durante la distribuzione. Gli esempi seguenti illustrano come usare l'estensione Script personalizzato:
 
@@ -161,7 +161,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="using-multiple-scripts"></a>Uso di più script
 
-In questo esempio sono disponibili tre script usati per compilare il server. Il **commandToExecute** chiama il primo script, quindi sono disponibili le opzioni per la chiamata degli altri. È ad esempio possibile disporre di uno script Master che controlla l'esecuzione, con la gestione corretta degli errori, la registrazione e la gestione dello stato. Gli script vengono scaricati nel computer locale per l'esecuzione di. Ad esempio, `1_Add_Tools.ps1` in è possibile `2_Add_Features.ps1` chiamare aggiungendo `.\2_Add_Features.ps1` allo script e ripetere questo processo per gli altri script definiti in `$settings`.
+In questo esempio sono disponibili tre script usati per compilare il server. Il **commandToExecute** chiama il primo script, quindi sono disponibili le opzioni per la chiamata degli altri. È ad esempio possibile disporre di uno script Master che controlla l'esecuzione, con la gestione corretta degli errori, la registrazione e la gestione dello stato. Gli script vengono scaricati nel computer locale per l'esecuzione di. Ad esempio, in `1_Add_Tools.ps1` è possibile chiamare `2_Add_Features.ps1` aggiungendo `.\2_Add_Features.ps1` allo script e ripetere questo processo per gli altri script definiti in `$settings`.
 
 ```powershell
 $fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
@@ -215,7 +215,7 @@ In alternativa, è possibile impostare la proprietà [Proprietà forceupdatetag]
 
 ### <a name="using-invoke-webrequest"></a>Uso di Invoke-WebRequest
 
-Se si usa [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) nello script, è necessario specificare il parametro `-UseBasicParsing` . in caso contrario, verrà visualizzato l'errore seguente quando si verifica lo stato dettagliato:
+Se si usa [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) nello script, è necessario specificare il parametro `-UseBasicParsing` altrimenti verrà visualizzato l'errore seguente quando si verifica lo stato dettagliato:
 
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
@@ -225,7 +225,7 @@ The response content cannot be parsed because the Internet Explorer engine is no
 
 Per distribuire l'estensione di script personalizzati nelle VM classiche, è possibile usare i cmdlet di portale di Azure o i Azure PowerShell classici.
 
-### <a name="azure-portal"></a>Portale di Azure
+### <a name="azure-portal"></a>portale di Azure
 
 Passare alla risorsa della macchina virtuale classica. Selezionare **estensioni** in **Impostazioni**.
 
@@ -253,7 +253,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere problemi
+### <a name="troubleshoot"></a>Risolvere i problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite il modulo Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente:
 
@@ -277,13 +277,13 @@ dove `<n>` è un numero intero decimale che può variare nelle diverse esecuzion
 
 Quando si esegue il comando `commandToExecute`, nell'estensione viene impostata questa directory (ad esempio `...\Downloads\2`) come directory di lavoro attuale. In questo modo viene abilitato l'uso di percorsi relativi per individuare i file scaricati tramite la proprietà `fileURIs`. Nella tabella seguente sono riportati alcuni esempi.
 
-Poiché il percorso di download assoluto può variare nel tempo, quando è possibile è preferibile optare per percorsi relativi di script/file nella stringa `commandToExecute`. Esempio:
+Poiché il percorso di download assoluto può variare nel tempo, quando è possibile è preferibile optare per percorsi relativi di script/file nella stringa `commandToExecute`. Ad esempio:
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
-Le informazioni sul percorso dopo il primo segmento URI vengono mantenute per i `fileUris` file scaricati tramite l'elenco delle proprietà.  Come illustrato nella tabella riportata di seguito, per i file scaricati viene eseguito il mapping nelle sottodirectory di download per riflettere la struttura dei valori `fileUris`.  
+Le informazioni sul percorso dopo il primo segmento URI vengono mantenute per i file scaricati tramite l'elenco di proprietà `fileUris`.  Come illustrato nella tabella riportata di seguito, per i file scaricati viene eseguito il mapping nelle sottodirectory di download per riflettere la struttura dei valori `fileUris`.  
 
 #### <a name="examples-of-downloaded-files"></a>Esempi di file scaricati
 
@@ -296,4 +296,4 @@ Le informazioni sul percorso dopo il primo segmento URI vengono mantenute per i 
 
 ### <a name="support"></a>Supporto
 
-Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). È anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). È anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).

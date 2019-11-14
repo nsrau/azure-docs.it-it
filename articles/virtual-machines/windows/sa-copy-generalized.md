@@ -1,5 +1,5 @@
 ---
-title: Creare un'immagine non gestita di una macchina virtuale generalizzata in Azure | Microsoft Docs
+title: Creare un'immagine non gestita di una macchina virtuale generalizzata in Azure
 description: Creare un'immagine non gestita di una macchina virtuale Windows generalizzata da usare per creare più copie di una macchina virtuale in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: b0277e07f67b3f9124dc0e27b20e3d49e0d2f6e9
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f25968fb74f0f10b1d498866c036dd04d4d5d134
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749207"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073390"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Come creare un'immagine di macchina virtuale non gestita da una macchina virtuale di Azure
 
@@ -88,7 +88,7 @@ Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da 
     Stop-AzVM -ResourceGroupName <resourceGroup> -Name <vmName>
     ```
    
-    Nel portale di Azure lo *stato* della VM passa da **Arrestato** ad **Arrestato (deallocato)** .
+    Nel portale di Azure lo *Stato* della VM passa da **Interrotto** a **Arrestato (deallocato)** .
 2. Impostare lo stato della macchina virtuale su **Generalizzato**. 
    
     ```powershell

@@ -1,5 +1,5 @@
 ---
-title: Esportazione di gruppi di risorse di Azure contenenti estensioni macchina virtuale | Microsoft Docs
+title: Esportazione di gruppi di risorse di Azure che contengono estensioni VM
 description: Esportare modelli di Resource Manager che includono estensioni macchina virtuale.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
-ms.openlocfilehash: 652ed732a7fe8f08e48aba6fc4bd1b52164d1fa0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169055"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073133"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Esportazione di gruppi di risorse contenenti estensioni macchina virtuale
 
@@ -33,7 +33,7 @@ Sono disponibili molte estensioni macchina virtuale. Non tutte le estensioni pos
 
 Le estensioni seguenti possono essere esportate con la funzionalità di script di automazione.
 
-| Interno ||||
+| Estensione ||||
 |---|---|---|---|
 | Acronis Backup | Datadog Windows Agent | OS Patching For Linux | VM Snapshot Linux
 | Acronis Backup Linux | Estensione Docker | Puppet Agent |

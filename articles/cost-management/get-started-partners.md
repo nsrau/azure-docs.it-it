@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 611b3e608d9b0de9423c861ec70e9fc2e7ad67d5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: cd3efbea7b194da54bc1d9bebd1cc77987bd9dea
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720762"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072345"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a gestione costi di Azure per i partner
 
-Gestione costi di Azure è disponibile in modo nativo per i partner che hanno caricato i clienti in un contratto per i clienti Microsoft. Questo articolo illustra in che modo i partner usano le funzionalità di [gestione dei costi di Azure](https://docs.microsoft.com/azure/cost-management/) . Viene inoltre descritto il modo in cui i partner abilitano l'accesso alla gestione dei costi per i clienti. I clienti possono usare le funzionalità di gestione dei costi quando sono abilitate dal partner CSP.
+Gestione costi di Azure è disponibile in modo nativo per i partner che hanno caricato i clienti in un contratto per i clienti Microsoft e hanno acquistato un piano Azure. Questo articolo illustra in che modo i partner usano le funzionalità di [gestione dei costi di Azure](https://docs.microsoft.com/azure/cost-management/) . Viene inoltre descritto il modo in cui i partner abilitano l'accesso alla gestione dei costi per i clienti. I clienti possono usare le funzionalità di gestione dei costi quando sono abilitate dal partner CSP.
 
 I partner CSP utilizzano Gestione costi per:
 
@@ -37,7 +37,7 @@ Ecco un esempio che mostra i costi per un singolo cliente.
 
 Tutte le funzionalità disponibili in gestione costi di Azure sono disponibili anche con le API REST. Usare le API per automatizzare le attività di gestione dei costi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Gestione costi di Azure richiede l'accesso in lettura all'account di fatturazione o alla sottoscrizione. È possibile concedere l'accesso a qualsiasi livello al di sopra delle risorse, dall'account di fatturazione o da un gruppo di gestione a singoli gruppi di risorse in cui si gestiscono le app. Per altre informazioni sull'abilitazione e l'assegnazione dell'accesso a gestione costi di Azure per un account di fatturazione, vedere [assegnare utenti a ruoli e autorizzazioni](/partner-center/permissions-overview). I ruoli **amministratore globale** e **agente di amministrazione** possono gestire i costi per un account di fatturazione.
 
@@ -84,9 +84,9 @@ I partner possono usare l'ambito per riconciliare le fatture. E usano l'ambito p
 
 - Fattura filtrata specifica
 - Customer
-- Sottoscrizione
+- sottoscrizione
 - Resource group
-- Gruppi
+- Risorsa
 - Servizio di Azure
 - Contatore
 - ResellerMPNID
@@ -151,7 +151,7 @@ I partner possono esplorare e analizzare i costi nell'analisi dei costi tra i cl
 
 I campi seguenti sono disponibili nei file di dettagli sull'utilizzo e nelle API di gestione dei costi. Per analizzare i costi in base a più campi, è possibile utilizzare le funzionalità di filtro e di raggruppamento in base all'analisi dei costi. Per visualizzare un elenco completo dei campi, vedere [campi dati di gestione dei costi](understand-cost-mgt-data.md#cost-management-data-fields).
 
-| Nome campo | Descrizione |
+| Nome campo | DESCRIZIONE |
 | --- | --- |
 | CustomerTenantID | Identificatore del tenant Azure Active Directory della sottoscrizione del cliente&#39;. |
 | CustomerName | Nome del tenant Azure Active Directory per la sottoscrizione del&#39;cliente. |

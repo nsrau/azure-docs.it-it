@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault estensione VM per Linux | Microsoft Docs
+title: Azure Key Vault estensione VM per Linux
 description: Distribuire un agente che esegue l'aggiornamento automatico dei certificati Key Vault sulle macchine virtuali usando un'estensione della macchina virtuale.
 services: virtual-machines-linux
 author: msmbaldwin
@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 5991d3d2197822b239b946de66f020dd258f835a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2de8a072aec66c2c087541ed9620f3dbdc137ee9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584375"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073013"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault estensione della macchina virtuale per Linux
 
@@ -59,14 +59,14 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 ```
 
 > [!NOTE]
-> Il formato degli URL dei certificati osservati deve essere `https://myVaultName.vault.azure.net/secrets/myCertName`.
+> Gli URL dei certificati osservati devono essere nel formato `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Questo perché il percorso `/secrets` restituisce il certificato completo, inclusa la chiave privata, mentre il percorso `/certificates` non lo è. Altre informazioni sui certificati sono disponibili qui: [Key Vault Certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Questo è dovuto al fatto che il percorso di `/secrets` restituisce il certificato completo, inclusa la chiave privata, mentre il percorso di `/certificates` non lo è. Altre informazioni sui certificati sono disponibili qui: [Key Vault Certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Name | Valore/Esempio | Tipo di dati |
+| Nome | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault.Edp | stringa |

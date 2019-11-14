@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 33fa474d719ec8a20142f35f56cc697c11e03e86
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d0dd2ca35453859dcc16ef78ef4845a4198aad95
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72926640"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066352"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "72926640"
 
  Il diagramma seguente illustra i costrutti di gestione di File di Azure:
 
-![Struttura file](./media/storage-files-introduction/files-concepts.png)
+![Struttura di Archiviazione file](./media/storage-files-introduction/files-concepts.png)
 
 * **Account di archiviazione:** tutti gli accessi ad Archiviazione di Azure vengono eseguiti tramite un account di archiviazione. Per informazioni dettagliate sulla capacità degli account di archiviazione, vedere gli [obiettivi di scalabilità e prestazioni](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
@@ -124,12 +124,12 @@ La tabella seguente illustra alcuni esempi di queste formule per le dimensioni d
 |---------|---------|---------|---------|---------|
 |100         | 100     | Fino a 300     | 66   | 44   |
 |500         | 500     | Fino a 1.500   | 90   | 60   |
-|1\.024       | 1\.024   | Fino a 3.072   | 122   | 81   |
+|1024       | 1024   | Fino a 3.072   | 122   | 81   |
 |5120       | 5120   | Fino a 15.360  | 368   | 245   |
 |10.240      | 10.240  | Fino a 30.720  | 675 | 450   |
 |33.792      | 33.792  | Fino a 100.000 | 2\.088 | 1\.392   |
 |51.200      | 51.200  | Fino a 100.000 | 3\.132 | 2\.088   |
-|102.400     | 100,000 | Fino a 100.000 | 6\.204 | 4\.136   |
+|102.400     | 100.000 | Fino a 100.000 | 6\.204 | 4\.136   |
 
 > [!NOTE]
 > Le prestazioni delle condivisioni file sono soggette a limiti di rete del computer, larghezza di banda di rete disponibile, dimensioni i/o, parallelismo, tra molti altri fattori. Per ottenere la massima scalabilità delle prestazioni, suddividere il carico tra più macchine virtuali. Consultare la [Guida alla risoluzione dei](storage-troubleshooting-files-performance.md) problemi relativi a problemi di prestazioni e soluzioni alternative comuni.
@@ -199,25 +199,29 @@ Questa sezione si applica solo alle condivisioni file standard. Tutte le condivi
 
 - CON ridondanza locale/ZRS alla conversione dell'account GRS/GZRS non sarà possibile per qualsiasi account di archiviazione con condivisioni file di grandi dimensioni abilitate.
 
-### <a name="regional-availability"></a>Disponibilità a livello di area
+### <a name="regional-availability"></a>Disponibilità internazionale
 
 Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In determinate aree sono disponibili con un limite di 100 TiB, le aree sono elencate nella tabella seguente:
 
-|Area geografica |Ridondanza supportata |
+|Area |Ridondanza supportata |
 |-------|---------|
-|Australia orientale |LRS     |
-|Australia sud-orientale|LRS |
-|Canada centrale  |LRS     |
-|India centrale  |LRS     |
-|Asia orientale      |LRS     |
-|Stati Uniti orientali *        |LRS     |
+|Australia orientale |Archiviazione con ridondanza locale     |
+|Australia sudorientale|Archiviazione con ridondanza locale |
+|Canada centrale  |Archiviazione con ridondanza locale     |
+|Canada orientale     |Archiviazione con ridondanza locale     |
+|India centrale  |Archiviazione con ridondanza locale     |
+|Stati Uniti centrali *   |Archiviazione con ridondanza locale     |
+|Asia orientale      |Archiviazione con ridondanza locale     |
+|Stati Uniti orientali *        |Archiviazione con ridondanza locale     |
+|Stati Uniti orientali 2 *      |Archiviazione con ridondanza locale     |
 |Francia centrale |CON RIDONDANZA LOCALE, ZRS|
-|Francia meridionale   |LRS     |
-|India meridionale    |LRS     |
-|Asia sud-orientale |CON RIDONDANZA LOCALE, ZRS|
-|Stati Uniti centro-occidentali|LRS     |
+|Francia meridionale   |Archiviazione con ridondanza locale     |
+|Europa settentrionale   |Archiviazione con ridondanza locale     |
+|India meridionale    |Archiviazione con ridondanza locale     |
+|Asia sudorientale |CON RIDONDANZA LOCALE, ZRS|
+|Stati Uniti centro-occidentali|Archiviazione con ridondanza locale     |
 |Europa occidentale *    |CON RIDONDANZA LOCALE, ZRS|
-|Stati Uniti occidentali *        |LRS     |
+|Stati Uniti occidentali *        |Archiviazione con ridondanza locale     |
 |Stati Uniti occidentali 2      |CON RIDONDANZA LOCALE, ZRS|
 
 \* supportato per i nuovi account, non tutti gli account esistenti hanno completato il processo di aggiornamento. È possibile verificare se gli account di archiviazione esistenti hanno completato il processo di aggiornamento tentando di [abilitare condivisioni file di grandi dimensioni](storage-files-how-to-create-large-file-share.md).

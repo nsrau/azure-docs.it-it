@@ -1,5 +1,5 @@
 ---
-title: Monitorare gli eventi pianificati per le macchine virtuali Windows in Azure | Microsoft Docs
+title: Monitorare gli eventi pianificati per le macchine virtuali Windows in Azure
 description: Informazioni su come monitorare le macchine virtuali di Azure per gli eventi pianificati.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: d090fb52beb266f006e69688c09f66412f1fe8c2
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1cda07c18e4f5ef2a8c00b6a275f22ecc0935751
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376204"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073309"
 ---
 # <a name="monitoring-scheduled-events"></a>Eventi pianificati di monitoraggio
 
@@ -32,7 +32,7 @@ In questo articolo verrà illustrato come acquisire Eventi pianificati di manute
 
 ![Diagramma che mostra il ciclo di vita dell'evento](./media/notifications/events.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per questo esempio, sarà necessario creare una [macchina virtuale Windows in un set di disponibilità](tutorial-availability-sets.md). Eventi pianificati forniscono notifiche sulle modifiche che possono influire su qualsiasi macchina virtuale nel set di disponibilità, nel servizio cloud, nel set di scalabilità di macchine virtuali o nelle VM autonome. Verrà eseguito un [servizio](https://github.com/microsoft/AzureScheduledEventsService) che esegue il polling degli eventi pianificati in una delle macchine virtuali che fungeranno da agente di raccolta, per ottenere gli eventi per tutte le altre macchine virtuali nel set di disponibilità.    
 
@@ -61,7 +61,7 @@ New-AzVm `
 
 Scaricare il file zip di installazione del progetto da [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
 
-Connettersi a **myCollectorVM** e copiare il file con estensione zip nella macchina virtuale ed estrarre tutti i file. Nella macchina virtuale aprire un prompt di PowerShell. Spostare il prompt nella cartella che contiene `SchService.ps1`, ad esempio: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`, e configurare il servizio.
+Connettersi a **myCollectorVM** e copiare il file con estensione zip nella macchina virtuale ed estrarre tutti i file. Nella macchina virtuale aprire un prompt di PowerShell. Spostare il prompt nella cartella contenente `SchService.ps1`, ad esempio: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`e configurare il servizio.
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -81,7 +81,7 @@ Convalidare lo stato del servizio e verificare che sia in esecuzione.
 .\SchService.ps1 -status  
 ```
 
-Questa operazione deve restituire `Running`.
+Questa operazione dovrebbe restituire `Running`.
 
 Il servizio avvierà ora il polling ogni 10 secondi per tutti gli eventi pianificati e approverà gli eventi per velocizzare la manutenzione.  Il blocco, il riavvio, la ridistribuzione e l'interruzione sono gli eventi acquisiti dagli eventi di pianificazione. È possibile estendere lo script per attivare alcune attenuazioni prima di approvare l'evento.
 
@@ -157,9 +157,9 @@ Una volta effettuato il push degli eventi in Log Analytics, è possibile eseguir
 
     ![Salvare la query](./media/notifications/save-query.png)
 
-1. Selezionare **nuova regola di avviso**. 
+1. Seleziona **Nuova regola di avviso**. 
 1. Nella pagina **Crea regola** lasciare `collectorworkspace` come **risorsa**.
-1. In **condizione**selezionare la voce *ogni volta che la ricerca log del cliente è <login undefined>* . Viene visualizzata la pagina **Configura logica di segnalazione** .
+1. In **condizione**selezionare la voce *ogni volta che viene <login undefined>la ricerca dei log del cliente* . Viene visualizzata la pagina **Configura logica di segnalazione** .
 1. In **valore soglia**immettere *0* e quindi fare clic su **fine**.
 1. In **azioni**selezionare **Crea gruppo di azioni**. Viene visualizzata la pagina **Aggiungi gruppo di azioni** .
 1. Digitare *myActionGroup*in **nome gruppo di azioni**.

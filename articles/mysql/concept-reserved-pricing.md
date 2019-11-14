@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: e3b4249aa9fbc31f8a6ca4a33ef8167bd076adec
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 595a96d07cc1804d3ee0830618a70557b768a3b5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609177"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067098"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Pagamento anticipato per le risorse di calcolo per database di Azure per MySQL con capacità riservata
 
@@ -32,7 +32,7 @@ Per informazioni dettagliate sul modo in cui gli acquisti di prenotazioni vengon
 
 Le dimensioni della prenotazione devono essere basate sulla quantità totale di risorse di calcolo usate dal server esistente o presto distribuito in un'area specifica e usando lo stesso livello di prestazioni e la stessa generazione dell'hardware.</br>
 
-Si supponga, ad esempio, di eseguire un database MySQL quinta generazione-32 vCore e due database MySQL con ottimizzazione per la memoria, quinta generazione-16 vCore. Si supponga, inoltre, di pianificare la distribuzione nel prossimo mese per un ulteriore utilizzo generico, quinta generazione – 32 vCore Elastic pool e un server di database con ottimizzazione per la memoria, quinta generazione – 16 vCore. Supponiamo che tu sappia che ti serviranno queste risorse per almeno un anno. In questo caso, è necessario acquistare una prenotazione di 64 (2x32) Vcore, 1 anno per utilizzo generico per database singolo-quinta generazione e una prenotazione 48 (2x16 + 16) vCore 1 anno per l'ottimizzazione della memoria per database singolo-quinta generazione
+Si supponga, ad esempio, di eseguire un database MySQL quinta generazione-32 vCore e due database MySQL con ottimizzazione per la memoria, quinta generazione-16 vCore. Si supponga, inoltre, di pianificare la distribuzione entro il prossimo mese con un server di database vCore, quinta generazione – 32 e un server di database con ottimizzazione per la memoria, quinta generazione – 16 vCore. Supponiamo che tu sappia che ti serviranno queste risorse per almeno un anno. In questo caso, è necessario acquistare una prenotazione di 64 (2x32) Vcore, 1 anno per utilizzo generico per database singolo-quinta generazione e una prenotazione 48 (2x16 + 16) vCore 1 anno per l'ottimizzazione della memoria per database singolo-quinta generazione
 
 
 ## <a name="buy-azure-database-for-mysql-reserved-capacity"></a>Acquistare la capacità riservata per database di Azure per MySQL
@@ -48,11 +48,11 @@ Si supponga, ad esempio, di eseguire un database MySQL quinta generazione-32 vCo
 
 Nella tabella seguente vengono descritti i campi obbligatori.
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 | :------------ | :------- |
-| Sottoscrizione   | Sottoscrizione usata per pagare la prenotazione di capacità riservata per database di Azure per MySQL. Il metodo di pagamento per la sottoscrizione viene addebitato ai costi iniziali per la prenotazione di capacità riservata del database di Azure per MySQL. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.
-| Scope | L'ambito della prenotazione di vCore può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: </br></br> **Condiviso**, lo sconto di prenotazione vCore viene applicato al database di Azure per i server MySQL in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</br></br> **Sottoscrizione singola**, lo sconto di prenotazione vCore viene applicato al database di Azure per i server MySQL in questa sottoscrizione. </br></br> **Gruppo di risorse singolo**, lo sconto relativo alla prenotazione viene applicato al database di Azure per i server MySQL nella sottoscrizione selezionata e al gruppo di risorse selezionato all'interno di tale sottoscrizione.
-| Region | Area di Azure coperta dalla prenotazione di capacità riservata del database di Azure per MySQL.
+| sottoscrizione   | Sottoscrizione usata per pagare la prenotazione di capacità riservata per database di Azure per MySQL. Il metodo di pagamento per la sottoscrizione viene addebitato ai costi iniziali per la prenotazione di capacità riservata del database di Azure per MySQL. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.
+| Ambito | L'ambito della prenotazione di vCore può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: </br></br> **Condiviso**, lo sconto di prenotazione vCore viene applicato al database di Azure per i server MySQL in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</br></br> **Sottoscrizione singola**, lo sconto di prenotazione vCore viene applicato al database di Azure per i server MySQL in questa sottoscrizione. </br></br> **Gruppo di risorse singolo**, lo sconto relativo alla prenotazione viene applicato al database di Azure per i server MySQL nella sottoscrizione selezionata e al gruppo di risorse selezionato all'interno di tale sottoscrizione.
+| Area | Area di Azure coperta dalla prenotazione di capacità riservata del database di Azure per MySQL.
 | Tipo di distribuzione | Il tipo di risorsa database di Azure per MySQL per cui si vuole acquistare la prenotazione.
 | Livello di prestazioni | Livello di servizio per il database di Azure per i server MySQL.
 | Termine | Un anno

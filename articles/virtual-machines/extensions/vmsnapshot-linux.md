@@ -1,5 +1,5 @@
 ---
-title: Estensione VM Snapshot Linux per Backup di Azure | Microsoft Docs
+title: Estensione VM Snapshot Linux per Backup di Azure
 description: Effettuare un backup coerente dell'applicazione della macchina virtuale da Azure Backup usando l'estensione di VM Snapshot
 services: backup, virtual-machines-linux
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: e0e959647231fb87c023dcb5c4c48a205259de74
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 186468119fb5b630b56a91b38026f202b98630d6
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705855"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072916"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Estensione VM Snapshot Linux per Backup di Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "67705855"
 
 Backup di Azure fornisce supporto per il backup dei carichi di lavoro da locale al cloud e il backup delle risorse cloud nell'insieme di credenziali dei servizi di ripristino. Backup di Azure usa l'estensione VM Snapshot per eseguire un backup coerente dell'applicazione della macchina virtuale di Azure senza la necessità di arrestare la macchina virtuale. L'estensione VM Snapshot di Linux è pubblicata e supportata da Microsoft come parte del servizio Backup di Azure. Backup di Azure installerà l'estensione come parte del primo backup pianificato attivato dopo l'abilitazione del backup. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione VM Snapshot.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 ### <a name="operating-system"></a>Sistema operativo
 Per un elenco dei sistemi operativi supportati, consultare i [sistemi operativi supportati da Backup di Azure](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
@@ -34,7 +34,7 @@ Per l'estensione VM Snapshot è necessario che la macchina virtuale di destinazi
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
-Il codice JSON riportato di seguito mostra lo schema dell'estensione VM Snapshot. L'estensione richiede l'ID dell'attività (che identifica il processo di backup che ha attivato lo snapshot sulla VM), lo stato dell'URI del BLOB (in cui viene scritto lo stato dell'operazione dello snapshot), l'ora di inizio pianificata dello snapshot, l'URI del BLOB dei log (dove vengono scritti i log corrispondenti all'attività dello snapshot), la rappresentazione dei dischi di macchine virtuali objectStr e i metadati.  Poiché queste impostazioni devono essere trattate come dati sensibili, devono essere memorizzate in una configurazione protetta. I dati della configurazione protetta dell'estensione macchina virtuale di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione. Si consiglia di passare queste impostazioni dal servizio di Backup di Azure solo come parte del processo di backup.
+Il codice JSON riportato di seguito mostra lo schema dell'estensione VM Snapshot. L'estensione richiede l'ID dell'attività (che identifica il processo di backup che ha attivato lo snapshot sulla VM), lo stato dell'URI del BLOB (in cui viene scritto lo stato dell'operazione dello snapshot), l'ora di inizio pianificata dello snapshot, l'URI del BLOB dei log (dove vengono scritti i log corrispondenti all'attività dello snapshot), la rappresentazione dei dischi di macchine virtuali objectStr e i metadati.  Poiché queste impostazioni devono essere trattate come dati sensibili, devono essere memorizzate in una configurazione protetta. I dati della configurazione protetta dell'estensione macchina virtuale di Azure sono crittografati e vengono decrittografati solo nella macchina virtuale di destinazione. Si consiglia di passare queste impostazioni dal servizio di Backup di Azure solo come parte del processo di backup.
 
 ```json
 {
@@ -64,7 +64,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione VM Snapshot
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| NOME | Valore/Esempio | Tipo di dati |
+| Nome | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | stringa |
@@ -95,9 +95,9 @@ az backup protection enable-for-vm \
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere problemi
+### <a name="troubleshoot"></a>Risolvere i problemi
 
-I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata VM, eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
+I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
@@ -115,4 +115,4 @@ Le informazioni sulla risoluzione dei problemi possono essere consultate nella [
 
 ### <a name="support"></a>Supporto
 
-Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).

@@ -1,19 +1,19 @@
 ---
-title: Configurare i criteri SSL nel gateway applicazione di Azure - PowerShell
+title: Configurare i criteri SSL con PowerShell
+titleSuffix: Azure Application Gateway
 description: Questo articolo contiene istruzioni per configurare i criteri SSL nel gateway applicazione di Azure
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/3/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 5c881a42cdd6fd76c591cf12b341fd777d18baea
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 105b0b3e40e6e9433ee456914cd5babc1d17d036
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018256"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075241"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurare i pacchetti di crittografia e le versioni dei criteri SSL nel gateway applicazione
 

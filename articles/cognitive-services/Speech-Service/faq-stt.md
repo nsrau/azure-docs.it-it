@@ -1,7 +1,7 @@
 ---
 title: Domande frequenti sul Servizio di riconoscimento vocale in Azure
 titleSuffix: Azure Cognitive Services
-description: Di seguito sono riportate le risposte alle domande più frequenti sul Servizio di riconoscimento vocale.
+description: Risposte alle domande frequenti sul servizio di sintesi vocale.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: 2d0a05c763b21b0cf22a724f9a5faa9d70b5b557
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f03a937aff17c6ee622f3b5ab6045f912b51bbf2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010651"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072586"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
@@ -25,7 +25,7 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 **D: Qual è la differenza tra un modello di base e un modello di riconoscimento vocale personalizzato?**
 
-**R**: Un modello di base è stato sottoposto a training con dati di proprietà di Microsoft ed è già stato distribuito nel cloud.  È possibile usare un modello personalizzato per adattare un modello a un determinato ambiente con una lingua o rumori di fondo particolari. Fabbriche, automobili o strade rumorose richiederebbero un modello acustico adattato. Argomenti come biologia, fisica, radiologia, nomi di prodotti e acronimi personalizzati richiederebbero un modello di lingua adattato.
+**R**: Un modello di base è stato sottoposto a training con dati di proprietà di Microsoft ed è già stato distribuito nel cloud. È possibile usare un modello personalizzato per adattare un modello a un determinato ambiente con una lingua o rumori di fondo particolari. Fabbriche, automobili o strade rumorose richiederebbero un modello acustico adattato. Argomenti come biologia, fisica, radiologia, nomi di prodotti e acronimi personalizzati richiederebbero un modello di lingua adattato.
 
 **D: Da dove è necessario iniziare per usare un modello di base?**
 
@@ -123,13 +123,13 @@ oppure
 
 **R**: Il limite attuale per un set di dati è 2 GB. Tale limite è dovuto ai vincoli di dimensione dei file per il caricamento HTTP.
 
-**D**: È possibile comprimere i file di testo per poter caricare file più grandi? 
+**D**: È possibile comprimere i file di testo per poter caricare file più grandi?
 
 **R**: No. Attualmente sono ammessi solo file di testo non compressi.
 
 **D: il rapporto dati indica che sono presenti espressioni non riuscite. Qual è il problema?**
 
-**R**: Se non viene caricato il 100% delle espressioni di un file, non è un problema. Se la grande maggioranza, ad esempio più del 95%, delle espressioni in un set di dati acustico o linguistico viene importata correttamente, il set di dati può essere utilizzabile. È tuttavia consigliabile cercare di comprendere il motivo dell'esito negativo delle espressioni e risolvere i problemi. I problemi più comuni, ad esempio gli errori di formattazione, sono facili da risolvere. 
+**R**: Se non viene caricato il 100% delle espressioni di un file, non è un problema. Se la grande maggioranza, ad esempio più del 95%, delle espressioni in un set di dati acustico o linguistico viene importata correttamente, il set di dati può essere utilizzabile. È tuttavia consigliabile cercare di comprendere il motivo dell'esito negativo delle espressioni e risolvere i problemi. I problemi più comuni, ad esempio gli errori di formattazione, sono facili da risolvere.
 
 ## <a name="creating-an-acoustic-model"></a>Creazione di un modello acustico
 
@@ -139,11 +139,11 @@ oppure
 
 **D: Quali dati è necessario raccogliere?**
 
-**R**: Raccogliere dati più vicini possibile allo scenario e al caso d'uso dell'applicazione. La raccolta dei dati deve corrispondere all'applicazione e agli utenti di destinazione in termini di dispositivo o dispositivi, ambienti e tipi di parlanti. In genere, è consigliabile raccogliere dati dalla più ampia varietà di parlanti possibile. 
+**R**: Raccogliere dati più vicini possibile allo scenario e al caso d'uso dell'applicazione. La raccolta dei dati deve corrispondere all'applicazione e agli utenti di destinazione in termini di dispositivo o dispositivi, ambienti e tipi di parlanti. In genere, è consigliabile raccogliere dati dalla più ampia varietà di parlanti possibile.
 
 **D: Come si deve raccogliere i dati acustici?**
 
-**R**: È possibile creare un'applicazione di raccolta dati autonoma o usare un software di registrazione audio standard. È anche possibile creare una versione dell'applicazione in grado di registrare e quindi usare i dati audio. 
+**R**: È possibile creare un'applicazione di raccolta dati autonoma o usare un software di registrazione audio standard. È anche possibile creare una versione dell'applicazione in grado di registrare e quindi usare i dati audio.
 
 **D: È necessario trascrivere personalmente i dati di adattamento?**
 
@@ -167,7 +167,7 @@ oppure
 
 **R**: I risultati mostrano un confronto tra il modello di base e quello personalizzato. Perché la personalizzazione sia proficua, è necessario che sia più efficiente del modello di base.
 
-**D: Come si determina la frequenza degli errori di parola di un modello di base in modo da rendersi conto se c'è stato un miglioramento?** 
+**D: Come si determina la frequenza degli errori di parola di un modello di base in modo da rendersi conto se c'è stato un miglioramento?**
 
 **R**: I risultati dei test offline mostrano l'accuratezza di base del modello personalizzato e il miglioramento rispetto al modello di base.
 
@@ -179,21 +179,21 @@ oppure
 
 **D: È possibile caricare semplicemente un elenco di parole?**
 
-**R**: Il caricamento di un elenco di parole consente di aggiungere le parole nel vocabolario ma non di insegnare al sistema come le parole stesse vengono generalmente usate. Se si specificano espressioni complete o parziali, ovvero frasi o espressioni di probabile uso da parte degli utenti, il modello linguistico può apprendere le nuove parole e come vengono usate. Il modello linguistico personalizzato è utile non solo per aggiungere nuove parole nel sistema ma anche per modificare la probabilità di parole note per l'applicazione. L'indicazione di espressioni complete favorisce l'apprendimento da parte del sistema. 
+**R**: Il caricamento di un elenco di parole consente di aggiungere le parole nel vocabolario ma non di insegnare al sistema come le parole stesse vengono generalmente usate. Se si specificano espressioni complete o parziali, ovvero frasi o espressioni di probabile uso da parte degli utenti, il modello linguistico può apprendere le nuove parole e come vengono usate. Il modello linguistico personalizzato è utile non solo per aggiungere nuove parole nel sistema ma anche per modificare la probabilità di parole note per l'applicazione. L'indicazione di espressioni complete favorisce l'apprendimento da parte del sistema.
 
 ## <a name="tenant-model-custom-speech-with-office-365-data"></a>Modello tenant (Riconoscimento vocale personalizzato con i dati di Office 365)
 
 **D: quali informazioni sono incluse nel modello tenant e come viene creata?**
 
-**R:** Un modello tenant viene compilato tramite messaggi di posta elettronica e documenti di [gruppo pubblici](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) che possono essere visualizzati da chiunque nell'organizzazione. 
- 
+**R:** Un modello tenant viene compilato tramite messaggi di posta elettronica e documenti di [gruppo pubblici](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) che possono essere visualizzati da chiunque nell'organizzazione.
+
 **D: quali esperienze vocali sono migliorate con il modello tenant?**
 
-**R:** Quando il modello tenant è abilitato, creato e pubblicato, viene utilizzato per migliorare il riconoscimento per tutte le applicazioni aziendali compilate mediante il servizio di riconoscimento vocale. che passa anche un token AAD utente che indica l'appartenenza all'azienda.
+**R:** Quando il modello tenant è abilitato, creato e pubblicato, viene utilizzato per migliorare il riconoscimento per tutte le applicazioni aziendali compilate mediante il servizio di riconoscimento vocale. che passano anche un token AAD utente che indica l'appartenenza all'azienda.
 
 Le esperienze di sintesi vocale integrate in Office 365, ad esempio la dettatura e la didascalia di PowerPoint, non vengono modificate quando si crea un modello tenant per le applicazioni di servizio vocale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Risoluzione dei problemi](troubleshooting.md)
-* [Note sulla versione](releasenotes.md)
+- [Risoluzione dei problemi](troubleshooting.md)
+- [Note sulla versione](releasenotes.md)

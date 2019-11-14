@@ -1,7 +1,7 @@
 ---
 title: Invio di richieste all'API Suggerimenti automatici Bing
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come inviare richieste all'API Suggerimenti automatici Bing.
+description: L'API Suggerimenti automatici Bing restituisce un elenco di query suggerite basate sulla stringa di query parziale immessa nella casella di ricerca. Altre informazioni sull'invio di richieste.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: dbc8e2ccbd0a9d8c395a3b4e8a95e4e51f152792
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d479548e682e814345e13d9416d08ec453f90304
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882430"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072854"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Invio di richieste all'API Suggerimenti automatici Bing.
 
@@ -35,7 +35,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
 Per maggiori dettagli su intestazioni, parametri, codici di mercato, oggetti risposta, errori e altro ancora, vedere il riferimento per l'[API Suggerimenti automatici Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference).
 
-Le API **Bing** supportano azioni di ricerca che restituiscono risultati in base al tipo. Tutti gli endpoint di ricerca restituiscono risultati come oggetti della risposta JSON.
+Le API **Bing** supportano azioni di ricerca che restituiscono risultati in base al loro tipo. Tutti gli endpoint di ricerca restituiscono i risultati come oggetti risposta JSON.
 Tutti gli endpoint supportano query che restituiscono una posizione e/o una lingua specifica in base a longitudine, latitudine e raggio di ricerca.
 
 Per informazioni complete sui parametri supportati da ogni endpoint, vedere le pagine di riferimento per ogni tipo.
@@ -66,7 +66,7 @@ Per un elenco di tutte le intestazioni di richiesta e risposta, vedere [Headers]
 
 Per risolvere il problema, è possibile inviare la richiesta all'API Suggerimenti automatici Bing tramite un proxy CORS. La risposta da un proxy di questo tipo contiene un'intestazione `Access-Control-Expose-Headers` che inserisce le intestazioni della risposta nell'elenco elementi consentiti e le rende disponibili per JavaScript.
 
-Si può installare facilmente un proxy CORS per consentire all'[app dell'esercitazione](../tutorials/autosuggest.md) di accedere alle intestazioni client facoltative. Per prima cosa [installare Node.js](https://nodejs.org/en/download/), se non è già disponibile. Immettere quindi il comando seguente al prompt dei comandi.
+Si può installare facilmente un proxy CORS per consentire all'[app dell'esercitazione](../tutorials/autosuggest.md) di accedere alle intestazioni client facoltative. Se non è disponibile, per prima cosa [installare Node.js](https://nodejs.org/en/download/). Immettere quindi il comando seguente al prompt dei comandi.
 
     npm install -g cors-proxy-server
 
@@ -78,7 +78,7 @@ Avviare infine il proxy CORS con il comando seguente:
 
     cors-proxy-server
 
-Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile visualizzare l'intestazione `X-MSEdge-ClientID` (tra le altre) e verificare che sia la stessa per ogni richiesta.
+Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione espandibile delle intestazioni HTTP sotto i risultati della ricerca viene ora visualizzata, tra le altre, l'intestazione `X-MSEdge-ClientID`. Verificare che sia la stessa per ogni richiesta.
 
 Le richieste devono includere tutte le intestazioni e tutti i parametri di query suggeriti. 
 

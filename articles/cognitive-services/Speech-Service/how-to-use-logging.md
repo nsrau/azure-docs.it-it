@@ -1,7 +1,7 @@
 ---
 title: Registrazione dell'SDK vocale-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Abilitare la registrazione nell'SDK di riconoscimento vocale.
+description: Informazioni su come abilitare la registrazione nell'SDK di riconoscimento vocaleC++( C#,, Python, Objective-C, Java).
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: 31ff21e33860f75d91d01e80e3ee77bd7192f780
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 58f6c97ac819947f84735bc0bc4c125b43db58dc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559488"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075793"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Abilitare la registrazione nell'SDK di riconoscimento vocale
 
-La registrazione nel file è una funzionalità facoltativa per l'SDK di riconoscimento vocale. Durante la registrazione dello sviluppo fornisce informazioni e diagnostica aggiuntive dai componenti di base di Speech SDK. Può essere abilitata impostando la proprietà `Speech_LogFilename` su un oggetto di configurazione vocale sul percorso e il nome del file di log. La registrazione verrà attivata globalmente una volta che un riconoscimento viene creato da tale configurazione e non può essere disabilitato in seguito. Non è possibile modificare il nome di un file di log durante una sessione di registrazione in esecuzione.
+La registrazione nel file è una funzionalità facoltativa per l'SDK di riconoscimento vocale. Durante la registrazione dello sviluppo fornisce informazioni e diagnostica aggiuntive dai componenti di base di Speech SDK. Può essere abilitata impostando la proprietà `Speech_LogFilename` in un oggetto di configurazione vocale sul percorso e il nome del file di log. La registrazione verrà attivata globalmente una volta che un riconoscimento viene creato da tale configurazione e non può essere disabilitato in seguito. Non è possibile modificare il nome di un file di log durante una sessione di registrazione in esecuzione.
 
 > [!NOTE]
 > La registrazione è disponibile dalla versione dell'SDK vocale 1.4.0 in tutti i linguaggi di programmazione dell'SDK vocale supportati, ad eccezione di JavaScript.
 
 ## <a name="sample"></a>Esempio
 
-Il nome del file di log viene specificato in un oggetto di configurazione. Prendendo come esempio e supponendo che sia stata creata un'istanza denominata `config`: `SpeechConfig`
+Il nome del file di log viene specificato in un oggetto di configurazione. Prendendo il `SpeechConfig` come esempio e supponendo che sia stata creata un'istanza denominata `config`:
 
 ```csharp
 config.SetProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
@@ -51,7 +51,7 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 È possibile creare un riconoscimento dall'oggetto config. In questo modo verrà abilitata la registrazione per tutti i riconoscitori.
 
 > [!NOTE]
-> Se si crea un `SpeechSynthesizer` oggetto dall'oggetto config, non verrà abilitata la registrazione. Se la registrazione è abilitata, verrà inoltre ricevuta la `SpeechSynthesizer`diagnostica da.
+> Se si crea un `SpeechSynthesizer` dall'oggetto config, non verrà abilitata la registrazione. Se la registrazione è abilitata, tuttavia, si riceverà anche la diagnostica dal `SpeechSynthesizer`.
 
 ## <a name="create-a-log-file-on-different-platforms"></a>Creare un file di log su piattaforme diverse
 
@@ -81,7 +81,7 @@ config.setProperty(PropertyId.Speech_LogFilename, logFile.getAbsolutePath());
 
 Il codice precedente consente di salvare un file di log nella risorsa di archiviazione esterna nella radice di una directory specifica dell'applicazione. Un utente può accedere al file con gestione file (in genere in `Android/data/ApplicationName/logfile.txt`). Il file verrà eliminato quando l'applicazione viene disinstallata.
 
-È anche necessario richiedere `WRITE_EXTERNAL_STORAGE` l'autorizzazione nel file manifesto:
+È anche necessario richiedere l'autorizzazione `WRITE_EXTERNAL_STORAGE` nel file manifesto:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="...">
@@ -104,7 +104,7 @@ NSString *filePath = [
 [speechConfig setPropertyTo:filePath byId:SPXSpeechLogFilename];
 ```
 
-Per accedere a un file creato, aggiungere le proprietà seguenti all' `Info.plist` elenco di proprietà dell'applicazione:
+Per accedere a un file creato, aggiungere le proprietà seguenti all'elenco di proprietà `Info.plist` dell'applicazione:
 
 ```xml
 <key>UIFileSharingEnabled</key>

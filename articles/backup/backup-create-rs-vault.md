@@ -1,6 +1,6 @@
 ---
-title: 'Backup di Azure: Creare insiemi di credenziali dei servizi di ripristino'
-description: creazione di insiemi di credenziali dei servizi di ripristino in cui vengono archiviati i backup e i punti di ripristino
+title: 'Backup di Azure: creare insiemi di credenziali dei servizi di ripristino'
+description: Questo articolo illustra come creare insiemi di credenziali dei servizi di ripristino in cui archiviare i backup e i punti di ripristino.
 ms.reviewer: sogup
 author: dcurwin
 manager: carmonm
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: d13aff40d735e98e7745358f8caddcd8cdc20727
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 30e2f8812b14f27b57ef22e30aea89f19fa56e58
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688550"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074871"
 ---
 # <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -22,7 +22,7 @@ Un insieme di credenziali dei Servizi di ripristino è un'entità che archivia i
 
 Per creare un insieme di credenziali dei servizi di ripristino:
 
-1. Accedere alla propria sottoscrizione nel [portale di Azure](https://portal.azure.com/).
+1. Accedere alla sottoscrizione nel [portale di Azure](https://portal.azure.com/).
 
 2. Nel menu a sinistra selezionare **Tutti i servizi**.
 
@@ -32,7 +32,7 @@ Per creare un insieme di credenziali dei servizi di ripristino:
 
     ![Inserire e selezionare le insiemi di credenziali di Servizi di ripristino](./media/backup-create-rs-vault/all-services.png)
 
-    Viene visualizzato l'elenco degli insiemi di credenziali di Servizi di ripristino.
+    Verrà visualizzato l'elenco degli insiemi di credenziali di Servizi di ripristino nella sottoscrizione.
 
 4. Nel dashboard di **Insiemi di credenziali dei Servizi di ripristino** selezionare **Aggiungi**.
 
@@ -43,9 +43,9 @@ Per creare un insieme di credenziali dei servizi di ripristino:
     ![Configurare l'insieme di credenziali di Servizi di ripristino](./media/backup-create-rs-vault/create-new-vault-dialog.png)
 
    - **Nome**: immettere un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco nella sottoscrizione di Azure. Specificare un nome che contiene almeno due caratteri, ma non più di 50. Il nome deve iniziare con una lettera e deve contenere solo lettere, numeri e trattini.
-   - **Sottoscrizione** scegliere la sottoscrizione da usare. Se si è un membro di una sola sottoscrizione, verrà visualizzato tale nome. Se non si è certi della sottoscrizione da usare, scegliere quella predefinita (consigliato). Sono disponibili più opzioni solo se l'account aziendale o dell'istituto di istruzione è associato a più sottoscrizioni di Azure.
-   - **Gruppo di risorse**: Usare un gruppo di risorse esistente oppure crearne uno nuovo. Selezionare **Usa esistente** e nell'elenco a discesa scegliere una risorsa per visualizzare l'elenco di gruppi di risorse disponibili nella sottoscrizione. Per creare un nuovo gruppo di risorse, selezionare **Crea nuovo** e inserire il nome. Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
-   - **Località**: selezionare l'area geografica per l'insieme di credenziali. Se si crea un insieme di credenziali per proteggere le macchine virtuali, l'insieme di credenziali **deve** trovarsi nella stessa area delle macchine virtuali.
+   - **Sottoscrizione**: scegliere la sottoscrizione da usare. Se si è un membro di una sola sottoscrizione, verrà visualizzato tale nome. Se non si è certi della sottoscrizione da usare, scegliere quella predefinita (consigliato). Sono disponibili più opzioni solo se l'account aziendale o dell'istituto di istruzione è associato a più sottoscrizioni di Azure.
+   - **Gruppo di risorse**: usare un gruppo di risorse esistente oppure crearne uno nuovo. Selezionare **Usa esistente** e nell'elenco a discesa scegliere una risorsa per visualizzare l'elenco di gruppi di risorse disponibili nella sottoscrizione. Per creare un nuovo gruppo di risorse, selezionare **Crea nuovo** e inserire il nome. Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+   - **Posizione**: selezionare l'area geografica per l'insieme di credenziali. Se si crea un insieme di credenziali per proteggere le macchine virtuali, l'insieme di credenziali **deve** trovarsi nella stessa area delle macchine virtuali.
 
       > [!IMPORTANT]
       > Se non si è certi della posizione della macchina virtuale, chiudere la finestra di dialogo. Passare all'elenco di macchine virtuali nel portale. Se si dispone di macchine virtuali in più aree, creare un insieme di credenziali di Servizi di ripristino in ogni area. Creare l'insieme di credenziali nella prima posizione prima di creare l'insieme di credenziali per un'altra posizione. Non è necessario specificare gli account di archiviazione per archiviare i dati di backup. Questo aspetto viene gestito automaticamente dall'insieme di credenziali dei servizi di ripristino e dal servizio Backup di Azure.
@@ -76,7 +76,7 @@ Backup di Azure gestisce automaticamente lo spazio di archiviazione per l'insiem
    - Altre informazioni sulla [ridondanza geografica](../storage/common/storage-redundancy-grs.md) e [locale](../storage/common/storage-redundancy-lrs.md) .
 
 > [!NOTE]
-> Per modificare il **tipo di replica di archiviazione** (con ridondanza locale o con ridondanza geografica) per un insieme di credenziali di servizi di ripristino, è necessario eseguire prima di configurare i backup nell'insieme di credenziali. Dopo aver configurato il backup, l'opzione per la modifica è disabilitata e non è possibile modificare il **tipo di replica di archiviazione**. 
+> Per modificare il **tipo di replica di archiviazione** (con ridondanza locale o con ridondanza geografica) per un insieme di credenziali di servizi di ripristino, è necessario eseguire prima di configurare i backup nell'insieme di credenziali. Dopo aver configurato il backup, l'opzione per la modifica è disabilitata e non è possibile modificare il **tipo di replica di archiviazione**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

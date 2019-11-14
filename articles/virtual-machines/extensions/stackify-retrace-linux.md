@@ -1,5 +1,5 @@
 ---
-title: Estensione dell'agente Linux di Azure dello Stackify Retrace | Microsoft Docs
+title: Estensione dell'agente Linux di Azure per la ritraccia Stackify
 description: Distribuire l'agente Linux di Stackify Retrace in una macchina virtuale di Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
-ms.openlocfilehash: 2278f1bef3a72408b097f9a2d676931fd07369f4
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173970"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073630"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Estensione dell'agente Linux dello Stackify Retrace
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Stackify fornisce i prodotti che rilevano i dettagli relativi all'applicazione per individuare e risolvere rapidamente i problemi. Per i team di sviluppatori, Retrace è una super potenza dalle prestazioni delle app completamente integrate e multi-ambiente. Combina diversi strumenti di cui ogni team di sviluppatori ha bisogno.
 
@@ -37,13 +37,13 @@ Retrace è il SOLO strumento che offre tutte le seguenti funzionalità per tutti
 
 Questa estensione fornisce un percorso di installazione per l'agente Linux per Retrace. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 ### <a name="operating-system"></a>Sistema operativo 
 
 L'agente di Retrace può essere eseguito in queste distribuzioni di Linux
 
-| Distribuzione | Versione |
+| Distribuzione | Version |
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS, 16.10 e 17.04 |
 | Debian | 7.9+, 8.2+ e 9 |
@@ -87,7 +87,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione dell'agente
     }      
 ```
 
-## <a name="template-deployment"></a>Distribuzione modello 
+## <a name="template-deployment"></a>Distribuzione del modello 
 
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. Lo schema JSON indicato nella sezione precedente può essere usato in un modello di Azure Resource Manager per eseguire l'estensione agente Linux di Stackify Retrace durante la distribuzione di un modello di Azure Resource Manager.  
 
@@ -183,7 +183,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 
 ### <a name="error-codes"></a>Codici di errore
 
-| Codice errore | Significato | Azione possibile |
+| Codice di errore | Significato | Azione possibile |
 | :---: | --- | --- |
 | 10 | Errore di installazione | wget è obbligatorio |
 | 20 | Errore di installazione | python è obbligatorio |
@@ -191,7 +191,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 40 | Errore di installazione | activationKey è obbligatorio |
 | 51 | Errore di installazione | Distribuzione del sistema operativo non supportata |
 | 60 | Errore di installazione | l'ambiente è obbligatorio |
-| 70 | Errore di installazione | Sconosciute |
+| 70 | Errore di installazione | Sconosciuto |
 | 80 | Errore di abilitazione | L'installazione del servizio non è riuscita |
 | 90 | Errore di abilitazione | L'avvio del servizio non è riuscito |
 | 100 | Errore di disabilitazione | L'interruzione del servizio non è riuscita |

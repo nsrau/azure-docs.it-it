@@ -1,5 +1,5 @@
 ---
-title: Reimpostare l'accesso a una macchina virtuale Linux di Azure | Microsoft Docs
+title: Reimpostare l'accesso a una VM Linux di Azure
 description: Come gestire gli utenti amministrativi e reimpostare l'accesso nelle macchine virtuali Linux usando l'estensione VMAccess e l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: akjosh
-ms.openlocfilehash: 447c10037503c627092bb23e23b4fe1ee88ca45d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: bd9dc05a84a4ee54fce40e6c88e87ac90bfee8a5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173962"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073599"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gestire gli utenti amministrativi e la configurazione SSH e verificare o riparare dischi in macchine virtuali Linux usando l'estensione VMAccess con l'interfaccia della riga di comando di Azure
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Il disco della VM Linux genera errori. In qualche modo la password radice della VM Linux è stata reimpostata o la chiave privata SSH è stata eliminata accidentalmente. In passato, quando nel data center si verificava questa situazione, era necessario accedere all'unità e quindi aprire il KVM per raggiungere la console del server. L'estensione VMAccess di Azure può essere concepita come il commutatore tastiera, video e mouse che consente di accedere alla console per reimpostare l'accesso a Linux o eseguire la manutenzione a livello di disco.
 
 Questo articolo illustra come usare l'estensione VMAccess di Azure per controllare o ripristinare un disco, reimpostare l'accesso utente, gestire gli account di utenti amministrativi o aggiornare la configurazione SSH in Linux se in esecuzione come macchine virtuali di Azure Resource Manager. Se è necessario gestire macchine virtuali classiche, è possibile seguire le istruzioni disponibili nella [documentazione sulla VM classica](../linux/classic/reset-access-classic.md). 
@@ -31,12 +31,12 @@ Questo articolo illustra come usare l'estensione VMAccess di Azure per controlla
 > [!NOTE]
 > Se si usa l'estensione VMAccess per reimpostare la password della macchina virtuale dopo l'installazione dell'estensione di accesso ad AAD, è necessario eseguire di nuovo quest'ultima estensione per riabilitare l'accesso ad AAD per la macchina virtuale.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 ### <a name="operating-system"></a>Sistema operativo
 
 L'estensione di accesso alle VM può essere eseguita in queste distribuzioni di Linux:
 
-| Distribuzione | Versione |
+| Distribuzione | Version |
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS e 12.04 LTS |
 | Debian | Debian 7,9 +, 8.2 + |
@@ -68,7 +68,7 @@ az vm user update \
 
 > **NOTA:** il comando `az vm user update` accoda il testo della nuova chiave pubblica al file `~/.ssh/authorized_keys` per l'utente amministratore della macchina virtuale. Questa operazione non sostituisce né rimuove le chiavi SSH esistenti. L'operazione non rimuove neanche le chiavi precedenti impostate in fase di distribuzione, né gli aggiornamenti successivi tramite l'estensione VMAccess.
 
-## <a name="reset-password"></a>Reimposta password
+## <a name="reset-password"></a>Reimpostazione delle password
 L'esempio seguente ripristina la password per l'utente `azureuser` nella VM denominata `myVM`:
 
 ```azurecli-interactive
@@ -247,9 +247,9 @@ az vm extension set \
 ```
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere problemi
+### <a name="troubleshoot"></a>Risolvere i problemi
 
-I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata VM, eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
+I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
@@ -257,4 +257,4 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 ### <a name="support"></a>Supporto
 
-Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).

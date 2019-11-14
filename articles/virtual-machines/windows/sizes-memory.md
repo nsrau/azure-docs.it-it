@@ -1,5 +1,5 @@
 ---
-title: Dimensioni delle macchine virtuali di Azure per Windows - Memoria | Microsoft Docs
+title: Dimensioni delle macchine virtuali di Azure per Windows-memoria
 description: Elenca le diverse dimensioni ottimizzate per la memoria per le macchine virtuali Windows disponibili in Azure. Elenca informazioni sul numero di vCPU, dei dischi dati e delle schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per le dimensioni di queste serie.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: jonbeck
-ms.openlocfilehash: 57f1e88a47fbd12013f9315a611ace5189ca79d5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9b2f62418c824e707992b558a1119a4bd7b1deb8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719065"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065411"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per la memoria
 

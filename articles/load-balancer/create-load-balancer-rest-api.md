@@ -1,7 +1,7 @@
 ---
-title: Creare un'istanza di Azure Load Balancer con API REST
-titlesuffix: Azure Load Balancer
-description: Informazioni sulle modalità di creazione di Azure Load Balancer con API REST.
+title: Creare un servizio di bilanciamento del carico usando l'API REST
+titleSuffix: Azure Load Balancer
+description: In questo articolo viene illustrato come creare un Azure Load Balancer usando l'API REST.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: allensu
-ms.openlocfilehash: ae8fb4494d27d0c145963c9b32757bdb802e0cc7
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b8acf1faff17f657999769216f71cfb5fa6e3181
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275552"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077084"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Creare Azure Load Balancer Basic con API REST
 
-Azure Load Balancer del carico distribuisce i nuovi flussi in ingresso che arrivano sul front-end di bilanciamento del carico nelle istanze del pool back-end in base alle regole e ai probe di integrità. Il Load Balancer è disponibile in due SKU: Di base e standard. Per comprendere la differenza tra le due versioni, SKU, vedere [Confronto tra gli SKU di Load Balancer](load-balancer-overview.md#skus).
+Azure Load Balancer del carico distribuisce i nuovi flussi in ingresso che arrivano sul front-end di bilanciamento del carico nelle istanze del pool back-end in base alle regole e ai probe di integrità. Per Load Balancer sono disponibili due SKU: Basic e Standard. Per comprendere la differenza tra le due versioni, SKU, vedere [Confronto tra gli SKU di Load Balancer](load-balancer-overview.md#skus).
  
 Questa sezione illustra come creare Azure Load Balancer Basic usando [API REST di Azure](/rest/api/azure/) per consentire la richiesta in ingresso di bilanciamento del carico tra più macchine virtuali all'interno di una rete virtuale di Azure. La documentazione di riferimento completa e altri esempi relativi sono disponibili nelle [informazioni di riferimento REST di Azure Load Balancer](/rest/api/load-balancer/).
  
@@ -33,12 +33,12 @@ Usare la seguente richiesta HTTP PUT per creare un nuovo Azure Load Balancer Bas
   ```
 ### <a name="uri-parameters"></a>Parametri URI
 
-|Name  |In ingresso  |Obbligatoria |Type |Descrizione |
+|Nome  |In  |obbligatori |digitare |DESCRIZIONE |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  path       |  True       |   string      |  Le credenziali della sottoscrizione che identificano in modo univoco la sottoscrizione a Microsoft Azure. L'ID sottoscrizione fa parte dell'URI per ogni chiamata di servizio.      |
-|resourceGroupName     |     path    | True        |  string       |   Nome del gruppo di risorse.     |
-|loadBalancerName     |  path       |      True   |    string     |    Nome del bilanciamento del carico.    |
-|api-version    |   query     |  True       |     string    |  Versione API client.      |
+|subscriptionId   |  path       |  true       |   stringa      |  Le credenziali della sottoscrizione che identificano in modo univoco la sottoscrizione a Microsoft Azure. L'ID sottoscrizione fa parte dell'URI per ogni chiamata di servizio.      |
+|resourceGroupName     |     path    | true        |  stringa       |   Nome del gruppo di risorse.     |
+|loadBalancerName     |  path       |      true   |    stringa     |    Nome del bilanciamento del carico.    |
+|api-version    |   query     |  true       |     stringa    |  Versione API client.      |
 
 
 
@@ -46,19 +46,19 @@ Usare la seguente richiesta HTTP PUT per creare un nuovo Azure Load Balancer Bas
 
 L'unico parametro obbligatorio è `location`. Se non si definisce la versione *SKU*, per impostazione predefinita viene creato Load Balancer Basic.  Usare [parametri facoltativi](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body) per personalizzare il servizio di bilanciamento del carico.
 
-| Name | Type | Descrizione |
+| Nome | digitare | DESCRIZIONE |
 | :--- | :--- | :---------- |
-| location | string | Percorso della risorsa. Ottenere un elenco aggiornato delle località usando l'operazione [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations). |
+| location | stringa | Percorso della risorsa. Ottenere un elenco aggiornato delle località usando l'operazione [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations). |
 
 
-## <a name="example-create-and-update-a-basic-load-balancer"></a>Esempio: creare e aggiornare un Load Balancer di base
+## <a name="example-create-and-update-a-basic-load-balancer"></a>Esempio: creare e aggiornare Load Balancer Basic
 
 In questo esempio, è innanzitutto necessario creare Load Balancer Basic e le relative risorse. Successivamente, configurare le risorse di bilanciamento del carico che includono una configurazione IP front-end, un pool di indirizzi back-end, una regola di bilanciamento del carico, un probe di integrità e una regola NAT in ingresso.
 
-Prima di creare un servizio di bilanciamento del carico usando l'esempio seguente, creare una rete virtuale denominata *vnetlb* con una subnet denominata *subnetlb* in un gruppo di risorse denominato *rg1* in località **East US**.
+Prima di creare un servizio di bilanciamento del carico usando l'esempio seguente, creare una rete virtuale denominata *vnetlb* con una subnet denominata *subnetlb* in un gruppo di risorse denominato *rg1* in località **Stati Uniti orientali**.
 
 ### <a name="step-1-create-a-basic-load-balancer"></a>PASSAGGIO 1. Creare un servizio di bilanciamento del carico di base
-In questo passaggio si crea Load Balancer Basic, denominato *lb* in località **EAST US** all'interno di un gruppo di risorse *rg1*.
+In questo passaggio si crea Load Balancer Basic, denominato *lb* in località **Stati Uniti ORIENTALI** all'interno di un gruppo di risorse *rg1*.
 #### <a name="sample-request"></a>Richiesta di esempio
 
   ```HTTP    

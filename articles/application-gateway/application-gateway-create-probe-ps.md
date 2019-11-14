@@ -1,26 +1,19 @@
 ---
-title: Creare un probe personalizzato - Gateway applicazione di Azure - PowerShell | Microsoft Docs
+title: Creare un probe personalizzato con PowerShell
+titleSuffix: Azure Application Gateway
 description: Informazioni su come creare un probe personalizzato per il gateway applicazione con PowerShell in Gestione risorse
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 68feb660-7fa4-4f69-a7e4-bdd7bdc474db
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/26/2017
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: acd70bacd23755cd764bc782a297d80db3622424
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1fef24f4065ca6fc749f35a07143487e049ee6ea
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66135253"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075266"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Creare un probe personalizzato per il gateway applicazione di Azure con PowerShell per Azure Resource Manager
 
@@ -51,7 +44,7 @@ Questo articolo illustra come aggiungere un probe personalizzato a un gateway ap
    Get-AzSubscription
    ```
 
-1. Scegliere quali sottoscrizioni Azure usare.
+1. Scegliere le sottoscrizioni ad Azure da usare.
 
    ```powershell
    Select-AzSubscription -Subscriptionid '{subscriptionGuid}'
@@ -63,7 +56,7 @@ Questo articolo illustra come aggiungere un probe personalizzato a un gateway ap
    New-AzResourceGroup -Name appgw-rg -Location 'West US'
    ```
 
-Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un gateway applicazione usino lo stesso gruppo di risorse.
+Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una località. che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un gateway applicazione usino lo stesso gruppo di risorse.
 
 Nell'esempio precedente è stato creato un gruppo di risorse denominato **appgw-RG** nella località **West US**.
 
@@ -204,5 +197,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sulla configurazione dell'offload SSL, vedere: [Configurare l'Offload SSL](application-gateway-ssl-arm.md)
+Per informazioni sulla configurazione dell'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL con Azure Resource Manager](application-gateway-ssl-arm.md)
 

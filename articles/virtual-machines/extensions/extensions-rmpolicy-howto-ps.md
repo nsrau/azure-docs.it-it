@@ -1,5 +1,5 @@
 ---
-title: Usare Criteri di Azure per limitare l'installazione di estensioni per macchina virtuale | Microsoft Docs
+title: Usare i criteri di Azure per limitare l'installazione dell'estensione VM
 description: Usare Criteri di Azure per limitare le distribuzioni di estensioni.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 599417131f228c95168641c54ffbb947e3682f7b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 428db340ce43463939ce71ffadd4188060f3e732
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750018"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073102"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Usare Criteri di Azure per limitare l'installazione di estensioni in macchine virtuali Windows
 
@@ -99,7 +99,7 @@ Al termine premere **CTRL + O** e quindi **INVIO** per salvare il file. Premere 
 
 ## <a name="create-the-policy"></a>Creare i criteri
 
-Una definizione di criteri è un oggetto usato per archiviare la configurazione che si desidera usare. La definizione dei criteri usa i file delle regole e dei parametri per definire i criteri. Creare una definizione di criteri usando il cmdlet [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition).
+Una definizione di criteri è un oggetto usato per archiviare la configurazione che si desidera usare. La definizione di criteri usa i file di regole e parametri per definire i criteri. Creare una definizione di criteri usando il cmdlet [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition).
 
  Le regole e i parametri dei criteri sono file creati e archiviati come file con estensione JSON in Cloud Shell.
 

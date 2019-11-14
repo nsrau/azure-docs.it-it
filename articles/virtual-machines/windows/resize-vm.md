@@ -1,5 +1,5 @@
 ---
-title: Usare PowerShell per ridimensionare una macchina virtuale Windows in Azure | Documentazione Microsoft
+title: Usare PowerShell per ridimensionare una macchina virtuale Windows in Azure
 description: Ridimensionare una macchina virtuale Windows creata nel modello di distribuzione Resource Manager usando Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 1f5f8f3a315b894ab8bc972d36008b5bce85d8e7
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 4b30f2fd8e095b00898e083e33c23c7c9a915b99
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749252"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073360"
 ---
 # <a name="resize-a-windows-vm"></a>Ridimensionare una VM Windows
 

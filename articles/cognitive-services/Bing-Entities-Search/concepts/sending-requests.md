@@ -1,7 +1,7 @@
 ---
 title: Invio di richieste di ricerca all'API Ricerca entità Bing
 titleSuffix: Azure cognitive Services
-description: Informazioni su come inviare richieste di ricerca all'API Ricerca entità Bing
+description: L'API Ricerca entità Bing invia una query di ricerca a Bing e ottiene risultati che includono entità e località.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 0788b220f2612170fdea974a8bb27e8374a0b3be
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f68429a75ddb141c9e42babde3faa9f93fe949cc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879215"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072676"
 ---
 # <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Invio di richieste di ricerca all'API Ricerca entità Bing
 
@@ -31,7 +31,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/entities
 
 Le richieste devono usare il protocollo HTTPS.
 
-È consigliabile che tutte le richieste abbiano origine da un server. La distribuzione della chiave come parte di un'applicazione client consente a terze parti dannose di accedervi più facilmente. L'esecuzione delle chiamate da un server fornisce anche un singolo punto di aggiornamento per le future versioni dell'API.
+È consigliabile che tutte le richieste abbiano origine da un server. La distribuzione della chiave come parte di un'applicazione client consente a terze parti dannose di accedervi più facilmente. Inoltre, l'esecuzione delle chiamate da un server fornisce un singolo punto di aggiornamento per le versioni future dell'API.
 
 ## <a name="specifying-query-parameters-and-headers"></a>Specificare parametri di query e intestazioni
 

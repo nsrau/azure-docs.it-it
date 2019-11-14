@@ -8,14 +8,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: dacurwin
-ms.openlocfilehash: c542abe0e778b9204a23ccea0f3617656ba101e1
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 0763cbd4345dca39f37b77a0f3d991a7d77e30c4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210427"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074297"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure
+
 In Backup di Azure sono incorporate diverse funzionalità che consentono di ridurre in modo efficiente i costi di archiviazione e di rete durante i backup completi iniziali dei dati in Azure. I backup completi iniziali comportano in genere il trasferimento di grandi quantità di dati e richiedono una larghezza di banda di rete superiore rispetto ai backup successivi con cui vengono trasferiti solo backup differenziali/incrementali. Backup di Azure comprime i backup iniziali. Con il processo di seeding offline, Backup di Azure può usare i dischi per caricare in Azure i dati compressi dei backup iniziali.
 
 Il processo di seeding offline di Backup di Azure è strettamente integrato con il [servizio Importazione/Esportazione di Azure](../storage/common/storage-import-export-service.md) che consente di trasferire dati in Azure usando dischi. Se si hanno terabyte (TB) di dati del backup iniziale da trasferire su una rete con latenza elevata e larghezza di banda ridotta, è possibile usare il flusso di lavoro del seeding offline per spedire la copia di backup iniziale su uno o più dischi rigidi a un data center di Azure. Questo articolo offre una panoramica e altri dettagli dei passaggi necessari per completare il flusso di lavoro per System Center DPM e server di Backup di Azure.
@@ -24,10 +25,12 @@ Il processo di seeding offline di Backup di Azure è strettamente integrato con 
 > Il processo di backup offline per l'agente di Servizi di ripristino di Microsoft Azure (MARS) è diverso da System Center DPM e dal server di Backup di Azure. Per informazioni sull'uso del backup offline con agente MARS, vedere [questo articolo](backup-azure-backup-import-export.md). Il backup offline non è supportato per i backup dello stato del sistema eseguiti tramite l'agente di Backup di Azure.
 >
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
+
 Con la funzionalità di seeding offline di Backup di Azure e Importazione/Esportazione di Azure, caricare i dati offline in Azure tramite dischi è molto semplice. Il processo di backup offline prevede i passaggi seguenti:
 
 > [!div class="checklist"]
+>
 > * I dati di backup, anziché inviati in rete, vengono scritti in un *percorso di gestione temporanea*
 > * I dati nel *percorso di gestione temporanea* vengono quindi scritti in uno o più dischi SATA mediante l'utilità *AzureOfflineBackupDiskPrep*
 > * Un processo di importazione di Azure viene creato automaticamente dall'utilità
@@ -35,15 +38,19 @@ Con la funzionalità di seeding offline di Backup di Azure e Importazione/Esport
 > * Al termine del caricamento dei dati di backup in Azure, i dati di backup vengono copiati da Backup di Azure nell'insieme di credenziali per il backup e vengono pianificati i backup incrementali.
 
 ## <a name="supported-configurations"></a>Configurazioni supportate
+
 Il backup offline è supportato per tutti i modelli di distribuzione di Backup di Azure che trasferiscono i dati di backup dal computer locale a Microsoft Cloud. Sono inclusi:
 
 > [!div class="checklist"]
+>
 > * Backup di file e cartelle con l'agente di Servizi di ripristino di Microsoft Azure o di Backup di Azure.
 > * Backup di tutti i carichi di lavoro e i file con System Center Data Protection Manager (SC DPM)
-> * Backup di tutti i carichi di lavoro e i file con il server di Backup di Microsoft Azure <br/>
+> * Backup di tutti i carichi di lavoro e i file con il server di Backup di Microsoft Azure
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
+
 Verificare che i seguenti prerequisiti siano soddisfatti prima di avviare il flusso di lavoro di backup offline
+
 * Deve essere stato creato un [insieme di credenziali di Servizi di ripristino](backup-azure-recovery-services-vault-overview.md). Per crearne uno, vedere la procedura descritta in [questo articolo](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
 * L'agente o il server di Backup di Azure oppure System Center Data Protection Manager deve essere installato su Windows Server o nel client Windows, a seconda dei casi, e il computer deve essere registrato con l'insieme di credenziali di Servizi di ripristino. Assicurarsi di usare solo la [versione più recente di Backup di Azure](https://go.microsoft.com/fwlink/?linkid=229525).
 * [Scaricare il file di impostazioni di pubblicazione di Azure](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) nel computer da cui si prevede di eseguire il backup dei dati. La sottoscrizione da cui si scarica il file di impostazioni di pubblicazione può essere diversa dalla sottoscrizione che contiene l'insieme di credenziali di Servizi di ripristino. Se la sottoscrizione si trova in cloud sovrani di Azure, usare i collegamenti seguenti appropriati per scaricare il file di impostazioni di pubblicazione di Azure.
@@ -62,9 +69,11 @@ Verificare che i seguenti prerequisiti siano soddisfatti prima di avviare il flu
 * Le unità SATA devono essere connesse a un computer (denominato *computer di copia*) da cui vengono copiati i dati di backup del *percorso di gestione temporanea* nell'unità SATA. Verificare che nel *computer di copia* sia abilitato BitLocker
 
 ## <a name="workflow"></a>Flusso di lavoro
+
 Le informazioni presenti in questa sezione consentono di completare il flusso di lavoro di backup offline in modo che i dati possano essere inviati a un data center di Azure e caricati nell'archiviazione di Azure. Per domande sul servizio di importazione o su qualsiasi aspetto del processo, vedere la documentazione sulla [panoramica del servizio di importazione](../storage/common/storage-import-export-service.md) citata in precedenza.
 
 ### <a name="initiate-offline-backup"></a>Avviare il backup offline
+
 1. Durante la pianificazione di un backup verrà visualizzata la schermata seguente in Windows Server, nel client Windows o in System Center Data Protection Manager.
 
     ![Schermata di importazione](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
@@ -74,12 +83,12 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 
     Di seguito è riportata la descrizione degli input.
 
-   * **Posizione per la gestione temporanea**: posizione di archiviazione temporanea in cui viene scritta la copia di backup iniziale. Il percorso di gestione temporanea può trovarsi in una condivisione di rete o in un computer locale. Se il computer di copia e il computer di origine sono diversi, è consigliabile specificare il percorso di rete completo per la gestione temporanea.
-   * **Nome del processo di importazione di Azure**: nome univoco con cui il servizio di importazione di Azure e Backup di Azure tengono traccia del trasferimento dei dati inviati in Azure usando dischi.
-   * **Impostazioni di pubblicazione di Azure**: Specificare il percorso locale del file di impostazioni di pubblicazione.
-   * **ID sottoscrizione di Azure**: ID della sottoscrizione di Azure da cui è stato scaricato il file delle impostazioni di pubblicazione di Azure.
-   * **Account di Archiviazione di Microsoft Azure**: Il nome dell'account di archiviazione nella sottoscrizione di Azure associato al file delle impostazioni di pubblicazione di Azure.
-   * **Contenitore di archiviazione di Azure**: Nome del BLOB di archiviazione di destinazione nell'account di archiviazione di Azure in cui verranno importati i dati del backup.
+   * **Percorso di gestione temporanea**: posizione di archiviazione temporanea in cui verrà scritta la copia del backup iniziale. Il percorso di gestione temporanea può trovarsi in una condivisione di rete o in un computer locale. Se il computer di copia e il computer di origine sono diversi, è consigliabile specificare il percorso di rete completo per la gestione temporanea.
+   * **Nome processo di importazione di Azure**: nome univoco con cui il servizio di importazione di Azure e Backup di Azure tengono traccia del trasferimento dei dati inviati in Azure usando dischi.
+   * **Impostazioni di pubblicazione di Azure**: specificare il percorso locale del file di impostazioni di pubblicazione.
+   * **ID sottoscrizione di Azure**: ID della sottoscrizione di Azure da cui è stato scaricato il file di impostazioni di pubblicazione di Azure.
+   * **Account di Archiviazione di Microsoft Azure**: il nome dell'account di archiviazione nella sottoscrizione di Azure associato al file delle impostazioni di pubblicazione di Azure.
+   * **Contenitore di archiviazione di Azure**: nome del BLOB di archiviazione di destinazione nell'account di archiviazione di Azure in cui verranno importati i dati del backup.
 
      Salvare il *percorso di gestione temporanea* e il *nome del processo di importazione di Azure* specificato perché sono necessari per preparare i dischi.  
 
@@ -96,9 +105,10 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
     ![Stato del backup](./media/backup-azure-backup-import-export/opbackupnow.png)
 
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>Preparare le unità SATA e inviarle al data center di Azure
+
 L'utilità *AzureOfflineBackupDiskPrep* consente di preparare le unità SATA da inviare al data center di Azure più vicino. Questa utilità è disponibile nella directory di installazione dell'agente di Servizi di ripristino nel percorso seguente:
 
-*\\Utils di\\servizi di ripristino di Microsoft Azure Agent\\*
+*\\Servizi di ripristino di Microsoft Azure Agent\\utils\\*
 
 1. Passare alla directory e copiare la directory **AzureOfflineBackupDiskPrep** in un computer di copia a cui sono collegate le unità SATA da preparare. Assicurarsi che il computer di copia soddisfi i requisiti seguenti:
 
@@ -111,12 +121,11 @@ L'utilità *AzureOfflineBackupDiskPrep* consente di preparare le unità SATA da 
      > [!IMPORTANT]
      > Se il computer di origine è una macchina virtuale, è obbligatorio usare un server fisico diverso o un computer client come computer di copia.
 
-
 2. Aprire un prompt dei comandi con privilegi elevati nel computer di copia con la directory dell'utilità *AzureOfflineBackupDiskPrep* come directory corrente ed eseguire il comando seguente:
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to AzurePublishSettingsFile*>]`
 
-    | Parametro | DESCRIZIONE |
+    | . | DESCRIZIONE |
     | --- | --- |
     | s:&lt;*Percorso posizione staging*&gt; |Input obbligatorio usato per specificare il percorso di gestione temporanea immesso durante il flusso di lavoro di **avvio del backup offline** . |
     | p:&lt;*Percorso FileImpostazioniPubblicazione*&gt; |Input facoltativo usato per specificare il percorso del file delle **impostazioni di pubblicazione di Azure** immesso durante il flusso di lavoro di **avvio del backup offline**. |
@@ -149,7 +158,7 @@ L'utilità *AzureOfflineBackupDiskPrep* consente di preparare le unità SATA da 
    > [!IMPORTANT]
    > Due processi di importazione di Azure non possono avere lo stesso numero di tracciabilità. Verificare che le unità preparate dall'utilità in un singolo processo di importazione di Azure vengano spedite insieme in un unico pacchetto e che vi sia un solo numero di tracciabilità per il pacchetto. Non combinare unità preparate con processi di importazione di Azure **diversi** in un singolo pacchetto.
 
-5. Quando si dispone del numero di tracciabilità, passare al computer di origine, che è in attesa del completamento del processo di importazione, ed eseguire il comando seguente in un prompt dei comandi con privilegi elevati con la directory dell'utilità *AzureOfflineBackupDiskPrep* come directory corrente:
+7. Quando si dispone del numero di tracciabilità, passare al computer di origine, che è in attesa del completamento del processo di importazione, ed eseguire il comando seguente in un prompt dei comandi con privilegi elevati con la directory dell'utilità *AzureOfflineBackupDiskPrep* come directory corrente:
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:`
 
@@ -157,7 +166,7 @@ L'utilità *AzureOfflineBackupDiskPrep* consente di preparare le unità SATA da 
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
-    | Parametro | DESCRIZIONE |
+    | . | DESCRIZIONE |
     | --- | --- |
     | u: | Input obbligatorio usato per aggiornare i dettagli sulla spedizione per un processo di importazione di Azure |
     | s:&lt;*Percorso posizione staging*&gt; | Input obbligatorio quando il comando non viene eseguito nel computer di origine. Usato per specificare il percorso di gestione temporanea immesso durante il flusso di lavoro di **avvio del backup offline**. |
@@ -167,11 +176,11 @@ L'utilità *AzureOfflineBackupDiskPrep* consente di preparare le unità SATA da 
 
     ![Immissione di informazioni sulla spedizione](./media/backup-azure-backup-import-export/shippinginputs.png)<br/>
 
-6. Quando vengono forniti tutti gli input, esaminare con attenzione i dettagli e confermare le informazioni di spedizione fornite digitando *yes*.
+8. Quando vengono forniti tutti gli input, esaminare con attenzione i dettagli e confermare le informazioni di spedizione fornite digitando *yes*.
 
     ![Verifica delle informazioni sulla spedizione](./media/backup-azure-backup-import-export/reviewshippinginformation.png)<br/>
 
-7. Durante l'aggiornamento delle informazioni di spedizione, l'utilità fornisce un percorso locale in cui sono archiviati i dettagli relativi alla spedizione immessi dall'utente come illustrato di seguito
+9. Durante l'aggiornamento delle informazioni di spedizione, l'utilità fornisce un percorso locale in cui sono archiviati i dettagli relativi alla spedizione immessi dall'utente come illustrato di seguito
 
     ![Archiviazione delle informazioni sulla spedizione](./media/backup-azure-backup-import-export/storingshippinginformation.png)<br/>
 
@@ -181,25 +190,29 @@ L'utilità *AzureOfflineBackupDiskPrep* consente di preparare le unità SATA da 
 Dopo il completamento dei passaggi precedenti, il data center di Azure è pronto per ricevere le unità ed elaborarle ulteriormente per trasferire i dati di backup dalle unità all'account di archiviazione di Azure di tipo classico creato.
 
 ### <a name="time-to-process-the-drives"></a>Tempo di elaborazione delle unità
+
 Il tempo impiegato per elaborare un processo di importazione di Azure varia in base a diversi fattori, ad esempio i tempi di spedizione, il tipo di processo, il tipo e la dimensione dei dati da copiare e la dimensione dei dischi forniti. Il servizio di importazione/esportazione di Azure non dispone di un contratto di servizio, ma dopo la ricezione dei dischi il servizio tenta di completare la copia dei dati di backup nell'account di archiviazione di Azure in un intervallo compreso tra i 7 e i 10 giorni. La sezione successiva illustra in dettaglio come monitorare lo stato del processo di importazione di Azure.
 
 ### <a name="monitoring-azure-import-job-status"></a>Monitoraggio dello stato del processo di importazione di Azure
+
 Mentre le unità sono in transito o si trovano nel data center di Azure per essere copiate nell'account di archiviazione, l'agente di Backup di Azure o SC DPM oppure la console del server di Backup di Azure nel computer di origine mostra lo stato del processo seguente per i backup pianificati.
 
   `Waiting for Azure Import Job to complete. Please check on Azure Management portal for more information on job status`
 
 Attenersi alla procedura seguente per controllare lo stato del processo di importazione.
+
 1. Aprire un prompt dei comandi con privilegi elevati nel computer di origine ed eseguire il comando seguente:
 
      `AzureOfflineBackupDiskPrep.exe u:`
 
-2.  L'output mostra lo stato corrente del processo di importazione, come illustrato di seguito:
+2. L'output mostra lo stato corrente del processo di importazione, come illustrato di seguito:
 
     ![Controllo dello stato del processo di importazione](./media/backup-azure-backup-import-export/importjobstatusreporting.png)<br/>
 
 Per altre informazioni sui diversi stati del processo di importazione di Azure, vedere [questo articolo](../storage/common/storage-import-export-view-drive-status.md)
 
 ### <a name="complete-the-workflow"></a>Completare il flusso di lavoro
+
 Al termine del processo di importazione, i dati del backup iniziale saranno disponibili nell'account di archiviazione. In occasione del backup pianificato successivo, Backup di Azure copia il contenuto dei dati dall'account di archiviazione all'insieme di credenziali di Servizi di ripristino, come illustrato di seguito:
 
    ![Copia dei dati nell'insieme di credenziali di Servizi di ripristino](./media/backup-azure-backup-import-export/copyingfromstorageaccounttoazurebackup.png)<br/>
@@ -207,5 +220,6 @@ Al termine del processo di importazione, i dati del backup iniziale saranno disp
 Al successivo backup pianificato, Backup di Azure eseguirà il backup incrementale rispetto alla copia di backup iniziale.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * Per altre informazioni sul flusso di lavoro di Importazione/Esportazione di Azure, vedere [Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](../storage/common/storage-import-export-service.md).
 * Per domande sul flusso di lavoro, vedere la sezione relativa al backup offline delle [domande frequenti](backup-azure-backup-faq.md) di Backup di Azure.
