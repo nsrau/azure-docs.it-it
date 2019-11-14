@@ -856,11 +856,20 @@
             - name: Panoramica sul monitoraggio
               href: /azure/databricks/applications/mlflow/tracking
               maintainContext: true
-            - name: Esempi di monitoraggio di MLflow
-              href: /azure/databricks/applications/mlflow/  tracking-examples
+            - name: Eseguire il training di un modello di scikit-learn
+              href: /azure/databricks/applications/mlflow/tracking-ex-scikit
+              maintainContext: true
+            - name: Eseguire il training del modello di PyTorch
+              href: /azure/databricks/applications/mlflow/tracking-ex-pytorch
+              maintainContext: true
+            - name: Eseguire il training di un modello di PySpark e salvarlo in formati MLeap
+              href: /azure/databricks/applications/mlflow/tracking-ex-pyspark
+              maintainContext: true
+            - name: Rilevamento dei dati di training del modello di Machine Learning con Delta Lake
+              href: /azure/databricks/applications/mlflow/tracking-ex-delta
               maintainContext: true
             - name: Accedere al monitoraggio esternamente
-              href: /azure/databricks/applications/mlflow/  access-hosted-tracking-server
+              href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
               maintainContext: true
         - name: 'Salvare, caricare e distribuire modelli'
           items:
@@ -911,6 +920,9 @@
             - name: Pipeline di tumori/normaliltà
               href: /azure/databricks/applications/genomics/secondary/tumor-normal-pipeline
               maintainContext: true
+            - name: Annotazione delle varianti con Pipe Transformer
+              href: /azure/databricks/applications/genomics/secondary/variant-annotation-pipe
+              maintainContext: true
             - name: Metodi di annotazione delle varianti
               href: /azure/databricks/applications/genomics/secondary/annotate-variants
               maintainContext: true
@@ -920,26 +932,6 @@
             - name: Pipeline Vep
               href: /azure/databricks/applications/genomics/secondary/vep-pipeline
               maintainContext: true
-        - name: ETL
-          items:
-            - name: Panoramica delle operazioni ETL di genomica
-              href: /azure/databricks/applications/genomics/etl/index
-              maintainContext: true
-            - name: I/O di varianti con Apache Spark SQL
-              href: /azure/databricks/applications/genomics/etl/variant-data
-              maintainContext: true
-            - name: Creare Delta Lake di Genomica
-              href: /azure/databricks/applications/genomics/etl/vcf2delta
-              maintainContext: true
-            - name: Controllo qualità delle varianti
-              href: /azure/databricks/applications/genomics/etl/variant-qc
-              maintainContext: true
-            - name: Controllo qualità dei campioni
-              href: /azure/databricks/applications/genomics/etl/sample-qc
-              maintainContext: true
-            - name: Accuratezza
-              href: /azure/databricks/applications/genomics/etl/lift-over
-              maintainContext: true
         - name: Analisi terziaria
           items:
             - name: Panoramica dell'analisi terziaria
@@ -947,18 +939,6 @@
               maintainContext: true
             - name: Pipeline di genotipizzazione congiunta
               href: /azure/databricks/applications/genomics/tertiary/joint-genotyping-pipeline
-              maintainContext: true
-            - name: Parallelizzare gli strumenti da riga di comando con Pipe Transformer
-              href: /azure/databricks/applications/genomics/tertiary/pipe-transformer
-              maintainContext: true
-            - name: Normalizzazione di varianti
-              href: /azure/databricks/applications/genomics/tertiary/variant-normalization
-              maintainContext: true
-            - name: Test di regressione
-              href: /azure/databricks/applications/genomics/tertiary/regression-tests
-              maintainContext: true
-            - name: Librerie di statistiche Python
-              href: /azure/databricks/applications/genomics/tertiary/pandas-udf
               maintainContext: true
             - name: SAIGE
               href: /azure/databricks/applications/genomics/tertiary/saige
@@ -1228,7 +1208,10 @@
               maintainContext: true
             - name: Rilevamento della codifica non riuscito in JSON
               href: /azure/databricks/kb/data-sources/json-unicode
-              maintainContext: true j
+              maintainContext: true
+            - name: Non è possibile leggere i file nel BLOB del servizio di archiviazione di Azure
+              href: /azure/databricks/kb/data-sources/wasb-check-blob-types
+              maintainContext: true
         - name: DBFS
           items:
             - name: Non è possibile leggere gli oggetti archiviati nella radice di DBFS
@@ -1550,6 +1533,9 @@
           items:
             - name: Note sulla versione della piattaforma
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: Novembre 2019
+              href: /azure/databricks/release-notes/product/2019/november
               maintainContext: true
             - name: Ottobre 2019
               href: /azure/databricks/release-notes/product/2019/october

@@ -114,6 +114,8 @@
           href: key-vault-group-permissions-for-apps.md
     - name: Inoltrare le notifiche dell'insieme di credenziali delle chiavi con Griglia di eventi
       href: event-grid-tutorial.md
+    - name: Integrazione con Criteri di Azure
+      href: azure-policy.md
     - name: Registrazione di Azure Key Vault
       href: key-vault-logging.md
     - name: Accesso protetto da firewall
