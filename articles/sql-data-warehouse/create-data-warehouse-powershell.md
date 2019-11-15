@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse - Azure PowerShell | Microsoft Docs"
+title: 'Guida introduttiva: Creare un warehouse - Azure PowerShell'
 description: Creare rapidamente un server logico di database SQL, una regola del firewall a livello di server e un data warehouse con Azure PowerShell.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f5ee4227b0aeb53be4512dafc91f814468b50c12
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: cfc427b11944cb81d8bc3d12d13668d53be698b7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574898"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693108"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse ed eseguire query con Azure PowerShell
 
@@ -119,7 +120,7 @@ New-AzSqlDatabase `
 
 I parametri obbligatori sono:
 
-* **RequestedServiceObjectiveName**: quantità di [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) richiesta. L'aumento di questa quantità comporta l'aumento dei costi di calcolo. Per un elenco di valori supportati, vedere [Memory and concurrency limits](memory-and-concurrency-limits.md) (Limiti di memoria e concorrenza).
+* **RequestedServiceObjectiveName**: quantità di [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) richiesta. L'aumento di questa quantità comporta l'aumento dei costi di calcolo. Per un elenco dei valori supportati, vedere [liniti di memoria e concorrenza]memory-concurrency-limits.md).
 * **DatabaseName**: nome dell'istanza di SQL Data Warehouse che si sta creando.
 * **ServerName**: nome del server che si sta usando per la creazione.
 * **ResourceGroupName**: gruppo di risorse in uso. Per trovare i gruppi di risorse disponibili nella sottoscrizione, usare Get-AzureResource.

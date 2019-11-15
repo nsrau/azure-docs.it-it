@@ -1,6 +1,6 @@
 ---
-title: Esempi dell'integrazione del bus di servizio di Azure in Griglia di eventi | Microsoft Docs
-description: Questo articolo fornisce esempi della messaggistica del bus di servizio e dell'integrazione in Griglia di eventi.
+title: 'Esercitazione: Esempi di integrazione del bus di servizio di Azure in Griglia di eventi'
+description: "Esercitazione: Questo articolo fornisce esempi della messaggistica del bus di servizio e dell'integrazione in Griglia di eventi."
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: f31e014cf242675577bedd29a3a79332ede32bf5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: d3f523bbc0236536734f21870474492a61532ada
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304246"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719015"
 ---
-# <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Rispondere agli eventi del bus di servizio di Azure ricevuti tramite Griglia di eventi di Azure usando Funzioni di Azure e App per la logica di Azure
+# <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Esercitazione: Rispondere agli eventi del bus di servizio di Azure ricevuti tramite Griglia di eventi di Azure usando Funzioni di Azure e App per la logica di Azure
 Questa esercitazione descrive come rispondere agli eventi del bus di servizio di Azure ricevuti tramite Griglia di eventi di Azure usando Funzioni di Azure e App per la logica di Azure. Verranno eseguiti i passaggi seguenti:
  
 - Creare una funzione di Azure di test per il debug e la visualizzazione del flusso iniziale di eventi da Griglia di eventi.

@@ -1,21 +1,24 @@
 ---
-title: Creare un archivio conoscenze con REST
+title: Creare un archivio conoscenze (anteprima) con REST
 titleSuffix: Azure Cognitive Search
-description: Usare l'API REST e Postman per creare un archivio conoscenze di Ricerca cognitiva di Azure per salvare in modo permanente gli arricchimenti da una pipeline di arricchimento tramite intelligenza artificiale.
-author: lobrien
+description: Usare l'API REST e Postman per creare un archivio conoscenze di Ricerca cognitiva di Azure per salvare in modo permanente gli arricchimenti da una pipeline di arricchimento tramite intelligenza artificiale. Questa funzionalità è attualmente in anteprima pubblica.
+author: HeidiSteen
 manager: nitinme
-ms.author: laobri
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b97374b032640afafde775e90f6db735d63c46
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 107dcfa9ea312774e679c301ea934255c7b836c0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790024"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720075"
 ---
 # <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>Creare un archivio conoscenze di Ricerca cognitiva di Azure con REST
+
+> [!IMPORTANT] 
+> L'archivio conoscenze è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Queste funzionalità di anteprima vengono fornite dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
 
 L'archivio conoscenze è una funzionalità di Ricerca cognitiva di Azure che rende persistente l'output di una pipeline di arricchimento tramite intelligenza artificiale per analisi successive o l'ulteriore elaborazione downstream. Una pipeline con arricchimento tramite intelligenza artificiale accetta file di immagine o file di testo non strutturati, li indicizza usando Ricerca cognitiva di Azure, applica gli arricchimenti di intelligenza artificiale di Servizi cognitivi di Azure (come l'analisi delle immagini e l'elaborazione del linguaggio naturale) e quindi salva i risultati in un archivio conoscenze in Archiviazione di Azure. È possibile usare strumenti come Power BI o Storage Explorer nel portale di Azure per esplorare l'archivio conoscenze.
 

@@ -1,5 +1,5 @@
 ---
-title: Eseguire la copia incrementale dei dati usando Azure Data Factory | Microsoft Docs
+title: 'Eseguire la copia incrementale di dati con Azure Data Factory '
 description: Queste esercitazioni mostrano come eseguire la copia incrementale di dati da un archivio dati di origine a un archivio dati di destinazione. Nella prima vengono copiati dati da una tabella.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 15ff84bf8a194c6172864601e3aefe78f9cc13a3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9cbe9dfea116df30f49b89e2e59886f2f112487c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140591"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683368"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Caricare dati in modo incrementale da un archivio dati di origine a un archivio dati di destinazione
 
@@ -54,7 +54,7 @@ Per i modelli vedere l'argomento seguente:
 - [Copiare i nuovi file in base a LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
 ## <a name="loading-new-files-only-by-using-time-partitioned-folder-or-file-name"></a>Caricamento dei soli file nuovi usando il nome di file o cartella partizionato in base al tempo
-È possibile copiare solo i nuovi file se i file o le cartelle sono già stati partizionati in base al tempo con informazioni temporali inserite nel nome di file o cartella (ad esempio, /aaaa/mm/gg/file.csv). Questo è l'approccio più redditizio in termini di prestazioni per il caricamento incrementale di nuovi file. 
+È possibile copiare solo i nuovi file se i file o le cartelle sono già stati partizionati in base al tempo con informazioni temporali inserite nel nome di file o cartella (ad esempio, /aaaa/mm/gg/file.csv). Questo è l'approccio più efficace in termini di prestazioni per il caricamento incrementale di nuovi file. 
 
 Per istruzioni dettagliate, vedere l'esercitazione seguente: <br/>
 - [Incrementally copy new files based on time partitioned folder or file name from Azure Blob storage to Azure Blob storage](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) (Eseguire la copia incrementale dei file nuovi in base al nome di cartella o di file partizionato in base al tempo da Archiviazione BLOB di Azure ad Archiviazione BLOB di Azure)

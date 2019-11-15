@@ -1,7 +1,7 @@
 ---
 title: 'Guida introduttiva: Pubblicare una knowledge base in REST, C# - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Questa guida di avvio rapido C# basata su REST illustra la procedura di pubblicazione della knowledge base per eseguire il push della versione più recente della knowledge base testata in un indice di Ricerca di Azure dedicato che rappresenta la knowledge base pubblicata. Viene inoltre creato un endpoint che può essere chiamato nell'applicazione o nel chat bot.
+description: In questa guida di avvio rapido basata su REST e C# viene pubblicata una knowledge base e creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,16 +11,16 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 2b2c2ed43a229d929353767b229f8331b49a0e46
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 192f0ced2b718deca123f3f72dcf549f6a48f59f
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802909"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794112"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Avvio rapido: Pubblicare una knowledge base in QnA Maker con C#
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Guida introduttiva: Pubblicare una knowledge base in QnA Maker con C#
 
-Questa guida introduttiva basata su REST illustra la procedura di pubblicazione della knowledge base (KB) a livello di codice. Con la pubblicazione viene eseguito il push dell'ultima versione della knowledge base in un indice dedicato di Ricerca di Azure e viene creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
+Questa guida introduttiva basata su REST illustra la procedura di pubblicazione della knowledge base (KB) a livello di codice. Con la pubblicazione viene eseguito il push dell'ultima versione della knowledge base in un indice dedicato di Ricerca cognitiva di Azure e viene creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
 
 In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Pubblicazione): con questa API non sono richieste informazioni nel corpo della richiesta.

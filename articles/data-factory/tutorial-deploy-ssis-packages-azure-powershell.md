@@ -1,5 +1,5 @@
 ---
-title: Eseguire il provisioning del runtime di integrazione SSIS di Azure con PowerShell | Microsoft Docs
+title: Effettuare il provisioning di Azure-SSIS Integration Runtime con PowerShell
 description: Informazioni su come eseguire il provisioning del runtime di integrazione Azure-SSIS in Azure Data Factory con PowerShell, in modo da rendere possibile distribuire ed eseguire pacchetti SSIS in Azure.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 7a4ae2198653ea8adab136caef0f812019efd998
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 594cdd848a3712d2164616e38f7b75a01a21b7f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326114"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683578"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>Eseguire il provisioning del runtime di integrazione SSIS di Azure in Azure Data Factory con PowerShell
 

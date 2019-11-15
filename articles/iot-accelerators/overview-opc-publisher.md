@@ -1,6 +1,6 @@
 ---
 title: Informazioni su OPC Publisher - Azure | Microsoft Docs
-description: Panoramica di OPC Publisher
+description: Questo articolo contiene una panoramica delle funzionalità del server di pubblicazione OPC. Consente di pubblicare dati di telemetria JSON codificati usando un payload JSON nell'hub IoT di Azure.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: c738e927a352373d7f5a4aeb5697e07134a98cba
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 2310a81d3cfaeff203134af9968bc2d5caea3e9c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603659"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824785"
 ---
 # <a name="what-is-opc-publisher"></a>Che cos'è OPC Publisher?
 

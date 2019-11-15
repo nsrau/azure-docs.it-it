@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire un flusso di lavoro'
+title: 'Guida introduttiva: Eseguire un flusso di lavoro - Genomica di Microsoft'
 description: La guida introduttiva mostra come caricare dati di input in un archivio BLOB di Azure ed eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft.
 services: genomics
 author: grhuynh
@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: e7c90cc0ce85f2a90cc2ddc2cd086fd2626f4d96
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 47043b9f4416ec61cf25ea92504c0c653b7d5408
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248531"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819208"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Guida introduttiva: Eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft
 
@@ -30,7 +30,7 @@ Per altre informazioni su Genomica di Microsoft, vedere [Informazioni su Genomic
 
 Per creare un account di Genomica di Microsoft, passare al [portale di Azure](https://portal.azure.com/#create/Microsoft.Genomics). Se non si ha ancora una sottoscrizione di Azure, crearne una prima di creare un account di Genomica di Microsoft. 
 
-![Genomica di Microsoft sul portale di Azure](./media/quickstart-run-genomics-workflow-portal/genomics-create-blade.png "Genomica di Microsoft sul portale di Azure")
+![Genomica di Microsoft nel portale di Azure](./media/quickstart-run-genomics-workflow-portal/genomics-create-blade.png "Genomica di Microsoft nel portale di Azure")
 
 
 
@@ -39,15 +39,15 @@ Configurare l'account di Genomica con le informazioni seguenti, come mostrato ne
  |**Impostazione**          |  **Valore consigliato**  | **Descrizione campo** |
  |:-------------       |:-------------         |:----------            |
  |Subscription         | Nome della sottoscrizione utente|Unità di fatturazione per i servizi di Azure. Per informazioni dettagliate sulla sottoscrizione, vedere [Sottoscrizioni](https://account.azure.com/Subscriptions) |      
- |Resource group       | MyResourceGroup       |  I gruppi di risorse consentono di raggruppare più risorse di Azure (account di archiviazione, account di Genomica e così via) in un singolo gruppo per semplificare la gestione. Per altre informazioni, vedere [Gruppi di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Per informazioni sui nomi di gruppi di risorse validi, vedere [Convenzioni di denominazione](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
- |Nome account         | MyGenomicsAccount     |Scegliere un identificatore dell'account univoco. Per informazioni sui nomi validi, vedere [Convenzioni di denominazione](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |Resource group       | MyResourceGroup       |  I gruppi di risorse consentono di raggruppare più risorse di Azure (account di archiviazione, account di Genomica e così via) in un singolo gruppo per semplificare la gestione. Per altre informazioni, vedere [Gruppi di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Per informazioni sui nomi di gruppi di risorse validi, vedere [Convenzioni di denominazione](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) |
+ |Nome account         | MyGenomicsAccount     |Scegliere un identificatore dell'account univoco. Per informazioni sui nomi validi, vedere [Convenzioni di denominazione](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) |
  |Location                   | Stati Uniti occidentali 2                    |    Il servizio è disponibile nelle aree Stati Uniti occidentali 2, Europa occidentale e Asia sud-orientale |
 
 
 
 
 È possibile fare clic su Notifiche sulla barra dei menu per monitorare il processo di distribuzione.
-![Notifiche di Genomica di Microsoft](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "Notifiche di Genomica di Microsoft")
+![Notifiche di Genomica di Microsoft](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "MNotifiche di Genomica di Microsoft)
 
 
 
@@ -90,7 +90,7 @@ Se si usa l'installazione basata su pacchetti o il file setup.py, vengono instal
 Per eseguire test del client di Genomica di Microsoft, scaricare il file di configurazione dall'account di Genomica. Passare all'account di Genomica facendo clic su **Tutti i servizi** in alto a sinistra, applicando i filtri necessari e selezionando gli account di Genomica.
 
 
-![Applicare un filtro per Genomica di Microsoft nel portale di Azure](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Applicare un filtro per Genomica di Microsoft nel portale di Azure")
+![Filtro per Genomica di Microsoft nel portale di Azure](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Filtro per Genomica di Microsoft nel portale di Azure")
 
 
 
@@ -110,7 +110,7 @@ msgen list -f “<full path where you saved the config file>”
 Il servizio Genomica di Microsoft prevede l'archiviazione di input come BLOB in blocchi in un account di archiviazione di Azure. I file di output vengono inoltre scritti come BLOB in blocchi in un contenitore specificato dall'utente in un account di archiviazione di Azure. I file di input e di output possono trovarsi in account di archiviazione diversi.
 Se i dati sono già disponibili in un account di archiviazione di Azure, è necessario solo assicurarsi che si trovino nella stessa posizione dell'account di Genomica. In caso contrario, verranno applicati addebiti per il traffico in uscita in caso di esecuzione del servizio Genomica. Se non si ha un account di archiviazione di Microsoft Azure, è necessario crearne uno e caricare i dati. Altre informazioni sugli account di archiviazione di Azure sono disponibili [qui](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account), incluse informazioni sull'account di archiviazione specifico e sui servizi forniti. Per creare un account di archiviazione di Microsoft Azure, passare al [portale di Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM ).  
 
-![Pannello di creazione dell'account di archiviazione](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Pannello di creazione dell'account di archiviazione")
+![Pannello di creazione archiviazione](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Pannello di creazione archiviazione")
 
 Configurare l'account di archiviazione con le informazioni seguenti, come mostrato nell'immagine precedente. Usare la maggior parte delle opzioni standard per un account di archiviazione, specificando solo che l'account è un account di archiviazione BLOB, non per utilizzo generico. Un archivio BLOB può risultare da 2 a 5 volte più veloce per download e caricamenti.  La scelta consigliata è il modello di distribuzione predefinito, Azure Resource Manager.  
 
@@ -118,8 +118,8 @@ Configurare l'account di archiviazione con le informazioni seguenti, come mostra
  |**Impostazione**          |  **Valore consigliato**  | **Descrizione campo** |
  |:-------------------------       |:-------------         |:----------            |
  |Subscription         | Sottoscrizione di Azure |Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.azure.com/Subscriptions) |      
- |Resource group       | MyResourceGroup       |  È possibile selezionare lo stesso gruppo di risorse dell'account di Genomica. Per informazioni sui nomi di gruppi di risorse validi, vedere [Convenzioni di denominazione](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
- |Nome dell'account di archiviazione         | MyStorageAccount     |Scegliere un identificatore dell'account univoco. Per informazioni sui nomi validi, vedere [Convenzioni di denominazione](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |Resource group       | MyResourceGroup       |  È possibile selezionare lo stesso gruppo di risorse dell'account di Genomica. Per informazioni sui nomi di gruppi di risorse validi, vedere [Convenzioni di denominazione](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) |
+ |Nome dell'account di archiviazione         | MyStorageAccount     |Scegliere un identificatore dell'account univoco. Per informazioni sui nomi validi, vedere [Convenzioni di denominazione](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) |
  |Location                  | Stati Uniti occidentali 2                  | Usare la stessa località specificata per l'account di Genomica per ridurre gli addebiti relativi al traffico in uscita e per ridurre la latenza.  | 
  |Prestazioni                  | Standard                   | Il livello predefinito è Standard. Per informazioni dettagliate sugli account di archiviazione Standard e Premium, vedere [Introduzione ad Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
  |Tipo di account       | Archiviazione BLOB       |  Un archivio BLOB può risultare da 2 a 5 volte più veloce rispetto all'utilizzo generico per download e caricamenti. |
@@ -149,7 +149,7 @@ Per eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft, modi
 Aprire il file config.txt scaricato dall'account di Genomica. Le sezioni da specificare corrispondono alla chiave di sottoscrizione e ai sei elementi nella parte inferiore, al nome dell'account di archiviazione, alla chiave e al nome del contenitore per input e output. Queste informazioni sono disponibili nella sezione **Chiavi di accesso** del portale per l'account di archiviazione o direttamente da Azure Storage Explorer.  
 
 
-![File di configurazione di Genomica](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "File di configurazione di Genomica")
+![Configurazione di Genomica](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Configurazione di Genomica")
 
 
 Se si vuole eseguire GATK4, impostare il parametro `process_name` su `gatk4`.

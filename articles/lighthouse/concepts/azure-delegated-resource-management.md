@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 8cc75fde348d070a19d1987d1403c63e8e6d2278
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: c2aa393f04a8db470dd8b739c0ed003477df0221
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286626"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615424"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestione risorse delegate di Azure
 
@@ -23,7 +23,7 @@ La gestione risorse delegate di Azure è uno dei componenti principali di Azure 
 La gestione risorse delegate di Azure consente la proiezione logica delle risorse da un tenant a un altro. Questo consente agli utenti autorizzati di un tenant di Azure Active Directory (Azure AD) di eseguire operazioni di gestione su tenant di Azure AD diversi appartenenti ai clienti. I provider di servizi possono accedere al proprio tenant di Azure AD e avere l'autorizzazione per lavorare nelle sottoscrizioni e nei gruppi di risorse delegati dei clienti. In questo modo possono eseguire operazioni di gestione per conto dei clienti, senza dover accedere al tenant di ogni singolo cliente.
 
 > [!NOTE]
-> La gestione risorse delegate di Azure può essere usata anche all'interno di un'azienda con più tenant di Azure AD propri per semplificare la gestione tra tenant.
+> La gestione risorse delegate di Azure può essere usata anche [all'interno di un'azienda con più tenant di Azure AD propri](enterprise.md) per semplificare la gestione tra tenant.
 
 Con la gestione risorse delegate di Azure, gli utenti autorizzati possono lavorare direttamente nel contesto della sottoscrizione di un cliente senza avere un account nel tenant di tale cliente o essere comproprietario del tenant del cliente. Possono anche [visualizzare e gestire tutte le sottoscrizioni delegate dei clienti nella nuova pagina **Clienti personali**](../how-to/view-manage-customers.md) del portale di Azure.
 

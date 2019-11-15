@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 11/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 20cfcea4a8b58c1c01a7c710163b7320ff96d65c
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 96dae96e16ce033ce15a8f1e9386e5252562654a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330827"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796214"
 ---
 # <a name="what-is-azure-front-door-service"></a>Informazioni sul servizio Frontdoor di Azure
 Il servizio Frontdoor di Azure consente di definire, gestire e monitorare il routing globale del traffico Web, rendendo le prestazioni ottimali e il failover globale immediato per una disponibilità elevata. Con Frontdoor è possibile trasformare il consumer globale (multi-area) e le applicazioni aziendali in applicazioni moderne, solide, personalizzate e dalle alte prestazioni, in API, con contenuti che raggiungono un audience globale grazie ad Azure.
@@ -57,7 +57,7 @@ Quando si usa Frontdoor per distribuire un contenuto,è necessario un dominio pe
 Frontdoor supporta anche HTTPS per nomi di dominio personalizzato. Usare questa funzionalità scegliendo i certificati gestiti di Frontdoor o caricando il certificato SSL personalizzato.
 
 ## <a name="application-layer-security"></a>Sicurezza del livello dell'applicazione
-Il servizio Frontdoor di Azure consente di creare regole di Web application firewall (WAF) personalizzate (WAF) per il controllo degli accessi al fine di proteggere il tuo carico di lavoro HTTP/HTTPS dallo sfruttamento basato su indirizzi IP del client, codice paese e parametri HTTP. Inoltre, Frontdoor consente di creare regole di limitazione della tariffa per combattere il dannoso traffico dei bot. 
+Il servizio Frontdoor di Azure consente di creare regole di Web Application Firewall (WAF) personalizzate per il controllo degli accessi al fine di proteggere il carico di lavoro HTTP/HTTPS dallo sfruttamento basato su indirizzi IP del client, codice paese e parametri HTTP. Inoltre, Frontdoor consente di creare regole di limitazione della tariffa per combattere il dannoso traffico dei bot. Per altre informazioni su Web Application Firewall, vedere [Che cos'è Web Application Firewall di Azure?](../web-application-firewall/overview.md)
 
 La stessa piattaforma Frontdoor è protetta da [Protezione DDoS di Azure](../virtual-network/ddos-protection-overview.md) di Siti Web Basic. Per una protezione maggiore, Protezione DDoS Standard di Azure può essere abilitata nelle reti virtuali per proteggere le risorse dagli attacchi a livello di rete (TCP/UDP) attraverso l'ottimizzazione automatica e la mitigazione. Frontdoor è un proxy inverso di livello 7 e consente solo al traffico Web di attraversare i back-end e bloccare altri tipi di traffico per impostazione predefinita.
 

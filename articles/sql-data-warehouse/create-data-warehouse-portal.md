@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse ed eseguire query - Portale di Azure | Microsoft Docs"
+title: 'Guida introduttiva: Creare ed eseguire una query a un data warehouse - Portale di Azure'
 description: Creare un data warehouse ed eseguirvi una query con Azure SQL Data Warehouse nel portale di Azure.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,13 +10,13 @@ ms.subservice: development
 ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: sqlfreshmay19
-ms.openlocfilehash: 83475af3cfdd83e718243d80b84599d53716a5d5
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 46b413d3fb2a27e724bcb2faa3306416e7f5abc7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375832"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824855"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse nel portale di Azure ed eseguire query
 
@@ -37,7 +37,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Creare un data warehouse
 
-L'istanza di Azure SQL Data Warehouse viene creata con un set definito di [risorse di calcolo](memory-and-concurrency-limits.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di Azure SQL](../sql-database/sql-database-logical-servers.md). 
+L'istanza di Azure SQL Data Warehouse viene creata con un set definito di [risorse di calcolo](memory-concurrency-limits.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di Azure SQL](../sql-database/sql-database-logical-servers.md). 
 
 Seguire questa procedura per creare un'istanza di SQL Data Warehouse contenente i dati dell'esempio AdventureWorksDW. 
 
@@ -53,7 +53,7 @@ Seguire questa procedura per creare un'istanza di SQL Data Warehouse contenente 
     | :------ | :-------------- | :---------- |
     | **Nome database** | mySampleDataWarehouse | Per i nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers). Si noti che un data warehouse è un tipo di database.|
     | **Sottoscrizione** | Sottoscrizione in uso | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
-    | **Gruppo di risorse** | myResourceGroup | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+    | **Gruppo di risorse** | myResourceGroup | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
     | **Seleziona origine** | Esempio | Specifica di caricare un database di esempio. Si noti che un data warehouse è un tipo di database. |
     | **Selezionare l'esempio** | AdventureWorksDW | Specifica di caricare il database di esempio AdventureWorksDW. |
     ||||
@@ -64,7 +64,7 @@ Seguire questa procedura per creare un'istanza di SQL Data Warehouse contenente 
 
     | Impostazione | Valore consigliato | Descrizione |
     | :------ | :-------------- | :---------- |
-    | **Nome server** | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+    | **Nome server** | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
     | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Identificatori del database](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
     | **Password** | Qualsiasi password valida | La password deve contenere almeno otto caratteri delle tre categorie seguenti: maiuscole, minuscole, numeri e caratteri non alfanumerici. |
     | **Posizione** | Qualsiasi località valida | Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |

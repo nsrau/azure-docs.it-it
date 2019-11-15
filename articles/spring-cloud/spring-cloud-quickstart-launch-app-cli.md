@@ -1,20 +1,17 @@
 ---
-title: Avviare un'applicazione Java Spring tramite l'interfaccia della riga di comando di Azure
+title: "Guida introduttiva: Avviare un'applicazione Java Spring tramite l'interfaccia della riga di comando di Azure"
 description: In questo argomento di avvio rapido viene distribuita un'applicazione di esempio in Azure Spring Cloud con l'interfaccia della riga di comando di Azure.
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/04/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 6d399f04015140477af17f718c3e2205b8c3855f
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.date: 11/04/2019
+ms.author: jeconnoc
+ms.openlocfilehash: 3bc1bfcf58d622151f0af9c6da693c5533bcf966
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170546"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721602"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Guida introduttiva: Avviare un'applicazione Java Spring tramite l'interfaccia della riga di comando di Azure
 
@@ -34,8 +31,7 @@ Seguendo questo argomento di avvio rapido, si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 >[!Note]
-> Prima di iniziare l'argomento di avvio rapido, assicurarsi che la propria sottoscrizione di Azure abbia accesso ad Azure Spring Cloud.  Essendo un servizio in anteprima, chiediamo ai clienti di contattarci in modo che possiamo aggiungere la loro sottoscrizione al nostro elenco di utenti autorizzati.  Se si desidera esplorare le funzionalità di Azure Spring Cloud, [compilare questo modulo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u
-).
+> Azure Spring Cloud è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  Le funzionalità e i servizi di anteprima pubblica non sono destinati all'uso in produzione.  Per altre informazioni sul supporto durante le anteprime, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o inviare una [richiesta di supporto](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 >[!TIP]
 > Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo.  Include i comuni strumenti di Azure preinstallati, tra cui le ultime versioni di Git, JDK, Maven e dell'interfaccia della riga di comando di Azure. Se è stato eseguito l'accesso alla sottoscrizione di Azure, avviare [Azure Cloud Shell](https://shell.azure.com) da shell.azure.com.  Per altre informazioni su Azure Cloud Shell, [leggere la documentazione](../cloud-shell/overview.md)
@@ -45,7 +41,7 @@ Per completare questa guida introduttiva:
 1. [Installare Git](https://git-scm.com/)
 2. [Installare JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 3. [Installare Maven 3.0 o versione successiva](https://maven.apache.org/download.cgi)
-4. [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+4. [Installare l'interfaccia della riga di comando di Azure versione 2.0.67 o successiva](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Iscriversi per ottenere una sottoscrizione di Azure](https://azure.microsoft.com/free/)
 
 ## <a name="install-the-azure-cli-extension"></a>Installare l'estensione dell'interfaccia della riga di comando di Azure
@@ -53,7 +49,7 @@ Per completare questa guida introduttiva:
 Installare l'estensione Azure Spring Cloud per l'interfaccia della riga di comando di Azure usando il comando seguente
 
 ```azurecli
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 
 ## <a name="provision-a-service-instance-on-the-azure-cli"></a>Effettuare il provisioning di un'istanza del servizio nell'interfaccia della riga di comando di Azure
@@ -110,7 +106,7 @@ az spring-cloud config-server git set -n <your-service-name> --uri https://githu
 2. Cambiare directory e creare il progetto.
 
     ```azurecli
-        cd PiggyMetrics
+        cd piggymetrics
         mvn clean package -D skipTests
     ```
 
@@ -125,9 +121,6 @@ az spring-cloud app create --name gateway
 az spring-cloud app create --name auth-service
 az spring-cloud app create --name account-service
 ```
-
->[!NOTE]
-> Per il corretto funzionamento del server di configurazione specificato, è necessario che i nomi delle applicazioni corrispondano esattamente ai nomi dei file JAR.
 
 ## <a name="deploy-applications-and-set-environment-variables"></a>Distribuire le applicazioni e impostare le variabili di ambiente
 

@@ -1,19 +1,19 @@
 ---
-title: Introduzione ad Archiviazione BLOB - Archiviazione di oggetti in Azure
+title: Introduzione all'archiviazione di oggetti BLOB - Archiviazione di Azure
 description: Archiviazione BLOB di Azure archivia enormi quantità di dati di oggetti non strutturati, come testo o dati binari, e inoltre garantisce scalabilità e disponibilità elevate. I client possono accedere agli oggetti dati in Archiviazione BLOB da PowerShell o dall'interfaccia della riga di comando di Azure, da codice tramite le librerie client di Archiviazione di Azure o tramite REST.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 05/24/2019
+ms.date: 11/04/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b54f69edfebca2786ec996b1ca71cea933179b58
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 51f72011b89656d8f56e996d4654a2714f2f482b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641017"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615610"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introduzione all'archiviazione BLOB di Azure
 

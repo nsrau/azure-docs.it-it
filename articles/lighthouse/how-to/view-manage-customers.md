@@ -4,15 +4,15 @@ description: I provider di servizi che usano la gestione risorse delegate di Azu
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 10/23/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 53aabc4dc6c0d3fcef28aab16ea598cbbf6dbd55
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: d68ac0a1b6a66482a85f7ab79840099a34c731c2
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302751"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615527"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Visualizzare e gestire clienti e risorse delegate
 
@@ -20,7 +20,7 @@ I provider di servizi che usano la [gestione risorse delegate di Azure](../conce
 
 Per accedere alla pagina **Clienti personali** nel portale di Azure, selezionare **Tutti i servizi**, quindi cercare **Clienti personali** e selezionarla. È possibile trovarla anche immettendo "Clienti personali" nella casella di ricerca nella parte superiore del portale di Azure.
 
-Tenere presente che la pagina **Clienti personali** mostra solo le informazioni sui clienti che hanno gruppi di risorse o sottoscrizioni delegate. Se si interagisce con altri clienti (ad esempio tramite il [programma Cloud Solution Provider](https://docs.microsoft.com/partner-center/csp-overview)), le informazioni su tali clienti verranno visualizzate qui solo se si esegue l'onboarding delle risorse per la gestione risorse delegate.
+Tenere presente che la sezione superiore della pagina **Clienti personali** mostra solo le informazioni sui clienti che hanno gruppi di risorse o sottoscrizioni delegate. Se si interagisce con altri clienti (ad esempio tramite il [programma Cloud Solution Provider](https://docs.microsoft.com/partner-center/csp-overview)), le informazioni su tali clienti verranno visualizzate qui solo se si esegue l'onboarding delle risorse per la gestione risorse delegate. Più in basso nella pagina, nella sezione **Cloud Solution Provider (anteprima)** vengono visualizzate le informazioni e le risorse di fatturazione per i clienti CSP che hanno [firmato il Contratto del cliente Microsoft](https://docs.microsoft.com/partner-center/confirm-customer-agreement) e che operano nell'ambito del piano di Azure, indipendentemente dal fatto che siano stati destinati o meno alla gestione delle risorse delegate di Azure. Per altre informazioni, vedere [Introduzione all'account di fatturazione del Contratto Microsoft Partner](https://docs.microsoft.com/azure/billing/mpa-overview).
 
 > [!NOTE]
 > I clienti possono visualizzare le informazioni sui provider di servizi passando a **Provider di servizi** nel portale di Azure. Per altre informazioni, vedere [Visualizzare e gestire i provider di servizi](view-manage-service-providers.md).
@@ -30,6 +30,9 @@ Tenere presente che la pagina **Clienti personali** mostra solo le informazioni 
 Per visualizzare i dettagli dei clienti, selezionare **Clienti** sul lato sinistro della pagina **Clienti personali**.
 
 Per ogni cliente, verranno visualizzati il nome del cliente, l'ID del cliente (ID del tenant) e l'offerta associata all'engagement. Nella colonna **Deleghe** saranno visualizzati il numero di sottoscrizioni delegate e/o il numero di gruppi di risorse delegati.
+
+> [!IMPORTANT]
+> Per visualizzare una delega, è necessario che agli utenti sia stato concesso il ruolo [Lettore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) (o un altro ruolo predefinito che include l'accesso in lettura) nel processo di onboarding.
 
 I filtri nella parte superiore della pagina consentono di ordinare e raggruppare le informazioni sui clienti o filtrare in base a clienti, offerte o parole chiave specifiche.
 

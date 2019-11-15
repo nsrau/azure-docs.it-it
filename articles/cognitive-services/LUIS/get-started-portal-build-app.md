@@ -1,26 +1,25 @@
 ---
 title: 'Avvio rapido: Creare una nuova app nel portale LUIS'
 titleSuffix: Azure Cognitive Services
-description: Questo argomento di avvio rapido spiega come creare una nuova app nel portale LUIS. Creare le parti fondamentali di un'app, le finalità e le entità. Testare l'app specificando un'espressione utente di esempio nel pannello di test interattivo per ottenere la finalità stimata. La creazione di un'app è gratuita e non richiede una sottoscrizione di Azure.
+description: Questo argomento di avvio rapido illustra come creare le parti di base di un'app, le finalità e le entità e come testare un'espressione di esempio nel portale LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/04/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 6888c53122e649d6a0e91f8ece30101f051c08e8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 087b3a61902c533648b5d6e1b4b763f88ee5d794
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488763"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669669"
 ---
-# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Avvio rapido: Creare una nuova app nel portale LUIS
+# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Guida introduttiva: Creare una nuova app nel portale LUIS
 
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 Questo argomento di avvio rapido illustra come creare una nuova app nel [portale LUIS](https://www.luis.ai). Creare prima le parti fondamentali di un'app, le **finalità** e le **entità**. Testare quindi l'app specificando un'espressione utente di esempio nel pannello di test interattivo per ottenere la finalità stimata.
 
@@ -32,16 +31,16 @@ La creazione di un'app è gratuita e non richiede una sottoscrizione di Azure. Q
 
 1. Selezionare **+ Crea** sulla barra degli strumenti contestuale.
 
-   [![Creare una nuova app nel portale LUIS](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
+   [![Creare una nuova app nel portale LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
 1. Nella finestra popup configurare l'app con le impostazioni seguenti e quindi selezionare **Done** (Fine).
 
    |Nome impostazione| Valore | Scopo|
    |--|--|--|
    |Nome|`myEnglishApp`|Nome univoco dell'app LUIS;<br>obbligatorio|
-   |Impostazioni cultura|**English**|Lingua delle espressioni degli utenti, **en-us**;<br>obbligatorio|
-   |Descrizione|`App made with LUIS Portal`|Descrizione dell'app;<br>facoltativo|
-   | | | |
+   |Impostazioni cultura|**English**|Lingua delle espressioni degli utenti, **en-us**;<br>Obbligatoria|
+   |Descrizione (facoltativa)|`App made with LUIS Portal`|Descrizione dell'app;<br>facoltativo|
+   |Risorsa di previsione (facoltativa) |-  |Non selezionare. LUIS offre una chiave iniziale da usare gratuitamente per la creazione e per 1.000 richieste di endpoint di previsione. |
 
    ![Immettere nuove impostazioni app](./media/get-started-portal-build-app/create-new-app-settings.png)
 
@@ -61,13 +60,11 @@ I due diversi _intenti_ dell'app si allineano alle finalità seguenti:
 
 Per creare le finalità, seguire questa procedura:
 
-1. Dopo aver creato l'app, usare la pagina **Intents** (Funzionalità) della sezione **Build** (Crea). Selezionare **Create new intent** (Crea nuova finalità).
+1. Dopo aver creato l'app, usare la pagina **Intents** (Funzionalità) della sezione **Build** (Crea). Selezionare **Create** (Crea).
 
-   [![Selezionare il pulsante Create new intent](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox) (Crea nuova finalità)
+   [![Selezionare Create per creare la nuova finalità](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
 1. Immettere il nome della finalità `FindForm` e quindi selezionare **Done** (Fine).
-
-   ![Immettere il nome della finalità FindForm](./media/get-started-portal-build-app/create-new-intent-dialog.png)
 
 ## <a name="add-an-example-utterance"></a>Aggiungere un'espressione di esempio
 
@@ -113,13 +110,16 @@ Per restituire il numero di modulo nella risposta runtime di previsione, il modu
 
 1. Scegliere **Entities** (Entità) dal menu a sinistra.
 
-1. Selezionare **Create new entity** (Crea nuova entità) nella pagina **Entities** (Entità).
+1. Selezionare **Create** (Crea) nella pagina **Entities** (Entità).
 
-1. Immettere il nome `Human Resources Form Number`, selezionare il tipo di entità **Regex** e immettere l'espressione regolare `hrf-[0-9]{6}`. Questa voce corrisponde ai caratteri letterali, `hrf-`, e consente di inserire esattamente 6 cifre.
+1. Immettere il nome `Human Resources Form Number`, selezionare il tipo di entità **Regex**, quindi selezionare **Avanti**.
 
-   ![Immettere le informazioni sull'entità per l'entità di espressione regolare](./media/get-started-portal-build-app/create-regular-expression-entity.png)
+   ![Creare un'entità di espressione regolare](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
-1. Selezionare **Operazione completata**.
+1. Immettere l'espressione regolare (**RegEx**), `hrf-[0-9]{6}`. Questa voce corrisponde ai caratteri letterali, `hrf-`, e consente di inserire esattamente 6 cifre. Quindi selezionare **Create** (Crea).
+
+   ![Immettere l'espressione regolare per l'entità](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
+
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Aggiungere espressioni di esempio alla finalità None (Nessuna)
 
@@ -137,11 +137,11 @@ Le espressioni di esempio della finalità **None** (Nessuna) devono essere al di
    |Order a pizza for me (Ordinami una pizza)|
    |Penguins in the ocean (Pinguini nell'oceano)|
 
-   Per questa app di gestione delle risorse umane, queste espressioni di esempio sono al di fuori del dominio. Se il dominio delle risorse umane include animali, cibo o l'oceano, sarà necessario usare espressioni di esempio diverse per la finalità **None** (Nessuna).
+   Per questa app, queste espressioni di esempio esulano dal dominio. Se il dominio include animali, cibo o l'oceano, sarà necessario usare espressioni di esempio diverse per la finalità **None** (Nessuna).
 
 ## <a name="train-the-app"></a>Eseguire il training dell'app
 
-Scegliere **Train** (Esegui il training) dal menu in alto a destra per applicare le modifiche del modello di finalità ed entità alla versione corrente dell'app.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="look-at-the-regular-expression-entity-in-the-example-utterances"></a>Esaminare l'entità di espressione regolare nelle espressioni di esempio
 
@@ -168,8 +168,6 @@ Usare il pannello **Test** interattivo nel portale di LUIS per verificare che l'
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se al termine di questo argomento di avvio rapido non si prosegue con quello successivo, scegliere **My apps** (Le mie app) dal menu di spostamento superiore. Selezionare quindi dall'elenco la casella di controllo di sinistra dell'app e selezionare **Delete** (Elimina) sulla barra degli strumenti contestuale sopra l'elenco.
-
-[![Eliminare l'app dall'elenco My apps (App personali)](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

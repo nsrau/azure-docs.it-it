@@ -1,7 +1,7 @@
 ---
 title: 'Guida introduttiva: Pubblicare una knowledge base in REST, Python - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Questa guida introduttiva di Python basata su REST illustra la procedura di pubblicazione della knowledge base per eseguire il push della versione più recente della knowledge base testata su un indice di Ricerca di Azure dedicato che rappresenta la knowledge base pubblicata. Viene inoltre creato un endpoint che può essere chiamato nell'applicazione o nel chat bot.
+description: In questa guida di avvio rapido basata su REST per Python viene pubblicata una knowledge base e creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,16 +11,16 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 09523bb6c9c8a58f5f7bd102d2ac30ad77f28d1c
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 87913d4b1a6a01b91a74d7c4b0c41a66557b86f1
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840197"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794068"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Avvio rapido: Pubblicare una knowledge base in QnA Maker usando Python
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Guida introduttiva: Pubblicare una knowledge base in QnA Maker usando Python
 
-Questa guida introduttiva basata su REST illustra la procedura di pubblicazione della knowledge base (KB) a livello di codice. Con la pubblicazione viene eseguito il push dell'ultima versione della knowledge base in un indice dedicato di Ricerca di Azure e viene creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
+Questa guida introduttiva basata su REST illustra la procedura di pubblicazione della knowledge base (KB) a livello di codice. Con la pubblicazione viene eseguito il push dell'ultima versione della knowledge base in un indice dedicato di Ricerca cognitiva di Azure e viene creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
 
 In questa guida di avvio rapido vengono chiamate le API QnA Maker seguenti:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Pubblicazione): con questa API non sono richieste informazioni nel corpo della richiesta.

@@ -1,5 +1,5 @@
 ---
-title: Preparare Azure per il ripristino di emergenza di computer locali con Azure Site Recovery
+title: Preparare Azure per il ripristino di emergenza in locale con Azure Site Recovery
 description: Informazioni su come preparare Azure per il ripristino di emergenza di computer locali con Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1b8bdde64ee003d93ad15df8f1d4d8b1e3a2b5f9
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 1ec668fac087773001ca401eefb5ca8bc10ea2b8
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814326"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620602"
 ---
-# <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparare le risorse di Azure per il ripristino di emergenza di computer locali
+# <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Preparare Azure per il ripristino di emergenza in locale in Azure
 
 Questo articolo descrive come preparare risorse e componenti di Azure per poter configurare il ripristino di emergenza di macchine virtuali VMware locali, macchine virtuali Hyper-V o server fisici Windows/Linux in Azure con il servizio [Azure Site Recovery](site-recovery-overview.md).
 
@@ -49,21 +49,22 @@ Se è appena stato creato l'account Azure gratuito, si è amministratori della p
 - Scrivere in un account di archiviazione di Azure.
 - Scrivere in un disco gestito di Azure.
 
-Per completare queste attività, è necessario che all'account sia assegnato il ruolo predefinito Collaboratore Macchina virtuale. Per gestire le operazioni di Site Recovery in un insieme di credenziali, è necessario che all'account sia assegnato il ruolo predefinito Collaboratore di Site Recovery.
+Per completare queste attività, è necessario che all'account sia assegnato il ruolo predefinito Collaboratore Macchina virtuale. Per gestire le operazioni di Site Recovery in un insieme di credenziali, inoltre, è necessario che all'account sia assegnato il ruolo predefinito Collaboratore di Site Recovery.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
-1. Nel portale di Azure fare clic su **+Crea una risorsa** e quindi cercare **Ripristino** nel Marketplace.
-2. Fare clic su **Backup e Site Recovery** e quindi nella pagina Backup e Site Recovery fare clic su **Crea**. 
-1. Nell'**insieme di credenziali di Servizi di ripristino** > **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. Per questo set di esercitazioni viene usato **ContosoVMVault**.
-2. In **Gruppo di risorse** selezionare un gruppo di risorse esistente o crearne uno nuovo. Per questa esercitazione, selezionare **contosoRG**.
-3. In **Località** selezionare l'area geografica in cui dovrà essere collocato l'insieme di credenziali. Viene usato **Europa occidentale**.
-4. Per accedere rapidamente all'insieme di credenziali dal dashboard, selezionare **Aggiungi al dashboard** > **Crea**.
+1. Nel menu del portale di Azure fare clic su **Crea una risorsa** e quindi cercare **Ripristino** nel Marketplace.
+2. Selezionare **Backup e Site Recovery** nei risultati della ricerca e nella pagina Backup e Site Recovery fare clic su **Crea**. 
+3. Nella pagina **Crea insieme di credenziali di Servizi di ripristino** selezionare **Sottoscrizione**. In questo caso verrà usata la **sottoscrizione Contoso**.
+4. In **Gruppo di risorse** selezionare un gruppo di risorse esistente o crearne uno nuovo. Per questa esercitazione, selezionare **contosoRG**.
+5. In **Nome dell'insieme di credenziali** immettere un nome descrittivo per identificare l'insieme di credenziali. Per questo set di esercitazioni viene usato **ContosoVMVault**.
+6. In **Area** selezionare l'area geografica in cui dovrà essere collocato l'insieme di credenziali. Viene usato **Europa occidentale**.
+7. Selezionare **Rivedi e crea**.
 
    ![Creare un nuovo insieme di credenziali](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-   Il nuovo insieme di credenziali viene visualizzato in **Dashboard** > **Tutte le risorse** e nella pagina principale **Insiemi di credenziali dei servizi di ripristino**.
+   Il nuovo insieme di credenziali risulterà ora elencato in **Dashboard** > **Tutte le risorse** e nella pagina **Insiemi di credenziali dei servizi di ripristino** principale.
 
 ## <a name="set-up-an-azure-network"></a>Configurare una rete di Azure
 
@@ -72,16 +73,17 @@ I computer locali vengono replicati in dischi gestiti di Azure. Quando si verifi
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** >  **Rete** > **Rete virtuale**.
 2. Lasciare selezionato **Resource Manager** come modello di distribuzione.
 3. In **Nome** immettere un nome di rete. Il nome deve essere univoco all'interno del gruppo di risorse di Azure. In questa esercitazione viene usato **ContosoASRnet**.
-4. Specificare il gruppo di risorse in cui verrà creata la rete. Usare il gruppo di risorse esistente **contosoRG**.
-5. In **Intervallo di indirizzi** specificare l'intervallo per la rete, in questo caso **10.1.0.0/24** senza subnet.
-6. In **Sottoscrizione** selezionare la sottoscrizione in cui creare la rete.
+4. In **Spazio indirizzi** immettere l'intervallo di indirizzi della rete virtuale nella notazione CIDR. In questo caso verrà usato l'indirizzo **10.1.0.0/24**.
+5. In **Sottoscrizione** selezionare la sottoscrizione in cui creare la rete.
+6. Specificare il **Gruppo di risorse** in cui verrà creata la rete. Usare il gruppo di risorse esistente **contosoRG**.
 7. In **Posizione** selezionare la stessa area in cui è stato creato l'insieme di credenziali di Servizi di ripristino. In questa esercitazione si tratta di **Europa occidentale**. La rete deve trovarsi nella stessa area dell'insieme di credenziali.
-8. Lasciare le opzioni predefinite per la protezione di base DDoS, senza endpoint di servizio nella rete.
-9. Fare clic su **Create**(Crea).
+8. In **Intervallo di indirizzi** specificare l'intervallo per la rete, in questo caso **10.1.0.0/24** senza subnet.
+9. Lasciare le opzioni predefinite per la protezione DDoS di base, senza firewall o endpoint di servizio in rete.
+9. Selezionare **Create** (Crea).
 
    ![Crea rete virtuale](media/tutorial-prepare-azure/create-network.png)
 
-La creazione della rete virtuale richiede qualche secondo. La rete creata viene visualizzata nel dashboard del portale di Azure.
+La creazione della rete virtuale richiede qualche secondo. La rete creata verrà visualizzata nel dashboard del portale di Azure.
 
 
 

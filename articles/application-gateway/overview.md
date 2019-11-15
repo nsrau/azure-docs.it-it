@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 5/31/2019
+ms.date: 11/05/2019
 ms.author: victorh
-ms.openlocfilehash: b30b96e6ae931e0df41b60e16f04127e82a068ad
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a51276cd54a88c5e566afef0d06673f14b5862cf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469754"
+ms.locfileid: "73572041"
 ---
 # <a name="what-is-azure-application-gateway"></a>Cos'è il gateway applicazione di Azure?
 
@@ -47,11 +47,11 @@ L'indirizzo VIP del gateway applicazione nello SKU Standard_v2 o WAF_v2 supporta
 
 ## <a name="web-application-firewall"></a>Web application firewall
 
-Web application firewall (WAF) è una funzionalità del gateway applicazione che offre una protezione centralizzata delle applicazioni Web da exploit e vulnerabilità comuni. WAF si basa su regole dei [set di regole principali OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (solo WAF_v2), 3.0 e 2.2.9. 
+Web Application Firewall (WAF) è un servizio che fornisce protezione centralizzata delle applicazioni Web da exploit e vulnerabilità comuni. WAF si basa su regole dei [set di regole principali OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (solo WAF_v2), 3.0 e 2.2.9. 
 
 Le applicazioni Web sono sempre più vittime di attacchi che sfruttano le più comuni vulnerabilità note. Per citarne alcuni, tra i più comuni troviamo gli attacchi SQL injection e gli attacchi di scripting intersito. Impedire questo tipo di attacchi nel codice dell'applicazione può essere un'operazione complessa e potrebbe richiedere una manutenzione rigorosa, l'applicazione di patch e il monitoraggio a più livelli della topologia dell'applicazione. Un Web application firewall centralizzato semplifica notevolmente la gestione della sicurezza e offre agli amministratori delle applicazioni migliori garanzie contro le minacce o le intrusioni. Una soluzione WAF è anche in grado di reagire più velocemente a una minaccia alla sicurezza tramite l'applicazione di patch su una vulnerabilità nota in una posizione centrale, anziché proteggere ogni singola applicazione Web. È possibile convertire facilmente i gateway applicazione esistenti in un gateway applicazione con Web application firewall.
 
-Per altre informazioni, vedere [Web application firewall (WAF) nel gateway applicazione](https://docs.microsoft.com/azure/application-gateway/waf-overview).
+Per altre informazioni, vedere [Che cos'è Azure Web Application Firewall?](../web-application-firewall/overview.md).
 
 ## <a name="ingress-controller-for-aks"></a>Controller di ingresso per il servizio Azure Kubernetes
 Il controller di ingresso del gateway applicazione consente di usare il gateway applicazione come ingresso per un cluster del [servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/). 

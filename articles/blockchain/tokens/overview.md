@@ -1,50 +1,50 @@
 ---
-title: Informazioni sui token di Azure blockchain
-description: I token blockchain di Azure sono una piattaforma distribuita come servizio (PaaS) per il rilascio e la gestione dei token.
+title: Che cos'è il servizio Token di blockchain di Azure?
+description: Token di blockchain di Azure è una piattaforma distribuita come servizio (PaaS) per l'emissione e la gestione di token.
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
 ms.date: 11/04/2019
-ms.topic: article
+ms.topic: overview
 ms.service: azure-blockchain
 ms.reviewer: brendal
-ms.openlocfilehash: d04c4202f89e58185465669c3da0f7d5e4d7b9bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cd41d52e06a5c1833dca9669881cbe48f362d81d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518645"
+ms.locfileid: "73579759"
 ---
-# <a name="what-is-azure-blockchain-tokens"></a>Che cosa sono i token blockchain di Azure?
+# <a name="what-is-azure-blockchain-tokens"></a>Che cos'è il servizio Token di blockchain di Azure?
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-I token blockchain di Azure sono una piattaforma distribuita come servizio (PaaS) per il rilascio e la gestione di token standardizzati tra i registri di blockchain in Azure.
+Token di blockchain di Azure è una piattaforma distribuita come servizio (PaaS) per l'emissione e la gestione di token standardizzati nei libri mastri della blockchain in Azure.
 
-Usando i token di Azure blockchain è possibile creare token standardizzati per la soluzione blockchain usando un modello di token predefinito. È anche possibile comporre un modello di token personalizzato usando il servizio. Una volta creati, usare i token blockchain di Azure per connettersi ed emettere i token in un blockchain. Una volta emesso, è possibile gestire i token tra più reti blockchain.
+Usando Token di blockchain di Azure è possibile creare token standardizzati per la soluzione blockchain usando un modello di token predefinito. È anche possibile comporre un modello di token personalizzato usando il servizio. Dopo la creazione, usare Token di blockchain di Azure per connettere ed emettere i token in una blockchain. Una volta emessi, i token possono essere gestiti tra più reti di blockchain.
 
 ## <a name="templates"></a>Modelli
 
-Usare i token blockchain di Azure per selezionare un modello di token predefinito o creare un modello di token personalizzato. I token blockchain di Azure supportano la componibilità dei modelli di token che consente di creare un modello di token personalizzato basato sui comportamenti supportati. I modelli di token possono essere usati per la maggior parte delle soluzioni blockchain poiché eseguono il mapping ai token usati più di frequente. È possibile iniziare con un modello, personalizzarlo e distribuire i token per la soluzione.
+Usare Token di blockchain di Azure per selezionare un modello di token predefinito o crearne uno personalizzato. Il servizio Token di blockchain di Azure supporta la componibilità dei modelli di token, che consente di creare un modello di token personalizzato basato sui comportamenti supportati. I modelli di token possono essere usati per la maggior parte delle soluzioni blockchain, perché si abbinano alla maggior parte dei token di utilizzo comune. È possibile iniziare con un modello, personalizzarlo e distribuire i token per la soluzione.
 
-Per altre informazioni sui modelli di token blockchain di Azure, vedere [modelli di token blockchain di Azure](templates.md).
+Per altre informazioni sui modelli di Token di blockchain di Azure, vedere [Modelli di Token di blockchain di Azure](templates.md).
 
-## <a name="management"></a>gestione
+## <a name="management"></a>Gestione
 
-I token blockchain di Azure forniscono la gestione portale di Azure e le API per connettersi a una rete blockchain esistente. Attualmente, è possibile connettersi al [servizio blockchain di Azure](../service/overview.md) o a un'altra famiglia Ethereum blockchain.
+Token di blockchain di Azure fornisce funzionalità di gestione e API del portale di Azure per connettersi a una rete di blockchain esistente. Attualmente è possibile connettersi al [servizio Azure Blockchain](../service/overview.md) o a un'altra blockchain della famiglia Ethereum.
 
-Una volta connessi a una o più reti blockchain, è possibile usare le API dei token blockchain di Azure per rilasciare e gestire i token da usare nella soluzione blockchain. Utilizzando le API, è possibile integrare la gestione dei token nelle applicazioni e nella logica aziendali. Ad esempio, è possibile usare l'API REST per gestire i token anziché gestire i token direttamente nel blockchain.
+Una volta connesse a una o più reti di blockchain, le API di Token di blockchain di Azure possono essere usate per emettere e gestire i token per l'uso nella soluzione blockchain. Usando le API, è possibile integrare la gestione dei token nelle applicazioni e nella logica di business. Ad esempio, è possibile gestire i token con l'API REST invece che direttamente nella blockchain.
 
 ## <a name="blockchains-and-accounts"></a>Blockchain e account
 
-I token blockchain di Azure forniscono gestione e API portale di Azure per creare nuovi gruppi e nuovi account blockchain in reti blockchain connesse. È possibile creare nuovi account direttamente nelle reti connesse e i token di Azure blockchain gestiscono le chiavi private dell'account per conto dell'utente. Usando i gruppi, è possibile raggruppare diversi account blockchain da più reti e gestire il controllo di accesso tramite i gruppi.
+Token di blockchain di Azure fornisce funzionalità di gestione e API del portale di Azure per creare nuovi gruppi e nuovi account di blockchain nelle reti di blockchain connesse. È possibile creare nuovi account direttamente nelle reti connesse, quindi Token di blockchain di Azure gestirà automaticamente le chiavi private dell'account. Usando i gruppi, è possibile raggruppare account di blockchain diversi di più reti e gestire il controllo di accesso tramite i gruppi.
 
-Per altre informazioni sulla gestione degli account dei token blockchain di Azure, vedere Gestione degli account per i [token blockchain di Azure](account-management.md).
+Per altre informazioni sulla gestione degli account di Token di blockchain di Azure, vedere [Gestione degli account di Token di blockchain di Azure](account-management.md).
 
-## <a name="token-taxonomy-framework"></a>Framework tassonomia token
+## <a name="token-taxonomy-framework"></a>Token Taxonomy Framework
 
-I token blockchain di Azure si basano su una base basata su standard denominata token Tassonomiy Framework (TTF). TTF è un set di risultati finali creati dal gruppo di lavoro token [Tassonomia Initiative](https://entethalliance.org/participate/token-taxonomy-initiative/) (TTI). Il gruppo di lavoro TTI definisce una tassonomia aziendale per i token e i relativi comportamenti che possono essere applicati a tutti i principali Ledger, tra cui Ethereum, quorum, corda e infrastruttura iperledger. L'obiettivo del gruppo di lavoro è creare un Framework che standardizza l'uso di token da una prospettiva aziendale per favorire la semplificazione e la democratizzazione dello sviluppo basato su token. Consentendo al settore di definire questi token e il relativo comportamento a livello aziendale, l'implementazione dettagliata dei token viene sottratta dalla logica di business che modifica i token.
+Token di blockchain di Azure è basato su un framework standard, Token Taxonomy Framework (TTF). TTF è un set di materiali creati dal gruppo di lavoro per i token TTI ([Token Taxonomy Initiative](https://entethalliance.org/participate/token-taxonomy-initiative/)). Il gruppo di lavoro TTI definisce una tassonomia aziendale per i token e i relativi comportamenti che possono essere applicati a tutti i principali libri mastri, tra cui Ethereum, Quorum, Corda e Hyperledger Fabric. L'obiettivo del gruppo di lavoro è creare un framework che standardizzi l'uso di token da una prospettiva aziendale per favorire la semplificazione e la democratizzazione dello sviluppo basato su token. Consentendo al settore di definire questi token e il relativo comportamento a livello aziendale, l'implementazione dettagliata dei token viene sottratta dalla logica di business che modifica i token.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sui [modelli di token blockchain di Azure](templates.md)disponibili.
+Altre informazioni sui [modelli di Token di blockchain di Azure](templates.md) disponibili.

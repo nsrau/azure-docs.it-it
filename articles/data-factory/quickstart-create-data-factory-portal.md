@@ -1,5 +1,5 @@
 ---
-title: Creare una data factory di Azure tramite l'interfaccia utente di Azure Data Factory | Microsoft Docs
+title: Creare una data factory di Azure tramite l'interfaccia utente di Azure Data Factory
 description: Creare una data factory con una pipeline che copia i dati da una posizione nell'archivio BLOB di Azure a un'altra posizione.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 5baa8c78ad581a00a3601706f31cf815359120c7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 642039e99df19939def5ac850f1abccca0e67222
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70077055"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684492"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Guida introduttiva: Creare una data factory usando l'interfaccia utente di Azure Data Factory
 
@@ -39,7 +39,10 @@ Questo video contiene informazioni utili sull'interfaccia utente di Data Factory
 
 1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
 1. Accedere al [portale di Azure](https://portal.azure.com). 
-1. Selezionare **Crea una risorsa** dal menu a sinistra, selezionare **Analytics** e quindi selezionare **Data Factory**. 
+1. Scegliere **Crea una risorsa** dal menu del portale di Azure.
+   
+   ![Scegliere Crea una risorsa dal menu del portale di Azure](./media/doc-common-process/create-a-resource.png)
+1. Selezionare **Analisi** e quindi **Data factory**. 
    
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Nella pagina **Nuova data factory** immettere **ADFTutorialDataFactory** per **Nome**. 

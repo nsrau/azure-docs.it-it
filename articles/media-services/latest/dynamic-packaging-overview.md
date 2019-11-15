@@ -1,6 +1,7 @@
 ---
-title: Panoramica della creazione dinamica dei pacchetti di Servizi multimediali di Azure | Documentazione Microsoft
-description: Questo articolo offre una panoramica della creazione dinamica dei pacchetti in Servizi multimediali di Azure.
+title: Creazione dinamica dei pacchetti in Servizi multimediali
+titleSuffix: Azure Media Services
+description: Panoramica della creazione dinamica dei pacchetti in Servizi multimediali di Azure
 author: Juliako
 manager: femila
 editor: ''
@@ -13,18 +14,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 35fd511f2383a09898bcd7e7a5227b750c36125a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 304a6168ee5a4c60369b541d4a8cc7ac961913b6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595527"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574882"
 ---
-# <a name="dynamic-packaging"></a>creazione dinamica dei pacchetti
+# <a name="dynamic-packaging-in-media-services"></a>Creazione dinamica dei pacchetti in Servizi multimediali
 
-Servizi multimediali di Microsoft Azure può essere usato per codificare molti formati di file multimediali di origine e distribuirli tramite protocolli di streaming diversi, con o senza protezione del contenuto, per raggiungere tutti i principali dispositivi, ad esempio iOS e Android. Questi client comprendono protocolli diversi, ad esempio iOS richiede che i flussi vengano distribuiti nel formato HLS (HTTP Live Streaming), mentre i dispositivi Android supportano HLS e MPEG DASH. 
+Servizi multimediali di Microsoft Azure può essere usato per codificare molti formati di file di origini multimediali. Tali formati vengono distribuiti tramite protocolli di streaming diversi, con o senza protezione del contenuto, per raggiungere tutti i dispositivi principali, ad esempio dispositivi iOS e Android. Tali client supportano protocolli diversi. iOS, ad esempio, richiede che i flussi vengano distribuiti nel formato HLS (HTTP Live Streaming), mentre i dispositivi Android supportano HLS e MPEG DASH.
 
-In Servizi multimediali un [endpoint di streaming](streaming-endpoint-concept.md) rappresenta un servizio di origine e di creazione dinamica (just-in-time) dei pacchetti che può distribuire contenuti in diretta e su richiesta direttamente a un'applicazione lettore client, usando uno dei protocolli più comuni di streaming multimediale indicati nella sezione seguente. Creazione dinamica dei pacchetti è una funzionalità fornita con tutti gli endpoint di streaming (Standard o Premium). 
+In Servizi multimediali un [endpoint di streaming](streaming-endpoint-concept.md) rappresenta un servizio di generazione e creazione di pacchetti dinamici (just-in-time) in grado di distribuire contenuti live e on demand direttamente a un'app di riproduzione client. Usa uno dei protocolli multimediali comuni di streaming indicati nella sezione seguente. Creazione dinamica dei pacchetti è una funzionalità fornita con tutti gli endpoint di streaming (Standard o Premium).
 
 ## <a name="a-iddelivery-protocolsto-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>Per preparare i file di origine per la distribuzione
 
@@ -44,16 +45,16 @@ Se si prevede di proteggere il contenuto usando la crittografia dinamica di Serv
 > [!TIP]
 > Un modo per ottenere i file di configurazione di streaming e MP4 consiste nel [codificare il file mezzanine con Servizi multimediali](#encode-to-adaptive-bitrate-mp4s). 
 
-Per rendere i video nell'asset codificato disponibili per la riproduzione da parte dei client, è necessario creare un [localizzatore di streaming](streaming-locators-concept.md) e quindi definire gli URL di streaming. Quindi, in base al formato specificato nel manifesto del client di streaming (HLS, MPEG DASH o Smooth Streaming), si riceverà il flusso nel protocollo scelto.
+Per rendere i video nell'asset codificato disponibili per la riproduzione da parte dei client, è necessario creare un [localizzatore di streaming](streaming-locators-concept.md) e quindi definire gli URL di streaming. In base al formato specificato nel manifesto del client di streaming (HLS, MPEG DASH o Smooth Streaming), si riceverà il flusso nel protocollo scelto.
 
-Di conseguenza, si archiviano e si pagano solo i file in un singolo formato di archiviazione e il servizio Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. 
+Di conseguenza, si archiviano e si pagano solo i file in un singolo formato di archiviazione e il servizio Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
 
 ## <a name="on-demand-streaming-workflow"></a>Flusso di lavoro dello streaming on demand
 
-Di seguito è riportato un flusso di lavoro comune di streaming di Servizi multimediali in cui viene usata la creazione dinamica dei pacchetti insieme al codificatore Standard in Servizi multimediali di Azure.
+I passaggi seguenti indicano un flusso di lavoro comune di streaming di Servizi multimediali in cui viene usata la creazione dinamica dei pacchetti insieme al codificatore Standard in Servizi multimediali di Azure.
 
-1. Caricare un file di input, ad esempio un file QuickTime/MOV o MXF. Per l'elenco dei formati supportati, vedere [Formati supportati da Media Encoder Standard](media-encoder-standard-formats.md). Questo tipo di file è anche detto file di origine o mezzanine.
-1. [Codificare](#encode-to-adaptive-bitrate-mp4s) il file mezzanine in un set di file MP4 H.264/AAC a bitrate adattivo. 
+1. Caricare un file di input, ad esempio un file QuickTime/MOV o MXF. Questo tipo di file è anche detto file di origine o mezzanine. Per l'elenco di formati supportati, vedere [Formati supportati da Media Encoder Standard](media-encoder-standard-formats.md).
+1. [Codificare](#encode-to-adaptive-bitrate-mp4s) il file mezzanine in un set di file MP4 H.264/AAC a bitrate adattivo.
 1. Pubblicare l'asset di output contenente il set MP4 a bitrate adattivo. La pubblicazione avviene creando un localizzatore di streaming.
 1. Creare URL destinati a formati diversi (HLS, MPEG-DASH e Smooth Streaming). L'**endpoint di streaming** si occupa di gestire il manifesto corretto e le richieste per tutti questi formati diversi.
 
@@ -65,9 +66,9 @@ Il diagramma seguente illustra il flusso di lavoro per lo streaming on demand co
 
 Gli articoli seguenti illustrano alcuni esempi di [come codificare un video con Servizi multimediali](encoding-concept.md):
 
-* [Eseguire la codifica da un URL HTTPS tramite i set di impostazioni predefiniti](job-input-from-http-how-to.md)
-* [Eseguire la codifica di un file locale tramite i set di impostazioni predefiniti](job-input-from-local-file-how-to.md)
-* [Creare un set di impostazioni personalizzato per i requisiti specifici di uno scenario o un dispositivo](customize-encoder-presets-how-to.md)
+* [Eseguire la codifica da un URL HTTPS tramite i set di impostazioni predefiniti](job-input-from-http-how-to.md).
+* [Eseguire la codifica di un file locale tramite i set di impostazioni predefiniti](job-input-from-local-file-how-to.md).
+* [Creare un set di impostazioni personalizzato per i requisiti specifici di uno scenario o un dispositivo](customize-encoder-presets-how-to.md).
 
 Consultare l'elenco di [codec e formati](media-encoder-standard-formats.md) di Media Encoder Standard.
 
@@ -124,10 +125,10 @@ La creazione dinamica dei pacchetti supporta più tracce audio con DASH o HLS (v
 La creazione dinamica dei pacchetti non supporta file contenenti audio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) perché si tratta di un codec legacy.
 
 > [!NOTE]
-> Il [codificatore Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supporta la codifica in Digital Dolby Plus tramite le API v2 legacy. 
+> Il [codificatore Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supporta la codifica in Digital Dolby Plus tramite le API v2 legacy.
 
-## <a name="manifests"></a>Manifesti 
- 
+## <a name="manifests"></a>Manifesti
+
 Nella creazione dinamica dei pacchetti di Servizi multimediali, i manifesti dei client di streaming per HLS, MPEG-DASH e Smooth Streaming vengono generati dinamicamente in base al selettore di formato nell'URL.  
 
 Un file manifesto include alcuni metadati di streaming, tra cui il tipo di traccia (audio, video o testo), il nome della traccia, l'ora di inizio e di fine, la velocità in bit (qualità), le lingue della traccia, la finestra di presentazione (finestra scorrevole di durata fissa) e un codec video (FourCC). Indica inoltre al lettore come recuperare il frammento successivo fornendo informazioni sui successivi frammenti video riproducibili disponibili e il relativo percorso. I frammenti (o segmenti) sono i "blocchi" effettivi di un contenuto video.
@@ -242,7 +243,7 @@ Per altre informazioni, vedere l'esempio [Come segnalare una traccia audio descr
 
 #### <a name="smooth-streaming-manifest"></a>Manifesto Smooth Streaming
 
-Se si sta riproducendo un flusso di Smooth Streaming, il manifesto conterrà i valori negli attributi `Accessibility` e `Role` per la traccia audio. Ad esempio, `Role="alternate" Accessibility="description"` verrebbe aggiunto nell'elemento `StreamIndex` per indicare che si tratta di una descrizione audio.
+Se si riproduce un flusso di Smooth Streaming, il manifesto conterrà i valori negli attributi `Accessibility` e `Role` per la traccia audio. `Role="alternate" Accessibility="description"` verrebbe aggiunto ad esempio nell'elemento `StreamIndex` per indicare che si tratta di una descrizione audio.
 
 #### <a name="dash-manifest"></a>Manifesto DASH
 
@@ -275,7 +276,7 @@ Consultare [Community di Servizi multimediali di Azure](media-services-community
 
 ## <a name="need-help"></a>Richiesta di assistenza
 
-È possibile aprire un ticket di supporto passando a [Nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Per aprire un ticket di supporto, passare a [Nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -283,4 +284,3 @@ Consultare [Community di Servizi multimediali di Azure](media-services-community
 > Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
 
 Informazioni su come [caricare, codificare ed eseguire lo streaming dei video](stream-files-tutorial-with-api.md).
-

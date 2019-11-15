@@ -1,21 +1,21 @@
 ---
-title: Streaming di dati con Hub eventi di Azure tramite il protocollo Kafka | Microsoft Docs
-description: Questo articolo fornisce informazioni su come eseguire lo streaming in Hub eventi di Azure tramite il protocollo e le API Kafka.
+title: 'Guida introduttiva: Streaming di dati con Hub eventi tramite il protocollo Kafka'
+description: 'Guida introduttiva: Questo articolo fornisce informazioni su come eseguire lo streaming in Hub eventi di Azure tramite il protocollo e le API Kafka.'
 services: event-hubs
 author: ShubhaVijayasarathy
 ms.author: shvija
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 05/06/2019
-ms.openlocfilehash: ebe3dc39cf135f09c084a8325d380b9bc9ef48dc
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 11/05/2019
+ms.openlocfilehash: 2222345054982799f9f9e0b84961271a3cc04ddf
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554980"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73717814"
 ---
-# <a name="data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Streaming di dati con Hub eventi tramite il protocollo Kafka
+# <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Guida introduttiva: Streaming di dati con Hub eventi tramite il protocollo Kafka
 Questa guida introduttiva illustra come eseguire lo streaming in un'istanza di Hub eventi abilitata per Kafka senza modificare i client di protocollo o eseguire cluster personalizzati. Si apprenderà come usare i producer e i consumer per comunicare con un'istanza di Hub eventi abilitata per Kafka con solo una modifica della configurazione nelle applicazioni. Hub eventi di Azure supporta [Apache Kafka versione 1.0.](https://kafka.apache.org/10/documentation.html)
 
 > [!NOTE]

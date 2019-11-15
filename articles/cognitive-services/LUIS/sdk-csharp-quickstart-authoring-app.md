@@ -1,7 +1,7 @@
 ---
 title: 'Guida introduttiva: Libreria client di creazione di Language Understanding (LUIS) per .NET'
 titleSuffix: Azure Cognitive Services
-description: Introduzione alla libreria client di Language Understanding (LUIS) per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.  Language Understanding (LUIS) consente di applicare l'intelligence dell'apprendimento automatico personalizzato al testo in linguaggio naturale parlato di un utente per prevedere il significato generale ed estrarre informazioni pertinenti e dettagliate.
+description: Introduzione alla libreria client LUIS per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: d7668f49df1caca6b4261424b0d2c025a640d572
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 6af076f585e7fc9afe870acada744ead2d2e9118
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258775"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672099"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>Guida introduttiva: Libreria client di creazione di Language Understanding (LUIS) per .NET
 

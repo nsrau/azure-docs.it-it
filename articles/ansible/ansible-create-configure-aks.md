@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/30/2019
-ms.openlocfilehash: 9b70a9c364768322a3eae6ef5b92c87b6839c540
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.date: 11/04/2019
+ms.openlocfilehash: b0839cf418cd30f62623e046960c32d41537609a
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242083"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614387"
 ---
 # <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Esercitazione: Configurare cluster del servizio Azure Kubernetes Service in Azure con Ansible
 
@@ -54,7 +54,8 @@ Salvare il playbook seguente come `azure_create_aks.yml`:
     ssh_key: "your_ssh_key"
     client_id: "your_client_id"
     client_secret: "your_client_secret"
-  tasks:
+    aks_version: aks_version
+tasks:
   - name: Create resource group
     azure_rm_resourcegroup:
       name: "{{ resource_group }}"
@@ -65,6 +66,7 @@ Salvare il playbook seguente come `azure_create_aks.yml`:
       location: "{{ location }}"
       resource_group: "{{ resource_group }}"
       dns_prefix: "{{ aks_name }}"
+      kubernetes_version: "{{aks_version}}"
       linux_profile:
         admin_username: "{{ username }}"
         ssh_key: "{{ ssh_key }}"
@@ -84,6 +86,7 @@ Prima di eseguire il playbook, vedere le note seguenti:
 - La prima sezione in `tasks` consente di definire un gruppo di risorse denominato `myResourceGroup` nella località `eastus`.
 - La seconda sezione in `tasks` consente di definire un cluster del servizio Azure Kubernetes risorse denominato `myAKSCluster` nel gruppo di risorse `myResourceGroup`.
 - Per il segnaposto `your_ssh_key` immettere una chiave pubblica RSA nel formato a riga singola che inizi con "ssh-rsa" (senza virgolette).
+- Per il segnaposto `aks_version`, usare il comando [az aks get-versions](/cli/azure/aks?view=azure-cli-latest#az-aks-get-versions).
 
 Eseguire il playbook usando il comando `ansible-playbook`:
 

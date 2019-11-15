@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva di Azure: Creare un hub eventi con il portale di Azure | Microsoft Docs'
+title: Avvio rapido di Azure - Creare un hub eventi tramite il portale di Azure
 description: Questa guida introduttiva illustra come creare un hub eventi di Azure con il portale di Azure e inviare e ricevere eventi usando .NET Standard SDK.
 services: event-hubs
 documentationcenter: ''
@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 15b2b5863f5b78bd24ffd8cbd55b9914f52e32a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 209bdb919a505e55bdfb8868d556fa1ad08db2fe
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072801"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73717957"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Guida introduttiva: Creare un hub eventi con il portale di Azure
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).

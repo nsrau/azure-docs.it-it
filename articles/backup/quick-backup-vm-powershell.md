@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva di Azure - Eseguire il backup di una macchina virtuale con PowerShell
-description: Informazioni su come eseguire il backup delle macchine virtuali con Azure PowerShell
+title: Guida di avvio rapido di Azure - Eseguire il backup di una macchina virtuale con PowerShell
+description: Questa Guida di avvio rapido illustra come eseguire il backup delle macchine virtuali di Azure con il modulo Azure PowerShell.
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: ea4f982409f339487cd570230ebbb75682f409ec
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 268cac453ed68903c73b597ffeff2569c13e9db7
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874611"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747093"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Eseguire il backup di una macchina virtuale in Azure con PowerShell
 
-Il modulo [Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) viene usato per creare e gestire le risorse di Azure dalla riga di comando o negli script. 
+Il modulo [Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) viene usato per creare e gestire le risorse di Azure dalla riga di comando o negli script.
 
 [Backup di Azure](backup-overview.md) esegue il backup di computer e app locali, oltre che delle VM di Azure. Questo articolo illustra come eseguire il backup di una VM di Azure con il modulo AZ. In alternativa, è possibile eseguire il backup di una VM con l'[interfaccia della riga di comando di Azure](quick-backup-vm-cli.md) oppure nel [portale di Azure](quick-backup-vm-portal.md).
 
@@ -35,12 +35,12 @@ Per questo argomento di avvio rapido è necessario il modulo Azure PowerShell ve
     ```powershell
     Connect-AzAccount
     ```
+
 2. Quando si usa Backup di Azure per la prima volta, è necessario registrare il provider di Servizi di ripristino di Azure nella sottoscrizione con [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider), come illustrato di seguito:
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -53,7 +53,6 @@ Quando viene creato l'insieme di credenziali:
 - Backup di Azure gestisce automaticamente l'archiviazione per i dati sottoposti a backup. Per impostazione predefinita, l'insieme di credenziali usa l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy-grs.md). Con l'archiviazione con ridondanza geografica i dati di backup vengono replicati in un'area di Azure secondaria a centinaia di chilometri di distanza dall'area primaria.
 
 Creare ora un insieme di credenziali:
-
 
 1. usare il cmdlet [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) per creare l'insieme di credenziali:
 
@@ -72,11 +71,12 @@ Creare ora un insieme di credenziali:
     ```
 
 3. Modificare la configurazione dell'archiviazione con ridondanza dell'archiviazione (LRS/GRS) dell'insieme di credenziali con [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty), come indicato di seguito:
-    
+
     ```powershell
     Get-AzRecoveryServicesVault `
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperty -BackupStorageRedundancy LocallyRedundant/GeoRedundant
     ```
+
     > [!NOTE]
     > La ridondanza dell'archiviazione può essere modificata solo se non ci sono elementi di backup protetti nell'insieme di credenziali.
 
@@ -85,7 +85,7 @@ Creare ora un insieme di credenziali:
 Abilitare il backup per una VM di Azure e specificare i relativi criteri.
 
 - I criteri definiscono quando eseguire i backup e per quanto tempo conservare i punti di ripristino creati dal backup.
-- I criteri di protezione predefiniti eseguono un processo di backup una volta al giorno per la VM e conservano i punti di ripristino creati per 30 giorni. È possibile usare questi criteri predefiniti per proteggere rapidamente la VM. 
+- I criteri di protezione predefiniti eseguono un processo di backup una volta al giorno per la VM e conservano i punti di ripristino creati per 30 giorni. È possibile usare questi criteri predefiniti per proteggere rapidamente la VM.
 
 Abilitare il backup come segue:
 
@@ -112,7 +112,8 @@ I backup vengono eseguiti in conformità alla pianificazione specificata nei rel
 - Dopo il backup iniziale, ogni processo crea punti di ripristino incrementali.
 - I punti di ripristino incrementali sono veloci ed efficienti in termini di archiviazione, perché trasferiscono solo le modifiche eseguite dopo l'ultimo backup.
 
-Per eseguire un backup ad hoc, usare [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
+Per eseguire un backup ad hoc, usare [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
+
 - Specificare un contenitore nell'insieme di credenziali che memorizzi i dati di backup con [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 - Ogni VM di cui deve essere eseguito il backup viene considerata come un elemento. Per avviare un processo di backup, ottenere le informazioni relative alla VM con [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
@@ -134,7 +135,6 @@ Eseguire un processo di backup ad hoc come segue:
 
 2. Dato che questo primo processo di backup crea un punto di ripristino completo, l'operazione può richiedere fino a 20 minuti. Monitorare il processo come descritto nella procedura seguente.
 
-
 ## <a name="monitor-the-backup-job"></a>Monitorare il processo di backup
 
 1. Eseguire [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) per monitorare lo stato del processo.
@@ -142,6 +142,7 @@ Eseguire un processo di backup ad hoc come segue:
     ```powershell
     Get-AzRecoveryservicesBackupJob
     ```
+
     L'output è simile all'esempio seguente, che mostra che il processo è **InProgress**:
 
     ```output
@@ -153,10 +154,10 @@ Eseguire un processo di backup ad hoc come segue:
 
 2. Quando lo stato del processo diventa **Completed**, la VM è protetta ed è stato archiviato un punto di recupero completo.
 
-
 ## <a name="clean-up-the-deployment"></a>Pulire la distribuzione
 
 Se non è più necessario eseguire il backup della VM, è possibile eseguire la pulizia.
+
 - Se si vuole provare a ripristinare la macchina virtuale, ignorare la pulizia.
 - Se è stata usata una VM esistente, si può ignorare il cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) finale e mantenere così il gruppo di risorse e la VM.
 
@@ -169,10 +170,9 @@ Remove-AzRecoveryServicesVault -Vault $vault
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato creato un insieme di credenziali di Servizi di ripristino, è stata abilitata la protezione per una VM ed è stato creato il punto di ripristino iniziale. 
+In questa guida introduttiva è stato creato un insieme di credenziali di Servizi di ripristino, è stata abilitata la protezione per una VM ed è stato creato il punto di ripristino iniziale.
 
 - [Informazioni su come](tutorial-backup-vm-at-scale.md) eseguire il backup delle VM nel portale di Azure.
 - [Informazioni su come](tutorial-restore-disk.md) ripristinare rapidamente una VM

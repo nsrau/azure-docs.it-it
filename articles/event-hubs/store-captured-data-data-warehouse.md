@@ -1,22 +1,22 @@
 ---
-title: Eseguire la migrazione dei dati degli eventi in SQL Data Warehouse - Hub eventi di Azure | Microsoft Docs
-description: Questa esercitazione illustra come acquisire i dati dall'hub eventi in SQL Data Warehouse usando una funzione di Azure attivata da una Griglia di eventi.
+title: 'Esercitazione: Eseguire la migrazione dei dati degli eventi in SQL Data Warehouse - Hub eventi di Azure'
+description: "Esercitazione: Questa esercitazione illustra come acquisire i dati dall'hub eventi in SQL Data Warehouse usando una funzione di Azure attivata da una Griglia di eventi."
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 90a17839afdddb4d6ad8abfa57963b4c76b100ed
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 92c414afbb8121eb03353c79dfe3a51e0cfa7ec0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604287"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718881"
 ---
-# <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Eseguire la migrazione dei dati di Hub eventi acquisiti in SQL Data Warehouse con Griglia di eventi e Funzioni di Azure
+# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Esercitazione: Eseguire la migrazione dei dati di Hub eventi acquisiti in SQL Data Warehouse con Griglia di eventi e Funzioni di Azure
 
 [Acquisizione](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) di Hub eventi è il modo più semplice per distribuire automaticamente dati in streaming di Hub eventi a un archivio BLOB di Azure o un Azure Data Lake Store. Successivamente, è possibile elaborare e distribuire i dati a qualsiasi altra destinazione di archiviazione desiderata, ad esempio SQL Data Warehouse o Cosmos DB. In questa esercitazione si apprenderà come acquisire i dati dall'hub eventi in SQL Data Warehouse usando una Funzione di Azure attivata da una [Griglia di eventi](https://docs.microsoft.com/azure/event-grid/overview).
 
@@ -141,7 +141,7 @@ Dopo aver pubblicato la funzione, si è pronti per sottoscrivere l'evento di acq
 
    ![Aggiungi sottoscrizione](./media/store-captured-data-data-warehouse/add-event-grid-subscription.png)
 
-1. Assegnare un nome alla sottoscrizione di Griglia di eventi. Usare **Spazi dei nomi di Hub eventi** come tipo di evento. Indicare i valori per selezionare l'istanza dello spazio dei nomi di Hub eventi. Lasciare l'endpoint del sottoscrittore come valore specificato. Selezionare **Create**.
+1. Assegnare un nome alla sottoscrizione di Griglia di eventi. Usare **Spazi dei nomi di Hub eventi** come tipo di evento. Indicare i valori per selezionare l'istanza dello spazio dei nomi di Hub eventi. Lasciare l'endpoint del sottoscrittore come valore specificato. Selezionare **Create** (Crea).
 
    ![Creare la sottoscrizione](./media/store-captured-data-data-warehouse/set-subscription-values.png)
 

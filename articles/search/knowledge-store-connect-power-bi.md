@@ -1,32 +1,40 @@
 ---
-title: Connettersi un archivio conoscenze con Power BI
+title: Connettersi un archivio conoscenze (anteprima) con Power BI
 titleSuffix: Azure Cognitive Search
-description: Connettere un archivio conoscenze di Ricerca cognitiva di Azure a Power BI per l'analisi e l'esplorazione.
+description: Connettere un archivio conoscenze di Ricerca cognitiva di Azure (anteprima) con Power BI per l'analisi e l'esplorazione.
 author: lisaleib
 manager: nitinme
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 7852eda849dfb05343829875ba5a66fa47970e7e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7b12f0f14003389d36e2df5bcffe7828c135cf2b
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790077"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715485"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Connettere un archivio conoscenze con Power BI
 
-> [!Note]
-> La funzionalità dell'archivio conoscenze è in anteprima e non deve essere usata in ambienti di produzione. È inclusa nell'[API REST di Ricerca cognitiva di Azure versione 2019-05-06-Preview](search-api-preview.md). Non è attualmente disponibile alcun supporto di .NET SDK.
->
-Questo articolo illustra come connettere ed esplorare un archivio conoscenze usando Power Query nell'app Power BI Desktop. Per creare l'esempio di archivio conoscenze usato in questa procedura dettagliata, vedere [Creare un archivio conoscenze nel portale di Azure](knowledge-store-create-portal.md).
+> [!IMPORTANT] 
+> L'archivio conoscenze è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Queste funzionalità di anteprima vengono fornite dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
 
-## <a name="prerequisites"></a>Prerequisiti
+Questo articolo illustra come connettere ed esplorare un archivio conoscenze usando Power Query nell'app Power BI Desktop. È possibile usare i modelli per iniziare più rapidamente oppure creare un dashboard personalizzato da zero.
 
-+ Per creare l'esempio di archivio conoscenze usato in questa procedura dettagliata, seguire le procedure descritte in [Creare un archivio conoscenze nel portale di Azure](knowledge-store-create-portal.md). Servirà anche il nome dell'account di archiviazione di Azure usato per creare l'archivio conoscenze, insieme alla relativa chiave di accesso dal portale di Azure.
++ Per creare l'esempio di archivio conoscenze usato in questa procedura dettagliata, seguire le procedure descritte in [Creare un archivio conoscenze nel portale di Azure](knowledge-store-create-portal.md) o [Creare un archivio conoscenze di Ricerca cognitiva di Azure con REST](knowledge-store-create-rest.md). Servirà anche il nome dell'account di archiviazione di Azure usato per creare l'archivio conoscenze, insieme alla relativa chiave di accesso dal portale di Azure.
 
 + [Installare Power BI Desktop](https://powerbi.microsoft.com/downloads/)
+
+## <a name="sample-power-bi-template---azure-portal-only"></a>Modello di Power BI di esempio - Solo portale di Azure
+
+Se [l'archivio conoscenze è stato creato con il portale di Azure](knowledge-store-create-portal.md), è possibile usare [l'esempio di modello di Power BI di Ricerca cognitiva di Azure](https://github.com/Azure-Samples/cognitive-search-templates) per visualizzare e sperimentare con le visualizzazioni di Power BI. Questo modello è anche disponibile per il download quando si esegue la procedura guidata **Importa dati**.
+
+Il modello di esempio eseguirà automaticamente i passaggi di configurazione descritti nella parte restante di questo articolo. Se invece l'archivio conoscenze è stato creato con l'API REST, ignorare il modello e seguire le rimanenti sezioni di questo articolo per connetterlo a Power BI. Iniziare con [Connettersi con Power BI](#connect-with-power-bi).
+
+Il modello di esempio include diverse visualizzazioni, ad esempio WordCloud e Network Navigator. Alcune visualizzazioni del modello, ad esempio la mappa Locations ed Entity-Graph Viewer, non mostrano i dati per l'archivio conoscenze di esempio creato in [Creare un archivio conoscenze nel portale di Azure](knowledge-store-create-portal.md). Il motivo è che è stato usato solo un sottoinsieme degli arricchimenti tramite intelligenza artificiale disponibili nella procedura guidata **Importa dati**.
+
+![Modello di Power BI di esempio di Ricerca cognitiva di Azure](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Modello di Power BI di esempio")
 
 ## <a name="connect-with-power-bi"></a>Connettersi con Power BI
 

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Progettare il primo database relazionale in Database SQL di Azure con SSMS | Microsoft Docs'
+title: 'Esercitazione: Progettare il primo database relazionale con SSMS'
 description: Informazioni su come progettare il primo database relazionale in un database singolo in Database SQL di Azure con SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: 18e7e75b259475b9e360dc3441ed83ccb577e557
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 97e603e6daa64bb70edefe06b52a7c45f90787f3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492035"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818313"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Esercitazione: Progettare un database relazionale in un database singolo in Database SQL di Azure con SSMS
 

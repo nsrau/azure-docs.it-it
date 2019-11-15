@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f041381534dfe59036ce1b9d91792f9e78d0dace
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7ceff623c6559ef5e929d6d5bff9e07cca9039d2
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523112"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796269"
 ---
 ## <a name="benefits-of-managed-disks"></a>Vantaggi dei dischi gestiti
 
@@ -33,7 +33,7 @@ I dischi gestiti vengono integrati con una maggiore affidabilità per i set di d
 
 ### <a name="integration-with-availability-zones"></a>Integrazione con zone di disponibilità
 
-Managed Disks supporta le [zone di disponibilità](../articles/availability-zones/az-overview.md), una soluzione a disponibilità elevata che permette di proteggere le applicazioni da eventuali errori del data center. Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. Con le zone di disponibilità, Azure offre un contratto di servizio con tempo di attività delle VM del 99,99% tra i migliori del settore.
+Managed Disks supporta le [zone di disponibilità](../articles/availability-zones/az-overview.md), una soluzione a disponibilità elevata che permette di proteggere le applicazioni da eventuali problemi del data center. Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. Con le zone di disponibilità, Azure offre un contratto di servizio con tempo di attività delle VM del 99,99% tra i migliori del settore.
 
 ### <a name="azure-backup-support"></a>Supporto di Backup di Azure
 
@@ -55,7 +55,7 @@ Con i dischi gestiti vengono offerti due tipi diversi di crittografia. Il primo 
 
 ### <a name="server-side-encryption"></a>Modello di crittografia lato server
 
-La [crittografia lato server](../articles/storage/common/storage-service-encryption.md) fornisce la crittografia dei dati inattivi e li salvaguarda per soddisfare i criteri di sicurezza e conformità dell'organizzazione. La crittografia lato server è abilitata per impostazione predefinita per tutti i dischi gestiti, gli snapshot e le immagini in tutte le aree in cui i dischi gestiti sono disponibili. Visitare la [pagina Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) per altri dettagli.
+La [crittografia lato server](../articles/virtual-machines/windows/disk-encryption.md) fornisce la crittografia dei dati inattivi e li salvaguarda per soddisfare i criteri di sicurezza e conformità dell'organizzazione. La crittografia lato server è abilitata per impostazione predefinita per tutti i dischi gestiti, gli snapshot e le immagini in tutte le aree in cui i dischi gestiti sono disponibili. È possibile far gestire le chiavi ad Azure (chiavi gestite dalla piattaforma) oppure scegliere di gestirle personalmente (chiavi gestite dal cliente - anteprima). Visitare la [pagina Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) per altri dettagli.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -85,7 +85,7 @@ Ogni macchina virtuale contiene un disco temporaneo che non è un disco gestito.
 
 Uno snapshot del disco gestito è una copia completa di sola lettura coerente con l'arresto anomalo del sistema di un disco gestito che viene archiviata come disco gestito Standard per impostazione predefinita. Gli snapshot permettono di eseguire il backup dei dischi gestiti in qualsiasi momento. Questi snapshot esistono indipendentemente dal disco di origine e possono essere usati per creare nuove istanze di dischi gestiti. 
 
-Gli snapshot vengono fatturati in base alle dimensioni usate. Ad esempio, se si crea uno snapshot di un disco gestito con una capacità di provisioning di 64 GiB e una dimensione di dati effettivamente usata di 10 GiB, viene addebitato solo lo snapshot relativo alla dimensione di dati usata di 10 GiB. È possibile visualizzare le dimensioni usate degli snapshot esaminando il [report sull'utilizzo di Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Se ad esempio le dimensioni dei dati usati di uno snapshot sono 10 GiB, il report sull'utilizzo **giornaliero** mostrerà 10 GiB/(31 giorni) = 0,3226 come quantità utilizzata.
+Gli snapshot vengono fatturati in base alle dimensioni usate. Ad esempio, se si crea uno snapshot di un disco gestito con una capacità di provisioning di 64 GiB e una dimensione di dati effettivamente usata di 10 GiB, viene addebitato solo lo snapshot relativo alla dimensione di dati usata di 10 GiB. È possibile visualizzare le dimensioni usate degli snapshot esaminando il [report sull'utilizzo di Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). Se ad esempio le dimensioni dei dati usati di uno snapshot sono 10 GiB, il report sull'utilizzo **giornaliero** mostrerà 10 GiB/(31 giorni) = 0,3226 come quantità utilizzata.
 
 Per altre informazioni su come creare snapshot per i dischi gestiti, vedere le risorse seguenti:
 

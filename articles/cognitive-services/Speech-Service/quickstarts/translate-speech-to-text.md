@@ -1,22 +1,22 @@
 ---
 title: 'Guida introduttiva: Tradurre la voce in testo - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: In questo argomento di avvio rapido si userà Speech SDK per tradurre in modo interattivo la voce da una lingua a un'altra.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 23d5b00a0c707249162eca1d0f6226ac61acf1a5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 26ae21a5ede095b9224798aca773accbd5afa752
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504716"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681921"
 ---
 # <a name="quickstart-translate-speech-to-text"></a>Guida introduttiva: Tradurre la voce in testo
 

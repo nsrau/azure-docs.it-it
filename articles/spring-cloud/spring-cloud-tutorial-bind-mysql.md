@@ -1,20 +1,17 @@
 ---
 title: Come associare Database di Azure per MySQL all'applicazione Azure Spring Cloud | Microsoft Docs
 description: Questo articolo illustra come associare Azure MySQL all'applicazione Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
-ms.date: 10/07/2019
-ms.author: v-vasuke
-ms.openlocfilehash: e2add139f5cfd8299ec809793dd822b051d0f542
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.author: jeconnoc
+ms.openlocfilehash: b6de5bb3b25c111d1b7775ea9570a4ae2cf45042
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038350"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607596"
 ---
 # <a name="tutorial-bind-azure-services-to-your-azure-spring-cloud-application-azure-database-for-mysql"></a>Esercitazione: Associare i servizi di Azure all'applicazione Azure Spring Cloud: Database di Azure per MySQL
 
@@ -26,14 +23,7 @@ Azure Spring Cloud consente di associare automaticamente determinati servizi di 
 * Un account di Database di Azure per MySQL
 * Interfaccia della riga di comando di Azure
 
-Se necessario, installare l'estensione Azure Spring Cloud per l'interfaccia della riga di comando di Azure usando il comando seguente:
-
-```azurecli
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
-```
-
->[!TIP]
-> Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo.  Include i comuni strumenti di Azure preinstallati, tra cui le ultime versioni di Git, JDK, Maven e dell'interfaccia della riga di comando di Azure. Se è stato eseguito l'accesso alla sottoscrizione di Azure, avviare [Azure Cloud Shell](https://shell.azure.com) da shell.azure.com.  Per altre informazioni su Azure Cloud Shell, [leggere la documentazione](../cloud-shell/overview.md)
+Se non si ha un'istanza di Azure Spring Cloud distribuita, seguire la procedura descritta in questo [Avvio rapido](spring-cloud-quickstart-launch-app-portal.md) per distribuire la prima app Spring Cloud.
 
 ## <a name="bind-azure-database-for-mysql"></a>Associare Database di Azure per MySQL
 

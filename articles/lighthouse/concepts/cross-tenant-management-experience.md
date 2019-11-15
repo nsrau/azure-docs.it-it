@@ -4,19 +4,19 @@ description: La gestione risorse delegate di Azure consente un'esperienza di ges
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 10/18/2019
+ms.date: 11/7/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 8d7b1f24d5dcf3d66ffd04704c79a284c4810365
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 182970cc39d200c37264a93d5e1b70c8839e5ef7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598441"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825815"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
-Questo articolo descrive gli scenari che un provider di servizi può usare con la [gestione risorse delegate di Azure](../concepts/azure-delegated-resource-management.md) per gestire le risorse di Azure per più clienti dal tenant nel [portale di Azure](https://portal.azure.com).
+Un provider di servizi può usare la [gestione risorse delegate di Azure](../concepts/azure-delegated-resource-management.md) per gestire le risorse di Azure per più clienti dal tenant nel [portale di Azure](https://portal.azure.com). La maggior parte delle attività e dei servizi può essere eseguita nelle risorse di Azure delegate tra i tenant gestiti. Questo articolo descrive alcuni degli scenari avanzati in cui la gestione risorse delegate di Azure può essere efficace.
 
 > [!NOTE]
 > La gestione risorse delegate di Azure può essere usata anche all'interno di un'azienda con più tenant propri per semplificare l'amministrazione tra tenant.
@@ -37,9 +37,20 @@ Usando la gestione risorse delegate di Azure, gli utenti autorizzati possono acc
 
 ![Risorse dei clienti gestite tramite un tenant del provider di servizi](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
-## <a name="supported-services-and-scenarios"></a>Scenari e servizi supportati
+## <a name="apis-and-management-tool-support"></a>Supporto delle API e degli strumenti di gestione
 
-L'esperienza di gestione tra tenant supporta attualmente gli scenari seguenti con le risorse dei clienti delegate:
+È possibile eseguire le attività di gestione nelle risorse delegate direttamente nel portale oppure usando le API e gli strumenti di gestione, ad esempio l'interfaccia della riga di comando di Azure e Azure PowerShell. Quando si usano le risorse delegate, è possibile utilizzare tutte le API esistenti, purché la funzionalità sia supportata per la gestione tra tenant e l'utente disponga delle autorizzazioni appropriate.
+
+Sono anche disponibili API per eseguire attività di gestione risorse delegate di Azure. Per altre informazioni, vedere la sezione **Riferimento**.
+
+## <a name="enhanced-services-and-scenarios"></a>Scenari e servizi avanzati
+
+La maggior parte delle attività e dei servizi può essere eseguita nelle risorse delegate tra i tenant gestiti. Di seguito sono riportati alcuni scenari principali in cui la gestione tra tenant può essere efficace.
+
+[Azure Arc per server (anteprima)](https://docs.microsoft.com/azure/azure-arc/servers/overview):
+
+- [Connettere computer Windows Server o Linux esterni ad Azure](https://docs.microsoft.com/azure/azure-arc/servers/quickstart-onboard-portal) a sottoscrizioni e/o gruppi di risorse delegate in Azure
+- Gestire computer connessi usando costrutti di Azure, ad esempio Criteri di Azure e assegnazione di tag
 
 [Automazione di Azure](https://docs.microsoft.com/azure/automation/):
 
@@ -55,7 +66,7 @@ L'esperienza di gestione tra tenant supporta attualmente gli scenari seguenti co
 
 [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/):
 
-- Visualizzare gli avvisi per le sottoscrizioni delegate nel portale di Azure o a livello di codice tramite chiamate API REST, con la possibilità di visualizzare gli avvisi in tutte le sottoscrizioni
+- Visualizzare avvisi per le sottoscrizioni delegate, con la possibilità di visualizzare gli avvisi in tutte le sottoscrizioni
 - Visualizzare i dettagli del log attività per le sottoscrizioni delegate
 - Log Analytics: Eseguire query sui dati dalle aree di lavoro remote dei clienti in più tenant
 - Creare avvisi nei tenant dei clienti che attivano l'automazione, ad esempio runbook di Automazione di Azure o Funzioni di Azure, nel tenant del provider di servizi tramite webhook
@@ -121,16 +132,9 @@ Richieste di supporto:
 In tutti gli scenari tenere presenti le limitazioni correnti seguenti:
 
 - Le richieste gestite da Azure Resource Manager possono essere eseguite usando la gestione risorse delegate di Azure. Gli URI delle operazioni per queste richieste iniziano con `https://management.azure.com`. Le richieste gestite da un'istanza di un tipo di risorsa (ad esempio l'accesso ai segreti di Key Vault o l'accesso ai dati di archiviazione) non sono tuttavia supportate con la gestione risorse delegate di Azure. Gli URI delle operazioni per queste richieste iniziano in genere con un indirizzo univoco per l'istanza, ad esempio `https://myaccount.blob.core.windows.net` o `https://mykeyvault.vault.azure.net/`. Il secondo è in genere usato per le operazioni di dati invece che per le operazioni di gestione. 
-- Le assegnazione di ruolo devono usare i [ruoli predefiniti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) del controllo degli accessi in base al ruolo. Tutti i ruoli predefiniti sono attualmente supportati con la gestione risorse delegate di Azure tranne Proprietario, Amministratore Accesso utenti o qualsiasi ruolo predefinito con l'autorizzazione [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions). Non sono supportati neppure i ruoli personalizzati e i [ruoli di amministratore della sottoscrizione classica](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators).
+- Le assegnazione di ruolo devono usare i [ruoli predefiniti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) del controllo degli accessi in base al ruolo. Tutti i ruoli predefiniti sono attualmente supportati con la gestione risorse delegate di Azure, ad eccezione di Proprietario e dei ruoli predefiniti con l'autorizzazione [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions). Il ruolo Amministratore Accesso utenti è supportato solo per uso limitato nell'[assegnazione di ruoli a identità gestite](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  I ruoli personalizzati e i [ruoli di amministratore della sottoscrizione classica](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) non sono supportati.
 - Non è attualmente possibile eseguire l'onboarding di una sottoscrizione (o di un gruppo di risorse all'interno di una sottoscrizione) per la gestione risorse delegate di Azure se la sottoscrizione usa Azure Databricks. Analogamente, se una sottoscrizione è stata registrata per l'onboarding con il provider di risorse **Microsoft.ManagedServices**, non sarà possibile creare un'area di lavoro di Databricks per tale sottoscrizione in questo momento.
 - Sebbene sia possibile eseguire l'onboarding di sottoscrizioni e gruppi di risorse per la gestione risorse delegate di Azure con blocchi di risorse, tali blocchi non impediranno l'esecuzione di azioni da parte degli utenti nel tenant di gestione. Le [assegnazioni di rifiuto](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) che proteggono le risorse gestite dal sistema, ad esempio quelle create dalle applicazioni gestite di Azure o Azure Blueprints (assegnazioni di rifiuto assegnate dal sistema), impediscono agli utenti del tenant di gestione di agire su tali risorse; tuttavia, a questo punto gli utenti del tenant del cliente non possono creare le proprie assegnazioni di rifiuto (assegnazioni di rifiuto assegnate dall'utente).
-
-## <a name="using-apis-and-management-tools-with-cross-tenant-management"></a>Uso di API e strumenti di gestione con la gestione tra tenant
-
-Per i servizi e gli scenari supportati elencati in precedenza, è possibile eseguire le attività di gestione direttamente nel portale oppure usando le API e gli strumenti di gestione, ad esempio l'interfaccia della riga di comando di Azure e Azure PowerShell. Quando si lavora con risorse delegate (per i servizi supportati), possono essere usate tutte le API esistenti.
-
-Sono anche disponibili API specifiche per l'esecuzione di attività di gestione risorse delegate di Azure. Per altre informazioni, vedere la sezione **Riferimento**.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

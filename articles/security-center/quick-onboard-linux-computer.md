@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva del Centro sicurezza di Azure - Caricare i computer Linux nel Centro sicurezza | Microsoft Docs
+title: Eseguire l'onboarding di computer Linux nel Centro sicurezza di Azure | Microsoft Docs
 description: Questa guida introduttiva illustra come caricare i computer Linux nel Centro sicurezza.
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
-ms.openlocfilehash: 82ce466f12acef529b5e45e5dd94c64b94be0f7e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 9f49b858a23d0a1f58505d9f9971a31e8c9167e9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202897"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664488"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Guida introduttiva: Caricare i computer Linux nel Centro sicurezza di Azure
 Dopo aver caricato le sottoscrizioni di Azure è possibile abilitare il Centro sicurezza per le risorse di Linux in esecuzione all'esterno di Azure, per esempio in locale o in altri cloud, effettuando il provisioning di un agente. L'agente è denominato Microsoft Monitoring Agent (MMA), ma è anche noto come agente OMS.

@@ -3,20 +3,19 @@ title: "Avvio rapido: Esplorare l'ambiente demo Anteprima di Azure Time Series I
 description: Guida di avvio rapido sull'ambiente demo Anteprima di Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: dpalled
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 09/23/2019
-ms.openlocfilehash: 633eb00b479c6d2e2bf233b42aff7d393b110fd2
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.date: 10/24/2019
+ms.openlocfilehash: 25d6d1aa1cf7db0f448ec22ed7b5c84d840af3f5
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258424"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579658"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Guida introduttiva: Esplorare l'ambiente demo Anteprima di Azure Time Series Insights
 
@@ -31,7 +30,7 @@ Questa guida di avvio rapido illustra come usare Time Series Insights per trovar
 
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>Esaminare lo strumento di esplorazione di Time Series Insights in un ambiente demo
 
-Lo strumento di esplorazione di Anteprima di Time Series Insights Preview consente di visualizzare i dati cronologici e di eseguire un'analisi delle cause radice. Attività iniziali
+Lo strumento di esplorazione di anteprima di Time Series Insights consente di visualizzare i dati cronologici e di eseguire un'analisi delle cause radice. Attività iniziali
 
 1. Passare all'ambiente  [demo di Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples).  
 
@@ -41,14 +40,14 @@ Lo strumento di esplorazione di Anteprima di Time Series Insights Preview consen
 
 1. In **Contoso Plant 1** esaminare la turbina eolica **W7**.  
 
-   1. Cambiare l'intervallo di visualizzazione da **1/1/17 20:00 a 3/10/17 20:00 (UTC)** .
+   1. Cambiare l'intervallo di visualizzazione da **1/1/17 20:00:00.00 a 3/10/17 20:00:00.00 (UTC)** .
    1. Per selezionare un sensore, selezionare **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed**. Esaminare quindi i valori visualizzati.
 
       [![W7 in Contoso Plant 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
 1. Di recente, Contoso ha riscontrato un incendio nella turbina eolica **W7**. Le opinioni sulla causa dell'incendio sono diverse. In Time Series Insights è possibile vedere che il sensore dell'allarme antincendio si è attivato durante l'incendio.
 
-   1. Cambiare l'intervallo di visualizzazione da **3/9/17 20:00 a 3/10/17 20:00 (UTC)** .
+   1. Cambiare l'intervallo di visualizzazione da **3/9/17 20:00:00.00 a 3/10/17 20:00:00.00 (UTC)** .
    1. Selezionare **Safety System** > **FireAlert**.
 
       [![Contoso ha riscontrato un incendio nella turbina eolica W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
@@ -62,7 +61,7 @@ Lo strumento di esplorazione di Anteprima di Time Series Insights Preview consen
 
 1. I sensori della pressione dell'olio e degli avvisi attivi hanno raggiunto valori di picco subito prima dell'incendio. Espandere la serie temporale visualizzata per verificare la presenza di altri segnali che conducono all'incendio. Entrambi i sensori hanno fatto registrare una fluttuazione costante nel tempo. Le fluttuazioni indicano un modello persistente e preoccupante.
 
-    * Cambiare l'intervallo di visualizzazione da **2/24/17 20:00 a 3/10/17 20:00 (UTC)** .
+    * Cambiare l'intervallo di visualizzazione da **2/24/17 20:00:00.00 a 3/10/17 20:00:00.00 (UTC)** .
 
       [![Anche i sensori della pressione dell'olio e degli avvisi attivi hanno raggiunto valori di picco](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
@@ -72,22 +71,22 @@ Lo strumento di esplorazione di Anteprima di Time Series Insights Preview consen
 
       [![Cercare modelli cronologici](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-Usando Time Series Insights e i dati di telemetria dei sensori, è emersa una tendenza problematica e a lungo termine nascosta nei dati cronologici. Con queste nuove informazioni dettagliate, è possibile:
+Tramite i dati di telemetria di sensori e di Time Series Insights, abbiamo individuato una tendenza a lungo termine nascosta nei dati cronologici. Con queste nuove informazioni dettagliate, è possibile:
 
 * Illustrare ciò che è effettivamente accaduto.
 * Risolvere il problema.
-* Implementare sistemi di notifica degli avvisi più efficienti.
+* Implementare sistemi di notifica degli avvisi migliori.
 
 ## <a name="root-cause-analysis"></a>Analisi della causa radice
 
-1. Alcuni scenari richiedono un'analisi sofisticata per scoprire anche i più piccoli indizi nei dati. Selezionare la turbina eolica **W6** in data **6/25**
+1. Alcuni scenari richiedono un'analisi sofisticata per scoprire gli indizi nei dati. Selezionare la turbina eolica **W6** in data **6/25**
 
-    1. Cambiare l'intervallo di visualizzazione da **6/1/17 20:00 a 7/1/17 20:00 (UTC)** .
+    1. Cambiare l'intervallo di visualizzazione da **6/1/17 20:00:00.00 a 7/1/17 20:00:00.00 (UTC)** .
     1. Selezionare **Contoso Plant 1** > **W6** > **Safety System** > **VoltageActuatorSwitchWarning**.
 
        [![Cambiare l'intervallo di visualizzazione e selezionare W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
 
-1. L'avviso indica un problema della tensione in uscita dal generatore. La potenza complessiva in uscita del generatore sta operando entro i normali parametri nell'intervallo corrente. Aumentando l'intervallo, emerge un altro modello che indica un netto calo.
+1. L'avviso indica un problema con la tensione del generatore. La potenza complessiva in uscita del generatore si trova entro i normali parametri nell'intervallo corrente. Se si aumenta l'intervallo, si noterà un calo evidente.
 
     1. Rimuovere il sensore **VoltageActuatorSwitchWarning**.
     1. Selezionare **Generator System** > **ActivePower**.
@@ -118,9 +117,9 @@ Usando Time Series Insights e i dati di telemetria dei sensori, è emersa una te
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Ora che è stata completata l'esercitazione, pulire le risorse create:
+Dopo aver completato la Guida di avvio rapido, eliminare le risorse create:
 
-1. Nel [portale di Azure](https://portal.azure.com) selezionare **Tutte le risorse** nel menu a sinistra e individuare il gruppo di risorse di Azure Time Series Insights.
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Tutte le risorse** nel menu a sinistra e quindi individuare il gruppo di risorse di Azure Time Series Insights.
 1. Per eliminare l'intero gruppo di risorse e tutte le risorse in esso contenute, selezionare **Elimina** oppure rimuovere ogni risorsa singolarmente.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -130,7 +129,7 @@ A questo punto si è pronti a creare l'ambiente Anteprima di Time Series Insight
 > [!div class="nextstepaction"]
 > [Pianificare l’ambiente Anteprima di Time Series Insights](time-series-insights-update-plan.md)
 
-Esplorare la demo e le relative funzionalità:
+Informazioni su come usare la demo e le relative funzionalità:
 
 > [!div class="nextstepaction"]
 > [Strumento di esplorazione di Anteprima di Time Series Insights](time-series-insights-update-explorer.md)

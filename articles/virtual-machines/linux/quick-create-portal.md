@@ -1,26 +1,25 @@
 ---
 title: Guida introduttiva - Creare una macchina virtuale Linux nel portale di Azure | Microsoft Docs
-description: Questa guida introduttiva illustra come usare il portale di Azure per creare una macchina virtuale Linux
+description: Questa guida introduttiva illustra come usare il portale di Azure per creare una macchina virtuale Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 8/20/2019
+ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0c05eb59c42700394f755f226405f16a47edc73c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8dbe8e43122fb7fa00129dec0d9961bd70e5a784
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091558"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693284"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Guida introduttiva: Creare una macchina virtuale Linux nel portale di Azure
 
@@ -50,15 +49,14 @@ Accedere al [portale di Azure](https://portal.azure.com), se questa operazione n
 
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
 
-1. Scegliere **Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
-
-1. In **Più comuni** selezionare **Ubuntu Server 18.04 LTS**.
-
-1. Nella scheda **Nozioni di base**, sotto **Dettagli progetto**, verificare che sia selezionata la sottoscrizione corretta e quindi scegliere **Crea nuovo** sotto **Gruppo di risorse**. Digitare *myResourceGroup* come nome del gruppo di risorse e quindi scegliere **OK**. 
+1. Digitare **macchine virtuali** nella casella di ricerca.
+1. In **Servizi** selezionare **Macchine virtuali**.
+1. Nella pagina **Macchine virtuali** selezionare **Aggiungi**. Viene visualizzata la pagina **Creare una macchina virtuale**.
+1. Nella scheda **Nozioni di base**, sotto **Dettagli progetto**, verificare che sia selezionata la sottoscrizione corretta e quindi scegliere **Crea nuovo** gruppo di risorse. Digitare *myResourceGroup* come nome.*. 
 
     ![Creare un nuovo gruppo di risorse per la propria macchina virtuale](./media/quick-create-portal/project-details.png)
 
-1. Sotto **Dettagli dell'istanza**, digitare *myVM* come **nome della macchina virtuale** e scegliere *Stati Uniti orientali* come **Regione**. Lasciare invariate le altre impostazioni predefinite.
+1. In **Dettagli istanza** digitare *myVM* nel campo **Nome macchina virtuale**, scegliere *Stati Uniti orientali* come valore per il campo **Area** e quindi scegliere *Ubuntu 18.04 LTS* per il campo **Immagine**. Lasciare invariate le altre impostazioni predefinite.
 
     ![Sezione Dettagli dell'istanza](./media/quick-create-portal/instance-details.png)
 

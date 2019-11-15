@@ -1,5 +1,5 @@
 ---
-title: Eseguire la copia incrementale tramite Rilevamento modifiche e Azure Data Factory | Microsoft Docs
+title: 'Eseguire la copia incrementale dei dati tramite Rilevamento modifiche e Azure Data Factory '
 description: 'In questa esercitazione si creerà una pipeline di Azure Data Factory che copia dati differenziali in modo incrementale da più tabelle di un database di SQL Server locale a un database SQL di Azure. '
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 6a71c83a190bd7e88edd5008edef670b32905add
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c754b5755cbab3720ca0ffebc891ce76ce7aebc5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140814"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683511"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Caricare dati in modo incrementale da un database SQL di Azure all'archiviazione BLOB di Azure tramite il rilevamento delle modifiche 
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati differenziali basati su informazioni di **rilevamento delle modifiche** nel database SQL di Azure di origine in una risorsa di archiviazione BLOB di Azure.  

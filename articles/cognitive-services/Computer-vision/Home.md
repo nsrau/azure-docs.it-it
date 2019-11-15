@@ -1,5 +1,5 @@
 ---
-title: Che cos'è l'API Visione artificiale? - Visione artificiale
+title: Informazioni sulla Visione artificiale - Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Il servizio Visione artificiale consente agli sviluppatori di accedere ad algoritmi avanzati per l'elaborazione delle immagini e la restituzione delle informazioni.
 services: cognitive-services
@@ -8,21 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: db62f003f7eb8dd272305b86712cf1d721797114
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 703e750c0d2515484cd9f1d2cb046096dfd1800d
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719549"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794967"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
-Il servizio Visione artificiale di Azure consente agli sviluppatori di accedere ad algoritmi avanzati che elaborano le immagini e restituiscono informazioni. Per analizzare un'immagine, è possibile caricare un'immagine o specificare un URL di immagine. Gli algoritmi di elaborazione immagini consentono di analizzare il contenuto in modi diversi, in base alle funzionalità visive rilevanti. Visione artificiale può ad esempio determinare se un'immagine include contenuto per adulti o può individuare tutti i visi umani in un'immagine.
+Il servizio Visione artificiale di Azure consente agli sviluppatori di accedere ad algoritmi avanzati che elaborano le immagini e restituiscono informazioni, in base alle caratteristiche visive a cui si è interessati. Visione artificiale può ad esempio determinare se un'immagine include contenuto per adulti o può individuare tutti i visi umani in un'immagine.
 
-È possibile usare Visione artificiale nell'applicazione usando un SDK nativo oppure chiamando direttamente l'API REST. Questa pagina illustra su vasta scala le operazioni eseguibili con Visione artificiale.
+È possibile usare Visione artificiale nell'applicazione tramite un SDK nativo oppure chiamando direttamente l'API REST. Questa pagina illustra su vasta scala le operazioni eseguibili con Visione artificiale.
+
+## <a name="computer-vision-for-digital-asset-management"></a>Visione artificiale per la gestione delle risorse digitali
+
+Visione artificiale può ottimizzare molti scenari di gestione delle risorse digitali. La gestione delle risorse digitali è il processo aziendale per l'organizzazione, l'archiviazione e il recupero di risorse multimediali elaborate e per la gestione dei diritti e delle autorizzazioni digitali. Una società potrebbe ad esempio voler raggruppare e identificare le immagini in base a logo visibili, visi, oggetti, colori e così via. Oppure si potrebbe voler [generare didascalie per le immagini](./Tutorials/storage-lab-tutorial.md) automaticamente e allegare parole chiave in modo che siano disponibili per la ricerca. Per una soluzione di gestione delle risorse digitali all-in-one che usa Servizi cognitivi, Ricerca cognitiva di Azure e creazione di report intelligenti, vedere la [guida su Solution Accelerator per Knowledge Mining](https://github.com/Azure-Samples/azure-search-knowledge-mining) in GitHub. Per altri esempi di gestione delle risorse digitali, vedere il repository [Computer Vision Solution Templates](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) (Modelli per la soluzione Visione artificiale).
 
 ## <a name="analyze-images-for-insight"></a>Analizzare le immagini per ottenere informazioni dettagliate
 
@@ -47,8 +51,6 @@ Il servizio Visione artificiale di Azure consente agli sviluppatori di accedere 
 È possibile usare l'[API di lettura](concept-recognizing-text.md#read-api) di Visione artificiale per estrarre il testo stampato e scritto a mano dalle immagini in un flusso di caratteri leggibili dal computer. L'API di lettura usa i modelli più recenti e legge il testo su una varietà di superfici e sfondi, ad esempio ricevute, poster, biglietti da visita, lettere e lavagne. Attualmente l'inglese è l'unica lingua supportata.
 
 È anche possibile usare l'API di [riconoscimento ottico dei caratteri (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) per estrarre testo stampato in diverse lingue. Se necessario, la funzione OCR corregge la rotazione del testo riconosciuto e fornisce le coordinate del frame per ogni parola. La funzione OCR supporta 25 lingue e rileva automaticamente la lingua del testo riconosciuto.
-
-
 
 ## <a name="moderate-content-in-images"></a>Moderare i contenuti nelle immagini
 

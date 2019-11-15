@@ -8,16 +8,17 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 08/20/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8f3277d76709fe14a5eaa28cc0f562d95c1e4004
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 4d16c07bf42c99b905868cb956d82e8723da61d6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128939"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581532"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Esercitazione: Eseguire il training di modelli di classificazione delle immagini con dati MNIST e scikit-learn usando Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In questa esercitazione si eseguirà il training di un modello di Machine Learning su risorse di calcolo remote. Si userà il flusso di lavoro per il training e la distribuzione di Azure Machine Learning in un notebook Jupyter per Python.  È quindi possibile usare il notebook come modello per eseguire il training di un modello di Machine Learning con i propri dati di training. Questa esercitazione è la **prima di una serie in due parti**.  
 
@@ -36,19 +37,25 @@ Nella [seconda parte di questa esercitazione](tutorial-deploy-models-with-aml.md
 Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 >[!NOTE]
-> Il codice di questo articolo è stato testato con [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) versione 1.0.57.
+> Il codice di questo articolo è stato testato con [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) versione 1.0.65.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Completare l'[Esercitazione: Introduzione alla creazione del primo esperimento di Machine Learning](tutorial-1st-experiment-sdk-setup.md) per:
     * Creare un'area di lavoro
-    * Creare un server notebook cloud
-    * Avviare il dashboard di Jupyter Notebook
+    * Clonare il notebook delle esercitazioni nella cartella nell'area di lavoro.
+    * Creare una macchina virtuale con notebook basata sul cloud.
 
-* Dopo aver avviato il dashboard di Jupyter Notebook, aprire il notebook **tutorials/img-classification-part1-training.ipynb**.
+* Aprire il notebook **img-classification-part1-training.ipynb** nella cartella **tutorials** clonata. 
 
-Questa esercitazione e il file **utils.py** associato sono disponibili in [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se si vuole usarli nel proprio [ambiente locale](how-to-configure-environment.md#local).  Verificare di aver installato `matplotlib` e `scikit-learn` nell'ambiente.
 
+Questa esercitazione e il file **utils.py** associato sono disponibili in [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se si vuole usarli nel proprio [ambiente locale](how-to-configure-environment.md#local). Eseguire `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` per installare le dipendenze per questa esercitazione.
+
+> [!Important]
+> Il resto di questo articolo contiene lo stesso contenuto visualizzato nel notebook.  
+>
+> Passare ora al notebook di Jupyter se si desidera leggere durante l'esecuzione del codice. 
+> Per eseguire una singola cella di codice in un notebook, fare clic sulla cella di codice e premere **MAIUSC + INVIO**. In alternativa, eseguire l'intero notebook scegliendo **Esegui tutto** dalla barra degli strumenti superiore.
 
 ## <a name="start"></a>Configurare l'ambiente di sviluppo
 
@@ -143,51 +150,48 @@ Sono ora disponibili i pacchetti e le risorse di calcolo necessari per eseguire 
 
 ## <a name="explore-data"></a>Esplorazione dei dati
 
-Prima di eseguire il training di un modello, è necessario conoscere i dati usati per il training. È anche necessario caricare i dati nel cloud in modo che siano accessibili dall'ambiente di training nel cloud. In questa sezione si apprenderà a eseguire le operazioni seguenti:
+Prima di eseguire il training di un modello, è necessario conoscere i dati usati per il training. In questa sezione si apprenderà come:
 
 * Scaricare il set di dati MNIST.
 * Visualizzare alcune immagini di esempio.
-* Caricare i dati nell'area di lavoro nel cloud.
 
 ### <a name="download-the-mnist-dataset"></a>Scaricare il set di dati MNIST
 
-Scaricare il set di dati MNIST e salvare i file in una directory `data` in locale. Vengono scaricate immagini ed etichette per training e test:
+Usare set di dati aperti di Azure per ottenere i file di dati MNIST non elaborati. [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) include set di dati pubblici curati che è possibile usare per aggiungere caratteristiche specifiche dello scenario alle soluzioni di Machine Learning e realizzare modelli più accurati. Per ogni set di dati è disponibile una classe corrispondente, in questo caso `MNIST`, per recuperare i dati in modi diversi.
+
+Questo codice recupera i dati come oggetto `FileDataset`, che è una sottoclasse di `Dataset`. `FileDataset` fa riferimento a uno o più file di qualsiasi formato in archivi dati o di URL pubblici. La classe offre la possibilità di scaricare o montare i file nel contesto di calcolo creando un riferimento alla posizione dell'origine dati. È possibile anche registrare il set di dati nell'area di lavoro in modo da facilitarne il recupero durante il training.
+
+Seguire questa [procedura dettagliata](how-to-create-register-datasets.md) per ulteriori informazioni sui set di dati e sul relativo utilizzo nell'SDK.
 
 ```python
-import urllib.request
-import os
+from azureml.core import Dataset
+from azureml.opendatasets import MNIST
 
 data_folder = os.path.join(os.getcwd(), 'data')
 os.makedirs(data_folder, exist_ok=True)
 
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
-                           filename=os.path.join(data_folder, 'train-images.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
-                           filename=os.path.join(data_folder, 'train-labels.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
-                           filename=os.path.join(data_folder, 'test-images.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz',
-                           filename=os.path.join(data_folder, 'test-labels.gz'))
-```
+mnist_file_dataset = MNIST.get_file_dataset()
+mnist_file_dataset.download(data_folder, overwrite=True)
 
-L'output sarà simile al seguente: ```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)```
+mnist_file_dataset = mnist_file_dataset.register(workspace=ws,
+                                                 name='mnist_opendataset',
+                                                 description='training and test dataset',
+                                                 create_new_version=True)
+```
 
 ### <a name="display-some-sample-images"></a>Visualizzare alcune immagini di esempio
 
-Caricare i file compressi in matrici `numpy`. Usare quindi `matplotlib` per tracciare 30 immagini casuali dal set di dati con le etichette al di sopra. Per questo passaggio è necessaria una funzione `load_data` inclusa in un file `util.py`. Questo file è incluso nella cartella degli esempi. Assicurarsi che si trovi nella stessa cartella del notebook. La funzione `load_data` si limita ad analizzare i file compressi in matrici numpy:
+Caricare i file compressi in matrici `numpy`. Usare quindi `matplotlib` per tracciare 30 immagini casuali dal set di dati con le etichette al di sopra. Per questo passaggio è necessaria una funzione `load_data` inclusa in un file `util.py`. Questo file è incluso nella cartella degli esempi. Assicurarsi che si trovi nella stessa cartella del notebook. La funzione `load_data` si limita ad analizzare i file compressi in matrici numpy.
 
 ```python
 # make sure utils.py is in the same directory as this code
 from utils import load_data
 
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the model converge faster.
-X_train = load_data(os.path.join(
-    data_folder, 'train-images.gz'), False) / 255.0
-X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
-y_train = load_data(os.path.join(
-    data_folder, 'train-labels.gz'), True).reshape(-1)
-y_test = load_data(os.path.join(
-    data_folder, 'test-labels.gz'), True).reshape(-1)
+X_train = load_data(os.path.join(data_folder, "train-images-idx3-ubyte.gz"), False) / 255.0
+X_test = load_data(os.path.join(data_folder, "t10k-images-idx3-ubyte.gz"), False) / 255.0
+y_train = load_data(os.path.join(data_folder, "train-labels-idx1-ubyte.gz"), True).reshape(-1)
+y_test = load_data(os.path.join(data_folder, "t10k-labels-idx1-ubyte.gz"), True).reshape(-1)
 
 # now let's show some randomly chosen images from the traininng set.
 count = 0
@@ -209,33 +213,6 @@ La figura seguente rappresenta un campione casuale di immagini:
 
 Questo è l'aspetto delle immagini e dei risultati di stima previsti.
 
-### <a name="create-a-filedataset"></a>Creare un oggetto FileDataset
-
-L'oggetto `FileDataset` fa riferimento a uno o più file nell'archivio dati dell'area di lavoro o negli URL pubblici. I file possono essere di qualsiasi formato e la classe offre la possibilità di scaricarli o montarli nel contesto di calcolo. Creando un oggetto `FileDataset`, si crea un riferimento alla posizione dell'origine dati. Anche le eventuali trasformazioni applicate al set di dati verranno archiviate nel set di dati. I dati rimangono nell'attuale posizione, quindi non si incorre in costi aggiuntivi di archiviazione. Per altre informazioni, vedere la guida alle [procedure](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-register-datasets) del pacchetto `Dataset`.
-
-```python
-from azureml.core.dataset import Dataset
-
-web_paths = [
-            'http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz'
-            ]
-dataset = Dataset.File.from_files(path=web_paths)
-```
-
-Usare il metodo `register()` per registrare il set di dati nell'area di lavoro in modo che sia possibile condividerlo con altri, riutilizzarlo in vari esperimenti e farvi riferimento per nome nello script di training.
-
-```python
-dataset = dataset.register(workspace=ws,
-                           name='mnist dataset',
-                           description='training and test dataset',
-                           create_new_version=True)
-```
-
-È ora disponibile tutto ciò che occorre per iniziare il training di un modello.
-
 ## <a name="train-on-a-remote-cluster"></a>Eseguire il training in un cluster remoto
 
 Per questa attività, inviare il processo al cluster di training remoto impostato in precedenza.  Per inviare un processo, è necessario:
@@ -249,7 +226,6 @@ Per questa attività, inviare il processo al cluster di training remoto impostat
 Creare una directory per distribuire il codice necessario dal computer alla risorsa remota.
 
 ```python
-import os
 script_folder = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
@@ -351,7 +327,7 @@ Quindi creare lo strumento di stima con il codice seguente.
 from azureml.train.sklearn import SKLearn
 
 script_params = {
-    '--data-folder': dataset.as_named_input('mnist').as_mount(),
+    '--data-folder': mnist_file_dataset.as_named_input('mnist_opendataset').as_mount(),
     '--regularization': 0.5
 }
 

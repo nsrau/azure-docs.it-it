@@ -1,20 +1,20 @@
 ---
-title: Garantire la sicurezza dell'istanza gestita del database SQL di Azure con le entità server (account di accesso) di Azure AD | Microsoft Docs
+title: Sicurezza dell'istanza gestita con le entità server di Azure AD (account di accesso)
 description: Informazioni sulle tecniche e le funzionalità per proteggere un'istanza gestita nel database SQL di Azure e usare le entità server (account di accesso) di Azure AD.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: tutorial
-author: VanMSFT
-ms.author: vanto
-ms.reviewer: carlrab
-ms.date: 02/20/2019
-ms.openlocfilehash: 37098411f465c611dc9d2e2443f369e01d6e338c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+author: GitHubMirek
+ms.author: mireks
+ms.reviewer: vanto
+ms.date: 11/06/2019
+ms.openlocfilehash: bd65a21c2aa21643c76966410931949db7d17ad6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70230994"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822797"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Esercitazione: Garantire la sicurezza dell'istanza gestita del database SQL di Azure con le entità server (account di accesso) di Azure AD
 
@@ -36,9 +36,6 @@ In questa esercitazione si apprenderà come:
 > - Usare query tra database con utenti di Azure AD
 > - Informazioni sulle funzionalità di sicurezza come la protezione da minacce, il controllo, il data masking e la crittografia
 
-> [!NOTE]
-> Le entità server (account di accesso) di Azure AD per le istanze gestite sono disponibili in **anteprima pubblica**.
-
 Per altre informazioni, vedere gli articoli sulla [panoramica](sql-database-managed-instance-index.yml) e sulle [capacità](sql-database-managed-instance.md) dell'istanza gestita di database SQL di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -57,22 +54,21 @@ Per completare questa esercitazione, verificare di avere i prerequisiti seguenti
 
 Le istanze gestite sono accessibili tramite un indirizzo IP privato. Analogamente a quanto avviene con un ambiente locale Server isolato, le applicazioni o gli utenti devono accedere alla rete dell'istanza gestita (rete virtuale) prima di poter stabilire una connessione. Per altre informazioni, vedere l'articolo [Connettere l'applicazione a un'istanza gestita](sql-database-managed-instance-connect-app.md).
 
-È anche possibile configurare nell'istanza gestita un endpoint servizio, che consente le connessioni pubbliche, in modo analogo al database SQL di Azure. Per altre informazioni, vedere l'articolo [Configurare l'endpoint pubblico nell'istanza gestita di database SQL di Azure](sql-database-managed-instance-public-endpoint-configure.md).
+È anche possibile configurare nell'istanza gestita un endpoint di servizio che consente le connessioni pubbliche, in modo analogo al database SQL di Azure. Per altre informazioni, vedere l'articolo [Configurare l'endpoint pubblico nell'istanza gestita di database SQL di Azure](sql-database-managed-instance-public-endpoint-configure.md).
 
 > [!NOTE] 
-> Le [regole del firewall del database SQL](sql-database-firewall-configure.md) non si applicano neanche in caso di endpoint servizio abilitati. Per gestire la connettività, l'istanza gestita è dotata di un proprio [firewall predefinito](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+> Le [regole del firewall del database SQL](sql-database-firewall-configure.md) non si applicano neanche in caso di endpoint di servizio abilitati. Per gestire la connettività, l'istanza gestita è dotata di un proprio [firewall predefinito](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 ## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>Creare un'entità server (account di accesso) di Azure AD per un'istanza gestita con SQL Server Management Studio
 
-La prima entità server (account di accesso) di Azure AD deve essere creata dall'account di SQL Server standard (non Azure AD) che è un `sysadmin`. Per esempi relativi alla connessione all'istanza gestita, vedere gli articoli seguenti:
+La prima entità server di Azure AD (account di accesso) può essere creata tramite l'account di SQL Server standard (non Azure AD), ovvero `sysadmin`, o l'amministratore di Azure AD per l'istanza gestita creata durante il processo di provisioning. Per altre informazioni, vedere [Effettuare il provisioning di un amministratore di Azure Active Directory per l'istanza gestita](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Questa funzionalità è cambiata rispetto alla [GA delle entità server di Azure AD](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
+
+Per esempi relativi alla connessione all'istanza gestita, vedere gli articoli seguenti:
 
 - [Guida introduttiva: Configurare una macchina virtuale di Azure per la connessione a un'istanza gestita](sql-database-managed-instance-configure-vm.md)
 - [Guida introduttiva: Configurare una connessione da punto a sito a un'istanza gestita da un computer locale](sql-database-managed-instance-configure-p2s.md)
 
-> [!IMPORTANT]
-> L'amministratore di Azure AD usato per configurare l'istanza gestita non può essere usato per creare un'entità server (account di accesso) di Azure AD all'interno dell'istanza gestita. È necessario creare la prima entità server (account di accesso) di Azure AD usando un account di SQL Server che è un `sysadmin`. Si tratta di una limitazione temporanea che verrà rimossa quando le entità server (account di accesso) di Azure AD saranno disponibili a livello generale. Se si prova a usare un account amministratore di Azure AD per creare l'account di accesso, viene visualizzato l'errore seguente: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-
-1. Accedere all'istanza gestita con un account di SQL Server standard (non Azure AD) che è un `sysadmin`, usando [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
+1. Accedere all'istanza gestita con un account di SQL Server standard (non Azure AD), ovvero `sysadmin`, o un amministratore di Azure AD per istanza gestita usando [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
 2. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
 
@@ -125,7 +121,7 @@ Per creare altre entità server (account di accesso) di Azure AD, è necessario 
 
 Per aggiungere l'account di accesso al ruolo del server `sysadmin`:
 
-1. Accedere di nuovo all'istanza gestita oppure usare la connessione esistente con un'entità di sicurezza SQL che è un `sysadmin`.
+1. Accedere di nuovo all'istanza gestita oppure usare la connessione esistente con l'amministratore di Azure AD o un'entità di sicurezza SQL, ovvero `sysadmin`.
 
 1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
 
@@ -425,7 +421,7 @@ Le query tra database sono supportate per gli account Azure AD con entità serve
 
     Dovrebbero essere visualizzati i risultati della tabella di **TestTable2**.
 
-## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins-public-preview"></a>Altri scenari supportati per le entità server (account di accesso) di Azure AD (anteprima pubblica) 
+## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins"></a>Altri scenari supportati per le entità server di Azure AD (account di accesso)
 
 - Per le entità server (account di accesso) di Azure AD sono supportate la gestione dell'agente SQL e le esecuzioni di processi.
 - Le operazioni di backup e ripristino del database possono essere eseguite dalle entità server (account di accesso) di Azure AD.

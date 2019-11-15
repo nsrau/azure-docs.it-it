@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da SQL Server a un archivio BLOB usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da SQL Server ad Archiviazione BLOB con Azure Data Factory
 description: Informazioni su come copiare dati da un archivio dati locale al cloud usando un runtime di integrazione self-hosted in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: abnarain
-ms.openlocfilehash: c86f5f053c285b099b7c3575c890b108f2de8742
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 09768e3b9bd1c2e6c9d4a5dbe95bb270b07266c0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140664"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683527"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copiare dati da un database di SQL Server locale a un archivio BLOB di Azure
 In questa esercitazione si usa l'interfaccia utente di Azure Data Factory per creare una pipeline di Data Factory che copia i dati da un database di SQL Server locale a un archivio BLOB di Azure. Si crea e si usa un runtime di integrazione self-hosted, che sposta i dati tra gli archivi dati locali e cloud.

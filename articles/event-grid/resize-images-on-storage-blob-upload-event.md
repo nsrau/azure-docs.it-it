@@ -1,6 +1,6 @@
 ---
-title: Usare Griglia di eventi di Azure per automatizzare il ridimensionamento delle immagini caricate | Microsoft Docs
-description: Griglia di eventi di Azure può attivare i caricamenti BLOB in Archiviazione di Azure. Ciò consente di inviare file di immagini caricati in Archiviazione di Azure ad altri servizi, ad esempio a Funzioni di Azure, perché vengano ridimensionati o migliorati.
+title: 'Esercitazione: Usare Griglia di eventi di Azure per automatizzare il ridimensionamento delle immagini caricate'
+description: 'Esercitazione: Griglia di eventi di Azure può attivare i caricamenti BLOB in Archiviazione di Azure. Ciò consente di inviare file di immagini caricati in Archiviazione di Azure ad altri servizi, ad esempio a Funzioni di Azure, perché vengano ridimensionati o migliorati.'
 services: event-grid, functions
 author: spelluru
 manager: jpconnoc
@@ -9,15 +9,15 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 11/05/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: c09e2cd812dd34976218ff71036734466943e8cd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4359ce859e3fbe270785c3cf4bbc673e71d19799
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "69623865"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718213"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Esercitazione: Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
 

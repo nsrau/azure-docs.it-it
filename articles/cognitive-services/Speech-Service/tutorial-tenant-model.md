@@ -1,7 +1,7 @@
 ---
 title: Creare un modello di tenant (anteprima) - Servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Generare automaticamente un modello conversione voce/testo personalizzato che usa i dati di Office365 per offrire un riconoscimento vocale ottimale per termini specifici dell'organizzazione che garantisce sia sicurezza che conformità.
+description: Generare automaticamente un modello di tenant (Riconoscimento vocale personalizzato con dati di Office 365) che sfrutta i dati di Office 365 per offrire un riconoscimento vocale ottimale per termini specifici dell'organizzazione, rispettando i requisiti di sicurezza e conformità.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: 85b9291ee24c024ebc8ce81ddba46d04f7744081
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c8a2855ce9cd320be3aea8b3b4a05f3b3eb39976
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504596"
+ms.locfileid: "73578228"
 ---
 # <a name="create-a-tenant-model-preview"></a>Creare un modello di tenant (anteprima)
 
-Il modello di tenant è un servizio di consenso esplicito per clienti aziendali Office365 che genera automaticamente un modello di riconoscimento vocale personalizzato dai dati Office365 dell'organizzazione. Il modello creato è ottimizzato per termini tecnici, gergo e nomi di persone in modo sicuro e conforme.
+Il modello di tenant (Riconoscimento vocale con dati di Office 365) è un servizio basato su consenso esplicito per i clienti aziendali di Office 365 che genera automaticamente un modello di riconoscimento vocale personalizzato dai dati di Office 365 dell'organizzazione. Il modello creato è ottimizzato per termini tecnici, gergo e nomi di persone in modo sicuro e conforme.
 
 > [!IMPORTANT]
-> Se l'organizzazione esegue la registrazione con il modello di tenant, il servizio di riconoscimento vocale può accedere al modello linguistico dell'organizzazione, generato dalle risorse di Office 365, ad esempio messaggi e-mail e documenti. L'amministratore di Office 365 dell'organizzazione può attivare o disattivare l'uso del modello linguistico dell'organizzazione usando il portale di amministrazione di Office 365.
+> Se l'organizzazione si registra al modello di tenant, il servizio Voce può accedere al suo modello linguistico, che viene generato da messaggi di posta elettronica e documenti di gruppi pubblici di Office 365 visibili da chiunque nell'organizzazione. L'amministratore di Office 365 dell'organizzazione può attivare o disattivare l'uso del modello linguistico a livello di organizzazione tramite il portale di amministrazione di Office 365.
 
 In questa esercitazione si apprenderà come:
 
@@ -33,8 +33,6 @@ In questa esercitazione si apprenderà come:
 > * Distribuire un modello di tenant
 > * Usare un modello di tenant con Speech SDK
 
-![Diagramma del modello di tenant](media/tenant-language-model/tenant-language-model-diagram.png)
-
 ## <a name="enroll-using-the-microsoft-365-admin-center"></a>Eseguire la registrazione tramite l'interfaccia di amministrazione di Microsoft 365
 
 Prima di distribuire un modello di tenant, è necessario eseguire la registrazione usando l'interfaccia di amministrazione di Microsoft 365. Questa attività può essere completata solo dall'amministratore di Microsoft 365.
@@ -42,11 +40,11 @@ Prima di distribuire un modello di tenant, è necessario eseguire la registrazio
 1. Accedere all'[interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com ).
 2. Nel pannello sinistro selezionare **Impostazioni** e quindi **App**.
 
-   ![Diagramma del modello di tenant](media/tenant-language-model/tenant-language-model-enrollment.png)
+   ![Registrazione al modello di tenant](media/tenant-language-model/tenant-language-model-enrollment.png)
 
 3. Individuare e selezionare **Azure Speech Services**.
 
-   ![Diagramma del modello di tenant](media/tenant-language-model/tenant-language-model-enrollment-2.png)
+   ![Registrazione al modello di tenant 2](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
 4. Fare clic sulla casella di controllo e salvare.
 
@@ -77,9 +75,10 @@ Dopo che l'amministratore ha abilitato il modello di tenant per l'organizzazione
 
 3. A questo punto verrà visualizzato un messaggio che informa se si è qualificati per la creazione di un modello di tenant.
    > [!NOTE]
-   > I clienti di Office 365 Enterprise nell'America del Nord sono idonei per la creazione di un modello di tenant (inglese). Per i clienti Customer Lockbox (CLB) o Customer Key (CK) questa funzionalità non è disponibile. Per determinare se si è un cliente Customer Lockbox o Customer Key, seguire queste istruzioni:
+   > I clienti di Office 365 Enterprise nell'America del Nord sono idonei per la creazione di un modello di tenant (inglese). Per i clienti di Customer Lockbox (CLB), Customer Key (CK) o Office 365 Government, questa funzionalità non è disponibile. Per determinare se si è un cliente Customer Lockbox o Customer Key, seguire queste istruzioni:
    > * [Customer Lockbox](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
    > * [Customer Key](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
+   > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
 
 4. Selezionare quindi **Acconsenti esplicitamente** . Quando il modello di tenant è pronto, si riceve un messaggio e-mail con le istruzioni.
 

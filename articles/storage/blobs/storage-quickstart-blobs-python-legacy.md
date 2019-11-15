@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Creare und BLOB in Archiviazione BLOB di Azure con Python'
-description: In questa guida introduttiva si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). Si usa quindi la libreria client di archiviazione per Python per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
+title: 'Guida introduttiva: Libreria client di Archiviazione BLOB di Azure versione 2.1 per Python'
+description: In questa guida introduttiva si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). La libreria client di archiviazione viene usata quindi per Python per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 09/11/2019
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 8a3f8b5f8944552c92ac5a1c1d5fb2eabffad2c9
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 606c7d1fd012052a22afeef906bbe9df4c63a76b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609691"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825289"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-in-azure-blob-storage-with-python"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB nell'Archiviazione BLOB di Azure con Python
+# <a name="quickstart-azure-blob-storage-client-library-v21-for-python"></a>Guida introduttiva: Libreria client di Archiviazione BLOB di Azure versione 2.1 per Python
 
 Questo articolo illustra come usare Python per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. I BLOB sono semplicemente oggetti che possono contenere grandi quantità di dati di testo o binari, tra cui immagini, documenti, flussi multimediali e dati di archiviazione. I BLOB in Archiviazione di Azure sono diversi dalle condivisioni file, dalle tabelle senza schema e dalle code di messaggi.  Per altre informazioni, vedere [Introduzione ad Archiviazione di Azure](/azure/storage/common/storage-introduction).
 

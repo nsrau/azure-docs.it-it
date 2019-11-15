@@ -1,20 +1,20 @@
 ---
-title: Esercitazione - Aggiornare l'assortimento del magazzino al dettaglio usando i canali di pubblicazione/sottoscrizione e i filtri di argomento con l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: In questa esercitazione viene illustrato come inviare e ricevere messaggi da un argomento e una sottoscrizione e come aggiungere e usare le regole di filtro con l'interfaccia della riga di comando di Azure
+title: "Esercitazione: Aggiornare l'assortimento dell'inventario di vendita al dettaglio usando i canali di pubblicazione/sottoscrizione e i filtri di argomento con l'interfaccia della riga di comando di Azure"
+description: "Esercitazione: In questa esercitazione viene illustrato come inviare e ricevere messaggi da un argomento e una sottoscrizione e come aggiungere e usare le regole di filtro con l'interfaccia della riga di comando di Azure"
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.author: spelluru
-ms.date: 09/22/2018
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: e55c8c6a579489c8ed5a13ccb93f0e72c286ab13
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0bd0d8eb8abe6f320f73e35b1e3b08e1d8dc1de3
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991950"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718916"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Esercitazione: Aggiornare l'inventario usando l'interfaccia della riga di comando e argomenti/sottoscrizioni
 

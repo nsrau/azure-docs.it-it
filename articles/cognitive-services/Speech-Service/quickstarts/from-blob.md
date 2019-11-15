@@ -1,22 +1,22 @@
 ---
 title: 'Guida introduttiva: Riconoscimento della voce archiviata in archivio BLOB'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: In questo argomento di avvio rapido si userà l'API REST di trascrizione in batch per riconoscere in modo asincrono la voce archiviata in un BLOB con firma di accesso condiviso.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 2dac68282df9e841dc2c44c547e72572ff96b85e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 944d6bf174e35934b2173af0a1967226707d82b7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505908"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682029"
 ---
 # <a name="quickstart-recognize-speech-stored-in-blob-storage"></a>Guida introduttiva: Riconoscimento della voce archiviata in archivio BLOB
 

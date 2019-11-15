@@ -1,24 +1,24 @@
 ---
 title: 'Guida introduttiva: Eseguire la sintesi vocale in un file audio - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: In questo argomento di avvio rapido si userà Speech SDK per convertire il testo in sintesi vocale in un file audio.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 1abde83c035f2d2d5785188510d89057c705f717
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4066e7ba3d0a2b5d16d70e360f14a18f6414999a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505028"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681949"
 ---
-# <a name="quickstart-recognize-speech-from-an-audio-file"></a>Guida introduttiva: Riconoscimento vocale da un file audio
+# <a name="quickstart-synthesize-speech-into-an-audio-file"></a>Guida introduttiva: Sintetizzare la voce in un file audio
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/tts-audio-file/header.md)]

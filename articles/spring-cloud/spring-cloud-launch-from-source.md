@@ -1,23 +1,23 @@
 ---
-title: "Guida introduttiva: avviare l'applicazione Spring cloud dal codice sorgente"
-description: Informazioni su come avviare l'applicazione Azure Spring cloud direttamente dal codice sorgente
+title: "Guida introduttiva: Avviare l'applicazione Spring Cloud dal codice sorgente"
+description: Informazioni su come avviare l'applicazione Azure Spring Cloud direttamente dal codice sorgente
 author: jpconnock
 ms.service: spring-cloud
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 573baa242c06868326568a82bc358e136f1ece2c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: MT
+ms.openlocfilehash: 7ca80966ccab83991246f0ed7ea35cf2c9524b1d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177963"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721282"
 ---
-# <a name="launch-your-spring-cloud-application-from-source-code"></a>Avviare l'applicazione Spring cloud dal codice sorgente
+# <a name="launch-your-spring-cloud-application-from-source-code"></a>Avviare l'applicazione Spring Cloud dal codice sorgente
 
 Azure Spring Cloud consente di eseguire facilmente applicazioni di microservizi basate su Spring Cloud in Azure.
 
-Azure Spring cloud consente di avviare l'applicazione direttamente dal codice sorgente Java o da un file JAR predefinito. Questo articolo illustra i passaggi necessari.
+Azure Spring Cloud consente di avviare un'applicazione direttamente dal codice sorgente Java o da un file JAR precompilato. Questo articolo illustra i passaggi necessari.
 
 Seguendo questo argomento di avvio rapido, si apprenderà come:
 
@@ -31,9 +31,9 @@ Seguendo questo argomento di avvio rapido, si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 >[!Note]
-> Prima di iniziare l'argomento di avvio rapido, assicurarsi che la propria sottoscrizione di Azure abbia accesso ad Azure Spring Cloud.  Essendo un servizio in anteprima, chiediamo ai clienti di contattarci in modo che possiamo aggiungere la loro sottoscrizione al nostro elenco di utenti autorizzati.  Se si desidera esplorare le funzionalità di Azure Spring Cloud, [compilare questo modulo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u).  Mentre Azure Spring cloud è in versione di anteprima, Microsoft offre supporto limitato senza un contratto di servizio.  Per ulteriori informazioni sul supporto tecnico durante le anteprime, consultare le [domande frequenti sul supporto](https://azure.microsoft.com/support/faq/).
+> Azure Spring Cloud è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  Le funzionalità e i servizi di anteprima pubblica non sono destinati all'uso in produzione.  Per altre informazioni sul supporto durante le anteprime, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o inviare una [richiesta di supporto](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
-Prima di iniziare, verificare che la sottoscrizione di Azure abbia le dipendenze richieste:
+Prima di iniziare, verificare che la sottoscrizione di Azure abbia le dipendenze necessarie:
 
 1. [Installare Git](https://git-scm.com/)
 2. [Installare JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
@@ -46,13 +46,13 @@ Prima di iniziare, verificare che la sottoscrizione di Azure abbia le dipendenze
 
 ## <a name="install-the-azure-cli-extension"></a>Installare l'estensione dell'interfaccia della riga di comando di Azure
 
-Installare l'estensione Azure Spring cloud per l'interfaccia della riga di comando di Azure con il comando seguente
+Installare l'estensione Azure Spring Cloud per l'interfaccia della riga di comando di Azure con il comando seguente
 
 ```Azure CLI
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 
-## <a name="provision-a-service-instance-using-the-azure-cli"></a>Eseguire il provisioning di un'istanza del servizio usando l'interfaccia della
+## <a name="provision-a-service-instance-using-the-azure-cli"></a>Effettuare il provisioning di un'istanza del servizio usando l'interfaccia della riga di comando di Azure
 
 Accedere all'interfaccia della riga di comando di Azure e scegliere una sottoscrizione attiva. Assicurarsi di scegliere una sottoscrizione attiva autorizzata per Azure Spring Cloud
 
@@ -62,13 +62,13 @@ az account list -o table
 az account set --subscription
 ```
 
-Aprire una finestra dell'interfaccia della riga di comando di Azure ed eseguire i comandi seguenti per effettuare il provisioning di un'istanza di Azure Spring Cloud. Si noti che viene anche indicato ad Azure Spring cloud di assegnare un dominio pubblico qui.
+Aprire una finestra dell'interfaccia della riga di comando di Azure ed eseguire i comandi seguenti per effettuare il provisioning di un'istanza di Azure Spring Cloud. Si noti che qui viene anche indicato ad Azure Spring Cloud di assegnare un dominio pubblico.
 
 ```azurecli
     az spring-cloud create -n <resource name> -g <resource group name> --is-public true
 ```
 
-La distribuzione dell'istanza del servizio può richiedere circa cinque minuti.
+La distribuzione dell'istanza del servizio richiede circa cinque minuti.
 
 Impostare i nomi predefiniti del gruppo di risorse e del cluster usando i comandi seguenti:
 
@@ -77,42 +77,42 @@ az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
 ```
 
-## <a name="create-the-spring-cloud-application"></a>Creare l'applicazione Spring cloud
+## <a name="create-the-spring-cloud-application"></a>Creare l'applicazione Spring Cloud
 
-Il comando seguente consente di creare un'applicazione Spring cloud nella sottoscrizione.  In questo modo viene creato un servizio cloud Spring vuoto a cui è possibile caricare l'applicazione.
+Il comando seguente crea un'applicazione Spring Cloud nella sottoscrizione.  In questo modo, viene creato un servizio Spring Cloud vuoto in cui è possibile caricare l'applicazione.
 
 ```azurecli
 az spring-cloud app create -n <app-name>
 ```
 
-## <a name="deploy-your-spring-cloud-application"></a>Distribuire un'applicazione Spring cloud
+## <a name="deploy-your-spring-cloud-application"></a>Distribuire l'applicazione Spring Cloud
 
-È possibile distribuire l'applicazione da un file JAR predefinito o da un repository Gradle o Maven.  Trovare le istruzioni per ogni caso.
+È possibile distribuire l'applicazione da un file JAR precompilato o da un repository Gradle o Maven.  Le istruzioni relative a ogni caso sono riportate di seguito.
 
 ### <a name="deploy-a-built-jar"></a>Distribuire un file JAR compilato
 
-Per eseguire la distribuzione da un file JAR compilato nel computer locale, assicurarsi che la compilazione produca un file [jar Fat](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-build.html#howto-create-an-executable-jar-with-maven).
+Per eseguire la distribuzione da un file JAR compilato nel computer locale, assicurarsi che la compilazione produca un file di tipo [fat-JAR](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-build.html#howto-create-an-executable-jar-with-maven).
 
-Per distribuire Fat-JAR in una distribuzione attiva
+Per distribuire il fat-JAR in una distribuzione attiva
 
 ```azurecli
 az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR>
 ```
 
-Per distribuire Fat-JAR in una distribuzione specifica
+Per distribuire il fat-JAR in una distribuzione specifica
 
 ```azurecli
 az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-built-jar>
 ```
 
-### <a name="deploy-from-source-code"></a>Distribuisci dal codice sorgente
+### <a name="deploy-from-source-code"></a>Distribuire dal codice sorgente
 
-Azure Spring cloud USA [kpack](https://github.com/pivotal/kpack) per compilare il progetto.  È possibile usare l'interfaccia della riga di comando di Azure per caricare il codice sorgente, compilare il progetto usando kpack e distribuirlo nell'applicazione di destinazione.
+Azure Spring Cloud usa [kpack](https://github.com/pivotal/kpack) per compilare il progetto.  È possibile usare l'interfaccia della riga di comando di Azure per caricare il codice sorgente, compilare il progetto usando kpack e distribuirlo all'applicazione di destinazione.
 
 > [!WARNING]
-> Il progetto deve produrre un solo file JAR con una voce `main-class` nel `MANIFEST.MF` `target` (per le distribuzioni Maven o `build/libs` (per le distribuzioni Gradle).  La distribuzione avrà esito negativo in più file con estensione JAR con `main-class` voci.
+> Il progetto deve produrre un solo file JAR con una voce `main-class` nel file `MANIFEST.MF` in `target` (per le distribuzioni Maven) o `build/libs` (per le distribuzioni Gradle).  Più file JAR con voci `main-class` determineranno l'esito negativo della distribuzione.
 
-Per i progetti single Module Maven/gradle:
+Per i progetti Maven/Gradle con un singolo modulo:
 
 ```azurecli
 cd <path-to-maven-or-gradle-source-root>
@@ -126,7 +126,7 @@ cd <path-to-maven-or-gradle-source-root>
 az spring-cloud app deploy -n <app-name> --target-module <relative-path-to-module>
 ```
 
-### <a name="show-deployment-logs"></a>Mostra log di distribuzione
+### <a name="show-deployment-logs"></a>Visualizzare i log di distribuzione
 
 Esaminare i log di compilazione kpack usando il comando seguente:
 
@@ -135,7 +135,7 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 ```
 
 > [!NOTE]
-> I registri kpack visualizzeranno solo la distribuzione più recente se la distribuzione è stata creata dall'origine usando kpack.
+> I log kpack visualizzeranno solo la distribuzione più recente se questa è stata compilata dal codice sorgente usando kpack.
 
 ## <a name="assign-a-public-endpoint-to-gateway"></a>Assegnare un endpoint pubblico al gateway
 
@@ -154,7 +154,7 @@ In questa guida introduttiva si è appreso come:
 > * Creare un'applicazione di microservizi in locale
 > * Distribuire ogni microservizio
 > * Modificare le variabili di ambiente per le applicazioni
-> * Assegnare un indirizzo IP pubblico per il gateway applicazione
+> * Assegnare un IP pubblico per il gateway applicazione
 
 > [!div class="nextstepaction"]
 > [Preparare l'applicazione Azure Spring Cloud per la distribuzione](spring-cloud-tutorial-prepare-app-deployment.md)

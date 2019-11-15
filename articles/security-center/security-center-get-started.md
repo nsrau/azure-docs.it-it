@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva di Centro sicurezza di Azure - Caricamento della sottoscrizione di Azure al livello Standard del Centro sicurezza di Azure | Microsoft Docs
+title: Passare al piano Standard - Centro sicurezza di Azure
 description: Questa Guida introduttiva illustra come eseguire l'aggiornamento al piano tariffario Standard del Centro sicurezza per aumentare la sicurezza.
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 689949b2b6fea1dcd06741fd3fc19c9371a96784
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 26d62f2c027a093ba518b98fa37ce3a31a14f175
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676384"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664294"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Guida introduttiva: Caricamento della sottoscrizione di Azure al livello Standard del Centro di sicurezza
 Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione dalle minacce per carichi di lavoro cloud ibridi. Mentre il livello gratuito offre sicurezza limitata delle risorse di Azure, il livello Standard estende le funzionalità in locale e in altri ambienti cloud. Il livello Standard del Centro sicurezza consente di individuare e risolvere le vulnerabilità di sicurezza, di applicare i controlli su applicazioni e accessi per bloccare le attività dannose, di rilevare le minacce usando funzioni di analisi e di intelligenza e di rispondere rapidamente in caso di attacco. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).

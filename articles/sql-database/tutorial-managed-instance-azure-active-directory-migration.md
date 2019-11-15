@@ -1,20 +1,21 @@
 ---
-title: Eseguire la migrazione di utenti e gruppi locali di Windows in SQL Server a un'istanza gestita di database SQL di Azure con la sintassi DDL T-SQL | Microsoft Docs
+title: Eseguire la migrazione di utenti e gruppi di SQL ServerWindows a un'istanza gestita tramite T-SQL
 description: Informazioni su come eseguire la migrazione di utenti e gruppi locali di Windows in SQL Server a un'istanza gestita
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+ms.custom: seo-lt-2019
 ms.topic: tutorial
 author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/22/2019
-ms.openlocfilehash: ca0997010fef40c0927960c04588c031dd85fff8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 10/30/2019
+ms.openlocfilehash: 3ed4e4b1d37a9705378281ca74b53a6b60713d97
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72795062"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807166"
 ---
 # <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>Esercitazione: Eseguire la migrazione di utenti e gruppi locali di Windows in SQL Server a un'istanza gestita di database SQL di Azure con la sintassi DDL T-SQL
 
@@ -41,6 +42,8 @@ Per completare questa esercitazione, è necessario soddisfare i prerequisiti seg
 - Accesso ad Active Directory per la creazione di utenti/gruppi.
 - Un'istanza di SQL Server esistente nell'ambiente locale.
 - Un'istanza gestita esistente. Vedere [Avvio rapido: Creare un'istanza gestita di database SQL di Azure](sql-database-managed-instance-get-started.md).
+  - Per creare account di accesso Azure AD, è necessario usare `sysadmin` nell'istanza gestita.
+- [Creare un amministratore di Azure AD per l'istanza gestita](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 - È possibile connettersi all'istanza gestita all'interno della rete. Per altre informazioni, vedere gli articoli seguenti: 
     - [Connettere un'applicazione a un'istanza gestita di database SQL di Azure](sql-database-managed-instance-connect-app.md)
     - [Guida introduttiva: Configurare una connessione da punto a sito a un'Istanza gestita di database SQL di Azure da un computer locale](sql-database-managed-instance-configure-p2s.md)
@@ -212,9 +215,12 @@ Seguire l'argomento [Avvio rapido: Ripristinare un database a un'istanza gestita
 
 ## <a name="part-4-migrate-users-to-managed-instance"></a>Parte 4: Eseguire la migrazione degli utenti all'istanza gestita
 
+> [!NOTE]
+> L'amministratore di Azure AD per la funzionalità dell'istanza gestita dopo la creazione è stato modificato. Per altre informazioni, vedere [Nuove funzionalità di amministrazione di Azure AD per l'istanza gestita](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
+
 Eseguire il comando ALTER USER per completare il processo di migrazione nell'istanza gestita.
 
-1. Accedere all'istanza gestita usando l'account amministratore SQL per l'istanza gestita. Quindi, creare l'account di accesso di Azure AD nell'istanza gestita usando la sintassi seguente:
+1. Accedere all'istanza gestita usando l'account amministratore Azure AD per l'istanza gestita. Quindi creare l'account di accesso di Azure AD nell'istanza gestita usando la sintassi seguente. Per altre informazioni, vedere [Esercitazione: Garantire la sicurezza dell'istanza gestita del database SQL di Azure con le entità server (account di accesso) di Azure AD](sql-database-managed-instance-aad-security-tutorial.md).
 
     ```sql
     use master 

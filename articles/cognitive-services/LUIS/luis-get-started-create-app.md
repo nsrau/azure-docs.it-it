@@ -9,16 +9,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 4acf6e4df978ffee6e0f8320bafbb64994aa0639
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 22a37dbd0b76710a14183aec1795639614207d16
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495288"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73613656"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Avvio rapido: Usare l'app di domotica predefinita
+
+[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 In questa guida introduttiva si crea un'app LUIS che usa il dominio predefinito `HomeAutomation` per accendere e spegnere luci ed elettrodomestici. Questo dominio predefinito fornisce all'utente finalità, entità ed espressioni di esempio. Al termine, sarà disponibile un endpoint LUIS in esecuzione nel cloud.
 
@@ -28,6 +30,8 @@ Per questo articolo è necessario un account LUIS gratuito, creato nel portale L
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
+[!INCLUDE [Select authoring resource](./includes/select-authoring-resource.md)]
+
 ## <a name="create-a-new-app"></a>Creare una nuova app
 È possibile creare e gestire le applicazioni in **My Apps** (App personali). 
 
@@ -35,7 +39,7 @@ Per questo articolo è necessario un account LUIS gratuito, creato nel portale L
 
     ![Nell'elenco App personali del portale LUIS selezionare "+Crea".](./media/create-app-in-portal.png)
 
-1. Nella finestra di dialogo, assegnare all'applicazione il nome `Home Automation` e selezionare **Operazione completata**. LUIS crea l'app.
+1. Nella finestra di dialogo, assegnare all'applicazione il nome `Home Automation` e selezionare **Operazione completata**. LUIS crea l'app. La descrizione è facoltativa e non viene usata per la creazione o la previsione. La risorsa di previsione è facoltativa quando si crea un'app LUIS. Quando si pubblica l'app in produzione, è necessario assegnare una risorsa di previsione in modo che l'app possa gestire molte richieste.  
 
     ![Nella finestra di dialogo assegnare all'applicazione il nome "Home Automation".](./media/create-new-app-details.png)
 
@@ -65,7 +69,7 @@ Selezionare la finalità **HomeAutomation.TurnOff**. È possibile vedere che la 
 
 ## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="test-your-app"></a>Test dell'app
 Dopo aver eseguito il training dell'app, è possibile eseguirne il test. Selezionare **Test**. Digitare un'espressione di test, ad esempio `Turn off the lights` nel riquadro di test interattivo e premere INVIO. 
@@ -114,7 +118,25 @@ Selezionare nuovamente **Test** per comprimere il riquadro di test.
             "topIntent": "HomeAutomation.TurnOff",
             "intents": {
                 "HomeAutomation.TurnOff": {
-                    "score": 0.967174649
+                    "score": 0.984315455
+                },
+                "HomeAutomation.QueryState": {
+                    "score": 0.009912962
+                },
+                "HomeAutomation.TurnDown": {
+                    "score": 0.00626645749
+                },
+                "HomeAutomation.TurnUp": {
+                    "score": 0.00572059769
+                },
+                "HomeAutomation.SetDevice": {
+                    "score": 0.00379381469
+                },
+                "HomeAutomation.TurnOn": {
+                    "score": 0.00366983772
+                },
+                "None": {
+                    "score": 0.000623856
                 }
             },
             "entities": {
@@ -138,7 +160,7 @@ Selezionare nuovamente **Test** per comprimere il riquadro di test.
                             "text": "living room",
                             "startIndex": 13,
                             "length": 11,
-                            "score": 0.9494325,
+                            "score": 0.907323956,
                             "modelTypeId": 1,
                             "modelType": "Entity Extractor",
                             "recognitionSources": [

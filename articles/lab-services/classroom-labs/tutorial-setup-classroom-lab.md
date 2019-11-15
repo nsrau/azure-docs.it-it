@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 5bf8aea05855d81e88face1dd507f0006cc19cab
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a5f8c8c00a9f63558043167c5cf8269f9e139d54
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73483887"
+ms.locfileid: "73584904"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -92,6 +92,11 @@ Un proprietario del lab può aggiungere altri utenti al ruolo **Autore di labora
     2. Per avviare tutte le VM contemporaneamente, selezionare **Start all** (Avvia tutte) sulla barra degli strumenti. 
     3. Per avviare una specifica VM, selezionare la freccia in già in **Status** (Stato) e quindi selezionare **Start** (Avvia). Per avviare una VM, è anche possibile selezionarla nella prima colonna e quindi selezionare **Start** (Avvia) sulla barra degli strumenti.
 
+    Per altre informazioni sulla creazione e la gestione di modelli e sulla configurazione e la gestione di macchine virtuali per studenti, vedere gli articoli seguenti: 
+    
+    - [Creare e gestire modelli di lab per le classi](how-to-create-manage-template.md)
+    - [Configurare e gestire il pool di macchine virtuali](how-to-set-virtual-machine-passwords.md)
+
 ## <a name="add-users-to-the-lab"></a>Aggiungere utenti al lab
 
 1. Selezionare **Utenti** nel menu a sinistra. Per impostazione predefinita, l'opzione **Limita l'accesso** è abilitata. Quando questa impostazione è attiva, un utente non può registrarsi al lab anche se ha il collegamento di registrazione, a meno che non sia presente nell'elenco degli utenti. Solo gli utenti nell'elenco possono registrarsi al lab utilizzando il collegamento di registrazione inviato. In questa procedura si aggiungono utenti all'elenco. In alternativa, è possibile disattivare **Limita l'accesso**, consentendo agli utenti di registrarsi al lab alla sola condizione di disporre del collegamento di registrazione. 
@@ -105,29 +110,40 @@ Un proprietario del lab può aggiungere altri utenti al ruolo **Autore di labora
 
     ![Elenco utenti](../media/how-to-configure-student-usage/users-list-new.png)
 
+    Nell'elenco verranno visualizzati i nomi degli utenti dopo la registrazione nel lab. 
+    
 ## <a name="set-a-schedule-for-the-lab"></a>Impostare una pianificazione per il lab
 Creare un evento pianificato per il lab in modo che le VM al suo interno vengano automaticamente avviate/arrestate in specifici orari. La quota utente specificata in precedenza corrisponde al tempo aggiuntivo assegnato a ogni utente al di fuori del tempo pianificato. 
 
 1. Passare alla pagina **Schedules** (Pianificazione) e selezionare **Add scheduled event** (Aggiungi evento pianificato) sulla barra degli strumenti. 
 
     ![Pulsante Aggiungi pianificazione nella pagina Pianificazioni](../media/how-to-create-schedules/add-schedule-button.png)
-2. Verificare che per **Event type** (Tipo di evento) sia selezionata l'opzione **Standard**. Selezionare **Start only** (Solo avvio) per specificare solo l'ora di avvio per le VM. Selezionare **Stop only** (Solo arresto) per specificare solo l'ora di arresto per le VM. 
-3. Nella sezione **Repeat** (Ripeti) selezionare la pianificazione corrente. 
-
-    ![Pulsante Aggiungi pianificazione nella pagina Pianificazioni](../media/how-to-create-schedules/select-current-schedule.png)
-4. Selezionando la pianificazione, viene visualizzata la finestra di dialogo **Repeat** (Ripeti). In questa finestra di dialogo eseguire la procedura seguente:
-    1. Verificare che il campo **Repeat** (Ripeti) sia impostato su **every week** (ogni settimana). 
-    3. Specificare la **data di inizio**.
+2. Nella pagina **Add scheduled event** (Aggiungi evento pianificato) seguire questa procedura:
+    1. Verificare che per **Event type** (Tipo di evento) sia selezionata l'opzione **Standard**.  
+    2. Specificare la **data di inizio** per la classe. 
     4. Specificare l'**ora di avvio** in cui si vuole che vengano avviate le VM.
     5. Specificare l'**ora di arresto** in cui devono essere arrestate le VM. 
     6. Specificare il **fuso orario** per le ore di avvio e di arresto specificate. 
-    2. Selezionare i giorni in cui la pianificazione deve essere effettiva. Nell'esempio seguente sono selezionati i giorni compresi tra lunedì e giovedì. 
+3. Nella stessa pagina **Add scheduled event** (Aggiungi evento pianificato) selezionare la pianificazione corrente nella sezione **Repeat** (Ripeti).  
+
+    ![Pulsante Aggiungi pianificazione nella pagina Pianificazioni](../media/how-to-create-schedules/select-current-schedule.png)
+5. Nella finestra di dialogo **Repeat** (Ripeti) procedere come segue:
+    1. Verificare che il campo **Repeat** (Ripeti) sia impostato su **every week** (ogni settimana). 
+    2. Selezionare i giorni in cui la pianificazione deve essere effettiva. Nell'esempio seguente sono selezionati i giorni compresi tra lunedì e venerdì. 
+    3. Selezionare una **data di fine** per la pianificazione.
     8. Selezionare **Salva**. 
 
-5. Ora nella pagina **Add scheduled event** (Aggiungi evento pianificato) immettere una descrizione per la pianificazione in **Notes (optional)** (Note - facoltativo). 
-6. Nella pagina **Add scheduled event** (Aggiungi evento pianificato) selezionare **Save** (Salva). 
+        ![Impostare la pianificazione ripetuta](../media/how-to-create-schedules/set-repeat-schedule.png)
+
+3. Ora nella pagina **Add scheduled event** (Aggiungi evento pianificato) immettere una descrizione per la pianificazione in **Notes (optional)** (Note - facoltativo). 
+4. Nella pagina **Add scheduled event** (Aggiungi evento pianificato) selezionare **Save** (Salva). 
 
     ![Pianificazione settimanale](../media/how-to-create-schedules/add-schedule-page-weekly.png)
+5. Passare alla data di inizio nel calendario per verificare che la pianificazione sia impostata.
+    
+    ![Pianificare nel calendario](../media/how-to-create-schedules/schedule-calendar.png)
+
+    Per altre informazioni sulla creazione e la gestione di pianificazioni per una classe, vedere [Creare e gestire la pianificazione per i lab per la classe](how-to-create-schedules.md).
 
 ## <a name="send-invitation-emails-to-students"></a>Inviare inviti agli studenti tramite posta elettronica
 
@@ -139,6 +155,8 @@ Creare un evento pianificato per il lab in modo che le VM al suo interno vengano
 
     ![Inviare un collegamento per la registrazione tramite posta elettronica](../media/tutorial-setup-classroom-lab/send-email.png)
 4. Lo stato dell'**invito** viene visualizzato nell'elenco **Users** (Utenti). Lo stato dovrebbe cambiare in **Sending** (Invio in corso) e quindi in **Sent on &lt;date&gt;** (Inviato in data). 
+
+    Per altre informazioni sull'aggiunta di studenti a una classe e sulla gestione dell'utilizzo del lab, vedere [Come configurare l'utilizzo degli studenti](how-to-configure-student-usage.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questa esercitazione ha illustrato come creare un lab per le classi e come configurare il lab. Per informazioni su come uno studente può accedere a una VM nel lab usando il collegamento di registrazione, passare alla prossima esercitazione:

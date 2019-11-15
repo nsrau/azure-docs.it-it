@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: aumentare il numero delle risorse di calcolo in Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
+title: 'Guida introduttiva: Ridimensionare le risorse di calcolo - PowerShell '
 description: È possibile ridimensionare le risorse di calcolo in Azure SQL Data Warehouse con PowerShell, aumentandone il numero per ottenere prestazioni migliori o riducendolo per diminuire i costi.
 services: sql-data-warehouse
 author: Antvgski
@@ -10,12 +10,13 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 37b5f0a989bb76a9a40529cd11944de40a164156
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f4c2087052e4c3b4fac4d27bb4ecdc2ebf8a42f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306237"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692957"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-azure-powershell"></a>Guida introduttiva: Ridimensionare le risorse di calcolo in Azure SQL Data Warehouse in Azure PowerShell
 

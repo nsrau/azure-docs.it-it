@@ -1,5 +1,5 @@
 ---
-title: Configurare le informazioni di sicurezza (anteprima) dal messaggio di richiesta durante l'accesso - Azure Active Directory | Microsoft Docs
+title: Configurare le info di sicurezza (anteprima) da una richiesta di accesso - Azure AD
 description: Come configurare le informazioni di sicurezza per l'account aziendale o dell'istituto di istruzione, se richiesto nella pagina di accesso dell'organizzazione.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e05515c2fd118c21f891be86fae6423affab0324
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3ae1856c7934c658bd244445306b4bb78c666e38
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160900"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820293"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configurare le informazioni di sicurezza (anteprima) dal messaggio di richiesta della pagina di accesso
 

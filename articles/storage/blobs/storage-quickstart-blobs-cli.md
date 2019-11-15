@@ -1,22 +1,21 @@
 ---
-title: Guida introduttiva di Azure - Creare un BLOB nell'archivio oggetti con l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: In questa guida introduttiva si usa l'interfaccia della riga di comando di Azure con l'archivio oggetti (BLOB). Si usa quindi l'interfaccia della riga di comando per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
+title: Guida di avvio rapido di Azure - Creare un BLOB nell'archivio oggetti con l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Questa Guida di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB in un contenitore.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 11/06/2019
 ms.author: tamram
-ms.reviewer: seguler
-ms.openlocfilehash: 6a0aef9b2fc7a99183ebd6991691245731e00200
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1f3143eced90f97c090c0005375ef50fe48c5f5f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565959"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747938"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Guida di avvio rapido: Caricare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure è l'esperienza della riga di comando di Azure per gestire le risorse di Azure. È possibile usarla nel browser con Azure Cloud Shell. È anche possibile installarla in macOS, Linux o Windows ed eseguirla dalla riga di comando. Questa guida introduttiva spiega come usare l'interfaccia della riga di comando di Azure per caricare e scaricare dati in Archiviazione BLOB di Azure.
 
@@ -39,30 +38,26 @@ Gli elementi BLOB vengono sempre caricati in un contenitore. È possibile organi
 Creare un contenitore per l'archiviazione di BLOB con il comando [az storage container create](/cli/azure/storage/container).
 
 ```azurecli-interactive
-az storage container create --name mystoragecontainer
+az storage container create --name sample-container
 ```
 
 ## <a name="upload-a-blob"></a>Caricare un BLOB
 
-L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. La maggior parte dei file presenti nell'archiviazione BLOB viene archiviata sotto forma di BLOB in blocchi. I BLOB di aggiunta vengono usati quando è necessario aggiungere dati a un BLOB esistente senza modificarne il contenuto, ad esempio nelle operazioni di registrazione. I BLOB di pagine supportano i file con estensione VHD delle macchine virtuali IaaS.
+L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. Gli esempi in questa Guida di avvio rapido illustrano come usare i BLOB in blocchi.
 
-Creare prima di tutto un file da caricare in un BLOB.
-Se si usa Azure Cloud Shell, usare quanto segue per creare un file: `vi helloworld` quando il file si apre, premere **INS**, digitare "Hello world" e quindi premere **ESC**, immettere `:x` e premere **INVIO**.
+Creare prima di tutto un file da caricare in un BLOB in blocchi. Se si usa Azure Cloud Shell, usare il comando seguente per creare un file:
 
-In questo esempio si usa il comando [az storage blob upload](/cli/azure/storage/blob) per caricare un BLOB nel contenitore creato nel passaggio precedente.
-
-```azurecli-interactive
-az storage blob upload \
-    --container-name mystoragecontainer \
-    --name blobName \
-    --file ~/path/to/local/file
+```bash
+vi helloworld
 ```
 
-Se è stato usato il metodo descritto prima per creare un file in Azure Cloud Shell, è possibile usare invece questo comando dell'interfaccia della riga di comando (si noti che non è stato necessario specificare un percorso perché il file è stato creato nella directory di base, mentre di norma è necessario specificare un percorso):
+Quando si apre il file, premere **INS**. Digitare *Hello World*, quindi premere **ESC**. Digitare *:x* e quindi premere **INVIO**.
+
+In questo esempio si usa il comando [az storage blob upload](/cli/azure/storage/blob) per caricare un BLOB nel contenitore creato nel passaggio precedente. Non è necessario specificare un percorso di file perché il file è stato creato nella directory radice:
 
 ```azurecli-interactive
 az storage blob upload \
-    --container-name mystoragecontainer \
+    --container-name sample-container \
     --name helloworld \
     --file helloworld
 ```
@@ -77,7 +72,7 @@ Elencare i BLOB nel contenitore con il comando [az storage blob list](/cli/azure
 
 ```azurecli-interactive
 az storage blob list \
-    --container-name mystoragecontainer \
+    --container-name sample-container \
     --output table
 ```
 
@@ -87,8 +82,8 @@ Usare il comando [az storage blob download](/cli/azure/storage/blob) per scarica
 
 ```azurecli-interactive
 az storage blob download \
-    --container-name mystoragecontainer \
-    --name blobName \
+    --container-name sample-container \
+    --name helloworld \
     --file ~/destination/path/for/file
 ```
 
@@ -96,27 +91,27 @@ az storage blob download \
 
 L'utility [AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) è un'altra opzione per il trasferimento di dati script ad alte prestazioni per Archiviazione di Azure. È possibile usare AzCopy per trasferire i dati da e verso risorse di archiviazione BLOB, file e tabelle.
 
-Questo esempio rapido visualizza il comando AzCopy per il caricamento del file *myfile.txt* nel contenitore *mystoragecontainer*.
+Nell'esempio seguente viene usato AzCopy per caricare un file denominato *myfile.txt* nel contenitore *sample-container*. È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
 
 ```bash
 azcopy \
     --source /mnt/myfiles \
-    --destination https://mystorageaccount.blob.core.windows.net/mystoragecontainer \
-    --dest-key <storage-account-access-key> \
+    --destination https://<account-name>.blob.core.windows.net/sample-container \
+    --dest-key <account-key> \
     --include "myfile.txt"
 ```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando le risorse del gruppo risorse non sono più necessarie, incluso l'account di archiviazione creato in questa Guida rapida, è possibile eliminare il gruppo di risorse con il comando [az group delete](/cli/azure/group).
+Quando le risorse appartenenti a un gruppo non sono più necessarie, incluso l'account di archiviazione creato nella presente Guida di avvio rapido, è possibile eliminare il gruppo di risorse con il comando [az group delete](/cli/azure/group). È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name <resource-group-name>
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida rapida è stato descritto il trasferimento di file tra il disco locale e un contenitore nell'archiviazione BLOB di Azure. Per altre informazioni sull'uso dei BLOB in Archiviazione di Azure, continuare con l'esercitazione per l'uso dell'archiviazione BLOB di Azure.
+In questa Guida di avvio rapido è stato descritto il trasferimento di file tra un file system locale e un contenitore in Archiviazione BLOB di Azure. Per altre informazioni sull'uso dei BLOB in Archiviazione di Azure, continuare con l'esercitazione per l'uso dell'archiviazione BLOB di Azure.
 
 > [!div class="nextstepaction"]
 > [Procedura: Operazioni di archiviazione BLOB con l'interfaccia della riga di comando di Azure](storage-how-to-use-blobs-cli.md)

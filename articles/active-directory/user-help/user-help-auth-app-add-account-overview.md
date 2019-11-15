@@ -1,6 +1,6 @@
 ---
-title: Panoramica sull'aggiunta di account all'app Microsoft Authenticator - Azure Active Directory | Microsoft Docs
-description: Panoramica su come aggiungere account aziendali e personali all'app Microsoft Authenticator per la verifica a due fattori.
+title: Panoramica sull'aggiunta di account a un'app Authenticator - Azure AD
+description: Collegamenti al contenuto su come aggiungere account aziendali e personali all'app Microsoft Authenticator per la verifica a due fattori.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d16699729e62953cb2369f39ecfe759aab663caf
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 16244be7dee9faaa15105f9dc0ac6c074230d243
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382641"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820269"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Panoramica sull'aggiunta di account all'app Microsoft Authenticator
 
@@ -43,7 +43,7 @@ L'app Microsoft Authenticator consente di accedere ai propri account se si usa l
 | Account aziendali o dell'istituto di istruzione | L'account fornito dall'azienda o dall'istituto di istruzione, ad esempio alain@contoso.com. |
 | Account personali | Gli account Microsoft e non Microsoft aperti personalmente, ad esempio per Outlook.com, Xbox LIVE, Google, Facebook e così via. |
 
-## <a name="in-this-section"></a>Contenuto della sezione
+## <a name="articles-about-how-to-add-different-accounts"></a>Articoli su come aggiungere account diversi
 
 | Articolo |DESCRIZIONE |
 | ------|------------|

@@ -1,25 +1,24 @@
 ---
-title: Creare un archivio conoscenze nel portale di Azure
+title: Creare un archivio conoscenze (anteprima) nel portale di Azure
 titleSuffix: Azure Cognitive Search
-description: Usare l'Importazione guidata dati per creare un archivio conoscenze da usare per persistente il contenuto arricchito. Connettersi a un archivio conoscenze per l'analisi da altre app o inviare contenuto arricchito ai processi downstream.
+description: Usare l'Importazione guidata dati per creare un archivio conoscenze da usare per persistente il contenuto arricchito. Connettersi a un archivio conoscenze per l'analisi da altre app o inviare contenuto arricchito ai processi downstream. Questa funzionalità è attualmente in anteprima pubblica.
 author: lisaleib
 manager: nitinme
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 16dd63e22182dedb4af97c2ef6238e6628778467
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 56053a942604a6f1cb935e6bddcae85ffc5a9e54
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485171"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720115"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Guida introduttiva: Creare un archivio conoscenze di Ricerca cognitiva di Azure nel portale di Azure
 
-> [!Note]
-> La funzionalità dell'archivio conoscenze è in anteprima e non deve essere usata in ambienti di produzione. Questa funzionalità è disponibile sia nel portale di Azure che nell'[API REST di Ricerca versione 2019-05-06-Preview](search-api-preview.md). Non è attualmente disponibile alcun supporto di .NET SDK.
->
+> [!IMPORTANT] 
+> L'archivio conoscenze è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 L'archivio conoscenze è una funzionalità di Ricerca cognitiva di Azure che consente di rendere persistente l'output di una pipeline di competenze cognitive per analisi successive o per l'elaborazione downstream. 
 
@@ -87,7 +86,7 @@ In questo passaggio della procedura guidata si creerà un set di competenze con 
 1. Espandere **Collega Servizi cognitivi**. **Gratuito (miglioramenti limitati)** è l'impostazione predefinita. È possibile usare questa risorsa perché il numero di record in HotelReviews-Free.csv è 19 e questa risorsa gratuita consente fino a 20 transazioni al giorno.
 1. Espandere **Aggiungi competenze cognitive**.
 1. In **Nome set di competenze** immettere `hotel-reviews-ss`.
-1. In **Campo dei dati di origine** selezionare **reviews_text*.
+1. In **Campo dei dati di origine** selezionare **reviews_text**.
 1. In **Livello di granularità dell'arricchimento** selezionare **Pagine (5000 blocchi di caratteri)** .
 1. Selezionare le competenze cognitive seguenti:
     + **Estrarre le espressioni chiave**

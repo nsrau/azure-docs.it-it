@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: overview
 ms.service: resource-graph
-ms.openlocfilehash: c113719d304aa4ed9c13df1fe0264d22aacb5002
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 41663ec04e194bcc4380f46f1e5cc5a6867e53fc
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499147"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622539"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Panoramica del servizio Azure Resource Graph
 
@@ -92,7 +92,7 @@ Resource Graph supporta l'interfaccia della riga di comando di Azure, Azure Powe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Eseguire la prima query nel [portale di Azure](first-query-portal.md).
+- Eseguire la prima query con il [portale di Azure](first-query-portal.md).
 - Eseguire la prima query con l'[interfaccia della riga di comando di Azure](first-query-azurecli.md).
 - Eseguire la prima query con [Azure PowerShell](first-query-powershell.md).
 - Ottenere altre informazioni sul [linguaggio di query](./concepts/query-language.md).

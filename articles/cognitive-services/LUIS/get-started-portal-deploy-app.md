@@ -1,26 +1,25 @@
 ---
 title: "Guida introduttiva: Distribuire un'app con il portale LUIS"
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come distribuire un'app LUIS nell'endpoint di stima quando l'app è pronta a restituire stime di espressioni a un'applicazione client, ad esempio un chatbot. Questo argomento di avvio rapido illustra come distribuire un'applicazione creando una risorsa endpoint di stima, assegnandola all'app e quindi eseguendo il training e la pubblicazione dell'app.
+description: Questo argomento di avvio rapido illustra come distribuire un'app creando una risorsa endpoint di previsione, assegnando la risorsa, eseguendo il training e quindi pubblicando l'app.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/17/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: ecae5c7db02436fe34fec19989f174504fd1e03a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 279ec4e8a6d9a9d473cc511b4ec690391cdbd634
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488713"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669429"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Guida introduttiva: Distribuire un'app nel portale LUIS
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
+[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 Quando l'app LUIS è pronta a restituire stime di espressioni a un'applicazione client, ad esempio un chatbot, è necessario distribuirla nell'endpoint di stima.
 
@@ -35,22 +34,23 @@ In questo argomento di avvio rapido viene illustrato come distribuire un'applica
 
 La risorsa endpoint di stima viene creata nel portale di Azure. Dovrà essere usata solo per le query di stima dell'endpoint. Non usarla per apportare modifiche all'app.
 
-1. Accedere al [portale di Azure](https://ms.portal.azure.com/).
-
-1. Selezionare il segno **+** verde nel pannello in alto a sinistra. Cercare `Cognitive Services` nel marketplace e selezionarlo.
+1. Accedere e creare una risorsa nel [portale di Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne).
 
 1. Configurare la sottoscrizione con le impostazioni seguenti:
 
    |Impostazione|Valore|Scopo|
    |--|--|--|
-   |NOME|`my-cognitive-service-resource`|Il nome della risorsa di Azure. Questo nome è necessario quando si assegna la risorsa all'app nel portale LUIS.|
+   |NOME|`my-luis-resource`|Il nome della risorsa di Azure. Questo nome è necessario quando si assegna la risorsa all'app nel portale LUIS.|
    |Subscription|Sottoscrizione in uso|Selezionare una delle sottoscrizioni associate all'account.|
-   |Location|**Stati Uniti occidentali**|L'area di Azure per questa risorsa.|
-   |Piano tariffario|**S0**|Il piano tariffario predefinito per questa risorsa.|
-   |Resource group|`my-cognitive-service-resource-group`|Creare un nuovo gruppo di risorse per tutte le risorse dei servizi cognitivi. Quando le risorse non sono più necessarie, è possibile eliminare il gruppo per pulire la sottoscrizione. |
+   |Resource group|`my-resource-group`|Creare un nuovo gruppo di risorse per tutte le risorse dei servizi cognitivi. Quando le risorse non sono più necessarie, è possibile eliminare il gruppo per pulire la sottoscrizione. |
+   |Posizione di creazione|**Stati Uniti occidentali**|L'area di Azure per la creazione.|
+   |Piano tariffario di creazione|**F0**|Il piano tariffario predefinito per la creazione.|
+   |Posizione di runtime|**Stati Uniti occidentali**|L'area di Azure per le query dell'endpoint di previsione.|
+   |Piano tariffario per il runtime|**S0**|Questo piano tariffario prevede siti Web con traffico elevato.|
    | | | |
 
-   ![Scelta dell'API di Azure](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png)
+
+   ![Scelta dell'API di Azure](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
 1. Selezionare **Crea** per creare la risorsa di Azure.
 
@@ -66,31 +66,27 @@ Ogni volta che si crea una nuova risorsa per LUIS, è necessario assegnarla all'
 
 1. Per aggiungere LUIS, selezionare **Add prediction resource** (Aggiungi risorsa di stima).
 
-    <!-- TBD: get screenshot-->
+    ![Per aggiungere la risorsa di previsione LUIS, selezionare Aggiungi risorsa di stima](./media/get-started-portal-deploy-app/azure-resources-add-prediction-resource.png)
 
 1. Selezionare il tenant, la sottoscrizione e il nome della risorsa. Selezionare **Assign resource** (Assegnare una risorsa).
 
    ![Assegnare una risorsa all'app](./media/get-started-portal-deploy-app/assign-resource.png)
 
-1. Trovare la nuova riga nella tabella e copiare l'URL endpoint. Per ottenere una stima, è corretto inoltrare una richiesta `HTTP GET` all'endpoint dell'API LUIS.
+1. Completare gli stessi passaggi per aggiungere la chiave di creazione all'app.
 
-## <a name="train-and-publish-the-app"></a>Eseguire il training dell'app e pubblicarla
+1. Trovare la nuova riga nella tabella relativa alla nuova risorsa di previsione e copiare l'URL dell'endpoint. Per ottenere una stima, è corretto inoltrare una richiesta `HTTP GET` all'endpoint dell'API LUIS.
 
-Quando si è pronti per il test dell'app, eseguire il training. Pubblicare l'app ogni volta che si vuole rendere disponibile la versione attualmente sottoposta a training per le applicazioni client dal runtime dell'endpoint di stima di query.
+## <a name="train-the-app"></a>Eseguire il training dell'app
 
-1. Se il training dell'app non è stato eseguito, scegliere **Train** (Esegui il training) dal menu in alto a destra.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-1. Scegliere **Publish** (Pubblica) dal menu in alto. Selezionare lo slot di produzione, quindi pubblicare.
+## <a name="publish-the-app-to-the-prediction-endpoint"></a>Pubblicare l'app nell'endpoint di previsione
 
-1. Quando viene visualizzata la barra di notifica, la pubblicazione è stata completata.
-
-1. Nella pagina **Risorse di Azure** della sezione Gestione è riportato l'elenco delle risorse assegnate e degli URL degli endpoint corrispondenti.
-
-1. Copiare la query di esempio in una finestra del browser e aggiungere l'espressione utente come parametro `query`.
+[!INCLUDE [LUIS How to Train steps](includes/howto-publish.md)]
 
 ## <a name="prediction-endpoint-request"></a>Richiesta dell'endpoint di previsione
 
-L'elemento `query=` alla fine dell'URL è l'abbreviazione di **query** ed è il punto in cui l'espressione dell'utente viene aggiunta alla richiesta GET. Dopo `query=`, immettere la stessa espressione dell'utente usata alla fine del precedente argomento di avvio rapido:
+L'elemento `query=` alla fine dell'URL è il punto in cui l'espressione dell'utente viene aggiunta alla richiesta GET. Dopo `query=`, immettere la stessa espressione dell'utente usata alla fine del precedente argomento di avvio rapido:
 
 ```Is there a form named hrf-234098```
 
@@ -138,15 +134,13 @@ Il browser mostra la risposta:
 }
 ```
 
-Se si vuole vedere questo stesso livello di informazioni nel riquadro di test, è necessario pubblicare l'app. Dopo la pubblicazione dell'app, selezionare **Compare with published** (Confronta con pubblicata) nel riquadro di test. Selezionare **Show JSON view** (Mostra visualizzazione JSON) nel riquadro di test dell'app pubblicata per vedere lo stesso codice JSON indicato nel passaggio precedente. In questo modo è possibile confrontare l'app attualmente in uso con un'app pubblicata nell'endpoint.
+Se si vuole vedere questo stesso livello di informazioni nel riquadro di test, è necessario pubblicare l'app. Dopo la pubblicazione dell'app, selezionare **Compare with published** (Confronta con pubblicata) nel riquadro di test. Selezionare **Show JSON view** (Mostra visualizzazione JSON) nel riquadro di test dell'app pubblicata per vedere lo stesso codice JSON indicato nel passaggio precedente. In questo modo è possibile confrontare le modifiche apportate all'app attualmente in uso con un'app pubblicata nell'endpoint.
 
 [![Confrontare la versione dell'app in fase di modifica con quella pubblicata](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Al termine di questo argomento di avvio rapido, scegliere **My apps** (Le mie app) dal menu di spostamento superiore. Selezionare dall'elenco la casella di controllo dell'app e quindi selezionare **Delete** (Elimina) sulla barra degli strumenti contestuale sopra l'elenco.
-
-[![Eliminare l'app dall'elenco My apps (App personali)](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

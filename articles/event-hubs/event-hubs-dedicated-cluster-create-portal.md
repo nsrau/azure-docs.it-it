@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido di Azure: Creare un cluster Hub eventi Dedicato con il portale di Azure | Microsoft Docs'
+title: Avvio rapido di Azure - Creare un cluster Hub eventi dedicato tramite il portale di Azure
 description: In questo argomento di avvio rapido viene illustrato come creare un cluster Hub eventi di Azure tramite il portale di Azure.
 services: event-hubs
 documentationcenter: ''
@@ -8,14 +8,14 @@ manager: ''
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/02/2019
+ms.date: 11/05/2019
 ms.author: xurui
-ms.openlocfilehash: 269ecca8683229a56d40dfacc354abbd7ce10762
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: bde6844962561232e4af51f2b4e803d49bf5398e
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688578"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720633"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Guida introduttiva: Creare un cluster di Hub eventi dedicato tramite il portale di Azure 
 I cluster Hub eventi offrono distribuzioni a tenant singolo per i clienti con i requisiti di streaming più rigorosi. Questa offerta ha un contratto di servizio garantito del 99,99% ed è disponibile solo per il piano tariffario Dedicato. Un [cluster di Hub eventi](event-hubs-dedicated-overview.md) può gestire l'ingresso di milioni di eventi al secondo con una capacità garantita e una latenza dell'ordine di frazioni di secondo. Gli spazi dei nomi e gli hub eventi creati all'interno di un cluster includono tutte le funzionalità dell'offerta standard e altre ancora, ma senza limiti di ingresso. L'offerta Dedicato include anche, senza costi aggiuntivi, la popolare funzionalità [Acquisizione di Hub eventi](event-hubs-capture-overview.md), che consente di eseguire in batch e di registrare automaticamente i flussi di dati in [Archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md) o in [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md).
@@ -67,7 +67,7 @@ Per creare un cluster nel gruppo di risorse usando il portale di Azure, seguire 
     2. Lo spazio dei nomi eredita le proprietà seguenti:
         1. ID sottoscrizione
         2. Gruppo di risorse
-        3. Località
+        3. Location
         4. Cluster Name
     3. Selezionare **Crea** per creare lo spazio dei nomi. A questo punto è possibile gestire il cluster.  
 

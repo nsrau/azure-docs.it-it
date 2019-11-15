@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da un archivio BLOB di Azure al database SQL | Microsoft Docs
+title: 'Copiare i dati da Archiviazione BLOB di Azure a Database SQL di Azure '
 description: Questa esercitazione offre istruzioni dettagliate per copiare dati da un archivio BLOB di Azure al database SQL di Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 49b5b03356790bd45b2ad29897a57b746af1abe1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 96b1e5a9633ee141fd4aa369468a8866d87f27f2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140691"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683644"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiare dati da un BLOB di Azure al database SQL di Azure con Azure Data Factory
 

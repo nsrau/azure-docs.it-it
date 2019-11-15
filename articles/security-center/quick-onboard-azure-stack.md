@@ -1,5 +1,5 @@
 ---
-title: Avvio rapido di Centro sicurezza di Azure - Onboarding delle macchine virtuali di Azure Stack nel Centro sicurezza | Microsoft Docs
+title: Eseguire l'onboarding delle macchine virtuali di Azure Stack nel Centro sicurezza di Azure
 description: Questa guida di avvio rapido mostra come effettuare il provisioning dell'estensione macchina virtuale Monitoraggio di Azure, Gestione aggiornamenti e configurazione nelle macchine virtuali di Azure Stack.
 services: security-center
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
-ms.openlocfilehash: 1772fd34a2d79b725b2b5ccaa66adb0b251b7e1d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c186dcb2d7d7d423f5c001bdb4d3f3503beebd9c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202857"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686516"
 ---
-# <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Guida introduttiva:  Onboarding delle macchine virtuali di Azure Stack nel Centro sicurezza
+# <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Guida introduttiva: Onboarding delle macchine virtuali di Azure Stack nel Centro sicurezza
 Dopo l'onboarding della sottoscrizione di Azure, è possibile abilitare il Centro sicurezza per proteggere le macchine virtuali in esecuzione in Azure Stack aggiungendo l'estensione macchina virtuale **Monitoraggio di Azure, Gestione aggiornamenti e configurazione** dal Marketplace di Azure Stack.
 
 Questa guida di avvio rapido mostra come aggiungere l'estensione macchina virtuale **Monitoraggio di Azure, Gestione aggiornamenti e configurazione** in una macchina virtuale (sono supportati sia Linux che Windows) in esecuzione su Azure Stack.
@@ -69,7 +69,7 @@ Prima di iniziare questo argomento di avvio rapido, è necessario avere una sott
 > Se l'estensione **Monitoraggio di Azure, Gestione aggiornamenti e configurazione** non è elencata nel marketplace, contattare un operatore di Azure Stack per ottenerla.
 
 6. Nel pannello di configurazione **Installa estensione** incollare l'**ID area di lavoro** e la **chiave dell'area di lavoro (chiave primaria)** copiati nel Blocco note nella procedura precedente.
-7.  Dopo aver specificato le impostazioni di configurazione necessarie, fare clic su **OK**.
+7. Dopo aver specificato le impostazioni di configurazione necessarie, fare clic su **OK**.
 8. Una volta completata l'installazione dell'estensione, il relativo stato risulterà **Provisioning completato**. La visualizzazione della macchina virtuale nel portale del Centro sicurezza potrebbe richiedere fino a un'ora.
 
 Per altre informazioni sull'installazione e configurazione dell'agente per Windows, vedere [Connettere computer Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).

@@ -7,14 +7,18 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 1165021ba602b85f47ff53dc14a2992f43be25bf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7574e80101784961448ff3c3b5a49d9e2c2f9807
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521300"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720222"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Valutare i server fisici con Azure Migrate: Server Assessment
+
+> [!NOTE]
+> Se questa funzionalità non è ancora visualizzata nel portale di Azure Migrate, aspettare. Comparirà all'incirca la prossima settimana.
+ 
 
 Questo articolo descrive come valutare i server fisici locali con lo strumento Azure Migrate: Valutazione server.
 

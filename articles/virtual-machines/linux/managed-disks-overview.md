@@ -4,15 +4,15 @@ description: Panoramica di Azure Managed Disks, che gestisce automaticamente gli
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: overview
-ms.date: 08/15/2019
+ms.date: 11/06/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3ba797088eb23262c583906d7023f20fb7d408ba
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: de6ac88d5619266d049f0dc5bd4b54d674f00df7
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516156"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796283"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduzione ad Azure Managed Disks
 

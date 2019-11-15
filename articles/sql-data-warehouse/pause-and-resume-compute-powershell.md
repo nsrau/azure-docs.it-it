@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Sospendere e riprendere il calcolo in Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
+title: 'Guida introduttiva: Sospendere e riprendere il calcolo - PowerShell '
 description: PowerShell consente di sospendere il calcolo in un'istanza di Azure SQL Data Warehouse per ridurre i costi. Riprendere il calcolo quando si è pronti a usare il data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: da9c3d42919bba6ce04fc54bafc2fb5d245379f5
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 2ad83e51a11e08373f2132e861ec1c8f3ac20458
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306098"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686021"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-azure-powershell"></a>Guida introduttiva: Sospendere e riprendere il calcolo in Azure SQL Data Warehouse con Azure PowerShell
 

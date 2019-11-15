@@ -8,14 +8,14 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: f833ded4467da1f129b1ea7f858ae8bdd9c2048e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b65bf177d98d5b0bcbaf9e9eaf06707b43ed7032
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495376"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647436"
 ---
 Per ottenere una previsione di Language Understanding Intelligent Service (LUIS) in un chatbot o in un'altra applicazione client, è necessario pubblicare l'app nell'endpoint. 
 
@@ -31,4 +31,4 @@ Per ottenere una previsione di Language Understanding Intelligent Service (LUIS)
 
     ![LUIS pubblica su endpoint](../media/howto-publish/publish-endpoint-success.png)
 
-4. Selezionare il collegamento dell'**endpoint** nella barra di stato verde per passare alla pagina **Chiavi ed endpoint**. Gli URL dell'endpoint sono elencati nella parte inferiore.
+4. Selezionare il collegamento **Access your endpoint URLs** (Accedere agli URL dell'endpoint) nella notifica per accedere alla pagina **Risorse di Azure**. Gli URL dell'endpoint sono indicati come **Example Query**.

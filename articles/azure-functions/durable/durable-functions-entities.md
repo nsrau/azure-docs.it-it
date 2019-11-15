@@ -7,22 +7,22 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: overview
-ms.date: 08/31/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e3a83730e47686e9d4757f057d2e8da4629fdd7a
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 62ca71e1b42e000f7528a2963793f9bf40663bf3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312130"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818511"
 ---
-# <a name="entity-functions-preview"></a>Funzioni di entità (anteprima)
+# <a name="entity-functions"></a>Funzioni di entità
 
 Le funzioni di entità definiscono le operazioni per la lettura e l'aggiornamento di piccole parti di stato, note come *entità durevoli*. Come le funzioni dell'agente di orchestrazione, le funzioni di entità sono funzioni con un tipo di trigger speciale, il *trigger di entità*. A differenza delle funzioni di orchestrazione, le funzioni di entità gestiscono lo stato in modo esplicito anziché in modo implicito, rappresentandolo tramite flusso di controllo.
 Le entità consentono di aumentare le istanze delle applicazioni distribuendo il lavoro tra molte entità, ognuna con uno stato di dimensioni moderate.
 
 > [!NOTE]
-> Le funzioni di entità e le funzionalità correlate sono disponibili solo in Durable Functions 2.0 e versioni successive. Le funzioni di entità sono attualmente disponibili in versione di anteprima pubblica.
+> Le funzioni di entità e le funzionalità correlate sono disponibili solo in Durable Functions 2.0 e versioni successive.
 
 ## <a name="general-concepts"></a>Concetti generali
 
@@ -58,7 +58,7 @@ Una **sintassi basata su funzione** in cui le entità sono rappresentate come fu
 
 Una **sintassi basata su classe** in cui le entità e le operazioni sono rappresentate da classi e metodi. Questa sintassi produce codice più facilmente leggibile e consente di richiamare le operazioni in modo indipendente dai tipi. La sintassi basata su classe è un livello sottile sopra la sintassi basata su funzione, quindi entrambe le varianti possono essere usate in modo intercambiabile nella stessa applicazione.
 
-### <a name="example-function-based-syntax"></a>Esempio: Sintassi basata su funzione
+### <a name="example-function-based-syntax---c"></a>Esempio: Sintassi basata su funzioni - C#
 
 Il codice seguente è un esempio di semplice entità *Counter* implementata come funzione durevole. Questa funzione definisce tre operazioni, `add`, `reset` e `get`, ciascuna delle quali opera con uno stato integer.
 
@@ -75,7 +75,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
             ctx.SetState(0);
             break;
         case "get":
-            ctx.Return(ctx.GetState<int>()));
+            ctx.Return(ctx.GetState<int>());
             break;
     }
 }
@@ -83,7 +83,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 Per altre informazioni sulla sintassi basata su funzione e su come usarla, vedere [Sintassi basata su funzione](durable-functions-dotnet-entities.md#function-based-syntax).
 
-### <a name="example-class-based-syntax"></a>Esempio: Sintassi basata su classe
+### <a name="example-class-based-syntax---c"></a>Esempio: Sintassi basata su classi - C#
 
 L'esempio seguente usa un'implementazione equivalente dell'entità `Counter` mediante classi e metodi.
 
@@ -109,6 +109,45 @@ public class Counter
 Lo stato di questa entità è un oggetto di tipo `Counter`, che contiene un campo in cui è archiviato il valore corrente del contatore. Per renderlo persistente nell'archiviazione, questo oggetto viene serializzato e deserializzato dalla libreria [Json.NET](https://www.newtonsoft.com/json). 
 
 Per altre informazioni sulla sintassi basata su classe e su come usarla, vedere [Definizione di classi di entità](durable-functions-dotnet-entities.md#defining-entity-classes).
+
+### <a name="example-javascript-entity"></a>Esempio: Entità JavaScript
+
+Le entità durevoli sono disponibili in JavaScript a partire dalla versione **1.3.0** del pacchetto npm `durable-functions`. Il codice seguente è l'entità *Counter* implementata come funzione durevole scritta in JavaScript.
+
+**function.json**
+```json
+{
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+**index.js**
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.entity(function(context) {
+    const currentValue = context.df.getState(() => 0);
+    switch (context.df.operationName) {
+        case "add":
+            const amount = context.df.getInput();
+            context.df.setState(currentValue + amount);
+            break;
+        case "reset":
+            context.df.setState(0);
+            break;
+        case "get":
+            context.df.return(currentValue);
+            break;
+    }
+});
+```
 
 ## <a name="accessing-entities"></a>Accesso alle entità
 
@@ -145,6 +184,16 @@ public static Task Run(
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    await context.df.signalEntity(entityId, "add", 1);
+};
+```
+
 Il termine *segnalazione* indica che la chiamata dell'API di entità è unidirezionale e asincrona. Una *funzione client* non è in grado di riconoscere quando l'entità ha elaborato l'operazione. Inoltre, la funzione client non può osservare valori di risultati o eccezioni. 
 
 ### <a name="example-client-reads-an-entity-state"></a>Esempio: il client legge lo stato di un'entità
@@ -163,6 +212,16 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    return context.df.readEntityState(entityId);
+};
+```
+
 Le query sullo stato dell'entità vengono inviate all'archivio di rilevamento durevole e restituiscono lo stato *persistente* più recente dell'entità. Lo stato è sempre sottoposto a "commit", ossia non è mai uno stato intermedio temporaneo presupposto durante l'esecuzione di un'operazione. È tuttavia possibile che questo stato sia obsoleto rispetto allo stato in memoria dell'entità. Solo le orchestrazioni possono leggere lo stato in memoria di un'entità, come descritto nella sezione seguente.
 
 ### <a name="example-orchestration-signals-and-calls-an-entity"></a>Esempio: l'orchestrazione segnala e chiama un'entità
@@ -176,7 +235,7 @@ public static async Task Run(
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
 
-   // Two-way call to the entity which returns a value - awaits the response
+    // Two-way call to the entity which returns a value - awaits the response
     int currentValue = await context.CallEntityAsync<int>(entityId, "Get");
     if (currentValue < 10)
     {
@@ -184,6 +243,21 @@ public static async Task Run(
         context.SignalEntity(entityId, "Add", 1);
     }
 }
+```
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    const entityId = new df.EntityId("Counter", "myCounter");
+
+    // Two-way call to the entity which returns a value - awaits the response
+    currentValue = yield context.df.callEntity(entityId, "get");
+    if (currentValue < 10) {
+        // One-way signal to the entity which updates the value - does not await a response
+        yield context.df.signalEntity(entityId, "add", 1);
+    }
+});
 ```
 
 Solo le orchestrazioni sono in grado di chiamare entità e ottenere una risposta, che può essere un valore restituito o un'eccezione. Le funzioni client che usano l'[associazione client](durable-functions-bindings.md#entity-client) possono solo *segnalare* le entità.
@@ -198,82 +272,33 @@ Una funzione di entità può inviare segnali ad altre entità (o anche a se stes
 
 ```csharp
    case "add":
+        var currentValue = ctx.GetState<int>();
         var amount = ctx.GetInput<int>();
         if (currentValue < 100 && currentValue + amount >= 100)
         {
             ctx.SignalEntity(new EntityId("MonitorEntity", ""), "milestone-reached", ctx.EntityKey);
         }
-        currentValue += amount;
+
+        ctx.SetState(currentValue + amount);
         break;
 ```
 
-Il frammento di codice seguente illustra come incorporare il servizio inserito nella classe di entità.
-
-```csharp
-public class HttpEntity
-{
-    private readonly HttpClient client;
-
-    public HttpEntity(IHttpClientFactory factory)
-    {
-        this.client = factory.CreateClient();
-    }
-
-    public async Task<int> GetAsync(string url)
-    {
-        using (var response = await this.client.GetAsync(url))
-        {
-            return (int)response.StatusCode;
+```javascript
+    case "add":
+        const amount = context.df.getInput();
+        if (currentValue < 100 && currentValue + amount >= 100) {
+            const entityId = new df.EntityId("MonitorEntity", "");
+            context.df.signalEntity(entityId, "milestone-reached", context.df.instanceId);
         }
-    }
-
-    // The function entry point must be declared static
-    [FunctionName(nameof(HttpEntity))]
-    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
-        => ctx.DispatchAsync<HttpEntity>();
-}
+        context.df.setState(currentValue + amount);
+        break;
 ```
-
-> [!NOTE]
-> Diversamente da quando si usa l'inserimento del costruttore nelle normali funzioni di Azure per .NET, il metodo del punto di ingresso delle funzioni per le entità basate su classi *deve* essere dichiarato come `static`. La dichiarazione di un punto di ingresso della funzione non statico può causare conflitti tra l'inizializzatore di oggetto delle normali funzioni di Azure e l'inizializzatore di oggetto delle entità durevoli.
-
-### <a name="bindings-in-entity-classes-net"></a>Associazioni nelle classi di entità (.NET)
-
-Diversamente dalle funzioni normali, i metodi delle classi di entità non hanno accesso diretto alle associazioni di input e di output. Al contrario, i dati di associazione devono essere acquisiti nella dichiarazione della funzione del punto di ingresso e quindi passati al metodo `DispatchAsync<T>`. Qualsiasi oggetto passato a `DispatchAsync<T>` verrà passato automaticamente al costruttore della classe di entità come argomento.
-
-L'esempio seguente illustra come è possibile rendere disponibile un riferimento a `CloudBlobContainer` dall'[associazione di input del BLOB](../functions-bindings-storage-blob.md#input) a un'entità basata su classe.
-
-```csharp
-public class BlobBackedEntity
-{
-    private readonly CloudBlobContainer container;
-
-    public BlobBackedEntity(CloudBlobContainer container)
-    {
-        this.container = container;
-    }
-
-    // ... entity methods can use this.container in their implementations ...
-    
-    [FunctionName(nameof(BlobBackedEntity))]
-    public static Task Run(
-        [EntityTrigger] IDurableEntityContext context,
-        [Blob("my-container", FileAccess.Read)] CloudBlobContainer container)
-    {
-        // passing the binding object as a parameter makes it available to the
-        // entity class constructor
-        return context.DispatchAsync<BlobBackedEntity>(container);
-    }
-}
-```
-
-Per altre informazioni sulle associazioni in Funzioni di Azure, vedere la documentazione su [trigger e associazioni di Funzioni di Azure](../functions-triggers-bindings.md).
 
 ## <a name="entity-coordination"></a>Coordinamento delle entità
 
 In alcuni casi può essere necessario coordinare le operazioni tra più entità. In un'applicazione bancaria, ad esempio, possono essere presenti entità che rappresentano singoli conti bancari. Quando si trasferiscono fondi da un conto a un altro, è necessario verificare che il conto _di origine_ disponga di fondi sufficienti e che gli aggiornamenti ai conti sia _di origine_ che _di destinazione_ vengano eseguiti in modo coerente a livello di transazione.
 
-### <a name="example-transfer-funds"></a>Esempio: Trasferire fondi
+### <a name="example-transfer-funds-c"></a>Esempio: Trasferire fondi (C#)
 
 Il codice di esempio seguente trasferisce i fondi tra due entità _account_ usando una funzione dell'agente di orchestrazione. Per il coordinamento degli aggiornamenti delle entità è necessario usare il metodo `LockAsync` per creare una _sezione critica_ nell'orchestrazione:
 
@@ -322,7 +347,7 @@ public static async Task<bool> TransferFundsAsync(
 
 In .NET, `LockAsync` restituisce un oggetto `IDisposable` che termina la sezione critica quando viene eliminato. Questo risultato `IDisposable` può essere usato insieme a un blocco `using` per ottenere una rappresentazione sintattica della sezione critica.
 
-Nell'esempio precedente una funzione dell'agente di orchestrazione ha trasferito fondi da un'entità _di origine_ a un' entità _di destinazione_. Il metodo `LockAsync` ha bloccato le entità del conto sia _di origine_ che _di destinazione_. Questo blocco ha assicurato che nessun altro client potesse eseguire query o modificare lo stato dei due conti fino a quando la logica di orchestrazione non fosse uscita dalla _sezione critica_ alla fine dell'istruzione `using`. In questo modo è stata evitata la possibilità di lasciare scoperto il conto _di origine_.
+Nell'esempio precedente una funzione dell'agente di orchestrazione ha trasferito fondi da un'entità _di origine_ a un' entità _di destinazione_. Il metodo `LockAsync` ha bloccato le entità del conto sia _di origine_ che _di destinazione_. Questo blocco ha assicurato che nessun altro client potesse eseguire query o modificare lo stato dei due conti fino a quando la logica di orchestrazione non fosse uscita dalla _sezione critica_ alla fine dell'istruzione `using`. Questo comportamento impedisce la possibilità di sovrascrivere dall'account di _origine_.
 
 > [!NOTE] 
 > Quando un'orchestrazione termina, normalmente o con un errore, le eventuali sezioni critiche in corso vengono terminate implicitamente e tutti i blocchi vengono rilasciati.

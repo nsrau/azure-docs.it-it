@@ -5,16 +5,16 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: marsma
-ms.openlocfilehash: da92c40b051a3dc34e61d056c63f3207d4f42f1b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a286f8d401ec98a5069c07b1a82acdf4af2b8185
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475101"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641865"
 ---
 Per poter accettare e rispondere a richieste di risorse protette da parte di applicazioni client che presentano un token di accesso, le risorse API Web devono prima essere registrate nel tenant.
 
-Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'esperienza **Applicazioni** corrente o la nuova esperienza **Registrazioni app (anteprima)** unificata. [Altre informazioni sull'esperienza di anteprima](https://aka.ms/b2cappregintro).
+Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'esperienza **Applicazioni** corrente o la nuova esperienza **Registrazioni app (anteprima)** unificata. [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
 
@@ -45,5 +45,5 @@ Abilitare quindi il flusso di concessione implicita:
 
 1. In **Gestisci** selezionare **Autenticazione**.
 1. Selezionare **Prova la nuova esperienza** (se visualizzato).
-1. In **CONCESSIONE IMPLICITA** selezionare entrambe le caselle di controllo **Token ID** e **Token di accesso**.
+1. In **Concessione implicita** selezionare entrambe le caselle di controllo **Token di accesso** e **ID token**.
 1. Selezionare **Salva**.

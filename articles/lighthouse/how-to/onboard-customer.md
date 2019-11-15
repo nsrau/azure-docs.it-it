@@ -4,15 +4,15 @@ description: Informazioni su come eseguire l'onboarding di un cliente nella gest
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 10/17/2019
+ms.date: 11/7/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 882afb83aa2a9bad9633df43b29e00b43162bf87
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 1d5e9c44fe7669a89c52d2ac14299c2687f11dc5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595654"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827243"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure
 
@@ -66,12 +66,9 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definire ruoli e autorizzazioni
 
-Come provider di servizi, è possibile usare più offerte con un singolo cliente, per cui è necessario un accesso diverso per ambiti diversi.
+Il provider di servizi può eseguire più attività per un singolo cliente, per cui deve avere un accesso diverso per ambiti diversi. È possibile definire tutte le autorizzazioni necessarie per assegnare [ruoli predefiniti Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) agli utenti nel tenant.
 
-Per semplificare la gestione, è consigliabile usare i gruppi di utenti di Azure AD per ogni ruolo, che consentono di aggiungere o rimuovere singoli utenti al gruppo invece di assegnare le autorizzazioni direttamente a tale utente. È anche possibile assegnare ruoli a un'entità servizio. Assicurarsi di seguire il principio dei privilegi minimi, in modo che gli utenti abbiano solo le autorizzazioni necessarie per completare il proprio lavoro, riducendo la possibilità di errori accidentali. Per altre informazioni, vedere [Procedure di sicurezza consigliate](../concepts/recommended-security-practices.md).
-
-> [!NOTE]
-> Le assegnazione di ruolo devono usare i [ruoli predefiniti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) del controllo degli accessi in base al ruolo. Tutti i ruoli predefiniti sono attualmente supportati con la gestione risorse delegate di Azure tranne Proprietario e i ruoli predefiniti con l'autorizzazione [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions). Il ruolo predefinito Amministratore Accesso utenti è supportato per un uso limitato, come descritto di seguito. Non sono supportati neppure i ruoli personalizzati e i [ruoli di amministratore della sottoscrizione classica](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators).
+Per semplificare la gestione, è consigliabile usare i gruppi di utenti di Azure AD per ogni ruolo, che consentono di aggiungere o rimuovere singoli utenti al gruppo invece di assegnare le autorizzazioni direttamente a tale utente. È anche possibile assegnare ruoli a un'entità servizio. Assicurarsi di seguire il principio dei privilegi minimi, in modo che gli utenti abbiano solo le autorizzazioni necessarie per completare il lavoro. Per consigli e informazioni sui ruoli supportati, vedere [Tenant, ruoli e utenti in scenari di Azure Lighthouse](../concepts/tenants-users-roles.md).
 
 Per definire le autorizzazioni, è necessario essere a conoscenza dei valori degli ID per ogni utente, gruppo di utenti o entità servizio a cui si vuole concedere l'accesso. È anche necessario l'ID di definizione del ruolo per ogni ruolo predefinito che si vuole assegnare. Se non sono già disponibili, è possibile recuperarli in uno dei modi seguenti.
 
@@ -110,6 +107,8 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 # To retrieve role definition IDs
 az role definition list --name "<roleName>" | grep name
 ```
+> [!TIP]
+> È consigliabile assegnare il [ruolo di eliminazione dell'assegnazione della registrazione di servizi gestiti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) durante l'onboarding di un cliente, in modo che gli utenti nel tenant possano [rimuovere l'accesso alla delega](#remove-access-to-a-delegation) in un secondo momento se necessario. Se questo ruolo non viene assegnato, le risorse delegate possono essere rimosse solo da un utente che si trova nel tenant del cliente.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Creare un modello di Azure Resource Manager
 
@@ -124,7 +123,7 @@ Per eseguire l'onboarding del cliente, sarà necessario creare un modello di [Az
 
 Per eseguire l'onboarding della sottoscrizione di un cliente, usare il modello di Azure Resource Manager appropriato fornito nel [repository di esempi](https://github.com/Azure/Azure-Lighthouse-samples/), con un file di parametri corrispondente modificato in modo che corrisponda alla configurazione e che definisca le autorizzazioni. Sono disponibili modelli distinti a seconda che si stia eseguendo l'onboarding di un'intera sottoscrizione, di un gruppo di risorse o di più gruppi di risorse all'interno di una sottoscrizione. Viene anche fornito un modello che può essere usato per i clienti che hanno acquistato un'offerta di servizio gestito pubblicata in Azure Marketplace, se si preferisce eseguire l'onboarding delle sottoscrizioni in questo modo.
 
-|**Onboarding di**  |**Usare questo modello di Azure Resource Manager**  |**E modificare questo file di parametri** |
+|Onboarding di  |Usare questo modello di Azure Resource Manager  |E modificare questo file dei parametri |
 |---------|---------|---------|
 |Subscription   |[delegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
 |Resource group   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
@@ -188,15 +187,18 @@ L'esempio seguente illustra un file **delegatedResourceManagement.parameters.jso
     }
 }
 ```
-L'ultima autorizzazione nell'esempio precedente aggiunge un **principalId** con il ruolo Amministratore Accesso utenti (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Quando si assegna questo ruolo, è necessario includere la proprietà **delegatedRoleDefinitionIds** e uno o più ruoli predefiniti. L'utente creato in questa autorizzazione potrà assegnare questi ruoli predefiniti alle [identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Si noti che nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà applicata a questo utente.
+L'ultima autorizzazione nell'esempio precedente aggiunge un **principalId** con il ruolo Amministratore Accesso utenti (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Quando si assegna questo ruolo, è necessario includere la proprietà **delegatedRoleDefinitionIds** e uno o più ruoli predefiniti. L'utente creato in questa autorizzazione potrà assegnare questi ruoli predefiniti alle [identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), operazione necessaria per [distribuire i criteri che possono essere corretti](deploy-policy-remediation.md). Nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà applicata a questo utente.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Distribuire i modelli di Azure Resource Manager
 
-Dopo aver aggiornato il file dei parametri, il cliente deve distribuire il modello di gestione delle risorse nel tenant del cliente come distribuzione a livello di sottoscrizione. Per ogni sottoscrizione di cui si vuole eseguire l'onboarding nella gestione risorse delegate di Azure (o per ogni sottoscrizione che contiene i gruppi di risorse di cui si vuole eseguire l'onboarding) è necessaria una distribuzione separata.
+Dopo aver aggiornato il file dei parametri, il cliente deve distribuire il modello di Azure Resource Manager nel tenant del cliente come distribuzione a livello di sottoscrizione. Per ogni sottoscrizione di cui si vuole eseguire l'onboarding nella gestione risorse delegate di Azure (o per ogni sottoscrizione che contiene i gruppi di risorse di cui si vuole eseguire l'onboarding) è necessaria una distribuzione separata.
+
+Trattandosi di una distribuzione a livello di sottoscrizione, non è possibile avviarla nel portale di Azure. È possibile eseguire la distribuzione tramite PowerShell o l'interfaccia della riga di comando di Azure, come illustrato di seguito.
 
 > [!IMPORTANT]
 > La distribuzione deve essere eseguita da un account non guest nel tenant del cliente con il [ruolo predefinito Proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) per la sottoscrizione di cui eseguire l'onboarding (o che contiene i gruppi di risorse di cui eseguire l'onboarding). Per visualizzare tutti gli utenti che possono delegare la sottoscrizione, un utente nel tenant del cliente può selezionare la sottoscrizione nel portale di Azure, aprire **Controllo di accesso (IAM)** e [visualizzare tutti gli utenti con il ruolo Proprietario](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
 
+### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -248,6 +250,9 @@ Nel tenant del provider di servizi:
 2. Selezionare **Clienti**.
 3. Verificare che sia possibile visualizzare le sottoscrizioni con il nome dell'offerta specificato nel modello di Resource Manager.
 
+> [!IMPORTANT]
+> Per visualizzare la sottoscrizione delegata in [Clienti personali](view-manage-customers.md), è necessario che agli utenti nel tenant del provider di servizi sia stato concesso il ruolo [Lettore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) (o un altro ruolo predefinito che preveda l'accesso in lettura) durante l'onboarding della sottoscrizione per la gestione delle risorse delegate di Azure.
+
 Nel tenant del cliente:
 
 1. Passare alla [pagina Provider di servizi](view-manage-service-providers.md).
@@ -271,6 +276,70 @@ Get-AzContext
 # Log in first with az login if you're not using Cloud Shell
 
 az account list
+```
+
+## <a name="remove-access-to-a-delegation"></a>Rimuovere l'accesso a una delega
+
+Per impostazione predefinita, un utente nel tenant del cliente che dispone delle autorizzazioni appropriate può rimuovere l'accesso alle risorse delegate a un provider di servizi nella [pagina Provider di servizi](view-manage-service-providers.md#add-or-remove-service-provider-offers) del portale di Azure.
+
+Se sono stati inclusi utenti con il [ruolo di eliminazione dell'assegnazione della registrazione di servizi gestiti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) durante l'onboarding del cliente per la gestione delle risorse delegate di Azure, questi utenti nel tenant possono anche rimuovere la delega. Eseguendo questa operazione, nessun utente nel tenant del provider di servizi potrà accedere alle risorse precedentemente delegate.
+
+Nell'esempio seguente viene illustrata un'assegnazione che concede il **ruolo di eliminazione dell'assegnazione della registrazione di servizi gestiti** che può essere inclusa nel file dei parametri:
+
+```json
+    "authorizations": [ 
+        { 
+            "principalId": "cfa7496e-a619-4a14-a740-85c5ad2063bb", 
+            "principalIdDisplayName": "MSP Operators", 
+            "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46" 
+        } 
+    ] 
+```
+
+Un utente con questa autorizzazione può rimuovere una delega in uno dei modi seguenti.
+
+### <a name="powershell"></a>PowerShell
+
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
+# Sign in as a user from the managing tenant directory 
+
+Login-AzAccount
+
+# Select the subscription that is delegated - or contains the delegated resource group(s)
+
+Select-AzSubscription -SubscriptionName "<subscriptionName>"
+
+# Get the registration assignment
+
+Get-AzManagedServicesAssignment -Scope "/subscriptions/{delegatedSubscriptionId}"
+
+# Delete the registration assignment
+
+Remove-AzManagedServicesAssignment -ResourceId "/subscriptions/{delegatedSubscriptionId}/providers/Microsoft.ManagedServices/registrationAssignments/{assignmentGuid}"
+```
+
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+```azurecli-interactive
+# Log in first with az login if you're not using Cloud Shell
+
+# Sign in as a user from the managing tenant directory
+
+az login
+
+# Select the subscription that is delegated – or contains the delegated resource group(s)
+
+az account set -s <subscriptionId/name>
+
+# List registration assignments
+
+az managedservices assignment list
+
+# Delete the registration assignment
+
+az managedservices assignment delete –assignment <id or full resourceId>
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

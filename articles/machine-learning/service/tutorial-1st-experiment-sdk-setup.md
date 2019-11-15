@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 891615ea301348b83124823b10403964d394c224
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 59844c5989abb03bbe5134c83c9653290c17d0a9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475999"
+ms.locfileid: "73582485"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Esercitazione: Introduzione alla creazione del primo esperimento di Machine Learning con Python SDK
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ In questa esercitazione:
 > [!div class="checklist"]
 > * Creare un'[area di lavoro di Azure Machine Learning](concept-workspace.md) da usare nell'esercitazione successiva.
 > * Clonare il notebook delle esercitazioni nella cartella nell'area di lavoro.
-> * Creare un'istanza di calcolo basata sul cloud con Azure Machine Learning Python SDK installato e preconfigurato.
+> * Creare una macchina virtuale con notebook basata sul cloud con Azure Machine Learning SDK per Python installato e preconfigurato.
 
 
 Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
@@ -79,7 +79,7 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
     
 1. Selezionare il file **tutorial-1st-experiment-sdk-train.ipynb** nella cartella **tutorials**.
 
-1. Sulla barra superiore selezionare un'istanza di calcolo da usare per eseguire il notebook. Queste macchine virtuali sono preconfigurate con [tutti i componenti necessari per eseguire Azure Machine Learning](concept-compute-instance.md#contents). È possibile selezionare una VM creata da qualsiasi utente dell'area di lavoro. 
+1. Sulla barra superiore selezionare una macchina virtuale per notebook da usare per eseguire il notebook. Queste VM sono preconfigurate con tutti i componenti necessari per eseguire Azure Machine Learning. È possibile selezionare una VM creata da qualsiasi utente dell'area di lavoro. 
 
 1. Se non sono disponibili macchine virtuali, selezionare **+ Aggiungi ambiente di calcolo** per crearne una.
 
@@ -89,9 +89,6 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
 
 1. Quando la VM è disponibile, verrà visualizzata sulla barra degli strumenti superiore.  È ora possibile eseguire il notebook usando **Esegui tutto** sulla barra degli strumenti oppure premendo **MAIUSC + INVIO** nelle celle di codice del notebook.
 
-> [!NOTE]
-> Le istanze di calcolo sono disponibili solo per le aree di lavoro con **Stati Uniti centro-settentrionali** o **Regno Unito meridionale** come area geografica.
->Se l'area di lavoro si trova in qualsiasi altra area geografica, è possibile continuare a creare e usare una [macchina virtuale notebook](concept-compute-instance.md#notebookvm) in alternativa.  Per eseguire il notebook, è possibile usare una macchina virtuale notebook o un'istanza di calcolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

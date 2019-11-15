@@ -1,21 +1,21 @@
 ---
 title: 'Guida introduttiva: Creare una chiave LUIS'
 titleSuffix: Azure Cognitive Services
-description: In questa esercitazione si apprenderà come creare rapidamente un'applicazione LUIS.
+description: Questo argomento di avvio rapido illustra come creare un'applicazione LUIS e ottenere una chiave.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 11/04/2019
 ms.author: wolfma
-ms.openlocfilehash: 95becb2574a45536610aef87f8045b3dad5a5003
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ee2b25958feac2387779d9e60734a6600b60a2e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506220"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682078"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Guida introduttiva: Ottenere una chiave dell'endpoint LUIS
 
@@ -54,7 +54,7 @@ Nella pagina **Impostazioni chiavi ed endpoint**:
    * In **Nome della sottoscrizione** scegliere la sottoscrizione di Azure che contiene la risorsa LUIS che si vuole usare.
    * In **Chiave** scegliere la risorsa LUIS che si vuole usare con l'app.
 
-   A breve, la nuova sottoscrizione viene visualizzata nella tabella nella parte inferiore della pagina. 
+   A breve, la nuova sottoscrizione viene visualizzata nella tabella nella parte inferiore della pagina.
 
 1. Selezionare l'icona accanto a una chiave per copiarla negli Appunti. (È possibile usare una qualsiasi chiave.)
 

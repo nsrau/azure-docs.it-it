@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 11/05/2019
 ms.author: victorh
-ms.openlocfilehash: 3e19a2a45dde8a951e0ae3a4bd3c8d019609a5e1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: df649eab1f0e2946078f8efd3cdd6ab68c3b7938
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501085"
+ms.locfileid: "73580203"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>Che cos'è Anteprima di Gestione firewall di Azure?
 
@@ -20,7 +20,7 @@ ms.locfileid: "73501085"
 
 Anteprima di Gestione firewall di Azure è un servizio di gestione della sicurezza che fornisce funzionalità di gestione dei criteri di sicurezza e delle route per i perimetri di sicurezza basati sul cloud. Funziona con [Hub rete WAN virtuale](../virtual-wan/virtual-wan-about.md#resources), una risorsa gestita da Microsoft che consente di creare facilmente architetture hub-spoke. Quando i criteri di sicurezza e routing vengono associati a un hub di questo tipo, quest'ultimo viene definito *[hub virtuale protetto](secured-virtual-hub.md)* . 
 
-![firewall-manager](media/overview/firewall-manager-conceptual.png)
+![firewall-manager](media/overview/firewallmanagerv3.png)
 
 ## <a name="azure-firewall-manager-preview-features"></a>Funzionalità di Anteprima di Gestione firewall di Azure
 
@@ -70,7 +70,7 @@ Anteprima di Gestione firewall di Azure presenta i problemi noti seguenti:
 
 |Problema  |DESCRIZIONE  |Mitigazione  |
 |---------|---------|---------|
-|Le reti virtuali centrali create manualmente non sono supportate|Attualmente, Gestione firewall di Azure supporta le reti create con hub virtuali. Non è ancora supportato l'uso di reti virtuali dell'hub create manualmente.|Per il momento, usare Gestione firewall di Azure con reti hub-spoke create con hub virtuali<br>Analisi momentaneamente in corso.
+|Le reti virtuali centrali create manualmente non sono supportate|Attualmente, Gestione firewall di Azure supporta le reti create con hub virtuali. Non è ancora supportato l'uso di reti virtuali dell'hub create manualmente.|Per il momento, usare Gestione firewall di Azure con reti hub-spoke create con hub virtuali.<br>Analisi momentaneamente in corso.
 |Limitazioni relative al filtro di terze parti|Il filtro del traffico V2I con provider di terze parti non è supportato con Firewall di Azure B2V e V2V.|Analisi momentaneamente in corso.|
 |La suddivisione del traffico non è supportata al momento|Office 365 e la suddivisione del traffico PaaS pubblico di Azure non sono supportati al momento. Di conseguenza, se si seleziona un provider di terze parti per V2I o B2I, vengono inviati tramite il servizio partner anche tutti i PaaS pubblici di Azure e il traffico di Office 365.|Al momento è in corso un'analisi della suddivisione del traffico nell'hub.
 |Un hub per ciascun'area|Non è possibile disporre di più di un hub per area|Creare più reti WAN virtuali in un'area.|

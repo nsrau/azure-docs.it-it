@@ -4,14 +4,14 @@ description: Informazioni sulle funzionalità e i vantaggi di Azure Spring Cloud
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: overview
-ms.date: 10/04/2019
+ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: c58e6b2a0c0de8295df65b44fbdeaeb2d4461948
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 9709d7edb7c48ccfdb551d0e837a098289a5097a
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166525"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721259"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Cos'è Azure Spring Cloud?
 
@@ -19,8 +19,7 @@ Azure Spring Cloud semplifica la distribuzione di applicazioni di microservizi b
 
 Facendo parte dell'ecosistema di Azure, Azure Spring Cloud si può associare facilmente ad altri servizi di Azure, come archiviazione, database, monitoraggio e così via.
 
-Azure Spring Cloud è attualmente disponibile in anteprima.  Per accedere a questo servizio durante la fase di anteprima, [compilare questo modulo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u
-).
+Azure Spring Cloud è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.  Per altre informazioni sul supporto durante le anteprime, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o inviare una [richiesta di supporto](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 Per iniziare, completare l'argomento di avvio rapido su Spring Cloud usando l'[interfaccia della riga di comando di Azure](spring-cloud-quickstart-launch-app-cli.md), il [portale di Azure](spring-cloud-quickstart-launch-app-portal.md) oppure [Maven](spring-cloud-quickstart-launch-app-maven.md).
 

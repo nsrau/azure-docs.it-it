@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: usare Python per eseguire query su un database SQL di Azure'
+title: 'Guida introduttiva: Usare Python per eseguire query'
 description: Questo argomento illustra come usare Python per creare un programma che si connette a un database SQL di Azure ed eseguire query usando istruzioni Transact-SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 32861fa8f8756c4e8d30c055582789d41a92fe7c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 42d5b500a48e427aad2372710597e0266b2e80aa
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331865"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826988"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare Python per eseguire query su un database SQL di Azure
 

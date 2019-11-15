@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/26/2019
+ms.date: 11/07/2019
 ms.author: aahi
-ms.openlocfilehash: 8c5df8461c74d48c0712ab1947e29813e7e1ea3f
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 0f16c687f9816e99e05c2495a05596bd988ca9d2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032671"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827312"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Informazioni sull'API Analisi del testo
 
@@ -25,7 +25,7 @@ L'API fa parte di [Servizi cognitivi di Azure](https://docs.microsoft.com/azure/
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-L'analisi del testo può avere diversi significati, ma in Servizi cognitivi l'API Analisi del testo offre quattro tipi di analisi, come descritto nella tabella seguente. È possibile usare queste funzionalità con l'[API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) o una libreria client per [.NET](quickstarts/csharp.md), [Python](quickstarts/python-sdk.md), [Node.js](quickstarts/nodejs-sdk.md), [Go](quickstarts/go-sdk.md) o [Ruby](quickstarts/ruby-sdk.md).
+L'analisi del testo può avere diversi significati, ma in Servizi cognitivi l'API Analisi del testo offre quattro tipi di analisi, come descritto nella tabella seguente. È possibile usare queste funzionalità con l'[API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) o la [libreria client](quickstarts/text-analytics-sdk.md).
 
 ## <a name="sentiment-analysis"></a>Analisi del sentiment
 Usare l'[analisi del sentiment](how-tos/text-analytics-how-to-sentiment-analysis.md) per conoscere l'opinione dei clienti su un marchio o su un argomento analizzando il testo non elaborato alla ricerca di indizi su sentiment positivo o negativo. L'API restituisce un punteggio sentiment compreso tra 0 e 1 per ogni documento, dove 1 è il risultato più positivo.<br /> I modelli di analisi vengono formati preventivamente usando un corpo completo di testo e tecnologie di linguaggio naturale di Microsoft. Per [alcune lingue](text-analytics-supported-languages.md), l'API può analizzare e assegnare punteggi a qualsiasi testo non elaborato fornito dall'utente, restituendo direttamente i risultati all'applicazione chiamante.
@@ -110,7 +110,7 @@ L'API Analisi del testo usa la codifica Unicode per la rappresentazione di testo
 
 + [Creare una risorsa di Azure](../cognitive-services-apis-create-account.md) per Analisi del testo per ottenere una chiave e un endpoint per le applicazioni.
 
-+ L'[Avvio rapido](quickstarts/csharp.md) è una procedura dettagliata per le chiamate API REST scritte in C#. Informazioni su come inviare testo, scegliere un'analisi e visualizzare i risultati con una quantità minima di codice. Se si preferisce, in alternativa è possibile iniziare con l'[avvio rapido per Python](quickstarts/python.md).
++ Usare l'[avvio rapido](quickstarts/text-analytics-sdk.md) per iniziare l'invio di chiamate API. Informazioni su come inviare testo, scegliere un'analisi e visualizzare i risultati con una quantità minima di codice.
 
 + Per informazioni sulle nuove versioni e funzionalità, vedere [Novità dell'API Analisi del testo](whats-new.md).
 

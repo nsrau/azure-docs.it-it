@@ -1,27 +1,34 @@
 ---
 title: "Guida introduttiva: Avviare un'applicazione tramite Maven - Azure Spring Cloud"
 description: Avviare un'applicazione di esempio tramite Maven
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/05/2019
-ms.author: v-vasuke
-ms.openlocfilehash: e773b997cca3fa9a1f11fec2ac449e1fc11c5364
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 11/04/2019
+ms.author: jeconnoc
+ms.openlocfilehash: cb6032938379b632b743827153c61fd3e18c1cfe
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554566"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721594"
 ---
-# <a name="quickstart-launch-an-azure-spring-cloud-app-by-using-the-maven-plug-in"></a>Guida introduttiva: Avviare un'app Azure Spring Cloud tramite il plug-in Maven
+# <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Guida introduttiva: Avviare un'app Azure Spring Cloud tramite il plug-in Maven
 
-Con il plug-in Maven di Azure Spring Cloud è possibile creare e aggiornare facilmente le applicazioni del servizio Azure Spring Cloud. Con una configurazione predefinita, è possibile distribuire applicazioni nel servizio Azure Spring Cloud esistente. In questo articolo viene usata un'applicazione di esempio denominata PiggyMetrics per dimostrare questa funzionalità.
+Con il plug-in Maven di Azure Spring Cloud è possibile creare e aggiornare facilmente le applicazioni di Azure Spring Cloud. Con una configurazione predefinita, è possibile distribuire applicazioni nel servizio Azure Spring Cloud esistente. In questo articolo viene usata un'applicazione di esempio denominata PiggyMetrics per dimostrare questa funzionalità.
+
+Seguendo questo argomento di avvio rapido, si apprenderà come:
+
+> [!div class="checklist"]
+> * Effettuare il provisioning di un'istanza del servizio
+> * Impostare un server di configurazione per un'istanza
+> * Clonare e compilare un'applicazione di microservizi in locale
+> * Distribuire ogni microservizio
+> * Assegnare un endpoint pubblico per l'applicazione
 
 >[!Note]
-> Prima di iniziare questa guida di avvio rapido, assicurarsi che la propria sottoscrizione di Azure abbia accesso ad Azure Spring Cloud. Essendo un servizio in anteprima, invitiamo i clienti a contattarci in modo che possiamo aggiungere la loro sottoscrizione al nostro elenco di utenti autorizzati. Per esplorare le funzionalità di Azure Spring Cloud, compilare e inviare il [modulo di interesse per Azure Spring Cloud (anteprima privata)](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u).
+> Azure Spring Cloud è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.  Per altre informazioni sul supporto durante le anteprime, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o inviare una [richiesta di supporto](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+
 
 >[!TIP]
 > Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire i comandi riportati in questo articolo. Include i comuni strumenti di Azure preinstallati, tra cui le ultime versioni di Git, Java Development Kit (JDK), Maven e dell'interfaccia della riga di comando di Azure. Se è stato effettuato l'accesso alla propria sottoscrizione di Azure, avviare [Azure Cloud Shell](https://shell.azure.com). Per altre informazioni, vedere [Panoramica di Azure Cloud Shell](../cloud-shell/overview.md).
@@ -31,7 +38,7 @@ Per completare questa guida introduttiva:
 1. [Installare Git](https://git-scm.com/).
 2. [Installare JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable).
 3. [Installare Maven 3.0 o versione successiva](https://maven.apache.org/download.cgi).
-4. [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+4. [Installare l'interfaccia della riga di comando di Azure versione 2.0.67 o successiva](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 5. [Iscriversi per ottenere una sottoscrizione gratuita di Azure](https://azure.microsoft.com/free/).
 
 ## <a name="install-the-azure-cli-extension"></a>Installare l'estensione dell'interfaccia della riga di comando di Azure
@@ -39,32 +46,39 @@ Per completare questa guida introduttiva:
 Installare l'estensione Azure Spring Cloud per l'interfaccia della riga di comando di Azure usando il comando seguente:
 
 ```Azure CLI
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Effettuare il provisioning di un'istanza del servizio nel portale di Azure
 
-1. In un Web browser aprire il [portale di Azure](https://portal.azure.com) e accedere con il proprio account.
+1. In un Web browser aprire [questo collegamento ad Azure Spring Cloud nel portale di Azure](https://ms.portal.azure.com/#create/Microsoft.AppPlatform) e accedere al proprio account.
 
-1. Cercare e selezionare **Azure Spring Cloud**. 
-1. Nella pagina Panoramica selezionare **Crea** e quindi eseguire le operazioni seguenti:  
+1. Selezionare **Crea** nella pagina **Panoramica** per aprire la finestra di dialogo di creazione.
 
-    a. Nella casella **Nome servizio** specificare il nome dell'istanza del servizio. Il nome deve avere una lunghezza compresa tra 4 e 32 caratteri e può contenere solo lettere minuscole, numeri e trattini. Il primo carattere del nome del servizio deve essere una lettera e l'ultimo deve essere una lettera o un numero.  
+1. Nella sezione **Dettagli del progetto** inserire i dati per l'applicazione di esempio come indicato di seguito:
 
-    b. Nel menu a discesa **Sottoscrizione** selezionare la sottoscrizione da fatturare per questa risorsa. Assicurarsi che la sottoscrizione sia stata aggiunta all'elenco di utenti autorizzati per Azure Spring Cloud.  
+    1. Nel campo **Sottoscrizione** selezionare la sottoscrizione a cui verrà associata l'applicazione.
+    1. Selezionare o creare un gruppo di risorse per l'applicazione. Si consiglia di creare un nuovo gruppo di risorse.  L'esempio seguente mostra un nuovo gruppo di risorse denominato `myspringservice`.
+    1. Specificare un nome per il nuovo servizio Azure Spring Cloud.  Il nome deve essere composto da 4-32 caratteri e può contenere solo lettere in minuscolo, numeri e trattini. Il primo carattere del nome del servizio deve essere una lettera e l'ultimo deve essere una lettera o un numero.  Nell'esempio indicato di seguito il servizio è denominato `contosospringcloud`.
+    1. Selezionare un percorso per l'applicazione in base alle opzioni disponibili.  In questo esempio si seleziona `East US`.
+    1. Selezionare **Rivedi e crea** per rivedere un riepilogo del nuovo servizio.  Se tutte le impostazioni sono corrette, selezionare **Crea**.
 
-    c. Nella casella **Gruppo di risorse** creare un nuovo gruppo di risorse. La creazione di gruppi di risorse per le nuove risorse è una procedura consigliata.  
+    > [!div class="mx-imgBorder"]
+    > Selezionare ![Rivedi e crea](media/maven-qs-review-create.jpg).
 
-    d. Nell'elenco a discesa **Località** selezionare la località per l'istanza del servizio. Le località attualmente supportate sono Stati Uniti orientali, Stati Uniti occidentali 2, Europa occidentale e Asia sud-orientale.
-    
-Per distribuire il servizio sono necessari circa 5 minuti. Dopo la distribuzione, verrà visualizzata la pagina **Panoramica** dell'istanza del servizio.
+Per distribuire il servizio sono necessari circa 5 minuti. Dopo la distribuzione del servizio, selezionare **Vai alla risorsa**. Viene visualizzata la pagina **Panoramica** per l'istanza del servizio.
 
 ## <a name="set-up-your-configuration-server"></a>Configurare il server di configurazione
 
 1. Nella pagina **Panoramica** selezionare **Config Server** (Server di configurazione).
 1. Nella sezione **Repository predefinito** impostare **URI** su **https://github.com/Azure-Samples/piggymetrics** , **Etichetta** su **config** e quindi selezionare **Applica** per salvare le modifiche.
 
+    > [!div class="mx-imgBorder"]
+    > ![Definire e applicare le impostazioni di configurazione](media/maven-qs-apply-config.jpg)
+
 ## <a name="clone-and-build-the-sample-application-repository"></a>Clonare e creare il repository dell'applicazione di esempio
+
+1. Avviare il [Azure Cloud Shell](https://shell.azure.com).
 
 1. Clonare il repository Git eseguendo il comando seguente:
 
@@ -75,34 +89,16 @@ Per distribuire il servizio sono necessari circa 5 minuti. Dopo la distribuzione
 1. Cambiare directory e compilare il progetto eseguendo il comando seguente:
 
     ```azurecli
-    cd PiggyMetrics
+    cd piggymetrics
     mvn clean package -DskipTests
     ```
 
-## <a name="generate-and-deploy-the-azure-spring-cloud-configuration"></a>Generare e distribuire la configurazione di Azure Spring Cloud
+## <a name="generate-configurations-and-deploy-to-the-azure-spring-cloud"></a>Generare configurazioni ed eseguire la distribuzione in Azure Spring Cloud
 
-1. Per consentire il funzionamento di Maven con Azure Spring Cloud, aggiungere il codice seguente al file *pom.xml* o *settings.xml*.
-
-    ```xml
-    <pluginRepositories>
-      <pluginRepository>
-        <id>maven.snapshots</id>
-        <name>Maven Central Snapshot Repository</name>
-        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        <releases>
-          <enabled>false</enabled>
-        </releases>
-        <snapshots>
-          <enabled>true</enabled>
-        </snapshots>
-      </pluginRepository>
-    </pluginRepositories>
-    ```
-
-1. Generare una configurazione eseguendo il comando seguente:
+1. Per generare le configurazioni, eseguire questo comando nella cartella radice di PiggyMetrics contenente il file POM padre:
 
     ```azurecli
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:0.1.0-SNAPSHOT:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.0.0:config
     ```
 
     a. Selezionare i moduli `gateway`, `auth-service` e `account-service`.
@@ -113,13 +109,13 @@ Per distribuire il servizio sono necessari circa 5 minuti. Dopo la distribuzione
     
     d. Verificare la configurazione.
 
-1. Distribuire le app usando il comando seguente:
+1. Il file POM contiene ora le dipendenze e le configurazioni del plug-in. Distribuire le app usando il comando seguente:
 
    ```azurecli
-   mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:0.1.0-SNAPSHOT:deploy
+   mvn azure-spring-cloud:deploy
    ```
 
-1. È possibile accedere a PiggyMetrics usando l'URL specificato nell'output del comando precedente.
+1. Al termine della distribuzione, è possibile accedere a PiggyMetrics tramite l'URL fornito nell'output del comando precedente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -127,3 +123,4 @@ In questo argomento di avvio rapido è stata distribuita un'applicazione Spring 
 
 > [!div class="nextstepaction"]
 > [Preparare l'applicazione Azure Spring Cloud per la distribuzione](spring-cloud-tutorial-prepare-app-deployment.md)
+> [Altre informazioni sui plug-in Maven per Azure](https://github.com/microsoft/azure-maven-plugin)

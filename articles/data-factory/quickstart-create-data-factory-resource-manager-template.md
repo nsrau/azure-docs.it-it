@@ -1,5 +1,5 @@
 ---
-title: Creare una data factory di Azure tramite un modello di Resource Manager | Microsoft Docs
+title: Creare una data factory di Azure usando un modello di Resource Manager
 description: In questa esercitazione si crea una pipeline di esempio di Azure Data Factory usando il modello di Azure Resource Manager.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 8766ff461227a749a432771dfe7dbe96a291109a
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 6bba764060c243417711205083bf02f84a68fed1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008673"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684520"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Esercitazione: Creare una data factory di Azure usando un modello di Azure Resource Manager
 

@@ -11,14 +11,17 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cf7924c3201a362403b59ec1ad883cefe6a3cf9a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: af781e8f2e5bd5d8b39e6ecb15e024483ab2c4d0
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176523"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73613486"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-java"></a>Guida introduttiva: Estrarre testo stampato (OCR) usando l'API REST Visione artificiale e Java
+
+> [!NOTE]
+> Se si estrae testo in lingua inglese, provare a usare la nuova [Operazione di lettura](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). È disponibile un [avvio rapido per Java](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/java-hand-text). 
 
 In questa guida introduttiva si estrarrà testo stampato da un'immagine con la tecnica di riconoscimento ottico dei caratteri (OCR, Optical Character Recognition) usando l'API REST di Visione artificiale. Con il metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) è possibile rilevare il testo stampato in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
 

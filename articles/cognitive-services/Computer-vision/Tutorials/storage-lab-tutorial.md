@@ -10,16 +10,18 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: pafarley
-ms.openlocfilehash: 7caf4493db32201a8e83ffb3722c80c5e9b41a8f
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ac292f020bb64c7c70ce3ea5c7f66fe9e9ed1bb7
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057730"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604664"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Esercitazione: Usare Visione artificiale per generare i metadati delle immagini in Archiviazione di Azure
 
-In questa esercitazione si apprenderà come integrare il servizio Visione artificiale di Azure in un'app web per generare i metadati per le immagini caricate. Una guida completa alle app è reperibile nel [lab Archiviazione di Azure e Servizi cognitivi](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) su GitHub e questa esercitazione illustra essenzialmente esercizio l'5 del lab. Può essere utile creare l'applicazione end-to-end seguendo ogni passaggio, ma se si vuole solo scoprire se è possibile integrare Visione artificiale in un'app Web esistente, leggere qui di seguito.
+In questa esercitazione si apprenderà come integrare il servizio Visione artificiale di Azure in un'app Web per generare i metadati per le immagini caricate. Questa operazione è utile per gli scenari di [gestione delle risorse digitali (DAM)](../Home.md#computer-vision-for-digital-asset-management), ad esempio se un'azienda vuole generare rapidamente didascalie descrittive o parole chiave ricercabili per tutte le immagini.
+
+Una guida completa alle app è reperibile nel [lab Archiviazione di Azure e Servizi cognitivi](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) su GitHub e questa esercitazione illustra essenzialmente esercizio l'5 del lab. Può essere utile creare l'applicazione end-to-end seguendo ogni passaggio, ma se si vuole solo scoprire se è possibile integrare Visione artificiale in un'app Web esistente, leggere qui di seguito.
 
 Questa esercitazione illustra come:
 

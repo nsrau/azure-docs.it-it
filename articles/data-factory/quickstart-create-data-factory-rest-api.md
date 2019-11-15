@@ -1,5 +1,5 @@
 ---
-title: Creare una data factory di Azure con l'API REST | Microsoft Docs
+title: Creare una data factory di Azure con l'API REST
 description: Creare una data factory di Azure per copiare i dati da una posizione dell'archivio BLOB di Azure a un'altra posizione.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 4668a9a012b2e379d532091deec832d5f99dd1fc
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 1145490ba5e48216e25a094cbbced3da7b07c701
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990633"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684460"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Guida introduttiva: Creare una data factory di Azure e una pipeline usando l'API REST
 

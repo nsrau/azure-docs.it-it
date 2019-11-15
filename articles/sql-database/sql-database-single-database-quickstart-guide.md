@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Database singoli in Database SQL di Azure | Microsoft Docs'
+title: Avvio rapido - Database singoli
 description: Informazioni su come iniziare rapidamente a usare i database singoli in Database SQL di Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 07/29/2019
-ms.openlocfilehash: 45b0b2bc7a2ef5c3cb6ca801668f7b5be7c8ac73
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 4332d57c8d5587a34ba3a593deb9bd635132b03d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639987"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820961"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Introduzione ai database singoli in Database SQL di Azure
 

@@ -1,5 +1,5 @@
 ---
-title: Creare un pool di host di Desktop virtuale Windows tramite Azure Marketplace - Azure
+title: Pool di host di Desktop virtuale Windows in Azure Marketplace - Azure
 description: Come creare un pool di host di Desktop virtuale Windows tramite Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: 76cb2e0378cc7a005232304174c1de887adfe387
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e5be2490ebf756c030e6a53b226f91c49c7bccaf
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482222"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605578"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Esercitazione: Creare un pool di host con Azure Marketplace
 
@@ -73,7 +73,9 @@ Per il pannello **Configura le VM**:
 Per il pannello **Virtual machine settings** (Impostazioni macchina virtuale):
 
 >[!NOTE]
-> Se si intende aggiungere le macchine virtuali a un ambiente Azure AD Domain Services (Azure AD DS), assicurarsi che l'utente di aggiunta a un dominio sia anche membro del [gruppo AAD DC Administrators](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+> Se si intende aggiungere le VM a un ambiente Azure Active Directory Domain Services (Azure AD DS), assicurarsi che l'utente dell'aggiunta al dominio sia anche membro del [gruppo Amministratori di AAD DC](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+>
+> L'account deve inoltre far parte del dominio gestito di Azure AD DS o del tenant di Azure AD. Gli account di directory esterne associate al tenant di Azure AD non possono eseguire correttamente l'autenticazione durante il processo di aggiunta al dominio. 
 
 1. Per **Origine immagine** selezionare l'origine e immettere le informazioni appropriate per trovarla e archiviarla. Se si è scelto di non usare dischi gestiti, selezionare l'account di archiviazione contenente il file con estensione vhd.
 2. Immettere il nome dell'entità utente e la password per l'account di dominio che aggiungerà le VM al dominio di Active Directory. Gli stessi valori di nome utente e password verranno creati come account locali nelle macchine virtuali. È possibile reimpostare questi account locali in seguito.

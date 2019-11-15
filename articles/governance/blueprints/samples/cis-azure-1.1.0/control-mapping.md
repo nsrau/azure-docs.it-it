@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/01/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 64af398ec4829a0336294b33fef102392b9a4099
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 6549cf030772d805b063510b9931968027639511
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163868"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583131"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapping di raccomandazioni del progetto di esempio CIS Microsoft Azure Foundations Benchmark
 
@@ -356,11 +356,11 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è stato esaminato il mapping dei controlli del progetto CIS Microsoft Azure Foundations Benchmark, vedere l'articolo seguente per informazioni sul progetto o visitare Criteri di Azure nel portale di Azure per assegnare l'iniziativa:
+Dopo aver esaminato il mapping dei controlli del progetto CIS Microsoft Azure Foundations Benchmark, leggere gli articoli seguenti per informazioni sul progetto oppure visitare Criteri di Azure nel portale di Azure per assegnare l'iniziativa:
 
 > [!div class="nextstepaction"]
-> [Progetto CIS Microsoft Azure Foundations Benchmark - Panoramica](./index.md)
-> [Portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions)
+> [Panoramica del progetto CIS Microsoft Azure Foundations Benchmark](./index.md)
+> [Procedura per la distribuzione del progetto CIS Microsoft Azure Foundations Benchmark](./deploy.md)
 
 Altri articoli sui progetti e su come usarli:
 

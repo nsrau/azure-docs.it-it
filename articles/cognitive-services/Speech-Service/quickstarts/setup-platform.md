@@ -1,24 +1,24 @@
 ---
-title: Configurare la piattaforma di sviluppo
+title: 'Guida introduttiva: Configurare la piattaforma di sviluppo'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: Questo argomento di avvio rapido illustra come installare Speech SDK per la combinazione preferita di piattaforma e linguaggio di programmazione.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-three
-ms.openlocfilehash: 3c6a89f107052641aeef313541237f7562e30a3e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ad1806daa1fc00d5b14f9c6a30027f278f53e892
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506364"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826955"
 ---
-# <a name="quickstart-setup-development-environment"></a>Guida introduttiva: Configurare l'ambiente di sviluppo.
+# <a name="quickstart-setup-development-environment"></a>Guida introduttiva: Configurare l'ambiente di sviluppo
 
 ::: zone pivot="programming-language-csharp"
 **Scegliere l'ambiente di destinazione**
@@ -59,4 +59,3 @@ ms.locfileid: "73506364"
 ::: zone pivot="programming-language-python"
 [!INCLUDE [python](../includes/quickstarts/platform/python.md)]
 ::: zone-end
-
